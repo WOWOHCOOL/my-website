@@ -1,12 +1,29 @@
-# Redirect old URLs to new ones
+# ======================================================
+# WOWOHCOOL Redirect Rules for Cloudflare Pages
+# Author: Nico Gung
+# Last updated: 2025-10-29
+# Description: 301 redirects for legacy URLs and SEO fix
+# ======================================================
 
-/services/      /service.html        301
-/about-us/      /about.html          301
-/products/      /product.html        301
-/contact-us/    /contact.html        301
-/power-chargers/    /power-charger.html   301
-/wireless-chargers/ /wireless-charger.html 301
-/car-chargers/      /car-charger.html     301
+# --- Main Page Redirects ---
+/services/          /service.html        301
+/about-us/          /about.html          301
+/products/          /product.html        301
+/contact-us/        /contact.html        301
+/policy-page/       /policy.html         301
 
-# Catch-all: redirect any unknown path to homepage
-/*              /index.html          301
+# --- Product Categories Redirects ---
+/power-chargers/        /power-charger.html      301
+/wireless-chargers/     /wireless-charger.html   301
+/car-chargers/          /car-charger.html        301
+
+# --- Common Mistyped URLs ---
+/service/           /service.html        301
+/product/           /product.html        301
+/about/             /about.html          301
+/contact/           /contact.html        301
+/policy/            /policy.html         301
+
+# --- Catch-all Redirect ---
+# Any other old or missing URLs → go to homepage
+/*                  /index.html          301
