@@ -1,0 +1,106 @@
+/* style.css
+   主样式（保留原有样式并添加 Back-to-Top / focus-visible 改进）
+   请将此文件放与 about.html/index.html 同目录
+*/
+
+/* 解决 Safari 字体偏细和渲染不一致 */
+.font-black {
+    font-weight: 900 !important;
+    -webkit-font-smoothing: antialiased; /* 平滑锯齿 */
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* 强制 Safari 处理黑底白字时的视觉加粗 */
+@media not all and (min-resolution:.001dpcm) { 
+    @supports (-webkit-appearance:none) {
+        .font-black {
+            text-shadow: 0 0 0.1px rgba(255,255,255,0.1); /* 模拟加粗效果 */
+        }
+    }
+}
+/* 基础平滑与字体（字体由 HTML 提供 link） */
+* { -webkit-font-smoothing: antialiased; font-family: 'Inter', sans-serif; }
+
+/* Badge capsule */
+.badge-capsule {
+    border: 1.5px solid #003366;
+    background: rgba(0, 51, 102, 0.03);
+    color: #003366;
+    padding: 6px 20px 6px 38px;
+    border-radius: 999px;
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 0.1em;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+}
+.badge-capsule::before {
+    content: ''; position: absolute; left: 16px; width: 10px; height: 10px;
+    background-color: #FF6600; border-radius: 50%; box-shadow: 0 0 10px #FF6600;
+    animation: pulse 2s infinite;
+}
+@keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.4; transform: scale(1.1); } }
+
+/* nav link active underline */
+.nav-link { position: relative; }
+.nav-link.active::after {
+    content: ''; position: absolute; bottom: -4px; left: 0; width: 100%; height: 2px;
+    background-color: #003366;
+}
+
+/* highlight line */
+.highlight-line {
+    display: inline-block;
+    position: relative;
+    padding-bottom: 2px;
+}
+.highlight-line::after {
+    content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 2px;
+    background: linear-gradient(90deg, #FF6600 0%, transparent 100%);
+}
+
+/* reveal animations */
+.reveal { opacity: 0; transform: translateY(25px); transition: all 0.7s ease-out; }
+.reveal.active { opacity: 1; transform: translateY(0); }
+
+/* dropdown */
+.dropdown-content {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+}
+.group:hover .dropdown-content { opacity: 1; visibility: visible; transform: translateY(0); }
+
+/* back-to-top base */
+#backToTop {
+  transition: transform 0.25s ease, opacity 0.25s ease;
+  transform: translateY(10px);
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* visible state */
+#backToTop.show {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* focus styles for accessibility */
+:focus {
+  outline: 3px solid rgba(255,102,0,0.14);
+  outline-offset: 2px;
+}
+
+/* small helper: visually hidden (sr-only) if needed */
+.sr-only {
+  position: absolute !important;
+  height: 1px; width: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+  white-space: nowrap;
+}
+
+/* preserve other original CSS you had (Tailwind classes handle most layout) */

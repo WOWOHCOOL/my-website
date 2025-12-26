@@ -1,389 +1,510 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About WOWOHCOOL | Leading Provider of 3C Digital Products</title>
-<meta name="description" content="Learn about WOWOHCOOL, a brand dedicated to providing innovative power and wireless charging solutions. From concept to delivery, we focus on quality, efficiency, and customer satisfaction.">
-  <link href="static/css/css2.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <!-- 保持 responsive 设置，允许合理缩放 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
 
-  <!-- ==========favicon ============-->
-  <link rel="shortcut icon" href="./static/image/favicon.png" type="image/x-icon">
-  <!-- =========bootstrap ============-->
-  <link rel="stylesheet" href="static/css/bootstrap.min.css">
-  <!-- =========fontawesome ============-->
-  <link rel="stylesheet" href="static/css/all.min.css">
-  <!-- =========animate ============-->
-  <link rel="stylesheet" href="static/css/animate.min.css">
-  <!-- =========venobox ============-->
-  <link rel="stylesheet" href="static/css/venobox.min.css">
-  <!-- =========css================== -->
-  <link rel="stylesheet" href="static/css/style.css">
-  <!-- =========responsive======== -->
-  <link rel="stylesheet" href="static/css/responsive.css">
+    <title>About Us | WOWOHCOOL - Professional Charging Solutions Factory China</title>
+    <meta name="description" content="Learn about Dong Yi Technology (WOWOHCOOL) - 10+ years experienced OEM/ODM manufacturer of wireless chargers and power banks in Shenzhen, China. Factory tour, team, and certifications.">
+    <meta name="keywords" content="about wireless charger factory China, power bank manufacturer profile, Shenzhen charging accessories supplier, OEM ODM factory tour">
+    <meta name="geo.region" content="CN-GD" />
+    <meta name="geo.placename" content="Shenzhen" />
+    <meta name="geo.position" content="22.5431;114.0579" />
+
+    <!-- Structured data: keep valid Organization array (as provided) -->
+    <script type="application/ld+json">
+    [
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "WOWOHCOOL (Dong Yi Technology Co., Ltd)",
+        "url": "https://www.wowohcool.com",
+        "logo": "https://www.wowohcool.com/image/wowohcool-logo.png",
+        "description": "Leading OEM/ODM manufacturer in China specializing in wireless chargers, power banks, and car chargers.",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "email": "info@wowohcool.com",
+          "contactType": "Sales Inquiry",
+          "areaServed": "Worldwide"
+        }
+      }
+    ]
+    </script>
+
+    <!-- Tailwind + FontAwesome (保持与你的 index 一致) -->
+   <script src="https://cdn.tailwindcss.com"></script>
+   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Performance: preconnect + fonts (建议) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+
+    <!-- preload a priority image (hero) for LCP -->
+
+    <!-- 推荐添加 canonical / Open Graph（可自定义 og:image） -->
+    <link rel="canonical" href="https://www.wowohcool.com/about.html">
+    <meta property="og:title" content="About WOWOHCOOL — OEM/ODM Charging Solutions">
+    <meta property="og:description" content="Dong Yi Technology (WOWOHCOOL): 10+ years OEM/ODM manufacturer of wireless chargers & power banks in Shenzhen.">
+    <!-- <meta property="og:image" content="https://www.wowohcool.com/path/to/og-image.jpg"> -->
+
+    <!-- 引入公用 CSS（style.css） -->
+    <link rel="stylesheet" href="style.css">
+	<link rel="icon" type="image/png" href="image/favicon.png?v=2">
+<link rel="shortcut icon" href="image/favicon.png?v=2" type="image/x-icon">
+<link rel="apple-touch-icon" sizes="180x180" href="image/apple-touch-icon.png">
+
+<script>
+    /* Tailwind config kept (same as index) */
+    tailwind.config = {
+        theme: {
+            extend: {
+                colors: {
+                    brandBlue: '#003366',
+                    brandOrange: '#FF6600',
+                    darkBg: '#020b1a',
+                }
+            }
+        }
+    }
+</script>
+
+    <!-- NOTE: 已移除重复的 meta description 和占位 JSON-LD -->
 </head>
+<body class="bg-white text-slate-900">
 
-<body>
+    <header class="fixed w-full z-[100] bg-white/95 backdrop-blur-md border-b border-slate-100 h-20">
+        <nav class="max-w-7xl mx-auto px-6 h-full flex items-center justify-between" aria-label="Main navigation">
+            <a href="index.html" class="flex items-center shrink-0 group">
+                <img src="image/wowohcool-logo.webp" alt="WOWOHCOOL Logo" class="h-10 w-auto object-contain transition-transform group-hover:scale-105">
+            </a>
+            
+            <div class="hidden lg:flex items-center space-x-8 text-[11px] font-bold uppercase tracking-widest text-slate-500">
+                <a href="index.html" class="nav-link hover:text-brandBlue transition">Home</a>
+                <a href="about.html" class="nav-link active" aria-current="page">About</a>
+                <div class="relative group h-20 flex items-center">
+                    <a href="#products" class="nav-link hover:text-brandBlue transition flex items-center gap-1" aria-haspopup="true" aria-expanded="false">
+                        Products
+                        <i class="fa-solid fa-chevron-down text-[8px] transition-transform group-hover:rotate-180" aria-hidden="true"></i>
+                    </a>
+                    <div class="dropdown-content absolute top-20 left-1/2 -translate-x-1/2 w-52 bg-white shadow-2xl rounded-2xl border border-slate-50 overflow-hidden py-2" role="menu" aria-label="Products menu">
+                        <!-- data-action/data-product to work with main.js event delegation -->
+                        <a href="power-charger.html" class="block px-6 py-3 text-slate-600 hover:bg-slate-50 hover:text-brandOrange transition border-b border-slate-50/50">Power Charger</a>
+                        <a href="wireless-charger.html" class="block px-6 py-3 text-slate-600 hover:bg-slate-50 hover:text-brandOrange transition border-b border-slate-50/50">Wireless Charger</a>
+                        <a href="car-charger.html" class="block px-6 py-3 text-slate-600 hover:bg-slate-50 hover:text-brandOrange transition">Car Charger</a>
+                    </div>
+                </div>
 
-  <!-- ================ start nav bar=========== -->
-  <nav class="navbar navbar-expand-md main-menu">
-    <div class="container">
-      <a class="navbar-brand" href="index.html"><img src="static/picture/wowohcool-logo.png" alt=""></a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <i class="fas fa-bars"></i>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="index.html">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="about.html">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="service.html">Service</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="product.html">Product</a>
-          </li>
+                <a href="service.html" class="nav-link hover:text-brandBlue transition">OEM/ODM</a>
+                <a href="contact.html" class="nav-link hover:text-brandBlue transition">Contact</a>
+            </div>
+            <div class="flex items-center gap-4">
+                <!-- 改为 data-action 以匹配 main.js 事件代理 -->
+                <button data-action="open-modal" data-product="General Inquiry" class="bg-brandOrange text-white px-7 py-2.5 rounded-full text-[10px] font-black uppercase tracking-widest hover:scale-105 transition shadow-lg shadow-brandOrange/20">Get Quote</button>
+                <button data-action="toggle-mobile-menu" class="lg:hidden text-brandBlue text-2xl focus:outline-none" aria-controls="mobile-menu" aria-expanded="false"><i class="fa-solid fa-bars-staggered"></i></button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Mobile overlay and content: 使用 data-action 绑定 -->
+       <div id="mobile-menu-overlay" class="fixed inset-0 bg-brandBlue/40 backdrop-blur-md z-[499] opacity-0 pointer-events-none transition-opacity duration-300 lg:hidden" data-action="close-mobile"></div>
+
+<div id="mobile-menu-content" class="fixed inset-y-0 right-0 w-80 bg-brandBlue z-[500] transform translate-x-full transition-transform duration-500 p-8 shadow-2xl lg:hidden flex flex-col">
+    <div class="flex justify-between items-center mb-12">
+        <a href="index.html" class="block active:opacity-70 transition-opacity">
+            <div class="text-xl font-black italic text-white uppercase tracking-tighter">
+                WOWOH<span class="text-brandOrange">COOL</span>
+            </div>
+        </a>
+        <button data-action="close-mobile" class="text-white text-3xl p-2 hover:rotate-90 transition-transform duration-300">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+    </div>
+
+    <nav class="flex-1 space-y-6 text-white uppercase font-black tracking-widest text-sm">
+        <a href="index.html" class="block py-2 hover:text-brandOrange transition border-b border-white/5">Home</a>
+        <a href="about.html" class="block py-2 hover:text-brandOrange transition border-b border-white/5">About Factory</a>
         
-          <li class="nav-item">
-            <a class="nav-link" href="contact.html">Contact</a>
-          </li>
-          <li class="nav-item">
-            <button class="nav-link" data-bs-toggle="modal" data-bs-target="#searchModal">
-              <i class="fa fa-search" aria-hidden="true"></i>
+        <div class="space-y-4">
+            <button data-action="toggle-mobile-submenu" class="w-full flex justify-between items-center py-2 hover:text-brandOrange transition border-b border-white/5 uppercase">
+                Products <i id="submenu-icon" class="fa-solid fa-chevron-down text-xs transition-transform duration-300"></i>
             </button>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-  
-  <!-- Search Modal -->
-  <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="searchModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="searchModalLabel">Search</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <form action="#" method="GET">
-            <div class="mb-3">
-              <input type="text" class="form-control" name="query" placeholder="Type to search...">
+            <div id="mobile-submenu" class="hidden pl-4 space-y-4 border-l-2 border-brandOrange/30 ml-1">
+                <a href="power-charger.html" class="block text-xs text-white/70 hover:text-brandOrange py-1">Power Charger</a>
+                <a href="wireless-charger.html" class="block text-xs text-white/70 hover:text-brandOrange py-1">Wireless Charger</a>
+                <a href="car-charger.html" class="block text-xs text-white/70 hover:text-brandOrange py-1">Car Charger</a>
             </div>
-            <button type="submit" class="shadow__btn w-100 mt-3 mb-2">Search</button>
-          </form>
         </div>
-      </div>
-    </div>
-  </div>
-  <!-- ================end nav bar=========== -->
 
-  <!-- start banner-section -->
+        <a href="service.html" class="block py-2 hover:text-brandOrange transition border-b border-white/5">OEM/ODM Service</a>
+        <a href="contact.html" class="block py-2 hover:text-brandOrange transition border-b border-white/5">Contact Us</a>
 
-  <section id="banner" class="cmn-banner" style="background: url(static/image/banner.jpg) no-repeat center/cover;">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <div class="wow animate__animated animate__fadeInLeft banner-text">
-            <h1>About Us</h1>
-            <a href="index.html">Home |</a> <span><a class="active" href=""> About Us</a></span>
-          </div>
+        <div class="pt-8">
+            <button data-action="open-modal" class="w-full bg-brandOrange text-white py-5 rounded-xl font-black shadow-xl shadow-brandOrange/20 active:scale-95 transition-all uppercase tracking-widest">
+                Get A Quote
+            </button>
         </div>
-        <div class="col-md-6"></div>
-      </div>
+    </nav>
+</div>
+
+    <!-- main start (fixed missing tag) -->
+    <main id="main-content">
+
+        <section class="relative py-20 lg:py-32 overflow-hidden bg-white">
+            <div class="absolute top-0 right-0 w-1/3 h-full bg-slate-50 -skew-x-12 translate-x-1/4 -z-10" aria-hidden="true"></div>
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="flex flex-col lg:flex-row items-center gap-12">
+                    <div class="flex-1 reveal">
+                        <div class="badge-capsule mb-6">ESTABLISHED 2013 · SHENZHEN</div>
+                        <h1 class="text-4xl lg:text-7xl font-black text-slate-900 uppercase italic tracking-tighter leading-tight mb-8">
+                            About <br><span class="highlight-line text-brandBlue">WOWOH</span><span class="text-brandOrange">COOL</span>
+                        </h1>
+                        <p class="text-lg text-slate-600 leading-relaxed font-medium border-l-4 border-brandOrange pl-6 mb-6">
+                            Established in 2013, <strong>Dong Yi Technology Co., Ltd</strong> is a leading professional manufacturer specializing in wireless chargers, power banks, and car chargers.
+                        </p>
+                        <p class="text-slate-500 leading-relaxed mb-8">
+                            Located in Shenzhen – the global electronics innovation hub – we combine strong R&D capabilities with modern production facilities to deliver reliable, high-performance charging solutions to partners worldwide.
+                        </p>
+                        <div class="grid grid-cols-2 gap-8 pt-8 border-t border-slate-100">
+                            <div>
+                                <div class="counter text-4xl font-black text-brandBlue italic" data-target="10">0</div>
+                                <div class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mt-1 whitespace-nowrap">Years of Experience</div>
+                            </div>
+                            <div>
+                                <div class="counter text-4xl font-black text-brandOrange italic" data-target="50">0</div>
+                                <div class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mt-1 whitespace-nowrap">Pro R&D Engineers</div>
+                            </div>
+                        </div>
+                    </div>
+                 <div class="flex-1 relative reveal">
+    <div class="rounded-3xl overflow-hidden shadow-2xl transform rotate-2 hover:rotate-0 transition-all duration-500 bg-slate-100">
+        <picture>
+            <img src="image/wowohcool-office.webp" 
+                 alt="WOWOHCOOL Office" 
+                 class="w-full h-[450px] object-cover block" 
+                 loading="lazy">
+        </picture>
     </div>
-
-  </section>
-  <!-- start banner-section -->
-
-
-
-  <section id="banner-2">
-    <div class="container ">
-      <div class="row">
-        <div class="col-md-6">
-          <div class="row mt-5">
-            <div class="wow animate__animated animate__fadeInUp col-md-6 col-sm-6">
-              <div class="explore-content d-flex">
-                <img src="static/picture/banner-1.jpg" class="img-fluid w-100" alt="">
-              </div>
-            </div>
-            <div class="wow animate__animated animate__fadeInUp col-md-6 col-sm-6">
-              <div class="explore-content d-flex">
-                <img src="static/picture/banner-2.jpg" class="img-fluid w-100" alt="">
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-12">
-              <div class="row mt-5">
-                <div class="col-sm-4 col-md-3 m-auto ">
-                  <div class="wow animate__animated animate__fadeInUp counter_inner">
-                    <h4 class="counterr">98</h4>
-                    <span>%</span>
-                    <p>Satisfied Clients</p>
-                  </div>
+</div>
                 </div>
-                <div class="col-sm-4 col-md-3 m-auto">
-                  <div class="wow animate__animated animate__fadeInUp counter_inner">
-                    <h4 class="counterr">30</h4>
-                    <span>+</span>
-                    <p>From countries</p>
-                  </div>
-                </div>
-                <div class="col-sm-4 col-md-3 m-auto">
-                  <div class="wow animate__animated animate__fadeInUp counter_inner">
-                    <h4 class="counterr">200</h4>
-                    <span>+</span>
-                    <p>Certifications</p>
-                  </div>
-                </div>
-              </div>
             </div>
-          </div>
+        </section>
+
+        <section class="py-24 bg-slate-50 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6 space-y-32">
+        
+        <div class="flex flex-col lg:flex-row items-center gap-16">
+            <div class="w-full lg:w-1/2 order-2 lg:order-1 reveal">
+                <div class="relative rounded-2xl overflow-hidden shadow-xl bg-white p-3 group">
+                    <picture>
+                        <img src="image/factory-smt-line.webp" alt="Automated SMT Production Line" class="w-full h-[350px] object-cover rounded-xl transition-transform duration-700 group-hover:scale-105" loading="lazy">
+                    </picture>
+                    <div class="absolute -bottom-6 -right-6 bg-brandBlue text-white p-6 rounded-2xl shadow-2xl">
+                        <span class="counter block text-4xl font-black italic" data-target="5000">0</span>
+                        <span class="text-[10px] font-bold uppercase tracking-widest opacity-80">Facility Area (㎡)</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="w-full lg:w-1/2 order-1 lg:order-2 reveal">
+                <div class="inline-block px-4 py-1 border border-brandBlue/20 rounded-full text-[10px] font-bold text-brandBlue uppercase tracking-widest mb-4">Precision Manufacturing</div>
+                <h2 class="text-3xl lg:text-5xl font-black text-slate-900 uppercase italic tracking-tighter mb-6 leading-tight">
+					Our <span class="text-brandBlue">Factory & R&D</span> <br>Capabilities
+                </h2>
+                <p class="text-lg text-slate-600 leading-relaxed mb-8">
+                    Based in the heart of China's electronics hub, our <span class="text-slate-900 font-bold">5,000㎡ facility</span> is equipped with high-speed automated SMT lines and professional aging-test chambers. We integrate <span class="text-brandOrange font-bold">industrial design (ID)</span> and <span class="text-brandOrange font-bold">electronic engineering</span> to ensure every product exceeds global safety standards.
+                </p>
+                <ul class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <li class="flex items-center gap-3 text-sm font-bold text-slate-700 bg-white p-4 rounded-xl shadow-sm border border-transparent hover:border-brandOrange/20 transition-all">
+                        <i class="fa-solid fa-microchip text-brandOrange text-lg" aria-hidden="true"></i> Automated SMT Lines
+                    </li>
+                    <li class="flex items-center gap-3 text-sm font-bold text-slate-700 bg-white p-4 rounded-xl shadow-sm border border-transparent hover:border-brandOrange/20 transition-all">
+                        <i class="fa-solid fa-flask text-brandOrange text-lg" aria-hidden="true"></i> Testing Laboratories
+                    </li>
+                    <li class="flex items-center gap-3 text-sm font-bold text-slate-700 bg-white p-4 rounded-xl shadow-sm border border-transparent hover:border-brandOrange/20 transition-all">
+                        <i class="fa-solid fa-bolt text-brandOrange text-lg" aria-hidden="true"></i> 100% Aging Testing
+                    </li>
+                    <li class="flex items-center gap-3 text-sm font-bold text-slate-700 bg-white p-4 rounded-xl shadow-sm border border-transparent hover:border-brandOrange/20 transition-all">
+                        <i class="fa-solid fa-certificate text-brandOrange text-lg" aria-hidden="true"></i> ISO 9001 Standards
+                    </li>
+                </ul>
+            </div>
         </div>
-        <div class="col-md-6">
-          <div class="wow animate__animated animate__fadeInUp explore-right">
-            <h2><span>About</span> Wowohcool</h2>
-            <p> Dongyi Technology Co., Ltd. was established in 2016 and is a leading supplier of consumer electronic products. mainly engaged in mobile power supply, wireless chargers, automotive electronics, Bluetooth, mobile phone accessories, etc.; it is the preferred supplier of OEM/ODM for many well-known brands at home and abroad.
-<br>The factory covers an area of 1500 square meters, has over 150 employees, 8 modern manual production lines, and 1 intelligent automatic production line. With 10 sets of CNC machine tools, injection molding machines, die-casting machines, punching machines, etc., we can engage in mass order production and timely delivery.</p>
-          
-          </div>
+
+        <div class="flex flex-col lg:flex-row items-center gap-16 reveal">
+    <div class="w-full lg:w-1/2">
+        <div class="inline-block px-4 py-1 border border-brandOrange/20 rounded-full text-[10px] font-bold text-brandOrange uppercase tracking-widest mb-4">Core Expertise</div>
+        <h2 class="text-3xl lg:text-4xl font-black text-slate-900 uppercase italic tracking-tighter mb-6">Meet Our <span class="text-brandOrange">Expert Team</span></h2>
+        
+        <p class="text-lg text-slate-600 leading-relaxed mb-8">
+            Our backbone consists of <span class="text-slate-900 font-bold">50+ senior engineers</span> specializing in PCBA layout, industrial aesthetics, and rigorous QC protocols. We don't just manufacture; we co-engineer products that dominate markets.
+        </p>
+
+        <div class="grid grid-cols-2 gap-8 mt-10">
+            <div class="group border-l-4 border-brandBlue pl-6 py-2 hover:bg-slate-100 transition-all rounded-r-xl">
+                <p class="text-3xl font-black text-brandBlue mb-1">10<span class="text-sm">+</span></p>
+                <p class="text-xs font-black uppercase tracking-wider text-slate-900 mb-2">Years Excellence</p>
+                <p class="text-xs text-slate-500 leading-relaxed">Expertise in multi-protocol fast charging and international safety certification mastery.</p>
+            </div>
+            
+            <div class="group border-l-4 border-brandOrange pl-6 py-2 hover:bg-slate-100 transition-all rounded-r-xl">
+                <p class="text-3xl font-black text-brandOrange mb-1">24<span class="text-sm">h</span></p>
+                <p class="text-xs font-black uppercase tracking-wider text-slate-900 mb-2">R&D Feedback</p>
+                <p class="text-xs text-slate-500 leading-relaxed">Immediate technical evaluation and CAD sketching to fast-track your OEM/ODM projects.</p>
+            </div>
         </div>
-      </div>
+            </div>
+            <div class="w-full lg:w-1/2 reveal">
+                <div class="relative rounded-2xl overflow-hidden shadow-xl bg-white p-3 group">
+                    <img src="image/team-working.webp" alt="WOWOHCOOL R&D Team" class="w-full h-[350px] object-cover rounded-xl transition-transform duration-700 group-hover:scale-105" loading="lazy">
+                    <div class="absolute inset-0 bg-gradient-to-tr from-brandBlue/20 to-transparent"></div>
+                </div>
+            </div>
+        </div>
+
     </div>
-  </section>
+</section>
+		
+		
 
-    <!--===================== banner-3 ==================-->
+        <section class="py-24 bg-white">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="bg-brandBlue rounded-[2rem] p-10 mb-20 text-white reveal">
+                    <div class="flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left">
+                        <div>
+                            <h2 class="text-2xl font-black uppercase italic tracking-tighter mb-2">Certifications & Compliance</h2>
+                            <p class="text-white/70 text-sm font-medium">International Standards for Global Markets</p>
+                        </div>
+                        <div class="flex flex-wrap justify-center gap-4">
+    <div class="flex items-center space-x-3 px-6 py-3 bg-white/10 border border-white/20 rounded-xl group hover:bg-white/20 transition-all duration-300">
+        <img src="image/ce-certification.svg" alt="CE Certification" class="h-5 w-auto brightness-0 invert opacity-80 group-hover:opacity-100 transition-opacity">
+        <span class="text-white font-black italic tracking-widest text-xs">CE</span>
+    </div>
 
-    <section id="banner-3">
-        <div class="container ">
-          <div class="row">
-            <div class="col-md-6 text-light order-2 order-md-1 order-lg-1">
-              <div class="wow animate__animated animate__fadeInLeft section-left">  
-		      <h2><span>Company</span>Mission</h2>
-            <p class="pera-1">To become a global leader in 3C electronics by offering innovative, high-quality, and affordable products that help businesses succeed.
-				2016-Wowohcool was founded,focusing on innovative 3C digital products.
-				2024-Introduced advanced, cost effective solutions to further enhance customer experience and market competitiveness.</span>
-            </p>
-            <div class="main-btn">
-              <a class="shadow__btn" href="service.html">Read More</a>
+    <div class="flex items-center space-x-3 px-6 py-3 bg-white/10 border border-white/20 rounded-xl group hover:bg-white/20 transition-all duration-300">
+        <img src="image/fcc-compliance.svg" alt="FCC Certification" class="h-5 w-auto brightness-0 invert opacity-80 group-hover:opacity-100 transition-opacity">
+        <span class="text-white font-black italic tracking-widest text-xs">FCC</span>
+    </div>
+
+    <div class="flex items-center space-x-3 px-6 py-3 bg-white/10 border border-white/20 rounded-xl group hover:bg-white/20 transition-all duration-300">
+        <img src="image/rohs-compliant.svg" alt="RoHS Certification" class="h-5 w-auto brightness-0 invert opacity-80 group-hover:opacity-100 transition-opacity">
+        <span class="text-white font-black italic tracking-widest text-xs">RoHS</span>
+    </div>
+
+    <div class="flex items-center space-x-3 px-6 py-3 bg-white/10 border border-white/20 rounded-xl group hover:bg-white/20 transition-all duration-300">
+        <img src="image/qi-certified.svg" alt="Qi Standard" class="h-5 w-auto brightness-0 invert opacity-80 group-hover:opacity-100 transition-opacity">
+        <span class="text-white font-black italic tracking-widest text-xs">Qi2</span>
+    </div>
+
+    <div class="flex items-center space-x-3 px-6 py-3 bg-white/10 border border-white/20 rounded-xl group hover:bg-white/20 transition-all duration-300">
+        <img src="image/un383-safety.svg" alt="UN38.3 Safety" class="h-5 w-auto brightness-0 invert opacity-80 group-hover:opacity-100 transition-opacity">
+        <span class="text-white font-black italic tracking-widest text-xs">UN38.3</span>
+    </div>
+</div>
+                    </div>
+                </div>
+
+                <div class="grid lg:grid-cols-3 gap-12 reveal">
+                    <div class="lg:sticky lg:top-32">
+                        <h2 class="text-4xl lg:text-5xl font-black text-slate-900 uppercase italic tracking-tighter leading-none mb-6">Why Partner With <span class="text-brandBlue">WOWOHCOOL</span></h2>
+                        <button data-action="open-modal" class="group flex items-center gap-3 font-black uppercase tracking-widest text-[11px] text-brandBlue hover:text-brandOrange transition">Start Your Project <i class="fa-solid fa-arrow-right transition-transform group-hover:translate-x-2" aria-hidden="true"></i></button>
+                    </div>
+                    <div class="lg:col-span-2 grid md:grid-cols-2 gap-6">
+                        <div class="p-8 bg-slate-50 rounded-2xl hover:bg-white hover:shadow-xl transition-all border border-transparent hover:border-brandBlue/10">
+                            <i class="fa-solid fa-clock text-2xl text-brandBlue mb-4" aria-hidden="true"></i>
+                            <h3 class="font-black text-slate-900 uppercase italic mb-3">10+ Years Specialized</h3>
+                            <p class="text-sm text-slate-500">Expertise in charging accessories since 2013.</p>
+                        </div>
+                        <div class="p-8 bg-slate-50 rounded-2xl hover:bg-white hover:shadow-xl transition-all border border-transparent hover:border-brandBlue/10">
+                            <i class="fa-solid fa-rocket text-2xl text-brandBlue mb-4" aria-hidden="true"></i>
+                            <h3 class="font-black text-slate-900 uppercase italic mb-3">Full OEM/ODM</h3>
+                            <p class="text-sm text-slate-500">From concept design to mass production.</p>
+                        </div>
+                        <div class="p-8 bg-slate-50 rounded-2xl hover:bg-white hover:shadow-xl transition-all border border-transparent hover:border-brandBlue/10">
+                            <i class="fa-solid fa-box-open text-2xl text-brandBlue mb-4" aria-hidden="true"></i>
+                            <h3 class="font-black text-slate-900 uppercase italic mb-3">Flexible MOQ</h3>
+                            <p class="text-sm text-slate-500">Fast sampling (7-15 days) and lower MOQs.</p>
+                        </div>
+                        <div class="p-8 bg-slate-50 rounded-2xl hover:bg-white hover:shadow-xl transition-all border border-transparent hover:border-brandBlue/10">
+                            <i class="fa-solid fa-square-check text-2xl text-brandBlue mb-4" aria-hidden="true"></i>
+                            <h3 class="font-black text-slate-900 uppercase italic mb-3">Strict Quality</h3>
+                            <p class="text-sm text-slate-500">Rigorous QC and 12-month warranty.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-            <div class="col-md-5 m-auto order-1 order-md-2 order-lg-2">
-              <div class="wow animate__animated animate__fadeInRight section-right">
-                <img src="static/picture/about.jpg" class="w-100" alt="">
-              </div>
+        </section>
+
+    </main> <!-- closing main -->
+
+<footer class="pt-24 pb-12 bg-white border-t border-slate-100">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-16 mb-20 text-center md:text-left">
+            <div class="flex flex-col items-center md:items-start">
+                <a href="index.html" class="block mb-8 group">
+                    <img src="image/wowohcool-logo.webp" alt="WOWOHCOOL - Premium Charging Solution Specialist in Shenzhen" class="h-10 w-auto group-hover:opacity-80 transition">
+                </a>
+                <p class="text-slate-400 text-[10px] font-bold uppercase leading-relaxed tracking-widest">
+                    Dong Yi Technology (WOWOHCOOL) <br>
+                    Global Smart Charging Factory <br> 
+                    Shenzhen, China. Since 2013.
+                </p>
             </div>
-          </div>
+
+            <div>
+                <h4 class="font-black text-brandBlue text-[11px] mb-8 uppercase tracking-[0.2em]">Quick Links</h4>
+                <ul class="text-slate-500 text-[10px] font-bold space-y-4 uppercase tracking-widest">
+                    <li><a href="index.html" class="hover:text-brandOrange transition">Home</a></li>
+                    <li><a href="about.html" class="hover:text-brandOrange transition">About Factory</a></li>
+					<li><a href="service.html" class="hover:text-brandOrange transition">OEM/ODM Services</a></li>
+                    <li><a href="power-charger.html" class="hover:text-brandOrange transition">Power Charger</a></li>
+					<li><a href="wireless-charger.html" class="hover:text-brandOrange transition">Wireless Charger</a></li>
+					<li><a href="car-charger.html" class="hover:text-brandOrange transition">Car Charger</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="font-black text-brandBlue text-[11px] mb-8 uppercase tracking-[0.2em]">Connect</h4>
+                <div class="text-slate-500 text-[10px] font-bold space-y-4 uppercase tracking-widest">
+                    <p><a href="mailto:info@wowohcool.com" class="hover:text-brandOrange transition flex items-center justify-center md:justify-start gap-2" rel="noopener noreferrer">
+                        <i class="fa-solid fa-envelope text-brandOrange" aria-hidden="true"></i> info@wowohcool.com
+                    </a></p>
+                    <p><a href="https://wa.me/8618620789739" target="_blank" rel="noopener noreferrer" class="hover:text-brandOrange transition flex items-center justify-center md:justify-start gap-2">
+                        <i class="fa-brands fa-whatsapp text-brandOrange text-sm" aria-hidden="true"></i> WhatsApp: +86 186 2078 9739
+                    </a></p>
+                </div>
+            </div>
+
+            <div>
+                <h4 class="font-black text-brandBlue text-[11px] mb-8 uppercase tracking-[0.2em]">Follow Us</h4>
+                <div class="flex justify-center md:justify-start gap-6 text-slate-300">
+                    <a href="https://www.linkedin.com/company/wowohcool/" class="hover:text-brandBlue text-2xl transition" title="Follow us on LinkedIn"><i class="fa-brands fa-linkedin" aria-hidden="true"></i></a>
+                    <a href="https://www.facebook.com/wowohcoolelectronic" class="hover:text-brandBlue text-2xl transition" title="Follow us on Facebook"><i class="fa-brands fa-facebook" aria-hidden="true"></i></a>
+                    <a href="https://www.youtube.com/@WOWOHCOOL" class="hover:text-brandBlue text-2xl transition" title="Watch on YouTube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a>
+                </div>
+            </div>
         </div>
+
+        <div class="border-t border-slate-50 pt-12">
+            <div class="flex flex-col items-center gap-4">
+                <div class="flex gap-8 text-[9px] text-slate-400 font-black uppercase tracking-widest mb-2">
+                    <a href="privacy-policy.html" class="hover:text-brandOrange transition">Privacy Policy</a>
+                    <a href="terms-of-service.html" class="hover:text-brandOrange transition">Terms of Service</a>
+                </div>
+                <div class="text-center text-[9px] text-slate-300 font-black uppercase tracking-[0.4em]">
+                    © Copyright 2024 Dong Yi Technology Co., Limited. All rights reserved.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- back to top: converted to data-action to match main.js event delegation -->
+	<button id="backToTop" data-action="scroll-to-top" 
+    class="fixed bottom-8 left-8 w-14 h-14 bg-white border border-slate-100 text-brandBlue rounded-full shadow-2xl flex items-center justify-center z-[150] hover:bg-brandBlue hover:text-white transition-all duration-500 transform translate-y-10 opacity-0 pointer-events-none" aria-label="Back to top">
+    <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
+</button>
+
+    <div class="fixed bottom-8 right-8 flex flex-col gap-4 z-[150]">
+        <a href="https://wa.me/8618620789739" target="_blank" rel="noopener noreferrer"
+            class="w-16 h-16 bg-[#25D366] text-white rounded-full flex items-center justify-center shadow-2xl hover:scale-110 active:scale-95 transition duration-300 group relative" aria-label="WhatsApp">
+            <i class="fa-brands fa-whatsapp text-3xl" aria-hidden="true"></i>
+            <span class="absolute right-20 bg-black text-white text-[10px] font-bold px-3 py-1 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">Chat on WhatsApp</span>
+        </a>
+        
+        <button data-action="open-modal" class="w-16 h-16 bg-brandOrange text-white rounded-full flex items-center justify-center shadow-2xl hover:scale-110 active:scale-95 transition duration-300 group relative" aria-label="Quick inquiry">
+            <i class="fa-solid fa-envelope text-2xl" aria-hidden="true"></i>
+            <span class="absolute right-20 bg-black text-white text-[10px] font-bold px-3 py-1 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">Quick Inquiry</span>
+        </button>
+    </div>
+
+    <div id="inquiryModal" class="fixed inset-0 z-[300] hidden items-center justify-center p-6 bg-brandBlue/95 backdrop-blur-lg" role="dialog" aria-modal="true" aria-hidden="true">
+        <div class="bg-white w-full max-w-xl p-8 md:p-12 rounded-[3rem] relative animate-in zoom-in duration-300 overflow-y-auto max-h-[90vh] shadow-2xl">
+            <button data-action="close-modal" class="absolute top-8 right-8 text-slate-300 hover:text-brandBlue transition-colors" aria-label="Close inquiry modal">
+                <i class="fa-solid fa-xmark text-3xl" aria-hidden="true"></i>
+            </button>
+
+            <div class="mb-10 text-left">
+                <h3 class="text-3xl font-black text-brandBlue uppercase mb-2 italic tracking-tighter">Quick Inquiry</h3>
+                <div class="flex items-center gap-2">
+                    <span class="w-10 h-[2px] bg-brandOrange" aria-hidden="true"></span>
+                    <p class="text-slate-400 text-[10px] font-black uppercase tracking-widest">Factory-Direct Pricing Within 24 Hours</p>
+                </div>
+            </div>
+
+            <form action="https://api.web3forms.com/submit" method="POST" id="inquiry-form">
+    <input type="hidden" name="access_key" value="7f077cf3-642b-4aba-9be2-cb99c0c65b19">
     
-      </section>
-      <!-- banner-3 end -->
-  <!-- testimonial start -->
-  <section id="testimonials" class="testimonials">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-5">
-          <div class="wow animate__animated animate__fadeInLeft common-heading mb-5">
-            <h4 class="pre-title">What Our Clients Say <span>About Us</span></h4>
-            <p>From Europe to Asia, partners trust WOWOHCOOL for reliability, creativity,  and quality that speaks for itself. Our global clients — from brand owners to importers — value our transparent service, fast response,  and long-term commitment to excellence.</p>
-          </div>
-        </div>
-        <div class="wow animate__animated animate__fadeInRight col-md-7">
-          <div class="slider-indicator" data-wow-delay=".2s">
-            <img src="static/picture/testimonial-01.png" class="active" alt="img" data-id="0">
-            <img src="static/picture/testimonial-03.png" alt="img" data-id="1">
-            <img src="static/picture/testimonial-02.png" alt="img" data-id="2">
-          </div>
+    <input type="hidden" name="subject" id="email-subject" value="New Inquiry from Website">
+    
+    <input type="hidden" name="redirect" value="https://www.wowohcool.com/thank-you.html">
+    
+    <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
 
-          <div class="slider">
-            <div class="slide active">
-              <p>
-                Wij werken sinds 2021 samen met WOWOHCOOL en zijn bijzonder tevreden over hun flexibiliteit en innovatieve benadering.
-De productkwaliteit is consequent hoog, en hun naleving van Europese normen geeft ons volledig vertrouwen bij grootschalige aankopen.
-              </p>
-              <div class="client-info">
-                <h3>Mark de Vries</h3>
-                <span>Procurement Manager</span>
-              </div>
-            </div>
-            <div class="slide">
-              <p>
-                WOWOHCOOLのチームは、常に迅速で丁寧な対応をしてくれます。
-デザイン性と品質のバランスが素晴らしく、日本市場向けのOEM製品も高く評価されています。
-今では私たちの主要なパートナーの一つです。
-              </p>
-              <div class="client-info">
-                <h3>佐藤 健一 (Kenichi Sato)</h3>
-                <span>Product Director</span>
-              </div>
-            </div>
-            <div class="slide">
-              <p>
-                WOWOHCOOL हमारी कंपनी के लिए एक विश्वसनीय भागीदार है।
-उनकी उत्पाद डिज़ाइन, पैकेजिंग और डिलीवरी प्रक्रिया ने हमारे ब्रांड की छवि को अगले स्तर पर पहुँचा दिया है।
-उनके साथ काम करना हमेशा सहज और पेशेवर रहा है।
-              </p>
-              <div class="client-info">
-                <h3>Rajesh Kumar</h3>
-                <span>Founder & CEO</span>
-              </div>
-            </div>
-          </div>
+    <div class="grid md:grid-cols-2 gap-5">
+        <div class="space-y-1.5">
+            <label for="modal-name" class="text-[10px] font-black text-brandBlue uppercase ml-2 tracking-widest">Contact Name *</label>
+            <input id="modal-name" type="text" name="name" placeholder="e.g. John Doe" required
+                class="w-full bg-slate-50 p-4 rounded-2xl text-sm border-2 border-transparent focus:border-brandOrange focus:bg-white transition-all outline-none font-medium">
         </div>
-      </div>
+        <div class="space-y-1.5">
+            <label for="modal-company" class="text-[10px] font-black text-brandBlue uppercase ml-2 tracking-widest">Company Name *</label>
+            <input id="modal-company" type="text" name="company" placeholder="Business Entity" required
+                class="w-full bg-slate-50 p-4 rounded-2xl text-sm border-2 border-transparent focus:border-brandOrange focus:bg-white transition-all outline-none font-medium">
+        </div>
     </div>
-  </section>
-  <!-- testimonial end -->
 
- <!-- footer start -->
-  <footer class="footer-section">
-    <div class="container">
-      <div class="wow animate__animated animate__fadeInUp footer-content pt-5 pb-5" data-wow-delay=".2s">
-        <div class="row">
-          <div class="col-lg-4 col-xl-4 col-lg-4 mb-50">
-            <div class="footer-widget">
-              <div class="footer-logo">
-                <a class="navbar-brand" href="#"><img src="static/picture/wowohcool-logo.png" alt=""></a>
-              </div>
-              <div class="footer-text">
-                <p>Charge Smart. Live Cool.</p>
-              </div>
-              <div class="social-icon d-flex">
-                <!-- <span>Follow us</span> -->
-                <a href="https://www.facebook.com/wowohcoolelectronic"><i class="fab fa-facebook-f facebook-bg"></i></a>
-                <!-- x -->
-                <a href="https://x.com/wowohcool"><i class="fab fa-x x-bg"></i></a>
-                <!-- linkedin -->
-                <a href="https://www.linkedin.com/company/wowohcool/"><i class="fab fa-linkedin-in linkedin-bg"></i></a>
-                <!-- youtube -->
-                <a href="https://www.youtube.com/@WOWOHCOOL"><i class="fab fa-youtube youtube-bg"></i></a>
-
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-xl-4 col-lg-4 col-md-6 mb-30">
-            <div class="footer-widget">
-              <div class="footer-widget-heading">
-                <h3>Links</h3>
-              </div>
-              <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="power-charger.html">Power Charger</a></li>
-				<li><a href="about.html">About us</a></li>
-				<li><a href="wireless-charger.html">Wireless Charger</a></li>
-                <li><a href="service.html">services</a></li>
-				<li><a href="car-charger.html">Car Charger</a></li>
-                <li><a href="contact.html">Contact</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-lg-4 col-xl-4 col-lg-4 col-md-6 mb-50">
-            <div class="footer-widget">
-              <div class="footer-widget-heading">
-                <h3>Contact</h3>
-              </div>
-              <div class="footer-text mb-25">
-                <p>Add.: Rm402, No.1 Building, Tangxia Town(523718)<br>Tel.: 0086 186-207-89739 <br>E-mail: info@wowohcool.com</p>
-              </div>
-              </div>
-            </div>
-          </div>
+    <div class="grid md:grid-cols-2 gap-5">
+        <div class="space-y-1.5">
+            <label for="modal-email" class="text-[10px] font-black text-brandBlue uppercase ml-2 tracking-widest">Business Email *</label>
+            <input id="modal-email" type="email" name="email" placeholder="john@company.com" required
+                class="w-full bg-slate-50 p-4 rounded-2xl text-sm border-2 border-transparent focus:border-brandOrange focus:bg-white transition-all outline-none font-medium">
         </div>
-      </div>
-    </div>
-    <div class="copyright-area">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-6 col-lg-6 text-center text-lg-left">
-            <div class="copyright-text">
-              <p>Copyright &copy; 2024 Dong Yi Technology Co., Limited All rights reserved.<a target="_blank" href="https://www.wowohcool.com/"></a></p>
+        <div class="space-y-1.5">
+            <label for="productSelect" class="text-[10px] font-black text-brandBlue uppercase ml-2 tracking-widest">Product Interest</label>
+            <div class="relative">
+                <select id="productSelect" name="product" class="w-full bg-slate-50 p-4 rounded-2xl text-sm border-2 border-transparent focus:border-brandOrange focus:bg-white transition-all outline-none font-medium appearance-none">
+    <option value="General Inquiry">General Inquiry</option>
+    <option value="WOW93 3-in-1 Folding Wireless Charger">3-in-1 Folding Wireless Charger</option>
+    <option value="WOP67 2-in-1 Power Bank &amp; Wall Charger">2-in-1 Power Bank &amp Wall Charger</option>
+    <option value="WOC42 105W Retractable Car Charger">105W Retractable Car Charger</option>
+    <option value="Custom ODM Project">Custom ODM Project</option>
+</select>
+                <i class="fa-solid fa-chevron-down absolute right-4 top-1/2 -translate-y-1/2 text-slate-300 pointer-events-none text-xs" aria-hidden="true"></i>
             </div>
-          </div>
-          <div class="col-lg-6 col-lg-6 d-none d-lg-block text-right">
-            <div class="footer-menu">
-              <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="policy.html">Policy</a></li>
-                <li><a href="contact.html">Contact</a></li>
-              </ul>
-            </div>
-          </div>
         </div>
-      </div>
     </div>
-  </footer>
-  <!-- footer section end -->
 
-  <!-- btn_top_bottom part start -->
-  <div class="btn_top_bottom">
-    <i class="fa-solid fa-arrow-up-long"></i>
-  </div>
-  <!-- btn_top_bottom part end -->
+    <div class="space-y-1.5">
+        <label for="quantity" class="text-[10px] font-black text-brandBlue uppercase ml-2 tracking-widest">Expected Quantity (MOQ: 500+)</label>
+        <input id="quantity" type="text" name="quantity" placeholder="e.g. 1000 units"
+            class="w-full bg-slate-50 p-4 rounded-2xl text-sm border-2 border-transparent focus:border-brandOrange focus:bg-white transition-all outline-none font-medium">
+    </div>
 
+    <div class="space-y-1.5">
+        <label for="modal-message" class="text-[10px] font-black text-brandBlue uppercase ml-2 tracking-widest">Detailed Requirements</label>
+        <textarea id="modal-message" name="message" placeholder="Please describe your OEM/ODM specifications, logo printing, or custom packaging needs..." rows="3" 
+            class="w-full bg-slate-50 p-4 rounded-2xl text-sm border-2 border-transparent focus:border-brandOrange focus:bg-white transition-all outline-none font-medium resize-none"></textarea>
+    </div>
 
-  <!-- footer end -->
+    <div class="pt-4">
+        <button type="submit" class="w-full bg-brandOrange text-white py-5 rounded-[1.5rem] font-black uppercase tracking-widest text-sm shadow-xl shadow-brandOrange/20 hover:shadow-brandOrange/40 hover:-translate-y-1 active:scale-95 transition-all duration-300">
+            Send Factory Inquiry Now
+        </button>
+        <div class="flex items-center justify-center gap-4 mt-6">
+            <p class="text-[9px] text-slate-300 font-bold uppercase tracking-tighter">
+                <i class="fa-solid fa-lock mr-1" aria-hidden="true"></i> SSL Encrypted Data
+            </p>
+            <p class="text-[9px] text-slate-300 font-bold uppercase tracking-tighter">
+                <i class="fa-solid fa-clock mr-1" aria-hidden="true"></i> 24h Response Guarantee
+            </p>
+        </div>
+    </div>
+</form>
+        </div>
+    </div>
 
-
-  <!-- =====================js-bootstrap==================================== -->
-  <script src="static/js/jquery-1.12.4.min.js"></script>
-  <script src="static/js/bootstrap.min.js"></script>
-  <script src="static/js/mixitup.min.js"></script>
-  <script src="static/js/venobox.min.js"></script>
-  <script src="static/js/wow.min.js"></script>
-  <script src="static/js/jquery.counterup.min.js"></script>
-  <script src="static/js/waypoints.min.js"></script>
-  <script src="static/js/script.js"></script>
-  <script>
-    const slides = document.querySelector(".slider").children;
-const indicatorImages = document.querySelector(".slider-indicator").children;
-let currentIndex = 0;
-let intervalTime = 3000; // Time in milliseconds for autoplay (3 seconds)
-
-// Function to change slides
-function changeSlide(index) {
-  // Remove 'active' class from all indicators and slides
-  for (let i = 0; i < indicatorImages.length; i++) {
-    indicatorImages[i].classList.remove("active");
-    slides[i].classList.remove("active");
-  }
-  
-  // Add 'active' class to the current slide and indicator
-  indicatorImages[index].classList.add("active");
-  slides[index].classList.add("active");
-}
-
-// Event listeners for manual slide navigation
-for (let i = 0; i < indicatorImages.length; i++) {
-  indicatorImages[i].addEventListener("click", function () {
-    currentIndex = i; // Update current index
-    changeSlide(currentIndex);
-    resetAutoplay(); // Reset autoplay when manually changed
-  });
-}
-
-// Autoplay function
-function autoPlay() {
-  currentIndex = (currentIndex + 1) % slides.length; // Move to next slide or loop back
-  changeSlide(currentIndex);
-}
-
-// Start autoplay with setInterval
-let autoplayInterval = setInterval(autoPlay, intervalTime);
-
-// Function to reset autoplay (when manually navigating)
-function resetAutoplay() {
-  clearInterval(autoplayInterval); // Clear the interval
-  autoplayInterval = setInterval(autoPlay, intervalTime); // Restart the interval
-}
-
-  </script>
+    <!-- 引入公用 JS（与 index 一致）；使用 defer/事件代理 -->
+    <script src="main.js" defer></script>
 </body>
 
 </html>
