@@ -78,16 +78,26 @@
         </nav>
     </header>
 
-	<div id="mobile-menu-overlay" class="fixed inset-0 bg-brandBlue/40 backdrop-blur-md z-[499] opacity-0 pointer-events-none transition-opacity duration-300 lg:hidden" data-action="close-mobile"></div>
+	<div id="mobile-menu-overlay" 
+     class="fixed inset-0 bg-brandBlue/40 backdrop-blur-md z-[499] opacity-0 pointer-events-none transition-opacity duration-300 lg:hidden" 
+     data-action="close-mobile" 
+     aria-hidden="true"></div>
 
-<div id="mobile-menu-content" class="fixed inset-y-0 right-0 w-80 bg-brandBlue z-[500] transform translate-x-full transition-transform duration-500 p-8 shadow-2xl lg:hidden flex flex-col">
+<div id="mobile-menu-content" 
+     class="fixed inset-y-0 right-0 w-80 bg-brandBlue z-[500] transform translate-x-full transition-transform duration-500 p-8 shadow-2xl lg:hidden flex flex-col" 
+     role="dialog" 
+     aria-modal="true" 
+     aria-label="Mobile Navigation Menu">
+    
     <div class="flex justify-between items-center mb-12">
-        <a href="index.html" class="block active:opacity-70 transition-opacity">
+        <a href="index.html" class="block active:opacity-70 transition-opacity" aria-label="WOWOHCOOL Home">
             <div class="text-xl font-black italic text-white uppercase tracking-tighter">
                 WOWOH<span class="text-brandOrange">COOL</span>
             </div>
         </a>
-        <button data-action="close-mobile" class="text-white text-3xl p-2 hover:rotate-90 transition-transform duration-300">
+        <button data-action="close-mobile" 
+                class="text-white text-3xl p-2 hover:rotate-90 transition-transform duration-300 focus:outline-none" 
+                aria-label="Close mobile menu">
             <i class="fa-solid fa-xmark"></i>
         </button>
     </div>
@@ -97,13 +107,20 @@
         <a href="about.html" class="block py-2 hover:text-brandOrange transition border-b border-white/5">About Factory</a>
         
         <div class="space-y-4">
-            <button data-action="toggle-mobile-submenu" class="w-full flex justify-between items-center py-2 hover:text-brandOrange transition border-b border-white/5 uppercase">
+            <button data-action="toggle-mobile-submenu" 
+                    id="submenu-button"
+                    aria-controls="mobile-submenu" 
+                    aria-expanded="false"
+                    class="w-full flex justify-between items-center py-2 hover:text-brandOrange transition border-b border-white/5 uppercase focus:outline-none">
                 Products <i id="submenu-icon" class="fa-solid fa-chevron-down text-xs transition-transform duration-300"></i>
             </button>
-            <div id="mobile-submenu" class="hidden pl-4 space-y-4 border-l-2 border-brandOrange/30 ml-1">
-                <a href="power-charger.html" class="block text-xs text-white/70 hover:text-brandOrange py-1">Power Charger</a>
-                <a href="wireless-charger.html" class="block text-xs text-white/70 hover:text-brandOrange py-1">Wireless Charger</a>
-                <a href="car-charger.html" class="block text-xs text-white/70 hover:text-brandOrange py-1">Car Charger</a>
+            <div id="mobile-submenu" 
+                 class="hidden pl-4 space-y-4 border-l-2 border-brandOrange/30 ml-1" 
+                 role="menu" 
+                 aria-labelledby="submenu-button">
+                <a href="power-charger.html" class="block text-xs text-white/70 hover:text-brandOrange py-1" role="menuitem">Power Charger</a>
+                <a href="wireless-charger.html" class="block text-xs text-white/70 hover:text-brandOrange py-1" role="menuitem">Wireless Charger</a>
+                <a href="car-charger.html" class="block text-xs text-white/70 hover:text-brandOrange py-1" role="menuitem">Car Charger</a>
             </div>
         </div>
 
@@ -111,7 +128,8 @@
         <a href="contact.html" class="block py-2 hover:text-brandOrange transition border-b border-white/5">Contact Us</a>
 
         <div class="pt-8">
-            <button data-action="open-modal" class="w-full bg-brandOrange text-white py-5 rounded-xl font-black shadow-xl shadow-brandOrange/20 active:scale-95 transition-all uppercase tracking-widest">
+            <button data-action="open-modal" 
+                    class="w-full bg-brandOrange text-white py-5 rounded-xl font-black shadow-xl shadow-brandOrange/20 active:scale-95 hover:brightness-110 transition-all uppercase tracking-widest">
                 Get A Quote
             </button>
         </div>
