@@ -23,6 +23,16 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }, observerOptions);
+	// 在 document.addEventListener('click', (e) => { ... }) 内部添加：
+if (action === 'toggle-mobile-submenu') {
+    const submenu = document.getElementById('mobile-submenu');
+    const icon = document.getElementById('submenu-icon');
+    if (submenu) {
+        const isHidden = submenu.classList.toggle('hidden');
+        // 旋转箭头图标
+        if (icon) icon.style.transform = isHidden ? 'rotate(0deg)' : 'rotate(180deg)';
+    }
+}
 
     document.querySelectorAll('.reveal, .counter').forEach(el => globalObserver.observe(el));
 
