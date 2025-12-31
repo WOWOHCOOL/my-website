@@ -11,11 +11,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const globalObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                // 处理容器闪现
+                // 处理容器闪现 (Reveal)
                 if (entry.target.classList.contains('reveal')) {
                     entry.target.classList.add('active');
+                    // 触发后停止观察，提升性能
+                    globalObserver.unobserve(entry.target); 
                 }
-                // 处理数字滚动
+                // 处理数字滚动 (Counter)
                 if (entry.target.classList.contains('counter')) {
                     startCounter(entry.target);
                     globalObserver.unobserve(entry.target);
@@ -23,32 +25,28 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }, observerOptions);
-	// 在 document.addEventListener('click', (e) => { ... }) 内部添加：
-if (action === 'toggle-mobile-submenu') {
-    const submenu = document.getElementById('mobile-submenu');
-    const icon = document.getElementById('submenu-icon');
-    if (submenu) {
-        const isHidden = submenu.classList.toggle('hidden');
-        // 旋转箭头图标
-        if (icon) icon.style.transform = isHidden ? 'rotate(0deg)' : 'rotate(180deg)';
-    }
-}
 
+    // 绑定观察器
     document.querySelectorAll('.reveal, .counter').forEach(el => globalObserver.observe(el));
 
-    // 数字滚动逻辑 - 已移除小数点
+    // 数字滚动逻辑 - 强制整数，无小数点
     function startCounter(el) {
         const target = +el.getAttribute('data-target') || 0;
         let count = 0;
-        const speed = target / 50; // 控制滚动速度
+        const duration = 1500; // 动画持续1.5秒
+        const startTime = performance.now();
         
-        const update = () => {
-            count += speed;
-            if (count < target) {
-                el.innerText = Math.floor(count); // 滚动过程中保持整数
+        const update = (currentTime) => {
+            const elapsed = currentTime - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            
+            count = Math.floor(progress * target);
+            
+            if (progress < 1) {
+                el.innerText = count;
                 requestAnimationFrame(update);
             } else {
-                // 最终显示：如果超过 1000，显示为 5k+ 格式（无小数点）
+                // 最终显示逻辑
                 if (target >= 1000) {
                     el.innerText = Math.floor(target / 1000) + 'k+';
                 } else {
@@ -56,10 +54,10 @@ if (action === 'toggle-mobile-submenu') {
                 }
             }
         };
-        update();
+        requestAnimationFrame(update);
     }
 
-    // 3. 事件委托处理所有点击交互
+    // 3. 事件委托：处理所有点击交互 (核心修正区)
     document.addEventListener('click', (e) => {
         const target = e.target.closest('[data-action]');
         if (!target) return;
@@ -67,7 +65,18 @@ if (action === 'toggle-mobile-submenu') {
         const action = target.getAttribute('data-action');
         const product = target.getAttribute('data-product') || '';
 
-        // 询价弹窗控制
+        // --- 移动端子菜单切换 (修正后的位置) ---
+        if (action === 'toggle-mobile-submenu') {
+            const submenu = document.getElementById('mobile-submenu');
+            const icon = document.getElementById('submenu-icon');
+            if (submenu) {
+                const isHidden = submenu.classList.toggle('hidden');
+                // 旋转箭头图标 (确保你的图标ID正确)
+                if (icon) icon.style.transform = isHidden ? 'rotate(0deg)' : 'rotate(180deg)';
+            }
+        }
+
+        // --- 询价弹窗控制 ---
         if (action === 'open-modal') {
             const modal = document.getElementById('inquiryModal');
             if (modal) {
@@ -83,7 +92,7 @@ if (action === 'toggle-mobile-submenu') {
             document.getElementById('inquiryModal')?.classList.replace('flex', 'hidden');
         }
 
-        // 移动端菜单控制
+        // --- 移动端主菜单控制 ---
         if (action === 'toggle-mobile-menu') {
             document.getElementById('mobile-menu-content')?.classList.toggle('translate-x-full');
             document.getElementById('mobile-menu-overlay')?.classList.toggle('hidden');
@@ -93,7 +102,7 @@ if (action === 'toggle-mobile-submenu') {
             document.getElementById('mobile-menu-overlay')?.classList.add('hidden');
         }
 
-        // 返回顶部
+        // --- 返回顶部 ---
         if (action === 'scroll-to-top') {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
