@@ -117,3 +117,26 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }, { passive: true });
 });
+
+document.addEventListener('click', function(e) {
+    // 1. 检查点击的对象是否是开启弹窗的按钮 (支持嵌套元素点击)
+    const btn = e.target.closest('[data-action="open-modal"]');
+    
+    if (btn) {
+        // 2. 获取该按钮上的产品名称
+        const productName = btn.getAttribute('data-product');
+        
+        // 3. 寻找弹窗中的 Product Interest 输入框
+        // 优先级：先找 id 为 product-interest 的，再找 name 为 product 的
+        const productInput = document.getElementById('product-interest') || 
+                             document.querySelector('input[name="product"]');
+
+        if (productInput && productName) {
+            // 4. 自动填入并触发一个轻微的闪烁效果（可选），让用户知道已选中
+            productInput.value = productName;
+            
+            // 5. 调试日志：如果填入成功，控制台会显示
+            console.log("Form Auto-filled with:", productName);
+        }
+    }
+});
