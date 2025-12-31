@@ -138,29 +138,34 @@
   <!-- main start (fixed missing tag) -->
     <main id="main-content">
 		 
-    <section class="relative pt-40 pb-24 bg-darkBg text-white overflow-hidden">
-        <div class="absolute inset-0 opacity-10">
-            <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-                <defs><pattern id="gridPattern" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="white" stroke-width="0.5"/></pattern></defs>
-                <rect width="100%" height="100%" fill="url(#gridPattern)" />
-            </svg>
+    <section id="service" class="relative pt-32 pb-20 bg-brandBlue overflow-hidden">
+        <div class="absolute inset-0 z-0 pointer-events-none">
+            <div class="absolute top-0 left-0 w-64 h-64 bg-brandOrange opacity-20 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
+            <div class="absolute bottom-0 right-0 w-64 h-64 bg-blue-500 opacity-20 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
         </div>
+        
         <div class="max-w-7xl mx-auto px-6 relative z-10 text-center">
-            <div class="badge-capsule mb-6 mx-auto border-white/20 text-white/80 uppercase tracking-widest">One-Stop Solution</div>
-            <h1 class="text-5xl lg:text-7xl font-black uppercase italic tracking-tighter leading-tight mb-8">
-                Professional <span class="text-brandOrange text-stroke-thin">OEM/ODM</span> <br>Manufacturing Services
+            <div class="badge-capsule mb-6 mx-auto border-white/20 text-white/80 uppercase tracking-widest">
+                One-Stop Solution
+            </div>
+            <h1 class="text-3xl md:text-5xl lg:text-7xl font-black text-white uppercase italic tracking-tighter mb-6 leading-tight">
+                Professional & <br><span class="text-brandOrange text-stroke-thin-white">OEM/ODM</span> Manufacturing Services
             </h1>
-            <p class="text-slate-400 max-w-2xl mx-auto text-lg mb-12">
+            <p class="max-w-2xl mx-auto text-slate-300 text-base md:text-lg mb-10 leading-relaxed">
                 Transforming your innovative concepts into market-ready charging products with our 10+ years of factory expertise and R&D capability.
             </p>
-            <div class="flex flex-wrap justify-center gap-4">
-                <button onclick="toggleModal('OEM Inquiry')" class="bg-brandOrange text-white px-10 py-5 rounded-xl font-black uppercase tracking-widest text-sm shadow-xl hover:-translate-y-1 transition">Start Your Project</button>
-                <a href="#workflow" class="border-2 border-white/20 text-white px-10 py-5 rounded-xl font-black uppercase tracking-widest text-sm hover:bg-white hover:text-brandBlue transition">Our Workflow</a>
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
+                <button data-action="open-modal" data-product="OEM/ODM Project" class="w-full sm:w-auto bg-brandOrange text-white px-8 py-4 rounded-xl font-black uppercase tracking-widest hover:bg-white hover:text-brandBlue transition-all shadow-xl shadow-brandOrange/30">
+                    Start Your Project
+                </button>
+                <a href="#workflow" class="w-full sm:w-auto border border-white/20 text-white px-8 py-4 rounded-xl font-black uppercase tracking-widest hover:bg-white/10 transition-all text-center">
+                    Our Workflow
+                </a>
             </div>
         </div>
     </section>
 
-   <section class="py-20 bg-white">
+   <section id="oem,odm" class="py-20 bg-white">
     <div class="max-w-7xl mx-auto px-6">
         <div class="text-center max-w-3xl mx-auto mb-16">
             <h2 class="text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4">
@@ -328,7 +333,7 @@
                 </div>
                 <p class="text-sm text-slate-500 font-medium">Typical timelines: <span class="text-slate-900 font-bold">4-8 weeks</span> from concept to shipment, depending on customization complexity.</p>
             </div>
-            <button onclick="toggleModal('Process Consultation')" 
+            <button data-action="open-modal" data-product="OEM/ODM Project" 
         class="bg-brandBlue !text-white px-8 py-4 rounded-xl font-black uppercase tracking-widest text-[11px] hover:bg-brandOrange transition-all duration-300">
     Request Custom Timeline
 </button>
