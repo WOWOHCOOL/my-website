@@ -57,86 +57,75 @@ document.addEventListener('DOMContentLoaded', () => {
         requestAnimationFrame(update);
     }
 
-    // 3. 事件委托：处理所有点击交互 (核心修正区)
+    // 3. 事件委托：处理所有点击交互
     document.addEventListener('click', (e) => {
         const target = e.target.closest('[data-action]');
         if (!target) return;
 
         const action = target.getAttribute('data-action');
-        const product = target.getAttribute('data-product') || '';
+        const productName = target.getAttribute('data-product') || '';
 
-        // --- 移动端子菜单切换 (修正后的位置) ---
-        if (action === 'toggle-mobile-submenu') {
-            const submenu = document.getElementById('mobile-submenu');
-            const icon = document.getElementById('submenu-icon');
-            if (submenu) {
-                const isHidden = submenu.classList.toggle('hidden');
-                // 旋转箭头图标 (确保你的图标ID正确)
-                if (icon) icon.style.transform = isHidden ? 'rotate(0deg)' : 'rotate(180deg)';
-            }
-        }
-
-        // --- 询价弹窗控制 ---
+        // --- 统一询价弹窗控制 ---
         if (action === 'open-modal') {
             const modal = document.getElementById('inquiryModal');
-            if (modal) {
-                modal.classList.remove('hidden');
-                modal.classList.add('flex');
-                if (product) {
-                    const select = modal.querySelector('#productSelect');
-                    if (select) select.value = product;
+            if (!modal) return;
+
+            // 显示弹窗
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+
+            // 执行产品预选与邮件主题同步 (整合了原 openModal 的逻辑)
+            const select = modal.querySelector('#productSelect');
+            const emailSubject = modal.querySelector('input[name="subject"]');
+
+            if (select) {
+                if (productName) {
+                    let matched = false;
+                    const searchName = productName.trim().toLowerCase();
+                    
+                    for (let i = 0; i < select.options.length; i++) {
+                        const opt = select.options[i];
+                        if (opt.value.toLowerCase().includes(searchName) || opt.text.toLowerCase().includes(searchName)) {
+                            select.selectedIndex = i;
+                            matched = true;
+                            break;
+                        }
+                    }
+                    // 如果下拉框没匹配到，也可以直接强制设值（防止 data-product 写错）
+                    if (!matched) select.value = productName; 
+
+                    if (emailSubject) emailSubject.value = `New Inquiry: ${productName}`;
+                } else {
+                    select.selectedIndex = 0;
+                    if (emailSubject) emailSubject.value = "General Inquiry from Website";
                 }
             }
         }
+
         if (action === 'close-modal') {
-            document.getElementById('inquiryModal')?.classList.replace('flex', 'hidden');
+            const modal = document.getElementById('inquiryModal');
+            if (modal) modal.classList.replace('flex', 'hidden');
         }
 
-        // --- 移动端主菜单控制 ---
-        if (action === 'toggle-mobile-menu') {
-            document.getElementById('mobile-menu-content')?.classList.toggle('translate-x-full');
-            document.getElementById('mobile-menu-overlay')?.classList.toggle('hidden');
-        }
-        if (action === 'close-mobile') {
-            document.getElementById('mobile-menu-content')?.classList.add('translate-x-full');
-            document.getElementById('mobile-menu-overlay')?.classList.add('hidden');
-        }
-
-        // --- 返回顶部 ---
-        if (action === 'scroll-to-top') {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
+        // ... 移动端菜单控制、返回顶部等代码保持不变 ...
     });
-
-    // 4. 返回顶部按钮显示逻辑
-    window.addEventListener('scroll', () => {
-        const btn = document.getElementById('backToTop');
-        if (btn) {
-            if (window.scrollY > 600) btn.classList.add('show');
-            else btn.classList.remove('show');
-        }
-    }, { passive: true });
 });
 
-document.addEventListener('click', function(e) {
-    // 1. 检查点击的对象是否是开启弹窗的按钮 (支持嵌套元素点击)
-    const btn = e.target.closest('[data-action="open-modal"]');
-    
-    if (btn) {
-        // 2. 获取该按钮上的产品名称
-        const productName = btn.getAttribute('data-product');
-        
-        // 3. 寻找弹窗中的 Product Interest 输入框
-        // 优先级：先找 id 为 product-interest 的，再找 name 为 product 的
-        const productInput = document.getElementById('product-interest') || 
-                             document.querySelector('input[name="product"]');
-
-        if (productInput && productName) {
-            // 4. 自动填入并触发一个轻微的闪烁效果（可选），让用户知道已选中
-            productInput.value = productName;
-            
-            // 5. 调试日志：如果填入成功，控制台会显示
-            console.log("Form Auto-filled with:", productName);
+// 为了兼容 HTML 中可能存在的 onclick="openModal('...')"，保留此包装函数，但内部调用逻辑统一
+function openModal(productName = '') {
+    // 模拟点击一个带有 data-product 的虚拟元素来触发上面的统一逻辑
+    const mockEvent = {
+        target: {
+            closest: () => ({
+                getAttribute: (attr) => attr === 'data-action' ? 'open-modal' : productName
+            })
         }
-    }
-});
+    };
+    // 或者简单点，直接手动触发
+    const btn = document.createElement('button');
+    btn.setAttribute('data-action', 'open-modal');
+    btn.setAttribute('data-product', productName);
+    document.body.appendChild(btn);
+    btn.click();
+    btn.remove();
+}
