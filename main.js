@@ -1,3 +1,5 @@
+/* main.js 优化版 */
+
 document.addEventListener('DOMContentLoaded', () => {
     // === 1. 自动处理导航高亮 ===
     const currentPath = window.location.pathname.split("/").pop() || 'index.html';
@@ -8,132 +10,145 @@ document.addEventListener('DOMContentLoaded', () => {
     // === 2. 滚动显示 (Reveal) & 数字增长 (Counter) ===
     const observerOptions = { 
         threshold: 0.1,
-        rootMargin: "0px 0px -50px 0px" // 提前一点触发，体验更顺滑
+        rootMargin: "0px 0px -50px 0px" 
     };
     
     const globalObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
+                const target = entry.target;
                 // 处理容器显现
-                if (entry.target.classList.contains('reveal')) {
-                    entry.target.classList.add('active');
-                    globalObserver.unobserve(entry.target); 
+                if (target.classList.contains('reveal')) {
+                    target.classList.add('active');
+                    globalObserver.unobserve(target); 
                 }
                 // 处理数字滚动
-                if (entry.target.classList.contains('counter')) {
-                    startCounter(entry.target);
-                    globalObserver.unobserve(entry.target);
+                if (target.classList.contains('counter')) {
+                    startCounter(target);
+                    globalObserver.unobserve(target);
                 }
             }
         });
     }, observerOptions);
 
-    // 初始化观察器 (确保在页面加载后立即扫描)
     document.querySelectorAll('.reveal, .counter').forEach(el => globalObserver.observe(el));
 
-    // 数字滚动逻辑
+    // 数字滚动逻辑 (优化性能与显示格式)
     function startCounter(el) {
         const target = +el.getAttribute('data-target') || 0;
         const duration = 1500;
-        const startTime = performance.now();
-        const update = (currentTime) => {
-            const elapsed = currentTime - startTime;
-            const progress = Math.min(elapsed / duration, 1);
-            const count = Math.floor(progress * target);
+        let startTimestamp = null;
+
+        const step = (timestamp) => {
+            if (!startTimestamp) startTimestamp = timestamp;
+            const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+            const currentCount = Math.floor(progress * target);
+            
             if (progress < 1) {
-                el.innerText = count;
-                requestAnimationFrame(update);
+                el.innerText = currentCount;
+                window.requestAnimationFrame(step);
             } else {
+                // 最终格式化显示
                 el.innerText = target >= 1000 ? Math.floor(target / 1000) + 'k+' : target + '+';
             }
         };
-        requestAnimationFrame(update);
+        window.requestAnimationFrame(step);
     }
 
-    // === 3. 统一点击事件委托 (核心交互区) ===
+    // === 3. 统一点击事件委托 ===
     document.addEventListener('click', (e) => {
-        const target = e.target.closest('[data-action]');
-        if (!target) return;
+        const targetEl = e.target.closest('[data-action]');
+        if (!targetEl) return;
 
-        const action = target.getAttribute('data-action');
-        const productName = target.getAttribute('data-product') || '';
+        const action = targetEl.getAttribute('data-action');
+        const productName = targetEl.getAttribute('data-product') || '';
+        
+        const menuContent = document.getElementById('mobile-menu-content');
+        const overlay = document.getElementById('mobile-menu-overlay');
+        const modal = document.getElementById('inquiryModal');
 
-        // --- 移动端主菜单 (针对点击消失的修复) ---
-        if (action === 'toggle-mobile-menu') {
-            const menuContent = document.getElementById('mobile-menu-content');
-            const overlay = document.getElementById('mobile-menu-overlay');
-            if (menuContent && overlay) {
-                const isHidden = menuContent.classList.contains('translate-x-full');
-                if (isHidden) {
-                    menuContent.classList.replace('translate-x-full', 'translate-x-0');
-                    overlay.classList.remove('hidden');
-                    document.body.style.overflow = 'hidden';
-                } else {
-                    menuContent.classList.replace('translate-x-0', 'translate-x-full');
-                    overlay.classList.add('hidden');
-                    document.body.style.overflow = '';
-                }
-            }
-        }
-
-        // --- 移动端子菜单 (针对不反应/旋转的修复) ---
-        if (action === 'toggle-mobile-submenu') {
-            e.preventDefault();
-            const submenu = document.getElementById('mobile-submenu');
-            const icon = target.querySelector('.submenu-icon') || document.getElementById('submenu-icon');
-            if (submenu) {
-                const isHidden = submenu.classList.toggle('hidden');
-                if (icon) icon.style.transform = isHidden ? 'rotate(0deg)' : 'rotate(180deg)';
-            }
-        }
-
-        // --- 询价弹窗控制 (整合自动填单逻辑) ---
-        if (action === 'open-modal') {
-            const modal = document.getElementById('inquiryModal');
-            if (modal) {
-                modal.classList.remove('hidden');
-                modal.classList.add('flex');
-                document.body.style.overflow = 'hidden';
-
-                // 自动预选产品
-                if (productName) {
-                    const select = modal.querySelector('#productSelect');
-                    const emailSubject = modal.querySelector('input[name="subject"]');
-                    
-                    if (select) {
-                        let matched = false;
-                        const searchName = productName.trim().toLowerCase();
-                        for (let i = 0; i < select.options.length; i++) {
-                            const opt = select.options[i];
-                            if (opt.value.toLowerCase().includes(searchName) || opt.text.toLowerCase().includes(searchName)) {
-                                select.selectedIndex = i;
-                                matched = true;
-                                break;
-                            }
-                        }
-                        // 如果下拉框没匹配到型号，直接填入值
-                        if (!matched) select.value = productName;
-                    }
-                    if (emailSubject) emailSubject.value = `New Inquiry: ${productName}`;
-                }
-            }
-        }
-
-        // --- 关闭所有 (弹窗/菜单) ---
-        if (action === 'close-modal' || action === 'close-mobile') {
-            document.getElementById('inquiryModal')?.classList.replace('flex', 'hidden');
-            document.getElementById('mobile-menu-content')?.classList.replace('translate-x-0', 'translate-x-full');
-            document.getElementById('mobile-menu-overlay')?.classList.add('hidden');
+        // 统一关闭函数（复用逻辑）
+        const internalCloseAll = () => {
+            modal?.classList.add('hidden');
+            modal?.classList.remove('flex');
+            menuContent?.classList.add('translate-x-full');
+            menuContent?.classList.remove('translate-x-0');
+            overlay?.classList.add('hidden');
             document.body.style.overflow = '';
-        }
+        };
 
-        // --- 返回顶部 ---
-        if (action === 'scroll-to-top') {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+        switch (action) {
+            case 'toggle-mobile-menu':
+                if (menuContent && overlay) {
+                    const isOpening = menuContent.classList.contains('translate-x-full');
+                    if (isOpening) {
+                        menuContent.classList.remove('translate-x-full');
+                        menuContent.classList.add('translate-x-0');
+                        overlay.classList.remove('hidden');
+                        document.body.style.overflow = 'hidden';
+                    } else {
+                        internalCloseAll();
+                    }
+                }
+                break;
+
+            case 'toggle-mobile-submenu':
+                e.preventDefault();
+                const submenu = document.getElementById('mobile-submenu');
+                const icon = targetEl.querySelector('.submenu-icon') || document.getElementById('submenu-icon');
+                if (submenu) {
+                    const isHidden = submenu.classList.toggle('hidden');
+                    if (icon) icon.style.transform = isHidden ? 'rotate(0deg)' : 'rotate(180deg)';
+                }
+                break;
+
+            case 'open-modal':
+                // 优化：打开表单时先强制关闭移动端菜单，防止遮挡
+                if (menuContent && !menuContent.classList.contains('translate-x-full')) {
+                    menuContent.classList.add('translate-x-full');
+                    menuContent.classList.remove('translate-x-0');
+                    overlay?.classList.add('hidden');
+                }
+
+                if (modal) {
+                    modal.classList.remove('hidden');
+                    modal.classList.add('flex');
+                    document.body.style.overflow = 'hidden';
+
+                    if (productName) {
+                        const select = modal.querySelector('#productSelect');
+                        const emailSubject = modal.querySelector('input[name="subject"]');
+                        if (select) {
+                            let matched = false;
+                            const searchName = productName.trim().toLowerCase();
+                            for (let i = 0; i < select.options.length; i++) {
+                                const opt = select.options[i];
+                                if (opt.value.toLowerCase().includes(searchName) || opt.text.toLowerCase().includes(searchName)) {
+                                    select.selectedIndex = i;
+                                    matched = true;
+                                    break;
+                                }
+                            }
+                            if (!matched) select.value = productName;
+                        }
+                        if (emailSubject) emailSubject.value = `New Inquiry: ${productName}`;
+                    }
+                }
+                break;
+
+            case 'close-modal':
+            case 'close-mobile':
+                internalCloseAll();
+                break;
+
+            case 'scroll-to-top':
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                break;
         }
     });
 
     // === 4. 其它辅助逻辑 ===
+    // 滚动监听返回顶部按钮 (使用 passive 提高滚动性能)
     window.addEventListener('scroll', () => {
         const btn = document.getElementById('backToTop');
         if (btn) {
@@ -141,6 +156,13 @@ document.addEventListener('DOMContentLoaded', () => {
             else btn.classList.remove('show');
         }
     }, { passive: true });
+
+    // 处理键盘 ESC 关闭
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            document.querySelectorAll('[data-action="close-modal"], [data-action="close-mobile"]')[0]?.click();
+        }
+    });
 });
 
 /**
