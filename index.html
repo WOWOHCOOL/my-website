@@ -17,17 +17,33 @@
         /* 导航栏样式：防止页面加载时顶部塌陷 */
         header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(255,255,255,0.8); backdrop-filter: blur(12px); border-bottom: 1px solid #f1f5f9; height: 80px; }
         
-        /* Logo 与 橙色下划线样式 */
-        .logo-container { position: relative; display: inline-block; font-weight: 900; font-style: italic; text-transform: uppercase; letter-spacing: -0.05em; font-size: 1.5rem; }
-        .underline-gradient-orange { position: relative; display: inline-block; color: #002d5b; }
-        .underline-gradient-orange::after { 
-            content: ""; position: absolute; bottom: -8px; left: 0; width: 100%; height: 2px; 
-            background: linear-gradient(to right, #FF6B00 0%, rgba(255,107,0,0.4) 70%, transparent 100%); 
-        }
-        .text-brandOrange { color: #FF6B00; }
+        /* Logo 基础布局：去掉 color 定义 */
+    .logo-container { 
+        position: relative; 
+        display: inline-block; 
+        font-weight: 900; 
+        font-style: italic; 
+        text-transform: uppercase; 
+        letter-spacing: -0.05em; 
+        font-size: 1.5rem; 
+    }
 
-        /* 首屏 H1 基础样式：防止字体未加载时的排版错乱 */
-        h1 { font-weight: 900; font-style: italic; text-transform: uppercase; color: #002d5b; line-height: 1.05; margin-bottom: 2rem; }
+    /* 仅保留定位，删除 color: #002d5b */
+    .underline-gradient-orange { 
+        position: relative; 
+        display: inline-block; 
+        /* 这里不要写 color，交给 HTML 处理 */
+    }
+
+    .underline-gradient-orange::after { 
+        content: ""; 
+        position: absolute; 
+        bottom: -8px; 
+        left: 0; 
+        width: 100%; 
+        height: 2px; 
+        background: linear-gradient(to right, #FF6B00 0%, rgba(255,107,0,0.4) 70%, transparent 100%); 
+    }
     </style>
 	<link rel="preload" href="style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="style.css"></noscript>
