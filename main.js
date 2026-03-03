@@ -1,179 +1,307 @@
-/* main.js 优化版 */
+/* main.js
+   - Event delegation using data-action / data-product
+   - Modal focus-trap (Tab loop), Esc to close, restore previous focus
+   - Back-to-top show/hide and scroll-to-top
+   - Mobile menu open/close
+   - Counter & reveal basic observers
+   Place this file next to about.html/index.html and include via <script src="main.js" defer></script>
+*/
 
-document.addEventListener('DOMContentLoaded', () => {
-    // === 1. 自动处理导航高亮 ===
-    const currentPath = window.location.pathname.split("/").pop() || 'index.html';
-    document.querySelectorAll('.nav-link').forEach(link => {
-        if (link.getAttribute('href') === currentPath) link.classList.add('active');
-    });
+/* Helper - find focusable elements */
+function getFocusableElements(container) {
+  if (!container) return [];
+  const selectors = [
+    'a[href]',
+    'area[href]',
+    'input:not([disabled]):not([type="hidden"])',
+    'select:not([disabled])',
+    'textarea:not([disabled])',
+    'button:not([disabled])',
+    'iframe',
+    'object',
+    'embed',
+    '[contenteditable]',
+    '[tabindex]:not([tabindex="-1"])'
+  ];
+  return Array.from(container.querySelectorAll(selectors.join(','))).filter(el => {
+    return (el.offsetWidth > 0 || el.offsetHeight > 0) || el === document.activeElement;
+  });
+}
 
-    // === 2. 滚动显示 (Reveal) & 数字增长 (Counter) ===
-    const observerOptions = { 
-        threshold: 0.1,
-        rootMargin: "0px 0px -50px 0px" 
-    };
-    
-    const globalObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const target = entry.target;
-                // 处理容器显现
-                if (target.classList.contains('reveal')) {
-                    target.classList.add('active');
-                    globalObserver.unobserve(target); 
-                }
-                // 处理数字滚动
-                if (target.classList.contains('counter')) {
-                    startCounter(target);
-                    globalObserver.unobserve(target);
-                }
-            }
-        });
-    }, observerOptions);
+/* Back-to-top */
+function scrollToTop() {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+function updateBackToTopVisibility() {
+  const btn = document.getElementById('backToTop');
+  if (!btn) return;
+  if (window.scrollY > 600) btn.classList.add('show');
+  else btn.classList.remove('show');
+}
+let scrollTimeout;
+window.addEventListener('scroll', () => {
+  if (scrollTimeout) return;
+  scrollTimeout = setTimeout(() => {
+    updateBackToTopVisibility();
+    scrollTimeout = null;
+  }, 100);
+}, { passive: true });
+document.addEventListener('DOMContentLoaded', updateBackToTopVisibility);
 
-    document.querySelectorAll('.reveal, .counter').forEach(el => globalObserver.observe(el));
+/* Modal focus-trap */
+let lastFocusedElementBeforeModal = null;
+let modalKeydownHandler = null;
 
-    // 数字滚动逻辑 (优化性能与显示格式)
-    function startCounter(el) {
-        const target = +el.getAttribute('data-target') || 0;
-        const duration = 1500;
-        let startTimestamp = null;
+function openModal(productName = '') {
+  const modal = document.getElementById('inquiryModal');
+  const main = document.getElementById('main-content') || document.querySelector('main');
+  if (!modal) return;
 
-        const step = (timestamp) => {
-            if (!startTimestamp) startTimestamp = timestamp;
-            const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-            const currentCount = Math.floor(progress * target);
-            
-            if (progress < 1) {
-                el.innerText = currentCount;
-                window.requestAnimationFrame(step);
-            } else {
-                // 最终格式化显示
-                el.innerText = target >= 1000 ? Math.floor(target / 1000) + 'k+' : target + '+';
-            }
-        };
-        window.requestAnimationFrame(step);
-    }
+  // --- 优化后的产品预选逻辑 (保持 100% 兼容) ---
+  const select = modal.querySelector('#productSelect');
+  // 这里的 ID 建议与 HTML 里的隐藏域 ID 对应，若 HTML 里没有此 ID，该行会自动跳过不报错
+  const emailSubject = modal.querySelector('input[name="subject"]'); 
 
-    // === 3. 统一点击事件委托 ===
-    document.addEventListener('click', (e) => {
-        const targetEl = e.target.closest('[data-action]');
-        if (!targetEl) return;
+  if (select) {
+    if (productName) {
+      let matched = false;
+      const searchName = productName.trim().toLowerCase();
+      
+      // 循环匹配：支持 Value 匹配或 Text 模糊匹配
+      for (let i = 0; i < select.options.length; i++) {
+        const option = select.options[i];
+        const optValue = option.value.toLowerCase();
+        const optText = option.text.toLowerCase();
 
-        const action = targetEl.getAttribute('data-action');
-        const productName = targetEl.getAttribute('data-product') || '';
-        
-        const menuContent = document.getElementById('mobile-menu-content');
-        const overlay = document.getElementById('mobile-menu-overlay');
-        const modal = document.getElementById('inquiryModal');
+        // 只要选项的值或文字包含点击的产品名，就选中
+        if (optValue.includes(searchName) || optText.includes(searchName)) {
+          select.selectedIndex = i;
+          matched = true;
+          break;
+        }
+      }
 
-        // 统一关闭函数（复用逻辑）
-        const internalCloseAll = () => {
-            modal?.classList.add('hidden');
-            modal?.classList.remove('flex');
-            menuContent?.classList.add('translate-x-full');
-            menuContent?.classList.remove('translate-x-0');
-            overlay?.classList.add('hidden');
-            document.body.style.overflow = '';
-        };
+      // 同步更新 Web3Forms 的邮件主题
+      if (emailSubject) {
+        emailSubject.value = `New Inquiry: ${productName}`;
+      }
+    } else {
+      // 如果没有传参，重置为第一项（General Inquiry）
+      select.selectedIndex = 0;
+      if (emailSubject) emailSubject.value = "General Inquiry from Website";
+    }
+  }
+  // --- 预选逻辑结束 ---
 
-        switch (action) {
-            case 'toggle-mobile-menu':
-                if (menuContent && overlay) {
-                    const isOpening = menuContent.classList.contains('translate-x-full');
-                    if (isOpening) {
-                        menuContent.classList.remove('translate-x-full');
-                        menuContent.classList.add('translate-x-0');
-                        overlay.classList.remove('hidden');
-                        document.body.style.overflow = 'hidden';
-                    } else {
-                        internalCloseAll();
-                    }
-                }
-                break;
+  lastFocusedElementBeforeModal = document.activeElement;
 
-            case 'toggle-mobile-submenu':
-                e.preventDefault();
-                const submenu = document.getElementById('mobile-submenu');
-                const icon = targetEl.querySelector('.submenu-icon') || document.getElementById('submenu-icon');
-                if (submenu) {
-                    const isHidden = submenu.classList.toggle('hidden');
-                    if (icon) icon.style.transform = isHidden ? 'rotate(0deg)' : 'rotate(180deg)';
-                }
-                break;
+  // 核心显示逻辑：使用 flex 覆盖 hidden
+  modal.classList.remove('hidden');
+  modal.classList.add('flex');
+  modal.setAttribute('aria-hidden', 'false');
 
-            case 'open-modal':
-                // 优化：打开表单时先强制关闭移动端菜单，防止遮挡
-                if (menuContent && !menuContent.classList.contains('translate-x-full')) {
-                    menuContent.classList.add('translate-x-full');
-                    menuContent.classList.remove('translate-x-0');
-                    overlay?.classList.add('hidden');
-                }
+  // 辅助功能：防止背景滚动和主内容干扰
+  if (main) {
+    main.setAttribute('aria-hidden', 'true');
+    if ('inert' in HTMLElement.prototype) main.inert = true;
+    else main.dataset.inert = 'true';
+  }
 
-                if (modal) {
-                    modal.classList.remove('hidden');
-                    modal.classList.add('flex');
-                    document.body.style.overflow = 'hidden';
+  // 自动聚焦
+  const focusables = getFocusableElements(modal);
+  if (focusables.length) focusables[0].focus();
+  else modal.focus();
 
-                    if (productName) {
-                        const select = modal.querySelector('#productSelect');
-                        const emailSubject = modal.querySelector('input[name="subject"]');
-                        if (select) {
-                            let matched = false;
-                            const searchName = productName.trim().toLowerCase();
-                            for (let i = 0; i < select.options.length; i++) {
-                                const opt = select.options[i];
-                                if (opt.value.toLowerCase().includes(searchName) || opt.text.toLowerCase().includes(searchName)) {
-                                    select.selectedIndex = i;
-                                    matched = true;
-                                    break;
-                                }
-                            }
-                            if (!matched) select.value = productName;
-                        }
-                        if (emailSubject) emailSubject.value = `New Inquiry: ${productName}`;
-                    }
-                }
-                break;
+  // 键盘监听逻辑 (保持不变)
+  modalKeydownHandler = function(e) {
+    if (e.key === 'Escape') {
+      e.preventDefault();
+      closeModal();
+      return;
+    }
+    if (e.key === 'Tab') {
+      const f = getFocusableElements(modal);
+      if (!f.length) { e.preventDefault(); return; }
+      const first = f[0];
+      const last = f[f.length - 1];
+      if (e.shiftKey) {
+        if (document.activeElement === first) { e.preventDefault(); last.focus(); }
+      } else {
+        if (document.activeElement === last) { e.preventDefault(); first.focus(); }
+      }
+    }
+  };
+  document.addEventListener('keydown', modalKeydownHandler, true);
+}
 
-            case 'close-modal':
-            case 'close-mobile':
-                internalCloseAll();
-                break;
+function closeModal() {
+  const modal = document.getElementById('inquiryModal');
+  const main = document.getElementById('main-content') || document.querySelector('main');
+  if (!modal) return;
 
-            case 'scroll-to-top':
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-                break;
-        }
-    });
+  modal.classList.add('hidden');
+  modal.classList.remove('flex');
+  modal.setAttribute('aria-hidden', 'true');
 
-    // === 4. 其它辅助逻辑 ===
-    // 滚动监听返回顶部按钮 (使用 passive 提高滚动性能)
-    window.addEventListener('scroll', () => {
-        const btn = document.getElementById('backToTop');
-        if (btn) {
-            if (window.scrollY > 600) btn.classList.add('show');
-            else btn.classList.remove('show');
-        }
-    }, { passive: true });
+  if (main) {
+    main.removeAttribute('aria-hidden');
+    if ('inert' in HTMLElement.prototype) main.inert = false;
+    else delete main.dataset.inert;
+  }
 
-    // 处理键盘 ESC 关闭
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') {
-            document.querySelectorAll('[data-action="close-modal"], [data-action="close-mobile"]')[0]?.click();
-        }
-    });
+  if (lastFocusedElementBeforeModal && typeof lastFocusedElementBeforeModal.focus === 'function') {
+    lastFocusedElementBeforeModal.focus();
+  }
+
+  if (modalKeydownHandler) {
+    document.removeEventListener('keydown', modalKeydownHandler, true);
+    modalKeydownHandler = null;
+  }
+}
+
+function toggleModal(productName = '') {
+  const modal = document.getElementById('inquiryModal');
+  if (!modal) return;
+  if (modal.classList.contains('hidden')) openModal(productName);
+  else closeModal();
+}
+
+/* Mobile menu */
+function isMobileMenuOpen() {
+  const menu = document.getElementById('mobile-menu-content');
+  if (!menu) return false;
+  return !menu.classList.contains('translate-x-full');
+}
+function openMobileMenu() {
+  const overlay = document.getElementById('mobile-menu');
+  const menu = document.getElementById('mobile-menu-content');
+  if (overlay) {
+    overlay.classList.remove('opacity-0');
+    overlay.classList.remove('pointer-events-none');
+    overlay.setAttribute('aria-hidden', 'false');
+  }
+  if (menu) {
+    menu.classList.remove('translate-x-full');
+    menu.setAttribute('aria-hidden', 'false');
+  }
+  document.body.style.overflow = 'hidden';
+}
+function closeMobileMenu() {
+  const overlay = document.getElementById('mobile-menu');
+  const menu = document.getElementById('mobile-menu-content');
+  if (overlay) {
+    overlay.classList.add('opacity-0');
+    overlay.classList.add('pointer-events-none');
+    overlay.setAttribute('aria-hidden', 'true');
+  }
+  if (menu) {
+    menu.classList.add('translate-x-full');
+    menu.setAttribute('aria-hidden', 'true');
+  }
+  document.body.style.overflow = 'auto';
+}
+function toggleMobileMenu() {
+  if (isMobileMenuOpen()) closeMobileMenu();
+  else openMobileMenu();
+}
+
+/* Data-action event delegation */
+document.addEventListener('click', (e) => {
+  const el = e.target.closest('[data-action]');
+  if (!el) return;
+  const actions = (el.getAttribute('data-action') || '').split(/\s+/).filter(Boolean);
+  const product = el.getAttribute('data-product') || '';
+  actions.forEach(action => {
+    switch (action) {
+      case 'open-modal':
+        openModal(product);
+        break;
+      case 'close-modal':
+        closeModal();
+        break;
+      case 'toggle-mobile-menu':
+        toggleMobileMenu();
+        break;
+      case 'close-mobile':
+        closeMobileMenu();
+        break;
+      case 'toggle-mobile-submenu': {
+        const submenu = document.getElementById('mobile-submenu');
+        const icon = document.getElementById('submenu-icon');
+        if (!submenu) break;
+        const opened = !submenu.classList.contains('hidden');
+        if (opened) {
+          submenu.classList.add('hidden');
+          submenu.setAttribute('aria-hidden', 'true');
+          if (icon) icon.style.transform = 'rotate(0deg)';
+        } else {
+          submenu.classList.remove('hidden');
+          submenu.setAttribute('aria-hidden', 'false');
+          if (icon) icon.style.transform = 'rotate(180deg)';
+        }
+        break;
+      }
+      case 'scroll-to-top':
+        scrollToTop();
+        break;
+      default:
+        break;
+    }
+  });
 });
 
-/**
- * 兼容旧版的全局调用函数
- */
-function openModal(productName = '') {
-    const btn = document.createElement('button');
-    btn.setAttribute('data-action', 'open-modal');
-    btn.setAttribute('data-product', productName);
-    btn.style.display = 'none';
-    document.body.appendChild(btn);
-    btn.click();
-    btn.remove();
-}   
+/* Keyboard: Escape closes modal or mobile menu */
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    const modal = document.getElementById('inquiryModal');
+    if (modal && !modal.classList.contains('hidden')) {
+      closeModal();
+      return;
+    }
+    if (isMobileMenuOpen()) {
+      closeMobileMenu();
+      return;
+    }
+  }
+});
+
+/* Reveal on scroll & Counters (optimized) */
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('active');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+  const counterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const c = entry.target;
+        const target = +c.getAttribute('data-target') || 0;
+        let current = 0;
+        const steps = 60;
+        const increment = Math.max(1, Math.ceil(target / steps));
+        const timer = setInterval(() => {
+          current += increment;
+          if (current >= target) {
+            c.innerText = (target >= 1000 ? (Math.round(target/100)/10 + 'k') : target) + '+';
+            clearInterval(timer);
+          } else {
+            c.innerText = Math.ceil(current);
+          }
+        }, 30);
+        counterObserver.unobserve(c);
+      }
+    });
+  }, { threshold: 0.6 });
+
+  document.querySelectorAll('.counter').forEach(el => counterObserver.observe(el));
+
+  // ensure back-to-top visibility initial check
+  updateBackToTopVisibility();
+});
