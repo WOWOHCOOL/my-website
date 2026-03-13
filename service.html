@@ -22,52 +22,18 @@
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
     
-    <!-- Structured Data - Schema.org 服务信息 -->
-    <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Service",
-  "serviceType": "OEM/ODM Manufacturing",
-  "provider": {
-    "@type": "Organization",
-    "name": "WOWOHCOOL"
-  },
-  "areaServed": "Global",
-  "description": "Complete OEM/ODM solutions for charging accessories with design, prototyping, and mass production."
-}
-    </script>
-
     <!-- ========================================================================
          第三方库引入 - External Libraries
          ======================================================================== -->
-    <script src="https://cdn.tailwindcss.com"></script>   <!-- Tailwind CSS 样式框架 -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">  <!-- Font Awesome 图标库 -->
-    <link rel="stylesheet" href="style.css">             <!-- 自定义样式 -->
+    <link rel="stylesheet" href="dist/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="style.css" media="print" onload="this.media='all'">
     
-    <!-- ========================================================================
-         网站图标 - Favicon
-         ======================================================================== -->
-    <link rel="icon" type="image/png" href="image/favicon.png">
-    <link rel="shortcut icon" href="image/favicon.png" type="image/x-icon">
-    <link rel="apple-touch-icon" sizes="180x180" href="image/apple-touch-icon.png">
-
-    <!-- ========================================================================
-         Tailwind CSS 配置 - 自定义品牌颜色
-         ======================================================================== -->
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        brandBlue: '#003366',
-                        brandOrange: '#FF6600',
-                        darkBg: '#020b1a',
-                    }
-                }
-            }
-        }
-    </script>
-
+    <!-- Google Fonts 字体预加载 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" as="style">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -82,7 +48,7 @@
       "description": "Custom R&D, design, and mass production for wireless charging and power solution products."
     }
     </script>
-	 <!-- Fonts: preconnect + stylesheet (moved from @import) -->
+    <!-- Fonts: preconnect + stylesheet (moved from @import) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
@@ -112,7 +78,7 @@
             </div>
             <div class="flex items-center gap-4">
                 <button data-action="open-modal" class="bg-brandOrange text-white px-7 py-2.5 rounded-full text-[10px] font-black uppercase tracking-widest hover:scale-105 transition shadow-lg">Get Quote</button>
-                <button data-action="toggle-mobile-menu" class="lg:hidden text-brandBlue text-2xl"><i class="fa-solid fa-bars-staggered"></i></button>
+                <button data-action="toggle-mobile-menu" class="lg:hidden text-brandBlue text-2xl" aria-label="Open mobile menu"><i class="fa-solid fa-bars-staggered"></i></button>
             </div>
         </nav>
     </header>
@@ -125,7 +91,7 @@
                 WOWOH<span class="text-brandOrange">COOL</span>
             </div>
         </a>
-        <button data-action="close-mobile" class="text-white text-3xl p-2 hover:rotate-90 transition-transform duration-300">
+        <button data-action="close-mobile" class="text-white text-3xl p-2 hover:rotate-90 transition-transform duration-300" aria-label="Close mobile menu">
             <i class="fa-solid fa-xmark"></i>
         </button>
     </div>
@@ -135,7 +101,7 @@
         <a href="about.html" class="block py-2 hover:text-brandOrange transition border-b border-white/5">About Factory</a>
         
         <div class="space-y-4">
-            <button data-action="toggle-mobile-submenu" class="w-full flex justify-between items-center py-2 hover:text-brandOrange transition border-b border-white/5 uppercase">
+            <button data-action="toggle-mobile-submenu" class="w-full flex justify-between items-center py-2 hover:text-brandOrange transition border-b border-white/5 uppercase" aria-label="Toggle products submenu">
                 Products <i id="submenu-icon" class="fa-solid fa-chevron-down text-xs transition-transform duration-300"></i>
             </button>
             <div id="mobile-submenu" class="hidden pl-4 space-y-4 border-l-2 border-brandOrange/30 ml-1">
@@ -158,28 +124,32 @@
   <!-- main start (fixed missing tag) -->
     <main id="main-content">
 		 
-    <section class="relative pt-40 pb-24 bg-darkBg text-white overflow-hidden">
-        <div class="absolute inset-0 opacity-10">
-            <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-                <defs><pattern id="gridPattern" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="white" stroke-width="0.5"/></pattern></defs>
-                <rect width="100%" height="100%" fill="url(#gridPattern)" />
-            </svg>
+        <!-- ========================================================================
+             HERO SECTION - 首屏英雄区域
+             ======================================================================== -->
+    <section class="relative pt-24 md:pt-32 pb-8 bg-white text-slate-900 overflow-hidden min-h-[calc(100vh-90px)] md:min-h-[calc(100vh-80px)] lg:min-h-screen flex items-center">
+        <div class="absolute inset-0 z-0 pointer-events-none">
+            <div class="absolute top-0 left-0 w-64 h-64 bg-brandOrange opacity-20 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
+            <div class="absolute bottom-0 right-0 w-64 h-64 bg-blue-500 opacity-20 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
         </div>
         <div class="max-w-7xl mx-auto px-6 relative z-10 text-center">
-            <div class="badge-capsule mb-6 mx-auto border-white/20 text-white/80 uppercase tracking-widest">One-Stop Solution</div>
-            <h1 class="text-4xl md:text-5xl lg:text-6xl font-black uppercase italic tracking-tighter leading-tight mb-6">
-                Professional <span class="text-brandOrange text-stroke-thin">OEM/ODM</span> <br>Manufacturing Services
+            <div class="badge-capsule mb-6 mx-auto uppercase tracking-widest">One-Stop Solution</div>
+<h1 class="text-4xl md:text-5xl lg:text-6xl font-black text-brandBlue uppercase italic tracking-tighter leading-tight mb-6">
+                Professional <span class="text-brandOrange">OEM/ODM</span> <br>Manufacturing Services
             </h1>
-            <p class="text-slate-400 max-w-2xl mx-auto text-lg mb-12">
+            <p class="text-slate-600 max-w-2xl mx-auto text-lg mb-12">
                 From concept to mass production. We help brands launch custom wireless chargers, power banks, and car chargers with our China factory's 10+ years manufacturing experience.
             </p>
             <div class="flex flex-wrap justify-center gap-4">
                 <button onclick="toggleModal('OEM Inquiry')" class="bg-brandOrange text-white px-8 py-4 rounded-xl font-black uppercase tracking-widest text-sm shadow-xl hover:-translate-y-1 transition">Start Your Project</button>
-                <a href="#workflow" class="border-2 border-white/20 text-white px-10 py-5 rounded-xl font-black uppercase tracking-widest text-sm hover:bg-white hover:text-brandBlue transition">Our Workflow</a>
+                <a href="#workflow" class="border-2 border-brandBlue text-brandBlue px-10 py-5 rounded-xl font-black uppercase tracking-widest text-sm hover:bg-brandBlue hover:text-white transition">Our Workflow</a>
             </div>
         </div>
     </section>
 
+    <!-- ========================================================================
+         OEM VS ODM SECTION - OEM与ODM对比区域
+         ======================================================================== -->
    <section class="py-20 bg-white">
     <div class="max-w-7xl mx-auto px-6">
         <div class="text-center max-w-3xl mx-auto mb-16">
@@ -263,9 +233,12 @@
             </div>
         </div>
     </div>
-</section>
+    </section>
 	
-	<section id="workflow" class="py-24 bg-slate-50 overflow-hidden">
+        <!-- ========================================================================
+         WORKFLOW SECTION - 工作流程区域
+         ======================================================================== -->
+ 	<section id="workflow" class="py-24 bg-slate-50 overflow-hidden">
     <div class="max-w-7xl mx-auto px-6">
         <div class="text-center max-w-3xl mx-auto mb-20 reveal">
             <div class="badge-capsule mb-6 mx-auto uppercase tracking-widest">Efficiency & Precision</div>
@@ -351,8 +324,11 @@
             <button onclick="toggleModal('Process Consultation')" class="bg-brandOrange text-white px-8 py-4 rounded-xl font-black uppercase tracking-widest text-[11px] hover:bg-brandOrange/90 transition-all duration-300">Request Custom Timeline</button>
         </div>
     </div>
-</section>
+    </section>
 
+    <!-- ========================================================================
+         CUSTOMIZATION SECTION - 定制服务区域
+         ======================================================================== -->
    <section class="py-24 bg-white overflow-hidden">
     <div class="max-w-7xl mx-auto px-6">
         <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 reveal">
@@ -467,9 +443,12 @@
     </div>
 </div>
     </div>
-</section>
+    </section>
 	
-	<section class="py-24 bg-slate-50">
+        <!-- ========================================================================
+         FACTORY CAPABILITY SECTION - 工厂能力区域
+         ======================================================================== -->
+ 	<section class="py-24 bg-slate-50">
     <div class="max-w-7xl mx-auto px-6">
         <div class="text-center max-w-3xl mx-auto mb-20 reveal">
             <h2 class="text-4xl lg:text-5xl font-black text-brandBlue uppercase italic tracking-tighter mb-6">
@@ -572,9 +551,12 @@
             </button>
         </div>
     </div>
-</section>
+    </section>
 	
-	<section id="contact-section" class="py-28 bg-brandBlue text-white reveal">
+        <!-- ========================================================================
+         CONTACT SECTION - 联系区域
+         ======================================================================== -->
+ 	<section id="contact-section" class="py-28 bg-brandBlue text-white reveal">
         <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-20 items-center">
             <div>
                 <h2 class="text-5xl font-black mb-10 uppercase italic leading-tight">Ready to Start <br> Your <span class="text-brandOrange">Project?</span></h2>

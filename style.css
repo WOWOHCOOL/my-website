@@ -48,30 +48,47 @@
    页面顶部的蓝色胶囊徽章（带脉冲动画）
    ======================================================================== */
 
+/* 浅色背景的徽章样式 */
+.bg-slate-50 .badge-capsule,
+.bg-white .badge-capsule {
+    border: 1.5px solid rgba(0, 0, 0, 0.15);
+    background: rgba(0, 0, 0, 0.03);
+    color: #0A192F;
+}
+
+/* 深色背景的徽章样式（默认） */
 .badge-capsule {
-    border: 1.5px solid #003366;
-    background: rgba(0, 51, 102, 0.03);
-    color: #003366;
-    padding: 6px 20px 6px 38px;
+    border: 1.5px solid rgba(255, 255, 255, 0.3);
+    background: rgba(255, 107, 0, 0.15);
+    color: #FFFFFF;
+    padding: 8px 24px 8px 40px;
     border-radius: 999px;
-    font-size: 10px;
+    font-size: 11px;
     font-weight: 900;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.15em;
     position: relative;
     display: inline-flex;
     align-items: center;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.3);
 }
 
-/* 徽章左侧的橙色圆点 */
+/* 浅色背景时橙色圆点 */
+.bg-slate-50 .badge-capsule::before,
+.bg-white .badge-capsule::before {
+    background-color: #FF6B00;
+    box-shadow: 0 0 10px #FF6B00;
+}
+
+/* 深色背景时橙色圆点 */
 .badge-capsule::before {
     content: ''; 
     position: absolute; 
-    left: 16px; 
+    left: 18px; 
     width: 10px; 
     height: 10px;
-    background-color: #FF6600; 
+    background-color: #FF6B00; 
     border-radius: 50%; 
-    box-shadow: 0 0 10px #FF6600;
+    box-shadow: 0 0 12px #FF6B00, 0 0 20px rgba(255, 107, 0, 0.5);
     animation: pulse 2s infinite;
 }
 

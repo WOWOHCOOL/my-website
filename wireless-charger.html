@@ -24,16 +24,17 @@
     
     <!-- Structured Data - Schema.org 产品信息 -->
     <!-- Structured Data for GEO -->
- <script type="application/ld+json">
+  <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Product",
   "name": "WOWOHCOOL Wireless Chargers",
   "description": "Qi-certified fast wireless chargers with MagSafe compatibility for wholesale and OEM/ODM.",
+  "image": "https://www.wowohcool.com/image/product/wow93-folding-charger.webp",
   "brand": {"@type": "Brand", "name": "WOWOHCOOL"},
-  "offers": {"@type": "Offer", "priceCurrency": "USD", "availability": "https://schema.org/InStock"}
+  "offers": {"@type": "Offer", "priceCurrency": "USD", "availability": "https://schema.org/InStock", "priceRange": "$5 - $50"}
 }
-    </script>
+  </script>
 
     <!-- ========================================================================
          网站图标 - Favicon
@@ -45,29 +46,14 @@
     <!-- ========================================================================
          第三方库引入 - External Libraries
          ======================================================================== -->
-    <script src="https://cdn.tailwindcss.com"></script>   <!-- Tailwind CSS 样式框架 -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">  <!-- Font Awesome 图标库 -->
-    <link rel="stylesheet" href="style.css">             <!-- 自定义样式 -->
+    <link rel="stylesheet" href="dist/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="style.css" media="print" onload="this.media='all'">
 
-    <!-- ========================================================================
-         Tailwind CSS 配置 - 自定义品牌颜色
-         ======================================================================== -->
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        brandBlue: '#003366',
-                        brandOrange: '#FF6600',
-                        darkBg: '#020b1a',
-                    }
-                }
-            }
-        }
-    </script>
-	 <!-- Fonts: preconnect + stylesheet (moved from @import) -->
+    <!-- Fonts: preconnect + stylesheet -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" as="style">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
 
 </head>
@@ -97,7 +83,7 @@
             </div>
             <div class="flex items-center gap-4">
                 <button data-action="open-modal" class="bg-brandOrange text-white px-7 py-2.5 rounded-full text-[10px] font-black uppercase tracking-widest hover:scale-105 transition shadow-lg">Get Quote</button>
-                <button data-action="toggle-mobile-menu" class="lg:hidden text-brandBlue text-2xl"><i class="fa-solid fa-bars-staggered"></i></button>
+                <button data-action="toggle-mobile-menu" class="lg:hidden text-brandBlue text-2xl" aria-label="Open mobile menu"><i class="fa-solid fa-bars-staggered"></i></button>
             </div>
         </nav>
     </header>
@@ -111,7 +97,7 @@
                 WOWOH<span class="text-brandOrange">COOL</span>
             </div>
         </a>
-        <button data-action="close-mobile" class="text-white text-3xl p-2 hover:rotate-90 transition-transform duration-300">
+        <button data-action="close-mobile" class="text-white text-3xl p-2 hover:rotate-90 transition-transform duration-300" aria-label="Close mobile menu">
             <i class="fa-solid fa-xmark"></i>
         </button>
     </div>
@@ -121,7 +107,7 @@
         <a href="about.html" class="block py-2 hover:text-brandOrange transition border-b border-white/5">About Factory</a>
         
         <div class="space-y-4">
-            <button data-action="toggle-mobile-submenu" class="w-full flex justify-between items-center py-2 hover:text-brandOrange transition border-b border-white/5 uppercase">
+            <button data-action="toggle-mobile-submenu" class="w-full flex justify-between items-center py-2 hover:text-brandOrange transition border-b border-white/5 uppercase" aria-label="Toggle products submenu">
                 Products <i id="submenu-icon" class="fa-solid fa-chevron-down text-[10px] transition-transform duration-300"></i>
             </button>
             <div id="mobile-submenu" class="hidden pl-4 space-y-4 border-l-2 border-brandOrange/30 ml-1">
@@ -141,67 +127,78 @@
         </div>
     </nav>
 </div>
-    <main class="pt-20">
+    <main id="main-content" class="pt-20">
 		
-		<section class="relative pt-40 pb-24 bg-brandBlue overflow-hidden">
-        <div class="absolute inset-0 opacity-10">
-            <div class="absolute top-0 right-0 w-96 h-96 bg-brandOrange rounded-full blur-3xl translate-x-1/2 -translate-y-1/2"></div>
+        <!-- ========================================================================
+             HERO SECTION - 首屏英雄区域
+             ======================================================================== -->
+		<section class="relative min-h-[calc(100vh-90px)] md:min-h-[calc(100vh-80px)] lg:min-h-screen flex items-center justify-center bg-white overflow-hidden">
+        <div class="absolute inset-0 z-0 pointer-events-none">
+            <div class="absolute top-0 left-0 w-64 h-64 bg-brandOrange opacity-20 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
+            <div class="absolute bottom-0 right-0 w-64 h-64 bg-blue-500 opacity-20 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
         </div>
-        <div class="max-w-7xl mx-auto px-6 relative z-10 text-center">
-            <div class="badge-capsule mb-6 mx-auto border-white/20 text-white/80 uppercase tracking-widest">Qi-Certified Manufacturer
+        <div class="max-w-7xl mx-auto px-6 relative z-10 text-center py-12 lg:py-12">
+            <div class="badge-capsule mb-6 mx-auto uppercase tracking-widest">Qi-Certified Manufacturer
             </div>
-            <h1 class="text-4xl md:text-5xl lg:text-6xl font-black text-white uppercase italic tracking-tighter mb-6 reveal active"> Wireless Chargers <br><span class="text-brandOrange text-stroke-thin-white">Wholesale & OEM</span>
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-black text-brandBlue uppercase italic tracking-tighter mb-6 reveal active"> Wireless Chargers <br><span class="text-brandOrange">Wholesale & OEM</span>
             </h1>
-            <p class="max-w-2xl mx-auto text-slate-300 text-lg mb-10 reveal active">
+            <p class="max-w-2xl mx-auto text-slate-600 text-lg mb-10 reveal active">
                 5W-30W wireless chargers for home, office, and travel. Qi and MagSafe compatible. Ideal for hotel amenity, corporate gifts, and retail. Factory direct pricing. MOQ 500+. CE/FCC certified.
             </p>
             <div class="flex flex-wrap justify-center gap-4 reveal active">
                 <button data-action="open-modal" data-product="Wireless Charger Inquiry" class="bg-brandOrange text-white px-8 py-4 rounded-xl font-black uppercase tracking-widest text-sm shadow-xl hover:-translate-y-1 transition">
                     Get Custom Quote
                 </button>
-                <a href="#products" class="border border-white/20 text-white px-8 py-4 rounded-xl font-black uppercase tracking-widest text-sm hover:bg-white/10 transition-all">
+                <a href="#products" class="border-2 border-brandBlue text-brandBlue px-8 py-4 rounded-xl font-black uppercase tracking-widest text-sm hover:bg-brandBlue hover:text-white transition-all">
                     View New Arrivals
                 </a>
             </div>
         </div>
     </section>
 
-    <div class="bg-white border-b border-slate-100 py-8 relative z-20">
+    <div class="relative">
+        <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent"></div>
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-white border border-slate-200 rotate-45"></div>
+    </div>
+
+    <div class="bg-white pt-12 pb-8 relative z-20">
     <div class="max-w-7xl mx-auto px-6">
-        <div class="flex flex-wrap justify-center items-center gap-x-10 gap-y-6 md:gap-x-16">
+        <div class="pb-10 mb-10">
+            <div class="flex flex-wrap justify-center items-center gap-x-12 gap-y-6 md:gap-x-16">
             
-            <div class="flex flex-col items-center group">
-                <img src="image/qi-certified.svg" alt="Qi Certified Standard" class="h-6 w-auto mb-2 opacity-50 group-hover:opacity-100 transition-all">
+            <div class="flex items-center space-x-2 group">
+                <img src="image/qi-certified.svg" alt="Qi Certified Standard" class="h-5 w-auto opacity-50 group-hover:opacity-100 transition-opacity">
                 <span class="font-black text-brandBlue italic text-[9px] tracking-widest opacity-40 group-hover:opacity-100">QI CERTIFIED</span>
             </div>
 
-            <div class="flex flex-col items-center group">
-                <img src="image/magsafe-ready.svg" alt="MagSafe Compatible Technology" class="h-6 w-auto mb-2 opacity-50 group-hover:opacity-100 transition-all">
+            <div class="flex items-center space-x-2 group">
+                <img src="image/magsafe-ready.svg" alt="MagSafe Compatible Technology" class="h-5 w-auto opacity-50 group-hover:opacity-100 transition-opacity">
                 <span class="font-black text-brandBlue italic text-[9px] tracking-widest opacity-40 group-hover:opacity-100">MAGSAFE READY</span>
             </div>
 
-            <div class="group">
-            <img src="image/ce-certification.svg" alt="CE Certified - European Safety Standards" title="CE Mark" class="h-10 w-auto mb-3 mx-auto transition-transform group-hover:scale-110">
-            <p class="text-[10px] font-black tracking-widest uppercase text-brandBlue">CE Standard</p>
-            <span class="sr-only">European CE Safety and Health Certification</span>
-        </div>
+            <div class="flex items-center space-x-2 group">
+                <img src="image/ce-certification.svg" alt="CE Certified - European Safety Standards" class="h-5 w-auto opacity-50 group-hover:opacity-100 transition-opacity">
+                <span class="font-black text-brandBlue italic text-[9px] tracking-widest opacity-40 group-hover:opacity-100">CE COMPLIANT</span>
+            </div>
 
-        <div class="group">
-            <img src="image/fcc-compliance.svg" alt="FCC Compliant - United States Electronic Standards" title="FCC Mark" class="h-10 w-auto mb-3 mx-auto transition-transform group-hover:scale-110">
-            <p class="text-[10px] font-black tracking-widest uppercase text-brandBlue">FCC</p>
-            <span class="sr-only">FCC Electronic Compliance Certification for USA</span>
-        </div>
+            <div class="flex items-center space-x-2 group">
+                <img src="image/fcc-compliance.svg" alt="FCC Compliant - United States Electronic Standards" class="h-5 w-auto opacity-50 group-hover:opacity-100 transition-opacity">
+                <span class="font-black text-brandBlue italic text-[9px] tracking-widest opacity-40 group-hover:opacity-100">FCC CERTIFIED</span>
+            </div>
 
-        <div class="group">
-            <img src="image/rohs-compliant.svg" alt="RoHS Ready - Environmental Protection Standard" title="RoHS Mark" class="h-10 w-auto mb-3 mx-auto transition-transform group-hover:scale-110">
-            <p class="text-[10px] font-black tracking-widest uppercase text-brandBlue">RoHS</p>
-            <span class="sr-only">RoHS Environmental Compliance Certification</span>
-        </div>
+            <div class="flex items-center space-x-2 group">
+                <img src="image/rohs-compliant.svg" alt="RoHS Ready - Environmental Protection Standard" class="h-5 w-auto opacity-50 group-hover:opacity-100 transition-opacity">
+                <span class="font-black text-brandBlue italic text-[9px] tracking-widest opacity-40 group-hover:opacity-100">ROHS READY</span>
+            </div>
 
+            </div>
         </div>
     </div>
 </div>
     
+    <!-- ========================================================================
+         TECHNICAL SPECS SECTION - 技术参数区域
+         ======================================================================== -->
     <section class="py-24 bg-slate-900 text-white overflow-hidden">
         <div class="max-w-7xl mx-auto px-6">
             <div class="flex flex-col lg:flex-row gap-16 items-start">
@@ -255,6 +252,9 @@
         </div>
     </section>
 
+    <!-- ========================================================================
+         WHY CHOOSE US SECTION - 为什么选择我们区域
+         ======================================================================== -->
     <section class="py-20 bg-slate-50">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-16">
@@ -286,6 +286,9 @@
         </div>
     </section>
 
+    <!-- ========================================================================
+         PRODUCTS SHOWCASE SECTION - 产品展示区域
+         ======================================================================== -->
     <section id="products" class="py-24 bg-white relative">
     <div class="absolute bottom-0 left-0 w-1/3 h-1/2 bg-slate-50/50 -z-10 -skew-y-6"></div>
     <div class="max-w-7xl mx-auto px-6">
@@ -302,7 +305,7 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
                 <div class="group reveal">
     <div class="relative aspect-square rounded-3xl bg-slate-100 overflow-hidden mb-6">
-        <img src="image/product/wow93-folding-charger.webp" alt="WOW93 3-in-1 Magnetic Folding Wireless Charger Aluminum Alloy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+        <img src="image/product/wow93-folding-charger.webp" alt="WOW93 3-in-1 Magnetic Folding Wireless Charger Aluminum Alloy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async">
         <div class="absolute top-4 left-4 flex flex-col gap-2">
             <span class="bg-brandOrange text-white text-[10px] font-black px-3 py-1 rounded-full uppercase italic tracking-widest">Travel Essential</span>
             <span class="bg-slate-900 text-white text-[10px] font-black px-3 py-1 rounded-full uppercase italic tracking-widest text-center">Metal Build</span>
@@ -339,7 +342,7 @@
 
                 <div class="group reveal">
     <div class="relative aspect-square rounded-3xl bg-slate-100 overflow-hidden mb-6">
-        <img src="image/product/wow90-zinc-charger.webp" alt="WOW90 3-in-1 Zinc Alloy Folding Wireless Charger with Night Light" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+        <img src="image/product/wow90-zinc-charger.webp" alt="WOW90 3-in-1 Zinc Alloy Folding Wireless Charger with Night Light" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async">
         <div class="absolute top-4 left-4 flex flex-col gap-2">
             <span class="bg-brandOrange text-white text-[10px] font-black px-3 py-1 rounded-full uppercase italic tracking-widest">Zinc Alloy Series</span>
             <span class="bg-slate-900 text-white text-[10px] font-black px-3 py-1 rounded-full uppercase italic tracking-widest text-center">Folding + Light</span>
@@ -376,7 +379,7 @@
 
                 <div class="group reveal">
     <div class="relative aspect-square rounded-3xl bg-slate-100 overflow-hidden mb-6">
-        <img src="image/product/wow82-fold-charger.webp" alt="WOW82 3-in-1 Wireless Charger for Foldable Phones like Samsung Fold & Xiaomi MIX" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+        <img src="image/product/wow82-fold-charger.webp" alt="WOW82 3-in-1 Wireless Charger for Foldable Phones like Samsung Fold & Xiaomi MIX" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async">
         <div class="absolute top-4 left-4 flex flex-col gap-2">
             <span class="bg-brandOrange text-white text-[10px] font-black px-3 py-1 rounded-full uppercase italic tracking-widest">Fold-Series Expert</span>
             <span class="bg-slate-900 text-white text-[10px] font-black px-3 py-1 rounded-full uppercase italic tracking-widest text-center">Wide Area</span>
@@ -424,7 +427,7 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
                 <div class="group reveal">
     <div class="relative aspect-square rounded-3xl bg-slate-100 overflow-hidden mb-6">
-        <img src="image/product/wow10-qi2-charger.webp" alt="Qi2 25W Magnetic 3-in-1 Wireless Charger with Cooling Fan" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <img src="image/product/wow10-qi2-charger.webp" alt="Qi2 25W Magnetic 3-in-1 Wireless Charger with Cooling Fan" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async">
         <div class="absolute top-4 left-4 bg-brandOrange text-white text-[10px] font-black px-3 py-1 rounded-full uppercase italic tracking-widest">2025 New Arrival</div>
     </div>
 
@@ -458,7 +461,7 @@
 
                 <div class="group reveal">
     <div class="relative aspect-square rounded-3xl bg-slate-100 overflow-hidden mb-6">
-        <img src="image/product/wow18-nightlight-charger.webp" alt="WOW18 Qi2 25W Magnetic 3-in-1 Station with Night Light" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <img src="image/product/wow18-nightlight-charger.webp" alt="WOW18 Qi2 25W Magnetic 3-in-1 Station with Night Light" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async">
         <div class="absolute top-4 left-4 flex flex-col gap-2">
             <span class="bg-brandOrange text-white text-[10px] font-black px-3 py-1 rounded-full uppercase italic tracking-widest">Qi2 Certified</span>
             <span class="bg-slate-900 text-white text-[10px] font-black px-3 py-1 rounded-full uppercase italic tracking-widest text-center">Lifestyle</span>
@@ -494,7 +497,7 @@
 </div>
 				<div class="group reveal">
     <div class="relative aspect-square rounded-3xl bg-slate-100 overflow-hidden mb-6">
-        <img src="image/product/wow98-cooler-charger.webp" alt="WOW98 Qi2 15W MagSafe 3-in-1 Charger with Semiconductor Cooling" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <img src="image/product/wow98-cooler-charger.webp" alt="WOW98 Qi2 15W MagSafe 3-in-1 Charger with Semiconductor Cooling" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async">
         <div class="absolute top-4 left-4 flex flex-col gap-2">
             <span class="bg-blue-600 text-white text-[10px] font-black px-3 py-1 rounded-full uppercase italic tracking-widest">Ice-Cooling Tech</span>
             <span class="bg-slate-900 text-white text-[10px] font-black px-3 py-1 rounded-full uppercase italic tracking-widest text-center">Premium Build</span>
@@ -531,8 +534,11 @@
             </div>
         </div>
     </div>
-</section>
+    </section>
 
+    <!-- ========================================================================
+         FAQ SECTION - 常见问题区域
+         ======================================================================== -->
     <section class="py-24 bg-slate-50 border-t border-slate-100">
         <div class="max-w-4xl mx-auto px-6">
             <div class="text-center mb-16 reveal">

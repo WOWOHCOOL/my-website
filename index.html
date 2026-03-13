@@ -130,29 +130,15 @@
     </script>
 
     <!-- ========================================================================
-         CSS Frameworks - 样式框架配置
-         ======================================================================== -->
-    <script src="https://cdn.tailwindcss.com"></script>
+     CSS Frameworks - 样式框架配置
+     ======================================================================== -->
+    <link rel="stylesheet" href="dist/styles.css">
+    <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/x-icon" href="image/favicon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="image/favicon-32x32.png">
     <link rel="icon" type="="16x16" href="image/favicon-16image/png" sizesx16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="image/apple-touch-icon.png">
     
-    <!-- Tailwind 自定义品牌配色 -->
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        brandBlue: '#003366',
-                        brandOrange: '#FF6600',
-                        darkBg: '#020b1a',
-                    }
-                }
-            }
-        }
-    </script>
-
     <!-- Google Fonts 字体预加载 (只保留最重要的) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -207,7 +193,7 @@
             <!-- 右侧按钮区 -->
             <div class="flex items-center gap-4">
                 <button data-action="open-modal" class="bg-brandOrange text-white px-7 py-2.5 rounded-full text-[10px] font-black uppercase tracking-widest hover:scale-105 transition shadow-lg">Get Quote</button>
-                <button data-action="toggle-mobile-menu" class="lg:hidden text-brandBlue text-2xl"><i class="fa-solid fa-bars-staggered"></i></button>
+                <button data-action="toggle-mobile-menu" class="lg:hidden text-brandBlue text-2xl" aria-label="Open mobile menu"><i class="fa-solid fa-bars-staggered"></i></button>
             </div>
         </nav>
     </header>
@@ -227,7 +213,7 @@
                     WOWOH<span class="text-brandOrange">COOL</span>
                 </div>
             </a>
-            <button data-action="close-mobile" class="text-white text-3xl p-2 hover:rotate-90 transition-transform duration-300 outline-none">
+            <button data-action="close-mobile" class="text-white text-3xl p-2 hover:rotate-90 transition-transform duration-300 outline-none" aria-label="Close mobile menu">
                 <i class="fa-solid fa-xmark"></i>
             </button>
         </div>
@@ -240,7 +226,7 @@
             
             <!-- 移动端产品子菜单 -->
             <div class="space-y-4">
-                <button data-action="toggle-mobile-submenu" class="w-full flex justify-between items-center py-2 hover:text-brandOrange transition border-b border-white/5 uppercase outline-none">
+                <button data-action="toggle-mobile-submenu" class="w-full flex justify-between items-center py-2 hover:text-brandOrange transition border-b border-white/5 uppercase outline-none" aria-label="Toggle products submenu">
                     Products <i id="submenu-icon" class="fa-solid fa-chevron-down text-xs transition-transform duration-300"></i>
                 </button>
                 <div id="mobile-submenu" class="hidden pl-4 space-y-4 border-l-2 border-brandOrange/30 ml-1">
@@ -269,7 +255,7 @@
     <section id="hero" class="pt-24 pb-16 lg:pt-28 lg:pb-20 bg-slate-50 relative lg:min-h-screen flex items-center">
         <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div class="reveal">
-                <div class="badge-capsule mb-6 uppercase">Since 2013 | Professional Manufacturing</div>
+                <div class="badge-capsule mb-6 uppercase tracking-widest">Since 2013 | Professional Manufacturing</div>
                 <h1 class="text-4xl md:text-5xl lg:text-6xl font-black text-brandBlue leading-[1.1] mb-6 uppercase italic">
                     Wireless Charger & Power Bank <span class="text-brandOrange">Factory in China</span> Since 2013
                 </h1>

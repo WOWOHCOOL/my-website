@@ -37,12 +37,13 @@
     <!-- ========================================================================
          CSS Frameworks - 样式框架配置
          ======================================================================== -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="dist/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
 
     <!-- Google Fonts 字体预加载 -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" as="style">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
 
     <!-- Canonical & Open Graph 元数据 -->
@@ -53,12 +54,12 @@
     <meta property="og:description" content="Dong Yi Technology (WOWOHCOOL): 10+ years OEM/ODM manufacturer of wireless chargers & power banks in Shenzhen.">
 
     <!-- 站点样式与图标 -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" media="print" onload="this.media='all'">
     <link rel="icon" type="image/png" href="image/favicon.png?v=2">
     <link rel="shortcut icon" href="image/favicon.png?v=2" type="image/x-icon">
     <link rel="apple-touch-icon" sizes="180x180" href="image/apple-touch-icon.png">
 
-    <!-- Tailwind 自定义品牌配色 -->
+    <!--
     <script>
         tailwind.config = {
             theme: {
@@ -110,7 +111,7 @@
             <!-- 右侧按钮 -->
             <div class="flex items-center gap-4">
                 <button data-action="open-modal" data-product="General Inquiry" class="bg-brandOrange text-white px-7 py-2.5 rounded-full text-[10px] font-black uppercase tracking-widest hover:scale-105 transition shadow-lg shadow-brandOrange/20">Get Quote</button>
-                <button data-action="toggle-mobile-menu" class="lg:hidden text-brandBlue text-2xl focus:outline-none" aria-controls="mobile-menu" aria-expanded="false"><i class="fa-solid fa-bars-staggered"></i></button>
+                <button data-action="toggle-mobile-menu" class="lg:hidden text-brandBlue text-2xl focus:outline-none" aria-label="Open mobile menu" aria-controls="mobile-menu" aria-expanded="false"><i class="fa-solid fa-bars-staggered"></i></button>
             </div>
         </nav>
     </header>
@@ -127,7 +128,7 @@
                     WOWOH<span class="text-brandOrange">COOL</span>
                 </div>
             </a>
-            <button data-action="close-mobile" class="text-white text-3xl p-2 hover:rotate-90 transition-transform duration-300">
+            <button data-action="close-mobile" class="text-white text-3xl p-2 hover:rotate-90 transition-transform duration-300" aria-label="Close mobile menu">
                 <i class="fa-solid fa-xmark"></i>
             </button>
         </div>
@@ -138,7 +139,7 @@
             
             <!-- 移动端产品子菜单 -->
             <div class="space-y-4">
-                <button data-action="toggle-mobile-submenu" class="w-full flex justify-between items-center py-2 hover:text-brandOrange transition border-b border-white/5 uppercase">
+                <button data-action="toggle-mobile-submenu" class="w-full flex justify-between items-center py-2 hover:text-brandOrange transition border-b border-white/5 uppercase" aria-label="Toggle products submenu">
                     Products <i id="submenu-icon" class="fa-solid fa-chevron-down text-xs transition-transform duration-300"></i>
                 </button>
                 <div id="mobile-submenu" class="hidden pl-4 space-y-4 border-l-2 border-brandOrange/30 ml-1">
@@ -173,7 +174,7 @@
                 <div class="flex flex-col lg:flex-row items-center gap-12">
                     <!-- 左侧内容 -->
                     <div class="flex-1 reveal">
-                        <div class="badge-capsule mb-6">ESTABLISHED 2013 · SHENZHEN</div>
+                        <div class="badge-capsule mb-6 mx-auto uppercase tracking-widest">ESTABLISHED 2013 · SHENZHEN</div>
                         <h1 class="text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 uppercase italic tracking-tighter leading-tight mb-6">
                             About <br><span class="highlight-line text-brandBlue">WOWOH</span><span class="text-brandOrange">COOL</span>
                         </h1>
