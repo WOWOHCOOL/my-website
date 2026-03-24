@@ -206,8 +206,9 @@
     <!-- ========================================================================
      CSS Frameworks - 样式框架配置
      ======================================================================== -->
-    <link rel="stylesheet" href="dist/styles.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="dist/styles.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="dist/styles.css"></noscript>
     <link rel="icon" type="image/x-icon" href="image/favicon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="image/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="image/favicon-16x16.png">
@@ -218,13 +219,12 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     
-    <!-- Preload critical hero image -->
-    <link rel="preload" as="image" href="image/wowohcool-smart-charging-solutions.webp" imagesrcset="image/wowohcool-smart-charging-solutions-600.webp 600w, image/wowohcool-smart-charging-solutions-1200.webp 1200w, image/wowohcool-smart-charging-solutions.webp 2400w" imagesizes="(max-width: 768px) 100vw, 1100px">
+    <!-- Preload critical hero image (using 600w for mobile-first) -->
+    <link rel="preload" as="image" href="image/wowohcool-smart-charging-solutions-600.webp" media="(max-width: 768px)">
+    <link rel="preload" as="image" href="image/wowohcool-smart-charging-solutions-1200.webp" media="(min-width: 769px)">
     
-    <!-- Google Fonts 字体预加载 (只保留最重要的) -->
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap"></noscript>
+    <!-- Google Fonts - 使用display=swap提升性能 -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
     
     <!-- Font Awesome - 异步加载 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
@@ -372,17 +372,16 @@ html, body {
                 </div>
             </div>
             <div class="reveal">
-                <img src="image/wowohcool-smart-charging-solutions.webp" 
+                <img src="image/wowohcool-smart-charging-solutions-1200.webp" 
                      alt="WOWOHCOOL Smart Charging Solutions - Professional OEM/ODM Power Bank" 
                      title="WOWOHCOOL High-Tech Smart Charging Internal Circuit View"
                      fetchpriority="high"
                      loading="eager"
                      srcset="image/wowohcool-smart-charging-solutions-600.webp 600w, 
-                             image/wowohcool-smart-charging-solutions-1200.webp 1200w, 
-                             image/wowohcool-smart-charging-solutions.webp 2400w" 
-                     sizes="(max-width: 768px) 100vw, 1100px"
-                     width="2400" 
-                     height="2000"
+                             image/wowohcool-smart-charging-solutions-1200.webp 1200w" 
+                     sizes="(max-width: 768px) 100vw, 55vw"
+                     width="1200" 
+                     height="1000"
                      class="w-full h-auto rounded-[3rem] shadow-2xl"
                      decoding="async">
             </div>
