@@ -73,21 +73,23 @@ function updateBackToTopVisibility() {
     const btn = document.getElementById('backToTop');
     if (!btn) return;
     
-    if (window.scrollY > 600) {
+    const scrollY = window.scrollY;
+    if (scrollY > 600) {
         btn.classList.add('show');
     } else {
         btn.classList.remove('show');
     }
 }
 
-// 滚动事件节流处理（性能优化）
-let scrollTimeout;
+// 滚动事件节流处理（使用 requestAnimationFrame 优化性能）
+let scrollPending = false;
 window.addEventListener('scroll', () => {
-    if (scrollTimeout) return;
-    scrollTimeout = setTimeout(() => {
+    if (scrollPending) return;
+    scrollPending = true;
+    requestAnimationFrame(() => {
         updateBackToTopVisibility();
-        scrollTimeout = null;
-    }, 100);
+        scrollPending = false;
+    });
 }, { passive: true });
 
 // 页面加载完成后初始化
