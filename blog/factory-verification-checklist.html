@@ -73,9 +73,18 @@
       "datePublished": "2026-04-21"
     }
     </script>
+    <style>
+        html, body { overflow-x: hidden; max-width: 100vw; overflow-x: clip; }
+        * { max-width: 100%; box-sizing: border-box; }
+        img { max-width: 100%; height: auto; }
+        @media (max-width: 1023px) {
+            .fixed.right-8 > span { right: 100% !important; margin-right: 12px; }
+            .fixed.bottom-8.right-8 span { display: none !important; }
+        }
+    </style>
 </head>
 
-<body class="bg-white text-slate-900 font-inter">
+<body class="bg-white text-slate-900 font-inter overflow-x-hidden max-w-full">
     <!-- ========================================================================
          HEADER - 顶部导航栏
          ======================================================================== -->
@@ -237,8 +246,8 @@
                         <label class="flex items-start gap-4 p-6 bg-slate-50 rounded-xl cursor-pointer hover:bg-slate-100 transition">
                             <input type="checkbox" class="w-6 h-6 mt-1 accent-brandOrange">
                             <div>
-                                <h4 class="font-black text-slate-900 uppercase mb-2">Business License (营业执照)</h4>
-                                <p class="text-slate-600 text-sm mb-2">Request a copy of their unified social credit code certificate. Verify through the <a href="https://www.gsxt.gov.cn/" target="_blank" rel="noopener noreferrer" class="text-brandBlue hover:text-brandOrange font-bold">National Enterprise Credit Information Publicity System</a> (中国市场监管行政处罚文书网). Check the registered capital matches their claimed capability, verify the business scope includes manufacturing or relevant activities, and confirm the establishment date aligns with their claimed experience.</p>
+                                <h4 class="font-black text-slate-900 uppercase mb-2">Business License</h4>
+                                <p class="text-slate-600 text-sm mb-2">Request a copy of their unified social credit code certificate. Verify through the <a href="https://www.gsxt.gov.cn/" target="_blank" rel="noopener noreferrer" class="text-brandBlue hover:text-brandOrange font-bold">National Enterprise Credit Information Publicity System</a>. Check the registered capital matches their claimed capability, verify the business scope includes manufacturing or relevant activities, and confirm the establishment date aligns with their claimed experience.</p>
                                 <p class="text-slate-500 text-xs"><strong>Red flag:</strong> Business license shows different company name than communications, or registration is less than 2 years old with no verifiable track record.</p>
                             </div>
                         </label>
@@ -246,8 +255,8 @@
                         <label class="flex items-start gap-4 p-6 bg-slate-50 rounded-xl cursor-pointer hover:bg-slate-100 transition">
                             <input type="checkbox" class="w-6 h-6 mt-1 accent-brandOrange">
                             <div>
-                                <h4 class="font-black text-slate-900 uppercase mb-2">Import/Export License (进出口权)</h4>
-                                <p class="text-slate-600 text-sm mb-2">Verify they possess legitimate import/export capabilities through the <a href="http://www.customs.gov.cn/" target="_blank" rel="noopener noreferrer" class="text-brandBlue hover:text-brandOrange font-bold">Chinese Customs Administration</a>. This confirms they're either a trading company or manufacturer actively engaged in international trade. Request their customs registration number (海关编码).</p>
+                                <h4 class="font-black text-slate-900 uppercase mb-2">Import/Export License</h4>
+                                <p class="text-slate-600 text-sm mb-2">Verify they possess legitimate import/export capabilities through the <a href="http://www.customs.gov.cn/" target="_blank" rel="noopener noreferrer" class="text-brandBlue hover:text-brandOrange font-bold">Chinese Customs Administration</a>. This confirms they're either a trading company or manufacturer actively engaged in international trade. Request their customs registration number.</p>
                                 <p class="text-slate-500 text-xs"><strong>Why it matters:</strong> Trading companies without manufacturing capability may resell products from other factories, making quality control and pricing transparency difficult.</p>
                             </div>
                         </label>
@@ -256,14 +265,14 @@
                             <input type="checkbox" class="w-6 h-6 mt-1 accent-brandOrange">
                             <div>
                                 <h4 class="font-black text-slate-900 uppercase mb-2">Tax Registration Certificate</h4>
-                                <p class="text-slate-600 text-sm">Verify they have proper tax registration for export transactions. This includes general taxpayer status (一般纳税人) for VAT invoice capability. Request sample invoices to verify authenticity.</p>
+                                <p class="text-slate-600 text-sm">Verify they have proper tax registration for export transactions. This includes general taxpayer status for VAT invoice capability. Request sample invoices to verify authenticity.</p>
                             </div>
                         </label>
                         
                         <label class="flex items-start gap-4 p-6 bg-slate-50 rounded-xl cursor-pointer hover:bg-slate-100 transition">
                             <input type="checkbox" class="w-6 h-6 mt-1 accent-brandOrange">
                             <div>
-                                <h4 class="font-black text-slate-900 uppercase mb-2">Production Permit (若有)</h4>
+                                <h4 class="font-black text-slate-900 uppercase mb-2">Production Permit (if applicable)</h4>
                                 <p class="text-slate-600 text-sm">For regulated products like electronics, verify they have required production permits and industry certifications. Check with the relevant regulatory body.</p>
                             </div>
                         </label>
@@ -352,7 +361,7 @@
                             <div>
                                 <h4 class="font-black text-slate-900 uppercase mb-2">Production Capacity Verification</h4>
                                 <p class="text-slate-600 text-sm mb-2">Verify monthly output capability. Professional electronics factories can produce 100,000 to 1,000,000+ units monthly depending on product complexity. Ask for production records from the past 6 months showing actual output, not just claimed capacity. Cross-reference with their raw material procurement records.</p>
-                                <p class="text-slate-500 text-xs"><strong>Red flag:</strong> Claimed capacity significantly exceeds equipment or workforce所能支持的产能.</p>
+                                <p class="text-slate-500 text-xs"><strong>Red flag:</strong> Claimed capacity significantly exceeds what their equipment or workforce can realistically support.</p>
                             </div>
                         </label>
                         
@@ -498,7 +507,7 @@
                         <label class="flex items-start gap-4 p-6 bg-slate-50 rounded-xl cursor-pointer hover:bg-slate-100 transition">
                             <input type="checkbox" class="w-6 h-6 mt-1 accent-brandOrange">
                             <div>
-                                <h4 class="font-black text-slate-900 uppercase mb-2">SA8000 Certification (若有)</h4>
+                                <h4 class="font-black text-slate-900 uppercase mb-2">SA8000 Certification (if applicable)</h4>
                                 <p class="text-slate-600 text-sm mb-2">SA8000 is the leading social certification program for factories. While not mandatory, factories with <a href="https://www.sa-intl.org/sa8000/" target="_blank" rel="noopener noreferrer" class="text-brandBlue hover:text-brandOrange font-bold">SA8000 certification</a> demonstrate commitment to ethical labor practices. Verify through the SAAS directory if claimed.</p>
                             </div>
                         </label>
@@ -690,18 +699,18 @@
                 </section>
 
                 <!-- Author Bio -->
-                <section class="bg-slate-50 rounded-2xl p-8 mb-16 border border-slate-100">
-                    <div class="flex items-start gap-6">
-                        <div class="w-20 h-20 rounded-2xl overflow-hidden flex items-center justify-center border-2 border-brandOrange bg-white shadow-lg shrink-0">
-                            <img src="../image/wowohcool-logo-optimized.webp" alt="WOWOHCOOL" class="w-full h-full object-contain p-2">
+                <section class="bg-slate-50 rounded-2xl p-6 md:p-8 mb-12 border border-slate-100">
+                    <div class="flex flex-col sm:flex-row items-start gap-4 sm:gap-6">
+                        <div class="w-20 h-20 rounded-full overflow-hidden flex items-center justify-center border-2 border-brandOrange bg-white shadow-lg shrink-0">
+                            <img src="../image/Nico Gung Author.webp" alt="Nico Gung" class="w-full h-full object-cover">
                         </div>
-                        <div class="flex-1">
-                            <div class="flex items-center gap-3 mb-3">
-                                <p class="font-black text-slate-900 text-lg">WOWOHCOOL Team</p>
-                                <span class="px-2 py-1 bg-brandOrange/10 text-brandOrange text-[10px] font-black rounded-full uppercase">experts</span>
+                        <div class="flex-1 min-w-0">
+                            <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 mb-2 sm:mb-3">
+                                <a href="https://www.linkedin.com/in/nico-power-bank-chargers/" target="_blank" rel="noopener noreferrer" class="font-black text-slate-900 text-lg hover:text-brandOrange transition">Nico Gung</a>
+                                <span class="px-2 py-1 bg-brandOrange/10 text-brandOrange text-[10px] font-black rounded-full uppercase w-fit">Author</span>
                             </div>
-                            <p class="text-sm text-slate-500 mb-3">Smart Charging Manufacturing Experts</p>
-                            <p class="text-slate-600 text-sm leading-relaxed">WOWOHCOOL is a <a href="../about.html" class="text-brandBlue font-bold hover:text-brandOrange transition">premium charging solution specialist</a> based in Shenzhen, China. Since 2013, we've helped brands worldwide verify and partner with qualified manufacturers for <a href="../wireless-charger.html" class="text-brandBlue font-bold hover:text-brandOrange transition">wireless chargers</a>, <a href="../power-charger.html" class="text-brandBlue font-bold hover:text-brandOrange transition">power chargers</a>, and custom OEM/ODM production with defect rates under 0.5%.</p>
+                            <p class="text-sm text-slate-500 mb-3">Supply Chain Expert · Wireless Charging Specialist</p>
+                            <p class="text-slate-600 text-sm leading-relaxed">Nico Gung is a supply chain management expert with 10+ years experience helping global B2B clients source quality <a href="../wireless-charger.html" class="text-brandBlue font-bold hover:text-brandOrange transition">wireless chargers</a> from <a href="../about.html" class="text-brandBlue font-bold hover:text-brandOrange transition">WOWOHCOOL</a> — a premium charging solution specialist in Shenzhen, China with 47+ Qi-certified models.</p>
                         </div>
                     </div>
                 </section>
