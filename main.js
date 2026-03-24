@@ -316,8 +316,8 @@ function closeMobileMenu() {
         menu.setAttribute('aria-hidden', 'true');
     }
     
-    // 恢复背景滚动
-    document.body.style.overflow = 'auto';
+    // 恢复背景滚动（保持横向隐藏）
+    document.body.style.overflow = '';
 }
 
 /**
