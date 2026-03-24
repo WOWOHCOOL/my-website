@@ -206,29 +206,34 @@
     <!-- ========================================================================
      CSS Frameworks - 样式框架配置
      ======================================================================== -->
-    <link rel="stylesheet" href="dist/styles.css" media="print" onload="this.media='all'">
-    <link rel="stylesheet" href="style.css" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="dist/styles.css"><link rel="stylesheet" href="style.css"></noscript>
+    <link rel="stylesheet" href="dist/styles.css">
+    <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/x-icon" href="image/favicon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="image/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="image/favicon-16x16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="image/apple-touch-icon.png">
     
-    <!-- Preconnect only to most important external domains -->
+    <!-- Preconnect to Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     
     <!-- Preload critical hero image -->
     <link rel="preload" as="image" href="image/wowohcool-smart-charging-solutions-600.webp">
     
-    <!-- Google Fonts - 使用display=swap提升性能 -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
-      
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Fonts - 异步加载 -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet"></noscript>
+       
+    <!-- Font Awesome - 异步加载 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
     <style>
 /* 关键CSS - 内联以减少渲染阻塞 */
-body{background-color:#fff;color:#0f172a;margin:0}
+body{background-color:#fff;color:#0f172a;margin:0;overflow-x:hidden;max-width:100vw}
 header{position:fixed;width:100%;z-index:100;background:rgba(255,255,255,.95);backdrop-filter:blur(12px);border-bottom:1px solid #f1f5f9;height:5rem}
 header .h-20{height:5rem}
 nav{max-width:80rem;margin:0 auto;padding:0 1.5rem;height:100%;display:flex;align-items:center;justify-content:space-between}
