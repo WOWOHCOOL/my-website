@@ -129,23 +129,30 @@
     ]
     </script>
 
-    <!-- ========================================================================
-     CSS Frameworks - 样式框架配置
-     ======================================================================== -->
-    <link rel="stylesheet" href="dist/styles.css">
-    <link rel="stylesheet" href="style.css">
+    <!-- Preload critical hero image -->
+    <link rel="preload" as="image" href="image/wowohcool-smart-charging-solutions.webp" fetchpriority="high" imagesrcset="image/wowohcool-smart-charging-solutions-600.webp 600w, image/wowohcool-smart-charging-solutions-1200.webp 1200w, image/wowohcool-smart-charging-solutions.webp 2400w" imagesizes="(max-width: 768px) 100vw, 1100px">
+    
+    <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="image/favicon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="image/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="image/favicon-16x16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="image/apple-touch-icon.png">
     
-    <!-- Google Fonts 字体预加载 (只保留最重要的) -->
+    <!-- Google Fonts - async load -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" as="style">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap"></noscript>
+    
+    <!-- Font Awesome - async load -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
-    <link rel="stylesheet" href="style.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
+    
+    <!-- CSS - async load to eliminate render blocking -->
+    <link rel="preload" as="style" href="dist/styles.css" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="dist/styles.css"></noscript>
+    <link rel="preload" as="style" href="style.css" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="style.css"></noscript>
     <style>
 html, body {
     overflow-x: hidden;
@@ -420,7 +427,8 @@ html, body {
                          title="CE Safety Mark"
                          width="40" height="40"
                          loading="lazy"
-                         class="h-10 w-auto mb-3 mx-auto transition-transform group-hover:scale-110">
+                         decoding="async"
+                         class="h-10 w-10 mb-3 mx-auto transition-transform group-hover:scale-110">
                     <p class="text-[10px] font-black tracking-widest uppercase text-brandBlue">CE Standard</p>
                     <span class="sr-only">CE European Safety Certification</span>
                 </div>
@@ -431,7 +439,8 @@ html, body {
                          title="FCC Mark"
                          width="40" height="40"
                          loading="lazy"
-                         class="h-10 w-auto mb-3 mx-auto transition-transform group-hover:scale-110">
+                         decoding="async"
+                         class="h-10 w-10 mb-3 mx-auto transition-transform group-hover:scale-110">
                     <p class="text-[10px] font-black tracking-widest uppercase text-brandBlue">FCC</p>
                     <span class="sr-only">FCC Electronic Compliance Certification</span>
                 </div>
@@ -442,7 +451,8 @@ html, body {
                          title="Qi Wireless Power Consortium"
                          width="40" height="40"
                          loading="lazy"
-                         class="h-10 w-auto mb-3 mx-auto transition-transform group-hover:scale-110">
+                         decoding="async"
+                         class="h-10 w-10 mb-3 mx-auto transition-transform group-hover:scale-110">
                     <p class="text-[10px] font-black tracking-widest uppercase text-brandBlue">Qi</p>
                     <span class="sr-only">Qi Wireless Charging Standard Certified</span>
                 </div>
@@ -453,7 +463,8 @@ html, body {
                          title="RoHS Environmental Standard"
                          width="40" height="40"
                          loading="lazy"
-                         class="h-10 w-auto mb-3 mx-auto transition-transform group-hover:scale-110">
+                         decoding="async"
+                         class="h-10 w-10 mb-3 mx-auto transition-transform group-hover:scale-110">
                     <p class="text-[10px] font-black tracking-widest uppercase text-brandBlue">RoHS</p>
                     <span class="sr-only">RoHS Environmental Compliance</span>
                 </div>
@@ -464,7 +475,8 @@ html, body {
                          title="ISO 9001 Standard"
                          width="40" height="40"
                          loading="lazy"
-                         class="h-10 w-auto mb-3 mx-auto transition-transform group-hover:scale-110">
+                         decoding="async"
+                         class="h-10 w-10 mb-3 mx-auto transition-transform group-hover:scale-110">
                     <p class="text-[10px] font-black tracking-widest uppercase text-brandBlue">ISO 9001</p>
                     <span class="sr-only">ISO 9001 Quality Management Certification</span>
                 </div>
@@ -475,7 +487,8 @@ html, body {
                          title="UN38.3 Mark"
                          width="40" height="40"
                          loading="lazy"
-                         class="h-10 w-auto mb-3 mx-auto transition-transform group-hover:scale-110">
+                         decoding="async"
+                         class="h-10 w-10 mb-3 mx-auto transition-transform group-hover:scale-110">
                     <p class="text-[10px] font-black tracking-widest uppercase text-brandBlue">UN38.3</p>
                     <span class="sr-only">UN38.3 Battery Safety Transport Certification</span>
                 </div>
