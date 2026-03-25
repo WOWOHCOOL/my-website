@@ -129,8 +129,8 @@
     ]
     </script>
 
-    <!-- Preload critical hero image -->
-    <link rel="preload" as="image" href="image/wowohcool-smart-charging-solutions.webp" fetchpriority="high" imagesrcset="image/wowohcool-smart-charging-solutions-600.webp 600w, image/wowohcool-smart-charging-solutions-1200.webp 1200w, image/wowohcool-smart-charging-solutions.webp 2400w" imagesizes="(max-width: 768px) 100vw, 1100px">
+    <!-- Preload critical hero image for faster LCP -->
+    <link rel="preload" as="image" href="image/wowohcool-smart-charging-solutions-600.webp" imagesrcset="image/wowohcool-smart-charging-solutions-600.webp 600w, image/wowohcool-smart-charging-solutions-1200.webp 1200w, image/wowohcool-smart-charging-solutions.webp 2400w" imagesizes="(max-width: 768px) 100vw, 1100px" fetchpriority="high">
     
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="image/favicon.png">
@@ -138,7 +138,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="image/favicon-16x16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="image/apple-touch-icon.png">
     
-    <!-- Google Fonts - async load -->
+    <!-- Google Fonts - async load (no render blocking) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" onload="this.onload=null;this.rel='stylesheet'">
@@ -148,10 +148,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
     
-    <!-- CSS - async load to eliminate render blocking -->
-    <link rel="preload" as="style" href="dist/styles.css" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="dist/styles.css"></noscript>
-    <link rel="preload" as="style" href="style.css" onload="this.onload=null;this.rel='stylesheet'">
+    <!-- Tailwind CSS - render blocking (required for layout) -->
+    <link rel="stylesheet" href="dist/styles.css">
+    
+    <!-- Custom CSS - async load for non-critical styles -->
+    <link rel="stylesheet" href="style.css" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="style.css"></noscript>
     <style>
 html, body {
