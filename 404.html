@@ -75,6 +75,16 @@
 
 <body class="bg-darkBg text-white font-inter min-h-screen flex items-center justify-center overflow-hidden">
 
+    <script>
+        (function() {
+            var path = location.pathname;
+            if (path.startsWith('/vi/') || path.startsWith('/de/') || path.startsWith('/ja/') || path.startsWith('/ko/')) {
+                var lang = path.split('/')[1];
+                location.replace('/' + lang + '/404.html');
+            }
+        })();
+    </script>
+
     <div class="absolute inset-0 opacity-10 pointer-events-none">
         <img src="https://www.transparenttextures.com/patterns/carbon-fibre.png" class="w-full h-full object-cover" alt="texture">
         <div class="absolute inset-0 bg-gradient-to-b from-brandBlue/20 to-transparent"></div>
