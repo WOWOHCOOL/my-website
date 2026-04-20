@@ -349,7 +349,11 @@
         .mobile-nav a { color: white; font-size: 1.25rem; font-weight: 700; padding: 0.75rem 0; border-bottom: 1px solid rgba(255,255,255,0.1); }
         .mobile-nav-close { position: absolute; top: 1.5rem; right: 1.5rem; background: none; border: none; color: white; font-size: 2rem; cursor: pointer; }
         
-        .mobile-submenu { border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .mobile-submenu {
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            flex-direction: column;
+        }
         .mobile-submenu-toggle {
             display: flex;
             justify-content: space-between;
@@ -363,19 +367,34 @@
             padding: 0.75rem 0;
             cursor: pointer;
         }
-        .mobile-submenu-toggle svg { transition: transform 0.2s; }
+        .mobile-submenu-toggle svg {
+            width: 20px;
+            height: 20px;
+            transition: transform 0.2s;
+            flex-shrink: 0;
+        }
         .mobile-submenu-toggle[aria-expanded="true"] svg { transform: rotate(180deg); }
         .mobile-submenu-content {
             display: none;
-            padding-left: 1rem;
+            padding: 0;
+            overflow: hidden;
+            max-height: 0;
+            transition: max-height 0.3s ease-out;
         }
-        .mobile-submenu-content.open { display: block; }
+        .mobile-submenu-content.open {
+            display: block;
+            max-height: 300px;
+            padding-left: 0;
+        }
         .mobile-submenu-content a {
+            display: block;
             font-size: 1rem;
             font-weight: 500;
             color: rgba(255,255,255,0.8);
-            padding: 0.5rem 0;
+            padding: 0.625rem 0 0.625rem 1rem;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
         }
+        .mobile-submenu-content a:last-child { border-bottom: none; }
         .mobile-submenu-content a.active { color: var(--orange); }
         
         .breadcrumb { padding: 7rem 0 2rem; background: var(--gray-50); }
@@ -642,23 +661,34 @@
             border-right: none;
         }
         
-        /* Mobile: Stack vertically on right */
+        /* Mobile: Floating buttons - Back to top on left, others on right */
         @media (max-width: 767px) {
+            .whatsapp-float,
+            .zalo-float {
+                position: fixed;
+                right: 0.75rem;
+                left: auto;
+                width: 48px;
+                height: 48px;
+            }
             .whatsapp-float {
-                right: 1rem;
                 bottom: 1rem;
             }
             .zalo-float {
-                right: 1rem;
                 bottom: 5rem;
             }
             .back-to-top {
-                right: 1rem;
-                bottom: 9rem;
+                position: fixed;
+                left: 0.75rem;
+                right: auto;
+                bottom: 1rem;
+                width: 42px;
+                height: 42px;
             }
             .zalo-float span,
             .whatsapp-float span {
                 right: 100%;
+                left: auto;
                 margin-right: 1rem;
                 margin-left: 0;
             }
@@ -666,37 +696,40 @@
             .whatsapp-float span::before {
                 right: -6px;
                 left: auto;
-                border-left-color: transparent;
                 border-right-color: var(--dark);
+                border-left-color: transparent;
             }
         }
         
-        /* Desktop: Stack vertically on right */
+        /* Desktop: WhatsApp & Zalo on right, Back to top on left */
         @media (min-width: 768px) {
-            .whatsapp-float {
+            .whatsapp-float,
+            .zalo-float {
                 right: 1.5rem;
+            }
+            .whatsapp-float {
                 bottom: 1.5rem;
             }
             .zalo-float {
-                right: 1.5rem;
                 bottom: 6.5rem;
             }
             .back-to-top {
-                right: 1.5rem;
-                bottom: 11.5rem;
+                left: 1.5rem;
+                right: auto;
+                bottom: 1.5rem;
             }
         }
         
         /* Back to Top */
         .back-to-top {
             position: fixed;
-            right: 1.5rem;
-            bottom: 11.5rem;
-            width: 56px;
-            height: 56px;
+            left: 1.5rem;
+            bottom: 1.5rem;
+            width: 48px;
+            height: 48px;
             border-radius: 50%;
-            background: var(--blue);
-            box-shadow: 0 4px 20px rgba(0,104,255,0.4);
+            background: rgba(30, 58, 138, 0.75);
+            box-shadow: 0 4px 16px rgba(0,104,255,0.25);
             display: flex;
             align-items: center;
             justify-content: center;
