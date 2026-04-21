@@ -223,7 +223,11 @@
         .nav-dropdown svg { width: 18px; height: 18px; color: var(--gray-400); flex-shrink: 0; }
         .nav-dropdown a:hover svg, .nav-dropdown a.active svg { color: var(--orange); }
         
-        .mobile-submenu { border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .mobile-submenu {
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            flex-direction: column;
+        }
         .mobile-submenu-toggle {
             display: flex;
             justify-content: space-between;
@@ -237,19 +241,34 @@
             padding: 0.75rem 0;
             cursor: pointer;
         }
-        .mobile-submenu-toggle svg { transition: transform 0.2s; }
+        .mobile-submenu-toggle svg {
+            width: 20px;
+            height: 20px;
+            transition: transform 0.2s;
+            flex-shrink: 0;
+        }
         .mobile-submenu-toggle[aria-expanded="true"] svg { transform: rotate(180deg); }
         .mobile-submenu-content {
             display: none;
-            padding-left: 1rem;
+            padding: 0;
+            overflow: hidden;
+            max-height: 0;
+            transition: max-height 0.3s ease-out;
         }
-        .mobile-submenu-content.open { display: block; }
+        .mobile-submenu-content.open {
+            display: block;
+            max-height: 300px;
+            padding-left: 0;
+        }
         .mobile-submenu-content a {
+            display: block;
             font-size: 1rem;
             font-weight: 500;
             color: rgba(255,255,255,0.8);
-            padding: 0.5rem 0;
+            padding: 0.625rem 0 0.625rem 1rem;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
         }
+        .mobile-submenu-content a:last-child { border-bottom: none; }
         .mobile-submenu-content a.active { color: var(--orange); }
         
         .header-actions { display: flex; align-items: center; gap: 1rem; }
@@ -269,6 +288,22 @@
             transition: all 0.2s;
         }
         .btn-primary:hover { background: var(--orange-light); transform: translateY(-1px); box-shadow: 0 8px 20px rgba(249,115,22,0.25); }
+        
+        /* Mobile Header CTA */
+        @media (max-width: 767px) {
+            .header-actions .btn-primary {
+                padding: 0.5rem 0.75rem;
+                font-size: 0.75rem;
+                gap: 0.375rem;
+            }
+            .header-actions .btn-primary svg {
+                width: 14px;
+                height: 14px;
+            }
+            .header-actions .btn-text {
+                display: inline;
+            }
+        }
         
         .btn-secondary {
             background: var(--blue);
@@ -495,7 +530,7 @@
         @media (min-width: 768px) { .capacity-grid { grid-template-columns: repeat(3, 1fr); } }
         .capacity-card { background: white; border-radius: 1.25rem; padding: 2rem; text-align: center; border: 1px solid var(--gray-200); }
         .capacity-card svg { width: 48px; height: 48px; color: var(--orange); margin: 0 auto 1rem; }
-        .capacity-card h4 { font-size: 1.125rem; font-weight: 800; color: var(--blue); margin-bottom: 0.5rem; }
+        .capacity-card h4, .capacity-card h3 { font-size: 1.125rem; font-weight: 800; color: var(--blue); margin-bottom: 0.5rem; }
         .capacity-card p { font-size: 0.875rem; color: var(--gray-500); }
         
         .why-section { padding: 4rem 0; background: var(--blue); color: white; }
@@ -506,7 +541,7 @@
         @media (min-width: 1024px) { .why-grid { grid-template-columns: repeat(4, 1fr); } }
         .why-item { text-align: center; padding: 1.5rem; }
         .why-item svg { width: 48px; height: 48px; color: var(--orange); margin: 0 auto 1rem; }
-        .why-item h4 { font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem; }
+        .why-item h4, .why-item h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem; }
         .why-item p { font-size: 0.8125rem; opacity: 0.8; }
         
         .vietnam-section { padding: 4rem 0; }
@@ -640,10 +675,10 @@
         }
         .footer-grid { display: grid; gap: 2.5rem; margin-bottom: 4rem; }
         @media (min-width: 768px) { .footer-grid { grid-template-columns: 2fr 1fr 1fr 1fr; } }
-        .footer-brand { margin-bottom: 1rem; }
-        .footer-brand p { font-size: 0.9375rem; line-height: 1.7; }
+        .footer-brand .logo { margin-bottom: 1rem; }
+        .footer-brand p { font-size: 0.875rem; line-height: 1.7; }
         .footer-brand .logo img { filter: brightness(0) invert(1); height: 40px; }
-        footer h4 { color: white; font-size: 0.875rem; font-weight: 700; margin-bottom: 1.25rem; text-transform: uppercase; letter-spacing: 0.05em; }
+        footer h4, footer h3 { color: white; font-size: 0.875rem; font-weight: 700; margin-bottom: 1.25rem; text-transform: uppercase; letter-spacing: 0.05em; }
         footer ul { list-style: none; }
         footer ul li { margin-bottom: 0.75rem; }
         footer ul a { color: var(--gray-400); font-size: 0.9375rem; transition: color 0.2s; }
@@ -662,6 +697,8 @@
         
         .chat-float {
             position: fixed;
+            left: auto;
+            right: 1.5rem;
             bottom: 1.5rem;
             width: 56px;
             height: 56px;
@@ -677,6 +714,7 @@
         }
         
         .whatsapp-float {
+            left: auto;
             right: 1.5rem;
             bottom: 1.5rem;
             background: #25D366;
@@ -689,6 +727,7 @@
         }
         
         .zalo-float {
+            left: auto;
             right: 1.5rem;
             bottom: 6.5rem;
             background: #0068FF;
@@ -735,19 +774,63 @@
             border-right: none;
         }
         
-        /* Mobile: Stack vertically on right */
+        
+        
+        
+        
+        /* Back to Top */
+        .back-to-top {
+            position: fixed;
+            left: 1.5rem;
+            bottom: 1.5rem;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: var(--blue);
+            box-shadow: 0 4px 20px rgba(0,104,255,0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.25rem;
+            z-index: 50;
+            transition: all 0.2s;
+            text-decoration: none;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .back-to-top.show {
+            opacity: 0.75;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 30px rgba(0,104,255,0.5);
+            opacity: 1;
+        }
+        
+        /* Mobile: Stack vertically - WhatsApp/Zalo on right, Back to top on left */
         @media (max-width: 767px) {
             .whatsapp-float {
-                right: 1rem;
-                bottom: 1rem;
+                right: 0.75rem;
+                bottom: 0.75rem;
+                width: 48px;
+                height: 48px;
             }
             .zalo-float {
-                right: 1rem;
-                bottom: 5rem;
+                right: 0.75rem;
+                bottom: 4.25rem;
+                width: 48px;
+                height: 48px;
             }
             .back-to-top {
-                right: 1rem;
-                bottom: 9rem;
+                left: 0.75rem;
+                bottom: 0.75rem;
+                width: 42px;
+                height: 42px;
             }
             .zalo-float span,
             .whatsapp-float span {
@@ -763,8 +846,8 @@
                 border-right-color: var(--dark);
             }
         }
-        
-        /* Desktop: Stack vertically on right */
+
+        /* Desktop: Stack vertically - WhatsApp/Zalo on right, Back to top on left */
         @media (min-width: 768px) {
             .whatsapp-float {
                 right: 1.5rem;
@@ -775,42 +858,11 @@
                 bottom: 6.5rem;
             }
             .back-to-top {
-                right: 1.5rem;
-                bottom: 11.5rem;
+                left: 1.5rem;
+                bottom: 1.5rem;
+                width: 48px;
+                height: 48px;
             }
-        }
-        
-        /* Back to Top */
-        .back-to-top {
-            position: fixed;
-            right: 1.5rem;
-            bottom: 11.5rem;
-            width: 56px;
-            height: 56px;
-            border-radius: 50%;
-            background: var(--blue);
-            box-shadow: 0 4px 20px rgba(0,104,255,0.4);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.5rem;
-            z-index: 50;
-            transition: all 0.2s;
-            text-decoration: none;
-            cursor: pointer;
-            opacity: 0;
-            visibility: hidden;
-        }
-        
-        .back-to-top.show {
-            opacity: 1;
-            visibility: visible;
-        }
-        
-        .back-to-top:hover {
-            transform: scale(1.1);
-            box-shadow: 0 8px 30px rgba(0,104,255,0.5);
         }
         
         @media (min-width: 768px) {
@@ -845,7 +897,7 @@
                 <div class="header-actions">
                     <a href="https://wa.me/8618620789739?text=Xin%20ch%C3%A0o!%20T%C3%B4i%20mu%E1%BB%91n%20h%E1%BB%97%20tr%E1%BB%A3%20v%E1%BB%81%20s%E1%BA%A1c%20d%E1%BB%B1%20ph%C3%B2ng" class="btn-primary" target="_blank" rel="noopener">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-                        Yêu Cầu Báo Giá
+                        <span class="btn-text">Yêu Cầu Báo Giá</span>
                     </a>
                     <button class="menu-toggle" aria-label="Menu">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
@@ -1158,17 +1210,17 @@
                 <div class="capacity-grid">
                     <div class="capacity-card">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg>
-                        <h4>Slim Series (5K-10K)</h4>
+                        <h3>Slim Series (5K-10K)</h3>
                         <p>Túi xách, du lịch, quà tặng doanh nghiệp. 1-2 lần sạc điện thoại.</p>
                     </div>
                     <div class="capacity-card">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 7h8"/></svg>
-                        <h4>Mid-Range (15K-20K)</h4>
+                        <h3>Mid-Range (15K-20K)</h3>
                         <p>Doanh nhân, sạc 2-3 thiết bị. Phổ biến nhất tại thị trường Việt Nam.</p>
                     </div>
                     <div class="capacity-card">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg>
-                        <h4>High-Power (27K-40K)</h4>
+                        <h3>High-Power (27K-40K)</h3>
                         <p>Laptop, workstation, thiết bị công suất cao. Sạc nhiều lần cho MacBook Pro.</p>
                     </div>
                 </div>
@@ -1183,22 +1235,22 @@
                 <div class="why-grid">
                     <div class="why-item">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 20a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8l-7 5V8l-7 5V4a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/></svg>
-                        <h4>Nhà Máy Thật</h4>
+                        <h3>Nhà Máy Thật</h3>
                         <p>13+ năm kinh nghiệm tại Shenzhen</p>
                     </div>
                     <div class="why-item">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
-                        <h4>Chứng Chỉ Đầy Đủ</h4>
+                        <h3>Chứng Chỉ Đầy Đủ</h3>
                         <p>CE, FCC, RoHS, UN38.3, ISO 9001</p>
                     </div>
                     <div class="why-item">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
-                        <h4>OEM/ODM</h4>
+                        <h3>OEM/ODM</h3>
                         <p>Tùy chỉnh logo, bao bì theo yêu cầu</p>
                     </div>
                     <div class="why-item">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
-                        <h4>Giao Hàng Nhanh</h4>
+                        <h3>Giao Hàng Nhanh</h3>
                         <p>7-15 ngày đến Việt Nam</p>
                     </div>
                 </div>
@@ -1431,7 +1483,7 @@
                     <p>Nhà máy OEM/ODM sạc dự phòng và sạc không dây tại Shenzhen, Trung Quốc. Từ 2013. Phục vụ 50+ quốc gia.</p>
                 </div>
                 <div>
-                    <h4>Liên Kết</h4>
+                    <h3>Liên Kết</h3>
                     <ul>
                         <li><a href="../index.html">Trang Chủ</a></li>
                         <li><a href="../about.html">Giới Thiệu</a></li>
@@ -1440,7 +1492,7 @@
                     </ul>
                 </div>
                 <div>
-                    <h4>Sản Phẩm</h4>
+                    <h3>Sản Phẩm</h3>
                     <ul>
                         <li><a href="sac-du-phong.html">Pin Dự Phòng</a></li>
                         <li><a href="sac-khong-day.html">Sạc Không Dây</a></li>
@@ -1449,7 +1501,7 @@
                     </ul>
                 </div>
                 <div>
-                    <h4>Liên Hệ</h4>
+                    <h3>Liên Hệ</h3>
                     <div class="footer-contact-grid">
                         <a href="tel:+8618620789739" class="footer-contact-item">
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
@@ -1502,9 +1554,9 @@
             });
         });
         
-        const menuToggle = document.getElementById('menuToggle');
+        const menuToggle = document.querySelector('.menu-toggle');
         const mobileNav = document.getElementById('mobileNav');
-        const mobileNavClose = document.getElementById('mobileNavClose');
+        const mobileNavClose = document.querySelector('.mobile-nav-close');
         
         if (menuToggle && mobileNav) {
             menuToggle.addEventListener('click', () => {
@@ -1529,9 +1581,10 @@
         
         document.querySelectorAll('.mobile-submenu-toggle').forEach(btn => {
             btn.addEventListener('click', () => {
-                const isOpen = btn.getAttribute('aria-expanded') === 'true';
-                btn.setAttribute('aria-expanded', !isOpen);
-                btn.nextElementSibling.classList.toggle('open');
+                const content = btn.nextElementSibling;
+                const isExpanded = btn.getAttribute('aria-expanded') === 'true';
+                btn.setAttribute('aria-expanded', !isExpanded);
+                content.classList.toggle('open');
             });
         });
         
