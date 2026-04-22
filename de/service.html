@@ -1419,6 +1419,13 @@
         menuToggle?.addEventListener('click', () => mobileNav.classList.add('active'));
         mobileNavClose?.addEventListener('click', () => mobileNav.classList.remove('active'));
         
+        document.querySelectorAll('.mobile-submenu-toggle').forEach(btn => {
+            btn.addEventListener('click', () => {
+                btn.setAttribute('aria-expanded', btn.getAttribute('aria-expanded') === 'true' ? 'false' : 'true');
+                btn.nextElementSibling.classList.toggle('open');
+            });
+        });
+        
         document.querySelectorAll('.faq-item').forEach(item => {
             item.querySelector('.faq-question')?.addEventListener('click', () => {
                 document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
