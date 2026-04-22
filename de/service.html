@@ -850,20 +850,18 @@
         }
         
         .mobile-nav-close {
-            position: absolute;
-            top: 1.25rem;
-            right: 1rem;
             background: none;
             border: none;
             color: white;
             font-size: 1.5rem;
             cursor: pointer;
             display: none;
-            z-index: 10;
+            padding: 0.5rem;
+            margin-bottom: 1rem;
         }
         
-        .mobile-nav.active .mobile-nav-close {
-            display: block !important;
+        .mobile-nav-close.visible {
+            display: block;
         }
         
         .mobile-submenu { border-bottom: 1px solid rgba(255,255,255,0.1); }
@@ -943,8 +941,13 @@
             
             .service-grid,
             .process-grid,
-            .custom-grid,
-            .certs-grid { grid-template-columns: 1fr; }
+            .custom-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+            
+            .certs-grid { grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
+            
+            .section { padding: 3rem 0; }
+            .section-header { margin-bottom: 2rem; }
+            .service-card { padding: 1.5rem; }
             
             .footer-grid { grid-template-columns: 1fr 1fr; }
             .footer-brand { grid-column: span 2; }
@@ -1356,7 +1359,7 @@
                     <ul>
                         <li><a href="index.html">Startseite</a></li>
                         <li><a href="ueber-uns.html">Über Uns</a></li>
-                        <li><a href="products/power-bank.html">Produkte</a></li>
+                        <li><a href="service.html">OEM/ODM</a></li>
                         <li><a href="contact.html">Kontakt</a></li>
                     </ul>
                 </div>
@@ -1417,8 +1420,27 @@
         const mobileNav = document.getElementById('mobileNav');
         const mobileNavClose = document.querySelector('.mobile-nav-close');
         
-        menuToggle?.addEventListener('click', () => mobileNav.classList.add('active'));
-        mobileNavClose?.addEventListener('click', () => mobileNav.classList.remove('active'));
+        if (menuToggle && mobileNav) {
+            menuToggle.addEventListener('click', function() {
+                mobileNav.classList.add('active');
+                document.body.style.overflow = 'hidden';
+                if (mobileNavClose) mobileNavClose.classList.add('visible');
+            });
+        }
+        
+        if (mobileNavClose && mobileNav) {
+            mobileNavClose.addEventListener('click', function() {
+                mobileNav.classList.remove('active');
+                document.body.style.overflow = '';
+                mobileNavClose.classList.remove('visible');
+            });
+        }
+        
+        mobileNav?.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+            mobileNav.classList.remove('active');
+            document.body.style.overflow = '';
+            if (mobileNavClose) mobileNavClose.classList.remove('visible');
+        }));
         
         document.querySelectorAll('.mobile-submenu-toggle').forEach(btn => {
             btn.addEventListener('click', () => {
