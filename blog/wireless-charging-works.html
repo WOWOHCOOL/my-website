@@ -25,24 +25,12 @@
     <link rel="icon" type="image/png" href="../image/favicon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
     <link rel="stylesheet" href="../css/styles.css">
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" media="print" onload="this.media='all'" href="../css/style.css">
+    <noscript><link rel="stylesheet" href="../css/style.css"></noscript>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
     <!-- Tailwind CDN for custom colors -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        brandBlue: '#0A192F',
-                        brandOrange: '#FF6B00'
-                    }
-                }
-            }
-        }
-    </script>
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -128,7 +116,7 @@
                 
                 <!-- Products Dropdown -->
                 <div class="relative group h-20 flex items-center">
-                    <a href="../index.html#products" class="nav-link hover:text-brandBlue transition flex items-center gap-1">
+                    <a href="../products/index.html" class="nav-link hover:text-brandBlue transition flex items-center gap-1">
                         Products <i class="fa-solid fa-chevron-down text-[8px] transition-transform group-hover:rotate-180"></i>
                     </a>
                     <div class="dropdown-content absolute top-20 left-1/2 -translate-x-1/2 w-52 bg-white shadow-2xl rounded-2xl border border-slate-50 overflow-hidden py-2">
@@ -571,7 +559,7 @@
                 <section class="bg-slate-50 rounded-2xl p-6 md:p-8 mb-12">
                     <div class="flex flex-col sm:flex-row items-start gap-4 sm:gap-6">
                         <div class="w-20 h-20 rounded-full overflow-hidden flex items-center justify-center border-2 border-brandOrange bg-white shadow-lg shrink-0">
-                            <img src="../image/Nico Gung Author.webp" alt="Nico Gung" class="w-full h-full object-cover">
+                            <img src="../image/Nico Gung Author.webp" alt="Nico Gung" loading="lazy" width="400" height="400" class="w-full h-full object-cover">
                         </div>
                         <div class="flex-1 min-w-0">
                             <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 mb-2 sm:mb-3">
@@ -626,16 +614,16 @@
     <!-- ========================================================================
          FOOTER
          ======================================================================== -->
-    <footer class="pt-24 pb-12 bg-white border-t border-slate-100">
-        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-16 mb-20 text-center md:text-left">
-            <!-- Logo & Company Info -->
+            <footer class="pt-24 pb-12 bg-white border-t border-slate-100">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12 mb-20 text-center md:text-left">
+
+            <!-- Col 1: Logo + Company Intro -->
             <div class="flex flex-col items-center md:items-start">
                 <a href="../index.html" class="block mb-6 group" aria-label="WOWOHCOOL Home">
-                    <img src="../image/wowohcool-logo-optimized.webp" 
-                         alt="WOWOHCOOL - Premium Charging Solution Specialist in Shenzhen" 
+                    <img src="../image/wowohcool-logo-optimized.webp"
+                         alt="WOWOHCOOL - Premium Charging Solution Specialist in Shenzhen"
                          class="h-10 w-auto group-hover:opacity-80 transition-opacity duration-300"
-                         width="150" 
-                         height="40">
+                         width="150" height="40">
                 </a>
                 <div class="text-slate-400 text-[10px] font-bold uppercase leading-relaxed tracking-[0.15em]">
                     <p class="mb-1">Dong Yi Technology (WOWOHCOOL)</p>
@@ -644,23 +632,30 @@
                 </div>
             </div>
 
-            <!-- Quick Links -->
+            <!-- Col 2: Quick Links -->
             <div>
                 <h4 class="font-black text-brandBlue text-[11px] mb-8 uppercase tracking-widest">Quick Links</h4>
                 <ul class="text-slate-500 text-[10px] font-bold space-y-4 uppercase tracking-widest">
                     <li><a href="../index.html" class="hover:text-brandOrange transition">Home</a></li>
                     <li><a href="../about.html" class="hover:text-brandOrange transition">About Factory</a></li>
                     <li><a href="../service.html" class="hover:text-brandOrange transition">OEM/ODM Service</a></li>
-                    <li><a href="../products/power-bank.html" class="hover:text-brandOrange transition">Power Bank</a></li>
-                    <li><a href="../products/gan-charger.html" class="hover:text-brandOrange transition">GaN Charger</a></li>
-                    <li><a href="../products/wireless-charger.html" class="hover:text-brandOrange transition">Wireless Charger</a></li>
-                    <li><a href="../products/car-charger.html" class="hover:text-brandOrange transition">Car Charger</a></li>
                     <li><a href="../blog.html" class="hover:text-brandOrange transition">Blog</a></li>
                     <li><a href="../contact.html" class="hover:text-brandOrange transition">Contact</a></li>
                 </ul>
             </div>
 
-            <!-- Contact Info -->
+            <!-- Col 3: Products -->
+            <div>
+                <h4 class="font-black text-brandBlue text-[11px] mb-8 uppercase tracking-widest">Products</h4>
+                <ul class="text-slate-500 text-[10px] font-bold space-y-4 uppercase tracking-widest">
+                    <li><a href="../products/power-bank.html" class="hover:text-brandOrange transition">Power Bank</a></li>
+                    <li><a href="../products/gan-charger.html" class="hover:text-brandOrange transition">GaN Charger</a></li>
+                    <li><a href="../products/wireless-charger.html" class="hover:text-brandOrange transition">Wireless Charger</a></li>
+                    <li><a href="../products/car-charger.html" class="hover:text-brandOrange transition">Car Charger</a></li>
+                </ul>
+            </div>
+
+            <!-- Col 4: Connect + Social -->
             <div>
                 <h4 class="font-black text-brandBlue text-[11px] mb-8 uppercase tracking-widest">Connect</h4>
                 <div class="text-slate-500 text-[10px] font-bold space-y-4 uppercase tracking-widest">
@@ -674,20 +669,15 @@
                         <i class="fa-brands fa-whatsapp text-brandOrange text-sm" aria-hidden="true"></i> WhatsApp: +86 186 2078 9739
                     </a></p>
                 </div>
-            </div>
-
-            <!-- Social Media -->
-            <div>
-                <h4 class="font-black text-brandBlue text-[11px] mb-8 uppercase tracking-widest">Follow Us</h4>
-                <div class="flex justify-center md:justify-start gap-6 text-slate-300">
-                    <a href="https://www.linkedin.com/company/wowohcool/" class="hover:text-brandBlue text-2xl transition" title="Follow us on LinkedIn"><i class="fa-brands fa-linkedin" aria-hidden="true"></i></a>
-                    <a href="https://www.facebook.com/wowohcoolelectronic" class="hover:text-brandBlue text-2xl transition" title="Follow us on Facebook"><i class="fa-brands fa-facebook" aria-hidden="true"></i></a>
-                    <a href="https://www.youtube.com/@WOWOHCOOL" class="hover:text-brandBlue text-2xl transition" title="Watch on YouTube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a>
+                <div class="flex justify-center md:justify-start gap-5 text-slate-300 mt-8">
+                    <a href="https://www.linkedin.com/company/wowohcool/" class="hover:text-brandBlue text-xl transition" title="Follow us on LinkedIn"><i class="fa-brands fa-linkedin" aria-hidden="true"></i></a>
+                    <a href="https://www.facebook.com/wowohcoolelectronic" class="hover:text-brandBlue text-xl transition" title="Follow us on Facebook"><i class="fa-brands fa-facebook" aria-hidden="true"></i></a>
+                    <a href="https://www.youtube.com/@WOWOHCOOL" class="hover:text-brandBlue text-xl transition" title="Watch on YouTube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a>
                 </div>
             </div>
         </div>
 
-        <!-- Bottom Copyright -->
+        <!-- Copyright Bar -->
         <div class="border-t border-slate-50 pt-12">
             <div class="flex flex-col items-center gap-4">
                 <div class="flex gap-8 text-[9px] text-slate-400 font-black uppercase tracking-widest mb-2">
@@ -695,7 +685,7 @@
                     <a href="../terms-of-service.html" class="hover:text-brandOrange transition">Terms of Service</a>
                 </div>
                 <div class="text-center text-[9px] text-slate-300 font-black uppercase tracking-[0.4em]">
-                    © Copyright 2026 Dong Yi Technology Co., Limited. All rights reserved.
+                    &copy; Copyright 2026 Dong Yi Technology Co., Limited. All rights reserved.
                 </div>
             </div>
         </div>
