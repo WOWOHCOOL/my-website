@@ -2,11 +2,11 @@
 <html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     
     <!-- SEO Meta Tags -->
-    <title>WOWOHCOOL Blog - Expert Insights on Wireless Charging & China Manufacturing</title>
-    <meta name="description" content="Expert guides on wireless charger manufacturing, OEM/ODM sourcing, factory verification, and China trade. Since 2013, helping global brands with quality charging solutions.">
+    <title>WOWOHCOOL Blog | China Manufacturing & Sourcing Insights</title>
+    <meta name="description" content="Expert guides on wireless charger manufacturing, OEM/ODM sourcing, and factory verification. Since 2013, helping global brands source quality charging solutions.">
     <meta name="keywords" content="wireless charger blog, China manufacturing blog, OEM ODM guide, factory sourcing, charger industry insights">
     <meta name="geo.region" content="CN-GD" />
     <meta name="geo.placename" content="Shenzhen" />
@@ -27,6 +27,9 @@
     <meta property="og:url" content="https://www.wowohcool.com/blog.html">
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://www.wowohcool.com/image/blog-og-default.webp">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/webp">
     
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
@@ -42,11 +45,13 @@
     
     <!-- Styles -->
     <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" media="print" onload="this.media='all'" href="css/style.css">
+    <noscript><link rel="stylesheet" href="css/style.css"></noscript>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
     <style>
         html, body {
             overflow-x: hidden;
@@ -101,12 +106,30 @@
       ]
     }
     </script>
+
+    <!-- WebSite Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "WOWOHCOOL",
+      "url": "https://www.wowohcool.com",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://www.wowohcool.com/search?q={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
 </head>
 
 <body class="bg-white text-slate-900 overflow-x-hidden max-w-full">
 
     <!-- ========================================================================
-         HEADER - 顶部导航栏
+         HEADER - Navigation
          ======================================================================== -->
     <header class="fixed w-full z-[100] bg-white/95 backdrop-blur-md border-b border-slate-100 h-20">
         <nav class="max-w-7xl mx-auto px-6 h-full flex items-center justify-between">
@@ -128,7 +151,7 @@
                 
                 <!-- 产品下拉菜单 -->
                 <div class="relative group h-20 flex items-center">
-                    <a href="index.html#products" class="nav-link hover:text-brandBlue transition flex items-center gap-1">
+                    <a href="products/index.html" class="nav-link hover:text-brandBlue transition flex items-center gap-1">
                         Products <i class="fa-solid fa-chevron-down text-[8px] transition-transform group-hover:rotate-180"></i>
                     </a>
                     <div class="dropdown-content absolute top-20 left-1/2 -translate-x-1/2 w-52 bg-white shadow-2xl rounded-2xl border border-slate-50 overflow-hidden py-2">
@@ -172,7 +195,7 @@
             </button>
         </div>
 
-        <!-- 移动端导航链接 -->
+        <!-- Mobile Navigation链接 -->
         <nav class="flex-1 space-y-6 text-white uppercase font-black tracking-widest text-sm">
             <a href="index.html" data-action="close-mobile" class="block py-2 hover:text-brandOrange transition border-b border-white/5">Home</a>
             
@@ -195,7 +218,7 @@
             <a href="blog.html" class="block py-2 text-brandOrange transition border-b border-white/5">Blog</a>
             <a href="contact.html" class="block py-2 hover:text-brandOrange transition border-b border-white/5">Contact Us</a>
 
-            <!-- 移动端询盘按钮 -->
+            <!-- Mobile Inquiry Button -->
             <div class="pt-8">
                 <button data-action="close-mobile open-modal" data-product="General Inquiry" class="w-full bg-brandOrange text-white py-4 px-4 rounded-xl font-black shadow-xl shadow-brandOrange/20 active:scale-95 transition-all uppercase tracking-wider text-[11px] leading-tight text-center">
                     Request Wholesale Quote
@@ -222,6 +245,16 @@
                 <p class="text-slate-600 text-lg max-w-2xl mx-auto relative z-10">Expert insights on wireless charging technology, China manufacturing, OEM/ODM sourcing, and global trade. Since 2013.</p>
             </div>
 
+            <!-- Category Filter Bar -->
+            <div class="flex flex-wrap justify-center gap-2 mb-12">
+                <button data-filter="all" class="filter-btn px-5 py-2.5 rounded-full text-[10px] font-black uppercase tracking-widest transition-all duration-200 bg-brandOrange text-white shadow-md shadow-brandOrange/20">All Articles</button>
+                <button data-filter="manufacturing" class="filter-btn px-5 py-2.5 rounded-full text-[10px] font-black uppercase tracking-widest transition-all duration-200 bg-slate-100 text-slate-600 hover:bg-slate-200">Manufacturing</button>
+                <button data-filter="technology" class="filter-btn px-5 py-2.5 rounded-full text-[10px] font-black uppercase tracking-widest transition-all duration-200 bg-slate-100 text-slate-600 hover:bg-slate-200">Technology</button>
+                <button data-filter="guide" class="filter-btn px-5 py-2.5 rounded-full text-[10px] font-black uppercase tracking-widest transition-all duration-200 bg-slate-100 text-slate-600 hover:bg-slate-200">Product Guides</button>
+                <button data-filter="compliance" class="filter-btn px-5 py-2.5 rounded-full text-[10px] font-black uppercase tracking-widest transition-all duration-200 bg-slate-100 text-slate-600 hover:bg-slate-200">Compliance</button>
+                <button data-filter="logistics" class="filter-btn px-5 py-2.5 rounded-full text-[10px] font-black uppercase tracking-widest transition-all duration-200 bg-slate-100 text-slate-600 hover:bg-slate-200">Logistics</button>
+            </div>
+
             <!-- ================================================================
                  FEATURED ARTICLES - 精选文章 (SEO友好分类)
                  ================================================================ -->
@@ -232,7 +265,7 @@
                     <div class="w-1 h-8 bg-brandOrange rounded-full"></div>
                     <h2 class="text-xl md:text-2xl font-black text-brandBlue uppercase italic">Featured Guide</h2>
                 </div>
-                <article class="blog-card bg-white rounded-2xl md:rounded-3xl shadow-lg border border-slate-100 overflow-hidden hover:shadow-xl transition" data-tags="china-factory,oem,odm,import,sourcing">
+                <article class="blog-card bg-white rounded-2xl md:rounded-3xl shadow-lg border border-slate-100 overflow-hidden hover:shadow-xl transition" data-category="manufacturing" data-tags="china-factory,oem,odm,import,sourcing">
                     <!-- Mobile: Image on top, full width -->
                     <div class="relative h-56 md:h-auto md:aspect-[2/1] lg:aspect-auto">
                         <img src="image/blog/how-to-choose-factory.webp" 
@@ -274,7 +307,7 @@
                 </div>
                 <div class="grid md:grid-cols-2 gap-6">
                     <!-- OEM vs ODM -->
-                    <article class="blog-card bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden hover:shadow-lg transition group" data-tags="oem,odm,manufacturing">
+                    <article class="blog-card bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden hover:shadow-lg transition group" data-category="manufacturing" data-tags="oem,odm,manufacturing">
                         <div class="relative h-48 overflow-hidden">
                             <img src="image/blog/oem-vs-odm-guide.webp" 
                                  alt="OEM vs ODM manufacturing guide"
@@ -299,7 +332,7 @@
                     </article>
 
                     <!-- Factory Verification -->
-                    <article class="blog-card bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden hover:shadow-lg transition group" data-tags="china-factory,verification,import">
+                    <article class="blog-card bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden hover:shadow-lg transition group" data-category="manufacturing" data-tags="china-factory,verification,import">
                         <div class="relative h-48 overflow-hidden">
                             <img src="image/blog/factory-verification-checklist.webp" 
                                  alt="China factory verification checklist"
@@ -333,7 +366,7 @@
                 </div>
                 <div class="grid md:grid-cols-3 gap-6">
                     <!-- Qi2 vs MagSafe -->
-                    <article class="blog-card bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden hover:shadow-lg transition group" data-tags="qi2,magsafe,wireless-charging">
+                    <article class="blog-card bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden hover:shadow-lg transition group" data-category="technology" data-tags="qi2,magsafe,wireless-charging">
                         <div class="relative h-40 overflow-hidden">
                             <img src="image/blog/qi2-vs-magsafe-guide.webp" 
                                  alt="Qi2 vs MagSafe wireless charging comparison"
@@ -356,7 +389,7 @@
                     </article>
 
                     <!-- Hotel Charging -->
-                    <article class="blog-card bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden hover:shadow-lg transition group" data-tags="wireless-charger,hotel,amenity">
+                    <article class="blog-card bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden hover:shadow-lg transition group" data-category="guide" data-tags="wireless-charger,hotel,amenity">
                         <div class="relative h-40 overflow-hidden">
                             <img src="image/blog/hotel-charging-solutions.webp" 
                                  alt="Hotel wireless charging solutions"
@@ -379,7 +412,7 @@
                     </article>
 
                     <!-- GaN Chargers -->
-                    <article class="blog-card bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden hover:shadow-lg transition group" data-tags="gan,fast-charging,technology">
+                    <article class="blog-card bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden hover:shadow-lg transition group" data-category="technology" data-tags="gan,fast-charging,technology">
                         <div class="relative h-40 overflow-hidden">
                             <img src="image/blog/gan-chargers-guide.webp" 
                                  alt="GaN chargers guide"
@@ -411,7 +444,7 @@
                 </div>
                 <div class="grid md:grid-cols-3 gap-6">
                     <!-- USB-C PD -->
-                    <article class="blog-card bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden hover:shadow-lg transition group" data-tags="usb-c,pd,fast-charging">
+                    <article class="blog-card bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden hover:shadow-lg transition group" data-category="technology" data-tags="usb-c,pd,fast-charging">
                         <div class="relative h-40 overflow-hidden">
                             <img src="image/blog/usb-c-pd-fast-charging-guide.webp" 
                                  alt="USB-C PD fast charging guide"
@@ -434,7 +467,7 @@
                     </article>
 
                     <!-- Qi Certification -->
-                    <article class="blog-card bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden hover:shadow-lg transition group" data-tags="qi,certification,wireless-charger">
+                    <article class="blog-card bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden hover:shadow-lg transition group" data-category="guide" data-tags="qi,certification,wireless-charger">
                         <div class="relative h-40 overflow-hidden">
                             <img src="image/blog/qi-certification-guide.webp" 
                                  alt="Qi certification guide"
@@ -457,7 +490,7 @@
                     </article>
 
                     <!-- Power Bank Specs -->
-                    <article class="blog-card bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden hover:shadow-lg transition group" data-tags="power-bank,specifications,capacity">
+                    <article class="blog-card bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden hover:shadow-lg transition group" data-category="guide" data-tags="power-bank,specifications,capacity">
                         <div class="relative h-40 overflow-hidden">
                             <img src="image/blog/power-bank-specs-guide.webp" 
                                  alt="Power bank specifications guide"
@@ -489,7 +522,7 @@
                 </div>
                 <div class="grid md:grid-cols-3 gap-6">
                     <!-- Certifications US/EU -->
-                    <article class="blog-card bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden hover:shadow-lg transition group" data-tags="ce,fcc,certification,compliance">
+                    <article class="blog-card bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden hover:shadow-lg transition group" data-category="compliance" data-tags="ce,fcc,certification,compliance">
                         <div class="relative h-40 overflow-hidden">
                             <img src="image/blog/certifications-us-eu-guide.webp" 
                                  alt="US EU certifications guide"
@@ -512,7 +545,7 @@
                     </article>
 
                     <!-- Charger Safety -->
-                    <article class="blog-card bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden hover:shadow-lg transition group" data-tags="safety,standards,certification">
+                    <article class="blog-card bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden hover:shadow-lg transition group" data-category="compliance" data-tags="safety,standards,certification">
                         <div class="relative h-40 overflow-hidden">
                             <img src="image/blog/charger-safety-standards-guide.webp" 
                                  alt="Charger safety standards guide"
@@ -535,7 +568,7 @@
                     </article>
 
                     <!-- Wireless Charging Works -->
-                    <article class="blog-card bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden hover:shadow-lg transition group" data-tags="wireless-charging,technology,qi">
+                    <article class="blog-card bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden hover:shadow-lg transition group" data-category="technology" data-tags="wireless-charging,technology,qi">
                         <div class="relative h-40 overflow-hidden">
                             <img src="image/blog/wireless-charging-works.webp" 
                                  alt="How wireless charging works"
@@ -556,6 +589,51 @@
                             </div>
                         </div>
                     </article>
+                </div>
+            </section>
+
+            <!-- NEW: Commercial Articles - Supplier & Sourcing -->
+            <section class="mb-16">
+                <div class="flex items-center gap-3 mb-6 md:mb-8">
+                    <div class="w-1 h-8 bg-brandOrange rounded-full"></div>
+                    <h2 class="text-xl md:text-2xl font-black text-brandBlue uppercase italic">Supplier &amp; Sourcing Guides</h2>
+                </div>
+                <div class="grid md:grid-cols-2 gap-6">
+
+                    <article class="blog-card bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden hover:shadow-lg transition group" data-category="manufacturing" data-tags="power-bank,manufacturer,china,top-10,OEM,ODM">
+                        <a href="blog/top-power-bank-manufacturers-china.html">
+                            <div class="p-6">
+                                <div class="flex flex-wrap gap-2 mb-4">
+                                    <span class="px-3 py-1 bg-brandOrange/10 text-brandOrange text-[10px] font-black rounded-full uppercase">Industry Guide</span>
+                                    <span class="px-3 py-1 bg-slate-100 text-slate-600 text-[10px] font-bold rounded-full uppercase">Power Bank</span>
+                                </div>
+                                <h3 class="text-lg font-black text-brandBlue uppercase italic mb-3 leading-tight">Top 10 Power Bank Manufacturers in China 2026</h3>
+                                <p class="text-slate-500 text-sm mb-4 line-clamp-2">Compare the top OEM/ODM power bank manufacturers in China. Includes MOQ comparison, certifications, and selection guide.</p>
+                                <div class="flex items-center justify-between text-sm">
+                                    <span class="text-slate-400"><i class="fa-regular fa-calendar mr-1"></i>Apr 28, 2026 · 12 min</span>
+                                    <span class="inline-flex items-center gap-1.5 text-brandOrange font-black text-xs uppercase tracking-wider group-hover:gap-3 transition-all">Read <i class="fa-solid fa-arrow-right text-[10px]"></i></span>
+                                </div>
+                            </div>
+                        </a>
+                    </article>
+
+                    <article class="blog-card bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden hover:shadow-lg transition group" data-category="manufacturing" data-tags="supplier,OEM,ODM,sourcing,factory,guide">
+                        <a href="blog/choose-reliable-china-charger-supplier.html">
+                            <div class="p-6">
+                                <div class="flex flex-wrap gap-2 mb-4">
+                                    <span class="px-3 py-1 bg-brandOrange/10 text-brandOrange text-[10px] font-black rounded-full uppercase">Sourcing Guide</span>
+                                    <span class="px-3 py-1 bg-slate-100 text-slate-600 text-[10px] font-bold rounded-full uppercase">OEM/ODM</span>
+                                </div>
+                                <h3 class="text-lg font-black text-brandBlue uppercase italic mb-3 leading-tight">How to Choose a Reliable China Charger Supplier</h3>
+                                <p class="text-slate-500 text-sm mb-4 line-clamp-2">Factory verification, OEM vs ODM terms, MOQ negotiation, and red flags to avoid when sourcing from China.</p>
+                                <div class="flex items-center justify-between text-sm">
+                                    <span class="text-slate-400"><i class="fa-regular fa-calendar mr-1"></i>Apr 28, 2026 · 10 min</span>
+                                    <span class="inline-flex items-center gap-1.5 text-brandOrange font-black text-xs uppercase tracking-wider group-hover:gap-3 transition-all">Read <i class="fa-solid fa-arrow-right text-[10px]"></i></span>
+                                </div>
+                            </div>
+                        </a>
+                    </article>
+
                 </div>
             </section>
 
@@ -712,18 +790,18 @@
     </main>
 
     <!-- ========================================================================
-         FOOTER - 页脚区域
+         FOOTER - Footer
          ======================================================================== -->
-    <footer class="pt-24 pb-12 bg-white border-t border-slate-100">
-        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-16 mb-20 text-center md:text-left">
-            <!-- Logo与公司简介 -->
+            <footer class="pt-24 pb-12 bg-white border-t border-slate-100">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12 mb-20 text-center md:text-left">
+
+            <!-- Col 1: Logo + Company Intro -->
             <div class="flex flex-col items-center md:items-start">
                 <a href="index.html" class="block mb-6 group" aria-label="WOWOHCOOL Home">
-                    <img src="image/wowohcool-logo-optimized.webp" 
-                         alt="WOWOHCOOL - Premium Charging Solution Specialist in Shenzhen" 
+                    <img src="image/wowohcool-logo-optimized.webp"
+                         alt="WOWOHCOOL - Premium Charging Solution Specialist in Shenzhen"
                          class="h-10 w-auto group-hover:opacity-80 transition-opacity duration-300"
-                         width="150" 
-                         height="40">
+                         width="150" height="40">
                 </a>
                 <div class="text-slate-400 text-[10px] font-bold uppercase leading-relaxed tracking-[0.15em]">
                     <p class="mb-1">Dong Yi Technology (WOWOHCOOL)</p>
@@ -732,23 +810,30 @@
                 </div>
             </div>
 
-            <!-- 快捷链接 -->
+            <!-- Col 2: Quick Links -->
             <div>
                 <h4 class="font-black text-brandBlue text-[11px] mb-8 uppercase tracking-widest">Quick Links</h4>
                 <ul class="text-slate-500 text-[10px] font-bold space-y-4 uppercase tracking-widest">
                     <li><a href="index.html" class="hover:text-brandOrange transition">Home</a></li>
                     <li><a href="about.html" class="hover:text-brandOrange transition">About Factory</a></li>
                     <li><a href="service.html" class="hover:text-brandOrange transition">OEM/ODM Service</a></li>
-                    <li><a href="products/power-bank.html" class="hover:text-brandOrange transition">Power Bank</a></li>
-                    <li><a href="products/gan-charger.html" class="hover:text-brandOrange transition">GaN Charger</a></li>
-                    <li><a href="products/wireless-charger.html" class="hover:text-brandOrange transition">Wireless Charger</a></li>
-                    <li><a href="products/car-charger.html" class="hover:text-brandOrange transition">Car Charger</a></li>
                     <li><a href="blog.html" class="hover:text-brandOrange transition">Blog</a></li>
                     <li><a href="contact.html" class="hover:text-brandOrange transition">Contact</a></li>
                 </ul>
             </div>
 
-            <!-- 联系方式 -->
+            <!-- Col 3: Products -->
+            <div>
+                <h4 class="font-black text-brandBlue text-[11px] mb-8 uppercase tracking-widest">Products</h4>
+                <ul class="text-slate-500 text-[10px] font-bold space-y-4 uppercase tracking-widest">
+                    <li><a href="products/power-bank.html" class="hover:text-brandOrange transition">Power Bank</a></li>
+                    <li><a href="products/gan-charger.html" class="hover:text-brandOrange transition">GaN Charger</a></li>
+                    <li><a href="products/wireless-charger.html" class="hover:text-brandOrange transition">Wireless Charger</a></li>
+                    <li><a href="products/car-charger.html" class="hover:text-brandOrange transition">Car Charger</a></li>
+                </ul>
+            </div>
+
+            <!-- Col 4: Connect + Social -->
             <div>
                 <h4 class="font-black text-brandBlue text-[11px] mb-8 uppercase tracking-widest">Connect</h4>
                 <div class="text-slate-500 text-[10px] font-bold space-y-4 uppercase tracking-widest">
@@ -762,20 +847,15 @@
                         <i class="fa-brands fa-whatsapp text-brandOrange text-sm" aria-hidden="true"></i> WhatsApp: +86 186 2078 9739
                     </a></p>
                 </div>
-            </div>
-
-            <!-- 社交媒体 -->
-            <div>
-                <h4 class="font-black text-brandBlue text-[11px] mb-8 uppercase tracking-widest">Follow Us</h4>
-                <div class="flex justify-center md:justify-start gap-6 text-slate-300">
-                    <a href="https://www.linkedin.com/company/wowohcool/" class="hover:text-brandBlue text-2xl transition" title="Follow us on LinkedIn"><i class="fa-brands fa-linkedin" aria-hidden="true"></i></a>
-                    <a href="https://www.facebook.com/wowohcoolelectronic" class="hover:text-brandBlue text-2xl transition" title="Follow us on Facebook"><i class="fa-brands fa-facebook" aria-hidden="true"></i></a>
-                    <a href="https://www.youtube.com/@WOWOHCOOL" class="hover:text-brandBlue text-2xl transition" title="Watch on YouTube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a>
+                <div class="flex justify-center md:justify-start gap-5 text-slate-300 mt-8">
+                    <a href="https://www.linkedin.com/company/wowohcool/" class="hover:text-brandBlue text-xl transition" title="Follow us on LinkedIn"><i class="fa-brands fa-linkedin" aria-hidden="true"></i></a>
+                    <a href="https://www.facebook.com/wowohcoolelectronic" class="hover:text-brandBlue text-xl transition" title="Follow us on Facebook"><i class="fa-brands fa-facebook" aria-hidden="true"></i></a>
+                    <a href="https://www.youtube.com/@WOWOHCOOL" class="hover:text-brandBlue text-xl transition" title="Watch on YouTube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a>
                 </div>
             </div>
         </div>
 
-        <!-- 底部版权栏 -->
+        <!-- Copyright Bar -->
         <div class="border-t border-slate-50 pt-12">
             <div class="flex flex-col items-center gap-4">
                 <div class="flex gap-8 text-[9px] text-slate-400 font-black uppercase tracking-widest mb-2">
@@ -783,7 +863,7 @@
                     <a href="terms-of-service.html" class="hover:text-brandOrange transition">Terms of Service</a>
                 </div>
                 <div class="text-center text-[9px] text-slate-300 font-black uppercase tracking-[0.4em]">
-                    © Copyright 2026 Dong Yi Technology Co., Limited. All rights reserved.
+                    &copy; Copyright 2026 Dong Yi Technology Co., Limited. All rights reserved.
                 </div>
             </div>
         </div>
@@ -917,24 +997,33 @@
          ======================================================================== -->
     <script src="main.js" defer></script>
     
-    <!-- Tag Filtering Script -->
+    <!-- Category Filter Script -->
     <script>
     document.addEventListener('DOMContentLoaded', function() {
-        const tagLinks = document.querySelectorAll('.tag-btn[href]');
-        
-        // Tag link click - navigate to article
-        tagLinks.forEach(link => {
-            link.addEventListener('click', function(e) {
-                // Let links work naturally (navigate to relevant pages)
-                return true;
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const blogCards = document.querySelectorAll('.blog-card');
+
+        filterBtns.forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                const category = this.dataset.filter;
+
+                // Update active button style
+                filterBtns.forEach(function(b) {
+                    b.className = b.className.replace('bg-brandOrange text-white shadow-md shadow-brandOrange/20', 'bg-slate-100 text-slate-600 hover:bg-slate-200');
+                });
+                this.className = this.className.replace('bg-slate-100 text-slate-600 hover:bg-slate-200', 'bg-brandOrange text-white shadow-md shadow-brandOrange/20');
+
+                // Filter cards
+                blogCards.forEach(function(card) {
+                    if (category === 'all') {
+                        card.style.display = '';
+                    } else {
+                        const cat = (card.dataset.category || '').toLowerCase();
+                        card.style.display = cat === category ? '' : 'none';
+                    }
+                });
             });
         });
-
-        // Optional: Filter by URL hash for deep linking
-        const hash = window.location.hash;
-        if (hash === '#tags' || hash === '#topics') {
-            document.getElementById('tags-section').scrollIntoView({ behavior: 'smooth' });
-        }
     });
 
     // Newsletter Form Handling

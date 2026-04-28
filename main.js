@@ -460,7 +460,47 @@ const counterObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.6 });
 
 
-// ----- DOM 加载完成后初始化 -----
+/**
+ * ========================================================================
+ * 模块 7: 表单验证与防重复提交 - Form Validation & Anti-Duplicate Submit
+ * ======================================================================== */
+
+document.addEventListener('DOMContentLoaded', () => {
+    const forms = document.querySelectorAll('form[action*="web3forms.com/submit"]');
+    
+    forms.forEach(form => {
+        if (form.dataset.submitted) return;
+        form.dataset.submitted = 'true';
+        
+        form.addEventListener('submit', function(e) {
+            const submitBtn = form.querySelector('button[type="submit"]');
+            if (!submitBtn) return;
+            
+            const originalText = submitBtn.textContent.trim();
+            const loadingText = 'Sending Inquiry...';
+            
+            submitBtn.disabled = true;
+            submitBtn.classList.add('opacity-50', 'cursor-not-allowed');
+            submitBtn.textContent = loadingText;
+            
+            form.addEventListener('web3forms:ready', () => {
+                submitBtn.disabled = false;
+                submitBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+                submitBtn.textContent = originalText;
+            }, { once: true });
+            
+            setTimeout(() => {
+                if (submitBtn.disabled) {
+                    submitBtn.disabled = false;
+                    submitBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+                    submitBtn.textContent = originalText;
+                }
+            }, 15000);
+        }, { once: true });
+    });
+});
+
+
 document.addEventListener('DOMContentLoaded', () => {
     // 初始化所有 reveal 动画元素
     document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
