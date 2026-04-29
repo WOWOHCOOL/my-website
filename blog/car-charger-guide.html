@@ -900,103 +900,62 @@
     <!-- ========================================================================
          INQUIRY MODAL - 询盘弹窗
          ======================================================================== -->
-    <div id="inquiryModal" class="fixed inset-0 z-[300] hidden items-center justify-center p-6 bg-brandBlue/95 backdrop-blur-lg" role="dialog" aria-modal="true" aria-hidden="true">
-        <div class="bg-white w-full max-w-xl p-8 md:p-12 rounded-[3rem] relative animate-in zoom-in duration-300 overflow-y-auto max-h-[90vh] shadow-2xl">
-            <!-- 关闭按钮 -->
+            <div id="inquiryModal" class="fixed inset-0 z-[300] hidden items-center justify-center p-4 sm:p-6 bg-brandBlue/95 backdrop-blur-lg" role="dialog" aria-modal="true" aria-hidden="true">
+        <div class="bg-white w-full max-w-xl p-5 sm:p-8 md:p-10 rounded-2xl relative animate-in zoom-in duration-300 shadow-2xl" style="max-height:85vh;overflow-y:auto;">
             <button data-action="close-modal" class="absolute top-8 right-8 text-slate-300 hover:text-brandBlue transition-colors" aria-label="Close inquiry modal">
                 <i class="fa-solid fa-xmark text-3xl" aria-hidden="true"></i>
             </button>
-
-            <!-- 弹窗标题 -->
             <div class="mb-10 text-left">
                 <h3 class="text-3xl font-black text-brandBlue uppercase mb-2 italic tracking-tighter">Quick Inquiry</h3>
                 <div class="flex items-center gap-2">
                     <span class="w-10 h-[2px] bg-brandOrange" aria-hidden="true"></span>
-                    <p class="text-slate-400 text-[10px] font-black uppercase tracking-widest">Factory-Direct Pricing Within 24 Hours</p>
+                    <p class="text-slate-400 text-[10px] font-bold uppercase tracking-widest">We typically respond within 4 hours during business days</p>
                 </div>
             </div>
-            
-            <!-- 询盘表单 -->
             <form action="https://api.web3forms.com/submit" method="POST" id="inquiry-form">
-                <!-- Web3Forms 配置字段 -->
                 <input type="hidden" name="access_key" value="7f077cf3-642b-4aba-9be2-cb99c0c65b19">
                 <input type="hidden" name="subject" id="email-subject" value="New Inquiry from Website">
                 <input type="hidden" name="redirect" value="https://www.wowohcool.com/thank-you.html">
                 <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
-
-                <!-- 姓名与公司 -->
                 <div class="grid md:grid-cols-2 gap-5">
                     <div class="space-y-1.5">
-                        <label for="modal-name" class="text-[10px] font-black text-brandBlue uppercase ml-2 tracking-widest">Contact Name *</label>
-                        <input id="modal-name" type="text" name="name" placeholder="e.g. John Doe" required
-                            class="w-full bg-slate-50 p-4 rounded-2xl text-sm border-2 border-transparent focus:border-brandOrange focus:bg-white transition-all outline-none font-medium">
+                        <label for="modal-name" class="text-[10px] font-bold text-brandBlue ml-2 tracking-widest">Contact name</label>
+                        <input id="modal-name" type="text" name="name" placeholder="John Doe" required class="w-full bg-slate-50 p-4 rounded-2xl text-sm border-2 border-transparent focus:border-brandOrange focus:bg-white transition-all outline-none font-medium">
                     </div>
                     <div class="space-y-1.5">
-                        <label for="modal-company" class="text-[10px] font-black text-brandBlue uppercase ml-2 tracking-widest">Company Name *</label>
-                        <input id="modal-company" type="text" name="company" placeholder="Business Entity" required
-                            class="w-full bg-slate-50 p-4 rounded-2xl text-sm border-2 border-transparent focus:border-brandOrange focus:bg-white transition-all outline-none font-medium">
+                        <label for="modal-email" class="text-[10px] font-bold text-brandBlue ml-2 tracking-widest">Business email</label>
+                        <input id="modal-email" type="email" name="email" placeholder="john@company.com" required class="w-full bg-slate-50 p-4 rounded-2xl text-sm border-2 border-transparent focus:border-brandOrange focus:bg-white transition-all outline-none font-medium">
                     </div>
                 </div>
-
-                <!-- 邮箱与产品选择 -->
-                <div class="grid md:grid-cols-2 gap-5">
-                    <div class="space-y-1.5">
-                        <label for="modal-email" class="text-[10px] font-black text-brandBlue uppercase ml-2 tracking-widest">Business Email *</label>
-                        <input id="modal-email" type="email" name="email" placeholder="john@company.com" required
-                            class="w-full bg-slate-50 p-4 rounded-2xl text-sm border-2 border-transparent focus:border-brandOrange focus:bg-white transition-all outline-none font-medium">
-                    </div>
-                    <div class="space-y-1.5">
-                        <label for="productSelect" class="text-[10px] font-black text-brandBlue uppercase ml-2 tracking-widest">Product Interest</label>
-                        <div class="relative">
-                           <select id="productSelect" name="product" class="w-full bg-slate-50 p-4 rounded-2xl text-sm border-2 border-transparent focus:border-brandOrange focus:bg-white transition-all outline-none font-medium appearance-none">
-                                <option value="General Inquiry">General Inquiry</option>
-                                <option value="WOW93 3-in-1 Folding Wireless Charger">3-in-1 Folding Wireless Charger</option>
-                                <option value="WOP67 2-in-1 Power Bank &amp; Wall Charger">2-in-1 Power Bank & Wall Charger</option>
-                                <option value="WOC42 105W Retractable Car Charger">105W Retractable Car Charger</option>
-                                <option value="Custom ODM Project">Custom ODM Project</option>
+                <div class="space-y-1.5">
+                    <label for="productSelect" class="text-[10px] font-bold text-brandBlue ml-2 tracking-widest">Product interest</label>
+                    <div class="relative">
+                        <select id="productSelect" name="product" required class="w-full bg-slate-50 p-4 rounded-2xl text-sm border-2 border-transparent focus:border-brandOrange focus:bg-white transition-all outline-none font-medium appearance-none">
+                            <option value="">Select product category</option>
+                            <option value="Power Bank OEM/ODM">Power Bank (Semi-Solid-State, PD 3.1)</option>
+                            <option value="GaN Charger OEM/ODM">GaN Charger (GaN V, PD 3.1 240W)</option>
+                            <option value="Wireless Charger OEM/ODM">Wireless Charger (Qi2, MagSafe, 15W)</option>
+                            <option value="Car Charger OEM/ODM">Car Charger (PD 3.1, GaN, 140W)</option>
+                            <option value="Custom ODM Project">Custom ODM Project (Full Design)</option>
+                            <option value="General Inquiry">General Inquiry / Not Sure Yet</option>
                         </select>
-                            <i class="fa-solid fa-chevron-down absolute right-4 top-1/2 -translate-y-1/2 text-slate-300 pointer-events-none text-xs" aria-hidden="true"></i>
-                        </div>
+                        <i class="fa-solid fa-chevron-down absolute right-4 top-1/2 -translate-y-1/2 text-slate-300 pointer-events-none text-xs" aria-hidden="true"></i>
                     </div>
                 </div>
-
-                <!-- 数量 -->
                 <div class="space-y-1.5">
-                    <label for="quantity" class="text-[10px] font-black text-brandBlue uppercase ml-2 tracking-widest">Expected Quantity (MOQ: 500+)</label>
-                    <input id="quantity" type="text" name="quantity" placeholder="e.g. 1000 units"
-                        class="w-full bg-slate-50 p-4 rounded-2xl text-sm border-2 border-transparent focus:border-brandOrange focus:bg-white transition-all outline-none font-medium">
+                    <label for="modal-message" class="text-[10px] font-bold text-brandBlue ml-2 tracking-widest">Tell us about your project <span class="text-slate-400">(optional)</span></label>
+                    <textarea id="modal-message" name="message" placeholder="Product specs, target quantity, logo printing, packaging needs..." rows="3" class="w-full bg-slate-50 p-4 rounded-2xl text-sm border-2 border-transparent focus:border-brandOrange focus:bg-white transition-all outline-none font-medium resize-none"></textarea>
                 </div>
-
-                <!-- 详细需求 -->
-                <div class="space-y-1.5">
-                    <label for="modal-message" class="text-[10px] font-black text-brandBlue uppercase ml-2 tracking-widest">Detailed Requirements</label>
-                    <textarea id="modal-message" name="message" placeholder="Please describe your OEM/ODM specifications, logo printing, or custom packaging needs..." rows="3" 
-                        class="w-full bg-slate-50 p-4 rounded-2xl text-sm border-2 border-transparent focus:border-brandOrange focus:bg-white transition-all outline-none font-medium resize-none"></textarea>
-                </div>
-
-                <!-- 提交按钮 -->
                 <div class="pt-4">
-                    <button type="submit" class="w-full bg-brandOrange text-white py-5 rounded-[1.5rem] font-black uppercase tracking-widest text-sm shadow-xl shadow-brandOrange/20 hover:shadow-brandOrange/40 hover:-translate-y-1 active:scale-95 transition-all duration-300">
-                        Send Factory Inquiry Now
-                    </button>
-                    <!-- 安全提示 -->
+                    <button type="submit" class="w-full bg-brandOrange text-white py-5 rounded-[1.5rem] font-black uppercase tracking-widest text-sm shadow-xl shadow-brandOrange/20 hover:shadow-brandOrange/40 hover:-translate-y-1 active:scale-95 transition-all duration-300">Send Inquiry</button>
                     <div class="flex items-center justify-center gap-4 mt-6">
-                        <p class="text-[9px] text-slate-300 font-bold uppercase tracking-tighter">
-                            <i class="fa-solid fa-lock mr-1" aria-hidden="true"></i> SSL Encrypted Data
-                        </p>
-                        <p class="text-[9px] text-slate-300 font-bold uppercase tracking-tighter">
-                            <i class="fa-solid fa-clock mr-1" aria-hidden="true"></i> 24h Response Guarantee
-                        </p>
+                        <p class="text-[9px] text-slate-300 font-bold uppercase tracking-tighter"><i class="fa-solid fa-lock mr-1" aria-hidden="true"></i> SSL Encrypted Data</p>
+                        <p class="text-[9px] text-slate-300 font-bold uppercase tracking-tighter"><i class="fa-solid fa-clock mr-1" aria-hidden="true"></i> 24h Response Guarantee</p>
                     </div>
                 </div>
             </form>
-			
         </div>
     </div>
-
-    <!-- ========================================================================
-         JAVASCRIPT - 脚本引入
-         ======================================================================== -->
     <script src="../main.js" defer></script>
     <script>
         document.getElementById('newsletter-form')?.addEventListener('submit', async (e) => {

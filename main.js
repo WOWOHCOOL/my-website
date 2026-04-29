@@ -306,18 +306,23 @@ function openMobileMenu() {
 function closeMobileMenu() {
     const overlay = document.getElementById('mobile-menu-overlay');
     const menu = document.getElementById('mobile-menu-content');
-    
+
+    // 关闭前移除焦点，避免 aria-hidden 冲突警告
+    if (document.activeElement && menu && menu.contains(document.activeElement)) {
+        document.activeElement.blur();
+    }
+
     if (overlay) {
         overlay.classList.add('opacity-0');
         overlay.classList.add('pointer-events-none');
         overlay.setAttribute('aria-hidden', 'true');
     }
-    
+
     if (menu) {
         menu.classList.add('translate-x-full');
         menu.setAttribute('aria-hidden', 'true');
     }
-    
+
     // 恢复背景滚动（保持横向隐藏）
     document.body.style.overflow = '';
 }
