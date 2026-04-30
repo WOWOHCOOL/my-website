@@ -250,4 +250,131 @@
     }
 }
 
-/* 此区域保留其他原始 CSS 样式（Tailwind 类处理大部分布局） */
+/* 全站布局基础 */
+html, body {
+    overflow-x: hidden;
+    max-width: 100vw;
+}
+header {
+    transform: translateZ(0);
+}
+/* 首屏以下区域延迟渲染，提升滚动性能 */
+section:not(#hero):not(#story) {
+    content-visibility: auto;
+    contain-intrinsic-size: 800px;
+}
+
+/* 桌面端移动端响应式修复 */
+@media (max-width: 1023px) {
+    .fixed.right-8 > span {
+        right: 100% !important;
+        margin-right: 12px;
+    }
+    .absolute.-left-6, .absolute.-left-10 {
+        left: 0 !important;
+    }
+    .fixed.left-8 {
+        left: 1rem !important;
+    }
+    #hero > .max-w-7xl {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+    .fixed.bottom-8.right-8 span {
+        display: none !important;
+    }
+}
+
+/* 博客标签样式 */
+.tag-cloud a { transition: all 0.2s ease; }
+.tag-cloud a:hover { transform: translateY(-1px); }
+.tag-accent { background: rgba(255,102,0,0.15); color: #FF6600; font-weight: 900; }
+.tag-blue { background: rgba(0,51,102,0.15); color: #003366; font-weight: 900; }
+.tag-green { background: rgba(34,197,94,0.15); color: #16a34a; font-weight: 900; }
+.tag-amber { background: rgba(245,158,11,0.15); color: #d97706; font-weight: 900; }
+.tag-red { background: rgba(239,68,68,0.15); color: #dc2626; font-weight: 900; }
+.tag-slate { background: rgba(100,116,139,0.15); color: #64748b; font-weight: 900; }
+.section-bar { width: 4px; height: 32px; border-radius: 2px; flex-shrink: 0; }
+.section-bar-orange { background: #FF6600; }
+.section-bar-blue { background: #003366; }
+.section-bar-green { background: #16a34a; }
+.section-bar-teal { background: #0d9488; }
+.section-bar-purple { background: #7c3aed; }
+.section-bar-slate { background: #64748b; }
+@media (min-width: 1024px) {
+    .featured-split { display: flex; }
+    .featured-split > div:first-child { width: 45%; }
+    .featured-split > div:last-child { width: 55%; }
+}
+
+/* 询盘弹窗移动端优化 - 确保表单完整可见 */
+@media (max-width: 640px) {
+    #inquiryModal > div {
+        max-height: 95vh !important;
+        padding: 1rem !important;
+    }
+    #inquiryModal .text-3xl {
+        font-size: 1.25rem !important;
+    }
+    #inquiryModal .mb-10 {
+        margin-bottom: 1rem !important;
+    }
+    #inquiryModal h3 {
+        font-size: 1.25rem !important;
+    }
+    #inquiryModal [class*="p-4"] {
+        padding: 0.625rem !important;
+    }
+    #inquiryModal button[type="submit"] {
+        padding-top: 0.75rem !important;
+        padding-bottom: 0.75rem !important;
+    }
+    #inquiryModal .gap-4 {
+        gap: 0.5rem !important;
+    }
+    #inquiryModal .gap-5 {
+        gap: 0.75rem !important;
+    }
+    #inquiryModal .pt-4 {
+        padding-top: 0.5rem !important;
+    }
+    #inquiryModal .mt-6 {
+        margin-top: 0.75rem !important;
+    }
+    #inquiryModal .grid.md\:grid-cols-2 {
+        gap: 0.75rem !important;
+    }
+    #inquiryModal .absolute.top-8.right-8 {
+        top: 0.75rem !important;
+        right: 0.75rem !important;
+    }
+    #backToTop {
+        left: 1rem !important;
+    }
+}
+
+/* blog.html section-to-section spacing */
+.blog-content > section + section {
+    margin-top: 3.5rem;
+}
+
+/* 浮动按钮安全区域适配（iPhone X+ 底部指示条） */
+@supports (padding-bottom: env(safe-area-inset-bottom)) {
+    .fixed.bottom-8 {
+        bottom: calc(0.5rem + env(safe-area-inset-bottom)) !important;
+    }
+}
+
+/* Blog article CTA button: full width on mobile, auto width on desktop */
+.car-cta-btn {
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+@media (min-width: 640px) {
+    .car-cta-btn {
+        display: inline-block;
+        width: auto;
+    }
+}
+
