@@ -233,10 +233,20 @@
    保留原有的 Tailwind 兼容样式
    ======================================================================== */
 
-/* 移动端禁用 smooth scroll 防止首帧卡顿 */
+/* 移动端性能优化：禁用开销大的视觉效果防止首帧卡顿 */
 @media (max-width: 768px) {
     html {
         scroll-behavior: auto !important;
+    }
+    /* fixed header 的 backdrop-filter 在移动端严重拖慢滚动性能 */
+    header {
+        -webkit-backdrop-filter: none !important;
+        backdrop-filter: none !important;
+    }
+    /* 移动端菜单遮罩层的 backdrop-filter 也是性能杀手 */
+    #mobile-menu-overlay {
+        -webkit-backdrop-filter: none !important;
+        backdrop-filter: none !important;
     }
 }
 
