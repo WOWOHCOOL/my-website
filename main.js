@@ -372,7 +372,7 @@ document.addEventListener('click', (e) => {
                 break;
             case 'toggle-mobile-submenu': {
                 const submenu = document.getElementById('mobile-submenu');
-                const icon = document.getElementById('submenu-icon');
+                const icon = document.querySelector('.submenu-icon');
                 if (!submenu) break;
                 
                 const opened = !submenu.classList.contains('hidden');

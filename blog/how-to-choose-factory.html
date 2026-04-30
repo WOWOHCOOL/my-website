@@ -36,12 +36,14 @@
     
     <!-- Styles -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
-    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preload" as="style" href="../css/styles.css" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="../css/styles.css"></noscript>
     <link rel="stylesheet" media="print" onload="this.media='all'" href="../css/style.css">
     <noscript><link rel="stylesheet" href="../css/style.css"></noscript>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap"></noscript>
     <!-- Tailwind CDN for custom colors -->
     
     <!-- Schema.org Article -->
@@ -123,7 +125,7 @@
          HEADER - 顶部导航栏
          ======================================================================== -->
     <header class="fixed w-full z-[100] bg-white/95 backdrop-blur-md border-b border-slate-100 h-20">
-        <nav class="max-w-7xl mx-auto px-6 h-full flex items-center justify-between">
+        <nav aria-label="Main navigation" class="max-w-7xl mx-auto px-6 h-full flex items-center justify-between">
             <!-- Logo -->
             <a href="../index.html" class="flex items-center shrink-0 group" aria-label="WOWOHCOOL Home">
                 <img src="../image/wowohcool-logo-optimized.webp" 
@@ -160,7 +162,7 @@
             
             <!-- 右侧按钮区 -->
             <div class="flex items-center gap-4">
-                <button data-action="open-modal" class="bg-brandOrange text-white px-7 py-2.5 rounded-full text-[10px] font-black uppercase tracking-widest hover:scale-105 transition shadow-lg">Request Quote</button>
+                <button data-action="open-modal" class="bg-brandOrange text-white px-4 md:px-7 py-2 rounded-full text-[9px] md:text-[10px] font-black uppercase tracking-widest hover:scale-105 transition shadow-lg">Request Quote</button>
                 <button data-action="toggle-mobile-menu" class="lg:hidden text-brandBlue text-2xl" aria-label="Open mobile menu"><i class="fa-solid fa-bars-staggered"></i></button>
             </div>
         </nav>
@@ -186,7 +188,7 @@
         </div>
 
         <!-- 移动端导航链接 -->
-        <nav class="flex-1 space-y-6 text-white uppercase font-black tracking-widest text-sm">
+        <nav aria-label="Mobile navigation" class="flex-1 space-y-6 text-white uppercase font-black tracking-widest text-sm">
             <a href="../index.html" data-action="close-mobile" class="block py-2 hover:text-brandOrange transition border-b border-white/5">Home</a>
             
             <a href="../about.html" class="block py-2 hover:text-brandOrange transition border-b border-white/5">About Factory</a>
@@ -194,7 +196,7 @@
             <!-- 移动端产品子菜单 -->
             <div class="space-y-4">
                 <button data-action="toggle-mobile-submenu" class="w-full flex justify-between items-center py-2 hover:text-brandOrange transition border-b border-white/5 uppercase outline-none" aria-label="Toggle products submenu">
-                    Products <i id="submenu-icon" class="fa-solid fa-chevron-down text-xs transition-transform duration-300"></i>
+                    Products <i class="submenu-icon fa-solid fa-chevron-down text-xs transition-transform duration-300"></i>
                 </button>
                 <div id="mobile-submenu" class="hidden pl-4 space-y-4 border-l-2 border-brandOrange/30 ml-1">
                     <a href="../products/power-bank.html" data-action="close-mobile" class="block text-xs text-white/70 hover:text-brandOrange py-1">→ Power Bank</a>
@@ -287,29 +289,34 @@
                 <div class="bg-slate-50 rounded-2xl p-8 mb-12">
                     <h2 class="text-lg font-black text-slate-900 uppercase italic mb-6">Table of Contents</h2>
                     <ol class="space-y-3 text-slate-600">
-                        <li><a href="#section-1" class="hover:text-brandOrange">1. Why Source Wireless Chargers from China?</a></li>
-                        <li><a href="#section-2" class="hover:text-brandOrange">2. Factory vs Trading Company: What's the Difference?</a></li>
-                        <li><a href="#section-3" class="hover:text-brandOrange">3. How to Verify a Legitimate Factory</a></li>
-                        <li><a href="#section-4" class="hover:text-brandOrange">4. Key Questions to Ask Potential Suppliers</a></li>
-                        <li><a href="#section-5" class="hover:text-brandOrange">5. Understanding Quality Control Processes</a></li>
-                        <li><a href="#section-6" class="hover:text-brandOrange">6. Certifications You Need to Know</a></li>
-                        <li><a href="#section-7" class="hover:text-brandOrange">7. Red Flags to Watch Out For</a></li>
-                        <li><a href="#section-8" class="hover:text-brandOrange">8. Factory Visit Checklist</a></li>
-                        <li><a href="#section-9" class="hover:text-brandOrange">9. Sample Evaluation Process</a></li>
-                        <li><a href="#section-10" class="hover:text-brandOrange">10. Communication & Language Considerations</a></li>
-                        <li><a href="#section-11" class="hover:text-brandOrange">11. Payment Terms & Trade Assurance</a></li>
-                        <li><a href="#section-12" class="hover:text-brandOrange">12. Visit Requirements & Virtual Tours</a></li>
-                        <li><a href="#section-13" class="hover:text-brandOrange">13. Long-Term Partnership Considerations</a></li>
+                        <li><a href="#section-1" class="hover:text-brandOrange">1. Qi2 and WPC Membership Verification</a></li>
+                        <li><a href="#section-2" class="hover:text-brandOrange">2. FOD (Foreign Object Detection) Testing</a></li>
+                        <li><a href="#section-3" class="hover:text-brandOrange">3. Coil Quality and Alignment Precision</a></li>
+                        <li><a href="#section-4" class="hover:text-brandOrange">4. Thermal Management and Shell Materials</a></li>
+                        <li><a href="#section-5" class="hover:text-brandOrange">5. PCBA Surface SMT Quality</a></li>
+                        <li><a href="#section-6" class="hover:text-brandOrange">6. Why Source Wireless Chargers from China?</a></li>
+                        <li><a href="#section-7" class="hover:text-brandOrange">7. Factory vs Trading Company</a></li>
+                        <li><a href="#section-8" class="hover:text-brandOrange">8. How to Verify a Legitimate Factory</a></li>
+                        <li><a href="#section-9" class="hover:text-brandOrange">9. Key Questions to Ask Suppliers</a></li>
+                        <li><a href="#section-10" class="hover:text-brandOrange">10. Quality Control Processes</a></li>
+                        <li><a href="#section-11" class="hover:text-brandOrange">11. Certifications You Need to Know</a></li>
+                        <li><a href="#section-12" class="hover:text-brandOrange">12. Red Flags to Watch Out For</a></li>
+                        <li><a href="#section-13" class="hover:text-brandOrange">13. Factory Visit Checklist</a></li>
+                        <li><a href="#section-14" class="hover:text-brandOrange">14. Sample Evaluation Process</a></li>
+                        <li><a href="#section-15" class="hover:text-brandOrange">15. Communication &amp; Language</a></li>
+                        <li><a href="#section-16" class="hover:text-brandOrange">16. Payment Terms &amp; Trade Assurance</a></li>
+                        <li><a href="#section-17" class="hover:text-brandOrange">17. Visit Requirements &amp; Virtual Tours</a></li>
+                        <li><a href="#section-18" class="hover:text-brandOrange">18. Long-Term Partnership</a></li>
                     </ol>
                 </div>
 
                 <!-- New Section 1: Qi2 and WPC Membership -->
-                <section id="section-qi2" class="mb-16">
+                <section id="section-1" class="mb-16">
                     <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-6">1. Qi2 and WPC Membership Verification</h2>
                     <p class="text-slate-600 leading-relaxed mb-6">Why is WPC (Wireless Power Consortium) membership critical? Without proper membership, factories cannot legally use the Qi logo, exposing your brand to legal risks and product recalls.</p>
                     
                     <div class="bg-brandBlue/10 border border-brandBlue/30 rounded-xl p-6 mb-6">
-                        <h4 class="font-black text-brandBlue uppercase mb-3"><i class="fa-solid fa-certificate mr-2"></i>What to Verify</h4>
+                        <h3 class="font-black text-brandBlue uppercase mb-3"><i class="fa-solid fa-certificate mr-2"></i>What to Verify</h3>
                         <ul class="space-y-2 text-slate-600 text-sm">
                             <li>• <strong>WPC Member Status:</strong> Ask for their official membership number and verify at wpc.com</li>
                             <li>• <strong>Qi2 Certification:</strong> Ensure they have MPP (Magnetic Power Profile) certified modules</li>
@@ -321,23 +328,23 @@
                 </section>
 
                 <!-- New Section 2: FOD Testing -->
-                <section id="section-fod" class="mb-16">
+                <section id="section-2" class="mb-16">
                     <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-6">2. FOD (Foreign Object Detection) Testing</h2>
                     <p class="text-slate-600 leading-relaxed mb-4"><strong>Core Pain Point:</strong> If users place coins or metal objects on the charger, will it overheat or catch fire? This is the #1 cause of wireless charger returns.</p>
                     
                     <div class="bg-red-50 border border-red-200 rounded-xl p-6 mb-6">
-                        <h4 class="font-black text-red-700 uppercase mb-3"><i class="fa-solid fa-triangle-exclamation mr-2"></i>Expert Recommendation</h4>
+                        <h3 class="font-black text-red-700 uppercase mb-3"><i class="fa-solid fa-triangle-exclamation mr-2"></i>Expert Recommendation</h3>
                         <p class="text-slate-600 text-sm">Request the factory to demonstrate their FOD algorithm sensitivity. Quality factories should detect metal objects within 2mm of the charging surface.</p>
                     </div>
                     
                     <div class="bg-green-50 border border-green-200 rounded-xl p-6">
-                        <h4 class="font-black text-green-700 uppercase mb-3"><i class="fa-solid fa-check mr-2"></i>WOWOHCOOL Solution</h4>
+                        <h3 class="font-black text-green-700 uppercase mb-3"><i class="fa-solid fa-check mr-2"></i>WOWOHCOOL Solution</h3>
                         <p class="text-slate-600 text-sm">Our wireless charger solutions use <strong>NP0 capacitors</strong> to ensure stable FOD detection even under high-temperature conditions. This premium component prevents false triggers and ensures safety compliance.</p>
                     </div>
                 </section>
 
                 <!-- New Section 3: Coil Quality -->
-                <section id="section-coil" class="mb-16">
+                <section id="section-3" class="mb-16">
                     <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-6">3. Coil Quality and Alignment Precision</h2>
                     <p class="text-slate-600 leading-relaxed mb-6">Coil quality directly affects charging efficiency and heat generation. Here's how professional factories compare:</p>
                     
@@ -389,29 +396,29 @@
                 </section>
 
                 <!-- New Section 4: Thermal Management -->
-                <section id="section-thermal" class="mb-16">
+                <section id="section-4" class="mb-16">
                     <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-6">4. Thermal Management and Shell Materials</h2>
                     <p class="text-slate-600 leading-relaxed mb-4">Wireless charging generates heat—the key is how the factory manages it. Poor thermal design leads to slower charging and safety hazards.</p>
                     
                     <div class="grid md:grid-cols-2 gap-6">
                         <div class="bg-slate-50 rounded-xl p-6">
-                            <h4 class="font-black text-brandBlue uppercase mb-3"><i class="fa-solid fa-temperature-high mr-2"></i>Thermal Pad</h4>
+                            <h3 class="font-black text-brandBlue uppercase mb-3"><i class="fa-solid fa-temperature-high mr-2"></i>Thermal Pad</h3>
                             <p class="text-slate-600 text-sm">Check if factory uses thermal interface materials (thermal pads/silicone) between coil and shell to transfer heat away from the phone.</p>
                         </div>
                         <div class="bg-slate-50 rounded-xl p-6">
-                            <h4 class="font-black text-brandBlue uppercase mb-3"><i class="fa-solid fa-layer-group mr-2"></i>Aluminum Base</h4>
+                            <h3 class="font-black text-brandBlue uppercase mb-3"><i class="fa-solid fa-layer-group mr-2"></i>Aluminum Base</h3>
                             <p class="text-slate-600 text-sm">Premium factories use aluminum alloy base plates for superior heat dissipation compared to plastic-only designs.</p>
                         </div>
                     </div>
                 </section>
 
                 <!-- New Section 5: PCBA SMT Quality -->
-                <section id="section-pcba" class="mb-16">
+                <section id="section-5" class="mb-16">
                     <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-6">5. PCBA Surface SMT Quality</h2>
                     <p class="text-slate-600 leading-relaxed mb-4">Clean SMT production lines determine PCBA failure rates. Request to see their workshop photos and reflow oven specifications.</p>
                     
                     <div class="bg-brandOrange/10 border border-brandOrange/30 rounded-xl p-6">
-                        <h4 class="font-black text-brandOrange uppercase mb-3"><i class="fa-solid fa-lightbulb mr-2"></i>Expert Tip</h4>
+                        <h3 class="font-black text-brandOrange uppercase mb-3"><i class="fa-solid fa-lightbulb mr-2"></i>Expert Tip</h3>
                         <p class="text-slate-600 text-sm">If a factory quotes you a Qi2 price without a real MPP module, your product will be limited to 5W on iPhones. Always ask for the module source and verify it has MPP certification.</p>
                     </div>
                     <!-- QC Inspection Image -->
@@ -429,25 +436,25 @@
                 </section>
 
                 <!-- Section 1 -->
-                <section id="section-1" class="mb-16">
-                    <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-6">1. Why Source Wireless Chargers from China?</h2>
+                <section id="section-6" class="mb-16">
+                    <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-6">6. Why Source Wireless Chargers from China?</h2>
                     <p class="text-slate-600 leading-relaxed mb-6">China remains the world's manufacturing hub for consumer electronics, and wireless chargers are no exception. Here's why B2B buyers choose Chinese factories:</p>
                     
                     <div class="grid md:grid-cols-2 gap-6 mb-8">
                         <div class="bg-brandOrange/5 border border-brandOrange/20 rounded-xl p-6">
-                            <h4 class="font-black text-brandBlue uppercase mb-3"><i class="fa-solid fa-tags mr-2"></i>Competitive Pricing</h4>
+                            <h3 class="font-black text-brandBlue uppercase mb-3"><i class="fa-solid fa-tags mr-2"></i>Competitive Pricing</h3>
                             <p class="text-slate-600 text-sm">Factory direct means no middleman markup. Prices are typically 40-60% lower than sourcing from distributors. <a href="../products/wireless-charger.html" class="text-brandBlue hover:text-brandOrange font-bold">View our products</a> for current pricing.</p>
                         </div>
                         <div class="bg-brandOrange/5 border border-brandOrange/20 rounded-xl p-6">
-                            <h4 class="font-black text-brandBlue uppercase mb-3"><i class="fa-solid fa-industry mr-2"></i>Production Capacity</h4>
+                            <h3 class="font-black text-brandBlue uppercase mb-3"><i class="fa-solid fa-industry mr-2"></i>Production Capacity</h3>
                             <p class="text-slate-600 text-sm">Monthly output of 1M+ units available. Scale to meet any order volume without compromising quality.</p>
                         </div>
                         <div class="bg-brandOrange/5 border border-brandOrange/20 rounded-xl p-6">
-                            <h4 class="font-black text-brandBlue uppercase mb-3"><i class="fa-solid fa-microscope mr-2"></i>Technical Expertise</h4>
+                            <h3 class="font-black text-brandBlue uppercase mb-3"><i class="fa-solid fa-microscope mr-2"></i>Technical Expertise</h3>
                             <p class="text-slate-600 text-sm">10+ years experience in charging technology. Access to latest standards like Qi2 and MagSafe. <a href="../about.html" class="text-brandBlue hover:text-brandOrange font-bold">Learn about our R&D</a>.</p>
                         </div>
                             <div class="bg-brandOrange/5 border border-brandOrange/20 rounded-xl p-6">
-                            <h4 class="font-black text-brandBlue uppercase mb-3"><i class="fa-solid fa-file-shield mr-2"></i>Certification Support</h4>
+                            <h3 class="font-black text-brandBlue uppercase mb-3"><i class="fa-solid fa-file-shield mr-2"></i>Certification Support</h3>
                             <p class="text-slate-600 text-sm">Factories navigate CE, FCC, Qi certification. Full compliance documentation provided. <a href="../service.html" class="text-brandBlue hover:text-brandOrange font-bold">Our OEM/ODM services</a> include full certification handling.</p>
                         </div>
                     </div>
@@ -478,8 +485,8 @@
                 </section>
 
                 <!-- Section 2 -->
-                <section id="section-2" class="mb-16">
-                    <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-6">2. Factory vs Trading Company: What's the Difference?</h2>
+                <section id="section-7" class="mb-16">
+                    <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-6">7. Factory vs Trading Company: What's the Difference?</h2>
                     <p class="text-slate-600 leading-relaxed mb-6">Understanding the difference between a <strong>real factory</strong> and a trading company is crucial. Here's how they differ:</p>
                     
                     <table class="w-full mb-8 border border-slate-200 rounded-xl overflow-hidden">
@@ -521,15 +528,15 @@
                 </section>
 
                 <!-- Section 3 -->
-                <section id="section-3" class="mb-16">
-                    <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-6">3. How to Verify a Legitimate Factory</h2>
+                <section id="section-8" class="mb-16">
+                    <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-6">8. How to Verify a Legitimate Factory</h2>
                     <p class="text-slate-600 leading-relaxed mb-6">Before committing to any supplier, verify their legitimacy through these steps:</p>
                     
                     <div class="space-y-6">
                         <div class="flex gap-4">
                             <div class="w-12 h-12 bg-brandOrange rounded-full flex items-center justify-center text-white font-black shrink-0">1</div>
                             <div>
-                                <h4 class="font-black text-slate-900 uppercase mb-2">Check Business Registration</h4>
+                                <h3 class="font-black text-slate-900 uppercase mb-2">Check Business Registration</h3>
                                 <p class="text-slate-600 text-sm">Verify the factory's business license. A legitimate manufacturing facility will have import/export license, ISO 9001 certification capability, and a physical factory address.</p>
                             </div>
                         </div>
@@ -537,7 +544,7 @@
                         <div class="flex gap-4">
                             <div class="w-12 h-12 bg-brandOrange rounded-full flex items-center justify-center text-white font-black shrink-0">2</div>
                             <div>
-                                <h4 class="font-black text-slate-900 uppercase mb-2">Request Factory Documentation</h4>
+                                <h3 class="font-black text-slate-900 uppercase mb-2">Request Factory Documentation</h3>
                                 <p class="text-slate-600 text-sm">Ask for factory photos (including production lines), employee count verification, business license copy, and ISO certification if claimed.</p>
                             </div>
                         </div>
@@ -545,7 +552,7 @@
                         <div class="flex gap-4">
                             <div class="w-12 h-12 bg-brandOrange rounded-full flex items-center justify-center text-white font-black shrink-0">3</div>
                             <div>
-                                <h4 class="font-black text-slate-900 uppercase mb-2">Verify Contact Information</h4>
+                                <h3 class="font-black text-slate-900 uppercase mb-2">Verify Contact Information</h3>
                                 <p class="text-slate-600 text-sm">Legitimate factories have direct phone numbers, company email domains (not Gmail/Yahoo), and respond promptly during business hours.</p>
                             </div>
                         </div>
@@ -553,21 +560,21 @@
                         <div class="flex gap-4">
                             <div class="w-12 h-12 bg-brandOrange rounded-full flex items-center justify-center text-white font-black shrink-0">4</div>
                             <div>
-                                <h4 class="font-black text-slate-900 uppercase mb-2">Check Trade Records</h4>
+                                <h3 class="font-black text-slate-900 uppercase mb-2">Check Trade Records</h3>
                                 <p class="text-slate-600 text-sm">Request export data or check Alibaba trade records. Real factories have documented export history.</p>
                             </div>
                         </div>
                     </div>
 
                     <div class="bg-red-50 border border-red-200 rounded-xl p-6 mt-8">
-                        <h4 class="font-black text-red-600 uppercase mb-2"><i class="fa-solid fa-triangle-exclamation mr-2"></i>Red Flag</h4>
+                        <h3 class="font-black text-red-600 uppercase mb-2"><i class="fa-solid fa-triangle-exclamation mr-2"></i>Red Flag</h3>
                         <p class="text-slate-600 text-sm">If they only send product catalogs without factory documentation, you're likely dealing with a trading company, not a manufacturer. Check our <a href="../blog.html" class="text-brandBlue hover:text-brandOrange font-bold">sourcing guides</a> for more tips.</p>
                     </div>
                 </section>
 
                 <!-- Section 4 -->
-                <section id="section-4" class="mb-16">
-                    <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-6">4. Key Questions to Ask Potential Suppliers</h2>
+                <section id="section-9" class="mb-16">
+                    <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-6">9. Key Questions to Ask Potential Suppliers</h2>
                     <p class="text-slate-600 leading-relaxed mb-6">Use this checklist when evaluating wireless charger factories:</p>
                     
                     <div class="space-y-4 mb-8">
@@ -614,8 +621,8 @@
                 </section>
 
                 <!-- Section 5 -->
-                <section id="section-5" class="mb-16">
-                    <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-6">5. Understanding Quality Control Processes</h2>
+                <section id="section-10" class="mb-16">
+                    <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-6">10. Understanding Quality Control Processes</h2>
                     <p class="text-slate-600 leading-relaxed mb-6">Quality control is paramount when sourcing wireless chargers. Here's what to expect from a professional factory:</p>
                     
                     <div class="bg-brandBlue rounded-2xl p-8 text-white mb-8">
@@ -653,8 +660,8 @@
                 </section>
 
                 <!-- Section 6 -->
-                <section id="section-6" class="mb-16">
-                    <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-6">6. Certifications You Need to Know</h2>
+                <section id="section-11" class="mb-16">
+                    <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-6">11. Certifications You Need to Know</h2>
                     <p class="text-slate-600 leading-relaxed mb-6">Understanding certifications is essential for market compliance:</p>
                     
                     <div class="overflow-x-auto mb-8">
@@ -703,8 +710,8 @@
                 </section>
 
                 <!-- Section 7 -->
-                <section id="section-7" class="mb-16">
-                    <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-6">7. Red Flags to Watch Out For</h2>
+                <section id="section-12" class="mb-16">
+                    <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-6">12. Red Flags to Watch Out For</h2>
                     <p class="text-slate-600 leading-relaxed mb-6">Watch for these warning signs when evaluating factories:</p>
                     
                     <div class="space-y-4">
@@ -751,8 +758,8 @@
                 </section>
 
                 <!-- Section 8 -->
-                <section id="section-8" class="mb-16">
-                    <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-6">8. Factory Visit Checklist</h2>
+                <section id="section-13" class="mb-16">
+                    <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-6">13. Factory Visit Checklist</h2>
                     <p class="text-slate-600 leading-relaxed mb-6">If possible, visit the factory before placing large orders. Use this checklist:</p>
                     
                     <div class="bg-slate-50 rounded-2xl p-8">
@@ -810,8 +817,8 @@
                 </section>
 
                 <!-- Section 9 -->
-                <section id="section-9" class="mb-16">
-                    <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-6">9. Sample Evaluation Process</h2>
+                <section id="section-14" class="mb-16">
+                    <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-6">14. Sample Evaluation Process</h2>
                     <p class="text-slate-600 leading-relaxed mb-6">Before committing to bulk orders, evaluate samples systematically. This sample evaluation process helps you make data-driven decisions:</p>
                     
                     <div class="bg-slate-50 rounded-2xl p-8 mb-8">
@@ -886,8 +893,8 @@
                 </section>
 
                 <!-- Section 10 -->
-                <section id="section-10" class="mb-16">
-                    <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-6">10. Communication & Language Considerations</h2>
+                <section id="section-15" class="mb-16">
+                    <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-6">15. Communication & Language Considerations</h2>
                     <p class="text-slate-600 leading-relaxed mb-6">Effective communication determines the success of your factory relationship. Here's how to navigate language barriers:</p>
 
                     <div class="space-y-6 mb-8">
@@ -935,8 +942,8 @@
                 </section>
 
                 <!-- Section 11 -->
-                <section id="section-11" class="mb-16">
-                    <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-6">11. Payment Terms & Trade Assurance</h2>
+                <section id="section-16" class="mb-16">
+                    <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-6">16. Payment Terms & Trade Assurance</h2>
                     <p class="text-slate-600 leading-relaxed mb-6">Understanding payment terms protects both parties. Here's what B2B buyers should know:</p>
 
                     <div class="space-y-6 mb-8">
@@ -1011,8 +1018,8 @@
                 </section>
 
                 <!-- Section 12 -->
-                <section id="section-12" class="mb-16">
-                    <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-6">12. Visit Requirements & Virtual Tours</h2>
+                <section id="section-17" class="mb-16">
+                    <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-6">17. Visit Requirements & Virtual Tours</h2>
                     <p class="text-slate-600 leading-relaxed mb-6">Factory visits provide invaluable insights that photos and videos cannot convey. Here's how to plan yours:</p>
 
                     <div class="space-y-6 mb-8">
@@ -1089,8 +1096,8 @@
                 </section>
 
                 <!-- Section 13 -->
-                <section id="section-13" class="mb-16">
-                    <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-6">13. Long-Term Partnership Considerations</h2>
+                <section id="section-18" class="mb-16">
+                    <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-6">18. Long-Term Partnership Considerations</h2>
                     <p class="text-slate-600 leading-relaxed mb-6">Building a sustainable relationship with your factory leads to better pricing, priority production, and consistent quality. Here's how to establish a successful long-term partnership:</p>
 
                     <div class="space-y-6 mb-8">
@@ -1166,8 +1173,8 @@
                         <h3 class="text-2xl font-black text-white uppercase italic mb-4">Ready to Find Your Factory?</h3>
                         <p class="text-slate-300 mb-8 max-w-xl mx-auto">WOWOHCOOL is an ISO 9001 certified factory in Shenzhen since 2013, specializing in Qi-certified wireless chargers with below 0.3% defect rate.</p>
                         <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                            <a href="../contact.html" class="bg-brandOrange text-white px-8 py-4 rounded-xl font-black uppercase tracking-widest text-sm hover:bg-brandOrange/90 transition shadow-lg shadow-brandOrange/30">Request Free Sample</a>
-                            <a href="../products/wireless-charger.html" class="border-2 border-white text-white px-8 py-4 rounded-xl font-black uppercase tracking-widest text-sm hover:bg-white hover:text-brandBlue transition">View Products</a>
+                            <a href="../contact.html" class="w-full sm:flex-1 bg-brandOrange text-white px-8 py-4 rounded-xl font-black uppercase tracking-widest text-sm hover:bg-brandOrange/90 transition shadow-lg">Request Free Sample</a>
+                            <a href="../products/wireless-charger.html" class="w-full sm:flex-1 text-center border-2 border-white text-white px-8 py-4 rounded-xl font-black uppercase tracking-widest text-sm hover:bg-white hover:text-brandBlue transition">View Products</a>
                         </div>
                     </div>
                 </section>

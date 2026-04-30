@@ -40,15 +40,16 @@
     <!-- ========================================================================
          External Libraries
          ======================================================================== -->
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preload" as="style" href="css/styles.css" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="css/styles.css"></noscript>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
     <link rel="stylesheet" href="css/style.css" media="print" onload="this.media='all'">
     
     <!-- Google Fonts Font Preload -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" as="style">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap"></noscript>
     <!-- Organization Schema -->
     <script type="application/ld+json">
     {
@@ -163,9 +164,9 @@
 <body class="bg-white text-slate-900 overflow-x-hidden">
 
        <header class="fixed w-full z-[100] bg-white/95 backdrop-blur-md border-b border-slate-100 h-20">
-        <nav class="max-w-7xl mx-auto px-6 h-full flex items-center justify-between">
+        <nav aria-label="Main navigation" class="max-w-7xl mx-auto px-6 h-full flex items-center justify-between">
             <a href="index.html" class="flex items-center shrink-0 group">
-                <img src="image/wowohcool-logo.webp" alt="WOWOHCOOL Logo" class="h-10 w-auto transition-transform group-hover:scale-105">
+                <img src="image/wowohcool-logo-optimized.webp" alt="WOWOHCOOL Logo" class="h-10 w-auto object-contain transition-transform group-hover:scale-105" width="263" height="70">
             </a>
             <div class="hidden lg:flex items-center space-x-8 text-[11px] font-bold uppercase tracking-widest text-slate-500">
                 <a href="index.html" class="nav-link hover:text-brandBlue transition">Home</a>
@@ -186,7 +187,7 @@
                 <a href="contact.html" class="nav-link hover:text-brandBlue transition">Contact</a>
             </div>
             <div class="flex items-center gap-4">
-                <button data-action="open-modal" class="bg-brandOrange text-white px-7 py-2.5 rounded-full text-[10px] font-black uppercase tracking-widest hover:scale-105 transition shadow-lg">Request Quote</button>
+                <button data-action="open-modal" class="bg-brandOrange text-white px-4 md:px-7 py-2 rounded-full text-[9px] md:text-[10px] font-black uppercase tracking-widest hover:scale-105 transition shadow-lg">Request Quote</button>
                 <button data-action="toggle-mobile-menu" class="lg:hidden text-brandBlue text-2xl" aria-label="Open mobile menu"><i class="fa-solid fa-bars-staggered"></i></button>
             </div>
         </nav>
@@ -205,13 +206,13 @@
         </button>
     </div>
 
-    <nav class="flex-1 space-y-6 text-white uppercase font-black tracking-widest text-sm">
+    <nav aria-label="Mobile navigation" class="flex-1 space-y-6 text-white uppercase font-black tracking-widest text-sm">
         <a href="index.html" class="block py-2 hover:text-brandOrange transition border-b border-white/5">Home</a>
         <a href="about.html" class="block py-2 hover:text-brandOrange transition border-b border-white/5">About Factory</a>
         
         <div class="space-y-4">
             <button data-action="toggle-mobile-submenu" class="w-full flex justify-between items-center py-2 hover:text-brandOrange transition border-b border-white/5 uppercase" aria-label="Toggle products submenu">
-                Products <i id="submenu-icon" class="fa-solid fa-chevron-down text-xs transition-transform duration-300"></i>
+                Products <i class="submenu-icon fa-solid fa-chevron-down text-xs transition-transform duration-300"></i>
             </button>
             <div id="mobile-submenu" class="hidden pl-4 space-y-4 border-l-2 border-brandOrange/30 ml-1">
                 <a href="products/power-bank.html" class="block text-xs text-white/70 hover:text-brandOrange py-1">→ Power Bank</a>
@@ -259,7 +260,7 @@
     </section>
 
 <!-- Trust Bar -->
-<div class="bg-slate-50 py-8" style="margin: 2.5rem 0;">
+<div class="bg-slate-50 py-8">
     <div class="max-w-4xl mx-auto px-6 flex flex-wrap items-center justify-center gap-x-8 text-[10px] font-black uppercase tracking-widest text-slate-400">
         <span>Trusted by</span>
         <span class="text-brandBlue">Jacob Jensen</span>
@@ -275,7 +276,7 @@
     <!-- ========================================================================
          OEM VS ODM SECTION - OEM vs ODM Section
          ======================================================================== -->
-   <section class="py-20 bg-white">
+   <section class="py-20 md:py-24 bg-white">
     <div class="max-w-7xl mx-auto px-6">
         <div class="text-center max-w-3xl mx-auto mb-16">
             <h2 class="text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4">
@@ -446,7 +447,7 @@
                 </div>
                 <p class="text-sm text-slate-500 font-medium">Typical timelines: <span class="text-slate-900 font-bold">4-8 weeks</span> from concept to shipment, depending on customization complexity.</p>
             </div>
-            <button onclick="toggleModal('Process Consultation')" class="bg-brandOrange text-white px-8 py-4 rounded-xl font-black uppercase tracking-widest text-[11px] hover:bg-brandOrange/90 transition-all duration-300">Request Custom Timeline</button>
+            <button data-action="open-modal" data-product="Process Consultation" class="bg-brandOrange text-white px-8 py-4 rounded-xl font-black uppercase tracking-widest text-[11px] hover:bg-brandOrange/90 transition-all duration-300">Request Custom Timeline</button>
         </div>
     </div>
     </section>
@@ -454,7 +455,7 @@
     <!-- ========================================================================
          CUSTOMIZATION SECTION - Customization Section
          ======================================================================== -->
-   <section class="py-24 bg-white overflow-hidden">
+   <section class="py-20 md:py-24 bg-white overflow-hidden">
     <div class="max-w-7xl mx-auto px-6">
         <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 reveal">
             <div class="max-w-2xl">
@@ -577,7 +578,7 @@
         <!-- ========================================================================
          FACTORY CAPABILITY SECTION - Factory Capabilities
          ======================================================================== -->
- 	<section class="py-24 bg-slate-50">
+ 	<section class="py-20 md:py-24 bg-slate-50">
     <div class="max-w-7xl mx-auto px-6">
         <div class="text-center max-w-3xl mx-auto mb-20 reveal">
             <h2 class="text-4xl lg:text-5xl font-black text-brandBlue uppercase italic tracking-tighter mb-6">
@@ -686,7 +687,7 @@
         <!-- ========================================================================
          CONTACT SECTION - Contact Section
          ======================================================================== -->
- 	<section id="contact-section" class="py-28 bg-brandBlue text-white reveal">
+ 	<section id="contact-section" class="py-24 md:py-28 bg-brandBlue text-white reveal">
         <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-20 items-center">
             <div>
                 <h2 class="text-5xl font-black mb-10 uppercase italic leading-tight">Ready to Start <br> Your <span class="text-brandOrange">Project?</span></h2>

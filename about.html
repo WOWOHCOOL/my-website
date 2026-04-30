@@ -92,14 +92,15 @@
     <!-- ========================================================================
          CSS Frameworks - 样式框架配置
          ======================================================================== -->
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preload" as="style" href="css/styles.css" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="css/styles.css"></noscript>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
 
     <!-- Google Fonts Font Preload -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" as="style">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap"></noscript>
 
     <!-- Canonical & Open Graph 元数据 -->
     <link rel="canonical" href="https://www.wowohcool.com/about.html">
@@ -147,19 +148,6 @@
     <link rel="apple-touch-icon" sizes="180x180" href="image/apple-touch-icon.png">
 
     <!--
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        brandBlue: '#003366',
-                        brandOrange: '#FF6600',
-                        darkBg: '#020b1a',
-                    }
-                }
-            }
-        }
-    </script>
 </head>
 
 <body class="bg-white text-slate-900">
@@ -168,9 +156,9 @@
          HEADER - Navigation (与 index.html 相同结构)
          ======================================================================== -->
     <header class="fixed w-full z-[100] bg-white/95 backdrop-blur-md border-b border-slate-100 h-20">
-        <nav class="max-w-7xl mx-auto px-6 h-full flex items-center justify-between" aria-label="Main navigation">
+        <nav aria-label="Main navigation" class="max-w-7xl mx-auto px-6 h-full flex items-center justify-between" aria-label="Main navigation">
             <a href="index.html" class="flex items-center shrink-0 group">
-                <img src="image/wowohcool-logo.webp" alt="WOWOHCOOL Logo" class="h-10 w-auto object-contain transition-transform group-hover:scale-105">
+                <img src="image/wowohcool-logo-optimized.webp" alt="WOWOHCOOL Logo" class="h-10 w-auto object-contain transition-transform group-hover:scale-105" width="263" height="70">
             </a>
             
             <!-- 桌面端导航 -->
@@ -199,7 +187,7 @@
             
             <!-- 右侧按钮 -->
             <div class="flex items-center gap-4">
-                <button data-action="open-modal" class="bg-brandOrange text-white px-7 py-2.5 rounded-full text-[10px] font-black uppercase tracking-widest hover:scale-105 transition shadow-lg shadow-brandOrange/20">Request Quote</button>
+                <button data-action="open-modal" class="bg-brandOrange text-white px-4 md:px-7 py-2 rounded-full text-[9px] md:text-[10px] font-black uppercase tracking-widest hover:scale-105 transition shadow-lg shadow-brandOrange/20">Request Quote</button>
                 <button data-action="toggle-mobile-menu" class="lg:hidden text-brandBlue text-2xl focus:outline-none" aria-label="Open mobile menu" aria-controls="mobile-menu" aria-expanded="false"><i class="fa-solid fa-bars-staggered"></i></button>
             </div>
         </nav>
@@ -222,14 +210,14 @@
             </button>
         </div>
 
-        <nav class="flex-1 space-y-6 text-white uppercase font-black tracking-widest text-sm">
+        <nav aria-label="Mobile navigation" class="flex-1 space-y-6 text-white uppercase font-black tracking-widest text-sm">
             <a href="index.html" class="block py-2 hover:text-brandOrange transition border-b border-white/5">Home</a>
             <a href="about.html" class="block py-2 hover:text-brandOrange transition border-b border-white/5">About Factory</a>
             
             <!-- 移动端产品子菜单 -->
             <div class="space-y-4">
                 <button data-action="toggle-mobile-submenu" class="w-full flex justify-between items-center py-2 hover:text-brandOrange transition border-b border-white/5 uppercase" aria-label="Toggle products submenu">
-                    Products <i id="submenu-icon" class="fa-solid fa-chevron-down text-xs transition-transform duration-300"></i>
+                    Products <i class="submenu-icon fa-solid fa-chevron-down text-xs transition-transform duration-300"></i>
                 </button>
             <div id="mobile-submenu" class="hidden pl-4 space-y-4 border-l-2 border-brandOrange/30 ml-1">
                 <a href="products/power-bank.html" class="block text-xs text-white/70 hover:text-brandOrange py-1">→ Power Bank</a>
@@ -294,7 +282,7 @@
                                 <img src="image/wowohcool-office.webp"
                                      alt="WOWOHCOOL Office"
                                      class="w-full h-[450px] object-cover block"
-                                     loading="lazy">
+                                     loading="lazy" width="2000" height="1335">
                             </picture>
                         </div>
                     </div>
@@ -313,7 +301,7 @@
                 <div class="w-full lg:w-1/2 order-2 lg:order-1 reveal">
                     <div class="relative rounded-2xl overflow-hidden shadow-xl bg-white p-3 group">
                         <picture>
-                            <img src="image/factory-smt-line.webp" alt="Automated SMT Production Line" class="w-full h-[350px] object-cover rounded-xl transition-transform duration-700 group-hover:scale-105" loading="lazy">
+                            <img src="image/factory-smt-line.webp" alt="Automated SMT Production Line" class="w-full h-[350px] object-cover rounded-xl transition-transform duration-700 group-hover:scale-105" loading="lazy" width="2000" height="1335">
                         </picture>
                         <div class="absolute -bottom-6 -right-6 bg-brandBlue text-white p-6 rounded-2xl shadow-2xl">
                             <span class="counter block text-4xl font-black italic" data-target="5000">0</span>
@@ -360,7 +348,7 @@
                     <div class="flex flex-col md:flex-row gap-4 md:gap-6 items-center md:items-start">
                         <div class="relative flex-shrink-0">
                             <div class="w-24 h-24 rounded-2xl bg-gradient-to-br from-brandBlue to-brandOrange overflow-hidden shadow-lg">
-                                <img src="image/team-snowy.webp" alt="Snowy May - Market Manager" loading="lazy" class="w-full h-full object-cover">
+                                <img src="image/team-snowy.webp" alt="Snowy May - Market Manager" loading="lazy" class="w-full h-full object-cover" width="1776" height="1776">
                             </div>
                         </div>
                         <div class="flex-1 text-center md:text-left">
@@ -400,7 +388,7 @@
                     <div class="flex flex-col md:flex-row gap-4 md:gap-6 items-center md:items-start">
                         <div class="relative flex-shrink-0">
                             <div class="w-24 h-24 rounded-2xl bg-gradient-to-br from-brandBlue to-brandOrange overflow-hidden shadow-lg">
-                                <img src="image/team-nina.webp" alt="Nina Nico - Sales Manager" loading="lazy" class="w-full h-full object-cover">
+                                <img src="image/team-nina.webp" alt="Nina Nico - Sales Manager" loading="lazy" class="w-full h-full object-cover" width="800" height="800">
                             </div>
                         </div>
                         <div class="flex-1 text-center md:text-left">
@@ -465,7 +453,7 @@
                 
                 <div class="w-full lg:w-1/2 reveal">
                     <div class="relative rounded-2xl overflow-hidden shadow-xl bg-white p-3 group">
-                        <img src="image/team-working.webp" alt="WOWOHCOOL R&D Team" class="w-full h-[350px] object-cover rounded-xl transition-transform duration-700 group-hover:scale-105" loading="lazy">
+                        <img src="image/team-working.webp" alt="WOWOHCOOL R&D Team" class="w-full h-[350px] object-cover rounded-xl transition-transform duration-700 group-hover:scale-105" loading="lazy" width="2000" height="1335">
                         <div class="absolute inset-0 bg-gradient-to-tr from-brandBlue/20 to-transparent"></div>
                     </div>
                 </div>
@@ -552,10 +540,8 @@
         </div>
     </section>
 
-    </main>
-
     <!-- CASE STUDIES -->
-    <section class="py-20 bg-slate-50">
+    <section class="py-20 md:py-24 bg-slate-50">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-12">
                 <h2 class="text-3xl md:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4">Trusted by <span class="text-brandOrange">Industry Leaders</span></h2>
@@ -588,6 +574,8 @@
             </div>
         </div>
     </section>
+
+</main>
 
     <!-- ========================================================================
          FOOTER - 页脚 (与 index.html %9同结%9E)

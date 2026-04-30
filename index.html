@@ -388,7 +388,7 @@
     </script>
 
     <!-- Preload critical hero image for faster LCP -->
-    <link rel="preload" as="image" href="image/wowohcool-smart-charging-solutions-600.webp" imagesrcset="image/wowohcool-smart-charging-solutions-600.webp 600w, image/wowohcool-smart-charging-solutions-1200.webp 1200w, image/wowohcool-smart-charging-solutions.webp 2400w" imagesizes="(max-width: 768px) 100vw, 1100px" fetchpriority="high">
+    <link rel="preload" as="image" href="image/wowohcool-smart-charging-solutions.webp" fetchpriority="high">
     
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="image/favicon.png">
@@ -406,48 +406,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
     
-    <!-- Tailwind CSS - render blocking (required for layout) -->
-    <link rel="stylesheet" href="css/styles.css">
-    
-    <!-- Custom CSS - async load for non-critical styles -->
+    <!-- Tailwind CSS - 异步加载（预加载后立即切换为样式表） -->
+    <link rel="preload" as="style" href="css/styles.css" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="css/styles.css"></noscript>
+
+    <!-- Custom CSS - async load -->
     <link rel="stylesheet" href="css/style.css" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="css/style.css"></noscript>
-    <style>
-html, body {
-    overflow-x: hidden;
-    max-width: 100vw;
-}
-header {
-    /* 固定 header 独立合成层，避免拖慢滚动 */
-    transform: translateZ(0);
-}
-/* 首屏以下区域延迟渲染，大幅减少首帧工作量 */
-section:not(#hero):not(#story) {
-    content-visibility: auto;
-    contain-intrinsic-size: 800px;
-}
-@media (max-width: 1023px) {
-    .fixed.right-8 > span {
-        right: 100% !important;
-        margin-right: 12px;
-    }
-    .absolute.-left-6, .absolute.-left-10 {
-        left: 0 !important;
-    }
-    .fixed.left-8 {
-        left: 1rem !important;
-    }
-    #hero > .max-w-7xl {
-        padding-left: 1rem !important;
-        padding-right: 1rem !important;
-    }
-}
-@media (max-width: 768px) {
-    html {
-        scroll-behavior: auto !important;
-    }
-}
-</style>
 </head>
 
 <body class="bg-white text-slate-900 overflow-x-hidden max-w-full">
@@ -457,7 +422,7 @@ section:not(#hero):not(#story) {
          包含：Logo、导航菜单、桌面端下拉菜单、移动端菜单按钮、询盘按钮
          ======================================================================== -->
     <header class="fixed w-full z-[100] bg-white/95 backdrop-blur-md border-b border-slate-100 h-20">
-        <nav class="max-w-7xl mx-auto px-6 h-full flex items-center justify-between">
+        <nav aria-label="Main navigation" class="max-w-7xl mx-auto px-6 h-full flex items-center justify-between">
             <!-- Logo -->
             <a href="index.html" class="flex items-center shrink-0 group" aria-label="WOWOHCOOL Home">
                 <img src="image/wowohcool-logo-optimized.webp" 
@@ -521,7 +486,7 @@ section:not(#hero):not(#story) {
         </div>
 
         <!-- Mobile Navigation链接 -->
-        <nav class="flex-1 space-y-6 text-white uppercase font-black tracking-widest text-sm">
+        <nav aria-label="Mobile navigation" class="flex-1 space-y-6 text-white uppercase font-black tracking-widest text-sm">
             <a href="index.html" data-action="close-mobile" class="block py-2 hover:text-brandOrange transition border-b border-white/5">Home</a>
             
             <a href="about.html" class="block py-2 hover:text-brandOrange transition border-b border-white/5">About Factory</a>
@@ -529,7 +494,7 @@ section:not(#hero):not(#story) {
             <!-- 移动端产品子菜单 -->
             <div class="space-y-4">
                 <button data-action="toggle-mobile-submenu" class="w-full flex justify-between items-center py-2 hover:text-brandOrange transition border-b border-white/5 uppercase outline-none" aria-label="Toggle products submenu">
-                    Products <i id="submenu-icon" class="fa-solid fa-chevron-down text-xs transition-transform duration-300"></i>
+                    Products <i class="submenu-icon fa-solid fa-chevron-down text-xs transition-transform duration-300"></i>
                 </button>
                     <div id="mobile-submenu" class="hidden pl-4 space-y-4 border-l-2 border-brandOrange/30 ml-1">
                         <a href="products/power-bank.html" data-action="close-mobile" class="block text-xs text-white/70 hover:text-brandOrange py-1">→ Power Bank</a>
@@ -574,10 +539,6 @@ section:not(#hero):not(#story) {
                 <img src="image/wowohcool-smart-charging-solutions.webp"
                      alt="WOWOHCOOL Smart Charging Solutions - Professional OEM/ODM Power Bank"
                      fetchpriority="high"
-                     srcset="image/wowohcool-smart-charging-solutions-600.webp 600w,
-                             image/wowohcool-smart-charging-solutions-1200.webp 1200w,
-                             image/wowohcool-smart-charging-solutions.webp 2400w"
-                     sizes="(max-width: 768px) 100vw, 1100px"
                      width="2400"
                      height="2000"
                      class="w-full h-auto rounded-2xl md:rounded-[3rem] shadow-lg md:shadow-2xl"
@@ -594,22 +555,22 @@ section:not(#hero):not(#story) {
             <p class="text-center text-[10px] font-black uppercase tracking-[0.4em] text-slate-300 mb-14">Trusted by 200+ Global Brands</p>
             <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 lg:gap-6">
                 <div class="flex items-center justify-center p-6 lg:p-4 bg-slate-50/80 rounded-2xl">
-                    <img src="image/customer-logo/Jacobjensen-Clients.png" alt="JacobJensen" title="JacobJensen" loading="lazy" class="h-14 lg:h-12 w-auto object-contain">
+                    <img src="image/customer-logo/Jacobjensen-Clients.png" alt="JacobJensen" title="JacobJensen" loading="lazy" class="h-14 lg:h-12 w-auto object-contain" width="200" height="150">
                 </div>
                 <div class="flex items-center justify-center p-6 lg:p-4 bg-slate-50/80 rounded-2xl">
-                    <img src="image/customer-logo/Merlin-digital-Clients.png" alt="Merlin Digital" title="Merlin Digital" loading="lazy" class="h-14 lg:h-12 w-auto object-contain">
+                    <img src="image/customer-logo/Merlin-digital-Clients.png" alt="Merlin Digital" title="Merlin Digital" loading="lazy" class="h-14 lg:h-12 w-auto object-contain" width="200" height="150">
                 </div>
                 <div class="flex items-center justify-center p-6 lg:p-4 bg-slate-50/80 rounded-2xl">
-                    <img src="image/customer-logo/OOONO-Clients.png" alt="OOONO" title="OOONO" loading="lazy" class="h-14 lg:h-12 w-auto object-contain">
+                    <img src="image/customer-logo/OOONO-Clients.png" alt="OOONO" title="OOONO" loading="lazy" class="h-14 lg:h-12 w-auto object-contain" width="200" height="150">
                 </div>
                 <div class="flex items-center justify-center p-6 lg:p-4 bg-slate-50/80 rounded-2xl">
-                    <img src="image/customer-logo/Shatzii-Clients.png" alt="Shatzii" title="Shatzii" loading="lazy" class="h-14 lg:h-12 w-auto object-contain">
+                    <img src="image/customer-logo/Shatzii-Clients.png" alt="Shatzii" title="Shatzii" loading="lazy" class="h-14 lg:h-12 w-auto object-contain" width="200" height="150">
                 </div>
                 <div class="flex items-center justify-center p-6 lg:p-4 bg-slate-50/80 rounded-2xl">
-                    <img src="image/customer-logo/Tempel-Clients.png" alt="Tempel" title="Tempel" loading="lazy" class="h-14 lg:h-12 w-auto object-contain">
+                    <img src="image/customer-logo/Tempel-Clients.png" alt="Tempel" title="Tempel" loading="lazy" class="h-14 lg:h-12 w-auto object-contain" width="200" height="150">
                 </div>
                 <div class="flex items-center justify-center p-6 lg:p-4 bg-slate-50/80 rounded-2xl">
-                    <img src="image/customer-logo/Volta-River-Authority-Clients.png" alt="Volta River Authority" title="Volta River Authority" loading="lazy" class="h-14 lg:h-12 w-auto object-contain">
+                    <img src="image/customer-logo/Volta-River-Authority-Clients.png" alt="Volta River Authority" title="Volta River Authority" loading="lazy" class="h-14 lg:h-12 w-auto object-contain" width="200" height="150">
                 </div>
             </div>
         </div>
@@ -1098,7 +1059,7 @@ section:not(#hero):not(#story) {
                 <!-- Team Member 1: Snowy May -->
                 <div class="bg-white p-8 rounded-[2.5rem] shadow-xl hover:shadow-2xl transition-all duration-500 border-b-8 border-transparent hover:border-brandOrange flex flex-col md:flex-row gap-6 items-center md:items-start">
                     <div class="w-24 h-24 rounded-2xl bg-gradient-to-br from-brandBlue to-brandOrange overflow-hidden shadow-lg shrink-0">
-                        <img src="image/team-snowy.webp" alt="Snowy May - Market Manager" loading="lazy" class="w-full h-full object-cover">
+                        <img src="image/team-snowy.webp" alt="Snowy May - Market Manager" loading="lazy" class="w-full h-full object-cover" width="1776" height="1776">
                     </div>
                     <div class="text-center md:text-left">
                         <h3 class="text-xl font-black text-brandBlue uppercase italic mb-1">Snowy May</h3>
@@ -1118,7 +1079,7 @@ section:not(#hero):not(#story) {
                 <!-- Team Member 2: Nina Nico -->
                 <div class="bg-white p-8 rounded-[2.5rem] shadow-xl hover:shadow-2xl transition-all duration-500 border-b-8 border-transparent hover:border-brandOrange flex flex-col md:flex-row gap-6 items-center md:items-start">
                     <div class="w-24 h-24 rounded-2xl bg-gradient-to-br from-brandBlue to-brandOrange overflow-hidden shadow-lg shrink-0">
-                        <img src="image/team-nina.webp" alt="Nina Nico - Sales Manager" loading="lazy" class="w-full h-full object-cover">
+                        <img src="image/team-nina.webp" alt="Nina Nico - Sales Manager" loading="lazy" class="w-full h-full object-cover" width="800" height="800">
                     </div>
                     <div class="text-center md:text-left">
                         <h3 class="text-xl font-black text-brandBlue uppercase italic mb-1">Nina Nico</h3>
