@@ -266,7 +266,8 @@
     <!-- ========================================================================
          External Libraries
          ======================================================================== -->
-    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preload" as="style" href="../css/styles.css" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="../css/styles.css"></noscript>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
     <link rel="stylesheet" href="../css/style.css" media="print" onload="this.media='all'">
 
@@ -276,24 +277,14 @@
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap"></noscript>
 
-    <style>
-    header { transform: translateZ(0); }
-    section:not(#hero) { content-visibility: auto; contain-intrinsic-size: 800px; }
-    @media (max-width: 768px) {
-        html { scroll-behavior: auto !important; }
-        header { -webkit-backdrop-filter: none !important; backdrop-filter: none !important; }
-        #mobile-menu-overlay { -webkit-backdrop-filter: none !important; backdrop-filter: none !important; }
-    }
-    </style>
-
 </head>
 
 <!-- removed dup body -->
 
     <header class="fixed w-full z-[100] bg-white/95 backdrop-blur-md border-b border-slate-100 h-20">
-        <nav class="max-w-7xl mx-auto px-6 h-full flex items-center justify-between">
+        <nav aria-label="Main navigation" class="max-w-7xl mx-auto px-6 h-full flex items-center justify-between">
             <a href="../index.html" class="flex items-center shrink-0 group">
-                <img src="../image/wowohcool-logo.webp" alt="WOWOHCOOL Logo" class="h-10 w-auto transition-transform group-hover:scale-105">
+                <img src="../image/wowohcool-logo-optimized.webp" alt="WOWOHCOOL Logo" class="h-10 w-auto object-contain transition-transform group-hover:scale-105" width="263" height="70">
             </a>
             <div class="hidden lg:flex items-center space-x-8 text-[11px] font-bold uppercase tracking-widest text-slate-500">
                 <a href="../index.html" class="nav-link hover:text-brandBlue transition">Home</a>
@@ -314,7 +305,7 @@
                 <a href="../contact.html" class="nav-link hover:text-brandBlue">Contact</a>
             </div>
             <div class="flex items-center gap-4">
-                <button data-action="open-modal" class="bg-brandOrange text-white px-7 py-2.5 rounded-full text-[10px] font-black uppercase tracking-widest hover:scale-105 transition shadow-lg">Request Quote</button>
+                <button data-action="open-modal" class="bg-brandOrange text-white px-4 md:px-7 py-2 rounded-full text-[9px] md:text-[10px] font-black uppercase tracking-widest hover:scale-105 transition shadow-lg">Request Quote</button>
                 <button data-action="toggle-mobile-menu" class="lg:hidden text-brandBlue text-2xl" aria-label="Open mobile menu"><i class="fa-solid fa-bars-staggered"></i></button>
             </div>
         </nav>
@@ -334,13 +325,13 @@
         </button>
     </div>
 
-    <nav class="flex-1 space-y-6 text-white uppercase font-black tracking-widest text-sm">
+    <nav aria-label="Mobile navigation" class="flex-1 space-y-6 text-white uppercase font-black tracking-widest text-sm">
         <a href="../index.html" class="block py-2 hover:text-brandOrange transition border-b border-white/5">Home</a>
         <a href="../about.html" class="block py-2 hover:text-brandOrange transition border-b border-white/5">About Factory</a>
         
         <div class="space-y-4">
             <button data-action="toggle-mobile-submenu" class="w-full flex justify-between items-center py-2 hover:text-brandOrange transition border-b border-white/5 uppercase" aria-label="Toggle products submenu">
-                Products <i id="submenu-icon" class="fa-solid fa-chevron-down text-xs transition-transform duration-300"></i>
+                Products <i class="submenu-icon fa-solid fa-chevron-down text-xs transition-transform duration-300"></i>
             </button>
                     <div id="mobile-submenu" class="hidden pl-4 space-y-4 border-l-2 border-brandOrange/30 ml-1">
                         <a href="../products/power-bank.html" class="block text-xs text-white/70 hover:text-brandOrange py-1">→ Power Bank</a>
@@ -366,15 +357,15 @@
         <!-- ========================================================================
              HERO SECTION - Hero Section
              ======================================================================== -->
-    <section class="relative min-h-[calc(100vh-80px)] flex flex-col bg-white overflow-hidden">
+    <section class="relative min-h-[calc(100vh-80px)] flex flex-col bg-white">
         <div class="absolute inset-0 z-0 pointer-events-none overflow-hidden">
             <div class="absolute top-0 left-0 max-w-full w-64 h-64 bg-brandOrange opacity-20 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
             <div class="absolute bottom-0 right-0 max-w-full w-64 h-64 bg-blue-500 opacity-20 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
         </div>
 
-        <div class="max-w-5xl mx-auto px-6 relative z-10 text-center flex flex-col flex-1 justify-between gap-6 lg:gap-10 py-10 lg:py-14">
+        <div class="max-w-5xl mx-auto px-6 relative z-10 text-center flex flex-col flex-1 justify-between gap-4 lg:gap-8 py-8 lg:py-10">
             <!-- Top: badge + H1 -->
-            <div class="pt-8 lg:pt-12">
+            <div class="pt-4 lg:pt-6">
                 <div class="inline-block px-4 py-1 bg-brandOrange/10 border border-brandOrange/20 rounded-full text-[10px] font-bold text-brandOrange uppercase tracking-widest mb-6 mx-auto">Qi2 Wireless Charger Factory | Since 2013</div>
                 <h1 class="text-4xl md:text-5xl lg:text-6xl font-black text-brandBlue uppercase italic tracking-tighter leading-tight">
                     Qi2 Wireless Chargers<br><span class="text-brandOrange">for B2B &amp; Wholesale</span>
@@ -597,7 +588,7 @@
     <!-- ========================================================================
          WHY CHOOSE WOWOHCOOL FOR WIRELESS OEM/ODM SECTION
          ======================================================================== -->
-    <section class="py-20 bg-white">
+    <section class="py-20 md:py-24 bg-white border-t border-slate-100">
         <div class="max-w-7xl mx-auto px-6">
             <div class="grid lg:grid-cols-2 gap-16 items-center">
                 <div>
@@ -679,7 +670,7 @@
     <!-- ========================================================================
          PRODUCTS SHOWCASE SECTION - 产品展示区域
          ======================================================================== -->
-    <section id="products" class="py-24 bg-white relative">
+    <section id="products" class="py-20 md:py-24 bg-white relative">
     <div class="absolute bottom-0 left-0 w-1/3 h-1/2 bg-slate-50/50 -z-10 -skew-y-6"></div>
     <div class="max-w-7xl mx-auto px-6">
         
@@ -695,7 +686,7 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
                 <div class="group reveal">
     <div class="relative aspect-square rounded-3xl bg-slate-100 overflow-hidden mb-6">
-        <img src="../image/product/wow93-folding-charger.webp" alt="WOWOHCOOL factory production of WOW93 3-in-1 magnetic folding wireless charger with premium aluminum alloy - OEM wireless charging station manufacturer" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async">
+        <img src="../image/product/wow93-folding-charger.webp" alt="WOWOHCOOL factory production of WOW93 3-in-1 magnetic folding wireless charger with premium aluminum alloy - OEM wireless charging station manufacturer" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async" width="1920" height="1920">
         <div class="absolute top-4 left-4 flex flex-col gap-2">
             <span class="bg-brandOrange text-white text-[10px] font-black px-3 py-1 rounded-full uppercase italic tracking-widest">Travel Essential</span>
             <span class="bg-slate-900 text-white text-[10px] font-black px-3 py-1 rounded-full uppercase italic tracking-widest text-center">Metal Build</span>
@@ -768,7 +759,7 @@
 
                 <div class="group reveal">
     <div class="relative aspect-square rounded-3xl bg-slate-100 overflow-hidden mb-6">
-        <img src="../image/product/wow90-zinc-charger.webp" alt="WOWOHCOOL wireless charger factory - WOW90 3-in-1 zinc alloy folding wireless charger with night light for hotel amenity OEM" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async">
+        <img src="../image/product/wow90-zinc-charger.webp" alt="WOWOHCOOL wireless charger factory - WOW90 3-in-1 zinc alloy folding wireless charger with night light for hotel amenity OEM" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async" width="1920" height="1920">
         <div class="absolute top-4 left-4 flex flex-col gap-2">
             <span class="bg-brandOrange text-white text-[10px] font-black px-3 py-1 rounded-full uppercase italic tracking-widest">Zinc Alloy Series</span>
             <span class="bg-slate-900 text-white text-[10px] font-black px-3 py-1 rounded-full uppercase italic tracking-widest text-center">Folding + Light</span>
@@ -841,7 +832,7 @@
 
                 <div class="group reveal">
     <div class="relative aspect-square rounded-3xl bg-slate-100 overflow-hidden mb-6">
-        <img src="../image/product/wow82-fold-charger.webp" alt="WOWOHCOOL Qi2 wireless charger factory - WOW82 3-in-1 charger for Samsung Fold & Xiaomi MIX foldable phones - OEM manufacturer" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async">
+        <img src="../image/product/wow82-fold-charger.webp" alt="WOWOHCOOL Qi2 wireless charger factory - WOW82 3-in-1 charger for Samsung Fold & Xiaomi MIX foldable phones - OEM manufacturer" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async" width="1920" height="1920">
         <div class="absolute top-4 left-4 flex flex-col gap-2">
             <span class="bg-brandOrange text-white text-[10px] font-black px-3 py-1 rounded-full uppercase italic tracking-widest">Fold-Series Expert</span>
             <span class="bg-slate-900 text-white text-[10px] font-black px-3 py-1 rounded-full uppercase italic tracking-widest text-center">Wide Area</span>
@@ -925,7 +916,7 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
                 <div class="group reveal">
     <div class="relative aspect-square rounded-3xl bg-slate-100 overflow-hidden mb-6">
-                    <img src="../image/product/wow10-qi2-charger.webp" alt="WOWOHCOOL Qi2 certified factory - WOW10 Qi2 25W magnetic 3-in-1 wireless charger with active cooling fan - wireless charger OEM manufacturer" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async">
+                    <img src="../image/product/wow10-qi2-charger.webp" alt="WOWOHCOOL Qi2 certified factory - WOW10 Qi2 25W magnetic 3-in-1 wireless charger with active cooling fan - wireless charger OEM manufacturer" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async" width="1920" height="1920">
         <div class="absolute top-4 left-4 bg-brandOrange text-white text-[10px] font-black px-3 py-1 rounded-full uppercase italic tracking-widest">2026 New Arrival</div>
     </div>
 
@@ -995,7 +986,7 @@
 
                 <div class="group reveal">
     <div class="relative aspect-square rounded-3xl bg-slate-100 overflow-hidden mb-6">
-                    <img src="../image/product/wow18-nightlight-charger.webp" alt="WOWOHCOOL wireless charging factory - WOW18 Qi2 25W magnetic 3-in-1 station with ambient night light for bedroom hotel OEM" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async">
+                    <img src="../image/product/wow18-nightlight-charger.webp" alt="WOWOHCOOL wireless charging factory - WOW18 Qi2 25W magnetic 3-in-1 station with ambient night light for bedroom hotel OEM" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async" width="1920" height="1920">
         <div class="absolute top-4 left-4 flex flex-col gap-2">
             <span class="bg-brandOrange text-white text-[10px] font-black px-3 py-1 rounded-full uppercase italic tracking-widest">Qi2 Certified</span>
             <span class="bg-slate-900 text-white text-[10px] font-black px-3 py-1 rounded-full uppercase italic tracking-widest text-center">Lifestyle</span>
@@ -1067,7 +1058,7 @@
 </div>
 <div id="wow19" class="group reveal">
     <div class="relative aspect-square rounded-3xl bg-slate-100 overflow-hidden mb-6">
-        <img src="../image/product/wow19-qi22-wineglass-3in1-wireless-charger.webp" alt="WOW19 Qi2.2 25W Wine Glass 3-in-1 Wireless Charger for Apple MagSafe Phones | Foldable Desktop Qi2 Magnetic Charging Station Factory OEM" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async">
+        <img src="../image/product/wow19-qi22-wineglass-3in1-wireless-charger.webp" alt="WOW19 Qi2.2 25W Wine Glass 3-in-1 Wireless Charger for Apple MagSafe Phones | Foldable Desktop Qi2 Magnetic Charging Station Factory OEM" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async" width="1920" height="1920">
         <div class="absolute top-4 left-4 flex flex-col gap-2">
             <span class="bg-brandOrange text-white text-[10px] font-black px-3 py-1 rounded-full uppercase italic tracking-widest">New Arrival</span>
             <span class="bg-slate-900 text-white text-[10px] font-black px-3 py-1 rounded-full uppercase italic tracking-widest text-center">Wine Glass Design</span>
@@ -1139,7 +1130,7 @@
 </div>
 				<div class="group reveal">
     <div class="relative aspect-square rounded-3xl bg-slate-100 overflow-hidden mb-6">
-        <img src="../image/product/wow98-cooler-charger.webp" alt="WOWOHCOOL factory Qi2 Qi2 magnetic charger - WOW98 15W Qi2 magnetic 3-in-1 charger with semiconductor cooling technology - professional OEM manufacturer" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async">
+        <img src="../image/product/wow98-cooler-charger.webp" alt="WOWOHCOOL factory Qi2 Qi2 magnetic charger - WOW98 15W Qi2 magnetic 3-in-1 charger with semiconductor cooling technology - professional OEM manufacturer" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async" width="1920" height="1920">
         <div class="absolute top-4 left-4 flex flex-col gap-2">
             <span class="bg-blue-600 text-white text-[10px] font-black px-3 py-1 rounded-full uppercase italic tracking-widest">Ice-Cooling Tech</span>
             <span class="bg-slate-900 text-white text-[10px] font-black px-3 py-1 rounded-full uppercase italic tracking-widest text-center">Premium Build</span>
@@ -1223,7 +1214,7 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
                 <div id="wow41" class="group reveal">
     <div class="relative aspect-square rounded-3xl bg-slate-100 overflow-hidden mb-6">
-        <img src="../image/product/wow41-qi22-25w-car-magnetic-wireless-charger.webp" alt="WOW41 Qi2.2 25W Car Magnetic Wireless Charger Phone Holder with TEC Cooling - Automotive Phone Mount Fast Charging Factory OEM" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async">
+        <img src="../image/product/wow41-qi22-25w-car-magnetic-wireless-charger.webp" alt="WOW41 Qi2.2 25W Car Magnetic Wireless Charger Phone Holder with TEC Cooling - Automotive Phone Mount Fast Charging Factory OEM" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async" width="1920" height="1920">
         <div class="absolute top-4 left-4 flex flex-col gap-2">
             <span class="bg-blue-600 text-white text-[10px] font-black px-3 py-1 rounded-full uppercase italic tracking-widest">TEC Cooling</span>
             <span class="bg-brandOrange text-white text-[10px] font-black px-3 py-1 rounded-full uppercase italic tracking-widest">25W Fast Charge</span>
@@ -1296,7 +1287,7 @@
 
                 <div id="wow39" class="group reveal">
     <div class="relative aspect-square rounded-3xl bg-slate-100 overflow-hidden mb-6">
-        <img src="../image/product/wow39-qi2-15w-car-magnetic-wireless-charger.webp" alt="WOW39 Qi2 15W Car Magnetic Wireless Charger Phone Holder for iPhone 16 - 14 N52 Magnets Car Mount Factory OEM" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async">
+        <img src="../image/product/wow39-qi2-15w-car-magnetic-wireless-charger.webp" alt="WOW39 Qi2 15W Car Magnetic Wireless Charger Phone Holder for iPhone 16 - 14 N52 Magnets Car Mount Factory OEM" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async" width="1920" height="1920">
         <div class="absolute top-4 left-4 flex flex-col gap-2">
             <span class="bg-brandOrange text-white text-[10px] font-black px-3 py-1 rounded-full uppercase italic tracking-widest">14 N52 Magnets</span>
             <span class="bg-slate-900 text-white text-[10px] font-black px-3 py-1 rounded-full uppercase italic tracking-widest text-center">360° Rotation</span>
@@ -1365,7 +1356,7 @@
 
                 <div id="wow28" class="group reveal">
     <div class="relative aspect-square rounded-3xl bg-slate-100 overflow-hidden mb-6">
-        <img src="../image/product/wow28-disc-car-magnetic-wireless-charger.webp" alt="WOW28 Disc Car Magnetic Wireless Charger Pad for iPhone - Green Ambient Light Auto-Charge Factory OEM" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async">
+        <img src="../image/product/wow28-disc-car-magnetic-wireless-charger.webp" alt="WOW28 Disc Car Magnetic Wireless Charger Pad for iPhone - Green Ambient Light Auto-Charge Factory OEM" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async" width="1920" height="1920">
         <div class="absolute top-4 left-4 flex flex-col gap-2">
             <span class="bg-green-600 text-white text-[10px] font-black px-3 py-1 rounded-full uppercase italic tracking-widest">Green Ambient Light</span>
             <span class="bg-slate-900 text-white text-[10px] font-black px-3 py-1 rounded-full uppercase italic tracking-widest text-center">Auto Mount</span>
@@ -1454,7 +1445,7 @@
                 <!-- Article 1: Qi2 vs Qi2 magnetic -->
                 <a href="../blog/qi2-vs-magsafe-guide.html" class="group bg-slate-50 rounded-2xl overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
                     <div class="h-40 relative overflow-hidden">
-                        <img loading="lazy" src="../image/blog/qi2-vs-magsafe-guide.webp" alt="Qi2 vs Qi2 magnetic Guide 2026" class="w-full h-full object-cover">
+                        <img loading="lazy" src="../image/blog/qi2-vs-magsafe-guide.webp" alt="Qi2 vs Qi2 magnetic Guide 2026" class="w-full h-full object-cover" width="2240" height="1260">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                         <div class="absolute bottom-3 left-4">
                             <span class="px-2 py-1 bg-white text-purple-600 text-[8px] font-black uppercase rounded">Comparison</span>
@@ -1470,7 +1461,7 @@
                 <!-- Article 2: Factory Guide -->
                 <a href="../blog/how-to-choose-factory.html" class="group bg-slate-50 rounded-2xl overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
                     <div class="h-40 relative overflow-hidden">
-                        <img loading="lazy" src="../image/blog/how-to-choose-factory.webp" alt="Factory Audit Guide" class="w-full h-full object-cover">
+                        <img loading="lazy" src="../image/blog/how-to-choose-factory.webp" alt="Factory Audit Guide" class="w-full h-full object-cover" width="2240" height="1260">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                         <div class="absolute bottom-3 left-4">
                             <span class="px-2 py-1 bg-brandOrange text-white text-[8px] font-black uppercase rounded">Sourcing</span>
@@ -1486,7 +1477,7 @@
                 <!-- Article 3: Qi Certification -->
                 <a href="../blog/qi-certification-guide.html" class="group bg-slate-50 rounded-2xl overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
                     <div class="h-40 relative overflow-hidden">
-                        <img loading="lazy" src="../image/blog/qi-certification-guide.webp" alt="Qi Certification Guide" class="w-full h-full object-cover">
+                        <img loading="lazy" src="../image/blog/qi-certification-guide.webp" alt="Qi Certification Guide" class="w-full h-full object-cover" width="2240" height="1260">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                         <div class="absolute bottom-3 left-4">
                             <span class="px-2 py-1 bg-white text-green-600 text-[8px] font-black uppercase rounded">Certification</span>
@@ -1623,7 +1614,7 @@
     <!-- ========================================================================
          CLIENT TESTIMONIALS SECTION - B2B客户评价
          ======================================================================== -->
-    <section class="py-20 md:py-24 bg-slate-900">
+    <section class="py-24 md:py-28 bg-slate-900">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-16">
                 <div class="inline-block px-4 py-1 bg-brandOrange/10 border border-brandOrange/20 rounded-full text-[10px] font-bold text-brandOrange uppercase tracking-widest mb-6">Client Feedback</div>

@@ -195,7 +195,8 @@
     <!-- ========================================================================
          External Libraries
          ======================================================================== -->
-    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preload" as="style" href="../css/styles.css" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="../css/styles.css"></noscript>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
     <link rel="stylesheet" href="../css/style.css" media="print" onload="this.media='all'">
 
@@ -205,24 +206,14 @@
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap"></noscript>
 
-    <style>
-    header { transform: translateZ(0); }
-    section:not(#hero) { content-visibility: auto; contain-intrinsic-size: 800px; }
-    @media (max-width: 768px) {
-        html { scroll-behavior: auto !important; }
-        header { -webkit-backdrop-filter: none !important; backdrop-filter: none !important; }
-        #mobile-menu-overlay { -webkit-backdrop-filter: none !important; backdrop-filter: none !important; }
-    }
-    </style>
-
 </head>
 
 <!-- removed dup body -->
 
     <header class="fixed w-full z-[100] bg-white/95 backdrop-blur-md border-b border-slate-100 h-20">
-        <nav class="max-w-7xl mx-auto px-6 h-full flex items-center justify-between">
+        <nav aria-label="Main navigation" class="max-w-7xl mx-auto px-6 h-full flex items-center justify-between">
             <a href="../index.html" class="flex items-center shrink-0 group">
-                <img src="../image/wowohcool-logo.webp" alt="WOWOHCOOL Logo" class="h-10 w-auto transition-transform group-hover:scale-105">
+                <img src="../image/wowohcool-logo-optimized.webp" alt="WOWOHCOOL Logo" class="h-10 w-auto object-contain transition-transform group-hover:scale-105" width="263" height="70">
             </a>
             <div class="hidden lg:flex items-center space-x-8 text-[11px] font-bold uppercase tracking-widest text-slate-500">
                 <a href="../index.html" class="nav-link hover:text-brandBlue transition">Home</a>
@@ -243,7 +234,7 @@
                 <a href="../contact.html" class="nav-link hover:text-brandBlue">Contact</a>
             </div>
             <div class="flex items-center gap-4">
-                <button data-action="open-modal" class="bg-brandOrange text-white px-7 py-2.5 rounded-full text-[10px] font-black uppercase tracking-widest hover:scale-105 transition shadow-lg">Request Quote</button>
+                <button data-action="open-modal" class="bg-brandOrange text-white px-4 md:px-7 py-2 rounded-full text-[9px] md:text-[10px] font-black uppercase tracking-widest hover:scale-105 transition shadow-lg">Request Quote</button>
                 <button data-action="toggle-mobile-menu" class="lg:hidden text-brandBlue text-2xl" aria-label="Open mobile menu"><i class="fa-solid fa-bars-staggered"></i></button>
             </div>
         </nav>
@@ -263,13 +254,13 @@
         </button>
     </div>
 
-    <nav class="flex-1 space-y-6 text-white uppercase font-black tracking-widest text-sm">
+    <nav aria-label="Mobile navigation" class="flex-1 space-y-6 text-white uppercase font-black tracking-widest text-sm">
         <a href="../index.html" class="block py-2 hover:text-brandOrange transition border-b border-white/5">Home</a>
         <a href="../about.html" class="block py-2 hover:text-brandOrange transition border-b border-white/5">About Factory</a>
         
         <div class="space-y-4">
             <button data-action="toggle-mobile-submenu" class="w-full flex justify-between items-center py-2 hover:text-brandOrange transition border-b border-white/5 uppercase" aria-label="Toggle products submenu">
-                Products <i id="submenu-icon" class="fa-solid fa-chevron-down text-xs transition-transform duration-300"></i>
+                Products <i class="submenu-icon fa-solid fa-chevron-down text-xs transition-transform duration-300"></i>
             </button>
             <div id="mobile-submenu" class="hidden pl-4 space-y-4 border-l-2 border-brandOrange/30 ml-1">
                 <a href="../products/power-bank.html" class="block text-xs text-white/70 hover:text-brandOrange py-1">→ Power Bank</a>
@@ -295,15 +286,15 @@
         <!-- ========================================================================
              HERO SECTION - Hero Section
              ======================================================================== -->
-    <section class="relative min-h-[calc(100vh-80px)] flex flex-col bg-white overflow-hidden">
+    <section class="relative min-h-[calc(100vh-80px)] flex flex-col bg-white">
         <div class="absolute inset-0 z-0 pointer-events-none overflow-hidden">
             <div class="absolute top-0 left-0 max-w-full w-64 h-64 bg-brandOrange opacity-20 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
             <div class="absolute bottom-0 right-0 max-w-full w-64 h-64 bg-blue-500 opacity-20 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
         </div>
 
-        <div class="max-w-5xl mx-auto px-6 relative z-10 text-center flex flex-col flex-1 justify-between gap-8 lg:gap-20 py-12 lg:py-20">
+        <div class="max-w-5xl mx-auto px-6 relative z-10 text-center flex flex-col flex-1 justify-between gap-4 lg:gap-6 py-8 lg:py-10">
             <!-- Top: badge + H1 -->
-            <div class="pt-8 lg:pt-12">
+            <div class="pt-4 lg:pt-6">
                 <div class="inline-block px-4 py-1 bg-brandOrange/10 border border-brandOrange/20 rounded-full text-[10px] font-bold text-brandOrange uppercase tracking-widest mb-6 mx-auto">Car Charger Factory | Since 2013</div>
                 <h1 class="text-4xl md:text-5xl lg:text-6xl font-black text-brandBlue uppercase italic tracking-tighter leading-tight">
                     GaN Car Chargers<br><span class="text-brandOrange">for B2B &amp; Wholesale</span>
@@ -565,7 +556,7 @@
     <!-- ========================================================================
          WHY PARTNER SECTION - 为什么合作
          ======================================================================== -->
-    <section class="py-20 bg-white">
+    <section class="py-20 md:py-24 bg-white border-t border-slate-100">
         <div class="max-w-7xl mx-auto px-6">
             <div class="grid lg:grid-cols-2 gap-16 items-center">
                 <div>
@@ -646,7 +637,7 @@
     <!-- ========================================================================
          PRODUCTS SHOWCASE SECTION - 产品展示区域
          ======================================================================== -->
-    <section id="products" class="py-24 bg-white relative">
+    <section id="products" class="py-20 md:py-24 bg-white relative">
         <div class="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-slate-50 to-transparent -z-10"></div>
         <div class="max-w-7xl mx-auto px-6">
             
@@ -661,7 +652,7 @@
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
                     <div class="group reveal">
     <div class="relative aspect-square rounded-3xl bg-slate-100 overflow-hidden mb-6">
-        <img src="../image/product/woc42-retractable-car-charger.webp" alt="WOWOHCOOL factory 105W retractable car charger with PD 45W PPS fast charging for Samsung - OEM automotive charger manufacturer" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async">
+        <img src="../image/product/woc42-retractable-car-charger.webp" alt="WOWOHCOOL factory 105W retractable car charger with PD 45W PPS fast charging for Samsung - OEM automotive charger manufacturer" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async" width="1920" height="1920">
         <div class="absolute top-4 left-4 flex flex-col gap-2">
             <span class="bg-brandOrange text-white text-[10px] font-black px-3 py-1 rounded-full uppercase italic tracking-widest">105W Max Output</span>
             <span class="bg-slate-900 text-white text-[10px] font-black px-3 py-1 rounded-full uppercase italic tracking-widest text-center">Retractable Design</span>
@@ -749,7 +740,7 @@
 </div>
                     <div class="group reveal">
     <div class="relative aspect-square rounded-3xl bg-slate-100 overflow-hidden mb-6">
-        <img src="../image/product/woc45-retractable-charger.webp" alt="WOWOHCOOL factory 3-in-1 retractable car charger with PPS 45W for flagship smartphones - compact automotive USB charger OEM" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async">
+        <img src="../image/product/woc45-retractable-charger.webp" alt="WOWOHCOOL factory 3-in-1 retractable car charger with PPS 45W for flagship smartphones - compact automotive USB charger OEM" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async" width="1920" height="1920">
         <div class="absolute top-4 left-4 flex flex-col gap-2">
             <span class="bg-brandOrange text-white text-[10px] font-black px-3 py-1 rounded-full uppercase italic tracking-widest">3-in-1 Versatility</span>
             <span class="bg-slate-900 text-white text-[10px] font-black px-3 py-1 rounded-full uppercase italic tracking-widest text-center">80cm Cable</span>
@@ -833,7 +824,7 @@
 </div>
 					<div class="group reveal">
     <div class="relative aspect-square rounded-3xl bg-slate-100 overflow-hidden mb-6">
-        <img src="../image/product/woc91-backseat-hub.webp" alt="WOWOHCOOL factory 120W rear seat car charger hub with 1.5M extension cable - fleet vehicle multi-port charging station OEM" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async">
+        <img src="../image/product/woc91-backseat-hub.webp" alt="WOWOHCOOL factory 120W rear seat car charger hub with 1.5M extension cable - fleet vehicle multi-port charging station OEM" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async" width="1920" height="1920">
         <div class="absolute top-4 left-4 flex flex-col gap-2">
             <span class="bg-brandOrange text-white text-[10px] font-black px-3 py-1 rounded-full uppercase italic tracking-widest">120W High Power</span>
             <span class="bg-slate-900 text-white text-[10px] font-black px-3 py-1 rounded-full uppercase italic tracking-widest text-center">Backseat Hub</span>
@@ -913,7 +904,7 @@
 </div>
 					<div class="group reveal">
      <div class="relative aspect-square rounded-3xl bg-slate-100 overflow-hidden mb-6">
-         <img src="../image/product/woc92-retractable-car-charger-hub.webp" alt="WOWOHCOOL factory WOC92 120W retractable car charger hub with PPS 45W Samsung Super Fast Charging 2.0 - 4-port rear seat charging OEM" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async">
+         <img src="../image/product/woc92-retractable-car-charger-hub.webp" alt="WOWOHCOOL factory WOC92 120W retractable car charger hub with PPS 45W Samsung Super Fast Charging 2.0 - 4-port rear seat charging OEM" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async" width="1920" height="1920">
          <div class="absolute top-4 left-4 flex flex-col gap-2">
              <span class="bg-brandOrange text-white text-[10px] font-black px-3 py-1 rounded-full uppercase italic tracking-widest">120W Total Output</span>
              <span class="bg-slate-900 text-white text-[10px] font-black px-3 py-1 rounded-full uppercase italic tracking-widest text-center">Retractable Cable</span>
@@ -1017,7 +1008,7 @@
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
                    <div class="group reveal">
     <div class="relative aspect-square rounded-3xl bg-slate-100 overflow-hidden mb-6">
-                    <img src="../image/product/woc38-4port-charger.webp" alt="WOWOHCOOL factory 70W 4-port compact GaN car charger with dual PD 35W - ultra-lightweight automotive USB charger OEM" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async">
+                    <img src="../image/product/woc38-4port-charger.webp" alt="WOWOHCOOL factory 70W 4-port compact GaN car charger with dual PD 35W - ultra-lightweight automotive USB charger OEM" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async" width="1920" height="1920">
         <div class="absolute top-4 left-4 flex flex-col gap-2">
             <span class="bg-brandOrange text-white text-[10px] font-black px-3 py-1 rounded-full uppercase italic tracking-widest">70W Max Output</span>
             <span class="bg-slate-900 text-white text-[10px] font-black px-3 py-1 rounded-full uppercase italic tracking-widest text-center">Dual PD 35W</span>
@@ -1101,7 +1092,7 @@
 </div>
                     <div class="group reveal">
     <div class="relative aspect-square rounded-3xl bg-slate-100 overflow-hidden mb-6">
-                    <img src="../image/product/woc24-140w-digital-charger.webp" alt="WOWOHCOOL factory 140W digital display GaN car charger with PD 3.1 65W laptop fast charging - flagship automotive OEM" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async">
+                    <img src="../image/product/woc24-140w-digital-charger.webp" alt="WOWOHCOOL factory 140W digital display GaN car charger with PD 3.1 65W laptop fast charging - flagship automotive OEM" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async" width="1920" height="1920">
         <div class="absolute top-4 left-4 flex flex-col gap-2">
             <span class="bg-brandOrange text-white text-[10px] font-black px-3 py-1 rounded-full uppercase italic tracking-widest">140W Flagship</span>
             <span class="bg-slate-900 text-white text-[10px] font-black px-3 py-1 rounded-full uppercase italic tracking-widest text-center">Laptop Ready</span>
@@ -1173,7 +1164,7 @@
 </div>
 					<div class="group reveal">
     <div class="relative aspect-square rounded-3xl bg-slate-100 overflow-hidden mb-6">
-                    <img src="../image/product/woc39-100w-charger.webp" alt="WOWOHCOOL factory 100W 3-port car charger with 65W laptop PD and drone power station support - outdoor automotive OEM" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async">
+                    <img src="../image/product/woc39-100w-charger.webp" alt="WOWOHCOOL factory 100W 3-port car charger with 65W laptop PD and drone power station support - outdoor automotive OEM" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async" width="1920" height="1920">
         <div class="absolute top-4 left-4 flex flex-col gap-2">
             <span class="bg-brandOrange text-white text-[10px] font-black px-3 py-1 rounded-full uppercase italic tracking-widest">100W Total Output</span>
             <span class="bg-slate-900 text-white text-[10px] font-black px-3 py-1 rounded-full uppercase italic tracking-widest text-center">Drone & Laptop</span>
@@ -1263,7 +1254,7 @@
     <!-- ========================================================================
          MINI CAR CHARGER SECTION - 迷你车载充电器
          ======================================================================== -->
-    <section class="py-20 bg-white">
+    <section class="py-20 md:py-24 bg-white border-t border-slate-100">
         <div class="max-w-7xl mx-auto px-6">
             <div>
                 <div class="flex items-end justify-between mb-12 reveal">
@@ -1276,7 +1267,7 @@
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
                     <div class="group reveal">
      <div class="relative aspect-square rounded-3xl bg-slate-100 overflow-hidden mb-6">
-         <img src="../image/product/woc05-mini-hidden-car-charger.webp" alt="WOWOHCOOL factory WOC05 mini hidden car charger with PD 65W and PPS 45W - zinc alloy compact automotive charger OEM" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async">
+         <img src="../image/product/woc05-mini-hidden-car-charger.webp" alt="WOWOHCOOL factory WOC05 mini hidden car charger with PD 65W and PPS 45W - zinc alloy compact automotive charger OEM" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async" width="1920" height="1920">
          <div class="absolute top-4 left-4 flex flex-col gap-2">
              <span class="bg-brandOrange text-white text-[10px] font-black px-3 py-1 rounded-full uppercase italic tracking-widest">65W Max Output</span>
              <span class="bg-slate-900 text-white text-[10px] font-black px-3 py-1 rounded-full uppercase italic tracking-widest text-center">Mini Hidden Design</span>
@@ -1344,7 +1335,7 @@
 </div>
                     <div class="group reveal">
      <div class="relative aspect-square rounded-3xl bg-slate-100 overflow-hidden mb-6">
-         <img src="../image/product/woc04-mini-pd45w-car-charger.webp" alt="WOWOHCOOL factory WOC04 mini 45W PD car charger for Qi2.2 wireless charger and 15V-20V devices - compact automotive OEM" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async">
+         <img src="../image/product/woc04-mini-pd45w-car-charger.webp" alt="WOWOHCOOL factory WOC04 mini 45W PD car charger for Qi2.2 wireless charger and 15V-20V devices - compact automotive OEM" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async" width="1920" height="1920">
          <div class="absolute top-4 left-4 flex flex-col gap-2">
              <span class="bg-brandOrange text-white text-[10px] font-black px-3 py-1 rounded-full uppercase italic tracking-widest">45W PD Output</span>
              <span class="bg-slate-900 text-white text-[10px] font-black px-3 py-1 rounded-full uppercase italic tracking-widest text-center">Qi2.2 Ready</span>
@@ -1408,7 +1399,7 @@
 </div>
                     <div class="group reveal">
      <div class="relative aspect-square rounded-3xl bg-slate-100 overflow-hidden mb-6">
-         <img src="../image/product/woc10-dual-port-car-charger.webp" alt="WOWOHCOOL factory WOC10 dual port metal PD car charger with USB-A and USB-C - aluminum alloy automotive OEM" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async">
+         <img src="../image/product/woc10-dual-port-car-charger.webp" alt="WOWOHCOOL factory WOC10 dual port metal PD car charger with USB-A and USB-C - aluminum alloy automotive OEM" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async" width="1920" height="1920">
          <div class="absolute top-4 left-4 flex flex-col gap-2">
              <span class="bg-brandOrange text-white text-[10px] font-black px-3 py-1 rounded-full uppercase italic tracking-widest">38W Total Output</span>
              <span class="bg-slate-900 text-white text-[10px] font-black px-3 py-1 rounded-full uppercase italic tracking-widest text-center">Dual Port Fast</span>
@@ -1501,7 +1492,7 @@
                 <!-- Article 1: Car Charger Guide -->
                 <a href="../blog/car-charger-guide.html" class="group bg-slate-50 rounded-2xl overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
                     <div class="h-40 relative overflow-hidden">
-                        <img loading="lazy" src="../image/blog/car-charger-guide.webp" alt="Car Charger Guide 2026" class="w-full h-full object-cover">
+                        <img loading="lazy" src="../image/blog/car-charger-guide.webp" alt="Car Charger Guide 2026" class="w-full h-full object-cover" width="2240" height="1260">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                         <div class="absolute bottom-3 left-4">
                             <span class="px-2 py-1 bg-brandOrange text-white text-[8px] font-black uppercase rounded">Guide</span>
@@ -1517,7 +1508,7 @@
                 <!-- Article 2: Safety Standards -->
                 <a href="../blog/charger-safety-standards.html" class="group bg-slate-50 rounded-2xl overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
                     <div class="h-40 relative overflow-hidden">
-                        <img loading="lazy" src="../image/blog/charger-safety-standards-guide.webp" alt="Charger Safety Standards" class="w-full h-full object-cover">
+                        <img loading="lazy" src="../image/blog/charger-safety-standards-guide.webp" alt="Charger Safety Standards" class="w-full h-full object-cover" width="2240" height="1260">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                         <div class="absolute bottom-3 left-4">
                             <span class="px-2 py-1 bg-white text-red-600 text-[8px] font-black uppercase rounded">Safety</span>
@@ -1533,7 +1524,7 @@
                 <!-- Article 3: Factory Verification -->
                 <a href="../blog/factory-verification-checklist.html" class="group bg-slate-50 rounded-2xl overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
                     <div class="h-40 relative overflow-hidden">
-                        <img loading="lazy" src="../image/blog/factory-verification-checklist.webp" alt="Factory Verification Checklist" class="w-full h-full object-cover">
+                        <img loading="lazy" src="../image/blog/factory-verification-checklist.webp" alt="Factory Verification Checklist" class="w-full h-full object-cover" width="2240" height="1260">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                         <div class="absolute bottom-3 left-4">
                             <span class="px-2 py-1 bg-brandOrange text-white text-[8px] font-black uppercase rounded">Sourcing</span>
@@ -1622,7 +1613,7 @@
     <!-- ========================================================================
          CLIENT TESTIMONIALS SECTION - B2B客户评价
          ======================================================================== -->
-    <section class="py-20 md:py-24 bg-slate-900">
+    <section class="py-24 md:py-28 bg-slate-900">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-16">
                 <div class="inline-block px-4 py-1 bg-brandOrange/10 border border-brandOrange/20 rounded-full text-[10px] font-bold text-brandOrange uppercase tracking-widest mb-6">Client Feedback</div>

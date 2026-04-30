@@ -57,21 +57,22 @@
     <link rel="icon" type="image/png" href="../image/favicon.png">
     <link rel="apple-touch-icon" href="../image/apple-touch-icon.png">
 
-    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preload" as="style" href="../css/styles.css" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="../css/styles.css"></noscript>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
     <link rel="stylesheet" href="../css/style.css" media="print" onload="this.media='all'">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" as="style">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap"></noscript>
 </head>
 <body class="bg-white text-slate-900 overflow-x-hidden">
 
 <header class="fixed w-full z-[100] bg-white/95 backdrop-blur-md border-b border-slate-100 h-20">
-    <nav class="max-w-7xl mx-auto px-6 h-full flex items-center justify-between">
+    <nav aria-label="Main navigation" class="max-w-7xl mx-auto px-6 h-full flex items-center justify-between">
         <a href="../index.html" class="flex items-center shrink-0 group">
-            <img src="../image/wowohcool-logo.webp" alt="WOWOHCOOL Logo" class="h-10 w-auto transition-transform group-hover:scale-105">
+            <img src="../image/wowohcool-logo-optimized.webp" alt="WOWOHCOOL Logo" class="h-10 w-auto object-contain transition-transform group-hover:scale-105" width="263" height="70">
         </a>
         <div class="hidden lg:flex items-center space-x-8 text-[11px] font-bold uppercase tracking-widest text-slate-500">
             <a href="../index.html" class="nav-link hover:text-brandBlue transition">Home</a>
@@ -92,7 +93,7 @@
             <a href="../contact.html" class="nav-link hover:text-brandBlue transition">Contact</a>
         </div>
         <div class="flex items-center gap-4">
-            <button data-action="open-modal" class="bg-brandOrange text-white px-7 py-2.5 rounded-full text-[10px] font-black uppercase tracking-widest hover:scale-105 transition shadow-lg">Request Quote</button>
+            <button data-action="open-modal" class="bg-brandOrange text-white px-4 md:px-7 py-2 rounded-full text-[9px] md:text-[10px] font-black uppercase tracking-widest hover:scale-105 transition shadow-lg">Request Quote</button>
             <button data-action="toggle-mobile-menu" class="lg:hidden text-brandBlue text-2xl" aria-label="Open mobile menu"><i class="fa-solid fa-bars-staggered"></i></button>
         </div>
     </nav>
@@ -106,12 +107,12 @@
         </a>
         <button data-action="close-mobile" class="text-white text-3xl p-2 hover:rotate-90 transition-transform duration-300" aria-label="Close mobile menu"><i class="fa-solid fa-xmark"></i></button>
     </div>
-    <nav class="flex-1 space-y-6 text-white uppercase font-black tracking-widest text-sm">
+    <nav aria-label="Mobile navigation" class="flex-1 space-y-6 text-white uppercase font-black tracking-widest text-sm">
         <a href="../index.html" class="block py-2 hover:text-brandOrange transition border-b border-white/5">Home</a>
         <a href="../about.html" class="block py-2 hover:text-brandOrange transition border-b border-white/5">About Factory</a>
         <div class="space-y-4">
             <button data-action="toggle-mobile-submenu" class="w-full flex justify-between items-center py-2 hover:text-brandOrange transition border-b border-white/5 uppercase" aria-label="Toggle products submenu">
-                Products <i id="submenu-icon" class="fa-solid fa-chevron-down text-xs transition-transform duration-300"></i>
+                Products <i class="submenu-icon fa-solid fa-chevron-down text-xs transition-transform duration-300"></i>
             </button>
             <div id="mobile-submenu" class="hidden pl-4 space-y-4 border-l-2 border-brandOrange/30 ml-1">
                 <a href="power-bank.html" class="block text-xs text-white/70 hover:text-brandOrange py-1">→ Power Bank</a>
@@ -177,14 +178,14 @@
     </div>
 
     <!-- Product Categories -->
-    <section class="py-20 max-w-7xl mx-auto px-6">
+    <section class="py-20 md:py-24 max-w-7xl mx-auto px-6">
         <div id="productGrid" class="grid grid-cols-1 md:grid-cols-2 gap-8">
 
             <!-- 1. Power Bank -->
             <div class="product-card group bg-white rounded-[2rem] border border-slate-200 overflow-hidden hover:shadow-2xl hover:-translate-y-1 transition-all duration-500" data-category="power-bank" data-keywords="power bank semi-solid-state battery PD 3.1 140W laptop heating clothing OEM ODM WOP23 WOP22 WOP69 WOP09 WOP25 WOP55">
                 <a href="power-bank.html" class="block">
                     <div class="aspect-square bg-gradient-to-br from-brandBlue/10 to-transparent overflow-hidden">
-                        <img src="../image/product/wop23-240w-power-bank.webp" alt="Semi-solid-state power bank 140W PD 3.1 OEM by WOWOHCOOL" class="w-full h-full object-contain p-8 group-hover:scale-105 transition-transform duration-700" loading="eager">
+                        <img src="../image/product/wop23-240w-power-bank.webp" alt="Semi-solid-state power bank 140W PD 3.1 OEM by WOWOHCOOL" class="w-full h-full object-contain p-8 group-hover:scale-105 transition-transform duration-700" loading="eager" width="1920" height="1920">
                     </div>
                     <div class="p-8">
                         <div class="flex items-start justify-between mb-4">
@@ -212,7 +213,7 @@
             <div class="product-card group bg-white rounded-[2rem] border border-slate-200 overflow-hidden hover:shadow-2xl hover:-translate-y-1 transition-all duration-500" data-category="gan-charger" data-keywords="GaN V charger PD 3.1 240W gallium nitride multi-port desktop wall charger OEM ODM WOP37 WOP39 WOP28 WOP10 WOP80">
                 <a href="gan-charger.html" class="block">
                     <div class="aspect-square bg-gradient-to-br from-brandOrange/10 to-transparent overflow-hidden">
-                        <img src="../image/product/wop37-67w-gan-charger-retractable-cable-wireless.webp" alt="GaN V charger 67W retractable cable wireless OEM by WOWOHCOOL" class="w-full h-full object-contain p-8 group-hover:scale-105 transition-transform duration-700" loading="lazy">
+                        <img src="../image/product/wop37-67w-gan-charger-retractable-cable-wireless.webp" alt="GaN V charger 67W retractable cable wireless OEM by WOWOHCOOL" class="w-full h-full object-contain p-8 group-hover:scale-105 transition-transform duration-700" loading="lazy" width="1920" height="1920">
                     </div>
                     <div class="p-8">
                         <div class="flex items-start justify-between mb-4">
@@ -240,7 +241,7 @@
             <div class="product-card group bg-white rounded-[2rem] border border-slate-200 overflow-hidden hover:shadow-2xl hover:-translate-y-1 transition-all duration-500" data-category="wireless-charger" data-keywords="Qi2 wireless charger MagSafe 15W MPP 3-in-1 charging station desktop car mount OEM ODM WOW93 WOW90 WOW10 WOW19 WOW41 WOW39 WOW28">
                 <a href="wireless-charger.html" class="block">
                     <div class="aspect-square bg-gradient-to-br from-blue-50 to-transparent overflow-hidden">
-                        <img src="../image/product/wow93-folding-charger.webp" alt="Qi2 3-in-1 folding wireless charger 15W MPP OEM by WOWOHCOOL" class="w-full h-full object-contain p-8 group-hover:scale-105 transition-transform duration-700" loading="lazy">
+                        <img src="../image/product/wow93-folding-charger.webp" alt="Qi2 3-in-1 folding wireless charger 15W MPP OEM by WOWOHCOOL" class="w-full h-full object-contain p-8 group-hover:scale-105 transition-transform duration-700" loading="lazy" width="1920" height="1920">
                     </div>
                     <div class="p-8">
                         <div class="flex items-start justify-between mb-4">
@@ -268,7 +269,7 @@
             <div class="product-card group bg-white rounded-[2rem] border border-slate-200 overflow-hidden hover:shadow-2xl hover:-translate-y-1 transition-all duration-500" data-category="car-charger" data-keywords="car charger GaN PD 3.1 140W laptop E-Mark certified metal shell retractable OEM ODM WOC42 WOC24">
                 <a href="car-charger.html" class="block">
                     <div class="aspect-square bg-gradient-to-br from-slate-100 to-transparent overflow-hidden">
-                        <img src="../image/product/woc24-140w-digital-charger.webp" alt="140W GaN car charger PD 3.1 digital display OEM by WOWOHCOOL" class="w-full h-full object-contain p-8 group-hover:scale-105 transition-transform duration-700" loading="lazy">
+                        <img src="../image/product/woc24-140w-digital-charger.webp" alt="140W GaN car charger PD 3.1 digital display OEM by WOWOHCOOL" class="w-full h-full object-contain p-8 group-hover:scale-105 transition-transform duration-700" loading="lazy" width="1920" height="1920">
                     </div>
                     <div class="p-8">
                         <div class="flex items-start justify-between mb-4">
@@ -303,7 +304,7 @@
     </section>
 
     <!-- FAQ Section -->
-    <section class="py-20 bg-slate-50">
+    <section class="py-20 md:py-24 bg-slate-50">
         <div class="max-w-4xl mx-auto px-6">
             <div class="flex items-center gap-3 mb-10">
                 <div class="w-1 h-8 bg-brandOrange rounded-full"></div>
@@ -342,16 +343,14 @@
         </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="py-20 bg-white">
+    <!-- CTA Section - Full Width -->
+    <section class="bg-brandBlue py-16 md:py-20">
         <div class="max-w-4xl mx-auto px-6 text-center">
-            <div class="bg-brandBlue rounded-[3rem] p-12 md:p-16">
-                <h2 class="text-2xl md:text-4xl font-black text-white uppercase italic mb-4">Need Help Choosing?</h2>
-                <p class="text-slate-300 max-w-2xl mx-auto mb-10 leading-relaxed">Not sure which product fits your project? Our sales engineering team can help you select the right solution based on your specifications, budget, and timeline.</p>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <button data-action="open-modal" class="bg-brandOrange text-white px-10 py-4 rounded-xl font-black uppercase tracking-widest text-sm hover:scale-105 transition shadow-xl shadow-brandOrange/20">Get Expert Advice</button>
-                    <a href="../contact.html" class="border-2 border-white/30 text-white px-10 py-4 rounded-xl font-black uppercase tracking-widest text-sm hover:bg-white hover:text-brandBlue transition">Contact Sales Team</a>
-                </div>
+            <h2 class="text-2xl md:text-4xl font-black text-white uppercase italic mb-4">Need Help Choosing?</h2>
+            <p class="text-slate-300 max-w-2xl mx-auto mb-10 leading-relaxed">Not sure which product fits your project? Our sales engineering team can help you select the right solution based on your specifications, budget, and timeline.</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <button data-action="open-modal" class="w-full sm:w-auto bg-brandOrange text-white px-10 py-4 rounded-xl font-black uppercase tracking-widest text-sm hover:scale-105 transition shadow-xl shadow-brandOrange/20">Get Expert Advice</button>
+                <a href="../contact.html" class="w-full sm:w-auto border-2 border-white/30 text-white px-10 py-4 rounded-xl font-black uppercase tracking-widest text-sm hover:bg-white hover:text-brandBlue transition">Contact Sales Team</a>
             </div>
         </div>
     </section>

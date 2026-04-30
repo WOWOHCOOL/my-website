@@ -235,7 +235,8 @@
     <!-- ========================================================================
          External Libraries
          ======================================================================== -->
-    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preload" as="style" href="../css/styles.css" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="../css/styles.css"></noscript>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
     <link rel="stylesheet" href="../css/style.css" media="print" onload="this.media='all'">
 
@@ -244,37 +245,14 @@
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap"></noscript>
 
-    <style>
-    header { transform: translateZ(0); }
-    section:not(#hero) { content-visibility: auto; contain-intrinsic-size: 800px; }
-    @media (max-width: 768px) {
-        html { scroll-behavior: auto !important; }
-        header { -webkit-backdrop-filter: none !important; backdrop-filter: none !important; }
-        #mobile-menu-overlay { -webkit-backdrop-filter: none !important; backdrop-filter: none !important; }
-    }
-    </style>
-
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        brandBlue: '#0A192F',
-                        brandOrange: '#FF6B00'
-                    }
-                }
-            }
-        }
-    </script>
-
 </head>
 
 <body class="bg-white text-slate-900 overflow-x-hidden">
 
     <header class="fixed w-full z-[100] bg-white/95 backdrop-blur-md border-b border-slate-100 h-20">
-        <nav class="max-w-7xl mx-auto px-6 h-full flex items-center justify-between">
+        <nav aria-label="Main navigation" class="max-w-7xl mx-auto px-6 h-full flex items-center justify-between">
             <a href="../index.html" class="flex items-center shrink-0 group">
-                <img src="../image/wowohcool-logo.webp" alt="WOWOHCOOL Logo" class="h-10 w-auto transition-transform group-hover:scale-105">
+                <img src="../image/wowohcool-logo-optimized.webp" alt="WOWOHCOOL Logo" class="h-10 w-auto object-contain transition-transform group-hover:scale-105" width="263" height="70">
             </a>
             <div class="hidden lg:flex items-center space-x-8 text-[11px] font-bold uppercase tracking-widest text-slate-500">
                 <a href="../index.html" class="nav-link hover:text-brandBlue transition">Home</a>
@@ -295,7 +273,7 @@
                 <a href="../contact.html" class="nav-link hover:text-brandBlue">Contact</a>
             </div>
             <div class="flex items-center gap-4">
-                <button data-action="open-modal" class="bg-brandOrange text-white px-7 py-2.5 rounded-full text-[10px] font-black uppercase tracking-widest hover:scale-105 transition shadow-lg">Request Quote</button>
+                <button data-action="open-modal" class="bg-brandOrange text-white px-4 md:px-7 py-2 rounded-full text-[9px] md:text-[10px] font-black uppercase tracking-widest hover:scale-105 transition shadow-lg">Request Quote</button>
                 <button data-action="toggle-mobile-menu" class="lg:hidden text-brandBlue text-2xl" aria-label="Open mobile menu"><i class="fa-solid fa-bars-staggered"></i></button>
             </div>
         </nav>
@@ -315,13 +293,13 @@
             </button>
         </div>
 
-        <nav class="flex-1 space-y-6 text-white uppercase font-black tracking-widest text-sm">
+        <nav aria-label="Mobile navigation" class="flex-1 space-y-6 text-white uppercase font-black tracking-widest text-sm">
             <a href="../index.html" class="block py-2 hover:text-brandOrange transition border-b border-white/5">Home</a>
             <a href="../about.html" class="block py-2 hover:text-brandOrange transition border-b border-white/5">About Factory</a>
             
             <div class="space-y-4">
                 <button data-action="toggle-mobile-submenu" class="w-full flex justify-between items-center py-2 hover:text-brandOrange transition border-b border-white/5 uppercase" aria-label="Toggle products submenu">
-                    Products <i id="submenu-icon" class="fa-solid fa-chevron-down text-xs transition-transform duration-300"></i>
+                    Products <i class="submenu-icon fa-solid fa-chevron-down text-xs transition-transform duration-300"></i>
                 </button>
                 <div id="mobile-submenu" class="hidden pl-4 space-y-4 border-l-2 border-brandOrange/30 ml-1">
                     <a href="../products/power-bank.html" class="block text-xs text-white/70 hover:text-brandOrange py-1">→ Power Bank</a>
@@ -348,15 +326,15 @@
         <!-- ========================================================================
              HERO SECTION - Hero Section
              ======================================================================== -->
-    <section class="relative min-h-[calc(100vh-80px)] flex flex-col bg-white overflow-hidden">
+    <section class="relative min-h-[calc(100vh-80px)] flex flex-col bg-white">
         <div class="absolute inset-0 z-0 pointer-events-none overflow-hidden">
             <div class="absolute top-0 left-0 max-w-full w-64 h-64 bg-brandOrange opacity-20 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
             <div class="absolute bottom-0 right-0 max-w-full w-64 h-64 bg-blue-500 opacity-20 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
         </div>
 
-        <div class="max-w-5xl mx-auto px-6 relative z-10 text-center flex flex-col flex-1 justify-between gap-6 lg:gap-10 py-10 lg:py-14">
+        <div class="max-w-5xl mx-auto px-6 relative z-10 text-center flex flex-col flex-1 justify-between gap-4 lg:gap-8 py-8 lg:py-10">
             <!-- Top: badge + H1 -->
-            <div class="pt-8 lg:pt-12">
+            <div class="pt-4 lg:pt-6">
                 <div class="badge-capsule mb-6 mx-auto uppercase tracking-widest">Power Bank Factory | Since 2013</div>
                 <h1 class="text-4xl md:text-5xl lg:text-6xl font-black text-brandBlue uppercase italic tracking-tighter leading-tight">
                     High-Capacity Power Banks<br><span class="text-brandOrange">for B2B &amp; Wholesale</span>
@@ -574,7 +552,7 @@
     <!-- ========================================================================
          COMPLIANCE Section
          ======================================================================== -->
-    <section class="py-20 bg-white">
+    <section class="py-20 md:py-24 bg-white border-t border-slate-100">
         <div class="max-w-7xl mx-auto px-6">
             <div class="bg-slate-900 rounded-2xl md:rounded-3xl p-6 md:p-8">
                 <div class="flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-6">
@@ -612,18 +590,11 @@
         
         <div class="max-w-7xl mx-auto px-6">            
             <div class="mb-16 md:mb-24">
-                <div class="flex items-end justify-between mb-8 md:mb-12 reveal">
-                    <div>
-                        <h2 class="text-3xl font-black text-slate-900 uppercase italic tracking-tighter">Product Catalog</h2>
-                    </div>
-                    <div class="hidden md:block h-px flex-1 bg-slate-100 mx-10 mb-4"></div>
-                </div>
-                
                 <!-- Semi-Solid-State Power Banks -->
                 <div class="mb-16 md:mb-20">
                     <div class="flex items-end justify-between mb-8 md:mb-10 reveal">
                         <div>
-                            <h3 class="text-2xl font-black text-brandBlue uppercase italic tracking-tighter">Semi-Solid-State Power Banks</h3>
+                            <h2 class="text-2xl font-black text-brandBlue uppercase italic tracking-tighter">Semi-Solid-State Power Banks</h2>
                             <p class="text-slate-500 mt-1 text-xs uppercase font-bold tracking-widest italic">Next-Gen Battery Technology | 36Wh - 72Wh</p>
                         </div>
                         <div class="hidden md:block h-px flex-1 bg-slate-100 mx-10 mb-3"></div>
@@ -631,7 +602,7 @@
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
                     <div class="group reveal">
                         <div class="relative aspect-square rounded-3xl bg-slate-100 overflow-hidden mb-6">
-                            <img src="../image/product/wop09-semi-solid-power-bank.webp" alt="WOP09 55W Semi-Solid-State Power Bank 10000mAh with dual built-in fast charging cables, Type-C and Lightning, next-gen battery technology" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async">
+                            <img src="../image/product/wop09-semi-solid-power-bank.webp" alt="WOP09 55W Semi-Solid-State Power Bank 10000mAh with dual built-in fast charging cables, Type-C and Lightning, next-gen battery technology" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async" width="1920" height="1920">
                             <div class="absolute top-4 left-4 flex flex-col gap-2">
                                 <span class="bg-brandOrange text-white text-[10px] font-black px-3 py-1 rounded-full uppercase italic tracking-widest">New Tech</span>
                                 <span class="bg-slate-900 text-white text-[10px] font-black px-3 py-1 rounded-full uppercase italic tracking-widest text-center">Semi-Solid-State</span>
@@ -712,7 +683,7 @@
 
                     <div class="group reveal">
                         <div class="relative aspect-square rounded-3xl bg-slate-100 overflow-hidden mb-6">
-                            <img src="../image/product/wop10-dual-cable-power-bank.webp" alt="WOP10 55W Semi-Solid-State Power Bank 20000mAh with dual built-in fast charging cables, Type-C and Lightning, next-gen battery technology" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async">
+                            <img src="../image/product/wop10-dual-cable-power-bank.webp" alt="WOP10 55W Semi-Solid-State Power Bank 20000mAh with dual built-in fast charging cables, Type-C and Lightning, next-gen battery technology" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async" width="1920" height="1920">
                             <div class="absolute top-4 left-4 flex flex-col gap-2">
                                 <span class="bg-brandOrange text-white text-[10px] font-black px-3 py-1 rounded-full uppercase italic tracking-widest">New Tech</span>
                                 <span class="bg-slate-900 text-white text-[10px] font-black px-3 py-1 rounded-full uppercase italic tracking-widest text-center">Semi-Solid-State</span>
@@ -793,7 +764,7 @@
 
                     <div class="group reveal">
                         <div class="relative aspect-square rounded-3xl bg-slate-100 overflow-hidden mb-6">
-                            <img src="../image/product/wop26-semi-solid-retractable.webp" alt="WOP26 45W Semi-Solid-State Power Bank 20000mAh with triple retractable cables, Type-C1/C2/C3, PC+ABS shell" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async">
+                            <img src="../image/product/wop26-semi-solid-retractable.webp" alt="WOP26 45W Semi-Solid-State Power Bank 20000mAh with triple retractable cables, Type-C1/C2/C3, PC+ABS shell" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async" width="1920" height="1920">
                             <div class="absolute top-4 left-4 flex flex-col gap-2">
                                 <span class="bg-brandOrange text-white text-[10px] font-black px-3 py-1 rounded-full uppercase italic tracking-widest">New Tech</span>
                                 <span class="bg-slate-900 text-white text-[10px] font-black px-3 py-1 rounded-full uppercase italic tracking-widest text-center">Triple Cable</span>
@@ -874,7 +845,7 @@
 
                     <div class="group reveal">
                         <div class="relative aspect-square rounded-3xl bg-slate-100 overflow-hidden mb-6">
-                            <img src="../image/product/wop27-semi-solid-pro.webp" alt="WOP27 65W Semi-Solid-State Power Bank 20000mAh with triple retractable cables, Type-C1/C2/C3, PC+ABS shell, high power output" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async">
+                            <img src="../image/product/wop27-semi-solid-pro.webp" alt="WOP27 65W Semi-Solid-State Power Bank 20000mAh with triple retractable cables, Type-C1/C2/C3, PC+ABS shell, high power output" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async" width="1920" height="1920">
                             <div class="absolute top-4 left-4 flex flex-col gap-2">
                                 <span class="bg-brandOrange text-white text-[10px] font-black px-3 py-1 rounded-full uppercase italic tracking-widest">New Tech</span>
                                 <span class="bg-slate-900 text-white text-[10px] font-black px-3 py-1 rounded-full uppercase italic tracking-widest text-center">65W High Power</span>
@@ -959,7 +930,7 @@
                 <div class="mb-16 md:mb-20">
                     <div class="flex items-end justify-between mb-8 md:mb-10 reveal">
                         <div>
-                            <h3 class="text-2xl font-black text-brandBlue uppercase italic tracking-tighter">Heating Battery Series</h3>
+                            <h2 class="text-2xl font-black text-brandBlue uppercase italic tracking-tighter">Heating Battery Series</h2>
                             <p class="text-slate-500 mt-1 text-xs uppercase font-bold tracking-widest italic">For Heated Jackets, Vests, Socks, Gloves, Scarves | OEM/ODM</p>
                         </div>
                         <div class="hidden md:block h-px flex-1 bg-slate-100 mx-10 mb-3"></div>
@@ -967,7 +938,7 @@
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
                     <div class="group reveal">
                         <div class="relative aspect-square rounded-3xl bg-slate-100 overflow-hidden mb-6">
-                            <img src="../image/product/wop55-heating-battery.webp" alt="WOP55 Heating Battery 14400mAh for heated jacket, heated vest, 7.4V DC output" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async">
+                            <img src="../image/product/wop55-heating-battery.webp" alt="WOP55 Heating Battery 14400mAh for heated jacket, heated vest, 7.4V DC output" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async" width="1920" height="1920">
                             <div class="absolute top-4 left-4 flex flex-col gap-2">
                                 <span class="bg-brandOrange text-white text-[10px] font-black px-3 py-1 rounded-full uppercase italic tracking-widest">7.4V DC Output</span>
                                 <span class="bg-slate-900 text-white text-[10px] font-black px-3 py-1 rounded-full uppercase italic tracking-widest text-center">Heating Power</span>
@@ -1043,7 +1014,7 @@
                     </div>
                     <div class="group reveal">
                         <div class="relative aspect-square rounded-3xl bg-slate-100 overflow-hidden mb-6">
-                            <img src="../image/product/wop50-heating-socks-battery.webp" alt="WOP50 Heating Socks Battery 2000mAh for heated socks, compact design" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async">
+                            <img src="../image/product/wop50-heating-socks-battery.webp" alt="WOP50 Heating Socks Battery 2000mAh for heated socks, compact design" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async" width="1920" height="1920">
                             <div class="absolute top-4 left-4 flex flex-col gap-2">
                                 <span class="bg-brandOrange text-white text-[10px] font-black px-3 py-1 rounded-full uppercase italic tracking-widest">3.7V DC Output</span>
                                 <span class="bg-slate-900 text-white text-[10px] font-black px-3 py-1 rounded-full uppercase italic tracking-widest text-center">Heated Socks</span>
@@ -1131,7 +1102,7 @@
                     </div>
                     <div class="group reveal">
                         <div class="relative aspect-square rounded-3xl bg-slate-100 overflow-hidden mb-6">
-                            <img src="../image/product/wop49-heating-scarf-battery.webp" alt="WOP49 Heating Scarf Battery 2000mAh for heated scarf and heated socks, mini compact design" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async">
+                            <img src="../image/product/wop49-heating-scarf-battery.webp" alt="WOP49 Heating Scarf Battery 2000mAh for heated scarf and heated socks, mini compact design" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async" width="1920" height="1920">
                             <div class="absolute top-4 left-4 flex flex-col gap-2">
                                 <span class="bg-brandOrange text-white text-[10px] font-black px-3 py-1 rounded-full uppercase italic tracking-widest">3.7V DC Output</span>
                                 <span class="bg-slate-900 text-white text-[10px] font-black px-3 py-1 rounded-full uppercase italic tracking-widest text-center">Mini Size</span>
@@ -1215,7 +1186,7 @@
                     </div>
                     <div class="group reveal">
                         <div class="relative aspect-square rounded-3xl bg-slate-100 overflow-hidden mb-6">
-                            <img src="../image/product/wop61-heating-gloves-battery.webp" alt="WOP61 Heating Gloves Battery 2500mAh for heated gloves, 7.4V output" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async">
+                            <img src="../image/product/wop61-heating-gloves-battery.webp" alt="WOP61 Heating Gloves Battery 2500mAh for heated gloves, 7.4V output" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async" width="1920" height="1920">
                             <div class="absolute top-4 left-4 flex flex-col gap-2">
                                 <span class="bg-brandOrange text-white text-[10px] font-black px-3 py-1 rounded-full uppercase italic tracking-widest">7.4V Output</span>
                                 <span class="bg-slate-900 text-white text-[10px] font-black px-3 py-1 rounded-full uppercase italic tracking-widest text-center">Heated Gloves</span>
@@ -1291,7 +1262,7 @@
                     </div>
                     <div class="group reveal">
                         <div class="relative aspect-square rounded-3xl bg-slate-100 overflow-hidden mb-6">
-                            <img src="../image/product/wop53-heating-pillow-battery.webp" alt="WOP53 Heating Pillow Battery 1800mAh for massage pillow, heated plush toy, hand warmer" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async">
+                            <img src="../image/product/wop53-heating-pillow-battery.webp" alt="WOP53 Heating Pillow Battery 1800mAh for massage pillow, heated plush toy, hand warmer" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async" width="1920" height="1920">
                             <div class="absolute top-4 left-4 flex flex-col gap-2">
                                 <span class="bg-brandOrange text-white text-[10px] font-black px-3 py-1 rounded-full uppercase italic tracking-widest">12.6V Output</span>
                                 <span class="bg-slate-900 text-white text-[10px] font-black px-3 py-1 rounded-full uppercase italic tracking-widest text-center">Multi-Purpose</span>
@@ -1368,7 +1339,7 @@
                 <div>
                     <div class="flex items-end justify-between mb-8 md:mb-10 reveal">
                         <div>
-                            <h3 class="text-2xl font-black text-brandBlue uppercase italic tracking-tighter">2-in-1 Hybrid Chargers</h3>
+                            <h2 class="text-2xl font-black text-brandBlue uppercase italic tracking-tighter">2-in-1 Hybrid Chargers</h2>
                             <p class="text-slate-500 mt-1 text-xs uppercase font-bold tracking-widest italic">Charger + Power Bank | Wall Adapter + Battery</p>
                         </div>
                         <div class="hidden md:block h-px flex-1 bg-slate-100 mx-10 mb-3"></div>
@@ -1376,7 +1347,7 @@
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
                     <div class="group reveal">
                         <div class="relative aspect-square rounded-3xl bg-slate-100 overflow-hidden mb-6">
-                            <img src="../image/product/wop25-tft-power-bank.webp" alt="WOP25 5000mAh 3-in-1 TFT Display Power Bank with wireless charging, aluminum alloy + tempered glass shell, 15W Qi2 magnetic compatible" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async">
+                            <img src="../image/product/wop25-tft-power-bank.webp" alt="WOP25 5000mAh 3-in-1 TFT Display Power Bank with wireless charging, aluminum alloy + tempered glass shell, 15W Qi2 magnetic compatible" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async" width="1920" height="1920">
                             <div class="absolute top-4 left-4 flex flex-col gap-2">
                                 <span class="bg-brandOrange text-white text-[10px] font-black px-3 py-1 rounded-full uppercase italic tracking-widest">Premium</span>
                                 <span class="bg-slate-900 text-white text-[10px] font-black px-3 py-1 rounded-full uppercase italic tracking-widest text-center">TFT Smart Screen</span>
@@ -1457,7 +1428,7 @@
 
                     <div class="group reveal">
                         <div class="relative aspect-square rounded-3xl bg-slate-100 overflow-hidden mb-6">
-                            <img src="../image/product/wop15-tft-3in1-power-bank.webp" alt="WOP15 10000mAh 3-in-1 TFT Display Power Bank with wireless charging, aluminum alloy + tempered glass shell, 15W Qi2 magnetic compatible" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async">
+                            <img src="../image/product/wop15-tft-3in1-power-bank.webp" alt="WOP15 10000mAh 3-in-1 TFT Display Power Bank with wireless charging, aluminum alloy + tempered glass shell, 15W Qi2 magnetic compatible" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async" width="1920" height="1920">
                             <div class="absolute top-4 left-4 flex flex-col gap-2">
                                 <span class="bg-brandOrange text-white text-[10px] font-black px-3 py-1 rounded-full uppercase italic tracking-widest">Premium</span>
                                 <span class="bg-slate-900 text-white text-[10px] font-black px-3 py-1 rounded-full uppercase italic tracking-widest text-center">TFT Display</span>
@@ -1538,7 +1509,7 @@
 
                     <div class="group reveal">
                         <div class="relative aspect-square rounded-3xl bg-slate-100 overflow-hidden mb-6">
-                            <img src="../image/product/wop21-67w-power-bank.webp" alt="WOP21 67W PD Fast Charging Power Bank 20000mAh, high power output for laptops, ABS+PC shell, 74Wh battery energy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async">
+                            <img src="../image/product/wop21-67w-power-bank.webp" alt="WOP21 67W PD Fast Charging Power Bank 20000mAh, high power output for laptops, ABS+PC shell, 74Wh battery energy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async" width="1920" height="1920">
                             <div class="absolute top-4 left-4 flex flex-col gap-2">
                                 <span class="bg-brandOrange text-white text-[10px] font-black px-3 py-1 rounded-full uppercase italic tracking-widest">High Power</span>
                                 <span class="bg-slate-900 text-white text-[10px] font-black px-3 py-1 rounded-full uppercase italic tracking-widest text-center">67W PD</span>
@@ -1619,7 +1590,7 @@
                     
                     <div class="group reveal">
                         <div class="relative aspect-square rounded-3xl bg-slate-100 overflow-hidden mb-6">
-                            <img src="../image/product/wop22-130w-power-bank.webp" alt="WOP22 130W PD Fast Charging Power Bank 20000mAh, dual 65W USB-C ports, power two laptops simultaneously, ABS+PC shell" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async">
+                            <img src="../image/product/wop22-130w-power-bank.webp" alt="WOP22 130W PD Fast Charging Power Bank 20000mAh, dual 65W USB-C ports, power two laptops simultaneously, ABS+PC shell" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async" width="1920" height="1920">
                             <div class="absolute top-4 left-4 flex flex-col gap-2">
                                 <span class="bg-brandOrange text-white text-[10px] font-black px-3 py-1 rounded-full uppercase italic tracking-widest">Best Seller</span>
                                 <span class="bg-slate-900 text-white text-[10px] font-black px-3 py-1 rounded-full uppercase italic tracking-widest text-center">Dual 65W PD</span>
@@ -1704,7 +1675,7 @@
                     
                     <div class="group reveal">
                         <div class="relative aspect-square rounded-3xl bg-slate-100 overflow-hidden mb-6">
-                            <img src="../image/product/wop23-240w-power-bank.webp" alt="WOP23 240W PD 3.1 Power Bank 27000mAh, 140W single port output, powers MacBook Pro and high-performance laptops, UN38.3 certified" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async">
+                            <img src="../image/product/wop23-240w-power-bank.webp" alt="WOP23 240W PD 3.1 Power Bank 27000mAh, 140W single port output, powers MacBook Pro and high-performance laptops, UN38.3 certified" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async" width="1920" height="1920">
                             <div class="absolute top-4 left-4 flex flex-col gap-2">
                                 <span class="bg-brandOrange text-white text-[10px] font-black px-3 py-1 rounded-full uppercase italic tracking-widest">Flagship</span>
                                 <span class="bg-slate-900 text-white text-[10px] font-black px-3 py-1 rounded-full uppercase italic tracking-widest text-center">PD 3.1 140W</span>
@@ -1789,7 +1760,7 @@
                     
                     <div class="group reveal">
                         <div class="relative aspect-square rounded-3xl bg-slate-100 overflow-hidden mb-6">
-                            <img src="../image/product/wop69-2in1-charger.webp" alt="WOP69 67W 2-in-1 Hybrid Charger Power Bank with retractable cable, 15000mAh PD fast charging for laptops and smartphones" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async">
+                            <img src="../image/product/wop69-2in1-charger.webp" alt="WOP69 67W 2-in-1 Hybrid Charger Power Bank with retractable cable, 15000mAh PD fast charging for laptops and smartphones" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async" width="1920" height="1920">
                             <div class="absolute top-4 left-4 flex flex-col gap-2">
                                 <span class="bg-brandOrange text-white text-[10px] font-black px-3 py-1 rounded-full uppercase italic tracking-widest">Hybrid</span>
                                 <span class="bg-slate-900 text-white text-[10px] font-black px-3 py-1 rounded-full uppercase italic tracking-widest text-center">67W PD 3.1</span>
@@ -1874,7 +1845,7 @@
                     
                     <div class="group reveal">
                         <div class="relative aspect-square rounded-3xl bg-slate-100 overflow-hidden mb-6">
-                            <img src="../image/product/wop67-2in1-cable-charger.webp" alt="WOP67 45W 2-in-1 Built-in Cable Hybrid Charger Power Bank with retractable cable, wall charger and power bank combo" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async">
+                            <img src="../image/product/wop67-2in1-cable-charger.webp" alt="WOP67 45W 2-in-1 Built-in Cable Hybrid Charger Power Bank with retractable cable, wall charger and power bank combo" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async" width="1920" height="1920">
                             <div class="absolute top-4 left-4 flex flex-col gap-2">
                                 <span class="bg-brandOrange text-white text-[10px] font-black px-3 py-1 rounded-full uppercase italic tracking-widest">Hybrid</span>
                                 <span class="bg-slate-900 text-white text-[10px] font-black px-3 py-1 rounded-full uppercase italic tracking-widest text-center">45W Fast Charge</span>
@@ -1975,7 +1946,7 @@
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <a href="../blog/power-bank-specs-guide.html" class="group bg-slate-50 rounded-2xl overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
                     <div class="h-40 relative overflow-hidden">
-                        <img loading="lazy" src="../image/blog/power-bank-specs-guide.webp" alt="Power Bank Specs Guide" class="w-full h-full object-cover">
+                        <img loading="lazy" src="../image/blog/power-bank-specs-guide.webp" alt="Power Bank Specs Guide" class="w-full h-full object-cover" width="2240" height="1260">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                         <div class="absolute bottom-3 left-4">
                             <span class="px-2 py-1 bg-brandOrange text-white text-[8px] font-black uppercase rounded">Technology</span>
@@ -1990,7 +1961,7 @@
                 
                 <a href="../blog/oem-vs-odm-guide.html" class="group bg-slate-50 rounded-2xl overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
                     <div class="h-40 relative overflow-hidden">
-                        <img loading="lazy" src="../image/blog/oem-vs-odm-guide.webp" alt="OEM vs ODM Guide" class="w-full h-full object-cover">
+                        <img loading="lazy" src="../image/blog/oem-vs-odm-guide.webp" alt="OEM vs ODM Guide" class="w-full h-full object-cover" width="2240" height="1260">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                         <div class="absolute bottom-3 left-4">
                             <span class="px-2 py-1 bg-brandBlue text-white text-[8px] font-black uppercase rounded">Sourcing</span>
@@ -2005,7 +1976,7 @@
                 
                 <a href="../blog/usb-c-pd-fast-charging-guide.html" class="group bg-slate-50 rounded-2xl overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
                     <div class="h-40 relative overflow-hidden">
-                        <img loading="lazy" src="../image/blog/usb-c-pd-fast-charging-guide.webp" alt="USB-C PD Fast Charging" class="w-full h-full object-cover">
+                        <img loading="lazy" src="../image/blog/usb-c-pd-fast-charging-guide.webp" alt="USB-C PD Fast Charging" class="w-full h-full object-cover" width="2240" height="1260">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                         <div class="absolute bottom-3 left-4">
                             <span class="px-2 py-1 bg-white text-green-600 text-[8px] font-black uppercase rounded">Technology</span>
@@ -2103,7 +2074,7 @@
     <!-- ========================================================================
          CLIENT TESTIMONIALS SECTION - B2B客户评价
          ======================================================================== -->
-    <section class="py-20 md:py-24 bg-slate-900">
+    <section class="py-24 md:py-28 bg-slate-900">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-16">
                 <div class="inline-block px-4 py-1 bg-brandOrange/10 border border-brandOrange/20 rounded-full text-[10px] font-bold text-brandOrange uppercase tracking-widest mb-6">Client Feedback</div>
