@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
@@ -202,8 +202,18 @@
     <!-- Fonts: preconnect + stylesheet -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" as="style">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap"></noscript>
+
+    <style>
+    header { transform: translateZ(0); }
+    section:not(#hero) { content-visibility: auto; contain-intrinsic-size: 800px; }
+    @media (max-width: 768px) {
+        html { scroll-behavior: auto !important; }
+        header { -webkit-backdrop-filter: none !important; backdrop-filter: none !important; }
+        #mobile-menu-overlay { -webkit-backdrop-filter: none !important; backdrop-filter: none !important; }
+    }
+    </style>
 
 </head>
 
@@ -285,15 +295,15 @@
         <!-- ========================================================================
              HERO SECTION - Hero Section
              ======================================================================== -->
-    <section class="relative min-h-[calc(100vh-80px)] lg:min-h-screen flex flex-col bg-white overflow-hidden">
+    <section class="relative min-h-[calc(100vh-80px)] flex flex-col bg-white overflow-hidden">
         <div class="absolute inset-0 z-0 pointer-events-none overflow-hidden">
             <div class="absolute top-0 left-0 max-w-full w-64 h-64 bg-brandOrange opacity-20 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
             <div class="absolute bottom-0 right-0 max-w-full w-64 h-64 bg-blue-500 opacity-20 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
         </div>
 
-        <div class="max-w-5xl mx-auto px-6 relative z-10 text-center flex flex-col flex-1 justify-between py-12 lg:py-16">
+        <div class="max-w-5xl mx-auto px-6 relative z-10 text-center flex flex-col flex-1 justify-between gap-8 lg:gap-20 py-12 lg:py-20">
             <!-- Top: badge + H1 -->
-            <div class="pt-12 lg:pt-20">
+            <div class="pt-8 lg:pt-12">
                 <div class="inline-block px-4 py-1 bg-brandOrange/10 border border-brandOrange/20 rounded-full text-[10px] font-bold text-brandOrange uppercase tracking-widest mb-6 mx-auto">Car Charger Factory | Since 2013</div>
                 <h1 class="text-4xl md:text-5xl lg:text-6xl font-black text-brandBlue uppercase italic tracking-tighter leading-tight">
                     GaN Car Chargers<br><span class="text-brandOrange">for B2B &amp; Wholesale</span>
