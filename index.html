@@ -417,6 +417,15 @@ html, body {
     overflow-x: hidden;
     max-width: 100vw;
 }
+header {
+    /* 固定 header 独立合成层，避免拖慢滚动 */
+    transform: translateZ(0);
+}
+/* 首屏以下区域延迟渲染，大幅减少首帧工作量 */
+section:not(#hero):not(#story) {
+    content-visibility: auto;
+    contain-intrinsic-size: 800px;
+}
 @media (max-width: 1023px) {
     .fixed.right-8 > span {
         right: 100% !important;
@@ -548,7 +557,7 @@ html, body {
          ======================================================================== -->
     <section id="hero" class="pt-24 lg:pt-0 bg-slate-50 relative min-h-[calc(100vh-80px)] lg:min-h-screen flex items-center overflow-x-hidden">
         <div class="max-w-7xl mx-auto px-6 w-full grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-            <div class="reveal max-w-lg lg:max-w-none py-10 lg:py-0">
+            <div class="max-w-lg lg:max-w-none py-10 lg:py-0">
                 <div class="badge-capsule mb-6 uppercase tracking-widest">Since 2013 | 5,000㎡ Manufacturing Facility</div>
                 <h1 class="text-4xl md:text-5xl lg:text-6xl font-black text-brandBlue leading-[1.1] mb-6 uppercase italic">
                     Wireless Charger & Power Bank <span class="text-brandOrange">Factory in China</span> Since 2013
@@ -561,7 +570,7 @@ html, body {
                     <a href="#products" class="border-2 border-brandBlue text-brandBlue px-8 py-4 rounded-xl font-black uppercase tracking-widest text-sm hover:bg-brandBlue hover:text-white transition flex-1 flex items-center justify-center">Explore Products</a>
                 </div>
             </div>
-            <div class="reveal justify-self-center lg:justify-self-end w-full max-w-md lg:max-w-none">
+            <div class="justify-self-center lg:justify-self-end w-full max-w-md lg:max-w-none">
                 <img src="image/wowohcool-smart-charging-solutions.webp"
                      alt="WOWOHCOOL Smart Charging Solutions - Professional OEM/ODM Power Bank"
                      fetchpriority="high"
