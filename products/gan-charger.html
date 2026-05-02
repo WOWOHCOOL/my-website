@@ -66,6 +66,7 @@
 {
   "@context": "https://schema.org",
   "@type": "Product",
+  "@id": "https://www.wowohcool.com/products/gan-charger.html",
   "name": "WOWOHCOOL GaN Chargers & Power Strips",
   "description": "Professional GaN chargers and power strips manufacturer in Shenzhen. Products include: 35W-100W GaN chargers with retractable cable and wireless charging, 20W-65W power strips with USB ports. PD 3.1, PPS, QC 5.0 support. OEM/ODM customization available. MOQ 500+.",
   "image": [
@@ -76,9 +77,9 @@
     "https://www.wowohcool.com/image/product/wop80-100w-gan-power-strip-high-power.webp"
   ],
   "brand": {"@type": "Brand", "name": "WOWOHCOOL"},
-  "manufacturer": "Dong Yi Technology Co., Ltd",
-  "aggregateRating": {"@type": "AggregateRating", "ratingValue": 4.8, "reviewCount": 112},
-  "offers": {"@type": "AggregateOffer", "priceCurrency": "USD", "lowPrice": 5.00, "highPrice": 25.00, "availability": "https://schema.org/InStock", "url": "https://www.wowohcool.com/products/gan-charger.html"},
+  "manufacturer": {"@type": "Organization", "name": "Dong Yi Technology Co., Ltd"},
+  "aggregateRating": {"@type": "AggregateRating", "ratingValue": 4.8, "reviewCount": 112, "bestRating": 5, "worstRating": 1},
+  "offers": {"@type": "AggregateOffer", "priceCurrency": "USD", "lowPrice": 5.00, "highPrice": 15.00, "availability": "https://schema.org/InStock", "url": "https://www.wowohcool.com/products/gan-charger.html"},
   "review": [
     {"@type": "Review", "reviewRating": {"@type": "Rating", "ratingValue": 5, "bestRating": 5}, "author": {"@type": "Person", "name": "Martin S."}, "reviewBody": "We supply GaN chargers to major electronics brands.", "locationCreated": {"@type": "Place", "name": "Berlin, Germany"}},
     {"@type": "Review", "reviewRating": {"@type": "Rating", "ratingValue": 5, "bestRating": 5}, "author": {"@type": "Person", "name": "John D."}, "reviewBody": "Quality is consistent across batches.", "locationCreated": {"@type": "Place", "name": "Los Angeles, USA"}},
@@ -108,7 +109,11 @@
         "@type": "EntryPoint",
         "urlTemplate": "https://www.wowohcool.com/search?q={search_term_string}"
       },
-      "query-input": "required name=search_term_string"
+      "query-input": {
+      "@type": "PropertyValueSpecification",
+      "valueRequired": true,
+      "valueName": "search_term_string"
+    }
     }
   }
   </script>
