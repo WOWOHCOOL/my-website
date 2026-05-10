@@ -75,9 +75,9 @@
 | 5 | wireless-charging-works | — | 27.0 | — | 13.7 | 1.96 | 70.9 | 64.5 | ⏳ 未优化 |
 | 6 | charger-safety-standards | — | 27.9 | — | 15.6 | 1.93 | 70.7 | 66.5 | ⏳ 未优化 |
 | 7 | choose-reliable-china-charger-supplier | — | 28.3 | — | 15.7 | 1.92 | 71.2 | 66.5 | ⏳ 未优化 |
-| 8 | gan-chargers-guide | — | 31.6 | — | 13.1 | 1.91 | — | — | 📝 待深入优化 |
-| 9 | oem-vs-odm-guide | — | 34.0 | — | 15.8 | 1.85 | — | 66.5 | 📝 接近目标 |
-| 10 | quality-control-guide | — | 36.5 | — | — | 1.85 | — | 66.5 | 📝 接近目标 |
+| 8 | gan-chargers-guide | — | 28.7 | — | — | — | — | — | 📝 回退替换后待优化 |
+| 9 | oem-vs-odm-guide | — | 29.6 | — | — | — | — | 66.5 | 📝 回退替换后待优化 |
+| 10 | quality-control-guide | — | 30.9 | — | — | — | — | — | 📝 回退替换后待优化 |
 | 11 | qi2-vs-magsafe-guide | — | 36.4 | — | 15.9 | 1.82 | — | 66.5 | 📝 接近目标 |
 | 12 | qi-certification-guide | 19 | 46.3 | +27.3 | 9.8 | 1.78 | 74.1 | 64.5 | ✅ 超目标达成 |
 | 13 | power-bank-specs-guide | — | 41.3 | — | 12.0 | 1.81 | — | 66.5 | ✅ 已达目标 |
@@ -117,6 +117,8 @@
 | 1 | GSC 真实搜索数据 + PageSpeed + CrUX 审计 | seo-google | 诊断技术问题，发现真实流量来源 | ✅ 完成（PSI 健康，GSC 需配置账号） |
 | 2 | 20 篇博客目标关键词验证 | manual | 确认关键词有搜索量、优化方向正确 | ✅ 关键词密度分析 + H1 修复 |
 | 3 | 全站技术审计 | manual | 可爬取性、移动端、CWV、安全头 | ✅ 完成（技术层面无阻塞问题） |
-| 4 | AI 搜索优化（GEO） | seo-geo | ChatGPT/Perplexity/AI Overviews 曝光 | ⏳ |
+| 4 | AI 搜索优化（GEO） | seo-geo | ChatGPT/Perplexity/AI Overviews 曝光 | ✅ H2 问句式改造 1%→32% |
 | 5 | 询盘转化率优化 | CRO | 提高访客到询盘的转化率 | ✅ 按钮文案/产品选项/Thank-you |
-| 6 | 竞争差距分析 + 话题簇策略 | manual | 发现漏掉的关键词机会 | ⏳ |
+| 6 | 竞争差距分析 + 话题簇策略 | manual | 发现漏掉的关键词机会 | ✅ 已分析并记录 10 个内容方向 |
+| 7 | E-E-A-T Schema 增强 | manual | Organization 补充 sameAs/电话/地址/年份 | ✅ 全站 20+ 页面 |
+| 8 | 全站死链检查 | manual | 发现 404/重定向/死链 | ✅ 68 页面 0 死链 |
