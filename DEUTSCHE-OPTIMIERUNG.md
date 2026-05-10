@@ -27,10 +27,10 @@ _德国法律强制要求，缺任何一项都可能被竞争对手 Abmahnung（
 
 | # | 任务 | 页面 | 说明 | 状态 |
 |:-:|:-----|:-----|:-----|:----:|
-| 1.1 | Impressum 页面创建 | `de/impressum.html` | §5 TMG + §55 RStV 要求的完整联系方式、注册信息、Steuernummer | ⏳ |
-| 1.2 | Datenschutz 重写 | `de/privacy-policy.html` | 按 DSGVO 标准，补充 Cookie Consent、Drittlandtransfer（中国）说明 | ⏳ |
-| 1.3 | AGB 创建 | `de/terms-of-service.html` | 德国标准的 Allgemeine Geschäftsbedingungen für B2B | ⏳ |
-| 1.4 | 页脚统一添加 Impressum + AGB 链接 | 全部页面 | 每个德语页面底部都有法律声明入口 | ⏳ |
+| 1.1 | Impressum 页面创建 | `de/impressum.html` | §5 TMG + §55 RStV 要求的完整联系方式、注册信息、Steuernummer | ✅ |
+| 1.2 | Datenschutz 重写 | `de/privacy-policy.html` | 按 DSGVO 标准，补充 Drittlandtransfer（中国）说明、Betroffenenrechte | ✅ |
+| 1.3 | AGB 创建 | `de/terms-of-service.html` | 德国标准 B2B AGB，15 个条款，含 EU-Lager Klausel | ✅ |
+| 1.4 | 页脚统一添加 Impressum + AGB 链接 | 全部页面 | 每个德语页面底部都有法律声明入口 | ✅ |
 
 ### Phase 2 — 首页颠覆性重写
 
@@ -38,13 +38,13 @@ _不只是翻译英文首页，而是为德国买家重新构建信息层级_
 
 | # | 任务 | 说明 | 状态 |
 |:-:|:-----|:-----|:----:|
-| 2.1 | Hero 重写 | "Ihr OEM-Partner für Ladelösungen aus Shenzhen — mit EU-Lager in Deutschland" | ⏳ |
-| 2.2 | 信任信号重组 | 德国客户 Logo + "Über 200 Marken weltweit" + Zertifizierungen TÜV/CE | ⏳ |
-| 2.3 | EU-Lager 专区 | 新增板块说明 EU-Lager in DE → schnelle Lieferung, kein Zoll, FBA-Service | ⏳ |
-| 2.4 | FAQ 本地化 | 替换为德国买家常问问题（Zoll、Einfuhrumsatzsteuer、EU-Konformität） | ⏳ |
-| 2.5 | CTA 本地化 | "Kostenloses Angebot anfordern"、"Muster bestellen" | ⏳ |
-| 2.6 | Hreflang 检查 | 确保 de/en/x-default 全部正确对应 | ⏳ |
-| 2.7 | Product Schema 检查 | 价格改 EUR，添加 areaServed: DE/AT/CH | ⏳ |
+| 2.1 | Hero + 全页 UI 颠覆性重写 | Bosch 式极简风格，留白设计，深色 Stats Bar | ✅ |
+| 2.2 | 信任信号重组 | Bosch Logo + Jacob Jensen + Tempel + OOONO + Shatzii | ✅ |
+| 2.3 | EU-Lager 专区 | 独立深色区块，4 要点（3-7 Tage/zollfrei/FBA-ready/ab 500） | ✅ |
+| 2.4 | FAQ 本地化 | 4 个折叠 FAQ，聚焦德国买家关心的问题 | ✅ |
+| 2.5 | CTA 本地化 | "Kostenloses Angebot" + Telefonnummer | ✅ |
+| 2.6 | Zertifizierungen 重排 | FCC 移除，新增 TÜV GS，CE/ISO/RoHS/Qi/UN38.3 | ✅ |
+| 2.7 | Hreflang 检查 | de/en/x-default 全部正确 | ✅ |
 
 ### Phase 3 — 产品页本地化
 
@@ -65,6 +65,8 @@ _德国 B2B 买家需要比美国买家更多的技术细节_
 | 4.2 | Über Uns 页重写 | 工厂故事 + 德国/欧洲客户案例 | ⏳ |
 | 4.3 | Kontakt 页优化 | 德国工作时间回应承诺、WhatsApp mit DE-Nummer（如有） | ⏳ |
 | 4.4 | Thank-You 页 | 德语确认信 + 下一步引导 | ⏳ |
+
+> **⚠️ 诚实原则：** 所有内容必须真实可验证。不虚构 EU-Lager、客户案例、认证资质。德国市场尤其敏感，不实信息可能导致 Abmahnung。|
 
 ### Phase 5 — SEO + 技术优化
 
@@ -106,6 +108,54 @@ _英文站没做足的，德语站一次做到位_
 | Product Schema | 做了但缺 Review 字段 | 德语站一次加全：Review + Offers + AggregateRating |
 | H2 问句式 | 改造效果好 | **第一天就用问句式 H2** 写新页面 |
 | ContentScorer 依赖 | 过度追求分数 | 德国站更注重实际可读性，评分做参考 |
+
+---
+
+---
+
+## 必做：德语站 URL + 图片文件名本地化
+
+_英文站的经验：URL 和图片文件名对搜索有隐性帮助，德语站必须本地化_
+
+### URL 本地化对照表
+
+页面重写时，同步修改 slug，并更新所有内链 + sitemap + canonical：
+
+| 当前 URL | 本地化后 |
+|:---------|:---------|
+| `/de/products/power-bank.html` | `/de/produkte/powerbank.html` |
+| `/de/products/gan-charger.html` | `/de/produkte/gan-ladegeraet.html` |
+| `/de/products/wireless-charger.html` | `/de/produkte/kabelloses-ladegeraet.html` |
+| `/de/products/car-charger.html` | `/de/produkte/autoladegeraet.html` |
+| `/de/service.html` | `/de/oem-odm-service.html` |
+| `/de/contact.html` | `/de/kontakt.html` |
+| `/de/about.html` → `ueber-uns.html` | 已德语，可保留 |
+| `/de/privacy-policy.html` | `/de/datenschutz.html` |
+| `/de/terms-of-service.html` | `/de/agb.html` |
+| `/de/thank-you.html` | `/de/danke.html` |
+| `/de/404.html` | 保持 |
+
+### 图片文件名本地化
+
+所有 `de/` 目录下的产品/博客图片，文件名改为德语：
+
+```
+# 产品图片
+wop67-2in1-cable-charger.webp  →  wop67-2in1-kabel-ladegeraet.webp
+wow93-folding-charger.webp      →  wow93-klappbares-ladegeraet.webp
+
+# Fabrik/Team Biler
+factory-smt-line.webp           →  smt-produktionslinie.webp
+team-working.webp               →  team-fertigung.webp
+```
+
+**注意：** 改图片名后要同步更新所有 HTML 中引用的 `src` 路径。
+
+### 执行时机
+
+- URL 本地化 → **Phase 3 产品页重写时**一并完成
+- 图片文件名本地化 → **Phase 3 产品页重写时**一并完成
+- 旧 URL → 新 URL 需要做 301 重定向（Cloudflare Bulk Redirects）
 
 ---
 
