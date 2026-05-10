@@ -75,13 +75,13 @@
 | 5 | wireless-charging-works | — | 27.0 | — | 13.7 | 1.96 | 70.9 | 64.5 | ⏳ 未优化 |
 | 6 | charger-safety-standards | — | 27.9 | — | 15.6 | 1.93 | 70.7 | 66.5 | ⏳ 未优化 |
 | 7 | choose-reliable-china-charger-supplier | — | 28.3 | — | 15.7 | 1.92 | 71.2 | 66.5 | ⏳ 未优化 |
-| 8 | gan-chargers-guide | — | 28.7 | — | 13.1 | 1.95 | 70.7 | 64.5 | ⏳ 未优化 |
-| 9 | oem-vs-odm-guide | — | 29.6 | — | 15.9 | 1.90 | 70.7 | 66.5 | ⏳ 未优化 |
-| 10 | quality-control-guide | — | 30.2 | — | 13.9 | 1.92 | 70.7 | 66.5 | ⏳ 未优化 |
-| 11 | qi2-vs-magsafe-guide | — | 33.3 | — | 16.7 | 1.85 | 71.9 | 66.5 | ⏳ 未优化 |
+| 8 | gan-chargers-guide | — | 31.6 | — | 13.1 | 1.91 | — | — | 📝 待深入优化 |
+| 9 | oem-vs-odm-guide | — | 34.0 | — | 15.8 | 1.85 | — | 66.5 | 📝 接近目标 |
+| 10 | quality-control-guide | — | 36.5 | — | — | 1.85 | — | 66.5 | 📝 接近目标 |
+| 11 | qi2-vs-magsafe-guide | — | 36.4 | — | 15.9 | 1.82 | — | 66.5 | 📝 接近目标 |
 | 12 | qi-certification-guide | 19 | 46.3 | +27.3 | 9.8 | 1.78 | 74.1 | 64.5 | ✅ 超目标达成 |
-| 13 | power-bank-specs-guide | — | 34.6 | — | 12.4 | 1.89 | 72.7 | 66.5 | ⏳ 未优化 |
-| 14 | top-power-bank-manufacturers-china | — | 34.8 | — | 12.4 | 1.88 | 72.4 | 66.5 | ⏳ 未优化 |
+| 13 | power-bank-specs-guide | — | 41.3 | — | 12.0 | 1.81 | — | 66.5 | ✅ 已达目标 |
+| 14 | top-power-bank-manufacturers-china | — | 50.1 | — | 11.5 | 1.71 | — | 66.5 | ✅ 超目标达成 |
 | 15 | gan-v-charger-oem-manufacturing | — | 37.9 | — | 13.6 | 1.83 | 73.4 | 66.5 | ✅ 已达目标 |
 | 16 | shipping-from-china-guide | — | 39.0 | — | 14.2 | 1.81 | 73.0 | 66.5 | ✅ 已达目标 |
 | 17 | semi-solid-state-power-bank-oem | — | 40.0 | — | 12.0 | 1.83 | 76.2 | 66.5 | ✅ 已达目标 |
@@ -92,3 +92,14 @@
 > **说明：** 当前优化策略针对段落密度和句长。SPW（音节/词）是 B2B 技术内容的固有特征，术语密集的文章改善空间有限。核心优化杠杆：降低 ASL（句长）。
 
 ---
+
+## 2026-05-10 SEO 深度优化任务
+
+| # | 任务 | 技能 | 目的 | 状态 |
+|---|------|:----:|:----|:----:|
+| 1 | GSC 真实搜索数据 + PageSpeed + CrUX 审计 | seo-google | 诊断技术问题，发现真实流量来源 | ✅ 完成（PSI 健康，GSC 需配置账号） |
+| 2 | 20 篇博客目标关键词验证 | seo-dataforseo | 确认关键词有搜索量、优化方向正确 | ⏸️ 跳过（需 DataForSEO API） |
+| 3 | 全站技术审计 | manual | 可爬取性、移动端、CWV、安全头 | ✅ 完成（技术层面无阻塞问题） |
+| 4 | AI 搜索优化（GEO） | seo-geo | ChatGPT/Perplexity/AI Overviews 曝光 | ⏳ |
+| 5 | 询盘转化率优化 | CRO | 提高访客到询盘的转化率 | ⏳ |
+| 6 | 竞争差距分析 + 话题簇策略 | manual | 发现漏掉的关键词机会 | ⏳ |
