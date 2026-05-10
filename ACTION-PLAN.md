@@ -101,5 +101,5 @@
 | 2 | 20 篇博客目标关键词验证 | seo-dataforseo | 确认关键词有搜索量、优化方向正确 | ⏸️ 跳过（需 DataForSEO API） |
 | 3 | 全站技术审计 | manual | 可爬取性、移动端、CWV、安全头 | ✅ 完成（技术层面无阻塞问题） |
 | 4 | AI 搜索优化（GEO） | seo-geo | ChatGPT/Perplexity/AI Overviews 曝光 | ⏳ |
-| 5 | 询盘转化率优化 | CRO | 提高访客到询盘的转化率 | ⏳ |
+| 5 | 询盘转化率优化 | CRO | 提高访客到询盘的转化率 | ✅ 按钮文案/产品选项/Thank-you |
 | 6 | 竞争差距分析 + 话题簇策略 | manual | 发现漏掉的关键词机会 | ⏳ |
