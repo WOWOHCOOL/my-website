@@ -11,30 +11,41 @@ export async function onRequest(context) {
         return new Response('Method not allowed', { status: 405 });
     }
 
-    const formData = await request.formData();
-    const redirectUrl = formData.get('redirect') || '/';
+    try {
+        const formData = await request.formData();
 
-    // Save the redirect and remove it from outgoing data —
-    // Web3Forms returns a 302 if redirect is present, but we
-    // need JSON so we can check success before redirecting ourselves.
-    formData.delete('redirect');
+        // Extract redirect URL before modifying the form data
+        let redirectUrl = '/';
+        const redirectField = formData.get('redirect');
+        if (redirectField) {
+            redirectUrl = redirectField;
+        }
 
-    // Add access_key server-side only
-    formData.append('access_key', '7f077cf3-642b-4aba-9be2-cb99c0c65b19');
+        // Build new form data without the redirect field, adding access_key
+        const payload = new FormData();
+        for (const [key, value] of formData.entries()) {
+            if (key !== 'redirect') {
+                payload.append(key, value);
+            }
+        }
+        payload.append('access_key', '7f077cf3-642b-4aba-9be2-cb99c0c65b19');
 
-    const response = await fetch('https://api.web3forms.com/submit', {
-        method: 'POST',
-        body: formData
-    });
+        const response = await fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            body: payload
+        });
 
-    const result = await response.json();
+        const result = await response.json();
 
-    if (result.success) {
-        return Response.redirect(redirectUrl, 302);
+        if (result.success) {
+            return Response.redirect(redirectUrl, 302);
+        }
+
+        return new Response(JSON.stringify(result), {
+            status: 200,
+            headers: { 'Content-Type': 'application/json' }
+        });
+    } catch (err) {
+        return new Response(err.message, { status: 500 });
     }
-
-    return new Response(JSON.stringify(result), {
-        status: 200,
-        headers: { 'Content-Type': 'application/json' }
-    });
 }
