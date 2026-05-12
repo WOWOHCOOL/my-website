@@ -1,8 +1,5 @@
 /**
  * Cloudflare Pages Function — Form Submission Proxy
- *
- * Proxies form submissions to Web3Forms so the access_key
- * stays server-side and is not exposed in HTML source.
  */
 export async function onRequest(context) {
     const { request } = context;
@@ -11,41 +8,32 @@ export async function onRequest(context) {
         return new Response('Method not allowed', { status: 405 });
     }
 
-    try {
-        const formData = await request.formData();
+    // Read the raw POST body as text
+    const bodyText = await request.text();
 
-        // Extract redirect URL before modifying the form data
-        let redirectUrl = '/';
-        const redirectField = formData.get('redirect');
-        if (redirectField) {
-            redirectUrl = redirectField;
+    // Forward to Web3Forms with access_key appended
+    const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: bodyText + '&access_key=7f077cf3-642b-4aba-9be2-cb99c0c65b19',
+        redirect: 'manual'
+    });
+
+    // Pass through redirect status and location
+    if (response.status >= 301 && response.status <= 308) {
+        const location = response.headers.get('location');
+        if (location) {
+            return new Response(null, {
+                status: 302,
+                headers: { 'location': location }
+            });
         }
-
-        // Build new form data without the redirect field, adding access_key
-        const payload = new FormData();
-        for (const [key, value] of formData.entries()) {
-            if (key !== 'redirect') {
-                payload.append(key, value);
-            }
-        }
-        payload.append('access_key', '7f077cf3-642b-4aba-9be2-cb99c0c65b19');
-
-        const response = await fetch('https://api.web3forms.com/submit', {
-            method: 'POST',
-            body: payload
-        });
-
-        const result = await response.json();
-
-        if (result.success) {
-            return Response.redirect(redirectUrl, 302);
-        }
-
-        return new Response(JSON.stringify(result), {
-            status: 200,
-            headers: { 'Content-Type': 'application/json' }
-        });
-    } catch (err) {
-        return new Response(err.message, { status: 500 });
     }
+
+    // Fallback: return whatever came back
+    const text = await response.text();
+    return new Response(text, {
+        status: response.status,
+        headers: { 'Content-Type': response.headers.get('content-type') || 'text/plain' }
+    });
 }
