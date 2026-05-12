@@ -1,5 +1,9 @@
 /**
  * Cloudflare Pages Function — Form Submission Proxy
+ *
+ * Receives form POSTs from the site, forwards to Web3Forms API
+ * with the access_key appended server-side, then redirects the
+ * browser to the thank-you page on success.
  */
 export async function onRequest(context) {
     const { request } = context;
@@ -8,32 +12,28 @@ export async function onRequest(context) {
         return new Response('Method not allowed', { status: 405 });
     }
 
-    // Read the raw POST body as text
     const bodyText = await request.text();
 
-    // Forward to Web3Forms with access_key appended
+    // Strip the redirect param so Web3Forms returns JSON, not a 302
+    const params = new URLSearchParams(bodyText);
+    const redirectUrl = params.get('redirect') || '/';
+    params.delete('redirect');
+    params.append('access_key', '7f077cf3-642b-4aba-9be2-cb99c0c65b19');
+
     const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: bodyText + '&access_key=7f077cf3-642b-4aba-9be2-cb99c0c65b19',
-        redirect: 'manual'
+        body: params.toString()
     });
 
-    // Pass through redirect status and location
-    if (response.status >= 301 && response.status <= 308) {
-        const location = response.headers.get('location');
-        if (location) {
-            return new Response(null, {
-                status: 302,
-                headers: { 'location': location }
-            });
-        }
+    const result = await response.json();
+
+    if (result.success) {
+        return Response.redirect(redirectUrl, 302);
     }
 
-    // Fallback: return whatever came back
-    const text = await response.text();
-    return new Response(text, {
-        status: response.status,
-        headers: { 'Content-Type': response.headers.get('content-type') || 'text/plain' }
+    return new Response(JSON.stringify(result), {
+        status: 200,
+        headers: { 'Content-Type': 'application/json' }
     });
 }
