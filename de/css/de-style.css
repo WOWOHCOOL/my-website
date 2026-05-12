@@ -211,11 +211,15 @@ h1, h2, h3 {
    6. Trust Badges
    ============================== */
 
-/* Fix: reset global word-break for checkbox labels (mobile one-char-per-line fix) */
-label.flex.items-start.gap-3,
-label.flex.items-start.gap-3 span {
+/* Fix: checkbox label text overflow on mobile */
+label.flex.items-start.gap-3 {
     word-break: normal;
     overflow-wrap: normal;
+}
+label.flex.items-start.gap-3 span {
+    min-width: 0;
+    overflow-wrap: break-word;
+    word-break: normal;
 }
 
 .trust-badge {
