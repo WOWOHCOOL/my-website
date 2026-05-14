@@ -17,6 +17,27 @@
  * ========================================================================
  */
 
+// 常量配置
+const SCROLL_THRESHOLD = 600;
+const REVEAL_THRESHOLD = 0.15;
+const REVEAL_ROOT_MARGIN = '0px 0px -100px 0px';
+const COUNTER_THRESHOLD = 0.6;
+const COUNTER_STEPS = 60;
+const COUNTER_INTERVAL_MS = 30;
+const FORM_TIMEOUT_MS = 15000;
+const LOADING_TEXT = 'Sending Inquiry...';
+
+// 缓存常用 DOM 引用（延迟初始化）
+let cachedModal = null;
+let cachedMain = null;
+let cachedMobileMenu = null;
+let cachedMobileOverlay = null;
+
+function getModal() { return cachedModal || (cachedModal = document.getElementById('inquiryModal')); }
+function getMain() { return cachedMain || (cachedMain = document.getElementById('main-content') || document.querySelector('main')); }
+function getMobileMenu() { return cachedMobileMenu || (cachedMobileMenu = document.getElementById('mobile-menu-content')); }
+function getMobileOverlay() { return cachedMobileOverlay || (cachedMobileOverlay = document.getElementById('mobile-menu-overlay')); }
+
 
 /**
  * ========================================================================
@@ -72,9 +93,8 @@ function scrollToTop() {
 function updateBackToTopVisibility() {
     const btn = document.getElementById('backToTop');
     if (!btn) return;
-    
-    const scrollY = window.scrollY;
-    if (scrollY > 600) {
+
+    if (window.scrollY > SCROLL_THRESHOLD) {
         btn.classList.add('show');
     } else {
         btn.classList.remove('show');
@@ -92,9 +112,6 @@ window.addEventListener('scroll', () => {
     });
 }, { passive: true });
 
-// 页面加载完成后初始化
-document.addEventListener('DOMContentLoaded', updateBackToTopVisibility);
-
 
 /**
  * ========================================================================
@@ -111,11 +128,10 @@ let modalKeydownHandler = null;
  * @param {string} productName - 可选，预选的产品名称
  */
 function openModal(productName = '') {
-    const modal = document.getElementById('inquiryModal');
-    const main = document.getElementById('main-content') || document.querySelector('main');
+    const modal = getModal();
+    const main = getMain();
     if (!modal) return;
 
-    // ----- 产品预选逻辑 -----
     const select = modal.querySelector('#productSelect');
     const emailSubject = modal.querySelector('input[name="subject"]');
 
@@ -147,27 +163,26 @@ function openModal(productName = '') {
             if (emailSubject) emailSubject.value = "General Inquiry from Website";
         }
     }
-    // ----- 预选逻辑结束 -----
-
-    // 记录打开前的焦点元素（用于关闭后恢复焦点）
     lastFocusedElementBeforeModal = document.activeElement;
 
-    // 显示模态框
     modal.classList.remove('hidden');
     modal.classList.add('flex');
     modal.setAttribute('aria-hidden', 'false');
 
-    // 无障碍：防止背景滚动和主内容干扰
     if (main) {
         main.setAttribute('aria-hidden', 'true');
         if ('inert' in HTMLElement.prototype) {
             main.inert = true;
         } else {
-            main.dataset.inert = 'true';
+            getFocusableElements(main).forEach(el => {
+                if (!el.hasAttribute('data-inert-fallback')) {
+                    el.setAttribute('data-inert-fallback', el.getAttribute('tabindex') || '');
+                    el.setAttribute('tabindex', '-1');
+                }
+            });
         }
     }
 
-    // 自动聚焦到第一个可聚焦元素
     const focusables = getFocusableElements(modal);
     if (focusables.length) {
         focusables[0].focus();
@@ -184,7 +199,7 @@ function openModal(productName = '') {
             return;
         }
         
-        // Tab 键焦点陷阱
+    // 键盘焦点陷阱
         if (e.key === 'Tab') {
             const f = getFocusableElements(modal);
             if (!f.length) { 
@@ -215,26 +230,32 @@ function openModal(productName = '') {
  * 关闭询盘弹窗
  */
 function closeModal() {
-    const modal = document.getElementById('inquiryModal');
-    const main = document.getElementById('main-content') || document.querySelector('main');
+    const modal = getModal();
+    const main = getMain();
     if (!modal) return;
 
-    // 隐藏模态框
     modal.classList.add('hidden');
     modal.classList.remove('flex');
     modal.setAttribute('aria-hidden', 'true');
 
-    // 恢复主内容
     if (main) {
         main.removeAttribute('aria-hidden');
         if ('inert' in HTMLElement.prototype) {
             main.inert = false;
         } else {
-            delete main.dataset.inert;
+            main.querySelectorAll('[data-inert-fallback]').forEach(el => {
+                const prev = el.getAttribute('data-inert-fallback');
+                if (prev) {
+                    el.setAttribute('tabindex', prev);
+                } else {
+                    el.removeAttribute('tabindex');
+                }
+                el.removeAttribute('data-inert-fallback');
+            });
         }
     }
 
-    // 恢复焦点到打开前的元素
+    // 恢复焦点
     if (lastFocusedElementBeforeModal && typeof lastFocusedElementBeforeModal.focus === 'function') {
         lastFocusedElementBeforeModal.focus();
     }
@@ -247,22 +268,6 @@ function closeModal() {
 }
 
 /**
- * 切换模态框状态（打开/关闭）
- * @param {string} productName - 可选，预选的产品名称
- */
-function toggleModal(productName = '') {
-    const modal = document.getElementById('inquiryModal');
-    if (!modal) return;
-    
-    if (modal.classList.contains('hidden')) {
-        openModal(productName);
-    } else {
-        closeModal();
-    }
-}
-
-
-/**
  * ========================================================================
  * 模块 4: 移动端菜单 - Mobile Menu
  * 处理移动端侧滑菜单的打开/关闭功能
@@ -273,7 +278,7 @@ function toggleModal(productName = '') {
  * @returns {boolean}
  */
 function isMobileMenuOpen() {
-    const menu = document.getElementById('mobile-menu-content');
+    const menu = getMobileMenu();
     if (!menu) return false;
     return !menu.classList.contains('translate-x-full');
 }
@@ -282,8 +287,8 @@ function isMobileMenuOpen() {
  * 打开移动端菜单
  */
 function openMobileMenu() {
-    const overlay = document.getElementById('mobile-menu-overlay');
-    const menu = document.getElementById('mobile-menu-content');
+    const overlay = getMobileOverlay();
+    const menu = getMobileMenu();
     
     if (overlay) {
         overlay.classList.remove('opacity-0');
@@ -295,8 +300,7 @@ function openMobileMenu() {
         menu.classList.remove('translate-x-full');
         menu.setAttribute('aria-hidden', 'false');
     }
-    
-    // 防止背景滚动
+
     document.body.style.overflow = 'hidden';
 }
 
@@ -304,10 +308,9 @@ function openMobileMenu() {
  * 关闭移动端菜单
  */
 function closeMobileMenu() {
-    const overlay = document.getElementById('mobile-menu-overlay');
-    const menu = document.getElementById('mobile-menu-content');
+    const overlay = getMobileOverlay();
+    const menu = getMobileMenu();
 
-    // 关闭前移除焦点，避免 aria-hidden 冲突警告
     if (document.activeElement && menu && menu.contains(document.activeElement)) {
         document.activeElement.blur();
     }
@@ -323,7 +326,6 @@ function closeMobileMenu() {
         menu.setAttribute('aria-hidden', 'true');
     }
 
-    // 恢复背景滚动（保持横向隐藏）
     document.body.style.overflow = '';
 }
 
@@ -335,6 +337,23 @@ function toggleMobileMenu() {
         closeMobileMenu();
     } else {
         openMobileMenu();
+    }
+}
+
+function toggleMobileSubmenu() {
+    const submenu = document.getElementById('mobile-submenu');
+    const icon = document.querySelector('.submenu-icon');
+    if (!submenu) return;
+
+    const opened = submenu.classList.contains('open');
+    if (opened) {
+        submenu.classList.remove('open');
+        submenu.setAttribute('aria-hidden', 'true');
+        if (icon) icon.style.transform = 'rotate(0deg)';
+    } else {
+        submenu.classList.add('open');
+        submenu.setAttribute('aria-hidden', 'false');
+        if (icon) icon.style.transform = 'rotate(180deg)';
     }
 }
 
@@ -370,23 +389,9 @@ document.addEventListener('click', (e) => {
             case 'close-mobile':
                 closeMobileMenu();
                 break;
-            case 'toggle-mobile-submenu': {
-                const submenu = document.getElementById('mobile-submenu');
-                const icon = document.querySelector('.submenu-icon');
-                if (!submenu) break;
-                
-                const opened = !submenu.classList.contains('hidden');
-                if (opened) {
-                    submenu.classList.add('hidden');
-                    submenu.setAttribute('aria-hidden', 'true');
-                    if (icon) icon.style.transform = 'rotate(0deg)';
-                } else {
-                    submenu.classList.remove('hidden');
-                    submenu.setAttribute('aria-hidden', 'false');
-                    if (icon) icon.style.transform = 'rotate(180deg)';
-                }
+            case 'toggle-mobile-submenu':
+                toggleMobileSubmenu();
                 break;
-            }
             case 'scroll-to-top':
                 scrollToTop();
                 break;
@@ -432,8 +437,8 @@ const revealObserver = new IntersectionObserver((entries) => {
         }
     });
 }, {
-    threshold: 0.15,
-    rootMargin: '0px 0px -100px 0px'
+    threshold: REVEAL_THRESHOLD,
+    rootMargin: REVEAL_ROOT_MARGIN
 });
 
 // ----- 数字计数器动画观察器 -----
@@ -441,81 +446,125 @@ const counterObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             const counter = entry.target;
-            const target = +counter.getAttribute('data-target') || 0;
+            const rawTarget = +counter.getAttribute('data-target');
+            const target = Number.isFinite(rawTarget) && rawTarget > 0 ? rawTarget : 0;
+            if (target === 0) {
+                counter.innerText = '0+';
+                counterObserver.unobserve(counter);
+                return;
+            }
             let current = 0;
-            
-            // 动画参数
-            const steps = 60;                    // 动画步数
-            const increment = Math.max(1, Math.ceil(target / steps));
+
+            const increment = Math.max(1, Math.ceil(target / COUNTER_STEPS));
             const timer = setInterval(() => {
                 current += increment;
                 if (current >= target) {
-                    // 达到目标值，格式化显示
                     counter.innerText = (target >= 1000 ? (Math.round(target/100)/10 + 'k') : target) + '+';
                     clearInterval(timer);
                 } else {
                     counter.innerText = Math.ceil(current);
                 }
-            }, 30);
-            
-            // 动画完成后取消观察
+            }, COUNTER_INTERVAL_MS);
+
             counterObserver.unobserve(counter);
         }
     });
-}, { threshold: 0.6 });
+}, { threshold: COUNTER_THRESHOLD });
 
 
 /**
  * ========================================================================
- * 模块 7: 表单验证与防重复提交 - Form Validation & Anti-Duplicate Submit
+ * 模块 7: AJAX 表单提交 - Form AJAX Submission
+ * 使用 fetch 异步提交到 Web3Forms，成功后显示反馈再跳转感谢页
  * ======================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
     const forms = document.querySelectorAll('form[action*="web3forms.com/submit"]');
-    
+
     forms.forEach(form => {
-        if (form.dataset.submitted) return;
-        form.dataset.submitted = 'true';
-        
-        form.addEventListener('submit', function(e) {
+        if (form.dataset.submitReady) return;
+        form.dataset.submitReady = 'true';
+
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+
             const submitBtn = form.querySelector('button[type="submit"]');
-            if (!submitBtn) return;
-            
+            if (!submitBtn || submitBtn.disabled) return;
+
+            const redirectUrl = form.querySelector('input[name="redirect"]')?.value || '/thank-you.html';
             const originalText = submitBtn.textContent.trim();
-            const loadingText = 'Sending Inquiry...';
-            
+
+            // 禁用按钮，显示发送中
             submitBtn.disabled = true;
             submitBtn.classList.add('opacity-50', 'cursor-not-allowed');
-            submitBtn.textContent = loadingText;
-            
-            form.addEventListener('web3forms:ready', () => {
-                submitBtn.disabled = false;
-                submitBtn.classList.remove('opacity-50', 'cursor-not-allowed');
-                submitBtn.textContent = originalText;
-            }, { once: true });
-            
-            setTimeout(() => {
-                if (submitBtn.disabled) {
+            submitBtn.textContent = LOADING_TEXT;
+
+            try {
+                const formData = new FormData(form);
+                const data = Object.fromEntries(formData.entries());
+
+                const response = await fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+
+                const result = await response.json();
+
+                if (result.success) {
+                    // 清空表单
+                    form.reset();
+
+                    // 替换表单内容为成功消息
+                    const formContent = form.querySelector('.space-y-3, .grid, .flex-wrap') || form;
+                    const successMsg = document.createElement('div');
+                    successMsg.className = 'text-center py-8';
+                    successMsg.innerHTML = '<div class="text-5xl mb-4">&#10004;</div>'
+                        + '<h3 class="text-xl font-bold text-green-600 mb-2">Thank You!</h3>'
+                        + '<p class="text-slate-500">Your inquiry has been sent successfully.<br>We will reply within 24 hours.</p>'
+                        + '<p class="text-xs text-slate-400 mt-4">Redirecting...</p>';
+                    form.innerHTML = '';
+                    form.appendChild(successMsg);
+
+                    // 延迟后跳转感谢页
+                    setTimeout(() => {
+                        window.location.href = redirectUrl;
+                    }, 2500);
+                } else {
+                    // 显示错误
                     submitBtn.disabled = false;
                     submitBtn.classList.remove('opacity-50', 'cursor-not-allowed');
                     submitBtn.textContent = originalText;
+                    showFormError(form, result.message || 'Submission failed. Please try again.');
                 }
-            }, 15000);
-        }, { once: true });
+            } catch (err) {
+                submitBtn.disabled = false;
+                submitBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+                submitBtn.textContent = originalText;
+                showFormError(form, 'Network error. Please check your connection and try again.');
+            }
+        });
     });
-});
 
-
-document.addEventListener('DOMContentLoaded', () => {
-    // 初始化所有 reveal 动画元素
     document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
-
-    // 初始化所有计数器元素
     document.querySelectorAll('.counter').forEach(el => counterObserver.observe(el));
-
-    // 确保返回顶部按钮初始状态正确
     updateBackToTopVisibility();
 });
+
+/**
+ * 在表单顶部显示错误消息
+ */
+function showFormError(form, msg) {
+    const existing = form.querySelector('.form-error-msg');
+    if (existing) existing.remove();
+
+    const err = document.createElement('div');
+    err.className = 'form-error-msg bg-red-50 border border-red-200 text-red-700 text-sm rounded-xl p-3 mb-4';
+    err.textContent = msg;
+    form.insertBefore(err, form.firstChild);
+
+    setTimeout(() => { err.remove(); }, 8000);
+}
 
 
 /**

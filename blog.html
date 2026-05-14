@@ -194,7 +194,7 @@
                 <button data-action="toggle-mobile-submenu" class="w-full flex justify-between items-center py-2 hover:text-brandOrange transition border-b border-white/5 uppercase outline-none" aria-label="Toggle products submenu">
                     Products <i class="submenu-icon fa-solid fa-chevron-down text-xs transition-transform duration-300"></i>
                 </button>
-                    <div id="mobile-submenu" class="hidden pl-4 space-y-4 border-l-2 border-brandOrange/30 ml-1">
+                    <div id="mobile-submenu" class="submenu-slide pl-4 space-y-4 border-l-2 border-brandOrange/30 ml-1" aria-hidden="true">
                         <a href="products/power-bank.html" data-action="close-mobile" class="block text-xs text-white/70 hover:text-brandOrange py-1">→ Power Bank</a>
                         <a href="products/gan-charger.html" data-action="close-mobile" class="block text-xs text-white/70 hover:text-brandOrange py-1">→ GaN Charger</a>
                         <a href="products/wireless-charger.html" data-action="close-mobile" class="block text-xs text-white/70 hover:text-brandOrange py-1">→ Wireless Charger</a>
@@ -372,8 +372,17 @@
                 </div>
             </section>
             <section class="bg-gradient-to-br from-brandBlue to-slate-800 rounded-3xl p-10 lg:p-16 text-center relative overflow-hidden"><div class="absolute top-0 right-0 w-64 h-64 bg-brandOrange/20 rounded-full blur-3xl"></div><div class="absolute bottom-0 left-0 w-64 h-64 bg-blue-400/20 rounded-full blur-3xl"></div><div class="relative z-10"><h3 class="text-2xl font-black text-white uppercase italic mb-4">Stay Updated</h3><p class="text-slate-300 mb-8 max-w-xl mx-auto">Get the latest insights on wireless charging technology, manufacturing trends, and sourcing tips delivered to your inbox.</p>
-                <form id="newsletter-form" action="https://api.web3forms.com/submit" method="POST" class="max-w-md mx-auto flex flex-col sm:flex-row gap-3"><input type="hidden" name="access_key" value="7f077cf3-642b-4aba-9be2-cb99c0c65b19"><input type="hidden" name="subject" value="New Blog Newsletter Subscription"><input type="hidden" name="from_name" value="WOWOHCOOL Blog"><input type="checkbox" name="botcheck" class="hidden" style="display: none;"><input type="email" name="email" placeholder="Enter your email" required class="flex-1 px-6 py-4 rounded-xl border-0 text-sm min-w-0 bg-white/10 text-white placeholder:text-slate-400 focus:outline-none focus:bg-white/20">
-                    <button type="submit" class="bg-brandOrange text-white px-8 py-4 rounded-xl font-black uppercase tracking-widest text-sm hover:bg-brandOrange/90 transition flex items-center justify-center gap-2"><span>Subscribe</span><i class="fa-solid fa-paper-plane text-xs"></i></button></form>
+                <form id="newsletter-form" action="https://api.web3forms.com/submit" method="POST" class="max-w-md mx-auto"><input type="hidden" name="access_key" value="7f077cf3-642b-4aba-9be2-cb99c0c65b19"><input type="hidden" name="subject" value="New Blog Newsletter Subscription"><input type="hidden" name="from_name" value="WOWOHCOOL Blog"><input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+                    <div class="flex flex-col sm:flex-row gap-3 mb-3">
+                        <input type="email" name="email" placeholder="Enter your email" required autocomplete="email" class="flex-1 px-6 py-4 rounded-xl border-0 text-sm min-w-0 bg-white/10 text-white placeholder:text-slate-400 focus:outline-none focus:bg-white/20">
+                        <button type="submit" class="bg-brandOrange text-white px-8 py-4 rounded-xl font-black uppercase tracking-widest text-sm hover:bg-brandOrange/90 transition flex items-center justify-center gap-2 shrink-0"><span>Subscribe</span><i class="fa-solid fa-paper-plane text-xs"></i></button>
+                    </div>
+                    <div class="mb-4">
+                        <label class="flex items-start gap-3 justify-center">
+                            <input type="checkbox" required class="mt-0.5 accent-brandOrange shrink-0">
+                            <span class="text-xs text-white/60">I agree to the <a href="privacy-policy.html" class="text-brandOrange hover:underline">Privacy Policy</a>. *</span>
+                        </label>
+                    </div></form>
                 <div id="newsletter-success" class="hidden mt-4 text-green-400 font-bold text-sm"><i class="fa-solid fa-check-circle mr-2"></i>Thank you for subscribing!</div>
                 <div id="newsletter-error" class="hidden mt-4 text-red-400 font-bold text-sm"><i class="fa-solid fa-circle-exclamation mr-2"></i>Something went wrong. Please try again.</div>
                 <p class="text-slate-500 text-xs mt-4">No spam. Unsubscribe anytime.</p></div></section>
@@ -517,12 +526,12 @@
                 <div class="grid md:grid-cols-2 gap-5">
                     <div class="space-y-1.5">
                         <label for="modal-name" class="text-[10px] font-bold text-brandBlue ml-2 tracking-widest">Contact name</label>
-                        <input id="modal-name" type="text" name="name" placeholder="John Doe" required
+                        <input id="modal-name" type="text" name="name" placeholder="John Doe" required autocomplete="name"
                             class="w-full bg-slate-50 p-4 rounded-2xl text-sm border-2 border-transparent focus:border-brandOrange focus:bg-white transition-all outline-none font-medium">
                     </div>
                     <div class="space-y-1.5">
                         <label for="modal-email" class="text-[10px] font-bold text-brandBlue ml-2 tracking-widest">Business email</label>
-                        <input id="modal-email" type="email" name="email" placeholder="john@company.com" required
+                        <input id="modal-email" type="email" name="email" placeholder="john@company.com" required autocomplete="email"
                             class="w-full bg-slate-50 p-4 rounded-2xl text-sm border-2 border-transparent focus:border-brandOrange focus:bg-white transition-all outline-none font-medium">
                     </div>
                 </div>
@@ -554,6 +563,12 @@
 
 <!-- 提交按钮 -->
                 <div class="pt-4">
+                    <div class="mb-4">
+                        <label class="flex items-start gap-3">
+                            <input type="checkbox" required class="mt-0.5 accent-brandOrange shrink-0">
+                            <span class="text-xs text-slate-500">I agree to the <a href="privacy-policy.html" class="text-brandOrange hover:underline">Privacy Policy</a> and consent to being contacted. *</span>
+                        </label>
+                    </div>
                     <button type="submit" class="w-full bg-brandOrange text-white py-5 rounded-[1.5rem] font-black uppercase tracking-widest text-sm shadow-xl shadow-brandOrange/20 hover:shadow-brandOrange/40 hover:-translate-y-1 active:scale-95 transition-all duration-300">
                         Send Inquiry
                     </button>

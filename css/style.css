@@ -16,6 +16,15 @@
 
 
 /* ========================================================================
+   0. 设计令牌 - Design Tokens (CSS Custom Properties)
+   ======================================================================== */
+:root {
+    --brand-orange: #FF6B00;
+    --brand-orange-alt: #FF6600;
+    --brand-blue: #0A192F;
+}
+
+/* ========================================================================
    1. 字体优化 - Font Smoothing
    解决 Safari 字体渲染不一致的问题
    ======================================================================== */
@@ -36,10 +45,11 @@
     }
 }
 
-/* 全局字体平滑与基础字体设置 */
-* { 
-    -webkit-font-smoothing: antialiased; 
-    font-family: 'Inter', sans-serif; 
+/* 全局字体设置（font-family 是继承属性，不需要 * 选择器） */
+html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-family: 'Inter', sans-serif;
 }
 
 
@@ -82,20 +92,20 @@
 /* 浅色背景时橙色圆点 */
 .bg-slate-50 .badge-capsule::before,
 .bg-white .badge-capsule::before {
-    background-color: #FF6B00;
-    box-shadow: 0 0 10px #FF6B00;
+    background-color: var(--brand-orange);
+    box-shadow: 0 0 10px var(--brand-orange);
 }
 
 /* 深色背景时橙色圆点 */
 .badge-capsule::before {
-    content: ''; 
-    position: absolute; 
-    left: 18px; 
-    width: 10px; 
+    content: '';
+    position: absolute;
+    left: 18px;
+    width: 10px;
     height: 10px;
-    background-color: #FF6B00; 
-    border-radius: 50%; 
-    box-shadow: 0 0 12px #FF6B00, 0 0 20px rgba(255, 107, 0, 0.5);
+    background-color: var(--brand-orange);
+    border-radius: 50%;
+    box-shadow: 0 0 12px var(--brand-orange), 0 0 20px rgba(255, 107, 0, 0.5);
     animation: pulse 2s infinite;
 }
 
@@ -146,7 +156,7 @@
     left: 0; 
     width: 100%; 
     height: 2px;
-    background: linear-gradient(90deg, #FF6600 0%, transparent 100%);
+    background: linear-gradient(90deg, var(--brand-orange-alt) 0%, transparent 100%);
 }
 
 
@@ -211,20 +221,14 @@
    焦点状态与屏幕阅读器辅助样式
    ======================================================================== */
 
-/* 全局焦点样式 */
-:focus {
-    outline: 3px solid rgba(255,102,0,0.14);
+/* 键盘焦点样式 */
+:focus-visible {
+    outline: 3px solid #FF6B00;
     outline-offset: 2px;
 }
 
-/* 屏幕阅读器专用 - 仅视觉隐藏 */
-.sr-only {
-    position: absolute !important;
-    height: 1px; 
-    width: 1px;
-    overflow: hidden;
-    clip: rect(1px, 1px, 1px, 1px);
-    white-space: nowrap;
+:focus:not(:focus-visible) {
+    outline: none;
 }
 
 
@@ -288,14 +292,14 @@ section:not(#hero):not(#story) {
 /* 博客标签样式 */
 .tag-cloud a { transition: all 0.2s ease; }
 .tag-cloud a:hover { transform: translateY(-1px); }
-.tag-accent { background: rgba(255,102,0,0.15); color: #FF6600; font-weight: 900; }
+.tag-accent { background: rgba(255,102,0,0.15); color: var(--brand-orange-alt); font-weight: 900; }
 .tag-blue { background: rgba(0,51,102,0.15); color: #003366; font-weight: 900; }
 .tag-green { background: rgba(34,197,94,0.15); color: #16a34a; font-weight: 900; }
 .tag-amber { background: rgba(245,158,11,0.15); color: #d97706; font-weight: 900; }
 .tag-red { background: rgba(239,68,68,0.15); color: #dc2626; font-weight: 900; }
 .tag-slate { background: rgba(100,116,139,0.15); color: #64748b; font-weight: 900; }
 .section-bar { width: 4px; height: 32px; border-radius: 2px; flex-shrink: 0; }
-.section-bar-orange { background: #FF6600; }
+.section-bar-orange { background: var(--brand-orange-alt); }
 .section-bar-blue { background: #003366; }
 .section-bar-green { background: #16a34a; }
 .section-bar-teal { background: #0d9488; }
@@ -376,5 +380,18 @@ section:not(#hero):not(#story) {
         display: inline-block;
         width: auto;
     }
+}
+
+/* ========================================================================
+   移动端子菜单滑动动画 - Mobile Submenu Slide Animation
+   ======================================================================== */
+.submenu-slide {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+}
+
+.submenu-slide.open {
+    max-height: 300px;
 }
 
