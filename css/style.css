@@ -402,3 +402,64 @@ section:not(#hero):not(#story) {
     max-height: 300px;
 }
 
+/* ========================================================================
+   Hero 响应式布局 - Homepage Hero Section
+   ======================================================================== */
+#hero {
+    padding-top: 8rem;   /* mobile: 128px */
+}
+.hero-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+@media (min-width: 1024px) {
+    #hero {
+        padding-top: 14rem;  /* desktop: 224px */
+    }
+    .hero-layout {
+        flex-direction: row;
+        align-items: stretch;
+    }
+    .hero-layout .hero-text-col {
+        width: 50%;
+        max-width: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+    .hero-layout .hero-img-col {
+        width: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+    }
+}
+
+/* ========================================================================
+   About Hero 顶部间距
+   ======================================================================== */
+#about-hero {
+    padding-top: 9rem;
+}
+@media (min-width: 1024px) {
+    #about-hero {
+        padding-top: 12rem;
+    }
+}
+
+/* ========================================================================
+   产品页面 Hero 首屏布局
+   ======================================================================== */
+.product-hero {
+    padding-top: 4rem;
+}
+@media (min-width: 1024px) {
+    .product-hero {
+        padding-top: 4rem;
+    }
+}
+
