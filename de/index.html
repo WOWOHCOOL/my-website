@@ -27,18 +27,781 @@
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght;500;700;900&display=swap" onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap"></noscript>
+    <noscript></noscript>
 
-    <link rel="stylesheet" href="css/fontawesome.min.css" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="css/fontawesome.min.css"></noscript>
+    <noscript></noscript>
 
     <link rel="stylesheet" href="../css/styles.css">
-    <link rel="stylesheet" href="css/style.css" media="print" onload="this.media='all'">
-    <link rel="stylesheet" href="css/de-style.css">
+    <style>/**
+ * ========================================================================
+ * WOWOHCOOL 站点样式表
+ *
+ * 文件说明：
+ * - 本文件包含站点的所有自定义样式和覆写
+ * - Tailwind CSS (styles.css) 处理大部分布局样式，本文件仅包含自定义组件样式
+ * - 包含：字体优化、徽章样式、导航链接、下拉菜单、动画效果等
+ *
+ * 依赖：
+ * - Tailwind CSS (styles.css - 本地预构建)
+ * - Font Awesome 6.5.1 图标库
+ * - Google Fonts Inter 字体
+ * ========================================================================
+ */
+
+
+/* ========================================================================
+   1. 字体优化 - Font Smoothing
+   解决 Safari 字体渲染不一致的问题
+   ======================================================================== */
+
+/* 强制使用 900 字重并启用字体平滑 */
+.font-black {
+    font-weight: 900 !important;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Safari 特定字体加粗处理 */
+@media not all and (min-resolution:.001dpcm) { 
+    @supports (-webkit-appearance:none) {
+        .font-black {
+            text-shadow: 0 0 0.1px rgba(255,255,255,0.1);
+        }
+    }
+}
+
+/* 全局字体平滑与基础字体设置 */
+* { 
+    -webkit-font-smoothing: antialiased; 
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif; 
+}
+
+
+/* ========================================================================
+   2. 徽章样式 - Badge Capsule
+   页面顶部的蓝色胶囊徽章（带脉冲动画）
+   ======================================================================== */
+
+/* 浅色背景的徽章样式 */
+.bg-slate-50 .badge-capsule,
+.bg-white .badge-capsule {
+    border: 1.5px solid rgba(0, 0, 0, 0.15);
+    background: rgba(0, 0, 0, 0.03);
+    color: #0A192F;
+}
+
+/* 深色背景的徽章样式（默认） */
+.badge-capsule {
+    border: 1.5px solid rgba(255, 255, 255, 0.3);
+    background: rgba(255, 107, 0, 0.15);
+    color: #FFFFFF;
+    padding: 8px 24px 8px 40px;
+    border-radius: 999px;
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 0.15em;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+    white-space: nowrap;
+}
+
+@media (min-width: 768px) {
+    .badge-capsule {
+        font-size: 11px;
+    }
+}
+
+/* 浅色背景时橙色圆点 */
+.bg-slate-50 .badge-capsule::before,
+.bg-white .badge-capsule::before {
+    background-color: #FF6B00;
+    box-shadow: 0 0 10px #FF6B00;
+}
+
+/* 深色背景时橙色圆点 */
+.badge-capsule::before {
+    content: ''; 
+    position: absolute; 
+    left: 18px; 
+    width: 10px; 
+    height: 10px;
+    background-color: #FF6B00; 
+    border-radius: 50%; 
+    box-shadow: 0 0 12px #FF6B00, 0 0 20px rgba(255, 107, 0, 0.5);
+    animation: pulse 2s infinite;
+}
+
+/* 脉冲动画 keyframes */
+@keyframes pulse { 
+    0%, 100% { opacity: 1; transform: scale(1); } 
+    50% { opacity: 0.4; transform: scale(1.1); } 
+}
+
+
+/* ========================================================================
+   3. 导航链接样式 - Navigation Links
+   桌面端导航菜单的链接样式与激活状态
+   ======================================================================== */
+
+/* 导航链接基础样式 */
+.nav-link { 
+    position: relative; 
+}
+
+/* 激活状态的下划线 */
+.nav-link.active::after {
+    content: ''; 
+    position: absolute; 
+    bottom: -4px; 
+    left: 0; 
+    width: 100%; 
+    height: 2px;
+    background-color: #003366;
+}
+
+
+/* ========================================================================
+   4. 高亮线条样式 - Highlight Line
+   文字下方的渐变高亮效果
+   ======================================================================== */
+
+.highlight-line {
+    display: inline-block;
+    position: relative;
+    padding-bottom: 2px;
+}
+
+.highlight-line::after {
+    content: ''; 
+    position: absolute; 
+    bottom: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 2px;
+    background: linear-gradient(90deg, #FF6600 0%, transparent 100%);
+}
+
+
+/* ========================================================================
+   5. 滚动 Reveal 动画 - Scroll Reveal Animation
+   元素进入视口时的渐显动画效果
+   ======================================================================== */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(25px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.reveal.active { 
+    opacity: 1; 
+    transform: translateY(0); 
+}
+
+
+/* ========================================================================
+   6. 下拉菜单样式 - Dropdown Menu
+   桌面端导航的下拉子菜单
+   ======================================================================== */
+
+.dropdown-content {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+}
+
+.group:hover .dropdown-content { 
+    opacity: 1; 
+    visibility: visible; 
+    transform: translateY(0); 
+}
+
+
+/* ========================================================================
+   7. 返回顶部按钮 - Back to Top Button
+   页面右下角的返回顶部按钮
+   ======================================================================== */
+
+#backToTop {
+    transition: transform 0.25s ease, opacity 0.25s ease;
+    transform: translateY(10px);
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* 显示状态 */
+#backToTop.show {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+}
+
+
+/* ========================================================================
+   8. 无障碍访问样式 - Accessibility Styles
+   焦点状态与屏幕阅读器辅助样式
+   ======================================================================== */
+
+/* 全局焦点样式 */
+:focus {
+    outline: 3px solid rgba(255,102,0,0.14);
+    outline-offset: 2px;
+}
+
+/* 屏幕阅读器专用 - 仅视觉隐藏 */
+.sr-only {
+    position: absolute !important;
+    height: 1px; 
+    width: 1px;
+    overflow: hidden;
+    clip: rect(1px, 1px, 1px, 1px);
+    white-space: nowrap;
+}
+
+
+/* ========================================================================
+   9. 备用样式 - Fallback Styles
+   保留原有的 Tailwind 兼容样式
+   ======================================================================== */
+
+/* 移动端性能优化：禁用开销大的视觉效果防止首帧卡顿 */
+@media (max-width: 768px) {
+    html {
+        scroll-behavior: auto !important;
+    }
+    /* fixed header 的 backdrop-filter 在移动端严重拖慢滚动性能 */
+    header {
+        -webkit-backdrop-filter: none !important;
+        backdrop-filter: none !important;
+    }
+    /* 移动端菜单遮罩层的 backdrop-filter 也是性能杀手 */
+    #mobile-menu-overlay {
+        -webkit-backdrop-filter: none !important;
+        backdrop-filter: none !important;
+    }
+}
+
+/* 全站布局基础 */
+html, body {
+    overflow-x: hidden;
+    max-width: 100vw;
+}
+header {
+    transform: translateZ(0);
+}
+/* 首屏以下区域延迟渲染，提升滚动性能 */
+section:not(#hero):not(#story) {
+    content-visibility: auto;
+    contain-intrinsic-size: 800px;
+}
+
+/* 桌面端移动端响应式修复 */
+@media (max-width: 1023px) {
+    .fixed.right-8 > span {
+        right: 100% !important;
+        margin-right: 12px;
+    }
+    .absolute.-left-6, .absolute.-left-10 {
+        left: 0 !important;
+    }
+    .fixed.left-8 {
+        left: 1rem !important;
+    }
+    #hero > .max-w-7xl {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+    .fixed.bottom-8.right-8 span {
+        display: none !important;
+    }
+}
+
+/* 博客标签样式 */
+.tag-cloud a { transition: all 0.2s ease; }
+.tag-cloud a:hover { transform: translateY(-1px); }
+.tag-accent { background: rgba(255,102,0,0.15); color: #FF6600; font-weight: 900; }
+.tag-blue { background: rgba(0,51,102,0.15); color: #003366; font-weight: 900; }
+.tag-green { background: rgba(34,197,94,0.15); color: #16a34a; font-weight: 900; }
+.tag-amber { background: rgba(245,158,11,0.15); color: #d97706; font-weight: 900; }
+.tag-red { background: rgba(239,68,68,0.15); color: #dc2626; font-weight: 900; }
+.tag-slate { background: rgba(100,116,139,0.15); color: #64748b; font-weight: 900; }
+.section-bar { width: 4px; height: 32px; border-radius: 2px; flex-shrink: 0; }
+.section-bar-orange { background: #FF6600; }
+.section-bar-blue { background: #003366; }
+.section-bar-green { background: #16a34a; }
+.section-bar-teal { background: #0d9488; }
+.section-bar-purple { background: #7c3aed; }
+.section-bar-slate { background: #64748b; }
+@media (min-width: 1024px) {
+    .featured-split { display: flex; }
+    .featured-split > div:first-child { width: 45%; }
+    .featured-split > div:last-child { width: 55%; }
+}
+
+/* 询盘弹窗移动端优化 - 确保表单完整可见 */
+@media (max-width: 640px) {
+    #inquiryModal > div {
+        max-height: 95vh !important;
+        padding: 1rem !important;
+    }
+    #inquiryModal .text-3xl {
+        font-size: 1.25rem !important;
+    }
+    #inquiryModal .mb-10 {
+        margin-bottom: 1rem !important;
+    }
+    #inquiryModal h3 {
+        font-size: 1.25rem !important;
+    }
+    #inquiryModal [class*="p-4"] {
+        padding: 0.625rem !important;
+    }
+    #inquiryModal button[type="submit"] {
+        padding-top: 0.75rem !important;
+        padding-bottom: 0.75rem !important;
+    }
+    #inquiryModal .gap-4 {
+        gap: 0.5rem !important;
+    }
+    #inquiryModal .gap-5 {
+        gap: 0.75rem !important;
+    }
+    #inquiryModal .pt-4 {
+        padding-top: 0.5rem !important;
+    }
+    #inquiryModal .mt-6 {
+        margin-top: 0.75rem !important;
+    }
+    #inquiryModal .grid.md\:grid-cols-2 {
+        gap: 0.75rem !important;
+    }
+    #inquiryModal .absolute.top-8.right-8 {
+        top: 0.75rem !important;
+        right: 0.75rem !important;
+    }
+    #backToTop {
+        left: 1rem !important;
+    }
+}
+
+/* blog.html section-to-section spacing */
+.blog-content > section + section {
+    margin-top: 3.5rem;
+}
+
+/* 浮动按钮安全区域适配（iPhone X+ 底部指示条） */
+@supports (padding-bottom: env(safe-area-inset-bottom)) {
+    .fixed.bottom-8 {
+        bottom: calc(0.5rem + env(safe-area-inset-bottom)) !important;
+    }
+}
+
+/* Blog article CTA button: full width on mobile, auto width on desktop */
+.car-cta-btn {
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+@media (min-width: 640px) {
+    .car-cta-btn {
+        display: inline-block;
+        width: auto;
+    }
+}
+
+@media (min-width: 1024px) { .lg\:hidden { display: none !important; } }
+
+/* SVG icon styles (replacing Font Awesome) */
+svg[class*="icon-"]{display:inline-block;width:1em;height:1em;vertical-align:-0.125em;fill:currentColor;flex-shrink:0}
+</style>
+    <style>/**
+ * ========================================================================
+ * WOWOHCOOL 站点样式表
+ *
+ * 文件说明：
+ * - 本文件包含站点的所有自定义样式和覆写
+ * - Tailwind CSS (styles.css) 处理大部分布局样式，本文件仅包含自定义组件样式
+ * - 包含：字体优化、徽章样式、导航链接、下拉菜单、动画效果等
+ *
+ * 依赖：
+ * - Tailwind CSS (styles.css - 本地预构建)
+ * - Font Awesome 6.5.1 图标库
+ * - Google Fonts Inter 字体
+ * ========================================================================
+ */
+
+
+/* ========================================================================
+   1. 字体优化 - Font Smoothing
+   解决 Safari 字体渲染不一致的问题
+   ======================================================================== */
+
+/* 强制使用 900 字重并启用字体平滑 */
+.font-black {
+    font-weight: 900 !important;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Safari 特定字体加粗处理 */
+@media not all and (min-resolution:.001dpcm) { 
+    @supports (-webkit-appearance:none) {
+        .font-black {
+            text-shadow: 0 0 0.1px rgba(255,255,255,0.1);
+        }
+    }
+}
+
+/* 全局字体平滑与基础字体设置 */
+* { 
+    -webkit-font-smoothing: antialiased; 
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif; 
+}
+
+
+/* ========================================================================
+   2. 徽章样式 - Badge Capsule
+   页面顶部的蓝色胶囊徽章（带脉冲动画）
+   ======================================================================== */
+
+/* 浅色背景的徽章样式 */
+.bg-slate-50 .badge-capsule,
+.bg-white .badge-capsule {
+    border: 1.5px solid rgba(0, 0, 0, 0.15);
+    background: rgba(0, 0, 0, 0.03);
+    color: #0A192F;
+}
+
+/* 深色背景的徽章样式（默认） */
+.badge-capsule {
+    border: 1.5px solid rgba(255, 255, 255, 0.3);
+    background: rgba(255, 107, 0, 0.15);
+    color: #FFFFFF;
+    padding: 8px 24px 8px 40px;
+    border-radius: 999px;
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 0.15em;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+    white-space: nowrap;
+}
+
+@media (min-width: 768px) {
+    .badge-capsule {
+        font-size: 11px;
+    }
+}
+
+/* 浅色背景时橙色圆点 */
+.bg-slate-50 .badge-capsule::before,
+.bg-white .badge-capsule::before {
+    background-color: #FF6B00;
+    box-shadow: 0 0 10px #FF6B00;
+}
+
+/* 深色背景时橙色圆点 */
+.badge-capsule::before {
+    content: ''; 
+    position: absolute; 
+    left: 18px; 
+    width: 10px; 
+    height: 10px;
+    background-color: #FF6B00; 
+    border-radius: 50%; 
+    box-shadow: 0 0 12px #FF6B00, 0 0 20px rgba(255, 107, 0, 0.5);
+    animation: pulse 2s infinite;
+}
+
+/* 脉冲动画 keyframes */
+@keyframes pulse { 
+    0%, 100% { opacity: 1; transform: scale(1); } 
+    50% { opacity: 0.4; transform: scale(1.1); } 
+}
+
+
+/* ========================================================================
+   3. 导航链接样式 - Navigation Links
+   桌面端导航菜单的链接样式与激活状态
+   ======================================================================== */
+
+/* 导航链接基础样式 */
+.nav-link { 
+    position: relative; 
+}
+
+/* 激活状态的下划线 */
+.nav-link.active::after {
+    content: ''; 
+    position: absolute; 
+    bottom: -4px; 
+    left: 0; 
+    width: 100%; 
+    height: 2px;
+    background-color: #003366;
+}
+
+
+/* ========================================================================
+   4. 高亮线条样式 - Highlight Line
+   文字下方的渐变高亮效果
+   ======================================================================== */
+
+.highlight-line {
+    display: inline-block;
+    position: relative;
+    padding-bottom: 2px;
+}
+
+.highlight-line::after {
+    content: ''; 
+    position: absolute; 
+    bottom: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 2px;
+    background: linear-gradient(90deg, #FF6600 0%, transparent 100%);
+}
+
+
+/* ========================================================================
+   5. 滚动 Reveal 动画 - Scroll Reveal Animation
+   元素进入视口时的渐显动画效果
+   ======================================================================== */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(25px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.reveal.active { 
+    opacity: 1; 
+    transform: translateY(0); 
+}
+
+
+/* ========================================================================
+   6. 下拉菜单样式 - Dropdown Menu
+   桌面端导航的下拉子菜单
+   ======================================================================== */
+
+.dropdown-content {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+}
+
+.group:hover .dropdown-content { 
+    opacity: 1; 
+    visibility: visible; 
+    transform: translateY(0); 
+}
+
+
+/* ========================================================================
+   7. 返回顶部按钮 - Back to Top Button
+   页面右下角的返回顶部按钮
+   ======================================================================== */
+
+#backToTop {
+    transition: transform 0.25s ease, opacity 0.25s ease;
+    transform: translateY(10px);
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* 显示状态 */
+#backToTop.show {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+}
+
+
+/* ========================================================================
+   8. 无障碍访问样式 - Accessibility Styles
+   焦点状态与屏幕阅读器辅助样式
+   ======================================================================== */
+
+/* 全局焦点样式 */
+:focus {
+    outline: 3px solid rgba(255,102,0,0.14);
+    outline-offset: 2px;
+}
+
+/* 屏幕阅读器专用 - 仅视觉隐藏 */
+.sr-only {
+    position: absolute !important;
+    height: 1px; 
+    width: 1px;
+    overflow: hidden;
+    clip: rect(1px, 1px, 1px, 1px);
+    white-space: nowrap;
+}
+
+
+/* ========================================================================
+   9. 备用样式 - Fallback Styles
+   保留原有的 Tailwind 兼容样式
+   ======================================================================== */
+
+/* 移动端性能优化：禁用开销大的视觉效果防止首帧卡顿 */
+@media (max-width: 768px) {
+    html {
+        scroll-behavior: auto !important;
+    }
+    /* fixed header 的 backdrop-filter 在移动端严重拖慢滚动性能 */
+    header {
+        -webkit-backdrop-filter: none !important;
+        backdrop-filter: none !important;
+    }
+    /* 移动端菜单遮罩层的 backdrop-filter 也是性能杀手 */
+    #mobile-menu-overlay {
+        -webkit-backdrop-filter: none !important;
+        backdrop-filter: none !important;
+    }
+}
+
+/* 全站布局基础 */
+html, body {
+    overflow-x: hidden;
+    max-width: 100vw;
+}
+header {
+    transform: translateZ(0);
+}
+/* 首屏以下区域延迟渲染，提升滚动性能 */
+section:not(#hero):not(#story) {
+    content-visibility: auto;
+    contain-intrinsic-size: 800px;
+}
+
+/* 桌面端移动端响应式修复 */
+@media (max-width: 1023px) {
+    .fixed.right-8 > span {
+        right: 100% !important;
+        margin-right: 12px;
+    }
+    .absolute.-left-6, .absolute.-left-10 {
+        left: 0 !important;
+    }
+    .fixed.left-8 {
+        left: 1rem !important;
+    }
+    #hero > .max-w-7xl {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+    .fixed.bottom-8.right-8 span {
+        display: none !important;
+    }
+}
+
+/* 博客标签样式 */
+.tag-cloud a { transition: all 0.2s ease; }
+.tag-cloud a:hover { transform: translateY(-1px); }
+.tag-accent { background: rgba(255,102,0,0.15); color: #FF6600; font-weight: 900; }
+.tag-blue { background: rgba(0,51,102,0.15); color: #003366; font-weight: 900; }
+.tag-green { background: rgba(34,197,94,0.15); color: #16a34a; font-weight: 900; }
+.tag-amber { background: rgba(245,158,11,0.15); color: #d97706; font-weight: 900; }
+.tag-red { background: rgba(239,68,68,0.15); color: #dc2626; font-weight: 900; }
+.tag-slate { background: rgba(100,116,139,0.15); color: #64748b; font-weight: 900; }
+.section-bar { width: 4px; height: 32px; border-radius: 2px; flex-shrink: 0; }
+.section-bar-orange { background: #FF6600; }
+.section-bar-blue { background: #003366; }
+.section-bar-green { background: #16a34a; }
+.section-bar-teal { background: #0d9488; }
+.section-bar-purple { background: #7c3aed; }
+.section-bar-slate { background: #64748b; }
+@media (min-width: 1024px) {
+    .featured-split { display: flex; }
+    .featured-split > div:first-child { width: 45%; }
+    .featured-split > div:last-child { width: 55%; }
+}
+
+/* 询盘弹窗移动端优化 - 确保表单完整可见 */
+@media (max-width: 640px) {
+    #inquiryModal > div {
+        max-height: 95vh !important;
+        padding: 1rem !important;
+    }
+    #inquiryModal .text-3xl {
+        font-size: 1.25rem !important;
+    }
+    #inquiryModal .mb-10 {
+        margin-bottom: 1rem !important;
+    }
+    #inquiryModal h3 {
+        font-size: 1.25rem !important;
+    }
+    #inquiryModal [class*="p-4"] {
+        padding: 0.625rem !important;
+    }
+    #inquiryModal button[type="submit"] {
+        padding-top: 0.75rem !important;
+        padding-bottom: 0.75rem !important;
+    }
+    #inquiryModal .gap-4 {
+        gap: 0.5rem !important;
+    }
+    #inquiryModal .gap-5 {
+        gap: 0.75rem !important;
+    }
+    #inquiryModal .pt-4 {
+        padding-top: 0.5rem !important;
+    }
+    #inquiryModal .mt-6 {
+        margin-top: 0.75rem !important;
+    }
+    #inquiryModal .grid.md\:grid-cols-2 {
+        gap: 0.75rem !important;
+    }
+    #inquiryModal .absolute.top-8.right-8 {
+        top: 0.75rem !important;
+        right: 0.75rem !important;
+    }
+    #backToTop {
+        left: 1rem !important;
+    }
+}
+
+/* blog.html section-to-section spacing */
+.blog-content > section + section {
+    margin-top: 3.5rem;
+}
+
+/* 浮动按钮安全区域适配（iPhone X+ 底部指示条） */
+@supports (padding-bottom: env(safe-area-inset-bottom)) {
+    .fixed.bottom-8 {
+        bottom: calc(0.5rem + env(safe-area-inset-bottom)) !important;
+    }
+}
+
+/* Blog article CTA button: full width on mobile, auto width on desktop */
+.car-cta-btn {
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+@media (min-width: 640px) {
+    .car-cta-btn {
+        display: inline-block;
+        width: auto;
+    }
+}
+
+@media (min-width: 1024px) { .lg\:hidden { display: none !important; } }
+
+/* SVG icon styles (replacing Font Awesome) */
+svg[class*="icon-"]{display:inline-block;width:1em;height:1em;vertical-align:-0.125em;fill:currentColor;flex-shrink:0}
+</style>
     <!-- Mobile hero: reduce spacing + critical utilities -->
     <style>
     .flex { display: flex; }
@@ -157,6 +920,8 @@
         "itemReviewed": {"@type":"Organization","name":"WOWOHCOOL (Dong Yi Technology Co., Ltd)"}
     }]
     </script>
+  <style>svg[class*="icon-"]{display:inline-block;width:1em;height:1em;vertical-align:-0.125em;fill:currentColor;flex-shrink:0}</style>
+  <link rel="stylesheet" href="css/de-style.css">
 </head>
 <body class="bg-white text-slate-900 font-sans antialiased">
 
@@ -170,7 +935,9 @@
                 <a href="index.html" class="nav-link text-sm font-semibold text-brandOrange">Startseite</a>
                 <div class="relative group">
                     <button class="nav-link text-sm font-semibold text-slate-700 hover:text-brandOrange transition-colors duration-200 flex items-center gap-1">
-                        Produkte <i class="fas fa-chevron-down text-[10px] transition-transform duration-200 group-hover:rotate-180"></i>
+                        Produkte <svg class="icon-chevron-down text-[10px] transition-transform duration-200 group-hover:rotate-180" aria-hidden="true" focusable="false" viewBox="0 0 448 512">
+    <path d="M201.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 338.7 54.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z" fill="currentColor"/>
+  </svg>
                     </button>
                     <div class="dropdown-content absolute top-full left-0 mt-2 w-64 bg-white rounded-xl shadow-xl border border-slate-100 py-3 z-50">
                         <a href="produkte/powerbank.html" class="block px-5 py-2.5 text-sm font-medium text-slate-700 hover:text-brandOrange hover:bg-slate-50 transition-colors">Powerbank</a>
@@ -186,7 +953,9 @@
                 <button data-trigger="inquiry" class="bg-brandOrange text-white px-5 py-2.5 rounded-lg text-sm font-bold hover:bg-brandBlue transition-all duration-300 shadow-md hover:shadow-lg shadow-brandOrange/20 cursor-pointer">Angebot anfordern</button>
             </div>
             <button id="mobile-menu-btn" class="lg:hidden flex items-center p-2 rounded-lg hover:bg-slate-100 transition-colors" aria-label="Menü öffnen">
-                <i class="fas fa-bars text-xl text-brandBlue"></i>
+                <svg class="icon-bars text-xl text-brandBlue" aria-hidden="true" focusable="false" viewBox="0 0 448 512">
+    <path d="M0 96C0 78.3 14.3 64 32 64l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 128C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 288c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32L32 448c-17.7 0-32-14.3-32-32s14.3-32 32-32l384 0c17.7 0 32 14.3 32 32z" fill="currentColor"/>
+  </svg>
             </button>
         </nav>
     </header>
@@ -199,28 +968,46 @@
             <div class="flex items-center justify-between mb-8">
                 <img src="wowohcool-logo-optimized.webp" alt="WOWOHCOOL" width="80" height="16" class="h-4 w-auto">
                 <button id="mobile-menu-close" class="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center hover:bg-slate-200 transition-colors" aria-label="Menü schließen">
-                    <i class="fas fa-times text-slate-600"></i>
+                    <svg class="icon-xmark text-slate-600" aria-hidden="true" focusable="false" viewBox="0 0 384 512">
+    <path d="M55.1 73.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L147.2 256 9.9 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192.5 301.3 329.9 438.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.8 256 375.1 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192.5 210.7 55.1 73.4z" fill="currentColor"/>
+  </svg>
                 </button>
             </div>
 
             <!-- Navigation Items -->
             <nav class="space-y-1">
-                <a href="index.html" class="flex items-center gap-3 px-4 py-3 rounded-xl text-base font-semibold text-brandOrange bg-brandOrange/5"><i class="fas fa-home w-5 text-center text-brandOrange"></i>Startseite</a>
-                <a href="produkte/powerbank.html" class="flex items-center gap-3 px-4 py-3 rounded-xl text-base font-medium text-slate-700 hover:bg-slate-50 transition-colors"><i class="fas fa-battery-full w-5 text-center text-slate-400"></i>Powerbank</a>
-                <a href="produkte/kabelloses-ladegeraet.html" class="flex items-center gap-3 px-4 py-3 rounded-xl text-base font-medium text-slate-700 hover:bg-slate-50 transition-colors"><i class="fas fa-wifi w-5 text-center text-slate-400"></i>Kabelloses Ladegerät</a>
-                <a href="produkte/autoladegeraet.html" class="flex items-center gap-3 px-4 py-3 rounded-xl text-base font-medium text-slate-700 hover:bg-slate-50 transition-colors"><i class="fas fa-car w-5 text-center text-slate-400"></i>Autoladegerät</a>
-                <a href="produkte/gan-ladegeraet.html" class="flex items-center gap-3 px-4 py-3 rounded-xl text-base font-medium text-slate-700 hover:bg-slate-50 transition-colors"><i class="fas fa-bolt w-5 text-center text-slate-400"></i>GaN-Ladegerät</a>
+                <a href="index.html" class="flex items-center gap-3 px-4 py-3 rounded-xl text-base font-semibold text-brandOrange bg-brandOrange/5"><svg class="icon-house w-5 text-center text-brandOrange" aria-hidden="true" focusable="false" viewBox="0 0 512 512">
+    <path d="M277.8 8.6c-12.3-11.4-31.3-11.4-43.5 0l-224 208c-9.6 9-12.8 22.9-8 35.1S18.8 272 32 272l16 0 0 176c0 35.3 28.7 64 64 64l288 0c35.3 0 64-28.7 64-64l0-176 16 0c13.2 0 25-8.1 29.8-20.3s1.6-26.2-8-35.1l-224-208zM240 320l32 0c26.5 0 48 21.5 48 48l0 96-128 0 0-96c0-26.5 21.5-48 48-48z" fill="currentColor"/>
+  </svg>Startseite</a>
+                <a href="produkte/powerbank.html" class="flex items-center gap-3 px-4 py-3 rounded-xl text-base font-medium text-slate-700 hover:bg-slate-50 transition-colors"><svg class="icon-battery-full w-5 text-center text-slate-400" aria-hidden="true" focusable="false" viewBox="0 0 640 512">
+    <path d="M528 128c8.8 0 16 7.2 16 16l0 224c0 8.8-7.2 16-16 16l-416 0c-8.8 0-16-7.2-16-16l0-224c0-8.8 7.2-16 16-16l416 0zM112 64c-44.2 0-80 35.8-80 80l0 224c0 44.2 35.8 80 80 80l416 0c44.2 0 80-35.8 80-80l0-48c17.7 0 32-14.3 32-32l0-64c0-17.7-14.3-32-32-32l0-48c0-44.2-35.8-80-80-80L112 64zm56 112c-13.3 0-24 10.7-24 24l0 112c0 13.3 10.7 24 24 24l304 0c13.3 0 24-10.7 24-24l0-112c0-13.3-10.7-24-24-24l-304 0z" fill="currentColor"/>
+  </svg>Powerbank</a>
+                <a href="produkte/kabelloses-ladegeraet.html" class="flex items-center gap-3 px-4 py-3 rounded-xl text-base font-medium text-slate-700 hover:bg-slate-50 transition-colors"><svg class="icon-wifi w-5 text-center text-slate-400" aria-hidden="true" focusable="false" viewBox="0 0 576 512">
+    <path d="M288 96c-90.9 0-173.2 36-233.7 94.6-12.7 12.3-33 12-45.2-.7s-12-33 .7-45.2C81.7 74.9 179.9 32 288 32S494.3 74.9 566.3 144.7c12.7 12.3 13 32.6 .7 45.2s-32.6 13-45.2 .7C461.2 132 378.9 96 288 96zM240 432a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zM168 326.2c-11.7 13.3-31.9 14.5-45.2 2.8s-14.5-31.9-2.8-45.2C161 237.4 221.1 208 288 208s127 29.4 168 75.8c11.7 13.3 10.4 33.5-2.8 45.2s-33.5 10.4-45.2-2.8C378.6 292.9 335.8 272 288 272s-90.6 20.9-120 54.2z" fill="currentColor"/>
+  </svg>Kabelloses Ladegerät</a>
+                <a href="produkte/autoladegeraet.html" class="flex items-center gap-3 px-4 py-3 rounded-xl text-base font-medium text-slate-700 hover:bg-slate-50 transition-colors"><svg class="icon-car w-5 text-center text-slate-400" aria-hidden="true" focusable="false" viewBox="0 0 512 512">
+    <path d="M135.2 117.4l-26.1 74.6 293.8 0-26.1-74.6C372.3 104.6 360.2 96 346.6 96L165.4 96c-13.6 0-25.7 8.6-30.2 21.4zM39.6 196.8L74.8 96.3C88.3 57.8 124.6 32 165.4 32l181.2 0c40.8 0 77.1 25.8 90.6 64.3l35.2 100.5c23.2 9.6 39.6 32.5 39.6 59.2l0 192c0 17.7-14.3 32-32 32l-32 0c-17.7 0-32-14.3-32-32l0-32-320 0 0 32c0 17.7-14.3 32-32 32l-32 0c-17.7 0-32-14.3-32-32L0 256c0-26.7 16.4-49.6 39.6-59.2zM128 304a32 32 0 1 0 -64 0 32 32 0 1 0 64 0zm288 32a32 32 0 1 0 0-64 32 32 0 1 0 0 64z" fill="currentColor"/>
+  </svg>Autoladegerät</a>
+                <a href="produkte/gan-ladegeraet.html" class="flex items-center gap-3 px-4 py-3 rounded-xl text-base font-medium text-slate-700 hover:bg-slate-50 transition-colors"><svg class="icon-bolt w-5 text-center text-slate-400" aria-hidden="true" focusable="false" viewBox="0 0 448 512">
+    <path d="M338.8-9.9c11.9 8.6 16.3 24.2 10.9 37.8L271.3 224 416 224c13.5 0 25.5 8.4 30.1 21.1s.7 26.9-9.6 35.5l-288 240c-11.3 9.4-27.4 9.9-39.3 1.3s-16.3-24.2-10.9-37.8L176.7 288 32 288c-13.5 0-25.5-8.4-30.1-21.1s-.7-26.9 9.6-35.5l288-240c11.3-9.4 27.4-9.9 39.3-1.3z" fill="currentColor"/>
+  </svg>GaN-Ladegerät</a>
                 <div class="border-t border-slate-100 my-3"></div>
-                <a href="oem-odm-service.html" class="flex items-center gap-3 px-4 py-3 rounded-xl text-base font-medium text-slate-700 hover:bg-slate-50 transition-colors"><i class="fas fa-industry w-5 text-center text-slate-400"></i>OEM/ODM</a>
-                <a href="ueber-uns.html" class="flex items-center gap-3 px-4 py-3 rounded-xl text-base font-medium text-slate-700 hover:bg-slate-50 transition-colors"><i class="fas fa-building w-5 text-center text-slate-400"></i>Über Uns</a>
-                <a href="blog/index.html" class="flex items-center gap-3 px-4 py-3 rounded-xl text-base font-medium text-slate-700 hover:bg-slate-50 transition-colors"><i class="fas fa-newspaper w-5 text-center text-slate-400"></i>Blog</a>
-                <a href="kontakt.html" class="flex items-center gap-3 px-4 py-3 rounded-xl text-base font-medium text-slate-700 hover:bg-slate-50 transition-colors"><i class="fas fa-envelope w-5 text-center text-slate-400"></i>Kontakt</a>
+                <a href="oem-odm-service.html" class="flex items-center gap-3 px-4 py-3 rounded-xl text-base font-medium text-slate-700 hover:bg-slate-50 transition-colors"><svg class="icon-industry w-5 text-center text-slate-400" aria-hidden="true" focusable="false" viewBox="0 0 512 512">
+    <path d="M32 32C14.3 32 0 46.3 0 64L0 432c0 26.5 21.5 48 48 48l416 0c26.5 0 48-21.5 48-48l0-279.8c0-18.2-19.4-29.7-35.4-21.1l-156.6 84.3 0-63.2c0-18.2-19.4-29.7-35.4-21.1L128 215.4 128 64c0-17.7-14.3-32-32-32L32 32z" fill="currentColor"/>
+  </svg>OEM/ODM</a>
+                <a href="ueber-uns.html" class="flex items-center gap-3 px-4 py-3 rounded-xl text-base font-medium text-slate-700 hover:bg-slate-50 transition-colors"><svg class="icon-building w-5 text-center text-slate-400" aria-hidden="true" focusable="false" viewBox="0 0 384 512">
+    <path d="M64 0C28.7 0 0 28.7 0 64L0 448c0 35.3 28.7 64 64 64l256 0c35.3 0 64-28.7 64-64l0-384c0-35.3-28.7-64-64-64L64 0zM176 352l32 0c17.7 0 32 14.3 32 32l0 80-96 0 0-80c0-17.7 14.3-32 32-32zM96 112c0-8.8 7.2-16 16-16l32 0c8.8 0 16 7.2 16 16l0 32c0 8.8-7.2 16-16 16l-32 0c-8.8 0-16-7.2-16-16l0-32zM240 96l32 0c8.8 0 16 7.2 16 16l0 32c0 8.8-7.2 16-16 16l-32 0c-8.8 0-16-7.2-16-16l0-32c0-8.8 7.2-16 16-16zM96 240c0-8.8 7.2-16 16-16l32 0c8.8 0 16 7.2 16 16l0 32c0 8.8-7.2 16-16 16l-32 0c-8.8 0-16-7.2-16-16l0-32zm144-16l32 0c8.8 0 16 7.2 16 16l0 32c0 8.8-7.2 16-16 16l-32 0c-8.8 0-16-7.2-16-16l0-32c0-8.8 7.2-16 16-16z" fill="currentColor"/>
+  </svg>Über Uns</a>
+                <a href="blog/index.html" class="flex items-center gap-3 px-4 py-3 rounded-xl text-base font-medium text-slate-700 hover:bg-slate-50 transition-colors"><svg class="icon-newspaper w-5 text-center text-slate-400" aria-hidden="true" focusable="false" viewBox="0 0 512 512">
+    <path d="M0 416L0 120c0-13.3 10.7-24 24-24s24 10.7 24 24l0 288c0 13.3 10.7 24 24 24s24-10.7 24-24L96 96c0-35.3 28.7-64 64-64l288 0c35.3 0 64 28.7 64 64l0 320c0 35.3-28.7 64-64 64L64 480c-35.3 0-64-28.7-64-64zM160 128l0 64c0 17.7 14.3 32 32 32l64 0c17.7 0 32-14.3 32-32l0-64c0-17.7-14.3-32-32-32l-64 0c-17.7 0-32 14.3-32 32zm24 240c-13.3 0-24 10.7-24 24s10.7 24 24 24l240 0c13.3 0 24-10.7 24-24s-10.7-24-24-24l-240 0zm-24-72c0 13.3 10.7 24 24 24l240 0c13.3 0 24-10.7 24-24s-10.7-24-24-24l-240 0c-13.3 0-24 10.7-24 24zM360 176c-13.3 0-24 10.7-24 24s10.7 24 24 24l64 0c13.3 0 24-10.7 24-24s-10.7-24-24-24l-64 0z" fill="currentColor"/>
+  </svg>Blog</a>
+                <a href="kontakt.html" class="flex items-center gap-3 px-4 py-3 rounded-xl text-base font-medium text-slate-700 hover:bg-slate-50 transition-colors"><svg class="icon-envelope w-5 text-center text-slate-400" aria-hidden="true" focusable="false" viewBox="0 0 512 512"><path d="M48 64c-26.5 0-48 21.5-48 48 0 15.1 7.1 29.3 19.2 38.4l208 156c17.1 12.8 40.5 12.8 57.6 0l208-156c12.1-9.1 19.2-23.3 19.2-38.4 0-26.5-21.5-48-48-48L48 64zM0 196L0 384c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-188-198.4 148.8c-34.1 25.6-81.1 25.6-115.2 0L0 196z" fill="currentColor"/></svg>Kontakt</a>
             </nav>
 
             <!-- Inquiry Button -->
             <div class="mt-6">
                 <button data-trigger="inquiry" class="w-full bg-brandOrange text-white py-4 rounded-xl font-bold text-base hover:bg-brandBlue transition-all duration-300 shadow-lg shadow-brandOrange/20 cursor-pointer flex items-center justify-center gap-2">
-                    <i class="fas fa-envelope"></i> Kostenloses Angebot
+                    <svg class="icon-envelope" aria-hidden="true" focusable="false" viewBox="0 0 512 512"><path d="M48 64c-26.5 0-48 21.5-48 48 0 15.1 7.1 29.3 19.2 38.4l208 156c17.1 12.8 40.5 12.8 57.6 0l208-156c12.1-9.1 19.2-23.3 19.2-38.4 0-26.5-21.5-48-48-48L48 64zM0 196L0 384c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-188-198.4 148.8c-34.1 25.6-81.1 25.6-115.2 0L0 196z" fill="currentColor"/></svg> Kostenloses Angebot
                 </button>
             </div>
         </div>
@@ -250,7 +1037,9 @@
                     <!-- CTA Buttons -->
                     <div class="flex flex-wrap gap-3 mt-4 md:mt-8">
                         <button data-trigger="inquiry" class="btn-primary shadow-lg shadow-brandOrange/20 cursor-pointer">
-                            Kostenloses Angebot <i class="fas fa-arrow-right text-sm"></i>
+                            Kostenloses Angebot <svg class="icon-arrow-right text-sm" aria-hidden="true" focusable="false" viewBox="0 0 512 512">
+    <path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-105.4 105.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" fill="currentColor"/>
+  </svg>
                         </button>
                         <a href="produkte/powerbank.html" class="btn-secondary">
                             Produkte ansehen
@@ -259,9 +1048,15 @@
 
                     <!-- Trust Indicators -->
                     <div class="flex flex-wrap gap-3 mt-6 md:mt-8">
-                        <span class="trust-badge"><i class="fas fa-certificate text-brandOrange"></i> CE + Qi2 + ISO 9001</span>
-                        <span class="trust-badge"><i class="fas fa-shipping-fast text-brandOrange"></i> 5-7 Tage Expressversand</span>
-                        <span class="trust-badge"><i class="fas fa-euro-sign text-brandOrange"></i> Preise in EUR</span>
+                        <span class="trust-badge"><svg class="icon-certificate text-brandOrange" aria-hidden="true" focusable="false" viewBox="0 0 576 512">
+    <path d="M239.2-8c-6.1-6.2-15-8.7-23.4-6.4S200.9-5.6 198.8 2.8L183.5 63c-1.1 4.4-5.6 7-9.9 5.7L113.8 51.9c-8.4-2.4-17.4 0-23.5 6.1s-8.5 15.1-6.1 23.5l16.9 59.8c1.2 4.3-1.4 8.8-5.7 9.9L35.1 166.5c-8.4 2.1-15 8.7-17.3 17.1s.2 17.3 6.4 23.4l44.5 43.3c3.2 3.1 3.2 8.3 0 11.5L24.3 305.1c-6.2 6.1-8.7 15-6.4 23.4s8.9 14.9 17.3 17.1l60.2 15.3c4.4 1.1 7 5.6 5.7 9.9L84.2 430.5c-2.4 8.4 0 17.4 6.1 23.5s15.1 8.5 23.5 6.1l59.8-16.9c4.3-1.2 8.8 1.4 9.9 5.7l15.3 60.2c2.1 8.4 8.7 15 17.1 17.3s17.3-.2 23.4-6.4l43.3-44.5c3.1-3.2 8.3-3.2 11.5 0L337.3 520c6.1 6.2 15 8.7 23.4 6.4s14.9-8.9 17.1-17.3L393.1 449c1.1-4.4 5.6-7 9.9-5.7l59.8 16.9c8.4 2.4 17.4 0 23.5-6.1s8.5-15.1 6.1-23.5l-16.9-59.8c-1.2-4.3 1.4-8.8 5.7-9.9l60.2-15.3c8.4-2.1 15-8.7 17.3-17.1s-.2-17.4-6.4-23.4l-44.5-43.3c-3.2-3.1-3.2-8.3 0-11.5l44.5-43.3c6.2-6.1 8.7-15 6.4-23.4s-8.9-14.9-17.3-17.1l-60.2-15.3c-4.4-1.1-7-5.6-5.7-9.9l16.9-59.8c2.4-8.4 0-17.4-6.1-23.5s-15.1-8.5-23.5-6.1L403 68.8c-4.3 1.2-8.8-1.4-9.9-5.7L377.8 2.8c-2.1-8.4-8.7-15-17.1-17.3s-17.3 .2-23.4 6.4L294 36.5c-3.1 3.2-8.3 3.2-11.5 0L239.2-8z" fill="currentColor"/>
+  </svg> CE + Qi2 + ISO 9001</span>
+                        <span class="trust-badge"><svg class="icon-truck-fast text-brandOrange" aria-hidden="true" focusable="false" viewBox="0 0 640 512">
+    <path d="M64 96c0-35.3 28.7-64 64-64l288 0c35.3 0 64 28.7 64 64l0 32 50.7 0c17 0 33.3 6.7 45.3 18.7L621.3 192c12 12 18.7 28.3 18.7 45.3L640 384c0 35.3-28.7 64-64 64l-3.3 0c-10.4 36.9-44.4 64-84.7 64s-74.2-27.1-84.7-64l-102.6 0c-10.4 36.9-44.4 64-84.7 64s-74.2-27.1-84.7-64l-3.3 0c-35.3 0-64-28.7-64-64l0-48-40 0c-13.3 0-24-10.7-24-24s10.7-24 24-24l112 0c13.3 0 24-10.7 24-24s-10.7-24-24-24L24 240c-13.3 0-24-10.7-24-24s10.7-24 24-24l176 0c13.3 0 24-10.7 24-24s-10.7-24-24-24L24 144c-13.3 0-24-10.7-24-24S10.7 96 24 96l40 0zM576 288l0-50.7-45.3-45.3-50.7 0 0 96 96 0zM256 424a40 40 0 1 0 -80 0 40 40 0 1 0 80 0zm232 40a40 40 0 1 0 0-80 40 40 0 1 0 0 80z" fill="currentColor"/>
+  </svg> 5-7 Tage Expressversand</span>
+                        <span class="trust-badge"><svg class="icon-euro-sign text-brandOrange" aria-hidden="true" focusable="false" viewBox="0 0 448 512">
+    <path d="M73.3 192C100.8 99.5 186.5 32 288 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-64 0c-65.6 0-122 39.5-146.7 96L272 192c13.3 0 24 10.7 24 24s-10.7 24-24 24l-143.2 0c-.5 5.3-.8 10.6-.8 16s.3 10.7 .8 16L272 272c13.3 0 24 10.7 24 24s-10.7 24-24 24l-130.7 0c24.7 56.5 81.1 96 146.7 96l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-64 0c-101.5 0-187.2-67.5-214.7-160L40 320c-13.3 0-24-10.7-24-24s10.7-24 24-24l24.6 0c-.7-10.5-.7-21.5 0-32L40 240c-13.3 0-24-10.7-24-24s10.7-24 24-24l33.3 0z" fill="currentColor"/>
+  </svg> Preise in EUR</span>
                     </div>
 
                     <!-- Customer Logos -->
@@ -426,7 +1221,9 @@
 
             <div class="text-center mt-12 reveal">
                 <a href="kontakt.html" class="btn-primary">
-                    Alle Produkte anfragen <i class="fas fa-arrow-right text-sm"></i>
+                    Alle Produkte anfragen <svg class="icon-arrow-right text-sm" aria-hidden="true" focusable="false" viewBox="0 0 512 512">
+    <path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-105.4 105.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" fill="currentColor"/>
+  </svg>
                 </a>
             </div>
         </div>
@@ -446,7 +1243,9 @@
                     <ul class="mt-8 space-y-5">
                         <li class="flex items-start gap-4">
                             <span class="w-6 h-6 rounded-full bg-green-500/20 flex items-center justify-center shrink-0 mt-0.5">
-                                <i class="fas fa-check text-green-400 text-xs"></i>
+                                <svg class="icon-check text-green-400 text-xs" aria-hidden="true" focusable="false" viewBox="0 0 448 512">
+    <path d="M434.8 70.1c14.3 10.4 17.5 30.4 7.1 44.7l-256 352c-5.5 7.6-14 12.3-23.4 13.1s-18.5-2.7-25.1-9.3l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l101.5 101.5 234-321.7c10.4-14.3 30.4-17.5 44.7-7.1z" fill="currentColor"/>
+  </svg>
                             </span>
                             <div>
                                 <p class="text-white font-bold">Expressversand 5–7 Tage</p>
@@ -455,7 +1254,9 @@
                         </li>
                         <li class="flex items-start gap-4">
                             <span class="w-6 h-6 rounded-full bg-green-500/20 flex items-center justify-center shrink-0 mt-0.5">
-                                <i class="fas fa-check text-green-400 text-xs"></i>
+                                <svg class="icon-check text-green-400 text-xs" aria-hidden="true" focusable="false" viewBox="0 0 448 512">
+    <path d="M434.8 70.1c14.3 10.4 17.5 30.4 7.1 44.7l-256 352c-5.5 7.6-14 12.3-23.4 13.1s-18.5-2.7-25.1-9.3l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l101.5 101.5 234-321.7c10.4-14.3 30.4-17.5 44.7-7.1z" fill="currentColor"/>
+  </svg>
                             </span>
                             <div>
                                 <p class="text-white font-bold">DDP-Service verfügbar</p>
@@ -464,7 +1265,9 @@
                         </li>
                         <li class="flex items-start gap-4">
                             <span class="w-6 h-6 rounded-full bg-green-500/20 flex items-center justify-center shrink-0 mt-0.5">
-                                <i class="fas fa-check text-green-400 text-xs"></i>
+                                <svg class="icon-check text-green-400 text-xs" aria-hidden="true" focusable="false" viewBox="0 0 448 512">
+    <path d="M434.8 70.1c14.3 10.4 17.5 30.4 7.1 44.7l-256 352c-5.5 7.6-14 12.3-23.4 13.1s-18.5-2.7-25.1-9.3l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l101.5 101.5 234-321.7c10.4-14.3 30.4-17.5 44.7-7.1z" fill="currentColor"/>
+  </svg>
                             </span>
                             <div>
                                 <p class="text-white font-bold">Amazon FBA-ready</p>
@@ -473,7 +1276,9 @@
                         </li>
                         <li class="flex items-start gap-4">
                             <span class="w-6 h-6 rounded-full bg-green-500/20 flex items-center justify-center shrink-0 mt-0.5">
-                                <i class="fas fa-check text-green-400 text-xs"></i>
+                                <svg class="icon-check text-green-400 text-xs" aria-hidden="true" focusable="false" viewBox="0 0 448 512">
+    <path d="M434.8 70.1c14.3 10.4 17.5 30.4 7.1 44.7l-256 352c-5.5 7.6-14 12.3-23.4 13.1s-18.5-2.7-25.1-9.3l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l101.5 101.5 234-321.7c10.4-14.3 30.4-17.5 44.7-7.1z" fill="currentColor"/>
+  </svg>
                             </span>
                             <div>
                                 <p class="text-white font-bold">Versandkostenfrei ab 500 Stück</p>
@@ -483,7 +1288,9 @@
                     </ul>
                     <div class="mt-8">
                         <a href="kontakt.html" class="btn-primary">
-                            Lieferkonditionen anfragen <i class="fas fa-arrow-right text-sm"></i>
+                            Lieferkonditionen anfragen <svg class="icon-arrow-right text-sm" aria-hidden="true" focusable="false" viewBox="0 0 512 512">
+    <path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-105.4 105.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" fill="currentColor"/>
+  </svg>
                         </a>
                     </div>
                 </div>
@@ -515,19 +1322,27 @@
             </div>
             <div class="grid md:grid-cols-2 gap-8">
                 <div class="reveal bg-slate-50 rounded-2xl p-8 border border-slate-200">
-                    <div class="flex items-center gap-4 mb-4"><div class="w-12 h-12 rounded-xl bg-brandOrange/10 flex items-center justify-center shrink-0"><i class="fas fa-certificate text-xl text-brandOrange"></i></div><h3 class="text-lg font-bold text-brandBlue">Zertifizierte Qualität</h3></div>
+                    <div class="flex items-center gap-4 mb-4"><div class="w-12 h-12 rounded-xl bg-brandOrange/10 flex items-center justify-center shrink-0"><svg class="icon-certificate text-xl text-brandOrange" aria-hidden="true" focusable="false" viewBox="0 0 576 512">
+    <path d="M239.2-8c-6.1-6.2-15-8.7-23.4-6.4S200.9-5.6 198.8 2.8L183.5 63c-1.1 4.4-5.6 7-9.9 5.7L113.8 51.9c-8.4-2.4-17.4 0-23.5 6.1s-8.5 15.1-6.1 23.5l16.9 59.8c1.2 4.3-1.4 8.8-5.7 9.9L35.1 166.5c-8.4 2.1-15 8.7-17.3 17.1s.2 17.3 6.4 23.4l44.5 43.3c3.2 3.1 3.2 8.3 0 11.5L24.3 305.1c-6.2 6.1-8.7 15-6.4 23.4s8.9 14.9 17.3 17.1l60.2 15.3c4.4 1.1 7 5.6 5.7 9.9L84.2 430.5c-2.4 8.4 0 17.4 6.1 23.5s15.1 8.5 23.5 6.1l59.8-16.9c4.3-1.2 8.8 1.4 9.9 5.7l15.3 60.2c2.1 8.4 8.7 15 17.1 17.3s17.3-.2 23.4-6.4l43.3-44.5c3.1-3.2 8.3-3.2 11.5 0L337.3 520c6.1 6.2 15 8.7 23.4 6.4s14.9-8.9 17.1-17.3L393.1 449c1.1-4.4 5.6-7 9.9-5.7l59.8 16.9c8.4 2.4 17.4 0 23.5-6.1s8.5-15.1 6.1-23.5l-16.9-59.8c-1.2-4.3 1.4-8.8 5.7-9.9l60.2-15.3c8.4-2.1 15-8.7 17.3-17.1s-.2-17.4-6.4-23.4l-44.5-43.3c-3.2-3.1-3.2-8.3 0-11.5l44.5-43.3c6.2-6.1 8.7-15 6.4-23.4s-8.9-14.9-17.3-17.1l-60.2-15.3c-4.4-1.1-7-5.6-5.7-9.9l16.9-59.8c2.4-8.4 0-17.4-6.1-23.5s-15.1-8.5-23.5-6.1L403 68.8c-4.3 1.2-8.8-1.4-9.9-5.7L377.8 2.8c-2.1-8.4-8.7-15-17.1-17.3s-17.3 .2-23.4 6.4L294 36.5c-3.1 3.2-8.3 3.2-11.5 0L239.2-8z" fill="currentColor"/>
+  </svg></div><h3 class="text-lg font-bold text-brandBlue">Zertifizierte Qualität</h3></div>
                     <p class="text-sm text-slate-600 leading-relaxed">Unsere ISO 9001 zertifizierte 5.000m² Produktionsfläche in Shenzhen gewährleistet gleichbleibend hohe Qualität. Jedes Produkt durchläuft einen strengen 4-stufigen QC-Prozess: IQC (Eingangskontrolle der Rohmaterialien), IPQC (Prozesskontrolle während der Fertigung), FQC (Endkontrolle) und OQC (Ausgangskontrolle). Vor dem Versand absolviert jedes Gerät einen 4-Stunden-Aging-Test unter Volllast. Unsere Defektrate liegt bei unter 0,3% — das ist Branchenstandard für anspruchsvolle Kunden.</p>
                 </div>
                 <div class="reveal bg-slate-50 rounded-2xl p-8 border border-slate-200">
-                    <div class="flex items-center gap-4 mb-4"><div class="w-12 h-12 rounded-xl bg-brandOrange/10 flex items-center justify-center shrink-0"><i class="fas fa-microchip text-xl text-brandOrange"></i></div><h3 class="text-lg font-bold text-brandBlue">Technologie & Innovation</h3></div>
+                    <div class="flex items-center gap-4 mb-4"><div class="w-12 h-12 rounded-xl bg-brandOrange/10 flex items-center justify-center shrink-0"><svg class="icon-microchip text-xl text-brandOrange" aria-hidden="true" focusable="false" viewBox="0 0 512 512">
+    <path d="M176 24c0-13.3-10.7-24-24-24s-24 10.7-24 24l0 40c-35.3 0-64 28.7-64 64l-40 0c-13.3 0-24 10.7-24 24s10.7 24 24 24l40 0 0 56-40 0c-13.3 0-24 10.7-24 24s10.7 24 24 24l40 0 0 56-40 0c-13.3 0-24 10.7-24 24s10.7 24 24 24l40 0c0 35.3 28.7 64 64 64l0 40c0 13.3 10.7 24 24 24s24-10.7 24-24l0-40 56 0 0 40c0 13.3 10.7 24 24 24s24-10.7 24-24l0-40 56 0 0 40c0 13.3 10.7 24 24 24s24-10.7 24-24l0-40c35.3 0 64-28.7 64-64l40 0c13.3 0 24-10.7 24-24s-10.7-24-24-24l-40 0 0-56 40 0c13.3 0 24-10.7 24-24s-10.7-24-24-24l-40 0 0-56 40 0c13.3 0 24-10.7 24-24s-10.7-24-24-24l-40 0c0-35.3-28.7-64-64-64l0-40c0-13.3-10.7-24-24-24s-24 10.7-24 24l0 40-56 0 0-40c0-13.3-10.7-24-24-24s-24 10.7-24 24l0 40-56 0 0-40zM160 128l192 0c17.7 0 32 14.3 32 32l0 192c0 17.7-14.3 32-32 32l-192 0c-17.7 0-32-14.3-32-32l0-192c0-17.7 14.3-32 32-32zm16 48l0 160 160 0 0-160-160 0z" fill="currentColor"/>
+  </svg></div><h3 class="text-lg font-bold text-brandBlue">Technologie & Innovation</h3></div>
                     <p class="text-sm text-slate-600 leading-relaxed">Mit 50+ R&D-Ingenieuren entwickeln wir jährlich Dutzende neuer Produkte. Unser Team ist spezialisiert auf GaN-Technologie (Galliumnitrid), Power Delivery 3.1, Semi-Solid-State-Batterien und Qi2 Wireless Charging. Wir investieren kontinuierlich in neue Technologien, um unseren Kunden Zugang zu den neuesten Ladestandards zu bieten — von der ersten Skizze bis zur Serienreife, alles unter einem Dach in Shenzhen.</p>
                 </div>
                 <div class="reveal bg-slate-50 rounded-2xl p-8 border border-slate-200">
-                    <div class="flex items-center gap-4 mb-4"><div class="w-12 h-12 rounded-xl bg-brandOrange/10 flex items-center justify-center shrink-0"><i class="fas fa-globe-europe text-xl text-brandOrange"></i></div><h3 class="text-lg font-bold text-brandBlue">Erfahren im deutschen Markt</h3></div>
+                    <div class="flex items-center gap-4 mb-4"><div class="w-12 h-12 rounded-xl bg-brandOrange/10 flex items-center justify-center shrink-0"><svg class="icon-earth-europe text-xl text-brandOrange" aria-hidden="true" focusable="false" viewBox="0 0 512 512">
+    <path d="M256.2 48c114.8 .1 207.8 93.2 207.8 208 0 22.1-3.4 43.4-9.8 63.4-2 .4-4.1 .6-6.2 .6l-2.7 0c-8.5 0-16.6-3.4-22.6-9.4l-29.3-29.3c-6-6-9.4-14.1-9.4-22.6l0-50.7c0-8.8 7.2-16 16-16s16-7.2 16-16-7.2-16-16-16l-24 0c-13.3 0-24 10.7-24 24s-10.7 24-24 24l-56 0c-8.8 0-16 7.2-16 16s-7.2 16-16 16l-25.4 0c-12.5 0-22.6-10.1-22.6-22.6 0-6 2.4-11.8 6.6-16l70.1-70.1c2.1-2.1 3.3-5 3.3-8 0-6.2-5.1-11.3-11.3-11.3l-14.1 0c-12.5 0-22.6-10.1-22.6-22.6 0-6 2.4-11.8 6.6-16l23.1-23.1c.8-.8 1.6-1.5 2.5-2.2zM438.4 356.1c-32.8 59.6-93.9 101.4-165.2 107.2-.7-2.3-1.1-4.8-1.1-7.3 0-13.3-10.7-24-24-24l-26.7 0c-8.5 0-16.6-3.4-22.6-9.4l-29.3-29.3c-6-6-9.4-14.1-9.4-22.6l0-66.7c0-17.7 14.3-32 32-32l98.7 0c8.5 0 16.6 3.4 22.6 9.4l29.3 29.3c6 6 14.1 9.4 22.6 9.4l5.5 0c8.5 0 16.6 3.4 22.6 9.4l16 16c4.2 4.2 10 6.6 16 6.6 4.8 0 9.3 1.5 13 4.1zM256 512l26.2-1.3c-8.6 .9-17.3 1.3-26.2 1.3zm26.2-1.3C411.3 497.6 512 388.6 512 256 512 114.6 397.4 0 256 0l0 0C114.6 0 0 114.6 0 256 0 383.5 93.2 489.3 215.3 508.8 228.5 510.9 242.1 512 256 512zM187.3 123.3l-32 32c-6.2 6.2-16.4 6.2-22.6 0s-6.2-16.4 0-22.6l32-32c6.2-6.2 16.4-6.2 22.6 0s6.2 16.4 0 22.6z" fill="currentColor"/>
+  </svg></div><h3 class="text-lg font-bold text-brandBlue">Erfahren im deutschen Markt</h3></div>
                     <p class="text-sm text-slate-600 leading-relaxed">Seit unserer Gründung 2013 arbeiten wir mit Kunden aus Deutschland, Österreich und der Schweiz zusammen. Wir kennen die Anforderungen des europäischen Marktes: CE-Kennzeichnung, RoHS-Konformität, TÜV-Standards und die Bedeutung von UN38.3 für den Lithium-Batterie-Transport. Unsere Produkte werden speziell für die europäischen Sicherheits- und Qualitätsstandards entwickelt. Wir unterstützen bei der Zertifizierung neuer Produkte für den EU-Markt und beraten zu länderspezifischen Anforderungen.</p>
                 </div>
                 <div class="reveal bg-slate-50 rounded-2xl p-8 border border-slate-200">
-                    <div class="flex items-center gap-4 mb-4"><div class="w-12 h-12 rounded-xl bg-brandOrange/10 flex items-center justify-center shrink-0"><i class="fas fa-handshake text-xl text-brandOrange"></i></div><h3 class="text-lg font-bold text-brandBlue">Faire Partnerschaft</h3></div>
+                    <div class="flex items-center gap-4 mb-4"><div class="w-12 h-12 rounded-xl bg-brandOrange/10 flex items-center justify-center shrink-0"><svg class="icon-handshake text-xl text-brandOrange" aria-hidden="true" focusable="false" viewBox="0 0 576 512">
+    <path d="M268.9 85.2L152.3 214.8c-4.6 5.1-4.4 13 .5 17.9 30.5 30.5 80 30.5 110.5 0l31.8-31.8c4.2-4.2 9.5-6.5 14.9-6.9 6.8-.6 13.8 1.7 19 6.9L505.6 376 576 320 576 32 464 96 440.2 80.1C424.4 69.6 405.9 64 386.9 64l-70.4 0c-1.1 0-2.3 0-3.4 .1-16.9 .9-32.8 8.5-44.2 21.1zM116.6 182.7L223.4 64 183.8 64c-25.5 0-49.9 10.1-67.9 28.1L112 96 0 32 0 320 156.4 450.3c23 19.2 52 29.7 81.9 29.7l15.7 0-7-7c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l41 41 9 0c19.1 0 37.8-4.3 54.8-12.3L359 441c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l32 32 17.5-17.5c8.9-8.9 11.5-21.8 7.6-33.1l-137.9-136.8-14.9 14.9c-49.3 49.3-129.1 49.3-178.4 0-23-23-23.9-59.9-2.2-84z" fill="currentColor"/>
+  </svg></div><h3 class="text-lg font-bold text-brandBlue">Faire Partnerschaft</h3></div>
                     <p class="text-sm text-slate-600 leading-relaxed">Wir verstehen uns als langfristigen Partner, nicht als einmaligen Lieferanten. Jeder Kunde erhält einen persönlichen Account Manager, der innerhalb von 24 Stunden auf Anfragen reagiert. Wir bieten flexible Zahlungsbedingungen (T/T, auf Anfrage auch Zahlung auf Rechnung für geprüfte Partner), Musterbestellungen vor der Serienproduktion und transparente Kommunikation während des gesamten Fertigungsprozesses. Unsere Preise verstehen sich in EUR — keine versteckten Kosten, keine Überraschungen.</p>
                 </div>
             </div>
@@ -545,21 +1360,27 @@
             <div class="grid md:grid-cols-3 gap-8">
                 <div class="text-center reveal p-6">
                     <div class="w-14 h-14 rounded-2xl bg-brandOrange/10 flex items-center justify-center mx-auto mb-5">
-                        <i class="fas fa-pencil-ruler text-2xl text-brandOrange"></i>
+                        <svg class="icon-pen-ruler text-2xl text-brandOrange" aria-hidden="true" focusable="false" viewBox="0 0 512 512">
+    <path d="M404 0c19.2 0 37.6 7.6 51.1 21.2l35.7 35.7C504.4 70.4 512 88.8 512 108s-7.6 37.6-21.2 51.1L445.9 204 308 66.1 352.9 21.2C366.4 7.6 384.8 0 404 0zM58.9 315.1L274.1 100 412 237.9 196.9 453.1c-10.7 10.7-24.1 18.5-38.7 22.6L30.4 511.1c-8.3 2.3-17.3 0-23.4-6.2s-8.5-15.1-6.2-23.4L36.4 353.8c4.1-14.6 11.8-27.9 22.6-38.7zM225.4 80.8L80.8 225.4 11.7 156.3c-15.6-15.6-15.6-40.9 0-56.6l88-88c15.6-15.6 40.9-15.6 56.6 0l5.9 5.9-56.3 56.3c-7.8 7.8-7.8 20.5 0 28.3s20.5 7.8 28.3 0l56.3-56.3 34.9 34.9zM431.2 286.6l34.9 34.9-56.3 56.3c-7.8 7.8-7.8 20.5 0 28.3s20.5 7.8 28.3 0l56.3-56.3 5.9 5.9c15.6 15.6 15.6 40.9 0 56.6l-88 88c-15.6 15.6-40.9 15.6-56.6 0l-69.1-69.1 144.6-144.6z" fill="currentColor"/>
+  </svg>
                     </div>
                     <h3 class="text-lg font-bold text-brandBlue mb-3">Design & Entwicklung</h3>
                     <p class="text-sm text-slate-500 leading-relaxed">ID-Design, PCBA-Engineering und Werkzeugbau durch unser 50-köpfiges R&D-Team.</p>
                 </div>
                 <div class="text-center reveal p-6">
                     <div class="w-14 h-14 rounded-2xl bg-brandOrange/10 flex items-center justify-center mx-auto mb-5">
-                        <i class="fas fa-industry text-2xl text-brandOrange"></i>
+                        <svg class="icon-industry text-2xl text-brandOrange" aria-hidden="true" focusable="false" viewBox="0 0 512 512">
+    <path d="M32 32C14.3 32 0 46.3 0 64L0 432c0 26.5 21.5 48 48 48l416 0c26.5 0 48-21.5 48-48l0-279.8c0-18.2-19.4-29.7-35.4-21.1l-156.6 84.3 0-63.2c0-18.2-19.4-29.7-35.4-21.1L128 215.4 128 64c0-17.7-14.3-32-32-32L32 32z" fill="currentColor"/>
+  </svg>
                     </div>
                     <h3 class="text-lg font-bold text-brandBlue mb-3">Fertigung & QC</h3>
                     <p class="text-sm text-slate-500 leading-relaxed">ISO 9001 zertifizierte Produktion mit 4-stufigem Qualitätsprozess und 4-Stunden-Aging-Test.</p>
                 </div>
                 <div class="text-center reveal p-6">
                     <div class="w-14 h-14 rounded-2xl bg-brandOrange/10 flex items-center justify-center mx-auto mb-5">
-                        <i class="fas fa-ship text-2xl text-brandOrange"></i>
+                        <svg class="icon-ship text-2xl text-brandOrange" aria-hidden="true" focusable="false" viewBox="0 0 640 512">
+    <path d="M272 0c-26.5 0-48 21.5-48 48l0 16-16 0c-44.2 0-80 35.8-80 80l0 108.8-21.6 8.6c-14.8 5.9-22.5 22.4-17.4 37.5 10.4 31.3 26.8 59.3 47.7 83.1 20.1-9.2 41.7-13.9 63.3-14 33.1-.2 66.3 10.2 94.4 31.4l1.6 1.2 0-215-104 41.6 0-83.2c0-8.8 7.2-16 16-16l224 0c8.8 0 16 7.2 16 16l0 83.2-104-41.6 0 215 1.6-1.2c27.5-20.7 59.9-31.2 92.4-31.4 22.3-.1 44.6 4.5 65.3 14 20.9-23.7 37.3-51.8 47.7-83.1 5-15.2-2.6-31.6-17.4-37.5L512 252.8 512 144c0-44.2-35.8-80-80-80l-16 0 0-16c0-26.5-21.5-48-48-48L272 0zM403.4 476.1c21.3-16.1 49.9-16.1 71.2 0 19 14.4 41.9 28.2 67.2 33.3 26.5 5.4 54.3 .8 80.7-19.1 10.6-8 12.7-23 4.7-33.6s-23-12.7-33.6-4.7c-14.9 11.2-28.6 13.1-42.3 10.3-14.9-3-30.9-11.9-47.8-24.6-38.4-29-90.5-29-129 0-24 18.1-40.7 26.3-54.5 26.3s-30.5-8.2-54.5-26.3c-38.4-29-90.5-29-129 0-21.6 16.3-41.3 25.8-58.9 25.7-9.6-.1-19.9-3-31.2-11.5-10.6-8-25.6-5.9-33.6 4.7S7 482.3 17.6 490.3c19.1 14.4 39.4 21 59.8 21.1 33.9 .2 64.3-17.4 88.1-35.3 21.3-16.1 49.9-16.1 71.2 0 24.2 18.3 52.3 35.9 83.4 35.9s59.1-17.7 83.4-35.9z" fill="currentColor"/>
+  </svg>
                     </div>
                     <h3 class="text-lg font-bold text-brandBlue mb-3">Logistik & Zollabwicklung</h3>
                     <p class="text-sm text-slate-500 leading-relaxed">Flexibler Versand per Express oder Standard. DDP-Service inklusive Zollabwicklung für Deutschland.</p>
@@ -567,7 +1388,9 @@
             </div>
             <div class="text-center mt-12 reveal">
                 <a href="oem-odm-service.html" class="btn-primary">
-                    Mehr über OEM/ODM <i class="fas fa-arrow-right text-sm"></i>
+                    Mehr über OEM/ODM <svg class="icon-arrow-right text-sm" aria-hidden="true" focusable="false" viewBox="0 0 512 512">
+    <path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-105.4 105.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" fill="currentColor"/>
+  </svg>
                 </a>
             </div>
         </div>
@@ -668,11 +1491,13 @@
                         <span class="text-xs text-slate-400">Ich habe die <a href="datenschutz.html" class="text-brandOrange hover:underline">Datenschutzerklärung</a> zur Kenntnis genommen. *</span>
                     </label>
                     <button type="submit" class="btn-primary w-full justify-center text-base py-4">
-                        Kostenloses Angebot erhalten <i class="fas fa-arrow-right"></i>
+                        Kostenloses Angebot erhalten <svg class="icon-arrow-right" aria-hidden="true" focusable="false" viewBox="0 0 512 512">
+    <path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-105.4 105.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" fill="currentColor"/>
+  </svg>
                     </button>
                 </form>
                 <p class="text-slate-400 text-sm mt-4">
-                    <i class="fas fa-phone mr-2 text-brandOrange"></i>Oder rufen Sie uns an: <a href="tel:+8618620789739" class="text-white hover:text-brandOrange font-semibold">+86-186-2078-9739</a>
+                    <svg class="icon-phone mr-2 text-brandOrange" aria-hidden="true" focusable="false" viewBox="0 0 512 512"><path d="M160.2 25C152.3 6.1 131.7-3.9 112.1 1.4l-5.5 1.5c-64.6 17.6-119.8 80.2-103.7 156.4 37.1 175 174.8 312.7 349.8 349.8 76.3 16.2 138.8-39.1 156.4-103.7l1.5-5.5c5.4-19.7-4.7-40.3-23.5-48.1l-97.3-40.5c-16.5-6.9-35.6-2.1-47 11.8l-38.6 47.2C233.9 335.4 177.3 277 144.8 205.3L189 169.3c13.9-11.3 18.6-30.4 11.8-47L160.2 25z" fill="currentColor"/></svg>Oder rufen Sie uns an: <a href="tel:+8618620789739" class="text-white hover:text-brandOrange font-semibold">+86-186-2078-9739</a>
                 </p>
             </div>
         </div>
@@ -688,16 +1513,20 @@
                     <p class="text-sm text-slate-300 leading-relaxed mb-4">Ihr OEM/ODM Partner für hochwertige Ladelösungen aus Shenzhen, China. Seit 2013.</p>
                     <div class="flex items-center gap-3">
                         <a href="https://www.linkedin.com/company/wowohcool" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-brandOrange transition-colors" aria-label="LinkedIn">
-                            <i class="fab fa-linkedin-in text-sm text-white"></i>
+                            <svg class="icon-linkedin-in text-sm text-white" aria-hidden="true" focusable="false" viewBox="0 0 448 512">
+    <path d="M100.3 448l-92.9 0 0-299.1 92.9 0 0 299.1zM53.8 108.1C24.1 108.1 0 83.5 0 53.8 0 39.5 5.7 25.9 15.8 15.8s23.8-15.8 38-15.8 27.9 5.7 38 15.8 15.8 23.8 15.8 38c0 29.7-24.1 54.3-53.8 54.3zM447.9 448l-92.7 0 0-145.6c0-34.7-.7-79.2-48.3-79.2-48.3 0-55.7 37.7-55.7 76.7l0 148.1-92.8 0 0-299.1 89.1 0 0 40.8 1.3 0c12.4-23.5 42.7-48.3 87.9-48.3 94 0 111.3 61.9 111.3 142.3l0 164.3-.1 0z" fill="currentColor"/>
+  </svg>
                         </a>
                         <a href="https://www.facebook.com/wowohcoolelectronic" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-brandOrange transition-colors" aria-label="Facebook">
-                            <i class="fab fa-facebook-f text-sm text-white"></i>
+                            <svg class="icon-facebook-f text-sm text-white" aria-hidden="true" focusable="false" viewBox="0 0 320 512">
+    <path d="M80 299.3l0 212.7 116 0 0-212.7 86.5 0 18-97.8-104.5 0 0-34.6c0-51.7 20.3-71.5 72.7-71.5 16.3 0 29.4 .4 37 1.2l0-88.7C291.4 4 256.4 0 236.2 0 129.3 0 80 50.5 80 159.4l0 42.1-66 0 0 97.8 66 0z" fill="currentColor"/>
+  </svg>
                         </a>
                         <a href="https://www.xing.com/profile/snowy_may" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-brandOrange transition-colors" aria-label="XING">
-                            <i class="fab fa-xing text-sm text-white"></i>
+                            <svg class="icon-xing text-sm text-white" aria-hidden="true" focusable="false" viewBox="0 0 384 512"><path d="M162.7 210c-1.8 3.3-25.2 44.4-70.1 123.5-4.9 8.3-10.8 12.5-17.7 12.5L9.8 346c-7.7 0-12.1-7.5-8.5-14.4l69-121.3c.2 0 .2-.1 0-.3L26.4 134.4c-4.3-7.8 .3-14.1 8.5-14.1l65.1 0c7.3 0 13.3 4.1 18 12.2L162.7 210zM382.6 46.1l-144 253 0 .3 91.6 166.6c3.9 7.1 .2 14.1-8.5 14.1l-65.2 0c-7.6 0-13.6-4-18-12.2L146.1 299.4c3.3-5.8 51.5-90.8 144.8-255.2 4.6-8.1 10.4-12.2 17.5-12.2l65.7 0c8 0 12.3 6.7 8.5 14.1z" fill="currentColor"/></svg>
                         </a>
                         <a href="mailto:info@wowohcool.com" class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-brandOrange transition-colors" aria-label="E-Mail">
-                            <i class="fas fa-envelope text-sm text-white"></i>
+                            <svg class="icon-envelope text-sm text-white" aria-hidden="true" focusable="false" viewBox="0 0 512 512"><path d="M48 64c-26.5 0-48 21.5-48 48 0 15.1 7.1 29.3 19.2 38.4l208 156c17.1 12.8 40.5 12.8 57.6 0l208-156c12.1-9.1 19.2-23.3 19.2-38.4 0-26.5-21.5-48-48-48L48 64zM0 196L0 384c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-188-198.4 148.8c-34.1 25.6-81.1 25.6-115.2 0L0 196z" fill="currentColor"/></svg>
                         </a>
                     </div>
                 </div>
@@ -744,7 +1573,9 @@
                     <p class="text-sm text-slate-500 mt-1">Wir antworten innerhalb von 24 Stunden.</p>
                 </div>
                 <button id="inquiryModalClose" class="w-10 h-10 shrink-0 rounded-full bg-slate-100 hover:bg-slate-200 flex items-center justify-center transition-colors hover:bg-brandOrange/10 hover:text-brandOrange" aria-label="Schließen">
-                    <i class="fas fa-times"></i>
+                    <svg class="icon-xmark" aria-hidden="true" focusable="false" viewBox="0 0 384 512">
+    <path d="M55.1 73.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L147.2 256 9.9 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192.5 301.3 329.9 438.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.8 256 375.1 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192.5 210.7 55.1 73.4z" fill="currentColor"/>
+  </svg>
                 </button>
             </div>
 
@@ -794,7 +1625,9 @@
                         </label>
                     </div>
                     <button type="submit" class="w-full bg-brandOrange text-white py-4 rounded-xl font-bold text-base hover:bg-brandBlue transition-all duration-300 shadow-lg shadow-brandOrange/30 flex items-center justify-center gap-3">
-                        <i class="fas fa-paper-plane"></i> Kostenloses Angebot erhalten
+                        <svg class="icon-paper-plane" aria-hidden="true" focusable="false" viewBox="0 0 576 512">
+    <path d="M536.4-26.3c9.8-3.5 20.6-1 28 6.3s9.8 18.2 6.3 28l-178 496.9c-5 13.9-18.1 23.1-32.8 23.1-14.2 0-27-8.6-32.3-21.7l-64.2-158c-4.5-11-2.5-23.6 5.2-32.6l94.5-112.4c5.1-6.1 4.7-15-.9-20.6s-14.6-6-20.6-.9L229.2 276.1c-9.1 7.6-21.6 9.6-32.6 5.2L38.1 216.8c-13.1-5.3-21.7-18.1-21.7-32.3 0-14.7 9.2-27.8 23.1-32.8l496.9-178z" fill="currentColor"/>
+  </svg> Kostenloses Angebot erhalten
                     </button>
                 </div>
             </form>
@@ -803,18 +1636,18 @@
 
     <!-- Back to Top -->
     <button id="backToTop" class="fixed bottom-8 right-8 w-10 h-10 rounded-full bg-brandBlue text-white shadow-lg hover:bg-brandOrange transition-all duration-300 z-50 flex items-center justify-center" aria-label="Nach oben">
-        <i class="fas fa-arrow-up"></i>
+        <svg class="icon-arrow-up" aria-hidden="true" focusable="false" viewBox="0 0 384 512"><path d="M214.6 9.4c-12.5-12.5-32.8-12.5-45.3 0l-160 160c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 109.3 160 480c0 17.7 14.3 32 32 32s32-14.3 32-32l0-370.7 105.4 105.4c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-160-160z" fill="currentColor"/></svg>
     </button>
 
     <!-- Floating Buttons (left side stacked) -->
     <div class="fixed bottom-8 left-8 z-40 flex flex-col gap-3">
         <button data-trigger="inquiry" class="w-10 h-10 rounded-full bg-brandOrange text-white shadow-lg hover:scale-110 transition-all duration-300 flex items-center justify-center group relative cursor-pointer" aria-label="Schnellanfrage">
-            <i class="fas fa-envelope text-lg"></i>
+            <svg class="icon-envelope text-lg" aria-hidden="true" focusable="false" viewBox="0 0 512 512"><path d="M48 64c-26.5 0-48 21.5-48 48 0 15.1 7.1 29.3 19.2 38.4l208 156c17.1 12.8 40.5 12.8 57.6 0l208-156c12.1-9.1 19.2-23.3 19.2-38.4 0-26.5-21.5-48-48-48L48 64zM0 196L0 384c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-188-198.4 148.8c-34.1 25.6-81.1 25.6-115.2 0L0 196z" fill="currentColor"/></svg>
         <span class="absolute left-20 bg-black text-white text-[10px] font-bold px-3 py-1 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">Schnellanfrage</span></button>
         <a href="https://wa.me/8618620789739" target="_blank" rel="noopener noreferrer"
            class="bg-[#25D366] text-white w-10 h-10 rounded-full shadow-lg hover:scale-110 transition-all duration-300 flex items-center justify-center group relative"
            aria-label="WhatsApp">
-            <i class="fab fa-whatsapp text-xl"></i>
+            <svg class="icon-whatsapp text-xl" aria-hidden="true" focusable="false" viewBox="0 0 448 512"><path d="M380.9 97.1c-41.9-42-97.7-65.1-157-65.1-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480 117.7 449.1c32.4 17.7 68.9 27 106.1 27l.1 0c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3 18.6-68.1-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1s56.2 81.2 56.1 130.5c0 101.8-84.9 184.6-186.6 184.6zM325.1 300.5c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8s-14.3 18-17.6 21.8c-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7 .9-6.9-.5-9.7s-12.5-30.1-17.1-41.2c-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2s-9.7 1.4-14.8 6.9c-5.1 5.6-19.4 19-19.4 46.3s19.9 53.7 22.6 57.4c2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4s4.6-24.1 3.2-26.4c-1.3-2.5-5-3.9-10.5-6.6z" fill="currentColor"/></svg>
         <span class="absolute left-20 bg-black text-white text-[10px] font-bold px-3 py-1 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">Chat auf WhatsApp</span></a>
     </div>
 
