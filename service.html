@@ -39,9 +39,34 @@
          ======================================================================== -->
     <link rel="preload" as="style" href="css/styles.css" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="css/styles.css"></noscript>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
-    <link rel="stylesheet" href="css/style.css" media="print" onload="this.media='all'">
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Critical styles (inline to ensure mobile visibility) -->
+    <style>
+    .reveal { opacity: 0; transform: translateY(25px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
+    .reveal.active { opacity: 1; transform: translateY(0); }
+    .badge-capsule {
+        border: 1.5px solid rgba(255,255,255,0.3); background: rgba(255,107,0,0.15);
+        color: #FFF; padding: 8px 24px 8px 40px; border-radius: 999px; font-size: 10px;
+        font-weight: 900; letter-spacing: 0.15em; position: relative; display: inline-flex;
+        align-items: center; text-shadow: 0 1px 2px rgba(0,0,0,0.3); white-space: nowrap;
+    }
+    .bg-slate-50 .badge-capsule, .bg-white .badge-capsule {
+        border: 1.5px solid rgba(0,0,0,0.15); background: rgba(0,0,0,0.03);
+        color: #0A192F; text-shadow: none;
+    }
+    .badge-capsule::before {
+        content: ''; position: absolute; left: 18px; width: 10px; height: 10px;
+        background-color: #ff6b00; border-radius: 50%;
+        box-shadow: 0 0 12px #ff6b00, 0 0 20px rgba(255,107,0,0.5);
+        animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+        0%, 100% { box-shadow: 0 0 12px #ff6b00, 0 0 20px rgba(255,107,0,0.5); }
+        50% { box-shadow: 0 0 18px #ff6b00, 0 0 30px rgba(255,107,0,0.7); }
+    }
+    @media (min-width: 768px) { .badge-capsule { font-size: 11px; } }
+    </style>
     <!-- Google Fonts Font Preload -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
