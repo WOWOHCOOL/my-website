@@ -375,11 +375,22 @@
     <link rel="stylesheet" href="css/style.css">
     <!-- Critical hero + badge-capsule styles (inline to ensure mobile visibility) -->
     <style>
-    #hero { padding-top: 8rem; }
+    #hero { padding-top: 1rem; }
     .hero-layout {
         display: flex;
         flex-direction: column;
         gap: 2.5rem;
+    }
+    .hero-text-col .badge-capsule { margin-bottom: 0.75rem; }
+    .hero-text-col h1 { margin-bottom: 0.5rem; }
+    .hero-text-col h1 + p { margin-bottom: 0.75rem; }
+    .hero-text-col ul { margin-bottom: 1rem; }
+    @media (min-width: 768px) {
+        #hero { padding-top: 8rem; }
+        .hero-text-col .badge-capsule { margin-bottom: 1.5rem; }
+        .hero-text-col h1 { margin-bottom: 1.5rem; }
+        .hero-text-col h1 + p { margin-bottom: 1.5rem; }
+        .hero-text-col ul { margin-bottom: 2rem; }
     }
     @media (min-width: 1024px) {
         #hero { padding-top: 14rem; }
@@ -560,29 +571,29 @@
          HERO SECTION - Hero Section
          ======================================================================== -->
     <main id="main-content">
-    <section id="hero" class="bg-slate-50 relative overflow-x-hidden flex flex-col pb-24" style="min-height:calc(100vh - 80px)">
+    <section id="hero" class="bg-slate-50 relative overflow-x-hidden flex flex-col pb-8 md:pb-24" style="min-height:calc(100dvh - 56px)">
         <div class="flex-1 max-w-7xl mx-auto px-6 w-full hero-layout">
-            <div class="hero-text-col max-w-lg py-10">
+            <div class="hero-text-col max-w-lg py-4 md:py-10">
                 <div>
-                    <div class="badge-capsule mb-6 uppercase tracking-widest">Since 2013 | 5,000㎡ Manufacturing Facility</div>
-                    <h1 class="text-4xl font-black text-brandBlue leading-[1.1] mb-6 uppercase italic">
+                    <div class="badge-capsule mb-3 md:mb-6 uppercase tracking-widest">Since 2013 | 5,000㎡ Manufacturing Facility</div>
+                    <h1 class="text-2xl md:text-4xl font-black text-brandBlue leading-[1.1] mb-2 md:mb-6 uppercase italic">
                         Wireless Charger & Power Bank <span class="text-brandOrange">OEM/ODM for</span> 200+ Global Brands
                     </h1>
-                    <p class="text-slate-400 text-sm mb-6 leading-relaxed max-w-xl">
+                    <p class="text-slate-400 text-xs md:text-sm mb-3 md:mb-6 leading-relaxed max-w-xl">
                         The OEM/ODM partner behind successful charging brands worldwide. From spec to shipment — we engineer, certify, and deliver.
                     </p>
-                    <ul class="text-slate-500 text-xs space-y-2 mb-8 max-w-xl">
-                        <li class="flex items-start gap-3"><span class="text-brandOrange font-bold shrink-0 mt-0.5">▸</span> CE/FCC/Qi2 Certified &bull; ISO 9001 &bull; Since 2013</li>
-                        <li class="flex items-start gap-3"><span class="text-brandOrange font-bold shrink-0 mt-0.5">▸</span> 50+ R&D Engineers &bull; GaN V, PD 3.1, Qi2 MPP, Semi-Solid-State</li>
-                        <li class="flex items-start gap-3"><span class="text-brandOrange font-bold shrink-0 mt-0.5">▸</span> MOQ 500+ &bull; Factory-Direct Pricing &bull; Shenzhen, China</li>
+                    <ul class="text-slate-500 text-[10px] md:text-xs space-y-1 md:space-y-2 mb-4 md:mb-8 max-w-xl">
+                        <li class="flex items-start gap-2 md:gap-3"><span class="text-brandOrange font-bold shrink-0 mt-0.5">▸</span> CE/FCC/Qi2 Certified &bull; ISO 9001 &bull; Since 2013</li>
+                        <li class="flex items-start gap-2 md:gap-3"><span class="text-brandOrange font-bold shrink-0 mt-0.5">▸</span> 50+ R&D Engineers &bull; GaN V, PD 3.1, Qi2 MPP, Semi-Solid-State</li>
+                        <li class="flex items-start gap-2 md:gap-3"><span class="text-brandOrange font-bold shrink-0 mt-0.5">▸</span> MOQ 500+ &bull; Factory-Direct Pricing &bull; Shenzhen, China</li>
                     </ul>
                 </div>
-                <div class="flex flex-col sm:flex-row gap-4">
-                    <button data-action="open-modal" class="bg-brandOrange text-white px-8 py-4 rounded-xl font-black uppercase tracking-widest text-sm shadow-xl hover:-translate-y-1 transition flex-1 flex items-center justify-center">Request Free Samples</button>
-                    <a href="#products" class="border-2 border-brandBlue text-brandBlue px-8 py-4 rounded-xl font-black uppercase tracking-widest text-sm hover:bg-brandBlue hover:text-white transition flex-1 flex items-center justify-center">Explore Products</a>
+                <div class="flex flex-col sm:flex-row gap-2 md:gap-4">
+                    <button data-action="open-modal" class="bg-brandOrange text-white px-5 md:px-8 py-3 md:py-4 rounded-xl font-black uppercase tracking-widest text-[11px] md:text-sm shadow-xl hover:-translate-y-1 transition flex-1 flex items-center justify-center">Request Free Samples</button>
+                    <a href="#products" class="border-2 border-brandBlue text-brandBlue px-5 md:px-8 py-3 md:py-4 rounded-xl font-black uppercase tracking-widest text-[11px] md:text-sm hover:bg-brandBlue hover:text-white transition flex-1 flex items-center justify-center">Explore Products</a>
                 </div>
             </div>
-            <div class="hero-img-col">
+            <div class="hero-img-col hidden md:block">
                 <img src="image/wowohcool-smart-charging-solutions-720w.webp"
                      srcset="image/wowohcool-smart-charging-solutions-360w.webp 360w,
                              image/wowohcool-smart-charging-solutions-480w.webp 480w,
