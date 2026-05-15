@@ -154,7 +154,59 @@
     </script>
 
     <!-- 站点样式与图标 -->
-    <link rel="stylesheet" href="css/style.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Critical styles (inline to ensure mobile visibility) -->
+    <style>
+    #about-hero { padding-top: 9rem; }
+    @media (min-width: 1024px) {
+        #about-hero { padding-top: 12rem; }
+    }
+    .reveal {
+        opacity: 0;
+        transform: translateY(25px);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    .reveal.active { opacity: 1; transform: translateY(0); }
+    .badge-capsule {
+        border: 1.5px solid rgba(255, 255, 255, 0.3);
+        background: rgba(255, 107, 0, 0.15);
+        color: #FFFFFF;
+        padding: 8px 24px 8px 40px;
+        border-radius: 999px;
+        font-size: 10px;
+        font-weight: 900;
+        letter-spacing: 0.15em;
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+        white-space: nowrap;
+    }
+    .bg-white .badge-capsule {
+        border: 1.5px solid rgba(0, 0, 0, 0.15);
+        background: rgba(0, 0, 0, 0.03);
+        color: #0A192F;
+        text-shadow: none;
+    }
+    .badge-capsule::before {
+        content: '';
+        position: absolute;
+        left: 18px;
+        width: 10px;
+        height: 10px;
+        background-color: #ff6b00;
+        border-radius: 50%;
+        box-shadow: 0 0 12px #ff6b00, 0 0 20px rgba(255, 107, 0, 0.5);
+        animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+        0%, 100% { box-shadow: 0 0 12px #ff6b00, 0 0 20px rgba(255, 107, 0, 0.5); }
+        50% { box-shadow: 0 0 18px #ff6b00, 0 0 30px rgba(255, 107, 0, 0.7); }
+    }
+    @media (min-width: 768px) {
+        .badge-capsule { font-size: 11px; }
+    }
+    </style>
     <link rel="icon" type="image/png" href="image/favicon.png?v=2">
     <link rel="shortcut icon" href="image/favicon.png?v=2" type="image/x-icon">
     <link rel="apple-touch-icon" sizes="180x180" href="image/apple-touch-icon.png">
