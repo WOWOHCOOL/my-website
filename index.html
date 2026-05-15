@@ -1871,6 +1871,28 @@
          使用 defer 延迟加载，不阻塞页面渲染
          ======================================================================== -->
     <script src="main.js" defer></script>
+    <script>
+    // Fix aria-hidden focusable submenu links: toggle tabindex with aria-hidden
+    document.addEventListener('click', function(e) {
+        var btn = e.target.closest('[data-action="toggle-mobile-submenu"]');
+        if (!btn) return;
+        var sub = document.getElementById('mobile-submenu');
+        if (!sub) return;
+        var links = sub.querySelectorAll('a');
+        var hidden = sub.getAttribute('aria-hidden') === 'true';
+        links.forEach(function(l) {
+            if (hidden) l.setAttribute('tabindex', '-1');
+            else l.removeAttribute('tabindex');
+        });
+    });
+    // Initialize on page load
+    document.addEventListener('DOMContentLoaded', function() {
+        var sub = document.getElementById('mobile-submenu');
+        if (sub && sub.getAttribute('aria-hidden') === 'true') {
+            sub.querySelectorAll('a').forEach(function(l) { l.setAttribute('tabindex', '-1'); });
+        }
+    });
+    </script>
 </body>
 
 </html>
