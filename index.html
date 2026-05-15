@@ -371,11 +371,38 @@
     <link rel="preload" as="style" href="css/styles.css" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="css/styles.css"></noscript>
 
-    <!-- Custom CSS - async load -->
-    <link rel="stylesheet" href="css/style.css" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="css/style.css"></noscript>
-    <!-- Critical badge-capsule styles (inline to ensure mobile visibility) -->
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Critical hero + badge-capsule styles (inline to ensure mobile visibility) -->
     <style>
+    #hero { padding-top: 8rem; }
+    .hero-layout {
+        display: flex;
+        flex-direction: column;
+        gap: 2.5rem;
+    }
+    @media (min-width: 1024px) {
+        #hero { padding-top: 14rem; }
+        .hero-layout {
+            flex-direction: row;
+            align-items: stretch;
+        }
+        .hero-layout .hero-text-col {
+            width: 50%;
+            max-width: none;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+        .hero-layout .hero-img-col {
+            width: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+        }
+    }
     .badge-capsule {
         border: 1.5px solid rgba(255, 255, 255, 0.3);
         background: rgba(255, 107, 0, 0.15);
