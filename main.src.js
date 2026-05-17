@@ -332,7 +332,13 @@ const counterObserver = new IntersectionObserver(
         const current = Math.ceil(progress * max);
 
         if (progress >= 1) {
-          el.innerText = (max >= 1000 ? Math.round(max / 100) / 10 + 'k' : max) + '+';
+          if (max >= 1000000) {
+            el.innerText = (max / 1000000).toFixed(1).replace(/\.0$/, '') + 'M+';
+          } else if (max >= 1000) {
+            el.innerText = max.toLocaleString('en-US') + '+';
+          } else {
+            el.innerText = max + '+';
+          }
         } else {
           el.innerText = current;
         }
