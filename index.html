@@ -367,12 +367,7 @@
     
     <!-- Google Analytics 4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-88920CDSFH"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-88920CDSFH');
-    </script>
+    
 
   
 </head>
@@ -1821,16 +1816,6 @@
                 </div>
             </form>
 
-            <script>
-            (function() {
-                var p = new URLSearchParams(window.location.search);
-                ["utm_source","utm_medium","utm_campaign"].forEach(function(k) {
-                    var v = p.get(k);
-                    if (v) document.getElementById(k).value = v;
-                });
-            })();
-            </script>
-
         </div>
     </div>
 
@@ -1839,28 +1824,6 @@
          使用 defer 延迟加载，不阻塞页面渲染
          ======================================================================== -->
     <script src="main.js" defer></script>
-    <script>
-    // Fix aria-hidden focusable submenu links: toggle tabindex with aria-hidden
-    document.addEventListener('click', function(e) {
-        var btn = e.target.closest('[data-action="toggle-mobile-submenu"]');
-        if (!btn) return;
-        var sub = document.getElementById('mobile-submenu');
-        if (!sub) return;
-        var links = sub.querySelectorAll('a');
-        var hidden = sub.getAttribute('aria-hidden') === 'true';
-        links.forEach(function(l) {
-            if (hidden) l.setAttribute('tabindex', '-1');
-            else l.removeAttribute('tabindex');
-        });
-    });
-    // Initialize on page load
-    document.addEventListener('DOMContentLoaded', function() {
-        var sub = document.getElementById('mobile-submenu');
-        if (sub && sub.getAttribute('aria-hidden') === 'true') {
-            sub.querySelectorAll('a').forEach(function(l) { l.setAttribute('tabindex', '-1'); });
-        }
-    });
-    </script>
 </body>
 
 </html>

@@ -4,6 +4,13 @@
  * This compiles to main.js (minified).
  */
 
+// ─── Google Analytics 4 (runs before DOMContentLoaded) ──────────────────────
+
+window.dataLayer = window.dataLayer || [];
+function gtag() { dataLayer.push(arguments); }
+gtag('js', new Date());
+gtag('config', 'G-88920CDSFH');
+
 // ─── DOM Element References (cached) ────────────────────────────────────────
 
 let inquiryModal = null;
@@ -234,13 +241,17 @@ function toggleMobileSubmenu() {
   const icon = document.querySelector('.submenu-icon');
   if (!submenu) return;
 
+  const links = submenu.querySelectorAll('a');
+
   if (submenu.classList.contains('open')) {
     submenu.classList.remove('open');
     submenu.setAttribute('aria-hidden', 'true');
+    links.forEach(l => l.setAttribute('tabindex', '-1'));
     if (icon) icon.style.transform = 'rotate(0deg)';
   } else {
     submenu.classList.add('open');
     submenu.setAttribute('aria-hidden', 'false');
+    links.forEach(l => l.removeAttribute('tabindex'));
     if (icon) icon.style.transform = 'rotate(180deg)';
   }
 }
@@ -312,18 +323,26 @@ const counterObserver = new IntersectionObserver(
         return;
       }
 
-      let current = 0;
-      const step = Math.max(1, Math.ceil(max / 60));
-      const interval = setInterval(() => {
-        current += step;
-        if (current >= max) {
-          el.innerText = (max >= 1000 ? Math.round(max / 100) / 10 + 'k' : max) + '+';
-          clearInterval(interval);
-        } else {
-          el.innerText = Math.ceil(current);
-        }
-      }, 30);
+      const duration = 1800;
+      const startTime = performance.now();
 
+      function update(currentTime) {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const current = Math.ceil(progress * max);
+
+        if (progress >= 1) {
+          el.innerText = (max >= 1000 ? Math.round(max / 100) / 10 + 'k' : max) + '+';
+        } else {
+          el.innerText = current;
+        }
+
+        if (progress < 1) {
+          requestAnimationFrame(update);
+        }
+      }
+
+      requestAnimationFrame(update);
       counterObserver.unobserve(el);
     });
   },
@@ -400,6 +419,7 @@ document.addEventListener('DOMContentLoaded', () => {
         submitBtn.disabled = false;
         submitBtn.classList.remove('opacity-50', 'cursor-not-allowed');
         submitBtn.textContent = originalText;
+        console.error('Form submission error:', err);
         showFormError(form, 'Network error. Please check your connection and try again.');
       }
     });
@@ -410,6 +430,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Observe counter elements
   document.querySelectorAll('.counter').forEach(el => counterObserver.observe(el));
+
+  // Capture UTM parameters into hidden form fields
+  const params = new URLSearchParams(window.location.search);
+  ['utm_source', 'utm_medium', 'utm_campaign'].forEach(k => {
+    const v = params.get(k);
+    if (v) {
+      const el = document.getElementById(k);
+      if (el) el.value = v;
+    }
+  });
+
+  // Initialize mobile submenu: hide focusable links when closed
+  const submenu = document.getElementById('mobile-submenu');
+  if (submenu && submenu.getAttribute('aria-hidden') === 'true') {
+    submenu.querySelectorAll('a').forEach(l => l.setAttribute('tabindex', '-1'));
+  }
 
   // Initial back to top state
   updateBackToTop();
