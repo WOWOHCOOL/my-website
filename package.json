@@ -2,10 +2,19 @@
   "name": "wowohcool-web",
   "private": true,
   "scripts": {
-    "build": "npx esbuild main.src.js --bundle --minify --outfile=main.js",
-    "watch": "npx esbuild main.src.js --bundle --minify --outfile=main.js --watch"
+    "build:css": "npx tailwindcss -i ./css/src.css -o ./css/styles.css --minify",
+    "build:js:en": "npx esbuild main.src.js --bundle --minify --outfile=main.js --define:LANG=\"\\\"en\\\"\"",
+    "build:js:de": "npx esbuild main.src.js --bundle --minify --outfile=de/js/de-main.js --define:LANG=\"\\\"de\\\"\"",
+    "build:js": "npm run build:js:en && npm run build:js:de",
+    "build": "npm run build:css && npm run build:js",
+    "watch:css": "npx tailwindcss -i ./css/src.css -o ./css/styles.css --minify --watch",
+    "watch:js": "npx esbuild main.src.js --bundle --minify --outfile=main.js --define:LANG=\"\\\"en\\\"\" --watch",
+    "watch": "npm run build:css && npx concurrently \"npm run watch:css\" \"npm run watch:js\""
   },
   "devDependencies": {
-    "esbuild": "^0.25.0"
+    "esbuild": "^0.25.0",
+    "tailwindcss": "^3.4.19",
+    "postcss": "^8.5.14",
+    "autoprefixer": "^10.5.0"
   }
 }

@@ -1,17 +1,41 @@
 /**
- * WOWOHCOOL — Main Script
- * Source file. Build with: npm run build
- * This compiles to main.js (minified).
+ * WOWOHCOOL — Main Script (Shared)
+ *
+ * Build:
+ *   EN: esbuild main.src.js --bundle --minify --outfile=main.js           --define:LANG="\"en\""
+ *   DE: esbuild main.src.js --bundle --minify --outfile=de/js/de-main.js  --define:LANG="\"de\""
  */
 
-// ─── Google Analytics 4 (runs before DOMContentLoaded) ──────────────────────
+// ─── Language Configuration ──────────────────────────────────────────
+// Overridden at build time via esbuild --define:LANG="\"de\""
+const _ = typeof LANG !== "undefined" && LANG === "de"
+  ? {
+      redirectUrl: '/de/danke',
+      sendingText: 'Wird gesendet...',
+      successTitle: 'Vielen Dank!',
+      successMsg: 'Ihre Anfrage wurde erfolgreich gesendet.<br>Wir antworten innerhalb von 24 Stunden.',
+      redirectingText: 'Weiterleitung...',
+      submitError: 'Fehler beim Senden. Bitte versuchen Sie es erneut.',
+      networkError: 'Netzwerkfehler. Bitte überprüfen Sie Ihre Verbindung.',
+    }
+  : {
+      redirectUrl: '/thank-you',
+      sendingText: 'Sending Inquiry...',
+      successTitle: 'Thank You!',
+      successMsg: 'Your inquiry has been sent successfully.<br>We will reply within 24 hours.',
+      redirectingText: 'Redirecting...',
+      submitError: 'Submission failed. Please try again.',
+      networkError: 'Network error. Please check your connection and try again.',
+    };
+
+// ─── Google Analytics 4 ─────────────────────────────────────────────
 
 window.dataLayer = window.dataLayer || [];
-function gtag() { dataLayer.push(arguments); }
+window.gtag = function () { dataLayer.push(arguments); };
 gtag('js', new Date());
 gtag('config', 'G-88920CDSFH');
 
-// ─── DOM Element References (cached) ────────────────────────────────────────
+// ─── DOM Element References (cached) ────────────────────────────────
 
 let inquiryModal = null;
 let mainContent = null;
@@ -27,14 +51,14 @@ function getMainContent() {
 }
 
 function getMobileMenuContent() {
-  return mobileMenuContent || (mobileMenuContent = document.getElementById('mobile-menu-content'));
+  return mobileMenuContent || (mobileMenuContent = document.getElementById('mobile-menu-content') || document.getElementById('mobile-menu'));
 }
 
 function getMobileMenuOverlay() {
   return mobileMenuOverlay || (mobileMenuOverlay = document.getElementById('mobile-menu-overlay'));
 }
 
-// ─── Focus Management ───────────────────────────────────────────────────────
+// ─── Focus Management ───────────────────────────────────────────────
 
 function getFocusableElements(container) {
   if (!container) return [];
@@ -44,13 +68,13 @@ function getFocusableElements(container) {
     'select:not([disabled])', 'textarea:not([disabled])',
     'button:not([disabled])', 'iframe', 'object', 'embed',
     '[contenteditable]',
-    '[tabindex]:not([tabindex="-1"])'
+    '[tabindex]:not([tabindex="-1"])',
   ];
   return Array.from(container.querySelectorAll(selectors.join(',')))
     .filter(el => el.offsetWidth > 0 || el.offsetHeight > 0 || el === document.activeElement);
 }
 
-// ─── Back to Top ────────────────────────────────────────────────────────────
+// ─── Back to Top ────────────────────────────────────────────────────
 
 function updateBackToTop() {
   const btn = document.getElementById('backToTop');
@@ -70,7 +94,7 @@ window.addEventListener('scroll', () => {
   }
 }, { passive: true });
 
-// ─── Inquiry Modal ──────────────────────────────────────────────────────────
+// ─── Inquiry Modal ──────────────────────────────────────────────────
 
 let lastFocusedElement = null;
 let modalKeydownHandler = null;
@@ -187,7 +211,7 @@ function openModal(product = '') {
   document.addEventListener('keydown', modalKeydownHandler, true);
 }
 
-// ─── Mobile Menu ────────────────────────────────────────────────────────────
+// ─── Mobile Menu ────────────────────────────────────────────────────
 
 function isMobileMenuOpen() {
   const menu = getMobileMenuContent();
@@ -256,28 +280,66 @@ function toggleMobileSubmenu() {
   }
 }
 
-// ─── Global Click Delegation ────────────────────────────────────────────────
+// ─── Global Click Delegation ────────────────────────────────────────
 
 document.addEventListener('click', (e) => {
   const trigger = e.target.closest('[data-action]');
-  if (!trigger) return;
+  if (trigger) {
+    const actions = (trigger.getAttribute('data-action') || '').split(/\s+/).filter(Boolean);
+    const product = trigger.getAttribute('data-product') || '';
 
-  const actions = (trigger.getAttribute('data-action') || '').split(/\s+/).filter(Boolean);
-  const product = trigger.getAttribute('data-product') || '';
+    actions.forEach(action => {
+      switch (action) {
+        case 'open-modal':          openModal(product); break;
+        case 'close-modal':         closeModal(); break;
+        case 'toggle-mobile-menu':  toggleMobileMenu(); break;
+        case 'close-mobile':        closeMobileMenu(); break;
+        case 'toggle-mobile-submenu': toggleMobileSubmenu(); break;
+        case 'scroll-to-top':       window.scrollTo({ top: 0, behavior: 'smooth' }); break;
+      }
+    });
+    return;
+  }
 
-  actions.forEach(action => {
-    switch (action) {
-      case 'open-modal':          openModal(product); break;
-      case 'close-modal':         closeModal(); break;
-      case 'toggle-mobile-menu':  toggleMobileMenu(); break;
-      case 'close-mobile':        closeMobileMenu(); break;
-      case 'toggle-mobile-submenu': toggleMobileSubmenu(); break;
-      case 'scroll-to-top':       window.scrollTo({ top: 0, behavior: 'smooth' }); break;
-    }
-  });
+  // Legacy DE compatibility: [data-trigger="inquiry"]
+  const legacyTrigger = e.target.closest('[data-trigger="inquiry"]');
+  if (legacyTrigger) {
+    openModal(legacyTrigger.getAttribute('data-product') || '');
+  }
 });
 
-// ─── Global Keyboard Handler ────────────────────────────────────────────────
+// ─── Legacy ID-Based Listeners (DE backward compat) ────────────────
+
+document.addEventListener('DOMContentLoaded', () => {
+  // Legacy mobile menu buttons (DE HTML uses IDs directly)
+  const menuBtn = document.getElementById('mobile-menu-btn');
+  const menuClose = document.getElementById('mobile-menu-close');
+  const menuOverlay = getMobileMenuOverlay();
+
+  if (menuBtn) menuBtn.addEventListener('click', openMobileMenu);
+  if (menuClose) menuClose.addEventListener('click', closeMobileMenu);
+  if (menuOverlay) menuOverlay.addEventListener('click', closeMobileMenu);
+
+  // Close mobile menu when any link inside is clicked
+  const mobileMenu = getMobileMenuContent();
+  if (mobileMenu) {
+    mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMobileMenu));
+  }
+
+  // Legacy modal close button
+  const modalClose = document.getElementById('inquiryModalClose');
+  if (modalClose) modalClose.addEventListener('click', closeModal);
+
+  // Modal backdrop click (DE compat)
+  const modal = getInquiryModal();
+  if (modal) {
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeModal();
+    });
+  }
+});
+
+// ─── Global Keyboard Handler ────────────────────────────────────────
 
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') {
@@ -292,7 +354,7 @@ document.addEventListener('keydown', (e) => {
   }
 });
 
-// ─── Scroll Reveal Animation ────────────────────────────────────────────────
+// ─── Scroll Reveal Animation ────────────────────────────────────────
 
 const revealObserver = new IntersectionObserver(
   (entries) => {
@@ -306,7 +368,7 @@ const revealObserver = new IntersectionObserver(
   { threshold: 0.15, rootMargin: '0px 0px -100px 0px' }
 );
 
-// ─── Counter Animation ──────────────────────────────────────────────────────
+// ─── Counter Animation ──────────────────────────────────────────────
 
 const counterObserver = new IntersectionObserver(
   (entries) => {
@@ -355,7 +417,41 @@ const counterObserver = new IntersectionObserver(
   { threshold: 0.6 }
 );
 
-// ─── Form Error Display ─────────────────────────────────────────────────────
+// ─── Desktop Dropdown Hover (DE compat) ─────────────────────────────
+
+function initDropdownHover() {
+  if (window.innerWidth <= 1023) return;
+  document.querySelectorAll('.group').forEach(el => {
+    el.addEventListener('mouseenter', () => {
+      const dc = el.querySelector('.dropdown-content');
+      if (dc) {
+        dc.style.opacity = '1';
+        dc.style.visibility = 'visible';
+        dc.style.transform = 'translateY(0)';
+      }
+    });
+    el.addEventListener('mouseleave', () => {
+      const dc = el.querySelector('.dropdown-content');
+      if (dc) {
+        dc.style.opacity = '0';
+        dc.style.visibility = 'hidden';
+        dc.style.transform = 'translateY(10px)';
+      }
+    });
+  });
+}
+
+// ─── Marquee Clone (DE compat) ──────────────────────────────────────
+
+function initMarquee() {
+  const inner = document.querySelector('.cert-marquee-inner');
+  if (inner) {
+    const clone = inner.cloneNode(true);
+    inner.parentNode.appendChild(clone);
+  }
+}
+
+// ─── Form Error Display ─────────────────────────────────────────────
 
 function showFormError(form, message) {
   const existing = form.querySelector('.form-error-msg');
@@ -369,7 +465,7 @@ function showFormError(form, message) {
   setTimeout(() => { errorEl.remove(); }, 8000);
 }
 
-// ─── DOM Ready ──────────────────────────────────────────────────────────────
+// ─── DOM Ready ──────────────────────────────────────────────────────
 
 document.addEventListener('DOMContentLoaded', () => {
   // Web3Forms submission handling
@@ -383,12 +479,13 @@ document.addEventListener('DOMContentLoaded', () => {
       const submitBtn = form.querySelector('button[type="submit"]');
       if (!submitBtn || submitBtn.disabled) return;
 
-      const redirectUrl = form.querySelector('input[name="redirect"]')?.value || '/thank-you';
+      const redirectEl = form.querySelector('input[name="redirect"]');
+      const redirectUrl = redirectEl?.value || _.redirectUrl;
       const originalText = submitBtn.textContent.trim();
 
       submitBtn.disabled = true;
       submitBtn.classList.add('opacity-50', 'cursor-not-allowed');
-      submitBtn.textContent = 'Sending Inquiry...';
+      submitBtn.textContent = _.sendingText;
 
       try {
         const formData = new FormData(form);
@@ -396,7 +493,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const response = await fetch('https://api.web3forms.com/submit', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(data)
+          body: JSON.stringify(data),
         });
         const result = await response.json();
 
@@ -407,9 +504,9 @@ document.addEventListener('DOMContentLoaded', () => {
           successEl.className = 'text-center py-8';
           successEl.innerHTML = `
             <div class="text-5xl mb-4">&#10004;</div>
-            <h3 class="text-xl font-bold text-green-600 mb-2">Thank You!</h3>
-            <p class="text-slate-500">Your inquiry has been sent successfully.<br>We will reply within 24 hours.</p>
-            <p class="text-xs text-slate-400 mt-4">Redirecting...</p>
+            <h3 class="text-xl font-bold text-green-600 mb-2">${_.successTitle}</h3>
+            <p class="text-slate-500">${_.successMsg}</p>
+            <p class="text-xs text-slate-400 mt-4">${_.redirectingText}</p>
           `;
           form.innerHTML = '';
           form.appendChild(successEl);
@@ -419,25 +516,25 @@ document.addEventListener('DOMContentLoaded', () => {
           submitBtn.disabled = false;
           submitBtn.classList.remove('opacity-50', 'cursor-not-allowed');
           submitBtn.textContent = originalText;
-          showFormError(form, result.message || 'Submission failed. Please try again.');
+          showFormError(form, result.message || _.submitError);
         }
       } catch (err) {
         submitBtn.disabled = false;
         submitBtn.classList.remove('opacity-50', 'cursor-not-allowed');
         submitBtn.textContent = originalText;
         console.error('Form submission error:', err);
-        showFormError(form, 'Network error. Please check your connection and try again.');
+        showFormError(form, _.networkError);
       }
     });
   });
 
-  // Observe reveal elements
+  // Scroll reveal
   document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
-  // Observe counter elements
+  // Counter animation
   document.querySelectorAll('.counter').forEach(el => counterObserver.observe(el));
 
-  // Capture UTM parameters into hidden form fields
+  // UTM parameter capture
   const params = new URLSearchParams(window.location.search);
   ['utm_source', 'utm_medium', 'utm_campaign'].forEach(k => {
     const v = params.get(k);
@@ -452,6 +549,12 @@ document.addEventListener('DOMContentLoaded', () => {
   if (submenu && submenu.getAttribute('aria-hidden') === 'true') {
     submenu.querySelectorAll('a').forEach(l => l.setAttribute('tabindex', '-1'));
   }
+
+  // Desktop dropdown hover
+  initDropdownHover();
+
+  // Marquee clone (DE)
+  initMarquee();
 
   // Initial back to top state
   updateBackToTop();
