@@ -2,5 +2,5 @@
             <div class="text-5xl mb-4">&#10004;</div>
             <h3 class="text-xl font-bold text-green-600 mb-2">${c.successTitle}</h3>
             <p class="text-slate-500">${c.successMsg}</p>
-            <p class="text-xs text-slate-500 mt-4">${c.redirectingText}</p>
+            <p class="text-xs text-slate-400 mt-4">${c.redirectingText}</p>
           `,n.innerHTML="",n.appendChild(h),setTimeout(()=>{window.location.href=i},2500)}else r.disabled=!1,r.classList.remove("opacity-50","cursor-not-allowed"),r.textContent=s,S(n,f.message||c.submitError)}catch(a){r.disabled=!1,r.classList.remove("opacity-50","cursor-not-allowed"),r.textContent=s,console.error("Form submission error:",a),S(n,c.networkError)}}))}),document.querySelectorAll(".reveal").forEach(n=>B.observe(n)),document.querySelectorAll(".counter").forEach(n=>E.observe(n));let t=new URLSearchParams(window.location.search);["utm_source","utm_medium","utm_campaign"].forEach(n=>{let o=t.get(n);if(o){let r=document.getElementById(n);r&&(r.value=o)}});let e=document.getElementById("mobile-submenu");e&&e.getAttribute("aria-hidden")==="true"&&e.querySelectorAll("a").forEach(n=>n.setAttribute("tabindex","-1")),j(),H(),I()});})();
