@@ -18,6 +18,34 @@ class ContentScrubber:
     Scrubs AI-generated content to remove watermarks and telltale patterns.
     """
 
+    # Encoding corruption fixes: characters that got garbled by encoding issues
+    # in the content generation pipeline. Maps corrupted CJK chars back to
+    # the intended Unicode punctuation.
+    GARBLED_UNICODE_FIXES = {
+        '掳': '°',  # 掳 -> ° (degree symbol)
+        '路': '·',  # 路 -> · (middle dot)
+        '漏': '©',  # 漏 -> © (copyright)
+    }
+
+    # Em dash + letter corruptions in U+6500-U+651F range.
+    # These were originally em dash (U+2014) followed by a lowercase letter.
+    # The mapping: corrupted_byte = ord(letter) + 0x20, where the 3-byte
+    # UTF-8 encoding of U+65XX was E6 94 XX.
+    # Build mapping dynamically for a-z.
+    _EMDASH_LETTER_FIXES = {
+        # Verified data-driven mapping from actual file corruption.
+        # In the corrupted encoding, em dash (U+2014) + letter merged into
+        # a single CJK character in the U+6500 range via byte corruption.
+        # These mappings are verified against actual file content:
+        '攅': '—e',  # equipment  → —equipment
+        '攆': '—f',  # from        → —from
+        '攈': '—h',  # high        → —high
+        '攊': '—i',  # it's        → —it's
+        '攏': '—n',  # not         → —not
+        '攖': '—t',  # this        → —this
+        '攗': '—u',  # usually     → —usually
+    }
+
     # Specific Unicode characters to remove
     WATERMARK_CHARS = [
         '\u200B',  # Zero-width space
@@ -74,6 +102,7 @@ class ContentScrubber:
             'unicode_removed': 0,
             'emdashes_replaced': 0,
             'format_control_removed': 0,
+            'garbled_fixed': 0,
             'ai_phrases_replaced': 0,
         }
 
@@ -92,7 +121,12 @@ class ContentScrubber:
             'unicode_removed': 0,
             'emdashes_replaced': 0,
             'format_control_removed': 0,
+            'garbled_fixed': 0,
+            'ai_phrases_replaced': 0,
         }
+
+        # Step 0: Fix garbled Unicode characters from encoding corruption
+        content = self._fix_garbled_unicode(content)
 
         # Step 1: Remove specific watermark characters
         content = self._remove_watermark_chars(content)
@@ -136,6 +170,31 @@ class ContentScrubber:
 
         self.stats['format_control_removed'] = removed
         return ''.join(cleaned)
+
+    def _fix_garbled_unicode(self, content: str) -> str:
+        """Fix garbled Unicode characters caused by encoding corruption.
+
+        In the content pipeline, non-ASCII characters can get corrupted when
+        files are processed with incorrect encoding. This method reverses known
+        corruption patterns:
+        - ° (degree) corrupted to CJK chars
+        - · (middle dot) corrupted to CJK chars
+        - © (copyright) corrupted to CJK chars
+        - — (em dash) + letter corrupted to single CJK chars in U+6500 range
+        """
+        for garbled, correct in self.GARBLED_UNICODE_FIXES.items():
+            count = content.count(garbled)
+            if count:
+                content = content.replace(garbled, correct)
+                self.stats['garbled_fixed'] += count
+
+        for garbled, correct in self._EMDASH_LETTER_FIXES.items():
+            count = content.count(garbled)
+            if count:
+                content = content.replace(garbled, correct)
+                self.stats['garbled_fixed'] += count
+
+        return content
 
     def _replace_emdashes(self, content: str) -> str:
         """
@@ -275,6 +334,7 @@ def scrub_content(content: str, verbose: bool = False) -> str:
         print(f"Content Scrubbing Complete:")
         print(f"  - Unicode watermarks removed: {stats['unicode_removed']}")
         print(f"  - Format-control chars removed: {stats['format_control_removed']}")
+        print(f"  - Garbled Unicode fixes: {stats['garbled_fixed']}")
         print(f"  - Em-dashes replaced: {stats['emdashes_replaced']}")
         print(f"  - AI phrases replaced: {stats['ai_phrases_replaced']}")
 

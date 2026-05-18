@@ -1,375 +1,314 @@
-# Target Keywords & Topic Clusters
+# Target Keywords & Topic Clusters — WOWOHCOOL
 
-This document organizes Castos's target keywords by topic cluster for strategic content planning and SEO optimization.
-
-## Instructions
-Fill in this template with your target keywords organized by topic cluster. Update regularly based on keyword research and content performance.
+This document organizes WOWOHCOOL's target keywords by topic cluster for strategic content planning and SEO optimization. Covers 4 product categories + OEM/ODM services for the B2B charging accessories market.
 
 ---
 
 ## Topic Cluster Structure
 
-Each topic cluster should have:
-- **Pillar Keyword**: Main, high-volume keyword (typically competitive)
-- **Cluster Keywords**: 5-10 related keywords (subtopics)
-- **Long-Tail Keywords**: 10-15 specific, lower-volume phrases
-- **Search Intent**: What users want (informational, commercial, transactional)
+Each topic cluster includes:
+- **Pillar Keyword**: Main high-volume keyword
+- **Cluster Keywords**: 5-10 related subtopics
+- **Long-Tail Keywords**: 10-15 specific phrases
+- **Search Intent**: Informational / Commercial / Transactional
 
 ---
 
-## Cluster 1: Podcast Hosting
+## Cluster 1: Wireless Charger OEM/ODM
 
 ### Pillar Keyword
-- **Keyword**: podcast hosting
-- **Search Volume**: [monthly searches]
-- **Difficulty**: [competition level]
-- **Intent**: Commercial
-- **Current Ranking**: [position if known]
-- **Pillar Content URL**: [URL of main guide]
-
-### Cluster Keywords (Subtopics)
-1. **best podcast hosting**
-   - Volume: [searches]
-   - Difficulty: [level]
-   - Content: [URL if exists, or "Not yet created"]
-
-2. **podcast hosting platform**
-   - Volume: [searches]
-   - Difficulty: [level]
-   - Content: [URL or status]
-
-3. **podcast hosting comparison**
-   - Volume: [searches]
-   - Difficulty: [level]
-   - Content: [URL or status]
-
-4. **free podcast hosting**
-   - Volume: [searches]
-   - Difficulty: [level]
-   - Content: [URL or status]
-
-5. **podcast hosting pricing**
-   - Volume: [searches]
-   - Difficulty: [level]
-   - Content: [URL or status]
-
-[Add 5-10 cluster keywords total]
-
-### Long-Tail Keywords
-- how to choose a podcast host
-- podcast hosting for beginners
-- podcast hosting with unlimited bandwidth
-- podcast hosting that includes a website
-- difference between podcast hosting and website hosting
-- what to look for in a podcast host
-- podcast hosting for multiple shows
-- [Add 10-15 long-tail variations]
-
-### Related Questions (People Also Ask)
-- What is podcast hosting?
-- Do I need podcast hosting?
-- How much does podcast hosting cost?
-- Can I host my podcast for free?
-- [Add questions from PAA boxes]
-
----
-
-## Cluster 2: Podcast Analytics
-
-### Pillar Keyword
-- **Keyword**: podcast analytics
-- **Search Volume**: [monthly searches]
-- **Difficulty**: [competition level]
-- **Intent**: Informational
-- **Current Ranking**: [position if known]
-- **Pillar Content URL**: [URL or "To create"]
-
-### Cluster Keywords (Subtopics)
-1. **podcast metrics**
-2. **podcast download statistics**
-3. **podcast listener data**
-4. **podcast performance tracking**
-5. **podcast growth metrics**
-[Continue with 5-10 cluster keywords]
-
-### Long-Tail Keywords
-- how to track podcast analytics
-- understanding podcast download numbers
-- most important podcast metrics
-- how to measure podcast success
-- podcast analytics tools
-[Add 10-15 long-tail variations]
-
-### Related Questions
-[Add PAA questions]
-
----
-
-## Cluster 3: Podcast Growth
-
-### Pillar Keyword
-- **Keyword**: grow podcast audience
-- **Search Volume**: [monthly searches]
-- **Difficulty**: [competition level]
-- **Intent**: Informational
-- **Current Ranking**: [position]
-- **Pillar Content URL**: [URL or status]
+- **Keyword**: wireless charger manufacturer
+- **Search Intent**: Commercial / Transactional
+- **Target Page**: `/products/wireless-charger.html`
 
 ### Cluster Keywords
-1. **podcast growth strategies**
-2. **increase podcast downloads**
-3. **podcast marketing**
-4. **podcast promotion**
-5. **podcast audience development**
-[Continue with cluster keywords]
+1. **Qi2 wireless charger factory**
+2. **wireless charger OEM China**
+3. **custom wireless charger supplier**
+4. **MagSafe charger wholesale**
+5. **3-in-1 wireless charging station bulk**
+6. **Qi2 certified charger manufacturing**
+7. **wireless charging pad OEM/ODM**
+8. **magnetic wireless charger supplier**
 
 ### Long-Tail Keywords
-- how to get more podcast listeners
-- promote your podcast free
-- grow podcast audience fast
-- podcast growth tips for beginners
-[Add long-tail variations]
+- wireless charger manufacturer in Shenzhen
+- custom branded wireless chargers for business
+- Qi2 wireless charger MOQ 500
+- wholesale 3-in-1 wireless charger for hotels
+- private label wireless charging station
+- wireless car charger OEM manufacturer
+- 15W Qi2 fast charger factory China
+- OEM wireless charger for Amazon sellers
+- foldable wireless charger 3-in-1 bulk
+- night light wireless charger custom logo
 
 ### Related Questions
-[Add PAA questions]
+- What is the MOQ for custom wireless chargers?
+- Are Qi2 chargers backwards compatible with Qi?
+- Do wireless chargers work with phone cases?
+- How long does OEM production take for wireless chargers?
+- What certifications do wireless chargers need for Europe/US?
 
 ---
 
-## Cluster 4: Podcast Monetization
+## Cluster 2: Power Bank OEM/ODM
 
 ### Pillar Keyword
-- **Keyword**: podcast monetization
-- **Search Volume**: [monthly searches]
-- **Difficulty**: [competition level]
-- **Intent**: Commercial/Informational
-- **Current Ranking**: [position]
-- **Pillar Content URL**: [URL or status]
+- **Keyword**: power bank manufacturer
+- **Search Intent**: Commercial / Transactional
+- **Target Page**: `/products/power-bank.html`
 
 ### Cluster Keywords
-1. **how to monetize a podcast**
-2. **podcast advertising**
-3. **podcast sponsorships**
-4. **make money podcasting**
-5. **podcast revenue streams**
-[Continue]
+1. **power bank OEM China**
+2. **semi-solid-state power bank manufacturer**
+3. **custom power bank supplier**
+4. **power bank wholesale distributor**
+5. **PD 3.1 power bank factory**
+6. **ultra thin power bank OEM**
+7. **power bank with built-in cables bulk**
+8. **2-in-1 power bank wall charger OEM**
 
 ### Long-Tail Keywords
-[Add 10-15 variations]
+- semi-solid-state battery power bank factory
+- power bank manufacturer with CE FCC certification
+- 10000mAh custom power bank for corporate gifts
+- 65W PD power bank OEM supplier
+- power bank with display wholesale China
+- heating battery for heated apparel OEM
+- 240W power bank factory Shenzhen
+- private label power bank for e-commerce
+- airline safe power bank bulk order
+- power bank UN38.3 certified manufacturer
 
 ### Related Questions
-[Add PAA questions]
+- What is semi-solid-state battery technology?
+- How long does power bank OEM take?
+- Can I get custom logo on power banks?
+- What certifications are needed for power bank import?
+- What is MOQ for custom power banks?
 
 ---
 
-## Cluster 5: Starting a Podcast
+## Cluster 3: GaN Charger OEM/ODM
 
 ### Pillar Keyword
-- **Keyword**: how to start a podcast
-- **Search Volume**: [monthly searches]
-- **Difficulty**: [competition level]
-- **Intent**: Informational
-- **Current Ranking**: [position]
-- **Pillar Content URL**: [URL or status]
+- **Keyword**: GaN charger manufacturer
+- **Search Intent**: Commercial / Transactional
+- **Target Page**: `/products/gan-charger.html`
 
 ### Cluster Keywords
-1. **podcast equipment**
-2. **podcast recording software**
-3. **podcast editing**
-4. **podcast launch checklist**
-5. **podcast setup**
-[Continue]
+1. **GaN charger OEM China**
+2. **PD 3.1 charger factory**
+3. **GaN V fast charger wholesale**
+4. **USB-C GaN charger supplier**
+5. **multi-port GaN charger bulk**
+6. **65W GaN charger OEM/ODM**
+7. **GaN charger with retractable cable**
+8. **power strip with USB-C PD bulk**
 
 ### Long-Tail Keywords
-[Add variations]
+- GaN V technology charger factory China
+- 100W GaN charger OEM supplier
+- custom GaN charger for laptop brands
+- GaN charger manufacturer with CE FCC
+- retractable cable GaN charger wholesale
+- 35W mini GaN charger bulk order
+- GaN charger private label for Amazon
+- 240W GaN charger MOQ 500
+- GaN vs silicon charger manufacturer
+- OEM GaN charger for travel accessories brands
 
 ### Related Questions
-[Add PAA questions]
+- What is GaN V technology?
+- What is the difference between GaN and silicon chargers?
+- GaN charger OEM minimum order quantity?
+- What certifications do GaN chargers need?
+- Can I customize the cable color on GaN chargers?
 
 ---
 
-## Cluster 6: [Additional Cluster]
+## Cluster 4: Car Charger OEM/ODM
 
-[Follow same format for:]
-- Podcast SEO
-- Podcast Distribution
-- Podcast Equipment
-- Podcast Editing
-- Podcast Formats
-- Private Podcasting
-- Podcast for Business
-- etc.
+### Pillar Keyword
+- **Keyword**: car charger manufacturer
+- **Search Intent**: Commercial / Transactional
+- **Target Page**: `/products/car-charger.html`
+
+### Cluster Keywords
+1. **car charger OEM China**
+2. **GaN car charger factory**
+3. **PD 3.1 car charger wholesale**
+4. **retractable cable car charger supplier**
+5. **fast car charger bulk OEM**
+6. **USB-C car charger manufacturer**
+7. **12V 24V car charger OEM**
+8. **digital display car charger wholesale**
+
+### Long-Tail Keywords
+- 140W car charger OEM manufacturer
+- retractable USB-C car charger factory
+- 45W PPS car charger for Samsung OEM
+- mini hidden car charger wholesale
+- custom car charger for automotive brands
+- 24V truck compatible car charger bulk
+- car charger manufacturer Shenzhen China
+- E-Mark certified car charger OEM
+- Qi2 car wireless charger mount bulk
+- dual port car charger private label
+
+### Related Questions
+- Can car chargers charge laptops?
+- What is 24V compatibility in car chargers?
+- Car charger OEM MOQ from China?
+- Do car chargers overheat?
+- How long does car charger production take?
+
+---
+
+## Cluster 5: OEM/ODM Services (Cross-Product)
+
+### Pillar Keyword
+- **Keyword**: electronics OEM manufacturer China
+- **Search Intent**: Commercial / Transactional
+- **Target Page**: `/service.html`
+
+### Cluster Keywords
+1. **charger OEM/ODM services**
+2. **private label electronics China**
+3. **product customization manufacturer Shenzhen**
+4. **electronics factory for OEM brands**
+5. **China supplier with CE FCC certification**
+6. **low MOQ factory China**
+7. **OEM manufacturing for Amazon sellers**
+8. **product certification for global markets**
+
+### Long-Tail Keywords
+- how to find a reliable charger manufacturer in China
+- OEM vs ODM manufacturing for electronics
+- electronics factory audit China guide
+- MOQ for custom electronics manufacturing
+- factory direct pricing electronics China
+- certification requirements for importing chargers
+- custom packaging for electronics products
+- sample testing before bulk order China
+- ISO 9001 certified factory Shenzhen
+- dropshipping from manufacturer China
+
+### Related Questions
+- What is the difference between OEM and ODM?
+- How do I verify a Chinese factory is real?
+- What certifications do I need to import electronics?
+- How to get samples from Chinese manufacturers?
+- What payment terms do Chinese factories accept?
+
+---
+
+## Cluster 6: B2B Sourcing & Industry
+
+### Pillar Keyword
+- **Keyword**: source electronics from China
+- **Search Intent**: Informational / Commercial
+
+### Cluster Keywords
+1. **China electronics supplier guide**
+2. **import chargers from China**
+3. **Shenzhen electronics factory**
+4. **private label electronics sourcing**
+5. **wholesale charging accessories China**
+6. **factory audit China tips**
+7. **Amazon FBA sourcing China**
+8. **electronics certification Europe China**
+
+### Long-Tail Keywords
+- how to import power banks from China safely
+- find reliable factory in Shenzhen for chargers
+- avoid scams when sourcing electronics China
+- Amazon FBA prep from Chinese factory
+- UL certification China charger manufacturer
+- quality control for electronics manufacturing China
+- shipping electronics from Shenzhen to US
+- B2B sourcing charging accessories guide
+
+### Related Questions
+- How do I avoid fake factories in China?
+- Can I get a factory video audit before ordering?
+- What shipping methods from China to US?
+- How long is sea freight from Shenzhen to US?
+- What is DDP shipping from China?
 
 ---
 
 ## Seasonal/Trending Keywords
 
 ### Q1 Keywords (Jan-Mar)
-- New year podcast goals
-- Podcast trends 2025
-- [Add seasonal opportunities]
+- new charging technology trends 2026
+- CES 2026 charging innovations
+- Qi2 adoption predictions
+- semi-solid-state battery news
 
 ### Q2 Keywords (Apr-Jun)
-[Add seasonal keywords]
+- GaN charger summer travel deals
+- power bank for summer travel bulk
+- wireless charger for hotel summer renovation
+- OEM manufacturing for Q4 holiday prep
 
 ### Q3 Keywords (Jul-Sep)
-[Add seasonal keywords]
+- holiday season power bank sourcing
+- Amazon Q4 preparation manufacturing
+- gift season electronics wholesale
+- Black Friday charger wholesale
 
 ### Q4 Keywords (Oct-Dec)
-[Add seasonal keywords]
-
----
-
-## Competitor Keyword Gaps
-
-Track keywords where competitors rank but Castos doesn't:
-
-### Competitor: [Name]
-- **Keyword**: [keyword they rank for]
-  - Their Position: [rank]
-  - Castos Position: [rank or "Not ranking"]
-  - Opportunity: [High/Medium/Low]
-  - Action: [Create content, optimize existing, etc.]
-
-[Add more competitors and gaps]
+- Q4 manufacturing lead times China
+- holiday corporate gifts power bank
+- Christmas electronics sourcing
+- year-end inventory restocking
 
 ---
 
 ## Keyword Opportunity Pipeline
 
 ### High Priority (Create Soon)
-Keywords with high volume, achievable difficulty, strong business value:
-
-1. **Keyword**: [keyword]
-   - Volume: [searches]
-   - Difficulty: [score]
-   - Intent: [type]
-   - Why Priority: [strategic reason]
-   - Action: [Create pillar content / cluster article / etc.]
-
-[List 5-10 high-priority keywords]
+1. **semi-solid-state power bank manufacturer** — Low competition, high conversion, unique technology
+2. **Qi2 wireless charger OEM** — Growing trend, early mover advantage
+3. **GaN charger factory with PD 3.1** — High commercial intent, strong B2B buyer signal
+4. **electronics factory audit China** — High informational volume, can convert to OEM leads
 
 ### Medium Priority (Next Quarter)
-[List keywords to target in next 3 months]
+1. **retractable cable car charger wholesale** — Niche but high conversion
+2. **heating battery for heated apparel OEM** — Seasonal but very specific, low competition
+3. **2-in-1 power bank wall charger OEM** — Growing product category
 
 ### Low Priority (Future Consideration)
-[List keywords for future content planning]
-
----
-
-## Keyword Tracking & Performance
-
-### Top Performing Keywords
-Keywords where Castos ranks in positions 1-10:
-
-1. **Keyword**: [keyword]
-   - Position: [current rank]
-   - Volume: [searches]
-   - URL: [ranking page]
-   - Trend: [↑ Rising / → Stable / ↓ Declining]
-
-[List current winners]
-
-### Keywords to Improve
-Keywords ranking 11-20 (page 2) with opportunity:
-
-1. **Keyword**: [keyword]
-   - Position: [current rank]
-   - Volume: [searches]
-   - URL: [ranking page]
-   - Action Needed: [Update content, build links, etc.]
-
-[List improvement opportunities]
-
----
-
-## Keyword Cannibalization Check
-
-Track multiple pages targeting same/similar keywords:
-
-### Potential Cannibalization Issues
-
-**Keyword**: [keyword]
-- Page 1: [URL] - Position [rank]
-- Page 2: [URL] - Position [rank]
-- **Issue**: Both pages competing for same keyword
-- **Solution**: [Consolidate, differentiate, redirect, etc.]
-
-[Monitor and document conflicts]
+1. branded corporate gift charging solutions
+2. hotel wireless charging station bulk
+3. Amazon seller electronics sourcing guide
 
 ---
 
 ## LSI & Semantic Keywords
 
-Common related terms to include across podcasting content:
+### Charging Technology Terms
+- GaN V, PD 3.1, Qi2 MPP, QC 5.0, PPS, USB-C, MagSafe, fast charging
+- wireless charging, magnetic charging, 15W fast charge, 240W power delivery
+- semi-solid-state, lithium polymer, energy density, cycle life
+- over-voltage protection, thermal management, 10-layer circuit protection
 
-### Podcast Industry Terms
-- RSS feed
-- podcast directory
-- podcast app
-- podcast player
-- episode
-- show notes
-- audio content
-- podcast network
-[Add more]
+### Manufacturing Terms
+- OEM, ODM, private label, contract manufacturing
+- CMF (Color/Material/Finish), ID design, PCBA, tooling
+- MOQ, lead time, sample approval, mass production
+- QC, IQC, IPQC, FQC, OQC, aging test
+- ISO 9001, factory audit, SGS, inspection
 
-### Podcast Creation Terms
-- recording
-- editing
-- post-production
-- audio quality
-- microphone
-- podcast equipment
-[Add more]
-
-### Podcast Growth Terms
-- downloads
-- listeners
-- audience
-- subscribers
-- engagement
-- retention
-[Add more]
+### B2B Sourcing Terms
+- wholesale, bulk order, factory direct, volume discount
+- certification, CE, FCC, RoHS, UL, PSE, KC, UN38.3
+- FOB Shenzhen, EXW, DDP, sea freight, air freight
+- T/T payment, L/C, Alibaba Trade Assurance
+- supplier verification, video audit, sample testing
 
 ---
 
-## Usage Guidelines
-
-### When Writing New Content
-1. Check which cluster the topic belongs to
-2. Target the appropriate cluster or long-tail keyword
-3. Reference pillar content in that cluster
-4. Include LSI keywords naturally
-5. Link to related cluster articles
-
-### When Optimizing Existing Content
-1. Verify content targets the right keyword
-2. Check for cannibalization with other pages
-3. Ensure keyword appears in critical locations
-4. Update if search intent has shifted
-5. Add internal links to/from related cluster content
-
-### When Planning Content Calendar
-1. Review keyword opportunity pipeline
-2. Prioritize high-value, achievable keywords
-3. Build out topic clusters systematically
-4. Balance pillar content with cluster articles
-5. Track keyword performance over time
-
----
-
-## Maintenance
-
-**Last Updated**: [Date]
-**Next Review**: [Date - quarterly recommended]
-
-**Regular Updates**:
-- Add new keyword opportunities monthly
-- Track ranking changes monthly
-- Update volumes/difficulty quarterly
-- Review competitor gaps quarterly
-- Refine clusters based on performance
-
----
-
-**Note**: This is a living document. As you conduct keyword research, track performance, and identify new opportunities, update this file to keep your SEO strategy aligned with your content creation.
+*Note: This is a living document. Update as keyword research and content performance data becomes available. Review quarterly.*

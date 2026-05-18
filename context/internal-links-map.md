@@ -1,224 +1,150 @@
-# Internal Links Map
+# Internal Links Map — WOWOHCOOL
 
-<!-- INSTRUCTIONS: This document catalogs key pages on your website that should be referenced
-     in blog content for strategic internal linking.
-
-     Fill in all sections with your actual URLs and linking guidelines.
-     This helps Claude create relevant internal links while writing content.
-
-     Delete these instruction comments when done.
-     See examples/castos/internal-links-map.md for a complete real-world example. -->
-
-This document catalogs key [YOUR COMPANY] pages that should be referenced in blog content for strategic internal linking. Use this as your go-to reference when adding internal links to articles.
-
-## Instructions
-
-Fill in URLs and descriptions for all important pages on your website. Update as new content is created or pages are updated.
-
-For each page, include:
-- **URL**: The full URL to the page
-- **When to Link**: Context or topics where this link is relevant
-- **Anchor Text Examples**: Natural phrases to use when linking
+This document catalogs all key WOWOHCOOL website pages for strategic internal linking in blog content, product descriptions, and landing pages.
 
 ---
 
 ## Homepage & Core Pages
 
 ### Homepage
-- **URL**: https://[yoursite.com]
-- **When to Link**: [e.g., "Rarely; only when referencing your company broadly"]
-- **Anchor Text Examples**: "[your company name]", "our platform", "[your product]"
+- **URL**: https://www.wowohcool.com/
+- **When to Link**: General brand references, introducing WOWOHCOOL as a manufacturer
+- **Anchor Text Examples**: "WOWOHCOOL", "Dong Yi Technology", "the WOWOHCOOL factory"
 
 ### About Page
-- **URL**: https://[yoursite.com/about]
-- **When to Link**: [e.g., "When discussing company mission, values, or team"]
-- **Anchor Text Examples**: "about [company]", "our mission", "our story"
+- **URL**: https://www.wowohcool.com/about.html
+- **When to Link**: When discussing company history, factory capabilities, team, or certifications
+- **Anchor Text Examples**: "about WOWOHCOOL", "our Shenzhen factory", "since 2013"
+
+### OEM/ODM Service
+- **URL**: https://www.wowohcool.com/service.html
+- **When to Link**: When discussing OEM/ODM process, customization, manufacturing partnership
+- **Anchor Text Examples**: "OEM/ODM services", "custom manufacturing", "start your OEM project"
 
 ### Contact Page
-- **URL**: https://[yoursite.com/contact]
-- **When to Link**: [e.g., "When inviting readers to reach out"]
-- **Anchor Text Examples**: "contact us", "get in touch", "reach out"
+- **URL**: https://www.wowohcool.com/contact.html (需确认)
+- **When to Link**: When inviting readers to reach out for quotes, samples, or inquiries
+- **Anchor Text Examples**: "contact WOWOHCOOL", "request a quote", "get factory pricing"
 
-### Pricing Page
-- **URL**: https://[yoursite.com/pricing]
-- **When to Link**: [e.g., "When discussing costs, plans, or pricing"]
-- **Anchor Text Examples**: "[product] pricing", "pricing plans", "see pricing"
-
----
-
-## Product/Service Pages
-
-<!-- INSTRUCTIONS: Add your main product or service pages -->
-
-### [Product/Service Name 1]
-- **URL**: https://[yoursite.com/product-1]
-- **When to Link**: [Topics/contexts where this is relevant]
-- **Anchor Text Examples**: "[descriptive phrase]", "[benefit-focused phrase]", "[feature name]"
-
-### [Product/Service Name 2]
-- **URL**: https://[yoursite.com/product-2]
-- **When to Link**: [Topics/contexts where this is relevant]
-- **Anchor Text Examples**: "[descriptive phrase]", "[benefit-focused phrase]", "[feature name]"
-
-### [Product/Service Name 3]
-- **URL**: https://[yoursite.com/product-3]
-- **When to Link**: [Topics/contexts where this is relevant]
-- **Anchor Text Examples**: "[descriptive phrase]", "[benefit-focused phrase]", "[feature name]"
+### Blog Home
+- **URL**: https://www.wowohcool.com/blog/ (需确认)
+- **When to Link**: When referencing the overall blog content library
+- **Anchor Text Examples**: "charging industry blog", "WOWOHCOOL resources"
 
 ---
 
-## Feature Pages
+## Product Category Pages
 
-<!-- INSTRUCTIONS: Add pages for specific features or capabilities -->
+### Wireless Chargers
+- **URL**: https://www.wowohcool.com/products/wireless-charger.html
+- **When to Link**: Discussing Qi2, MagSafe, wireless charging technology, 3-in-1 stations
+- **Anchor Text Examples**: "Qi2 wireless chargers", "wireless charging solutions", "3-in-1 charging stations"
 
-### [Feature Name 1]
-- **URL**: https://[yoursite.com/feature-1]
-- **When to Link**: In articles about [relevant topics]
-- **Anchor Text Examples**: "[feature name]", "[what it does]", "[benefit phrase]"
+### Power Banks
+- **URL**: https://www.wowohcool.com/products/power-bank.html
+- **When to Link**: Discussing power banks, portable charging, semi-solid-state batteries, travel charging
+- **Anchor Text Examples**: "power bank OEM", "semi-solid-state power banks", "portable charging solutions"
 
-### [Feature Name 2]
-- **URL**: https://[yoursite.com/feature-2]
-- **When to Link**: In articles about [relevant topics]
-- **Anchor Text Examples**: "[feature name]", "[what it does]", "[benefit phrase]"
+### GaN Chargers
+- **URL**: https://www.wowohcool.com/products/gan-charger.html
+- **When to Link**: Discussing GaN technology, wall chargers, PD 3.1, laptop charging
+- **Anchor Text Examples**: "GaN chargers", "GaN V fast chargers", "PD 3.1 wall chargers"
 
-### [Feature Name 3]
-- **URL**: https://[yoursite.com/feature-3]
-- **When to Link**: In articles about [relevant topics]
-- **Anchor Text Examples**: "[feature name]", "[what it does]", "[benefit phrase]"
+### Car Chargers
+- **URL**: https://www.wowohcool.com/products/car-charger.html
+- **When to Link**: Discussing car charging, automotive accessories, fleet charging, road trip gear
+- **Anchor Text Examples**: "car chargers", "GaN car chargers", "vehicle charging solutions"
+
+---
+
+## Featured Product Pages
+
+### WOW93 Night Light 3-in-1 Folding Wireless Charger
+- **URL**: https://www.wowohcool.com/products/wireless-charger.html#wow93
+- **When to Link**: Home/desktop wireless charging, bedside charging, multi-device
+- **Anchor Text Examples**: "WOW93 3-in-1 folding charger", "night light charging station"
+
+### WOP67 45W 2-in-1 Power Bank & Wall Charger
+- **URL**: https://www.wowohcool.com/products/power-bank.html#wop67
+- **When to Link**: Travel charging, hybrid devices, space-saving solutions
+- **Anchor Text Examples**: "WOP67 2-in-1 hybrid charger", "power bank wall charger combo"
+
+### WOC42 105W Retractable Car Charger
+- **URL**: https://www.wowohcool.com/products/car-charger.html#woc42
+- **When to Link**: Car charging, cable management, high-power vehicle charging
+- **Anchor Text Examples**: "WOC42 retractable car charger", "105W car charger with cable"
+
+### WOP09 Semi-Solid-State Power Bank
+- **URL**: https://www.wowohcool.com/products/power-bank.html#wop09
+- **When to Link**: Semi-solid-state technology, ultra-thin power banks, CES 2026 innovation
+- **Anchor Text Examples**: "semi-solid-state power bank", "WOP09 ultra-thin power bank"
+
+### WOP23 240W PD 3.1 Power Station
+- **URL**: https://www.wowohcool.com/products/power-bank.html#wop23
+- **When to Link**: High-power charging, laptop power bank, professional-grade charging
+- **Anchor Text Examples**: "240W PD 3.1 power station", "WOP23 high-capacity power bank"
+
+### WOW90 Zinc Alloy 3-in-1 Charging Dock
+- **URL**: https://www.wowohcool.com/products/wireless-charger.html#wow90
+- **When to Link**: Premium charging, desk accessories, corporate gifts
+- **Anchor Text Examples**: "zinc alloy charging dock", "WOW90 premium wireless charger"
 
 ---
 
 ## Use Case / Solution Pages
 
-<!-- INSTRUCTIONS: Add pages for specific use cases, industries, or customer segments -->
+### Amazon & E-commerce Sellers
+- **URL**: https://www.wowohcool.com/ (OEM/ODM section)
+- **When to Link**: Private label sourcing, Amazon FBA prep, e-commerce product development
+- **Anchor Text Examples**: "sourcing for Amazon sellers", "private label for e-commerce"
 
-### [Use Case 1]
-- **URL**: https://[yoursite.com/use-case-1]
-- **When to Link**: In articles targeting [audience segment] or discussing [problem/solution]
-- **Anchor Text Examples**: "[use case description]", "[for whom]", "[solution phrase]"
+### Corporate & Hospitality
+- **URL**: https://www.wowohcool.com/products/wireless-charger.html
+- **When to Link**: Hotel charging solutions, corporate gift programs, bulk branded electronics
+- **Anchor Text Examples**: "hotel charging solutions", "corporate gift power banks"
 
-### [Use Case 2]
-- **URL**: https://[yoursite.com/use-case-2]
-- **When to Link**: In articles targeting [audience segment] or discussing [problem/solution]
-- **Anchor Text Examples**: "[use case description]", "[for whom]", "[solution phrase]"
-
----
-
-## Resource Pages
-
-<!-- INSTRUCTIONS: Add links to guides, tools, templates, or other resources -->
-
-### [Resource Name 1]
-- **URL**: https://[yoursite.com/resources/resource-1]
-- **When to Link**: [When this resource would help the reader]
-- **Anchor Text Examples**: "[resource name]", "[what it provides]", "free [resource type]"
-
-### [Resource Name 2]
-- **URL**: https://[yoursite.com/resources/resource-2]
-- **When to Link**: [When this resource would help the reader]
-- **Anchor Text Examples**: "[resource name]", "[what it provides]", "free [resource type]"
+### Heating Apparel Brands
+- **URL**: https://www.wowohcool.com/products/power-bank.html (heating battery section)
+- **When to Link**: Heated clothing batteries, winter apparel manufacturing
+- **Anchor Text Examples**: "heating batteries for apparel", "heated clothing power solutions"
 
 ---
 
-## Top-Performing Blog Posts
+## Product Series by Application
 
-<!-- INSTRUCTIONS: Add your 10-20 best blog posts that get good traffic and conversions.
-     These are "pillar content" you want to link to frequently. -->
+**When writing about travel charging**, link to:
+- `/products/power-bank.html` — 2-in-1 hybrids, slim power banks
+- `/products/gan-charger.html` — compact GaN travel chargers
+- Product anchor: "travel power banks", "portable GaN chargers"
 
-### [Blog Post Title 1]
-- **URL**: https://[yoursite.com/blog/post-1]
-- **Primary Topic**: [Main topic/keyword]
-- **When to Link**: In articles about [related topics]
-- **Anchor Text Examples**: "[topic phrase]", "[how-to phrase]", "[question phrase]"
+**When writing about desktop/office charging**, link to:
+- `/products/wireless-charger.html` — 3-in-1 stations, premium docks
+- `/products/gan-charger.html` — power strips with USB-C, desktop GaN stations
+- Product anchor: "desktop wireless chargers", "USB-C power strips"
 
-### [Blog Post Title 2]
-- **URL**: https://[yoursite.com/blog/post-2]
-- **Primary Topic**: [Main topic/keyword]
-- **When to Link**: In articles about [related topics]
-- **Anchor Text Examples**: "[topic phrase]", "[how-to phrase]", "[question phrase]"
+**When writing about automotive charging**, link to:
+- `/products/car-charger.html` — car chargers, retractable cable, mini hidden
+- `/products/wireless-charger.html` — Qi2 car mounts
+- Product anchor: "GaN car chargers", "Qi2 car wireless chargers"
 
-### [Blog Post Title 3]
-- **URL**: https://[yoursite.com/blog/post-3]
-- **Primary Topic**: [Main topic/keyword]
-- **When to Link**: In articles about [related topics]
-- **Anchor Text Examples**: "[topic phrase]", "[how-to phrase]", "[question phrase]"
-
-### [Blog Post Title 4]
-- **URL**: https://[yoursite.com/blog/post-4]
-- **Primary Topic**: [Main topic/keyword]
-- **When to Link**: In articles about [related topics]
-- **Anchor Text Examples**: "[topic phrase]", "[how-to phrase]", "[question phrase]"
-
-### [Blog Post Title 5]
-- **URL**: https://[yoursite.com/blog/post-5]
-- **Primary Topic**: [Main topic/keyword]
-- **When to Link**: In articles about [related topics]
-- **Anchor Text Examples**: "[topic phrase]", "[how-to phrase]", "[question phrase]"
-
-<!-- Add 5-15 more of your top blog posts following the same format -->
-
----
-
-## Comparison Pages
-
-<!-- INSTRUCTIONS: If you have comparison or "vs" pages, add them here -->
-
-### [Your Product] vs [Competitor 1]
-- **URL**: https://[yoursite.com/vs/competitor-1]
-- **When to Link**: When mentioning [competitor] or discussing alternatives
-- **Anchor Text Examples**: "[your product] vs [competitor]", "comparison with [competitor]"
-
-### [Your Product] vs [Competitor 2]
-- **URL**: https://[yoursite.com/vs/competitor-2]
-- **When to Link**: When mentioning [competitor] or discussing alternatives
-- **Anchor Text Examples**: "[your product] vs [competitor]", "comparison with [competitor]"
-
----
-
-## Landing Pages
-
-<!-- INSTRUCTIONS: Add any campaign-specific or conversion-optimized landing pages -->
-
-### [Campaign/Offer Name]
-- **URL**: https://[yoursite.com/landing/offer-1]
-- **When to Link**: [Specific contexts for this offer]
-- **Anchor Text Examples**: "[offer description]", "[call to action]", "[benefit phrase]"
+**When writing about OEM/ODM sourcing**, link to:
+- `/service.html` — OEM/ODM process
+- About page — factory credentials
+- Relevant product category page
+- Product anchor: "custom OEM manufacturing", "OEM/ODM partnership"
 
 ---
 
 ## Internal Linking Best Practices
 
-When adding internal links to blog content:
-
-1. **Link Naturally**: Only link when genuinely relevant and helpful to the reader
-2. **Vary Anchor Text**: Use different phrases for the same destination URL
-3. **3-5 Links Per Post**: Aim for 3-5 strategic internal links in each blog post
-4. **Deep Linking**: Link to specific relevant pages, not just the homepage
-5. **Early Links Matter**: Links in the first few paragraphs carry more weight
-6. **Update This Map**: Add new pages as you create them, remove outdated URLs
-
----
-
-## Quick Reference by Topic
-
-<!-- INSTRUCTIONS: Create a quick topic-to-URL mapping for common themes you write about.
-     This helps Claude quickly find relevant links while writing. -->
-
-**When writing about [Topic 1]**, link to:
-- [URL 1] - [Brief description]
-- [URL 2] - [Brief description]
-- [URL 3] - [Brief description]
-
-**When writing about [Topic 2]**, link to:
-- [URL 1] - [Brief description]
-- [URL 2] - [Brief description]
-- [URL 3] - [Brief description]
-
-**When writing about [Topic 3]**, link to:
-- [URL 1] - [Brief description]
-- [URL 2] - [Brief description]
-- [URL 3] - [Brief description]
+1. **Link naturally**: Only link when genuinely relevant to the reader's context
+2. **Vary anchor text**: Use different descriptive phrases for the same target URL
+3. **3-5 links per blog post**: Strategic internal linking without over-optimization
+4. **Deep linking preferred**: Link to product category pages, not just homepage
+5. **First links matter**: The first internal link in content carries more weight
+6. **Update this map**: Add new pages and blog posts as they are published
+7. **Use product SKUs sparingly**: Lead with descriptive text, SKU in parentheses
 
 ---
 
-*Note: Keep this document updated as you publish new content or restructure your site. Accurate internal linking improves SEO and user experience.*
+*Note: Keep this document updated as you publish new blog posts, create landing pages, or restructure the site.*
