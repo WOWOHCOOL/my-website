@@ -135,7 +135,9 @@
                 <ul class="space-y-2">
                     <li><a href="oem-odm-service.html" class="text-sm text-slate-500 hover:text-brandBlue transition">OEM/ODM</a></li>
                     <li><a href="ueber-uns.html" class="text-sm text-slate-500 hover:text-brandBlue transition">Über Uns</a></li>
-                    <li><a href="blog/index.html" class="text-sm text-slate-500 hover:text-brandBlue transition">Blog</a></li>
+                    <li><a href="blog/index.html" class="text-sm text-slate-500 hover:text-brandBlue transition">Blog</a>
+                    <li><a href="faq.html" class="text-sm text-slate-500 hover:text-brandBlue transition">FAQ</a>
+                <a href="faq.html" class="nav-link text-sm font-semibold text-slate-700 hover:text-brandOrange transition-colors">FAQ</a></li>
                     <li><a href="kontakt.html" class="text-sm text-slate-500 hover:text-brandBlue transition">Kontakt</a></li>
                 </ul>
             </div>
@@ -153,9 +155,43 @@
         </div>
     </footer>
 <!-- Back to Top -->
-    <button id="backToTop" class="fixed bottom-8 right-8 w-10 h-10 rounded-full bg-brandBlue text-white shadow-lg hover:bg-brandOrange transition-all duration-300 z-50 flex items-center justify-center" aria-label="Nach oben">
+    <button id="backToTop" data-action="scroll-to-top" class="fixed bottom-8 right-8 w-10 h-10 rounded-full bg-brandBlue text-white shadow-lg hover:bg-brandOrange transition-all duration-300 z-50 flex items-center justify-center" aria-label="Nach oben">
         <svg class="icon-arrow-up" aria-hidden="true" focusable="false" viewBox="0 0 384 512"><path d="M214.6 9.4c-12.5-12.5-32.8-12.5-45.3 0l-160 160c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 109.3 160 480c0 17.7 14.3 32 32 32s32-14.3 32-32l0-370.7 105.4 105.4c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-160-160z" fill="currentColor"/></svg>
     </button>
     <script src="js/de-main.js" defer></script>
+<!-- Cookie Consent (DSGVO) -->
+<div id="cookie-banner" class="cookie-banner" role="dialog" aria-label="Cookie-Einwilligung">
+    <div class="cookie-banner-inner">
+        <p>Wir verwenden Cookies und Analysetools (Google Analytics), um unsere Website für Sie zu verbessern. Mit Klick auf "Akzeptieren" stimmen Sie der Verwendung zu.
+        <a href="datenschutz.html" target="_blank">Datenschutzerklärung</a> |
+        <a href="impressum.html" target="_blank">Impressum</a></p>
+        <div class="cookie-btn-group">
+            <button id="cookie-decline" class="cookie-btn-decline">Nur notwendige</button>
+            <button id="cookie-accept" class="cookie-btn-accept">Akzeptieren</button>
+        </div>
+    </div>
+</div>
+<script>
+(function(){
+    var banner = document.getElementById('cookie-banner');
+    if (localStorage.getItem('cookie_consent')) return;
+    setTimeout(function(){ banner.classList.add('show'); }, 500);
+    document.getElementById('cookie-accept').addEventListener('click', function(){
+        localStorage.setItem('cookie_consent', 'accepted');
+        banner.classList.remove('show');
+        if (typeof gtag !== 'undefined') {
+            gtag('consent', 'update', {'analytics_storage': 'granted'});
+        }
+    });
+    document.getElementById('cookie-decline').addEventListener('click', function(){
+        localStorage.setItem('cookie_consent', 'declined');
+        banner.classList.remove('show');
+        if (typeof gtag !== 'undefined') {
+            gtag('consent', 'update', {'analytics_storage': 'denied'});
+        }
+    });
+})();
+</script>
+
 </body>
 </html>
