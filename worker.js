@@ -26,7 +26,17 @@ export default {
       });
     }
 
-    return env.ASSETS.fetch(request);
+    // Prevent search engines from indexing the Workers domain
+    const response = await env.ASSETS.fetch(request);
+    const newHeaders = new Headers(response.headers);
+    const contentType = response.headers.get('Content-Type') || '';
+    if (contentType.includes('text/html')) {
+      newHeaders.set('X-Robots-Tag', 'noindex, nofollow');
+    }
+    return new Response(response.body, {
+      status: response.status,
+      headers: newHeaders,
+    });
   },
 };
 
