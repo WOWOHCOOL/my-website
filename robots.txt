@@ -1,9 +1,8 @@
 User-agent: *
 Allow: /
 
-# Content-Signal: declare AI content usage preferences
-# See https://contentsignals.org/
-Content-Signal: ai-train=yes, search=yes, ai-personalization=yes, ai-retrieval=yes
+# Content-Signal (via HTTP header, not as robots.txt directive):
+# ai-train=yes, search=yes, ai-personalization=yes, ai-retrieval=yes
 
 # AI crawler access
 User-agent: GPTBot
@@ -19,6 +18,16 @@ User-agent: PerplexityBot
 Allow: /
 
 User-agent: Google-Extended
+Allow: /
+
+# Bing / Microsoft Copilot
+User-agent: Bingbot
+Allow: /
+
+# Apple Intelligence
+User-agent: Applebot
+Allow: /
+User-agent: Applebot-Extended
 Allow: /
 
 Sitemap: https://www.wowohcool.com/sitemap.xml
