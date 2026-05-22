@@ -43,11 +43,11 @@
     [
       {
         "@context": "https://schema.org",
-        "@type": "ManufacturingBusiness",
+        "@type": ["ManufacturingBusiness", "LocalBusiness"],
         "name": "WOWOHCOOL (Dong Yi Technology Co., Ltd)",
         "url": "https://www.wowohcool.com",
-        "logo": "https://www.wowohcool.com/image/wowohcool-logo.png",
-        "image": "https://www.wowohcool.com/image/wowohcool-logo.png",
+        "logo": "https://www.wowohcool.com/image/wowohcool-logo-optimized.webp",
+        "image": "https://www.wowohcool.com/image/wowohcool-logo-optimized.webp",
         "description": "Professional OEM/ODM manufacturer in China specializing in wireless chargers, power banks, and car chargers since 2013.",
         "address": {
           "@type": "PostalAddress",
@@ -82,10 +82,17 @@
           "https://www.linkedin.com/company/wowohcool",
           "https://www.youtube.com/@WOWOHCOOL",
           "https://x.com/wowohcool"
+        ],
+        "openingHoursSpecification": [
+          {"@type": "OpeningHoursSpecification", "dayOfWeek": "Monday", "opens": "09:00", "closes": "17:00"},
+          {"@type": "OpeningHoursSpecification", "dayOfWeek": "Tuesday", "opens": "09:00", "closes": "17:00"},
+          {"@type": "OpeningHoursSpecification", "dayOfWeek": "Wednesday", "opens": "09:00", "closes": "17:00"},
+          {"@type": "OpeningHoursSpecification", "dayOfWeek": "Thursday", "opens": "09:00", "closes": "17:00"},
+          {"@type": "OpeningHoursSpecification", "dayOfWeek": "Friday", "opens": "09:00", "closes": "17:00"}
         ]
       },
       {
-        "@context": "https://schema.org/",
+        "@context": "https://schema.org",
         "@type": "ItemList",
         "name": "WOWOHCOOL Featured Charging Solutions",
         "description": "Professional OEM/ODM manufacturer of high-tech charging accessories since 2013.",
@@ -100,11 +107,12 @@
               "description": "Premium 180° foldable 3-in-1 wireless charger with ambient night light. Supports MagSafe and 15W Qi2 fast charging for iPhone, Apple Watch, and AirPods.",
               "brand": { "@type": "Brand", "name": "WOWOHCOOL" },
               "sku": "WOW93",
+              "mpn": "WOW93",
               "offers": {
                 "@type": "AggregateOffer",
                 "priceCurrency": "USD",
-                "lowPrice": "8.00",
-                "highPrice": "8.00",
+                "lowPrice": "10.00",
+                "highPrice": "20.00",
                 "availability": "https://schema.org/InStock",
                 "url": "https://www.wowohcool.com/products/wireless-charger",
                 "itemCondition": "https://schema.org/NewCondition"
@@ -121,11 +129,12 @@
               "description": "Hybrid GaN technology combining a 45W wall adapter and a 10000mAh portable battery. Designed for MacBook and smartphone fast charging.",
               "brand": { "@type": "Brand", "name": "WOWOHCOOL" },
               "sku": "WOP67",
+              "mpn": "WOP67",
               "offers": {
                 "@type": "AggregateOffer",
                 "priceCurrency": "USD",
-                "lowPrice": "8.00",
-                "highPrice": "8.00",
+                "lowPrice": "7.00",
+                "highPrice": "20.00",
                 "availability": "https://schema.org/InStock",
                 "url": "https://www.wowohcool.com/products/power-bank",
                 "itemCondition": "https://schema.org/NewCondition"
@@ -142,11 +151,12 @@
               "description": "Professional 105W car charger with built-in 0.8m auto-retractable Type-C cable. Features PD+QC fast charging and intelligent power allocation.",
               "brand": { "@type": "Brand", "name": "WOWOHCOOL" },
               "sku": "WOC42",
+              "mpn": "WOC42",
               "offers": {
                 "@type": "AggregateOffer",
                 "priceCurrency": "USD",
-                "lowPrice": "8.00",
-                "highPrice": "8.00",
+                "lowPrice": "2.00",
+                "highPrice": "10.00",
                 "availability": "https://schema.org/InStock",
                 "url": "https://www.wowohcool.com/products/car-charger",
                 "itemCondition": "https://schema.org/NewCondition"
@@ -314,7 +324,14 @@
       "@context": "https://schema.org",
       "@type": "WebSite",
       "name": "WOWOHCOOL",
-      "url": "https://www.wowohcool.com"
+      "url": "https://www.wowohcool.com",
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [
+          ".badge-capsule",
+          "h1"
+        ]
+      }
     }
     </script>
 
@@ -325,6 +342,61 @@
       "@type": "BreadcrumbList",
       "itemListElement": [
         {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.wowohcool.com/"}
+      ]
+    }
+    </script>
+
+    <!-- HowTo Schema - OEM/ODM Manufacturing Process -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      "name": "How to Partner with WOWOHCOOL for OEM/ODM Manufacturing",
+      "description": "Step-by-step process to bring your charging product from concept to mass production with WOWOHCOOL, an ISO 9001 certified factory in Shenzhen, China.",
+      "totalTime": "P25D-P60D",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Product R&D and Design",
+          "text": "Our in-house engineering team handles industrial design, PCBA development, and tooling for new products. We specialize in GaN technology, PD 3.1, Qi2 MPP, and intelligent power allocation.",
+          "image": "https://www.wowohcool.com/image/wowohcool-smart-charging-solutions-720w.webp"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Smart Manufacturing",
+          "text": "Automated SMT lines with production capacity of 1 million units monthly to meet bulk orders. Our facility spans 5,000sqm with ISO 9001 certified processes.",
+          "image": "https://www.wowohcool.com/image/wowohcool-smart-charging-solutions-720w.webp"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Quality Control and Certification",
+          "text": "CE, FCC, Qi, RoHS, and ISO 9001 certified. Every product undergoes a 4-stage QC process (IQC, IPQC, FQC, OQC) with 100% aging tests before shipment. Defect rate below 0.3%.",
+          "image": "https://www.wowohcool.com/image/wowohcool-smart-charging-solutions-720w.webp"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Customization and Branding",
+          "text": "Custom logo, color, and packaging available with flexible MOQ starting at 500-1000 units. Eco-friendly and premium retail packaging options including gift boxes and blister packs.",
+          "image": "https://www.wowohcool.com/image/wowohcool-smart-charging-solutions-720w.webp"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Supply Chain and Logistics",
+          "text": "Strategic global procurement ensuring stable pricing and component priority. Shipping via FOB Shenzhen, EXW, or DDP door-to-door. Standard delivery 25-30 days after sample approval.",
+          "image": "https://www.wowohcool.com/image/wowohcool-smart-charging-solutions-720w.webp"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 6,
+          "name": "Ongoing Partnership Support",
+          "text": "24/7 account management with dedicated account manager. Professional marketing and technical support. 12-24 month warranty with average claim rate below 0.5%.",
+          "image": "https://www.wowohcool.com/image/wowohcool-smart-charging-solutions-720w.webp"
+        }
       ]
     }
     </script>
@@ -419,8 +491,8 @@
             <!-- 右侧按钮区 -->
             <div class="flex items-center gap-4">
                 <a href="/de/" class="inline-flex items-center justify-center min-w-[44px] min-h-[44px] px-3 text-[11px] font-black uppercase tracking-widest text-slate-600 hover:text-white hover:bg-brandOrange border border-slate-300 hover:border-brandOrange rounded-full transition-all duration-200" aria-label="Switch to German">DE</a>
-                <button data-action="/open-modal" class="bg-brandOrange text-white p-2 md:px-7 md:py-2 rounded-full text-[11px] md:text-[11px] font-black uppercase tracking-widest hover:scale-105 transition shadow-lg shadow-brandOrange/20 flex items-center justify-center" aria-label="Get Factory Pricing">
-                    <span class="hidden lg:flex">Get Factory Pricing</span>
+                <button data-action="/open-modal" class="bg-brandOrange text-white p-2 md:px-7 md:py-2 rounded-full text-[11px] md:text-[11px] font-black uppercase tracking-widest hover:scale-105 transition shadow-lg shadow-brandOrange/20 flex items-center justify-center" aria-label="Factory-Direct Pricing">
+                    <span class="hidden lg:flex">Factory Pricing</span>
                     <svg class="flex lg:hidden icon-envelope text-sm" aria-hidden="true" focusable="false" viewBox="0 0 512 512"><path d="M48 64c-26.5 0-48 21.5-48 48 0 15.1 7.1 29.3 19.2 38.4l208 156c17.1 12.8 40.5 12.8 57.6 0l208-156c12.1-9.1 19.2-23.3 19.2-38.4 0-26.5-21.5-48-48-48L48 64zM0 196L0 384c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-188-198.4 148.8c-34.1 25.6-81.1 25.6-115.2 0L0 196z" fill="currentColor"/></svg>
                 </button>
                 <button data-action="/toggle-mobile-menu" class="lg:hidden p-2 text-brandBlue text-2xl" aria-label="Open mobile menu"><svg class="icon-bars-staggered" aria-hidden="true" focusable="false" viewBox="0 0 512 512">
@@ -479,7 +551,7 @@
             <!-- Mobile Inquiry Button -->
             <div class="pt-8">
                 <button data-action="/close-mobile%20open-modal" data-product="General Inquiry" class="w-full bg-brandOrange text-white py-4 px-4 rounded-xl font-black shadow-xl shadow-brandOrange/20 active:scale-95 transition-all uppercase tracking-wider text-[11px] leading-tight text-center">
-                    Get Factory Pricing
+                    Request Quote
                 </button>
             </div>
         </nav>
@@ -1043,7 +1115,7 @@
             <!-- CTA -->
             <div class="text-center mt-10 md:mt-16">
                 <p class="text-slate-500 text-xs md:text-sm mb-5 md:mb-6 font-medium">Don't risk your brand with unverified suppliers.</p>
-                <button data-action="/open-modal" class="bg-brandOrange text-white px-8 md:px-10 py-4 md:py-5 rounded-xl font-black uppercase tracking-widest text-[11px] md:text-sm shadow-xl hover:-translate-y-1 transition inline-block">Get Factory Pricing</button>
+                <button data-action="/open-modal" class="bg-brandOrange text-white px-8 md:px-10 py-4 md:py-5 rounded-xl font-black uppercase tracking-widest text-[11px] md:text-sm shadow-xl hover:-translate-y-1 transition inline-block">Get Wholesale Price</button>
             </div>
         </div>
     </section>
