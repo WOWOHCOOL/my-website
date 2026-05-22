@@ -29,6 +29,9 @@ function serve(res, filePath) {
 http.createServer((req, res) => {
     let url = req.url.split('?')[0].split('#')[0];
 
+    // Decode URL-encoded characters (e.g. %C3%A4 → ä)
+    url = decodeURIComponent(url);
+
     // Directory traversal protection
     url = path.normalize(url).replace(/^(\.\.[/\\])+/, '');
     let filePath = path.join(ROOT, url);
