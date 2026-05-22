@@ -189,8 +189,8 @@
             
             <!-- 鍙充晶鎸夐挳鍖?-->
             <div class="flex items-center gap-4">
-                <button data-action="/blog/open-modal" class="bg-brandOrange text-white px-4 md:px-7 py-2 rounded-full text-[11px] md:text-[11px] font-black uppercase tracking-widest hover:scale-105 transition shadow-lg"><span class="hidden lg:flex">Get Factory Pricing</span><span class="flex lg:hidden">Get Pricing</span></button>
-                <button data-action="/blog/toggle-mobile-menu" class="lg:hidden text-brandBlue text-2xl p-2" aria-label="Open mobile menu"><svg class="icon-bars-staggered" aria-hidden="true" focusable="false" viewBox="0 0 512 512">
+                <button data-action="open-modal" class="bg-brandOrange text-white px-4 md:px-7 py-2 rounded-full text-[11px] md:text-[11px] font-black uppercase tracking-widest hover:scale-105 transition shadow-lg"><span class="hidden lg:flex">Get Factory Pricing</span><span class="flex lg:hidden">Get Pricing</span></button>
+                <button data-action="toggle-mobile-menu" class="lg:hidden text-brandBlue text-2xl p-2" aria-label="Open mobile menu"><svg class="icon-bars-staggered" aria-hidden="true" focusable="false" viewBox="0 0 512 512">
     <path d="M0 96C0 78.3 14.3 64 32 64l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 128C14.3 128 0 113.7 0 96zM64 256c0-17.7 14.3-32 32-32l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L96 288c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32L32 448c-17.7 0-32-14.3-32-32s14.3-32 32-32l384 0c17.7 0 32 14.3 32 32z" fill="currentColor"/>
   </svg></button>
             </div>
@@ -200,18 +200,18 @@
     <!-- ========================================================================
          MOBILE MENU - 绉诲姩绔彍鍗?
          ======================================================================== -->
-    <div id="mobile-menu-overlay" class="fixed inset-0 bg-brandBlue/40 backdrop-blur-md z-[499] opacity-0 pointer-events-none transition-opacity duration-300 lg:hidden" data-action="/blog/close-mobile"></div>
+    <div id="mobile-menu-overlay" class="fixed inset-0 bg-brandBlue/40 backdrop-blur-md z-[499] opacity-0 pointer-events-none transition-opacity duration-300 lg:hidden" data-action="close-mobile"></div>
 
     <div id="mobile-menu-content" class="fixed inset-y-0 right-0 w-80 bg-brandBlue z-[500] transform translate-x-full transition-transform duration-500 p-8 shadow-2xl lg:hidden flex flex-col">
         
         <!-- 绉诲姩绔彍鍗曞ご閮?-->
         <div class="flex justify-between items-center mb-12">
-            <a href="/" data-action="/blog/close-mobile" class="block active:opacity-70 transition-opacity">
+            <a href="/" data-action="close-mobile" class="block active:opacity-70 transition-opacity">
                 <div class="text-xl font-black italic text-white uppercase tracking-tighter">
                     WOWOH<span class="text-brandOrange">COOL</span>
                 </div>
             </a>
-            <button data-action="/blog/close-mobile" class="text-white text-3xl p-2 hover:rotate-90 transition-transform duration-300 outline-none" aria-label="Close mobile menu">
+            <button data-action="close-mobile" class="text-white text-3xl p-2 hover:rotate-90 transition-transform duration-300 outline-none" aria-label="Close mobile menu">
                 <svg class="icon-xmark" aria-hidden="true" focusable="false" viewBox="0 0 384 512">
     <path d="M55.1 73.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L147.2 256 9.9 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192.5 301.3 329.9 438.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.8 256 375.1 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192.5 210.7 55.1 73.4z" fill="currentColor"/>
   </svg>
@@ -220,35 +220,35 @@
 
         <!-- 绉诲姩绔鑸摼鎺?-->
         <nav aria-label="Mobile navigation" class="flex-1 space-y-6 text-white uppercase font-black tracking-widest text-sm">
-            <a href="/" data-action="/blog/close-mobile" class="block py-2 hover:text-brandOrange transition border-b border-white/5">Home</a>
+            <a href="/" data-action="close-mobile" class="block py-2 hover:text-brandOrange transition border-b border-white/5">Home</a>
             
             <a href="/about" class="block py-2 hover:text-brandOrange transition border-b border-white/5">About Factory</a>
             
             <!-- 绉诲姩绔骇鍝佸瓙鑿滃崟 -->
             <div class="space-y-4">
-                <button data-action="/blog/toggle-mobile-submenu" class="w-full flex justify-between items-center py-2 hover:text-brandOrange transition border-b border-white/5 uppercase outline-none" aria-label="Toggle products submenu">
+                <button data-action="toggle-mobile-submenu" class="w-full flex justify-between items-center py-2 hover:text-brandOrange transition border-b border-white/5 uppercase outline-none" aria-label="Toggle products submenu">
                     Products <svg class="icon-chevron-down submenu-icon text-xs transition-transform duration-300" aria-hidden="true" focusable="false" viewBox="0 0 448 512">
     <path d="M201.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 338.7 54.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z" fill="currentColor"/>
   </svg>
                 </button>
                 <div id="mobile-submenu" class="submenu-slide pl-4 space-y-4 border-l-2 border-brandOrange/30 ml-1" aria-hidden="true">
-                    <a href="/products/power-bank" tabindex="-1" data-action="/blog/close-mobile" class="block text-xs text-white/70 hover:text-brandOrange py-1">&rarr;Power Bank</a>
-                    <a tabindex="-1" href="/products/gan-charger" data-action="/blog/close-mobile" class="block text-xs text-white/70 hover:text-brandOrange py-1">&rarr;GaN Charger</a>
-                    <a tabindex="-1" href="/products/wireless-charger" data-action="/blog/close-mobile" class="block text-xs text-white/70 hover:text-brandOrange py-1">&rarr;Wireless Charger</a>
-                    <a tabindex="-1" href="/products/car-charger" data-action="/blog/close-mobile" class="block text-xs text-white/70 hover:text-brandOrange py-1">&rarr;Car Charger</a>
+                    <a href="/products/power-bank" tabindex="-1" data-action="close-mobile" class="block text-xs text-white/70 hover:text-brandOrange py-1">&rarr;Power Bank</a>
+                    <a tabindex="-1" href="/products/gan-charger" data-action="close-mobile" class="block text-xs text-white/70 hover:text-brandOrange py-1">&rarr;GaN Charger</a>
+                    <a tabindex="-1" href="/products/wireless-charger" data-action="close-mobile" class="block text-xs text-white/70 hover:text-brandOrange py-1">&rarr;Wireless Charger</a>
+                    <a tabindex="-1" href="/products/car-charger" data-action="close-mobile" class="block text-xs text-white/70 hover:text-brandOrange py-1">&rarr;Car Charger</a>
                 </div>
             </div>
 
-            <a href="/service" data-action="/blog/close-mobile" class="block py-2 hover:text-brandOrange transition border-b border-white/5">OEM/ODM Service</a>
-            <a href="/case-studies" data-action="/blog/close-mobile" class="block py-2 hover:text-brandOrange transition border-b border-white/5">Case Studies</a>
+            <a href="/service" data-action="close-mobile" class="block py-2 hover:text-brandOrange transition border-b border-white/5">OEM/ODM Service</a>
+            <a href="/case-studies" data-action="close-mobile" class="block py-2 hover:text-brandOrange transition border-b border-white/5">Case Studies</a>
             
-            <a href="/blog/" data-action="/blog/close-mobile" class="block py-2 text-brandOrange transition border-b border-white/5">Blog</a>
+            <a href="/blog/" data-action="close-mobile" class="block py-2 text-brandOrange transition border-b border-white/5">Blog</a>
 
             <a href="/contact" class="block py-2 hover:text-brandOrange transition border-b border-white/5">Contact Us</a>
 
             <!-- 绉诲姩绔鐩樻寜閽?-->
             <div class="pt-8">
-                <button data-action="/blog/close-mobile%20open-modal" data-product="General Inquiry" class="w-full bg-brandOrange text-white py-4 px-4 rounded-xl font-black shadow-xl shadow-brandOrange/20 active:scale-95 transition-all uppercase tracking-wider text-[11px] leading-tight text-center">
+                <button data-action="close-mobile open-modal" data-product="General Inquiry" class="w-full bg-brandOrange text-white py-4 px-4 rounded-xl font-black shadow-xl shadow-brandOrange/20 active:scale-95 transition-all uppercase tracking-wider text-[11px] leading-tight text-center">
                     Get Wholesale Pricing
                 </button>
             </div>
@@ -1001,7 +1001,7 @@
                 <div class="flex justify-center md:justify-start gap-5 text-slate-500 mt-8">
                     <a href="https://www.linkedin.com/company/wowohcool" class="hover:text-brandOrange text-xl transition" title="Follow us on LinkedIn"><svg class="icon-linkedin" aria-hidden="true" focusable="false" viewBox="0 0 448 512"><path d="M416 32L31.9 32C14.3 32 0 46.5 0 64.3L0 447.7C0 465.5 14.3 480 31.9 480L416 480c17.6 0 32-14.5 32-32.3l0-383.4C448 46.5 433.6 32 416 32zM135.4 416l-66.4 0 0-213.8 66.5 0 0 213.8-.1 0zM102.2 96a38.5 38.5 0 1 1 0 77 38.5 38.5 0 1 1 0-77zM384.3 416l-66.4 0 0-104c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9l0 105.8-66.4 0 0-213.8 63.7 0 0 29.2 .9 0c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9l0 117.2z" fill="currentColor"/></svg></a>
                     <a href="https://www.facebook.com/wowohcoolelectronic" class="hover:text-brandOrange text-xl transition" title="Follow us on Facebook"><svg class="icon-facebook" aria-hidden="true" focusable="false" viewBox="0 0 512 512"><path d="M512 256C512 114.6 397.4 0 256 0S0 114.6 0 256C0 376 82.7 476.8 194.2 504.5l0-170.3-52.8 0 0-78.2 52.8 0 0-33.7c0-87.1 39.4-127.5 125-127.5 16.2 0 44.2 3.2 55.7 6.4l0 70.8c-6-.6-16.5-1-29.6-1-42 0-58.2 15.9-58.2 57.2l0 27.8 83.6 0-14.4 78.2-69.3 0 0 175.9C413.8 494.8 512 386.9 512 256z" fill="currentColor"/></svg></a>
-                    <a href="https://www.youtube.com/" class="hover:text-brandOrange text-xl transition" title="Watch on YouTube"><svg class="icon-youtube" aria-hidden="true" focusable="false" viewBox="0 0 576 512"><path d="M549.7 124.1C543.5 100.4 524.9 81.8 501.4 75.5 458.9 64 288.1 64 288.1 64S117.3 64 74.7 75.5C51.2 81.8 32.7 100.4 26.4 124.1 15 167 15 256.4 15 256.4s0 89.4 11.4 132.3c6.3 23.6 24.8 41.5 48.3 47.8 42.6 11.5 213.4 11.5 213.4 11.5s170.8 0 213.4-11.5c23.5-6.3 42-24.2 48.3-47.8 11.4-42.9 11.4-132.3 11.4-132.3s0-89.4-11.4-132.3zM232.2 337.6l0-162.4 142.7 81.2-142.7 81.2z" fill="currentColor"/></svg></a>
+                    <a href="https://www.youtube.com/@WOWOHCOOL" class="hover:text-brandOrange text-xl transition" title="Watch on YouTube"><svg class="icon-youtube" aria-hidden="true" focusable="false" viewBox="0 0 576 512"><path d="M549.7 124.1C543.5 100.4 524.9 81.8 501.4 75.5 458.9 64 288.1 64 288.1 64S117.3 64 74.7 75.5C51.2 81.8 32.7 100.4 26.4 124.1 15 167 15 256.4 15 256.4s0 89.4 11.4 132.3c6.3 23.6 24.8 41.5 48.3 47.8 42.6 11.5 213.4 11.5 213.4 11.5s170.8 0 213.4-11.5c23.5-6.3 42-24.2 48.3-47.8 11.4-42.9 11.4-132.3 11.4-132.3s0-89.4-11.4-132.3zM232.2 337.6l0-162.4 142.7 81.2-142.7 81.2z" fill="currentColor"/></svg></a>
                 </div>
             </div>
         </div>
@@ -1025,7 +1025,7 @@
          ======================================================================== -->
     
     <!-- 杩斿洖椤堕儴鎸夐挳 -->
-    <button id="backToTop" data-action="/blog/scroll-to-top" 
+    <button id="backToTop" data-action="scroll-to-top" 
         class="fixed bottom-8 left-4 md:left-8 w-10 h-10 bg-brandBlue text-white rounded-full shadow-lg flex items-center justify-center z-[150] hover:bg-brandOrange hover:text-white transition-all duration-500 transform translate-y-10 opacity-0 pointer-events-none" aria-label="Back to top">
         <svg class="icon-arrow-up" aria-hidden="true" focusable="false" viewBox="0 0 384 512"><path d="M214.6 9.4c-12.5-12.5-32.8-12.5-45.3 0l-160 160c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 109.3 160 480c0 17.7 14.3 32 32 32s32-14.3 32-32l0-370.7 105.4 105.4c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-160-160z" fill="currentColor"/></svg>
     </button>
@@ -1040,7 +1040,7 @@
         </a>
         
         <!-- 蹇€熻鐩樻寜閽?-->
-        <button data-action="/blog/open-modal" class="w-10 h-10 bg-brandOrange text-white rounded-full flex items-center justify-center shadow-2xl hover:scale-110 active:scale-95 transition duration-300 group relative" aria-label="Quick inquiry">
+        <button data-action="open-modal" class="w-10 h-10 bg-brandOrange text-white rounded-full flex items-center justify-center shadow-2xl hover:scale-110 active:scale-95 transition duration-300 group relative" aria-label="Quick inquiry">
             <svg class="icon-envelope text-lg" aria-hidden="true" focusable="false" viewBox="0 0 512 512"><path d="M48 64c-26.5 0-48 21.5-48 48 0 15.1 7.1 29.3 19.2 38.4l208 156c17.1 12.8 40.5 12.8 57.6 0l208-156c12.1-9.1 19.2-23.3 19.2-38.4 0-26.5-21.5-48-48-48L48 64zM0 196L0 384c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-188-198.4 148.8c-34.1 25.6-81.1 25.6-115.2 0L0 196z" fill="currentColor"/></svg>
             <span class="absolute right-20 bg-black text-white text-[11px] font-bold px-3 py-1 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">Quick Inquiry</span>
         </button>
@@ -1052,7 +1052,7 @@
         <div id="inquiryModal" class="fixed inset-0 z-[500] hidden items-center justify-center p-5 sm:p-6 bg-brandBlue/95 backdrop-blur-lg" role="dialog" aria-modal="true" aria-hidden="true">
         <div class="bg-white w-full max-w-xl p-4 sm:p-8 rounded-2xl relative animate-in zoom-in duration-300 shadow-2xl">
             <!-- 鍏抽棴鎸夐挳 -->
-            <button data-action="/blog/close-modal" class="absolute top-3 right-3 sm:top-4 sm:right-4 z-10 w-8 h-8 flex items-center justify-center rounded-full bg-slate-100 hover:bg-slate-200 text-slate-500 hover:text-brandBlue transition-colors text-sm" aria-label="Close inquiry modal">
+            <button data-action="close-modal" class="absolute top-3 right-3 sm:top-4 sm:right-4 z-10 w-8 h-8 flex items-center justify-center rounded-full bg-slate-100 hover:bg-slate-200 text-slate-500 hover:text-brandBlue transition-colors text-sm" aria-label="Close inquiry modal">
                 &#10005;
             </button>
 
