@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 
 const PORT = process.env.PORT || 3000;
-const ROOT = __dirname;
+const ROOT = path.join(__dirname, '_site');
 
 const MIME = {
     '.html': 'text/html; charset=utf-8',
@@ -33,8 +33,12 @@ http.createServer((req, res) => {
     url = decodeURIComponent(url);
 
     // Directory traversal protection
-    url = path.normalize(url).replace(/^(\.\.[/\\])+/, '');
-    let filePath = path.join(ROOT, url);
+    const requestedPath = path.resolve(ROOT, '.' + url);
+    if (!requestedPath.startsWith(ROOT)) {
+      res.writeHead(403);
+      return res.end('Forbidden');
+    }
+    let filePath = requestedPath;
 
     try {
         if (fs.statSync(filePath).isFile())
