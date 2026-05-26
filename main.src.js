@@ -127,6 +127,12 @@ function closeModal() {
     document.removeEventListener('keydown', modalKeydownHandler, true);
     modalKeydownHandler = null;
   }
+
+  // Restore body scroll (with small delay for mobile browsers to settle)
+  requestAnimationFrame(() => {
+    document.body.style.overflow = '';
+    document.documentElement.style.overflowX = '';
+  });
 }
 
 function openModal(product = '') {
@@ -155,6 +161,11 @@ function openModal(product = '') {
   modal.classList.remove('hidden');
   modal.classList.add('flex');
   modal.setAttribute('aria-hidden', 'false');
+
+  // Lock body scroll while modal is open
+  document.body.style.overflow = 'hidden';
+  document.documentElement.style.overflowX = 'hidden';
+
   if (content) {
     content.setAttribute('aria-hidden', 'true');
     if ('inert' in HTMLElement.prototype) {
