@@ -32,6 +32,7 @@ module.exports = function (eleventyConfig) {
     'de/apple-touch-icon.png',
     'de/favicon.png', 'de/favicon-16x16.png', 'de/favicon-32x32.png',
     'de/llms.txt', 'de/llms-full.txt',
+    'de/_headers',
     'de/produkte/image',
     'de/blog/cover',
   ];

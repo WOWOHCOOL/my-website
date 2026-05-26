@@ -1,23 +1,17 @@
 {
   "name": "wowohcool-web",
-  "main": "worker.js",
   "compatibility_date": "2025-12-23",
   "assets": {
-    "directory": "./",
+    "directory": "_site",
     "binding": "ASSETS",
     "exclude": [
-      "node_modules",
       "main.src.js",
-      "css/src.css",
-      "tailwind.config.js",
-      "package.json",
-      "package-lock.json",
-      "CLAUDE.md",
-      ".git",
-      ".gitignore",
-      "wrangler.json",
-      "worker.js",
-      "npm-debug.log"
+      "node_modules"
     ]
+  },
+  "build": {
+    "command": "npm install && npm run build",
+    "cwd": "",
+    "watch_dir": "src/"
   }
 }
