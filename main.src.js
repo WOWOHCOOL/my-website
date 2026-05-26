@@ -17,11 +17,24 @@ const _ = typeof LANG !== "undefined" && LANG === "de"
       redirectingText: 'Weiterleitung...',
       submitError: 'Fehler beim Senden. Bitte versuchen Sie es erneut.',
       networkError: 'Netzwerkfehler. Bitte überprüfen Sie Ihre Verbindung.',
-            newInquiryPrefix: 'Neue Anfrage: ',
-            generalInquiryText: 'Allgemeine Anfrage von der Website',
-            locale: 'de-DE',
-          }
-        : {
+      newInquiryPrefix: 'Neue Anfrage: ',
+      generalInquiryText: 'Allgemeine Anfrage von der Website',
+      locale: 'de-DE',
+    }
+  : typeof LANG !== "undefined" && LANG === "es"
+  ? {
+      redirectUrl: '/es/gracias',
+      sendingText: 'Enviando consulta...',
+      successTitle: '¡Gracias!',
+      successMsg: 'Su consulta ha sido enviada correctamente.<br>Le responderemos en 24 horas.',
+      redirectingText: 'Redirigiendo...',
+      submitError: 'Error al enviar. Por favor, inténtelo de nuevo.',
+      networkError: 'Error de red. Por favor, verifique su conexión.',
+      newInquiryPrefix: 'Nueva consulta: ',
+      generalInquiryText: 'Consulta general desde el sitio web',
+      locale: 'es-ES',
+    }
+  : {
       redirectUrl: '/thank-you',
       sendingText: 'Sending Inquiry...',
       successTitle: 'Thank You!',

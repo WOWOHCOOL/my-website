@@ -274,8 +274,10 @@
     <!-- ========================================================================
          INQUIRY MODAL
          ======================================================================== -->
-    <div id="inquiryModal" class="fixed inset-0 z-[500] hidden justify-center overflow-y-auto bg-brandBlue/95 backdrop-blur-lg" role="dialog" aria-modal="true" aria-hidden="true">
-        <div class="bg-white w-full max-w-xl my-auto rounded-2xl relative shadow-2xl mx-4 sm:mx-6 my-4 sm:my-6">
+    <div id="inquiryModal" class="fixed inset-0 z-[500] hidden flex-col overflow-y-auto bg-brandBlue/95 backdrop-blur-lg" role="dialog" aria-modal="true" aria-hidden="true">
+        <div class="shrink-0 w-full max-w-xl mx-auto mt-8 sm:mt-16 mb-4 px-4 sm:px-6">
+        <div class="bg-white rounded-2xl relative shadow-2xl">
+            <div class="p-4 sm:p-8">
             <button data-action="close-modal" class="absolute top-3 right-3 sm:top-4 sm:right-4 z-10 w-8 h-8 flex items-center justify-center rounded-full bg-slate-100 hover:bg-slate-200 text-slate-500 hover:text-brandBlue transition-colors text-sm" aria-label="Close inquiry modal">&#10005;</button>
 
             <div class="mb-4 sm:mb-6 text-left">
@@ -299,26 +301,26 @@
                     <div class="space-y-1">
                         <label for="modal-name" class="text-[11px] font-bold text-brandBlue ml-2 tracking-widest">Contact name *</label>
                         <input id="modal-name" type="text" name="name" placeholder="John Doe" required autocomplete="name"
-                            class="w-full bg-slate-50 p-3.5 sm:p-4 rounded-xl text-sm border-2 border-transparent focus:border-brandOrange focus:bg-white transition-all outline-none font-medium">
+                            class="w-full bg-slate-50 p-3.5 sm:p-4 rounded-xl text-[16px] border-2 border-transparent focus:border-brandOrange focus:bg-white transition-all outline-none font-medium">
                     </div>
                     <div class="space-y-1">
                         <label for="modal-email" class="text-[11px] font-bold text-brandBlue ml-2 tracking-widest">Business email *</label>
                         <input id="modal-email" type="email" name="email" placeholder="john@company.com" required autocomplete="email"
-                            class="w-full bg-slate-50 p-3.5 sm:p-4 rounded-xl text-sm border-2 border-transparent focus:border-brandOrange focus:bg-white transition-all outline-none font-medium">
+                            class="w-full bg-slate-50 p-3.5 sm:p-4 rounded-xl text-[16px] border-2 border-transparent focus:border-brandOrange focus:bg-white transition-all outline-none font-medium">
                     </div>
                 </div>
 
                 <div class="space-y-1 mt-3 sm:mt-4">
                     <label for="modal-company" class="text-[11px] font-bold text-brandBlue ml-2 tracking-widest">Company <span class="text-slate-500 font-medium normal-case tracking-normal">(optional)</span></label>
                     <input id="modal-company" type="text" name="company" placeholder="Your company name"
-                        class="w-full bg-slate-50 p-3.5 sm:p-4 rounded-xl text-sm border-2 border-transparent focus:border-brandOrange focus:bg-white transition-all outline-none font-medium">
+                        class="w-full bg-slate-50 p-3.5 sm:p-4 rounded-xl text-[16px] border-2 border-transparent focus:border-brandOrange focus:bg-white transition-all outline-none font-medium">
                 </div>
 
                 <div class="space-y-1 mt-3 sm:mt-4">
                     <label for="productSelect" class="text-[11px] font-bold text-brandBlue ml-2 tracking-widest">Product interest</label>
                     <div class="relative">
                        <select id="productSelect" name="product" required
-                            class="w-full bg-slate-50 p-3.5 sm:p-4 rounded-xl text-sm border-2 border-transparent focus:border-brandOrange focus:bg-white transition-all outline-none font-medium appearance-none">
+                            class="w-full bg-slate-50 p-3.5 sm:p-4 rounded-xl text-[16px] border-2 border-transparent focus:border-brandOrange focus:bg-white transition-all outline-none font-medium appearance-none">
                             <option value="">Select product category</option>
                             <option value="Power Bank OEM/ODM">Power Bank (Semi-Solid-State, PD 3.1)</option>
                             <option value="GaN Charger OEM/ODM">GaN Charger (GaN V, PD 3.1 240W)</option>
@@ -334,7 +336,7 @@
                 <div class="space-y-1 mt-3 sm:mt-4">
                     <label for="modal-message" class="text-[11px] font-bold text-brandBlue ml-2 tracking-widest">Project details *</label>
                     <textarea id="modal-message" name="message" placeholder="Product specs, target quantity, logo printing, packaging needs..." rows="2" required minlength="10"
-                        class="w-full bg-slate-50 p-3.5 sm:p-4 rounded-xl text-sm border-2 border-transparent focus:border-brandOrange focus:bg-white transition-all outline-none font-medium resize-none sm:rows-3"></textarea>
+                        class="w-full bg-slate-50 p-3.5 sm:p-4 rounded-xl text-[16px] border-2 border-transparent focus:border-brandOrange focus:bg-white transition-all outline-none font-medium resize-none sm:rows-3"></textarea>
                 </div>
 
                 <div class="pt-2 sm:pt-3">
@@ -348,7 +350,7 @@
                         Send Inquiry
                     </button>
                     <div class="modal-badges flex items-center justify-center gap-4 mt-4 sm:mt-6">
-                        <p class="text-[11px] text-slate-300 font-bold uppercase tracking-tighter">
+                        <p class="text-[11px] text-slate-500 font-bold uppercase tracking-tighter">
                             <svg class="icon-lock mr-1" aria-hidden="true" focusable="false" viewBox="0 0 384 512"><path d="M128 96l0 64 128 0 0-64c0-35.3-28.7-64-64-64s-64 28.7-64 64zM64 160l0-64C64 25.3 121.3-32 192-32S320 25.3 320 96l0 64c35.3 0 64 28.7 64 64l0 224c0 35.3-28.7 64-64 64L64 512c-35.3 0-64-28.7-64-64L0 224c0-35.3 28.7-64 64-64z" fill="currentColor"/></svg> SSL Encrypted Data
                         </p>
                         <p class="text-[11px] text-slate-500 font-bold uppercase tracking-tighter">
@@ -358,6 +360,8 @@
                 </div>
             </form>
         </div>
+    </div>
+    </div>
     </div>
 
     {% include "cookie-banner.njk" %}

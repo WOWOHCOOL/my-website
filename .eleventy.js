@@ -25,7 +25,7 @@ module.exports = function (eleventyConfig) {
     }
   });
 
-  // German site static assets (HTML now generated from njk templates in src/de/)
+  // German site static assets
   const deStatic = [
     'de/css', 'de/js', 'de/image',
     'de/wowohcool-logo-optimized.webp',
@@ -38,6 +38,19 @@ module.exports = function (eleventyConfig) {
   ];
 
   deStatic.forEach(p => {
+    if (fs.existsSync(p)) {
+      eleventyConfig.addPassthroughCopy(p);
+    }
+  });
+
+  // Spanish site static assets
+  const esStatic = [
+    'es/css', 'es/js', 'es/image',
+    'es/llms.txt',
+    'es/_headers',
+  ];
+
+  esStatic.forEach(p => {
     if (fs.existsSync(p)) {
       eleventyConfig.addPassthroughCopy(p);
     }
@@ -71,6 +84,13 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addCollection("blog_de", function (collectionApi) {
     return collectionApi.getFilteredByGlob("./src/de/blog/**/*.njk")
       .filter(item => item.data.canonical && item.data.canonical !== "/de/blog/")
+      .sort((a, b) => b.date - a.date);
+  });
+
+  // ES blog collection, sorted newest first
+  eleventyConfig.addCollection("blog_es", function (collectionApi) {
+    return collectionApi.getFilteredByGlob("./src/es/blog/**/*.njk")
+      .filter(item => item.data.canonical && item.data.canonical !== "/es/blog/")
       .sort((a, b) => b.date - a.date);
   });
 
