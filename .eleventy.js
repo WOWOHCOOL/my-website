@@ -5,7 +5,7 @@ module.exports = function (eleventyConfig) {
   const passthrough = [
     'image', 'css',
     'main.js', 'main.src.js',
-    'robots.txt', 'sitemap.xml', 'rss.xml',
+    'robots.txt',
     'llms.txt', 'llms-full.txt', 'rsl.txt',
     '_headers', '_redirects',
     'BingSiteAuth.xml',
@@ -51,6 +51,26 @@ module.exports = function (eleventyConfig) {
       return `${y}-${m}-${day}`;
     }
     return d;
+  });
+
+  // RSS date filter: Date → "Thu, 14 May 2026 00:00:00 GMT"
+  eleventyConfig.addFilter("rssDate", (d) => {
+    if (d instanceof Date) return d.toUTCString();
+    return d;
+  });
+
+  // EN blog collection (exclude listing page), sorted newest first
+  eleventyConfig.addCollection("blog_en", function (collectionApi) {
+    return collectionApi.getFilteredByGlob("./src/blog/**/*.njk")
+      .filter(item => item.data.canonical && item.data.canonical !== "/blog")
+      .sort((a, b) => b.date - a.date);
+  });
+
+  // DE blog collection, sorted newest first
+  eleventyConfig.addCollection("blog_de", function (collectionApi) {
+    return collectionApi.getFilteredByGlob("./src/de/blog/**/*.njk")
+      .filter(item => item.data.canonical && item.data.canonical !== "/de/blog/")
+      .sort((a, b) => b.date - a.date);
   });
 
   return {

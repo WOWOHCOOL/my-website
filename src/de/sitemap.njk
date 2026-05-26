@@ -1,3 +1,6 @@
+---
+permalink: "de/sitemap.xml"
+---
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
@@ -39,14 +42,26 @@
   </url>
   <url>
     <loc>https://www.wowohcool.com/de/oem-odm-service</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.wowohcool.com/de/oem-odm-service"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.wowohcool.com/service"/>
     <lastmod>2026-05-11</lastmod>
   </url>
   <url>
     <loc>https://www.wowohcool.com/de/ueber-uns</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.wowohcool.com/de/ueber-uns"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.wowohcool.com/about"/>
     <lastmod>2026-05-11</lastmod>
   </url>
   <url>
     <loc>https://www.wowohcool.com/de/kontakt</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.wowohcool.com/de/kontakt"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.wowohcool.com/contact"/>
+    <lastmod>2026-05-11</lastmod>
+  </url>
+  <url>
+    <loc>https://www.wowohcool.com/de/blog/</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.wowohcool.com/de/blog/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.wowohcool.com/blog"/>
     <lastmod>2026-05-11</lastmod>
   </url>
   <url>
@@ -59,38 +74,24 @@
   </url>
   <url>
     <loc>https://www.wowohcool.com/de/datenschutz</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.wowohcool.com/de/datenschutz"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.wowohcool.com/privacy-policy"/>
     <lastmod>2026-05-11</lastmod>
   </url>
   <url>
     <loc>https://www.wowohcool.com/de/agb</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.wowohcool.com/de/agb"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.wowohcool.com/terms-of-service"/>
     <lastmod>2026-05-11</lastmod>
   </url>
   <url>
-    <loc>https://www.wowohcool.com/de/blog/</loc>
+    <loc>https://www.wowohcool.com/de/fallbeispiele/</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.wowohcool.com/de/fallbeispiele/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.wowohcool.com/case-studies"/>
     <lastmod>2026-05-11</lastmod>
-  </url>
+  </url>{%- for post in collections.blog_de %}
   <url>
-    <loc>https://www.wowohcool.com/de/blog/powerbank-hersteller-china-oem-partner</loc>
-    <lastmod>2026-05-11</lastmod>
-  </url>
-  <url>
-    <loc>https://www.wowohcool.com/de/blog/qi2-zertifizierung-importeure</loc>
-    <lastmod>2026-05-11</lastmod>
-  </url>
-  <url>
-    <loc>https://www.wowohcool.com/de/blog/ladegeraet-import-china-zoll-zertifikate</loc>
-    <lastmod>2026-05-11</lastmod>
-  </url>
-  <url>
-    <loc>https://www.wowohcool.com/de/blog/gan-vs-silizium-ladegeraete-vergleich</loc>
-    <lastmod>2026-05-11</lastmod>
-  </url>
-  <url>
-    <loc>https://www.wowohcool.com/de/blog/powerbank-eigenmarke-oem-produktion</loc>
-    <lastmod>2026-05-11</lastmod>
-  </url>
-  <url>
-    <loc>https://www.wowohcool.com/de/blog/oem-vs-odm-leitfaden</loc>
-    <lastmod>2026-05-19</lastmod>
-  </url>
+    <loc>https://www.wowohcool.com{{ post.data.canonical }}</loc>
+    <lastmod>{{ post.date | fmtDate }}</lastmod>
+  </url>{%- endfor %}
 </urlset>
