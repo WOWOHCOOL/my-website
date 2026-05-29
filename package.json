@@ -9,6 +9,7 @@
     "build:js:es": "npx esbuild main.src.js --bundle --minify --outfile=es/js/es-main.js --define:LANG=\"\\\"es\\\"\"",
     "build:js": "npm run build:js:en && npm run build:js:de && npm run build:js:es",
     "build": "npx @11ty/eleventy && npm run build:css && npm run build:js",
+    "deploy": "npm run build && node scripts/indexnow-push.js",
     "watch:css": "npx tailwindcss -i ./css/src.css -o ./css/styles.css --minify --watch",
     "watch:js": "npx esbuild main.src.js --bundle --minify --outfile=main.js --define:LANG=\"\\\"en\\\"\" --watch",
     "watch": "npm run build:css && npx concurrently \"npm run watch:css\" \"npm run watch:js\""

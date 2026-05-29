@@ -1,62 +1,62 @@
 {% macro contactForm(action, label, subject, name_prefix, show_product_select) %}
 <form class="space-y-5" action="{{ action | default('https://api.web3forms.com/submit') }}" method="POST" accept-charset="UTF-8" aria-label="Contact form">
 
-    <input type="hidden" name="access_key" value="7f077cf3-642b-4aba-9be2-cb99c0c65b19">
-    <input type="hidden" name="subject" value="{{ subject | default('New Inquiry from Website') }}">
-    {% if action != 'modal' %}
-    <input type="hidden" name="redirect" value="https://www.wowohcool.com/thank-you">
-    {% endif %}
-    <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;opacity:0;height:0;width:0">
-    <input type="hidden" name="utm_source" id="{{ name_prefix }}utm_source" value="">
-    <input type="hidden" name="utm_medium" id="{{ name_prefix }}utm_medium" value="">
-    <input type="hidden" name="utm_campaign" id="{{ name_prefix }}utm_campaign" value="">
+ <input type="hidden" name="access_key" value="7f077cf3-642b-4aba-9be2-cb99c0c65b19">
+ <input type="hidden" name="subject" value="{{ subject | default('New Inquiry from Website') }}">
+ {% if action!= 'modal' %}
+ <input type="hidden" name="redirect" value="https://www.wowohcool.com/thank-you">
+ {% endif %}
+ <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;opacity:0;height:0;width:0">
+ <input type="hidden" name="utm_source" id="{{ name_prefix }}utm_source" value="">
+ <input type="hidden" name="utm_medium" id="{{ name_prefix }}utm_medium" value="">
+ <input type="hidden" name="utm_campaign" id="{{ name_prefix }}utm_campaign" value="">
 
-    <div class="grid md:grid-cols-2 gap-5">
-        <label for="{{ name_prefix }}name" class="sr-only">Name *</label>
-        <input id="{{ name_prefix }}name" name="name" type="text" placeholder="Name *" required autocomplete="name"
-            class="w-full bg-slate-50 p-3 md:p-4 rounded-xl text-sm border-2 border-transparent focus:border-brandOrange focus:bg-white transition-all outline-none font-medium">
+ <div class="grid md:grid-cols-2 gap-5">
+ <label for="{{ name_prefix }}name" class="sr-only">Name *</label>
+ <input id="{{ name_prefix }}name" name="name" type="text" placeholder="Name *" required autocomplete="name"
+ class="w-full bg-slate-50 p-3 md:p-4 rounded-xl text-sm border-2 border-transparent focus:border-brandOrange focus:bg-white transition-all outline-none font-medium">
 
-        <label for="{{ name_prefix }}email" class="sr-only">Email *</label>
-        <input id="{{ name_prefix }}email" name="email" type="email" placeholder="Email *" required autocomplete="email"
-            class="w-full bg-slate-50 p-3 md:p-4 rounded-xl text-sm border-2 border-transparent focus:border-brandOrange focus:bg-white transition-all outline-none font-medium">
-    </div>
+ <label for="{{ name_prefix }}email" class="sr-only">Email *</label>
+ <input id="{{ name_prefix }}email" name="email" type="email" placeholder="Email *" required autocomplete="email"
+ class="w-full bg-slate-50 p-3 md:p-4 rounded-xl text-sm border-2 border-transparent focus:border-brandOrange focus:bg-white transition-all outline-none font-medium">
+ </div>
 
-    <label for="{{ name_prefix }}company" class="sr-only">Company (optional)</label>
-    <input id="{{ name_prefix }}company" name="company" type="text" placeholder="Company (optional)"
-        class="w-full bg-slate-50 p-3 md:p-4 rounded-xl text-sm border-2 border-transparent focus:border-brandOrange focus:bg-white transition-all outline-none font-medium">
+ <label for="{{ name_prefix }}company" class="sr-only">Company (optional)</label>
+ <input id="{{ name_prefix }}company" name="company" type="text" placeholder="Company (optional)"
+ class="w-full bg-slate-50 p-3 md:p-4 rounded-xl text-sm border-2 border-transparent focus:border-brandOrange focus:bg-white transition-all outline-none font-medium">
 
-    {% if show_product_select %}
-    <div class="space-y-1">
-        <label for="{{ name_prefix }}product" class="text-[11px] font-black text-brandBlue uppercase ml-2 tracking-widest">Product Interest</label>
-        <div class="relative">
-            <select id="{{ name_prefix }}product" name="product"
-                class="w-full bg-slate-50 p-3 md:p-4 rounded-xl text-sm border-2 border-transparent focus:border-brandOrange focus:bg-white transition-all outline-none font-medium appearance-none">
-                <option value="">Select product category</option>
-                <option value="Power Bank OEM/ODM">Power Bank (Semi-Solid-State, PD 3.1)</option>
-                <option value="GaN Charger OEM/ODM">GaN Charger (GaN V, PD 3.1 240W)</option>
-                <option value="Wireless Charger OEM/ODM">Wireless Charger (Qi2, MagSafe, 15W)</option>
-                <option value="Car Charger OEM/ODM">Car Charger (PD 3.1, GaN, 140W)</option>
-                <option value="Custom ODM Project">Custom ODM Project (Full Design)</option>
-                <option value="General Inquiry">General Inquiry / Not Sure Yet</option>
-            </select>
-            <svg class="icon-chevron-down absolute right-4 top-1/2 -translate-y-1/2 text-slate-300 pointer-events-none text-xs" aria-hidden="true" focusable="false" viewBox="0 0 448 512"><path d="M201.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 338.7 54.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z" fill="currentColor"/></svg>
-        </div>
-    </div>
-    {% endif %}
+ {% if show_product_select %}
+ <div class="space-y-1">
+ <label for="{{ name_prefix }}product" class="text-[11px] font-black text-brandBlue uppercase ml-2 tracking-widest">Product Interest</label>
+ <div class="relative">
+ <select id="{{ name_prefix }}product" name="product"
+ class="w-full bg-slate-50 p-3 md:p-4 rounded-xl text-sm border-2 border-transparent focus:border-brandOrange focus:bg-white transition-all outline-none font-medium appearance-none">
+ <option value="">Select product category</option>
+ <option value="Power Bank OEM/ODM">Power Bank (Semi-Solid-State, PD 3.1)</option>
+ <option value="GaN Charger OEM/ODM">GaN Charger (GaN V, PD 3.1 240W)</option>
+ <option value="Wireless Charger OEM/ODM">Wireless Charger (Qi2, MagSafe, 15W)</option>
+ <option value="Car Charger OEM/ODM">Car Charger (PD 3.1, GaN, 140W)</option>
+ <option value="Custom ODM Project">Custom ODM Project (Full Design)</option>
+ <option value="General Inquiry">General Inquiry / Not Sure Yet</option>
+ </select>
+ <svg class="icon-chevron-down absolute right-4 top-1/2 -translate-y-1/2 text-slate-300 pointer-events-none text-xs" aria-hidden="true" focusable="false" viewBox="0 0 448 512"><path d="M201.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 338.7 54.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z" fill="currentColor"/></svg>
+ </div>
+ </div>
+ {% endif %}
 
-    <label for="{{ name_prefix }}message" class="sr-only">Tell us about your requirements *</label>
-    <textarea id="{{ name_prefix }}message" name="message" placeholder="Tell us about your requirements *" rows="4" required minlength="10"
-        class="w-full bg-slate-50 p-3 md:p-4 rounded-xl text-sm border-2 border-transparent focus:border-brandOrange focus:bg-white transition-all outline-none font-medium resize-none"></textarea>
+ <label for="{{ name_prefix }}message" class="sr-only">Tell us about your requirements *</label>
+ <textarea id="{{ name_prefix }}message" name="message" placeholder="Tell us about your requirements *" rows="4" required minlength="10"
+ class="w-full bg-slate-50 p-3 md:p-4 rounded-xl text-sm border-2 border-transparent focus:border-brandOrange focus:bg-white transition-all outline-none font-medium resize-none"></textarea>
 
-    <div>
-        <label class="flex items-start gap-3">
-            <input type="checkbox" required class="mt-0.5 accent-brandOrange shrink-0">
-            <span class="text-xs text-slate-500">I agree to the <a href="/privacy-policy" class="text-brandOrange hover:underline">Privacy Policy</a>. *</span>
-        </label>
-    </div>
+ <div>
+ <label class="flex items-start gap-3">
+ <input type="checkbox" required class="mt-0.5 accent-brandOrange shrink-0">
+ <span class="text-xs text-slate-500">I agree to the <a href="/privacy-policy" class="text-brandOrange hover:underline">Privacy Policy</a>. *</span>
+ </label>
+ </div>
 
-    <button type="submit" class="w-full bg-brandOrange text-white py-3.5 sm:py-4 rounded-xl font-black uppercase tracking-widest text-sm shadow-xl hover:bg-brandOrange/90 transition">
-        {{ label | default('Request A Quote') }}
-    </button>
+ <button type="submit" class="w-full bg-brandOrange text-white py-3.5 sm:py-4 rounded-xl font-black uppercase tracking-widest text-sm shadow-xl hover:bg-brandOrange/90 transition">
+ {{ label | default('Request A Quote') }}
+ </button>
 </form>
 {% endmacro %}

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+ <meta name="msvalidate.01" content="DCDF31DC42E44050A451C416EE8D5E5F">
+
+ {% block head_meta %}
+ <title>{{ title or "Fabricante OEM/ODM de Power Banks y Cargadores | WOWOHCOOL Shenzhen" }}</title>
+ <meta name="description" content="{{ description or "Fabricante OEM/ODM de power banks y cargadores en Shenzhen. Certificado CE/Qi2/ISO 9001. MOQ 500+. Desde 2013. Solicite presupuesto gratuito." }}">
+ <meta name="robots" content="index, follow">
+ <meta name="geo.region" content="CN-GD" />
+ <meta name="geo.placename" content="Shenzhen" />
+ <meta name="geo.position" content="22.5431;114.0579" />
+ <link rel="preconnect" href="https://www.googletagmanager.com">
+ <link rel="preconnect" href="https://api.web3forms.com">
+ <link rel="canonical" href="https://www.wowohcool.com{{ canonical or "/es/" }}">
+ <link rel="alternate" hreflang="es" href="https://www.wowohcool.com{{ canonical or "/es/" }}">
+ {% if skipHreflang!= "en" %}<link rel="alternate" hreflang="en" href="https://www.wowohcool.com{{ enPath or "/" }}">{% endif %}
+ {% if skipHreflang!= "de" %}<link rel="alternate" hreflang="de" href="https://www.wowohcool.com/de/{{ (dePath or "") | trailingSlash }}">{% endif %}
+ <link rel="alternate" hreflang="x-default" href="https://www.wowohcool.com{{ enPath or "/" }}">
+
+ <meta property="og:title" content="{{ ogTitle or title or "Fabricante OEM/ODM de Power Banks y Cargadores | WOWOHCOOL Shenzhen" }}">
+ <meta property="og:description" content="{{ ogDescription or description or "Desde 2013 su socio OEM/ODM en soluciones de carga. CE/Qi2/ISO 9001. MOQ 500+. Solicite presupuesto gratuito." }}">
+ <meta property="og:url" content="https://www.wowohcool.com{{ canonical or "/es/" }}">
+ <meta property="og:type" content="{{ ogType or "website" }}">
+ <meta property="og:image" content="https://www.wowohcool.com{{ ogImage or "/image/factory/wowohcool-smart-charging-solutions.webp" }}">
+ <meta property="og:image:width" content="{{ ogImageWidth or "1200" }}">
+ <meta property="og:image:height" content="{{ ogImageHeight or "630" }}">
+ <meta name="twitter:card" content="summary_large_image">
+ <meta name="twitter:title" content="{{ ogTitle or title or "WOWOHCOOL, Socio OEM/ODM en Soluciones de Carga" }}">
+ <meta name="twitter:image" content="https://www.wowohcool.com{{ ogImage or "/image/factory/wowohcool-smart-charging-solutions.svg" }}">
+ <meta name="twitter:description" content="{{ ogDescription or description or "Fabricante de power banks y cargadores en Shenzhen. CE/Qi2 certificado. MOQ 500+." }}">
+ {% if date %}<meta property="article:published_time" content="{{ date | fmtDate }}">{% endif %}
+ {% if modified %}<meta property="article:modified_time" content="{{ modified | fmtDate }}">{% endif %}
+ {% if articleSection %}<meta property="article:section" content="{{ articleSection }}">{% endif %}
+ {% if articleTags %}{% for tag in articleTags %}<meta property="article:tag" content="{{ tag }}">{% endfor %}{% endif %}
+ {% endblock %}
+
+ {% block head_schema %}{% endblock %}
+
+ {% if not noWebSiteSchema %}
+ <script type="application/ld+json">
+ {
+ "@context":"https://schema.org",
+ "@type":"WebSite",
+ "name":"WOWOHCOOL",
+ "url":"https://www.wowohcool.com/es/",
+ "speakable":{
+ "@type":"SpeakableSpecification",
+ "cssSelector":[".section-label",".hero-title h1",".faq-answer"]
+ },
+ "inLanguage":"es",
+ "publisher":{"@type":"Organization","name":"WOWOHCOOL (Dong Yi Technology Co., Ltd)"}
+ }
+ </script>
+ {% endif %}
+
+ <link rel="stylesheet" href="/css/styles.css">
+
+ {% block head_extra %}{% endblock %}
+
+ <link rel="icon" type="image/png" href="/image/favicon.png">
+ <link rel="icon" type="image/png" sizes="32x32" href="/image/favicon-32x32.png">
+ <link rel="icon" type="image/png" sizes="16x16" href="/image/favicon-16x16.png">
+ <link rel="apple-touch-icon" sizes="180x180" href="/image/apple-touch-icon.png">
+
+ <!-- Google tag (gtag.js) — consent-gated: default denied until cookie accept -->
+ <script>
+ window.dataLayer = window.dataLayer || [];
+ function gtag(){dataLayer.push(arguments);}
+ gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',analytics_storage:'denied',wait_for_update:500});
+ try{if(localStorage.getItem('cookie_consent')==='accepted'){gtag('consent','update',{analytics_storage:'granted'})}}catch(e){}
+ gtag('js', new Date());
+ gtag('config', 'G-88920CDSFH');
+ </script>
+ <script async src="https://www.googletagmanager.com/gtag/js?id=G-88920CDSFH"></script>
+</head>
+<body class="bg-white text-slate-900 font-sans antialiased">
+
+{% from "es/breadcrumb.njk" import breadcrumb %}
+
+ <!-- ======== HEADER ======== -->
+ {% include "es/header.njk" %}
+
+ <!-- ======== MOBILE MENU ======== -->
+ {% include "es/mobile-menu.njk" %}
+
+ <!-- ======== MAIN CONTENT ======== -->
+ <main id="main-content">
+ {% block content %}{% endblock %}
+ </main>
+
+ <!-- ======== FOOTER ======== -->
+ {% include "es/footer.njk" %}
+
+ <!-- ======== INQUIRY MODAL ======== -->
+ {% include "es/modal.njk" %}
+
+ <!-- Back to Top -->
+ {% include "es/back-to-top.njk" %}
+
+ <!-- Floating Buttons -->
+ {% include "es/floating-buttons.njk" %}
+
+ <script src="/es/js/es-main.js" defer></script>
+
+ <!-- Cookie Consent -->
+ {% include "es/cookie-banner.njk" %}
+
+</body>
+</html>

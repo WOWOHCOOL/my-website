@@ -1,0 +1,32 @@
+<div id="cookie-banner" class="cookie-banner" role="dialog" aria-label="Consentimiento de cookies">
+ <div class="cookie-banner-inner">
+ <p>Utilizamos cookies y herramientas de análisis (Google Analytics) para mejorar nuestro sitio web. Al hacer clic en "Aceptar", consiente su uso.
+ <a href="/es/politica-privacidad" target="_blank">Política de Privacidad</a> |
+ <a href="/es/aviso-legal" target="_blank">Aviso Legal</a></p>
+ <div class="cookie-btn-group">
+ <button id="cookie-decline" class="cookie-btn-decline">Solo necesarias</button>
+ <button id="cookie-accept" class="cookie-btn-accept">Aceptar</button>
+ </div>
+ </div>
+</div>
+<script>
+(function(){
+ const banner = document.getElementById('cookie-banner');
+ if (localStorage.getItem('cookie_consent') ||!banner) return;
+ setTimeout(function(){ banner.classList.add('show'); }, 500);
+ document.getElementById('cookie-accept').addEventListener('click', function(){
+ localStorage.setItem('cookie_consent', 'accepted');
+ banner.classList.remove('show');
+ if (typeof gtag!== 'undefined') {
+ gtag('consent', 'update', {'analytics_storage': 'granted'});
+ }
+ });
+ document.getElementById('cookie-decline').addEventListener('click', function(){
+ localStorage.setItem('cookie_consent', 'declined');
+ banner.classList.remove('show');
+ if (typeof gtag!== 'undefined') {
+ gtag('consent', 'update', {'analytics_storage': 'denied'});
+ }
+ });
+})();
+</script>

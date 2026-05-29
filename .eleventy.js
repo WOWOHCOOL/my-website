@@ -60,6 +60,12 @@ module.exports = function (eleventyConfig) {
     return d;
   });
 
+  // Ensure trailing slash on path strings (returns empty string unchanged)
+  eleventyConfig.addFilter("trailingSlash", (s) => {
+    if (!s || s === '') return s;
+    return s.endsWith('/') ? s : s + '/';
+  });
+
   // RSS date filter: Date → "Thu, 14 May 2026 00:00:00 GMT"
   eleventyConfig.addFilter("rssDate", (d) => {
     if (d instanceof Date) return d.toUTCString();
@@ -69,7 +75,7 @@ module.exports = function (eleventyConfig) {
   // EN blog collection (exclude listing page), sorted newest first
   eleventyConfig.addCollection("blog_en", function (collectionApi) {
     return collectionApi.getFilteredByGlob("./src/blog/**/*.njk")
-      .filter(item => item.data.canonical && item.data.canonical !== "/blog")
+      .filter(item => item.data.canonical && item.data.canonical !== "/blog/")
       .sort((a, b) => b.date - a.date);
   });
 

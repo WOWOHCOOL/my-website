@@ -301,20 +301,8 @@ document.addEventListener('click', (e) => {
   }
 });
 // ─── Legacy Compat (mobile menu link close, modal backdrop) ───────
-document.addEventListener('DOMContentLoaded', () => {
-  // Close mobile menu when any link inside is clicked
-  const mobileMenu = getMobileMenuContent();
-  if (mobileMenu) {
-    mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMobileMenu));
-  }
-  // Modal backdrop click
-  const modal = getInquiryModal();
-  if (modal) {
-    modal.addEventListener('click', (e) => {
-      if (e.target === modal) closeModal();
-    });
-  }
-});
+// Note: mobile menu links already have data-action="close-mobile",
+// so we only handle the modal backdrop click here.
 // ─── Global Keyboard Handler ────────────────────────────────────────
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') {
@@ -434,6 +422,14 @@ function showFormError(form, message) {
 // ─── DOM Ready ──────────────────────────────────────────────────────
 
 document.addEventListener('DOMContentLoaded', () => {
+  // Modal backdrop click → close
+  const inquiryModalEl = getInquiryModal();
+  if (inquiryModalEl) {
+    inquiryModalEl.addEventListener('click', (e) => {
+      if (e.target === inquiryModalEl) closeModal();
+    });
+  }
+
   // Web3Forms submission handling
   document.querySelectorAll('form[action*="web3forms.com/submit"]').forEach(form => {
     if (form.dataset.submitReady) return;

@@ -3,28 +3,28 @@ permalink: "rss.xml"
 ---
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
-  <channel>
-    <title>WOWOHCOOL Blog — Wireless Charger &amp; Power Bank OEM/ODM Insights</title>
-    <link>https://www.wowohcool.com/blog/</link>
-    <description>Expert guides on wireless chargers, GaN technology, power banks, Qi2 certification, China factory sourcing, and OEM/ODM manufacturing. B2B insights from a Shenzhen factory since 2013.</description>
-    <language>en</language>
-    <lastBuildDate>{{ collections.blog_en[0].date | rssDate }}</lastBuildDate>
-    <generator>Eleventy</generator>
-    <atom:link href="https://www.wowohcool.com/rss.xml" rel="self" type="application/rss+xml"/>
-    <image>
-      <url>https://www.wowohcool.com/image/wowohcool-logo-optimized.webp</url>
-      <title>WOWOHCOOL Blog</title>
-      <link>https://www.wowohcool.com/blog/</link>
-    </image>
-    {%- for post in collections.blog_en %}
-    <item>
-      <title>{{ post.data.title | e }}</title>
-      <link>https://www.wowohcool.com{{ post.data.canonical }}</link>
-      <guid isPermaLink="true">https://www.wowohcool.com{{ post.data.canonical }}</guid>
-      <description>{{ post.data.description | e }}</description>
-      <pubDate>{{ post.date | rssDate }}</pubDate>
-      <enclosure url="https://www.wowohcool.com{{ post.data.ogImage }}" type="image/webp"/>
-    </item>
-    {%- endfor %}
-  </channel>
+ <channel>
+ <title>WOWOHCOOL Blog, Wireless Charger &amp; Power Bank OEM/ODM Insights</title>
+ <link>https://www.wowohcool.com/blog/</link>
+ <description>Expert guides on wireless chargers, GaN technology, power banks, Qi2 certification, China factory sourcing, and OEM/ODM manufacturing. B2B insights from a Shenzhen factory since 2013.</description>
+ <language>en</language>
+ <lastBuildDate>{{ collections.blog_en[0].date | rssDate }}</lastBuildDate>
+ <generator>Eleventy</generator>
+ <atom:link href="https://www.wowohcool.com/rss.xml" rel="self" type="application/rss+xml"/>
+ <image>
+ <url>https://www.wowohcool.com/image/wowohcool-logo-optimized.webp</url>
+ <title>WOWOHCOOL Blog</title>
+ <link>https://www.wowohcool.com/blog/</link>
+ </image>
+ {%- for post in collections.blog_en %}
+ <item>
+ <title>{{ post.data.title | e }}</title>
+ <link>https://www.wowohcool.com{{ post.data.canonical }}</link>
+ <guid isPermaLink="true">https://www.wowohcool.com{{ post.data.canonical }}</guid>
+ <description>{{ post.data.description | e }}</description>
+ <pubDate>{{ post.date | rssDate }}</pubDate>
+ <enclosure url="https://www.wowohcool.com{{ post.data.ogImage }}" type="image/webp"/>
+ </item>
+ {%- endfor %}
+ </channel>
 </rss>

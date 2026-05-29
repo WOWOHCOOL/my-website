@@ -22,16 +22,21 @@ export default {
         headers: {
           'Content-Type': 'text/markdown; charset=utf-8',
           'Cache-Control': 'public, s-maxage=3600, stale-while-revalidate=86400',
+          'Vary': 'Accept',
         },
       });
     }
 
-    // Prevent search engines from indexing the Workers domain
     const response = await env.ASSETS.fetch(request);
     const newHeaders = new Headers(response.headers);
     const contentType = response.headers.get('Content-Type') || '';
-    if (contentType.includes('text/html')) {
+    // Only deindex preview domains (*.workers.dev, *.pages.dev), never production
+    const isPreviewHost = url.hostname.endsWith('.workers.dev') || url.hostname.endsWith('.pages.dev');
+    if (isPreviewHost && contentType.includes('text/html')) {
       newHeaders.set('X-Robots-Tag', 'noindex, nofollow');
+    }
+    if (contentType.includes('text/html')) {
+      newHeaders.set('Vary', 'Accept');
     }
     return new Response(response.body, {
       status: response.status,
@@ -76,6 +81,38 @@ function htmlToMarkdown(html) {
   // 4. Lists
   md = md.replace(/<li[^>]*>(.*?)<\/li>/gi, '- $1\n');
   md = md.replace(/<\/?[ou]l[^>]*>/gi, '\n');
+
+  // 4b. Tables → GitHub-flavored Markdown pipe tables
+  // Process each <table> independently so multi-table pages convert correctly.
+  md = md.replace(/<table[^>]*>([\s\S]*?)<\/table>/gi, (_, tableHtml) => {
+    const rows = [];
+    const rowRe = /<tr[^>]*>([\s\S]*?)<\/tr>/gi;
+    let rowMatch;
+    while ((rowMatch = rowRe.exec(tableHtml)) !== null) {
+      const cells = [];
+      const cellRe = /<(th|td)[^>]*>([\s\S]*?)<\/\1>/gi;
+      let cellMatch;
+      while ((cellMatch = cellRe.exec(rowMatch[1])) !== null) {
+        // Inline-strip tags inside the cell, collapse whitespace, escape pipes.
+        const text = cellMatch[2]
+          .replace(/<br\s*\/?>/gi, ' ')
+          .replace(/<[^>]+>/g, '')
+          .replace(/\s+/g, ' ')
+          .replace(/\|/g, '\\|')
+          .trim();
+        cells.push(text);
+      }
+      if (cells.length) rows.push(cells);
+    }
+    if (!rows.length) return '';
+    const width = Math.max(...rows.map(r => r.length));
+    const pad = r => r.concat(Array(width - r.length).fill(''));
+    const header = pad(rows[0]);
+    const separator = Array(width).fill('---');
+    const body = rows.slice(1).map(pad);
+    const fmt = r => '| ' + r.join(' | ') + ' |';
+    return '\n' + [fmt(header), fmt(separator), ...body.map(fmt)].join('\n') + '\n\n';
+  });
 
   // 5. Inline elements
   md = md.replace(/<strong[^>]*>(.*?)<\/strong>/gi, '**$1**');
