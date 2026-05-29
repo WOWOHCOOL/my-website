@@ -95,6 +95,7 @@ permalink: "de/sitemap.xml"
  <xhtml:link rel="alternate" hreflang="de" href="https://www.wowohcool.com{{ post.data.canonical }}"/>{%- if post.data.enPath %}
  <xhtml:link rel="alternate" hreflang="en" href="https://www.wowohcool.com{{ post.data.enPath }}"/>{%- endif %}{%- if post.data.esPath %}
  <xhtml:link rel="alternate" hreflang="es" href="https://www.wowohcool.com/es/{{ post.data.esPath }}"/>{%- endif %}
+ <xhtml:link rel="alternate" hreflang="x-default" href="https://www.wowohcool.com{{ post.data.enPath if post.data.enPath else post.data.canonical }}"/>
  <lastmod>{{ post.date | fmtDate }}</lastmod>
  </url>{%- endfor %}
 </urlset>

@@ -8,15 +8,16 @@
     "build:js:de": "npx esbuild main.src.js --bundle --minify --outfile=de/js/de-main.js --define:LANG=\"\\\"de\\\"\"",
     "build:js:es": "npx esbuild main.src.js --bundle --minify --outfile=es/js/es-main.js --define:LANG=\"\\\"es\\\"\"",
     "build:js": "npm run build:js:en && npm run build:js:de && npm run build:js:es",
-    "build": "npx eleventy && npm run build:css && npm run build:js",
+    "build": "npx @11ty/eleventy && npm run build:css && npm run build:js",
     "watch:css": "npx tailwindcss -i ./css/src.css -o ./css/styles.css --minify --watch",
     "watch:js": "npx esbuild main.src.js --bundle --minify --outfile=main.js --define:LANG=\"\\\"en\\\"\" --watch",
     "watch": "npm run build:css && npx concurrently \"npm run watch:css\" \"npm run watch:js\""
   },
   "devDependencies": {
+    "autoprefixer": "^10.5.0",
     "esbuild": "^0.25.0",
-    "tailwindcss": "^3.4.19",
     "postcss": "^8.5.14",
-    "autoprefixer": "^10.5.0"
+    "sharp": "^0.34.5",
+    "tailwindcss": "^3.4.19"
   }
 }

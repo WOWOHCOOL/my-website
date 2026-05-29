@@ -3,13 +3,10 @@
 # Updated: 2026-05-22 (directory structure update)
 # ======================================================
 
-# --- Global Content-Signal (AI crawler directives) ---
+# --- HTML Pages (cache at edge 1 hour, serve stale 24h) ---
+# Content-Signal merged here (Cloudflare uses last matching /* block)
 /*
   Content-Signal: ai-train=yes, search=yes, ai-input=yes, ai-personalization=yes, ai-retrieval=yes
-
-# --- HTML Pages (cache at edge 1 hour, serve stale 24h) ---
-# Matches both clean URLs (/about) and .html URLs (backward compat)
-/*
   Cache-Control: public, s-maxage=3600, stale-while-revalidate=86400
   Link: <https://www.wowohcool.com/sitemap.xml>; rel="sitemap", <https://www.wowohcool.com/rss.xml>; rel="alternate"; type="application/rss+xml"; title="Blog RSS"
   Strict-Transport-Security: max-age=31536000; includeSubDomains
@@ -18,6 +15,14 @@
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=(), interest-cohort=()
   Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self' https://www.google-analytics.com https://api.web3forms.com; frame-src 'self'; object-src 'none'; base-uri 'self'
+
+# --- DE pages: override sitemap Link header (Content-Signal & security inherit from /*) ---
+/de/*
+  Link: <https://www.wowohcool.com/de/sitemap.xml>; rel="sitemap"
+
+# --- ES pages: override sitemap Link header (Content-Signal & security inherit from /*) ---
+/es/*
+  Link: <https://www.wowohcool.com/es/sitemap.xml>; rel="sitemap"
 
 # --- Images (EN, cache 1 year) ---
 /image/*
@@ -29,13 +34,13 @@
 /de/produkte/image/*
   Cache-Control: public, max-age=31536000, immutable
 
-# --- CSS (cache 1 year) ---
+# --- CSS (no hashed filename: short cache so deploys take effect) ---
 /css/*
-  Cache-Control: public, max-age=31536000, immutable
+  Cache-Control: public, max-age=300, s-maxage=300, stale-while-revalidate=86400
 
-# --- JavaScript (cache 1 year) ---
+# --- JavaScript (no hashed filename: short cache so deploys take effect) ---
 /*.js
-  Cache-Control: public, max-age=31536000, immutable
+  Cache-Control: public, max-age=300, s-maxage=300, stale-while-revalidate=86400
 
 # --- Fonts (cache 1 year) ---
 /*.woff

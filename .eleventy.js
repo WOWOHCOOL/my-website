@@ -10,7 +10,6 @@ module.exports = function (eleventyConfig) {
     '_headers', '_redirects',
     'BingSiteAuth.xml',
     'favicon.ico',
-    'docs',
   ];
 
   // Auto-discover UUID token files
@@ -27,14 +26,9 @@ module.exports = function (eleventyConfig) {
 
   // German site static assets
   const deStatic = [
-    'de/css', 'de/js', 'de/image',
-    'de/wowohcool-logo-optimized.webp',
-    'de/apple-touch-icon.png',
-    'de/favicon.png', 'de/favicon-16x16.png', 'de/favicon-32x32.png',
+    'de/js',
     'de/llms.txt', 'de/llms-full.txt',
     'de/_headers',
-    'de/produkte/image',
-    'de/blog/cover',
   ];
 
   deStatic.forEach(p => {
@@ -45,9 +39,8 @@ module.exports = function (eleventyConfig) {
 
   // Spanish site static assets
   const esStatic = [
-    'es/css', 'es/js', 'es/image',
-    'es/llms.txt',
-    'es/_headers',
+    'es/js',
+    'es/llms.txt', 'es/llms-full.txt',
   ];
 
   esStatic.forEach(p => {
