@@ -34,29 +34,42 @@ navActive: "productos"
 {% endblock %}
 
 {% block content %}
-{% from "es/breadcrumb.njk" import breadcrumb %}
-{{ breadcrumb([{name:"Inicio",url:"/es/"},{name:"Productos"}]) }}
 
-<!-- ======== HERO ======== -->
-<section class="relative pt-8 md:pt-4 pb-8 lg:pb-16 bg-white overflow-hidden">
- <div class="absolute inset-0 pointer-events-none">
- <div class="absolute top-0 left-0 w-64 h-64 bg-brandOrange opacity-10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
- <div class="absolute bottom-0 right-0 w-64 h-64 bg-brandBlue opacity-10 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
- </div>
- <div class="max-w-7xl mx-auto px-6 relative z-10 text-center py-8">
- <div class="inline-flex items-center gap-2 bg-brandOrange/10 text-brandOrange text-[11px] font-bold px-4 py-2 rounded-full tracking-widest uppercase mb-4">
- <span class="w-2 h-2 rounded-full bg-brandOrange animate-pulse"></span>
- OEM/ODM · Fabricación directa
- </div>
- <h1 class="text-4xl md:text-5xl lg:text-6xl font-black text-brandBlue leading-tight mb-6">
- Soluciones de carga <span class="text-brandOrange">para su marca</span>
+<!-- Hero -->
+<section class="relative pt-20 md:pt-24 pb-8 lg:pt-28 lg:pb-16 bg-gradient-to-b from-slate-50/50 to-white overflow-hidden">
+ <div class="max-w-7xl mx-auto px-6 text-center">
+ <nav class="text-sm text-slate-500 mb-6 text-left">
+ <a href="/es/" class="hover:text-brandOrange">Inicio</a>
+ <span class="mx-2">/</span>
+ <span class="text-slate-900">Productos</span>
+ </nav>
+ <div class="badge-capsule mb-6 mx-auto uppercase">OEM/ODM DESDE 2013</div>
+ <h1 class="text-4xl md:text-5xl lg:text-6xl font-black uppercase italic tracking-tighter mb-6 leading-tight">
+ <span class="text-brandBlue">Nuestros</span>
+ <span class="text-brandOrange">Productos</span>
  </h1>
- <p class="text-slate-600 max-w-2xl mx-auto text-lg mb-2">Cuatro líneas de producto con certificación internacional. Personalización OEM/ODM completa. MOQ desde 500 unidades.</p>
+ <p class="max-w-3xl mx-auto text-slate-600 text-lg leading-relaxed mb-10">
+ Desde power banks semi-solid-state hasta cargadores GaN V — cada producto se fabrica en nuestra fábrica certificada ISO 9001 en Shenzhen para mercados globales.
+ </p>
+ <!-- Search Bar -->
+ <div class="max-w-lg mx-auto">
+ <div class="relative">
+ <svg class="icon-magnifying-glass absolute left-5 top-1/2 -translate-y-1/2 text-slate-300 text-sm pointer-events-none" aria-hidden="true" focusable="false" viewBox="0 0 512 512"><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376C296.3 401.1 253.9 416 208 416 93.1 416 0 322.9 0 208S93.1 0 208 0 416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z" fill="currentColor"/></svg>
+ <input type="text" id="productSearch" placeholder="Buscar productos..." class="w-full pl-13 pr-14 py-4 rounded-full border border-slate-200 bg-white shadow-sm focus:shadow-lg focus:border-brandOrange focus:ring-2 focus:ring-brandOrange/20 outline-none transition-all text-sm text-slate-700 placeholder:text-slate-500">
+ <kbd class="absolute right-4 top-1/2 -translate-y-1/2 text-[11px] text-slate-300 font-bold bg-slate-100 px-2 py-0.5 rounded hidden sm:block">/</kbd>
+ </div>
+ <div class="flex flex-wrap justify-center gap-2 mt-4">
+ <button data-search="power bank" class="search-hint px-4 py-1.5 rounded-full text-[11px] font-bold text-slate-500 bg-slate-100 hover:bg-brandOrange hover:text-white transition border border-slate-200">Power Bank</button>
+ <button data-search="GaN" class="search-hint px-4 py-1.5 rounded-full text-[11px] font-bold text-slate-500 bg-slate-100 hover:bg-brandOrange hover:text-white transition border border-slate-200">Cargador GaN</button>
+ <button data-search="Qi2" class="search-hint px-4 py-1.5 rounded-full text-[11px] font-bold text-slate-500 bg-slate-100 hover:bg-brandOrange hover:text-white transition border border-slate-200">Qi2 Wireless</button>
+ <button data-search="coche" class="search-hint px-4 py-1.5 rounded-full text-[11px] font-bold text-slate-500 bg-slate-100 hover:bg-brandOrange hover:text-white transition border border-slate-200">Cargador Coche</button>
+ </div>
+ </div>
  </div>
 </section>
 
-<!-- ======== CERTIFICATIONS ======== -->
-<section class="py-8 bg-white border-y border-slate-100">
+<!-- Certifications -->
+<section class="py-6 bg-white border-y border-slate-100">
  <div class="max-w-7xl mx-auto px-6">
  <div class="cert-showcase">
  <div class="cert-item"><img src="/image/certifications/ce-certification.svg" alt="CE" width="24" height="24" loading="lazy"> CE</div>
@@ -69,66 +82,171 @@ navActive: "productos"
  </div>
 </section>
 
-<!-- ======== PRODUCT GRID ======== -->
-<section class="py-16 bg-white">
- <div class="max-w-7xl mx-auto px-6">
- <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
- <a href="/es/productos/powerbank" class="group reveal block">
- <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200 hover:border-brandOrange/40 hover:shadow-xl transition-all duration-300 text-center h-full">
- <div class="aspect-square bg-white rounded-xl p-6 mb-5 flex items-center justify-center overflow-hidden">
- <img src="/image/product/power-bank/wop21-67w-power-bank-300w.webp" alt="Power Bank OEM" width="300" height="300" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500" loading="lazy">
+<!-- Product Grid -->
+<section class="sec max-w-7xl mx-auto px-6">
+ <div id="productGrid" class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+ <!-- 1. Power Bank -->
+ <div class="product-card group bg-white rounded-[2rem] border border-slate-200 overflow-hidden hover:shadow-2xl hover:-translate-y-1 transition-all duration-500" data-category="power-bank" data-keywords="power bank semi-solid-state batería PD 3.1 140W laptop calefactora OEM ODM WOP23 WOP22 WOP69 WOP09 WOP25 WOP55">
+ <a href="/es/productos/powerbank" class="block">
+ <div class="aspect-square bg-gradient-to-br from-brandBlue/10 to-transparent overflow-hidden">
+ <img src="/image/product/power-bank/wop23-240w-power-bank.webp" alt="Power bank semi-solid-state 140W PD 3.1 OEM de WOWOHCOOL" class="w-full h-full object-contain p-8 group-hover:scale-105 transition-transform duration-700" loading="eager" width="1920" height="1920">
  </div>
- <span class="inline-block px-3 py-1 bg-brandOrange/10 text-brandOrange text-[10px] font-bold rounded-full mb-3">Power Bank</span>
- <h2 class="text-xl font-black text-brandBlue mb-2">10W – 140W</h2>
- <p class="text-sm text-slate-500 leading-relaxed">PD 3.1, tecnología Semi-Solid-State. Capacidades de 5.000 a 27.000mAh.</p>
- <span class="inline-block mt-4 text-brandOrange text-xs font-bold group-hover:underline">Ver más →</span>
+ <div class="p-8">
+ <div class="flex items-start justify-between mb-4">
+ <div>
+ <span class="text-[11px] font-black uppercase tracking-widest text-brandOrange">Power Bank</span>
+ <h2 class="text-2xl font-black text-brandBlue uppercase italic mt-1">Semi-Solid-State &amp; PD 3.1 Power Banks</h2>
  </div>
- </a>
- <a href="/es/productos/cargador-inalambrico" class="group reveal block" style="transition-delay:100ms">
- <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200 hover:border-brandOrange/40 hover:shadow-xl transition-all duration-300 text-center h-full">
- <div class="aspect-square bg-white rounded-xl p-6 mb-5 flex items-center justify-center overflow-hidden">
- <img src="/image/product/wireless-charger/wow93-folding-charger-300w.webp" alt="Cargador Inalámbrico OEM" width="300" height="300" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500" loading="lazy">
+ <span class="text-brandOrange/30 text-5xl font-black italic leading-none">01</span>
  </div>
- <span class="inline-block px-3 py-1 bg-blue-50 text-blue-600 text-[10px] font-bold rounded-full mb-3">Cargador Inalámbrico</span>
- <h2 class="text-xl font-black text-brandBlue mb-2">Qi2 15W – 25W</h2>
- <p class="text-sm text-slate-500 leading-relaxed">Carga inalámbrica Qi2 MPP. Compatible MagSafe. Modelos 3-en-1.</p>
- <span class="inline-block mt-4 text-brandOrange text-xs font-bold group-hover:underline">Ver más →</span>
+ <p class="text-slate-600 text-sm leading-relaxed mb-4">Baterías semi-solid-state (50% más delgadas, 30% mayor densidad), híbrido 2-en-1 cargador de pared+power bank y baterías calefactoras para ropa. 5000mAh–40000mAh, PD 3.1 hasta 140W.</p>
+ <div class="flex flex-wrap gap-2 mb-6">
+ <span class="text-[11px] font-black uppercase tracking-widest bg-brandBlue/10 text-brandBlue px-3 py-1.5 rounded-full">PD 3.1 140W</span>
+ <span class="text-[11px] font-black uppercase tracking-widest bg-brandBlue/10 text-brandBlue px-3 py-1.5 rounded-full">Semi-Solid-State</span>
+ <span class="text-[11px] font-black uppercase tracking-widest bg-brandBlue/10 text-brandBlue px-3 py-1.5 rounded-full">UN38.3</span>
+ <span class="text-[11px] font-black uppercase tracking-widest bg-brandBlue/10 text-brandBlue px-3 py-1.5 rounded-full">Batería Calefactora</span>
  </div>
- </a>
- <a href="/es/productos/cargador-coche" class="group reveal block" style="transition-delay:200ms">
- <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200 hover:border-brandOrange/40 hover:shadow-xl transition-all duration-300 text-center h-full">
- <div class="aspect-square bg-white rounded-xl p-6 mb-5 flex items-center justify-center overflow-hidden">
- <img src="/image/product/car-charger/woc24-140w-digital-charger-300w.webp" alt="Cargador de Coche OEM" width="300" height="300" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500" loading="lazy">
- </div>
- <span class="inline-block px-3 py-1 bg-green-50 text-green-600 text-[10px] font-bold rounded-full mb-3">Cargador de Coche</span>
- <h2 class="text-xl font-black text-brandBlue mb-2">PD 3.1 hasta 140W</h2>
- <p class="text-sm text-slate-500 leading-relaxed">Certificación E-Mark. Multi-puerto, cable retráctil opcional.</p>
- <span class="inline-block mt-4 text-brandOrange text-xs font-bold group-hover:underline">Ver más →</span>
+ <span class="inline-flex items-center gap-2 text-brandOrange font-black uppercase tracking-widest text-xs group-hover:gap-3 transition-all">Ver detalles <svg class="icon-arrow-right text-[11px]" aria-hidden="true" focusable="false" viewBox="0 0 512 512"><path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-105.4 105.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" fill="currentColor"/></svg></span>
  </div>
  </a>
- <a href="/es/productos/cargador-gan" class="group reveal block" style="transition-delay:300ms">
- <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200 hover:border-brandOrange/40 hover:shadow-xl transition-all duration-300 text-center h-full">
- <div class="aspect-square bg-white rounded-xl p-6 mb-5 flex items-center justify-center overflow-hidden">
- <img src="/image/product/gan-charger/wop10-65w-gan-power-strip-4-port.webp" alt="Cargador GaN OEM" width="300" height="300" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500" loading="lazy">
  </div>
- <span class="inline-block px-3 py-1 bg-purple-50 text-purple-600 text-[10px] font-bold rounded-full mb-3">Cargador GaN</span>
- <h2 class="text-xl font-black text-brandBlue mb-2">67W – 100W+</h2>
- <p class="text-sm text-slate-500 leading-relaxed">Tecnología GaN V. Multi-puerto, compacto, alta eficiencia.</p>
- <span class="inline-block mt-4 text-brandOrange text-xs font-bold group-hover:underline">Ver más →</span>
+
+ <!-- 2. Cargador GaN -->
+ <div class="product-card group bg-white rounded-[2rem] border border-slate-200 overflow-hidden hover:shadow-2xl hover:-translate-y-1 transition-all duration-500" data-category="gan-charger" data-keywords="GaN V cargador PD 3.1 240W nitruro galio multi-puerto escritorio pared OEM ODM WOP37 WOP39 WOP28 WOP10 WOP80">
+ <a href="/es/productos/cargador-gan" class="block">
+ <div class="aspect-square bg-gradient-to-br from-brandOrange/10 to-transparent overflow-hidden">
+ <img src="/image/product/gan-charger/wop37-67w-gan-charger-retractable-cable-wireless.webp" alt="Cargador GaN V 67W cable retráctil OEM de WOWOHCOOL" class="w-full h-full object-contain p-8 group-hover:scale-105 transition-transform duration-700" loading="lazy" width="1920" height="1920">
+ </div>
+ <div class="p-8">
+ <div class="flex items-start justify-between mb-4">
+ <div>
+ <span class="text-[11px] font-black uppercase tracking-widest text-brandOrange">Cargador GaN</span>
+ <h2 class="text-2xl font-black text-brandBlue uppercase italic mt-1">GaN V &amp; PD 3.1 Cargadores de Escritorio</h2>
+ </div>
+ <span class="text-brandOrange/30 text-5xl font-black italic leading-none">02</span>
+ </div>
+ <p class="text-slate-600 text-sm leading-relaxed mb-4">Tecnología GaN V, 40% más pequeño que silicio. PD 3.1 hasta 240W. Estaciones de escritorio multi-puerto, cargadores de pared ultracompactos con cable retráctil y carga inalámbrica. Certificación CE/FCC.</p>
+ <div class="flex flex-wrap gap-2 mb-6">
+ <span class="text-[11px] font-black uppercase tracking-widest bg-brandOrange/10 text-brandOrange px-3 py-1.5 rounded-full">GaN V</span>
+ <span class="text-[11px] font-black uppercase tracking-widest bg-brandOrange/10 text-brandOrange px-3 py-1.5 rounded-full">PD 3.1 240W</span>
+ <span class="text-[11px] font-black uppercase tracking-widest bg-brandOrange/10 text-brandOrange px-3 py-1.5 rounded-full">Multi-Puerto</span>
+ <span class="text-[11px] font-black uppercase tracking-widest bg-brandOrange/10 text-brandOrange px-3 py-1.5 rounded-full">Regleta</span>
+ </div>
+ <span class="inline-flex items-center gap-2 text-brandOrange font-black uppercase tracking-widest text-xs group-hover:gap-3 transition-all">Ver detalles <svg class="icon-arrow-right text-[11px]" aria-hidden="true" focusable="false" viewBox="0 0 512 512"><path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-105.4 105.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" fill="currentColor"/></svg></span>
  </div>
  </a>
+ </div>
+
+ <!-- 3. Cargador Inalámbrico -->
+ <div class="product-card group bg-white rounded-[2rem] border border-slate-200 overflow-hidden hover:shadow-2xl hover:-translate-y-1 transition-all duration-500" data-category="wireless-charger" data-keywords="Qi2 cargador inalámbrico MagSafe 15W MPP 3-en-1 estación escritorio coche OEM ODM WOW93 WOW90 WOW10 WOW19 WOW41 WOW39 WOW28">
+ <a href="/es/productos/cargador-inalambrico" class="block">
+ <div class="aspect-square bg-gradient-to-br from-blue-50 to-transparent overflow-hidden">
+ <img src="/image/product/wireless-charger/wow93-folding-charger.webp" alt="Cargador inalámbrico Qi2 3-en-1 plegable 15W MPP OEM de WOWOHCOOL" class="w-full h-full object-contain p-8 group-hover:scale-105 transition-transform duration-700" loading="lazy" width="1920" height="1920">
+ </div>
+ <div class="p-8">
+ <div class="flex items-start justify-between mb-4">
+ <div>
+ <span class="text-[11px] font-black uppercase tracking-widest text-brandOrange">Cargador Inalámbrico</span>
+ <h2 class="text-2xl font-black text-brandBlue uppercase italic mt-1">Qi2 MagSafe &amp; Docks 3-en-1</h2>
+ </div>
+ <span class="text-brandOrange/30 text-5xl font-black italic leading-none">03</span>
+ </div>
+ <p class="text-slate-600 text-sm leading-relaxed mb-4">Carga rápida Qi2 15W MPP con alineación magnética N52H. Estaciones plegables 3-en-1, bases premium de aleación de zinc, soportes de coche con refrigeración TEC. Certificación CE/FCC.</p>
+ <div class="flex flex-wrap gap-2 mb-6">
+ <span class="text-[11px] font-black uppercase tracking-widest bg-blue-50 text-blue-600 px-3 py-1.5 rounded-full">Qi2 15W MPP</span>
+ <span class="text-[11px] font-black uppercase tracking-widest bg-blue-50 text-blue-600 px-3 py-1.5 rounded-full">Estación 3-en-1</span>
+ <span class="text-[11px] font-black uppercase tracking-widest bg-blue-50 text-blue-600 px-3 py-1.5 rounded-full">Imanes N52H</span>
+ <span class="text-[11px] font-black uppercase tracking-widest bg-blue-50 text-blue-600 px-3 py-1.5 rounded-full">Soporte Coche</span>
+ </div>
+ <span class="inline-flex items-center gap-2 text-brandOrange font-black uppercase tracking-widest text-xs group-hover:gap-3 transition-all">Ver detalles <svg class="icon-arrow-right text-[11px]" aria-hidden="true" focusable="false" viewBox="0 0 512 512"><path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-105.4 105.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" fill="currentColor"/></svg></span>
+ </div>
+ </a>
+ </div>
+
+ <!-- 4. Cargador de Coche -->
+ <div class="product-card group bg-white rounded-[2rem] border border-slate-200 overflow-hidden hover:shadow-2xl hover:-translate-y-1 transition-all duration-500" data-category="car-charger" data-keywords="cargador coche GaN PD 3.1 140W laptop E-Mark certificado carcasa metálica retráctil OEM ODM WOC42 WOC24">
+ <a href="/es/productos/cargador-coche" class="block">
+ <div class="aspect-square bg-gradient-to-br from-slate-100 to-transparent overflow-hidden">
+ <img src="/image/product/car-charger/woc24-140w-digital-charger.webp" alt="Cargador de coche 140W GaN PD 3.1 pantalla digital OEM de WOWOHCOOL" class="w-full h-full object-contain p-8 group-hover:scale-105 transition-transform duration-700" loading="lazy" width="1920" height="1920">
+ </div>
+ <div class="p-8">
+ <div class="flex items-start justify-between mb-4">
+ <div>
+ <span class="text-[11px] font-black uppercase tracking-widest text-brandOrange">Cargador de Coche</span>
+ <h2 class="text-2xl font-black text-brandBlue uppercase italic mt-1">GaN &amp; PD 3.1 Cargadores de Coche</h2>
+ </div>
+ <span class="text-brandOrange/30 text-5xl font-black italic leading-none">04</span>
+ </div>
+ <p class="text-slate-600 text-sm leading-relaxed mb-4">Adaptadores PD 3.1 &amp; GaN de alta potencia con carcasa metálica, pantalla digital y cable retráctil. Hasta 140W para portátiles. Certificación E-Mark. Voltaje amplio 12V-24V.</p>
+ <div class="flex flex-wrap gap-2 mb-6">
+ <span class="text-[11px] font-black uppercase tracking-widest bg-slate-100 text-slate-700 px-3 py-1.5 rounded-full">PD 3.1 140W</span>
+ <span class="text-[11px] font-black uppercase tracking-widest bg-slate-100 text-slate-700 px-3 py-1.5 rounded-full">Tecnología GaN</span>
+ <span class="text-[11px] font-black uppercase tracking-widest bg-slate-100 text-slate-700 px-3 py-1.5 rounded-full">E-Mark</span>
+ <span class="text-[11px] font-black uppercase tracking-widest bg-slate-100 text-slate-700 px-3 py-1.5 rounded-full">Carcasa Metálica</span>
+ </div>
+ <span class="inline-flex items-center gap-2 text-brandOrange font-black uppercase tracking-widest text-xs group-hover:gap-3 transition-all">Ver detalles <svg class="icon-arrow-right text-[11px]" aria-hidden="true" focusable="false" viewBox="0 0 512 512"><path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-105.4 105.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" fill="currentColor"/></svg></span>
+ </div>
+ </a>
+ </div>
+
+ </div>
+
+ <!-- No results -->
+ <div id="noResults" class="hidden text-center py-20">
+ <svg class="icon-magnifying-glass text-5xl text-slate-200 mb-6" aria-hidden="true" focusable="false" viewBox="0 0 512 512"><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376C296.3 401.1 253.9 416 208 416 93.1 416 0 322.9 0 208S93.1 0 208 0 416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z" fill="currentColor"/></svg>
+ <p class="text-xl font-black text-brandBlue uppercase italic mb-2">No se encontraron productos</p>
+ <p class="text-slate-500 text-sm">Pruebe con otro término de búsqueda o explore todas las categorías arriba.</p>
+ </div>
+</section>
+<!-- FAQ Section -->
+<section class="sec bg-slate-50">
+ <div class="max-w-4xl mx-auto px-6">
+ <div class="flex items-center gap-3 mb-10">
+ <div class="w-1 h-8 bg-brandOrange rounded-full"></div>
+ <h2 class="text-2xl md:text-3xl font-black text-brandBlue uppercase italic">Preguntas Frecuentes</h2>
+ </div>
+ <div class="space-y-4">
+ <details class="group bg-white rounded-2xl p-6 border border-slate-100 open:shadow-md transition-all cursor-pointer">
+ <summary class="flex items-center justify-between font-black text-brandBlue text-sm uppercase tracking-wider">
+ ¿Cuál es la cantidad mínima de pedido (MOQ) para OEM/ODM?
+ <svg class="icon-plus text-brandOrange text-xs group-open:rotate-45 transition-transform" aria-hidden="true" focusable="false" viewBox="0 0 448 512"><path d="M256 64c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 160-160 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l160 0 0 160c0 17.7 14.3 32 32 32s32-14.3 32-32l0-160 160 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-160 0 0-160z" fill="currentColor"/></svg>
+ </summary>
+ <p class="mt-4 text-slate-600 text-sm leading-relaxed">Desde 500 unidades por SKU para branding OEM estándar y 1.000 unidades para proyectos ODM con nuevo molde. Ofrecemos condiciones flexibles para marcas emergentes — contáctenos para discutir sus necesidades.</p>
+ </details>
+ <details class="group bg-white rounded-2xl p-6 border border-slate-100 open:shadow-md transition-all cursor-pointer">
+ <summary class="flex items-center justify-between font-black text-brandBlue text-sm uppercase tracking-wider">
+ ¿Puedo solicitar muestras antes de un pedido grande?
+ <svg class="icon-plus text-brandOrange text-xs group-open:rotate-45 transition-transform" aria-hidden="true" focusable="false" viewBox="0 0 448 512"><path d="M256 64c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 160-160 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l160 0 0 160c0 17.7 14.3 32 32 32s32-14.3 32-32l0-160 160 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-160 0 0-160z" fill="currentColor"/></svg>
+ </summary>
+ <p class="mt-4 text-slate-600 text-sm leading-relaxed">Sí. Las muestras estándar se envían en 3-7 días. Los costes de muestra se reembolsan con el pedido en volumen. Recomendamos probar las muestras para verificar calidad y compatibilidad.</p>
+ </details>
+ <details class="group bg-white rounded-2xl p-6 border border-slate-100 open:shadow-md transition-all cursor-pointer">
+ <summary class="flex items-center justify-between font-black text-brandBlue text-sm uppercase tracking-wider">
+ ¿Qué certificaciones tienen sus productos?
+ <svg class="icon-plus text-brandOrange text-xs group-open:rotate-45 transition-transform" aria-hidden="true" focusable="false" viewBox="0 0 448 512"><path d="M256 64c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 160-160 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l160 0 0 160c0 17.7 14.3 32 32 32s32-14.3 32-32l0-160 160 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-160 0 0-160z" fill="currentColor"/></svg>
+ </summary>
+ <p class="mt-4 text-slate-600 text-sm leading-relaxed">Todos los productos cumplen estándares globales: CE, FCC, RoHS y Qi/Qi2. Las power banks tienen certificación UN38.3. También asistimos con UL, PSE, KC y otras certificaciones específicas del mercado.</p>
+ </details>
+ <details class="group bg-white rounded-2xl p-6 border border-slate-100 open:shadow-md transition-all cursor-pointer">
+ <summary class="flex items-center justify-between font-black text-brandBlue text-sm uppercase tracking-wider">
+ ¿Cuál es el plazo de entrega típico?
+ <svg class="icon-plus text-brandOrange text-xs group-open:rotate-45 transition-transform" aria-hidden="true" focusable="false" viewBox="0 0 448 512"><path d="M256 64c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 160-160 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l160 0 0 160c0 17.7 14.3 32 32 32s32-14.3 32-32l0-160 160 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-160 0 0-160z" fill="currentColor"/></svg>
+ </summary>
+ <p class="mt-4 text-slate-600 text-sm leading-relaxed">Pedidos OEM estándar se envían en 25-30 días tras la aprobación de muestras. Proyectos ODM con nuevo molde requieren 45-60 días desde la aprobación del diseño. Pedidos urgentes disponibles para socios establecidos.</p>
+ </details>
  </div>
  </div>
 </section>
 
-<!-- ======== CTA ======== -->
-<section class="py-16 bg-slate-50">
- <div class="max-w-3xl mx-auto px-6 text-center">
- <h2 class="text-2xl md:text-3xl font-black text-brandBlue mb-4">¿No sabe qué producto elegir?</h2>
- <p class="text-slate-600 mb-6">Nuestro equipo le asesorará sobre la mejor solución para su proyecto. Respuesta en 24 horas.</p>
+<!-- CTA -->
+<section class="bg-brandBlue sec-cta">
+ <div class="max-w-4xl mx-auto px-6 text-center">
+ <h2 class="text-2xl md:text-4xl font-black text-white uppercase italic mb-4">¿No sabe qué producto <span class="text-brandOrange">elegir</span>?</h2>
+ <p class="text-slate-300 max-w-2xl mx-auto mb-10 leading-relaxed">Nuestro equipo de ingeniería comercial le ayudará a seleccionar la solución adecuada según sus especificaciones, presupuesto y plazos.</p>
  <div class="flex flex-col sm:flex-row gap-4 justify-center">
- <button data-action="open-modal" class="btn-primary text-base px-8 py-4 shadow-lg shadow-brandOrange/20 cursor-pointer">Solicitar asesoramiento <svg class="icon-arrow-right" viewBox="0 0 512 512"><path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-105.4 105.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" fill="currentColor"/></svg></button>
- <a href="/es/casos-de-exito/" class="btn-secondary text-base px-8 py-4">Ver casos de éxito</a>
+ <button data-action="open-modal" class="w-full sm:w-auto bg-brandOrange text-white px-10 py-4 rounded-xl font-black uppercase tracking-widest text-sm hover:-translate-y-1 transition shadow-xl shadow-brandOrange/20">Solicitar presupuesto</button>
+ <a href="/es/contacto/" class="w-full sm:w-auto border-2 border-white/30 text-white px-10 py-4 rounded-xl font-black uppercase tracking-widest text-sm hover:bg-white hover:text-brandBlue transition">Contactar ventas</a>
  </div>
  </div>
 </section>
