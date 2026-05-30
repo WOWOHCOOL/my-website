@@ -375,18 +375,20 @@ svg[class*="icon-"]{display:inline-block;width:1em;height:1em;vertical-align:-0.
 .faq-item .faq-answer { padding: 0.5rem 0 1rem; color: #64748b; line-height: 1.7; font-size: 0.95rem; }
 
 /* ─── Inquiry Form ─────────────────────────────────────────── */
-:where(.inquiry-form) input,
-:where(.inquiry-form) select,
-:where(.inquiry-form) textarea {
-  width: 100%; padding: 0.75rem 1rem; border: 1.5px solid #e2e8f0;
-  border-radius: 0.75rem; font-size: 1rem; color: #1e293b;
-  transition: border-color 0.2s ease; background: #fff;
-}
-:where(.inquiry-form) input:focus,
-:where(.inquiry-form) select:focus,
-:where(.inquiry-form) textarea:focus {
-  outline: none; border-color: var(--brand-orange);
-  box-shadow: 0 0 0 3px rgba(255, 107, 0, 0.1);
+@layer components {
+  .inquiry-form input,
+  .inquiry-form select,
+  .inquiry-form textarea {
+    width: 100%; padding: 0.75rem 1rem; border: 1.5px solid #e2e8f0;
+    border-radius: 0.75rem; font-size: 1rem; color: #1e293b;
+    transition: border-color 0.2s ease; background: #fff;
+  }
+  .inquiry-form input:focus,
+  .inquiry-form select:focus,
+  .inquiry-form textarea:focus {
+    outline: none; border-color: var(--brand-orange);
+    box-shadow: 0 0 0 3px rgba(255, 107, 0, 0.1);
+  }
 }
 .bg-brandBlue .inquiry-form input:not([type="checkbox"]):not([type="hidden"]),
 .bg-brandBlue .inquiry-form select,
