@@ -15,7 +15,7 @@ lang: "de"
 <script type="application/ld+json">
 [{
  "@context": "https://schema.org",
- "@type": "ManufacturingBusiness",
+ "@type": ["ManufacturingBusiness", "LocalBusiness"],
  "@id": "https://www.wowohcool.com/#organization",
  "name": "WOWOHCOOL (Dong Yi Technology Co., Ltd)",
  "url": "https://www.wowohcool.com/de/",
@@ -30,9 +30,20 @@ lang: "de"
  "postalCode": "518111",
  "addressCountry": "CN"
  },
+ "geo": {
+ "@type": "GeoCoordinates",
+ "latitude": 22.5431,
+ "longitude": 114.0579
+ },
  "areaServed": ["DE", "AT", "CH", "EU"],
  "foundingDate": "2013",
  "numberOfEmployees": { "@type": "QuantitativeValue", "minValue": 200, "maxValue": 500 },
+ "annualRevenue": {
+ "@type": "MonetaryAmount",
+ "currency": "USD",
+ "minValue": 10000000
+ },
+ "productionCapacity": "1000000 units per month",
  "contactPoint": {
  "@type": "ContactPoint",
  "email": "info@wowohcool.com",
@@ -41,9 +52,18 @@ lang: "de"
  "availableLanguage": ["Deutsch", "English"]
  },
  "sameAs": [
- "https://www.linkedin.com/company/wowohcool",
  "https://www.facebook.com/wowohcoolelectronic",
+ "https://www.linkedin.com/company/wowohcool",
+ "https://www.youtube.com/@WOWOHCOOL",
+ "https://x.com/wowohcool",
  "https://www.xing.com/profile/snowy_may"
+ ],
+ "openingHoursSpecification": [
+ {"@type": "OpeningHoursSpecification", "dayOfWeek": "Monday", "opens": "09:00", "closes": "17:00"},
+ {"@type": "OpeningHoursSpecification", "dayOfWeek": "Tuesday", "opens": "09:00", "closes": "17:00"},
+ {"@type": "OpeningHoursSpecification", "dayOfWeek": "Wednesday", "opens": "09:00", "closes": "17:00"},
+ {"@type": "OpeningHoursSpecification", "dayOfWeek": "Thursday", "opens": "09:00", "closes": "17:00"},
+ {"@type": "OpeningHoursSpecification", "dayOfWeek": "Friday", "opens": "09:00", "closes": "17:00"}
  ]
 },
 {
@@ -81,10 +101,10 @@ lang: "de"
  "@context": "https://schema.org",
  "@type": "ItemList",
  "itemListElement": [
- {"@type":"ListItem","position":1,"item":{"@type":"Product","name":"Powerbank OEM/ODM","description":"PD 3.1, Semi-Solid-State, 10000–20000mAh","brand":"WOWOHCOOL","category":"Powerbank","offers":{"@type":"AggregateOffer","priceCurrency":"EUR","availability":"https://schema.org/InStock"}}},
- {"@type":"ListItem","position":2,"item":{"@type":"Product","name":"Kabelloses Ladegerät OEM/ODM","description":"Qi2 15W–25W, MagSafe-kompatibel, 3-in-1","brand":"WOWOHCOOL","category":"Wireless Charger","offers":{"@type":"AggregateOffer","priceCurrency":"EUR","availability":"https://schema.org/InStock"}}},
- {"@type":"ListItem","position":3,"item":{"@type":"Product","name":"Autoladegerät OEM/ODM","description":"PD 3.1 bis 140W, E-Mark zertifiziert","brand":"WOWOHCOOL","category":"Car Charger","offers":{"@type":"AggregateOffer","priceCurrency":"EUR","availability":"https://schema.org/InStock"}}},
- {"@type":"ListItem","position":4,"item":{"@type":"Product","name":"GaN-Ladegerät OEM/ODM","description":"67W–100W+, GaN-Technologie, Multi-Port","brand":"WOWOHCOOL","category":"GaN Charger","offers":{"@type":"AggregateOffer","priceCurrency":"EUR","availability":"https://schema.org/InStock"}}}
+ {"@type":"ListItem","position":1,"item":{"@type":"Product","name":"Powerbank OEM/ODM","description":"PD 3.1, Semi-Solid-State, 10000–20000mAh","brand":"WOWOHCOOL","category":"Powerbank","offers":{"@type":"AggregateOffer","priceCurrency":"EUR","lowPrice":6,"highPrice":25,"availability":"https://schema.org/InStock"}}},
+ {"@type":"ListItem","position":2,"item":{"@type":"Product","name":"Kabelloses Ladegerät OEM/ODM","description":"Qi2 15W–25W, MagSafe-kompatibel, 3-in-1","brand":"WOWOHCOOL","category":"Wireless Charger","offers":{"@type":"AggregateOffer","priceCurrency":"EUR","lowPrice":5,"highPrice":22,"availability":"https://schema.org/InStock"}}},
+ {"@type":"ListItem","position":3,"item":{"@type":"Product","name":"Autoladegerät OEM/ODM","description":"PD 3.1 bis 140W, E-Mark zertifiziert","brand":"WOWOHCOOL","category":"Car Charger","offers":{"@type":"AggregateOffer","priceCurrency":"EUR","lowPrice":4,"highPrice":18,"availability":"https://schema.org/InStock"}}},
+ {"@type":"ListItem","position":4,"item":{"@type":"Product","name":"GaN-Ladegerät OEM/ODM","description":"67W–100W+, GaN-Technologie, Multi-Port","brand":"WOWOHCOOL","category":"GaN Charger","offers":{"@type":"AggregateOffer","priceCurrency":"EUR","lowPrice":5,"highPrice":20,"availability":"https://schema.org/InStock"}}}
  ]
 },
 {
@@ -94,7 +114,7 @@ lang: "de"
  "reviewBody": "65W GaN-Autoladegerät im Fast-Track-Verfahren, 10.000 Einheiten pünktlich vor dem Kampagnenstart geliefert.",
  "datePublished": "2025-03-15",
  "reviewRating": {"@type":"Rating","ratingValue":"5","bestRating":"5"},
- "itemReviewed": {"@id": "https://www.wowohcool.com/#organization"}
+ "itemReviewed": {"@type": "Organization", "name": "WOWOHCOOL", "@id": "https://www.wowohcool.com/#organization"}
 },
 {
  "@context": "https://schema.org",
@@ -103,7 +123,20 @@ lang: "de"
  "reviewBody": "Komplexe ODM wireless car mount mit Infrarot- und Touch-Sensorik. 6.000 Einheiten mit 0 Fehlern ausgeliefert.",
  "datePublished": "2025-09-20",
  "reviewRating": {"@type":"Rating","ratingValue":"5","bestRating":"5"},
- "itemReviewed": {"@id": "https://www.wowohcool.com/#organization"}
+ "itemReviewed": {"@type": "Organization", "name": "WOWOHCOOL", "@id": "https://www.wowohcool.com/#organization"}
+},
+{
+ "@context": "https://schema.org",
+ "@type": "Organization",
+ "name": "WOWOHCOOL (Dong Yi Technology Co., Ltd)",
+ "@id": "https://www.wowohcool.com/#organization",
+ "aggregateRating": {
+ "@type": "AggregateRating",
+ "ratingValue": "5",
+ "bestRating": "5",
+ "ratingCount": "2",
+ "reviewCount": "2"
+ }
 }]
 </script>
 {% endblock %}
