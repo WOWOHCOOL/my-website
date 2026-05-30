@@ -49,6 +49,50 @@ module.exports = function (eleventyConfig) {
     }
   });
 
+  // Wrap h2 sections in .blog-content into card divs (DE/ES blog posts)
+  eleventyConfig.addTransform("blogSectionCards", function (content) {
+    if (!this.outputPath || !this.outputPath.endsWith('.html')) return content;
+    if (!this.outputPath.match(/\/(de|es)\/blog\/.+\/index\.html$/)) return content;
+    if (!content.includes('blog-content')) return content;
+
+    const marker = '<div class="max-w-3xl mx-auto px-6 blog-content">';
+    const idx = content.indexOf(marker);
+    if (idx === -1) return content;
+
+    const startIdx = idx + marker.length;
+    const endTag = '</div>';
+    let depth = 1;
+    let endIdx = startIdx;
+    while (depth > 0 && endIdx < content.length) {
+      const nextOpen = content.indexOf('<div', endIdx);
+      const nextClose = content.indexOf('</div>', endIdx);
+      if (nextClose === -1) break;
+      if (nextOpen !== -1 && nextOpen < nextClose) {
+        depth++;
+        endIdx = nextOpen + 4;
+      } else {
+        depth--;
+        if (depth === 0) { endIdx = nextClose; break; }
+        endIdx = nextClose + 6;
+      }
+    }
+
+    const blogContent = content.substring(startIdx, endIdx);
+    const parts = blogContent.split(/(?=<h2[\s>])/);
+    let wrapped = '';
+    for (const part of parts) {
+      const trimmed = part.trim();
+      if (!trimmed) continue;
+      if (trimmed.startsWith('<h2')) {
+        wrapped += '\n<div class="content-card">' + part + '</div>\n';
+      } else {
+        wrapped += part;
+      }
+    }
+
+    return content.substring(0, startIdx) + wrapped + content.substring(endIdx);
+  });
+
   // Date format filter: Date object → "YYYY-MM-DD"
   eleventyConfig.addFilter("fmtDate", (d) => {
     if (d instanceof Date) {
