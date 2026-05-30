@@ -293,45 +293,12 @@ navActive: "blog"
  </div>
  </section>
 
- <!-- CTA -->
- <section class="sec bg-brandBlue">
- <div class="max-w-4xl mx-auto px-6 text-center">
- <div class="reveal">
- <p class="section-label">Jetzt starten</p>
- <h2 class="text-3xl md:text-5xl font-black text-white leading-tight mb-4">USB-C PD Projekt<br><span class="text-brandOrange">in 24 Stunden starten</span></h2>
- <p class="text-slate-300 text-lg max-w-2xl mx-auto mb-8">Fordern Sie Ihr individuelles Angebot für USB-C PD Ladegeräte an. Wir beraten Sie zu Leistungsklassen, Stückzahlen und Lieferkonditionen.</p>
- </div>
- <div class="max-w-xl mx-auto reveal">
- <form action="https://api.web3forms.com/submit" method="POST" class="inquiry-form space-y-4">
- <input type="hidden" name="access_key" value="ac5fe4cd-2dd7-4aff-818d-bb36021b4942">
- <input type="hidden" name="subject" value="Blog Anfrage: Qualitätskontrolle China">
- <input type="hidden" name="redirect" value="https://www.wowohcool.com/de/danke">
- <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;opacity:0;height:0;width:0">
- <input type="hidden" name="utm_source" id="utm_source" value="">
- <input type="hidden" name="utm_medium" id="utm_medium" value="">
- <input type="hidden" name="utm_campaign" id="utm_campaign" value="">
- <div class="grid md:grid-cols-2 gap-4">
- <label class="block text-sm font-semibold text-white mb-1">Vorname *</label><input type="text" name="name" required placeholder="z. B. Max" autocomplete="name" class="w-full px-4 py-3.5 rounded-xl border border-white/20 bg-white/10 text-white placeholder:text-white/70 focus:outline-none focus:border-brandOrange text-sm">
- <label class="block text-sm font-semibold text-white mb-1">Unternehmen <span class="text-slate-300 font-medium">(optional)</span></label><input type="text" name="company" placeholder="z. B. Muster GmbH" autocomplete="organization" class="w-full px-4 py-3.5 rounded-xl border border-white/20 bg-white/10 text-white placeholder:text-white/70 focus:outline-none focus:border-brandOrange text-sm">
- </div>
- <label class="block text-sm font-semibold text-white mb-1">E-Mail *</label><input type="email" name="email" required placeholder="geschaeft@example.com" autocomplete="email" class="w-full px-4 py-3.5 rounded-xl border border-white/20 bg-white/10 text-white placeholder:text-white/70 focus:outline-none focus:border-brandOrange text-sm">
- <select name="product" class="w-full px-4 py-3.5 rounded-xl border border-white/20 bg-white/10 text-white focus:outline-none focus:border-brandOrange text-sm">
- <option value="" disabled selected>Produktinteresse (optional)</option>
- <option value="unsure">Noch unentschlossen</option>
- <option value="powerbank">Powerbank</option>
- <option value="wireless">Kabelloses Ladegerät</option>
- <option value="car">Autoladegerät</option>
- <option value="gan">GaN-Ladegerät</option>
- <option value="other">Sonstiges</option>
- </select>
- <textarea required minlength="10" name="message" rows="3" placeholder="Ihre Nachricht (Menge, Spezifikationen, Wünsche)" class="w-full px-4 py-3.5 rounded-xl border border-white/20 bg-white/10 text-white placeholder:text-white/70 focus:outline-none focus:border-brandOrange text-sm resize-none"></textarea>
- <label class="flex items-start gap-3 text-left"><input type="checkbox" required class="mt-1 accent-brandOrange"><span class="text-xs text-slate-300">Ich habe die <a href="/de/datenschutz" class="text-brandOrange hover:underline">Datenschutzerklärung</a> zur Kenntnis genommen. *</span></label>
- <button type="submit" class="w-full bg-brandOrange text-white py-4 rounded-xl font-bold text-base hover:bg-brandBlue transition-all duration-300 shadow-lg shadow-brandOrange/20 flex items-center justify-center gap-3">Angebot erhalten <svg class="icon-arrow-right" aria-hidden="true" focusable="false" viewBox="0 0 512 512">
- <path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-105.4 105.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" fill="currentColor"/>
- </svg></button>
- </form>
- <p class="text-slate-500 text-sm mt-4"><svg class="icon-phone mr-2 text-brandOrange" aria-hidden="true" focusable="false" viewBox="0 0 512 512"><path d="M160.2 25C152.3 6.1 131.7-3.9 112.1 1.4l-5.5 1.5c-64.6 17.6-119.8 80.2-103.7 156.4 37.1 175 174.8 312.7 349.8 349.8 76.3 16.2 138.8-39.1 156.4-103.7l1.5-5.5c5.4-19.7-4.7-40.3-23.5-48.1l-97.3-40.5c-16.5-6.9-35.6-2.1-47 11.8l-38.6 47.2C233.9 335.4 177.3 277 144.8 205.3L189 169.3c13.9-11.3 18.6-30.4 11.8-47L160.2 25z" fill="currentColor"/></svg>Oder rufen Sie uns an: <a href="tel:+8618620789739" class="text-white hover:text-brandOrange font-semibold">+86-186-2078-9739</a></p>
- </div>
- </div>
- </section>
+ {%- set ctaLabel = "Jetzt starten" %}
+{%- set ctaHeading1 = "USB-C PD Projekt" %}
+{%- set ctaHeading2 = "in 24 Stunden starten" %}
+{%- set ctaSubtext = "Fordern Sie Ihr individuelles Angebot für USB-C PD Ladegeräte an. Wir beraten Sie zu Leistungsklassen, Stückzahlen und Lieferkonditionen." %}
+{%- set ctaSubject = "Blog Anfrage: Qualitätskontrolle China" %}
+{%- set ctaButton = "Angebot erhalten" %}
+{%- set ctaPlaceholder = "Ihre Nachricht (Menge, Spezifikationen, Wünsche)" %}
+{% include "partials/blog-cta-de.njk" %}
 {% endblock %}

@@ -380,31 +380,15 @@ navActive: "blog"
  </div>
 </section>
 
-<!-- CTA -->
-<section class="sec bg-brandBlue">
- <div class="max-w-4xl mx-auto px-6 text-center">
- <div class="reveal">
- <p class="section-label">Sicher in den DACH-Markt</p>
- <h2 class="text-3xl md:text-5xl font-black text-white leading-tight mb-4">CE- &amp; GS-konforme Ladegeräte<br><span class="text-brandOrange">vom Werk in 30 Tagen</span></h2>
- <p class="text-slate-300 text-lg max-w-2xl mx-auto mb-8">EN 62368-1, EMV, RoHS und UN38.3 inklusive. WOWOHCOOL übernimmt die Dokumentation und liefert die Konformitätserklärung mit Ihrem EU-Inverkehrbringer-Eintrag.</p>
- </div>
- <div class="max-w-xl mx-auto reveal">
- <form action="https://api.web3forms.com/submit" method="POST" class="inquiry-form space-y-4">
- <input type="hidden" name="access_key" value="ac5fe4cd-2dd7-4aff-818d-bb36021b4942">
- <input type="hidden" name="subject" value="Blog-Anfrage: Sicherheitsstandards Ladegeräte">
- <input type="hidden" name="redirect" value="https://www.wowohcool.com/de/danke">
- <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;opacity:0;height:0;width:0">
- <input type="hidden" name="utm_source" id="utm_source" value="">
- <input type="hidden" name="utm_medium" id="utm_medium" value="">
- <input type="hidden" name="utm_campaign" id="utm_campaign" value="">
- <div class="grid md:grid-cols-2 gap-4"><div><label class="block text-sm font-semibold text-white mb-1">Vorname *</label><input type="text" name="name" required placeholder="z. B. Max" autocomplete="name" class="w-full px-4 py-3.5 rounded-xl border border-white/20 bg-white/10 text-white placeholder:text-white/70 focus:outline-none focus:border-brandOrange text-sm"></div>
- <div><label class="block text-sm font-semibold text-white mb-1">Unternehmen <span class="text-slate-300 font-medium">(optional)</span></label><input type="text" name="company" placeholder="z. B. Muster GmbH" autocomplete="organization" class="w-full px-4 py-3.5 rounded-xl border border-white/20 bg-white/10 text-white placeholder:text-white/70 focus:outline-none focus:border-brandOrange text-sm"></div></div>
- <div><label class="block text-sm font-semibold text-white mb-1">E-Mail *</label><input type="email" name="email" required placeholder="geschaeft@example.com" autocomplete="email" class="w-full px-4 py-3.5 rounded-xl border border-white/20 bg-white/10 text-white placeholder:text-white/70 focus:outline-none focus:border-brandOrange text-sm"></div>
- <div><label class="block text-sm font-semibold text-white mb-1">Ihre Nachricht *</label><textarea required minlength="10" name="message" rows="3" placeholder="Welches Produkt? Welche Zielmärkte? GS-Zeichen gewünscht?" class="w-full px-4 py-3.5 rounded-xl border border-white/20 bg-white/10 text-white placeholder:text-white/70 focus:outline-none focus:border-brandOrange text-sm resize-none"></textarea></div>
- <label class="flex items-start gap-3 text-left"><input type="checkbox" required class="mt-1 accent-brandOrange"><span class="text-xs text-slate-300">Ich habe die <a href="/de/datenschutz" class="text-brandOrange hover:underline">Datenschutzerklärung</a> zur Kenntnis genommen. *</span></label>
- <button type="submit" class="w-full bg-brandOrange text-white py-4 rounded-xl font-bold text-base hover:bg-brandBlue transition-all duration-300 shadow-lg shadow-brandOrange/20">Angebot anfordern</button>
- </form>
- </div>
- </div>
-</section>
+{%- set ctaLabel = "Sicher in den DACH-Markt" %}
+{%- set ctaHeading1 = "CE- & GS-konforme Ladegeräte" %}
+{%- set ctaHeading2 = "vom Werk in 30 Tagen" %}
+{%- set ctaSubtext = "EN 62368-1, EMV, RoHS und UN38.3 inklusive. WOWOHCOOL übernimmt die Dokumentation und liefert die Konformitätserklärung mit Ihrem EU-Inverkehrbringer-Eintrag." %}
+{%- set ctaSubject = "Blog-Anfrage: Sicherheitsstandards Ladegeräte" %}
+{%- set ctaButton = "Angebot anfordern" %}
+{%- set ctaPlaceholder = "Welches Produkt? Welche Zielmärkte? GS-Zeichen gewünscht?" %}
+{%- set ctaShowProduct = false %}
+{%- set ctaShowArrow = false %}
+{%- set ctaShowPhone = false %}
+{% include "partials/blog-cta-de.njk" %}
 {% endblock %}
