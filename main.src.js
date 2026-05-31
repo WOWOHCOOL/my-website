@@ -372,7 +372,7 @@ const counterObserver = new IntersectionObserver(
       counterObserver.unobserve(el);
     });
   },
-  { threshold: 0.6 }
+  { threshold: 0.2 }
 );
 
 // ─── Desktop Dropdown Hover (DE compat) ─────────────────────────────
