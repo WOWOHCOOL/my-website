@@ -375,7 +375,7 @@ const counterObserver = new IntersectionObserver(
 
 function initDropdownHover() {
   if (window.innerWidth <= 1023) return;
-  document.querySelectorAll('.group').forEach(el => {
+  document.querySelectorAll('nav .group').forEach(el => {
     el.addEventListener('mouseenter', () => {
       const dc = el.querySelector('.dropdown-content');
       if (dc) {
