@@ -505,8 +505,7 @@ document.addEventListener('DOMContentLoaded', () => {
   ['utm_source', 'utm_medium', 'utm_campaign'].forEach(k => {
     const v = params.get(k);
     if (v) {
-      const el = document.getElementById(k);
-      if (el) el.value = v;
+      document.querySelectorAll(`input[name="${k}"]`).forEach(el => { el.value = v; });
     }
   });
 
