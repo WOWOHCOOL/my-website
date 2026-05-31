@@ -203,25 +203,8 @@ lang: "de"
 {{ statsBar(i18n.statsBar[lang].items) }}
 
 <!-- ======== ZERTIFIZIERUNGEN ======== -->
-<section class="py-12 md:py-16 bg-white border-y border-slate-100">
- <div class="max-w-7xl mx-auto px-6">
- <div class="text-center mb-8 reveal">
- <p class="section-label">Zertifizierungen und Standards</p>
- <h2 class="section-title text-2xl md:text-3xl">Geprüfte Qualität für den deutschen Markt</h2>
- </div>
- <div class="cert-showcase reveal">
- <div class="cert-item"><img src="/image/certifications/ce-certification.svg" alt="CE" width="24" height="24" loading="lazy"> CE</div>
- <div class="cert-item"><img src="/image/certifications/tuv-gs.svg" alt="TUV GS" width="24" height="24" loading="lazy"> TUV GS</div>
- <div class="cert-item"><img src="/image/certifications/iso-9001.svg" alt="ISO 9001" width="24" height="24" loading="lazy"> ISO 9001</div>
- <div class="cert-item"><img src="/image/certifications/qi-certified.svg" alt="Qi2" width="24" height="24" loading="lazy"> Qi2</div>
- <div class="cert-item"><img src="/image/certifications/rohs-compliant.svg" alt="RoHS" width="24" height="24" loading="lazy"> RoHS</div>
- <div class="cert-item"><img src="/image/certifications/un383-safety.svg" alt="UN38.3" width="24" height="24" loading="lazy"> UN38.3</div>
- <div class="cert-item"><img src="/image/certifications/pd3.1-fast-protocols.svg" alt="PD 3.1" width="24" height="24" loading="lazy"> PD 3.1</div>
- <div class="cert-item"><img src="/image/certifications/e-mark-compliance.svg" alt="E-Mark" width="24" height="24" loading="lazy"> E-Mark</div>
- <div class="cert-item"><img src="/image/certifications/weee.svg" alt="WEEE" width="24" height="24" loading="lazy"> WEEE</div>
- </div>
- </div>
-</section>
+{% from "partials/cert-showcase.njk" import certShowcase %}
+{{ certShowcase(i18n.certifications[lang].homepage.items, i18n.certifications[lang].homepage.heading, i18n.certifications[lang].homepage.title, "", "", true) }}
 
 <!-- ======== BLOG PREVIEW ======== -->
 <section class="sec bg-white">

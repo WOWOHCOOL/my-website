@@ -542,15 +542,7 @@ esPath: "servicio-oem-odm/"
  <div class="max-w-7xl mx-auto px-6">
  <div class="text-center">
  <div class="cert-showcase reveal">
- {% set service_certs = [
- { src: "ce-certification", alt: "CE Certified", label: "CE" },
- { src: "fcc-compliance", alt: "FCC Compliant", label: "FCC" },
- { src: "rohs-compliant", alt: "RoHS Compliant", label: "RoHS" },
- { src: "qi-certified", alt: "Qi Certified", label: "Qi2" },
- { src: "un383-safety", alt: "UN38.3 Safety", label: "UN38.3" },
- { src: "iso-9001", alt: "ISO 9001 Certified", label: "ISO 9001" }
- ] %}
- {% for cert in service_certs %}
+ {% for cert in i18n.certifications[lang].service %}
  <div class="cert-item">
  <img src="/image/certifications/{{ cert.src }}.svg" alt="{{ cert.alt }}" width="24" height="24" loading="lazy">
  {{ cert.label }}

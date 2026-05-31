@@ -1,4 +1,4 @@
-﻿---
+---
 title: "FAQ Fabricación OEM/ODM | Preguntas Frecuentes | WOWOHCOOL"
 description: "14 preguntas frecuentes sobre fabricación OEM/ODM: MOQ desde 500 uds., certificaciones CE y UE 2023/1542, plazos 25-35 días, control calidad y envío DDP a España."
 canonical: "/es/faq/"
@@ -7,9 +7,9 @@ dePath: "faq/"
 navActive: "faq"
 ---
 
-{% extends "layout.njk" %}
+{% extends "layouts/faq-page.njk" %}
 
-{% block head_schema %}
+{% block faqSchema %}
 <script type="application/ld+json">[{
  "@context":"https://schema.org","@type":"BreadcrumbList",
  "itemListElement":[
@@ -39,7 +39,7 @@ navActive: "faq"
 </script>
 {% endblock %}
 
-{% block content %}
+{% block faqHero %}
 {% from "breadcrumb.njk" import breadcrumb %}
 {{ breadcrumb([{name:"Inicio",url:"/es/"},{name:"FAQ"}]) }}
 
@@ -50,13 +50,17 @@ navActive: "faq"
  <p class="text-lg text-slate-600">Respuestas a las dudas más comunes sobre fabricación OEM/ODM, certificaciones, envíos y logística para España y Latinoamérica.</p>
  </div>
 </section>
+{% endblock %}
 
+{% block faqTrustBand %}
 {% from "partials/customer-logos.njk" import customerLogos %}
 {{ customerLogos("Confían en nosotros") }}
 
 {% from "partials/stats-bar.njk" import statsBar %}
 {{ statsBar(i18n.statsBar[lang].items) }}
+{% endblock %}
 
+{% block faqContent %}
 <section class="py-16 bg-white">
  <div class="max-w-3xl mx-auto px-6">
 
@@ -90,7 +94,9 @@ navActive: "faq"
 
  </div>
 </section>
+{% endblock %}
 
+{% block faqCta %}
 <!-- CTA -->
 <section class="sec bg-brandBlue">
 <div class="max-w-4xl mx-auto px-6 text-center">

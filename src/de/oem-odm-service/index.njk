@@ -382,19 +382,14 @@ navActive: "oem-odm"
  <section class="sec bg-slate-50">
  <div class="max-w-7xl mx-auto px-6">
  <div class="text-center max-w-3xl mx-auto mb-10 reveal">
- <p class="section-label">Zertifikate</p>
- <h2 class="section-title">Geprüfte Qualität für den deutschen Markt</h2>
- <p class="section-desc mx-auto">Alle unsere Produkte erfüllen die strengen Anforderungen des europäischen Marktes.</p>
+ <p class="section-label">{{ i18n.certifications[lang].service.heading }}</p>
+ <h2 class="section-title">{{ i18n.certifications[lang].service.title }}</h2>
+ <p class="section-desc mx-auto">{{ i18n.certifications[lang].service.desc }}</p>
  </div>
  <div class="cert-showcase reveal">
- <div class="cert-item"><img src="/image/certifications/ce-certification.svg" alt="CE" width="24" height="24"> CE</div>
- <div class="cert-item"><img src="/image/certifications/tuv-gs.svg" alt="TUV GS" width="24" height="24"> TÜV GS</div>
- <div class="cert-item"><img src="/image/certifications/iso-9001.svg" alt="ISO 9001" width="24" height="24"> ISO 9001</div>
- <div class="cert-item"><img src="/image/certifications/qi-certified.svg" alt="Qi" width="24" height="24"> Qi2</div>
- <div class="cert-item"><img src="/image/certifications/rohs-compliant.svg" alt="RoHS" width="24" height="24"> RoHS</div>
- <div class="cert-item"><img src="/image/certifications/un383-safety.svg" alt="UN38.3" width="24" height="24"> UN38.3</div>
- <div class="cert-item"><img src="/image/certifications/pd3.1-fast-protocols.svg" alt="PD 3.1" width="24" height="24"> PD 3.1</div>
- <div class="cert-item"><img src="/image/certifications/e-mark-compliance.svg" alt="E-Mark" width="24" height="24"> E-Mark</div>
+ {% for cert in i18n.certifications[lang].service.items %}
+ <div class="cert-item"><img src="/image/certifications/{{ cert.src }}.svg" alt="{{ cert.alt }}" width="24" height="24"> {{ cert.label }}</div>
+ {% endfor %}
  </div>
  </div>
  </section>

@@ -1,4 +1,4 @@
-﻿---
+---
 title: "FAQ | WOWOHCOOL, OEM/ODM Partner für Ladelösungen"
 description: "Häufig gestellte Fragen zu OEM/ODM, MOQ, Zertifizierungen, Versand und Zahlung. Antworten für B2B-Kunden in Deutschland, Österreich und der Schweiz."
 canonical: "/de/faq/"
@@ -7,9 +7,9 @@ esPath: "faq/"
 navActive: "faq"
 ---
 
-{% extends "layout.njk" %}
+{% extends "layouts/faq-page.njk" %}
 
-{% block head_schema %}
+{% block faqSchema %}
 <script type="application/ld+json">
 [{"@context":"https://schema.org","@type":"ManufacturingBusiness","@id":"https://www.wowohcool.com/de/#organization","name":"WOWOHCOOL","areaServed":["DE","AT","CH","EU"]},
 {"@context":"https://schema.org","@type":"WebSite","@id":"https://www.wowohcool.com/de/#website","url":"https://www.wowohcool.com/de/","name":"WOWOHCOOL"},
@@ -31,7 +31,7 @@ navActive: "faq"
 </script>
 {% endblock %}
 
-{% block content %}
+{% block faqHero %}
 {{ breadcrumb([{name: "Startseite", url: "/de/"}, {name: "FAQ"}]) }}
 <section class="relative overflow-hidden bg-gradient-to-br from-slate-50 via-white to-orange-50">
  <div class="max-w-4xl mx-auto px-6 text-center sec reveal">
@@ -40,14 +40,18 @@ navActive: "faq"
  <p class="text-slate-600 text-lg max-w-2xl mx-auto">Antworten auf die wichtigsten Fragen rund um OEM/ODM, Produktion, Versand und Zusammenarbeit mit WOWOHCOOL.</p>
  </div>
 </section>
+{% endblock %}
 
+{% block faqTrustBand %}
 <!-- ======== TRUST BAND ======== -->
 {% from "partials/customer-logos.njk" import customerLogos %}
 {{ customerLogos("Vertrauen internationaler Marken") }}
 
 {% from "partials/stats-bar.njk" import statsBar %}
 {{ statsBar(i18n.statsBar[lang].items) }}
+{% endblock %}
 
+{% block faqContent %}
 <section class="sec bg-white">
  <div class="max-w-4xl mx-auto px-6">
 

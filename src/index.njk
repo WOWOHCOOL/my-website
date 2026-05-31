@@ -589,16 +589,9 @@ navActive: "home"
  <h2 class="text-center text-[11px] font-black uppercase tracking-[0.3em] md:tracking-[0.5em] text-slate-300 mb-16">
  Certifications & Standards
  </h2>
+ {% from "partials/cert-showcase.njk" import certShowcase as certShowcasePartial %}
  <div class="cert-showcase reveal">
- {% set certs = [
- { src: "ce-certification", alt: "CE Certified", label: "CE" },
- { src: "fcc-compliance", alt: "FCC Compliant", label: "FCC" },
- { src: "qi-certified", alt: "Qi Certified", label: "Qi" },
- { src: "rohs-compliant", alt: "RoHS Compliant", label: "RoHS" },
- { src: "iso-9001", alt: "ISO 9001 Certified", label: "ISO 9001" },
- { src: "un383-safety", alt: "UN38.3 Safety", label: "UN38.3" }
- ] %}
- {% for cert in certs %}
+ {% for cert in i18n.certifications[lang].homepage.items %}
  <div class="cert-item">
  <img src="/image/certifications/{{ cert.src }}.svg" alt="{{ cert.alt }}" width="24" height="24" loading="lazy">
  {{ cert.label }}
