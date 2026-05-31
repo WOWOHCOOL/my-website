@@ -11,7 +11,7 @@
 <script>
 (function(){
  const banner = document.getElementById('cookie-banner');
- if (localStorage.getItem('cookie_consent') ||!banner) return;
+ try { if (localStorage.getItem('cookie_consent') ||!banner) return; } catch(e) { return; }
  setTimeout(function(){ banner.classList.add('show'); }, 500);
  document.getElementById('cookie-accept').addEventListener('click', function(){
  localStorage.setItem('cookie_consent', 'accepted');

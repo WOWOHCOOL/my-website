@@ -295,6 +295,10 @@ document.addEventListener('click', (e) => {
         case 'close-mobile':        closeMobileMenu(); break;
         case 'toggle-mobile-submenu': toggleMobileSubmenu(); break;
         case 'scroll-to-top':       window.scrollTo({ top: 0, behavior: 'smooth' }); break;
+        case 'toggle-article-list':
+          trigger.nextElementSibling.classList.toggle('hidden');
+          trigger.querySelector('svg').classList.toggle('rotate-180');
+          break;
       }
     });
     return;
