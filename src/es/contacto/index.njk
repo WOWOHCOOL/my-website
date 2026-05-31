@@ -7,7 +7,7 @@ dePath: "kontakt/"
 navActive: "contacto"
 ---
 
-{% extends "layout.njk" %}
+{% extends "layouts/contact-page.njk" %}
 
 {% block head_schema %}
 <script type="application/ld+json">
@@ -39,7 +39,7 @@ navActive: "contacto"
 </script>
 {% endblock %}
 
-{% block content %}
+{% block contactHero %}
 {% from "breadcrumb.njk" import breadcrumb %}
 {{ breadcrumb([{name:"Inicio",url:"/es/"},{name:"Contacto"}]) }}
 
@@ -68,11 +68,14 @@ navActive: "contacto"
  </div>
  </div>
 </section>
+{% endblock %}
 
-<!-- ======== CLIENT LOGOS ======== -->
+{% block contactTrustBand %}
 {% from "partials/customer-logos.njk" import customerLogos %}
 {{ customerLogos("Confían en nosotros") }}
+{% endblock %}
 
+{% block contactMain %}
 <!-- ======== CONTACT INFO + FORM ======== -->
 <section class="py-16 bg-white">
  <div class="max-w-7xl mx-auto px-6">
@@ -143,7 +146,9 @@ navActive: "contacto"
  </div>
  </div>
 </section>
+{% endblock %}
 
+{% block contactExtra %}
 <!-- ======== POST-FORM CTA ======== -->
 <section class="py-16 bg-slate-50">
  <div class="max-w-3xl mx-auto px-6 text-center reveal">

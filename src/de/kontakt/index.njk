@@ -7,7 +7,7 @@ esPath: "contacto/"
 navActive: "kontakt"
 ---
 
-{% extends "layout.njk" %}
+{% extends "layouts/contact-page.njk" %}
 
 {% block head_schema %}
 <script type="application/ld+json">
@@ -18,7 +18,7 @@ navActive: "kontakt"
 </script>
 {% endblock %}
 
-{% block content %}
+{% block contactHero %}
 {{ breadcrumb([{name: "Startseite", url: "/de/"}, {name: "Kontakt"}]) }}
 <section class="pb-20 md:pb-24 bg-gradient-to-br from-slate-50 via-white to-orange-50">
  <div class="max-w-4xl mx-auto px-6 text-center reveal">
@@ -28,14 +28,18 @@ navActive: "kontakt"
  <p class="text-slate-500 text-sm max-w-xl mx-auto mt-4">Über 90% der in Deutschland verkauften Ladegeräte werden in China produziert. Als ISO 9001 zertifizierter Hersteller mit eigener Fabrik sind wir Ihr direkter Partner, ohne Zwischenhändler.</p>
  </div>
 </section>
+{% endblock %}
 
+{% block contactTrustBand %}
 <!-- ======== TRUST BAND ======== -->
 {% from "partials/customer-logos.njk" import customerLogos %}
 {{ customerLogos("Vertrauen internationaler Marken") }}
 
 {% from "partials/stats-bar.njk" import statsBar %}
 {{ statsBar(i18n.statsBar[lang].items) }}
+{% endblock %}
 
+{% block contactMain %}
 <section class="sec bg-white">
  <div class="max-w-7xl mx-auto px-6">
  <div class="grid lg:grid-cols-3 gap-10">
@@ -91,7 +95,9 @@ navActive: "kontakt"
  </div>
  </div>
 </section>
+{% endblock %}
 
+{% block contactExtra %}
 <!-- ======== TEAM ======== -->
 <section class="sec bg-slate-50">
  <div class="max-w-7xl mx-auto px-6">

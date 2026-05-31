@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Blog | Fabricación OEM/ODM | WOWOHCOOL"
 description: "Artículos sobre fabricación OEM/ODM de power banks, certificaciones, importación desde China y tecnología de carga. Guías prácticas para importadores hispanos."
 canonical: "/es/blog/"
@@ -7,9 +7,9 @@ dePath: "blog/"
 navActive: "blog"
 ---
 
-{% extends "layout.njk" %}
+{% extends "layouts/blog-index.njk" %}
 
-{% block head_schema %}
+{% block blogSchema %}
 <script type="application/ld+json">
 [{"@context":"https://schema.org","@type":"ManufacturingBusiness","@id":"https://www.wowohcool.com/#organization","name":"WOWOHCOOL","areaServed":["ES","MX","CO","AR","CL","PE","EU"]},
 {"@context":"https://schema.org","@type":"WebSite","@id":"https://www.wowohcool.com/#website","url":"https://www.wowohcool.com/es/","name":"WOWOHCOOL"},
@@ -18,7 +18,7 @@ navActive: "blog"
 </script>
 {% endblock %}
 
-{% block content %}
+{% block blogHero %}
 {% from "breadcrumb.njk" import breadcrumb %}
 {{ breadcrumb([{name:"Inicio", url:"/es/"}, {name:"Blog"}]) }}
 
@@ -30,7 +30,9 @@ navActive: "blog"
 <p class="text-slate-600 text-lg max-w-2xl mx-auto">Guías prácticas sobre fabricación OEM/ODM de power banks, certificación Qi2, importación desde China, tecnología GaN y producción de marca propia.</p>
 </div>
 </section>
+{% endblock %}
 
+{% block blogArticles %}
 <!-- BLOG LIST -->
 <section class="sec">
 <div class="max-w-5xl mx-auto px-6">
@@ -130,7 +132,9 @@ navActive: "blog"
 </div>
 </div>
 </section>
+{% endblock %}
 
+{% block blogAllArticles %}
 <!-- ALL ARTÍCULOS -->
 <section id="todos-los-articulos" class="py-16 bg-white">
 <div class="max-w-4xl mx-auto px-6">
@@ -180,7 +184,9 @@ navActive: "blog"
 </div>
 </div>
 </section>
+{% endblock %}
 
+{% block blogQuickAccess %}
 <!-- ACCESO RÁPIDO -->
 <section class="py-16 bg-slate-50">
 <div class="max-w-4xl mx-auto px-6">
@@ -204,7 +210,9 @@ navActive: "blog"
 </div>
 </div>
 </section>
+{% endblock %}
 
+{% block blogNewsletter %}
 {% set ctaLabel = "Comience ahora" %}
 {% set ctaHeading1 = "¿Más información?" %}
 {% set ctaHeading2 = "Presupuesto gratuito" %}

@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Blog | WOWOHCOOL, OEM/ODM Partner für Ladelösungen aus Shenzhen"
 description: "Blog über Powerbank Herstellung, Qi2 Zertifizierung, Import aus China, GaN Technologie und Eigenmarken-Produktion. Expertenwissen für deutsche Importeure."
 canonical: "/de/blog/"
@@ -7,9 +7,9 @@ esPath: "blog/"
 navActive: "blog"
 ---
 
-{% extends "layout.njk" %}
+{% extends "layouts/blog-index.njk" %}
 
-{% block head_schema %}
+{% block blogSchema %}
 <script type="application/ld+json">
 [{"@context":"https://schema.org","@type":"ManufacturingBusiness","@id":"https://www.wowohcool.com/#organization","name":"WOWOHCOOL","areaServed":["DE","AT","CH","EU"]},
 {"@context":"https://schema.org","@type":"WebSite","@id":"https://www.wowohcool.com/#website","url":"https://www.wowohcool.com/de/","name":"WOWOHCOOL"},
@@ -18,7 +18,7 @@ navActive: "blog"
 </script>
 {% endblock %}
 
-{% block content %}
+{% block blogHero %}
 {{ breadcrumb([{name: "Startseite", url: "/de/"}, {name: "Blog"}]) }}
 <!-- BLOG HEADER -->
 <section class="pb-16 md:pb-20 bg-gradient-to-br from-slate-50 via-white to-orange-50">
@@ -28,7 +28,9 @@ navActive: "blog"
 <p class="text-slate-600 text-lg max-w-2xl mx-auto">Praktische Leitfäden zu Powerbank OEM, Qi2 Zertifizierung, Import aus China, GaN Technologie und Eigenmarken-Produktion.</p>
 </div>
 </section>
+{% endblock %}
 
+{% block blogArticles %}
 <!-- BLOG LIST -->
 <section class="sec">
 <div class="max-w-5xl mx-auto px-6">
@@ -109,7 +111,9 @@ navActive: "blog"
 
 </div>
 </section>
+{% endblock %}
 
+{% block blogAllArticles %}
 <!-- ALLE ARTIKEL -->
 <section id="alle-artikel" class="py-16 bg-white">
 <div class="max-w-4xl mx-auto px-6">
@@ -157,7 +161,9 @@ navActive: "blog"
 </div>
 </div>
 </section>
+{% endblock %}
 
+{% block blogQuickAccess %}
 <!-- SCHNELLRESSOURCEN -->
 <section class="py-16 bg-slate-50">
 <div class="max-w-4xl mx-auto px-6">
@@ -181,7 +187,9 @@ navActive: "blog"
 </div>
 </div>
 </section>
+{%- endblock %}
 
+{% block blogNewsletter %}
 {%- set ctaLabel = "Jetzt starten" %}
 {%- set ctaHeading1 = "Mehr erfahren?" %}
 {%- set ctaHeading2 = "Kostenloses Angebot anfordern" %}
