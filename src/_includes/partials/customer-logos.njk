@@ -1,0 +1,48 @@
+{# Customer Logo Band — reusable macro for DE/ES pages
+   Parameters:
+   - heading (string, optional): e.g. "Vertrauen internationaler Marken"
+   - linkHref (string, optional): if provided, logos are wrapped in <a> tags
+   - standalone (bool, default true): if true, wraps in a full <section>; if false, outputs only the inner content
+#}
+{% macro customerLogos(heading, linkHref, standalone=true) %}
+{% if standalone %}
+<section class="py-10 md:py-12 bg-white border-b border-slate-100">
+ <div class="max-w-7xl mx-auto px-6">
+{% endif %}
+{% if heading %}
+ <p class="text-xs font-bold uppercase tracking-widest text-slate-400 text-center mb-5">{{ heading }}</p>
+{% endif %}
+ <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 opacity-60">
+{% if linkHref %}
+  <a href="{{ linkHref }}" class="flex items-center justify-center p-4 bg-slate-50 rounded-xl hover:bg-slate-100 transition-colors" title="Bosch">
+   <img src="/image/customer-logo/Bosch-logo.svg.webp" alt="Bosch" width="100" height="75" class="h-12 w-auto object-contain">
+  </a>
+  <a href="{{ linkHref }}" class="flex items-center justify-center p-4 bg-slate-50 rounded-xl hover:bg-slate-100 transition-colors" title="Jacob Jensen">
+   <img src="/image/customer-logo/Jacobjensen-Clients.webp" alt="Jacob Jensen" width="100" height="75" class="h-12 w-auto object-contain">
+  </a>
+  <a href="{{ linkHref }}" class="flex items-center justify-center p-4 bg-slate-50 rounded-xl hover:bg-slate-100 transition-colors" title="Tempel">
+   <img src="/image/customer-logo/Tempel-Clients.webp" alt="Tempel" width="100" height="75" class="h-12 w-auto object-contain">
+  </a>
+  <a href="{{ linkHref }}" class="flex items-center justify-center p-4 bg-slate-50 rounded-xl hover:bg-slate-100 transition-colors" title="Techmade">
+   <img src="/image/customer-logo/techmade-Client.webp" alt="Techmade" width="100" height="75" class="h-12 w-auto object-contain">
+  </a>
+{% else %}
+  <div class="flex items-center justify-center p-4 bg-slate-50 rounded-xl">
+   <img src="/image/customer-logo/Bosch-logo.svg.webp" alt="Bosch" width="100" height="75" class="h-12 w-auto object-contain">
+  </div>
+  <div class="flex items-center justify-center p-4 bg-slate-50 rounded-xl">
+   <img src="/image/customer-logo/Jacobjensen-Clients.webp" alt="Jacob Jensen" width="100" height="75" class="h-12 w-auto object-contain">
+  </div>
+  <div class="flex items-center justify-center p-4 bg-slate-50 rounded-xl">
+   <img src="/image/customer-logo/Tempel-Clients.webp" alt="Tempel" width="100" height="75" class="h-12 w-auto object-contain">
+  </div>
+  <div class="flex items-center justify-center p-4 bg-slate-50 rounded-xl">
+   <img src="/image/customer-logo/techmade-Client.webp" alt="Techmade" width="100" height="75" class="h-12 w-auto object-contain">
+  </div>
+{% endif %}
+ </div>
+{% if standalone %}
+ </div>
+</section>
+{% endif %}
+{% endmacro %}
