@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+{% set i18nLayout = i18n.layout[lang] %}
+<html lang="{{ lang }}" class="scroll-smooth">
 <head>
  <meta charset="UTF-8">
  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
@@ -7,32 +8,49 @@
  <link rel="stylesheet" href="/css/styles.css">
 
  {% block head_meta %}
- <title>{{ title or "Wireless Charger & Power Bank OEM/ODM | WOWOHCOOL China" }}</title>
- <meta name="description" content="{{ description or "Shenzhen wireless charger & power bank manufacturer since 2013. CE/FCC/Qi-certified OEM/ODM supplier. B2B wholesale. MOQ 500+. Factory direct pricing." }}">
+ <title>{{ title or i18nLayout.defaultTitle }}</title>
+ <meta name="description" content="{{ description or i18nLayout.defaultDescription }}">
  <meta name="geo.region" content="CN-GD" />
  <meta name="geo.placename" content="Shenzhen" />
  <meta name="geo.position" content="22.5431;114.0579" />
  <meta name="robots" content="index, follow">
- <meta name="author" content="WOWOHCOOL">
+ {% if lang == "en" %}<meta name="author" content="WOWOHCOOL">{% endif %}
  <link rel="preconnect" href="https://api.web3forms.com">
+ {% if lang == "en" %}
  <link rel="canonical" href="https://www.wowohcool.com{{ canonical or "/" }}">
  <link rel="alternate" hreflang="en" href="https://www.wowohcool.com{{ canonical or "/" }}">
  {% if dePath is defined %}<link rel="alternate" hreflang="de" href="https://www.wowohcool.com/de/{{ dePath | trailingSlash }}">{% endif %}
  {% if esPath is defined %}<link rel="alternate" hreflang="es" href="https://www.wowohcool.com/es/{{ esPath | trailingSlash }}">{% endif %}
  <link rel="alternate" hreflang="x-default" href="https://www.wowohcool.com{{ canonical or "/" }}">
+ {% elif lang == "de" %}
+ <link rel="canonical" href="https://www.wowohcool.com{{ canonical or "/de/" }}">
+ <link rel="alternate" hreflang="de" href="https://www.wowohcool.com{{ canonical or "/de/" }}">
+ {% if enPath is defined %}<link rel="alternate" hreflang="en" href="https://www.wowohcool.com{{ enPath }}">{% endif %}
+ {% if esPath is defined %}<link rel="alternate" hreflang="es" href="https://www.wowohcool.com/es/{{ esPath | trailingSlash }}">{% endif %}
+ <link rel="alternate" hreflang="x-default" href="https://www.wowohcool.com{{ enPath or '/' }}">
+ {% elif lang == "es" %}
+ <link rel="canonical" href="https://www.wowohcool.com{{ canonical or "/es/" }}">
+ <link rel="alternate" hreflang="es" href="https://www.wowohcool.com{{ canonical or "/es/" }}">
+ {% if skipHreflang != "en" %}<link rel="alternate" hreflang="en" href="https://www.wowohcool.com{{ enPath or "/" }}">{% endif %}
+ {% if skipHreflang != "de" %}<link rel="alternate" hreflang="de" href="https://www.wowohcool.com/de/{{ (dePath or "") | trailingSlash }}">{% endif %}
+ <link rel="alternate" hreflang="x-default" href="https://www.wowohcool.com{{ enPath or "/" }}">
+ {% endif %}
 
  <!-- Open Graph -->
- <meta property="og:title" content="{{ ogTitle or title or "Wireless Charger & Power Bank OEM/ODM Manufacturer | WOWOHCOOL China" }}">
- <meta property="og:description" content="{{ ogDescription or description or "Shenzhen wireless charger & power bank factory since 2013. CE/FCC/Qi-certified. OEM/ODM services. MOQ 500+. Get factory direct pricing." }}">
- <meta property="og:url" content="https://www.wowohcool.com{{ canonical or "/" }}">
+ <meta property="og:title" content="{{ ogTitle or title or i18nLayout.defaultOgTitle }}">
+ <meta property="og:description" content="{{ ogDescription or description or i18nLayout.defaultOgDescription }}">
+ {% if lang == "en" %}<meta property="og:url" content="https://www.wowohcool.com{{ canonical or "/" }}">
+ {% elif lang == "de" %}<meta property="og:url" content="https://www.wowohcool.com{{ canonical or "/de/" }}">
+ {% elif lang == "es" %}<meta property="og:url" content="https://www.wowohcool.com{{ canonical or "/es/" }}">
+ {% endif %}
  <meta property="og:type" content="{{ ogType or "website" }}">
  <meta property="og:image" content="https://www.wowohcool.com{{ ogImage or "/image/factory/wowohcool-smart-charging-solutions.webp" }}">
  <meta property="og:image:width" content="{{ ogImageWidth or "1200" }}">
  <meta property="og:image:height" content="{{ ogImageHeight or "630" }}">
- <meta property="og:image:type" content="image/webp">
+ {% if lang == "en" %}<meta property="og:image:type" content="image/webp">{% endif %}
  <meta name="twitter:card" content="summary_large_image">
- <meta name="twitter:title" content="{{ ogTitle or title or "Wireless Charger & Power Bank OEM/ODM Manufacturer | WOWOHCOOL China" }}">
- <meta name="twitter:description" content="{{ ogDescription or description or "Shenzhen wireless charger & power bank factory since 2013. CE/FCC/Qi-certified. OEM/ODM. MOQ 500+. Get factory direct pricing." }}">
+ <meta name="twitter:title" content="{{ ogTitle or title or i18nLayout.defaultTwitterTitle }}">
+ <meta name="twitter:description" content="{{ ogDescription or description or i18nLayout.defaultTwitterDescription }}">
  <meta name="twitter:image" content="https://www.wowohcool.com{{ ogImage or "/image/factory/wowohcool-smart-charging-solutions.webp" }}">
  {% if date %}<meta property="article:published_time" content="{{ date | fmtDate }}">{% endif %}
  {% if modified %}<meta property="article:modified_time" content="{{ modified | fmtDate }}">{% endif %}
@@ -41,6 +59,23 @@
  {% endblock %}
 
  {% block head_schema %}{% endblock %}
+
+ {% if not noWebSiteSchema and lang != "en" %}
+ <script type="application/ld+json">
+ {
+ "@context":"https://schema.org",
+ "@type":"WebSite",
+ "name":"WOWOHCOOL",
+ "url":"https://www.wowohcool.com/{{ lang }}/",
+ "speakable":{
+ "@type":"SpeakableSpecification",
+ "cssSelector":[".section-label",".hero-title h1",".faq-answer"]
+ },
+ "inLanguage":"{{ lang }}",
+ "publisher":{"@type":"Organization","name":"WOWOHCOOL (Dong Yi Technology Co., Ltd)"}
+ }
+ </script>
+ {% endif %}
 
  {% block head_extra %}{% endblock %}
 
@@ -55,6 +90,8 @@
 </head>
 
 <body class="bg-white text-slate-900 overflow-x-hidden max-w-full">
+
+{% if lang != "en" %}{% from "breadcrumb.njk" import breadcrumb %}{% endif %}
 
  <!-- ======== HEADER ======== -->
  {% include "header.njk" %}
@@ -80,6 +117,6 @@
  {% include "floating-buttons.njk" %}
 
  {% include "cookie-banner.njk" %}
- <script src="/main.js" defer></script>
+ <script src="{{ i18nLayout.jsPath }}" defer></script>
 </body>
 </html>

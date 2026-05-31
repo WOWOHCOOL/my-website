@@ -1,45 +1,40 @@
 {% from "icons.njk" import iconChevronDown %}
+{% set m = i18n.mobileMenu[lang] %}
 
 <div id="mobile-menu-overlay" class="fixed inset-0 bg-brandBlue/40 backdrop-blur-md z-[499] opacity-0 pointer-events-none transition-opacity duration-300 lg:hidden" data-action="close-mobile"></div>
 
-<div id="mobile-menu-content" class="fixed inset-y-0 right-0 w-80 bg-brandBlue z-[500] transform translate-x-full transition-transform duration-500 p-8 shadow-2xl lg:hidden flex flex-col" aria-hidden="true" aria-label="Mobile navigation menu" role="dialog">
+<div id="mobile-menu-content" class="fixed inset-y-0 right-0 w-80 bg-brandBlue z-[500] transform translate-x-full transition-transform duration-500 p-8 shadow-2xl lg:hidden flex flex-col" aria-hidden="true" aria-label="{{ m.ariaLabel }}" role="dialog">
 
  <div class="flex items-center justify-between mb-8">
  <a href="/" data-action="close-mobile" class="block active:opacity-70 transition-opacity">
  <img src="/image/wowohcool-logo-optimized.webp" alt="WOWOHCOOL" width="120" height="32" class="h-8 w-auto brightness-0 invert">
  </a>
- <button data-action="close-mobile" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-brandOrange transition-colors" aria-label="Close mobile menu">
+ <button data-action="close-mobile" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-brandOrange transition-colors" aria-label="{{ m.closeAriaLabel }}">
  <svg class="icon-xmark text-white" aria-hidden="true" focusable="false" viewBox="0 0 384 512"><path d="M55.1 73.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L147.2 256 9.9 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192.5 301.3 329.9 438.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.8 256 375.1 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192.5 210.7 55.1 73.4z" fill="currentColor"/></svg>
  </button>
  </div>
 
- <nav aria-label="Mobile navigation" class="flex-1 space-y-6 text-white uppercase font-black tracking-widest text-sm">
- <a href="/" data-action="close-mobile" class="block py-2 hover:text-brandOrange transition border-b border-white/5">Home</a>
-
- <a href="/about" data-action="close-mobile" class="block py-2 hover:text-brandOrange transition border-b border-white/5">About Factory</a>
-
- <!-- Mobile products submenu -->
+ <nav aria-label="{{ m.ariaLabel }}" class="flex-1 space-y-6 text-white uppercase font-black tracking-widest text-sm">
+ {% for link in m.navLinks %}
+ {% if loop.index0 === 2 %}
+ <!-- Products submenu inserted before 3rd nav link -->
  <div class="space-y-4">
- <button data-action="toggle-mobile-submenu" class="w-full flex justify-between items-center py-2 hover:text-brandOrange transition border-b border-white/5 uppercase outline-none" aria-label="Toggle products submenu">
- Products {{ iconChevronDown("submenu-icon text-xs transition-transform duration-300") }}
+ <button data-action="toggle-mobile-submenu" class="w-full flex justify-between items-center py-2 hover:text-brandOrange transition border-b border-white/5 uppercase outline-none" aria-label="{{ m.productsSubmenuAriaLabel }}">
+ {{ m.productsLabel }} {{ iconChevronDown("submenu-icon text-xs transition-transform duration-300") }}
  </button>
  <div id="mobile-submenu" class="submenu-slide pl-4 space-y-4 border-l-2 border-brandOrange/30 ml-1" aria-hidden="true">
- <a href="/products/power-bank" tabindex="-1" data-action="close-mobile" class="block text-xs text-white/70 hover:text-brandOrange py-2">→ Power Bank</a>
- <a tabindex="-1" href="/products/gan-charger" data-action="close-mobile" class="block text-xs text-white/70 hover:text-brandOrange py-2">→ GaN Charger</a>
- <a tabindex="-1" href="/products/wireless-charger" data-action="close-mobile" class="block text-xs text-white/70 hover:text-brandOrange py-2">→ Wireless Charger</a>
- <a tabindex="-1" href="/products/car-charger" data-action="close-mobile" class="block text-xs text-white/70 hover:text-brandOrange py-2">→ Car Charger</a>
+ {% for p in m.productLinks %}
+ <a href="{{ p.href }}" tabindex="-1" data-action="close-mobile" class="block text-xs text-white/70 hover:text-brandOrange py-2">→ {{ p.label }}</a>
+ {% endfor %}
  </div>
  </div>
-
- <a href="/service" data-action="close-mobile" class="block py-2 hover:text-brandOrange transition border-b border-white/5">OEM/ODM Service</a>
- <a href="/case-studies" data-action="close-mobile" class="block py-2 hover:text-brandOrange transition border-b border-white/5">Case Studies</a>
- <a href="/blog/" data-action="close-mobile" class="block py-2 hover:text-brandOrange transition border-b border-white/5">Blog</a>
- <a href="/faq" data-action="close-mobile" class="block py-2 hover:text-brandOrange transition border-b border-white/5">FAQ</a>
- <a href="/contact" data-action="close-mobile" class="block py-2 hover:text-brandOrange transition border-b border-white/5">Contact Us</a>
+ {% endif %}
+ <a href="{{ link.href }}" data-action="close-mobile" class="block py-2 hover:text-brandOrange transition border-b border-white/5">{{ link.label }}</a>
+ {% endfor %}
 
  <div class="pt-8">
  <button data-action="close-mobile open-modal" data-product="General Inquiry" class="w-full bg-brandOrange text-white py-4 px-4 rounded-xl font-black shadow-xl shadow-brandOrange/20 active:scale-95 transition-all uppercase tracking-wider text-[11px] leading-tight text-center">
- Request Quote
+ {{ m.ctaButton }}
  </button>
  </div>
  </nav>

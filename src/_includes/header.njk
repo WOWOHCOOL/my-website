@@ -1,9 +1,10 @@
 {% from "icons.njk" import iconChevronDown, iconEnvelope, iconWhatsapp %}
+{% set h = i18n.header[lang] %}
 
 <header class="fixed w-full z-[100] bg-white/95 backdrop-blur-md border-b border-slate-100 h-20">
- <nav aria-label="Main navigation" class="max-w-7xl mx-auto px-6 h-full flex items-center justify-between">
+ <nav aria-label="{{ h.navAriaLabel }}" class="max-w-7xl mx-auto px-6 h-full flex items-center justify-between">
  <!-- Logo -->
- <a href="/" class="flex items-center shrink-0 group" aria-label="WOWOHCOOL Home">
+ <a href="{{ h.logoHref }}" class="flex items-center shrink-0 group" aria-label="{{ h.logoAriaLabel }}">
  <img src="/image/wowohcool-logo-optimized.webp"
  alt="WOWOHCOOL Logo"
  width="150"
@@ -15,44 +16,43 @@
 
  <!-- Desktop Nav -->
  <div class="hidden lg:flex items-center space-x-8 text-[11px] font-bold uppercase tracking-widest text-slate-500">
- <a href="/" class="nav-link{% if navActive === 'home' %} active text-brandBlue{% endif %}">Home</a>
- <a href="/about" class="nav-link{% if navActive === 'about' %} active text-brandBlue{% endif %} hover:text-brandBlue transition">About</a>
+ <a href="{{ h.navHrefs.home }}" class="nav-link{% if navActive === 'home' %} active text-brandBlue{% endif %}">{{ h.navHome }}</a>
+ <a href="{{ h.navHrefs.about }}" class="nav-link{% if navActive === 'about' %} active text-brandBlue{% endif %} hover:text-brandBlue transition">{{ h.navAbout }}</a>
 
  <!-- Products dropdown -->
  <div class="relative group h-20 flex items-center">
- <a href="/products/" class="nav-link{% if navActive === 'products' %} active text-brandBlue{% endif %} hover:text-brandBlue transition flex items-center gap-1">
- Products {{ iconChevronDown("text-[11px] transition-transform group-hover:rotate-180") }}
+ <a href="{{ h.navHrefs.products }}" class="nav-link{% if navActive === 'products' %} active text-brandBlue{% endif %} hover:text-brandBlue transition flex items-center gap-1">
+ {{ h.navProducts }} {{ iconChevronDown("text-[11px] transition-transform group-hover:rotate-180") }}
  </a>
  <div class="dropdown-content absolute top-20 left-1/2 -translate-x-1/2 w-52 bg-white shadow-2xl rounded-2xl border border-slate-50 overflow-hidden py-2">
- <a href="/products/power-bank" class="block px-6 py-3 text-slate-600 hover:bg-slate-50 hover:text-brandOrange transition border-b border-slate-50/50">Power Bank</a>
- <a href="/products/gan-charger" class="block px-6 py-3 text-slate-600 hover:bg-slate-50 hover:text-brandOrange transition border-b border-slate-50/50">GaN Charger</a>
- <a href="/products/wireless-charger" class="block px-6 py-3 text-slate-600 hover:bg-slate-50 hover:text-brandOrange transition border-b border-slate-50/50">Wireless Charger</a>
- <a href="/products/car-charger" class="block px-6 py-3 text-slate-600 hover:bg-slate-50 hover:text-brandOrange transition">Car Charger</a>
+ {% for p in h.productDropdownLinks %}
+ <a href="{{ p.href }}" class="block px-6 py-3 text-slate-600 hover:bg-slate-50 hover:text-brandOrange transition{% if not loop.last %} border-b border-slate-50/50{% endif %}">{{ p.label }}</a>
+ {% endfor %}
  </div>
  </div>
 
- <a href="/service" class="nav-link{% if navActive === 'service' %} active text-brandBlue{% endif %} hover:text-brandBlue transition">OEM/ODM</a>
- <a href="/case-studies" class="nav-link{% if navActive === 'case-studies' %} active text-brandBlue{% endif %} hover:text-brandBlue transition">Case Studies</a>
- <a href="/blog/" class="nav-link{% if navActive === 'blog' %} active text-brandBlue{% endif %} hover:text-brandBlue transition">Blog</a>
- <a href="/faq" class="nav-link{% if navActive === 'faq' %} active text-brandBlue{% endif %} hover:text-brandOrange transition">FAQ</a>
- <a href="/contact" class="nav-link{% if navActive === 'contact' %} active text-brandBlue{% endif %} hover:text-brandBlue transition">Contact</a>
+ <a href="{{ h.navHrefs.service }}" class="nav-link{% if navActive === 'service' %} active text-brandBlue{% endif %} hover:text-brandBlue transition">{{ h.navService }}</a>
+ <a href="{{ h.navHrefs.caseStudies }}" class="nav-link{% if navActive === 'case-studies' %} active text-brandBlue{% endif %} hover:text-brandBlue transition">{{ h.navCaseStudies }}</a>
+ <a href="{{ h.navHrefs.blog }}" class="nav-link{% if navActive === 'blog' %} active text-brandBlue{% endif %} hover:text-brandBlue transition">{{ h.navBlog }}</a>
+ <a href="{{ h.navHrefs.faq }}" class="nav-link{% if navActive === 'faq' %} active text-brandBlue{% endif %} hover:text-brandOrange transition">{{ h.navFaq }}</a>
+ <a href="{{ h.navHrefs.contact }}" class="nav-link{% if navActive === 'contact' %} active text-brandBlue{% endif %} hover:text-brandBlue transition">{{ h.navContact }}</a>
  </div>
 
  <!-- Right buttons (Desktop) -->
  <div class="hidden lg:flex items-center gap-4">
- <span class="inline-flex items-center gap-1.5 text-[11px] font-black uppercase tracking-widest"><span class="text-brandOrange">EN</span><span class="text-slate-300">|</span><a href="/de/{{ dePath or "" }}" class="text-slate-500 hover:text-brandOrange transition-colors">DE</a><span class="text-slate-300">|</span><a href="/es/{{ esPath or "" }}" class="text-slate-500 hover:text-brandOrange transition-colors">ES</a></span>
- <button data-action="open-modal" class="bg-brandOrange text-white p-2 md:px-7 md:py-2 rounded-full text-[11px] md:text-[11px] font-black uppercase tracking-widest hover:scale-105 transition shadow-lg shadow-brandOrange/20 flex items-center justify-center min-h-[44px] min-w-[44px]" aria-label="Factory-Direct Pricing">
- <span class="hidden lg:flex">Factory Pricing</span>
+ <span class="inline-flex items-center gap-1.5 text-[11px] font-black uppercase tracking-widest">{% if lang === "en" %}<span class="text-brandOrange">EN</span>{% else %}<a href="/{{ enPath or "" }}" class="text-slate-500 hover:text-brandOrange transition-colors">EN</a>{% endif %}<span class="text-slate-300">|</span>{% if lang === "de" %}<span class="text-brandOrange">DE</span>{% else %}<a href="/de/{{ dePath or "" }}" class="text-slate-500 hover:text-brandOrange transition-colors">DE</a>{% endif %}<span class="text-slate-300">|</span>{% if lang === "es" %}<span class="text-brandOrange">ES</span>{% else %}<a href="/es/{{ esPath or "" }}" class="text-slate-500 hover:text-brandOrange transition-colors">ES</a>{% endif %}</span>
+ <button data-action="open-modal" class="bg-brandOrange text-white p-2 md:px-7 md:py-2 rounded-full text-[11px] md:text-[11px] font-black uppercase tracking-widest hover:scale-105 transition shadow-lg shadow-brandOrange/20 flex items-center justify-center min-h-[44px] min-w-[44px]" aria-label="{{ h.ctaButtonAriaLabel }}">
+ <span class="hidden lg:flex">{{ h.ctaButtonText }}</span>
  {{ iconEnvelope("flex lg:hidden text-sm") }}
  </button>
  </div>
  <!-- Right buttons (Mobile) -->
  <div class="flex lg:hidden items-center gap-2">
- <span class="inline-flex items-center gap-1.5 text-[11px] font-black uppercase tracking-widest"><span class="text-brandOrange">EN</span><span class="text-slate-300">|</span><a href="/de/{{ dePath or "" }}" class="text-slate-500 hover:text-brandOrange transition-colors">DE</a><span class="text-slate-300">|</span><a href="/es/{{ esPath or "" }}" class="text-slate-500 hover:text-brandOrange transition-colors">ES</a></span>
- <button data-action="open-modal" class="bg-brandOrange text-white p-2 rounded-full min-w-[44px] min-h-[44px] flex items-center justify-center shadow-lg shadow-brandOrange/20 hover:scale-105 transition" aria-label="Factory-Direct Pricing">
+ <span class="inline-flex items-center gap-1.5 text-[11px] font-black uppercase tracking-widest">{% if lang === "en" %}<span class="text-brandOrange">EN</span>{% else %}<a href="/{{ enPath or "" }}" class="text-slate-500 hover:text-brandOrange transition-colors">EN</a>{% endif %}<span class="text-slate-300">|</span>{% if lang === "de" %}<span class="text-brandOrange">DE</span>{% else %}<a href="/de/{{ dePath or "" }}" class="text-slate-500 hover:text-brandOrange transition-colors">DE</a>{% endif %}<span class="text-slate-300">|</span>{% if lang === "es" %}<span class="text-brandOrange">ES</span>{% else %}<a href="/es/{{ esPath or "" }}" class="text-slate-500 hover:text-brandOrange transition-colors">ES</a>{% endif %}</span>
+ <button data-action="open-modal" class="bg-brandOrange text-white p-2 rounded-full min-w-[44px] min-h-[44px] flex items-center justify-center shadow-lg shadow-brandOrange/20 hover:scale-105 transition" aria-label="{{ h.ctaButtonAriaLabel }}">
  <svg class="icon-envelope text-sm" aria-hidden="true" focusable="false" viewBox="0 0 512 512"><path d="M48 64c-26.5 0-48 21.5-48 48 0 15.1 7.1 29.3 19.2 38.4l208 156c17.1 12.8 40.5 12.8 57.6 0l208-156c12.1-9.1 19.2-23.3 19.2-38.4 0-26.5-21.5-48-48-48L48 64zM0 196L0 384c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-188-198.4 148.8c-34.1 25.6-81.1 25.6-115.2 0L0 196z" fill="currentColor"/></svg>
  </button>
- <button data-action="toggle-mobile-menu" class="flex items-center p-2 rounded-lg hover:bg-slate-100 transition-colors min-w-[44px] min-h-[44px] justify-center" aria-label="Open mobile menu">
+ <button data-action="toggle-mobile-menu" class="flex items-center p-2 rounded-lg hover:bg-slate-100 transition-colors min-w-[44px] min-h-[44px] justify-center" aria-label="{{ h.mobileMenuAriaLabel }}">
  <svg class="icon-bars text-xl text-brandBlue" aria-hidden="true" focusable="false" viewBox="0 0 448 512"><path d="M0 96C0 78.3 14.3 64 32 64l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 128C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 288c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32L32 448c-17.7 0-32-14.3-32-32s14.3-32 32-32l384 0c17.7 0 32 14.3 32 32z" fill="currentColor"/></svg>
  </button>
  </div>

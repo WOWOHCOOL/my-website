@@ -1,10 +1,10 @@
-<div id="cookie-banner" class="cookie-banner" role="dialog" aria-label="Cookie Consent">
+<div id="cookie-banner" class="cookie-banner" role="dialog" aria-label="{{ i18n.cookieBanner[lang].ariaLabel }}">
  <div class="cookie-banner-inner">
- <p>We use cookies and analytics tools (Google Analytics) to improve our website. By clicking "Accept", you consent to their use.
- <a href="/privacy-policy" target="_blank">Privacy Policy</a></p>
+ <p>{{ i18n.cookieBanner[lang].message }}
+ <a href="{{ i18n.cookieBanner[lang].privacyLinkHref }}" target="_blank">{{ i18n.cookieBanner[lang].privacyLinkText }}</a>{% if i18n.cookieBanner[lang].impressumLinkText %} | <a href="{{ i18n.cookieBanner[lang].impressumLinkHref }}" target="_blank">{{ i18n.cookieBanner[lang].impressumLinkText }}</a>{% endif %}{% if i18n.cookieBanner[lang].legalNoticeLinkText %} | <a href="{{ i18n.cookieBanner[lang].legalNoticeLinkHref }}" target="_blank">{{ i18n.cookieBanner[lang].legalNoticeLinkText }}</a>{% endif %}</p>
  <div class="cookie-btn-group">
- <button id="cookie-decline" class="cookie-btn-decline">Necessary Only</button>
- <button id="cookie-accept" class="cookie-btn-accept">Accept</button>
+ <button id="cookie-decline" class="cookie-btn-decline">{{ i18n.cookieBanner[lang].declineButton }}</button>
+ <button id="cookie-accept" class="cookie-btn-accept">{{ i18n.cookieBanner[lang].acceptButton }}</button>
  </div>
  </div>
 </div>
