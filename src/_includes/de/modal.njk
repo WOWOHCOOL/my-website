@@ -42,12 +42,8 @@
  <div class="relative">
  <select id="productSelect" name="product" required class="w-full bg-slate-50 p-3.5 sm:p-4 rounded-xl text-[16px] border-2 border-transparent focus:border-brandOrange focus:bg-white transition-all outline-none font-medium appearance-none">
  <option value="">Kategorie wählen</option>
- <option value="Power Bank OEM/ODM">Powerbank</option>
- <option value="GaN Charger OEM/ODM">GaN-Ladegerät</option>
- <option value="Wireless Charger OEM/ODM">Kabelloses Ladegerät</option>
- <option value="Car Charger OEM/ODM">Autoladegerät</option>
- <option value="Custom ODM Project">Individuelles ODM-Projekt</option>
- <option value="General Inquiry">Allgemeine Anfrage</option>
+ {% for p in products_de %}<option value="{{ p.value }}">{{ p.label }}</option>
+ {% endfor %}
  </select>
  <svg class="icon-chevron-down absolute right-4 top-1/2 -translate-y-1/2 text-slate-300 pointer-events-none text-xs" aria-hidden="true" focusable="false" viewBox="0 0 448 512"><path d="M201.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 338.7 54.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z" fill="currentColor"/></svg>
  </div>
