@@ -1,0 +1,15 @@
+{# Stats Bar — dark blue section with 6 key statistics.
+   Usage: {% from "partials/stats-bar.njk" import statsBar %}{{ statsBar(i18n.statsBar[lang].items) }}
+#}
+{% macro statsBar(items) %}
+<!-- ======== STATS BAR ======== -->
+<section class="py-12 md:py-16 bg-brandBlue">
+ <div class="max-w-7xl mx-auto px-6">
+ <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
+ {% for item in items %}
+ <div class="text-center"><p class="text-3xl md:text-4xl font-black text-brandOrange">{{ item.value }}</p><p class="text-sm text-slate-300 mt-2 font-medium">{{ item.label }}</p></div>
+ {% endfor %}
+ </div>
+ </div>
+</section>
+{% endmacro %}
