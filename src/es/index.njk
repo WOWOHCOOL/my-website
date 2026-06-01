@@ -73,7 +73,8 @@ noWebSiteSchema: true
  "url": "https://www.wowohcool.com/es/",
  "name": "WOWOHCOOL, Socio OEM/ODM en Soluciones de Carga",
  "inLanguage": "es",
- "publisher": { "@id": "https://www.wowohcool.com/#organization" }
+ "publisher": { "@id": "https://www.wowohcool.com/#organization" },
+ "speakable": {"@type": "SpeakableSpecification", "cssSelector": [".section-label", "h1", ".hero-subtitle", ".stat-value"]}
 },
 {
  "@context": "https://schema.org",
@@ -95,7 +96,10 @@ noWebSiteSchema: true
  {"@type":"Question","name":"¿Ofrecen personalización de logotipo y embalaje?","acceptedAnswer":{"@type":"Answer","text":"Sí, servicio OEM/ODM completo: logotipo personalizado (grabado láser, serigrafía), embalaje a medida, colores personalizados y materiales de marca."}},
  {"@type":"Question","name":"¿Qué métodos de pago aceptan?","acceptedAnswer":{"@type":"Answer","text":"Aceptamos transferencia bancaria (T/T) con 30% de anticipo. Para socios B2B verificados ofrecemos condiciones especiales. Todos los precios en EUR o USD."}},
  {"@type":"Question","name":"¿Cómo garantizan la calidad del producto?","acceptedAnswer":{"@type":"Answer","text":"Proceso de control de calidad de 4 etapas con prueba de envejecimiento de 4 horas. Tasa de defectos inferior al 0,3%. Certificación ISO 9001."}},
- {"@type":"Question","name":"¿Cómo funciona el envío a España?","acceptedAnswer":{"@type":"Answer","text":"Envío exprés (DHL/FedEx, 5-7 días) o estándar (15-25 días) desde Shenzhen. Ofrecemos servicio DDP con gestión completa de aduanas e IVA."}}
+ {"@type":"Question","name":"¿Cómo funciona el envío a España?","acceptedAnswer":{"@type":"Answer","text":"Envío exprés (DHL/FedEx, 5-7 días) o estándar (15-25 días) desde Shenzhen. Ofrecemos servicio DDP con gestión completa de aduanas e IVA."}},
+ {"@type":"Question","name":"¿Necesito un representante autorizado en la UE para importar?","acceptedAnswer":{"@type":"Answer","text":"Sí, desde julio 2024 el Reglamento UE 2023/1542 exige un representante autorizado en la UE para baterías. WOWOHCOOL puede conectarle con representantes verificados o gestionar el registro EPR en España."}},
+ {"@type":"Question","name":"¿Cuál es su capacidad de producción?","acceptedAnswer":{"@type":"Answer","text":"Más de 1.000.000 de unidades al mes en 5.000m² de fábrica certificada ISO 9001. 200+ empleados, 50+ ingenieros de I+D. Escalable para pedidos grandes."}},
+ {"@type":"Question","name":"¿Ofrecen dropshipping para e-commerce?","acceptedAnswer":{"@type":"Answer","text":"Sí, ofrecemos preparación Amazon FBA (etiquetado, embalaje, envío directo a almacenes FBA) y dropshipping para tiendas Shopify y WooCommerce. Lotes pequeños desde 100 unidades."}}
  ]
 },
 {
@@ -140,6 +144,22 @@ noWebSiteSchema: true
  "ratingCount": "2",
  "reviewCount": "2"
  }
+},
+{
+ "@context": "https://schema.org",
+ "@type": "HowTo",
+ "name": "Cómo iniciar su proyecto OEM/ODM con WOWOHCOOL",
+ "description": "En 6 pasos del concepto a la producción en serie — su camino hacia su propio cargador o power bank.",
+ "totalTime": "P45D",
+ "estimatedCost": {"@type": "MonetaryAmount", "currency": "USD", "value": "3000-50000"},
+ "step": [
+ {"@type": "HowToStep", "position": 1, "name": "Enviar consulta", "text": "Describa su proyecto: tipo de producto, cantidad, especificaciones y mercado objetivo. Respuesta en 24 horas."},
+ {"@type": "HowToStep", "position": 2, "name": "Recibir presupuesto", "text": "Presupuesto detallado con precios unitarios, costes de moldes, opciones de certificación y cronograma."},
+ {"@type": "HowToStep", "position": 3, "name": "Confirmar muestra", "text": "Fabricamos su muestra en 5–7 días. Tras su aprobación, iniciamos la producción en serie."},
+ {"@type": "HowToStep", "position": 4, "name": "Producción", "text": "Producción en serie en nuestra fábrica ISO 9001 de 5.000m². Plazo de producción 25–35 días."},
+ {"@type": "HowToStep", "position": 5, "name": "Control de calidad", "text": "Proceso QC de 4 etapas con test de envejecimiento de 4 horas. Tasa de defectos inferior al 0,3%."},
+ {"@type": "HowToStep", "position": 6, "name": "Entrega", "text": "Envío express (5–7 días) o estándar (15–25 días). Servicio DDP disponible. 12 meses de garantía."}
+ ]
 }]
 </script>
 {% endblock %}
@@ -165,7 +185,7 @@ noWebSiteSchema: true
  <button data-action="open-modal" class="btn-primary shadow-lg shadow-brandOrange/20 cursor-pointer">
  Solicitar presupuesto <svg class="icon-arrow-right text-sm" aria-hidden="true" focusable="false" viewBox="0 0 512 512"><path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-105.4 105.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" fill="currentColor"/></svg>
  </button>
- <a href="/es/productos/powerbank" class="btn-secondary">Ver productos</a>
+ <a href="/es/productos/powerbank/" class="btn-secondary">Ver productos</a>
  </div>
  <div class="flex flex-wrap gap-3 mt-6 md:mt-8">
  <span class="trust-badge"><svg class="icon-certificate text-brandOrange" aria-hidden="true" focusable="false" viewBox="0 0 576 512"><path d="M239.2-8c-6.1-6.2-15-8.7-23.4-6.4S200.9-5.6 198.8 2.8L183.5 63c-1.1 4.4-5.6 7-9.9 5.7L113.8 51.9c-8.4-2.4-17.4 0-23.5 6.1s-8.5 15.1-6.1 23.5l16.9 59.8c1.2 4.3-1.4 8.8-5.7 9.9L35.1 166.5c-8.4 2.1-15 8.7-17.3 17.1s.2 17.3 6.4 23.4l44.5 43.3c3.2 3.1 3.2 8.3 0 11.5L24.3 305.1c-6.2 6.1-8.7 15-6.4 23.4s8.9 14.9 17.3 17.1l60.2 15.3c4.4 1.1 7 5.6 5.7 9.9L84.2 430.5c-2.4 8.4 0 17.4 6.1 23.5s15.1 8.5 23.5 6.1l59.8-16.9c4.3-1.2 8.8 1.4 9.9 5.7l15.3 60.2c2.1 8.4 8.7 15 17.1 17.3s17.3-.2 23.4-6.4l43.3-44.5c3.1-3.2 8.3-3.2 11.5 0L337.3 520c6.1 6.2 15 8.7 23.4 6.4s14.9-8.9 17.1-17.3L393.1 449c1.1-4.4 5.6-7 9.9-5.7l59.8 16.9c8.4 2.4 17.4 0 23.5-6.1s8.5-15.1 6.1-23.5l-16.9-59.8c-1.2-4.3 1.4-8.8 5.7-9.9l60.2-15.3c8.4-2.1 15-8.7 17.3-17.1s-.2-17.4-6.4-23.4l-44.5-43.3c-3.2-3.1-3.2-8.3 0-11.5l44.5-43.3c6.2-6.1 8.7-15 6.4-23.4s-8.9-14.9-17.3-17.1l-60.2-15.3c-4.4-1.1-7-5.6-5.7-9.9l16.9-59.8c2.4-8.4 0-17.4-6.1-23.5s-15.1-8.5-23.5-6.1L403 68.8c-4.3 1.2-8.8-1.4-9.9-5.7L377.8 2.8c-2.1-8.4-8.7-15-17.1-17.3s-17.3.2-23.4 6.4L294 36.5c-3.1 3.2-8.3 3.2-11.5 0L239.2-8z" fill="currentColor"/></svg> CE + Qi2 + ISO 9001</span>
@@ -322,7 +342,7 @@ noWebSiteSchema: true
  <p class="section-desc mx-auto">Guías prácticas sobre fabricación de power banks, certificación Qi2, importación desde China, tecnología GaN y producción de marca propia.</p>
  </div>
  <div class="grid md:grid-cols-3 gap-8">
- <a href="/es/blog/fabricante-power-banks-china-oem" class="blog-card reveal group">
+ <a href="/es/blog/fabricante-power-banks-china-oem/" class="blog-card reveal group">
  <div class="aspect-[16/9] bg-slate-100 rounded-xl overflow-hidden mb-4">
  <img src="/image/blog/cover-de/powerbank-hersteller-cover.webp" alt="Fabricante de power banks en China" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" width="300" height="169">
  </div>
@@ -331,7 +351,7 @@ noWebSiteSchema: true
  <p class="text-sm text-slate-500 mb-3">Guía completa para importadores hispanos: selección de fábrica, certificaciones, control de calidad y envío DDP a España.</p>
  <span class="text-xs text-slate-400">27 may. 2026 · 8 min</span>
  </a>
- <a href="/es/blog/certificacion-qi2-importadores" class="blog-card reveal group delay-1">
+ <a href="/es/blog/certificacion-qi2-importadores/" class="blog-card reveal group delay-1">
  <div class="aspect-[16/9] bg-slate-100 rounded-xl overflow-hidden mb-4">
  <img src="/image/blog/cover-de/qi2-zertifizierung-cover.webp" alt="Certificación Qi2" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" width="300" height="169">
  </div>
@@ -340,7 +360,7 @@ noWebSiteSchema: true
  <p class="text-sm text-slate-500 mb-3">Qi2 vs Qi, proceso de certificación WPC, compatibilidad con MagSafe y oportunidades de mercado para España y Latinoamérica.</p>
  <span class="text-xs text-slate-400">27 may. 2026 · 7 min</span>
  </a>
- <a href="/es/blog/importar-cargadores-china-aduanas" class="blog-card reveal group delay-2">
+ <a href="/es/blog/importar-cargadores-china-aduanas/" class="blog-card reveal group delay-2">
  <div class="aspect-[16/9] bg-slate-100 rounded-xl overflow-hidden mb-4">
  <img src="/image/blog/cover-de/ladegeraet-import-cover.webp" alt="Importar desde China" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" width="300" height="169">
  </div>
@@ -383,7 +403,7 @@ noWebSiteSchema: true
  {{ productCard("/es/productos/cargador-gan", "/image/product/gan-charger/wop10-65w-gan-power-strip-4-port.webp", "Cargador GaN OEM", "Cargador GaN", "67W – 100W+", "Tecnología GaN, multi-puerto, compacto") }}
  </div>
  <div class="text-center mt-12 reveal">
- <a href="/es/contacto" class="btn-primary">Solicitar información <svg class="icon-arrow-right text-sm" aria-hidden="true" focusable="false" viewBox="0 0 512 512"><path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-105.4 105.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" fill="currentColor"/></svg></a>
+ <a href="/es/contacto/" class="btn-primary">Solicitar información <svg class="icon-arrow-right text-sm" aria-hidden="true" focusable="false" viewBox="0 0 512 512"><path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-105.4 105.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" fill="currentColor"/></svg></a>
  </div>
  </div>
 </section>
@@ -403,7 +423,7 @@ noWebSiteSchema: true
  <li class="flex items-start gap-4"><span class="w-6 h-6 rounded-full bg-green-500/20 flex items-center justify-center shrink-0 mt-0.5"><svg class="icon-check text-green-400 text-xs" aria-hidden="true" focusable="false" viewBox="0 0 448 512"><path d="M434.8 70.1c14.3 10.4 17.5 30.4 7.1 44.7l-256 352c-5.5 7.6-14 12.3-23.4 13.1s-18.5-2.7-25.1-9.3l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l101.5 101.5 234-321.7c10.4-14.3 30.4-17.5 44.7-7.1z" fill="currentColor"/></svg></span><div><p class="text-white font-bold">Listo para Amazon FBA</p><p class="text-slate-300 text-sm">Envío directo a almacenes de Amazon en España</p></div></li>
  <li class="flex items-start gap-4"><span class="w-6 h-6 rounded-full bg-green-500/20 flex items-center justify-center shrink-0 mt-0.5"><svg class="icon-check text-green-400 text-xs" aria-hidden="true" focusable="false" viewBox="0 0 448 512"><path d="M434.8 70.1c14.3 10.4 17.5 30.4 7.1 44.7l-256 352c-5.5 7.6-14 12.3-23.4 13.1s-18.5-2.7-25.1-9.3l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l101.5 101.5 234-321.7c10.4-14.3 30.4-17.5 44.7-7.1z" fill="currentColor"/></svg></span><div><p class="text-white font-bold">Envío gratuito desde 500 uds.</p><p class="text-slate-300 text-sm">Condiciones especiales para pedidos al por mayor</p></div></li>
  </ul>
- <div class="mt-8"><a href="/es/contacto" class="btn-primary">Consultar condiciones <svg class="icon-arrow-right text-sm" aria-hidden="true" focusable="false" viewBox="0 0 512 512"><path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-105.4 105.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" fill="currentColor"/></svg></a></div>
+ <div class="mt-8"><a href="/es/contacto/" class="btn-primary">Consultar condiciones <svg class="icon-arrow-right text-sm" aria-hidden="true" focusable="false" viewBox="0 0 512 512"><path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-105.4 105.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" fill="currentColor"/></svg></a></div>
  </div>
  <div class="reveal">
  <div class="bg-white/5 backdrop-blur-lg rounded-2xl p-8 md:p-10 border border-white/10">
@@ -412,7 +432,7 @@ noWebSiteSchema: true
  <div class="flex justify-between"><span>Producción estándar</span><span class="text-white font-semibold">25–35 días</span></div>
  <div class="flex justify-between"><span>Producción exprés</span><span class="text-white font-semibold">15–20 días</span></div>
  <div class="flex justify-between"><span>Envío de muestras</span><span class="text-white font-semibold">3–7 días</span></div>
- <div class="flex justify-between"><span>Deductor de muestras</span><span class="text-white font-semibold">Con pedido grande</span></div>
+ <div class="flex justify-between"><span>Descuento de muestras</span><span class="text-white font-semibold">Con pedido grande</span></div>
  </div>
  </div>
  </div>
@@ -471,7 +491,7 @@ noWebSiteSchema: true
  {{ serviceCard("M272 0c-26.5 0-48 21.5-48 48l0 16-16 0c-44.2 0-80 35.8-80 80l0 108.8-21.6 8.6c-14.8 5.9-22.5 22.4-17.4 37.5 10.4 31.3 26.8 59.3 47.7 83.1 20.1-9.2 41.7-13.9 63.3-14 33.1-.2 66.3 10.2 94.4 31.4l1.6 1.2 0-215-104 41.6 0-83.2c0-8.8 7.2-16 16-16l224 0c8.8 0 16 7.2 16 16l0 83.2-104-41.6 0 215 1.6-1.2c27.5-20.7 59.9-31.2 92.4-31.4 22.3-.1 44.6 4.5 65.3 14 20.9-23.7 37.3-51.8 47.7-83.1 5-15.2-2.6-31.6-17.4-37.5L512 252.8 512 144c0-44.2-35.8-80-80-80l-16 0 0-16c0-26.5-21.5-48-48-48L272 0zM403.4 476.1c21.3-16.1 49.9-16.1 71.2 0 19 14.4 41.9 28.2 67.2 33.3 26.5 5.4 54.3.8 80.7-19.1 10.6-8 12.7-23 4.7-33.6s-23-12.7-33.6-4.7c-14.9 11.2-28.6 13.1-42.3 10.3-14.9-3-30.9-11.9-47.8-24.6-38.4-29-90.5-29-129 0-24 18.1-40.7 26.3-54.5 26.3s-30.5-8.2-54.5-26.3c-38.4-29-90.5-29-129 0-21.6 16.3-41.3 25.8-58.9 25.7-9.6-.1-19.9-3-31.2-11.5-10.6-8-25.6-5.9-33.6 4.7S7 482.3 17.6 490.3c19.1 14.4 39.4 21 59.8 21.1 33.9.2 64.3-17.4 88.1-35.3 21.3-16.1 49.9-16.1 71.2 0 24.2 18.3 52.3 35.9 83.4 35.9s59.1-17.7 83.4-35.9z", "Logística y aduanas", "Envío flexible exprés o estándar. Servicio DDP con gestión aduanera completa para España y Latinoamérica.") }}
  </div>
  <div class="text-center mt-12 reveal">
- <a href="/es/servicio-oem-odm" class="btn-primary">Más sobre OEM/ODM <svg class="icon-arrow-right text-sm" aria-hidden="true" focusable="false" viewBox="0 0 512 512"><path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-105.4 105.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" fill="currentColor"/></svg></a>
+ <a href="/es/servicio-oem-odm/" class="btn-primary">Más sobre OEM/ODM <svg class="icon-arrow-right text-sm" aria-hidden="true" focusable="false" viewBox="0 0 512 512"><path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-105.4 105.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" fill="currentColor"/></svg></a>
  </div>
  </div>
 </section>
@@ -495,6 +515,8 @@ noWebSiteSchema: true
  <details class="faq-item"><summary>¿Qué métodos de pago aceptan?</summary><div class="faq-answer">Aceptamos transferencia bancaria (T/T) con 30% de anticipo y 70% antes del envío. Para socios B2B verificados ofrecemos condiciones especiales. Todos los precios en EUR o USD.</div></details>
  <details class="faq-item"><summary>¿Cómo garantizan la calidad?</summary><div class="faq-answer">Nuestro proceso de control de calidad de 4 etapas incluye: IQC (control de materiales entrantes), IPQC (control durante producción), FQC (control final) y OQC (control de salida). El 100% de los equipos pasan una prueba de envejecimiento de 4 horas antes del envío. Tasa de defectos inferior al 0,3%.</div></details>
  <details class="faq-item"><summary>¿Cómo funciona el envío a España y Latinoamérica?</summary><div class="faq-answer">Enviamos por mensajería exprés (DHL/FedEx, 5-7 días) o carga estándar (15-25 días) desde Shenzhen. Ofrecemos servicio DDP con gestión completa de aduanas e IVA. Consultenos para conocer las condiciones actuales de envío para su pedido.</div></details>
+ <details class="faq-item"><summary>¿Cuál es su capacidad de producción?</summary><div class="faq-answer">Más de 1.000.000 de unidades al mes en 5.000m² de fábrica certificada ISO 9001. 200+ empleados, 50+ ingenieros de I+D. Escalable para pedidos grandes.</div></details>
+ <details class="faq-item"><summary>¿Ofrecen dropshipping para e-commerce?</summary><div class="faq-answer">Sí, ofrecemos preparación Amazon FBA (etiquetado, embalaje, envío directo a almacenes FBA) y dropshipping para tiendas Shopify y WooCommerce. Lotes pequeños desde 100 unidades.</div></details>
  </div>
  </div>
 </section>
@@ -588,7 +610,7 @@ noWebSiteSchema: true
  <div>
  <label class="flex items-start gap-3">
  <input type="checkbox" required class="mt-0.5 accent-brandOrange shrink-0">
- <span class="text-xs text-slate-500">He leído y acepto la <a href="/es/politica-privacidad" class="text-brandOrange hover:underline">Política de Privacidad</a>. *</span>
+ <span class="text-xs text-slate-500">He leído y acepto la <a href="/es/politica-privacidad/" class="text-brandOrange hover:underline">Política de Privacidad</a>. *</span>
  </label>
  </div>
  <button type="submit" class="w-full bg-brandOrange text-white py-3.5 sm:py-4 rounded-xl font-black uppercase tracking-widest text-sm shadow-xl hover:bg-brandOrange/90 transition">Solicitar presupuesto</button>
