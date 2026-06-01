@@ -73,7 +73,8 @@ lang: "de"
  "url": "https://www.wowohcool.com/de/",
  "name": "WOWOHCOOL, OEM/ODM Partner für Ladelösungen",
  "inLanguage": "de",
- "publisher": { "@id": "https://www.wowohcool.com/#organization" }
+ "publisher": { "@id": "https://www.wowohcool.com/#organization" },
+ "speakable": {"@type": "SpeakableSpecification", "cssSelector": [".section-label", "h1", ".hero-subtitle", ".stat-value"]}
 },
 {
  "@context": "https://schema.org",
@@ -94,7 +95,11 @@ lang: "de"
  {"@type":"Question","name":"Bieten Sie individuelle Logo- und Verpackungsgestaltung?","acceptedAnswer":{"@type":"Answer","text":"Ja, vollständiger OEM/ODM-Service: individuelles Logo, kundenspezifische Verpackung, individuelle Farben."}},
  {"@type":"Question","name":"Welche Zahlungsmethoden akzeptieren Sie?","acceptedAnswer":{"@type":"Answer","text":"Überweisung (T/T) mit 30% Anzahlung. Für geprüfte B2B-Partner nach Vereinbarung auch Zahlung auf Rechnung."}},
  {"@type":"Question","name":"Wie garantieren Sie die Produktqualität?","acceptedAnswer":{"@type":"Answer","text":"4-stufiger QC-Prozess mit 4-Stunden-Aging-Test. Defektrate unter 0,3%."}},
- {"@type":"Question","name":"Wie läuft der Versand nach Deutschland ab?","acceptedAnswer":{"@type":"Answer","text":"Express (DHL/FedEx, 5–7 Tage) oder Standard (15–25 Tage) ab Shenzhen. DDP-Service auf Wunsch."}}
+ {"@type":"Question","name":"Wie läuft der Versand nach Deutschland ab?","acceptedAnswer":{"@type":"Answer","text":"Express (DHL/FedEx, 5–7 Tage) oder Standard (15–25 Tage) ab Shenzhen. DDP-Service auf Wunsch."}},
+ {"@type":"Question","name":"Wie hoch ist Ihre Produktionskapazität?","acceptedAnswer":{"@type":"Answer","text":"Über 1.000.000 Einheiten pro Monat auf 5.000m² ISO 9001 zertifizierter Produktionsfläche. 200+ Mitarbeiter, davon 50+ in R&D. Flexibel skalierbar für Großaufträge."}},
+ {"@type":"Question","name":"Bieten Sie Unterstützung bei PCBA- und ID-Design?","acceptedAnswer":{"@type":"Answer","text":"Ja, unser 50-köpfiges R&D-Team bietet vollständigen ID-Design-Service (Gehäuseform, Farben, Materialien), PCBA-Engineering und Werkzeugbau. Von der Skizze bis zur Serienreife."}},
+ {"@type":"Question","name":"Wie ist Ihre Garantiepolitik bei Defekten?","acceptedAnswer":{"@type":"Answer","text":"12 Monate Garantie auf alle Produkte. Bei Defektrate über 0,3% liefern wir kostenlosen Ersatz. Jede Charge durchläuft einen 4-Stunden-Aging-Test vor Versand."}},
+ {"@type":"Question","name":"Bieten Sie Dropshipping für E-Commerce-Händler?","acceptedAnswer":{"@type":"Answer","text":"Ja, wir unterstützen Amazon FBA Vorbereitung (Labeling, Verpackung, Direktversand an FBA-Lager) sowie Dropshipping für Shopify- und WooCommerce-Händler. Kleine Chargen ab 100 Stück."}}
  ]
 },
 {
@@ -137,6 +142,20 @@ lang: "de"
  "ratingCount": "2",
  "reviewCount": "2"
  }
+},
+{
+ "@context": "https://schema.org",
+ "@type": "HowTo",
+ "name": "So starten Sie Ihr OEM/ODM-Projekt mit WOWOHCOOL",
+ "description": "In 6 Schritten vom Konzept zur Serienproduktion — Ihr Weg zum eigenen Ladegerät oder Powerbank.",
+ "step": [
+ {"@type": "HowToStep", "position": 1, "name": "Anfrage senden", "text": "Beschreiben Sie Ihr Projekt: Produkttyp, Menge, gewünschte Spezifikationen und Zielmarkt. Antwort innerhalb von 24 Stunden."},
+ {"@type": "HowToStep", "position": 2, "name": "Angebot erhalten", "text": "Sie erhalten ein detailliertes Angebot mit Stückpreisen, Werkzeugkosten, Zertifizierungsoptionen und Zeitplan."},
+ {"@type": "HowToStep", "position": 3, "name": "Muster bestätigen", "text": "Wir fertigen Ihr Muster in 5–7 Tagen. Nach Ihrer Freigabe starten wir die Serienproduktion."},
+ {"@type": "HowToStep", "position": 4, "name": "Produktion starten", "text": "Serienproduktion in unserer ISO 9001 zertifizierten 5.000m² Fabrik. Produktionszeit 25–35 Tage."},
+ {"@type": "HowToStep", "position": 5, "name": "Qualitätskontrolle", "text": "4-stufiger QC-Prozess mit 4-Stunden-Aging-Test. Defektrate unter 0,3%. Fotobericht vor Versand."},
+ {"@type": "HowToStep", "position": 6, "name": "Lieferung & After-Sales", "text": "Versand per Express (5–7 Tage) oder Standard (15–25 Tage). DDP-Service verfügbar. 12 Monate Garantie."}
+ ]
 }]
 </script>
 {% endblock %}
@@ -205,6 +224,39 @@ lang: "de"
 <!-- ======== ZERTIFIZIERUNGEN ======== -->
 {% from "partials/cert-showcase.njk" import certShowcase %}
 {{ certShowcase(i18n.certifications[lang].homepage.items, i18n.certifications[lang].homepage.heading, i18n.certifications[lang].homepage.title, "", "", true) }}
+
+<!-- ======== WETTBEWERBER-VERGLEICH ======== -->
+<section class="sec bg-white">
+ <div class="max-w-5xl mx-auto px-6">
+ <div class="text-center max-w-3xl mx-auto mb-12 reveal">
+ <p class="section-label">Warum WOWOHCOOL</p>
+ <h2 class="section-title">Hersteller vs. Handelsunternehmen vs. unbekannte Fabrik</h2>
+ <p class="section-desc mx-auto">Nicht jeder Lieferant aus China ist gleich. Als direkter Hersteller bieten wir Vorteile, die Handelsunternehmen und unbekannte Fabriken nicht liefern können.</p>
+ </div>
+ <div class="overflow-x-auto reveal">
+ <table class="w-full border-collapse bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-200">
+ <thead>
+ <tr class="bg-brandBlue text-white">
+ <th class="text-left px-5 py-3 font-bold text-sm">Kriterium</th>
+ <th class="text-left px-5 py-3 font-bold text-sm bg-brandOrange/20">WOWOHCOOL (Hersteller)</th>
+ <th class="text-left px-5 py-3 font-bold text-sm">Handelsunternehmen</th>
+ <th class="text-left px-5 py-3 font-bold text-sm">Unbekannte Fabrik</th>
+ </tr>
+ </thead>
+ <tbody class="divide-y divide-slate-100">
+ <tr class="hover:bg-slate-50"><td class="px-5 py-3 text-sm font-semibold text-slate-700">Qualitätskontrolle</td><td class="px-5 py-3 text-sm text-slate-600 bg-brandOrange/5">4-Stufen QC, &lt;0,3% Defekte</td><td class="px-5 py-3 text-sm text-slate-600">Keine eigene Kontrolle</td><td class="px-5 py-3 text-sm text-slate-600">Unbekannt, oft &gt;3%</td></tr>
+ <tr class="hover:bg-slate-50"><td class="px-5 py-3 text-sm font-semibold text-slate-700">MOQ</td><td class="px-5 py-3 text-sm text-slate-600 bg-brandOrange/5">Ab 500 Stück</td><td class="px-5 py-3 text-sm text-slate-600">Ab 1.000+ (Aufschlag)</td><td class="px-5 py-3 text-sm text-slate-600">Ab 3.000–5.000</td></tr>
+ <tr class="hover:bg-slate-50"><td class="px-5 py-3 text-sm font-semibold text-slate-700">Design-Support</td><td class="px-5 py-3 text-sm text-slate-600 bg-brandOrange/5">Volle ODM + ID-Design, 50+ R&D</td><td class="px-5 py-3 text-sm text-slate-600">Nur Katalogware</td><td class="px-5 py-3 text-sm text-slate-600">Begrenzt, kein R&D</td></tr>
+ <tr class="hover:bg-slate-50"><td class="px-5 py-3 text-sm font-semibold text-slate-700">Zertifizierungen</td><td class="px-5 py-3 text-sm text-slate-600 bg-brandOrange/5">CE, TÜV GS, Qi2 WPC, UN38.3</td><td class="px-5 py-3 text-sm text-slate-600">Weiterverkauf vorhandener</td><td class="px-5 py-3 text-sm text-slate-600">Oft gefälscht oder veraltet</td></tr>
+ <tr class="hover:bg-slate-50"><td class="px-5 py-3 text-sm font-semibold text-slate-700">Kommunikation</td><td class="px-5 py-3 text-sm text-slate-600 bg-brandOrange/5">DE Account Manager, 24h Antwort</td><td class="px-5 py-3 text-sm text-slate-600">Zeitzone +7h, Sprachbarriere</td><td class="px-5 py-3 text-sm text-slate-600">Unzuverlässig</td></tr>
+ <tr class="hover:bg-slate-50"><td class="px-5 py-3 text-sm font-semibold text-slate-700">Preistransparenz</td><td class="px-5 py-3 text-sm text-slate-600 bg-brandOrange/5">Ab-Werk-Preis, kein Aufschlag</td><td class="px-5 py-3 text-sm text-slate-600">+15–30% Marge</td><td class="px-5 py-3 text-sm text-slate-600">Unklar, versteckte Kosten</td></tr>
+ <tr class="hover:bg-slate-50"><td class="px-5 py-3 text-sm font-semibold text-slate-700">After-Sales</td><td class="px-5 py-3 text-sm text-slate-600 bg-brandOrange/5">12 Monate Garantie, Ersatzlieferung</td><td class="px-5 py-3 text-sm text-slate-600">Verantwortung unklar</td><td class="px-5 py-3 text-sm text-slate-600">Keine Garantie</td></tr>
+ </tbody>
+ </table>
+ </div>
+ <p class="text-center mt-8 reveal"><button data-action="open-modal" class="btn-primary cursor-pointer">Kostenloses Angebot anfordern</button></p>
+ </div>
+</section>
 
 <!-- ======== BLOG PREVIEW ======== -->
 <section class="sec bg-white">
@@ -385,6 +437,10 @@ lang: "de"
  <details class="faq-item"><summary>Welche Zahlungsmethoden akzeptieren Sie?</summary><div class="faq-answer">Wir akzeptieren Überweisung (T/T) mit 30% Anzahlung und 70% vor Versand. Für geprüfte B2B-Partner bieten wir nach Vereinbarung auch Zahlung auf Rechnung (Kauf auf Rechnung) an. Alle Preise in EUR.</div></details>
  <details class="faq-item"><summary>Wie garantieren Sie die Produktqualität?</summary><div class="faq-answer">Unser 4-stufiger QC-Prozess umfasst: IQC (Eingangskontrolle), IPQC (Prozesskontrolle), FQC (Endkontrolle) und OQC (Ausgangskontrolle). 100% der Geräte durchlaufen einen 4-Stunden-Aging-Test vor Versand. Unsere Defektrate liegt unter 0,3%.</div></details>
  <details class="faq-item"><summary>Wie läuft der Versand nach Deutschland ab?</summary><div class="faq-answer">Wir versenden per Express (DHL/FedEx, 5–7 Tage) oder Standard (15–25 Tage) ab Shenzhen. Auf Wunsch bieten wir DDP-Service an, bei dem Zoll und Einfuhrumsatzsteuer komplett abgewickelt werden. Fragen Sie uns nach den aktuellen Versandkonditionen für Ihre Bestellung.</div></details>
+ <details class="faq-item"><summary>Wie hoch ist Ihre Produktionskapazität?</summary><div class="faq-answer">Über 1.000.000 Einheiten pro Monat auf 5.000m² ISO 9001 zertifizierter Produktionsfläche. 200+ Mitarbeiter, davon 50+ in R&D. Flexibel skalierbar für Großaufträge.</div></details>
+ <details class="faq-item"><summary>Bieten Sie Unterstützung bei PCBA- und ID-Design?</summary><div class="faq-answer">Ja, unser 50-köpfiges R&D-Team bietet vollständigen ID-Design-Service (Gehäuseform, Farben, Materialien), PCBA-Engineering und Werkzeugbau. Von der ersten Skizze bis zur Serienreife, alles unter einem Dach in Shenzhen.</div></details>
+ <details class="faq-item"><summary>Wie ist Ihre Garantiepolitik bei Defekten?</summary><div class="faq-answer">12 Monate Garantie auf alle Produkte. Bei Defektrate über 0,3% liefern wir kostenlosen Ersatz. Jede Charge durchläuft einen 4-Stunden-Aging-Test vor Versand. Fotobericht der Qualitätskontrolle auf Anfrage.</div></details>
+ <details class="faq-item"><summary>Bieten Sie Dropshipping für E-Commerce-Händler?</summary><div class="faq-answer">Ja, wir unterstützen Amazon FBA Vorbereitung (Labeling, Verpackung, Direktversand an FBA-Lager) sowie Dropshipping für Shopify- und WooCommerce-Händler. Kleine Chargen ab 100 Stück möglich.</div></details>
  </div>
  </div>
 </section>
@@ -399,7 +455,7 @@ lang: "de"
  </div>
  <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
  <div class="referenz-card reveal"><img src="/image/customer-logo/Bosch-logo.svg.webp" alt="Bosch" class="client-logo" loading="lazy" width="100" height="75"><blockquote>Die Qualitätskontrolle und Dokumentation entsprechen unseren hohen Anforderungen. Ein zuverlässiger Partner für den europäischen Markt.</blockquote><div class="ref-meta"><strong>Bosch</strong>, DAX-Konzern</div></div>
- <div class="referenz-card reveal delay-1"><img src="/image/customer-logo/Jacobjensen-Clients.webp" alt="Jacob Jensen" class="client-logo" loading="lazy" width="100" height="75"><blockquote>Hervorragende Umsetzung unseres Industriedesigns. Die Abstimmmung mit dem R&D-Team in Shenzhen lief professionell und effizient.</blockquote><div class="ref-meta"><strong>Jacob Jensen</strong>, Dänisches Designhaus</div></div>
+ <div class="referenz-card reveal delay-1"><img src="/image/customer-logo/Jacobjensen-Clients.webp" alt="Jacob Jensen" class="client-logo" loading="lazy" width="100" height="75"><blockquote>Hervorragende Umsetzung unseres Industriedesigns. Die Abstimmung mit dem R&D-Team in Shenzhen lief professionell und effizient.</blockquote><div class="ref-meta"><strong>Jacob Jensen</strong>, Dänisches Designhaus</div></div>
  <div class="referenz-card reveal delay-2"><img src="/image/customer-logo/Tempel-Clients.webp" alt="Tempel" class="client-logo" loading="lazy" width="100" height="75"><blockquote>Flexible MOQ-Optionen und kurze Lieferzeiten. Die Zusammenarbeit im ODM-Prozess war transparent und termingerecht.</blockquote><div class="ref-meta"><strong>Tempel Group</strong>, Europäischer Retailer</div></div>
  <div class="referenz-card reveal delay-3"><img src="/image/customer-logo/techmade-Client.webp" alt="Techmade" class="client-logo" loading="lazy" width="100" height="75"><blockquote>Exzellente Kommunikation und schnelle Musterentwicklung. Die Zertifizierungen für den EU-Markt waren vollständig und korrekt.</blockquote><div class="ref-meta"><strong>Techmade</strong>, Italienischer Einzelhändler</div></div>
  </div>
