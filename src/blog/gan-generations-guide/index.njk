@@ -1,6 +1,6 @@
 ---
-title: "GaN I vs III vs V: Generational Guide for OEMs | WOWOHCOOL"
-description: "Compare GaN I, III, and V across switching frequency, efficiency, size, and OEM cost. Learn to identify real GaN V and pick the right generation for your charger line."
+title: "GaN I vs III vs V: OEM Buyer Guide | WOWOHCOOL"
+description: "Compare GaN I, III, and V across switching frequency, efficiency, and OEM cost. Identify real GaN V and pick the right generation for your charger line."
 date: 2026-05-14
 author: "Nina Nico"
 articleSection: GaN & Fast Charging
@@ -9,6 +9,7 @@ canonical: "/blog/gan-generations-guide/"
 dePath: "blog/gan-generationen-uebersicht"
 esPath: "blog/generaciones-gan-comparativa"
 ogImage: "/image/blog/cover-en/gan-generations-guide.webp"
+modified: 2026-06-05
 navActive: "blog"
 ---
 {% extends "layout.njk" %}
@@ -32,10 +33,10 @@ navActive: "blog"
  "author": {"@type": "Person", "name": "Nina Nico", "jobTitle": "Sales Manager, GaN & Car Charger OEM/ODM", "knowsAbout": ["GaN Charger Manufacturing", "Qi2 Wireless Charging", "OEM/ODM Sourcing", "Supply Chain Management"], "sameAs": ["https://www.linkedin.com/in/nico-power-bank-chargers/"]},
  "publisher": {"@type": "Organization", "name": "WOWOHCOOL (Dong Yi Technology Co., Ltd)", "logo": {"@type": "ImageObject", "url": "https://www.wowohcool.com/image/wowohcool-logo-optimized.webp"}},
  "datePublished": "2026-05-14",
- "dateModified": "2026-05-24",
+ "dateModified": "2026-06-05",
  "mainEntityOfPage": {"@type": "WebPage", "@id": "https://www.wowohcool.com/blog/gan-generations-guide"},
- "wordCount": 2680,
- "timeRequired": "PT13M",
+ "wordCount": 3450,
+ "timeRequired": "PT16M",
  "image": "https://www.wowohcool.com/image/blog/cover-en/gan-generations-guide.webp",
  "description": "GaN I vs III vs V: Compare switching frequency, efficiency, size, and OEM cost. Learn to identify real GaN V and pick the right generation for your charger line.",
  "speakable": {
@@ -50,7 +51,12 @@ navActive: "blog"
  {"@type": "Question", "name": "Is GaN V worth the premium over GaN III?", "acceptedAnswer": {"@type": "Answer", "text": "For premium brand positioning, yes. The 20-35% BOM premium is offset by higher selling prices, lower shipping weight, better thermal performance, and the marketing advantage. Most brands recover the premium within 6-12 months."}},
  {"@type": "Question", "name": "Can GaN III support PD 3.1?", "acceptedAnswer": {"@type": "Answer", "text": "Some advanced GaN III designs support PD 3.1 up to 140W, but 240W EPR requires GaN V's higher switching frequency and thermal headroom."}},
  {"@type": "Question", "name": "What is the MOQ for OEM GaN V chargers?", "acceptedAnswer": {"@type": "Answer", "text": "500-1,000 units for standard ODM configurations with branding. Custom OEM designs with tooling start at 2,000 units. WOWOHCOOL offers lower MOQ for pilot runs."}},
- {"@type": "Question", "name": "Will GaN prices drop further?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. GaN FET prices have been declining 10-15% annually as production scales. Industry analysts project GaN V will reach price parity with GaN III by 2027-2028."}}
+ {"@type": "Question", "name": "Will GaN prices drop further?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. GaN FET prices have been declining 10-15% annually as production scales. Industry analysts project GaN V will reach price parity with GaN III by 2027-2028."}},
+ {"@type": "Question", "name": "What is the difference between enhancement-mode and cascode GaN?", "acceptedAnswer": {"@type": "Answer", "text": "Enhancement-mode (e-mode) GaN switches natively without a silicon MOSFET companion - used in GaN III and V. Cascode GaN pairs a silicon MOSFET with a depletion-mode GaN HEMT - used in GaN I. E-mode reduces switching losses and PCB complexity but requires tighter gate-drive voltage control."}},
+ {"@type": "Question", "name": "Why do charger specs skip GaN II and GaN IV?", "acceptedAnswer": {"@type": "Answer", "text": "GaN II and GaN IV exist primarily in research and high-voltage industrial applications such as defense, satellite power, and LiDAR. They use different substrate architectures that are cost-prohibitive for consumer chargers and have not entered commercial charger production."}},
+ {"@type": "Question", "name": "What GaN FET part numbers should I look for in OEM quotes?", "acceptedAnswer": {"@type": "Answer", "text": "For GaN V request Navitas NV6128/NV6169, Innoscience INN700D240A, Infineon CoolGaN G5, or EPC EPC2218. For GaN III, Navitas NV6115 or GaN Systems GS66508T are common. Always cross-reference the part number against the manufacturer's published datasheet to confirm the generation."}},
+ {"@type": "Question", "name": "Does GaN V support all PD 3.1 EPR voltage steps?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. GaN V's 5MHz+ switching enables stable transitions across 28V, 36V, and 48V EPR levels, plus PPS with 20mV granularity. GaN III typically caps at 20V PD 3.0 SPR, with some designs reaching 140W but not full EPR."}},
+ {"@type": "Question", "name": "When will GaN VI hit the market?", "acceptedAnswer": {"@type": "Answer", "text": "Industry roadmaps from Navitas and Innoscience suggest GaN VI engineering samples in 2027-2028, targeting 7-8MHz switching and integrated digital control. Commercial volume for OEM charger production is expected around 2029."}}
  ]
  }
  ]
@@ -65,7 +71,7 @@ navActive: "blog"
  <div class="absolute top-0 left-1/4 w-64 h-64 bg-brandOrange/10 rounded-full blur-3xl"></div>
  <div class="absolute bottom-0 right-1/4 w-64 h-64 bg-green-500/10 rounded-full blur-3xl"></div>
 
- <div class="max-w-7xl mx-auto px-6 relative z-10">
+ <div class="max-w-4xl mx-auto px-4 md:px-6 relative z-10">
  <nav class="text-sm text-slate-500 mb-6">
  <a href="/" class="hover:text-brandOrange">Home</a>
  <span class="mx-2">/</span>
@@ -81,7 +87,7 @@ navActive: "blog"
  <h1 class="text-3xl lg:text-5xl font-black text-brandBlue uppercase italic mb-6">GaN I vs III vs V: Complete Generational Guide for OEM Buyers</h1>
  <div class="flex flex-wrap items-center gap-6 text-sm text-slate-500 pb-8 border-b border-slate-200">
  <span><svg class="icon-calendar mr-2" aria-hidden="true" focusable="false" viewBox="0 0 448 512"><path d="M128 0C110.3 0 96 14.3 96 32l0 32-32 0C28.7 64 0 92.7 0 128l0 48 448 0 0-48c0-35.3-28.7-64-64-64l-32 0 0-32c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 32-128 0 0-32c0-17.7-14.3-32-32-32zM0 224L0 416c0 35.3 28.7 64 64 64l320 0c35.3 0 64-28.7 64-64l0-192-448 0z" fill="currentColor"/></svg><time datetime="2026-05-14">May 14, 2026</time></span>
- <span><svg class="icon-clock mr-2" aria-hidden="true" focusable="false" viewBox="0 0 512 512"><path d="M256 0a256 256 0 1 1 0 512 256 256 0 1 1 0-512zM232 120l0 136c0 8 4 15.5 10.7 20l96 64c11 7.4 25.9 4.4 33.3-6.7s4.4-25.9-6.7-33.3L280 243.2 280 120c0-13.3-10.7-24-24-24s-24 10.7-24 24z" fill="currentColor"/></svg>12 min read</span>
+ <span><svg class="icon-clock mr-2" aria-hidden="true" focusable="false" viewBox="0 0 512 512"><path d="M256 0a256 256 0 1 1 0 512 256 256 0 1 1 0-512zM232 120l0 136c0 8 4 15.5 10.7 20l96 64c11 7.4 25.9 4.4 33.3-6.7s4.4-25.9-6.7-33.3L280 243.2 280 120c0-13.3-10.7-24-24-24s-24 10.7-24 24z" fill="currentColor"/></svg>16 min read</span>
  <span><svg class="icon-user mr-2" aria-hidden="true" focusable="false" viewBox="0 0 448 512"><path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512l388.6 0c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304l-91.4 0z" fill="currentColor"/></svg>Nina Nico</span>
  </div>
  <div class="bg-brandBlue/5 border-l-4 border-brandOrange p-6 rounded-r-xl mb-6">
@@ -109,13 +115,16 @@ navActive: "blog"
  <h2 class="text-lg font-black uppercase italic mb-4">Table of Contents</h2>
  <nav class="text-sm space-y-2">
  <a href="#why-matter" class="block hover:text-brandOrange transition">1. Why GaN Generations Matter for OEM Sourcing</a>
- <a href="#gan-i" class="block hover:text-brandOrange transition">2. GaN I: The Pioneer (2018)</a>
- <a href="#gan-iii" class="block hover:text-brandOrange transition">3. GaN III: The Efficiency Leap (2020)</a>
- <a href="#gan-v" class="block hover:text-brandOrange transition">4. GaN V: Today's Peak Performance (2023)</a>
- <a href="#comparison" class="block hover:text-brandOrange transition">5. GaN I vs III vs V: Comparison Table</a>
- <a href="#identify" class="block hover:text-brandOrange transition">6. How to Identify Real GaN V</a>
- <a href="#choose" class="block hover:text-brandOrange transition">7. Which Generation Should You Choose?</a>
- <a href="#faq" class="block hover:text-brandOrange transition">8. FAQ</a>
+ <a href="#skipped-generations" class="block hover:text-brandOrange transition">2. GaN II and GaN IV: Why Charger Specs Skip Numbers</a>
+ <a href="#gan-i" class="block hover:text-brandOrange transition">3. GaN I: The Pioneer (2018)</a>
+ <a href="#gan-iii" class="block hover:text-brandOrange transition">4. GaN III: The Efficiency Leap (2020)</a>
+ <a href="#gan-v" class="block hover:text-brandOrange transition">5. GaN V: Today's Peak Performance (2023)</a>
+ <a href="#comparison" class="block hover:text-brandOrange transition">6. GaN I vs III vs V: Comparison Table</a>
+ <a href="#fet-models" class="block hover:text-brandOrange transition">7. Real-World GaN FET Models in 2026</a>
+ <a href="#identify" class="block hover:text-brandOrange transition">8. How to Identify Real GaN V</a>
+ <a href="#choose" class="block hover:text-brandOrange transition">9. Which Generation Should You Choose?</a>
+ <a href="#whats-next" class="block hover:text-brandOrange transition">10. What's Next: GaN VI and GaN+SiC</a>
+ <a href="#faq" class="block hover:text-brandOrange transition">11. FAQ</a>
  </nav>
  </div>
 
@@ -129,60 +138,73 @@ navActive: "blog"
  </ul>
  </div>
 
- <section id="why-matter" class="mb-12"><h2 class="text-2xl font-black text-brandBlue uppercase italic mb-4">1. Why GaN Generations Matter for OEM Sourcing</h2>
+ <section id="why-matter" class="mb-8 bg-white rounded-2xl border border-slate-200 shadow-sm p-6 md:p-8"><h2 class="text-2xl font-black text-brandBlue uppercase italic mb-4">1. Why GaN Generations Matter for OEM Sourcing</h2>
  <p class="text-slate-600 leading-relaxed mb-4">Gallium Nitride (GaN) power semiconductors have been through multiple commercial generations since hitting the market around 2018. Each generation brought real, measurable improvements: higher switching frequencies that allow smaller transformers, better thermal performance that extends product life, and higher power capabilities that open new product categories.</p>
  <p class="text-slate-600 leading-relaxed mb-4">For OEM buyers, the generation directly impacts your product specs:</p>
  <ul class="space-y-2 mb-6">
- <li class="flex items-start gap-2"><span class="text-slate-500 shrink-0">, /span> <strong>Size</strong>: GaN V chargers are roughly half the volume of equivalent GaN I designs</li>
- <li class="flex items-start gap-2"><span class="text-slate-500 shrink-0">, /span> <strong>Heat</strong>: Lower operating temperatures mean fewer customer complaints about hot chargers</li>
- <li class="flex items-start gap-2"><span class="text-slate-500 shrink-0">, /span> <strong>Power</strong>: PD 3.1 at 240W enables a single charger to power everything from earbuds to laptops</li>
- <li class="flex items-start gap-2"><span class="text-slate-500 shrink-0">, /span> <strong>Cost</strong>: Each generation carries a different BOM premium that affects your margins</li>
- <li class="flex items-start gap-2"><span class="text-slate-500 shrink-0">, /span> <strong>Marketing</strong>: "5th Generation GaN V" differentiates your product on crowded retail shelves</li>
+ <li class="flex items-start gap-2"><span class="text-brandOrange font-bold shrink-0">→</span> <strong>Size</strong>: GaN V chargers are roughly half the volume of equivalent GaN I designs</li>
+ <li class="flex items-start gap-2"><span class="text-brandOrange font-bold shrink-0">→</span> <strong>Heat</strong>: Lower operating temperatures mean fewer customer complaints about hot chargers</li>
+ <li class="flex items-start gap-2"><span class="text-brandOrange font-bold shrink-0">→</span> <strong>Power</strong>: PD 3.1 at 240W enables a single charger to power everything from earbuds to laptops</li>
+ <li class="flex items-start gap-2"><span class="text-brandOrange font-bold shrink-0">→</span> <strong>Cost</strong>: Each generation carries a different BOM premium that affects your margins</li>
+ <li class="flex items-start gap-2"><span class="text-brandOrange font-bold shrink-0">→</span> <strong>Marketing</strong>: "5th Generation GaN V" differentiates your product on crowded retail shelves</li>
  </ul>
  <p class="text-slate-600 leading-relaxed mb-4">The three generations you will encounter in today's market are GaN I, GaN III, and GaN V. GaN II and GaN IV exist mostly in research literature and are not commercially significant for charger OEM sourcing. For a broader overview of GaN charging technology, see our <a href="/blog/gan-chargers-guide" class="text-brandOrange hover:underline">complete GaN chargers guide</a>.</p>
  <p class="text-slate-600 leading-relaxed mb-4">According to Yole Group, the GaN power device market is projected to reach $2.5 billion by 2027, growing at a CAGR of 30%. This rapid expansion is driven by demand for smaller, more efficient chargers across consumer electronics, automotive, and data center applications. For OEM buyers, this means the technology is scaling fast and prices are dropping, but so is the window to be an early adopter in your category.</p>
  <p class="text-slate-600 leading-relaxed mb-4"><strong>Want to see the actual products?</strong> WOWOHCOOL manufactures GaN V chargers from 35W to 100W+ with PD 3.1 support. <a href="/products/gan-charger" class="text-brandOrange hover:underline">Browse our GaN charger lineup</a>.</p>
  </section>
 
- <section id="gan-i" class="mb-12"><h2 class="text-2xl font-black text-brandBlue uppercase italic mb-4">2. GaN I: The Pioneer (2018)</h2>
+ <section id="skipped-generations" class="mb-8 bg-white rounded-2xl border border-slate-200 shadow-sm p-6 md:p-8"><h2 class="text-2xl font-black text-brandBlue uppercase italic mb-4">2. GaN II and GaN IV: Why Charger Specs Skip Numbers</h2>
+ <p class="text-slate-600 leading-relaxed mb-4">If you have seen GaN I, III, and V but never encountered GaN II or GaN IV in supplier datasheets, you are not missing anything. These generations exist primarily in academic research and non-consumer applications.</p>
+ <p class="text-slate-600 leading-relaxed mb-4"><strong>GaN II</strong> refers to vertical GaN-on-GaN substrate architectures. The promise was higher breakdown voltage and lower on-resistance, but manufacturing costs remain 5-10x higher than lateral GaN-on-Si. Applications are limited to defense, satellite power systems, and high-voltage industrial converters above 1,200V.</p>
+ <p class="text-slate-600 leading-relaxed mb-4"><strong>GaN IV</strong> covers experimental integrated GaN + driver IC monolithic designs that never reached consumer-grade volume. Some automotive LiDAR and 5G RF amplifier designs use GaN IV-class devices, but they are irrelevant to charger BOMs.</p>
+ <p class="text-slate-600 leading-relaxed mb-4">For OEM charger sourcing, only GaN I, III, and V matter. If a supplier references "GaN II" or "GaN IV" in a charger context, treat it as a red flag — they may be confusing marketing terminology with actual semiconductor generations.</p>
+ </section>
+
+ <section id="gan-i" class="mb-8 bg-white rounded-2xl border border-slate-200 shadow-sm p-6 md:p-8"><h2 class="text-2xl font-black text-brandBlue uppercase italic mb-4">3. GaN I: The Pioneer (2018)</h2>
  <p class="text-slate-600 leading-relaxed mb-4">GaN I hit the commercial market around 2018 and represented the first real alternative to silicon MOSFETs in power adapters. The key innovation was switching frequencies around 1MHz, roughly 10 times faster than silicon, which allowed manufacturers to reduce transformer sizes for the first time in decades.</p>
  <p class="text-slate-600 leading-relaxed mb-4"><strong>Technical specs:</strong></p>
  <ul class="space-y-2 mb-6">
- <li class="flex items-start gap-2"><span class="text-slate-500 shrink-0">, /span> Switching frequency: ~1MHz</li>
- <li class="flex items-start gap-2"><span class="text-slate-500 shrink-0">, /span> Peak efficiency: ~93%</li>
- <li class="flex items-start gap-2"><span class="text-slate-500 shrink-0">, /span> Operating temperature: 85-90C at full load</li>
- <li class="flex items-start gap-2"><span class="text-slate-500 shrink-0">, /span> Maximum PD: 100W (PD 3.0)</li>
- <li class="flex items-start gap-2"><span class="text-slate-500 shrink-0">, /span> Size relative to GaN I: Baseline</li>
+ <li class="flex items-start gap-2"><span class="text-brandOrange font-bold shrink-0">→</span> Switching frequency: ~1MHz</li>
+ <li class="flex items-start gap-2"><span class="text-brandOrange font-bold shrink-0">→</span> Peak efficiency: ~93%</li>
+ <li class="flex items-start gap-2"><span class="text-brandOrange font-bold shrink-0">→</span> Operating temperature: 85-90C at full load</li>
+ <li class="flex items-start gap-2"><span class="text-brandOrange font-bold shrink-0">→</span> Maximum PD: 100W (PD 3.0)</li>
+ <li class="flex items-start gap-2"><span class="text-brandOrange font-bold shrink-0">→</span> Size relative to GaN I: Baseline</li>
  </ul>
  <p class="text-slate-600 leading-relaxed mb-4">GaN I devices used a depletion-mode architecture that required cascode configurations with silicon MOSFETs. According to the <a href="https://en.wikipedia.org/wiki/Gallium_nitride" class="text-brandOrange hover:underline" target="_blank" rel="noopener">GaN semiconductor Wikipedia entry</a>, this hybrid approach limited some of the theoretical advantages of pure GaN but still delivered meaningful size reductions, typically 20-30% smaller than equivalent silicon chargers in the 45-65W range.</p>
  <p class="text-slate-600 leading-relaxed mb-4"><strong>Today's relevance:</strong> GaN I is effectively obsolete for new OEM designs. Infineon, the leading GaN manufacturer, has discontinued its first-generation CoolGaN G1, all new designs must use G5 or later. You will still find GaN I in budget chargers from less reputable suppliers, but any established manufacturer has moved to GaN III or GaN V. If a supplier quotes pricing significantly below market averages for "GaN" without specifying the generation, there is a good chance they are using GaN I or even enhanced silicon.</p>
  <div class="bg-brandBlue/5 border-l-4 border-brandOrange p-5 rounded-r-xl mb-6"><p class="text-slate-700 text-sm"><strong>OEM tip:</strong> Always request the specific GaN FET part number and datasheet during the quoting process. If the supplier cannot provide it, consider that a red flag. Genuine GaN V uses FETs from Navitas, Innoscience, GaN Systems, or EPC, and the datasheet will clearly state the generation.</p></div>
  </section>
 
- <section id="gan-iii" class="mb-12"><h2 class="text-2xl font-black text-brandBlue uppercase italic mb-4">3. GaN III: The Efficiency Leap (2020)</h2>
+ <section id="gan-iii" class="mb-8 bg-white rounded-2xl border border-slate-200 shadow-sm p-6 md:p-8"><h2 class="text-2xl font-black text-brandBlue uppercase italic mb-4">4. GaN III: The Efficiency Leap (2020)</h2>
  <p class="text-slate-600 leading-relaxed mb-4">GaN III entered the market around 2020-2021 with a fundamental architecture change: enhancement-mode transistors that eliminated the need for cascode silicon configurations. This allowed GaN III to operate at approximately 3MHz switching frequencies with lower losses and better thermal characteristics.</p>
+
+ <h3 class="text-xl font-black text-brandBlue mb-3">Enhancement-Mode vs Cascode Architecture</h3>
+ <p class="text-slate-600 leading-relaxed mb-4">The architectural shift between GaN I and GaN III is the single biggest reason GaN III runs cooler and uses simpler PCBs. <strong>Cascode GaN</strong> (used in GaN I) pairs a depletion-mode GaN HEMT with a low-voltage silicon MOSFET. The silicon FET handles gate switching while the GaN device blocks high voltage. It works, but the silicon adds switching losses, EMI, and an extra component on the BOM.</p>
+ <p class="text-slate-600 leading-relaxed mb-4"><strong>Enhancement-mode (e-mode) GaN</strong> (used in GaN III and V) switches natively without a silicon driver companion. The result: 30-40% lower switching losses, simpler gate-drive PCB layout, and ~15% fewer components on the high-voltage side. The trade-off is tighter gate-drive voltage tolerance — overshoot above 6V can permanently damage the FET, which is why suppliers must use qualified gate-drive ICs (TI UCC2152x, Navitas NV6128 integrated drive, etc.).</p>
+ <p class="text-slate-600 leading-relaxed mb-4">For OEM buyers, this matters because e-mode chargers are easier to qualify for safety certifications (see our <a href="/blog/charger-safety-standards" class="text-brandOrange hover:underline">charger safety standards guide</a>), run cooler in the enclosure, and have a smaller BOM. If a supplier still ships GaN I cascode designs, expect higher return rates and harder thermal compliance for closed-vent products like wall-mounted hubs.</p>
+
  <p class="text-slate-600 leading-relaxed mb-4"><strong>Technical specs:</strong></p>
  <ul class="space-y-2 mb-6">
- <li class="flex items-start gap-2"><span class="text-slate-500 shrink-0">, /span> Switching frequency: ~3MHz</li>
- <li class="flex items-start gap-2"><span class="text-slate-500 shrink-0">, /span> Peak efficiency: ~95%</li>
- <li class="flex items-start gap-2"><span class="text-slate-500 shrink-0">, /span> Operating temperature: 75-80C at full load</li>
- <li class="flex items-start gap-2"><span class="text-slate-500 shrink-0">, /span> Maximum PD: 140W (PD 3.0)</li>
- <li class="flex items-start gap-2"><span class="text-slate-500 shrink-0">, /span> Size vs GaN I: ~30% smaller</li>
+ <li class="flex items-start gap-2"><span class="text-brandOrange font-bold shrink-0">→</span> Switching frequency: ~3MHz</li>
+ <li class="flex items-start gap-2"><span class="text-brandOrange font-bold shrink-0">→</span> Peak efficiency: ~95%</li>
+ <li class="flex items-start gap-2"><span class="text-brandOrange font-bold shrink-0">→</span> Operating temperature: 75-80C at full load</li>
+ <li class="flex items-start gap-2"><span class="text-brandOrange font-bold shrink-0">→</span> Maximum PD: 140W (PD 3.0)</li>
+ <li class="flex items-start gap-2"><span class="text-brandOrange font-bold shrink-0">→</span> Size vs GaN I: ~30% smaller</li>
  </ul>
  <p class="text-slate-600 leading-relaxed mb-4"><strong>Real-world example:</strong> A product manager at a mid-sized consumer electronics brand sourced 5,000 units of 65W GaN III chargers for his travel accessories line. The size advantage alone let him shrink packaging by 35%, cutting per-unit shipping costs by $0.80. The charger also ran cool enough to include a soft travel pouch. His line launched at $39.99 and held a 4.3-star average over 2,000 reviews.</p>
  <p class="text-slate-600 leading-relaxed mb-4"><strong>Today's relevance:</strong> GaN III is the solid mid-range option. It delivers good performance at a 10-15% BOM premium over GaN I. For brands testing a new market or launching their first GaN product, GaN III offers a reasonable cost-risk profile. The main limitations are the lower maximum power (140W vs. 240W) and the lack of a distinct "5th Gen" marketing story.</p>
  <div class="bg-brandBlue/5 border-l-4 border-brandOrange p-5 rounded-r-xl mb-6"><p class="text-slate-700 text-sm"><strong>OEM tip:</strong> GaN III works well for 65W and 100W SKUs targeting mid-market pricing. If you plan to keep the product in market for more than 12 months, consider whether the 10-15% cost saving over GaN V is worth sacrificing the "latest generation" positioning.</p></div>
  </section>
 
- <section id="gan-v" class="mb-12"><h2 class="text-2xl font-black text-brandBlue uppercase italic mb-4">4. GaN V: Today's Peak Performance (2023)</h2>
+ <section id="gan-v" class="mb-8 bg-white rounded-2xl border border-slate-200 shadow-sm p-6 md:p-8"><h2 class="text-2xl font-black text-brandBlue uppercase italic mb-4">5. GaN V: Today's Peak Performance (2023)</h2>
  <p class="text-slate-600 leading-relaxed mb-4">GaN V represents the current state of the art in commercial GaN power semiconductors. Available since 2023-2024, GaN V pushes switching frequencies beyond 5MHz while maintaining excellent thermal characteristics.</p>
  <p class="text-slate-600 leading-relaxed mb-4"><strong>Technical specs:</strong></p>
  <ul class="space-y-2 mb-6">
- <li class="flex items-start gap-2"><span class="text-slate-500 shrink-0">, /span> Switching frequency: 5MHz+</li>
- <li class="flex items-start gap-2"><span class="text-slate-500 shrink-0">, /span> Peak efficiency: ~97%</li>
- <li class="flex items-start gap-2"><span class="text-slate-500 shrink-0">, /span> Operating temperature: 65-75C at full load</li>
- <li class="flex items-start gap-2"><span class="text-slate-500 shrink-0">, /span> Maximum PD: 240W (PD 3.1 EPR)</li>
- <li class="flex items-start gap-2"><span class="text-slate-500 shrink-0">, /span> Size vs GaN I: ~50% smaller</li>
+ <li class="flex items-start gap-2"><span class="text-brandOrange font-bold shrink-0">→</span> Switching frequency: 5MHz+</li>
+ <li class="flex items-start gap-2"><span class="text-brandOrange font-bold shrink-0">→</span> Peak efficiency: ~97%</li>
+ <li class="flex items-start gap-2"><span class="text-brandOrange font-bold shrink-0">→</span> Operating temperature: 65-75C at full load</li>
+ <li class="flex items-start gap-2"><span class="text-brandOrange font-bold shrink-0">→</span> Maximum PD: 240W (PD 3.1 EPR)</li>
+ <li class="flex items-start gap-2"><span class="text-brandOrange font-bold shrink-0">→</span> Size vs GaN I: ~50% smaller</li>
  </ul>
  <div class="mb-6">
  <img src="/image/product/gan-charger/wop37-67w-gan-charger-retractable-cable-wireless.webp"
@@ -194,18 +216,22 @@ navActive: "blog"
  </div>
  <p class="text-slate-600 leading-relaxed mb-4">The higher switching frequency is the key enabler. It allows significantly smaller magnetic components such as transformers, inductors, and capacitors, which drives the 50% size reduction. A 100W GaN V charger is roughly the size of a traditional 30W silicon charger.</p>
  <p class="text-slate-600 leading-relaxed mb-4"><strong>PD 3.1 at 240W:</strong> GaN V is the first generation capable of supporting the full <a href="https://www.usb.org/usb-charger-pd" class="text-brandOrange hover:underline" target="_blank" rel="noopener">USB-C PD 3.1 Extended Power Range (EPR)</a>. A single charger can power earbuds, phones, tablets, laptops, and monitors. For brands targeting the premium travel and workstation segments, this is a product category that simply did not exist before GaN V.</p>
+
+ <h3 class="text-xl font-black text-brandBlue mb-3">How GaN V Enables PD 3.1 EPR at 240W</h3>
+ <p class="text-slate-600 leading-relaxed mb-4">PD 3.1 EPR adds three voltage rails above the standard 20V: <strong>28V, 36V, and 48V</strong>. A 240W charger must hold stable output at 48V / 5A while transitioning between rails in under 500 microseconds. GaN V's 5MHz+ switching makes this possible — the higher frequency means the control loop responds fast enough to maintain voltage regulation during rail jumps without output ripple exceeding the USB-IF's 200mV spec.</p>
+ <p class="text-slate-600 leading-relaxed mb-4">GaN III's ~3MHz switching can manage basic PD 3.0 SPR (up to 100W at 20V / 5A) and some designs reach 140W, but the thermal and frequency headroom is insufficient for reliable 48V EPR operation. In practice, GaN III chargers labeled "PD 3.1" are usually limited to 140W and do not implement the full EPR voltage range. Ask suppliers for the PPS (Programmable Power Supply) step granularity — genuine GaN V implementations support 20mV steps across all voltage rails.</p>
  <p class="text-slate-600 leading-relaxed mb-4"><strong>Real-world example:</strong> An outdoor gear brand launched a 100W GaN V travel charger in early 2025. The charger was small enough to fit in a shirt pocket, a feature that generated over 500 social media shares in the first month. At $59.99 retail, it commanded a 50% premium over their previous 65W GaN III model. The return rate was 1.2%, compared to 3.8% for the older model. Within six months, the GaN V line accounted for 40% of their charging accessory revenue.</p>
  <p class="text-slate-600 leading-relaxed mb-4"><strong>Why the premium is worth it:</strong> GaN V carries a 20-35% BOM premium over GaN I, but the total cost of ownership tells a different story:</p>
  <ul class="space-y-2 mb-6">
- <li class="flex items-start gap-2"><span class="text-slate-500 shrink-0">, /span> <strong>Shipping savings:</strong> 40% smaller and lighter reduces per-unit freight by $0.50-2.00</li>
- <li class="flex items-start gap-2"><span class="text-slate-500 shrink-0">, /span> <strong>Return reduction:</strong> Lower operating temperature cuts thermal-related failures by an estimated 40-60%</li>
- <li class="flex items-start gap-2"><span class="text-slate-500 shrink-0">, /span> <strong>Premium pricing:</strong> The "5th Gen GaN" story supports 20-50% higher retail pricing</li>
- <li class="flex items-start gap-2"><span class="text-slate-500 shrink-0">, /span> <strong>Longer product life:</strong> Cooler operation extends component lifespan, reducing warranty claims</li>
+ <li class="flex items-start gap-2"><span class="text-brandOrange font-bold shrink-0">→</span> <strong>Shipping savings:</strong> 40% smaller and lighter reduces per-unit freight by $0.50-2.00</li>
+ <li class="flex items-start gap-2"><span class="text-brandOrange font-bold shrink-0">→</span> <strong>Return reduction:</strong> Lower operating temperature cuts thermal-related failures by an estimated 40-60%</li>
+ <li class="flex items-start gap-2"><span class="text-brandOrange font-bold shrink-0">→</span> <strong>Premium pricing:</strong> The "5th Gen GaN" story supports 20-50% higher retail pricing</li>
+ <li class="flex items-start gap-2"><span class="text-brandOrange font-bold shrink-0">→</span> <strong>Longer product life:</strong> Cooler operation extends component lifespan, reducing warranty claims</li>
  </ul>
  <p class="text-slate-600 leading-relaxed mb-4">For a deeper look at GaN V manufacturing specifically, see our <a href="/blog/gan-v-charger-oem-manufacturing" class="text-brandOrange hover:underline">GaN V OEM Manufacturing Guide</a>.</p>
- <p class="text-slate-600 leading-relaxed mb-4">According to Yole Intelligence, GaN FET prices have declined 10-15% annually as production scales, with GaN V projected to reach price parity with GaN III by 2027-2028. "Starting with GaN V now positions your brand to benefit from falling costs rather than playing catch-up on a technology your competitors already own," says Nina Nico, OEM Technical Lead at WOWOHCOOL.</p>
+ <p class="text-slate-600 leading-relaxed mb-4">According to Yole Intelligence, GaN FET prices have declined 10-15% annually as production scales, with GaN V projected to reach price parity with GaN III by 2027-2028. As of mid-2026, OEM-volume GaN V FET pricing sits at approximately $0.80-1.50 per unit (10K+ quantity), compared to $0.50-0.90 for GaN III and $0.30-0.60 for GaN I equivalents. These figures represent a 25-30% decrease from 2024 launch pricing for GaN V parts. "Starting with GaN V now positions your brand to benefit from falling costs rather than playing catch-up on a technology your competitors already own," says Nina Nico, OEM Technical Lead at WOWOHCOOL.</p>
  </section>
-</section><section id="comparison" class="mb-12"><h2 class="text-2xl font-black text-brandBlue uppercase italic mb-4">5. GaN I vs III vs V: Side-by-Side Comparison Table</h2>
+</section><section id="comparison" class="mb-8 bg-white rounded-2xl border border-slate-200 shadow-sm p-6 md:p-8"><h2 class="text-2xl font-black text-brandBlue uppercase italic mb-4">6. GaN I vs III vs V: Side-by-Side Comparison Table</h2>
 <p class="text-slate-600 leading-relaxed mb-4">Here is the GaN I vs III vs V comparison that matters for OEM sourcing decisions:</p>
 <div class="overflow-x-auto mb-6"><table class="w-full text-sm border-collapse"><thead><tr class="bg-slate-800 text-white text-[11px] font-black uppercase tracking-widest"><th class="p-3 text-left">Factor</th><th class="p-3 text-center">GaN I</th><th class="p-3 text-center">GaN III</th><th class="p-3 text-center bg-brandOrange">GaN V</th></tr></thead><tbody class="text-slate-600"><tr class="border-b border-slate-100"><td class="p-3 font-bold">Switching Frequency</td><td class="p-3">~1MHz</td><td class="p-3">~3MHz</td><td class="p-3">5MHz+</td></tr><tr class="border-b border-slate-100"><td class="p-3 font-bold">Peak Efficiency</td><td class="p-3">~93%</td><td class="p-3">~95%</td><td class="p-3">~97%</td></tr><tr class="border-b border-slate-100"><td class="p-3 font-bold">Operating Temp</td><td class="p-3">85-90C</td><td class="p-3">75-80C</td><td class="p-3">65-75C</td></tr><tr class="border-b border-slate-100"><td class="p-3 font-bold">Max PD Output</td><td class="p-3">100W</td><td class="p-3">140W</td><td class="p-3">240W (EPR)</td></tr><tr class="border-b border-slate-100"><td class="p-3 font-bold">Size vs GaN I</td><td class="p-3">Baseline</td><td class="p-3">~30% smaller</td><td class="p-3">~50% smaller</td></tr><tr class="border-b border-slate-100"><td class="p-3 font-bold">Best For</td><td class="p-3">Budget products</td><td class="p-3">Mid-range</td><td class="p-3">Premium / flagship</td></tr><tr class="border-b border-slate-100"><td class="p-3 font-bold">Marketing Position</td><td class="p-3">Minimal</td><td class="p-3">"GaN technology"</td><td class="p-3">"5th Gen GaN V"</td></tr><tr class="border-b border-slate-100"><td class="p-3 font-bold">BOM Premium</td><td class="p-3">Baseline</td><td class="p-3">+10-15%</td><td class="p-3">+20-35%</td></tr><tr class="border-b border-slate-100"><td class="p-3 font-bold">Return Rate Risk</td><td class="p-3">Moderate (heat)</td><td class="p-3">Low</td><td class="p-3">Very low</td></tr></tbody></table></div>
 <div class="mb-6">
@@ -217,11 +243,16 @@ navActive: "blog"
  <p class="text-center text-slate-500 text-sm mt-3">WOP80 100W GaN V charging station, ports, PD 3.1. <a href="/products/gan-charger" class="text-brandOrange hover:underline">View full specs</a></p>
  </div>
 <p class="text-slate-600 leading-relaxed mb-4"><strong>Which generation for which product?</strong></p>
-<ul class="space-y-2 mb-6"><li class="flex items-start gap-2"><span class="text-slate-500 shrink-0">, /span> <strong>Budget / economy line (sub-$25 retail):</strong> GaN I still works for basic 30-65W charging, but GaN III at +10-15% BOM is increasingly the minimum acceptable option for retail channels.</li>
-<li class="flex items-start gap-2"><span class="text-slate-500 shrink-0">, /span> <strong>Mid-range value line ($25-$45 retail):</strong> GaN III is the sweet spot. Good thermal performance, adequate power for phones and tablets, reasonable BOM cost.</li>
-<li class="flex items-start gap-2"><span class="text-slate-500 shrink-0">, /span> <strong>Premium / flagship ($45+ retail):</strong> GaN V is the clear choice. The 20-35% BOM premium is recovered through higher ASP, lower returns, and the marketing advantage.</li></ul>
+<ul class="space-y-2 mb-6"><li class="flex items-start gap-2"><span class="text-brandOrange font-bold shrink-0">→</span> <strong>Budget / economy line (sub-$25 retail):</strong> GaN I still works for basic 30-65W charging, but GaN III at +10-15% BOM is increasingly the minimum acceptable option for retail channels.</li>
+<li class="flex items-start gap-2"><span class="text-brandOrange font-bold shrink-0">→</span> <strong>Mid-range value line ($25-$45 retail):</strong> GaN III is the sweet spot. Good thermal performance, adequate power for phones and tablets, reasonable BOM cost.</li>
+<li class="flex items-start gap-2"><span class="text-brandOrange font-bold shrink-0">→</span> <strong>Premium / flagship ($45+ retail):</strong> GaN V is the clear choice. The 20-35% BOM premium is recovered through higher ASP, lower returns, and the marketing advantage.</li></ul>
 <p class="text-slate-600 leading-relaxed mb-4"><strong>Not sure which is right for your project?</strong> WOWOHCOOL offers OEM/ODM services across all GaN generations, with GaN V as our primary platform for new designs. <a href="/contact" class="text-brandOrange hover:underline">Contact our engineering team to discuss your requirements</a>.</p>
-</section><section id="identify" class="mb-12"><h2 class="text-2xl font-black text-brandBlue uppercase italic mb-4">6. How to Identify Real GaN V</h2>
+</section><section id="fet-models" class="mb-8 bg-white rounded-2xl border border-slate-200 shadow-sm p-6 md:p-8"><h2 class="text-2xl font-black text-brandBlue uppercase italic mb-4">7. Real-World GaN FET Models You'll See in 2026 OEM Quotes</h2>
+<p class="text-slate-600 leading-relaxed mb-4">Generic spec sheets are easy to fake. Specific FET part numbers are not. When you ask a supplier for the GaN device used in their charger, the answer should be one of a handful of qualified parts from these vendors. Here are the FET families currently shipping in volume for OEM charger designs in 2026:</p>
+<div class="overflow-x-auto mb-6"><table class="w-full text-sm border-collapse"><thead><tr class="bg-slate-800 text-white text-[11px] font-black uppercase tracking-widest"><th class="p-3 text-left">Vendor</th><th class="p-3 text-left">Part Family</th><th class="p-3 text-center">Generation</th><th class="p-3 text-left">Typical Charger Use</th></tr></thead><tbody class="text-slate-600"><tr class="border-b border-slate-100"><td class="p-3 font-bold">Navitas</td><td class="p-3">NV6128 / NV6169 (GaNFast)</td><td class="p-3 text-center">GaN V</td><td class="p-3">65-240W PD 3.1 EPR, integrated drive</td></tr><tr class="border-b border-slate-100"><td class="p-3 font-bold">Navitas</td><td class="p-3">NV6115</td><td class="p-3 text-center">GaN III</td><td class="p-3">30-100W PD 3.0, mature platform</td></tr><tr class="border-b border-slate-100"><td class="p-3 font-bold">Innoscience</td><td class="p-3">INN700D240A (8" GaN-on-Si)</td><td class="p-3 text-center">GaN V</td><td class="p-3">100-240W high-density designs</td></tr><tr class="border-b border-slate-100"><td class="p-3 font-bold">GaN Systems</td><td class="p-3">GS66508T / GS66516T (Infineon)</td><td class="p-3 text-center">GaN III/V</td><td class="p-3">65-200W workstation chargers</td></tr><tr class="border-b border-slate-100"><td class="p-3 font-bold">EPC</td><td class="p-3">EPC2218 / EPC2619 (eGaN)</td><td class="p-3 text-center">GaN V</td><td class="p-3">High-frequency 100-200W designs</td></tr><tr class="border-b border-slate-100"><td class="p-3 font-bold">Power Integrations</td><td class="p-3">InnoSwitch4-CZ (integrated)</td><td class="p-3 text-center">GaN V</td><td class="p-3">45-100W single-IC solutions</td></tr><tr class="border-b border-slate-100"><td class="p-3 font-bold">Infineon</td><td class="p-3">CoolGaN G5 (IGT60R070D1)</td><td class="p-3 text-center">GaN V</td><td class="p-3">100-240W flagship adapters</td></tr></tbody></table></div>
+<p class="text-slate-600 leading-relaxed mb-4"><strong>How to use this table during sourcing:</strong> When you receive a sample, ask the supplier to confirm the FET part number and provide the manufacturer datasheet. Cross-reference the part on the vendor's website. If the supplier refuses to disclose the part or quotes a generic "domestic GaN FET" without a brand-name part number, treat it as a sourcing risk. <a href="https://navitassemi.com/" class="text-brandOrange hover:underline" target="_blank" rel="noopener">Navitas</a> and <a href="https://www.innoscience.com/" class="text-brandOrange hover:underline" target="_blank" rel="noopener">Innoscience</a> publish full datasheets with switching frequency, gate-charge, and thermal resistance — these are the numbers that prove the generation claim.</p>
+<p class="text-slate-600 leading-relaxed mb-4"><strong>Anker, Belkin, and Ugreen</strong> have all publicly disclosed their use of Navitas GaNFast in flagship product lines (per <a href="https://www.semiconductor-today.com/news_items/2022/jul/anker-190722.shtml" class="text-brandOrange hover:underline" target="_blank" rel="noopener">Semiconductor Today coverage</a>). For OEM buyers building competing products, specifying the same FET family is the fastest path to matching their performance benchmarks while still controlling your branding and packaging.</p>
+</section><section id="identify" class="mb-8 bg-white rounded-2xl border border-slate-200 shadow-sm p-6 md:p-8"><h2 class="text-2xl font-black text-brandBlue uppercase italic mb-4">8. How to Identify Real GaN V</h2>
 <p class="text-slate-600 leading-relaxed mb-4">The GaN labeling problem is real. Here are five verification methods for OEM buyers:</p>
 <p class="text-slate-600 leading-relaxed mb-4"><strong>1. Check switching frequency.</strong> Genuine GaN V operates at 5MHz or higher. This number must appear in the technical datasheet. If a supplier cannot provide it, proceed with caution.</p>
 <p class="text-slate-600 leading-relaxed mb-4"><strong>2. Verify the GaN FET manufacturer.</strong> Real GaN V uses FETs from Navitas, Innoscience, GaN Systems, or EPC. Request the specific part number and cross-reference it against the manufacturer's published specifications.</p>
@@ -229,12 +260,20 @@ navActive: "blog"
 <p class="text-slate-600 leading-relaxed mb-4"><strong>4. Confirm PD 3.1 EPR support.</strong> Only GaN V supports the full 240W Extended Power Range. If a "GaN V" charger maxes out at 100W PD 3.0, the labeling is incorrect.</p>
 <p class="text-slate-600 leading-relaxed mb-4"><strong>5. Size check.</strong> A genuine 100W GaN V charger occupies approximately 70cm or less. If the product is significantly larger than a deck of cards, it is not using GaN V.</p>
 <p class="text-slate-600 leading-relaxed mb-4"><strong>Real-world example:</strong> A European distributor tested samples from three different "GaN V" suppliers. Only one passed all five checks. The other two were using GaN III and enhanced silicon respectively, labeled as GaN V. The distributor saved an estimated $40,000 in potential returns and brand damage by verifying before committing to a 10,000-unit order.</p>
-<p class="text-slate-600 leading-relaxed mb-4">Working with an established OEM partner eliminates verification risk. WOWOHCOOL sources GaN V FETs directly from Navitas and Innoscience, maintains full component traceability, and provides thermal test data with every sample shipment. Our <a href="/service" class="text-brandOrange hover:underline">OEM/ODM service page</a> details the full manufacturing and verification process.</p>
-</section><section id="choose" class="mb-12"><h2 class="text-2xl font-black text-brandBlue uppercase italic mb-4">7. Which Generation Should You Choose?</h2>
-<p class="text-slate-600 leading-relaxed mb-4">Your choice depends on three factors: target retail price point, product lifecycle expectations, and brand positioning.</p>
+<p class="text-slate-600 leading-relaxed mb-4">Working with an established OEM partner eliminates verification risk. WOWOHCOOL sources GaN V FETs directly from Navitas and Innoscience, maintains full component traceability, and provides thermal test data with every sample shipment. Our <a href="/service" class="text-brandOrange hover:underline">OEM/ODM service page</a> details the full manufacturing and verification process. For a step-by-step supplier vetting framework, see our <a href="/blog/factory-verification-checklist" class="text-brandOrange hover:underline">factory verification checklist</a>.</p>
+</section><section id="choose" class="mb-8 bg-white rounded-2xl border border-slate-200 shadow-sm p-6 md:p-8"><h2 class="text-2xl font-black text-brandBlue uppercase italic mb-4">9. Which Generation Should You Choose?</h2>
+<p class="text-slate-600 leading-relaxed mb-4">Your choice depends on three factors: target retail price point, product lifecycle expectations, and brand positioning. If you are still evaluating whether OEM or ODM is the right path for your project, our <a href="/blog/oem-vs-odm-guide" class="text-brandOrange hover:underline">OEM vs ODM guide</a> covers the trade-offs in detail.</p>
 <p class="text-slate-600 leading-relaxed mb-4"><strong>Choose GaN I only if</strong> you are building an absolute budget product (sub-$20 retail) and your customers do not expect premium performance. Be aware that many retailers and distributors now require a minimum of GaN III for new listings.</p>
 <p class="text-slate-600 leading-relaxed mb-4"><strong>Choose GaN III if</strong> you are launching a mid-range product line, testing a new market with conservative volume, or need to hit a specific retail price point below $45. GaN III delivers solid performance at a 10-15% BOM premium and is well-understood by contract manufacturers.</p>
 <p class="text-slate-600 leading-relaxed mb-4"><strong>Choose GaN V if</strong> you are building a premium brand, targeting retail price points above $45, or need PD 3.1 power above 140W. The 20-35% BOM premium is offset by higher average selling prices, lower return rates, and the marketing advantage of "5th Generation GaN" technology.</p>
+</section>
+
+<section id="whats-next" class="mb-8 bg-white rounded-2xl border border-slate-200 shadow-sm p-6 md:p-8"><h2 class="text-2xl font-black text-brandBlue uppercase italic mb-4">10. What's Next: GaN VI and GaN+SiC Hybrid Designs</h2>
+<p class="text-slate-600 leading-relaxed mb-4">If you are planning a charger product cycle that ships in 2027-2028, the next-generation roadmap matters. Three technology shifts are already visible in semiconductor vendor announcements:</p>
+<p class="text-slate-600 leading-relaxed mb-4"><strong>GaN VI (engineering samples 2027).</strong> Navitas, Innoscience, and Infineon have all signaled a sixth-generation GaN family targeting 7-8MHz switching frequencies and integrated digital control. The expected gains: another 30-40% size reduction over GaN V at 100W, plus on-die telemetry that lets the charger negotiate not just voltage but also thermal headroom in real-time. Commercial volume is expected late 2028 to 2029.</p>
+<p class="text-slate-600 leading-relaxed mb-4"><strong>GaN + SiC hybrid topologies.</strong> For chargers above 240W (workstation hubs, EV-class portable chargers), pairing GaN V on the primary side with silicon carbide (SiC) on the high-voltage rectification side delivers efficiency gains of 1-2 percentage points at full load. This is overkill for phone chargers but relevant for the emerging 300-500W laptop docking station category.</p>
+<p class="text-slate-600 leading-relaxed mb-4"><strong>Integrated drive + protection ICs.</strong> Navitas' GaNSafe and Power Integrations' InnoSwitch4 platforms bundle the FET, gate driver, current sensing, and over-temperature protection into a single package. For OEMs, this cuts BOM count by 8-12 components per charger and shrinks PCB area by ~25%, but locks the design to a single supplier ecosystem.</p>
+<p class="text-slate-600 leading-relaxed mb-4"><strong>What this means for your 2026 sourcing decisions:</strong> GaN V remains the best choice for products shipping through 2027. Avoid locking in GaN III for designs you plan to keep in market past 2026, since retail channels are increasingly listing "GaN generation" in product specs and GaN III will look dated by 2027.</p>
 </section>
 
  <!-- Factory Stat -->
@@ -249,18 +288,24 @@ navActive: "blog"
  <p class="text-slate-700 text-sm"><strong>Which GaN generation should OEM buyers choose in 2026?</strong> GaN V is the recommended choice for most new charger OEM projects. It delivers 5MHz+ switching frequency, 97% peak efficiency, 65-75C operating temperature, and PD 3.1 support up to 240W. The 20-35% BOM premium over GaN I is typically recovered within 6-12 months through higher selling prices, lower shipping costs, and reduced return rates.</p>
  </div>
 
- <section id="faq" class="mb-12"><h2 class="text-2xl font-black text-brandBlue uppercase italic mb-4">8. Frequently Asked Questions</h2>
+ <section id="faq" class="mb-8 bg-white rounded-2xl border border-slate-200 shadow-sm p-6 md:p-8"><h2 class="text-2xl font-black text-brandBlue uppercase italic mb-4">11. Frequently Asked Questions</h2>
 <div class="space-y-6">
 <div><p class="font-black text-brandOrange text-sm mb-1">How do I know what GaN generation a charger uses?</p><p class="text-slate-600 text-sm">Check the datasheet for switching frequency (GaN V = 5MHz+), GaN FET part number, and supported PD version. Reputable OEM suppliers provide this information on request.</p></div>
 <div><p class="font-black text-brandOrange text-sm mb-1">Is GaN V worth the premium over GaN III?</p><p class="text-slate-600 text-sm">For premium brand positioning, yes. The 20-35% BOM premium is offset by higher selling prices, lower shipping weight, better thermal performance, and the marketing advantage. Most brands recover the premium within 6-12 months.</p></div>
 <div><p class="font-black text-brandOrange text-sm mb-1">Can GaN III support PD 3.1?</p><p class="text-slate-600 text-sm">Some advanced GaN III designs support PD 3.1 up to 140W, but 240W EPR requires GaN V's higher switching frequency and thermal headroom.</p></div>
 <div><p class="font-black text-brandOrange text-sm mb-1">What is the MOQ for OEM GaN V chargers?</p><p class="text-slate-600 text-sm">500-1,000 units for standard ODM configurations with branding. Custom OEM designs with tooling start at 2,000 units. WOWOHCOOL offers lower MOQ for pilot runs.</p></div>
 <div><p class="font-black text-brandOrange text-sm mb-1">Will GaN prices drop further?</p><p class="text-slate-600 text-sm">Yes. GaN FET prices have been declining 10-15% annually as production scales. Industry analysts project GaN V will reach price parity with GaN III by 2027-2028.</p></div>
+<div><p class="font-black text-brandOrange text-sm mb-1">What is the difference between enhancement-mode and cascode GaN?</p><p class="text-slate-600 text-sm">Enhancement-mode (e-mode) GaN switches natively without a silicon MOSFET companion — used in GaN III and V. Cascode GaN pairs a silicon MOSFET with a depletion-mode GaN HEMT — used in GaN I. E-mode reduces switching losses and PCB complexity but requires tighter gate-drive voltage control.</p></div>
+<div><p class="font-black text-brandOrange text-sm mb-1">Why do charger specs skip GaN II and GaN IV?</p><p class="text-slate-600 text-sm">GaN II and GaN IV exist primarily in research and high-voltage industrial applications (defense, satellite power, LiDAR). They use different substrate architectures that are cost-prohibitive for consumer chargers and have not entered commercial charger production.</p></div>
+<div><p class="font-black text-brandOrange text-sm mb-1">What GaN FET part numbers should I look for in OEM quotes?</p><p class="text-slate-600 text-sm">For GaN V: Navitas NV6128/NV6169, Innoscience INN700D240A, Infineon CoolGaN G5, or EPC EPC2218. For GaN III: Navitas NV6115 or GaN Systems GS66508T. Always cross-reference the part number against the manufacturer's published datasheet to confirm the generation.</p></div>
+<div><p class="font-black text-brandOrange text-sm mb-1">Does GaN V support all PD 3.1 EPR voltage steps?</p><p class="text-slate-600 text-sm">Yes. GaN V's 5MHz+ switching enables stable transitions across 28V, 36V, and 48V EPR levels, plus PPS with 20mV granularity. GaN III typically caps at 20V PD 3.0 SPR, with some designs reaching 140W but not full EPR.</p></div>
+<div><p class="font-black text-brandOrange text-sm mb-1">When will GaN VI hit the market?</p><p class="text-slate-600 text-sm">Industry roadmaps from Navitas and Innoscience suggest GaN VI engineering samples in 2027-2028, targeting 7-8MHz switching and integrated digital control. Commercial volume for OEM charger production is expected around 2029.</p></div>
 </div></section>
-</section><section class="mb-12"><h2 class="text-2xl font-black text-brandBlue uppercase italic mb-4">Conclusion</h2>
+</section><section class="mb-8 bg-white rounded-2xl border border-slate-200 shadow-sm p-6 md:p-8"><h2 class="text-2xl font-black text-brandBlue uppercase italic mb-4">Conclusion</h2>
 <p class="text-slate-600 leading-relaxed mb-4">Choosing the right GaN generation is a strategic decision that impacts your product's size, thermal performance, power capability, and market positioning. GaN I is largely retired for new designs. GaN III serves the mid-range well with a balanced cost-performance profile. GaN V delivers the performance and marketing advantages needed for premium product lines in 2026 and beyond.</p>
 <p class="text-slate-600 leading-relaxed mb-4">The cost gap between generations continues to narrow. Starting with GaN V now positions your brand for the next 2-3 product cycles rather than playing catch-up in a market where "GaN" alone is no longer a differentiator. The generation is what sets you apart.</p>
 <p class="text-slate-600 leading-relaxed mb-4"><strong>Ready to discuss your next charger project?</strong> WOWOHCOOL manufactures genuine GaN V chargers with PD 3.1 up to 240W. MOQ starting at 500 units. <a href="/contact" class="text-brandOrange hover:underline">Request OEM pricing and thermal test data</a>.</p>
+</section>
 
  <!-- CTA -->
  <section class="relative bg-gradient-to-br from-brandBlue to-slate-800 rounded-3xl p-10 text-center mb-16 overflow-hidden">
