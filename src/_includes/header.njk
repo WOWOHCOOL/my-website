@@ -24,9 +24,23 @@
  <a href="{{ h.navHrefs.products }}" class="nav-link{% if navActive === 'products' %} active text-brandBlue{% endif %} hover:text-brandBlue transition flex items-center gap-1">
  {{ h.navProducts }} {{ iconChevronDown("text-[11px] transition-transform group-hover:rotate-180") }}
  </a>
- <div class="dropdown-content absolute top-20 left-1/2 -translate-x-1/2 w-52 bg-white shadow-2xl rounded-2xl border border-slate-50 overflow-hidden py-2">
+ <div class="dropdown-content absolute top-20 left-1/2 -translate-x-1/2 w-56 bg-white shadow-2xl rounded-2xl border border-slate-50 overflow-visible py-2">
  {% for p in h.productDropdownLinks %}
+ {% if p.subItems %}
+ <div class="sub-parent group relative">
+  <a href="{{ p.href }}" class="flex items-center justify-between px-6 py-3 text-slate-600 hover:bg-slate-50 hover:text-brandOrange transition{% if not loop.last %} border-b border-slate-50/50{% endif %}">
+  {{ p.label }}
+  <span class="sub-arrow text-[10px] font-black">&rarr;</span>
+  </a>
+  <div class="sub-dropdown">
+  {% for s in p.subItems %}
+  <a href="{{ s.href }}">{{ s.label }}</a>
+  {% endfor %}
+  </div>
+ </div>
+ {% else %}
  <a href="{{ p.href }}" class="block px-6 py-3 text-slate-600 hover:bg-slate-50 hover:text-brandOrange transition{% if not loop.last %} border-b border-slate-50/50{% endif %}">{{ p.label }}</a>
+ {% endif %}
  {% endfor %}
  </div>
  </div>

@@ -22,9 +22,20 @@
  <button data-action="toggle-mobile-submenu" class="w-full flex justify-between items-center py-2 hover:text-brandOrange transition border-b border-white/5 uppercase outline-none" aria-label="{{ m.productsSubmenuAriaLabel }}">
  {{ m.productsLabel }} {{ iconChevronDown("submenu-icon text-xs transition-transform duration-300") }}
  </button>
- <div id="mobile-submenu" class="submenu-slide pl-4 space-y-4 border-l-2 border-brandOrange/30 ml-1" aria-hidden="true">
+ <div id="mobile-submenu" class="submenu-slide pl-4 space-y-3 border-l-2 border-brandOrange/30 ml-1" aria-hidden="true">
  {% for p in m.productLinks %}
+ {% if p.subItems %}
+ <div class="space-y-2">
+  <a href="{{ p.href }}" tabindex="-1" data-action="close-mobile" class="block text-sm text-white font-bold hover:text-brandOrange py-1">→ {{ p.label }}</a>
+  <div class="pl-4 space-y-2 border-l border-white/10">
+  {% for s in p.subItems %}
+  <a href="{{ s.href }}" tabindex="-1" data-action="close-mobile" class="block text-xs text-white/60 hover:text-brandOrange py-1">· {{ s.label }}</a>
+  {% endfor %}
+  </div>
+ </div>
+ {% else %}
  <a href="{{ p.href }}" tabindex="-1" data-action="close-mobile" class="block text-xs text-white/70 hover:text-brandOrange py-2">→ {{ p.label }}</a>
+ {% endif %}
  {% endfor %}
  </div>
  </div>
