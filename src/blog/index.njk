@@ -1,5 +1,5 @@
 ---
-title: "WOWOHCOOL Blog | China Manufacturing & Sourcing Insights"
+title: "Charger Manufacturing & OEM Sourcing Blog | WOWOHCOOL"
 description: "Expert guides on wireless charger manufacturing, OEM/ODM sourcing, and factory verification. Since 2013, helping global brands source quality charging solutions."
 canonical: "/blog/"
 ogImage: "/image/factory/wowohcool-smart-charging-solutions.webp"
@@ -51,7 +51,7 @@ esPath: "blog/"
  {
  "@type": "CollectionPage",
  "@id": "https://www.wowohcool.com/blog",
- "name": "WOWOHCOOL Blog | China Manufacturing & Sourcing Insights",
+ "name": "Charger Manufacturing & OEM Sourcing Blog | WOWOHCOOL",
  "description": "Expert guides on wireless charger manufacturing, OEM/ODM sourcing, and factory verification.",
  "url": "https://www.wowohcool.com/blog",
  "publisher": { "@id": "https://www.wowohcool.com/#organization" },
@@ -65,12 +65,129 @@ esPath: "blog/"
  "mainEntity": {
  "@type": "ItemList",
  "name": "Blog Articles",
- "numberOfItems": 22
+ "numberOfItems": 27
  }
  }
  ]
  }
 </script>
+
+<script>
+(function() {
+  // ---- Filter Buttons ----
+  var filterBtns = document.querySelectorAll(".filter-btn");
+  var searchGroups = document.querySelectorAll(".search-group");
+  var allArticlesLinks = document.querySelectorAll(".divide-y a[href]");
+
+  if (filterBtns.length && searchGroups.length) {
+    filterBtns.forEach(function(btn) {
+      btn.addEventListener("click", function() {
+        var filter = this.getAttribute("data-filter");
+
+        // Update button styles
+        filterBtns.forEach(function(b) {
+          b.classList.remove("bg-brandOrange", "text-white", "shadow-md", "shadow-brandOrange/20");
+          b.classList.add("bg-slate-100", "text-slate-600");
+        });
+        this.classList.add("bg-brandOrange", "text-white", "shadow-md", "shadow-brandOrange/20");
+        this.classList.remove("bg-slate-100", "text-slate-600");
+
+        // Filter cards
+        searchGroups.forEach(function(card) {
+          if (filter === "all" || card.getAttribute("data-category") === filter) {
+            card.style.display = "";
+            var article = card.closest("article");
+            if (article) article.style.display = "";
+          } else {
+            card.style.display = "none";
+            var article = card.closest("article");
+            if (article) article.style.display = "none";
+          }
+        });
+
+        // Hide empty sections
+        document.querySelectorAll("section.mb-16").forEach(function(section) {
+          var cards = section.querySelectorAll(".search-group");
+          if (cards.length === 0) return;
+          var allHidden = true;
+          cards.forEach(function(c) { if (c.style.display !== "none") allHidden = false; });
+          section.style.display = allHidden ? "none" : "";
+        });
+      });
+    });
+  }
+
+  // ---- Search ----
+  var searchInput = document.getElementById("blog-search");
+  if (searchInput) {
+    searchInput.addEventListener("input", function() {
+      var query = this.value.toLowerCase().trim();
+
+      // Search card grid items
+      searchGroups.forEach(function(card) {
+        var text = (card.textContent || "").toLowerCase();
+        var match = !query || text.indexOf(query) !== -1;
+        card.style.display = match ? "" : "none";
+        var article = card.closest("article");
+        if (article) article.style.display = match ? "" : "none";
+      });
+
+      // Search All Articles list
+      if (allArticlesLinks.length) {
+        allArticlesLinks.forEach(function(link) {
+          var text = (link.textContent || "").toLowerCase();
+          link.style.display = (!query || text.indexOf(query) !== -1) ? "" : "none";
+        });
+      }
+
+      // Show/hide category headers in All Articles list
+      var headers = document.querySelectorAll(".divide-y .bg-brandBlue\/5");
+      if (!headers.length) {
+        headers = document.querySelectorAll(".divide-y [class*='bg-brandBlue']");
+      }
+      headers.forEach(function(header) {
+        if (header.tagName !== "DIV") return;
+        var nextEl = header.nextElementSibling;
+        var hasVisible = false;
+        var current = nextEl;
+        while (current && !(current.tagName === "DIV" && current.className && current.className.indexOf("bg-brandBlue") !== -1)) {
+          if (current.tagName === "A" && current.style.display !== "none") {
+            hasVisible = true;
+            break;
+          }
+          current = current.nextElementSibling;
+        }
+        header.style.display = (!query || hasVisible) ? "" : "none";
+      });
+
+      // Hide empty card sections
+      document.querySelectorAll("section.mb-16").forEach(function(section) {
+        var cards = section.querySelectorAll(".search-group");
+        if (cards.length === 0) return;
+        var anyVisible = false;
+        cards.forEach(function(c) { if (c.style.display !== "none") anyVisible = true; });
+        section.style.display = anyVisible ? "" : "none";
+      });
+    });
+  }
+
+  // ---- Accordion: Toggle All Articles List ----
+  var toggleBtn = document.querySelector("[data-action='toggle-article-list']");
+  if (toggleBtn) {
+    toggleBtn.addEventListener("click", function() {
+      var list = this.nextElementSibling;
+      if (!list) return;
+      var isHidden = list.style.display === "none";
+      list.style.display = isHidden ? "" : "none";
+      var icon = this.querySelector("svg");
+      if (icon) {
+        icon.style.transform = isHidden ? "rotate(180deg)" : "rotate(0deg)";
+      }
+    });
+  }
+})();
+</script>
+
 
 {% endblock %}
 
@@ -89,7 +206,7 @@ esPath: "blog/"
  <div class="absolute bottom-0 right-1/4 w-64 h-64 bg-blue-500 opacity-20 rounded-full blur-3xl translate-x-1/2 translate-y-1/2 hidden md:block"></div>
  </div>
  <span class="inline-block px-4 py-1 bg-brandOrange/10 border border-brandOrange/20 rounded-full text-[11px] font-bold text-brandOrange uppercase tracking-widest mb-4">Industry Insights</span>
- <h1 class="text-4xl lg:text-5xl font-black uppercase italic tracking-tighter mb-4 relative z-10"><span class="whitespace-nowrap"><span class="highlight-line text-brandBlue">WOWOH</span><span class="text-brandOrange">COOL</span></span> <span class="text-brandBlue">Blog</span></h1>
+ <h1 class="text-4xl lg:text-5xl font-black uppercase italic tracking-tighter mb-4 relative z-10"><span class="whitespace-nowrap"><span class="highlight-line text-brandBlue">WOWOH</span><span class="text-brandOrange">COOL</span></span> <span class="text-brandBlue">Charger Manufacturing &amp; OEM Sourcing Blog</span></h1>
  <p class="text-slate-600 text-lg max-w-2xl mx-auto relative z-10 mb-8">Expert insights on wireless charging, China manufacturing, OEM/ODM sourcing, and global trade. Since 2013.</p>
  <div class="mx-auto relative z-10" style="width:92%;max-width:420px;">
  <div class="relative">
@@ -111,7 +228,7 @@ esPath: "blog/"
  <button data-filter="logistics" class="filter-btn px-5 py-2.5 rounded-full text-[11px] font-black tracking-widest transition-all bg-slate-100 text-slate-600 hover:bg-slate-200">Logistics</button>
  </div>
  <!-- Intro -->
- <p class="text-center text-slate-500 text-sm max-w-2xl mx-auto mb-12">WOWOHCOOL's manufacturing blog covers wireless charger OEM/ODM sourcing, GaN technology, Qi2 certification, and China factory verification. Written by our engineering and supply chain team with 10+ years of hands-on manufacturing experience in Shenzhen.</p>
+ <p class="text-center text-slate-500 text-sm max-w-2xl mx-auto mb-12">Actionable guides on charger sourcing, manufacturing, and technology — written by factory engineers with 10+ years on the production floor in Shenzhen. Whether you're evaluating OEM partners, comparing GaN vs silicon, or navigating Qi2 certification, every article is built to help B2B buyers make confident procurement decisions. Since 2013.</p>
 </div>
 <!-- Trust Bar -->
 {% include "trust-bar.njk" %}
@@ -165,16 +282,16 @@ esPath: "blog/"
  </section>
 
  <!-- MARKET TRENDS 2026 -->
- <section class="mb-16"><div class="flex items-center gap-3 mb-6"><div class="section-bar section-bar-orange"></div><h2 class="text-xl md:text-2xl font-black text-brandBlue uppercase italic">Market Trends 2026</h2><span class="px-3 py-1 bg-brandOrange/10 text-brandOrange text-[11px] font-black rounded-full uppercase tracking-wider">Hot</span></div>
+ <section class="mb-16"><div class="flex items-center gap-3 mb-6"><div class="section-bar section-bar-orange"></div><h2 class="text-xl md:text-2xl font-black text-brandBlue uppercase italic">Market Trends 2026</h2><span class="px-3 py-1 bg-brandOrange/10 text-brandOrange text-[11px] font-black rounded-full uppercase tracking-wider">Industry Report</span></div>
  <div class="grid md:grid-cols-1 gap-6">
- <article class="blog-card bg-white rounded-2xl shadow-lg border border-brandOrange/20 overflow-hidden hover:shadow-xl transition-all hover:-translate-y-1 group search-group" data-category="technology"><div class="flex flex-col md:flex-row"><div class="md:w-80 h-56 md:h-auto relative overflow-hidden shrink-0"><img src="/image/factory/wowohcool-smart-charging-solutions.webp" alt="2026 Charging Accessory Market Trends" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" width="800" height="800"><div class="absolute top-3 left-3 z-10"><span class="px-3 py-1 bg-brandOrange text-white text-[11px] font-black rounded-full uppercase shadow-lg">Just Published</span></div></div><div class="p-6 flex flex-col justify-center flex-1"><span class="px-2 py-1 bg-violet-100 text-violet-700 text-[11px] font-black rounded-full uppercase w-fit mb-3">Industry Analysis · Market Trends</span><h3 class="text-xl font-black text-brandBlue uppercase italic mb-2 leading-tight group-hover:text-brandOrange transition-colors">2026 Charging Accessory Market Trends: GaN, Qi2 &amp; Battery Tech</h3><p class="text-slate-500 text-sm mb-4 line-clamp-2">GaN V reaches 35% market share, Qi2 in 60%+ flagship smartphones, semi-solid-state batteries enter mass production. A comprehensive market trends analysis for B2B OEM/ODM buyers.</p><div class="flex items-center justify-between text-xs mt-auto"><span class="text-slate-500">May 20, 2026</span><a href="/blog/charging-accessory-market-trends-2026" class="inline-flex items-center gap-1 text-brandOrange font-black uppercase tracking-wider text-[11px] hover:gap-2">Read <svg class="icon-arrow-right text-[11px]" aria-hidden="true" focusable="false" viewBox="0 0 512 512"><path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-105.4 105.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" fill="currentColor"/></svg></a></div></div></div></article>
+ <article class="blog-card bg-white rounded-2xl shadow-lg border border-brandOrange/20 overflow-hidden hover:shadow-xl transition-all hover:-translate-y-1 group search-group" data-category="technology"><div class="flex flex-col md:flex-row"><div class="md:w-80 h-56 md:h-auto relative overflow-hidden shrink-0"><img src="/image/factory/wowohcool-smart-charging-solutions.webp" alt="2026 Charging Accessory Market Trends" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" width="800" height="800"></div><div class="p-6 flex flex-col justify-center flex-1"><span class="px-2 py-1 bg-violet-100 text-violet-700 text-[11px] font-black rounded-full uppercase w-fit mb-3">Industry Analysis · Market Trends</span><h3 class="text-xl font-black text-brandBlue uppercase italic mb-2 leading-tight group-hover:text-brandOrange transition-colors">2026 Charging Accessory Market Trends: GaN, Qi2 &amp; Battery Tech</h3><p class="text-slate-500 text-sm mb-4 line-clamp-2">GaN V reaches 35% market share, Qi2 in 60%+ flagship smartphones, semi-solid-state batteries enter mass production. A comprehensive market trends analysis for B2B OEM/ODM buyers.</p><div class="flex items-center justify-between text-xs mt-auto"><span class="text-slate-500">May 20, 2026</span><a href="/blog/charging-accessory-market-trends-2026" class="inline-flex items-center gap-1 text-brandOrange font-black uppercase tracking-wider text-[11px] hover:gap-2">Read <svg class="icon-arrow-right text-[11px]" aria-hidden="true" focusable="false" viewBox="0 0 512 512"><path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-105.4 105.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" fill="currentColor"/></svg></a></div></div></div></article>
  </div>
  </section>
 
  <!-- GAN GENERATIONS -->
- <section class="mb-16"><div class="flex items-center gap-3 mb-6"><div class="section-bar section-bar-orange"></div><h2 class="text-xl md:text-2xl font-black text-brandBlue uppercase italic">New: GaN Generations Guide</h2><span class="px-3 py-1 bg-brandOrange/10 text-brandOrange text-[11px] font-black rounded-full uppercase tracking-wider">New</span></div>
+ <section class="mb-16"><div class="flex items-center gap-3 mb-6"><div class="section-bar section-bar-orange"></div><h2 class="text-xl md:text-2xl font-black text-brandBlue uppercase italic">GaN Generations Guide</h2><span class="px-3 py-1 bg-brandOrange/10 text-brandOrange text-[11px] font-black rounded-full uppercase tracking-wider">In-Depth</span></div>
  <div class="grid md:grid-cols-1 gap-6">
- <article class="blog-card bg-white rounded-2xl shadow-lg border border-brandOrange/20 overflow-hidden hover:shadow-xl transition-all hover:-translate-y-1 group search-group" data-category="technology"><div class="flex flex-col md:flex-row"><div class="md:w-80 h-56 md:h-auto relative overflow-hidden shrink-0"><img src="/image/blog/cover-en/gan-generations-guide.webp" alt="GaN I vs III vs V complete generational comparison guide" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" width="800" height="800"><div class="absolute top-3 left-3 z-10"><span class="px-3 py-1 bg-brandOrange text-white text-[11px] font-black rounded-full uppercase shadow-lg">Just Published</span></div></div><div class="p-6 flex flex-col justify-center flex-1"><span class="px-2 py-1 bg-violet-100 text-violet-700 text-[11px] font-black rounded-full uppercase w-fit mb-3">Technology · OEM Guide</span><h3 class="text-xl font-black text-brandBlue uppercase italic mb-2 leading-tight group-hover:text-brandOrange transition-colors">GaN I vs III vs V: The Complete Generational Guide</h3><p class="text-slate-500 text-sm mb-4 line-clamp-2">Compare GaN I, III, and V across size, efficiency, frequency, and OEM cost. Find which GaN generation fits your charger product line.</p><div class="flex items-center justify-between text-xs mt-auto"><span class="text-slate-500"><svg class="icon-calendar mr-1" aria-hidden="true" focusable="false" viewBox="0 0 448 512">
+ <article class="blog-card bg-white rounded-2xl shadow-lg border border-brandOrange/20 overflow-hidden hover:shadow-xl transition-all hover:-translate-y-1 group search-group" data-category="technology"><div class="flex flex-col md:flex-row"><div class="md:w-80 h-56 md:h-auto relative overflow-hidden shrink-0"><img src="/image/blog/cover-en/gan-generations-guide.webp" alt="GaN I vs III vs V complete generational comparison guide" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" width="800" height="800"><div class="absolute top-3 left-3 z-10"><span class="px-3 py-1 bg-brandBlue text-white text-[11px] font-black rounded-full uppercase shadow-lg">Popular Guide</span></div></div><div class="p-6 flex flex-col justify-center flex-1"><span class="px-2 py-1 bg-violet-100 text-violet-700 text-[11px] font-black rounded-full uppercase w-fit mb-3">Technology · OEM Guide</span><h3 class="text-xl font-black text-brandBlue uppercase italic mb-2 leading-tight group-hover:text-brandOrange transition-colors">GaN I vs III vs V: The Complete Generational Guide</h3><p class="text-slate-500 text-sm mb-4 line-clamp-2">Compare GaN I, III, and V across size, efficiency, frequency, and OEM cost. Find which GaN generation fits your charger product line.</p><div class="flex items-center justify-between text-xs mt-auto"><span class="text-slate-500"><svg class="icon-calendar mr-1" aria-hidden="true" focusable="false" viewBox="0 0 448 512">
  <path d="M128 0C110.3 0 96 14.3 96 32l0 32-32 0C28.7 64 0 92.7 0 128l0 48 448 0 0-48c0-35.3-28.7-64-64-64l-32 0 0-32c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 32-128 0 0-32c0-17.7-14.3-32-32-32zM0 224L0 416c0 35.3 28.7 64 64 64l320 0c35.3 0 64-28.7 64-64l0-192-448 0z" fill="currentColor"/>
  </svg>May 14, 2026</span><a href="/blog/gan-generations-guide" class="inline-flex items-center gap-1 text-brandOrange font-black uppercase tracking-wider text-[11px] hover:gap-2">Read <svg class="icon-arrow-right text-[11px]" aria-hidden="true" focusable="false" viewBox="0 0 512 512">
  <path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-105.4 105.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" fill="currentColor"/>
@@ -187,7 +304,7 @@ esPath: "blog/"
  <div class="flex items-center gap-3 mb-6">
  <div class="w-1 h-8 bg-brandBlue rounded-full"></div>
  <h2 class="text-xl md:text-2xl font-black text-brandBlue uppercase italic">All Articles</h2>
- <span class="px-3 py-1 bg-brandBlue/10 text-brandBlue text-[11px] font-black rounded-full uppercase tracking-wider">22 Posts</span>
+ <span class="px-3 py-1 bg-brandBlue/10 text-brandBlue text-[11px] font-black rounded-full uppercase tracking-wider">27 Posts</span>
  </div>
  <div class="bg-white border border-slate-200 rounded-2xl overflow-hidden">
  <button data-action="toggle-article-list" class="w-full px-6 py-4 bg-slate-50 hover:bg-slate-100 transition flex items-center justify-between text-left">
@@ -205,7 +322,13 @@ esPath: "blog/"
  <a href="/blog/quality-control-guide" class="block px-6 py-3 text-sm text-slate-700 hover:bg-brandBlue/5 hover:text-brandOrange transition flex items-center justify-between"><span>Quality Control Guide for Chargers &amp; Power Banks</span><span class="text-[11px] text-slate-400">Apr 27, 2026</span></a>
  <a href="/blog/oem-vs-odm-guide" class="block px-6 py-3 text-sm text-slate-700 hover:bg-brandBlue/5 hover:text-brandOrange transition flex items-center justify-between"><span>OEM vs ODM Guide 2026</span><span class="text-[11px] text-slate-400">Apr 28, 2026</span></a>
 
+ <div class="p-4 bg-brandBlue/5"><span class="text-[11px] font-black text-brandOrange uppercase tracking-widest">Technology Explained</span></div>
+ <a href="/blog/what-is-gan-charger" class="block px-6 py-3 text-sm text-slate-700 hover:bg-brandBlue/5 hover:text-brandOrange transition flex items-center justify-between"><span>What Is a GaN Charger? Complete Guide</span><span class="text-[11px] text-slate-400">Jun 25, 2026</span></a>
+ <a href="/blog/power-bank-mah-explained" class="block px-6 py-3 text-sm text-slate-700 hover:bg-brandBlue/5 hover:text-brandOrange transition flex items-center justify-between"><span>What Does mAh Mean? Power Bank Capacity Explained</span><span class="text-[11px] text-slate-400">Jun 27, 2026</span></a>
+ <a href="/blog/usb-c-pd-3-1-explained" class="block px-6 py-3 text-sm text-slate-700 hover:bg-brandBlue/5 hover:text-brandOrange transition flex items-center justify-between"><span>USB-C PD 3.1 Explained: 240W Power Delivery Guide</span><span class="text-[11px] text-slate-400">Jun 29, 2026</span></a>
+
  <div class="p-4 bg-brandBlue/5"><span class="text-[11px] font-black text-brandOrange uppercase tracking-widest">GaN &amp; Fast Charging</span></div>
+ <a href="/blog/gan-vs-silicon-charger-comparison" class="block px-6 py-3 text-sm text-slate-700 hover:bg-brandBlue/5 hover:text-brandOrange transition flex items-center justify-between"><span>GaN vs Silicon Charger: Complete Comparison 2026</span><span class="text-[11px] text-slate-400">Jul 1, 2026</span></a>
  <a href="/blog/gan-generations-guide" class="block px-6 py-3 text-sm text-slate-700 hover:bg-brandBlue/5 hover:text-brandOrange transition flex items-center justify-between"><span>GaN I vs III vs V: Generational Guide</span><span class="text-[11px] text-slate-400">May 14, 2026</span></a>
  <a href="/blog/gan-chargers-guide" class="block px-6 py-3 text-sm text-slate-700 hover:bg-brandBlue/5 hover:text-brandOrange transition flex items-center justify-between"><span>GaN Chargers: Complete Guide 2026</span><span class="text-[11px] text-slate-400">Apr 6, 2026</span></a>
  <a href="/blog/gan-v-charger-oem-manufacturing" class="block px-6 py-3 text-sm text-slate-700 hover:bg-brandBlue/5 hover:text-brandOrange transition flex items-center justify-between"><span>GaN V Charger OEM Manufacturing Guide</span><span class="text-[11px] text-slate-400">Apr 28, 2026</span></a>
@@ -220,6 +343,9 @@ esPath: "blog/"
  <div class="p-4 bg-brandBlue/5"><span class="text-[11px] font-black text-brandOrange uppercase tracking-widest">Battery &amp; Energy</span></div>
  <a href="/blog/semi-solid-state-power-bank-oem" class="block px-6 py-3 text-sm text-slate-700 hover:bg-brandBlue/5 hover:text-brandOrange transition flex items-center justify-between"><span>Semi-Solid-State Power Bank OEM Guide</span><span class="text-[11px] text-slate-400">Apr 28, 2026</span></a>
 
+
+ <div class="p-4 bg-brandBlue/5"><span class="text-[11px] font-black text-brandOrange uppercase tracking-widest">Buyer's Guides</span></div>
+ <a href="/blog/how-to-choose-power-bank" class="block px-6 py-3 text-sm text-slate-700 hover:bg-brandBlue/5 hover:text-brandOrange transition flex items-center justify-between"><span>How to Choose a Power Bank: Complete Buyer's Guide 2026</span><span class="text-[11px] text-slate-400">Jul 1, 2026</span></a>
  <div class="p-4 bg-brandBlue/5"><span class="text-[11px] font-black text-brandOrange uppercase tracking-widest">Compliance &amp; Safety</span></div>
  <a href="/blog/certifications-us-eu-guide" class="block px-6 py-3 text-sm text-slate-700 hover:bg-brandBlue/5 hover:text-brandOrange transition flex items-center justify-between"><span>US &amp; EU Charger Certification Guide 2026</span><span class="text-[11px] text-slate-400">Apr 14, 2026</span></a>
  <a href="/blog/charger-safety-standards" class="block px-6 py-3 text-sm text-slate-700 hover:bg-brandBlue/5 hover:text-brandOrange transition flex items-center justify-between"><span>Charger Safety Standards &amp; Certifications</span><span class="text-[11px] text-slate-400">Apr 22, 2026</span></a>
@@ -242,6 +368,9 @@ esPath: "blog/"
  <a href="/blog/import-costs-guide" class="group bg-white rounded-xl border border-slate-100 p-5 flex items-center gap-4 hover:shadow-md hover:border-brandOrange/30 transition-all"><div class="w-10 h-10 bg-brandOrange/10 rounded-xl flex items-center justify-center shrink-0"><svg class="icon-calculator text-brandOrange" aria-hidden="true" focusable="false" viewBox="0 0 384 512">
  <path d="M64 0C28.7 0 0 28.7 0 64L0 448c0 35.3 28.7 64 64 64l256 0c35.3 0 64-28.7 64-64l0-384c0-35.3-28.7-64-64-64L64 0zM96 64l192 0c17.7 0 32 14.3 32 32l0 32c0 17.7-14.3 32-32 32L96 160c-17.7 0-32-14.3-32-32l0-32c0-17.7 14.3-32 32-32zm16 168a24 24 0 1 1 -48 0 24 24 0 1 1 48 0zm80 24a24 24 0 1 1 0-48 24 24 0 1 1 0 48zm128-24a24 24 0 1 1 -48 0 24 24 0 1 1 48 0zM88 352a24 24 0 1 1 0-48 24 24 0 1 1 0 48zm128-24a24 24 0 1 1 -48 0 24 24 0 1 1 48 0zm80 24a24 24 0 1 1 0-48 24 24 0 1 1 0 48zM64 424c0-13.3 10.7-24 24-24l112 0c13.3 0 24 10.7 24 24s-10.7 24-24 24L88 448c-13.3 0-24-10.7-24-24zm232-24c13.3 0 24 10.7 24 24s-10.7 24-24 24-24-10.7-24-24 10.7-24 24-24z" fill="currentColor"/>
  </svg></div><div class="min-w-0 flex-1"><h4 class="font-black text-brandBlue group-hover:text-brandOrange transition text-xs leading-tight">Import Costs Guide</h4><p class="text-slate-500 text-[11px] mt-0.5">Import · 8 min</p></div></a>
+ <a href="/blog/what-is-gan-charger" class="group bg-white rounded-xl border border-slate-100 p-5 flex items-center gap-4 hover:shadow-md hover:border-brandOrange/30 transition-all"><div class="w-10 h-10 bg-blue-100 rounded-xl flex items-center justify-center shrink-0"><svg class="icon-bolt text-blue-600" aria-hidden="true" focusable="false" viewBox="0 0 448 512"><path d="M338.8-9.9c11.9 8.6 16.3 24.2 10.9 37.8L271.3 224 416 224c13.5 0 25.5 8.4 30.1 21.1s.7 26.9-9.6 35.5l-288 240c-11.3 9.4-27.4 9.9-39.3 1.3s-16.3-24.2-10.9-37.8L176.7 288 32 288c-13.5 0-25.5-8.4-30.1-21.1s-.7-26.9 9.6-35.5l288-240c11.3-9.4 27.4-9.9 39.3-1.3z" fill="currentColor"/></svg></div><div class="min-w-0 flex-1"><h4 class="font-black text-brandBlue group-hover:text-brandOrange transition text-xs leading-tight">What Is a GaN Charger?</h4><p class="text-slate-500 text-[11px] mt-0.5">Technology · 7 min</p></div></a>
+ <a href="/blog/gan-vs-silicon-charger-comparison" class="group bg-white rounded-xl border border-slate-100 p-5 flex items-center gap-4 hover:shadow-md hover:border-brandOrange/30 transition-all"><div class="w-10 h-10 bg-purple-100 rounded-xl flex items-center justify-center shrink-0"><svg class="icon-code-compare text-purple-600" aria-hidden="true" focusable="false" viewBox="0 0 512 512"><path d="M448 64c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 307.2L328.4 317c-19.2-8.4-42-2.7-54.3 13.6s-14 40-2.8 56.5l96 128c11.2 14.9 30.8 19.3 46.4 10.7s25.4-27.3 25.4-46l0-43.8 9.4 9.4c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-48-48c-3.1-3.1-6.9-5.2-10.9-6.3c-3.1-.8-6.3-1.1-9.5-.7L448 380.3 448 64zM130.6 140.6c12.5-12.5 32.8-12.5 45.3 0s12.5 32.8 0 45.3l-48 48c-3.1 3.1-6.9 5.2-10.9 6.3c-3.1 .8-6.3 1.1-9.5 .7L64 243.8 64 448c0 17.7-14.3 32-32 32s-32-14.3-32-32L0 140.8l0-43.8C0 78.4 9.8 59.8 25.4 51.2s35.2-4.3 46.4 10.7l96 128c11.2 14.9 9.8 35.1-2.8 49.9s-35.1 20.9-50.5 13.6L64 231.3 64 128l43.6 54.2 23-41.6z" fill="currentColor"/></svg></div><div class="min-w-0 flex-1"><h4 class="font-black text-brandBlue group-hover:text-brandOrange transition text-xs leading-tight">GaN vs Silicon Charger</h4><p class="text-slate-500 text-[11px] mt-0.5">Comparison · 7 min</p></div></a>
+ <a href="/blog/how-to-choose-power-bank" class="group bg-white rounded-xl border border-slate-100 p-5 flex items-center gap-4 hover:shadow-md hover:border-brandOrange/30 transition-all"><div class="w-10 h-10 bg-amber-100 rounded-xl flex items-center justify-center shrink-0"><svg class="icon-battery-full text-amber-600" aria-hidden="true" focusable="false" viewBox="0 0 576 512"><path d="M464 80c26.5 0 48 21.5 48 48l0 32 32 0c17.7 0 32 14.3 32 32l0 128c0 17.7-14.3 32-32 32l-32 0 0 32c0 26.5-21.5 48-48 48L48 432c-26.5 0-48-21.5-48-48L0 128c0-26.5 21.5-48 48-48l416 0zM48 368l416 0c8.8 0 16-7.2 16-16l0-192c0-8.8-7.2-16-16-16L48 144c-8.8 0-16 7.2-16 16l0 192c0 8.8 7.2 16 16 16zM80 320l0-128 352 0 0 128L80 320z" fill="currentColor"/></svg></div><div class="min-w-0 flex-1"><h4 class="font-black text-brandBlue group-hover:text-brandOrange transition text-xs leading-tight">Power Bank Buyer's Guide</h4><p class="text-slate-500 text-[11px] mt-0.5">Buyer's Guide · 8 min</p></div></a>
  <a href="/blog/car-charger-guide" class="group bg-white rounded-xl border border-slate-100 p-5 flex items-center gap-4 hover:shadow-md hover:border-brandOrange/30 transition-all"><div class="w-10 h-10 bg-slate-100 rounded-xl flex items-center justify-center shrink-0"><svg class="icon-car text-slate-600" aria-hidden="true" focusable="false" viewBox="0 0 512 512">
  <path d="M135.2 117.4l-26.1 74.6 293.8 0-26.1-74.6C372.3 104.6 360.2 96 346.6 96L165.4 96c-13.6 0-25.7 8.6-30.2 21.4zM39.6 196.8L74.8 96.3C88.3 57.8 124.6 32 165.4 32l181.2 0c40.8 0 77.1 25.8 90.6 64.3l35.2 100.5c23.2 9.6 39.6 32.5 39.6 59.2l0 192c0 17.7-14.3 32-32 32l-32 0c-17.7 0-32-14.3-32-32l0-32-320 0 0 32c0 17.7-14.3 32-32 32l-32 0c-17.7 0-32-14.3-32-32L0 256c0-26.7 16.4-49.6 39.6-59.2zM128 304a32 32 0 1 0 -64 0 32 32 0 1 0 64 0zm288 32a32 32 0 1 0 0-64 32 32 0 1 0 0 64z" fill="currentColor"/>
  </svg></div><div class="min-w-0 flex-1"><h4 class="font-black text-brandBlue group-hover:text-brandOrange transition text-xs leading-tight">Car Charger Guide</h4><p class="text-slate-500 text-[11px] mt-0.5">Product Guide · 7 min</p></div></a>
@@ -282,7 +411,13 @@ esPath: "blog/"
  <a href="/blog/how-to-choose-factory" class="inline-block px-6 py-3 bg-white/15 text-white text-base font-black rounded-2xl hover:bg-brandOrange hover:scale-105 transition-all border border-white/10">China Factory</a>
  <a href="/blog/semi-solid-state-power-bank-oem" class="inline-block px-4 py-2 bg-white/10 text-slate-300 text-sm font-bold rounded-xl hover:bg-brandOrange hover:text-white hover:-translate-y-1 transition-all">Battery Tech</a>
  <a href="/blog/import-costs-guide" class="inline-block px-3 py-1.5 bg-white/10 text-slate-300 text-xs rounded-lg hover:bg-brandOrange hover:text-white hover:scale-105 transition-all">Duty & Tax</a>
- <!-- HOT KEYWORDS -->
+ 
+	 <a href="/blog/what-is-gan-charger" class="inline-block px-4 py-2 bg-white/20 text-white text-xs font-bold rounded-full hover:bg-brandOrange hover:scale-105 transition-all">What Is GaN</a>
+	 <a href="/blog/gan-vs-silicon-charger-comparison" class="inline-block px-3 py-1.5 bg-white/10 text-slate-300 text-xs rounded-lg hover:bg-brandOrange hover:text-white hover:scale-105 transition-all">GaN vs Silicon</a>
+	 <a href="/blog/how-to-choose-power-bank" class="inline-block px-5 py-2.5 bg-brandOrange/20 text-brandOrange text-sm font-black rounded-xl hover:bg-brandOrange hover:text-white hover:-translate-y-1 transition-all">Power Bank Guide</a>
+	 <a href="/blog/power-bank-mah-explained" class="inline-block px-4 py-2 bg-white/20 text-white text-xs font-bold rounded-full hover:bg-brandOrange hover:scale-105 transition-all">mAh Explained</a>
+	 <a href="/blog/usb-c-pd-3-1-explained" class="inline-block px-3 py-1.5 bg-white/10 text-slate-300 text-xs rounded-lg hover:bg-brandOrange hover:text-white hover:scale-105 transition-all">PD 3.1 Explained</a>
+<!-- HOT KEYWORDS -->
  <a href="/products/power-bank" class="inline-block px-5 py-2.5 bg-brandOrange/20 text-brandOrange text-sm font-black rounded-xl hover:bg-brandOrange hover:text-white hover:-translate-y-1 transition-all">Wholesale Power Bank</a>
  <a href="/service" class="inline-block px-4 py-2 bg-white/20 text-white text-xs font-bold rounded-full hover:bg-brandOrange hover:scale-105 transition-all">Custom Charger Manufacturing</a>
  <a href="/blog/qi2-vs-magsafe-guide" class="inline-block px-6 py-3 bg-white/15 text-white text-base font-black rounded-2xl hover:bg-brandOrange hover:scale-105 transition-all border border-white/10">Qi2 Wireless Charger</a>
@@ -324,4 +459,121 @@ esPath: "blog/"
  <path d="M256 512a256 256 0 1 1 0-512 256 256 0 1 1 0 512zm0-192a32 32 0 1 0 0 64 32 32 0 1 0 0-64zm0-192c-18.2 0-32.7 15.5-31.4 33.7l7.4 104c.9 12.6 11.4 22.3 23.9 22.3 12.6 0 23-9.7 23.9-22.3l7.4-104c1.3-18.2-13.1-33.7-31.4-33.7z" fill="currentColor"/>
  </svg>Something went wrong. Please try again.</div>
  <p class="text-slate-500 text-xs mt-4">No spam. Unsubscribe anytime.</p></div></section>
+<script>
+(function() {
+  // ---- Filter Buttons ----
+  var filterBtns = document.querySelectorAll(".filter-btn");
+  var searchGroups = document.querySelectorAll(".search-group");
+  var allArticlesLinks = document.querySelectorAll(".divide-y a[href]");
+
+  if (filterBtns.length && searchGroups.length) {
+    filterBtns.forEach(function(btn) {
+      btn.addEventListener("click", function() {
+        var filter = this.getAttribute("data-filter");
+
+        // Update button styles
+        filterBtns.forEach(function(b) {
+          b.classList.remove("bg-brandOrange", "text-white", "shadow-md", "shadow-brandOrange/20");
+          b.classList.add("bg-slate-100", "text-slate-600");
+        });
+        this.classList.add("bg-brandOrange", "text-white", "shadow-md", "shadow-brandOrange/20");
+        this.classList.remove("bg-slate-100", "text-slate-600");
+
+        // Filter cards
+        searchGroups.forEach(function(card) {
+          if (filter === "all" || card.getAttribute("data-category") === filter) {
+            card.style.display = "";
+            var article = card.closest("article");
+            if (article) article.style.display = "";
+          } else {
+            card.style.display = "none";
+            var article = card.closest("article");
+            if (article) article.style.display = "none";
+          }
+        });
+
+        // Hide empty sections
+        document.querySelectorAll("section.mb-16").forEach(function(section) {
+          var cards = section.querySelectorAll(".search-group");
+          if (cards.length === 0) return;
+          var allHidden = true;
+          cards.forEach(function(c) { if (c.style.display !== "none") allHidden = false; });
+          section.style.display = allHidden ? "none" : "";
+        });
+      });
+    });
+  }
+
+  // ---- Search ----
+  var searchInput = document.getElementById("blog-search");
+  if (searchInput) {
+    searchInput.addEventListener("input", function() {
+      var query = this.value.toLowerCase().trim();
+
+      // Search card grid items
+      searchGroups.forEach(function(card) {
+        var text = (card.textContent || "").toLowerCase();
+        var match = !query || text.indexOf(query) !== -1;
+        card.style.display = match ? "" : "none";
+        var article = card.closest("article");
+        if (article) article.style.display = match ? "" : "none";
+      });
+
+      // Search All Articles list
+      if (allArticlesLinks.length) {
+        allArticlesLinks.forEach(function(link) {
+          var text = (link.textContent || "").toLowerCase();
+          link.style.display = (!query || text.indexOf(query) !== -1) ? "" : "none";
+        });
+      }
+
+      // Show/hide category headers in All Articles list
+      var headers = document.querySelectorAll(".divide-y .bg-brandBlue\/5");
+      if (!headers.length) {
+        headers = document.querySelectorAll(".divide-y [class*='bg-brandBlue']");
+      }
+      headers.forEach(function(header) {
+        if (header.tagName !== "DIV") return;
+        var nextEl = header.nextElementSibling;
+        var hasVisible = false;
+        var current = nextEl;
+        while (current && !(current.tagName === "DIV" && current.className && current.className.indexOf("bg-brandBlue") !== -1)) {
+          if (current.tagName === "A" && current.style.display !== "none") {
+            hasVisible = true;
+            break;
+          }
+          current = current.nextElementSibling;
+        }
+        header.style.display = (!query || hasVisible) ? "" : "none";
+      });
+
+      // Hide empty card sections
+      document.querySelectorAll("section.mb-16").forEach(function(section) {
+        var cards = section.querySelectorAll(".search-group");
+        if (cards.length === 0) return;
+        var anyVisible = false;
+        cards.forEach(function(c) { if (c.style.display !== "none") anyVisible = true; });
+        section.style.display = anyVisible ? "" : "none";
+      });
+    });
+  }
+
+  // ---- Accordion: Toggle All Articles List ----
+  var toggleBtn = document.querySelector("[data-action='toggle-article-list']");
+  if (toggleBtn) {
+    toggleBtn.addEventListener("click", function() {
+      var list = this.nextElementSibling;
+      if (!list) return;
+      var isHidden = list.style.display === "none";
+      list.style.display = isHidden ? "" : "none";
+      var icon = this.querySelector("svg");
+      if (icon) {
+        icon.style.transform = isHidden ? "rotate(180deg)" : "rotate(0deg)";
+      }
+    });
+  }
+})();
+</script>
+
+
 {% endblock %}

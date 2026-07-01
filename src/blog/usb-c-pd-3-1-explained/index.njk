@@ -1,0 +1,422 @@
+---
+title: "USB-C PD 3.1 Explained: 240W Power Delivery Guide 2026 | WOWOHCOOL"
+description: "USB-C PD 3.1 explained: 240W Extended Power Range, SPR vs EPR, AVS protocol, e-marked cable requirements. Compare PD 3.0 vs 3.1 vs 3.2 and learn what your devices actually need."
+date: 2026-07-01
+author: "Nina Nico"
+articleSection: GaN & Fast Charging
+articleTags: [USB-C, PD 3.1, Power Delivery, Fast Charging, EPR, Guide]
+canonical: "/blog/usb-c-pd-3-1-explained/"
+ogImage: "/image/blog/cover-en/usb-c-pd-3-1-explained.webp"
+navActive: "blog"
+---
+{% extends "layout.njk" %}
+
+{% block head_schema %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.wowohcool.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://www.wowohcool.com/blog/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "USB-C PD 3.1 Explained",
+          "item": "https://www.wowohcool.com/blog/usb-c-pd-3-1-explained"
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "USB-C PD 3.1 Explained: The Complete 240W Power Delivery Guide 2026",
+      "author": {
+        "@type": "Person",
+        "name": "Nina Nico",
+        "jobTitle": "Sales Manager — GaN & Car Charger OEM/ODM",
+        "knowsAbout": ["GaN Charger Manufacturing", "Qi2 Wireless Charging", "OEM/ODM Sourcing", "Supply Chain Management"],
+        "sameAs": ["https://www.linkedin.com/in/nico-power-bank-chargers/"]
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "WOWOHCOOL (Dong Yi Technology Co., Ltd)",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.wowohcool.com/image/wowohcool-logo-optimized.webp"
+        }
+      },
+      "datePublished": "2026-07-01",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://www.wowohcool.com/blog/usb-c-pd-3-1-explained"
+      },
+      "dateModified": "2026-07-01",
+      "wordCount": 2300,
+      "timeRequired": "PT6M",
+      "image": "https://www.wowohcool.com/image/blog/cover-en/usb-c-pd-3-1-explained.webp",
+      "description": "USB-C Power Delivery 3.1 explained: 240W EPR, SPR vs EPR, AVS protocol, e-marked cables, and what's new in PD 3.2. Complete 2026 guide for consumers and OEM buyers.",
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": ["article"]
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is USB-C PD 3.1?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "USB Power Delivery 3.1 (PD 3.1) is a major revision of the USB charging protocol introduced by the USB-IF in 2021. Its defining feature: it doubles the maximum power over a single USB-C cable from 100W to 240W by adding Extended Power Range (EPR) with new 28V, 36V, and 48V voltage levels. This enables charging gaming laptops, workstations, monitors, and even e-bikes through the same USB-C connector used for phones."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between PD 3.0 and PD 3.1?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "PD 3.0 supports up to 100W (20V × 5A) using Standard Power Range (SPR). PD 3.1 adds Extended Power Range (EPR) with new voltage levels at 28V, 36V, and 48V, enabling up to 240W (48V × 5A). PD 3.1 also introduces AVS (Adjustable Voltage Supply) for finer voltage control between 15V-48V. PD 3.1 chargers and cables are backward compatible with PD 3.0 devices, but EPR requires both an EPR-rated charger and EPR-rated cable."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need special cables for PD 3.1 240W charging?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. For PD 3.1 above 100W, you need EPR-rated USB-C cables with an Extended Power Range e-marker chip. Standard 100W (5A) cables do NOT support 240W. For chargers up to 60W, any USB-C cable works. For 65-100W, you need a 5A e-marked cable. For 140-240W, an EPR-rated cable is mandatory. Without the correct cable, the charger automatically limits output to 60W (3A) regardless of its rated capability."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What devices support PD 3.1 in 2026?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "As of 2026, PD 3.1 EPR (100W+) is supported by: MacBook Pro 16-inch (140W), select Dell XPS and ThinkPad workstation models, high-end GaN desktop chargers, and laptop power banks with 100W+ output. Most phones, tablets, and ultrabooks use PD 3.0 SPR (up to 100W) which is fully backward compatible with PD 3.1 chargers. The EU Common Charger Directive (Q2 2026) is accelerating PD 3.1 adoption across all new laptop models."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between PPS and AVS?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "PPS (Programmable Power Supply) is a PD 3.0 feature that adjusts voltage in 20mV steps from 3.3V to 21V — ideal for smartphone fast charging (Samsung Super Fast Charging, iPhone fast charge). AVS (Adjustable Voltage Supply) is a PD 3.1 feature that adjusts voltage in 100mV steps from 15V to 48V — designed for laptops, monitors, and high-power devices. PPS handles precision at lower voltages; AVS handles range at higher voltages. Many PD 3.1 chargers support both."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+{% endblock %}
+
+{% block content %}
+<article class="py-12">
+        <div class="relative pt-24 md:pt-28 pb-12 lg:pt-28 lg:pb-16 bg-gradient-to-b from-slate-50 to-white overflow-hidden">
+            <div class="absolute top-0 left-1/4 w-64 h-64 bg-brandOrange/10 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-0 right-1/4 w-64 h-64 bg-green-500/10 rounded-full blur-3xl"></div>
+
+            <div class="max-w-4xl mx-auto px-6 relative z-10">
+                <nav class="text-sm text-slate-500 mb-6">
+                    <a href="/" class="hover:text-brandOrange">Home</a>
+                    <span class="mx-2">/</span>
+                    <a href="/blog/" class="hover:text-brandOrange">Blog</a>
+                    <span class="mx-2">/</span>
+                    <span class="text-slate-900">USB-C PD 3.1 Explained</span>
+                </nav>
+                <span class="inline-block px-4 py-1 bg-brandBlue/10 border border-brandBlue/20 rounded-full text-[11px] font-bold text-brandBlue uppercase tracking-widest mb-4">Technology Explained</span>
+                <h1 class="text-3xl lg:text-5xl font-black text-brandBlue uppercase italic tracking-tighter mb-6 leading-tight">USB-C PD 3.1 Explained: The 240W Power Delivery Guide</h1>
+
+                <div class="flex flex-wrap items-center gap-6 text-sm text-slate-500 pb-8 border-b border-slate-200">
+                    <span><svg class="icon-calendar mr-2" aria-hidden="true" focusable="false" viewBox="0 0 448 512"><path d="M128 0C110.3 0 96 14.3 96 32l0 32-32 0C28.7 64 0 92.7 0 128l0 48 448 0 0-48c0-35.3-28.7-64-64-64l-32 0 0-32c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 32-128 0 0-32c0-17.7-14.3-32-32-32zM0 224L0 416c0 35.3 28.7 64 64 64l320 0c35.3 0 64-28.7 64-64l0-192-448 0z" fill="currentColor"/></svg><time datetime="2026-07-01">Jul 1, 2026</time></span>
+                    <span><svg class="icon-clock mr-2" aria-hidden="true" focusable="false" viewBox="0 0 512 512"><path d="M256 0a256 256 0 1 1 0 512 256 256 0 1 1 0-512zM232 120l0 136c0 8 4 15.5 10.7 20l96 64c11 7.4 25.9 4.4 33.3-6.7s4.4-25.9-6.7-33.3L280 243.2 280 120c0-13.3-10.7-24-24-24s-24 10.7-24 24z" fill="currentColor"/></svg>6 min read</span>
+                <span><svg class="icon-user mr-2" aria-hidden="true" focusable="false" viewBox="0 0 448 512"><path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512l388.6 0c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304l-91.4 0z" fill="currentColor"/></svg>Nina Nico</span>
+                </div>
+
+        <!-- Quick Answer -->
+                <div class="bg-brandBlue/5 border-l-4 border-brandOrange p-5 rounded-r-xl mb-4">
+                    <p class="text-[11px] font-black text-brandOrange uppercase tracking-widest mb-1">QUICK ANSWER</p>
+                    <p class="text-slate-700 text-sm"><strong>What is USB-C PD 3.1?</strong> USB Power Delivery 3.1 is the latest major revision of the USB-C charging standard. Its headline feature: <strong>doubling maximum power from 100W to 240W</strong> by adding Extended Power Range (EPR) with 28V, 36V, and 48V voltage levels. This means a single USB-C cable can now charge everything from earbuds to gaming laptops. PD 3.1 is backward compatible — your existing PD 3.0 devices work fine with PD 3.1 chargers, but to access above 100W you need both an <strong>EPR-rated charger</strong> and an <strong>EPR-rated cable</strong>.</p>
+                </div>
+                </div>
+        </div>
+
+        <div class="max-w-4xl mx-auto px-6 mb-16">
+        <img src="/image/blog/cover-en/usb-c-pd-3-1-explained.webp"
+        alt="USB-C PD 3.1 explained - 240W Power Delivery with Extended Power Range SPR vs EPR comparison"
+        title="USB-C PD 3.1 Explained — 240W Power Delivery Complete Guide"
+        width="2240" height="1260"
+        loading="eager"
+        decoding="async"
+        class="w-full rounded-3xl shadow-xl"
+        fetchpriority="high">
+        </div>
+
+        <div class="max-w-4xl mx-auto px-6">
+
+                <div class="bg-brandBlue rounded-2xl p-8 text-white mb-12">
+                    <h2 class="text-lg font-black uppercase italic mb-6">Table of Contents</h2>
+                    <nav class="text-sm space-y-2">
+                        <a href="#comparison" class="block hover:text-brandOrange transition">1. PD 3.0 vs PD 3.1 vs PD 3.2: Quick Comparison</a>
+                        <a href="#spr-epr" class="block hover:text-brandOrange transition">2. SPR vs EPR: The Two Power Ranges</a>
+                        <a href="#voltage" class="block hover:text-brandOrange transition">3. Voltage Levels and What They Power</a>
+                        <a href="#cables" class="block hover:text-brandOrange transition">4. Cable Requirements: E-Marker Explained</a>
+                        <a href="#pps-avs" class="block hover:text-brandOrange transition">5. PPS vs AVS: Two Kinds of Smart Voltage</a>
+                        <a href="#what-needs" class="block hover:text-brandOrange transition">6. What Do Your Devices Actually Need?</a>
+                    </nav>
+                </div>
+
+                <section id="comparison" class="mb-16">
+                    <div class="bg-slate-50 rounded-xl p-6">
+                    <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-6">1. PD 3.0 vs PD 3.1 vs PD 3.2: Quick Comparison</h2>
+                    <div class="overflow-x-auto">
+                        <table class="w-full border border-slate-200 rounded-xl">
+                            <thead class="bg-brandBlue text-white">
+                                <tr>
+                                    <th class="text-left p-3 font-black uppercase text-xs">Feature</th>
+                                    <th class="text-center p-3 font-black uppercase text-xs">PD 3.0</th>
+                                    <th class="text-center p-3 font-black uppercase text-xs">PD 3.1</th>
+                                    <th class="text-center p-3 font-black uppercase text-xs">PD 3.2</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-t border-slate-200"><td class="p-3 font-bold text-sm">Max Power</td><td class="p-3 text-center">100W</td><td class="p-3 text-center text-brandBlue font-bold">240W</td><td class="p-3 text-center">240W (same)</td></tr>
+                                <tr class="border-t border-slate-200"><td class="p-3 font-bold text-sm">Voltage Levels</td><td class="p-3 text-center">5V, 9V, 15V, 20V</td><td class="p-3 text-center text-brandBlue font-bold">+28V, 36V, 48V</td><td class="p-3 text-center">Same as 3.1</td></tr>
+                                <tr class="border-t border-slate-200"><td class="p-3 font-bold text-sm">Power Ranges</td><td class="p-3 text-center">SPR only</td><td class="p-3 text-center text-brandBlue font-bold">SPR + EPR</td><td class="p-3 text-center">Same</td></tr>
+                                <tr class="border-t border-slate-200"><td class="p-3 font-bold text-sm">Adjustable Voltage</td><td class="p-3 text-center">PPS (3.3-21V, 20mV steps)</td><td class="p-3 text-center text-brandBlue font-bold">PPS + AVS (15-48V)</td><td class="p-3 text-center">AVS refined</td></tr>
+                                <tr><td class="p-3 font-bold text-sm">What It Means</td><td class="p-3 text-center text-slate-600 text-sm">Phones, tablets, ultrabooks</td><td class="p-3 text-center text-slate-600 text-sm">+ Gaming laptops, workstations, monitors</td><td class="p-3 text-center text-slate-600 text-sm">Polished version of 3.1</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="text-slate-600 mt-4"><strong>PD 3.2 note:</strong> PD 3.2 does NOT increase power beyond 240W. It's a protocol refinement that standardizes AVS behavior, improves charger-device negotiation, and fixes edge cases discovered in early PD 3.1 implementations. Think of it as PD 3.1 "polished and production-hardened."</p>
+                    </div>
+                </section>
+
+                <section id="spr-epr" class="mb-16">
+                    <div class="bg-slate-50 rounded-xl p-6">
+                    <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-6">2. SPR vs EPR: The Two Power Ranges</h2>
+                    <p class="text-slate-600 mb-4">PD 3.1's key innovation is splitting power delivery into two distinct ranges:</p>
+                    <div class="grid md:grid-cols-2 gap-6 mb-6">
+                        <div class="bg-white rounded-xl p-6 border-t-4 border-brandBlue">
+                            <h3 class="font-black text-brandBlue uppercase mb-3">SPR — Standard Power Range</h3>
+                            <p class="text-slate-600 text-sm mb-2"><strong>Up to 100W</strong> (20V × 5A)</p>
+                            <p class="text-slate-600 text-sm mb-2">Uses the familiar 5V/9V/15V/20V levels from PD 3.0. Fully backward compatible — every PD 3.1 charger supports SPR. Covers phones, tablets, and most ultrabooks.</p>
+                            <p class="text-slate-500 text-xs">✅ Standard USB-C cables work (up to 60W)<br>✅ 5A e-marked cables for 65-100W</p>
+                        </div>
+                        <div class="bg-white rounded-xl p-6 border-t-4 border-brandOrange">
+                            <h3 class="font-black text-brandOrange uppercase mb-3">EPR — Extended Power Range</h3>
+                            <p class="text-slate-600 text-sm mb-2"><strong>100W to 240W</strong> (28V/36V/48V × 5A)</p>
+                            <p class="text-slate-600 text-sm mb-2">The new territory unlocked by PD 3.1. Enables laptop charging at full speed, portable monitor power, and emerging use cases like e-bike and power tool charging over USB-C.</p>
+                            <p class="text-slate-500 text-xs">⚠️ Requires EPR-rated charger<br>⚠️ Requires EPR-rated cable with EPR e-marker</p>
+                        </div>
+                    </div>
+                    <p class="text-slate-600">The practical takeaway: <strong>SPR handles everything most people need today. EPR is for laptops above 100W and future devices.</strong> If your most power-hungry device is a MacBook Air (30-45W) or iPad Pro (20-30W), you may never use EPR — and that's fine. PD 3.1 chargers work perfectly at SPR levels with standard cables.</p>
+                    </div>
+                </section>
+
+                <section id="voltage" class="mb-16">
+                    <div class="bg-slate-50 rounded-xl p-6">
+                    <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-6">3. Voltage Levels and What They Power</h2>
+                    <div class="overflow-x-auto">
+                        <table class="w-full border border-slate-200 rounded-xl">
+                            <thead class="bg-brandBlue text-white">
+                                <tr>
+                                    <th class="text-left p-3 font-black uppercase text-xs">Voltage</th>
+                                    <th class="text-center p-3 font-black uppercase text-xs">Max Power (at 5A)</th>
+                                    <th class="text-left p-3 font-black uppercase text-xs">Typical Devices</th>
+                                    <th class="text-center p-3 font-black uppercase text-xs">Range</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-t border-slate-200"><td class="p-3 font-bold">5V</td><td class="p-3 text-center">25W</td><td class="p-3 text-slate-600 text-sm">Earbuds, smartwatch, basic phone charging</td><td class="p-3 text-center"><span class="px-2 py-1 bg-slate-100 text-slate-600 text-xs font-black rounded-full">SPR</span></td></tr>
+                                <tr class="border-t border-slate-200"><td class="p-3 font-bold">9V</td><td class="p-3 text-center">45W</td><td class="p-3 text-slate-600 text-sm">Standard fast charging for smartphones</td><td class="p-3 text-center"><span class="px-2 py-1 bg-slate-100 text-slate-600 text-xs font-black rounded-full">SPR</span></td></tr>
+                                <tr class="border-t border-slate-200"><td class="p-3 font-bold">15V</td><td class="p-3 text-center">75W</td><td class="p-3 text-slate-600 text-sm">Tablets, small ultrabooks, rapid smartphone charging</td><td class="p-3 text-center"><span class="px-2 py-1 bg-slate-100 text-slate-600 text-xs font-black rounded-full">SPR</span></td></tr>
+                                <tr class="border-t border-slate-200"><td class="p-3 font-bold">20V</td><td class="p-3 text-center">100W</td><td class="p-3 text-slate-600 text-sm">Most ultrabooks (MacBook Air, Dell XPS 13), tablets</td><td class="p-3 text-center"><span class="px-2 py-1 bg-slate-100 text-slate-600 text-xs font-black rounded-full">SPR</span></td></tr>
+                                <tr class="border-t border-slate-200"><td class="p-3 font-bold text-brandBlue">28V ★</td><td class="p-3 text-center text-brandBlue font-bold">140W</td><td class="p-3 text-slate-600 text-sm">MacBook Pro 16", gaming laptops, portable monitors</td><td class="p-3 text-center"><span class="px-2 py-1 bg-brandOrange/10 text-brandOrange text-xs font-black rounded-full">EPR</span></td></tr>
+                                <tr class="border-t border-slate-200"><td class="p-3 font-bold text-brandBlue">36V</td><td class="p-3 text-center text-brandBlue font-bold">180W</td><td class="p-3 text-slate-600 text-sm">High-performance workstations, docking stations</td><td class="p-3 text-center"><span class="px-2 py-1 bg-brandOrange/10 text-brandOrange text-xs font-black rounded-full">EPR</span></td></tr>
+                                <tr><td class="p-3 font-bold text-brandBlue">48V</td><td class="p-3 text-center text-brandBlue font-bold">240W</td><td class="p-3 text-slate-600 text-sm">Desktop replacements, e-bikes, power tools, future devices</td><td class="p-3 text-center"><span class="px-2 py-1 bg-brandOrange/10 text-brandOrange text-xs font-black rounded-full">EPR</span></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    </div>
+                </section>
+
+                <section id="cables" class="mb-16">
+                    <div class="bg-slate-50 rounded-xl p-6">
+                    <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-6">4. Cable Requirements: E-Marker Explained</h2>
+                    <p class="text-slate-600 mb-4">Your cable matters as much as your charger. Here's what you need at each power level:</p>
+                    <div class="overflow-x-auto mb-6">
+                        <table class="w-full border border-slate-200 rounded-xl">
+                            <thead class="bg-brandBlue text-white">
+                                <tr>
+                                    <th class="text-left p-3 font-black uppercase text-xs">Cable Type</th>
+                                    <th class="text-center p-3 font-black uppercase text-xs">Max Current</th>
+                                    <th class="text-center p-3 font-black uppercase text-xs">Max Power</th>
+                                    <th class="text-center p-3 font-black uppercase text-xs">E-Marker Chip?</th>
+                                    <th class="text-left p-3 font-black uppercase text-xs">Use Case</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-t border-slate-200"><td class="p-3 font-bold text-sm">Basic USB-C charge cable</td><td class="p-3 text-center">1.5A or 3A</td><td class="p-3 text-center">60W (20V/3A)</td><td class="p-3 text-center">No</td><td class="p-3 text-slate-600 text-sm">Phone charging up to 60W</td></tr>
+                                <tr class="border-t border-slate-200"><td class="p-3 font-bold text-sm">100W rated (5A)</td><td class="p-3 text-center">5A</td><td class="p-3 text-center">100W (20V/5A)</td><td class="p-3 text-center">Yes (standard)</td><td class="p-3 text-slate-600 text-sm">Most laptops up to 100W</td></tr>
+                                <tr><td class="p-3 font-bold text-sm text-brandBlue">EPR rated (240W)</td><td class="p-3 text-center">5A</td><td class="p-3 text-center text-brandBlue font-bold">240W (48V/5A)</td><td class="p-3 text-center">Yes (EPR)</td><td class="p-3 text-slate-600 text-sm">Gaming laptops, workstations 100W+</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="bg-brandBlue/10 border-l-4 border-brandBlue p-5 rounded-r-xl">
+                        <h4 class="font-black text-brandBlue uppercase mb-2">The Bottleneck Rule</h4>
+                        <p class="text-slate-600 text-sm">Your charging speed is limited by the <strong>weakest link</strong> in the chain: charger → cable → device. A 240W PD 3.1 charger with a basic 3A cable delivers only 60W. A 100W charger with an EPR cable still delivers only 100W. All three components must support the target power level. This is the #1 reason people don't get the charging speed they paid for. For full guidance, see our <a href="/blog/usb-c-pd-fast-charging-guide/" class="text-brandBlue hover:underline">USB-C PD Fast Charging Guide</a>.</p>
+                    </div>
+                    </div>
+                </section>
+
+                <section id="pps-avs" class="mb-16">
+                    <div class="bg-slate-50 rounded-xl p-6">
+                    <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-6">5. PPS vs AVS: Two Kinds of Smart Voltage</h2>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="bg-white rounded-xl p-6">
+                            <h3 class="font-black text-brandBlue uppercase mb-3">PPS (PD 3.0+)</h3>
+                            <p class="text-slate-600 text-sm mb-2"><strong>Range:</strong> 3.3V – 21V</p>
+                            <p class="text-slate-600 text-sm mb-2"><strong>Step size:</strong> 20mV (very fine)</p>
+                            <p class="text-slate-600 text-sm"><strong>Best for:</strong> Smartphones. Samsung Super Fast Charging 45W uses PPS. iPhone fast charging uses PPS. The fine 20mV steps allow precise voltage matching for optimal battery health during fast charging.</p>
+                        </div>
+                        <div class="bg-white rounded-xl p-6">
+                            <h3 class="font-black text-brandOrange uppercase mb-3">AVS (PD 3.1+)</h3>
+                            <p class="text-slate-600 text-sm mb-2"><strong>Range:</strong> 15V – 48V</p>
+                            <p class="text-slate-600 text-sm mb-2"><strong>Step size:</strong> 100mV</p>
+                            <p class="text-slate-600 text-sm"><strong>Best for:</strong> Laptops, monitors, high-power devices. AVS trades PPS's ultra-fine granularity for a much wider voltage range. A laptop battery at different charge levels needs different voltages — AVS provides the right voltage across the entire 15-48V range.</p>
+                        </div>
+                    </div>
+                    <p class="text-slate-600 mt-4">These are complementary, not competing. Many PD 3.1 chargers support both: PPS for phones at lower voltages, AVS for laptops at higher voltages.</p>
+                    </div>
+                </section>
+
+                <section id="what-needs" class="mb-16">
+                    <div class="bg-slate-50 rounded-xl p-6">
+                    <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-6">6. What Do Your Devices Actually Need?</h2>
+                    <div class="overflow-x-auto">
+                        <table class="w-full border border-slate-200 rounded-xl">
+                            <thead class="bg-brandBlue text-white">
+                                <tr>
+                                    <th class="text-left p-3 font-black uppercase text-xs">Your Device</th>
+                                    <th class="text-center p-3 font-black uppercase text-xs">Max Charging Speed</th>
+                                    <th class="text-center p-3 font-black uppercase text-xs">Protocol Needed</th>
+                                    <th class="text-center p-3 font-black uppercase text-xs">Cable Type</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-t border-slate-200"><td class="p-3 font-bold text-sm">iPhone 15/16</td><td class="p-3 text-center">~27W</td><td class="p-3 text-center">PD 3.0 + PPS</td><td class="p-3 text-center">Any USB-C</td></tr>
+                                <tr class="border-t border-slate-200"><td class="p-3 font-bold text-sm">Samsung Galaxy S25</td><td class="p-3 text-center">45W</td><td class="p-3 text-center">PD 3.0 + PPS</td><td class="p-3 text-center">5A e-marked</td></tr>
+                                <tr class="border-t border-slate-200"><td class="p-3 font-bold text-sm">MacBook Air M4</td><td class="p-3 text-center">30-45W</td><td class="p-3 text-center">PD 3.0</td><td class="p-3 text-center">Any USB-C</td></tr>
+                                <tr class="border-t border-slate-200"><td class="p-3 font-bold text-sm">MacBook Pro 14"</td><td class="p-3 text-center">67-96W</td><td class="p-3 text-center">PD 3.0 SPR</td><td class="p-3 text-center">5A e-marked</td></tr>
+                                <tr class="border-t border-slate-200"><td class="p-3 font-bold text-sm">MacBook Pro 16"</td><td class="p-3 text-center">140W</td><td class="p-3 text-center text-brandBlue font-bold">PD 3.1 EPR</td><td class="p-3 text-center text-brandBlue font-bold">EPR rated</td></tr>
+                                <tr class="border-t border-slate-200"><td class="p-3 font-bold text-sm">Dell XPS / ThinkPad</td><td class="p-3 text-center">65-100W</td><td class="p-3 text-center">PD 3.0 SPR</td><td class="p-3 text-center">5A e-marked</td></tr>
+                                <tr><td class="p-3 font-bold text-sm">Gaming laptop (RTX 5070+)</td><td class="p-3 text-center">140-240W</td><td class="p-3 text-center text-brandBlue font-bold">PD 3.1 EPR</td><td class="p-3 text-center text-brandBlue font-bold">EPR rated</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="text-slate-600 mt-4"><strong>Bottom line:</strong> For most people in 2026, PD 3.0 with a 5A cable is all you need. PD 3.1 EPR only matters if you own a MacBook Pro 16" or a gaming laptop that charges above 100W via USB-C. Don't pay for 240W capability you won't use — but do buy a charger that supports PPS for optimal smartphone fast charging.</p>
+                    </div>
+                </section>
+
+                <div class="bg-slate-50 rounded-xl p-6 mb-8">
+                    <p class="text-sm text-slate-600"><strong>More resources:</strong> Read our <a href="/blog/what-is-gan-charger/" class="text-brandBlue hover:text-brandOrange font-semibold">What Is a GaN Charger? Complete Guide</a> to understand why GaN + PD 3.1 is the ideal combination, <a href="/blog/gan-vs-silicon-charger-comparison/" class="text-brandBlue hover:text-brandOrange font-semibold">GaN vs Silicon Charger Comparison</a> for technology trade-offs, and <a href="/blog/usb-c-pd-fast-charging-guide/" class="text-brandBlue hover:text-brandOrange font-semibold">USB-C PD Fast Charging Guide</a> for cable recommendations.</p>
+                </div>
+
+            <div class="bg-brandBlue/5 rounded-xl p-6 border border-brandBlue/10 mb-12">
+                <p class="text-[11px] font-black text-brandOrange uppercase tracking-widest mb-2">WOWOHCOOL FACTORY STAT</p>
+                <p class="text-slate-700 text-base leading-relaxed">WOWOHCOOL produces GaN chargers with <strong>PD 3.1 EPR support up to 240W</strong>, paired with <strong>EPR-rated 5A USB-C cables</strong> for guaranteed full-speed charging. All chargers support PPS + AVS for optimal compatibility across phones, tablets, and laptops. OEM/ODM available with custom branding from 20W to 240W. <a href="/products/gan-charger/" class="text-brandOrange hover:underline font-bold">View our GaN charger product line →</a></p>
+            </div>
+
+                <section class="relative bg-gradient-to-br from-brandBlue to-slate-800 rounded-3xl p-10 text-center mb-16 overflow-hidden">
+                    <div class="absolute top-0 right-0 w-64 h-64 bg-brandOrange/20 rounded-full blur-3xl"></div>
+                    <div class="absolute bottom-0 left-0 w-64 h-64 bg-brandBlue-400/20 rounded-full blur-3xl"></div>
+                    <div class="relative z-10">
+                        <h3 class="text-2xl font-black text-white uppercase italic mb-4">Sourcing PD 3.1 GaN Chargers for Your Brand?</h3>
+                        <p class="text-slate-300 mb-8">WOWOHCOOL offers factory-direct OEM chargers with PD 3.1 EPR support, matched EPR cables, and custom branding. MOQ from 500 units.</p>
+                        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                            <a href="/products/gan-charger" class="w-full sm:flex-1 bg-brandOrange text-white px-8 py-4 rounded-xl font-black uppercase text-sm hover:-translate-y-1 transition shadow-lg">View GaN Charger Products</a>
+                            <a href="/contact" class="w-full sm:flex-1 text-center border-2 border-white text-white px-8 py-4 rounded-xl font-black uppercase tracking-widest text-sm hover:bg-white hover:text-brandBlue transition">Get Free Quote</a>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="bg-slate-50 rounded-2xl p-6 md:p-8 mb-12 border border-slate-100">
+                    <div class="flex flex-col sm:flex-row items-start gap-4 sm:gap-6">
+                        <div class="w-20 h-20 rounded-full overflow-hidden flex items-center justify-center border-2 border-brandOrange bg-white shadow-lg shrink-0">
+                            <img src="/image/factory/team-nina.webp" alt="Nina Nico - Supply Chain Expert at WOWOHCOOL" loading="lazy" width="400" height="400" class="w-full h-full object-cover">
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 mb-2 sm:mb-3">
+                                <a href="https://www.linkedin.com/in/nico-power-bank-chargers/" target="_blank" rel="noopener noreferrer" class="font-black text-slate-900 text-lg hover:text-brandOrange transition">Nina Nico</a>
+                                <span class="px-2 py-1 bg-brandOrange/10 text-brandOrange text-[11px] font-black rounded-full uppercase w-fit">Author</span>
+                            </div>
+                            <p class="text-sm text-slate-500 mb-3">Supply Chain Expert · Wireless Charging Specialist</p>
+                            <p class="text-slate-600 text-sm leading-relaxed">Nina Nico is a supply chain management expert with 10+ years experience helping global B2B clients source quality <a href="/products/gan-charger" class="text-brandBlue font-bold hover:text-brandOrange transition">GaN chargers</a> from <a href="/about" class="text-brandBlue font-bold hover:text-brandOrange transition">WOWOHCOOL</a> in Shenzhen, China. She holds a degree in International Trade and is a certified supply chain professional (CSCP).</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="related-articles" class="mb-16">
+                    <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-6">Related Articles</h2>
+                    <div class="grid md:grid-cols-3 lg:grid-cols-3">
+                                <a href="/blog/what-is-gan-charger/" class="bg-slate-50 rounded-xl overflow-hidden hover:shadow-xl transition group">
+                            <div class="h-2 bg-gradient-to-r from-brandBlue to-brandOrange"></div>
+                            <div class="p-6">
+                                <h4 class="font-black text-brandBlue uppercase mb-2 group-hover:text-brandOrange transition">What Is a GaN Charger?</h4>
+                                <p class="text-slate-600 text-sm">Complete guide to Gallium Nitride charging technology.</p>
+                            </div>
+                        </a>                        <a href="/blog/gan-vs-silicon-charger-comparison/" class="bg-slate-50 rounded-xl overflow-hidden hover:shadow-xl transition group">
+                            <div class="h-2 bg-gradient-to-r from-brandOrange to-slate-800"></div>
+                            <div class="p-6">
+                                <h4 class="font-black text-brandBlue uppercase mb-2 group-hover:text-brandOrange transition">GaN vs Silicon Comparison</h4>
+                                <p class="text-slate-600 text-sm">Complete technology comparison with cost analysis.</p>
+                            </div>
+                        </a>                        <a href="/blog/usb-c-pd-fast-charging-guide/" class="bg-slate-50 rounded-xl overflow-hidden hover:shadow-xl transition group">
+                            <div class="h-2 bg-gradient-to-r from-brandOrange to-brandBlue"></div>
+                            <div class="p-6">
+                                <h4 class="font-black text-brandBlue uppercase mb-2 group-hover:text-brandOrange transition">USB-C PD Fast Charging</h4>
+                                <p class="text-slate-600 text-sm">Protocols, cables, and compatibility explained.</p>
+                            </div>
+                        </a>
+                    </div>
+                </section>
+
+                <section class="max-w-4xl mx-auto mb-16">
+                    <h2 class="text-lg font-black text-brandBlue uppercase italic mb-4">Sources &amp; References</h2>
+                    <ul class="text-sm text-slate-600 space-y-2 list-disc pl-5">
+                        <li><a href="https://www.usb.org/document-library/usb-power-delivery" target="_blank" rel="noopener noreferrer" class="text-brandBlue hover:text-brandOrange">USB-IF — USB Power Delivery 3.1 Specification</a></li>
+                        <li><a href="https://www.usb.org/usb-type-c-cable-and-connector-specification" target="_blank" rel="noopener noreferrer" class="text-brandBlue hover:text-brandOrange">USB-IF — USB Type-C Cable and Connector Specification</a></li>
+                        <li><a href="https://eur-lex.europa.eu/eli/dir/2022/2380/oj" target="_blank" rel="noopener noreferrer" class="text-brandBlue hover:text-brandOrange">EU Common Charger Directive (2022/2380/EU)</a></li>
+                        <li><a href="https://www.infineon.com/cms/en/product/power/gan-hemt-gallium-nitride-transistor/" target="_blank" rel="noopener noreferrer" class="text-brandBlue hover:text-brandOrange">Infineon — GaN HEMT Power Transistor Technology for PD 3.1</a></li>
+                    </ul>
+                </section>
+
+            </div>
+        </article>
+
+{%- set ctaLabel = "Start Your Project" %}
+{%- set ctaHeading1 = "Ready to Source" %}
+{%- set ctaHeading2 = "from the Factory?" %}
+{%- set ctaSubtext = "Get a custom quote for OEM/ODM PD 3.1 GaN chargers. Our engineers respond within 4 hours." %}
+{%- set ctaSubject = "Blog Inquiry" %}
+{%- set ctaButton = "Get Free Quote" %}
+{% include "partials/blog-cta.njk" %}
+
+{% endblock %}
