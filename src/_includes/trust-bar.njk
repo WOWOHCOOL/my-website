@@ -1,19 +1,70 @@
-<div class="bg-slate-50 py-8 md:py-10 border-y border-slate-100">
- <div class="max-w-7xl mx-auto px-6">
- <p class="text-[10px] font-black uppercase tracking-[0.3em] text-slate-400 text-center mb-5">Trusted by</p>
- <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
- <div class="py-2">
- <p class="text-[11px] font-black uppercase tracking-widest text-brandBlue">Jacob Jensen</p>
+<!-- ========================================================================
+ TRUST BAR — Certifications + Numbers + Customer Logos (unified)
+ ======================================================================== -->
+<section class="relative bg-slate-50 border-y border-slate-200 overflow-hidden">
+ <div class="max-w-7xl mx-auto px-6 py-12 md:py-16">
+  <!-- Row 1: Cert badges -->
+  <div class="cert-showcase reveal mb-10">
+   {% for cert in i18n.certifications[lang].homepage.items %}
+   <div class="cert-item">
+    <img src="/image/certifications/{{ cert.src }}.svg" alt="{{ cert.alt }}" width="24" height="24" loading="lazy">
+    {{ cert.label }}
+   </div>
+   {% endfor %}
+  </div>
+
+  <!-- Row 2: Animated counters -->
+  <div class="reveal">
+   <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 lg:gap-8 text-center max-w-4xl mx-auto mb-12">
+    <div class="flex flex-col items-center">
+     <div class="text-4xl font-black text-brandBlue counter" data-target="10">0</div>
+     <p class="text-[11px] font-bold text-slate-400 uppercase mt-2">Years Experience</p>
+    </div>
+    <div class="flex flex-col items-center">
+     <div class="text-4xl font-black text-brandOrange counter" data-target="200">0</div>
+     <p class="text-[11px] font-bold text-slate-400 uppercase mt-2">Global Partners</p>
+    </div>
+    <div class="flex flex-col items-center">
+     <div class="text-4xl font-black text-brandBlue counter" data-target="5000">0</div>
+     <p class="text-[11px] font-bold text-slate-400 uppercase mt-2">Factory (m²)</p>
+    </div>
+    <div class="flex flex-col items-center">
+     <div class="text-4xl font-black text-brandOrange counter" data-target="1000000">0</div>
+     <p class="text-[11px] font-bold text-slate-400 uppercase mt-2">Annual Units</p>
+    </div>
+    <div class="col-span-2 md:col-span-1 flex flex-col items-center">
+     <div class="text-4xl font-black text-brandBlue counter" data-target="50">0</div>
+     <p class="text-[11px] font-bold text-slate-400 uppercase mt-2">R&D Engineers</p>
+    </div>
+   </div>
+  </div>
+
+  <!-- Divider -->
+  <div class="max-w-md mx-auto mb-10 border-t border-slate-300/60"></div>
+
+  <!-- Row 3: Customer logos -->
+  <div class="reveal">
+   <p class="text-center text-[11px] font-black uppercase tracking-[0.3em] text-slate-400 mb-8">Trusted by 200+ Global Brands</p>
+   <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 lg:gap-5 max-w-5xl mx-auto">
+    <div class="flex items-center justify-center p-4 bg-white rounded-xl border border-slate-100">
+     <img src="/image/customer-logo/Jacobjensen-Clients.webp" alt="Jacob Jensen" loading="lazy" class="h-10 w-auto object-contain" width="100" height="75">
+    </div>
+    <div class="flex items-center justify-center p-4 bg-white rounded-xl border border-slate-100">
+     <img src="/image/customer-logo/Merlin-digital-Clients.webp" alt="Merlin Digital" loading="lazy" class="h-10 w-auto object-contain" width="100" height="75">
+    </div>
+    <div class="flex items-center justify-center p-4 bg-white rounded-xl border border-slate-100">
+     <img src="/image/customer-logo/techmade-Client.webp" alt="Techmade" loading="lazy" class="h-10 w-auto object-contain" width="100" height="75">
+    </div>
+    <div class="flex items-center justify-center p-4 bg-white rounded-xl border border-slate-100">
+     <img src="/image/customer-logo/Shatzii-Clients.webp" alt="Shatzii" loading="lazy" class="h-10 w-auto object-contain" width="100" height="75">
+    </div>
+    <div class="flex items-center justify-center p-4 bg-white rounded-xl border border-slate-100">
+     <img src="/image/customer-logo/Tempel-Clients.webp" alt="Tempel" loading="lazy" class="h-10 w-auto object-contain" width="100" height="75">
+    </div>
+    <div class="flex items-center justify-center p-4 bg-white rounded-xl border border-slate-100">
+     <img src="/image/customer-logo/Volta-River-Authority-Clients.webp" alt="Volta River Authority" loading="lazy" class="h-10 w-auto object-contain" width="100" height="75">
+    </div>
+   </div>
+  </div>
  </div>
- <div class="py-2">
- <p class="text-[11px] font-black uppercase tracking-widest text-brandBlue">Bosch</p>
- </div>
- <div class="py-2">
- <p class="text-[11px] font-black uppercase tracking-widest text-brandBlue">200+ Global Brands</p>
- </div>
- <div class="py-2">
- <p class="text-[11px] font-black uppercase tracking-widest text-brandOrange">10M+ Units Shipped</p>
- </div>
- </div>
- </div>
-</div>
+</section>

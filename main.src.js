@@ -529,4 +529,78 @@ document.addEventListener('DOMContentLoaded', () => {
   updateBackToTop();
 
   // Cookie consent handled by static template (cookie-banner.njk)
+
+  // ─── Product Search & Filter ────────────────────────────────────────
+  const searchInput = document.getElementById('productSearch');
+  const searchHints = document.querySelectorAll('.search-hint');
+  const noResults = document.getElementById('noResults');
+
+  if (searchInput) {
+    function filterProducts(term) {
+      const q = term.toLowerCase().trim();
+      const cards = document.querySelectorAll('[data-keywords]');
+      let visible = 0;
+
+      // Update active pill state
+      searchHints.forEach(btn => {
+        const v = btn.getAttribute('data-search') || '';
+        if (q && v.toLowerCase() === q) {
+          btn.classList.add('bg-brandOrange', 'text-white', 'border-brandOrange');
+          btn.classList.remove('bg-slate-100', 'text-slate-500', 'border-slate-200');
+        } else {
+          btn.classList.remove('bg-brandOrange', 'text-white', 'border-brandOrange');
+          btn.classList.add('bg-slate-100', 'text-slate-500', 'border-slate-200');
+        }
+      });
+
+      cards.forEach(card => {
+        const kw = (card.getAttribute('data-keywords') || '').toLowerCase();
+        const parentSection = card.closest('.mb-14');
+        if (!q || kw.includes(q)) {
+          card.style.display = '';
+          if (parentSection) parentSection.style.display = '';
+          visible++;
+        } else {
+          card.style.display = 'none';
+        }
+      });
+
+      // Hide empty sections
+      document.querySelectorAll('.mb-14').forEach(section => {
+        const visibleCards = section.querySelectorAll('[data-keywords]');
+        const allHidden = Array.from(visibleCards).every(c => c.style.display === 'none');
+        if (allHidden) section.style.display = 'none';
+      });
+
+      if (noResults) {
+        noResults.classList.toggle('hidden', visible > 0 || !q);
+      }
+    }
+
+    searchInput.addEventListener('input', function () {
+      filterProducts(this.value);
+    });
+
+    searchHints.forEach(btn => {
+      btn.addEventListener('click', function () {
+        const term = this.getAttribute('data-search') || '';
+        if (searchInput.value.toLowerCase().trim() === term.toLowerCase()) {
+          // Clear on second click
+          searchInput.value = '';
+          filterProducts('');
+        } else {
+          searchInput.value = term;
+          filterProducts(term);
+        }
+      });
+    });
+
+    // Keyboard shortcut: "/" focuses search
+    document.addEventListener('keydown', function (e) {
+      if (e.key === '/' && document.activeElement !== searchInput && document.activeElement.tagName !== 'INPUT' && document.activeElement.tagName !== 'TEXTAREA') {
+        e.preventDefault();
+        searchInput.focus();
+      }
+    });
+  }
 });
