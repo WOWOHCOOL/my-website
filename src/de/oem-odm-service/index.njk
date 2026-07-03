@@ -6,6 +6,7 @@ enPath: "/service/"
 esPath: "servicio-oem-odm/"
 ogImage: "/image/factory/wowohcool-smart-charging-solutions.webp"
 navActive: "oem-odm"
+lang: "de"
 ---
 
 {% extends "layout.njk" %}
@@ -94,12 +95,15 @@ navActive: "oem-odm"
  </div>
  </section>
 
- <!-- ======== TRUST BAND ======== -->
- {% from "partials/customer-logos.njk" import customerLogos %}
- {{ customerLogos("Vertrauen internationaler Marken", "/de/fallbeispiele/") }}
-
+ <!-- ======== STATS BAR ======== -->
  {% from "partials/stats-bar.njk" import statsBar %}
  {{ statsBar(i18n.statsBar[lang].items) }}
+
+ <!-- ======== TRUST BAR — Certs + Logos ======== -->
+ {% from "partials/cert-showcase.njk" import certShowcase %}
+ {{ certShowcase(i18n.certifications[lang].homepage.items, i18n.certifications[lang].homepage.heading, i18n.certifications[lang].homepage.title, "", "py-10 md:py-14 bg-white", true) }}
+ {% from "partials/customer-logos.njk" import customerLogos %}
+ {{ customerLogos("Vertrauen internationaler Marken", "/de/fallbeispiele/", standalone=true) }}
 
  <!-- PROCESS -->
  <section id="prozess" class="sec bg-white">
@@ -134,7 +138,7 @@ navActive: "oem-odm"
  <div class="text-center"><p class="text-2xl font-black text-brandOrange">&lt;0,3%</p><p class="text-xs text-slate-500">Defektrate</p></div>
  <div class="text-center"><p class="text-2xl font-black text-brandOrange">500+</p><p class="text-xs text-slate-500">B2B-Kunden</p></div>
  </div>
- <p class="text-xs text-slate-400 mt-4">Über 90% der in Deutschland verkauften Ladegeräte stammen aus China, als Direkthersteller mit ISO 9001 und EU-Konformität sind wir der partner, der Qualität und Compliance garantiert.</p>
+ <p class="text-xs text-slate-400 mt-4">Über 90% der in Deutschland verkauften Ladegeräte stammen aus China, als Direkthersteller mit ISO 9001 und EU-Konformität sind wir der Partner, der Qualität und Compliance garantiert.</p>
  <p class="text-xs text-slate-400 mt-4">Mehr erfahren: <a href="/de/blog/oem-vs-odm-leitfaden/" class="text-brandOrange hover:underline">Detaillierter OEM vs ODM Leitfaden →</a></p>
  <button data-action="open-modal" class="btn-primary mt-6 cursor-pointer">Beratung anfragen <svg class="icon-arrow-right text-sm" aria-hidden="true" focusable="false" viewBox="0 0 512 512">
  <path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-105.4 105.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" fill="currentColor"/>
@@ -161,24 +165,6 @@ navActive: "oem-odm"
  </ul>
  </div>
  </div>
- </div>
- </div>
- </section>
-
- <!-- STEPS -->
- <section class="sec bg-white">
- <div class="max-w-7xl mx-auto px-6">
- <div class="text-center max-w-3xl mx-auto mb-16 reveal"><p class="section-label">Einfach starten</p><h2 class="section-title">So arbeiten Sie mit uns</h2></div>
- <div class="grid md:grid-cols-4 gap-6">
- <div class="text-center reveal p-4"><div class="w-12 h-12 rounded-full bg-brandOrange text-white text-xl font-black flex items-center justify-center mx-auto mb-4">1</div><h3 class="font-bold text-brandBlue text-sm mb-2">Kostenlose Anfrage senden</h3><p class="text-xs text-slate-500">Teilen Sie uns Ihre konkreten Anforderungen, Wünsche und geschätzten Mengenvorstellungen zu Ihrem Produkt mit</p></div>
- <div class="text-center reveal p-4"><div class="w-12 h-12 rounded-full bg-brandOrange text-white text-xl font-black flex items-center justify-center mx-auto mb-4">2</div><h3 class="font-bold text-brandBlue text-sm mb-2">Kostenlose Erstberatung</h3><p class="text-xs text-slate-500">Wir analysieren Ihre Anforderungen fachkundig und erstellen ein maßgeschneidertes Angebot</p></div>
- <div class="text-center reveal p-4"><div class="w-12 h-12 rounded-full bg-brandOrange text-white text-xl font-black flex items-center justify-center mx-auto mb-4">3</div><h3 class="font-bold text-brandBlue text-sm mb-2">Muster & Freigabe</h3><p class="text-xs text-slate-500">Maßstabsgetreuer Prototyp in nur 15–25 Tagen nach Ihrer Anfrage</p></div>
- <div class="text-center reveal p-4"><div class="w-12 h-12 rounded-full bg-brandOrange text-white text-xl font-black flex items-center justify-center mx-auto mb-4">4</div><h3 class="font-bold text-brandBlue text-sm mb-2">Serienproduktion & Versand</h3><p class="text-xs text-slate-500">Komplette Serienproduktion mit strenger Qualitätskontrolle und zuverlässiger Lieferung nach Deutschland und Europa</p></div>
- </div>
- <div class="text-center mt-10 reveal">
- <button data-action="open-modal" class="btn-primary cursor-pointer">Jetzt starten <svg class="icon-arrow-right text-sm" aria-hidden="true" focusable="false" viewBox="0 0 512 512">
- <path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-105.4 105.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" fill="currentColor"/>
- </svg></button>
  </div>
  </div>
  </section>
@@ -327,7 +313,7 @@ navActive: "oem-odm"
  </div>
  <div class="text-center p-4 bg-white rounded-xl border border-slate-200">
  <p class="text-2xl font-black text-brandOrange">ISO</p>
- <p class="text-xs text-slate-500">9001:2024</p>
+ <p class="text-xs text-slate-500">9001:2015</p>
  </div>
  </div>
  </div>
@@ -391,21 +377,60 @@ navActive: "oem-odm"
  </div>
  </section>
 
- <!-- ======== ZERTIFIKATE SHOWCASE ======== -->
+ <!-- ======== PRICING GUIDE ======== -->
  <section class="sec bg-slate-50">
- <div class="max-w-7xl mx-auto px-6">
- <div class="text-center max-w-3xl mx-auto mb-10 reveal">
- <p class="section-label">{{ i18n.certifications[lang].service.heading }}</p>
- <h2 class="section-title">{{ i18n.certifications[lang].service.title }}</h2>
- <p class="section-desc mx-auto">{{ i18n.certifications[lang].service.desc }}</p>
+ <div class="max-w-5xl mx-auto px-6">
+ <div class="text-center max-w-3xl mx-auto mb-12 reveal">
+ <p class="section-label">Preisübersicht</p>
+ <h2 class="section-title">Transparente Preisorientierung für Ihr Projekt</h2>
+ <p class="section-desc mx-auto">Richtpreise ab Werk Shenzhen. Individuelle Angebote basierend auf Ihren genauen Spezifikationen.</p>
  </div>
- <div class="cert-showcase reveal">
- {% for cert in i18n.certifications[lang].service.items %}
- <div class="cert-item"><img src="/image/certifications/{{ cert.src }}.svg" alt="{{ cert.alt }}" width="24" height="24"> {{ cert.label }}</div>
- {% endfor %}
+ <div class="grid md:grid-cols-3 gap-6 reveal">
+ <div class="bg-white rounded-2xl p-8 border border-slate-200 text-center hover:border-brandOrange transition-all">
+ <p class="text-xs font-bold tracking-widest uppercase text-slate-400 mb-3">Kleine Charge</p>
+ <p class="text-4xl font-black text-brandBlue mb-2">500</p>
+ <p class="text-sm text-slate-500 mb-4">Stück</p>
+ <div class="w-12 h-px bg-brandOrange mx-auto mb-4"></div>
+ <p class="text-sm text-slate-600 mb-1">Geschätztes Investment</p>
+ <p class="text-2xl font-black text-brandOrange mb-4">3.000-8.000 EUR</p>
+ <ul class="text-xs text-slate-500 text-left space-y-2">
+ <li class="flex items-center gap-2"><svg class="icon-check text-green-500 shrink-0" width="12" height="12" viewBox="0 0 512 512"><path d="M256 512a256 256 0 1 1 0-512 256 256 0 1 1 0 512zM369 145L241 273 177 209c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l80 80c9.4 9.4 24.6 9.4 33.9 0L403 179c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0z"/></svg> OEM-Branding (Logo, Verpackung)</li>
+ <li class="flex items-center gap-2"><svg class="icon-check text-green-500 shrink-0" width="12" height="12" viewBox="0 0 512 512"><path d="M256 512a256 256 0 1 1 0-512 256 256 0 1 1 0 512zM369 145L241 273 177 209c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l80 80c9.4 9.4 24.6 9.4 33.9 0L403 179c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0z"/></svg> Bestehendes Referenzdesign</li>
+ <li class="flex items-center gap-2"><svg class="icon-check text-green-500 shrink-0" width="12" height="12" viewBox="0 0 512 512"><path d="M256 512a256 256 0 1 1 0-512 256 256 0 1 1 0 512zM369 145L241 273 177 209c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l80 80c9.4 9.4 24.6 9.4 33.9 0L403 179c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0z"/></svg> 25-35 Tage Lieferzeit</li>
+ </ul>
  </div>
+ <div class="bg-white rounded-2xl p-8 border-2 border-brandOrange text-center relative hover:shadow-xl transition-all">
+ <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-brandOrange text-white text-[10px] font-black uppercase tracking-widest px-4 py-1 rounded-full">Am beliebtesten</div>
+ <p class="text-xs font-bold tracking-widest uppercase text-slate-400 mb-3 mt-2">Mittlere Serie</p>
+ <p class="text-4xl font-black text-brandBlue mb-2">1.000-2.000</p>
+ <p class="text-sm text-slate-500 mb-4">Stück</p>
+ <div class="w-12 h-px bg-brandOrange mx-auto mb-4"></div>
+ <p class="text-sm text-slate-600 mb-1">Geschätztes Investment</p>
+ <p class="text-2xl font-black text-brandOrange mb-4">8.000-25.000 EUR</p>
+ <ul class="text-xs text-slate-500 text-left space-y-2">
+ <li class="flex items-center gap-2"><svg class="icon-check text-green-500 shrink-0" width="12" height="12" viewBox="0 0 512 512"><path d="M256 512a256 256 0 1 1 0-512 256 256 0 1 1 0 512zM369 145L241 273 177 209c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l80 80c9.4 9.4 24.6 9.4 33.9 0L403 179c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0z"/></svg> Vollständiges OEM/ODM</li>
+ <li class="flex items-center gap-2"><svg class="icon-check text-green-500 shrink-0" width="12" height="12" viewBox="0 0 512 512"><path d="M256 512a256 256 0 1 1 0-512 256 256 0 1 1 0 512zM369 145L241 273 177 209c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l80 80c9.4 9.4 24.6 9.4 33.9 0L403 179c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0z"/></svg> Logo + Verpackung + CMF</li>
+ <li class="flex items-center gap-2"><svg class="icon-check text-green-500 shrink-0" width="12" height="12" viewBox="0 0 512 512"><path d="M256 512a256 256 0 1 1 0-512 256 256 0 1 1 0 512zM369 145L241 273 177 209c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l80 80c9.4 9.4 24.6 9.4 33.9 0L403 179c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0z"/></svg> Musterkosten-Anrechnung</li>
+ </ul>
+ </div>
+ <div class="bg-white rounded-2xl p-8 border border-slate-200 text-center hover:border-brandOrange transition-all">
+ <p class="text-xs font-bold tracking-widest uppercase text-slate-400 mb-3">Großserie</p>
+ <p class="text-4xl font-black text-brandBlue mb-2">5.000+</p>
+ <p class="text-sm text-slate-500 mb-4">Stück</p>
+ <div class="w-12 h-px bg-brandOrange mx-auto mb-4"></div>
+ <p class="text-sm text-slate-600 mb-1">Geschätztes Investment</p>
+ <p class="text-2xl font-black text-brandOrange mb-4">25.000-80.000 EUR</p>
+ <ul class="text-xs text-slate-500 text-left space-y-2">
+ <li class="flex items-center gap-2"><svg class="icon-check text-green-500 shrink-0" width="12" height="12" viewBox="0 0 512 512"><path d="M256 512a256 256 0 1 1 0-512 256 256 0 1 1 0 512zM369 145L241 273 177 209c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l80 80c9.4 9.4 24.6 9.4 33.9 0L403 179c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0z"/></svg> Volle ODM-Entwicklung</li>
+ <li class="flex items-center gap-2"><svg class="icon-check text-green-500 shrink-0" width="12" height="12" viewBox="0 0 512 512"><path d="M256 512a256 256 0 1 1 0-512 256 256 0 1 1 0 512zM369 145L241 273 177 209c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l80 80c9.4 9.4 24.6 9.4 33.9 0L403 179c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0z"/></svg> Private Werkzeuge & IP-Schutz</li>
+ <li class="flex items-center gap-2"><svg class="icon-check text-green-500 shrink-0" width="12" height="12" viewBox="0 0 512 512"><path d="M256 512a256 256 0 1 1 0-512 256 256 0 1 1 0 512zM369 145L241 273 177 209c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l80 80c9.4 9.4 24.6 9.4 33.9 0L403 179c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0z"/></svg> Priority-Produktionsslots</li>
+ </ul>
+ </div>
+ </div>
+ <p class="text-center mt-8 text-xs text-slate-400">* Alle Preise sind Richtwerte ab Werk Shenzhen. Individuelle Angebote basieren auf Ihren genauen Spezifikationen, gewünschten Zertifizierungen und Mengen. <button data-action="open-modal" class="text-brandOrange hover:underline font-semibold bg-transparent border-0 p-0 cursor-pointer">Jetzt individuelles Angebot anfordern &rarr;</button></p>
  </div>
  </section>
+
 
  <!-- FAQ -->
  <section class="sec bg-slate-50">
@@ -458,7 +483,7 @@ navActive: "oem-odm"
  <input type="hidden" name="utm_medium" id="utm_medium" value="">
  <input type="hidden" name="utm_campaign" id="utm_campaign" value="">
  <div class="grid md:grid-cols-2 gap-4"><label class="block text-sm font-semibold text-white mb-1">Vorname *</label><input type="text" name="name" required placeholder="z. B. Max" autocomplete="name" class="w-full px-4 py-3.5 rounded-xl border border-white/20 bg-white/10 text-white placeholder:text-white/50 focus:outline-none focus:border-brandOrange text-sm"><label class="block text-sm font-semibold text-white mb-1">Unternehmen <span class="text-slate-500 font-medium">(optional)</span></label><input type="text" name="company" placeholder="z. B. Muster GmbH" autocomplete="organization" class="w-full px-4 py-3.5 rounded-xl border border-white/20 bg-white/10 text-white placeholder:text-white/50 focus:outline-none focus:border-brandOrange text-sm"></div>
- <label class="block text-sm font-semibold text-white mb-1">E-Mail *</label><input type="email" name="email" required placeholder="geschaeft@example.com" autocomplete="email" class="w-full px-4 py-3.5 rounded-xl border border-white/20 bg-white/10 text-white placeholder:text-white/50 focus:outline-none focus:border-brandOrange text-sm">
+ <label class="block text-sm font-semibold text-white mb-1">E-Mail *</label><input type="email" name="email" required placeholder="geschäft@example.com" autocomplete="email" class="w-full px-4 py-3.5 rounded-xl border border-white/20 bg-white/10 text-white placeholder:text-white/50 focus:outline-none focus:border-brandOrange text-sm">
  <select name="product" class="w-full px-4 py-3.5 rounded-xl border border-white/20 bg-white/10 text-white focus:outline-none focus:border-brandOrange text-sm"><option value="" disabled selected>Produktinteresse (optional)</option><option value="unsure">Noch unentschlossen</option><option value="powerbank">Powerbank</option><option value="wireless">Kabelloses Ladegerät</option><option value="car">Autoladegerät</option><option value="gan">GaN-Ladegerät</option><option value="other">Sonstiges</option></select>
  <textarea required minlength="10" name="message" rows="3" placeholder="Ihre Nachricht (Menge, Spezifikationen, Wünsche)" class="w-full px-4 py-3.5 rounded-xl border border-white/20 bg-white/10 text-white placeholder:text-white/50 focus:outline-none focus:border-brandOrange text-sm resize-none"></textarea>
  <label class="flex items-start gap-3 text-left"><input type="checkbox" required class="mt-1 accent-brandOrange"><span class="text-xs text-slate-500">Ich habe die <a href="/de/datenschutz/" class="text-brandOrange hover:underline">Datenschutzerklärung</a> zur Kenntnis genommen. *</span></label>

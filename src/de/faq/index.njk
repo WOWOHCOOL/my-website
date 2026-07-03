@@ -6,6 +6,7 @@ enPath: "/faq/"
 esPath: "faq/"
 ogImage: "/image/factory/wowohcool-smart-charging-solutions.webp"
 navActive: "faq"
+lang: "de"
 ---
 
 {% extends "layouts/faq-page.njk" %}
@@ -48,12 +49,15 @@ navActive: "faq"
 {% endblock %}
 
 {% block faqTrustBand %}
-<!-- ======== TRUST BAND ======== -->
-{% from "partials/customer-logos.njk" import customerLogos %}
-{{ customerLogos("Vertrauen internationaler Marken") }}
-
+<!-- ======== STATS BAR ======== -->
 {% from "partials/stats-bar.njk" import statsBar %}
 {{ statsBar(i18n.statsBar[lang].items) }}
+
+<!-- ======== TRUST BAR — Certs + Logos ======== -->
+{% from "partials/cert-showcase.njk" import certShowcase %}
+{{ certShowcase(i18n.certifications[lang].homepage.items, i18n.certifications[lang].homepage.heading, i18n.certifications[lang].homepage.title, "", "py-10 md:py-14 bg-white", true) }}
+{% from "partials/customer-logos.njk" import customerLogos %}
+{{ customerLogos("Vertrauen internationaler Marken", "", standalone=true) }}
 {% endblock %}
 
 {% block faqContent %}
@@ -66,8 +70,17 @@ navActive: "faq"
  <p class="section-desc mx-auto">Schnelle Antworten auf Ihre Fragen. Unser Team steht Ihnen jederzeit zur Verfügung.</p>
  </div>
 
+ <!-- Quick-Jump Navigation -->
+ <div class="flex flex-wrap justify-center gap-2 mb-16 reveal">
+ <a href="#bestellung" class="px-4 py-2 bg-slate-100 hover:bg-brandOrange hover:text-white rounded-full text-xs font-bold text-slate-600 transition-all">Bestellung & Angebot</a>
+ <a href="#produktion" class="px-4 py-2 bg-slate-100 hover:bg-brandOrange hover:text-white rounded-full text-xs font-bold text-slate-600 transition-all">Produktion & Qualität</a>
+ <a href="#versand" class="px-4 py-2 bg-slate-100 hover:bg-brandOrange hover:text-white rounded-full text-xs font-bold text-slate-600 transition-all">Versand & Logistik</a>
+ <a href="#anpassung" class="px-4 py-2 bg-slate-100 hover:bg-brandOrange hover:text-white rounded-full text-xs font-bold text-slate-600 transition-all">Produktanpassung</a>
+ <a href="#markt" class="px-4 py-2 bg-slate-100 hover:bg-brandOrange hover:text-white rounded-full text-xs font-bold text-slate-600 transition-all">Markt & Trends</a>
+ </div>
+
  <!-- Kategorie: Bestellung & Angebot -->
- <div class="mb-16 reveal">
+ <div id="bestellung" class="mb-16 reveal">
  <h3 class="text-xl font-black text-brandBlue uppercase italic mb-6 flex items-center gap-3">
  <span class="w-8 h-1 bg-brandOrange rounded-full"></span> Bestellung &amp; Angebot
  </h3>
@@ -100,7 +113,7 @@ navActive: "faq"
  </div>
 
  <!-- Kategorie: Produktion & Qualität -->
- <div class="mb-16 reveal">
+ <div id="produktion" class="mb-16 reveal">
  <h3 class="text-xl font-black text-brandBlue uppercase italic mb-6 flex items-center gap-3">
  <span class="w-8 h-1 bg-brandOrange rounded-full"></span> Produktion &amp; Qualität
  </h3>
@@ -114,7 +127,7 @@ navActive: "faq"
  <div class="faq-item">
  <details>
  <summary>Welche Qualitätssicherung haben Sie?</summary>
- <div class="faq-answer">Wir verfügen über einen 4-stufigen QC-Prozess: IQC (Eingangskontrolle), IPQC (Prozesskontrolle), FQC (Endkontrolle) und OQC (Ausgangskontrolle). Jedes Produkt durchläuft einen 4-stündigen Aging-Test. Unsere Defektrate liegt unter 0,3%. Die Fertigung ist ISO 9001:2024 zertifiziert.</div>
+ <div class="faq-answer">Wir verfügen über einen 4-stufigen QC-Prozess: IQC (Eingangskontrolle), IPQC (Prozesskontrolle), FQC (Endkontrolle) und OQC (Ausgangskontrolle). Jedes Produkt durchläuft einen 4-stündigen Aging-Test. Unsere Defektrate liegt unter 0,3%. Die Fertigung ist ISO 9001:2015 zertifiziert.</div>
  </details>
  </div>
  <div class="faq-item">
@@ -133,7 +146,7 @@ navActive: "faq"
  </div>
 
  <!-- Kategorie: Versand & Logistik -->
- <div class="mb-16 reveal">
+ <div id="versand" class="mb-16 reveal">
  <h3 class="text-xl font-black text-brandBlue uppercase italic mb-6 flex items-center gap-3">
  <span class="w-8 h-1 bg-brandOrange rounded-full"></span> Versand &amp; Logistik
  </h3>
@@ -160,7 +173,7 @@ navActive: "faq"
  </div>
 
  <!-- Kategorie: Produktanpassung -->
- <div class="mb-16 reveal">
+ <div id="anpassung" class="mb-16 reveal">
  <h3 class="text-xl font-black text-brandBlue uppercase italic mb-6 flex items-center gap-3">
  <span class="w-8 h-1 bg-brandOrange rounded-full"></span> Produktanpassung (OEM/ODM)
  </h3>
@@ -187,7 +200,7 @@ navActive: "faq"
  </div>
 
  <!-- Kategorie: Markt & Trends -->
- <div class="mb-16 reveal">
+ <div id="markt" class="mb-16 reveal">
  <h3 class="text-xl font-black text-brandBlue uppercase italic mb-6 flex items-center gap-3">
  <span class="w-8 h-1 bg-brandOrange rounded-full"></span> Markt &amp; Trends
  </h3>

@@ -5,6 +5,7 @@ canonical: "/de/produkte/autoladegeraet/"
 enPath: "/products/car-charger/"
 esPath: "productos/cargador-coche/"
 navActive: "auto"
+lang: "de"
 ---
 
 {% extends "layout.njk" %}
@@ -76,11 +77,13 @@ navActive: "auto"
  </section>
 
  <!-- ======== TRUST BAND ======== -->
- {% from "partials/customer-logos.njk" import customerLogos %}
- {{ customerLogos("Vertrauen internationaler Marken") }}
-
  {% from "partials/stats-bar.njk" import statsBar %}
  {{ statsBar(i18n.statsBar[lang].items) }}
+
+ {% from "partials/cert-showcase.njk" import certShowcase %}
+ {{ certShowcase(i18n.certifications[lang].homepage.items, i18n.certifications[lang].homepage.heading, i18n.certifications[lang].homepage.title, "", "py-10 md:py-14 bg-white", true) }}
+ {% from "partials/customer-logos.njk" import customerLogos %}
+ {{ customerLogos("Vertrauen internationaler Marken", "", standalone=true) }}
 
  <!-- ======== PRODUKTVERGLEICH ======== -->
  <section class="sec-cta bg-white">
@@ -177,9 +180,9 @@ navActive: "auto"
     <details class="mb-4 group/spec text-left">
      <summary class="p-3 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-[11px] font-black text-slate-700 uppercase">Spezifikationen</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
      <div class="p-3 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-[11px]"><tbody>
-     <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Masse</td><td class="py-1.5 font-bold text-slate-700">139  x  53  x  33mm</td></tr>
+     <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Maße</td><td class="py-1.5 font-bold text-slate-700">139  x  53  x  33mm</td></tr>
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Kabellaenge</td><td class="py-1.5 font-bold text-slate-700">1.7-75cm (Retractable)</td></tr>
-     <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Gehaeuse</td><td class="py-1.5 font-bold text-slate-700">Aluminum Alloy + PC V0 Fire-Retardant</td></tr>
+     <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Gehäuse</td><td class="py-1.5 font-bold text-slate-700">Aluminum Alloy + PC V0 Fire-Retardant</td></tr>
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Gewicht</td><td class="py-1.5 font-bold text-slate-700">138,5 g (Net) / 166g (Gross)</td></tr>
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Eingang Voltage</td><td class="py-1.5 font-bold text-slate-700">DC 12-24V</td></tr>
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">USB-C Port (35W)</td><td class="py-1.5 font-bold text-slate-700">5V/3A, 9V/3A, 12V/2.92A</td></tr>
@@ -204,9 +207,9 @@ navActive: "auto"
     <details class="mb-4 group/spec text-left">
      <summary class="p-3 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-[11px] font-black text-slate-700 uppercase">Spezifikationen</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
      <div class="p-3 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-[11px]"><tbody>
-     <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Masse</td><td class="py-1.5 font-bold text-slate-700">88  x  55mm</td></tr>
+     <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Maße</td><td class="py-1.5 font-bold text-slate-700">88  x  55mm</td></tr>
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Kabellaenge</td><td class="py-1.5 font-bold text-slate-700">≥0cm (Retractable)</td></tr>
-     <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Gehaeuse</td><td class="py-1.5 font-bold text-slate-700">PC (Fire-Retardant)</td></tr>
+     <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Gehäuse</td><td class="py-1.5 font-bold text-slate-700">PC (Fire-Retardant)</td></tr>
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Gewicht</td><td class="py-1.5 font-bold text-slate-700">98,5 g</td></tr>
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Eingang Voltage</td><td class="py-1.5 font-bold text-slate-700">DC 12-24V</td></tr>
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Safety</td><td class="py-1.5 font-bold text-slate-700">Over-current, Over-voltage, Over-temperature, Short-circuit</td></tr>
@@ -230,7 +233,7 @@ navActive: "auto"
     <details class="mb-4 group/spec text-left">
      <summary class="p-3 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-[11px] font-black text-slate-700 uppercase">Spezifikationen</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
      <div class="p-3 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-[11px]"><tbody>
-     <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Gehaeuse</td><td class="py-1.5 font-bold text-slate-700">PC + PVC + Zinc Alloy</td></tr>
+     <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Gehäuse</td><td class="py-1.5 font-bold text-slate-700">PC + PVC + Zinc Alloy</td></tr>
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Charger Head</td><td class="py-1.5 font-bold text-slate-700">49  x  24mm</td></tr>
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Hub Body</td><td class="py-1.5 font-bold text-slate-700">99  x  33.9  x  24,5 mm</td></tr>
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Extension Kabel</td><td class="py-1.5 font-bold text-slate-700">1.5M</td></tr>
@@ -255,7 +258,7 @@ navActive: "auto"
     <details class="mb-4 group/spec text-left">
      <summary class="p-3 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-[11px] font-black text-slate-700 uppercase">Spezifikationen</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
      <div class="p-3 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-[11px]"><tbody>
-     <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Gehaeuse</td><td class="py-1.5 font-bold text-slate-700">Aluminum Alloy + PC</td></tr>
+     <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Gehäuse</td><td class="py-1.5 font-bold text-slate-700">Aluminum Alloy + PC</td></tr>
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Farbe</td><td class="py-1.5 font-bold text-slate-700">Schwarz</td></tr>
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Eingang Voltage</td><td class="py-1.5 font-bold text-slate-700">DC 12-24V</td></tr>
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Cigarette Ausgang</td><td class="py-1.5 font-bold text-slate-700">DC 12-24V/8A (100W max.)</td></tr>
@@ -283,8 +286,8 @@ navActive: "auto"
     <details class="mb-4 group/spec text-left">
      <summary class="p-3 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-[11px] font-black text-slate-700 uppercase">Spezifikationen</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
      <div class="p-3 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-[11px]"><tbody>
-     <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Masse</td><td class="py-1.5 font-bold text-slate-700">43.4  x  73,5 mm</td></tr>
-     <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Gehaeuse</td><td class="py-1.5 font-bold text-slate-700">PC</td></tr>
+     <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Maße</td><td class="py-1.5 font-bold text-slate-700">43.4  x  73,5 mm</td></tr>
+     <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Gehäuse</td><td class="py-1.5 font-bold text-slate-700">PC</td></tr>
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Gewicht</td><td class="py-1.5 font-bold text-slate-700">30g (Net)</td></tr>
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Eingang</td><td class="py-1.5 font-bold text-slate-700">DC 12-24V</td></tr>
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">USB-A1 (35W QC3.0)</td><td class="py-1.5 font-bold text-slate-700">5V/3A, 9V/3A, 12V/2.92A</td></tr>
@@ -309,12 +312,12 @@ navActive: "auto"
     <details class="mb-4 group/spec text-left">
      <summary class="p-3 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-[11px] font-black text-slate-700 uppercase">Spezifikationen</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
      <div class="p-3 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-[11px]"><tbody>
-     <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Gehaeuse</td><td class="py-1.5 font-bold text-slate-700">PC + Aluminum Alloy</td></tr>
+     <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Gehäuse</td><td class="py-1.5 font-bold text-slate-700">PC + Aluminum Alloy</td></tr>
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Eingang Voltage</td><td class="py-1.5 font-bold text-slate-700">DC 12-24V</td></tr>
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Type-C1 (65W)</td><td class="py-1.5 font-bold text-slate-700">5V/3A, 9V/3A, 12V/3A, 15V/3A, 20V/3.25A</td></tr>
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Type-C2 (45W)</td><td class="py-1.5 font-bold text-slate-700">5V/3A, 9V/3A, 12V/3A, 15V/3A, 20V/2.25A (PPS 3.3-11V/4.05A)</td></tr>
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">USB-A (30W)</td><td class="py-1.5 font-bold text-slate-700">5V/3A, 9V/3A, 12V/2.5A</td></tr>
-     <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Masse</td><td class="py-1.5 font-bold text-slate-700">73  x  45  x  29mm</td></tr>
+     <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Maße</td><td class="py-1.5 font-bold text-slate-700">73  x  45  x  29mm</td></tr>
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Gewicht</td><td class="py-1.5 font-bold text-slate-700">≥8g</td></tr></tbody></table></div>
     </details>
     <button data-action="open-modal" data-product="WOC24 140W Pro Digital Hub" class="mt-auto w-full py-3 bg-brandOrange text-white font-black uppercase text-[11px] tracking-widest rounded-xl hover:bg-brandOrange/90 transition shadow-md cursor-pointer">Werkspreis anfragen</button>
@@ -332,8 +335,8 @@ navActive: "auto"
     <details class="mb-4 group/spec text-left">
      <summary class="p-3 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-[11px] font-black text-slate-700 uppercase">Spezifikationen</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
      <div class="p-3 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-[11px]"><tbody>
-     <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Gehaeuse</td><td class="py-1.5 font-bold text-slate-700">PC</td></tr>
-     <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Masse</td><td class="py-1.5 font-bold text-slate-700">35.6  x  35.6  x  79,7 mm</td></tr>
+     <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Gehäuse</td><td class="py-1.5 font-bold text-slate-700">PC</td></tr>
+     <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Maße</td><td class="py-1.5 font-bold text-slate-700">35.6  x  35.6  x  79,7 mm</td></tr>
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Gewicht</td><td class="py-1.5 font-bold text-slate-700">38,5 g (Net)</td></tr>
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Light Ring</td><td class="py-1.5 font-bold text-slate-700">Ice Blue</td></tr>
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Eingang</td><td class="py-1.5 font-bold text-slate-700">DC 12-24V</td></tr>
@@ -358,8 +361,8 @@ navActive: "auto"
     <details class="mb-4 group/spec text-left">
      <summary class="p-3 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-[11px] font-black text-slate-700 uppercase">Spezifikationen</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
      <div class="p-3 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-[11px]"><tbody>
-     <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Gehaeuse</td><td class="py-1.5 font-bold text-slate-700">Zinc Alloy + PC</td></tr>
-     <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Masse</td><td class="py-1.5 font-bold text-slate-700">42.1  x  21,1 mm</td></tr>
+     <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Gehäuse</td><td class="py-1.5 font-bold text-slate-700">Zinc Alloy + PC</td></tr>
+     <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Maße</td><td class="py-1.5 font-bold text-slate-700">42.1  x  21,1 mm</td></tr>
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Eingang</td><td class="py-1.5 font-bold text-slate-700">DC 12-24V</td></tr>
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">USB-A (45W)</td><td class="py-1.5 font-bold text-slate-700">5V/3A, 9V/3A, 12V/3A, 15V/3A, 20V/2.25A</td></tr>
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">USB-C (65W)</td><td class="py-1.5 font-bold text-slate-700">5V/3A, 9V/3A, 12V/3A, 15V/3A, 20V/3.25A (PPS 3.3-20V/3.25A)</td></tr>
@@ -380,7 +383,7 @@ navActive: "auto"
     <details class="mb-4 group/spec text-left">
      <summary class="p-3 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-[11px] font-black text-slate-700 uppercase">Spezifikationen</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
      <div class="p-3 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-[11px]"><tbody>
-     <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Masse</td><td class="py-1.5 font-bold text-slate-700">52.2  x  26.75  x  26,75 mm</td></tr>
+     <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Maße</td><td class="py-1.5 font-bold text-slate-700">52.2  x  26.75  x  26,75 mm</td></tr>
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Gewicht</td><td class="py-1.5 font-bold text-slate-700">13,1 g (Net)</td></tr>
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Eingang</td><td class="py-1.5 font-bold text-slate-700">DC 12-24V</td></tr>
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Ausgang</td><td class="py-1.5 font-bold text-slate-700">5V/3A, 9V/3A, 12V/3A, 15V/3A, 20V/2.25A</td></tr>
@@ -401,9 +404,9 @@ navActive: "auto"
     <details class="mb-4 group/spec text-left">
      <summary class="p-3 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-[11px] font-black text-slate-700 uppercase">Spezifikationen</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
      <div class="p-3 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-[11px]"><tbody>
-     <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Gehaeuse</td><td class="py-1.5 font-bold text-slate-700">Aluminum Alloy + PC + ABS</td></tr>
+     <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Gehäuse</td><td class="py-1.5 font-bold text-slate-700">Aluminum Alloy + PC + ABS</td></tr>
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Ports</td><td class="py-1.5 font-bold text-slate-700">USB-A  x  1 + USB-C  x  1</td></tr>
-     <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Masse</td><td class="py-1.5 font-bold text-slate-700">46  x  24mm</td></tr>
+     <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Maße</td><td class="py-1.5 font-bold text-slate-700">46  x  24mm</td></tr>
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Gewicht</td><td class="py-1.5 font-bold text-slate-700">120g</td></tr>
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Eingang</td><td class="py-1.5 font-bold text-slate-700">DC 12-24V</td></tr>
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">USB-C (20W)</td><td class="py-1.5 font-bold text-slate-700">5V/3.1A, 9V/2.22A, 12V/1.5A</td></tr>
@@ -566,44 +569,6 @@ navActive: "auto"
  </div>
  </section>
 
- <!-- ======== ZERTIFIZIERUNGEN ======== -->
- <section class="sec bg-slate-50">
- <div class="max-w-5xl mx-auto px-6">
- <div class="text-center max-w-3xl mx-auto mb-12 reveal">
- <p class="section-label">Compliance</p>
- <h2 class="section-title">Zertifizierungen für den europäischen Markt</h2>
- <p class="section-desc mx-auto">Alle Autoladegeräte erfüllen die Anforderungen für den Einsatz in europäischen Fahrzeugen. E-Mark Automotive-Zertifizierung inklusive.</p>
- </div>
- <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 reveal">
- <div class="bg-white rounded-2xl p-6 border border-slate-200 text-center">
- <div class="flex justify-center mb-3"><img src="/image/certifications/e-mark-compliance.svg" alt="E-Mark Automotive Zertifizierung" width="48" height="48" loading="lazy" class="h-12 w-auto"></div>
- <p class="text-lg font-black text-brandBlue mb-1">E-Mark</p>
- <p class="text-xs font-bold text-brandOrange mb-1">Automotive-Pflicht</p>
- <p class="text-xs text-slate-500">ECE R10 — EMV-Verträglichkeit für Kfz-Elektronik</p>
- </div>
- <div class="bg-white rounded-2xl p-6 border border-slate-200 text-center">
- <div class="flex justify-center mb-3"><img src="/image/certifications/ce-certification.svg" alt="CE Zertifizierung" width="48" height="48" loading="lazy" class="h-12 w-auto"></div>
- <p class="text-lg font-black text-brandBlue mb-1">CE</p>
- <p class="text-xs font-bold text-brandOrange mb-1">EU-Konformität</p>
- <p class="text-xs text-slate-500">EMV-Richtlinie 2014/30/EU + Niederspannung</p>
- </div>
- <div class="bg-white rounded-2xl p-6 border border-slate-200 text-center">
- <div class="flex justify-center mb-3"><img src="/image/certifications/rohs-compliant.svg" alt="RoHS Compliance" width="48" height="48" loading="lazy" class="h-12 w-auto"></div>
- <p class="text-lg font-black text-brandBlue mb-1">RoHS</p>
- <p class="text-xs font-bold text-brandOrange mb-1">Stoffbeschränkung</p>
- <p class="text-xs text-slate-500">Keine gefährlichen Substanzen gemäß EU 2011/65/EU</p>
- </div>
- <div class="bg-white rounded-2xl p-6 border border-slate-200 text-center">
- <div class="flex justify-center mb-3"><img src="/image/certifications/fcc-compliance.svg" alt="FCC Compliance" width="48" height="48" loading="lazy" class="h-12 w-auto"></div>
- <p class="text-lg font-black text-brandBlue mb-1">FCC</p>
- <p class="text-xs font-bold text-brandOrange mb-1">US-Export</p>
- <p class="text-xs text-slate-500">Für den nordamerikanischen Markt verfügbar</p>
- </div>
- </div>
- <p class="text-center text-sm text-slate-500 mt-8 reveal">Zusätzlich: 24h Salzsprühtest, 3.000+ Steckzyklen, -20°C bis +80°C Temperaturtest. <button data-action="open-modal" class="text-brandOrange font-semibold hover:underline cursor-pointer">Zertifizierungsberatung anfragen →</button></p>
- </div>
- </section>
-
  <!-- FAQ -->
  <section class="sec bg-slate-50">
  <div class="max-w-3xl mx-auto px-6">
@@ -699,7 +664,7 @@ navActive: "auto"
  <label class="block text-sm font-semibold text-white mb-1">Vorname *</label><input type="text" name="name" required placeholder="z. B. Max" autocomplete="name" class="w-full px-4 py-3.5 rounded-xl border border-white/20 bg-white/10 text-white placeholder:text-white/50 focus:outline-none focus:border-brandOrange text-sm">
  <label class="block text-sm font-semibold text-white mb-1">Unternehmen <span class="text-slate-500 font-medium">(optional)</span></label><input type="text" name="company" placeholder="z. B. Muster GmbH" autocomplete="organization" class="w-full px-4 py-3.5 rounded-xl border border-white/20 bg-white/10 text-white placeholder:text-white/50 focus:outline-none focus:border-brandOrange text-sm">
  </div>
- <label class="block text-sm font-semibold text-white mb-1">E-Mail *</label><input type="email" name="email" required placeholder="geschaeft@example.com" autocomplete="email" class="w-full px-4 py-3.5 rounded-xl border border-white/20 bg-white/10 text-white placeholder:text-white/50 focus:outline-none focus:border-brandOrange text-sm">
+ <label class="block text-sm font-semibold text-white mb-1">E-Mail *</label><input type="email" name="email" required placeholder="geschäft@example.com" autocomplete="email" class="w-full px-4 py-3.5 rounded-xl border border-white/20 bg-white/10 text-white placeholder:text-white/50 focus:outline-none focus:border-brandOrange text-sm">
  <select name="product" class="w-full px-4 py-3.5 rounded-xl border border-white/20 bg-white/10 text-white focus:outline-none focus:border-brandOrange text-sm">
  <option value="" disabled selected class="text-slate-500">Produktinteresse (optional)</option>
  <option value="unsure">Noch unentschlossen</option>

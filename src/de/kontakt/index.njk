@@ -5,6 +5,7 @@ canonical: "/de/kontakt/"
 enPath: "/contact/"
 esPath: "contacto/"
 navActive: "kontakt"
+lang: "de"
 ---
 
 {% extends "layouts/contact-page.njk" %}
@@ -25,18 +26,21 @@ navActive: "kontakt"
  <p class="text-brandOrange text-xs font-bold tracking-widest uppercase mb-3">Kontakt</p>
  <h1 class="text-3xl md:text-5xl font-black text-brandBlue leading-tight mb-6 italic uppercase">Kontakt &amp; Angebot<br><span class="text-brandOrange">für Ihr Projekt</span></h1>
  <p class="text-slate-600 text-lg max-w-2xl mx-auto">Antwort innerhalb von 24 Stunden. Ihr persönlicher Account Manager steht Ihnen zur Seite.</p>
- <p class="text-slate-500 text-sm max-w-xl mx-auto mt-4">Über 90% der in Deutschland verkauften Ladegeräte werden in China produziert. Als ISO 9001 zertifizierter Hersteller mit eigener Fabrik sind wir Ihr direkter Partner, ohne Zwischenhändler.</p>
+
  </div>
 </section>
 {% endblock %}
 
 {% block contactTrustBand %}
-<!-- ======== TRUST BAND ======== -->
-{% from "partials/customer-logos.njk" import customerLogos %}
-{{ customerLogos("Vertrauen internationaler Marken") }}
-
+<!-- ======== STATS BAR ======== -->
 {% from "partials/stats-bar.njk" import statsBar %}
 {{ statsBar(i18n.statsBar[lang].items) }}
+
+<!-- ======== TRUST BAR — Certs + Logos ======== -->
+{% from "partials/cert-showcase.njk" import certShowcase %}
+{{ certShowcase(i18n.certifications[lang].homepage.items, i18n.certifications[lang].homepage.heading, i18n.certifications[lang].homepage.title, "", "py-10 md:py-14 bg-white", true) }}
+{% from "partials/customer-logos.njk" import customerLogos %}
+{{ customerLogos("Vertrauen internationaler Marken", "", standalone=true) }}
 {% endblock %}
 
 {% block contactMain %}
@@ -46,7 +50,7 @@ navActive: "kontakt"
  <div class="lg:col-span-1 reveal">
  <h2 class="text-2xl font-bold text-brandBlue mb-8">Kontaktinformationen</h2>
  <div class="space-y-6">
- <div class="flex items-start gap-4"><div class="w-12 h-12 rounded-xl bg-brandOrange/10 flex items-center justify-center shrink-0"><svg class="icon-envelope text-brandOrange" aria-hidden="true" focusable="false" viewBox="0 0 512 512"><path d="M48 64c-26.5 0-48 21.5-48 48 0 15.1 7.1 29.3 19.2 38.4l208 156c17.1 12.8 40.5 12.8 57.6 0l208-156c12.1-9.1 19.2-23.3 19.2-38.4 0-26.5-21.5-48-48-48L48 64zM0 196L0 384c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-188-198.4 148.8c-34.1 25.6-81.1 25.6-115.2 0L0 196z" fill="currentColor"/></svg></div><div><p class="font-bold text-brandBlue text-sm">E-Mail</p><a href="mailto:nina@wowohcool.com" class="text-sm text-slate-500 hover:text-brandOrange">info@wowohcool.com</a></div></div>
+ <div class="flex items-start gap-4"><div class="w-12 h-12 rounded-xl bg-brandOrange/10 flex items-center justify-center shrink-0"><svg class="icon-envelope text-brandOrange" aria-hidden="true" focusable="false" viewBox="0 0 512 512"><path d="M48 64c-26.5 0-48 21.5-48 48 0 15.1 7.1 29.3 19.2 38.4l208 156c17.1 12.8 40.5 12.8 57.6 0l208-156c12.1-9.1 19.2-23.3 19.2-38.4 0-26.5-21.5-48-48-48L48 64zM0 196L0 384c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-188-198.4 148.8c-34.1 25.6-81.1 25.6-115.2 0L0 196z" fill="currentColor"/></svg></div><div><p class="font-bold text-brandBlue text-sm">E-Mail</p><a href="mailto:info@wowohcool.com" class="text-sm text-slate-500 hover:text-brandOrange">info@wowohcool.com</a></div></div>
  <div class="flex items-start gap-4"><div class="w-12 h-12 rounded-xl bg-brandOrange/10 flex items-center justify-center shrink-0"><svg class="icon-phone text-brandOrange" aria-hidden="true" focusable="false" viewBox="0 0 512 512"><path d="M160.2 25C152.3 6.1 131.7-3.9 112.1 1.4l-5.5 1.5c-64.6 17.6-119.8 80.2-103.7 156.4 37.1 175 174.8 312.7 349.8 349.8 76.3 16.2 138.8-39.1 156.4-103.7l1.5-5.5c5.4-19.7-4.7-40.3-23.5-48.1l-97.3-40.5c-16.5-6.9-35.6-2.1-47 11.8l-38.6 47.2C233.9 335.4 177.3 277 144.8 205.3L189 169.3c13.9-11.3 18.6-30.4 11.8-47L160.2 25z" fill="currentColor"/></svg></div><div><p class="font-bold text-brandBlue text-sm">Telefon</p><a href="tel:+8618620789739" class="text-sm text-slate-500 hover:text-brandOrange">+86-186-2078-9739</a></div></div>
  <div class="flex items-start gap-4"><div class="w-12 h-12 rounded-xl bg-brandOrange/10 flex items-center justify-center shrink-0"><svg class="icon-location-dot text-brandOrange" aria-hidden="true" focusable="false" viewBox="0 0 384 512">
  <path d="M0 188.6C0 84.4 86 0 192 0S384 84.4 384 188.6c0 119.3-120.2 262.3-170.4 316.8-11.8 12.8-31.5 12.8-43.3 0-50.2-54.5-170.4-197.5-170.4-316.8zM192 256a64 64 0 1 0 0-128 64 64 0 1 0 0 128z" fill="currentColor"/>
@@ -86,9 +90,7 @@ navActive: "kontakt"
  <div><label class="block text-sm font-semibold text-slate-700 mb-1.5">Telefon (optional)</label><input type="tel" name="phone" autocomplete="tel" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-brandOrange focus:ring-2 focus:ring-brandOrange/20 outline-none transition text-sm bg-white"></div>
  <div><label class="block text-sm font-semibold text-slate-700 mb-1.5">Nachricht *</label><textarea name="message" rows="4" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-brandOrange focus:ring-2 focus:ring-brandOrange/20 outline-none transition text-sm resize-none bg-white"></textarea></div>
  <label class="flex items-start gap-3"><input type="checkbox" required class="mt-1 accent-brandOrange"><span class="text-xs text-slate-500">Ich habe die <a href="/de/datenschutz/" class="text-brandOrange hover:underline">Datenschutzerklärung</a> zur Kenntnis genommen. *</span></label>
- <button type="submit" class="w-full bg-brandOrange text-white py-4 rounded-xl font-bold text-base hover:bg-brandBlue transition-all duration-300 shadow-lg shadow-brandOrange/20 flex items-center justify-center gap-3">Nachricht senden <svg class="icon-paper-plane" aria-hidden="true" focusable="false" viewBox="0 0 576 512">
- <path d="M536.4-26.3c9.8-3.5 20.6-1 28 6.3s9.8 18.2 6.3 28l-178 496.9c-5 13.9-18.1 23.1-32.8 23.1-14.2 0-27-8.6-32.3-21.7l-64.2-158c-4.5-11-2.5-23.6 5.2-32.6l94.5-112.4c5.1-6.1 4.7-15-.9-20.6s-14.6-6-20.6-.9L229.2 276.1c-9.1 7.6-21.6 9.6-32.6 5.2L38.1 216.8c-13.1-5.3-21.7-18.1-21.7-32.3 0-14.7 9.2-27.8 23.1-32.8l496.9-178z" fill="currentColor"/>
- </svg></button>
+ <button type="submit" class="w-full bg-brandOrange text-white py-4 rounded-xl font-bold text-base hover:bg-brandBlue transition-all duration-300 shadow-lg shadow-brandOrange/20 flex items-center justify-center gap-3">Kostenloses Angebot anfordern <svg class="icon-arrow-right text-sm" aria-hidden="true" focusable="false" viewBox="0 0 512 512"><path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-105.4 105.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" fill="currentColor"/></svg></button>
  </form>
  </div>
  </div>
@@ -98,6 +100,34 @@ navActive: "kontakt"
 {% endblock %}
 
 {% block contactExtra %}
+<!-- ======== COMMON QUESTIONS ======== -->
+<section class="sec bg-white">
+ <div class="max-w-3xl mx-auto px-6">
+ <div class="text-center mb-10 reveal">
+ <p class="section-label">Auf einen Blick</p>
+ <h2 class="section-title">Häufige Fragen vor der Kontaktaufnahme</h2>
+ </div>
+ <div class="grid md:grid-cols-3 gap-6 reveal">
+ <div class="bg-slate-50 rounded-xl p-6 text-center">
+ <svg class="icon-clock text-brandOrange mx-auto mb-3" width="24" height="24" aria-hidden="true" focusable="false" viewBox="0 0 512 512"><path d="M464 256A208 208 0 1 1 48 256a208 208 0 1 1 416 0zM0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM232 120l0 136c0 8 4 15.5 10.7 20l96 64c11 7.4 25.9 4.4 33.3-6.7s4.4-25.9-6.7-33.3L280 243.2 280 120c0-13.3-10.7-24-24-24s-24 10.7-24 24z" fill="currentColor"/></svg>
+ <h3 class="font-bold text-brandBlue text-sm mb-2">Antwort innerhalb von 24h</h3>
+ <p class="text-xs text-slate-500">Unser deutsches Account-Team antwortet garantiert innerhalb eines Werktages.</p>
+ </div>
+ <div class="bg-slate-50 rounded-xl p-6 text-center">
+ <svg class="icon-box text-brandOrange mx-auto mb-3" width="24" height="24" aria-hidden="true" focusable="false" viewBox="0 0 448 512"><path d="M50.7 58.5L0 160l208 0 0-128L93.4 32c-17.2 0-33.1 9.9-42.7 26.5zM240 160l208 0L397.3 58.5C387.7 41.9 371.8 32 354.6 32L240 32l0 128zM448 192l0 256c0 35.3-28.7 64-64 64L64 512c-35.3 0-64-28.7-64-64L0 192l448 0z" fill="currentColor"/></svg>
+ <h3 class="font-bold text-brandBlue text-sm mb-2">Muster in 3–7 Tagen</h3>
+ <p class="text-xs text-slate-500">Standardmuster werden innerhalb einer Woche per Express verschickt. Kosten anrechenbar.</p>
+ </div>
+ <div class="bg-slate-50 rounded-xl p-6 text-center">
+ <svg class="icon-shield text-brandOrange mx-auto mb-3" width="24" height="24" aria-hidden="true" focusable="false" viewBox="0 0 512 512"><path d="M256 0c4.6 0 9.2 1 13.4 2.9L457.7 82.8c22 9.3 38.4 31 38.3 57.2c-.5 99.2-41.3 280.7-213.6 363.2c-16.7 8-36.1 8-52.8 0C57.3 420.7 16.5 239.2 16 140c-.1-26.2 16.3-47.9 38.3-57.2L242.7 2.9C246.8 1 251.4 0 256 0zm0 66.8l0 378.1C362.1 398.6 402.3 281.4 407.4 152L256 66.8z" fill="currentColor"/></svg>
+ <h3 class="font-bold text-brandBlue text-sm mb-2">30% Anzahlung, 70% vor Versand</h3>
+ <p class="text-xs text-slate-500">Bewährte Zahlungsbedingungen. Für geprüfte Partner auch auf Rechnung.</p>
+ </div>
+ </div>
+ </div>
+</section>
+
+
 <!-- ======== TEAM ======== -->
 <section class="sec bg-slate-50">
  <div class="max-w-7xl mx-auto px-6">
@@ -108,8 +138,8 @@ navActive: "kontakt"
  </div>
  <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-4xl mx-auto">
  <div class="team-card reveal text-center p-6">
- <div class="w-20 h-20 rounded-full bg-brandOrange/10 mx-auto mb-4 flex items-center justify-center">
- <svg class="icon-user text-2xl text-brandOrange" aria-hidden="true" focusable="false" viewBox="0 0 448 512" width="32"><path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-96 55.2C54 332.9 0 401.3 0 482.3C0 498.7 13.3 512 29.7 512l388.6 0c16.4 0 29.7-13.3 29.7-29.7c0-81-54-149.4-128-171.1l0 50.9c27.6 7.1 48 32.2 48 62l0 40c0 8.8-7.2 16-16 16l-16 0 0-40c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 40-96 0 0-40c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 40-16 0c-8.8 0-16-7.2-16-16l0-40c0-29.7 20.4-54.8 48-62l0-50.9z"/></svg>
+ <div class="w-20 h-20 rounded-full bg-brandOrange/10 mx-auto mb-4 overflow-hidden">
+ <img src="/image/factory/team-nina.webp" alt="Nina" width="80" height="80" class="w-full h-full object-cover" loading="lazy">
  </div>
  <p class="team-name">Nina</p>
  <p class="team-role">Sales Managerin</p>
@@ -117,11 +147,11 @@ navActive: "kontakt"
  <a href="mailto:nina@wowohcool.com" class="text-xs text-brandOrange font-bold mt-3 inline-block hover:underline">nina@wowohcool.com</a>
  </div>
  <div class="team-card reveal text-center p-6">
- <div class="w-20 h-20 rounded-full bg-brandBlue/10 mx-auto mb-4 flex items-center justify-center">
- <svg class="icon-user-gear text-2xl text-brandBlue" aria-hidden="true" focusable="false" viewBox="0 0 448 512" width="32"><path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-96 55.2C54 332.9 0 401.3 0 482.3C0 498.7 13.3 512 29.7 512l388.6 0c16.4 0 29.7-13.3 29.7-29.7c0-81-54-149.4-128-171.1l0 50.9c27.6 7.1 48 32.2 48 62l0 40c0 8.8-7.2 16-16 16l-16 0 0-40c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 40-96 0 0-40c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 40-16 0c-8.8 0-16-7.2-16-16l0-40c0-29.7 20.4-54.8 48-62l0-50.9z"/></svg>
+ <div class="w-20 h-20 rounded-full bg-brandBlue/10 mx-auto mb-4 overflow-hidden">
+ <img src="/image/factory/team-snowy.webp" alt="Snowy" width="80" height="80" class="w-full h-full object-cover" loading="lazy">
  </div>
  <p class="team-name">Snowy</p>
- <p class="team-role">Projektmanager</p>
+ <p class="team-role">Market Managerin</p>
  <p class="text-xs text-slate-500 mt-2">Koordiniert Ihren ODM-Prozess von der Entwicklung bis zur Lieferung.</p>
  <a href="mailto:snowy@wowohcool.com" class="text-xs text-brandOrange font-bold mt-3 inline-block hover:underline">snowy@wowohcool.com</a>
  </div>

@@ -5,6 +5,7 @@ canonical: "/de/produkte/kabelloses-ladegeraet/"
 enPath: "/products/wireless-charger/"
 esPath: "productos/cargador-inalambrico/"
 navActive: "kabellos"
+lang: "de"
 ---
 {% extends "layout.njk" %}
 
@@ -64,56 +65,17 @@ navActive: "kabellos"
  </div>
 </section>
 
-<!-- TRUST BAND -->
+<!-- STATS BAR -->
+{% from "partials/stats-bar.njk" import statsBar %}
+{{ statsBar(i18n.statsBar[lang].items) }}
+
+<!-- TRUST BAR — Certs + Logos -->
+{% from "partials/cert-showcase.njk" import certShowcase %}
+{{ certShowcase(i18n.certifications[lang].homepage.items, i18n.certifications[lang].homepage.heading, i18n.certifications[lang].homepage.title, "", "py-10 md:py-14 bg-white", true) }}
 {% from "partials/customer-logos.njk" import customerLogos %}
-{{ customerLogos("Vertrauen internationaler Marken") }}
+{{ customerLogos("Vertrauen internationaler Marken", "", standalone=true) }}
 
-<!-- KATEGORIEN-VERGLEICH -->
-<section id="kategorien" class="sec bg-slate-50">
- <div class="max-w-7xl mx-auto px-6">
-  <div class="text-center max-w-3xl mx-auto mb-12 reveal">
-   <p class="section-label">Kategorien-Vergleich</p>
-   <h2 class="section-title">3 Kabellose Ladegerät-Kategorien im Überblick</h2>
-   <p class="section-desc mx-auto">Welche Kategorie passt zu Ihrem Markt? Vergleichen Sie Formfaktor, Leistung und Einsatzgebiet.</p>
-  </div>
-  <div class="overflow-x-auto reveal">
-   <table class="w-full min-w-[720px] bg-white rounded-2xl shadow-sm border border-slate-200">
-    <thead><tr class="bg-brandBlue text-white">
-     <th class="py-3 px-3 text-xs font-bold uppercase tracking-wider text-left rounded-tl-2xl">Kategorie</th>
-     <th class="py-3 px-3 text-xs font-bold uppercase tracking-wider text-left">Formfaktor</th>
-     <th class="py-3 px-3 text-xs font-bold uppercase tracking-wider text-left">Leistung</th>
-     <th class="py-3 px-3 text-xs font-bold uppercase tracking-wider text-left">Modelle</th>
-     <th class="py-3 px-3 text-xs font-bold uppercase tracking-wider text-left hidden md:table-cell">Marktposition</th>
-     <th class="py-3 px-3 text-xs font-bold uppercase tracking-wider text-left">MOQ</th>
-     <th class="py-3 px-3 text-xs font-bold uppercase tracking-wider text-left rounded-tr-2xl">Details</th>
-    </tr></thead>
-    <tbody>
-     <tr class="border-b border-slate-200 hover:bg-slate-50">
-      <td class="py-3 px-3 text-sm font-bold text-brandBlue">Desktop</td><td class="py-3 px-3 text-sm text-slate-600">Pad & Stand</td><td class="py-3 px-3 text-sm text-slate-600">10-15W Qi2</td><td class="py-3 px-3 text-sm text-slate-600">3 (+2 Q3 2026)</td><td class="py-3 px-3 text-sm text-slate-600 hidden md:table-cell">55-60% Absatzvolumen</td><td class="py-3 px-3 text-sm text-slate-600">500</td>
-      <td class="py-3 px-3 text-sm"><a href="/de/produkte/kabelloses-ladegeraet/desktop/" class="inline-block px-3 py-1 rounded-full text-[11px] font-black bg-brandOrange text-white uppercase tracking-widest hover:bg-brandOrange/90 transition">Reihe ansehen &rarr;</a></td></tr>
-     <tr class="border-b border-slate-200 hover:bg-slate-50">
-      <td class="py-3 px-3 text-sm font-bold text-brandBlue">3-in-1 Station</td><td class="py-3 px-3 text-sm text-slate-600">Faltbar / TEC / Zink</td><td class="py-3 px-3 text-sm text-slate-600">15-25W Qi2.2</td><td class="py-3 px-3 text-sm text-slate-600">13</td><td class="py-3 px-3 text-sm text-slate-600 hidden md:table-cell">40-50% Umsatzanteil</td><td class="py-3 px-3 text-sm text-slate-600">500</td>
-      <td class="py-3 px-3 text-sm"><a href="/de/produkte/kabelloses-ladegeraet/3-in-1-station/" class="inline-block px-3 py-1 rounded-full text-[11px] font-black bg-brandOrange text-white uppercase tracking-widest hover:bg-brandOrange/90 transition">Reihe ansehen &rarr;</a></td></tr>
-     <tr class="hover:bg-slate-50">
-      <td class="py-3 px-3 text-sm font-bold text-brandBlue">Auto Halterung</td><td class="py-3 px-3 text-sm text-slate-600">Magnet / Klemme / Pad</td><td class="py-3 px-3 text-sm text-slate-600">15-25W Qi2.2</td><td class="py-3 px-3 text-sm text-slate-600">5</td><td class="py-3 px-3 text-sm text-slate-600 hidden md:table-cell">19,4% CAGR, E-Mark</td><td class="py-3 px-3 text-sm text-slate-600">500</td>
-      <td class="py-3 px-3 text-sm"><a href="/de/produkte/kabelloses-ladegeraet/auto-ladehalterung/" class="inline-block px-3 py-1 rounded-full text-[11px] font-black bg-brandOrange text-white uppercase tracking-widest hover:bg-brandOrange/90 transition">Reihe ansehen &rarr;</a></td></tr>
-    </tbody>
-   </table>
-  </div>
- </div>
-</section>
-
-<!-- MARKET-DATA -->
-<section class="sec bg-white py-8">
- <div class="max-w-5xl mx-auto px-6">
- <blockquote class="bg-brandOrange/5 border-l-4 border-brandOrange rounded-r-xl px-6 py-5 text-sm text-slate-700 italic leading-relaxed">
-  <p>"Der europäische Markt für kabellose Ladegeräte wächst von $1,6 Mrd. (2024) auf $8,7 Mrd. bis 2033 — eine CAGR von 20,75% (Market Data Forecast). <strong>Deutschland hält mit 18,7% den größten Einzelmarkt-Anteil.</strong> Desktop-Pads und -Ständer machen 55-60% des Absatzvolumens aus (QYResearch), 3-in-1 Stationen erzielen 40-50% des Kategorieumsatzes (Grand View Research), und der Automotive-Sektor wächst mit 19,4% CAGR am schnellsten (LP Information). Nach dem Belkin/Anker/Mophie-Industriestandard sind dies die drei etablierten Formfaktor-Kategorien — WOWOHCOOL deckt alle drei als Direkt-Fabrik ab."</p>
-  <cite class="block text-xs text-slate-400 mt-2 not-italic">— <a href="https://www.marketdataforecast.com/market-reports/europe-wireless-charger-market" target="_blank" rel="noopener noreferrer" class="text-brandOrange hover:underline">Market Data Forecast</a>, Europe Wireless Charger 2024-2033; <a href="https://dataintelo.com/report/desktop-wireless-charging-stand-market" target="_blank" rel="noopener noreferrer" class="text-brandOrange hover:underline">DataIntelo</a>; <a href="https://www.grandviewresearch.com/industry-analysis/wireless-charger-market-report" target="_blank" rel="noopener noreferrer" class="text-brandOrange hover:underline">Grand View Research</a>; <a href="https://www.marketresearch.com/LP-Information-Inc-v4134/Global-Vehicle-mounted-Wireless-Charger-44850256/" target="_blank" rel="noopener noreferrer" class="text-brandOrange hover:underline">LP Information</a></p>
- </blockquote>
- </div>
-</section>
-
-<!-- KATEGORIE-HUB -->
+<!-- KATEGORIE-HUB — Product Cards -->
 <section class="sec bg-white">
  <div class="max-w-7xl mx-auto px-6">
   <div class="text-center max-w-3xl mx-auto mb-12 reveal">
@@ -165,6 +127,51 @@ navActive: "kabellos"
    </a>
 
   </div>
+ </div>
+</section>
+
+<!-- KATEGORIEN-VERGLEICH -->
+<section id="kategorien" class="sec bg-slate-50">
+ <div class="max-w-7xl mx-auto px-6">
+  <div class="text-center max-w-3xl mx-auto mb-12 reveal">
+   <p class="section-label">Kategorien-Vergleich</p>
+   <h2 class="section-title">3 Kabellose Ladegerät-Kategorien im Überblick</h2>
+   <p class="section-desc mx-auto">Welche Kategorie passt zu Ihrem Markt? Vergleichen Sie Formfaktor, Leistung und Einsatzgebiet.</p>
+  </div>
+  <div class="overflow-x-auto reveal">
+   <table class="w-full min-w-[720px] bg-white rounded-2xl shadow-sm border border-slate-200">
+    <thead><tr class="bg-brandBlue text-white">
+     <th class="py-3 px-3 text-xs font-bold uppercase tracking-wider text-left rounded-tl-2xl">Kategorie</th>
+     <th class="py-3 px-3 text-xs font-bold uppercase tracking-wider text-left">Formfaktor</th>
+     <th class="py-3 px-3 text-xs font-bold uppercase tracking-wider text-left">Leistung</th>
+     <th class="py-3 px-3 text-xs font-bold uppercase tracking-wider text-left">Modelle</th>
+     <th class="py-3 px-3 text-xs font-bold uppercase tracking-wider text-left hidden md:table-cell">Marktposition</th>
+     <th class="py-3 px-3 text-xs font-bold uppercase tracking-wider text-left">MOQ</th>
+     <th class="py-3 px-3 text-xs font-bold uppercase tracking-wider text-left rounded-tr-2xl">Details</th>
+    </tr></thead>
+    <tbody>
+     <tr class="border-b border-slate-200 hover:bg-slate-50">
+      <td class="py-3 px-3 text-sm font-bold text-brandBlue">Desktop</td><td class="py-3 px-3 text-sm text-slate-600">Pad & Stand</td><td class="py-3 px-3 text-sm text-slate-600">10-15W Qi2</td><td class="py-3 px-3 text-sm text-slate-600">3 (+2 Q3 2026)</td><td class="py-3 px-3 text-sm text-slate-600 hidden md:table-cell">55-60% Absatzvolumen</td><td class="py-3 px-3 text-sm text-slate-600">500</td>
+      <td class="py-3 px-3 text-sm"><a href="/de/produkte/kabelloses-ladegeraet/desktop/" class="inline-block px-3 py-1 rounded-full text-[11px] font-black bg-brandOrange text-white uppercase tracking-widest hover:bg-brandOrange/90 transition">Reihe ansehen &rarr;</a></td></tr>
+     <tr class="border-b border-slate-200 hover:bg-slate-50">
+      <td class="py-3 px-3 text-sm font-bold text-brandBlue">3-in-1 Station</td><td class="py-3 px-3 text-sm text-slate-600">Faltbar / TEC / Zink</td><td class="py-3 px-3 text-sm text-slate-600">15-25W Qi2.2</td><td class="py-3 px-3 text-sm text-slate-600">13</td><td class="py-3 px-3 text-sm text-slate-600 hidden md:table-cell">40-50% Umsatzanteil</td><td class="py-3 px-3 text-sm text-slate-600">500</td>
+      <td class="py-3 px-3 text-sm"><a href="/de/produkte/kabelloses-ladegeraet/3-in-1-station/" class="inline-block px-3 py-1 rounded-full text-[11px] font-black bg-brandOrange text-white uppercase tracking-widest hover:bg-brandOrange/90 transition">Reihe ansehen &rarr;</a></td></tr>
+     <tr class="hover:bg-slate-50">
+      <td class="py-3 px-3 text-sm font-bold text-brandBlue">Auto Halterung</td><td class="py-3 px-3 text-sm text-slate-600">Magnet / Klemme / Pad</td><td class="py-3 px-3 text-sm text-slate-600">15-25W Qi2.2</td><td class="py-3 px-3 text-sm text-slate-600">5</td><td class="py-3 px-3 text-sm text-slate-600 hidden md:table-cell">19,4% CAGR, E-Mark</td><td class="py-3 px-3 text-sm text-slate-600">500</td>
+      <td class="py-3 px-3 text-sm"><a href="/de/produkte/kabelloses-ladegeraet/auto-ladehalterung/" class="inline-block px-3 py-1 rounded-full text-[11px] font-black bg-brandOrange text-white uppercase tracking-widest hover:bg-brandOrange/90 transition">Reihe ansehen &rarr;</a></td></tr>
+    </tbody>
+   </table>
+  </div>
+ </div>
+</section>
+
+<!-- MARKET-DATA -->
+<section class="sec bg-white py-8">
+ <div class="max-w-5xl mx-auto px-6">
+ <blockquote class="bg-brandOrange/5 border-l-4 border-brandOrange rounded-r-xl px-6 py-5 text-sm text-slate-700 italic leading-relaxed">
+  <p>"Der europäische Markt für kabellose Ladegeräte wächst von $1,6 Mrd. (2024) auf $8,7 Mrd. bis 2033 — eine CAGR von 20,75% (Market Data Forecast). <strong>Deutschland hält mit 18,7% den größten Einzelmarkt-Anteil.</strong> Desktop-Pads und -Ständer machen 55-60% des Absatzvolumens aus (QYResearch), 3-in-1 Stationen erzielen 40-50% des Kategorieumsatzes (Grand View Research), und der Automotive-Sektor wächst mit 19,4% CAGR am schnellsten (LP Information). Nach dem Belkin/Anker/Mophie-Industriestandard sind dies die drei etablierten Formfaktor-Kategorien — WOWOHCOOL deckt alle drei als Direkt-Fabrik ab."</p>
+  <cite class="block text-xs text-slate-400 mt-2 not-italic">— <a href="https://www.marketdataforecast.com/market-reports/europe-wireless-charger-market" target="_blank" rel="noopener noreferrer" class="text-brandOrange hover:underline">Market Data Forecast</a>, Europe Wireless Charger 2024-2033; <a href="https://dataintelo.com/report/desktop-wireless-charging-stand-market" target="_blank" rel="noopener noreferrer" class="text-brandOrange hover:underline">DataIntelo</a>; <a href="https://www.grandviewresearch.com/industry-analysis/wireless-charger-market-report" target="_blank" rel="noopener noreferrer" class="text-brandOrange hover:underline">Grand View Research</a>; <a href="https://www.marketresearch.com/LP-Information-Inc-v4134/Global-Vehicle-mounted-Wireless-Charger-44850256/" target="_blank" rel="noopener noreferrer" class="text-brandOrange hover:underline">LP Information</a></p>
+ </blockquote>
  </div>
 </section>
 
@@ -230,22 +237,6 @@ navActive: "kabellos"
  </div>
 </section>
 
-<!-- ZERTIFIZIERUNGEN -->
-<section class="sec bg-slate-50">
- <div class="max-w-5xl mx-auto px-6">
-  <div class="text-center max-w-3xl mx-auto mb-12 reveal">
-   <p class="section-label">Compliance</p>
-   <h2 class="section-title">EU-Konformität</h2>
-   <p class="section-desc mx-auto">Alle Ladegeräte mit CE, TÜV GS, Qi2 WPC, RoHS und WEEE. E-Mark ready für Automotive.</p>
-  </div>
-  <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 reveal">
-   <div class="bg-white rounded-2xl p-6 border border-slate-200 text-center"><img src="/image/certifications/qi-certified.svg" alt="Qi2 WPC" width="40" height="40" class="w-10 h-10 mx-auto mb-3" loading="lazy"><p class="text-sm font-black text-brandBlue mb-1">Qi2 WPC</p><p class="text-xs font-bold text-brandOrange mb-1">47 Produkte</p><p class="text-xs text-slate-500">99,2% ATL</p></div>
-   <div class="bg-white rounded-2xl p-6 border border-slate-200 text-center"><img src="/image/certifications/ce-certification.svg" alt="CE" width="40" height="40" class="w-10 h-10 mx-auto mb-3" loading="lazy"><p class="text-sm font-black text-brandBlue mb-1">CE</p><p class="text-xs font-bold text-brandOrange mb-1">Pflicht für EU</p><p class="text-xs text-slate-500">EMV + RED</p></div>
-   <div class="bg-white rounded-2xl p-6 border border-slate-200 text-center"><img src="/image/certifications/tuv-gs.svg" alt="TÜV GS" width="40" height="40" class="w-10 h-10 mx-auto mb-3" loading="lazy"><p class="text-sm font-black text-brandBlue mb-1">TÜV GS</p><p class="text-xs font-bold text-brandOrange mb-1">Geprüfte Sicherheit</p><p class="text-xs text-slate-500">DACH-Vertrauen</p></div>
-   <div class="bg-white rounded-2xl p-6 border border-slate-200 text-center"><img src="/image/certifications/weee.svg" alt="WEEE" width="40" height="40" class="w-10 h-10 mx-auto mb-3" loading="lazy"><p class="text-sm font-black text-brandBlue mb-1">WEEE</p><p class="text-xs font-bold text-brandOrange mb-1">Registrierung DE</p><p class="text-xs text-slate-500">EAR + EPR EU-weit</p></div>
-  </div>
- </div>
-</section>
 
 <!-- ====== BLOG INSIGHTS ====== -->
 <section class="sec bg-white">
@@ -337,7 +328,7 @@ navActive: "kabellos"
      <label class="block text-sm font-semibold text-white mb-1">Vorname *</label><input type="text" name="name" required placeholder="z. B. Max" autocomplete="name" class="w-full px-4 py-3.5 rounded-xl border border-white/20 bg-white/10 text-white placeholder:text-white/50 focus:outline-none focus:border-brandOrange text-sm">
      <label class="block text-sm font-semibold text-white mb-1">Unternehmen <span class="text-slate-500 font-medium">(optional)</span></label><input type="text" name="company" placeholder="z. B. Muster GmbH" autocomplete="organization" class="w-full px-4 py-3.5 rounded-xl border border-white/20 bg-white/10 text-white placeholder:text-white/50 focus:outline-none focus:border-brandOrange text-sm">
     </div>
-    <label class="block text-sm font-semibold text-white mb-1">E-Mail *</label><input type="email" name="email" required placeholder="geschaeft@example.com" autocomplete="email" class="w-full px-4 py-3.5 rounded-xl border border-white/20 bg-white/10 text-white placeholder:text-white/50 focus:outline-none focus:border-brandOrange text-sm">
+    <label class="block text-sm font-semibold text-white mb-1">E-Mail *</label><input type="email" name="email" required placeholder="geschäft@example.com" autocomplete="email" class="w-full px-4 py-3.5 rounded-xl border border-white/20 bg-white/10 text-white placeholder:text-white/50 focus:outline-none focus:border-brandOrange text-sm">
     <select name="product" class="w-full px-4 py-3.5 rounded-xl border border-white/20 bg-white/10 text-white focus:outline-none focus:border-brandOrange text-sm">
      <option value="" disabled selected class="text-slate-500">Produktinteresse (optional)</option>
      <option value="unsure">Noch unentschlossen</option>

@@ -5,6 +5,7 @@ canonical: "/de/fallbeispiele/"
 enPath: "/case-studies/"
 esPath: "casos-de-exito/"
 navActive: "fallbeispiele"
+lang: "de"
 ---
 
 {% extends "layout.njk" %}
@@ -33,9 +34,15 @@ navActive: "fallbeispiele"
 </div>
 </section>
 
-<!-- ======== TRUST BAND ======== -->
+<!-- ======== STATS BAR ======== -->
+{% from "partials/stats-bar.njk" import statsBar %}
+{{ statsBar(i18n.statsBar[lang].items) }}
+
+<!-- ======== TRUST BAR — Certs + Logos ======== -->
+{% from "partials/cert-showcase.njk" import certShowcase %}
+{{ certShowcase(i18n.certifications[lang].homepage.items, i18n.certifications[lang].homepage.heading, i18n.certifications[lang].homepage.title, "", "py-10 md:py-14 bg-white", true) }}
 {% from "partials/customer-logos.njk" import customerLogos %}
-{{ customerLogos("Vertrauen internationaler Marken") }}
+{{ customerLogos("Vertrauen internationaler Marken", "", standalone=true) }}
 
 <!-- BLOG LIST -->
 <section class="sec">
@@ -51,10 +58,11 @@ navActive: "fallbeispiele"
 <h2 class="text-xl font-bold text-brandBlue mb-3">65W GaN Autoladegerät für den europäischen Markt</h2>
 <div class="bg-brandBlue/5 rounded-xl p-4 mb-4"><p class="text-sm text-slate-600 italic">"WOWOHCOOL lieferte 10.000 Einheiten 65W GaN Autoladegeräte pünktlich zu unserer Pre-Sale Kampagne. Die Muster kamen in 5 Tagen. Die Fähigkeit, innerhalb von 3 Tagen ein mehrstufiges Produktangebot zu präsentieren, war entscheidend für den Erfolg unserer Produktlinie."</p></div>
 <div class="space-y-2 text-sm text-slate-600">
-<p><strong>Produkt:</strong> 65W GaN Autoladegerät (3 Varianten: 30W/65W/100W+)</p>
+<p><strong>Produkt:</strong> <a href="/de/produkte/autoladegeraet/" class="text-brandOrange hover:underline">65W GaN Autoladegerät</a> (3 Varianten: 30W/65W/100W+)</p>
 <p><strong>Menge:</strong> 10.000 Stück, termingerecht geliefert</p>
 <p><strong>Besonderheit:</strong> Muster in 5 Tagen, 3 Preisstufen entwickelt</p>
 <p><strong>Ergebnis:</strong> Erfolgreicher Markteintritt im Automotive Aftermarket</p>
+ <p class="mt-3"><a href="/de/oem-odm-service/" class="text-xs font-bold text-brandOrange hover:underline">Ihr eigenes OEM/ODM Projekt starten →</a></p>
 </div>
 </div>
 </div>
@@ -67,7 +75,7 @@ navActive: "fallbeispiele"
 <h2 class="text-xl font-bold text-brandBlue mb-3">Komplexes ODM-Projekt: Kabellose Ladestation mit Sensorik</h2>
 <div class="bg-brandBlue/5 rounded-xl p-4 mb-4"><p class="text-sm text-slate-600 italic">"WOWOHCOOL hat unsere komplexe ODM-Herausforderung gelöst, Integration von Infrarot- und Touch-Sensorik in eine kompakte kabellose Autohalterung, woran andere Lieferanten gescheitert waren. 6.000 Einheiten mit null Fehlern ausgeliefert.", Jacob Jensen</p></div>
 <div class="space-y-2 text-sm text-slate-600">
-<p><strong>Produkt:</strong> Kabellose Ladestation mit dualer Sensorik (Infrarot + Touch)</p>
+<p><strong>Produkt:</strong> <a href="/de/produkte/kabelloses-ladegeraet/" class="text-brandOrange hover:underline">Kabellose Ladestation</a> mit dualer Sensorik (Infrarot + Touch)</p>
 <p><strong>Menge:</strong> 6.000 Stück, 0% Fehlerquote</p>
 <p><strong>Besonderheit:</strong> Volle ODM-Entwicklung, Premiumverpackung in 6 Iterationen</p>
 <p><strong>Kunde:</strong> Jacob Jensen, renommiertes dänisches Designhaus</p>
@@ -83,7 +91,7 @@ navActive: "fallbeispiele"
 <h2 class="text-xl font-bold text-brandBlue mb-3">Express-Auftrag vor chinesischem Neujahr</h2>
 <div class="bg-brandBlue/5 rounded-xl p-4 mb-4"><p class="text-sm text-slate-600 italic">"WOWOHCOOL hat unseren dringenden Auftrag über 1.000 kabellose Ladegeräte kurz vor dem chinesischen Neujahr abgewickelt, trotz Zahlungskomplikationen aus Dubai und einem komprimierten Zeitplan von 15 Tagen. Muster in 5 Tagen, Versand vor der Feiertagssperre.", Merlin Digital</p></div>
 <div class="space-y-2 text-sm text-slate-600">
-<p><strong>Produkt:</strong> 15W kabelloses Ladegerät (Qi Standard)</p>
+<p><strong>Produkt:</strong> <a href="/de/produkte/kabelloses-ladegeraet/" class="text-brandOrange hover:underline">15W kabelloses Ladegerät</a> (Qi Standard)</p>
 <p><strong>Menge:</strong> 1.000 Stück, DDP Dubai</p>
 <p><strong>Besonderheit:</strong> 5 Tage Musterversand per DHL, trotz Zahlungsverzögerungen ausgeliefert</p>
 <p><strong>Ergebnis:</strong> Erfolgreiche Lieferung vor der chinesischen Neujahrssperre</p>
@@ -99,7 +107,7 @@ navActive: "fallbeispiele"
 <h2 class="text-xl font-bold text-brandBlue mb-3">5.000 Custom Powerbanks für italienische Fußballvereine</h2>
 <div class="bg-brandBlue/5 rounded-xl p-4 mb-4"><p class="text-sm text-slate-600 italic">"WOWOHCOOL koordinierte 4 verschiedene Teamlogo-Designs in einer einzigen Bestellung mit Auflagen ab 500 Stück pro Modell, was andere Fabriken ablehnten. Kein Preisaufschlag trotz der zusätzlichen Komplexität.", Techmade</p></div>
 <div class="space-y-2 text-sm text-slate-600">
-<p><strong>Produkt:</strong> Custom Powerbanks (5.000mAh + 10.000mAh) mit Vereinslogos</p>
+<p><strong>Produkt:</strong> <a href="/de/produkte/powerbank/" class="text-brandOrange hover:underline">Custom Powerbanks</a> (5.000mAh + 10.000mAh) mit Vereinslogos</p>
 <p><strong>Menge:</strong> 5.000 Stück, 4 verschiedene Designs (ab 500 Stück/Modell)</p>
 <p><strong>Besonderheit:</strong> Niedrige MOQ pro Design ohne Preisaufschlag</p>
 <p><strong>Ergebnis:</strong> Termingerechte Lieferung für die Corporate-Gift-Saison</p>
@@ -128,34 +136,14 @@ navActive: "fallbeispiele"
 </div>
 </section>
 
-<!-- ======== STATS BAR ======== -->
-<section class="py-10 md:py-14 bg-white">
- <div class="max-w-7xl mx-auto px-6">
- <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 md:gap-8">
- <div class="text-center">
- <p class="text-2xl md:text-3xl font-black text-brandOrange">10+</p>
- <p class="text-xs text-slate-500 mt-1 font-semibold uppercase tracking-wider">Jahre Erfahrung</p>
- </div>
- <div class="text-center">
- <p class="text-2xl md:text-3xl font-black text-brandOrange">200+</p>
- <p class="text-xs text-slate-500 mt-1 font-semibold uppercase tracking-wider">Globale Marken</p>
- </div>
- <div class="text-center">
- <p class="text-2xl md:text-3xl font-black text-brandOrange">1M+</p>
- <p class="text-xs text-slate-500 mt-1 font-semibold uppercase tracking-wider">Einheiten/Monat</p>
- </div>
- <div class="text-center">
- <p class="text-2xl md:text-3xl font-black text-brandOrange">5.000m²</p>
- <p class="text-xs text-slate-500 mt-1 font-semibold uppercase tracking-wider">Produktion</p>
- </div>
- <div class="text-center">
- <p class="text-2xl md:text-3xl font-black text-brandOrange">50+</p>
- <p class="text-xs text-slate-500 mt-1 font-semibold uppercase tracking-wider">R&amp;D Ingenieure</p>
- </div>
- <div class="text-center">
- <p class="text-2xl md:text-3xl font-black text-brandOrange">&lt;0,3%</p>
- <p class="text-xs text-slate-500 mt-1 font-semibold uppercase tracking-wider">Defektrate</p>
- </div>
+<!-- ======== HERO STATS SUMMARY ======== -->
+<section class="py-8 md:py-10 bg-white border-b border-slate-100">
+ <div class="max-w-4xl mx-auto px-6">
+ <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+ <div><p class="text-3xl font-black text-brandOrange">75.500+</p><p class="text-xs text-slate-500 mt-1 font-semibold uppercase tracking-wider">Einheiten geliefert</p></div>
+ <div><p class="text-3xl font-black text-brandOrange">100%</p><p class="text-xs text-slate-500 mt-1 font-semibold uppercase tracking-wider">Termingerecht</p></div>
+ <div><p class="text-3xl font-black text-brandOrange">5</p><p class="text-xs text-slate-500 mt-1 font-semibold uppercase tracking-wider">Referenzprojekte</p></div>
+ <div><p class="text-3xl font-black text-brandOrange">&lt;0,3%</p><p class="text-xs text-slate-500 mt-1 font-semibold uppercase tracking-wider">Defektrate</p></div>
  </div>
  </div>
 </section>
@@ -195,7 +183,7 @@ navActive: "fallbeispiele"
  </div>
  </div>
  <label for="email-bottom" class="block text-sm font-semibold text-white mb-1">E-Mail *</label>
- <input id="email-bottom" type="email" name="email" required placeholder="geschaeft@example.com" autocomplete="email"
+ <input id="email-bottom" type="email" name="email" required placeholder="geschäft@example.com" autocomplete="email"
  class="w-full px-4 py-3.5 rounded-xl border border-white/20 bg-white/10 text-white placeholder:text-white/50 focus:outline-none focus:border-brandOrange text-sm">
  <label for="message-bottom" class="block text-sm font-semibold text-white mb-1">Nachricht *</label>
  <textarea id="message-bottom" required minlength="10" name="message" rows="3" placeholder="Ihre Nachricht (Menge, Spezifikationen, Wünsche)"

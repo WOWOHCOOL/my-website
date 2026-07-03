@@ -5,6 +5,7 @@ canonical: "/de/produkte/powerbank/"
 enPath: "/products/power-bank/"
 esPath: "productos/powerbank/"
 navActive: "powerbank"
+lang: "de"
 ---
 
 {% extends "layout.njk" %}
@@ -120,7 +121,17 @@ navActive: "powerbank"
  </div>
  </section>
 
- <!-- ======== KATEGORIEN-VERGLEICH ======== -->
+ <!-- ======== STATS BAR ======== -->
+ {% from "partials/stats-bar.njk" import statsBar %}
+ {{ statsBar(i18n.statsBar[lang].items) }}
+
+ <!-- ======== TRUST BAR — Certs + Logos ======== -->
+ {% from "partials/cert-showcase.njk" import certShowcase %}
+ {{ certShowcase(i18n.certifications[lang].homepage.items, i18n.certifications[lang].homepage.heading, i18n.certifications[lang].homepage.title, "", "py-10 md:py-14 bg-white", true) }}
+ {% from "partials/customer-logos.njk" import customerLogos %}
+ {{ customerLogos("Vertrauen internationaler Marken", "", standalone=true) }}
+
+ <!-- ======== POWERBANK KATEGORIEN ======== -->
  <section class="sec bg-slate-50">
  <div class="max-w-7xl mx-auto px-6">
  <div class="text-center max-w-3xl mx-auto mb-12 reveal">
@@ -203,14 +214,7 @@ navActive: "powerbank"
  </div>
  </section>
 
- <!-- ======== TRUST BAND ======== -->
- {% from "partials/customer-logos.njk" import customerLogos %}
- {{ customerLogos("Vertrauen internationaler Marken") }}
-
- {% from "partials/stats-bar.njk" import statsBar %}
- {{ statsBar(i18n.statsBar[lang].items) }}
-
- <!-- ======== POWERBANK KATEGORIEN ======== -->
+<!-- ======== KATEGORIEN-VERGLEICH ======== -->
  <section id="kategorien" class="sec bg-white">
  <div class="max-w-7xl mx-auto px-6">
  <div class="text-center max-w-3xl mx-auto mb-12 reveal">
@@ -444,51 +448,6 @@ navActive: "powerbank"
  </div>
  </section>
 
- <!-- ======== ZERTIFIZIERUNGEN ======== -->
- <section class="sec bg-slate-50">
- <div class="max-w-5xl mx-auto px-6">
- <div class="text-center max-w-3xl mx-auto mb-12 reveal">
- <p class="section-label">Compliance</p>
- <h2 class="section-title">Zertifizierungen für den europäischen Markt</h2>
- <p class="section-desc mx-auto">Alle Powerbanks erfüllen die Anforderungen für den Import und Verkauf in der EU. Wir unterstützen Sie bei der vollständigen Marktkonformität.</p>
- </div>
- <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 reveal">
- <div class="bg-white rounded-2xl p-6 border border-slate-200 text-center">
- <div class="flex justify-center mb-3"><img src="/image/certifications/ce-certification.svg" alt="CE Zertifizierung" width="48" height="48" loading="lazy" class="h-12 w-auto"></div>
- <p class="text-lg font-black text-brandBlue mb-1">CE</p>
- <p class="text-xs font-bold text-brandOrange mb-1">Pflicht für EU</p>
- <p class="text-xs text-slate-500">EMV-Richtlinie 2014/30/EU + Niederspannungsrichtlinie 2014/35/EU</p>
- </div>
- <div class="bg-white rounded-2xl p-6 border border-slate-200 text-center">
- <div class="flex justify-center mb-3"><img src="/image/certifications/un383-safety.svg" alt="UN38.3 Transportzertifizierung" width="48" height="48" loading="lazy" class="h-12 w-auto"></div>
- <p class="text-lg font-black text-brandBlue mb-1">UN38.3</p>
- <p class="text-xs font-bold text-brandOrange mb-1">Transportzertifizierung</p>
- <p class="text-xs text-slate-500">Pflicht für Lithium-Batterien im internationalen Transport (Luft/See)</p>
- </div>
- <div class="bg-white rounded-2xl p-6 border border-slate-200 text-center">
- <div class="flex justify-center mb-3"><img src="/image/certifications/tuv-gs.svg" alt="TÜV GS Geprüfte Sicherheit" width="48" height="48" loading="lazy" class="h-12 w-auto"></div>
- <p class="text-lg font-black text-brandBlue mb-1">TÜV GS</p>
- <p class="text-xs font-bold text-brandOrange mb-1">Geprüfte Sicherheit</p>
- <p class="text-xs text-slate-500">Freiwilliges Prüfzeichen, stärkt Vertrauen im deutschen Handel</p>
- </div>
- <div class="bg-white rounded-2xl p-6 border border-slate-200 text-center">
- <div class="flex justify-center mb-3"><img src="/image/certifications/rohs-compliant.svg" alt="RoHS Compliance" width="48" height="48" loading="lazy" class="h-12 w-auto"></div>
- <p class="text-lg font-black text-brandBlue mb-1">RoHS</p>
- <p class="text-xs font-bold text-brandOrange mb-1">Stoffbeschränkung</p>
- <p class="text-xs text-slate-500">Keine gefährlichen Substanzen gemäß EU-Richtlinie 2011/65/EU</p>
- </div>
- </div>
- <div class="flex flex-wrap justify-center items-center gap-3 text-sm text-slate-500 mt-8 reveal">
- <span>Zusätzlich verfügbar:</span>
- <span class="inline-flex items-center gap-1"><img src="/image/certifications/ul.svg" alt="UL" width="18" height="18" loading="lazy" class="w-4 h-4"> UL</span>
- <span class="inline-flex items-center gap-1"><img src="/image/certifications/pse.svg" alt="PSE" width="18" height="18" loading="lazy" class="w-4 h-4"> PSE</span>
- <span class="inline-flex items-center gap-1"><img src="/image/certifications/kc.svg" alt="KC" width="18" height="18" loading="lazy" class="w-4 h-4"> KC</span>
- <span class="inline-flex items-center gap-1">BIS</span>
- <button data-action="open-modal" class="text-brandOrange font-semibold hover:underline cursor-pointer">Zertifizierungsberatung anfragen →</button>
-</div>
- </div>
- </section>
-
  <!-- ======== OEM/ODM ======== -->
  <section class="sec bg-slate-50">
  <div class="max-w-7xl mx-auto px-6">
@@ -691,7 +650,7 @@ navActive: "powerbank"
  <label class="block text-sm font-semibold text-white mb-1">Vorname *</label><input type="text" name="name" required placeholder="z. B. Max" autocomplete="name" class="w-full px-4 py-3.5 rounded-xl border border-white/20 bg-white/10 text-white placeholder:text-white/50 focus:outline-none focus:border-brandOrange text-sm">
  <label class="block text-sm font-semibold text-white mb-1">Unternehmen <span class="text-slate-500 font-medium">(optional)</span></label><input type="text" name="company" placeholder="z. B. Muster GmbH" autocomplete="organization" class="w-full px-4 py-3.5 rounded-xl border border-white/20 bg-white/10 text-white placeholder:text-white/50 focus:outline-none focus:border-brandOrange text-sm">
  </div>
- <label class="block text-sm font-semibold text-white mb-1">E-Mail *</label><input type="email" name="email" required placeholder="geschaeft@example.com" autocomplete="email" class="w-full px-4 py-3.5 rounded-xl border border-white/20 bg-white/10 text-white placeholder:text-white/50 focus:outline-none focus:border-brandOrange text-sm">
+ <label class="block text-sm font-semibold text-white mb-1">E-Mail *</label><input type="email" name="email" required placeholder="geschäft@example.com" autocomplete="email" class="w-full px-4 py-3.5 rounded-xl border border-white/20 bg-white/10 text-white placeholder:text-white/50 focus:outline-none focus:border-brandOrange text-sm">
  <select name="product" class="w-full px-4 py-3.5 rounded-xl border border-white/20 bg-white/10 text-white focus:outline-none focus:border-brandOrange text-sm">
  <option value="" disabled selected class="text-slate-500">Produktinteresse (optional)</option>
  <option value="unsure">Noch unentschlossen</option>

@@ -6,6 +6,7 @@ enPath: "/about/"
 esPath: "sobre-nosotros/"
 ogImage: "/image/factory/wowohcool-smart-charging-solutions.webp"
 navActive: "ueber-uns"
+lang: "de"
 ---
 
 {% extends "layout.njk" %}
@@ -146,30 +147,107 @@ navActive: "ueber-uns"
  </div>
 </section>
 
-<!-- ======== TRUST BAND ======== -->
-{% from "partials/customer-logos.njk" import customerLogos %}
-{{ customerLogos("Vertrauen internationaler Marken", "/de/fallbeispiele/") }}
+<!-- ======== STATS BAR ======== -->
+{% from "partials/stats-bar.njk" import statsBar %}
+{{ statsBar(i18n.statsBar[lang].items) }}
 
-<section class="py-12 bg-brandBlue"><div class="max-w-7xl mx-auto px-6"><div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
- <div class="text-center"><p class="text-3xl md:text-4xl font-black text-brandOrange">10+</p><p class="text-sm text-slate-300 mt-2 font-medium">Jahre Erfahrung</p></div>
- <div class="text-center"><p class="text-3xl md:text-4xl font-black text-brandOrange">200+</p><p class="text-sm text-slate-300 mt-2 font-medium">globale Marken</p></div>
- <div class="text-center"><p class="text-3xl md:text-4xl font-black text-brandOrange">1M+</p><p class="text-sm text-slate-300 mt-2 font-medium">Einheiten/Monat</p></div>
- <div class="text-center"><p class="text-3xl md:text-4xl font-black text-brandOrange">5.000m²</p><p class="text-sm text-slate-300 mt-2 font-medium">Produktion</p></div>
- <div class="text-center"><p class="text-3xl md:text-4xl font-black text-brandOrange">50+</p><p class="text-sm text-slate-300 mt-2 font-medium">R&amp;D Ingenieure</p></div>
- <div class="text-center"><p class="text-3xl md:text-4xl font-black text-brandOrange">&lt;0,3%</p><p class="text-sm text-slate-300 mt-2 font-medium">Defektrate</p></div>
-</div></div></section>
+<!-- ======== TRUST BAR — Certs + Logos ======== -->
+{% from "partials/cert-showcase.njk" import certShowcase %}
+{{ certShowcase(i18n.certifications[lang].homepage.items, i18n.certifications[lang].homepage.heading, i18n.certifications[lang].homepage.title, "", "py-10 md:py-14 bg-white", true) }}
+{% from "partials/customer-logos.njk" import customerLogos %}
+{{ customerLogos("Vertrauen internationaler Marken", "/de/fallbeispiele/", standalone=true) }}
+
+<!-- ======== COMPANY TIMELINE ======== -->
+<section class="sec bg-white">
+ <div class="max-w-7xl mx-auto px-6">
+ <div class="text-center mb-12 reveal">
+ <p class="section-label">Meilensteine</p>
+ <h2 class="section-title">Seit 2013: Eine Wachstumsgeschichte</h2>
+ <p class="section-desc mx-auto">Vom Start-up-Werkstatt zum CES-präsentierten Hersteller für 200+ globale Marken. Jeder Meilenstein spiegelt unser Engagement für Ladetechnologie und Fertigungsexzellenz wider.</p>
+ </div>
+ <div class="space-y-6 max-w-4xl mx-auto">
+ <div class="flex flex-col md:flex-row gap-4 md:gap-8 items-start reveal">
+ <div class="w-full md:w-24 shrink-0 bg-brandBlue text-white rounded-xl p-3 text-center shadow-lg">
+ <span class="block text-2xl font-black italic">2013</span>
+ <span class="text-[10px] font-bold uppercase tracking-widest opacity-80">Gegründet</span>
+ </div>
+ <div class="bg-slate-50 rounded-xl p-5 flex-1">
+ <h4 class="font-black text-slate-900 uppercase mb-1">Dong Yi Technology gegründet</h4>
+ <p class="text-sm text-slate-600">Gegründet im Longhua Distrikt in Shenzhen als spezialisierter Hersteller für Ladezubehör. Anfängliches Team von 15 Ingenieuren, fokussiert auf Powerbank- und Wandladegerät-OEM-Produktion.</p>
+ </div>
+ </div>
+ <div class="flex flex-col md:flex-row gap-4 md:gap-8 items-start reveal">
+ <div class="w-full md:w-24 shrink-0 bg-brandBlue text-white rounded-xl p-3 text-center shadow-lg">
+ <span class="block text-2xl font-black italic">2015</span>
+ <span class="text-[10px] font-bold uppercase tracking-widest opacity-80">Zertifiziert</span>
+ </div>
+ <div class="bg-slate-50 rounded-xl p-5 flex-1">
+ <h4 class="font-black text-slate-900 uppercase mb-1">ISO 9001 Zertifizierung erreicht</h4>
+ <p class="text-sm text-slate-600">Bestandene ISO 9001 Qualitätsmanagementsystem-Prüfung durch SGS. CE, FCC und RoHS Zertifizierungen für alle Produktlinien erlangt. Erweiterung auf 2.000m² mit erster SMT-Linie.</p>
+ </div>
+ </div>
+ <div class="flex flex-col md:flex-row gap-4 md:gap-8 items-start reveal">
+ <div class="w-full md:w-24 shrink-0 bg-brandBlue text-white rounded-xl p-3 text-center shadow-lg">
+ <span class="block text-2xl font-black italic">2017</span>
+ <span class="text-[10px] font-bold uppercase tracking-widest opacity-80">Wireless</span>
+ </div>
+ <div class="bg-slate-50 rounded-xl p-5 flex-1">
+ <h4 class="font-black text-slate-900 uppercase mb-1">Kabellose Ladegerät-Produktion gestartet</h4>
+ <p class="text-sm text-slate-600">Eintritt in den kabellosen Ladegerät-Markt mit Qi-zertifizierten Produktlinien. Aufbau dedizierter Spulenwickel- und FOD-Prüfkapazitäten. Spezialisierung auf magnetische Ausrichtung und Thermomanagement für kabelloses Laden.</p>
+ </div>
+ </div>
+ <div class="flex flex-col md:flex-row gap-4 md:gap-8 items-start reveal">
+ <div class="w-full md:w-24 shrink-0 bg-brandBlue text-white rounded-xl p-3 text-center shadow-lg">
+ <span class="block text-2xl font-black italic">2020</span>
+ <span class="text-[10px] font-bold uppercase tracking-widest opacity-80">GaN-Ära</span>
+ </div>
+ <div class="bg-slate-50 rounded-xl p-5 flex-1">
+ <h4 class="font-black text-slate-900 uppercase mb-1">GaN-Ladegerät-Produktion gestartet</h4>
+ <p class="text-sm text-slate-600">Investition in GaN (Gallium-Nitrid)-Ladegerät-Fertigungslinien. Erweiterung auf aktuelle 5.000m² Produktion. R&D-Team auf 30+ Ingenieure spezialisiert auf PD Schnellladeprotokolle gewachsen.</p>
+ </div>
+ </div>
+ <div class="flex flex-col md:flex-row gap-4 md:gap-8 items-start reveal">
+ <div class="w-full md:w-24 shrink-0 bg-brandOrange text-white rounded-xl p-3 text-center shadow-lg">
+ <span class="block text-2xl font-black italic">2023</span>
+ <span class="text-[10px] font-bold uppercase tracking-widest opacity-80">Skalierung</span>
+ </div>
+ <div class="bg-slate-50 rounded-xl p-5 flex-1">
+ <h4 class="font-black text-slate-900 uppercase mb-1">1M+ Monatskapazität erreicht</h4>
+ <p class="text-sm text-slate-600">Erweiterung auf 200-500 Mitarbeiter mit 4 automatisierten SMT-Linien. Erste Fortune-500-Kunden bedient. Qi2 Wireless-Charger-Produktlinie vor der Branchen-Adoptionskurve gestartet.</p>
+ </div>
+ </div>
+ <div class="flex flex-col md:flex-row gap-4 md:gap-8 items-start reveal">
+ <div class="w-full md:w-24 shrink-0 bg-brandOrange text-white rounded-xl p-3 text-center shadow-lg">
+ <span class="block text-2xl font-black italic">2025</span>
+ <span class="text-[10px] font-bold uppercase tracking-widest opacity-80">Innovation</span>
+ </div>
+ <div class="bg-slate-50 rounded-xl p-5 flex-1">
+ <h4 class="font-black text-slate-900 uppercase mb-1">Semi-Solid-State-Akku F&E</h4>
+ <p class="text-sm text-slate-600">Beginn der Entwicklung von Semi-Solid-State-Powerbank-Technologie. 50% dünner, 30% höhere Energiedichte gegenüber traditionellem Lithium-Polymer. Bosch 10.000-Einheiten GaN-Autoladegerät Fast-Track-Projekt in 25 Tagen abgeschlossen.</p>
+ </div>
+ </div>
+ <div class="flex flex-col md:flex-row gap-4 md:gap-8 items-start reveal">
+ <div class="w-full md:w-24 shrink-0 bg-brandOrange text-white rounded-xl p-3 text-center shadow-lg">
+ <span class="block text-2xl font-black italic">2026</span>
+ <span class="text-[10px] font-bold uppercase tracking-widest opacity-80">Global</span>
+ </div>
+ <div class="bg-slate-50 rounded-xl p-5 flex-1">
+ <h4 class="font-black text-slate-900 uppercase mb-1">CES 2026 & globale Expansion</h4>
+ <p class="text-sm text-slate-600">Präsentation der Semi-Solid-State- und Qi2 MPP-Technologie auf der CES 2026. Über 200+ globale Marken und 10M+ ausgelieferte Einheiten. Deutsche und spanische Marktwebsites gestartet. 50+ R&D-Ingenieure treiben nächste GaN V- und PD 3.1-Entwicklung voran.</p>
+ </div>
+ </div>
+ </div>
+ </div>
+</section>
 
 <section id="story" class="sec bg-white">
  <div class="max-w-7xl mx-auto px-6">
  <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
  <div class="reveal">
- <p class="section-label">Unsere Geschichte</p><h2 class="section-title">Von Shenzhen in die Welt</h2>
- <p class="text-slate-600 leading-relaxed mb-4">Gegründet 2013 in Shenzhen, China, hat sich WOWOHCOOL von einem kleinen Fertigungsbetrieb zu einem professionellen OEM/ODM Partner für weltweite Marken entwickelt. Was mit einer Vision begann, hochwertige Ladelösungen zu wettbewerbsfähigen Preisen anzubieten, ist heute ein Unternehmen mit über 200 Mitarbeitern und Kunden in mehr als 30 Ländern.</p>
- <p class="text-slate-600 leading-relaxed mb-4">Deutschland importiert über 90% seiner Powerbanks und Ladegeräte aus China, eine eigene Produktion existiert hierzulande praktisch nicht. WOWOHCOOL füllt diese Lücke als Direkthersteller mit eigener ISO 9001 zertifizierter Produktion, der die Qualitätsstandards des europäischen Marktes aus jahrelanger Erfahrung kennt und erfüllt.</p>
- <p class="text-slate-600 leading-relaxed mb-4">Unsere 5.000m² moderne Produktionsfläche ist ISO 9001 zertifiziert und produziert monatlich über 1 Million hochwertige Einheiten, von Powerbanks über kabellose Ladegeräte bis zu GaN-Ladegeräten. Jede Produktionslinie ist mit modernsten SMT-Bestückungsautomaten und Prüfständen ausgestattet, um eine gleichbleibend hohe Qualität zu gewährleisten.</p>
- <p class="text-slate-600 leading-relaxed mb-4">Mit 50+ R&D-Ingenieuren entwickeln wir jährlich Dutzende neuer Produkte. Von der ersten Produktskizze über das PCB-Design und die Prototypenfertigung bis zur Serienreife, alles unter einem Dach. Unsere Ingenieure sind spezialisiert auf GaN-Technologie, Qi2-Standard, Power Delivery 3.1 und intelligentes Batteriemanagement.</p>
- <p class="text-slate-600 leading-relaxed">2026 präsentierten wir unsere neuesten Innovationen auf der CES in Las Vegas, darunter Semi-Solid-State-Powerbanks und GaN V-Ladegeräte, die neue Maßstäbe in Effizienz und Kompaktheit setzen.</p>
- <p class="text-slate-600 leading-relaxed">Neben der Produktion legen wir großen Wert auf Nachhaltigkeit und Umweltschutz. Unsere Fertigungsprozesse sind auf Energieeffizienz optimiert, und wir arbeiten kontinuierlich daran, den Materialeinsatz zu reduzieren und recyclingfähige Verpackungen zu verwenden. Als langfristiger Partner für deutsche Importeure verstehen wir die spezifischen Anforderungen des europäischen Marktes genau und erfüllen alle geltenden EU-Richtlinien.</p>
+ <p class="section-label">Unsere DNA</p><h2 class="section-title">Von Shenzhen in die Welt</h2>
+ <p class="text-slate-600 leading-relaxed mb-4"><strong>Seit 2013. Shenzhen. 5.000m². ISO 9001.</strong> WOWOHCOOL ist ein spezialisierter Direkthersteller für Ladelösungen — keine Handelsgesellschaft, kein Gemischtwarenladen. Über 200 Mitarbeiter, davon 50+ in R&D, entwickeln und fertigen ausschließlich Powerbanks, kabellose Ladegeräte, GaN-Ladegeräte und Autoladegeräte für Marken in über 30 Ländern.</p>
+ <p class="text-slate-600 leading-relaxed mb-4">Deutschland importiert über 90% seiner Powerbanks und Ladegeräte aus China. Als ISO 9001 zertifizierter Hersteller mit deutschem Account Management schließen wir die Lücke zwischen europäischen Qualitätsansprüchen und chinesischer Fertigungseffizienz. Von der ersten Produktskizze über PCBA-Design und Prototypenbau bis zur Serienreife — alles unter einem Dach in Shenzhen.</p>
+ <p class="text-slate-600 leading-relaxed">2026 präsentierten wir unsere neuesten Innovationen auf der CES in Las Vegas: Semi-Solid-State-Powerbanks mit 50% dünnerem Formfaktor und GaN V-Ladegeräte der nächsten Generation. Unsere 50+ R&D-Ingenieure sind spezialisiert auf GaN-Technologie, Qi2 Wireless Charging, Power Delivery 3.1 und intelligentes Batteriemanagement.</p>
  </div>
  <div class="reveal">
  <div class="bg-slate-50 rounded-2xl p-6 overflow-hidden">
@@ -183,13 +261,16 @@ navActive: "ueber-uns"
 <section class="sec bg-slate-50">
  <div class="max-w-7xl mx-auto px-6">
  <div class="text-center max-w-3xl mx-auto mb-16 reveal"><p class="section-label">Qualität</p><h2 class="section-title">Unser Qualitätsversprechen</h2><p class="section-desc mx-auto">Jedes Produkt durchläuft strenge Qualitätskontrollen und umfassende Tests, bevor es unsere Fabrik in Shenzhen verlässt und an Kunden in Deutschland und Europa versendet wird.</p></div>
- <div class="grid md:grid-cols-3 gap-8">
+ <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
  <div class="text-center reveal p-6"><div class="w-14 h-14 rounded-2xl bg-brandOrange/10 flex items-center justify-center mx-auto mb-5"><svg class="icon-magnifying-glass text-2xl text-brandOrange" aria-hidden="true" focusable="false" viewBox="0 0 512 512">
  <path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376C296.3 401.1 253.9 416 208 416 93.1 416 0 322.9 0 208S93.1 0 208 0 416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z" fill="currentColor"/>
  </svg></div><h3 class="text-lg font-bold text-brandBlue mb-3">IQC, Eingangskontrolle</h3><p class="text-sm text-slate-500">Alle Rohmaterialien und Komponenten werden vor der Produktion geprüft.</p></div>
  <div class="text-center reveal p-6"><div class="w-14 h-14 rounded-2xl bg-brandOrange/10 flex items-center justify-center mx-auto mb-5"><svg class="icon-gears text-2xl text-brandOrange" aria-hidden="true" focusable="false" viewBox="0 0 640 512">
  <path d="M415.9 210.5c12.2-3.3 25 2.5 30.5 13.8L465 261.9c10.3 1.4 20.4 4.2 29.9 8.1l35-23.3c10.5-7 24.4-5.6 33.3 3.3l19.2 19.2c8.9 8.9 10.3 22.9 3.3 33.3l-23.3 34.9c1.9 4.7 3.6 9.6 5 14.7 1.4 5.1 2.3 10.1 3 15.2l37.7 18.6c11.3 5.6 17.1 18.4 13.8 30.5l-7 26.2c-3.3 12.1-14.6 20.3-27.2 19.5l-42-2.7c-6.3 8.1-13.6 15.6-21.9 22l2.7 41.9c.8 12.6-7.4 24-19.5 27.2l-26.2 7c-12.2 3.3-24.9-2.5-30.5-13.8l-18.6-37.6c-10.3-1.4-20.4-4.2-29.9-8.1l-35 23.3c-10.5 7-24.4 5.6-33.3-3.3l-19.2-19.2c-8.9-8.9-10.3-22.8-3.3-33.3l23.3-35c-1.9-4.7-3.6-9.6-5-14.7s-2.3-10.2-3-15.2l-37.7-18.6c-11.3-5.6-17-18.4-13.8-30.5l7-26.2c3.3-12.1 14.6-20.3 27.2-19.5l41.9 2.7c6.3-8.1 13.6-15.6 21.9-22l-2.7-41.8c-.8-12.6 7.4-24 19.5-27.2l26.2-7zM448.4 340a44 44 0 1 0.1 88 44 44 0 1 0 -.1-88zM224.9-45.5l26.2 7c12.1 3.3 20.3 14.7 19.5 27.2l-2.7 41.8c8.3 6.4 15.6 13.8 21.9 22l42-2.7c12.5-.8 23.9 7.4 27.2 19.5l7 26.2c3.2 12.1-2.5 24.9-13.8 30.5l-37.7 18.6c-.7 5.1-1.7 10.2-3 15.2s-3.1 10-5 14.7l23.3 35c7 10.5 5.6 24.4-3.3 33.3L307.3 262c-8.9 8.9-22.8 10.3-33.3 3.3L239 242c-9.5 3.9-19.6 6.7-29.9 8.1l-18.6 37.6c-5.6 11.3-18.4 17-30.5 13.8l-26.2-7c-12.2-3.3-20.3-14.7-19.5-27.2l2.7-41.9c-8.3-6.4-15.6-13.8-21.9-22l-42 2.7c-12.5.8-23.9-7.4-27.2-19.5l-7-26.2c-3.2-12.1 2.5-24.9 13.8-30.5l37.7-18.6c.7-5.1 1.7-10.1 3-15.2 1.4-5.1 3-10 5-14.7L55.1 46.5c-7-10.5-5.6-24.4 3.3-33.3L77.6-6c8.9-8.9 22.8-10.3 33.3-3.3l35 23.3c9.5-3.9 19.6-6.7 29.9-8.1l18.6-37.6c5.6-11.3 18.3-17 30.5-13.8zM192.4 84a44 44 0 1 0 0 88 44 44 0 1 0 0-88z" fill="currentColor"/>
  </svg></div><h3 class="text-lg font-bold text-brandBlue mb-3">IPQC, Prozesskontrolle</h3><p class="text-sm text-slate-500">Während der Fertigung wird jeder Schritt überwacht und dokumentiert.</p></div>
+ <div class="text-center reveal p-6"><div class="w-14 h-14 rounded-2xl bg-brandOrange/10 flex items-center justify-center mx-auto mb-5"><svg class="icon-clipboard-check text-2xl text-brandOrange" aria-hidden="true" focusable="false" viewBox="0 0 384 512">
+ <path d="M192 0c-41.8 0-77.4 26.7-90.5 64L64 64C28.7 64 0 92.7 0 128L0 448c0 35.3 28.7 64 64 64l256 0c35.3 0 64-28.7 64-64l0-320c0-35.3-28.7-64-64-64l-37.5 0C269.4 26.7 233.8 0 192 0zm0 64a32 32 0 1 1 0 64 32 32 0 1 1 0-64zM305 273L177 401c-9.4 9.4-24.6 9.4-33.9 0L79 337c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L271 239c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z" fill="currentColor"/>
+ </svg></div><h3 class="text-lg font-bold text-brandBlue mb-3">FQC, Endkontrolle</h3><p class="text-sm text-slate-500">Funktionsprüfung aller Geräte nach der Fertigung mit dokumentierten Prüfprotokollen.</p></div>
  <div class="text-center reveal p-6"><div class="w-14 h-14 rounded-2xl bg-brandOrange/10 flex items-center justify-center mx-auto mb-5"><svg class="icon-check-double text-2xl text-brandOrange" aria-hidden="true" focusable="false" viewBox="0 0 384 512">
  <path d="M249.9 66.8c10.4-14.3 7.2-34.3-7.1-44.7s-34.3-7.2-44.7 7.1l-106 145.7-37.5-37.5c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l64 64c6.6 6.6 15.8 10 25.1 9.3s17.9-5.5 23.4-13.1l128-176zm128 136c10.4-14.3 7.2-34.3-7.1-44.7s-34.3-7.2-44.7 7.1l-170 233.7-69.5-69.5c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l96 96c6.6 6.6 15.8 10 25.1 9.3s17.9-5.5 23.4-13.1l192-264z" fill="currentColor"/>
  </svg></div><h3 class="text-lg font-bold text-brandBlue mb-3">OQC, Ausgangskontrolle</h3><p class="text-sm text-slate-500">100% der Geräte durchlaufen einen 4-Stunden-Aging-Test vor Versand.</p></div>
@@ -287,88 +368,7 @@ navActive: "ueber-uns"
  </div>
 </section>
 
-<!-- ======== COMPANY TIMELINE ======== -->
-<section class="sec bg-white">
- <div class="max-w-7xl mx-auto px-6">
- <div class="text-center mb-12 reveal">
- <p class="section-label">Unsere Geschichte</p>
- <h2 class="section-title">Seit 2013: Eine Wachstumsgeschichte</h2>
- <p class="section-desc mx-auto">Vom Start-up-Werkstatt zum CES-präsentierten Hersteller für 200+ globale Marken. Jeder Meilenstein spiegelt unser Engagement für Ladetechnologie und Fertigungsexzellenz wider.</p>
- </div>
- <div class="space-y-6 max-w-4xl mx-auto">
- <div class="flex flex-col md:flex-row gap-4 md:gap-8 items-start reveal">
- <div class="w-full md:w-24 shrink-0 bg-brandBlue text-white rounded-xl p-3 text-center shadow-lg">
- <span class="block text-2xl font-black italic">2013</span>
- <span class="text-[10px] font-bold uppercase tracking-widest opacity-80">Gegründet</span>
- </div>
- <div class="bg-slate-50 rounded-xl p-5 flex-1">
- <h4 class="font-black text-slate-900 uppercase mb-1">Dong Yi Technology gegründet</h4>
- <p class="text-sm text-slate-600">Gegründet im Longhua Distrikt in Shenzhen als spezialisierter Hersteller für Ladezubehör. Anfängliches Team von 15 Ingenieuren, fokussiert auf Powerbank- und Wandladegerät-OEM-Produktion.</p>
- </div>
- </div>
- <div class="flex flex-col md:flex-row gap-4 md:gap-8 items-start reveal">
- <div class="w-full md:w-24 shrink-0 bg-brandBlue text-white rounded-xl p-3 text-center shadow-lg">
- <span class="block text-2xl font-black italic">2015</span>
- <span class="text-[10px] font-bold uppercase tracking-widest opacity-80">Zertifiziert</span>
- </div>
- <div class="bg-slate-50 rounded-xl p-5 flex-1">
- <h4 class="font-black text-slate-900 uppercase mb-1">ISO 9001 Zertifizierung erreicht</h4>
- <p class="text-sm text-slate-600">Bestandene ISO 9001 Qualitätsmanagementsystem-Prüfung durch SGS. CE, FCC und RoHS Zertifizierungen für alle Produktlinien erlangt. Erweiterung auf 2.000m² mit erster SMT-Linie.</p>
- </div>
- </div>
- <div class="flex flex-col md:flex-row gap-4 md:gap-8 items-start reveal">
- <div class="w-full md:w-24 shrink-0 bg-brandBlue text-white rounded-xl p-3 text-center shadow-lg">
- <span class="block text-2xl font-black italic">2017</span>
- <span class="text-[10px] font-bold uppercase tracking-widest opacity-80">Wireless</span>
- </div>
- <div class="bg-slate-50 rounded-xl p-5 flex-1">
- <h4 class="font-black text-slate-900 uppercase mb-1">Kabellose Ladegerät-Produktion gestartet</h4>
- <p class="text-sm text-slate-600">Eintritt in den kabellosen Ladegerät-Markt mit Qi-zertifizierten Produktlinien. Aufbau dedizierter Spulenwickel- und FOD-Prüfkapazitäten. Spezialisierung auf magnetische Ausrichtung und Thermomanagement für kabelloses Laden.</p>
- </div>
- </div>
- <div class="flex flex-col md:flex-row gap-4 md:gap-8 items-start reveal">
- <div class="w-full md:w-24 shrink-0 bg-brandBlue text-white rounded-xl p-3 text-center shadow-lg">
- <span class="block text-2xl font-black italic">2020</span>
- <span class="text-[10px] font-bold uppercase tracking-widest opacity-80">GaN-Ära</span>
- </div>
- <div class="bg-slate-50 rounded-xl p-5 flex-1">
- <h4 class="font-black text-slate-900 uppercase mb-1">GaN-Ladegerät-Produktion gestartet</h4>
- <p class="text-sm text-slate-600">Investition in GaN (Gallium-Nitrid)-Ladegerät-Fertigungslinien. Erweiterung auf aktuelle 5.000m² Produktion. R&D-Team auf 30+ Ingenieure spezialisiert auf PD Schnellladeprotokolle gewachsen.</p>
- </div>
- </div>
- <div class="flex flex-col md:flex-row gap-4 md:gap-8 items-start reveal">
- <div class="w-full md:w-24 shrink-0 bg-brandOrange text-white rounded-xl p-3 text-center shadow-lg">
- <span class="block text-2xl font-black italic">2023</span>
- <span class="text-[10px] font-bold uppercase tracking-widest opacity-80">Skalierung</span>
- </div>
- <div class="bg-slate-50 rounded-xl p-5 flex-1">
- <h4 class="font-black text-slate-900 uppercase mb-1">1M+ Monatskapazität erreicht</h4>
- <p class="text-sm text-slate-600">Erweiterung auf 200-500 Mitarbeiter mit 4 automatisierten SMT-Linien. Erste Fortune-500-Kunden bedient. Qi2 Wireless-Charger-Produktlinie vor der Branchen-Adoptionskurve gestartet.</p>
- </div>
- </div>
- <div class="flex flex-col md:flex-row gap-4 md:gap-8 items-start reveal">
- <div class="w-full md:w-24 shrink-0 bg-brandOrange text-white rounded-xl p-3 text-center shadow-lg">
- <span class="block text-2xl font-black italic">2025</span>
- <span class="text-[10px] font-bold uppercase tracking-widest opacity-80">Innovation</span>
- </div>
- <div class="bg-slate-50 rounded-xl p-5 flex-1">
- <h4 class="font-black text-slate-900 uppercase mb-1">Semi-Solid-State-Akku F&E</h4>
- <p class="text-sm text-slate-600">Beginn der Entwicklung von Semi-Solid-State-Powerbank-Technologie. 50% dünner, 30% höhere Energiedichte gegenüber traditionellem Lithium-Polymer. Bosch 10.000-Einheiten GaN-Autoladegerät Fast-Track-Projekt in 25 Tagen abgeschlossen.</p>
- </div>
- </div>
- <div class="flex flex-col md:flex-row gap-4 md:gap-8 items-start reveal">
- <div class="w-full md:w-24 shrink-0 bg-brandOrange text-white rounded-xl p-3 text-center shadow-lg">
- <span class="block text-2xl font-black italic">2026</span>
- <span class="text-[10px] font-bold uppercase tracking-widest opacity-80">Global</span>
- </div>
- <div class="bg-slate-50 rounded-xl p-5 flex-1">
- <h4 class="font-black text-slate-900 uppercase mb-1">CES 2026 & globale Expansion</h4>
- <p class="text-sm text-slate-600">Präsentation der Semi-Solid-State- und Qi2 MPP-Technologie auf der CES 2026. Über 200+ globale Marken und 10M+ ausgelieferte Einheiten. Deutsche und spanische Marktwebsites gestartet. 50+ R&D-Ingenieure treiben nächste GaN V- und PD 3.1-Entwicklung voran.</p>
- </div>
- </div>
- </div>
- </div>
-</section>
+
 
 <!-- ======== HOW WE WORK ======== -->
 <section class="sec bg-slate-50">
@@ -496,11 +496,11 @@ navActive: "ueber-uns"
  <div class="bg-slate-50 rounded-3xl p-8 reveal">
  <p class="section-label">Werksbesuch</p>
  <h3 class="text-2xl lg:text-3xl font-black text-slate-900 uppercase italic tracking-tighter mb-4">Besuchen Sie <span class="text-brandOrange">unsere Fabrik</span></h3>
- <p class="text-sm text-slate-600 leading-relaxed mb-6">Wir begruessen Werksbesuche von potenziellen Partnern. Begehen Sie unsere Produktionsflaeche, treffen Sie das Engineering-Team und sehen Sie unseren QK-Prozess in Aktion. Eine Werksbesichtigung ist der schnellste Weg, unsere Faehigkeiten zu verifizieren.</p>
+ <p class="text-sm text-slate-600 leading-relaxed mb-6">Wir begrüßen Werksbesuche von potenziellen Partnern. Begehen Sie unsere Produktionsfläche, treffen Sie das Engineering-Team und sehen Sie unseren QK-Prozess in Aktion. Eine Werksbesichtigung ist der schnellste Weg, unsere Fähigkeiten zu verifizieren.</p>
  <ul class="text-sm text-slate-600 space-y-3 mb-6">
  <li><strong>Adresse:</strong> 925, Yichuang International Center, Longhua District, Shenzhen, Guangdong 518111, China</li>
  <li><strong>Besuchszeiten:</strong> Montag-Freitag, 9:00-17:00 (UTC+8). Bitte mindestens eine Woche im Voraus anmelden.</li>
- <li><strong>Naechster Flughafen:</strong> Shenzhen Baoan International (SZX), 40 Min mit dem Auto.</li>
+ <li><strong>Nächster Flughafen:</strong> Shenzhen Baoan International (SZX), 40 Min mit dem Auto.</li>
  <li><strong>Hotels:</strong> Mehrere internationale Hotels in 15-Min-Fahrtzeit. Wir helfen bei der Buchung.</li>
  </ul>
  <button data-action="open-modal" class="inline-flex items-center gap-2 bg-brandOrange text-white px-6 py-3.5 rounded-xl font-black uppercase tracking-widest text-[11px] shadow-xl hover:-translate-y-1 transition">Werksbesuch anmelden</button>
@@ -533,8 +533,6 @@ navActive: "ueber-uns"
  <details class="faq-item"><summary>Haben Sie einen deutschsprachigen Ansprechpartner?</summary><div class="faq-answer">Ja, unser Team kommuniziert auf Deutsch und Englisch. Ihr persönlicher Account Manager antwortet innerhalb von 24 Stunden auf alle Anfragen.</div></details>
  <details class="faq-item"><summary>Wie verifiziere ich, dass WOWOHCOOL eine echte Fabrik ist?</summary><div class="faq-answer">Unsere Geschäftslizenz ist im <strong>Nationalen Unternehmensregister Chinas</strong> (gsxt.gov.cn) als Dong Yi Technology Co., Ltd verifizierbar, registriert 2013. Wir begrüßen Live-Video-Werksführungen, Vor-Ort-Besuche und Drittprüfungen durch Bureau Veritas, SGS oder TÜV. ISO 9001 Zertifizierung ist über SGS verifizierbar. Siehe unsere <a href="/de/blog/fabrikpruefung-checkliste-importeure" class="text-brandOrange hover:underline">vollständige Werksprüfungs-Checkliste</a>.</div></details>
  <details class="faq-item"><summary>Was unterscheidet WOWOHCOOL von anderen Shenzhen-Fabriken?</summary><div class="faq-answer">Wir spezialisieren uns <strong>ausschließlich auf Ladezubehör</strong> — Powerbanks, kabellose Ladegeräte, GaN-Ladegeräte und Autoladegeräte — kein Handelsunternehmen mit unrelierten Produktkategorien. Unsere 13+ Jahre fokussierte F&E umfassen die auf der CES 2026 vorgestellte Semi-Solid-State-Batterietechnologie und Qi2 MPP-Expertise von den frühesten Tagen des Standards.</div></details>
-   <details class="faq-item"><summary>Wie verifiziere ich, dass WOWOHCOOL eine echte Fabrik ist?</summary><div class="faq-answer">Unsere Geschäftslizenz ist im <strong>Nationalen Unternehmensregister Chinas</strong> (gsxt.gov.cn) als Dong Yi Technology Co., Ltd verifizierbar, registriert 2013. Wir begrüßen Live-Video-Werksführungen, Vor-Ort-Besuche und Drittprüfungen durch Bureau Veritas, SGS oder TÜV. ISO 9001 Zertifizierung ist über SGS verifizierbar.</div></details>
-   <details class="faq-item"><summary>Was unterscheidet WOWOHCOOL von anderen Shenzhen-Fabriken?</summary><div class="faq-answer">Wir spezialisieren uns <strong>ausschließlich auf Ladezubehör</strong> — Powerbanks, kabellose Ladegeräte, GaN-Ladegeräte und Autoladegeräte — kein Handelsunternehmen mit unrelierten Produktkategorien. Unsere 13+ Jahre fokussierte F&E umfassen die auf der CES 2026 vorgestellte Semi-Solid-State-Batterietechnologie und Qi2 MPP-Expertise von den frühesten Tagen des Standards.</div></details>
  </div>
  </div>
 </section>

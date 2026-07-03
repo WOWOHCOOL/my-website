@@ -5,6 +5,7 @@ canonical: "/de/produkte/"
 enPath: "/products/"
 esPath: "productos/"
 navActive: "produkte"
+lang: "de"
 ---
 
 {% extends "layout.njk" %}
@@ -53,14 +54,10 @@ navActive: "produkte"
 
 {% block content %}
 
+ {{ breadcrumb([{name: "Startseite", url: "/de/"}, {name: "Produkte"}]) }}
  <!-- Hero -->
- <section class="relative pt-20 md:pt-24 pb-8 lg:pt-28 lg:pb-16 bg-gradient-to-b from-slate-50/50 to-white overflow-hidden">
+ <section class="relative pt-6 pb-8 lg:pt-8 lg:pb-16 bg-gradient-to-br from-slate-50 via-white to-orange-50 overflow-hidden">
  <div class="max-w-7xl mx-auto px-6 text-center">
- <nav class="text-sm text-slate-500 mb-6 text-left">
- <a href="/de/" class="hover:text-brandOrange">Startseite</a>
- <span class="mx-2">/</span>
- <span class="text-slate-900">Produkte</span>
- </nav>
  <div class="badge-capsule mb-6 mx-auto uppercase">OEM/ODM SEIT 2013</div>
  <h1 class="text-4xl md:text-5xl lg:text-6xl font-black uppercase italic tracking-tighter mb-6 leading-tight">
  <span class="text-brandBlue">Unsere</span>
@@ -86,9 +83,15 @@ navActive: "produkte"
  </div>
  </section>
 
- <!-- Trust Bar -->
+ <!-- STATS BAR -->
+ {% from "partials/stats-bar.njk" import statsBar %}
+ {{ statsBar(i18n.statsBar[lang].items) }}
+
+ <!-- TRUST BAR — Certs + Logos -->
+ {% from "partials/cert-showcase.njk" import certShowcase %}
+ {{ certShowcase(i18n.certifications[lang].homepage.items, i18n.certifications[lang].homepage.heading, i18n.certifications[lang].homepage.title, "", "py-10 md:py-14 bg-white", true) }}
  {% from "partials/customer-logos.njk" import customerLogos %}
- {{ customerLogos() }}
+ {{ customerLogos("Vertrauen internationaler Marken", "", standalone=true) }}
 
  <!-- Product Grid -->
  <section class="sec max-w-7xl mx-auto px-6">

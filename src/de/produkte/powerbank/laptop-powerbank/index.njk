@@ -5,6 +5,7 @@ canonical: "/de/produkte/powerbank/laptop-powerbank/"
 enPath: "/products/power-bank/laptop-power/"
 esPath: "productos/powerbank/portatil/"
 navActive: "powerbank"
+lang: "de"
 ogImage: "/image/product/power-bank/wop23-240w-power-bank.webp"
 ---
 {% extends "layout.njk" %}
@@ -64,6 +65,16 @@ ogImage: "/image/product/power-bank/wop23-240w-power-bank.webp"
  </div>
 </section>
 
+<!-- STATS BAR -->
+{% from "partials/stats-bar.njk" import statsBar %}
+{{ statsBar(i18n.statsBar[lang].items) }}
+
+<!-- TRUST BAR -->
+{% from "partials/cert-showcase.njk" import certShowcase %}
+{{ certShowcase(i18n.certifications[lang].homepage.items, i18n.certifications[lang].homepage.heading, i18n.certifications[lang].homepage.title, "", "py-10 md:py-14 bg-white", true) }}
+{% from "partials/customer-logos.njk" import customerLogos %}
+{{ customerLogos("Vertrauen internationaler Marken", "", standalone=true) }}
+
 <!-- MARKET-DATA -->
 <section class="sec bg-white py-8">
  <div class="max-w-5xl mx-auto px-6">
@@ -94,10 +105,10 @@ ogImage: "/image/product/power-bank/wop23-240w-power-bank.webp"
      <div class="flex items-start space-x-2"><svg class="text-brandOrange text-[11px] shrink-0" style="width:0.85em;height:0.85em" aria-hidden="true" focusable="false" viewBox="0 0 576 512"><path d="M482.3 192c34.2 0 93.7 29 93.7 64 0 36-59.5 64-93.7 64H395.5l-58.4 144H280l32.5-144H136.6L96 432H32l32-144L0 192h64l40.6 80h208.5L280 128h57.1l58.4 144H482.3z" fill="currentColor"/></svg><div class="text-[11px] font-bold text-slate-500 uppercase leading-tight">IATA Handgepaeck<br><span class="text-[10px] font-normal text-slate-400">MacBook Pro 16/Gaming</span></div></div></div>
     <p class="text-[12px] text-slate-600 mb-4 leading-relaxed text-left">Profi-Laptop-Powerbank mit PD 3.1 240W Ausgang. Lädt MacBook Pro 16", Dell XPS 17, ThinkPad P-Serie sowie Gaming-Laptops mit voller Geschwindigkeit. 27.000mAh (99,9Wh) — maximale Airline-konforme Kapazität für Handgepäck.</p>
     <details class="mb-4 group/spec text-left"><summary class="p-3 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-[11px] font-black text-slate-700 uppercase">Spezifikationen</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary><div class="p-3 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-[11px]"><tbody>
-     <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Akkukapazitaet</td><td class="py-1.5 font-bold text-slate-700">27.000mAh / 97,2Wh</td></tr>
+     <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Akkukapazität</td><td class="py-1.5 font-bold text-slate-700">27.000mAh / 97,2Wh</td></tr>
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Nennkapazitaet</td><td class="py-1.5 font-bold text-slate-700">16.000mAh (5V/2A)</td></tr>
-     <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Masse</td><td class="py-1.5 font-bold text-slate-700">16,2 x 5.6 x 5cm</td></tr>
-     <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Gehaeuse</td><td class="py-1.5 font-bold text-slate-700">ABS + PC</td></tr>
+     <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Maße</td><td class="py-1.5 font-bold text-slate-700">16,2 x 5.6 x 5cm</td></tr>
+     <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Gehäuse</td><td class="py-1.5 font-bold text-slate-700">ABS + PC</td></tr>
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Akkutyp</td><td class="py-1.5 font-bold text-slate-700">Lithium-ion</td></tr>
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Type-C Ausgang</td><td class="py-1.5 font-bold text-slate-700">5V/3A, 9V/3A, 12V/3A, 15V/3A, 20V/5A (100W)</td></tr>
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Type-C Kabel Ausgang</td><td class="py-1.5 font-bold text-slate-700">5V/3A-20V/5A, 28V/5A (140W max.)</td></tr>
@@ -117,10 +128,10 @@ ogImage: "/image/product/power-bank/wop23-240w-power-bank.webp"
      <div class="flex items-start space-x-2"><svg class="text-brandOrange text-[11px] shrink-0" style="width:0.85em;height:0.85em" aria-hidden="true" focusable="false" viewBox="0 0 576 512"><path d="M482.3 192c34.2 0 93.7 29 93.7 64 0 36-59.5 64-93.7 64H395.5l-58.4 144H280l32.5-144H136.6L96 432H32l32-144L0 192h64l40.6 80h208.5L280 128h57.1l58.4 144H482.3z" fill="currentColor"/></svg><div class="text-[11px] font-bold text-slate-500 uppercase leading-tight">IATA Handgepaeck<br><span class="text-[10px] font-normal text-slate-400">MacBook Pro Workstation</span></div></div></div>
     <p class="text-[12px] text-slate-600 mb-4 leading-relaxed text-left">27.000mAh (99,9Wh) PD 130W Powerbank mit digitalem Display. 2× Type-C + 1× USB-A gleichzeitiger Ausgang. Perfekt für MacBook Pro und professionelle Workstations.</p>
     <details class="mb-4 group/spec text-left"><summary class="p-3 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-[11px] font-black text-slate-700 uppercase">Spezifikationen</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary><div class="p-3 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-[11px]"><tbody>
-     <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Akkukapazitaet</td><td class="py-1.5 font-bold text-slate-700">20.000mAh / 72Wh</td></tr>
+     <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Akkukapazität</td><td class="py-1.5 font-bold text-slate-700">20.000mAh / 72Wh</td></tr>
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Nennkapazitaet</td><td class="py-1.5 font-bold text-slate-700">12.000mAh (5V/2A)</td></tr>
-     <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Masse</td><td class="py-1.5 font-bold text-slate-700">16,2 x 5.6 x 4,1 cm</td></tr>
-     <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Gehaeuse</td><td class="py-1.5 font-bold text-slate-700">ABS + PC</td></tr>
+     <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Maße</td><td class="py-1.5 font-bold text-slate-700">16,2 x 5.6 x 4,1 cm</td></tr>
+     <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Gehäuse</td><td class="py-1.5 font-bold text-slate-700">ABS + PC</td></tr>
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Akkutyp</td><td class="py-1.5 font-bold text-slate-700">Lithium-ion</td></tr>
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Type-C/Kabel Ausgang</td><td class="py-1.5 font-bold text-slate-700">5V/3A, 9V/3A, 12V/3A, 15V/3A, 20V/5A (65W max.)</td></tr>
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">USB-A Ausgang</td><td class="py-1.5 font-bold text-slate-700">5V/3A, 9V/2A, 10V/2.25A, 12V/1.5A (22.5W)</td></tr>
@@ -140,9 +151,9 @@ ogImage: "/image/product/power-bank/wop23-240w-power-bank.webp"
      <div class="flex items-start space-x-2"><svg class="text-brandOrange text-[11px] shrink-0" style="width:0.85em;height:0.85em" aria-hidden="true" focusable="false" viewBox="0 0 576 512"><path d="M482.3 192c34.2 0 93.7 29 93.7 64 0 36-59.5 64-93.7 64H395.5l-58.4 144H280l32.5-144H136.6L96 432H32l32-144L0 192h64l40.6 80h208.5L280 128h57.1l58.4 144H482.3z" fill="currentColor"/></svg><div class="text-[11px] font-bold text-slate-500 uppercase leading-tight">IATA Handgepaeck<br><span class="text-[10px] font-normal text-slate-400">MacBook Air/Ultrabook</span></div></div></div>
     <p class="text-[12px] text-slate-600 mb-4 leading-relaxed text-left">20.000mAh Laptop-Powerbank mit eingebautem Type-C- und Lightning-Schnellladekabel. PD 65W lädt MacBook Air und Ultrabooks, PPS für Samsung Super Fast Charging. 4×5.000mAh Polymerzellen.</p>
     <details class="mb-4 group/spec text-left"><summary class="p-3 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-[11px] font-black text-slate-700 uppercase">Spezifikationen</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary><div class="p-3 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-[11px]"><tbody>
-     <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Akkukapazitaet</td><td class="py-1.5 font-bold text-slate-700">20.000mAh (5.000mAh x 4S) / 15.4V / 1.5C</td></tr>
+     <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Akkukapazität</td><td class="py-1.5 font-bold text-slate-700">20.000mAh (5.000mAh x 4S) / 15.4V / 1.5C</td></tr>
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Zelltyp</td><td class="py-1.5 font-bold text-slate-700">Li-Polymer (686074)</td></tr>
-     <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Masse</td><td class="py-1.5 font-bold text-slate-700">113 x 68 x 34mm</td></tr>
+     <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Maße</td><td class="py-1.5 font-bold text-slate-700">113 x 68 x 34mm</td></tr>
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Display</td><td class="py-1.5 font-bold text-slate-700">LED Digital</td></tr>
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Shell Finish</td><td class="py-1.5 font-bold text-slate-700">Pearl Matte UV Shell + Schwarz Glossy UV Lens</td></tr>
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Kabel Type</td><td class="py-1.5 font-bold text-slate-700">TPE Striped C+L + Braided Lanyard Handle</td></tr>
@@ -167,11 +178,11 @@ ogImage: "/image/product/power-bank/wop23-240w-power-bank.webp"
      <div class="flex items-start space-x-2"><svg class="text-brandOrange text-[11px] shrink-0" style="width:0.85em;height:0.85em" aria-hidden="true" focusable="false" viewBox="0 0 576 512"><path d="M482.3 192c34.2 0 93.7 29 93.7 64 0 36-59.5 64-93.7 64H395.5l-58.4 144H280l32.5-144H136.6L96 432H32l32-144L0 192h64l40.6 80h208.5L280 128h57.1l58.4 144H482.3z" fill="currentColor"/></svg><div class="text-[11px] font-bold text-slate-500 uppercase leading-tight">IATA Handgepaeck<br><span class="text-[10px] font-normal text-slate-400">Multi-Port-Schnellladung</span></div></div></div>
     <p class="text-[12px] text-slate-600 mb-4 leading-relaxed text-left">Hochleistungs-Powerbank mit 67W PD-Ausgang. 20.000mAh (74Wh), 2× Type-C + 1× USB-A Ports laden Laptop und Handy gleichzeitig. ABS+PC Gehäuse mit PPS-Unterstützung.</p>
     <details class="mb-4 group/spec text-left"><summary class="p-3 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-[11px] font-black text-slate-700 uppercase">Spezifikationen</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary><div class="p-3 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-[11px]"><tbody>
-     <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Akkukapazitaet</td><td class="py-1.5 font-bold text-slate-700">20.000mAh (4 x 5.000mAh cells)</td></tr>
+     <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Akkukapazität</td><td class="py-1.5 font-bold text-slate-700">20.000mAh (4 x 5.000mAh cells)</td></tr>
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Akkuenergie</td><td class="py-1.5 font-bold text-slate-700">74Wh (5.000mAh  x  14.8V)</td></tr>
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Nennkapazitaet</td><td class="py-1.5 font-bold text-slate-700">12.000mAh (5V/3A)</td></tr>
-     <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Masse</td><td class="py-1.5 font-bold text-slate-700">15,3 x 7 x 2,8 cm</td></tr>
-     <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Gehaeuse</td><td class="py-1.5 font-bold text-slate-700">ABS + PC</td></tr>
+     <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Maße</td><td class="py-1.5 font-bold text-slate-700">15,3 x 7 x 2,8 cm</td></tr>
+     <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Gehäuse</td><td class="py-1.5 font-bold text-slate-700">ABS + PC</td></tr>
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Akkutyp</td><td class="py-1.5 font-bold text-slate-700">Polymer Lithium</td></tr>
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Type-C/Kabel Ausgang</td><td class="py-1.5 font-bold text-slate-700">5V/3A, 9V/3A, 12V/3A, 15V/3A, 20V/3.35A (67W max.)</td></tr>
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">USB-A Ausgang</td><td class="py-1.5 font-bold text-slate-700">5V/3A, 9V/2A, 10V/2.25A, 12V/1.5A (22.5W)</td></tr>
@@ -208,20 +219,10 @@ ogImage: "/image/product/power-bank/wop23-240w-power-bank.webp"
  </div>
 </section>
 
-<!-- ZERTIFIZIERUNGEN -->
+<!-- EU Compliance -->
 <section class="sec bg-white">
  <div class="max-w-5xl mx-auto px-6">
-  <div class="text-center max-w-3xl mx-auto mb-12 reveal">
-   <p class="section-label">Compliance</p>
-   <h2 class="section-title">Zertifizierungen für Laptop-Powerbanks</h2>
-  </div>
-  <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 reveal">
-   <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200 text-center"><div class="flex justify-center mb-3"><img src="/image/certifications/ce-certification.svg" alt="CE Zertifizierung" width="48" height="48" loading="lazy" class="h-12 w-auto"></div><p class="text-lg font-black text-brandBlue mb-1">CE</p><p class="text-xs font-bold text-brandOrange mb-1">Pflicht für EU</p><p class="text-xs text-slate-500">EMV + Niederspannungs-Richtlinie</p></div>
-   <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200 text-center"><div class="flex justify-center mb-3"><img src="/image/certifications/un383-safety.svg" alt="UN38.3 Transportzertifizierung" width="48" height="48" loading="lazy" class="h-12 w-auto"></div><p class="text-lg font-black text-brandBlue mb-1">UN38.3</p><p class="text-xs font-bold text-brandOrange mb-1">99,9Wh-Limit</p><p class="text-xs text-slate-500">IATA-konform für Handgepäck</p></div>
-   <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200 text-center"><p class="text-lg font-black text-brandBlue mb-1">USB-IF</p><p class="text-xs font-bold text-brandOrange mb-1">PD 3.1 zertifiziert</p><p class="text-xs text-slate-500">Volle USB Power Delivery 3.1 Konformität</p></div>
-   <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200 text-center"><p class="text-lg font-black text-brandBlue mb-1">MSDS</p><p class="text-xs font-bold text-brandOrange mb-1">Sicherheitsdatenblatt</p><p class="text-xs text-slate-500">Pflicht für internationalen Versand</p></div>
-  </div>
-  <div class="mt-10 grid md:grid-cols-2 gap-6 reveal">
+  <div class="grid md:grid-cols-2 gap-6 reveal">
    <div class="bg-white rounded-2xl p-6 border border-slate-200">
     <h3 class="text-base font-bold text-brandBlue mb-2">EU-Batterieverordnung 2023/1542</h3>
     <p class="text-sm text-slate-600 leading-relaxed">Seit 18.08.2024 sind Erzeugerpflichten in Kraft, ab 18.02.2027 wird der digitale Batteriepass Pflicht. Wir liefern technische Dokumentation, EU-Konformitätserklärung und unterstützen die EAR-Stiftung-Registrierung in Deutschland sowie EPR-Pendants in AT, CH, FR, IT, ES.</p>
@@ -298,7 +299,7 @@ ogImage: "/image/product/power-bank/wop23-240w-power-bank.webp"
      <label class="block text-sm font-semibold text-white mb-1">Vorname *</label><input type="text" name="name" required placeholder="z. B. Max" autocomplete="name" class="w-full px-4 py-3.5 rounded-xl border border-white/20 bg-white/10 text-white placeholder:text-white/50 focus:outline-none focus:border-brandOrange text-sm">
      <label class="block text-sm font-semibold text-white mb-1">Unternehmen <span class="text-slate-500 font-medium">(optional)</span></label><input type="text" name="company" placeholder="z. B. Muster GmbH" autocomplete="organization" class="w-full px-4 py-3.5 rounded-xl border border-white/20 bg-white/10 text-white placeholder:text-white/50 focus:outline-none focus:border-brandOrange text-sm">
     </div>
-    <label class="block text-sm font-semibold text-white mb-1">E-Mail *</label><input type="email" name="email" required placeholder="geschaeft@example.com" autocomplete="email" class="w-full px-4 py-3.5 rounded-xl border border-white/20 bg-white/10 text-white placeholder:text-white/50 focus:outline-none focus:border-brandOrange text-sm">
+    <label class="block text-sm font-semibold text-white mb-1">E-Mail *</label><input type="email" name="email" required placeholder="geschäft@example.com" autocomplete="email" class="w-full px-4 py-3.5 rounded-xl border border-white/20 bg-white/10 text-white placeholder:text-white/50 focus:outline-none focus:border-brandOrange text-sm">
     <select name="product" class="w-full px-4 py-3.5 rounded-xl border border-white/20 bg-white/10 text-white focus:outline-none focus:border-brandOrange text-sm">
      <option value="" disabled selected class="text-slate-500">Produktinteresse (optional)</option>
      <option value="unsure">Noch unentschlossen</option>

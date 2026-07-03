@@ -5,6 +5,7 @@ canonical: "/de/blog/"
 enPath: "/blog/"
 esPath: "blog/"
 navActive: "blog"
+lang: "de"
 ---
 
 {% extends "layouts/blog-index.njk" %}
@@ -28,6 +29,16 @@ navActive: "blog"
 <p class="text-slate-600 text-lg max-w-2xl mx-auto">Praktische Leitfäden zu Powerbank OEM, Qi2 Zertifizierung, Import aus China, GaN Technologie und Eigenmarken-Produktion.</p>
 </div>
 </section>
+
+<!-- ======== STATS BAR ======== -->
+{% from "partials/stats-bar.njk" import statsBar %}
+{{ statsBar(i18n.statsBar[lang].items) }}
+
+<!-- ======== TRUST BAR — Certs + Logos ======== -->
+{% from "partials/cert-showcase.njk" import certShowcase %}
+{{ certShowcase(i18n.certifications[lang].homepage.items, i18n.certifications[lang].homepage.heading, i18n.certifications[lang].homepage.title, "", "py-10 md:py-14 bg-white", true) }}
+{% from "partials/customer-logos.njk" import customerLogos %}
+{{ customerLogos("Vertrauen internationaler Marken", "", standalone=true) }}
 {% endblock %}
 
 {% block blogArticles %}
