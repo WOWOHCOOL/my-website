@@ -55,7 +55,7 @@ module.exports = function (eleventyConfig) {
     if (!this.outputPath.match(/\/(de|es)\/blog\/.+\/index\.html$/)) return content;
     if (!content.includes('blog-content')) return content;
 
-    const marker = '<div class="max-w-3xl mx-auto px-6 blog-content">';
+    const marker = '<div class="max-w-4xl mx-auto px-6 blog-content">';
     const idx = content.indexOf(marker);
     if (idx === -1) return content;
 
