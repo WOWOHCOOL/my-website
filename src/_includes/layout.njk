@@ -60,6 +60,7 @@
  {% if ogImage %}<link rel="preload" as="image" href="{{ ogImage }}" type="image/webp" fetchpriority="high">{% endif %}
  {% if date %}<meta property="article:published_time" content="{{ date | fmtDate }}">{% endif %}
  {% if modified %}<meta property="article:modified_time" content="{{ modified | fmtDate }}">{% endif %}
+ {% if authorUrl %}<meta property="article:author" content="{{ authorUrl }}">{% endif %}
  {% if articleSection %}<meta property="article:section" content="{{ articleSection }}">{% endif %}
  {% if articleTags %}{% for tag in articleTags %}<meta property="article:tag" content="{{ tag }}">{% endfor %}{% endif %}
  {% endblock %}
