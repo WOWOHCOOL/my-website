@@ -10,6 +10,10 @@ dePath: "blog/sicherheitsstandards-ladegeraete"
 esPath: "blog/normas-seguridad-cargadores"
 ogImage: "/image/blog/cover-en/charger-safety-standards-guide.webp"
 navActive: "blog"
+hreflang:
+  en: "/blog/charger-safety-standards/"
+  de: "/de/blog/sicherheitsstandards-ladegeraete/"
+  es: "/blog/normas-seguridad-cargadores/"
 ---
 {% extends "layout.njk" %}
 
@@ -18,6 +22,28 @@ navActive: "blog"
 {
   "@context": "https://schema.org",
   "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.wowohcool.com/#organization",
+      "name": "WOWOHCOOL (Dong Yi Technology Co., Ltd)",
+      "url": "https://www.wowohcool.com/",
+      "logo": "https://www.wowohcool.com/image/wowohcool-logo-optimized.webp",
+      "areaServed": ["US", "EU", "UK", "AU", "JP", "KR"],
+      "sameAs": [
+        "https://www.linkedin.com/company/wowohcool",
+        "https://www.facebook.com/wowohcoolelectronic",
+        "https://www.youtube.com/@WOWOHCOOL",
+        "https://x.com/wowohcool"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.wowohcool.com/#website",
+      "url": "https://www.wowohcool.com/",
+      "name": "WOWOHCOOL",
+      "inLanguage": "en",
+      "publisher": { "@id": "https://www.wowohcool.com/#organization" }
+    },
     {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
@@ -53,14 +79,7 @@ navActive: "blog"
         "knowsAbout": ["Wireless Charging Technology", "Qi2 Certification", "B2B Market Analysis", "Import Compliance"],
         "sameAs": ["https://www.linkedin.com/in/snowy-wireless-charger"]
       },
-      "publisher": {
-        "@type": "Organization",
-        "name": "WOWOHCOOL (Dong Yi Technology Co., Ltd)",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://www.wowohcool.com/image/wowohcool-logo-optimized.webp"
-        }
-      },
+      "publisher": { "@id": "https://www.wowohcool.com/#organization" },
       "datePublished": "2026-04-12",
       "mainEntityOfPage": {
         "@type": "WebPage",
@@ -73,7 +92,7 @@ navActive: "blog"
       "description": "Inside 2026 charger safety: IEC 62368-1 Ed.3, UL 62368-1:2025, GB 47372 nail-penetration tests, 10-layer protection, and what 2025 recalls teach OEM importers.",
       "speakable": {
         "@type": "SpeakableSpecification",
-        "cssSelector": ["article"]
+        "cssSelector": ["h1", "h2", ".speakable"]
       }
     },
     {
@@ -238,7 +257,7 @@ navActive: "blog"
 
   <!-- Section 1: Why 2026 -->
   <section id="why-2026" class="mb-16">
-    <div class="bg-slate-50 rounded-xl p-6">
+    <div class="bg-slate-50 rounded-xl p-6 border border-slate-200 shadow-sm">
     <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-6">1. Why Charger Safety Is Critical in 2026</h2>
     <p class="text-slate-600 leading-relaxed mb-4">Three forces are converging to make 2026 a watershed year for charger safety:</p>
 
@@ -266,7 +285,7 @@ navActive: "blog"
 
   <!-- Section 2: 5 Hazard Model -->
   <section id="hazard-model" class="mb-16">
-    <div class="bg-slate-50 rounded-xl p-6">
+    <div class="bg-slate-50 rounded-xl p-6 border border-slate-200 shadow-sm">
     <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-6">2. IEC 62368-1: The 5 Hazard Model (HBSE)</h2>
     <p class="text-slate-600 leading-relaxed mb-6">IEC 62368-1 is built on <strong>Hazard-Based Safety Engineering (HBSE)</strong> — a framework that identifies energy sources capable of causing injury, then prescribes safeguards for each. Unlike the prescriptive IEC 60950-1 it replaced, HBSE asks: <em>what is the energy source, how does it transfer to a body part, and what safeguard breaks that transfer?</em></p>
 
@@ -321,7 +340,7 @@ navActive: "blog"
 
   <!-- Section 3: Thermal Runaway -->
   <section id="thermal-runaway" class="mb-16">
-    <div class="bg-slate-50 rounded-xl p-6">
+    <div class="bg-slate-50 rounded-xl p-6 border border-slate-200 shadow-sm">
     <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-6">3. Thermal Runaway: How It Happens &amp; How to Prevent It</h2>
     <p class="text-slate-600 leading-relaxed mb-6">Thermal runaway is the most feared failure mode in any product containing a lithium cell. It is a self-accelerating exothermic chain reaction: once triggered, it cannot be stopped — only contained.</p>
 
@@ -357,7 +376,7 @@ navActive: "blog"
 
   <!-- Section 4: 10-Layer Protection Map -->
   <section id="protection-map" class="mb-16">
-    <div class="bg-slate-50 rounded-xl p-6">
+    <div class="bg-slate-50 rounded-xl p-6 border border-slate-200 shadow-sm">
     <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-6">4. 10-Layer Protection Circuit Map</h2>
     <p class="text-slate-600 leading-relaxed mb-6">Every certified charger contains a chain of protection layers, each addressing a specific failure mode. This is the full signal path — from wall outlet to your device — with the named components that guard each stage.</p>
 
@@ -456,7 +475,7 @@ navActive: "blog"
 
   <!-- Section 5: Material Safety -->
   <section id="material-safety" class="mb-16">
-    <div class="bg-slate-50 rounded-xl p-6">
+    <div class="bg-slate-50 rounded-xl p-6 border border-slate-200 shadow-sm">
     <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-6">5. Material Safety: UL 94 V-0 &amp; Flame Retardancy</h2>
     <p class="text-slate-600 leading-relaxed mb-6">Plastic enclosures are the last line of defense between an internal fire and the user's environment. UL 94 is the standard that classifies how a material behaves when ignited.</p>
 
@@ -515,7 +534,7 @@ navActive: "blog"
 
   <!-- Section 6: Standards Update -->
   <section id="standards-update" class="mb-16">
-    <div class="bg-slate-50 rounded-xl p-6">
+    <div class="bg-slate-50 rounded-xl p-6 border border-slate-200 shadow-sm">
     <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-6">6. 2025–2026 Standards Update Roundup</h2>
     <p class="text-slate-600 leading-relaxed mb-6">The following standard changes are either newly enforced or approaching mandatory status. If your current product certifications predate 2025, you likely have a gap.</p>
 
@@ -579,7 +598,7 @@ navActive: "blog"
 
   <!-- Section 7: Recall Forensics -->
   <section id="recall-forensics" class="mb-16">
-    <div class="bg-slate-50 rounded-xl p-6">
+    <div class="bg-slate-50 rounded-xl p-6 border border-slate-200 shadow-sm">
     <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-6">7. Recall Forensics: 5 Case Studies</h2>
     <p class="text-slate-600 leading-relaxed mb-6">Each recall below has a publicly available CPSC report. The pattern is consistent: a single protection layer was missing, underspecified, or untested — and the failure cascaded.</p>
 
@@ -636,7 +655,7 @@ navActive: "blog"
 
   <!-- Section 8: Factory Testing -->
   <section id="factory-testing" class="mb-16">
-    <div class="bg-slate-50 rounded-xl p-6">
+    <div class="bg-slate-50 rounded-xl p-6 border border-slate-200 shadow-sm">
     <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-6">8. Factory Testing: How WOWOHCOOL Verifies Every Batch</h2>
     <p class="text-slate-600 leading-relaxed mb-6">Certification is a design audit — it proves the design is safe. Factory testing proves every unit built to that design is safe. These are different problems, and they require different equipment.</p>
 
@@ -676,7 +695,7 @@ navActive: "blog"
 
   <!-- Section 9: Buyer Checklist -->
   <section id="buyer-checklist" class="mb-16">
-    <div class="bg-slate-50 rounded-xl p-6">
+    <div class="bg-slate-50 rounded-xl p-6 border border-slate-200 shadow-sm">
     <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-6">9. Buyer Checklist: 12 Questions to Ask Your Factory</h2>
     <p class="text-slate-600 leading-relaxed mb-6">Before placing a PO, send these questions to your supplier. If the answers are vague, delayed, or lack specific documentation references, treat it as a red flag. A competent factory answers all 12 within one business day.</p>
 
@@ -740,7 +759,7 @@ navActive: "blog"
 
   <!-- Section 10: FAQ + Cross-References -->
   <section id="faq" class="mb-16">
-    <div class="bg-slate-50 rounded-xl p-6">
+    <div class="bg-slate-50 rounded-xl p-6 border border-slate-200 shadow-sm">
     <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-6">10. FAQ &amp; Cross-References</h2>
     <p class="text-slate-600 leading-relaxed mb-6">The FAQ schema at the top of this page covers the most common questions. Here we connect the dots across the WOWOHCOOL knowledge base.</p>
 
@@ -775,7 +794,7 @@ navActive: "blog"
 
   <!-- Cost Estimator -->
   <section id="cost-estimator" class="mb-16">
-    <div class="bg-slate-50 rounded-xl p-6">
+    <div class="bg-slate-50 rounded-xl p-6 border border-slate-200 shadow-sm">
     <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-6">Safety Certification Cost Estimator</h2>
     <p class="text-slate-600 leading-relaxed mb-6">Estimated costs include testing, documentation, and initial factory audit. Actual costs vary by product complexity and chosen laboratory (UL, TUV, SGS, Intertek).</p>
 
@@ -830,6 +849,20 @@ navActive: "blog"
       </table>
     </div>
     <p class="text-slate-500 text-xs">Note: costs assume pre-certified critical components. If your design uses uncertified transformers, capacitors, or optocouplers, add $3,000–$8,000 and 4–8 weeks for component-level testing.</p>
+    </div>
+  </section>
+
+  <!-- Sources & References -->
+  <section class="py-10 bg-white">
+    <div class="max-w-4xl mx-auto px-6">
+      <h2 class="text-lg font-black text-brandBlue uppercase italic mb-4">Sources &amp; References</h2>
+      <ul class="text-sm text-slate-600 space-y-2">
+        <li><a href="https://webstore.iec.ch/publication/68363" target="_blank" rel="noopener noreferrer" class="text-brandOrange hover:underline">IEC Webstore — IEC 62368-1:2023 (Fourth Edition)</a></li>
+        <li><a href="https://www.sgs-cqe.de/en/news/general-news/1577-ul-and-can-csa-62368-1-4th-edition-now-available.html" target="_blank" rel="noopener noreferrer" class="text-brandOrange hover:underline">SGS — UL and CAN/CSA 62368-1: 4th Edition Now Available</a></li>
+        <li><a href="https://www.cpsc.gov/Recalls" target="_blank" rel="noopener noreferrer" class="text-brandOrange hover:underline">U.S. Consumer Product Safety Commission — Recall Database</a></li>
+        <li><a href="https://ec.europa.eu/safety-gate/" target="_blank" rel="noopener noreferrer" class="text-brandOrange hover:underline">EU Safety Gate — Rapid Alert System for Dangerous Non-Food Products</a></li>
+        <li><a href="https://www.usb.org/document-library/usb-power-delivery" target="_blank" rel="noopener noreferrer" class="text-brandOrange hover:underline">USB-IF — USB Power Delivery 3.1 Specification</a></li>
+      </ul>
     </div>
   </section>
 
