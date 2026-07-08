@@ -48,7 +48,8 @@ navActive: "faq"
  {"@type":"Question","name":"¿Qué métodos de pago aceptan?","acceptedAnswer":{"@type":"Answer","text":"Transferencia bancaria T/T (30% anticipo, 70% antes del envío), crédito documentario L/C. Para socios B2B verificados: condiciones especiales. Todos los precios en EUR o USD. Aceptamos pagos SEPA (España/Europa)."}},
  {"@type":"Question","name":"¿Cómo garantizan la calidad del producto?","acceptedAnswer":{"@type":"Answer","text":"Control de calidad de 4 etapas: IQC (materiales entrantes), IPQC (durante producción), FQC (test funcional final), OQC (inspección de salida). El 100% de las unidades pasan una prueba de envejecimiento de 4 horas bajo carga máxima. Tasa de defectos inferior al 0,3%. Certificación ISO 9001. Garantía de 12 meses."}},
  {"@type":"Question","name":"¿Ofrecen protección de propiedad intelectual?","acceptedAnswer":{"@type":"Answer","text":"Sí. Todos los proyectos ODM incluyen protección IP exclusiva. Firmamos acuerdos NDA (confidencialidad) antes de compartir cualquier información técnica. Sus moldes y diseños permanecen bajo su propiedad y nunca se venden ni muestran a otros clientes."}},
- {"@type":"Question","name":"¿Puedo visitar la fábrica en Shenzhen?","acceptedAnswer":{"@type":"Answer","text":"Sí, recibimos clientes en nuestra fábrica. Shenzhen está bien conectada con vuelos desde Madrid y Barcelona (con escala). Podemos organizar una visita guiada a nuestras instalaciones de 5.000m². Contáctenos con al menos una semana de antelación para agendar."}}
+ {"@type":"Question","name":"¿Puedo visitar la fábrica en Shenzhen?","acceptedAnswer":{"@type":"Answer","text":"Sí, recibimos clientes en nuestra fábrica. Shenzhen está bien conectada con vuelos desde Madrid y Barcelona (con escala). Podemos organizar una visita guiada a nuestras instalaciones de 5.000m². También ofrecemos videovisitas en directo por WeChat o Zoom. Contáctenos con al menos una semana de antelación para agendar."}},
+ {"@type":"Question","name":"¿Cómo verifico que WOWOHCOOL es una fábrica real?","acceptedAnswer":{"@type":"Answer","text":"Nuestra licencia comercial es verificable en el Sistema Nacional de Información Crediticia de China (gsxt.gov.cn). También aceptamos auditorías por terceros como Bureau Veritas, SGS o TÜV Rheinland. Consulte nuestra guía completa de verificación de fábricas para más detalles."}}
  ]
 }]
 </script>
@@ -68,23 +69,28 @@ navActive: "faq"
 {% endblock %}
 
 {% block faqTrustBand %}
-{% from "partials/customer-logos.njk" import customerLogos %}
-{{ customerLogos("Confían en nosotros") }}
-
-{% from "partials/stats-bar.njk" import statsBar %}
-{{ statsBar(i18n.statsBar[lang].items) }}
+{% include "trust-bar.njk" %}
 {% endblock %}
 
 {% block faqContent %}
 <section class="py-16 bg-white">
  <div class="max-w-3xl mx-auto px-6">
 
- <p class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-6">Pedidos y producción</p>
+ <!-- Quick-jump Nav -->
+ <div class="flex flex-wrap gap-2 mb-12 reveal">
+ <a href="#cat-pedidos" class="px-3 py-1.5 bg-brandBlue/5 text-brandBlue text-[11px] font-bold rounded-full hover:bg-brandBlue hover:text-white transition">Pedidos y producción</a>
+ <a href="#cat-certificaciones" class="px-3 py-1.5 bg-brandBlue/5 text-brandBlue text-[11px] font-bold rounded-full hover:bg-brandBlue hover:text-white transition">Certificaciones y normativa</a>
+ <a href="#cat-envio" class="px-3 py-1.5 bg-brandBlue/5 text-brandBlue text-[11px] font-bold rounded-full hover:bg-brandBlue hover:text-white transition">Envío y logística</a>
+ <a href="#cat-pago" class="px-3 py-1.5 bg-brandBlue/5 text-brandBlue text-[11px] font-bold rounded-full hover:bg-brandBlue hover:text-white transition">Pago, calidad y garantía</a>
+ <a href="#cat-visita" class="px-3 py-1.5 bg-brandBlue/5 text-brandBlue text-[11px] font-bold rounded-full hover:bg-brandBlue hover:text-white transition">Visita y verificación</a>
+ </div>
+
+ <p id="cat-pedidos" class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-6 scroll-mt-24">Pedidos y producción</p>
  <details class="faq-item"><summary>¿Cuál es la cantidad mínima de pedido (MOQ)?</summary><div class="faq-answer">MOQ estándar: <strong>500 unidades</strong> por modelo para pedidos OEM (personalización de logotipo y embalaje). Para proyectos ODM con desarrollo de nuevo molde: <strong>2.000 unidades</strong>. Ofrecemos condiciones flexibles para primeros pedidos. Descuentos por volumen a partir de 1.000 unidades.</div></details>
  <details class="faq-item"><summary>¿Cuánto tarda la producción de un pedido OEM/ODM?</summary><div class="faq-answer">OEM estándar: <strong>25-35 días</strong> tras aprobación de muestra. OEM exprés: <strong>15-20 días</strong>. ODM personalizado (con molde nuevo): <strong>45-60 días</strong>. Envío: <strong>5-7 días</strong> (exprés DHL/FedEx) o <strong>15-25 días</strong> (marítimo). Las muestras estándar se envían en <strong>3-7 días</strong>.</div></details>
  <details class="faq-item"><summary>¿Ofrecen servicio de diseño personalizado (ODM)?</summary><div class="faq-answer">Sí. Nuestro equipo de <strong>50+ ingenieros</strong> desarrolla productos desde cero: diseño industrial (ID), desarrollo de circuitos PCBA, fabricación de moldes, firmware y embalaje. <strong>Protección IP exclusiva</strong> incluida en todos los proyectos ODM.</div></details>
 
- <p class="text-xs font-bold uppercase tracking-widest text-slate-400 mt-10 mb-6">Certificaciones y cumplimiento normativo</p>
+ <p id="cat-certificaciones" class="text-xs font-bold uppercase tracking-widest text-slate-400 mt-10 mb-6 scroll-mt-24">Certificaciones y cumplimiento normativo</p>
  <details class="faq-item"><summary>¿Qué certificaciones tienen sus productos?</summary><div class="faq-answer"><strong>CE</strong> (LVD + EMC + RED para carga inalámbrica), <strong>RoHS</strong>, <strong>UN38.3</strong> de serie. Cargadores inalámbricos con certificación <strong>Qi2</strong> (WPC) <sup><a href="https://www.wirelesspowerconsortium.com/" target="_blank" rel="noopener noreferrer" class="text-brandOrange text-[10px] no-underline hover:underline">[WPC]</a></sup>. Cumplimiento <strong>Reglamento UE 2023/1542</strong> para baterías. Certificación <strong>AENOR</strong> disponible. <strong>ISO 9001</strong> en fábrica. Ayudamos con certificaciones específicas: UL (EE. UU.), PSE (Japón), KC (Corea), NOM (México).</div></details>
  <details class="faq-item"><summary>¿Cumplen con el nuevo Reglamento de Baterías de la UE (2023/1542)?</summary><div class="faq-answer"><strong>Sí.</strong> Desde el <strong>18 de agosto de 2025</strong>, todas las power banks y productos con baterías deben cumplir el nuevo Reglamento de Baterías UE 2023/1542 <sup><a href="https://eur-lex.europa.eu/eli/reg/2023/1542" target="_blank" rel="noopener noreferrer" class="text-brandOrange text-[10px] no-underline hover:underline">[EUR-Lex]</a></sup>. Incluimos:<br><br>
  • <strong>Registro EPR</strong> en España (código EC-XXX)<br>
@@ -97,15 +103,17 @@ navActive: "faq"
  <details class="faq-item"><summary>¿Cómo puedo verificar que los certificados CE son válidos?</summary><div class="faq-answer">Los certificados CE emitidos por organismos notificados deben tener un número de identificación verificable en la base de datos <strong>NANDO</strong> de la Comisión Europea <sup><a href="https://ec.europa.eu/growth/tools-databases/nando/" target="_blank" rel="noopener noreferrer" class="text-brandOrange text-[10px] no-underline hover:underline">[NANDO]</a></sup>. Todos nuestros certificados son verificables en NANDO. Podemos compartir los informes de laboratorio y la Declaración de Conformidad (DoC) <strong>antes de realizar el pedido</strong>, para su total tranquilidad.</div></details>
  <details class="faq-item"><summary>¿Qué necesito para el transporte aéreo de power banks?</summary><div class="faq-answer">Para envío aéreo: test <strong>UN38.3</strong> obligatorio (incluido con cada pedido), <strong>MSDS</strong> (ficha de datos de seguridad), etiqueta de peligro Clase 9. Power banks de hasta <strong>100Wh</strong> (27.000mAh, aptas para volar) pueden enviarse por avión. Entregamos toda la documentación necesaria con cada pedido.</div></details>
 
- <p class="text-xs font-bold uppercase tracking-widest text-slate-400 mt-10 mb-6">Envío y logística</p>
+ <p id="cat-envio" class="text-xs font-bold uppercase tracking-widest text-slate-400 mt-10 mb-6 scroll-mt-24">Envío y logística</p>
  <details class="faq-item"><summary>¿Ofrecen envío DDP a España?</summary><div class="faq-answer"><strong>Sí.</strong> DDP (Delivered Duty Paid) significa que gestionamos toda la logística incluyendo aduanas, IVA (21%) y documentación SOIVRE. El producto llega directamente a su almacén sin que usted tenga que preocuparse por trámites aduaneros. También ofrecemos <strong>FOB Shenzhen</strong> y <strong>EXW</strong> si lo prefiere.</div></details>
  <details class="faq-item"><summary>¿Qué documentación de aduanas proporcionan?</summary><div class="faq-answer">Incluimos con cada pedido: factura comercial, packing list, certificado de origen, Declaración de Conformidad CE, informes RoHS y UN38.3, MSDS. Para envíos DDP gestionamos también el <strong>registro SOIVRE</strong> (sistema español de inspección aduanera) y la declaración <strong>ICS2 ENS</strong> de seguridad previa al embarque.</div></details>
 
- <p class="text-xs font-bold uppercase tracking-widest text-slate-400 mt-10 mb-6">Pago, calidad y garantía</p>
+ <p id="cat-pago" class="text-xs font-bold uppercase tracking-widest text-slate-400 mt-10 mb-6 scroll-mt-24">Pago, calidad y garantía</p>
  <details class="faq-item"><summary>¿Qué métodos de pago aceptan?</summary><div class="faq-answer">Aceptamos <strong>transferencia bancaria T/T</strong> (30% anticipo, 70% antes del envío) y <strong>crédito documentario L/C</strong>. Para socios B2B verificados ofrecemos condiciones especiales. Todos los precios en <strong>EUR o USD</strong>. Aceptamos pagos <strong>SEPA</strong> desde Europa.</div></details>
  <details class="faq-item"><summary>¿Cómo garantizan la calidad del producto?</summary><div class="faq-answer">Nuestro sistema de calidad certificado <strong>ISO 9001</strong> incluye control de 4 etapas: <strong>IQC</strong> (verificación de componentes), <strong>IPQC</strong> (control durante producción), <strong>FQC</strong> (test funcional completo) y <strong>OQC</strong> (inspección final antes del envío). El <strong>100% de las unidades</strong> pasan una prueba de envejecimiento de 4 horas. Tasa de defectos inferior al <strong>0,3%</strong>. Garantía de <strong>12 meses</strong>.</div></details>
  <details class="faq-item"><summary>¿Ofrecen protección de propiedad intelectual?</summary><div class="faq-answer"><strong>Sí.</strong> Todos los proyectos ODM incluyen protección IP exclusiva. Firmamos acuerdos <strong>NDA</strong> (confidencialidad) antes de compartir información técnica. Sus moldes y diseños permanecen bajo su propiedad. <strong>Nunca</strong> vendemos ni mostramos sus diseños a otros clientes.</div></details>
- <details class="faq-item"><summary>¿Puedo visitar la fábrica en Shenzhen?</summary><div class="faq-answer"><strong>Sí.</strong> Recibimos clientes en nuestra fábrica de 5.000m² en Shenzhen. Hay vuelos desde Madrid y Barcelona con escalas. Podemos organizar una visita guiada completa: líneas de producción SMT, laboratorio de pruebas, control de calidad y showroom. Contáctenos con al menos una semana de antelación.</div></details>
+ <p id="cat-visita" class="text-xs font-bold uppercase tracking-widest text-slate-400 mt-10 mb-6 scroll-mt-24">Visita y verificación</p>
+ <details class="faq-item"><summary>¿Puedo visitar la fábrica en Shenzhen?</summary><div class="faq-answer"><strong>Sí.</strong> Recibimos clientes en nuestra fábrica de 5.000m² en Shenzhen. Hay vuelos desde Madrid y Barcelona con escalas. Podemos organizar una visita guiada completa: líneas de producción SMT, laboratorio de pruebas, control de calidad y showroom. También ofrecemos <strong>videovisitas en directo</strong> por WeChat o Zoom si no puede viajar. Contáctenos con al menos una semana de antelación.</div></details>
+ <details class="faq-item"><summary>¿Cómo verifico que WOWOHCOOL es una fábrica real?</summary><div class="faq-answer">Nuestra licencia comercial es verificable en el <strong>Sistema Nacional de Información Crediticia de China</strong> (gsxt.gov.cn). También aceptamos auditorías por terceros como <strong>Bureau Veritas, SGS o TÜV Rheinland</strong>. Consulte nuestra <a href="/es/blog/proveedor-cargadores-china-fiable" class="text-brandOrange hover:underline">guía completa de verificación de fábricas</a> para más detalles.</div></details>
 
  </div>
 </section>
