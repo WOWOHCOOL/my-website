@@ -604,3 +604,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
+
+// Language switcher: close details on click outside
+document.addEventListener('click', function(e) {
+  if (!e.target.closest('.lang-switch')) {
+    document.querySelectorAll('.lang-switch[open]').forEach(function(d) { d.removeAttribute('open'); });
+  }
+});

@@ -1,43 +1,43 @@
 {# Product Page Inline Inquiry Form
    Required vars: formProduct, formHeading, formSubtext, formSubject
-   Reads from: i18n.blogCta.en (reuses same i18n keys), products
+   Reads from: i18n.blogCta[lang], products
 #}
-{%- set t = i18n.blogCta["en"] -%}
+{%- set t = i18n.blogCta[lang] -%}
 <section class="sec bg-brandBlue">
 <div class="max-w-5xl mx-auto px-6">
 <div class="grid lg:grid-cols-2 gap-12 items-start">
 <div class="reveal">
-<p class="text-brandOrange text-xs font-bold uppercase tracking-widest mb-3">Get a Quote</p>
+<p class="text-brandOrange text-xs font-bold uppercase tracking-widest mb-3">{{ t.sectionLabel or "Get a Quote" }}</p>
 <h2 class="text-3xl md:text-4xl font-black text-white uppercase italic leading-tight mb-4">{{ formHeading }}</h2>
 <p class="text-slate-300 text-base mb-8">{{ formSubtext }}</p>
 <div class="space-y-4 text-sm text-slate-300">
-<div class="flex items-center gap-3"><span class="text-green-400 font-bold text-lg">✓</span> Response within 4 business hours</div>
-<div class="flex items-center gap-3"><span class="text-green-400 font-bold text-lg">✓</span> Factory-direct pricing, no middleman</div>
-<div class="flex items-center gap-3"><span class="text-green-400 font-bold text-lg">✓</span> Free samples available</div>
-<div class="flex items-center gap-3"><span class="text-green-400 font-bold text-lg">✓</span> MOQ from 500 units</div>
+<div class="flex items-center gap-3"><span class="text-green-400 font-bold text-lg">✓</span> {{ t.benefit1 or "Response within 4 business hours" }}</div>
+<div class="flex items-center gap-3"><span class="text-green-400 font-bold text-lg">✓</span> {{ t.benefit2 or "Factory-direct pricing, no middleman" }}</div>
+<div class="flex items-center gap-3"><span class="text-green-400 font-bold text-lg">✓</span> {{ t.benefit3 or "Free samples available" }}</div>
+<div class="flex items-center gap-3"><span class="text-green-400 font-bold text-lg">✓</span> {{ t.benefit4 or "MOQ from 500 units" }}</div>
 </div>
 <p class="text-slate-400 text-xs mt-8 flex items-center gap-2">
 <svg class="w-4 h-4 text-brandOrange" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"/></svg>
-SSL Encrypted · Your data is safe
+{{ t.sslText or "SSL Encrypted · Your data is safe" }}
 </p>
 </div>
 <div class="reveal">
 <form action="https://api.web3forms.com/submit" method="POST" class="inquiry-form bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 md:p-8 space-y-4">
 <input type="hidden" name="access_key" value="7f077cf3-642b-4aba-9be2-cb99c0c65b19">
 <input type="hidden" name="subject" value="{{ formSubject }}">
-<input type="hidden" name="redirect" value="https://www.wowohcool.com/thank-you">
+<input type="hidden" name="redirect" value="{{ t.redirectUrl or 'https://www.wowohcool.com/thank-you' }}">
 <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;opacity:0;height:0;width:0">
 <input type="hidden" name="utm_source" value="">
 <input type="hidden" name="utm_medium" value="">
 <input type="hidden" name="utm_campaign" value="">
 <div class="grid sm:grid-cols-2 gap-4">
-<div><label class="block text-xs font-bold text-white/80 mb-1.5 ml-1">Name *</label><input type="text" name="name" required placeholder="e.g. John" autocomplete="name" class="w-full px-4 py-3.5 rounded-xl border border-white/20 bg-white/10 text-white placeholder:text-white/50 focus:outline-none focus:border-brandOrange text-sm"></div>
-<div><label class="block text-xs font-bold text-white/80 mb-1.5 ml-1">Business Email *</label><input type="email" name="email" required placeholder="john@company.com" autocomplete="email" class="w-full px-4 py-3.5 rounded-xl border border-white/20 bg-white/10 text-white placeholder:text-white/50 focus:outline-none focus:border-brandOrange text-sm"></div>
+<div><label class="block text-xs font-bold text-white/80 mb-1.5 ml-1">{{ t.nameLabel or "Name *" }}</label><input type="text" name="name" required placeholder="{{ t.namePlaceholder or 'e.g. John' }}" autocomplete="name" class="w-full px-4 py-3.5 rounded-xl border border-white/20 bg-white/10 text-white placeholder:text-white/50 focus:outline-none focus:border-brandOrange text-sm"></div>
+<div><label class="block text-xs font-bold text-white/80 mb-1.5 ml-1">{{ t.emailLabel or "Business Email *" }}</label><input type="email" name="email" required placeholder="{{ t.emailPlaceholder or 'john@company.com' }}" autocomplete="email" class="w-full px-4 py-3.5 rounded-xl border border-white/20 bg-white/10 text-white placeholder:text-white/50 focus:outline-none focus:border-brandOrange text-sm"></div>
 </div>
-<div><label class="block text-xs font-bold text-white/80 mb-1.5 ml-1">Company *</label><input type="text" name="company" required placeholder="e.g. Acme Corp" autocomplete="organization" class="w-full px-4 py-3.5 rounded-xl border border-white/20 bg-white/10 text-white placeholder:text-white/50 focus:outline-none focus:border-brandOrange text-sm"></div>
-<div><label class="block text-xs font-bold text-white/80 mb-1.5 ml-1">Project Details *</label><textarea name="message" required minlength="10" rows="3" placeholder="Specs, customization needs, packaging requirements..." class="w-full px-4 py-3.5 rounded-xl border border-white/20 bg-white/10 text-white placeholder:text-white/50 focus:outline-none focus:border-brandOrange text-sm resize-none"></textarea></div>
-<label class="flex items-start gap-3"><input type="checkbox" required class="mt-1 accent-brandOrange"><span class="text-xs text-slate-300">I agree to the <a href="/privacy-policy" class="text-brandOrange hover:underline">Privacy Policy</a>. *</span></label>
-<button type="submit" class="w-full bg-brandOrange text-white py-4 rounded-xl font-bold text-base hover:brightness-110 transition-all shadow-lg shadow-brandOrange/20">Get Factory-Direct Quote →</button>
+<div><label class="block text-xs font-bold text-white/80 mb-1.5 ml-1">{{ t.companyLabel or "Company *" }}</label><input type="text" name="company" required placeholder="{{ t.companyPlaceholder or 'e.g. Acme Corp' }}" autocomplete="organization" class="w-full px-4 py-3.5 rounded-xl border border-white/20 bg-white/10 text-white placeholder:text-white/50 focus:outline-none focus:border-brandOrange text-sm"></div>
+<div><label class="block text-xs font-bold text-white/80 mb-1.5 ml-1">{{ t.messageLabel or "Project Details *" }}</label><textarea name="message" required minlength="10" rows="3" placeholder="{{ t.messagePlaceholder or 'Specs, customization needs, packaging requirements...' }}" class="w-full px-4 py-3.5 rounded-xl border border-white/20 bg-white/10 text-white placeholder:text-white/50 focus:outline-none focus:border-brandOrange text-sm resize-none"></textarea></div>
+<label class="flex items-start gap-3"><input type="checkbox" required class="mt-1 accent-brandOrange"><span class="text-xs text-slate-300">{{ t.privacyText or "I agree to the" }} <a href="{{ t.privacyHref or '/privacy-policy' }}" class="text-brandOrange hover:underline">{{ t.privacyLinkText or "Privacy Policy" }}</a>{{ t.privacySuffix or ". *" }}</span></label>
+<button type="submit" class="w-full bg-brandOrange text-white py-4 rounded-xl font-bold text-base hover:brightness-110 transition-all shadow-lg shadow-brandOrange/20">{{ t.submitButton or "Get Factory-Direct Quote →" }}</button>
 </form>
 </div>
 </div>

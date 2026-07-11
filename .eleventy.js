@@ -1,6 +1,8 @@
 const fs = require('fs');
 
 module.exports = function (eleventyConfig) {
+  // FR site is in .gitignore to prevent GitHub push — still build locally
+  eleventyConfig.setUseGitIgnore(false);
   // Passthrough copies: project-root paths → _site/
   const passthrough = [
     'image', 'css',
@@ -10,6 +12,7 @@ module.exports = function (eleventyConfig) {
     '_headers', '_redirects',
     'BingSiteAuth.xml',
     'favicon.ico',
+    'sitemap.xml', 'de/sitemap.xml', 'es/sitemap.xml', 'fr/sitemap.xml',
   ];
 
   // Auto-discover UUID token files

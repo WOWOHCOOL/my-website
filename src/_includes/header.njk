@@ -54,7 +54,19 @@
 
  <!-- Right buttons (Desktop) -->
  <div class="hidden lg:flex items-center gap-4">
- <span class="inline-flex items-center gap-1.5 text-[11px] font-black uppercase tracking-widest">{% if lang === "en" %}<span class="text-brandOrange">EN</span>{% else %}<a href="{{ enPath or '/' }}" class="text-slate-500 hover:text-brandOrange transition-colors">EN</a>{% endif %}<span class="text-slate-300">|</span>{% if lang === "de" %}<span class="text-brandOrange">DE</span>{% else %}<a href="/de/{{ dePath or '' }}" class="text-slate-500 hover:text-brandOrange transition-colors">DE</a>{% endif %}<span class="text-slate-300">|</span>{% if lang === "es" %}<span class="text-brandOrange">ES</span>{% else %}<a href="/es/{{ esPath or '' }}" class="text-slate-500 hover:text-brandOrange transition-colors">ES</a>{% endif %}</span>
+ <!-- Language Switcher (Desktop) -->
+ <details class="relative h-20 flex items-center lang-switch" id="langSwitcherDesktop">
+  <summary class="flex items-center gap-1.5 text-[11px] font-black uppercase tracking-widest text-slate-500 hover:text-brandBlue transition-colors cursor-pointer list-none" aria-label="Changer de langue">
+   <span class="hidden sm:inline text-brandBlue">{{ lang | upper }}</span>
+   <svg width="12" height="12" aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+  </summary>
+  <div class="absolute top-16 right-0 bg-white shadow-2xl rounded-xl border border-slate-100 py-2 min-w-[130px] z-50" onclick="this.parentElement.removeAttribute('open')">
+   <a href="/{{ enPath or '' }}" class="flex items-center gap-2 px-4 py-2.5 text-[11px] font-bold uppercase tracking-widest hover:bg-slate-50 transition-colors {% if lang === 'en' %}text-brandOrange bg-brandOrange/5{% else %}text-slate-500{% endif %}"><span class="w-5 text-center">EN</span><span class="text-slate-400 font-medium normal-case tracking-normal text-[10px]">English</span></a>
+   <a href="/de/{{ dePath or '' }}" class="flex items-center gap-2 px-4 py-2.5 text-[11px] font-bold uppercase tracking-widest hover:bg-slate-50 transition-colors {% if lang === 'de' %}text-brandOrange bg-brandOrange/5{% else %}text-slate-500{% endif %}"><span class="w-5 text-center">DE</span><span class="text-slate-400 font-medium normal-case tracking-normal text-[10px]">Deutsch</span></a>
+   <a href="/es/{{ esPath or '' }}" class="flex items-center gap-2 px-4 py-2.5 text-[11px] font-bold uppercase tracking-widest hover:bg-slate-50 transition-colors {% if lang === 'es' %}text-brandOrange bg-brandOrange/5{% else %}text-slate-500{% endif %}"><span class="w-5 text-center">ES</span><span class="text-slate-400 font-medium normal-case tracking-normal text-[10px]">Espanol</span></a>
+   <a href="/fr/{{ frPath or '' }}" class="flex items-center gap-2 px-4 py-2.5 text-[11px] font-bold uppercase tracking-widest hover:bg-slate-50 transition-colors {% if lang === 'fr' %}text-brandOrange bg-brandOrange/5{% else %}text-slate-500{% endif %}"><span class="w-5 text-center">FR</span><span class="text-slate-400 font-medium normal-case tracking-normal text-[10px]">Francais</span></a>
+  </div>
+ </details>
  <button data-action="open-modal" class="bg-brandOrange text-white p-2 md:px-7 md:py-2 rounded-full text-[11px] md:text-[11px] font-black uppercase tracking-widest hover:scale-105 transition shadow-lg shadow-brandOrange/20 flex items-center justify-center min-h-[44px] min-w-[44px]" aria-label="{{ h.ctaButtonAriaLabel }}">
  <span class="hidden lg:flex">{{ h.ctaButtonText }}</span>
  {{ iconEnvelope("flex lg:hidden text-sm") }}
@@ -62,7 +74,19 @@
  </div>
  <!-- Right buttons (Mobile) -->
  <div class="flex lg:hidden items-center gap-2">
- <span class="inline-flex items-center gap-1.5 text-[11px] font-black uppercase tracking-widest">{% if lang === "en" %}<span class="text-brandOrange">EN</span>{% else %}<a href="{{ enPath or '/' }}" class="text-slate-500 hover:text-brandOrange transition-colors">EN</a>{% endif %}<span class="text-slate-300">|</span>{% if lang === "de" %}<span class="text-brandOrange">DE</span>{% else %}<a href="/de/{{ dePath or '' }}" class="text-slate-500 hover:text-brandOrange transition-colors">DE</a>{% endif %}<span class="text-slate-300">|</span>{% if lang === "es" %}<span class="text-brandOrange">ES</span>{% else %}<a href="/es/{{ esPath or '' }}" class="text-slate-500 hover:text-brandOrange transition-colors">ES</a>{% endif %}</span>
+ <!-- Language Switcher (Mobile) -->
+ <details class="relative lang-switch" id="langSwitcherMobile">
+  <summary class="flex items-center gap-1 text-[11px] font-black uppercase tracking-widest text-slate-500 cursor-pointer list-none p-1" aria-label="Changer de langue">
+   <span class="text-brandBlue">{{ lang | upper }}</span>
+   <svg width="10" height="10" aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+  </summary>
+  <div class="absolute top-8 right-0 bg-white shadow-2xl rounded-xl border border-slate-100 py-2 min-w-[90px] z-50" onclick="this.parentElement.removeAttribute('open')">
+   <a href="{{ enPath or '/' }}" class="block px-4 py-2 text-[11px] font-bold uppercase tracking-widest hover:bg-slate-50 transition-colors {% if lang === 'en' %}text-brandOrange bg-brandOrange/5{% else %}text-slate-500{% endif %}">EN</a>
+   <a href="/de/{{ dePath or '' }}" class="block px-4 py-2 text-[11px] font-bold uppercase tracking-widest hover:bg-slate-50 transition-colors {% if lang === 'de' %}text-brandOrange bg-brandOrange/5{% else %}text-slate-500{% endif %}">DE</a>
+   <a href="/es/{{ esPath or '' }}" class="block px-4 py-2 text-[11px] font-bold uppercase tracking-widest hover:bg-slate-50 transition-colors {% if lang === 'es' %}text-brandOrange bg-brandOrange/5{% else %}text-slate-500{% endif %}">ES</a>
+   <a href="/fr/{{ frPath or '' }}" class="block px-4 py-2 text-[11px] font-bold uppercase tracking-widest hover:bg-slate-50 transition-colors {% if lang === 'fr' %}text-brandOrange bg-brandOrange/5{% else %}text-slate-500{% endif %}">FR</a>
+  </div>
+ </details>
  <button data-action="open-modal" class="bg-brandOrange text-white p-2 rounded-full min-w-[44px] min-h-[44px] flex items-center justify-center shadow-lg shadow-brandOrange/20 hover:scale-105 transition" aria-label="{{ h.ctaButtonAriaLabel }}">
  <svg class="icon-envelope text-sm" aria-hidden="true" focusable="false" viewBox="0 0 512 512"><path d="M48 64c-26.5 0-48 21.5-48 48 0 15.1 7.1 29.3 19.2 38.4l208 156c17.1 12.8 40.5 12.8 57.6 0l208-156c12.1-9.1 19.2-23.3 19.2-38.4 0-26.5-21.5-48-48-48L48 64zM0 196L0 384c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-188-198.4 148.8c-34.1 25.6-81.1 25.6-115.2 0L0 196z" fill="currentColor"/></svg>
  </button>

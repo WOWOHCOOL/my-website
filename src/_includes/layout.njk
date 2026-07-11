@@ -21,19 +21,29 @@
  <link rel="alternate" hreflang="en" href="https://www.wowohcool.com{{ canonical or "/" }}">
  {% if dePath is defined %}<link rel="alternate" hreflang="de" href="https://www.wowohcool.com/de/{{ dePath | trailingSlash }}">{% endif %}
  {% if esPath is defined %}<link rel="alternate" hreflang="es" href="https://www.wowohcool.com/es/{{ esPath | trailingSlash }}">{% endif %}
+ {% if frPath is defined %}<link rel="alternate" hreflang="fr" href="https://www.wowohcool.com/fr/{{ frPath | trailingSlash }}">{% endif %}
  <link rel="alternate" hreflang="x-default" href="https://www.wowohcool.com{{ canonical or "/" }}">
  {% elif lang == "de" %}
  <link rel="canonical" href="https://www.wowohcool.com{{ canonical or "/de/" }}">
  <link rel="alternate" hreflang="de" href="https://www.wowohcool.com{{ canonical or "/de/" }}">
- {% if enPath is defined %}<link rel="alternate" hreflang="en" href="https://www.wowohcool.com{{ enPath }}">{% endif %}
+ {% if enPath is defined %}<link rel="alternate" hreflang="en" href="https://www.wowohcool.com/{{ enPath }}">{% endif %}
  {% if esPath is defined %}<link rel="alternate" hreflang="es" href="https://www.wowohcool.com/es/{{ esPath | trailingSlash }}">{% endif %}
- <link rel="alternate" hreflang="x-default" href="https://www.wowohcool.com{{ enPath or '/' }}">
+ {% if frPath is defined %}<link rel="alternate" hreflang="fr" href="https://www.wowohcool.com/fr/{{ frPath | trailingSlash }}">{% endif %}
+ <link rel="alternate" hreflang="x-default" href="https://www.wowohcool.com/{{ enPath or "" }}">
  {% elif lang == "es" %}
  <link rel="canonical" href="https://www.wowohcool.com{{ canonical or "/es/" }}">
  <link rel="alternate" hreflang="es" href="https://www.wowohcool.com{{ canonical or "/es/" }}">
  {% if skipHreflang != "en" %}<link rel="alternate" hreflang="en" href="https://www.wowohcool.com{{ enPath or "/" }}">{% endif %}
  {% if skipHreflang != "de" %}<link rel="alternate" hreflang="de" href="https://www.wowohcool.com/de/{{ (dePath or "") | trailingSlash }}">{% endif %}
+ {% if skipHreflang != "fr" %}<link rel="alternate" hreflang="fr" href="https://www.wowohcool.com/fr/{{ (frPath or "") | trailingSlash }}">{% endif %}
  <link rel="alternate" hreflang="x-default" href="https://www.wowohcool.com{{ enPath or "/" }}">
+ {% elif lang == "fr" %}
+ <link rel="canonical" href="https://www.wowohcool.com{{ canonical or "/fr/" }}">
+ <link rel="alternate" hreflang="fr" href="https://www.wowohcool.com{{ canonical or "/fr/" }}">
+ {% if enPath is defined %}<link rel="alternate" hreflang="en" href="https://www.wowohcool.com/{{ enPath }}">{% endif %}
+ {% if dePath is defined %}<link rel="alternate" hreflang="de" href="https://www.wowohcool.com/de/{{ (dePath or "") | trailingSlash }}">{% endif %}
+ {% if esPath is defined %}<link rel="alternate" hreflang="es" href="https://www.wowohcool.com/es/{{ (esPath or "") | trailingSlash }}">{% endif %}
+ <link rel="alternate" hreflang="x-default" href="https://www.wowohcool.com/{{ enPath or "" }}">
  {% endif %}
 
  <!-- Open Graph -->
@@ -41,12 +51,14 @@
  {% if lang == "en" %}<meta property="og:locale" content="en_US">
  {% elif lang == "de" %}<meta property="og:locale" content="de_DE">
  {% elif lang == "es" %}<meta property="og:locale" content="es_ES">
+ {% elif lang == "fr" %}<meta property="og:locale" content="fr_FR">
  {% endif %}
  <meta property="og:title" content="{{ ogTitle or title or i18nLayout.defaultOgTitle }}">
  <meta property="og:description" content="{{ ogDescription or description or i18nLayout.defaultOgDescription }}">
  {% if lang == "en" %}<meta property="og:url" content="https://www.wowohcool.com{{ canonical or "/" }}">
  {% elif lang == "de" %}<meta property="og:url" content="https://www.wowohcool.com{{ canonical or "/de/" }}">
  {% elif lang == "es" %}<meta property="og:url" content="https://www.wowohcool.com{{ canonical or "/es/" }}">
+ {% elif lang == "fr" %}<meta property="og:url" content="https://www.wowohcool.com{{ canonical or "/fr/" }}">
  {% endif %}
  <meta property="og:type" content="{{ ogType or "website" }}">
  <meta property="og:image" content="https://www.wowohcool.com{{ ogImage or "/image/factory/wowohcool-smart-charging-solutions.webp" }}">
