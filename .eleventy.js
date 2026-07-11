@@ -139,6 +139,13 @@ module.exports = function (eleventyConfig) {
       .sort((a, b) => b.date - a.date);
   });
 
+  // FR blog collection, sorted newest first
+  eleventyConfig.addCollection("blog_fr", function (collectionApi) {
+    return collectionApi.getFilteredByGlob("./src/fr/blog/**/*.njk")
+      .filter(item => item.data.canonical && item.data.canonical !== "/fr/blog/")
+      .sort((a, b) => b.date - a.date);
+  });
+
   return {
     dir: {
       input: 'src',
