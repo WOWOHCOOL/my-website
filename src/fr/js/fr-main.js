@@ -1,0 +1,1 @@
+// French site JS placeholder

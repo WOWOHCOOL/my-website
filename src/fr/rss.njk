@@ -1,0 +1,30 @@
+---
+permalink: "fr/rss.xml"
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+ <channel>
+ <title>Blog WOWOHCOOL, expertise OEM/ODM pour les importateurs francophones</title>
+ <link>https://www.wowohcool.com/fr/blog/</link>
+ <description>Guides pratiques pour les importateurs francophones : batterie externe OEM, certification Qi2, technologie GaN, import depuis la Chine et production en marque propre. Expertise depuis Shenzhen depuis 2013.</description>
+ <language>fr</language>
+ <lastBuildDate>{{ collections.blog_fr[0].date | rssDate }}</lastBuildDate>
+ <generator>Eleventy</generator>
+ <atom:link href="https://www.wowohcool.com/fr/rss.xml" rel="self" type="application/rss+xml"/>
+ <image>
+ <url>https://www.wowohcool.com/image/wowohcool-logo-optimized.webp</url>
+ <title>Blog WOWOHCOOL FR</title>
+ <link>https://www.wowohcool.com/fr/blog/</link>
+ </image>
+ {%- for post in collections.blog_fr %}
+ <item>
+ <title>{{ post.data.title | e }}</title>
+ <link>https://www.wowohcool.com{{ post.data.canonical }}</link>
+ <guid isPermaLink="true">https://www.wowohcool.com{{ post.data.canonical }}</guid>
+ <description>{{ post.data.description | e }}</description>
+ <pubDate>{{ post.date | rssDate }}</pubDate>
+ <enclosure url="https://www.wowohcool.com{{ post.data.ogImage }}" type="image/webp"/>
+ </item>
+ {%- endfor %}
+ </channel>
+</rss>
