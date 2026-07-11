@@ -16,12 +16,23 @@ const KEY = 'f00021fe-fa3a-4786-9e7e-9312f9201661';
 const CACHE_FILE = path.join(__dirname, '..', '.indexnow-cache.json');
 const SITE_DIR = path.join(__dirname, '..', '_site');
 
-function extractUrlsFromSitemap(sitemapPath) {
-  const content = fs.readFileSync(sitemapPath, 'utf-8');
+function extractUrlsFromXml(filePath) {
+  const content = fs.readFileSync(filePath, 'utf-8');
   const urls = [];
   const locRegex = /<loc>([^<]+)<\/loc>/g;
   let match;
   while ((match = locRegex.exec(content)) !== null) {
+    urls.push(match[1]);
+  }
+  return urls;
+}
+
+function extractUrlsFromRss(rssPath) {
+  const content = fs.readFileSync(rssPath, 'utf-8');
+  const urls = [];
+  const linkRegex = /<link>([^<]+)<\/link>/g;
+  let match;
+  while ((match = linkRegex.exec(content)) !== null) {
     urls.push(match[1]);
   }
   return urls;
@@ -74,16 +85,31 @@ function pushToIndexNow(urls) {
 }
 
 async function main() {
+  // Sitemaps: core B2B pages (12 essential pages per language)
   const sitemaps = [
     path.join(SITE_DIR, 'sitemap.xml'),
     path.join(SITE_DIR, 'de', 'sitemap.xml'),
-    path.join(SITE_DIR, 'es', 'sitemap.xml')
+    path.join(SITE_DIR, 'es', 'sitemap.xml'),
+    path.join(SITE_DIR, 'fr', 'sitemap.xml'),
+  ];
+
+  // RSS feeds: all blog articles across languages
+  const rssFeeds = [
+    path.join(SITE_DIR, 'rss.xml'),
+    path.join(SITE_DIR, 'de', 'rss.xml'),
+    path.join(SITE_DIR, 'es', 'rss.xml'),
+    path.join(SITE_DIR, 'fr', 'rss.xml'),
   ];
 
   let allUrls = [];
   for (const sitemap of sitemaps) {
     if (fs.existsSync(sitemap)) {
-      allUrls = allUrls.concat(extractUrlsFromSitemap(sitemap));
+      allUrls = allUrls.concat(extractUrlsFromXml(sitemap));
+    }
+  }
+  for (const rss of rssFeeds) {
+    if (fs.existsSync(rss)) {
+      allUrls = allUrls.concat(extractUrlsFromRss(rss));
     }
   }
 
