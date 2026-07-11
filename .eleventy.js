@@ -12,7 +12,6 @@ module.exports = function (eleventyConfig) {
     '_headers', '_redirects',
     'BingSiteAuth.xml',
     'favicon.ico',
-    'sitemap.xml', 'de/sitemap.xml', 'es/sitemap.xml', 'fr/sitemap.xml',
   ];
 
   // Auto-discover UUID token files
@@ -22,7 +21,7 @@ module.exports = function (eleventyConfig) {
   passthrough.push(...rootFiles);
 
   passthrough.forEach(p => {
-    if (fs.existsSync(p)) {
+    if (fs.existsSync(p) || fs.existsSync(`src/${p}`)) {
       eleventyConfig.addPassthroughCopy(p);
     }
   });
@@ -146,7 +145,7 @@ module.exports = function (eleventyConfig) {
       output: '_site',
       includes: '_includes',
     },
-    templateFormats: ['njk', 'html', 'md'],
+    templateFormats: ['njk', 'html', 'md', 'xml'],
     htmlTemplateEngine: 'njk',
     markdownTemplateEngine: 'njk',
   };
