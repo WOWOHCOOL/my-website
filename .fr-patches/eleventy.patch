@@ -1,0 +1,42 @@
+diff --git a/.eleventy.js b/.eleventy.js
+index b96df9e..a7b9c2e 100644
+--- a/.eleventy.js
++++ b/.eleventy.js
+@@ -49,10 +49,22 @@ module.exports = function (eleventyConfig) {
+     }
+   });
+ 
++  // French site static assets
++  const frStatic = [
++    'fr/js',
++    'fr/llms.txt', 'fr/llms-full.txt',
++  ];
++
++  frStatic.forEach(p => {
++    if (fs.existsSync(p)) {
++      eleventyConfig.addPassthroughCopy(p);
++    }
++  });
++
+   // Wrap h2 sections in .blog-content into card divs (DE/ES blog posts)
+   eleventyConfig.addTransform("blogSectionCards", function (content) {
+     if (!this.outputPath || !this.outputPath.endsWith('.html')) return content;
+-    if (!this.outputPath.match(/\/(de|es)\/blog\/.+\/index\.html$/)) return content;
++    if (!this.outputPath.match(/\/(de|es|fr)\/blog\/.+\/index\.html$/)) return content;
+     if (!content.includes('blog-content')) return content;
+ 
+     const marker = '<div class="max-w-3xl mx-auto px-6 blog-content">';
+@@ -137,6 +149,13 @@ module.exports = function (eleventyConfig) {
+       .sort((a, b) => b.date - a.date);
+   });
+ 
++  // FR blog collection, sorted newest first
++  eleventyConfig.addCollection("blog_fr", function (collectionApi) {
++    return collectionApi.getFilteredByGlob("./src/fr/blog/**/*.njk")
++      .filter(item => item.data.canonical && item.data.canonical !== "/fr/blog/")
++      .sort((a, b) => b.date - a.date);
++  });
++
+   return {
+     dir: {
+       input: 'src',
