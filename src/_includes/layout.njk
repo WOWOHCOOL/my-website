@@ -34,10 +34,10 @@
  {% elif lang == "es" %}
  <link rel="canonical" href="https://www.wowohcool.com{{ canonical or "/es/" }}">
  <link rel="alternate" hreflang="es" href="https://www.wowohcool.com{{ canonical or "/es/" }}">
- {% if skipHreflang != "en" %}<link rel="alternate" hreflang="en" href="https://www.wowohcool.com{{ enPath or "/" }}">{% endif %}
+ {% if skipHreflang != "en" %}<link rel="alternate" hreflang="en" href="https://www.wowohcool.com/{{ enPath or "" }}">{% endif %}
  {% if skipHreflang != "de" %}<link rel="alternate" hreflang="de" href="https://www.wowohcool.com/de/{{ (dePath or "") | trailingSlash }}">{% endif %}
- {% if skipHreflang != "fr" %}<link rel="alternate" hreflang="fr" href="https://www.wowohcool.com/fr/{{ (frPath or "") | trailingSlash }}">{% endif %}
- <link rel="alternate" hreflang="x-default" href="https://www.wowohcool.com{{ enPath or "/" }}">
+ {% if skipHreflang != "fr" and frPath is defined %}<link rel="alternate" hreflang="fr" href="https://www.wowohcool.com/fr/{{ (frPath or "") | trailingSlash }}">{% endif %}
+ <link rel="alternate" hreflang="x-default" href="https://www.wowohcool.com/{{ enPath or "" }}">
  {% elif lang == "fr" %}
  <link rel="canonical" href="https://www.wowohcool.com{{ canonical or "/fr/" }}">
  <link rel="alternate" hreflang="fr" href="https://www.wowohcool.com{{ canonical or "/fr/" }}">
