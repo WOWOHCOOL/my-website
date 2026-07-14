@@ -70,7 +70,7 @@ navActive: "blog"
       "wordCount": 2300,
       "timeRequired": "PT6M",
       "image": "https://www.wowohcool.com/image/blog/cover-en/usb-c-pd-3-1-explained.webp",
-      "description": "USB-C Power Delivery 3.1 explained: 240W EPR, SPR vs EPR, AVS protocol, e-marked cables, and what's new in PD 3.2. Complete 2026 guide for consumers and OEM buyers.",
+      "description": "USB-C PD 3.1 charger OEM sourcing: 240W EPR, SPR vs EPR, AVS protocol, e-marker cable specs. FOB pricing, EU USB-C mandate compliance, factory selection guide for B2B importers.",
       "speakable": {
         "@type": "SpeakableSpecification",
         "cssSelector": ["h1", "h2", ".speakable"]
@@ -85,34 +85,34 @@ navActive: "blog"
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "What is USB-C PD 3.1?",
+          "name": "What PD 3.1 specifications must OEM buyers verify when sourcing chargers from factories?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "USB Power Delivery 3.1 (PD 3.1) is a major revision of the USB charging protocol introduced by the USB-IF in 2021. Its defining feature: it doubles the maximum power over a single USB-C cable from 100W to 240W by adding Extended Power Range (EPR) with new 28V, 36V, and 48V voltage levels. This enables charging gaming laptops, workstations, monitors, and even e-bikes through the same USB-C connector used for phones."
+            "text": "OEM buyers must verify three PD 3.1 specifications: (1) EPR support — the charger must deliver 28V, 36V, or 48V outputs (not just SPR at 20V max), confirmed via USB-IF TID lookup; (2) AVS (Adjustable Voltage Supply) compliance — required for fine-grained voltage control above 15V in PD 3.1; (3) EPR e-marker cable pairing — the bundled cable must carry an EPR e-marker chip rated for the charger's maximum voltage. Without all three, the product defaults to 60W (3A) regardless of labeling. Request the factory's USB-IF certification documentation and verify the TID at usb.org."
           }
         },
         {
           "@type": "Question",
-          "name": "What is the difference between PD 3.0 and PD 3.1?",
+          "name": "When should OEM brands choose PD 3.0 vs PD 3.1 for their charger product line?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "PD 3.0 supports up to 100W (20V × 5A) using Standard Power Range (SPR). PD 3.1 adds Extended Power Range (EPR) with new voltage levels at 28V, 36V, and 48V, enabling up to 240W (48V × 5A). PD 3.1 also introduces AVS (Adjustable Voltage Supply) for finer voltage control between 15V-48V. PD 3.1 chargers and cables are backward compatible with PD 3.0 devices, but EPR requires both an EPR-rated charger and EPR-rated cable."
+            "text": "PD 3.0 SPR (100W max) covers the smartphone-to-ultrabook segment — the highest-volume OEM tier. Choose PD 3.1 EPR (140-240W) for premium workstation and gaming laptop SKUs, where the higher FOB cost ($16-35/unit vs $4-9 for PD 3.0) is offset by stronger margins and the EU USB-C mandate for laptops (April 2026). PD 3.1 chargers are backward-compatible with PD 3.0 devices but require EPR-rated cables in-box. For most brands, a mixed lineup — PD 3.0 for volume SKUs, PD 3.1 for flagship — captures both market segments."
           }
         },
         {
           "@type": "Question",
-          "name": "Do I need special cables for PD 3.1 240W charging?",
+          "name": "What cable specifications must OEM brands bundle with PD 3.1 EPR chargers?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes. For PD 3.1 above 100W, you need EPR-rated USB-C cables with an Extended Power Range e-marker chip. Standard 100W (5A) cables do NOT support 240W. For chargers up to 60W, any USB-C cable works. For 65-100W, you need a 5A e-marked cable. For 140-240W, an EPR-rated cable is mandatory. Without the correct cable, the charger automatically limits output to 60W (3A) regardless of its rated capability."
+            "text": "PD 3.1 EPR chargers above 100W must be bundled with EPR-rated USB-C cables carrying an Extended Power Range e-marker chip. For OEM product planning: 20-60W SKUs can use standard USB-C cables (3A), 65-100W SKUs require 5A e-marked cables ($1-2 FOB), and 140-240W SKUs require EPR-rated cables ($2-4 FOB). Without a matched cable, the charger automatically downgrades to 60W. Always include the correct cable in-box — a charger that delivers 140W with a 60W-rated cable generates negative reviews and returns."
           }
         },
         {
           "@type": "Question",
-          "name": "What devices support PD 3.1 in 2026?",
+          "name": "Which device segments should OEM brands target with PD 3.1 EPR charger SKUs?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "As of 2026, PD 3.1 EPR (100W+) is supported by: MacBook Pro 16-inch (140W), select Dell XPS and ThinkPad workstation models, high-end GaN desktop chargers, and laptop power banks with 100W+ output. Most phones, tablets, and ultrabooks use PD 3.0 SPR (up to 100W) which is fully backward compatible with PD 3.1 chargers. The EU Common Charger Directive (Q2 2026) is accelerating PD 3.1 adoption across all new laptop models."
+            "text": "PD 3.1 EPR (100W+) SKUs should target: (1) MacBook Pro 16-inch owners (140W) — the largest single-device EPR market, (2) workstation laptop users (Dell XPS, ThinkPad P-series), (3) gaming laptop users (RTX 5070+ GPUs drawing 140-240W via USB-C). The EU Common Charger Directive (April 2026) mandates USB-C for all new laptops, making PD 3.1 the default OEM specification for laptop-capable chargers. Most phones, tablets, and ultrabooks still use PD 3.0 SPR — bundle those as mid-tier SKUs for volume."
           }
         },
         {
@@ -327,10 +327,10 @@ navActive: "blog"
                         <table class="w-full border border-slate-200 rounded-xl">
                             <thead class="bg-brandBlue text-white">
                                 <tr>
-                                    <th class="text-left p-3 font-black uppercase text-xs">Your Device</th>
+                                    <th class="text-left p-3 font-black uppercase text-xs">Target Device / Market Segment</th>
                                     <th class="text-center p-3 font-black uppercase text-xs">Max Charging Speed</th>
-                                    <th class="text-center p-3 font-black uppercase text-xs">Protocol Needed</th>
-                                    <th class="text-center p-3 font-black uppercase text-xs">Cable Type</th>
+                                    <th class="text-center p-3 font-black uppercase text-xs">OEM Protocol Requirement</th>
+                                    <th class="text-center p-3 font-black uppercase text-xs">Cable Spec (Include in Box)</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -344,7 +344,7 @@ navActive: "blog"
                             </tbody>
                         </table>
                     </div>
-                    <p class="text-slate-600 mt-4"><strong>Bottom line:</strong> For most people in 2026, PD 3.0 with a 5A cable is all you need. PD 3.1 EPR only matters if you own a MacBook Pro 16" or a gaming laptop that charges above 100W via USB-C. Don't pay for 240W capability you won't use — but do buy a charger that supports PPS for optimal smartphone fast charging.</p>
+                    <p class="text-slate-600 mt-4"><strong>OEM sourcing guidance:</strong> For brands targeting the smartphone-to-ultrabook segment (90% of unit volume), PD 3.0 SPR with 5A e-marked cable covers the addressable market. PD 3.1 EPR SKUs should be reserved for the premium workstation and gaming laptop segment — higher FOB cost ($16-35/unit) but stronger margins and less competition. Every SKU should include PPS support regardless of wattage tier — Samsung Galaxy compatibility depends on it.</p>
 
                     <div class="bg-white rounded-xl p-5 border border-brandOrange/30 mt-6">
                       <h4 class="font-black text-brandBlue uppercase text-sm mb-3">WOWOHCOOL Factory Data: PD Handshake Compatibility Test Matrix (65W &amp; 140W Reference Designs)</h4>
