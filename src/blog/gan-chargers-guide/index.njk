@@ -83,14 +83,17 @@ hreflang:
  },
  {
  "@context": "https://schema.org",
- {"@type":"HowTo","name":"Source GaN Chargers from OEM Factory in 4 Steps","description":"Step-by-step guide to source GaN chargers with PD 3.1, multi-port design, and CE/UL certification from Shenzhen.","step":[{"@type":"HowToStep","position":1,"name":"Choose power level and port configuration","itemListElement":[{"@type":"HowToDirection","text":"20-45W for phones, 65W for ultrabooks, 100W+ for laptops. Choose 1C, 2C, 2C1A, or 3C1A. GaN V chips deliver 40% smaller size at 96% efficiency."}]},{"@type":"HowToStep","position":2,"name":"Compare chip sources and factories","itemListElement":[{"@type":"HowToDirection","text":"GaN chips from Infineon CoolGaN, Navitas GaNFast, or Innoscience. Verify SMT lines, GaN-specific QC, ISO 9001. MOQ 500, FOB $5-22/unit depending on wattage."}]},{"@type":"HowToStep","position":3,"name":"Specify certifications","itemListElement":[{"@type":"HowToDirection","text":"CE (EMC+LVD), RoHS, WEEE for EU. FCC (SDoC or ID), UL 62368-1 for US. USB-IF recommended for premium. Factory should handle certification."}]},{"@type":"HowToStep","position":4,"name":"Production and QC delivery","itemListElement":[{"@type":"HowToDirection","text":"25-30 day OEM with 4-stage QC and 100% 4-hour aging test. Optional third-party inspection (SGS/TUV). DDP shipping available."}]}]},{"@type":"FAQPage",
+ "@type": "HowTo","name":"Source GaN Chargers from OEM Factory in 4 Steps","description":"Step-by-step guide to source GaN chargers with PD 3.1, multi-port design, and CE/UL certification from Shenzhen.","step":[{"@type":"HowToStep","position":1,"name":"Choose power level and port configuration","itemListElement":[{"@type":"HowToDirection","text":"20-45W for phones, 65W for ultrabooks, 100W+ for laptops. Choose 1C, 2C, 2C1A, or 3C1A. GaN V chips deliver 40% smaller size at 96% efficiency."}]},{"@type":"HowToStep","position":2,"name":"Compare chip sources and factories","itemListElement":[{"@type":"HowToDirection","text":"GaN chips from Infineon CoolGaN, Navitas GaNFast, or Innoscience. Verify SMT lines, GaN-specific QC, ISO 9001. MOQ 500, FOB $5-22/unit depending on wattage."}]},{"@type":"HowToStep","position":3,"name":"Specify certifications","itemListElement":[{"@type":"HowToDirection","text":"CE (EMC+LVD), RoHS, WEEE for EU. FCC (SDoC or ID), UL 62368-1 for US. USB-IF recommended for premium. Factory should handle certification."}]},{"@type":"HowToStep","position":4,"name":"Production and QC delivery","itemListElement":[{"@type":"HowToDirection","text":"25-30 day OEM with 4-stage QC and 100% 4-hour aging test. Optional third-party inspection (SGS/TUV). DDP shipping available."}]}] },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
  "mainEntity": [
  {
  "@type": "Question",
- "name": "What is GaN charging technology?",
+ "name": "How do OEM buyers verify genuine GaN vs labeled-but-not-GaN chargers?",
  "acceptedAnswer": {
  "@type": "Answer",
- "text": "GaN (Gallium Nitride) is a semiconductor material that replaces silicon in chargers. GaN chargers are 40% smaller, run 30% cooler, and support higher power output (up to 240W PD 3.1) compared to traditional silicon chargers. WOWOHCOOL uses 5th-generation GaN V technology."
+ "text": "Request the GaN FET part number (Infineon CoolGaN, Navitas GaNFast, or Innoscience) and verify against the manufacturer's catalog. Genuine GaN operates at switching frequencies above 5MHz with 94%+ efficiency at full load. Request efficiency curves at 230V/50Hz and 115V/60Hz. WOWOHCOOL uses 5th-generation GaN V technology and provides full FET traceability documentation with every OEM order."
  }
  },
  {
@@ -111,10 +114,10 @@ hreflang:
  },
  {
  "@type": "Question",
- "name": "What is the difference between GaN and silicon chargers?",
+ "name": "What is the BOM cost difference between GaN and silicon for OEM orders?",
  "acceptedAnswer": {
  "@type": "Answer",
- "text": "GaN chargers are 40% smaller, 30% more efficient at heat dissipation, and support higher power densities than silicon chargers. GaN V (5th generation) offers the best performance with switching frequencies above 5MHz, enabling ultra-compact designs."
+ "text": "At 65W, GaN V BOM premium is $1-3/unit over silicon at 1,000-unit volume. This is typically recovered through freight savings (40% smaller packaging), lower field return rates (0.3% vs 3.2% for silicon), and premium retail positioning. At 30W and below, silicon remains cost-competitive for entry-level SKUs. WOWOHCOOL provides tiered FOB pricing for both GaN and silicon at 500/1,000/5,000 volumes."
  }
  },
  {
@@ -127,10 +130,10 @@ hreflang:
  },
  {
  "@type": "Question",
- "name": "What is the difference between GaN and PD (Power Delivery)?",
+ "name": "What GaN + PD combination should OEM brands specify in their RFQ?",
  "acceptedAnswer": {
  "@type": "Answer",
- "text": "GaN (Gallium Nitride) is a semiconductor material used in the hardware — it makes chargers smaller, cooler, and more efficient. PD (Power Delivery) is a USB-IF charging protocol — software that negotiates power between charger and device. They are complementary: GaN defines how efficiently power is converted, PD defines how power is communicated. The 2026 industry standard is GaN + PD 3.1 + PPS working together."
+ "text": "GaN (semiconductor hardware) and PD 3.1 (charging protocol software) are complementary — specify both in your RFQ. For 2026 OEM orders, the minimum viable specification is GaN V + PD 3.1 EPR + PPS. This ensures EU Common Charger Directive compliance, Samsung Super Fast Charging compatibility, and MacBook Pro 16-inch full-speed charging. WOWOHCOOL's standard OEM platform covers all three by default."
  }
  },
  {
@@ -263,7 +266,7 @@ hreflang:
  <div class="mt-6 grid md:grid-cols-2 gap-4 text-sm">
  <div class="bg-white/10 rounded-lg p-4">
  <h3 class="font-bold mb-2">Bandgap Advantage</h3>
- <p class="text-slate-300">GaN has 3.4 eV bandgap vs silicon's 1.1 eV,, allowing higher voltage handling without breakdown.</p>
+ <p class="text-slate-300">GaN has 3.4 eV bandgap vs silicon's 1.1 eV, allowing higher voltage handling without breakdown.</p>
  </div>
  <div class="bg-white/10 rounded-lg p-4">
  <h3 class="font-bold mb-2">Electron Mobility</h3>
