@@ -98,12 +98,32 @@ Example: 10,000mAh bank charging iPhone with 3,200mAh battery
 - 20,000mAh PD 65W: FOB $12.00-16.00 (500 units)
 - 27,000mAh PD 140W: airline-safe max, FOB $18.00-24.00 (500 units)
 
-### US/UK Consumer Data (from existing brief)
-- "Why does my 10,000 mAh power bank only charge my phone 1.5 times?" — top Amazon US complaint
-- US consumers overpay for fake "50,000 mAh" capacity claims ($15 price point = physically impossible)
-- US search: "power bank mAh meaning" (1,800/mo) + "what does mAh mean" (4,500/mo general)
-- UK: 72% of adults experience "low battery anxiety" (Uswitch survey)
+### US/UK Market Data (Localized)
+
+#### US Market Context
+- US power bank market: $5.2B (2026), 25% of global revenue
+- Amazon US Top 5 power banks: INIU 20K ($27.45), Anker Zolo ($24.69), Ugreen Nexode ($24.99), TRKOY MagSafe 5K ($18.99), Anker MagGo Qi2 ($55.99)
+- 67% of US buyers purchase on Amazon; Best Buy + Walmart = 22% combined
+- US consumer preference: 20,000 mAh (38%), 10,000 mAh (29%)
+- "#1 consumer complaint on Amazon: 'Why does my 10,000mAh power bank only charge my phone 1.5 times?'" — massive education gap
+- US consumers overpay for fake "50,000mAh" capacity claims ($15 price point = physically impossible at that capacity)
+- FAA 100Wh rule = ~27,000mAh (3.7V) — NEVER in checked baggage
 - College students = largest US power bank buyer demographic; most don't understand mAh
+- US consumer search volume: "power bank mAh meaning" (1,800/mo) + "what does mAh mean" (4,500/mo general)
+- No US brand provides a comprehensive mAh education page — content gap opportunity
+
+#### UK Market Context
+- UK power bank market: ~GBP 420M (2026)
+- Amazon UK Top 5: Anker PowerCore, INIU 20K, Charmast 10K, Ekrist portable charger, Anker MagGo Qi2
+- UK consumer preference: 10,000 mAh dominates (urban commuting culture, not road-trip culture)
+- UK price sweet spot: GBP 15-25 mainstream, GBP 35-55 premium
+- 72% of UK adults experience "low battery anxiety" (Uswitch survey) — emotional hook for mAh education content
+- CAA regulations mirror FAA: 100Wh limit, carry-on only
+- UKCA mark replacing CE for UK-only products (post-Brexit compliance note)
+- No UK brand provides a comprehensive mAh education page — content gap opportunity
+
+#### Competitive Content Gap (US/UK)
+No US or UK brand provides a comprehensive mAh education page. WOWOHCOOL can own "what does mAh mean" for both consumer and B2B audiences with manufacturing authority — we actually test mAh capacity in our 4-hour QC aging lab, which no content competitor can claim.
 
 ---
 

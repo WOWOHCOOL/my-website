@@ -578,7 +578,11 @@ def build_url_block_live(url: str, days: int = 30) -> str:
         from dotenv import load_dotenv
         load_dotenv(PROJECT_ROOT / "data_sources" / "config" / ".env")
 
-        from data_sources.modules.google_search_console import GoogleSearchConsole
+        # Add project root + data_sources to path
+        import sys
+        sys.path.insert(0, str(PROJECT_ROOT))
+        sys.path.insert(0, str(PROJECT_ROOT / "data_sources"))
+        from modules.google_search_console import GoogleSearchConsole
         gsc = GoogleSearchConsole()
     except Exception as e:
         return f"> [ERROR] Failed to initialize GSC API: {e}\n"
