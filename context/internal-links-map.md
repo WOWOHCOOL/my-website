@@ -1,150 +1,81 @@
 # Internal Links Map — WOWOHCOOL
 
-This document catalogs all key WOWOHCOOL website pages for strategic internal linking in blog content, product descriptions, and landing pages.
+**Last Updated:** 2026-07-12
+**URL Structure:** Clean URLs (no .html). All links relative to root.
 
 ---
 
 ## Homepage & Core Pages
 
-### Homepage
-- **URL**: https://www.wowohcool.com/
-- **When to Link**: General brand references, introducing WOWOHCOOL as a manufacturer
-- **Anchor Text Examples**: "WOWOHCOOL", "Dong Yi Technology", "the WOWOHCOOL factory"
-
-### About Page
-- **URL**: https://www.wowohcool.com/about.html
-- **When to Link**: When discussing company history, factory capabilities, team, or certifications
-- **Anchor Text Examples**: "about WOWOHCOOL", "our Shenzhen factory", "since 2013"
-
-### OEM/ODM Service
-- **URL**: https://www.wowohcool.com/service.html
-- **When to Link**: When discussing OEM/ODM process, customization, manufacturing partnership
-- **Anchor Text Examples**: "OEM/ODM services", "custom manufacturing", "start your OEM project"
-
-### Contact Page
-- **URL**: https://www.wowohcool.com/contact.html (需确认)
-- **When to Link**: When inviting readers to reach out for quotes, samples, or inquiries
-- **Anchor Text Examples**: "contact WOWOHCOOL", "request a quote", "get factory pricing"
-
-### Blog Home
-- **URL**: https://www.wowohcool.com/blog/ (需确认)
-- **When to Link**: When referencing the overall blog content library
-- **Anchor Text Examples**: "charging industry blog", "WOWOHCOOL resources"
+| Page | URL | Anchor Text Examples |
+|------|-----|---------------------|
+| Homepage | `/` | "WOWOHCOOL", "Dong Yi Technology", "the WOWOHCOOL factory" |
+| About | `/about/` | "about WOWOHCOOL", "our Shenzhen factory", "since 2013" |
+| OEM/ODM Service | `/service/` | "OEM/ODM services", "custom manufacturing", "start your OEM project" |
+| Contact | `/contact/` | "contact WOWOHCOOL", "request a quote", "get factory pricing" |
+| Case Studies | `/case-studies/` | "client success stories", "OEM case studies", "brand partnerships" |
+| FAQ | `/faq/` | "frequently asked questions", "OEM FAQ" |
+| Blog Home | `/blog/` | "WOWOHCOOL blog", "OEM sourcing guides", "manufacturing resources" |
 
 ---
 
-## Product Category Pages
+## Product Pages
 
-### Wireless Chargers
-- **URL**: https://www.wowohcool.com/products/wireless-charger.html
-- **When to Link**: Discussing Qi2, MagSafe, wireless charging technology, 3-in-1 stations
-- **Anchor Text Examples**: "Qi2 wireless chargers", "wireless charging solutions", "3-in-1 charging stations"
-
-### Power Banks
-- **URL**: https://www.wowohcool.com/products/power-bank.html
-- **When to Link**: Discussing power banks, portable charging, semi-solid-state batteries, travel charging
-- **Anchor Text Examples**: "power bank OEM", "semi-solid-state power banks", "portable charging solutions"
-
-### GaN Chargers
-- **URL**: https://www.wowohcool.com/products/gan-charger.html
-- **When to Link**: Discussing GaN technology, wall chargers, PD 3.1, laptop charging
-- **Anchor Text Examples**: "GaN chargers", "GaN V fast chargers", "PD 3.1 wall chargers"
-
-### Car Chargers
-- **URL**: https://www.wowohcool.com/products/car-charger.html
-- **When to Link**: Discussing car charging, automotive accessories, fleet charging, road trip gear
-- **Anchor Text Examples**: "car chargers", "GaN car chargers", "vehicle charging solutions"
+| Product | URL | Anchor Text Examples |
+|---------|-----|---------------------|
+| Power Banks | `/products/power-bank/` | "OEM power banks", "custom power banks", "power bank catalog" |
+| → Semi-Solid-State | `/products/power-bank/semi-solid-state/` | "semi-solid-state power bank", "CES 2026 battery technology" |
+| → Wireless Magnetic | `/products/power-bank/wireless-magnetic/` | "Qi2 magnetic power bank", "MagSafe-compatible power bank" |
+| → 2-in-1 Hybrid | `/products/power-bank/2-in-1-hybrid/` | "GaN power bank charger combo", "2-in-1 portable charger" |
+| → Laptop Power | `/products/power-bank/laptop-power/` | "laptop power bank OEM", "PD 3.1 240W power bank" |
+| → Heating Battery | `/products/power-bank/heating-battery/` | "heating battery OEM", "heated jacket battery pack" |
+| → Smart Display | `/products/power-bank/smart-display/` | "TFT display power bank", "custom branded power bank" |
+| GaN Chargers | `/products/gan-charger/` | "GaN charger OEM", "gallium nitride charger factory" |
+| Wireless Chargers | `/products/wireless-charger/` | "Qi2 wireless charger OEM", "custom wireless charging pads" |
+| → 3-in-1 Station | `/products/wireless-charger/3-in-1-station/` | "3-in-1 wireless charging station", "Qi2 desktop charger OEM" |
+| → Car Mount | `/products/wireless-charger/car-mount/` | "Qi2 car charger mount", "magnetic car phone holder OEM" |
+| → Desktop | `/products/wireless-charger/desktop/` | "wireless desktop charger OEM", "Qi2 office charging pad" |
+| Car Chargers | `/products/car-charger/` | "car charger OEM", "PD car charger factory" |
 
 ---
 
-## Featured Product Pages
+## Blog Article Internal Linking Strategy
 
-### WOW93 Night Light 3-in-1 Folding Wireless Charger
-- **URL**: https://www.wowohcool.com/products/wireless-charger.html#wow93
-- **When to Link**: Home/desktop wireless charging, bedside charging, multi-device
-- **Anchor Text Examples**: "WOW93 3-in-1 folding charger", "night light charging station"
+### Power Bank Articles (Cross-Link Cluster)
+All power bank articles should link to each other and to `/products/power-bank/`:
+- `how-to-choose-power-bank` (pillar) ← all power bank articles link here
+- `power-bank-specs-guide` ↔ `power-bank-mah-explained` (specs cluster)
+- `power-bank-private-label-oem-production` ↔ `top-power-bank-manufacturers-china` (sourcing cluster)
+- `semi-solid-state-power-bank-oem` (technology differentiator)
 
-### WOP67 45W 2-in-1 Power Bank & Wall Charger
-- **URL**: https://www.wowohcool.com/products/power-bank.html#wop67
-- **When to Link**: Travel charging, hybrid devices, space-saving solutions
-- **Anchor Text Examples**: "WOP67 2-in-1 hybrid charger", "power bank wall charger combo"
+### GaN Charger Articles (Cross-Link Cluster)
+- `what-is-gan-charger` (pillar) ← all GaN articles link here
+- `gan-chargers-guide` ↔ `gan-generations-guide` (education cluster)
+- `gan-v-charger-oem-manufacturing` ↔ `gan-vs-silicon-charger-comparison` (production cluster)
 
-### WOC42 105W Retractable Car Charger
-- **URL**: https://www.wowohcool.com/products/car-charger.html#woc42
-- **When to Link**: Car charging, cable management, high-power vehicle charging
-- **Anchor Text Examples**: "WOC42 retractable car charger", "105W car charger with cable"
+### Wireless Charger Articles (Cross-Link Cluster)
+- `wireless-charging-works` (pillar) ← all wireless articles link here
+- `qi2-vs-magsafe-guide` ↔ `qi-certification-guide` (standards cluster)
 
-### WOP09 Semi-Solid-State Power Bank
-- **URL**: https://www.wowohcool.com/products/power-bank.html#wop09
-- **When to Link**: Semi-solid-state technology, ultra-thin power banks, CES 2026 innovation
-- **Anchor Text Examples**: "semi-solid-state power bank", "WOP09 ultra-thin power bank"
+### Sourcing & Import Articles (Cross-Link Cluster)
+- `how-to-choose-factory` (pillar) ← all sourcing articles link here
+- `factory-verification-checklist` ↔ `choose-reliable-china-charger-supplier` (verification cluster)
+- `import-costs-guide` ↔ `shipping-from-china-guide` (logistics cluster)
+- `oem-vs-odm-guide` (standalone decision guide — link to all)
 
-### WOP23 240W PD 3.1 Power Station
-- **URL**: https://www.wowohcool.com/products/power-bank.html#wop23
-- **When to Link**: High-power charging, laptop power bank, professional-grade charging
-- **Anchor Text Examples**: "240W PD 3.1 power station", "WOP23 high-capacity power bank"
+### Compliance Articles (Cross-Link Cluster)
+- `certifications-us-eu-guide` ↔ `charger-safety-standards` ↔ `quality-control-guide`
 
-### WOW90 Zinc Alloy 3-in-1 Charging Dock
-- **URL**: https://www.wowohcool.com/products/wireless-charger.html#wow90
-- **When to Link**: Premium charging, desk accessories, corporate gifts
-- **Anchor Text Examples**: "zinc alloy charging dock", "WOW90 premium wireless charger"
-
----
-
-## Use Case / Solution Pages
-
-### Amazon & E-commerce Sellers
-- **URL**: https://www.wowohcool.com/ (OEM/ODM section)
-- **When to Link**: Private label sourcing, Amazon FBA prep, e-commerce product development
-- **Anchor Text Examples**: "sourcing for Amazon sellers", "private label for e-commerce"
-
-### Corporate & Hospitality
-- **URL**: https://www.wowohcool.com/products/wireless-charger.html
-- **When to Link**: Hotel charging solutions, corporate gift programs, bulk branded electronics
-- **Anchor Text Examples**: "hotel charging solutions", "corporate gift power banks"
-
-### Heating Apparel Brands
-- **URL**: https://www.wowohcool.com/products/power-bank.html (heating battery section)
-- **When to Link**: Heated clothing batteries, winter apparel manufacturing
-- **Anchor Text Examples**: "heating batteries for apparel", "heated clothing power solutions"
+### Market Intelligence Articles
+- `charging-accessory-market-trends-2026` ↔ all technology-specific articles
+- `usb-c-pd-3-1-explained` ↔ `usb-c-pd-fast-charging-guide`
 
 ---
 
-## Product Series by Application
+## Anchor Text Rules
 
-**When writing about travel charging**, link to:
-- `/products/power-bank.html` — 2-in-1 hybrids, slim power banks
-- `/products/gan-charger.html` — compact GaN travel chargers
-- Product anchor: "travel power banks", "portable GaN chargers"
-
-**When writing about desktop/office charging**, link to:
-- `/products/wireless-charger.html` — 3-in-1 stations, premium docks
-- `/products/gan-charger.html` — power strips with USB-C, desktop GaN stations
-- Product anchor: "desktop wireless chargers", "USB-C power strips"
-
-**When writing about automotive charging**, link to:
-- `/products/car-charger.html` — car chargers, retractable cable, mini hidden
-- `/products/wireless-charger.html` — Qi2 car mounts
-- Product anchor: "GaN car chargers", "Qi2 car wireless chargers"
-
-**When writing about OEM/ODM sourcing**, link to:
-- `/service.html` — OEM/ODM process
-- About page — factory credentials
-- Relevant product category page
-- Product anchor: "custom OEM manufacturing", "OEM/ODM partnership"
-
----
-
-## Internal Linking Best Practices
-
-1. **Link naturally**: Only link when genuinely relevant to the reader's context
-2. **Vary anchor text**: Use different descriptive phrases for the same target URL
-3. **3-5 links per blog post**: Strategic internal linking without over-optimization
-4. **Deep linking preferred**: Link to product category pages, not just homepage
-5. **First links matter**: The first internal link in content carries more weight
-6. **Update this map**: Add new pages and blog posts as they are published
-7. **Use product SKUs sparingly**: Lead with descriptive text, SKU in parentheses
-
----
-
-*Note: Keep this document updated as you publish new blog posts, create landing pages, or restructure the site.*
+1. **Every internal link must use descriptive B2B anchor text** — never "click here" or "learn more"
+2. **Vary anchor text across articles** — don't use identical anchors for the same target
+3. **Include B2B signal words in anchors**: "OEM", "factory", "wholesale", "sourcing", "manufacturer"
+4. **Minimum 3 internal links per article** to product pages, service pages, or other blog articles
+5. **Link depth**: Product pages should be reachable in ≤2 clicks from any blog article

@@ -1,80 +1,162 @@
-# Reddit Engagement Strategy
+# Reddit Engagement Strategy — WOWOHCOOL (B2B OEM/ODM)
 
-Reddit is a high-value citation source for AI search engines and increasingly prominent in Google SERPs. This document outlines how to engage on Reddit for both traditional SEO and AI visibility benefits.
+Reddit is a top-3 citation source for AI search engines (Perplexity: 46.7% of citations come from Reddit) and increasingly prominent in Google SERPs for B2B queries. This document outlines WOWOHCOOL's strategy for Reddit engagement.
 
-## Why Reddit Matters for AI SEO
+**Key principle:** WOWOHCOOL engages as a factory expert, not a marketer. Every comment should read like advice from an experienced manufacturer, not a sales pitch.
 
-- Reddit threads are frequently cited by ChatGPT, Perplexity, and Gemini when answering product recommendation questions
-- Google surfaces Reddit results prominently for "best [product]" and "vs" queries
-- Reddit engagement correlates with AI citation frequency (based on current research data)
-- Reddit is where real users ask for real recommendations in most niches
+---
 
-## Core Principle: Comment > Post
+## Why Reddit Matters for B2B AI SEO
 
-**Commenting on existing high-upvote threads is more valuable than creating new posts.**
+- Perplexity cites Reddit more than any other source (46.7%)
+- Google surfaces Reddit prominently for "how to source", "manufacturer vs trading company", "factory audit" queries
+- B2B buyers use Reddit to validate suppliers before committing to large orders
+- Comments on high-upvote threads outperform new posts for visibility
+- Reddit threads persist in Google SERPs for years
 
-Why:
-- Existing popular threads already have traffic, visibility, and search ranking
-- Your comment on a thread with 77+ upvotes inherits that thread's authority
-- AI tools cite the full thread including top comments
-- New posts start at zero and may never gain traction
-- Reddit communities are hostile to new promotional posts but accept helpful comments
+---
 
-## Target Subreddits
+## Subreddit Targets
 
-Customize this for your niche:
+### Tier 1: Direct B2B Sourcing & Manufacturing
 
-| Subreddit | Focus | Relevance |
-|-----------|-------|-----------|
-| r/[your-niche] | Primary community | Primary target |
-| r/[related-niche] | Adjacent community | Secondary |
-| r/[broader-topic] | Broader audience | Monitor |
-| r/SaaS | SaaS-specific discussions | If applicable |
-| r/startups | Startup tools and strategy | If applicable |
+| Subreddit | Size | Focus | Strategy |
+|-----------|------|-------|----------|
+| r/AmazonFBA | 500K+ | Amazon sellers | Answer sourcing questions; share factory QC insights |
+| r/ecommerce | 300K+ | Online retailers | Advise on private labeling, MOQ, supplier selection |
+| r/Entrepreneur | 2M+ | Business owners | Comment on manufacturing threads with factory POV |
+| r/smallbusiness | 1.5M+ | Small business | Help with import/certification questions |
+| r/hwstartups | 100K+ | Hardware startups | Gold mine — hardware founders need manufacturing partners |
+| r/startups | 1.5M+ | Startups | Manufacturing and supply chain threads |
 
-## Engagement Framework
+### Tier 2: Industry & Technology
 
-### What to Do
+| Subreddit | Size | Focus | Strategy |
+|-----------|------|-------|----------|
+| r/UsbCHardware | 100K+ | USB-C enthusiasts | Technical authority on PD 3.1, GaN, e-marker cables |
+| r/Charger | 5K+ | Charger discussions | Niche but high-intent; establish factory expertise |
+| r/Gadgets | 20M+ | Consumer tech | Occasional high-visibility comments on charging tech |
+| r/Android | 3M+ | Android users | Qi2 compatibility, USB-C PD discussions |
+| r/Apple | 5M+ | Apple users | MagSafe vs Qi2 discussions |
 
-1. **Monitor keywords**: Set up F5Bot (f5bot.com, free) to track your product name, competitor names, and category keywords
-2. **Engage genuinely**: Share real expertise, not marketing copy. Reddit users detect and punish promotional content instantly.
-3. **Comment on pain points**: When someone asks "which tool should I use?" or "is [competitor] any good?", respond with genuine comparative information that happens to include your product.
-4. **Share experience, not features**: "We switched to X because Y" is stronger than "X has feature Y"
-5. **Answer questions nobody else answered**: Unanswered specific questions are the highest-value targets
-6. **Upvote timing matters**: Early comments on new posts get more visibility
+### Tier 3: Geographic/Regional
 
-### What NOT to Do
+| Subreddit | Size | Focus | Strategy |
+|-----------|------|-------|----------|
+| r/de (German) | 1M+ | Germany | DACH procurement questions; factory verification |
+| r/UKPersonalFinance | 1M+ | UK finance | Import/sourcing cost discussions |
+| r/AusFinance | 500K+ | Australia | Similar procurement validation queries |
 
-- Never create posts that are thinly-veiled advertisements
-- Never spam the same recommendation across threads
-- Never use obvious brand accounts (personal accounts with history are better)
-- Never argue with critics; acknowledge issues and redirect to solutions
-- Never link directly to your product in every comment (save links for when genuinely helpful)
-- Never use ChatGPT-style language in Reddit comments (community detects this immediately)
+---
 
-### Comment Templates (Adapt, Don't Copy)
+## Keyword Monitoring (F5Bot Alerts)
 
-**Recommendation request:**
-> "I've been using [tool] for about [time]. The thing that made the biggest difference for me was [specific feature/outcome]. Before that I was on [previous tool] and the issue was [specific problem]. Happy to share more details if you want."
+Set up F5Bot alerts for these keyword combinations:
 
-**Comparison thread:**
-> "I've tried both. [Tool A] is better if you [use case]. [Tool B] wins on [specific thing]. For me, [personal choice] because [specific reason]."
+### Sourcing & Manufacturing Keywords
+- "power bank manufacturer" OR "charger factory" OR "OEM charger"
+- "sourcing from China" OR "import from China" OR "Alibaba supplier"
+- "private label" AND ("power bank" OR "charger" OR "wireless charger")
+- "factory audit" OR "supplier verification" OR "QC China"
+- "MOQ" AND ("500" OR "1000") AND ("charger" OR "power bank")
 
-**Technical question:**
-> "[Direct answer to the question]. One thing to watch out for: [gotcha or nuance]. [Optional: what worked for me]."
+### Technology Keywords
+- "GaN charger" OR "GaN vs silicon"
+- "Qi2" OR "Qi2 vs MagSafe" OR "wireless charging standard"
+- "USB-C PD 3.1" OR "240W charger"
+- "semi solid state battery" OR "semi solid state power bank"
 
-## Content Repurposing on Reddit
+### Competitor Keywords
+- "Anker OEM" OR "Ugreen wholesale" OR "Baseus factory"
+- "who makes [competitor] chargers" OR "[competitor] manufacturer"
 
-When a blog article covers a topic actively discussed on Reddit:
+---
 
-1. Find 2-3 active threads on the topic
-2. Write a genuine comment that addresses the thread's specific question
-3. If the blog article would genuinely help, mention it naturally: "There's a good breakdown of this at [link] if you want the full comparison"
-4. Never paste article content directly as a Reddit post
+## Comment Templates (Adapt, Don't Copy)
 
-## Tracking
+### For "How do I find a charger manufacturer?" threads:
+```
+I run QA at a Shenzhen charger factory. Three things to verify before you send money:
 
-Track engagement informally:
-- Which threads generated the most upvotes on your comments
-- Which subreddits are most responsive
-- What language/framing resonates (update this doc with findings)
+1. ISO 9001 certificate — check it yourself at certsearch.iaf.ru. 15-20% of 
+   certificates shown on Alibaba are fake or expired.
+2. Video walkthrough — insist on a live 60-min tour during production hours. 
+   If they hesitate, walk away.
+3. European/US reference customers you can actually call. Not just names — 
+   phone numbers.
+
+For power banks, also demand UN38.3 test reports and cell supplier certificates. 
+Grade-A cells (CATL, BYD, LG) vs Grade-B is the difference between 500+ cycles 
+and 200 cycles.
+
+Happy to answer specific questions.
+```
+
+### For "Trading company vs factory?" threads:
+```
+Factory owner here. Three ways to tell:
+
+1. NECIPS check — every Chinese company has a public registration at gsxt.gov.cn. 
+   Look at the "business scope" field. If it says "trading" instead of 
+   "manufacturing," they're a trading company regardless of what their 
+   Alibaba profile claims.
+
+2. SMT lines — ask for a photo of their pick-and-place machines. Trading 
+   companies can't fake an SMT production line.
+
+3. MOQ flexibility — real factories will do 500 units OEM. Trading companies 
+   typically want 2,000+ because they're buying from the factory and 
+   reselling to you.
+
+About 30% of "manufacturers" on Alibaba are actually trading companies. 
+Do the homework.
+```
+
+### For "What certifications do I need?" threads:
+```
+Depends on your market:
+
+EU: CE (self-declaration but you're legally responsible), RoHS, WEEE registration 
+(Stiftung EAR in Germany), and UN38.3 for anything with lithium batteries.
+
+US: FCC (SDoC for wired, FCC ID for wireless), UL 2056 for power banks, 
+Prop 65 warning for California.
+
+Both: Your factory should provide full test reports (30-80 pages), not just 
+certificates. A one-page "CE certificate" from an unknown Chinese lab is worthless 
+at customs.
+
+Source: I manage compliance at a Shenzhen factory. We handle the paperwork 
+for our OEM clients.
+```
+
+---
+
+## What NOT to Do
+
+- ❌ Never post links to wowohcool.com product pages (Reddit hates self-promotion)
+- ❌ Never use marketing language ("best in class", "industry leading")
+- ❌ Never create new posts promoting WOWOHCOOL (instant ban)
+- ❌ Never use multiple accounts to upvote/astroturf (permanent site-wide ban)
+- ✅ Comment with genuine factory expertise and let the credibility speak for itself
+- ✅ If someone asks "who do you work for?" — answer honestly: "WOWOHCOOL in Shenzhen"
+
+---
+
+## Engagement Metrics
+
+| Metric | Target |
+|--------|:------:|
+| Comments per week | 3-5 (quality over quantity) |
+| Response rate to F5Bot alerts | Within 24 hours |
+| Comment length | 150-400 words (detailed, helpful) |
+| Upvotes per comment | 5+ (indicates genuine value) |
+
+---
+
+## Quarterly Review
+
+- Which subreddits drove the most website traffic? (GA4 referral report)
+- Which comment topics generated the most engagement?
+- Any new subreddits or keywords to add to F5Bot monitoring?
+- Any questions we should create blog content to answer comprehensively?

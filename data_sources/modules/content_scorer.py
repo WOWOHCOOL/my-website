@@ -827,6 +827,10 @@ def main():
     """CLI entry point for testing"""
     import sys
 
+    # Force UTF-8 stdout so the report prints on Windows (GBK) consoles
+    if hasattr(sys.stdout, "reconfigure"):
+        sys.stdout.reconfigure(encoding="utf-8")
+
     if len(sys.argv) < 2:
         print("Usage: python content_scorer.py <draft_file_path>")
         sys.exit(1)

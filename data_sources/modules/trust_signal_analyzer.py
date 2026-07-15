@@ -518,6 +518,12 @@ def analyze_trust_signals(content: str) -> Dict[str, Any]:
 
 # Example usage
 if __name__ == "__main__":
+    import sys
+
+    # Force UTF-8 stdout so the report prints on Windows (GBK) consoles
+    if hasattr(sys.stdout, "reconfigure"):
+        sys.stdout.reconfigure(encoding="utf-8")
+
     sample_content = """
 # Start Your Free Trial Today
 

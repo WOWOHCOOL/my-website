@@ -203,4 +203,66 @@ Track these primary KPIs for WOWOHCOOL content:
 
 ---
 
+## B2B Title & Meta Rules (Mandatory — Added 2026-07-12)
+
+> **WOWOHCOOL is a B2B OEM/ODM manufacturer. All content must use procurement language, not consumer language.**
+
+### Title B2B Signal Requirement
+Every article Title MUST contain ≥1 B2B signal word:
+- **Primary**: `OEM`, `ODM`, `manufacturer`, `factory`, `supplier`
+- **Secondary**: `wholesale`, `bulk`, `MOQ`, `FOB`, `private label`, `sourcing`, `procurement`, `B2B`
+- **Forbidden** (B2C language, not allowed as primary keyword): `best`, `how to choose`, `what is`, `explained`, `buying guide`
+
+Exception: Informational articles may use `guide` or `explained` if paired with a B2B modifier (e.g., "OEM Guide", "Manufacturer Explained").
+
+### Meta Description B2B Requirement
+Every Meta Description MUST contain ≥1 B2B conversion word: `MOQ 500`, `FOB pricing`, `wholesale`, `bulk`, `private label`, `OEM factory`, `B2B`
+
+### H2 B2B Alignment
+At least 2 H2s per article must contain B2B signal words matching the Title's intent. If Title says "OEM Manufacturer", H2s must not all say "What Is" / "How To Choose".
+
+### Keyword Cannibalization Prevention
+- New article Primary Keyword must not overlap with existing articles — check `research/keyword-audit-b2b-en-2026-07-12.md` before writing
+- Same-category articles (e.g., multiple GaN charger articles) must have unique modifiers (OEM vs technology roadmap vs cost comparison)
+
+---
+
+## GEO Optimization Requirements (AI Search Engines)
+
+Apply the 9 Princeton GEO methods to every article:
+
+| Method | Boost | Requirement |
+|--------|:-----:|-------------|
+| **Cite Sources** | +40% | ≥2 external authoritative links per article (WPC, USB-IF, EUR-Lex, IEEE, IATA, Statista, market research firms) |
+| **Statistics Addition** | +37% | ≥3 specific data points per article with source attribution |
+| **Quotation Addition** | +30% | **EXPERT INSIGHT block mandatory** — named author (Snowy May / Nina Nico) with LinkedIn URL, 1-2 sentence industry insight |
+| **Authoritative Tone** | +25% | Factory Authority voice — specific numbers, certifications, production data. Never vague marketing claims |
+| **Easy-to-understand** | +20% | Quick Answer box at top (≤50 words, answers the primary query directly) |
+| **Technical Terms** | +18% | Correct use of domain terminology (GaN V, PD 3.1 EPR, Qi2 MPP, AVS, e-marker, N52H, AQL) |
+| **Unique Words** | +15% | Manufacturer perspective vocabulary — cost breakdown, BOM, FOB, lead time, yield rate |
+| **Fluency Optimization** | +15-30% | Native-level English/German/Spanish/French. No machine translation artifacts |
+| **Keyword Stuffing** | **-10%** | **AVOID.** Keep keyword density 1-2% natural integration |
+
+### Schema Requirements (Every Article)
+```
+✅ BlogPosting (headline + description + datePublished + dateModified + wordCount)
+✅ Person (Author with LinkedIn + Xing URLs + knowsAbout + jobTitle)
+✅ FAQPage (5-8 questions with substantive answers)
+✅ SpeakableSpecification (cssSelector: ["h1", "h2", ".speakable"])
+✅ HowTo (for guide/process articles — ≥3 steps)
+✅ BreadcrumbList
+✅ Organization / ManufacturingBusiness
+```
+
+### GEO Checklist (Per Article)
+- [ ] Expert Quote block present with named author and LinkedIn attribution
+- [ ] wordCount in Schema (integer format, no quotes)
+- [ ] ≥2 external authoritative links with `rel="noopener noreferrer"`
+- [ ] ≥2 inline images with descriptive B2B alt text
+- [ ] ≥3 internal links to product pages, service pages, or related articles
+- [ ] dateModified updated to current date when content changes
+- [ ] Title-H2 alignment verified (no B2B Title / B2C H2 mismatch)
+
+---
+
 *Note: Update this document as SEO best practices evolve and new keyword opportunities emerge. Coordinate with product launches and content calendar.*

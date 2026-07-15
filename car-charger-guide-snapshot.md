@@ -1,0 +1,691 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - navigation "Main navigation" [ref=e3]:
+      - link "WOWOHCOOL Home" [ref=e4] [cursor=pointer]:
+        - /url: /
+        - img "WOWOHCOOL Logo" [ref=e5]
+      - generic [ref=e6]:
+        - link "Home" [ref=e7] [cursor=pointer]:
+          - /url: /
+        - link "About" [ref=e8] [cursor=pointer]:
+          - /url: /about
+        - link "Products" [ref=e10] [cursor=pointer]:
+          - /url: /products/
+          - text: Products
+          - img [ref=e11]
+        - link "OEM/ODM" [ref=e13] [cursor=pointer]:
+          - /url: /service
+        - link "Case Studies" [ref=e14] [cursor=pointer]:
+          - /url: /case-studies
+        - link "Blog" [ref=e15] [cursor=pointer]:
+          - /url: /blog/
+        - link "FAQ" [ref=e16] [cursor=pointer]:
+          - /url: /faq
+        - link "Contact" [ref=e17] [cursor=pointer]:
+          - /url: /contact
+      - generic [ref=e18]:
+        - generic [ref=e19]:
+          - generic [ref=e20]: EN
+          - generic [ref=e21]: "|"
+          - link "DE" [ref=e22] [cursor=pointer]:
+            - /url: /de/blog/autoladegeraet-ratgeber
+          - generic [ref=e23]: "|"
+          - link "ES" [ref=e24] [cursor=pointer]:
+            - /url: /es/blog/cargador-coche-guia
+        - button "Factory-Direct Pricing" [ref=e25] [cursor=pointer]:
+          - generic [ref=e26]: Factory Pricing
+  - main [ref=e27]:
+    - article [ref=e28]:
+      - generic [ref=e32]:
+        - navigation [ref=e33]:
+          - link "Home" [ref=e34] [cursor=pointer]:
+            - /url: /
+          - text: /
+          - link "Blog" [ref=e35] [cursor=pointer]:
+            - /url: /blog/
+          - text: "/ Car Charger OEM Guide: GaN, PD 3.1 & Retractable Sourcing"
+        - generic [ref=e36]: Product Guide
+        - 'heading "Car Charger OEM Guide: GaN, PD 3.1 & Retractable Sourcing" [level=1] [ref=e37]'
+        - generic [ref=e38]:
+          - generic [ref=e39]:
+            - img [ref=e40]
+            - time [ref=e42]: Apr 14, 2026
+          - generic [ref=e43]:
+            - img [ref=e44]
+            - text: 8 min read
+          - generic [ref=e46]:
+            - img [ref=e47]
+            - text: Nina Nico
+        - paragraph [ref=e50]: Modern vehicles have become mobile offices. The global car charger market is projected to reach $6.8 billion by 2030, growing at 12.5% CAGR. As an ISO 9001 certified manufacturer operating a 5,000㎡ facility in Shenzhen since 2013, WOWOHCOOL delivers 1M+ units monthly for 200+ global brands. This guide covers GaN technology, PD 3.1 specifications, fleet procurement strategy, and how to choose the right OEM partner.
+        - generic [ref=e51]:
+          - paragraph [ref=e52]: QUICK ANSWER
+          - paragraph [ref=e53]:
+            - strong [ref=e54]: What is a car charger OEM manufacturer?
+            - text: A car charger OEM manufacturer produces custom-branded vehicle chargers for B2B buyers. Modern GaN car chargers support
+            - strong [ref=e55]: PD 3.1 up to 140W
+            - text: with auto-retractable cables and multi-protocol compatibility. For B2B buyers, sourcing from an ISO 9001 certified OEM/ODM manufacturer ensures CE, FCC, and E-Mark compliance with factory-direct pricing and MOQ from 500 units.
+      - img "Car charger guide - USB-C PD car chargers for fleet and retail" [ref=e57]
+      - generic [ref=e58]:
+        - generic [ref=e59]:
+          - heading "Table of Contents" [level=2] [ref=e60]
+          - navigation [ref=e61]:
+            - 'link "1. GaN vs Silicon: Why It Matters for Car Chargers" [ref=e62] [cursor=pointer]':
+              - /url: "#gan-vs-silicon"
+            - link "2. Understanding PD 3.1 and Fast Charging Protocols" [ref=e63] [cursor=pointer]:
+              - /url: "#pd-protocols"
+            - 'link "3. Car Charger Port Configuration: USB-C, USB-A & Multi-Port" [ref=e64] [cursor=pointer]':
+              - /url: "#port-config"
+            - 'link "4. Retractable vs Traditional Cable: The Fleet Advantage" [ref=e65] [cursor=pointer]':
+              - /url: "#retractable"
+            - 'link "5. Safety Certifications: What Buyers Must Verify" [ref=e66] [cursor=pointer]':
+              - /url: "#safety"
+            - 'link "6. Vehicle Compatibility: 12V vs 24V Systems" [ref=e67] [cursor=pointer]':
+              - /url: "#vehicle-compatibility"
+            - link "7. Fleet Procurement Strategy" [ref=e68] [cursor=pointer]:
+              - /url: "#fleet-procurement"
+            - 'link "8. Case Study: Bosch 65W GaN Fast-Track Project" [ref=e69] [cursor=pointer]':
+              - /url: "#bosch-case-study"
+            - link "9. How to Choose a Reliable Car Charger Manufacturer" [ref=e70] [cursor=pointer]:
+              - /url: "#sourcing"
+            - link "10. Quick Selection Guide" [ref=e71] [cursor=pointer]:
+              - /url: "#selection-guide"
+        - generic [ref=e72]:
+          - 'heading "1. GaN vs Silicon: Why It Matters for Car Chargers" [level=2] [ref=e73]'
+          - paragraph [ref=e74]: The choice between GaN (Gallium Nitride) and traditional silicon chargers is the most consequential decision in modern car charger procurement. The difference goes far beyond marketing.
+          - table [ref=e76]:
+            - rowgroup [ref=e77]:
+              - row "Comparison Silicon GaN (Modern)" [ref=e78]:
+                - columnheader "Comparison" [ref=e79]
+                - columnheader "Silicon" [ref=e80]
+                - columnheader "GaN (Modern)" [ref=e81]
+            - rowgroup [ref=e82]:
+              - row "Size Standard 40% smaller" [ref=e83]:
+                - cell "Size" [ref=e84]
+                - cell "Standard" [ref=e85]
+                - cell "40% smaller" [ref=e86]
+              - row "Heat Dissipation Moderate 30% better" [ref=e87]:
+                - cell "Heat Dissipation" [ref=e88]
+                - cell "Moderate" [ref=e89]
+                - cell "30% better" [ref=e90]
+              - row "Efficiency ~80-85% ~94%+" [ref=e91]:
+                - cell "Efficiency" [ref=e92]
+                - cell "~80-85%" [ref=e93]
+                - cell "~94%+" [ref=e94]
+              - row "Max Power (12V) 45-65W 100-140W" [ref=e95]:
+                - cell "Max Power (12V)" [ref=e96]
+                - cell "45-65W" [ref=e97]
+                - cell "100-140W" [ref=e98]
+              - row "Operating Temp 0-70°C -40 to 85°C" [ref=e99]:
+                - cell "Operating Temp" [ref=e100]
+                - cell "0-70°C" [ref=e101]
+                - cell "-40 to 85°C" [ref=e102]
+              - row "Lifespan 2-3 years 5+ years" [ref=e103]:
+                - cell "Lifespan" [ref=e104]
+                - cell "2-3 years" [ref=e105]
+                - cell "5+ years" [ref=e106]
+          - paragraph [ref=e107]: GaN V, the fifth generation, pushes further with superior thermal efficiency even in extreme vehicle environments. When cabin temperatures exceed 60°C during summer, GaN V car chargers maintain full power output without throttling. Silicon-based chargers in the same conditions typically reduce output by 30-50%.
+          - paragraph [ref=e108]: For B2B buyers, GaN means fewer returns, better customer satisfaction, and a product that stays relevant as devices demand more power. For fleet operators, it means chargers that survive summer dashboards and deliver consistent performance across all vehicles.
+          - paragraph [ref=e109]: From a sourcing perspective, GaN V commands a modest BOM premium of 15-25% over silicon, but the retail price gap —40-60% —translates to significantly higher margins for brands and distributors.
+        - generic [ref=e110]:
+          - heading "2. Understanding PD 3.1 and Fast Charging Protocols" [level=2] [ref=e111]
+          - paragraph [ref=e112]: Power Delivery 3.1 (PD 3.1) is the current standard for fast charging over USB-C, supporting up to 240W. For car chargers, the practical ceiling is typically 100-140W due to 12V/24V input limitations.
+          - heading "PDO (Power Delivery Objects)" [level=3] [ref=e113]
+          - paragraph [ref=e114]: "PD chargers use Programmable Power Supply (PPS) technology for dynamic voltage adjustment:"
+          - list [ref=e115]:
+            - listitem [ref=e116]:
+              - strong [ref=e117]: "5V/3A (15W):"
+              - text: Basic charging for older smartphones
+            - listitem [ref=e118]:
+              - strong [ref=e119]: "9V/3A (27W):"
+              - text: Standard fast charging for modern smartphones
+            - listitem [ref=e120]:
+              - strong [ref=e121]: "15V/3A (45W):"
+              - text: Tablet charging and rapid smartphone charging
+            - listitem [ref=e122]:
+              - strong [ref=e123]: "20V/3.25A (65W):"
+              - text: Laptop charging via USB-C —MacBook Pro, Dell XPS
+            - listitem [ref=e124]:
+              - strong [ref=e125]: "20V/5A (100W):"
+              - text: High-power devices, professional laptops
+          - heading "Protocol Compatibility" [level=3] [ref=e126]
+          - paragraph [ref=e127]: "Multi-protocol support is essential for reducing returns:"
+          - list [ref=e128]:
+            - listitem [ref=e129]:
+              - strong [ref=e130]: PD 3.1/3.0
+              - text: —Universal standard, required for iPhone 15+, USB-C laptops
+            - listitem [ref=e131]:
+              - strong [ref=e132]: QC 5.0/4.0/3.0
+              - text: —Qualcomm Quick Charge, Android flagship devices
+            - listitem [ref=e133]:
+              - strong [ref=e134]: PPS
+              - text: —Programmable Power Supply, Samsung Super Fast Charging 45W
+            - listitem [ref=e135]:
+              - strong [ref=e136]: AFC
+              - text: —Adaptive Fast Charging, Samsung legacy devices
+            - listitem [ref=e137]:
+              - strong [ref=e138]: SCP
+              - text: —Super Charge Protocol, Huawei/Honor devices
+          - paragraph [ref=e139]: A charger supporting all major protocols reduces SKU complexity for distributors and eliminates compatibility support calls.
+        - generic [ref=e140]:
+          - 'heading "3. Car Charger Port Configuration: USB-C, USB-A & Multi-Port" [level=2] [ref=e141]'
+          - 'heading "USB-C vs USB-A: The Transition" [level=3] [ref=e142]'
+          - paragraph [ref=e143]: The shift from USB-A to USB-C is accelerating. USB-A caps at ~12W (5V/2.4A) —insufficient for modern fast charging. USB-C with PD delivers 100W+ from the same compact form factor.
+          - generic [ref=e144]:
+            - heading "B2B Recommendation" [level=4] [ref=e145]
+            - paragraph [ref=e146]: For new inventory, prioritize USB-C PD chargers. Maintain USB-A support through dual-port configurations for legacy device compatibility.
+          - heading "Single vs Dual Port Decision" [level=3] [ref=e147]
+          - table [ref=e149]:
+            - rowgroup [ref=e150]:
+              - row "Feature Single Port Dual Port" [ref=e151]:
+                - columnheader "Feature" [ref=e152]
+                - columnheader "Single Port" [ref=e153]
+                - columnheader "Dual Port" [ref=e154]
+            - rowgroup [ref=e155]:
+              - row "Best For Laptop charging, single device Multiple devices, passengers" [ref=e156]:
+                - cell "Best For" [ref=e157]
+                - cell "Laptop charging, single device" [ref=e158]
+                - cell "Multiple devices, passengers" [ref=e159]
+              - row "Max Power 65-140W all to one device 20-65W per port" [ref=e160]:
+                - cell "Max Power" [ref=e161]
+                - cell "65-140W all to one device" [ref=e162]
+                - cell "20-65W per port" [ref=e163]
+              - row "Price Lower Moderate" [ref=e164]:
+                - cell "Price" [ref=e165]
+                - cell "Lower" [ref=e166]
+                - cell "Moderate" [ref=e167]
+              - row "Complexity Simple Smart chip required" [ref=e168]:
+                - cell "Complexity" [ref=e169]
+                - cell "Simple" [ref=e170]
+                - cell "Smart chip required" [ref=e171]
+          - heading "Multi-Port Hubs (4-6 Ports)" [level=3] [ref=e172]
+          - paragraph [ref=e173]: For rideshare, family vehicles, and corporate shuttles, multi-port USB hubs (60-100W total) allow simultaneous charging for all passengers —an emerging category with significant fleet demand.
+        - generic [ref=e174]:
+          - 'heading "4. Retractable vs Traditional Cable: The Fleet Advantage" [level=2] [ref=e175]'
+          - paragraph [ref=e176]:
+            - text: "Retractable cable car chargers solve one of the most persistent vehicle charging problems: cable clutter. The"
+            - strong [ref=e177]: WOC42 105W Retractable Car Charger
+            - text: exemplifies this category —a built-in 0.8m auto-retractable USB-C cable eliminates loose cables that degrade over time and distract drivers.
+          - generic [ref=e178]:
+            - paragraph [ref=e179]: Traditional cables clutter the car console. Our patented retractable car chargers integrate the cable directly into the housing, offering a clean and premium experience for fleet vehicles and luxury car interiors.
+            - generic [ref=e180]:
+              - generic [ref=e181]:
+                - generic [ref=e182]: WOC42
+                - generic [ref=e183]: Retractable Model
+              - generic [ref=e184]:
+                - generic [ref=e185]: 105W
+                - generic [ref=e186]: Max Output
+              - generic [ref=e187]:
+                - generic [ref=e188]: PD+QC
+                - generic [ref=e189]: Dual Protocol
+            - link "View Retractable Chargers →" [ref=e190] [cursor=pointer]:
+              - /url: /products/car-charger
+          - generic [ref=e191]:
+            - generic [ref=e192]:
+              - heading "Advantages" [level=4] [ref=e193]
+              - list [ref=e194]:
+                - listitem [ref=e195]: —Clean, organized appearance
+                - listitem [ref=e196]: —Reduced cable wear, 3-5x longer lifespan
+                - listitem [ref=e197]: —Minimized driver distraction
+                - listitem [ref=e198]: —Custom cable lengths for OEM/ODM
+            - generic [ref=e199]:
+              - heading "Considerations" [level=4] [ref=e200]
+              - list [ref=e201]:
+                - listitem [ref=e202]: —Higher unit cost than standard
+                - listitem [ref=e203]: —Mechanical complexity
+                - listitem [ref=e204]: —Fixed cable length
+                - listitem [ref=e205]: —10,000+ cycle durability tested
+        - generic [ref=e206]:
+          - 'heading "5. Safety Certifications: What Buyers Must Verify" [level=2] [ref=e207]'
+          - paragraph [ref=e208]:
+            - text: Safety is non-negotiable for professional procurement.
+            - link "Consumer Product Safety Commission" [ref=e209] [cursor=pointer]:
+              - /url: https://www.cpsc.gov/
+            - text: reports indicate substandard chargers cause thousands of electrical incidents annually.
+          - heading "10-Layer Circuit Protection" [level=3] [ref=e210]
+          - generic [ref=e211]:
+            - generic [ref=e212]:
+              - heading "Over-Current" [level=4] [ref=e213]
+              - paragraph [ref=e214]: Auto-shutdown when current exceeds safe levels
+            - generic [ref=e215]:
+              - heading "Over-Voltage" [level=4] [ref=e216]
+              - paragraph [ref=e217]: Prevents voltage spikes from damaging devices
+            - generic [ref=e218]:
+              - heading "Over-Temperature" [level=4] [ref=e219]
+              - paragraph [ref=e220]: Thermal shutdown at 85°C+
+            - generic [ref=e221]:
+              - heading "Short-Circuit" [level=4] [ref=e222]
+              - paragraph [ref=e223]: Instant cutoff on output short
+            - generic [ref=e224]:
+              - heading "Reverse Polarity" [level=4] [ref=e225]
+              - paragraph [ref=e226]: Prevents damage from incorrect installation
+            - generic [ref=e227]:
+              - heading "Surge Protection" [level=4] [ref=e228]
+              - paragraph [ref=e229]: IEC 61000-4-5 compliant
+            - generic [ref=e230]:
+              - heading "ESD Protection" [level=4] [ref=e231]
+              - paragraph [ref=e232]: ±8kV contact discharge rated
+            - generic [ref=e233]:
+              - heading "Battery Protection" [level=4] [ref=e234]
+              - paragraph [ref=e235]: Prevents overcharging connected devices
+            - generic [ref=e236]:
+              - heading "Low-Voltage Cutoff" [level=4] [ref=e237]
+              - paragraph [ref=e238]: Protects vehicle battery from drain
+          - heading "Required Certifications by Market" [level=3] [ref=e239]
+          - table [ref=e241]:
+            - rowgroup [ref=e242]:
+              - row "Market Required Recommended" [ref=e243]:
+                - columnheader "Market" [ref=e244]
+                - columnheader "Required" [ref=e245]
+                - columnheader "Recommended" [ref=e246]
+            - rowgroup [ref=e247]:
+              - row "European Union CE, RoHS TUV, UKCA" [ref=e248]:
+                - cell "European Union" [ref=e249]
+                - cell "CE, RoHS" [ref=e250]
+                - cell "TUV, UKCA" [ref=e251]
+              - row "United States FCC UL, ETL" [ref=e252]:
+                - cell "United States" [ref=e253]
+                - cell "FCC" [ref=e254]
+                - cell "UL, ETL" [ref=e255]
+              - row "China CCC —" [ref=e256]:
+                - cell "China" [ref=e257]
+                - cell "CCC" [ref=e258]
+                - cell "—" [ref=e259]
+              - row "Japan PSE —" [ref=e260]:
+                - cell "Japan" [ref=e261]
+                - cell "PSE" [ref=e262]
+                - cell "—" [ref=e263]
+              - row "South Korea KC —" [ref=e264]:
+                - cell "South Korea" [ref=e265]
+                - cell "KC" [ref=e266]
+                - cell "—" [ref=e267]
+              - row "Global Automotive E-Mark (ECE R10) ISO 9001" [ref=e268]:
+                - cell "Global Automotive" [ref=e269]
+                - cell "E-Mark (ECE R10)" [ref=e270]
+                - cell "ISO 9001" [ref=e271]
+        - generic [ref=e272]:
+          - 'heading "6. Vehicle Compatibility: 12V vs 24V Systems" [level=2] [ref=e273]'
+          - generic [ref=e275]:
+            - generic [ref=e276]:
+              - heading "12V Sockets" [level=4] [ref=e277]
+              - paragraph [ref=e278]: Standard in most vehicles. Most consumer car chargers designed for 12V.
+            - generic [ref=e279]:
+              - heading "USB Direct Ports" [level=4] [ref=e280]
+              - paragraph [ref=e281]: Increasingly common in new vehicles. Native USB-C with higher power delivery.
+            - generic [ref=e282]:
+              - heading "24V Systems (Commercial)" [level=4] [ref=e283]
+              - paragraph [ref=e284]: Standard in trucks, buses. Requires 24V-compatible components.
+            - generic [ref=e285]:
+              - heading "Wireless Charging Pads" [level=4] [ref=e286]
+              - paragraph [ref=e287]: Integrated Qi charging in center consoles.
+          - paragraph [ref=e288]: For fleet operators managing mixed vehicle types, wide-input (12-24V) chargers ensure consistent charging across all assets.
+          - generic [ref=e289]:
+            - img "Car charger factory production line" [ref=e290]
+            - paragraph [ref=e291]: Automated production line with 50,000+ monthly capacity at WOWOHCOOL Shenzhen factory
+        - generic [ref=e292]:
+          - heading "7. Fleet Procurement Strategy" [level=2] [ref=e293]
+          - paragraph [ref=e294]:
+            - text: Enterprise fleet operations differ significantly from consumer purchases. When
+            - link "sourcing car chargers for commercial fleets" [ref=e295] [cursor=pointer]:
+              - /url: /contact
+            - text: ", consider these factors:"
+          - table [ref=e297]:
+            - rowgroup [ref=e298]:
+              - row "Order Size Typical Discount" [ref=e299]:
+                - columnheader "Order Size" [ref=e300]
+                - columnheader "Typical Discount" [ref=e301]
+            - rowgroup [ref=e302]:
+              - row "100-500 units 15-25%" [ref=e303]:
+                - cell "100-500 units" [ref=e304]
+                - cell "15-25%" [ref=e305]
+              - row "500-2,000 units 25-35%" [ref=e306]:
+                - cell "500-2,000 units" [ref=e307]
+                - cell "25-35%" [ref=e308]
+              - row "2,000-10,000 units 35-45%" [ref=e309]:
+                - cell "2,000-10,000 units" [ref=e310]
+                - cell "35-45%" [ref=e311]
+              - row "10,000+ units 45-55%" [ref=e312]:
+                - cell "10,000+ units" [ref=e313]
+                - cell "45-55%" [ref=e314]
+          - heading "Procurement Risk Checklist" [level=3] [ref=e315]
+          - list [ref=e317]:
+            - listitem [ref=e318]:
+              - text: ★
+              - strong [ref=e319]: "Factory vs. Trader:"
+              - text: Visit or video audit the facility before committing
+            - listitem [ref=e320]:
+              - text: ★
+              - strong [ref=e321]: "Certifications:"
+              - text: Request copies of CE, FCC, E-Mark certs
+            - listitem [ref=e322]:
+              - text: ★
+              - strong [ref=e323]: "Sample Testing:"
+              - text: Test 10+ units randomly from production batch
+            - listitem [ref=e324]:
+              - text: ★
+              - strong [ref=e325]: "QC Process:"
+              - text: 4-stage QC with 100% aging test
+            - listitem [ref=e326]:
+              - text: ★
+              - strong [ref=e327]: "MOQ:"
+              - text: Standard OEM 500 units; ODM tooling 1,000-2,000 units
+            - listitem [ref=e328]:
+              - text: ★
+              - strong [ref=e329]: "Payment:"
+              - text: 30% deposit, 70% before shipment
+            - listitem [ref=e330]:
+              - text: ★
+              - strong [ref=e331]: "Shipping:"
+              - text: FOB Shenzhen, EXW, CIF, or DDP. 25-30 days
+            - listitem [ref=e332]:
+              - text: ★
+              - strong [ref=e333]: "Warranty:"
+              - text: Minimum 12-month with defect replacement
+        - generic [ref=e334]:
+          - 'heading "8. Case Study: Bosch 65W GaN Fast-Track Project" [level=2] [ref=e335]'
+          - generic [ref=e336]:
+            - paragraph [ref=e337]:
+              - text: In early 2026, Bosch needed
+              - strong [ref=e338]: 10,000 units
+              - text: of a 65W GaN car charger on an emergency timeline for a pre-sale campaign across European automotive channels.
+            - paragraph [ref=e339]:
+              - strong [ref=e340]: "The Challenge:"
+              - text: Most manufacturers quoted 45-60 days. Bosch had 30 days.
+            - paragraph [ref=e341]:
+              - strong [ref=e342]: "The Solution:"
+              - text: WOWOHCOOL presented three price-tier options within 3 days. Samples shipped in 5 days.
+            - paragraph [ref=e343]:
+              - strong [ref=e344]: "The Result:"
+              - text: 10,000 units delivered in 25 days with zero quality issues.
+              - link "Read the full case study →" [ref=e345] [cursor=pointer]:
+                - /url: /case-studies#bosch
+        - generic [ref=e346]:
+          - heading "9. How to Choose a Reliable Car Charger Manufacturer" [level=2] [ref=e347]
+          - paragraph [ref=e348]:
+            - text: China remains the dominant manufacturing hub for car chargers, with the Shenzhen region housing thousands of specialized manufacturers.
+            - link "Factory-direct sourcing" [ref=e349] [cursor=pointer]:
+              - /url: /about
+            - text: offers significant advantages for volume procurement.
+          - generic [ref=e350]:
+            - heading "Sourcing Methods Comparison" [level=3] [ref=e351]
+            - table [ref=e353]:
+              - rowgroup [ref=e354]:
+                - row "Method Pros Cons" [ref=e355]:
+                  - columnheader "Method" [ref=e356]
+                  - columnheader "Pros" [ref=e357]
+                  - columnheader "Cons" [ref=e358]
+              - rowgroup [ref=e359]:
+                - row "Direct Factory Best pricing, full customization, QC control Higher MOQ, communication barriers" [ref=e360]:
+                  - cell "Direct Factory" [ref=e361]
+                  - cell "Best pricing, full customization, QC control" [ref=e362]
+                  - cell "Higher MOQ, communication barriers" [ref=e363]
+                - row "Trading Company Lower MOQ, English support Higher prices, less factory visibility" [ref=e364]:
+                  - cell "Trading Company" [ref=e365]
+                  - cell "Lower MOQ, English support" [ref=e366]
+                  - cell "Higher prices, less factory visibility" [ref=e367]
+                - row "B2B Platforms Wide selection, easy sourcing Quality inconsistency, IP risks" [ref=e368]:
+                  - cell "B2B Platforms" [ref=e369]
+                  - cell "Wide selection, easy sourcing" [ref=e370]
+                  - cell "Quality inconsistency, IP risks" [ref=e371]
+                - row "Industry Events Direct relationships, verify samples Travel cost, time investment" [ref=e372]:
+                  - cell "Industry Events" [ref=e373]
+                  - cell "Direct relationships, verify samples" [ref=e374]
+                  - cell "Travel cost, time investment" [ref=e375]
+          - paragraph [ref=e376]: As an ISO 9001 certified manufacturer operating since 2013, WOWOHCOOL's 5,000m² Shenzhen facility delivers 1M+ units monthly for 200+ global brands including Bosch and Jacob Jensen.
+        - generic [ref=e377]:
+          - heading "10. Quick Selection Guide" [level=2] [ref=e378]
+          - table [ref=e380]:
+            - rowgroup [ref=e381]:
+              - row "Use Case Recommended Spec Example Application" [ref=e382]:
+                - columnheader "Use Case" [ref=e383]
+                - columnheader "Recommended Spec" [ref=e384]
+                - columnheader "Example Application" [ref=e385]
+            - rowgroup [ref=e386]:
+              - row "Single smartphone 18-20W single port USB-C Personal vehicle, sales rep" [ref=e387]:
+                - cell "Single smartphone" [ref=e388]
+                - cell "18-20W single port USB-C" [ref=e389]
+                - cell "Personal vehicle, sales rep" [ref=e390]
+              - row "iPhone + Android dual 30W dual port USB-C PD Couple sharing vehicle" [ref=e391]:
+                - cell "iPhone + Android dual" [ref=e392]
+                - cell "30W dual port USB-C PD" [ref=e393]
+                - cell "Couple sharing vehicle" [ref=e394]
+              - row "Laptop charging 45-65W USB-C PD single port Mobile professionals" [ref=e395]:
+                - cell "Laptop charging" [ref=e396]
+                - cell "45-65W USB-C PD single port" [ref=e397]
+                - cell "Mobile professionals" [ref=e398]
+              - row "Family/Multi-passenger 4+ port hub, 60W total Rideshare, family vehicle" [ref=e399]:
+                - cell "Family/Multi-passenger" [ref=e400]
+                - cell "4+ port hub, 60W total" [ref=e401]
+                - cell "Rideshare, family vehicle" [ref=e402]
+              - row "Commercial fleet 65W GaN, dual port, branded Delivery, service fleet" [ref=e403]:
+                - cell "Commercial fleet" [ref=e404]
+                - cell "65W GaN, dual port, branded" [ref=e405]
+                - cell "Delivery, service fleet" [ref=e406]
+              - row "24V commercial vehicle 24V compatible, 45W+ output Truck fleet, bus fleet" [ref=e407]:
+                - cell "24V commercial vehicle" [ref=e408]
+                - cell "24V compatible, 45W+ output" [ref=e409]
+                - cell "Truck fleet, bus fleet" [ref=e410]
+        - paragraph [ref=e412]:
+          - strong [ref=e413]: "More resources:"
+          - text: Read our
+          - link "US and EU charger certification guide" [ref=e414] [cursor=pointer]:
+            - /url: /blog/certifications-us-eu-guide
+          - text: to understand E-Mark and FCC compliance, and explore
+          - link "hotel charging solutions" [ref=e415] [cursor=pointer]:
+            - /url: /blog/hotel-charging-solutions
+          - text: for hospitality fleet applications.
+        - generic [ref=e416]:
+          - paragraph [ref=e417]: WOWOHCOOL FACTORY STAT
+          - paragraph [ref=e418]:
+            - text: WOWOHCOOL's GaN car chargers deliver
+            - strong [ref=e419]: PD 3.1 up to 140W
+            - text: with
+            - strong [ref=e420]: auto-retractable USB-C cables
+            - text: ", supporting"
+            - strong [ref=e421]: 12V-24V
+            - text: vehicles from sedans to commercial trucks.
+            - strong [ref=e422]: E-Mark certified
+            - text: and
+            - strong [ref=e423]: salt-spray tested
+            - text: (24-hour anti-corrosion), with 10-layer circuit protection for safety.
+        - generic [ref=e427]:
+          - heading "Ready to Source Car Chargers for Your Business?" [level=3] [ref=e428]
+          - paragraph [ref=e429]: WOWOHCOOL offers factory-direct OEM car chargers with custom branding, volume pricing, and global shipping. Get your free quote within 24 hours.
+          - generic [ref=e430]:
+            - link "View Car Charger Products" [ref=e431] [cursor=pointer]:
+              - /url: /products/car-charger
+            - link "Contact Us" [ref=e432] [cursor=pointer]:
+              - /url: /contact
+        - generic [ref=e434]:
+          - img "Nina Nico - Supply Chain Expert and Wireless Charging Specialist at WOWOHCOOL" [ref=e436]
+          - generic [ref=e437]:
+            - generic [ref=e438]:
+              - link "Nina Nico" [ref=e439] [cursor=pointer]:
+                - /url: https://www.linkedin.com/in/nico-power-bank-chargers/
+              - generic [ref=e440]: Author
+            - paragraph [ref=e441]: Supply Chain Expert · Wireless Charging Specialist
+            - paragraph [ref=e442]:
+              - text: Nina Nico is a supply chain management expert with 10+ years experience helping global B2B clients source quality
+              - link "car chargers" [ref=e443] [cursor=pointer]:
+                - /url: /products/car-charger
+              - text: from
+              - link "WOWOHCOOL" [ref=e444] [cursor=pointer]:
+                - /url: /about
+              - text: —a premium charging solution specialist in Shenzhen, China with certified models and industry-leading quality standards. She holds a degree in International Trade and is a certified supply chain professional (CSCP), with deep expertise in Qi2, GaN, and semi-solid-state battery manufacturing.
+        - generic [ref=e445]:
+          - paragraph [ref=e446]: EXPERT INSIGHT
+          - blockquote [ref=e447]: "\"The car charger market is evolving rapidly as more professionals expect laptop-level charging on the road. GaN V technology has been a breakthrough —delivering 40% smaller size and 30% better heat dissipation than silicon, so we can now offer 140W from a device small enough to fit in a cup holder. For B2B buyers, investing in PD 3.1 car chargers means future-proofing their fleet against the next generation of mobile workstations.\""
+          - paragraph [ref=e448]: —Nina Nico, Supply Chain Expert & Wireless Charging Specialist at WOWOHCOOL
+        - generic [ref=e451]:
+          - img [ref=e453]
+          - generic [ref=e455]:
+            - 'heading "Free Resource: Car Charger Quality Inspection Report Template" [level=3] [ref=e456]'
+            - paragraph [ref=e457]: Download our professional QC checklist used by Fortune 500 brands. This comprehensive template covers 35+ inspection points including safety tests, performance metrics, and compliance verification.
+            - button "Request Free QC Template" [ref=e458] [cursor=pointer]
+        - generic [ref=e459]:
+          - heading "Related Articles" [level=2] [ref=e460]
+          - generic [ref=e461]:
+            - link "Power Bank Specs Guide Understanding mAh, wattage, and charging speed." [ref=e462] [cursor=pointer]:
+              - /url: /blog/power-bank-specs-guide
+              - generic [ref=e464]:
+                - heading "Power Bank Specs Guide" [level=4] [ref=e465]
+                - paragraph [ref=e466]: Understanding mAh, wattage, and charging speed.
+            - link "GaN Chargers Guide Gallium nitride technology for fast charging." [ref=e467] [cursor=pointer]:
+              - /url: /blog/gan-chargers-guide
+              - generic [ref=e469]:
+                - heading "GaN Chargers Guide" [level=4] [ref=e470]
+                - paragraph [ref=e471]: Gallium nitride technology for fast charging.
+            - link "USB-C Fast Charging Complete guide to Power Delivery protocol." [ref=e472] [cursor=pointer]:
+              - /url: /blog/usb-c-pd-fast-charging-guide
+              - generic [ref=e474]:
+                - heading "USB-C Fast Charging" [level=4] [ref=e475]
+                - paragraph [ref=e476]: Complete guide to Power Delivery protocol.
+    - generic [ref=e478]:
+      - generic [ref=e479]:
+        - paragraph [ref=e480]: Start Your Project
+        - heading "Ready to Source from the Factory?" [level=2] [ref=e481]:
+          - text: Ready to Source
+          - text: from the Factory?
+        - paragraph [ref=e482]: Get a custom quote for OEM/ODM charging products. Our engineers respond within 4 hours.
+      - generic [ref=e483]:
+        - generic [ref=e484]:
+          - generic [ref=e485]:
+            - generic [ref=e486]:
+              - generic [ref=e487]: Name *
+              - textbox "e.g. John" [ref=e488]
+            - generic [ref=e489]:
+              - generic [ref=e490]: Company *
+              - textbox "e.g. Acme Corp" [ref=e491]
+          - generic [ref=e492]:
+            - generic [ref=e493]: Business Email *
+            - textbox "john@company.com" [ref=e494]
+          - generic [ref=e495]:
+            - generic [ref=e496]: Product Interest (optional)
+            - combobox [ref=e497]:
+              - option "Select product category" [selected]
+              - option "Power Bank (Semi-Solid-State, PD 3.1)"
+              - option "GaN Charger (GaN V, PD 3.1 240W)"
+              - option "Wireless Charger (Qi2, MagSafe, 15W)"
+              - option "Car Charger (PD 3.1, GaN, 140W)"
+              - option "Custom ODM Project (Full Design)"
+              - option "General Inquiry / Not Sure Yet"
+          - generic [ref=e498]:
+            - generic [ref=e499]: Your Message *
+            - textbox "Quantity, specs, timeline, customization needs..." [ref=e500]
+          - generic [ref=e501]:
+            - checkbox "I agree to the Privacy Policy. *" [ref=e502]
+            - generic [ref=e503]:
+              - text: I agree to the
+              - link "Privacy Policy" [ref=e504] [cursor=pointer]:
+                - /url: /privacy-policy
+              - text: . *
+          - button "Get Free Quote" [ref=e505] [cursor=pointer]:
+            - text: Get Free Quote
+            - img [ref=e506]
+        - paragraph [ref=e508]:
+          - img [ref=e509]
+          - text: "Or call us directly:"
+          - link "+86-186-2078-9739" [ref=e511] [cursor=pointer]:
+            - /url: tel:+8618620789739
+  - contentinfo [ref=e512]:
+    - generic [ref=e513]:
+      - generic [ref=e514]:
+        - link "WOWOHCOOL Home" [ref=e515] [cursor=pointer]:
+          - /url: /
+          - img "WOWOHCOOL - Premium Charging Solution Specialist in Shenzhen" [ref=e516]
+        - generic [ref=e517]:
+          - paragraph [ref=e518]: Dong Yi Technology (WOWOHCOOL)
+          - paragraph [ref=e519]: Global Smart Charging Factory
+          - paragraph [ref=e520]: Shenzhen, China. Since 2013.
+      - generic [ref=e521]:
+        - heading "Quick Links" [level=3] [ref=e522]
+        - list [ref=e523]:
+          - listitem [ref=e524]:
+            - link "Home" [ref=e525] [cursor=pointer]:
+              - /url: /
+          - listitem [ref=e526]:
+            - link "About Factory" [ref=e527] [cursor=pointer]:
+              - /url: /about
+          - listitem [ref=e528]:
+            - link "OEM/ODM Service" [ref=e529] [cursor=pointer]:
+              - /url: /service
+          - listitem [ref=e530]:
+            - link "Case Studies" [ref=e531] [cursor=pointer]:
+              - /url: /case-studies
+          - listitem [ref=e532]:
+            - link "Blog" [ref=e533] [cursor=pointer]:
+              - /url: /blog/
+          - listitem [ref=e534]:
+            - link "FAQ" [ref=e535] [cursor=pointer]:
+              - /url: /faq
+          - listitem [ref=e536]:
+            - link "Contact" [ref=e537] [cursor=pointer]:
+              - /url: /contact
+      - generic [ref=e538]:
+        - heading "Products" [level=3] [ref=e539]
+        - list [ref=e540]:
+          - listitem [ref=e541]:
+            - link "Power Bank" [ref=e542] [cursor=pointer]:
+              - /url: /products/power-bank
+          - listitem [ref=e543]:
+            - link "GaN Charger" [ref=e544] [cursor=pointer]:
+              - /url: /products/gan-charger
+          - listitem [ref=e545]:
+            - link "Wireless Charger" [ref=e546] [cursor=pointer]:
+              - /url: /products/wireless-charger
+          - listitem [ref=e547]:
+            - link "Car Charger" [ref=e548] [cursor=pointer]:
+              - /url: /products/car-charger
+      - generic [ref=e549]:
+        - heading "Connect" [level=3] [ref=e550]
+        - generic [ref=e551]:
+          - paragraph [ref=e552]:
+            - link "+86 186 2078 9739" [ref=e553] [cursor=pointer]:
+              - /url: tel:+8618620789739
+              - img [ref=e554]
+              - text: +86 186 2078 9739
+          - paragraph [ref=e556]:
+            - link "info@wowohcool.com" [ref=e557] [cursor=pointer]:
+              - /url: mailto:info@wowohcool.com
+              - img [ref=e558]
+              - text: info@wowohcool.com
+          - paragraph [ref=e560]:
+            - 'link "WhatsApp: +86 186 2078 9739" [ref=e561] [cursor=pointer]':
+              - /url: https://wa.me/8618620789739
+              - img [ref=e562]
+              - text: "WhatsApp: +86 186 2078 9739"
+        - generic [ref=e564]:
+          - link "Follow us on LinkedIn" [ref=e565] [cursor=pointer]:
+            - /url: https://www.linkedin.com/company/wowohcool
+            - img [ref=e566]
+          - link "Follow us on Facebook" [ref=e568] [cursor=pointer]:
+            - /url: https://www.facebook.com/wowohcoolelectronic
+            - img [ref=e569]
+          - link "Watch us on YouTube" [ref=e571] [cursor=pointer]:
+            - /url: https://www.youtube.com/@WOWOHCOOL
+            - img [ref=e572]
+    - generic [ref=e575]:
+      - generic [ref=e576]:
+        - link "Privacy Policy" [ref=e577] [cursor=pointer]:
+          - /url: /privacy-policy
+        - link "Terms of Service" [ref=e578] [cursor=pointer]:
+          - /url: /terms-of-service
+      - generic [ref=e579]: © Copyright 2026 Dong Yi Technology Co., Limited. All rights reserved.
+  - button "Back to top":
+    - img
+  - generic [ref=e580]:
+    - link "WhatsApp" [ref=e581] [cursor=pointer]:
+      - /url: https://wa.me/8618620789739
+      - img [ref=e582]
+      - generic [ref=e584]: Chat on WhatsApp
+    - button "Quick inquiry" [ref=e585] [cursor=pointer]:
+      - img [ref=e586]
+      - generic [ref=e588]: Quick Inquiry
+  - dialog "Cookie Consent" [ref=e589]:
+    - generic [ref=e590]:
+      - paragraph [ref=e591]:
+        - text: We use cookies and analytics tools (Google Analytics) to improve our website. By clicking "Accept", you consent to their use.
+        - link "Privacy Policy" [ref=e592] [cursor=pointer]:
+          - /url: /privacy-policy
+      - generic [ref=e593]:
+        - button "Necessary Only" [ref=e594] [cursor=pointer]
+        - button "Accept" [ref=e595] [cursor=pointer]

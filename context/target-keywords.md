@@ -1,314 +1,176 @@
-# Target Keywords & Topic Clusters — WOWOHCOOL
+# Target Keywords & Topic Clusters — WOWOHCOOL (B2B)
 
-This document organizes WOWOHCOOL's target keywords by topic cluster for strategic content planning and SEO optimization. Covers 4 product categories + OEM/ODM services for the B2B charging accessories market.
-
----
-
-## Topic Cluster Structure
-
-Each topic cluster includes:
-- **Pillar Keyword**: Main high-volume keyword
-- **Cluster Keywords**: 5-10 related subtopics
-- **Long-Tail Keywords**: 10-15 specific phrases
-- **Search Intent**: Informational / Commercial / Transactional
+**Last Updated:** 2026-07-12
+**Strategy:** B2B OEM/ODM procurement keywords only. No consumer "best X" or "how to choose" keywords.
+**Target Audience:** Global procurement managers, brand owners, importers, wholesalers, private label buyers
 
 ---
 
-## Cluster 1: Wireless Charger OEM/ODM
+## B2B Keyword Three-Layer Strategy
 
-### Pillar Keyword
-- **Keyword**: wireless charger manufacturer
-- **Search Intent**: Commercial / Transactional
-- **Target Page**: `/products/wireless-charger.html`
+### Layer 1: Category Positioning (Title — 1 per article)
+`power bank OEM manufacturer` | `GaN charger factory China` | `Qi2 wireless charger OEM supplier`
 
-### Cluster Keywords
-1. **Qi2 wireless charger factory**
-2. **wireless charger OEM China**
-3. **custom wireless charger supplier**
-4. **MagSafe charger wholesale**
-5. **3-in-1 wireless charging station bulk**
-6. **Qi2 certified charger manufacturing**
-7. **wireless charging pad OEM/ODM**
-8. **magnetic wireless charger supplier**
+### Layer 2: Commercial Conversion (Meta Description — 1-2 per article)  
+`MOQ 500` | `FOB Shenzhen pricing` | `wholesale` | `private label` | `bulk order` | `factory direct`
 
-### Long-Tail Keywords
-- wireless charger manufacturer in Shenzhen
-- custom branded wireless chargers for business
-- Qi2 wireless charger MOQ 500
-- wholesale 3-in-1 wireless charger for hotels
-- private label wireless charging station
-- wireless car charger OEM manufacturer
-- 15W Qi2 fast charger factory China
-- OEM wireless charger for Amazon sellers
-- foldable wireless charger 3-in-1 bulk
-- night light wireless charger custom logo
-
-### Related Questions
-- What is the MOQ for custom wireless chargers?
-- Are Qi2 chargers backwards compatible with Qi?
-- Do wireless chargers work with phone cases?
-- How long does OEM production take for wireless chargers?
-- What certifications do wireless chargers need for Europe/US?
+### Layer 3: Long-Tail Precision (Body — 2-3 per article)
+`65W GaN charger OEM supplier CE UL FCC MOQ 500` | `custom power bank private label with packaging`
 
 ---
 
-## Cluster 2: Power Bank OEM/ODM
+## Cluster 1: Power Bank OEM/ODM
 
-### Pillar Keyword
-- **Keyword**: power bank manufacturer
-- **Search Intent**: Commercial / Transactional
-- **Target Page**: `/products/power-bank.html`
+### Pillar Keywords
+- `power bank manufacturer China` (est. 600-800/mo, Low KD)
+- `power bank OEM factory Shenzhen` (est. 400-600/mo, Very Low KD)
 
-### Cluster Keywords
-1. **power bank OEM China**
-2. **semi-solid-state power bank manufacturer**
-3. **custom power bank supplier**
-4. **power bank wholesale distributor**
-5. **PD 3.1 power bank factory**
-6. **ultra thin power bank OEM**
-7. **power bank with built-in cables bulk**
-8. **2-in-1 power bank wall charger OEM**
+### Article-Specific Keywords
 
-### Long-Tail Keywords
-- semi-solid-state battery power bank factory
-- power bank manufacturer with CE FCC certification
-- 10000mAh custom power bank for corporate gifts
-- 65W PD power bank OEM supplier
-- power bank with display wholesale China
-- heating battery for heated apparel OEM
-- 240W power bank factory Shenzhen
-- private label power bank for e-commerce
-- airline safe power bank bulk order
-- power bank UN38.3 certified manufacturer
-
-### Related Questions
-- What is semi-solid-state battery technology?
-- How long does power bank OEM take?
-- Can I get custom logo on power banks?
-- What certifications are needed for power bank import?
-- What is MOQ for custom power banks?
+| Article | Primary B2B Keyword | Secondary |
+|---------|-------------------|-----------|
+| `/blog/how-to-choose-power-bank/` | power bank OEM manufacturer | wholesale power bank sourcing, custom power bank MOQ |
+| `/blog/power-bank-specs-guide/` | power bank specs OEM | power bank capacity mAh OEM, Grade-A cells sourcing |
+| `/blog/power-bank-mah-explained/` | power bank mAh OEM buyer guide | power bank capacity specs factory, cell grade comparison |
+| `/blog/power-bank-private-label-oem-production/` | power bank private label OEM | custom power bank branding MOQ 500, private label power bank Europe USA |
+| `/blog/top-power-bank-manufacturers-china/` | top power bank manufacturers China OEM | power bank factory comparison Shenzhen, power bank supplier directory |
+| `/blog/semi-solid-state-power-bank-oem/` | semi-solid-state power bank OEM | semi-solid battery supplier China, CES 2026 power bank factory |
 
 ---
 
-## Cluster 3: GaN Charger OEM/ODM
+## Cluster 2: GaN Charger OEM/ODM
 
-### Pillar Keyword
-- **Keyword**: GaN charger manufacturer
-- **Search Intent**: Commercial / Transactional
-- **Target Page**: `/products/gan-charger.html`
+### Pillar Keywords
+- `GaN charger manufacturer China` (est. 500-800/mo, Low KD)
+- `GaN charger OEM factory` (est. 300-500/mo, Very Low KD)
 
-### Cluster Keywords
-1. **GaN charger OEM China**
-2. **PD 3.1 charger factory**
-3. **GaN V fast charger wholesale**
-4. **USB-C GaN charger supplier**
-5. **multi-port GaN charger bulk**
-6. **65W GaN charger OEM/ODM**
-7. **GaN charger with retractable cable**
-8. **power strip with USB-C PD bulk**
+### Article-Specific Keywords
 
-### Long-Tail Keywords
-- GaN V technology charger factory China
-- 100W GaN charger OEM supplier
-- custom GaN charger for laptop brands
-- GaN charger manufacturer with CE FCC
-- retractable cable GaN charger wholesale
-- 35W mini GaN charger bulk order
-- GaN charger private label for Amazon
-- 240W GaN charger MOQ 500
-- GaN vs silicon charger manufacturer
-- OEM GaN charger for travel accessories brands
-
-### Related Questions
-- What is GaN V technology?
-- What is the difference between GaN and silicon chargers?
-- GaN charger OEM minimum order quantity?
-- What certifications do GaN chargers need?
-- Can I customize the cable color on GaN chargers?
+| Article | Primary B2B Keyword | Secondary |
+|---------|-------------------|-----------|
+| `/blog/what-is-gan-charger/` | GaN charger manufacturer OEM | GaN factory sourcing guide, Infineon Navitas GaN OEM |
+| `/blog/gan-chargers-guide/` | GaN charger OEM guide | GaN charger benefits wholesale, GaN power levels FOB pricing |
+| `/blog/gan-generations-guide/` | GaN charger generations OEM | GaN I-V technology roadmap factory, Infineon vs Navitas OEM |
+| `/blog/gan-v-charger-oem-manufacturing/` | GaN V OEM manufacturing | GaN V charger factory Shenzhen, 5th-gen GaN production |
+| `/blog/gan-vs-silicon-charger-comparison/` | GaN vs silicon charger OEM | GaN silicon cost comparison factory, BOM pricing OEM |
 
 ---
 
-## Cluster 4: Car Charger OEM/ODM
+## Cluster 3: Wireless Charger OEM/ODM
 
-### Pillar Keyword
-- **Keyword**: car charger manufacturer
-- **Search Intent**: Commercial / Transactional
-- **Target Page**: `/products/car-charger.html`
+### Pillar Keywords
+- `Qi2 wireless charger OEM` (est. 200-400/mo, Very Low KD)
+- `wireless charger manufacturer China` (est. 400-600/mo, Low KD)
 
-### Cluster Keywords
-1. **car charger OEM China**
-2. **GaN car charger factory**
-3. **PD 3.1 car charger wholesale**
-4. **retractable cable car charger supplier**
-5. **fast car charger bulk OEM**
-6. **USB-C car charger manufacturer**
-7. **12V 24V car charger OEM**
-8. **digital display car charger wholesale**
+### Article-Specific Keywords
 
-### Long-Tail Keywords
-- 140W car charger OEM manufacturer
-- retractable USB-C car charger factory
-- 45W PPS car charger for Samsung OEM
-- mini hidden car charger wholesale
-- custom car charger for automotive brands
-- 24V truck compatible car charger bulk
-- car charger manufacturer Shenzhen China
-- E-Mark certified car charger OEM
-- Qi2 car wireless charger mount bulk
-- dual port car charger private label
-
-### Related Questions
-- Can car chargers charge laptops?
-- What is 24V compatibility in car chargers?
-- Car charger OEM MOQ from China?
-- Do car chargers overheat?
-- How long does car charger production take?
+| Article | Primary B2B Keyword | Secondary |
+|---------|-------------------|-----------|
+| `/blog/wireless-charging-works/` | Qi2 wireless charger OEM | wireless charger factory sourcing, Qi2 MPP OEM manufacturing |
+| `/blog/qi2-vs-magsafe-guide/` | Qi2 vs MagSafe OEM manufacturer | MPP vs MFM licensing cost, wireless charger standard comparison B2B |
+| `/blog/qi-certification-guide/` | Qi2 certification OEM importer | WPC membership cost factory, Qi2 lab testing timeline OEM |
 
 ---
 
-## Cluster 5: OEM/ODM Services (Cross-Product)
+## Cluster 4: Car Charger OEM
 
-### Pillar Keyword
-- **Keyword**: electronics OEM manufacturer China
-- **Search Intent**: Commercial / Transactional
-- **Target Page**: `/service.html`
+### Pillar Keywords
+- `car charger OEM manufacturer` (est. 300-500/mo, Low KD)
+- `car charger factory China` (est. 200-400/mo, Very Low KD)
 
-### Cluster Keywords
-1. **charger OEM/ODM services**
-2. **private label electronics China**
-3. **product customization manufacturer Shenzhen**
-4. **electronics factory for OEM brands**
-5. **China supplier with CE FCC certification**
-6. **low MOQ factory China**
-7. **OEM manufacturing for Amazon sellers**
-8. **product certification for global markets**
+### Article-Specific Keywords
 
-### Long-Tail Keywords
-- how to find a reliable charger manufacturer in China
-- OEM vs ODM manufacturing for electronics
-- electronics factory audit China guide
-- MOQ for custom electronics manufacturing
-- factory direct pricing electronics China
-- certification requirements for importing chargers
-- custom packaging for electronics products
-- sample testing before bulk order China
-- ISO 9001 certified factory Shenzhen
-- dropshipping from manufacturer China
-
-### Related Questions
-- What is the difference between OEM and ODM?
-- How do I verify a Chinese factory is real?
-- What certifications do I need to import electronics?
-- How to get samples from Chinese manufacturers?
-- What payment terms do Chinese factories accept?
+| Article | Primary B2B Keyword | Secondary |
+|---------|-------------------|-----------|
+| `/blog/car-charger-guide/` | car charger OEM guide | GaN car charger factory, retractable car charger wholesale, E-Mark OEM |
 
 ---
 
-## Cluster 6: B2B Sourcing & Industry
+## Cluster 5: Hotel / Hospitality OEM
 
-### Pillar Keyword
-- **Keyword**: source electronics from China
-- **Search Intent**: Informational / Commercial
-
-### Cluster Keywords
-1. **China electronics supplier guide**
-2. **import chargers from China**
-3. **Shenzhen electronics factory**
-4. **private label electronics sourcing**
-5. **wholesale charging accessories China**
-6. **factory audit China tips**
-7. **Amazon FBA sourcing China**
-8. **electronics certification Europe China**
-
-### Long-Tail Keywords
-- how to import power banks from China safely
-- find reliable factory in Shenzhen for chargers
-- avoid scams when sourcing electronics China
-- Amazon FBA prep from Chinese factory
-- UL certification China charger manufacturer
-- quality control for electronics manufacturing China
-- shipping electronics from Shenzhen to US
-- B2B sourcing charging accessories guide
-
-### Related Questions
-- How do I avoid fake factories in China?
-- Can I get a factory video audit before ordering?
-- What shipping methods from China to US?
-- How long is sea freight from Shenzhen to US?
-- What is DDP shipping from China?
+| Article | Primary B2B Keyword | Secondary |
+|---------|-------------------|-----------|
+| `/blog/hotel-charging-solutions/` | hotel charger OEM | hospitality Qi2 USB-C B2B, hotel charging station wholesale |
 
 ---
 
-## Seasonal/Trending Keywords
+## Cluster 6: Sourcing & Import (Procurement Process)
 
-### Q1 Keywords (Jan-Mar)
-- new charging technology trends 2026
-- CES 2026 charging innovations
-- Qi2 adoption predictions
-- semi-solid-state battery news
+### Pillar Keywords
+- `import chargers from China OEM` (est. 400-600/mo, Low KD)
+- `charger factory audit China` (est. 200-400/mo, Very Low KD)
 
-### Q2 Keywords (Apr-Jun)
-- GaN charger summer travel deals
-- power bank for summer travel bulk
-- wireless charger for hotel summer renovation
-- OEM manufacturing for Q4 holiday prep
+### Article-Specific Keywords
 
-### Q3 Keywords (Jul-Sep)
-- holiday season power bank sourcing
-- Amazon Q4 preparation manufacturing
-- gift season electronics wholesale
-- Black Friday charger wholesale
-
-### Q4 Keywords (Oct-Dec)
-- Q4 manufacturing lead times China
-- holiday corporate gifts power bank
-- Christmas electronics sourcing
-- year-end inventory restocking
+| Article | Primary B2B Keyword | Secondary |
+|---------|-------------------|-----------|
+| `/blog/how-to-choose-factory/` | charger factory selection China | supplier evaluation OEM, Shenzhen factory comparison |
+| `/blog/choose-reliable-china-charger-supplier/` | China charger supplier verification | factory vetting checklist OEM, Alibaba supplier audit |
+| `/blog/factory-verification-checklist/` | factory audit China checklist OEM | ISO 9001 verification, SMT inspection QC process, BSCI social audit |
+| `/blog/import-costs-guide/` | OEM import costs China | landed cost charger power bank, Section 301 tariff FOB DDP |
+| `/blog/shipping-from-china-guide/` | shipping from China OEM | freight forwarder charger, customs clearance power bank, DDP incoterms |
+| `/blog/oem-vs-odm-guide/` | OEM vs ODM charger brand | OEM ODM difference manufacturing, custom vs existing mold MOQ |
 
 ---
 
-## Keyword Opportunity Pipeline
+## Cluster 7: Compliance & Certification
 
-### High Priority (Create Soon)
-1. **semi-solid-state power bank manufacturer** — Low competition, high conversion, unique technology
-2. **Qi2 wireless charger OEM** — Growing trend, early mover advantage
-3. **GaN charger factory with PD 3.1** — High commercial intent, strong B2B buyer signal
-4. **electronics factory audit China** — High informational volume, can convert to OEM leads
+### Pillar Keywords
+- `charger certification CE FCC UL OEM` (est. 200-400/mo, Very Low KD)
+- `power bank safety certification import` (est. 150-300/mo, Very Low KD)
 
-### Medium Priority (Next Quarter)
-1. **retractable cable car charger wholesale** — Niche but high conversion
-2. **heating battery for heated apparel OEM** — Seasonal but very specific, low competition
-3. **2-in-1 power bank wall charger OEM** — Growing product category
+### Article-Specific Keywords
 
-### Low Priority (Future Consideration)
-1. branded corporate gift charging solutions
-2. hotel wireless charging station bulk
-3. Amazon seller electronics sourcing guide
+| Article | Primary B2B Keyword | Secondary |
+|---------|-------------------|-----------|
+| `/blog/certifications-us-eu-guide/` | charger certification CE FCC UL | EU USB-C common charger, FCC Part 15 SDoC, UL 62368-1 |
+| `/blog/charger-safety-standards/` | charger safety standards OEM importer | IEC 62368-1 compliance, 10-layer protection circuit, recall data |
+| `/blog/quality-control-guide/` | charger QC factory standards | IQC IPQC FQC OQC process, AQL sampling, aging test |
 
 ---
 
-## LSI & Semantic Keywords
+## Cluster 8: Market Intelligence
 
-### Charging Technology Terms
-- GaN V, PD 3.1, Qi2 MPP, QC 5.0, PPS, USB-C, MagSafe, fast charging
-- wireless charging, magnetic charging, 15W fast charge, 240W power delivery
-- semi-solid-state, lithium polymer, energy density, cycle life
-- over-voltage protection, thermal management, 10-layer circuit protection
-
-### Manufacturing Terms
-- OEM, ODM, private label, contract manufacturing
-- CMF (Color/Material/Finish), ID design, PCBA, tooling
-- MOQ, lead time, sample approval, mass production
-- QC, IQC, IPQC, FQC, OQC, aging test
-- ISO 9001, factory audit, SGS, inspection
-
-### B2B Sourcing Terms
-- wholesale, bulk order, factory direct, volume discount
-- certification, CE, FCC, RoHS, UL, PSE, KC, UN38.3
-- FOB Shenzhen, EXW, DDP, sea freight, air freight
-- T/T payment, L/C, Alibaba Trade Assurance
-- supplier verification, video audit, sample testing
+| Article | Primary B2B Keyword | Secondary |
+|---------|-------------------|-----------|
+| `/blog/charging-accessory-market-trends-2026/` | charging market B2B OEM forecast | GaN Qi2 semi-solid trends 2026, wireless charging market forecast |
+| `/blog/usb-c-pd-3-1-explained/` | USB-C PD 3.1 charger OEM | 240W EPR factory sourcing, e-marker cable OEM, EU USB-C mandate |
+| `/blog/usb-c-pd-fast-charging-guide/` | USB-C PD fast charging OEM | PPS GaN charger sourcing, USB-IF TID verification factory |
 
 ---
 
-*Note: This is a living document. Update as keyword research and content performance data becomes available. Review quarterly.*
+## Keyword Cannibalization Rules
+
+1. **No two articles may share the exact same Primary Keyword**
+2. **Same-category articles differentiated by modifier**: product type (GaN vs Qi2), business model (OEM vs private label), process phase (find vs verify vs import)
+3. **"OEM" is a B2B signal, not a primary keyword** — it appears in 22/28 titles as a qualifier, not a target
+4. **"Sourcing" appears in 6 titles** — each targets a different product category (PD 3.1, GaN, Qi2, USB-C, power bank, market trends)
+
+## Verified High-Value B2B Keywords (Real Search Demand)
+
+These keywords have genuine procurement search volume and low competition (KD ≤30):
+
+| Keyword | Est. Monthly Volume | KD |
+|---------|:------------------:|:--:|
+| `power bank manufacturer China` | 600-800 | Low |
+| `charger wholesale supplier Shenzhen` | 400-600 | Low |
+| `GaN charger bulk order factory price` | 300-500 | Very Low |
+| `Qi2 wireless charger OEM MOQ 500` | 200-400 | Very Low |
+| `custom power bank private label MOQ` | 300-500 | Low |
+| `USB-C charger FOB Shenzhen` | 200-400 | Very Low |
+| `charger factory audit China checklist` | 200-400 | Very Low |
+| `power bank import from China DDP` | 300-500 | Low |
+| `CE FCC certified charger manufacturer` | 200-400 | Very Low |
+| `semi-solid-state battery OEM supplier` | 100-200 | Very Low |
+| `hotel charger OEM wholesale` | 100-200 | Very Low |
+| `GaN V charger manufacturer 2026` | 150-300 | Very Low |
+
+## Forbidden B2C Keywords (Do Not Target)
+
+These consumer keywords have high volume but zero B2B conversion. Never use as Primary Keyword:
+- ❌ `best power bank 2026`
+- ❌ `how to choose a power bank` (consumer intent)
+- ❌ `what is the best wireless charger`
+- ❌ `power bank review`
+- ❌ `fast charger for iPhone`
+- ❌ `portable charger for travel`

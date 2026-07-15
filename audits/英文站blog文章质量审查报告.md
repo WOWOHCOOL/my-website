@@ -24,7 +24,7 @@
 | 12 | **choose-reliable-china-charger-supplier** | 83 | **85** | ✅ | 添加Sources & References (5条); FAQ已B2B无改动 |
 | 13 | **car-charger-guide** | 82 | **84** | ✅ | 添加Sources & References (3条) |
 | 14 | **gan-generations-guide** | 82 | **84** | ✅ | 添加Sources & References (4条) |
-| 15 | **usb-c-pd-3-1-explained** | 82 | **82** | 🔧 | URL slug "explained" ❌暂不改 |
+| 15 | **usb-c-pd-3-1-explained** | 82 | **87** | ✅ | Schema desc B2C→B2B; FAQ×4 B2C→B2B; Section 6表头+结尾段 B2C→OEM guidance; JSON braces 29/29修复 |
 | 16 | **oem-vs-odm-guide** | 81 | **85** | ✅ | 13节→11节；前3节合并为对比表+决策卡片；全部Section号+锚点同步 |
 | 17 | **shipping-from-china-guide** | 79 | **84** | ✅ | H1添加"OEM"信号词 (4处: H1/Schema/breadcrumb/image title) |
 | 18 | **wireless-charging-works** | 79 | **83** | ✅ | 12节→11节；Efficiency+Charge Speed合并；breadcrumb修复；B2C语音修复 |
@@ -39,7 +39,7 @@
 | 27 | **hotel-charging-solutions** | 68 | **75** | ✅ | 12节→11节；ROI+Guest Satisfaction合并；H2关键词堆砌修复；TOC同步 |
 | 28 | **gan-v-charger-oem-manufacturing** | 67 | **76** | ✅ | GaN V频率 500kHz+→5MHz+ (2处); FAQ×2 B2C→B2B |
 
-**原始平均分: 80.6** | **修复后预估: 85.3** | **已修复28篇 (100%)** | **P0完成: 5/5** | **P1完成: 10/10** | **P2完成: 12/12**
+**原始平均分: 80.6** | **修复后预估: 85.5** | **已修复28篇 (100%)** | **P0完成: 5/5** | **P1完成: 10/10** | **P2完成: 12/12**
 
 ---
 
@@ -120,7 +120,7 @@
 | E-E-A-T (经验+权威) | 84/100 | **88/100** | +4 |
 | 可读性与结构 | 80/100 | **86/100** | +6 |
 | 发布前检查 (Gate 1-5) | 75/100 | **87/100** | +12 |
-| 综合平均 | 80.6/100 | **85.3/100** | +4.7 |
+| 综合平均 | 80.6/100 | **85.5/100** | +4.9 |
 
 ---
 
@@ -169,4 +169,7 @@
   ✅ semi-solid-state-power-bank-oem     Schema验证通过
   ✅ how-to-choose-power-bank            Section 7: 6 B2C persona→B2B segments
   ✅ how-to-choose-factory               自引用44→37; FAQ答案去推销(5); hook+intro重写
+
+2026-07-15 补审 (usb-c-pd-3-1-explained 漏网修复):
+  ✅ usb-c-pd-3-1-explained             Schema desc B2C→B2B; FAQ×4 B2C→B2B; Section 6 B2C→OEM; JSON braces修复
 ```

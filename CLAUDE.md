@@ -94,9 +94,10 @@ Rewrites go to `rewrites/`. Landing pages go to `landing-pages/`. Audits go to `
 ## Context Files
 
 `context/` contains brand guidelines that inform all content generation:
+- **`b2b-blog-quality-standards-2026.md`** — **CANONICAL quality standard for ALL blog content across DE/EN/ES/FR sites.** Covers: Information Gain vs. top-5 SERP, E-E-A-T first-hand experience requirements, H1-H4 structural rules, Schema Markup requirements, and the 5-gate pre-publish checklist. Every `/write`, `/optimize`, `/rewrite` must apply this standard. Keyword density is dead — first-party data density and Information Gain are the new metrics.
 - `brand-voice.md` - Tone, messaging pillars
 - `style-guide.md` - Grammar, formatting standards
-- `seo-guidelines.md` - Keyword and structure rules
+- `seo-guidelines.md` - Keyword and structure rules (supplemented by b2b-blog-quality-standards-2026.md)
 - `internal-links-map.md` - Key pages for internal linking
 - `features.md` - Product features
 - `competitor-analysis.md` - Competitive intelligence
