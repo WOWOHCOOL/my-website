@@ -6,6 +6,61 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 不论内容使用什么语言撰写，**与用户的沟通始终使用中文**。代码注释使用英文。
 
+## Article Optimization Quality Gates (Mandatory)
+
+**每次优化或撰写文章时，必须在编辑过程中内置以下 5 道质量门，不得在优化完成后才审计。** 完整标准见 `context/b2b-blog-quality-standards-2026.md`。
+
+### Gate 1: Anti-Repetition
+- 同一段落中不重复相同信息
+- 一条清晰陈述 > 三条同义变体
+
+### Gate 2: Information Gain (最关键的 Gate)
+- 每篇文章必须包含竞争对手 SERP top 5 没有的内容
+- **工厂数据**: 引用 `context/factory-data-panel.md` 的真实数字，不编造
+- **第一手经验**: 使用精确数值 + 单位（°C, mV, kHz, Wh/kg, mm, €）
+- **独家术语**: PCBA ripple noise, BOM cost breakdown, AQL sampling, FOB vs DDP landed cost
+- 反对泛泛而谈: 用 "Case temperature stabilized at 58.3°C under 100% load after 4-hour aging test" 代替 "Good thermal performance"
+
+### Gate 3: Scannability (结构强制)
+- **H1**: 50–65 字符, 必须含 ≥1 个 B2B 信号词 (OEM, manufacturer, factory, supplier, importer, sourcing, MOQ, FOB, B2B)
+- **H2**: 按采购经理决策链组织（Why → What to verify → How it's done → What it costs → How to comply），至少 2 个 H2 含 B2B 信号词
+- **H3**: 必须具体 — 优先使用问题格式或数据结论，不要泛泛的 "Thermal Performance"
+- **H3/H4 后**: 立即给出 100–150 字符的直接回答或对比表格（Featured Snippet 抓取位）
+- 每个 H2 至少含 1 个 H3（不得有空 H2）
+
+### Gate 4: Visual Authenticity (不可跳过)
+- ❌ 禁止: stock photos (握手、西装、通用工厂图片)
+- ✅ 必须: 真实工厂/产品/实验室图片
+- 每张图片必须含描述性 **alt text**，嵌入 B2B 关键词
+- 作者图片 alt text 必须包含职位和专长
+
+### Gate 5: CTA Relevance
+- 文章底部必须有 B2B 买家的逻辑下一步
+- 示例: "Solicitar presupuesto OEM", "Solicitar catálogo", "Consultar certificación"
+
+### Schema 强制清单 (每条必须)
+```
+✅ BlogPosting (headline + description + datePublished + dateModified + wordCount)
+✅ Person (Author with LinkedIn URL + jobTitle + knowsAbout)
+✅ FAQPage (5-8 questions with substantive B2B answers)
+✅ HowTo (≥3 steps for any process/guide article)
+✅ BreadcrumbList
+✅ Organization / ManufacturingBusiness
+✅ SpeakableSpecification (cssSelector: ["h1", "h2", ".speakable"])
+```
+
+### Pre-Commit 自检
+编辑完文章后、提交前，必须验证:
+- [ ] H1 含 B2B 信号词 + 50-65 字符
+- [ ] ≥2 个 H2 含 B2B 信号词
+- [ ] HowTo Schema 已添加（如有步骤流程）
+- [ ] 图片 alt text 含 B2B 关键词
+- [ ] dateModified 更新为当天日期
+- [ ] wordCount 更新为实际数值（整数，无引号）
+- [ ] ≥2 个外部权威链接 (rel="noopener noreferrer")
+- [ ] ≥3 个内部链接到产品页/服务页/相关文章
+- [ ] FAQ 问题使用 B2B 采购语言（非消费者语言）
+
 ## Project Overview
 
 SEO Machine is an open-source Claude Code workspace for creating SEO-optimized blog content. It combines custom commands, specialized agents, and Python-based analytics to research, write, optimize, and publish articles for any business.
