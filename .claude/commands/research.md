@@ -14,6 +14,26 @@ Use this command to conduct comprehensive SEO keyword research and competitive a
 
 ## Process
 
+### ⚠️ CRITICAL: Localization First — NOT Translation
+
+**Research must target local market data in the target language. Content must be localized, NOT translated.**
+
+Before any research step, determine the target language/country:
+- `/es/blog/*` → search in Spanish, analyze Spanish-language SERP competitors, use Spain/LATAM regulations and market data
+- `/de/blog/*` → search in German, analyze German SERP, use DACH market data
+- `/fr/blog/*` → search in French, analyze French SERP, use France/EU market data
+- `/blog/*` (EN) → search in English, global market data
+
+Each WebSearch must include at least 1 query in the **target market's language**. For a Spanish article, search:
+- `"keyword in Spanish" + fabricante/importador/guía`
+- English technical query for global context: `"keyword" OEM manufacturer China`
+
+**Translation detection — stop and correct if you see:**
+- English SERP results translated to target language
+- US regulations (FCC, UL) as primary compliance in ES/DE/FR article
+- Machine-translation artifacts (ES: "En orden a"; DE: unnaturally long compound nouns)
+- All case studies from US/UK importer perspective
+
 ### 0. GSC Performance Data Collection (CRITICAL — Run Before Any Analysis)
 
 **Why**: Replace keyword volume estimates with real Search Console data. Never guess search volume when you can query actual clicks and impressions from the site's own GSC data.

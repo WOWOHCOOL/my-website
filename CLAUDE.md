@@ -6,6 +6,18 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 不论内容使用什么语言撰写，**与用户的沟通始终使用中文**。代码注释使用英文。
 
+## Localization Rule (Mandatory — Do NOT Translate)
+
+**研究必须针对目标语言市场的本土数据，优化必须使用本土化语言，禁止纯翻译。**
+
+- **SERP 研究用目标语言搜索**：优化 ES 文章 → 搜索西班牙语关键词，分析西班牙语 SERP 竞品（不是翻译英文 SERP）
+- **本土化数据**：引用目标市场的法规、统计、案例（如 ES 文章引用 BOE/AEAT 西班牙法规、LATAM 各国认证；DE 文章引用 Stiftung Warentest、德国 DIN 标准）
+- **本土化语言**：使用该语言的母语表达习惯、商业术语、B2B 行话（不是从英文逐字翻译）
+- **本土化案例**：优先使用目标市场进口商的真实场景（如 ES 文章用西班牙进口商视角，不是美国进口商视角）
+- **对标检查**：如果文章有对应的 EN/DE/ES/FR 版本，内容方向一致但**语言表达完全独立**，不是逐段翻译
+
+违反此规则的标志：用英文搜索 SERP 后翻译成西班牙语、引用美国法规在西班牙文章中、使用机器翻译句式（如 ES 文章出现 "En orden a" 这种非自然表达）。
+
 ## Article Optimization Quality Gates (Mandatory)
 
 **每次优化或撰写文章时，必须在编辑过程中内置以下 5 道质量门，不得在优化完成后才审计。** 完整标准见 `context/b2b-blog-quality-standards-2026.md`。
