@@ -51,6 +51,18 @@ module.exports = function (eleventyConfig) {
     }
   });
 
+  // Russian site static assets
+  const ruStatic = [
+    'ru/js',
+    'ru/llms.txt', 'ru/llms-full.txt',
+  ];
+
+  ruStatic.forEach(p => {
+    if (fs.existsSync(p)) {
+      eleventyConfig.addPassthroughCopy(p);
+    }
+  });
+
   // Wrap h2 sections in .blog-content into card divs (DE/ES blog posts)
   eleventyConfig.addTransform("blogSectionCards", function (content) {
     if (!this.outputPath || !this.outputPath.endsWith('.html')) return content;
@@ -143,6 +155,13 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addCollection("blog_fr", function (collectionApi) {
     return collectionApi.getFilteredByGlob("./src/fr/blog/**/*.njk")
       .filter(item => item.data.canonical && item.data.canonical !== "/fr/blog/")
+      .sort((a, b) => b.date - a.date);
+  });
+
+  // RU blog collection, sorted newest first
+  eleventyConfig.addCollection("blog_ru", function (collectionApi) {
+    return collectionApi.getFilteredByGlob("./src/ru/blog/**/*.njk")
+      .filter(item => item.data.canonical && item.data.canonical !== "/ru/blog/")
       .sort((a, b) => b.date - a.date);
   });
 

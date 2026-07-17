@@ -34,6 +34,19 @@ const _ = typeof LANG !== "undefined" && LANG === "de"
       generalInquiryText: 'Consulta general desde el sitio web',
       locale: 'es-ES',
     }
+  : typeof LANG !== "undefined" && LANG === "ru"
+  ? {
+      redirectUrl: '/ru/spasibo',
+      sendingText: 'Отправляем запрос...',
+      successTitle: 'Спасибо!',
+      successMsg: 'Ваш запрос успешно отправлен.<br>Мы ответим в течение 24 часов.',
+      redirectingText: 'Перенаправление...',
+      submitError: 'Не удалось отправить. Пожалуйста, попробуйте ещё раз.',
+      networkError: 'Ошибка сети. Проверьте подключение к интернету.',
+      newInquiryPrefix: 'Новый запрос: ',
+      generalInquiryText: 'Общий запрос с сайта',
+      locale: 'ru-RU',
+    }
   : {
       redirectUrl: '/thank-you',
       sendingText: 'Sending Inquiry...',

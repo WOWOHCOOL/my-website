@@ -1,0 +1,32 @@
+---
+permalink: "ru/rss.xml"
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+ <channel>
+ <title>Блог WOWOHCOOL — OEM/ODM-руководства для импортёров</title>
+ <link>https://www.wowohcool.com/ru/blog/</link>
+ <description>Практические материалы для импортёров: OEM-производство повербанков, сертификация EAC и Qi2, технология GaN, импорт из Китая и выпуск продукции под собственной торговой маркой. Опыт завода в Шэньчжэне с 2013 года.</description>
+ <language>ru</language>
+ {%- if collections.blog_ru.length %}
+ <lastBuildDate>{{ collections.blog_ru[0].date | rssDate }}</lastBuildDate>
+ {%- endif %}
+ <generator>Eleventy</generator>
+ <atom:link href="https://www.wowohcool.com/ru/rss.xml" rel="self" type="application/rss+xml"/>
+ <image>
+ <url>https://www.wowohcool.com/image/wowohcool-logo-optimized.webp</url>
+ <title>WOWOHCOOL Blog RU</title>
+ <link>https://www.wowohcool.com/ru/blog/</link>
+ </image>
+ {%- for post in collections.blog_ru %}
+ <item>
+ <title>{{ post.data.title | e }}</title>
+ <link>https://www.wowohcool.com{{ post.data.canonical }}</link>
+ <guid isPermaLink="true">https://www.wowohcool.com{{ post.data.canonical }}</guid>
+ <description>{{ post.data.description | e }}</description>
+ <pubDate>{{ post.date | rssDate }}</pubDate>
+
+ </item>
+ {%- endfor %}
+ </channel>
+</rss>

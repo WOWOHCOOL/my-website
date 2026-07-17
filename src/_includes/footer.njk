@@ -1,4 +1,4 @@
-{% from "icons.njk" import iconEnvelope, iconWhatsapp %}
+{% from "icons.njk" import iconWechat, iconEnvelope, iconWhatsapp %}
 {% set f = i18n.footer[lang] %}
 
 <footer class="pt-24 pb-12 bg-white border-t border-slate-100">
@@ -50,7 +50,10 @@
  <p><a href="mailto:info@wowohcool.com" class="hover:text-brandOrange transition flex items-center justify-center md:justify-start gap-2" rel="noopener noreferrer">
  {{ iconEnvelope("text-brandOrange") }} info@wowohcool.com
  </a></p>
-{% if f.whatsapp %} <p><a href="https://wa.me/8618620789739" target="_blank" rel="noopener noreferrer" class="hover:text-brandOrange transition flex items-center justify-center md:justify-start gap-2">
+{% if f.wechat %} <p><span class="flex items-center justify-center md:justify-start gap-2 select-all">
+ {{ iconWechat("text-brandOrange text-sm") }} WeChat: {{ f.wechat }}
+ </span></p>
+{% elif f.whatsapp %} <p><a href="https://wa.me/8618620789739" target="_blank" rel="noopener noreferrer" class="hover:text-brandOrange transition flex items-center justify-center md:justify-start gap-2">
  {{ iconWhatsapp("text-brandOrange text-sm") }} WhatsApp: +86 186 2078 9739
  </a></p>{% endif %}
  </div>

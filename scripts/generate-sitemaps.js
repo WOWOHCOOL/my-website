@@ -73,9 +73,12 @@ function genSitemap(langFilter) {
   for (const [canonical, hreflangs] of entries) {
     const pathname = canonical.replace('https://www.wowohcool.com', '');
 
+    // 404 pages are noindex — never list them in sitemaps
+    if (/\/404(\.html|\/)?$/.test(pathname)) continue;
+
     // Language filtering: EN sitemap = no prefix, others = must start with /lang/
     if (langFilter === null) {
-      if (pathname.startsWith('/de/') || pathname.startsWith('/es/') || pathname.startsWith('/fr/')) continue;
+      if (pathname.startsWith('/de/') || pathname.startsWith('/es/') || pathname.startsWith('/fr/') || pathname.startsWith('/ru/')) continue;
     } else {
       if (!pathname.startsWith(`/${langFilter}/`)) continue;
     }
@@ -127,6 +130,7 @@ const configs = [
   ['de', 'de/sitemap.xml', 'DE'],
   ['es', 'es/sitemap.xml', 'ES'],
   ['fr', 'fr/sitemap.xml', 'FR'],
+  ['ru', 'ru/sitemap.xml', 'RU'],
 ];
 
 for (const [lang, filename, label] of configs) {
