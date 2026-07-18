@@ -52,6 +52,7 @@ function pushToIndexNow(urls) {
       port: 443,
       path: '/IndexNow',
       method: 'POST',
+      timeout: 30000, // 30s timeout — Cloudflare build containers have limited network
       headers: {
         'Content-Type': 'application/json; charset=utf-8',
         'Content-Length': Buffer.byteLength(payload)
@@ -62,6 +63,10 @@ function pushToIndexNow(urls) {
       let data = '';
       res.on('data', chunk => data += chunk);
       res.on('end', () => resolve({ status: res.statusCode, body: data }));
+    });
+    req.on('timeout', () => {
+      req.destroy();
+      reject(new Error('Request timed out after 30s'));
     });
     req.on('error', reject);
     req.write(payload);
