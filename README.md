@@ -5,7 +5,7 @@ A specialized Claude Code workspace for creating long-form, SEO-optimized blog c
 ## Overview
 
 SEO Machine is built on Claude Code and provides:
-- **Custom Commands**: `/research`, `/write`, `/rewrite`, `/analyze-existing`, `/optimize`, `/performance-review`, `/publish-draft`, `/article`, `/priorities`, plus specialized research and landing page commands
+- **Custom Commands**: `/research`, `/write`, `/rewrite`, `/analyze-existing`, `/optimize`, `/performance-review`, `/article`, `/priorities`, plus specialized research and landing page commands
 - **Specialized Agents**: Content analyzer, SEO optimization, meta element creation, internal linking, keyword mapping, editor, performance analysis, headline generator, CRO analyst, landing page optimizer
 - **Marketing Skills**: 26 marketing skills for copywriting, CRO, A/B testing, email sequences, pricing strategy, and more
 - **Advanced SEO Analysis**: Search intent detection, keyword density & clustering, content length comparison, readability scoring, SEO quality rating (0-100)
@@ -243,9 +243,6 @@ Final SEO optimization pass before publishing.
 
 ---
 
-### `/publish-draft [file]`
-Publish article to WordPress via REST API with Yoast SEO metadata.
-
 ---
 
 ### `/article [topic]`
@@ -283,7 +280,6 @@ Remove AI watermarks and patterns from content (em-dashes, filler phrases, robot
 | `/landing-audit [file]` | Audit landing page for CRO issues |
 | `/landing-research [topic]` | Research competitors and positioning |
 | `/landing-competitor [URL]` | Deep competitor landing page analysis |
-| `/landing-publish [file]` | Publish landing page to WordPress |
 
 ## Agents
 
@@ -573,21 +569,15 @@ python3 test_dataforseo.py
 
 **Note**: SEO analysis scripts load competitor lists and keywords from `config/competitors.json`. Copy `config/competitors.example.json` and customize for your business.
 
-### WordPress Integration
+### Site Deployment
 
-Publishing uses the WordPress REST API with a custom MU-plugin that exposes Yoast SEO fields.
+wowohcool.com 是一个 Eleventy (11ty) 静态站点，部署在 Cloudflare Pages 上。站点源码在独立的 `wowohcool.com` 仓库中。站点部署时自动通过 `scripts/indexnow-push.js` 向 Bing + Yandex 提交通知。
 
-**Setup**:
-1. Install `wordpress/seo-machine-yoast-rest.php` as an MU-plugin on your WordPress site
-2. Add `wordpress/functions-snippet.php` to your theme's functions.php
-3. Configure WordPress credentials in `.env`:
-   ```
-   WP_URL=https://yoursite.com
-   WP_USERNAME=your_username
-   WP_APP_PASSWORD=your_application_password
-   ```
-
-See `wordpress/README.md` for detailed setup instructions.
+如需手动快速通知搜索引擎新文章，运行：
+```bash
+python3 data_sources/modules/indexnow_submitter.py \
+  --urls "https://www.wowohcool.com/blog/new-article/"
+```
 
 See `data_sources/README.md` for analytics setup instructions.
 
@@ -604,7 +594,7 @@ seomachine/
 │   │   ├── optimize.md
 │   │   ├── scrub.md
 │   │   ├── performance-review.md
-│   │   ├── publish-draft.md
+│   │   ├── research.md
 │   │   ├── article.md
 │   │   ├── priorities.md
 │   │   ├── research-serp.md
@@ -614,9 +604,8 @@ seomachine/
 │   │   ├── research-topics.md
 │   │   ├── landing-write.md
 │   │   ├── landing-audit.md
-│   │   ├── landing-research.md
 │   │   ├── landing-competitor.md
-│   │   └── landing-publish.md
+│   │   ├── landing-research.md
 │   ├── agents/            # Specialized analysis agents
 │   │   ├── content-analyzer.md
 │   │   ├── seo-optimizer.md
@@ -647,7 +636,7 @@ seomachine/
 │   │   ├── competitor_gap_analyzer.py
 │   │   ├── article_planner.py
 │   │   ├── section_writer.py
-│   │   ├── wordpress_publisher.py
+│   │   ├── indexnow_submitter.py
 │   │   ├── above_fold_analyzer.py
 │   │   ├── cro_checker.py
 │   │   ├── cta_analyzer.py
@@ -669,10 +658,6 @@ seomachine/
 │   ├── internal-links-map.md
 │   ├── competitor-analysis.md
 │   └── cro-best-practices.md
-├── wordpress/             # WordPress integration
-│   ├── seo-machine-yoast-rest.php
-│   ├── functions-snippet.php
-│   └── README.md
 ├── topics/                # Raw topic ideas
 ├── research/              # Research briefs and analysis reports
 ├── drafts/                # Work in progress articles
@@ -868,8 +853,9 @@ Every article must meet these requirements:
 # Step 7: Final optimization
 /optimize drafts/content-marketing-strategies-[date].md
 
-# Step 8: Publish to WordPress (optional)
-/publish-draft drafts/content-marketing-strategies-[date].md
+# Step 8: Notify search engines (optional)
+python3 data_sources/modules/indexnow_submitter.py \
+  --urls "https://www.wowohcool.com/blog/new-article/"
 ```
 
 ### Example 2: Updating Existing Content

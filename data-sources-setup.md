@@ -1,6 +1,6 @@
 # Data Sources Setup Guide
 
-This guide provides step-by-step instructions for setting up the data source integrations used by SEO Machine: Google Analytics 4 (GA4), Google Search Console, DataForSEO, and WordPress.
+This guide provides step-by-step instructions for setting up the data source integrations used by SEO Machine: Google Analytics 4 (GA4), Google Search Console, and DataForSEO.
 
 ---
 
@@ -9,8 +9,7 @@ This guide provides step-by-step instructions for setting up the data source int
 1. [Google Analytics 4 (GA4) Setup](#google-analytics-4-ga4-setup)
 2. [Google Search Console Setup](#google-search-console-setup)
 3. [DataForSEO Setup](#dataforseo-setup)
-4. [WordPress Setup](#wordpress-setup)
-5. [Testing Your Integrations](#testing-your-integrations)
+4. [Testing Your Integrations](#testing-your-integrations)
 6. [Troubleshooting](#troubleshooting)
 
 ---
@@ -215,46 +214,6 @@ DataForSEO charges per API request. Common pricing:
 
 ---
 
-## WordPress Setup
-
-WordPress integration enables publishing articles and landing pages directly from SEO Machine via the REST API.
-
-### Prerequisites
-- A WordPress site with REST API enabled
-- Admin access to install plugins
-- Yoast SEO plugin installed (for SEO metadata)
-
-### Step 1: Install the MU-Plugin
-
-1. Copy `wordpress/seo-machine-yoast-rest.php` to your WordPress site's `wp-content/mu-plugins/` directory
-2. This plugin exposes Yoast SEO fields via the REST API for programmatic publishing
-
-### Step 2: Create an Application Password
-
-1. Log in to your WordPress admin
-2. Go to **Users > Profile**
-3. Scroll to **Application Passwords**
-4. Enter a name: `SEO Machine`
-5. Click **Add New Application Password**
-6. Copy the generated password (you won't see it again)
-
-### Step 3: Configure the Integration
-
-Add the following to your `.env` file:
-```
-WP_URL=https://yoursite.com
-WP_USERNAME=your_admin_username
-WP_APP_PASSWORD=xxxx xxxx xxxx xxxx xxxx xxxx
-```
-
-### Step 4: Optional Theme Integration
-
-Add the snippet from `wordpress/functions-snippet.php` to your theme's `functions.php` for additional publishing features.
-
-See `wordpress/README.md` for more details.
-
----
-
 ## Testing Your Integrations
 
 After setting up your data sources, test them to ensure they're working correctly.
@@ -416,11 +375,6 @@ COMPANY_NAME=Your Company
 # DataForSEO
 DATAFORSEO_LOGIN=your_username
 DATAFORSEO_PASSWORD=your_api_password
-
-# WordPress (optional, for /publish-draft)
-WP_URL=https://yoursite.com
-WP_USERNAME=your_username
-WP_APP_PASSWORD=your_application_password
 ```
 
 ### Useful Links

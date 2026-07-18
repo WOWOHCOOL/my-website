@@ -421,6 +421,5 @@ After saving and scrubbing, run these agents:
 # 4. Make revisions if needed
 # (edit the file in landing-pages/)
 
-# 5. Publish when ready
-/landing-publish landing-pages/product-hosting-wordpress-2025-12-11.md
+# 5. 发布到站点 (手动将 njk 文件写入 wowohcool.com 站点源码)
 ```

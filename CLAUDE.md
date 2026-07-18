@@ -83,7 +83,7 @@ SEO Machine is an open-source Claude Code workspace for creating SEO-optimized b
 pip install -r data_sources/requirements.txt
 ```
 
-API credentials are configured in `data_sources/config/.env` (GA4, GSC, DataForSEO, WordPress). GA4 service account credentials go in `credentials/ga4-credentials.json`.
+API credentials are configured in `data_sources/config/.env` (GA4, GSC, DataForSEO). GA4 service account credentials go in `credentials/ga4-credentials.json`.
 
 ## Commands
 
@@ -95,14 +95,13 @@ All commands are defined in `.claude/commands/` and invoked as slash commands:
 - `/optimize [file]` - Final SEO polish pass
 - `/analyze-existing [URL or file]` - Content health audit
 - `/performance-review` - Analytics-driven content priorities
-- `/publish-draft [file]` - Publish to WordPress via REST API
 - `/article [topic]` - Simplified article creation
 - `/cluster [topic]` - Build complete topic cluster strategy with pillar + supporting articles + linking map
 - `/priorities` - Content prioritization matrix
 - `/research-serp`, `/research-gaps`, `/research-trending`, `/research-performance`, `/research-topics` - Specialized research commands
 - `/research-ai-citations [topic]` - AI citation audit: generates prompts, clusters them, audits which sources AI cites
 - `/repurpose [file]` - Adapts article for LinkedIn, Medium, Reddit, Quora distribution
-- `/landing-write`, `/landing-audit`, `/landing-research`, `/landing-publish`, `/landing-competitor` - Landing page commands
+- `/landing-write`, `/landing-audit`, `/landing-research`, `/landing-competitor` - Landing page commands
 
 ## Architecture
 
@@ -127,7 +126,7 @@ Located in `data_sources/modules/`. The Content Analyzer chains:
 - `google_search_console.py` - Rankings and impressions
 - `dataforseo.py` - SERP positions, keyword metrics
 - `data_aggregator.py` - Combines all sources into unified analytics
-- `wordpress_publisher.py` - Publishes to WordPress with Yoast SEO metadata
+- `indexnow_submitter.py` - Submit URLs to Bing + Yandex via IndexNow protocol
 
 ### Opportunity Scoring
 
@@ -172,6 +171,26 @@ Rewrites go to `rewrites/`. Landing pages go to `landing-pages/`. Audits go to `
 - `ai-citation-targets.md` - Directories/platforms where your brand should be cited by AI tools
 - `reddit-strategy.md` - Reddit engagement strategy for AI SEO and community visibility
 
-## WordPress Integration
+## Site Architecture
 
-Publishing uses the WordPress REST API with a custom MU-plugin (`wordpress/seo-machine-yoast-rest.php`) that exposes Yoast SEO fields. Articles are published in WordPress block format (HTML comments in Markdown files).
+wowohcool.com 是一个 **Eleventy (11ty) 静态站点**，部署在 **Cloudflare Pages** 上：
+
+- **站点源码**: `C:\Users\wowoh\wowohcool.com\`（独立 Git 仓库，与本项目分离）
+- **模板引擎**: Nunjucks (.njk)，每篇文章一个子目录 (`src/blog/[slug]/index.njk`)
+- **构建**: `npx @11ty/eleventy` → `_site/`，CSS 用 Tailwind，JS 用 esbuild
+- **部署**: `git push` → Cloudflare Pages 自动构建部署
+- **多语言**: `/de/` `/es/` `/fr/` `/ru/` 各自独立 blog 子目录
+
+**seomachine 的角色**: 内容研究和草稿撰写工具。文章在 seomachine 中以 markdown 撰写 (`drafts/`)，然后手动转换为 Nunjucks 模板写入 wowohcool.com 站点源码。
+
+### IndexNow 提交通知
+
+站点有两套 IndexNow 机制：
+1. **部署时自动提交** (`wowohcool.com/scripts/indexnow-push.js`) — 每次 `npm run deploy` 后比较 sitemap 变化，批量提交新 URL
+2. **手动快速提交** (`python3 data_sources/modules/indexnow_submitter.py --urls "..."`) — 单篇文章写完即可通知搜索引擎，无需等部署
+
+```bash
+# 发新文章后立即通知 Bing + Yandex
+python3 data_sources/modules/indexnow_submitter.py \
+  --urls "https://www.wowohcool.com/ru/blog/new-article/"
+```

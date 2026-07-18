@@ -229,7 +229,7 @@ Alle neu eingefügten Bilder benötigen keyword-relevante, beschreibende Alt-Tex
 
 1. **Direkt ausführen:** Die vorgeschlagenen Änderungen im Artikel einbauen (Daten, Bilder, Links)
 2. `/optimize [file]` nach den Änderungen für SEO-Feinschliff
-3. Ggf. `/publish-draft [file]` wenn ready für WordPress
+3. Den Artikel in wowohcool.com als Nunjucks-Template einbauen und deployen
 
 ---
 

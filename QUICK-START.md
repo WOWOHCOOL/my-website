@@ -83,7 +83,6 @@ You now have:
 /rewrite [topic]            # Update old content
 /optimize [file]            # Final SEO polish
 /scrub [file]               # Remove AI watermarks
-/publish-draft [file]       # Publish to WordPress
 
 # Analysis
 /analyze-existing [URL]     # Analyze existing post
