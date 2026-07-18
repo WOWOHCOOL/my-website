@@ -10,7 +10,7 @@
     "build:js:fr": "npx esbuild main.src.js --bundle --minify --outfile=fr/js/fr-main.js --define:LANG=\"\\\"fr\\\"\"",
     "build:js:ru": "npx esbuild main.src.js --bundle --minify --outfile=ru/js/ru-main.js --define:LANG=\"\\\"ru\\\"\"",
     "build:js": "npm run build:js:en && npm run build:js:de && npm run build:js:es && npm run build:js:fr && npm run build:js:ru",
-    "build": "npm run build:css && npm run build:js && npx @11ty/eleventy && node scripts/generate-sitemaps.js",
+    "build": "npm run build:css && npm run build:js && npx @11ty/eleventy && node scripts/generate-sitemaps.js && node scripts/indexnow-push.js",
     "deploy": "npm run build && node scripts/indexnow-push.js",
     "watch:css": "npx tailwindcss -i ./css/src.css -o ./css/styles.css --minify --watch",
     "watch:js": "npx esbuild main.src.js --bundle --minify --outfile=main.js --define:LANG=\"\\\"en\\\"\" --watch",
