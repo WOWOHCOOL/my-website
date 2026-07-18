@@ -18,7 +18,7 @@ Fill out these **3 essential files** with your company info:
 - Add tone guidelines
 - Include do's and don'ts
 
-💡 **Tip**: Check `examples/castos/brand-voice.md` for a complete example
+💡 **Tip**: Check `context/` directory for brand voice and style guides
 
 ### 2. Features (`context/features.md`)
 - List your product/service features
@@ -104,8 +104,6 @@ You now have:
 ## Need Help?
 
 - Full Documentation: See README.md
-- Real Example: Check `examples/castos/` directory
-- Issues: https://github.com/TheCraigHewitt/seomachine/issues
 
 ---
 

@@ -25,7 +25,6 @@ Use this command to create high-converting landing pages optimized for either or
 ## Pre-Writing Review
 
 **Required Context:**
-- **Landing Page Templates**: @context/landing-page-templates.md for structure
 - **CRO Best Practices**: @context/cro-best-practices.md for conversion guidelines
 - **Brand Voice**: @context/brand-voice.md for tone and messaging
 

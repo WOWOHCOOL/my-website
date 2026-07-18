@@ -153,9 +153,9 @@ python3 test_dataforseo.py
 
 ## Content Pipeline
 
-`topics/` (ideas) → `research/` (briefs) → `drafts/` (articles) → `review-required/` (pending review) → `published/` (final)
+`research/` (briefs) → `drafts/` (articles) → 手动转换为 `.njk` 模板 → `wowohcool.com` 站点源码 → Cloudflare Pages 部署
 
-Rewrites go to `rewrites/`. Landing pages go to `landing-pages/`. Audits go to `audits/`. Repurposed content goes to `repurposed/`.
+Rewrites go to `rewrites/`. Audits go to `audits/`.
 
 ## Context Files
 
