@@ -583,6 +583,9 @@ def check_cro(
     Returns:
         CRO checklist results
     """
+    try: from .njk_preprocessor import preprocess
+    except ImportError: from njk_preprocessor import preprocess
+    content = preprocess(content)
     checker = CROChecker(page_type, conversion_goal)
     return checker.check(content)
 

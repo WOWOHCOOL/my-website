@@ -16,42 +16,77 @@ from typing import Dict, List, Any
 class TrustSignalAnalyzer:
     """Analyzes trust signals in landing pages"""
 
-    # Testimonial patterns
+    # Testimonial patterns (multilingual)
     TESTIMONIAL_PATTERNS = {
         'quoted_text': [
-            r'"([^"]{20,300})"',           # Double-quoted testimonial
-            r'"([^"]{20,300})"',           # Curly double quotes
-            r"'([^']{20,300})'",           # Single quotes
+            r'"([^"]{20,300})"',
+            r'"([^"]{20,300})"',
+            r"'([^']{20,300})'",
+            # HTML blockquote content (for .njk templates)
+            r'<blockquote[^>]*>(.{30,400})</blockquote>',
         ],
         'attribution': [
-            r'—\s*\*?\*?([A-Z][a-z]+(?:\s+[A-Z]\.?)?)',  # — Name or — Name L.
-            r'[-–]\s*\*?\*?([A-Z][a-z]+(?:\s+[A-Z]\.?)?)',  # - Name
-            r'\*\*([A-Z][a-z]+\s+[A-Z]\.?)\*\*',  # **Name L.**
+            # English
+            r'—\s*\*?\*?([A-Z][a-z]+(?:\s+[A-Z]\.?)?)',
+            r'[-–]\s*\*?\*?([A-Z][a-z]+(?:\s+[A-Z]\.?)?)',
+            r'\*\*([A-Z][a-z]+\s+[A-Z]\.?)\*\*',
+            # Spanish
+            r'[—–]\s*([A-ZÁÉÍÓÚ][a-záéíóú]+\s+[A-ZÁÉÍÓÚ][a-záéíóú]+)',
+            # German
+            r'[—–]\s*([A-ZÄÖÜ][a-zäöü]+\s+[A-ZÄÖÜ][a-zäöü]+)',
+            # French
+            r'[—–]\s*([A-ZÀÂÆÇÉÈÊËÎÏÔŒÙÛÜ][a-zàâæçéèêëîïôœùûü]+\s+[A-Z])',
+            # Russian
+            r'[—–]\s*([А-Я][а-я]+\s+[А-Я][а-я]+)',
+            # Chinese
+            r'[—–]\s*([一-鿿]{2,4})',
         ],
         'with_company': [
             r'([A-Z][a-z]+(?:\s+[A-Z]\.?)?),\s*([A-Za-z\s]+(?:Podcast|Show|Co\.|Inc\.|LLC|Agency|Studio))',
+            # B2B: name + role/company patterns
+            r'([A-ZÁÉÍÓÚÄÖÜ][a-záéíóúäöü]+\s+[A-ZÁÉÍÓÚÄÖÜ][a-záéíóúäöü]+),\s*(?:CEO|CTO|Gerente|Manager|Director|Leiter|Responsable|Founder)',
         ]
     }
 
-    # Customer count / social proof patterns
+    # Customer count / social proof patterns (multilingual)
     SOCIAL_PROOF_PATTERNS = {
         'customer_count': [
+            # English
             r'(\d{1,3}(?:,\d{3})*\+?)\s*(?:podcasters?|customers?|users?|creators?|businesses?|shows?)',
             r'(?:trusted|used|loved)\s+by\s+(\d{1,3}(?:,\d{3})*\+?)',
             r'(?:join|over)\s+(\d{1,3}(?:,\d{3})*\+?)\s*(?:podcasters?|customers?)',
             r'(\d+(?:\.\d+)?[KMBkmb])\+?\s*(?:podcasters?|downloads?|users?)',
+            # Multilingual
+            r'(\d+)\+?\s*(?:marcas?|brands?|marques?|Marken|брендов?|品牌)',
+            r'(\d+[\.\d]*\s*[Mm])\+?\s*(?:unidades?|units?|entregadas|delivered|unités?|Einheiten)',
+            r'(\d+)\+?\s*(?:ingenieros?|engineers?|ingénieurs?|Ingenieure|инженеров?|工程师)',
+            r'(\d+)\+?\s*(?:años?|years?|ans?|Jahre?|лет|年)\s+(?:de\s+)?(?:experiencia|experience|expérience|Erfahrung|опыта|经验)',
         ],
         'specific_results': [
+            # English
             r'(\d+%)\s+(?:increase|decrease|growth|improvement|more|less|higher|lower)',
             r'(?:increased?|grew?|improved?|boosted?|saved?)\s+(?:by\s+)?(\d+%)',
             r'(\d+x)\s+(?:more|growth|increase|improvement)',
-            r'(?:\$|€|£)(\d{1,3}(?:,\d{3})*(?:\.\d{2})?)',  # Dollar amounts
+            r'(?:\$|€|£)(\d{1,3}(?:,\d{3})*(?:\.\d{2})?)',
             r'(\d{1,3}(?:,\d{3})*)\s+(?:downloads?|listens?|subscribers?|plays?)',
+            # Multilingual: specific B2B results
+            r'((?:cero|0|zero|null)\s+(?:defectos|defects?|défauts?|Fehler|дефектов|缺陷))',
+            r'(\d+[\.\d]*%\s+(?:reducción|ahorro|mejora|incremento|crecimiento|aumento))',
+            r'(\d+[\.\d]*%\s+(?:Reduzierung|Einsparung|Verbesserung|Wachstum))',
+            r'(\d+[\.\d]*%\s+(?:réduction|économie|amélioration|croissance))',
+            r'(\d+[\.\d]*%\s+(?:снижение|экономия|улучшение|рост))',
+            r'(\d+[\.\d]*%\s*(?:降低|节省|提升|增长))',
+            r'((?:pedido|orden|commande|Auftrag|заказ|订单)\s+(?:repetido|repetida|répétée|повторный|追加))',
+            r'(\d+[\.\d]*\s*(?:uds?|unidades|units?|unités?|Einheiten|штук|台)\s+(?:entregadas|delivered|livrées|geliefert|поставлено|交付))',
         ],
         'time_results': [
             r'in\s+(?:just\s+)?(\d+)\s*(?:minutes?|hours?|days?)',
             r'(\d+)\s*(?:minutes?|hours?)\s+(?:or\s+less|to\s+set\s+up)',
             r'(?:launched?|started?|set\s+up)\s+in\s+(\d+)',
+            # B2B timeline
+            r'(\d+)\s*(?:días|dias|days?|Tage|jours?|дней|天)\s+(?:de\s+)?(?:producción|production|Produktion|производств|生产)',
+            r'(\d+)\s*(?:semanas?|weeks?|Wochen|semaines?|недель|周)',
+            r'(?:muestras?|samples?|échantillons?|Muster|образцы|样品)\s+.*?\s+(\d+)[\s-]*(\d+)?\s*(?:días|dias|days?|Tage)',
         ]
     }
 
@@ -220,7 +255,7 @@ class TrustSignalAnalyzer:
         for pattern in self.SOCIAL_PROOF_PATTERNS['customer_count']:
             matches = re.finditer(pattern, content, re.IGNORECASE)
             for match in matches:
-                count = match.group(1)
+                count = match.group(1) if match.groups() else match.group()
                 if count not in [c['value'] for c in results['customer_counts']]:
                     results['customer_counts'].append({
                         'value': count,
@@ -231,7 +266,7 @@ class TrustSignalAnalyzer:
         for pattern in self.SOCIAL_PROOF_PATTERNS['specific_results']:
             matches = re.finditer(pattern, content, re.IGNORECASE)
             for match in matches:
-                value = match.group(1)
+                value = match.group(1) if match.groups() else match.group()
                 results['specific_results'].append({
                     'value': value,
                     'context': content[max(0, match.start() - 30):match.end() + 30].strip()
@@ -512,6 +547,9 @@ def analyze_trust_signals(content: str) -> Dict[str, Any]:
     Returns:
         Trust signal analysis results
     """
+    try: from .njk_preprocessor import preprocess
+    except ImportError: from njk_preprocessor import preprocess
+    content = preprocess(content)
     analyzer = TrustSignalAnalyzer()
     return analyzer.analyze(content)
 

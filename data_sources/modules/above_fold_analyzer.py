@@ -449,6 +449,9 @@ def analyze_above_fold(content: str) -> Dict[str, Any]:
     Returns:
         Above-fold analysis results
     """
+    try: from .njk_preprocessor import preprocess
+    except ImportError: from njk_preprocessor import preprocess
+    content = preprocess(content)
     analyzer = AboveFoldAnalyzer()
     return analyzer.analyze(content)
 

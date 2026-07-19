@@ -15,11 +15,16 @@ from typing import Dict, List, Optional, Any
 class CTAAnalyzer:
     """Analyzes CTA effectiveness in landing pages"""
 
-    # Button-style CTA patterns
+    # Button-style CTA patterns (Markdown + HTML)
     BUTTON_PATTERNS = [
-        r'\[([^\]]{5,60})→\]',           # [Text →]
-        r'\*\*\[([^\]]{5,60})\]\*\*',    # **[Text]**
-        r'\[([^\]]{5,60})\]\([^)]+\)',   # [Text](link)
+        r'\[([^\]]{5,60})→\]',
+        r'\*\*\[([^\]]{5,60})\]\*\*',
+        r'\[([^\]]{5,60})\]\([^)]+\)',
+        # HTML buttons and links (for .njk templates)
+        r'<button[^>]*>(.{5,80})</button>',
+        r'<a[^>]*class="[^"]*btn[^"]*"[^>]*>(.{5,80})</a>',
+        r'<a[^>]*href="[^"]*contacto[^"]*"[^>]*>(.{5,80})</a>',
+        r'<a[^>]*href="[^"]*contact[^"]*"[^>]*>(.{5,80})</a>',
     ]
 
     # Goal-specific CTA phrases
@@ -55,16 +60,60 @@ class CTAAnalyzer:
         },
         'lead': {
             'primary': [
+                # English
                 r'(?:download|get)\s+(?:the\s+)?(?:free\s+)?(?:guide|ebook|checklist|template|pdf)',
                 r'get\s+(?:instant\s+)?access',
                 r'(?:download|get)\s+(?:your\s+)?(?:free\s+)?(?:copy)',
                 r'claim\s+(?:your\s+)?(?:free\s+)?',
+                # Spanish
+                r'Solicitar\s+(presupuesto|catálogo|cotización|muestras?|asesoría|demo)',
+                r'Pedir\s+(presupuesto|información|catálogo)',
+                r'Contactar', r'Contáctenos',
+                r'Recibir\s+(presupuesto|catálogo|asesoría)',
+                r'Hablar\s+(por\s+)?WhatsApp',
+                r'Comen[cz]ar\s+(ahora|proyecto|pedido)',
+                r'Agendar\s+(visita|reunión|llamada)',
+                # German
+                r'Angebot\s+(anfordern|einholen)',
+                r'Kostenlos(es)?\s+(Angebot|Muster|Beratung)',
+                r'Jetzt\s+(anfragen|starten|bestellen|kontaktieren)',
+                r'Kontakt(ieren)?\s+(aufnehmen)?',
+                r'Katalog\s+(anfordern|herunterladen)',
+                # French
+                r'Demander\s+(un\s+)?(devis|catalogue|échantillon)',
+                r'Contact(er|ez)?[-\s]?(nous)?',
+                r'Démarrer\s+(votre\s+)?projet',
+                # Russian
+                r'Запросить\s+(расчёт|каталог|образцы|консультацию)',
+                r'Получить\s+(расчёт|каталог|консультацию|прайс)',
+                r'Связаться\s+(с\s+нами)?',
+                # Chinese
+                r'索取(报价|目录|样品|咨询)',
+                r'获取(报价|目录|样品|方案)',
+                r'联系(我们)?',
+                # B2B generic
+                r'Ver\s+(catálogo|productos|línea|servicios)',
+                r'Descargar\s+(catálogo|perfil|guía|ficha)',
+                r'Заказать\s+(образцы|звонок|консультацию)',
+                r'Скачать\s+(каталог|прайс|презентацию)',
+                r'下载(目录|报价单|资料)',
+                r'咨询(报价|样品|定制|生产)',
             ],
             'secondary': [
+                # English
                 r'(?:subscribe|sign\s+up)\s+(?:for|to)',
                 r'join\s+(?:our\s+)?(?:newsletter|list|community)',
                 r'get\s+(?:weekly|daily|monthly)\s+',
                 r'stay\s+(?:updated|informed)',
+                # Multilingual
+                r'Ver\s+más',
+                r'Más\s+información',
+                r'Mehr\s+(erfahren|Informationen)',
+                r'En\s+savoir\s+plus',
+                r'Узнать\s+больше',
+                r'了解更多',
+                r'Learn\s+more',
+                r'WhatsApp',
             ]
         }
     }
@@ -423,11 +472,11 @@ class CTAAnalyzer:
                 'recommendation': 'Add a strong CTA at the end of the page to capture visitors who read through.'
             })
 
-        if distribution['cta_count'] < 3:
+        if distribution.get('cta_count', 0) < 3:
             recommendations.append({
                 'priority': 'medium',
                 'category': 'distribution',
-                'issue': f'Only {distribution["cta_count"]} CTA(s) found',
+                'issue': f'Only {distribution.get("cta_count", 0)} CTA(s) found',
                 'recommendation': 'Add CTAs throughout the page. Aim for 3-5 CTAs distributed across sections.'
             })
 
@@ -484,12 +533,15 @@ def analyze_ctas(
     Analyze CTAs in landing page content
 
     Args:
-        content: Landing page content (markdown)
+        content: Landing page content (markdown or .njk)
         conversion_goal: 'trial', 'demo', or 'lead'
 
     Returns:
         CTA analysis results
     """
+    try: from .njk_preprocessor import preprocess
+    except ImportError: from njk_preprocessor import preprocess
+    content = preprocess(content)
     analyzer = CTAAnalyzer(conversion_goal)
     return analyzer.analyze(content)
 
