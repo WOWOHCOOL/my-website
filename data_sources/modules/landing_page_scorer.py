@@ -397,7 +397,7 @@ class LandingPageScorer:
                 cta_positions.append(pos_pct)
 
         # Above-the-fold content (first 500-700 characters)
-        above_fold = content[:700]
+        above_fold = content[:1500]  # B2B .njk pages have schema+nav overhead
 
         # Value proposition detection
         value_prop_patterns = [
@@ -483,17 +483,19 @@ class LandingPageScorer:
             warnings.append("No clear value proposition found above the fold")
 
         # 3. CTA visibility above fold (25 points)
+        # Use first 20% of content as "above-fold" proxy (proportional to page length)
+        af_length = max(1500, int(len(content) * 0.20))
+        above_fold_check = content[:af_length]
         cta_in_above_fold = (
             any(
-                re.search(pattern, above_fold, re.IGNORECASE)
+                re.search(pattern, above_fold_check, re.IGNORECASE)
                 for patterns in self.GOAL_CTA_PATTERNS.values()
                 for pattern in patterns
             ) or
-            re.search(r'\[.{5,60}→?\]', above_fold) or
-            # HTML buttons/links (for .njk templates)
-            bool(re.search(r'<button[^>]*>', above_fold)) or
-            bool(re.search(r'<a[^>]*class="[^"]*btn[^"]*"[^>]*>', above_fold)) or
-            bool(re.search(r'<a[^>]*href="[^"]*(?:contacto|contact|presupuesto|quote|anfordern)[^"]*"[^>]*>', above_fold, re.IGNORECASE))
+            re.search(r'\[.{5,60}→?\]', above_fold_check) or
+            bool(re.search(r'<button[^>]*>', above_fold_check)) or
+            bool(re.search(r'<a[^>]*class="[^"]*btn[^"]*"[^>]*>', above_fold_check)) or
+            bool(re.search(r'<a[^>]*href="[^"]*(?:contacto|contact|presupuesto|quote|anfordern)[^"]*"[^>]*>', above_fold_check, re.IGNORECASE))
         )
 
         if not cta_in_above_fold:

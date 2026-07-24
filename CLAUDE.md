@@ -20,7 +20,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Article Optimization Quality Gates (Mandatory)
 
-**每次优化或撰写文章时，必须在编辑过程中内置以下 5 道质量门，不得在优化完成后才审计。** 完整标准见 `context/b2b-blog-quality-standards-2026.md`。
+**每次优化或撰写文章时，必须在编辑过程中内置以下 5 道质量门，不得在优化完成后才审计。** 完整标准见 `context/b2b-blog-quality-audit-standard.md`。
 
 ### Gate 1: Anti-Repetition
 - 同一段落中不重复相同信息
@@ -28,7 +28,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ### Gate 2: Information Gain (最关键的 Gate)
 - 每篇文章必须包含竞争对手 SERP top 5 没有的内容
-- **工厂数据**: 引用 `context/factory-data-panel.md` 的真实数字，不编造
+- **工厂数据**: 引用 `context/factory-data-canonical.md` 的真实数字，不编造
 - **第一手经验**: 使用精确数值 + 单位（°C, mV, kHz, Wh/kg, mm, €）
 - **独家术语**: PCBA ripple noise, BOM cost breakdown, AQL sampling, FOB vs DDP landed cost
 - 反对泛泛而谈: 用 "Case temperature stabilized at 58.3°C under 100% load after 4-hour aging test" 代替 "Good thermal performance"
@@ -160,10 +160,11 @@ Rewrites go to `rewrites/`. Audits go to `audits/`.
 ## Context Files
 
 `context/` contains brand guidelines that inform all content generation:
-- **`b2b-blog-quality-standards-2026.md`** — **CANONICAL quality standard for ALL blog content across DE/EN/ES/FR sites.** Covers: Information Gain vs. top-5 SERP, E-E-A-T first-hand experience requirements, H1-H4 structural rules, Schema Markup requirements, and the 5-gate pre-publish checklist. Every `/write`, `/optimize`, `/rewrite` must apply this standard. Keyword density is dead — first-party data density and Information Gain are the new metrics.
+- **`b2b-blog-quality-audit-standard.md`** — **CANONICAL quality standard for ALL blog content across DE/EN/ES/FR sites.** Covers: Information Gain vs. top-5 SERP, E-E-A-T first-hand experience requirements, H1-H4 structural rules, Schema Markup 9 FAQ rules, B2B CTA standard, 13 automated audit checks, dual-mode Information Gain scoring, and quality gate thresholds. Every `/write`, `/optimize`, `/rewrite` must apply this standard. Keyword density is dead — first-party data density and Information Gain are the new metrics.
 - `brand-voice.md` - Tone, messaging pillars
 - `style-guide.md` - Grammar, formatting standards
-- `seo-guidelines.md` - Keyword and structure rules (supplemented by b2b-blog-quality-standards-2026.md)
+- `blog-template-standard.md` - EN Blog layout template: 13-section ordering, code standards, Schema checklist, FAQ 8 rules, factory data values
+- `seo-guidelines.md` - Keyword and structure rules (supplemented by b2b-blog-quality-audit-standard.md)
 - `internal-links-map.md` - Key pages for internal linking
 - `features.md` - Product features
 - `competitor-analysis.md` - Competitive intelligence

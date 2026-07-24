@@ -57,7 +57,9 @@ class SEOQualityRater:
         secondary_keywords: Optional[List[str]] = None,
         keyword_density: Optional[float] = None,
         internal_link_count: Optional[int] = None,
-        external_link_count: Optional[int] = None
+        external_link_count: Optional[int] = None,
+        b2b_audit_score: Optional[float] = None,
+        information_gain_score: Optional[float] = None,
     ) -> Dict[str, Any]:
         """
         Rate content against SEO best practices
@@ -71,6 +73,8 @@ class SEOQualityRater:
             keyword_density: Pre-calculated keyword density
             internal_link_count: Number of internal links
             external_link_count: Number of external links
+            b2b_audit_score: Optional B2B content quality score (from b2b_content_auditor.py)
+            information_gain_score: Optional information gain score (from information_gain_analyzer.py)
 
         Returns:
             Dict with overall score, category scores, and recommendations
@@ -100,15 +104,30 @@ class SEOQualityRater:
         )
         readability_score = self._score_readability(content, structure)
 
-        # Calculate overall score (weighted average)
-        weights = {
-            'content': 0.20,
-            'keywords': 0.25,
-            'meta': 0.15,
-            'structure': 0.15,
-            'links': 0.15,
-            'readability': 0.10
-        }
+        # Calculate overall score with B2B dimensions when available
+        has_new_scores = b2b_audit_score is not None and information_gain_score is not None
+
+        if has_new_scores:
+            weights = {
+                'content': 0.15,
+                'keywords': 0.20,
+                'meta': 0.10,
+                'structure': 0.12,
+                'links': 0.10,
+                'readability': 0.08,
+                'b2b_content_quality': 0.15,
+                'information_gain': 0.10,
+            }
+        else:
+            # Legacy weights (backward compatible)
+            weights = {
+                'content': 0.20,
+                'keywords': 0.25,
+                'meta': 0.15,
+                'structure': 0.15,
+                'links': 0.15,
+                'readability': 0.10,
+            }
 
         overall_score = (
             content_score['score'] * weights['content'] +
@@ -118,6 +137,12 @@ class SEOQualityRater:
             link_score['score'] * weights['links'] +
             readability_score['score'] * weights['readability']
         )
+
+        if has_new_scores:
+            overall_score += (
+                b2b_audit_score * weights['b2b_content_quality'] +
+                information_gain_score * weights['information_gain']
+            )
 
         # Compile all issues
         critical_issues = []
@@ -129,17 +154,22 @@ class SEOQualityRater:
             warnings.extend(category.get('warnings', []))
             suggestions.extend(category.get('suggestions', []))
 
+        category_scores = {
+            'content': content_score['score'],
+            'keyword_optimization': keyword_score['score'],
+            'meta_elements': meta_score['score'],
+            'structure': structure_score['score'],
+            'links': link_score['score'],
+            'readability': readability_score['score'],
+        }
+        if has_new_scores:
+            category_scores['b2b_content_quality'] = round(b2b_audit_score)
+            category_scores['information_gain'] = round(information_gain_score)
+
         return {
             'overall_score': round(overall_score, 1),
             'grade': self._get_grade(overall_score),
-            'category_scores': {
-                'content': content_score['score'],
-                'keyword_optimization': keyword_score['score'],
-                'meta_elements': meta_score['score'],
-                'structure': structure_score['score'],
-                'links': link_score['score'],
-                'readability': readability_score['score']
-            },
+            'category_scores': category_scores,
             'critical_issues': critical_issues,
             'warnings': warnings,
             'suggestions': suggestions,
@@ -149,7 +179,7 @@ class SEOQualityRater:
                 'h2_count': structure['h2_count'],
                 'has_h1': structure['has_h1'],
                 'keyword_in_h1': structure.get('keyword_in_h1', False),
-                'keyword_in_first_100': structure.get('keyword_in_first_100', False)
+                'keyword_in_first_100': structure.get('keyword_in_first_100', False),
             }
         }
 
@@ -558,7 +588,9 @@ def rate_seo_quality(
     keyword_density: Optional[float] = None,
     internal_link_count: Optional[int] = None,
     external_link_count: Optional[int] = None,
-    custom_guidelines: Optional[Dict[str, Any]] = None
+    custom_guidelines: Optional[Dict[str, Any]] = None,
+    b2b_audit_score: Optional[float] = None,
+    information_gain_score: Optional[float] = None,
 ) -> Dict[str, Any]:
     """
     Rate SEO quality of content
@@ -573,6 +605,8 @@ def rate_seo_quality(
         internal_link_count: Number of internal links
         external_link_count: Number of external links
         custom_guidelines: Custom SEO guidelines
+        b2b_audit_score: Optional B2B content quality score (from b2b_content_auditor.py)
+        information_gain_score: Optional information gain score (from information_gain_analyzer.py)
 
     Returns:
         SEO quality rating with score and recommendations
@@ -580,13 +614,15 @@ def rate_seo_quality(
     rater = SEOQualityRater(custom_guidelines)
     return rater.rate(
         content,
-        meta_title,
-        meta_description,
-        primary_keyword,
-        secondary_keywords,
-        keyword_density,
-        internal_link_count,
-        external_link_count
+        meta_title=meta_title,
+        meta_description=meta_description,
+        primary_keyword=primary_keyword,
+        secondary_keywords=secondary_keywords,
+        keyword_density=keyword_density,
+        internal_link_count=internal_link_count,
+        external_link_count=external_link_count,
+        b2b_audit_score=b2b_audit_score,
+        information_gain_score=information_gain_score,
     )
 
 

@@ -44,6 +44,22 @@ class SearchIntentAnalyzer:
         'instead of', 'or', 'option', 'choice'
     ]
 
+    # B2B vs B2C audience signals
+    B2B_SIGNALS = [
+        'oem', 'odm', 'manufacturer', 'factory', 'supplier', 'wholesale',
+        'sourcing', 'procurement', 'import', 'export', 'b2b', 'moq',
+        'fob', 'supply chain', 'vendor', 'bulk', 'compliance', 'certification',
+        'industrial', 'enterprise', 'commercial', 'tender', 'distributor',
+        'private label', 'importer',
+    ]
+
+    B2C_SIGNALS = [
+        'best', 'top', 'review', 'buying guide', 'cheap', 'affordable',
+        'for home', 'personal use', 'consumer', 'retail', 'amazon',
+        'for beginners', 'budget', 'discount', 'deal', 'favorite',
+        'most popular', 'for students', 'everyday', 'household',
+    ]
+
     # SERP features that indicate intent
     SERP_INTENT_MAPPING = {
         'featured_snippet': SearchIntent.INFORMATIONAL,
@@ -127,7 +143,8 @@ class SearchIntentAnalyzer:
             'secondary_intent': secondary_intent.value if secondary_intent else None,
             'confidence': confidence,
             'signals_detected': self._get_detected_signals(keyword_lower, serp_features),
-            'recommendations': self._get_recommendations(primary_intent, secondary_intent)
+            'recommendations': self._get_recommendations(primary_intent, secondary_intent),
+            'b2b_vs_b2c': self._classify_audience_type(keyword_lower),
         }
 
     def _analyze_keyword_patterns(self, keyword: str) -> Dict[SearchIntent, float]:
@@ -265,6 +282,46 @@ class SearchIntentAnalyzer:
                     signals['transactional'].append(f"SERP has {feature}")
 
         return {k: v for k, v in signals.items() if v}  # Remove empty lists
+
+    def _classify_audience_type(self, keyword: str) -> Dict[str, Any]:
+        """Classify keyword as B2B, B2C, mixed, or neutral based on signal words."""
+        b2b_count = 0
+        b2c_count = 0
+        b2b_found = []
+        b2c_found = []
+
+        for signal in self.B2B_SIGNALS:
+            if signal in keyword:
+                b2b_count += 1
+                b2b_found.append(signal)
+
+        for signal in self.B2C_SIGNALS:
+            if signal in keyword:
+                b2c_count += 1
+                b2c_found.append(signal)
+
+        # Classification logic
+        if b2b_count > b2c_count and b2b_count >= 1:
+            classification = 'b2b'
+            verdict = '✅ B2B target — commercial intent confirmed'
+        elif b2c_count > b2b_count and b2c_count >= 1:
+            classification = 'b2c'
+            verdict = '⚠️ B2C leaning — consider refocusing keyword for B2B procurement audience'
+        elif b2b_count > 0 and b2c_count > 0:
+            classification = 'mixed'
+            verdict = '⚠️ Mixed B2B/B2C signals — tighten keyword focus to B2B procurement language'
+        else:
+            classification = 'neutral'
+            verdict = '⚪ Neutral — no clear B2B/B2C signal in keyword'
+
+        return {
+            'classification': classification,
+            'b2b_signal_count': b2b_count,
+            'b2c_signal_count': b2c_count,
+            'b2b_signals_found': b2b_found,
+            'b2c_signals_found': b2c_found,
+            'verdict': verdict,
+        }
 
     def _get_recommendations(
         self,

@@ -66,6 +66,7 @@ Each WebSearch must include at least 1 query in the **target market's language**
 - **Keyword Variations**: Find semantic variations and long-tail opportunities
 - **Related Questions**: Discover what people are actually asking (People Also Ask, forums, Reddit)
 - **Search Intent**: Determine if intent is informational, navigational, commercial, or transactional
+- **B2B vs B2C Classification** (NEW!): Is this keyword targeting B2B buyers (OEM, procurement, importer) or B2C consumers (best, review, cheap)? B2B blogs must target commercial/investigational B2B keywords only — never chase B2C terms dominated by media giants
 - **Topic Cluster**: Identify how this topic fits into WOWOHCOOL content clusters
 
 ### Competitive Analysis
@@ -78,11 +79,12 @@ Each WebSearch must include at least 1 query in the **target market's language**
 - **Domain Authority**: Note which competitors rank (indie blogs vs. major publications)
 
 ### Context Integration
-- **Factory Data**: ALWAYS cross-reference @context/factory-data-panel.md for real WOWOHCOOL data — never invent MOQ, pricing, lead times, QC metrics, or certification costs from thin air. This is our competitive moat.
+- **Factory Data**: ALWAYS cross-reference @context/factory-data-canonical.md for real WOWOHCOOL data — never invent MOQ, pricing, lead times, QC metrics, or certification costs from thin air. This is our competitive moat.
 - **WOWOHCOOL Advantage**: How can WOWOHCOOL product features and factory capabilities naturally enhance this content? Use §10 "Competitive Differentiators" from the data panel.
 - **Brand Alignment**: Check @context/brand-voice.md for messaging fit
 - **Existing Content**: Review @context/internal-links-map.md for related WOWOHCOOL articles
 - **Target Keywords**: Cross-reference with @context/target-keywords.md priority list
+- **Blog Template**: Understand section ordering requirements from @context/blog-template-standard.md to plan H2 structure accordingly
 - **SEO Guidelines**: Ensure research aligns with @context/seo-guidelines.md requirements
 
 ### Charger & Power Bank Industry Focus
@@ -115,6 +117,7 @@ Provides a comprehensive research brief with:
 - **Secondary Keywords**: 3-5 related keywords and variations
 - **Target Word Count**: Minimum words needed to compete
 - **Featured Snippet Opportunity**: Yes/No, format (paragraph, list, table)
+- **Article Type**: [B2B / B2C] — Determined by `search_intent_analyzer.py` B2B/B2C classification. B2B = OEM/factory/supplier/procurement signals detected. B2C = best/review/cheap/consumer signals detected. This field controls which writing rules `/write` applies (Introduction style, CTA strategy, hook types).
 
 ### 2. Competitive Landscape
 - **Top 3 Competitor Articles**: URLs and key takeaways from each

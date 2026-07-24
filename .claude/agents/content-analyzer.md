@@ -9,11 +9,13 @@ Analyze completed articles using multiple specialized modules to provide actiona
 
 You have access to these Python analysis modules in `data_sources/modules/`:
 
-1. **search_intent_analyzer.py** - Determines search intent (informational, navigational, transactional, commercial)
+1. **search_intent_analyzer.py** - Determines search intent (informational, navigational, transactional, commercial) + B2B/B2C audience classification
 2. **keyword_analyzer.py** - Analyzes keyword density, distribution, clustering, and stuffing risk
 3. **content_length_comparator.py** - Compares word count against top SERP competitors
 4. **readability_scorer.py** - Calculates Flesch scores, grade level, sentence structure
-5. **seo_quality_rater.py** - Rates content against SEO best practices (0-100 score)
+5. **seo_quality_rater.py** - Rates content against SEO best practices (0-100 score); now integrates B2B audit and Information Gain scores
+6. **b2b_content_auditor.py** (NEW!) - 7 B2B checks: opening density, H3 answer length, H2 B2B signal density, first-hand data density, table test, stock photo detection, FAQ B2B language, author E-E-A-T audit
+7. **information_gain_analyzer.py** (NEW!) - Information Gain scoring: Mode A (SERP comparison) or Mode B (heuristic estimate)
 
 ## Analysis Process
 
@@ -62,6 +64,24 @@ readability_result = score_readability(content=article_content)
 
 # SEO Quality Rating
 from data_sources.modules.seo_quality_rater import rate_seo_quality
+
+# Run B2B Content Audit first
+from data_sources.modules.b2b_content_auditor import audit_b2b_content
+b2b_result = audit_b2b_content(
+    content=article_content,
+    article_type=article_type,  # 'technical' | 'procurement' | 'oem_core'
+    meta_title=meta_title,
+    author_bio=author_bio,
+)
+
+# Run Information Gain Analysis
+from data_sources.modules.information_gain_analyzer import analyze_information_gain
+ig_result = analyze_information_gain(
+    content=article_content,
+    competitor_contents=competitor_contents,  # from DataForSEO if available
+)
+
+# SEO Quality Rating (includes B2B + IG scores)
 seo_result = rate_seo_quality(
     content=article_content,
     meta_title=meta_title,
@@ -70,7 +90,9 @@ seo_result = rate_seo_quality(
     secondary_keywords=secondary_keywords,
     keyword_density=keyword_result['primary_keyword']['density'],
     internal_link_count=internal_links,
-    external_link_count=external_links
+    external_link_count=external_links,
+    b2b_audit_score=b2b_result['overall_score'],
+    information_gain_score=ig_result['overall_score'],
 )
 ```
 
@@ -198,7 +220,61 @@ Combine all analysis results into a comprehensive report.
 
 ---
 
-## 5. SEO Quality Rating
+## 5. B2B Content Quality Audit (2026 Google Standards)
+
+[Summarize b2b_content_auditor.py results]
+
+**Overall B2B Score**: [X]/100
+
+| Check | Score | Status |
+|-------|-------|--------|
+| Opening Density | [X]/100 | [pass/fail/N/A] |
+| H3 Answer Length | [X]/100 | [pass/fail/N/A] |
+| H2 B2B Signal Density | [X]/100 | [pass/fail/N/A] |
+| First-Hand Data Density | [X]/100 | [pass/fail/N/A] |
+| Table Test | [X]/100 | [pass/fail/N/A] |
+| Stock Photo Detection | [X]/100 | [pass/fail/N/A] |
+| FAQ B2B Language | [X]/100 | [pass/fail/N/A] |
+| Author E-E-A-T Audit | [X]/100 | [pass/fail/N/A] |
+
+**H2 B2B Signal Density Details**:
+- Article Type: [technical/procurement/oem_core]
+- Density: [X]% (Target: [range])
+- Adjacency violations: [list or none]
+- Vocabulary rotation: [OK/fail]
+
+**Critical B2B Issues**:
+- [Issue 1]
+- [Issue 2]
+
+---
+
+## 6. Information Gain Analysis
+
+[Summarize information_gain_analyzer.py results]
+
+**Information Gain Score**: [X]/100
+**Mode**: [serp_comparison/heuristic_estimate]
+**Gain Level**: [high/moderate/low/zero]
+
+[If Mode A]:
+- Avg Jaccard Similarity vs SERP: [X]
+- Unique Term Ratio: [X]%
+- Unique Entity Ratio: [X]%
+
+[If Mode B]:
+- Technical Anchors: [X] (score: [X])
+- Data Points: [X] (score: [X])
+- Named Entities: [X] (score: [X])
+- B2B Vocabulary Diversity: [X] (score: [X])
+
+**Recommendations**:
+- [Rec 1]
+- [Rec 2]
+
+---
+
+## 7. SEO Quality Rating
 
 **Overall SEO Score**: [X]/100 - [Grade]
 **Publishing Ready**: [Yes/No]

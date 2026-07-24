@@ -16,13 +16,17 @@ Use this command to review and analyze existing your company blog posts for SEO 
 
 ### Content Analysis
 - **URL/File Input**: Accept either a live URL or local file path
-- **Content Extraction**: Pull the full article text, headings, and structure
+- **Content Extraction**: 
+  - **For `.md` drafts**: Read directly — pass to analyzers as-is
+  - **For `.njk` templates**: Use `njk_preprocessor.py` to convert HTML → Markdown before analysis (auto-detected by `b2b_content_auditor.py`)
+  - **Important**: Always pass the RAW `.njk` content to `audit_b2b_content()` — the auditor internally calls `njk_preprocess()` which converts `<h1>`→`#`, `<h2>`→`##`, `<a href>`→`[text](url)`, `<img>`→`![alt](src)`, and extracts meta/link/image data
+  - **For URLs**: Fetch with WebFetch, then process as HTML (similar to .njk path)
 - **Publication Date Check**: Note when content was originally published
 - **Current Relevance**: Identify outdated information, statistics, or references
 - **Completeness**: Assess if topic coverage is comprehensive or has gaps
 
 ### SEO Audit (Enhanced with New Analysis Tools)
-- **Search Intent Analysis** (NEW!): Determine if content matches user search intent (informational/commercial/transactional/navigational)
+- **Search Intent Analysis + B2B/B2C Classification** (NEW!): Determine if content matches search intent AND whether keyword targets B2B or B2C audience
 - **Target Keyword**: Identify primary keyword and variations
 - **Keyword Density & Clustering** (NEW!): Deep analysis of keyword density, distribution heatmap, topic clustering, and keyword stuffing risk detection
 - **Keyword Placement**: Check H1, H2, first 100 words, meta title/description
@@ -32,7 +36,24 @@ Use this command to review and analyze existing your company blog posts for SEO 
 - **Internal Links**: Count and evaluate quality of internal links (aim for 3-5+)
 - **External Links**: Check for authoritative external sources
 - **Readability Score** (NEW!): Calculate Flesch Reading Ease, Flesch-Kincaid Grade Level, passive voice ratio, sentence complexity
-- **SEO Quality Rating** (NEW!): Overall score (0-100) with category breakdowns for content, keywords, meta, structure, links, and readability
+- **SEO Quality Rating** (NEW!): Overall score (0-100) with category breakdowns for content, keywords, meta, structure, links, readability, B2B quality, and Information Gain
+
+### B2B Content Audit (2026 Google Standards — NEW!)
+- **B2B Content Auditor** (`b2b_content_auditor.py`): 11 automated checks:
+  - Opening Density — first sentences deliver core conclusion?
+  - TL;DR Block — Key Takeaways block present above the fold?
+  - H3 Answer Length — 100-150 char direct answer after each H3/H4?
+  - Vague Heading Detection — label-style headings flagged, conclusion-style enforced?
+  - H2 B2B Signal Density — within tiered range (Technical 10-40% / Procurement 30-55% / OEM Core 50-80%)?
+  - First-Hand Data Density — ≥3 precise measurements + units per 1000 words?
+  - Table Test — technical specs in markdown tables?
+  - Stock Photo Detection — stock image domains flagged?
+  - FAQ B2B Language — procurement language vs consumer language?
+  - Author E-E-A-T Audit — byline, credentials, LinkedIn, author page?
+  - Weak CTA Detection — B2C-style CTAs flagged, low-friction alternatives suggested?
+- **Information Gain Analyzer** (`information_gain_analyzer.py`):
+  - Mode A (SERP data available): Exact vocabulary/entity overlap vs top 5 competitors
+  - Mode B (heuristic): Estimated from technical anchors + data density + named entities + B2B diversity
 
 ### Competitive Context
 - **SERP Position**: Research current ranking for target keywords (if known)
@@ -41,7 +62,7 @@ Use this command to review and analyze existing your company blog posts for SEO 
 - **Competitive Advantage**: What unique angles or insights could differentiate this?
 
 ### User Experience
-- **Introduction Hook**: Is the opening compelling and clear?
+- **Opening Quality**: Does the article lead with a direct conclusion (not a preamble/hook)? Is a TL;DR block present?
 - **Structure**: Does the article flow logically with clear sections?
 - **Actionability**: Are there practical takeaways and next steps?
 - **Visual Elements**: Note if images, screenshots, or media are mentioned/needed
@@ -58,6 +79,8 @@ Enhanced with new analysis modules:
 - **Content Length Competitiveness**: Position vs SERP competitors
 - **Readability Score**: Flesch scores and grade level
 - **Relevance & Freshness**: Outdated content detection
+- **B2B Content Quality** (NEW!): 11-check B2B audit — TL;DR block, heading quality, H2 B2B density, data density, table test, stock photos, FAQ language, author E-E-A-T, CTA quality
+- **Information Gain** (NEW!): Content uniqueness vs SERP top 5 — Mode A (exact comparison) or Mode B (heuristic estimate)
 - **User Experience**: Flow, structure, actionability
 
 ### 2. Quick Wins
