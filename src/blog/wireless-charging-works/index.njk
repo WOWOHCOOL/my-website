@@ -322,6 +322,12 @@ hreflang:
  </ol>
  </div>
  <p class="text-slate-600 leading-relaxed">The transmitter coil in the charging pad generates a high-frequency alternating current (typically 110-205 kHz for Qi standard devices). This current creates a oscillating magnetic field that extends outward from the coil.</p>
+
+ <!-- Induction Coil Structure Photo -->
+ <div class="mt-6">
+ <img src="/image/blog/how-to-choose-factory/wireless-charger-internal-coil-structure-fod.webp" alt="Wireless charger internal multi-layer transmitter coil with FOD thermistor placement and MnZn ferrite shielding for Qi2 MPP electromagnetic induction at OEM factory quality verification station" title="Wireless Charger Coil Structure — Qi2 MPP Induction + FOD Thermistor" width="800" height="600" loading="lazy" decoding="async" class="w-full max-w-3xl mx-auto rounded-2xl shadow-lg">
+ <p class="text-center text-slate-500 text-sm mt-3">Internal coil structure: multi-layer transmitter winding with ferrite shielding and FOD thermistor — the physical implementation of Faraday's Law in every Qi-certified charger</p>
+ </div>
  </div>
  </section>
 
@@ -409,6 +415,12 @@ hreflang:
  </svg>Ferrite Shielding</h3>
  <p class="text-slate-600 text-sm">High-permeability ferrite sheets (typically MnZn or NiZn ferrite with μ' ≥ 800 at 100-200 kHz) suppress eddy currents induced in nearby metal surfaces and prevent electromagnetic interference from coupling into the receiver coil. Without adequate shielding, eddy current losses can reduce wireless charging efficiency by 20-30%, and the resulting heat is transferred directly to the device. All WOWOHCOOL Qi2 modules use 0.5-1.0mm ferrite shielding with permeability ≥ 1,000 μ' at 125 kHz, verified per batch via impedance analyzer.</p>
  </div>
+ </div>
+
+ <!-- Thermal Management: PCBA Assembly Photo -->
+ <div class="mt-6">
+ <img src="/image/blog/wireless-charger/wireless-charger-pcba-assembly.webp" alt="Wireless charger PCBA assembly with GaN FET power stage aluminum heat spreader NTC thermal sensor and NP0 capacitor placement for Qi2 thermal management at OEM factory SMT production line" title="Wireless Charger PCBA — GaN Thermal Management + NTC Sensors" width="800" height="600" loading="lazy" decoding="async" class="w-full max-w-3xl mx-auto rounded-2xl shadow-lg">
+ <p class="text-center text-slate-500 text-sm mt-3">PCBA-level thermal management: GaN FET with aluminum heat spreader, dual NTC sensors for real-time temperature monitoring, and NP0 capacitors for stable FOD circuit operation across -40°C to +125°C</p>
  </div>
  </div>
  </section>
@@ -579,23 +591,105 @@ hreflang:
 
  <section id="section-components" class="mb-16">
  <div class="bg-slate-50 rounded-xl p-6 border border-slate-200 shadow-sm">
- <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-6">7. OEM Wireless Charger BOM: Key Components for Buyer Specifications</h2>
- <div class="grid md:grid-cols-3 gap-6">
- <div class="bg-slate-50 rounded-xl p-6">
- <h3 class="font-black text-brandBlue uppercase mb-3">Transmitter Coil</h3>
- <p class="text-slate-600 text-sm">Located in the charging pad. Creates the electromagnetic field when connected to power. Modern transmitters use <strong>Type 2 Litz wire</strong> (105×0.04mm strands, 28AWG equivalent) with <strong>MnZn ferrite shielding (PC95 material, TDK/Tokin, μi ≥ 3,300 at 100 kHz)</strong> to minimize skin effect and proximity losses. <strong>Typical coil parameters for Qi2 MPP 15W:</strong> 12 turns, 43mm outer diameter, inductance 10.0 ±0.5μH at 100 kHz (measured on Wayne Kerr 6500B LCR meter), Q ≥ 80 at 100 kHz, DC resistance ≤80mΩ. <strong>N52H-grade neodymium ring magnets</strong> (OD 55mm, ID 45mm, 1.5mm thickness) provide ≥420g pull force for Qi2 magnetic alignment, verified via magnet Gauss meter (TDK TM-801EXP) at 1,000-unit sample rate per WPC Qi2 MPP Section 3.2 magnet specification.</p>
+ <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-2">7. OEM Wireless Charger BOM: Key Components for Buyer Specifications</h2>
+ <p class="text-slate-500 text-sm mb-6">Four components every OEM buyer must specify: coils, resonant circuit, controller IC, and magnetics. Getting these wrong is the #1 cause of first-sample rejection.</p>
+
+ <!-- BOM Component Cards -->
+ <div class="grid md:grid-cols-2 gap-5 mb-6">
+ <!-- Card 01: Transmitter Coil -->
+ <div class="bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow overflow-hidden">
+ <div class="bg-brandBlue px-5 py-3 flex items-center gap-3">
+ <span class="text-2xl font-black text-brandOrange">01</span>
+ <h3 class="font-black text-white uppercase text-sm tracking-wide">Transmitter Coil <span class="text-brandOrange font-normal text-xs">· TX Pad Side</span></h3>
  </div>
- <div class="bg-slate-50 rounded-xl p-6">
- <h3 class="font-black text-brandBlue uppercase mb-3">Receiver Coil</h3>
- <p class="text-slate-600 text-sm">Located in the device. Captures energy and converts it to charging current. Receivers often include shielding layers (ferrite or nanocrystalline) to improve coupling efficiency.</p>
+ <div class="p-5">
+ <p class="text-slate-600 text-sm leading-relaxed mb-3">Creates the electromagnetic field when connected to power. Located in the charging pad.</p>
+ <div class="grid grid-cols-2 gap-2 text-xs">
+ <div class="bg-slate-50 rounded-lg p-2"><span class="text-slate-400 block mb-0.5">Wire Type</span><span class="font-bold text-slate-700">Type 2 Litz · 105×0.04mm</span></div>
+ <div class="bg-slate-50 rounded-lg p-2"><span class="text-slate-400 block mb-0.5">Ferrite Shield</span><span class="font-bold text-slate-700">TDK PC95 · μi ≥ 3,300</span></div>
+ <div class="bg-slate-50 rounded-lg p-2"><span class="text-slate-400 block mb-0.5">Coil Spec (Qi2 MPP)</span><span class="font-bold text-slate-700">12T · Ø43mm · 10.0 ±0.5μH</span></div>
+ <div class="bg-slate-50 rounded-lg p-2"><span class="text-slate-400 block mb-0.5">Q Factor @ 100kHz</span><span class="font-bold text-slate-700">≥ 80 · DCR ≤ 80mΩ</span></div>
  </div>
- <div class="bg-slate-50 rounded-xl p-6">
- <h3 class="font-black text-brandBlue uppercase mb-3">Resonant Circuit</h3>
- <p class="text-slate-600 text-sm">Allows charging over longer distances and through cases up to 3mm thick. Resonant systems use LC circuits tuned to the same frequency (typically 100-205 kHz), enabling energy transfer even when coils are misaligned. The coupling coefficient (k) between transmitter and receiver coils directly determines power transfer efficiency, Qi2 MPP targets k ≥ 0.3 through N52H magnet alignment.</p>
+ <div class="mt-3 pt-3 border-t border-slate-100">
+ <p class="text-xs text-slate-500"><strong class="text-brandBlue">N52H Magnets:</strong> Ø55×Ø45×1.5mm ring · ≥420g pull force · Gauss-verified per WPC Qi2 MPP §3.2</p>
  </div>
- <div class="bg-slate-50 rounded-xl p-6">
- <h3 class="font-black text-brandBlue uppercase mb-3">Controller Chip</h3>
- <p class="text-slate-600 text-sm">Manages power transfer, detects foreign objects, and optimizes charging. The controller uses digital communication via <strong>ASK (Amplitude Shift Keying) modulation</strong> on the power carrier, the receiver sends data packets by modulating its load impedance, which the transmitter decodes from primary-side current sensing. This In-Band communication negotiates power levels (5-25W), reports received power for FOD calculations, and synchronizes Qi Extended Power Profile (EPP) handshakes per WPC Qi v2.0 Communication Protocol v1.2.4 (Section 9).</p>
+ </div>
+ </div>
+
+ <!-- Card 02: Receiver Coil -->
+ <div class="bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow overflow-hidden">
+ <div class="bg-brandBlue px-5 py-3 flex items-center gap-3">
+ <span class="text-2xl font-black text-brandOrange">02</span>
+ <h3 class="font-black text-white uppercase text-sm tracking-wide">Receiver Coil <span class="text-brandOrange font-normal text-xs">· Device Side</span></h3>
+ </div>
+ <div class="p-5">
+ <p class="text-slate-600 text-sm leading-relaxed mb-3">Located inside the device. Captures electromagnetic energy and converts it to DC charging current via rectification.</p>
+ <div class="grid grid-cols-2 gap-2 text-xs">
+ <div class="bg-slate-50 rounded-lg p-2"><span class="text-slate-400 block mb-0.5">Shielding</span><span class="font-bold text-slate-700">Ferrite / Nanocrystalline</span></div>
+ <div class="bg-slate-50 rounded-lg p-2"><span class="text-slate-400 block mb-0.5">Coupling Efficiency</span><span class="font-bold text-slate-700">k ≥ 0.3 target</span></div>
+ <div class="bg-slate-50 rounded-lg p-2"><span class="text-slate-400 block mb-0.5">Rectification</span><span class="font-bold text-slate-700">Schottky / Synchronous</span></div>
+ <div class="bg-slate-50 rounded-lg p-2"><span class="text-slate-400 block mb-0.5">Output</span><span class="font-bold text-slate-700">5V–20V DC · Qi EPP</span></div>
+ </div>
+ <div class="mt-3 pt-3 border-t border-slate-100">
+ <p class="text-xs text-slate-500"><strong class="text-brandBlue">Spec note:</strong> Receiver inductance must match transmitter within 10% tolerance for rated power transfer. Specify both coils from the same supplier to guarantee pairing.</p>
+ </div>
+ </div>
+ </div>
+
+ <!-- Card 03: Resonant Circuit -->
+ <div class="bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow overflow-hidden">
+ <div class="bg-slate-800 px-5 py-3 flex items-center gap-3">
+ <span class="text-2xl font-black text-brandOrange">03</span>
+ <h3 class="font-black text-white uppercase text-sm tracking-wide">Resonant Circuit <span class="text-brandOrange font-normal text-xs">· LC Tank</span></h3>
+ </div>
+ <div class="p-5">
+ <p class="text-slate-600 text-sm leading-relaxed mb-3">LC network tuned to 100–205 kHz. Enables charging through cases up to 3mm and across coil misalignment.</p>
+ <div class="grid grid-cols-2 gap-2 text-xs">
+ <div class="bg-slate-50 rounded-lg p-2"><span class="text-slate-400 block mb-0.5">Topology</span><span class="font-bold text-slate-700">Series/Parallel LC</span></div>
+ <div class="bg-slate-50 rounded-lg p-2"><span class="text-slate-400 block mb-0.5">Freq Range</span><span class="font-bold text-slate-700">100–205 kHz</span></div>
+ <div class="bg-slate-50 rounded-lg p-2"><span class="text-slate-400 block mb-0.5">Capacitor Type</span><span class="font-bold text-slate-700">NP0/C0G · TDK CGA3E2</span></div>
+ <div class="bg-slate-50 rounded-lg p-2"><span class="text-slate-400 block mb-0.5">Max Case Gap</span><span class="font-bold text-slate-700">≤ 3mm</span></div>
+ </div>
+ <div class="mt-3 pt-3 border-t border-slate-100">
+ <p class="text-xs text-slate-500"><strong class="text-brandBlue">Qi2 MPP:</strong> Coupling coefficient k ≥ 0.3 via N52H magnetic alignment. Resonant Q-factor sampled at 125μs intervals for FOD detection.</p>
+ </div>
+ </div>
+ </div>
+
+ <!-- Card 04: Controller Chip -->
+ <div class="bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow overflow-hidden">
+ <div class="bg-slate-800 px-5 py-3 flex items-center gap-3">
+ <span class="text-2xl font-black text-brandOrange">04</span>
+ <h3 class="font-black text-white uppercase text-sm tracking-wide">Controller IC <span class="text-brandOrange font-normal text-xs">· Digital Brain</span></h3>
+ </div>
+ <div class="p-5">
+ <p class="text-slate-600 text-sm leading-relaxed mb-3">Manages power negotiation, FOD, and thermal regulation. Communicates via ASK modulation over the power carrier.</p>
+ <div class="grid grid-cols-2 gap-2 text-xs">
+ <div class="bg-slate-50 rounded-lg p-2"><span class="text-slate-400 block mb-0.5">Protocol</span><span class="font-bold text-slate-700">ASK · WPC Qi v2.0 §9</span></div>
+ <div class="bg-slate-50 rounded-lg p-2"><span class="text-slate-400 block mb-0.5">Power Range</span><span class="font-bold text-slate-700">5–25W · Qi EPP</span></div>
+ <div class="bg-slate-50 rounded-lg p-2"><span class="text-slate-400 block mb-0.5">Reference ICs</span><span class="font-bold text-slate-700">Infineon WLC1115 / NXP MWCT1013</span></div>
+ <div class="bg-slate-50 rounded-lg p-2"><span class="text-slate-400 block mb-0.5">FOD Sampling</span><span class="font-bold text-slate-700">Q-factor @ 125μs intervals</span></div>
+ </div>
+ <div class="mt-3 pt-3 border-t border-slate-100">
+ <p class="text-xs text-slate-500"><strong class="text-brandBlue">Buyer checklist:</strong> Verify the controller IC part number in the BOM. Substitution with uncertified domestic clones is the #1 cause of Qi certification failure at ATL stage.</p>
+ </div>
+ </div>
+ </div>
+ </div>
+
+ <!-- BOM Quick Reference Table -->
+ <div class="bg-brandBlue/5 rounded-xl p-5 border border-brandBlue/10">
+ <h3 class="font-black text-brandBlue text-sm uppercase mb-3">OEM BOM Quick Reference: Four Components to Specify</h3>
+ <div class="overflow-x-auto">
+ <table class="w-full text-xs border-collapse">
+ <thead><tr class="border-b border-brandBlue/20 text-slate-500 uppercase tracking-wider"><th class="text-left p-2 font-black">Component</th><th class="text-left p-2 font-black">Key Spec to Request</th><th class="text-left p-2 font-black">Red Flag If Missing</th></tr></thead>
+ <tbody class="text-slate-600">
+ <tr class="border-b border-slate-100"><td class="p-2 font-bold text-brandBlue">01 Transmitter Coil</td><td class="p-2">Litz wire strand count, ferrite μi, Q-factor @ 100kHz</td><td class="p-2 text-red-500">No LCR meter test report</td></tr>
+ <tr class="border-b border-slate-100"><td class="p-2 font-bold text-brandBlue">02 Receiver Coil</td><td class="p-2">Inductance tolerance, shielding material grade</td><td class="p-2 text-red-500">Inductance >10% off TX spec</td></tr>
+ <tr class="border-b border-slate-100"><td class="p-2 font-bold text-brandBlue">03 Resonant Circuit</td><td class="p-2">Capacitor dielectric type, NP0/C0G confirmation</td><td class="p-2 text-red-500">X7R/X5R caps in resonant path</td></tr>
+ <tr><td class="p-2 font-bold text-brandBlue">04 Controller IC</td><td class="p-2">Exact part number, WPC Qi v2.0 compliance</td><td class="p-2 text-red-500">"Compatible with" instead of part number</td></tr>
+ </tbody>
+ </table>
  </div>
  </div>
  </div>
@@ -635,6 +729,12 @@ hreflang:
  </div>
  </div>
  <p class="text-slate-500 text-xs mt-3">Test protocol: Each production unit tested with standardized metal object set. WPC Qi certification requires FOD detection within 2 seconds of contact. WOWOHCOOL's internal QC threshold: reject any unit with false trigger (FOD activation without metal present) or detection latency >2.0s.</p>
+ </div>
+
+ <!-- FOD Module Testing Photo -->
+ <div class="mt-6">
+ <img src="/image/blog/wireless-charger/wireless-charger-module-testing.webp" alt="Qi2 wireless charger module undergoing FOD calibration and Q-factor impedance testing with Kelvin-connected 4-wire measurement at OEM factory QC laboratory for WPC Qi v2.0 Section 5.3 compliance verification" title="Qi2 FOD Module Testing — Kelvin 4-Wire Q-Factor Calibration" width="800" height="600" loading="lazy" decoding="async" class="w-full max-w-3xl mx-auto rounded-2xl shadow-lg">
+ <p class="text-center text-slate-500 text-sm mt-3">FOD module production-line testing: Q-factor sampled at 125μs intervals, Q-drop ≥15% within 2mm triggers power shutoff ≤800ms — exceeding WPC Qi v2.0 1-second maximum response requirement</p>
  </div>
  </div>
  </section>
