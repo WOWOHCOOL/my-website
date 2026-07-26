@@ -18,6 +18,19 @@ Two operational modes:
 """
 
 import re
+from typing import Optional, List, Dict, Any, Set
+
+# Multi-language support
+try:
+    from .b2b_i18n_keywords import B2BI18n, I18N_TECHNICAL_ANCHORS, I18N_B2B_TERMS, I18N_STOP_WORDS
+except ImportError:
+    try:
+        from b2b_i18n_keywords import B2BI18n, I18N_TECHNICAL_ANCHORS, I18N_B2B_TERMS, I18N_STOP_WORDS
+    except ImportError:
+        B2BI18n = None  # type: ignore
+        I18N_TECHNICAL_ANCHORS = {}
+        I18N_B2B_TERMS = {}
+        I18N_STOP_WORDS = {}
 import sys
 from typing import Dict, List, Optional, Any, Set
 from collections import Counter
@@ -109,9 +122,14 @@ B2B_TERMS = {
 class InformationGainAnalyzer:
     """Analyze content uniqueness vs SERP competitors (Google Information Gain patent)."""
 
-    def __init__(self):
+    def __init__(self, language: str = 'en'):
         """Initialize analyzer with technical anchors and stop words."""
-        self.technical_anchors_lower = [t.lower() for t in TECHNICAL_ANCHORS]
+        self.lang = language if language in ('en', 'de', 'es', 'fr') else 'en'
+        # Use localized technical anchors if available
+        if I18N_TECHNICAL_ANCHORS and self.lang in I18N_TECHNICAL_ANCHORS:
+            self.technical_anchors_lower = [t.lower() for t in I18N_TECHNICAL_ANCHORS[self.lang]]
+        else:
+            self.technical_anchors_lower = [t.lower() for t in TECHNICAL_ANCHORS]
 
     # ── Public API ──
 
@@ -120,6 +138,7 @@ class InformationGainAnalyzer:
         content: str,
         competitor_contents: Optional[List[str]] = None,
         competitor_urls: Optional[List[str]] = None,
+        language: str = 'en',
     ) -> Dict[str, Any]:
         """
         Analyze information gain of article content.
@@ -128,10 +147,14 @@ class InformationGainAnalyzer:
             content: Full article text content.
             competitor_contents: Optional list of SERP top 5 full-text contents.
             competitor_urls: Optional list of URLs corresponding to competitor_contents.
+            language: Article language code ('en', 'de', 'es', 'fr').
 
         Returns:
             Dict with overall_score, mode, information_gain_level, and detailed metrics.
         """
+        if language != self.lang:
+            self.lang = language if language in ('en', 'de', 'es', 'fr') else 'en'
+
         if competitor_contents:
             return self._mode_a_compare(content, competitor_contents, competitor_urls)
         else:
@@ -280,7 +303,8 @@ class InformationGainAnalyzer:
         entity_score = min(100, round((entity_per_1000 / 3) * 100))
 
         # Factor 4: B2B vocabulary diversity (10% weight)
-        b2b_found = {t for t in B2B_TERMS if t in body_lower}
+        b2b_terms = I18N_B2B_TERMS.get(self.lang, B2B_TERMS) if I18N_B2B_TERMS else B2B_TERMS
+        b2b_found = {t for t in b2b_terms if t.lower() in body_lower}
         b2b_diversity = len(b2b_found)
         b2b_score = min(100, b2b_diversity * 10)  # 10 unique B2B terms = 100
 
@@ -332,10 +356,11 @@ class InformationGainAnalyzer:
 
     def _extract_significant_terms(self, text: str) -> Set[str]:
         """Extract significant lowercase terms (2+ chars, non-stopword)."""
-        # Tokenize: split on non-alpha, lowercase, filter
-        words = re.findall(r'[a-z]{2,}', text.lower())
-        # Keep only non-stopwords
-        return {w for w in words if w not in STOP_WORDS}
+        # Unicode-aware tokenization: matches all Latin letters including accented/umlaut
+        words = re.findall(r'[^\W\d_]{2,}', text.lower())
+        # Use localized stop words if available
+        stw = I18N_STOP_WORDS.get(self.lang, STOP_WORDS) if I18N_STOP_WORDS else STOP_WORDS
+        return {w for w in words if w not in stw}
 
     def _extract_named_entities(self, text: str) -> Set[str]:
         """Extract named entities: capitalized multi-word phrases, standards, companies."""
@@ -349,9 +374,9 @@ class InformationGainAnalyzer:
         for m in NAMED_COMPANY_RE.finditer(text):
             entities.add(m.group())
 
-        # Capitalized multi-word phrases (2-4 words)
+        # Capitalized multi-word phrases (2-4 words) — Unicode-aware
         cap_phrases = re.findall(
-            r'(?<![.\n])\b([A-Z][a-z]+(?:\s+[A-Z][a-z]+){1,3})\b',
+            r'(?<![.\n])\b([A-ZÀ-Ü][^\W\d_]+(?:\s+[A-ZÀ-Ü][^\W\d_]+){1,3})\b',
             text
         )
         for phrase in cap_phrases:
@@ -486,6 +511,7 @@ def analyze_information_gain(
     content: str,
     competitor_contents: Optional[List[str]] = None,
     competitor_urls: Optional[List[str]] = None,
+    language: str = 'en',
 ) -> Dict[str, Any]:
     """
     Convenience function: analyze information gain of article content.
@@ -494,12 +520,13 @@ def analyze_information_gain(
         content: Full article text content.
         competitor_contents: Optional SERP top 5 full-text contents (enables Mode A).
         competitor_urls: Optional URLs for each competitor.
+        language: Article language code ('en', 'de', 'es', 'fr').
 
     Returns:
         Dict with overall_score, mode, information_gain_level, and detailed metrics.
     """
-    analyzer = InformationGainAnalyzer()
-    return analyzer.analyze(content, competitor_contents, competitor_urls)
+    analyzer = InformationGainAnalyzer(language=language)
+    return analyzer.analyze(content, competitor_contents, competitor_urls, language=language)
 
 
 # ── CLI Entry Point ──
@@ -548,13 +575,25 @@ def main():
         sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
 
     if len(sys.argv) < 2:
-        print("Usage: python information_gain_analyzer.py <article.md> [competitor1.md ...]")
+        print("Usage: python information_gain_analyzer.py <article.md> [--lang de|es|fr] [competitor1.md ...]")
         print("  Without competitor files: Mode B (heuristic estimate)")
         print("  With competitor files: Mode A (SERP comparison)")
+        print("  --lang de|es|fr: article language (auto-detected from canonical URL if omitted)")
         sys.exit(1)
 
-    file_path = sys.argv[1]
-    competitor_paths = sys.argv[2:] if len(sys.argv) > 2 else []
+    # Parse --lang flag
+    language = 'en'
+    args = sys.argv[1:]
+    if '--lang' in args:
+        idx = args.index('--lang')
+        if idx + 1 < len(args):
+            language = args[idx + 1]
+            args = args[:idx] + args[idx + 2:]
+        else:
+            args = args[:idx]
+
+    file_path = args[0]
+    competitor_paths = args[1:] if len(args) > 1 else []
 
     with open(file_path, 'r', encoding='utf-8') as f:
         content = f.read()
@@ -566,7 +605,7 @@ def main():
             with open(cp, 'r', encoding='utf-8') as f:
                 competitor_contents.append(f.read())
 
-    result = analyze_information_gain(content, competitor_contents)
+    result = analyze_information_gain(content, competitor_contents, language=language)
     print(_format_report(result))
 
 

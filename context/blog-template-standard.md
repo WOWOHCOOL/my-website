@@ -290,17 +290,22 @@
 {
   "@context": "https://schema.org",           ← 仅此一处！
   "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.wowohcool.com/#organization",
+      "name": "WOWOHCOOL",
+      "legalName": "Dong Yi Technology Co., Ltd",
+      "url": "https://www.wowohcool.com/LANG/about/",
+      "publishingPrinciples": "https://www.wowohcool.com/LANG/about/",
+      "logo": "https://www.wowohcool.com/image/logo/wowohcool-logo.png",
+      "areaServed": [...],
+      "contactPoint": { "@type": "ContactPoint", "contactType": "OEM/ODM Sales", "availableLanguage": [...] }
+    },
     { "@type": "BreadcrumbList" },
     {
       "@type": "BlogPosting",
       "author": { "@type": "Person", "sameAs": ["LinkedIn URL"] },
-      "publisher": { 
-        "@type": "Organization",
-        "url": "https://www.wowohcool.com/about/",
-        "publishingPrinciples": "https://www.wowohcool.com/about/",
-        "areaServed": ["US","DE","AT","CH","EU","UK","JP","KR","AU"],
-        "contactPoint": { "@type": "ContactPoint", "contactType": "OEM/ODM Sales", "availableLanguage": ["English","German","Spanish","French"] }
-      },
+      "publisher": { "@id": "https://www.wowohcool.com/#organization" },
       "about": { "@type": "Thing", "name": "Topic", "sameAs": "Wikidata URL" },
       "speakable": { "cssSelector": ["h1","h2",".speakable"] }
     },
@@ -310,11 +315,35 @@
 }
 ```
 
+### Organization 节点强制字段
+
+**每篇 Blog 的 `@graph` 第一条必须是独立 Organization 节点，包含以下 4 个强制字段：**
+
+| 字段 | 值 | 说明 |
+|------|-----|------|
+| `name` | `"WOWOHCOOL"` | 品牌名，固定值 |
+| `legalName` | `"Dong Yi Technology Co., Ltd"` | 法定公司名，固定值 |
+| `url` | 按语言映射 | 见下表 |
+| `publishingPrinciples` | 同 `url` | 与 url 保持一致 |
+
+**`url` / `publishingPrinciples` 语言映射：**
+
+| 语言 | URL |
+|------|-----|
+| EN | `https://www.wowohcool.com/about/` |
+| DE | `https://www.wowohcool.com/de/about/` |
+| ES | `https://www.wowohcool.com/es/about/` |
+| FR | `https://www.wowohcool.com/fr/about/` |
+
+**BlogPosting 的 `publisher` 使用 `@id` 引用**（不重复定义 Organization），避免 JSON-LD 膨胀。
+
 ### Schema 检查清单
 
 - [ ] `@context` 仅根级 1 处
+- [ ] **`@graph` 第一条 = Organization 节点**，含 `name`, `legalName`, `url`, `publishingPrinciples`, `logo`
+- [ ] Organization `url` 和 `publishingPrinciples` 按语言映射到正确的 `/about/` 路径
+- [ ] BlogPosting `publisher` 使用 `@id` 引用（不重复定义 Organization）
 - [ ] 所有 URL 末尾带 `/`
-- [ ] `publisher.url` 和 `publishingPrinciples` 指向 `/about/`
 - [ ] `about.sameAs` 绑定 Wikidata ID
 - [ ] FAQPage Schema 与 HTML FAQ 正文**逐字一致**
 - [ ] `speakable` 选择器包含 `.speakable`，且 Hook 段落有 `speakable` class

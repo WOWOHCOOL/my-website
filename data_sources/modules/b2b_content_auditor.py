@@ -44,6 +44,26 @@ except ImportError:
         def njk_extract_links(c): return {}
         def is_njk(c): return False
 
+# Multi-language keyword support
+try:
+    from .b2b_i18n_keywords import B2BI18n, detect_language
+except ImportError:
+    try:
+        from b2b_i18n_keywords import B2BI18n, detect_language
+    except ImportError:
+        B2BI18n = None  # type: ignore
+        def detect_language(c, m=None): return 'en'
+
+# Factory data canonical checker (Check 16)
+try:
+    from .factory_data_canonical import check_factory_data, FACTORY_RULES
+except ImportError:
+    try:
+        from factory_data_canonical import check_factory_data, FACTORY_RULES
+    except ImportError:
+        def check_factory_data(c): return {'score': None, 'violations': [], 'recommendations': []}
+        FACTORY_RULES = []
+
 # ── B2B Signal Words (from b2b-blog-quality-standards-2026.md Section II) ──
 
 B2B_SIGNAL_WORDS = [
@@ -304,6 +324,14 @@ class B2BContentAuditor:
         if author_bio is None and _njk_meta.get('author'):
             author_bio = _njk_meta['author']
 
+        # ── Auto-detect language if not explicitly provided ──
+        if language in ('en', None) and B2BI18n is not None:
+            detected = detect_language(raw_content, _njk_meta if _njk_meta else None)
+            if detected != 'en':
+                language = detected
+        self.lang = language
+        self.i18n = B2BI18n(language) if B2BI18n is not None else None
+
         # Extract author from JSON-LD in RAW content (before preprocessing strips it)
         _jsonld_author = self._extract_author_from_jsonld(raw_content) if is_njk(raw_content) else None
 
@@ -333,11 +361,14 @@ class B2BContentAuditor:
         cross_ref = self._check_cross_reference_consistency(content)
         schema_val = self._check_schema_validation(raw_content if is_njk(raw_content) else content)
 
+        # Check 16: Factory data canonical verification
+        factory_data = self._check_factory_data_canonical(content)
+
         # Composite: all non-None scores averaged equally
         all_checks = [opening, h3_answer, h2_density, data_density,
                       table_test, stock_photo, faq_lang, author_eeat,
                       tldr, vague_headings, weak_cta, hierarchy, url_quality,
-                      cross_ref, schema_val]
+                      cross_ref, schema_val, factory_data]
         scores = []
         for check in all_checks:
             s = check.get('score')
@@ -373,6 +404,7 @@ class B2BContentAuditor:
             'url_quality': url_quality,
             'cross_reference': cross_ref,
             'schema_validation': schema_val,
+            'factory_data_canonical': factory_data,
             'critical_issues': critical_issues,
             'warnings': warnings,
             'recommendations': recommendations,
@@ -411,15 +443,18 @@ class B2BContentAuditor:
         fluff_found = []
         has_conclusion = False
 
+        fluff_patterns = self.i18n.get_patterns('OPENING_FLUFF_PATTERNS') if self.i18n else OPENING_FLUFF_PATTERNS
+        conclusion_patterns = self.i18n.get_patterns('CONCLUSION_SIGNALS') if self.i18n else CONCLUSION_SIGNALS
+
         for i, sent in enumerate(first_three):
             # Question 2: Is there AI fluff? Each pattern match = -30
-            for pattern in OPENING_FLUFF_PATTERNS:
+            for pattern in fluff_patterns:
                 if pattern.search(sent):
                     fluff_found.append(f'Fluff pattern in sentence {i+1}: "{pattern.pattern}" -> "{sent[:80]}..."')
                     score -= 30
 
             # Question 1: Is there a core conclusion? (number, B2B word, standard, first-hand data, procurement term)
-            for pattern in CONCLUSION_SIGNALS:
+            for pattern in conclusion_patterns:
                 if pattern.search(sent):
                     has_conclusion = True
                     break
@@ -559,7 +594,9 @@ class B2BContentAuditor:
         for h2_text in content_h2s:
             found_any = False
             h2_lower = h2_text.lower()
-            for word in self.b2b_signal_words:
+            raw_words = self.i18n.get('B2B_SIGNAL_WORDS') if self.i18n else B2B_SIGNAL_WORDS
+            signal_words = [w.lower() for w in raw_words]
+            for word in signal_words:
                 if word in h2_lower:
                     found_any = True
                     unique_b2b_terms.add(word)
@@ -818,7 +855,8 @@ class B2BContentAuditor:
                     break
 
             # Check filename
-            for pattern in STOCK_FILENAME_PATTERNS:
+            stock_patterns = self.i18n.get_patterns('STOCK_FILENAME_PATTERNS') if self.i18n else STOCK_FILENAME_PATTERNS
+            for pattern in stock_patterns:
                 if pattern.search(url_lower):
                     reasons.append(f'Stock filename pattern: {pattern.pattern}')
                     break
@@ -923,12 +961,15 @@ class B2BContentAuditor:
             is_b2b = False
             is_consumer = False
 
-            for pattern in B2B_BUYER_LANGUAGE:
+            b2b_patterns = self.i18n.get_patterns('B2B_BUYER_LANGUAGE') if self.i18n else B2B_BUYER_LANGUAGE
+            consumer_patterns = self.i18n.get_patterns('CONSUMER_LANGUAGE') if self.i18n else CONSUMER_LANGUAGE
+
+            for pattern in b2b_patterns:
                 if pattern.search(q):
                     is_b2b = True
                     break
 
-            for pattern in CONSUMER_LANGUAGE:
+            for pattern in consumer_patterns:
                 if pattern.search(q):
                     is_consumer = True
                     consumer_questions.append({
@@ -1162,7 +1203,8 @@ class B2BContentAuditor:
 
         tldr_found = False
         tldr_keyword = ''
-        for kw in TLDR_KEYWORDS:
+        tldr_keywords = self.i18n.get('TLDR_KEYWORDS') if self.i18n else TLDR_KEYWORDS
+        for kw in tldr_keywords:
             if kw.lower() in above_fold.lower():
                 tldr_found = True
                 tldr_keyword = kw
@@ -1226,7 +1268,8 @@ class B2BContentAuditor:
 
         vague_found = []
         for level, heading in all_headings:
-            for pattern in VAGUE_HEADING_PATTERNS:
+            vague_patterns = self.i18n.get_patterns('VAGUE_HEADING_PATTERNS') if self.i18n else VAGUE_HEADING_PATTERNS
+            for pattern in vague_patterns:
                 if pattern.match(heading.strip()):
                     vague_found.append({
                         'level': level,
@@ -1312,7 +1355,8 @@ class B2BContentAuditor:
 
         # Also search the entire content for CTA patterns
         weak_ctas_found = []
-        for pattern in WEAK_CTA_PATTERNS:
+        weak_cta_pats = self.i18n.get_patterns('WEAK_CTA_PATTERNS') if self.i18n else WEAK_CTA_PATTERNS
+        for pattern in weak_cta_pats:
             for m in pattern.finditer(content):
                 weak_ctas_found.append({
                     'text': m.group(),
@@ -1324,15 +1368,19 @@ class B2BContentAuditor:
         article_type = self._classify_article_type(content)
         suggested_cta = STRONG_CTA_TEMPLATES.get(article_type, STRONG_CTA_TEMPLATES['generic'])
 
-        # Check bottom section AND full content for CTA signals
-        cta_pattern = re.compile(
-            r'\b(?:download|get\s+(?:the|our|your)|schedule|book|request|'
-            r'help\s+you\s+(?:evaluate|find|choose|source|build|develop|plan)|'
-            r'talk\s+(?:to|with)\s+(?:our|us|an?\s+engineer)|'
-            r'speak\s+(?:to|with)\s+(?:our|us|an?\s+engineer)|'
-            r'start\s+your\s+project|ready\s+to\s+(?:source|start|discuss)|'
-            r'let.?s\s+(?:discuss|talk|connect)|reach\s+out|'
-            r'contact\s+(?:our|us|the|sales|engineering))',
+        # Check bottom section AND full content for CTA signals (i18n-aware)
+        cta_positive_raw = self.i18n.get('CTA_POSITIVE_PATTERNS') if self.i18n else None
+        if cta_positive_raw:
+            cta_pattern = re.compile('|'.join(cta_positive_raw), re.IGNORECASE)
+        else:
+            cta_pattern = re.compile(
+                r'\b(?:download|get\s+(?:the|our|your)|schedule|book|request|'
+                r'help\s+you\s+(?:evaluate|find|choose|source|build|develop|plan)|'
+                r'talk\s+(?:to|with)\s+(?:our|us|an?\s+engineer)|'
+                r'speak\s+(?:to|with)\s+(?:our|us|an?\s+engineer)|'
+                r'start\s+your\s+project|ready\s+to\s+(?:source|start|discuss)|'
+                r'let.?s\s+(?:discuss|talk|connect)|reach\s+out|'
+                r'contact\s+(?:our|us|the|sales|engineering))',
             re.IGNORECASE
         )
         has_cta_in_bottom = bool(cta_pattern.search(bottom_section))
@@ -1471,15 +1519,21 @@ class B2BContentAuditor:
             try:
                 import json
                 data = json.loads(block)
-                # Handle @graph
                 items = data.get('@graph', [data])
+                standalone_person = None
+                embedded_author = None
                 for item in items:
-                    # Find Person or BlogPosting.author
+                    # Prefer standalone Person (has jobTitle/sameAs/knowsAbout)
                     if item.get('@type') == 'Person':
-                        return item
+                        standalone_person = item
                     author = item.get('author')
                     if isinstance(author, dict) and author.get('@type') == 'Person':
-                        return author
+                        embedded_author = author
+                # Return standalone Person if available (richer fields), else embedded
+                if standalone_person:
+                    return standalone_person
+                if embedded_author:
+                    return embedded_author
             except (json.JSONDecodeError, ValueError):
                 continue
         return None
@@ -1544,7 +1598,8 @@ class B2BContentAuditor:
 
         # Check 3: Too many words (containing stop words)
         words = slug.replace('-', ' ').replace('/', ' ').split()
-        stop_found = [w for w in words if w.lower() in URL_STOP_WORDS]
+        url_stops = set(self.i18n.get('URL_STOP_WORDS')) if self.i18n else URL_STOP_WORDS
+        stop_found = [w for w in words if w.lower() in url_stops]
         if len(stop_found) >= 2:
             score -= 15
             issues.append(f'URL contains {len(stop_found)} stop words ({", ".join(stop_found[:5])}): remove them for a cleaner URL')
@@ -1557,7 +1612,7 @@ class B2BContentAuditor:
                 break
 
         # Check 5: Staged — 3-6 words=pass, 7-8=minor warning (-10), >8=deduction (-20)
-        meaningful = [w for w in words if w.lower() not in URL_STOP_WORDS]
+        meaningful = [w for w in words if w.lower() not in url_stops]
         if len(meaningful) >= 9:
             score -= 20
             issues.append(f'URL too long ({len(meaningful)} meaningful words): target ≤6 words')
@@ -1779,6 +1834,29 @@ class B2BContentAuditor:
             ] if score < 100 else [],
         }
 
+    # ── Check 16: Factory Data Canonical Verification ──
+
+    def _check_factory_data_canonical(self, content: str) -> Dict[str, Any]:
+        """
+        Verify factory data points against canonical source (factory-data-canonical.md).
+
+        Scans article content for MOQ, lead times, certification costs, defect rates,
+        factory size, R&D team size, and export coverage — flags any values outside
+        the canonical ranges defined in context/factory-data-canonical.md.
+
+        Returns N/A (score=None) if no factory data points are detected.
+        """
+        result = check_factory_data(content)
+        return {
+            'score': result['score'],
+            'violations': result.get('violations', []),
+            'data_points_found': result.get('data_points_found', 0),
+            'data_points_checked': result.get('data_points_checked', len(FACTORY_RULES)),
+            'critical_issues': result.get('critical_issues', []),
+            'warnings': result.get('warnings', []),
+            'recommendations': result.get('recommendations', []),
+        }
+
     # ── Check 15: Cross-Reference Consistency (Rule 8) ──
     # Two data categories: operational (MOQ, pricing, lead time — must match everywhere)
     # vs market research (CAGR, adoption rates — can vary by geography, must match within article)
@@ -1789,10 +1867,26 @@ class B2BContentAuditor:
         Rule 8: Same operational data point must have same value in TL;DR, body, and FAQ.
         Market research data is excluded — it legitimately varies by region.
         """
-        # Extract sections
-        tldr_start = content.find('Key Takeaways')
-        tldr_end = content.find('Table of Contents')
-        faq_start = content.find('Frequently Asked Questions')
+        # Extract sections — use localized anchors when available
+        tldr_anchors = self.i18n.get_nested('CROSS_REF_ANCHORS', 'tldr') if self.i18n else ['Key Takeaways']
+        toc_anchors = self.i18n.get_nested('CROSS_REF_ANCHORS', 'toc') if self.i18n else ['Table of Contents']
+        faq_anchors = self.i18n.get_nested('CROSS_REF_ANCHORS', 'faq') if self.i18n else ['Frequently Asked Questions']
+
+        tldr_start = -1
+        tldr_end = -1
+        faq_start = -1
+        for anchor in tldr_anchors:
+            tldr_start = content.find(anchor)
+            if tldr_start >= 0:
+                break
+        for anchor in toc_anchors:
+            tldr_end = content.find(anchor)
+            if tldr_end >= 0:
+                break
+        for anchor in faq_anchors:
+            faq_start = content.find(anchor)
+            if faq_start >= 0:
+                break
 
         if tldr_start < 0 or faq_start < 0:
             return {
@@ -1968,7 +2062,10 @@ class B2BContentAuditor:
     def _count_intro_paragraphs(self, body_after_h1: str) -> int:
         """Count substantial text paragraphs between H1 and TL;DR/TOC/first H2."""
         # Find the end of the intro area
-        tldr_m = re.search(r'(?:Key Takeaways|TL;DR|Table of Contents)', body_after_h1)
+        tldr_anchors_list = self.i18n.get('TLDR_KEYWORDS') if self.i18n else ['Key Takeaways', 'TL;DR']
+        toc_anchors_list = self.i18n.get_nested('CROSS_REF_ANCHORS', 'toc') if self.i18n else ['Table of Contents']
+        all_intro_anchors = '|'.join(re.escape(a) for a in tldr_anchors_list + toc_anchors_list)
+        tldr_m = re.search(rf'(?:{all_intro_anchors})', body_after_h1)
         first_h2 = re.search(r'^##\s+(.+)$', body_after_h1, re.MULTILINE)
         end = tldr_m.start() if tldr_m else (first_h2.start() if first_h2 else len(body_after_h1))
         intro = body_after_h1[:end] if end > 0 else body_after_h1
@@ -2005,6 +2102,11 @@ class B2BContentAuditor:
             'related posts', 'comments', 'disclaimer', 'appendix',
             'inhaltsverzeichnis', 'verwandte artikel', 'referenzen',
             'table des matières', 'articles connexes', 'références',
+            # Extended i18n from registry
+            'quellen', 'weitere artikel', 'häufig gestellte fragen', 'häufige fragen',
+            'tabla de contenidos', 'índice', 'artículos relacionados', 'fuentes',
+            'preguntas frecuentes', 'sommaire', 'questions fréquentes',
+            'fazit', 'conclusión', 'conclusione',
         ]
         h2_lower = h2_text.lower().strip('#').strip()
         return any(exc in h2_lower for exc in excluded)
@@ -2232,6 +2334,7 @@ def _format_report(result: Dict[str, Any]) -> str:
         ('URL Quality', 'url_quality'),
         ('Cross-Reference Consistency', 'cross_reference'),
         ('Schema Validation', 'schema_validation'),
+        ('Factory Data Canonical', 'factory_data_canonical'),
     ]
 
     for label, key in checks:
@@ -2270,17 +2373,29 @@ def main():
         sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
 
     if len(sys.argv) < 2:
-        print("Usage: python b2b_content_auditor.py <article.md> [article_type]")
+        print("Usage: python b2b_content_auditor.py <article.md> [--lang de|es|fr] [article_type]")
         print("  article_type: technical | procurement | oem_core (auto-detected if omitted)")
+        print("  --lang de|es|fr: article language (auto-detected from canonical URL if omitted)")
         sys.exit(1)
 
-    file_path = sys.argv[1]
-    article_type = sys.argv[2] if len(sys.argv) > 2 else None
+    # Parse --lang flag
+    language = 'en'
+    args = sys.argv[1:]
+    if '--lang' in args:
+        idx = args.index('--lang')
+        if idx + 1 < len(args):
+            language = args[idx + 1]
+            args = args[:idx] + args[idx + 2:]
+        else:
+            args = args[:idx]
+
+    file_path = args[0]
+    article_type = args[1] if len(args) > 1 else None
 
     with open(file_path, 'r', encoding='utf-8') as f:
         content = f.read()
 
-    result = audit_b2b_content(content, article_type=article_type)
+    result = audit_b2b_content(content, article_type=article_type, language=language)
     print(_format_report(result))
 
 
