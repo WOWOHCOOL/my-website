@@ -2153,9 +2153,12 @@ class B2BContentAuditor:
                     if next_line.startswith('|') and '|' in next_line[1:]:
                         is_table = True
                         break
-                    # Collect non-empty lines, skip blank lines between content
-                    if next_line:
-                        first_block_chars.append(next_line)
+                    # Blank line after content = paragraph boundary, stop collecting
+                    if not next_line:
+                        if first_block_chars:
+                            break  # paragraph ended, stop at boundary
+                        continue  # skip leading blank lines before first paragraph
+                    first_block_chars.append(next_line)
                     # Stop collecting once we have enough chars (target: 100-200)
                     text_so_far = ' '.join(first_block_chars)
                     if len(text_so_far) >= 250:
@@ -2186,8 +2189,11 @@ class B2BContentAuditor:
                     if next_line.startswith('|') and '|' in next_line[1:]:
                         is_table = True
                         break
-                    if next_line:
-                        first_block_chars.append(next_line)
+                    if not next_line:
+                        if first_block_chars:
+                            break
+                        continue
+                    first_block_chars.append(next_line)
                     text_so_far = ' '.join(first_block_chars)
                     if len(text_so_far) >= 250:
                         break
