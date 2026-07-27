@@ -24,6 +24,8 @@ Use this command to create comprehensive, SEO-optimized long-form blog content.
 - **Writing Examples**: Study @context/writing-examples.md for style consistency
 - **Style Guide**: Follow formatting rules from @context/style-guide.md
 - **Blog Template Standard**: Follow layout and section ordering from @context/blog-template-standard.md (Hero → Hook → Featured Image → KEY TAKEAWAYS → TOC → H2 Sections → FAQ → Author Bio → CTA → Related → Sources)
+- **B2B Quality Standard**: Apply all content rules from @context/b2b-blog-quality-audit-standard.md (15 checks, FAQ 9 Rules, speakable 3-node cap, semantic tags, H2 B2B density tiers)
+- **Schema & Metadata**: Use JSON-LD template from @context/b2b-schema-template.json; language mappings and field rules from @context/b2b-multilingual-metadata-standard.md
 - **SEO Guidelines**: Apply requirements from @context/seo-guidelines.md
 - **Target Keywords**: Integrate keywords from @context/target-keywords.md naturally
 

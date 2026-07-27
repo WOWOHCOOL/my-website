@@ -161,9 +161,11 @@ Rewrites go to `rewrites/`. Audits go to `audits/`.
 
 `context/` contains brand guidelines that inform all content generation:
 - **`b2b-blog-quality-audit-standard.md`** — **CANONICAL quality standard for ALL blog content across DE/EN/ES/FR sites.** Covers: Information Gain vs. top-5 SERP, E-E-A-T first-hand experience requirements, H1-H4 structural rules, Schema Markup 9 FAQ rules, B2B CTA standard, 13 automated audit checks, dual-mode Information Gain scoring, and quality gate thresholds. Every `/write`, `/optimize`, `/rewrite` must apply this standard. Keyword density is dead — first-party data density and Information Gain are the new metrics.
+- **`b2b-multilingual-metadata-standard.md`** — **CANONICAL B2B metadata standard for ALL 4 languages.** Complete JSON-LD schema template with placeholder docs, DE/EN/ES/FR language mapping table, FAQ 8 rules, wordCount verification script, 20-point pre-publish checklist, B2B signal word glossary. Every `/write` and `/optimize` must use this as the schema authority.
+- `b2b-schema-template.json` — Standalone JSON-LD template (7 nodes), `json.load()` valid with `{PLACEHOLDER}` sentinel syntax. Use for build-script schema generation and automated validation. Derived from `b2b-multilingual-metadata-standard.md` §一.
 - `brand-voice.md` - Tone, messaging pillars
 - `style-guide.md` - Grammar, formatting standards
-- `blog-template-standard.md` - EN Blog layout template: 13-section ordering, code standards, Schema checklist, FAQ 8 rules, factory data values
+- `blog-template-standard.md` - EN/DE Blog layout template: 16-section ordering, code standards, Schema checklist, FAQ 8 rules, factory data values
 - `seo-guidelines.md` - Keyword and structure rules (supplemented by b2b-blog-quality-audit-standard.md)
 - `internal-links-map.md` - Key pages for internal linking
 - `features.md` - Product features

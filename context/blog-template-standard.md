@@ -1,7 +1,8 @@
-# EN Blog 标准排版规范 (v2.0)
+# Blog 标准排版规范 (v2.1)
 
-**基于**: 28 篇文章完整审计优化
-**适用**: 所有 EN 博客文章 (wowohcool.com/blog/)
+**基于**: 28 篇 EN + 11 篇 DE 文章完整审计优化
+**适用**: 所有 EN/DE 博客文章 (wowohcool.com/blog/ + /de/blog/)
+**规则权威源**: 详细质量标准见 `context/b2b-blog-quality-audit-standard.md`
 
 ---
 
@@ -12,19 +13,19 @@
 ```
 
 ```
- 1. Hero Header (面包屑→标签→H1→Compact Author Bar→日期行)
- 2. The Hook (引入段落)
- 3. Featured Image (封面图 2240×1260)
- 4. Key Takeaways (合并 TL;DR 的总结段)
- 5. Key Metrics Cards (可选，数据指标)
- 6. Table of Contents (含 #faq 锚点)
- 7. H2 Sections × N (标准灰底卡片，嵌入式 Expert Insight + Factory Stat)
- 8. FAQ (id="faq", 8条规则)
- 9. Full Author Bio (id="author-bio", 含 Factory Footprint)
-10. CTA (渐变背景 h2)
-11. Related Articles (id="related-articles")
-12. Sources & References
-13. Global blog-cta.njk (页面级通用 CTA)
+ 1. Hero Header         面包屑→标签→H1→Compact Author Bar→日期行
+ 2. The Hook            引入段落（≤2 段，开门见山，直击采购痛点）
+ 3. Featured Image      封面图 2240×1260，srcset 三档响应式
+ 4. Key Takeaways       合并 TL;DR 的总结段，amber 卡片，3-5 条量化要点
+ 5. Key Metrics Cards   可选，数据指标
+ 6. Table of Contents   含 #faq 锚点
+ 7. H2 Sections × N     标准灰底卡片，嵌入式 Expert Insight + Factory Stat
+ 8. FAQ                 id="faq"，8 条规则，答案量化 ≥1 个数字
+ 9. Full Author Bio     id="author-bio"，含 Factory Footprint（4 项工厂硬数据）
+10. CTA                 渐变背景，2 按钮：主 CTA + OEM/ODM Service
+11. Related Articles    id="related-articles"
+12. Sources & References 权威引用来源
+13. Global CTA          页面级 blog-cta.njk
 ```
 
 ---
@@ -59,7 +60,9 @@
         <p class="text-xs text-slate-500">Title · 10+ years in Specialty</p>
       </div>
     </div>
-    <!-- 日期行 -->
+    <!-- 日期行 — <time datetime> 统一 ISO 8601，展示格式按语言 -->
+    <!-- ⚠️ EN → Mon DD, YYYY | DE → DD.MM.YYYY | ES → DD de Mon de YYYY | FR → DD Mon YYYY -->
+    <!-- <time datetime="YYYY-MM-DD"> 的 ISO 值在所有语言中保持统一，只有展示文本变化 -->
     <div class="flex flex-wrap items-center gap-6 text-sm text-slate-500 pb-8 border-b border-slate-200">
       <span><time datetime="YYYY-MM-DD">Mon DD, YYYY</time></span>
       <span>N min read</span>
@@ -79,14 +82,14 @@
 
 ```html
 <div class="max-w-4xl mx-auto px-6 mb-8">
-  <div class="bg-brandBlue/5 border-l-4 border-brandOrange p-6 rounded-r-xl mb-8 speakable">
+  <div class="bg-brandBlue/5 border-l-4 border-brandOrange p-6 rounded-r-xl mb-8" data-speakable>
     <p class="text-lg text-slate-700 italic">引人入胜的痛点段落</p>
     <p class="text-slate-600 leading-relaxed mt-4">扩展数据段落</p>
   </div>
 </div>
 ```
 
-注意: Hook div 必须加 `speakable` class 以匹配 Schema 的 `cssSelector`.
+注意: Hook div 必须加 `data-speakable` 属性（或 `.speakable` class 作为回退）。这是 3 个 speakable 锚点中的第 1 个：Hook（痛点）→ Key Takeaways TL;DR（结论）→ FAQ 核心答案（决策）。超过 3 个会导致 AI 引擎抓取焦点分散。
 
 ### 3. Featured Image
 
@@ -110,14 +113,14 @@
 ```html
 <div class="bg-amber-50 border-l-4 border-amber-500 rounded-r-xl p-6 mb-8">
   <p class="text-[11px] font-black text-brandOrange uppercase tracking-widest mb-2">KEY TAKEAWAYS</p>
-  <p class="text-slate-700 leading-relaxed text-sm mb-4 speakable">TL;DR 总结段 — 2-3 句概括全文核心结论</p>
+  <p class="text-slate-700 leading-relaxed text-sm mb-4" data-speakable>TL;DR 总结段 — 2-3 句概括全文核心结论</p>
   <ul class="text-sm text-slate-700 space-y-2 list-disc pl-5">
     <li><strong>要点标题:</strong> 数据描述</li>
   </ul>
 </div>
 ```
 
-⚠️ **不再使用独立的 TL;DR 区块**。Key Takeaways 的 `<ul>` 列表或 Expert Insight 的 `<blockquote>` 也应添加 `speakable` class，确保 AI 提取时有足够上下文。
+⚠️ **不再使用独立的 TL;DR 区块**。speakable 锚点严格限制为 **3 个**：Hook 段落、KERNERKENNTNISSE TL;DR 句、FAQ 区最核心的一个答案段落。`<ul>` 列表和 Expert Insight 的 `<blockquote>` **不加** speakable——超过 3 个节点会导致 AI 抓取权重稀释。详见 `b2b-blog-quality-audit-standard.md` §III.3。
 
 ### 5. Table of Contents
 
@@ -251,11 +254,14 @@
 
 ### 11. Related Articles
 
+使用 `<aside>` 语义容器包裹，让搜索爬虫明确区分"正文推荐"与"全局侧栏/脚部"。卡片链接必须使用**语言前缀路径**（`/de/blog/...`），避免 DE 文章误链到 EN 文章。
+
 ```html
-<!-- Related Articles -->
-<section id="related-articles" class="mb-16">
+<!-- Related Articles — <aside> signals "supplementary content" to crawlers -->
+<aside id="related-articles" class="mb-16">
   <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-6">Related Articles</h2>
   <div class="grid md:grid-cols-3 lg:grid-cols-3">
+    <!-- ⚠️ 链接必须含语言前缀: /blog/ (EN) | /de/blog/ (DE) | /es/blog/ (ES) | /fr/blog/ (FR) -->
     <a href="/blog/article-slug" class="bg-slate-50 rounded-xl overflow-hidden hover:shadow-xl transition group">
       <div class="h-2 bg-gradient-to-r from-brandBlue to-brandOrange"></div>
       <div class="p-6">
@@ -265,114 +271,43 @@
       </div>
     </a>
   </div>
-</section>
+</aside>
 ```
 
 ### 12. Sources & References
+
+`rel` 属性按链接类型分级——权威标准机构保留 referrer 以建立共引信号（co-citation），商业/竞品站点剥离 referrer：
 
 ```html
 <!-- Sources & References -->
 <section class="max-w-4xl mx-auto px-6 mb-16">
   <h2 class="text-lg font-black text-brandBlue uppercase italic mb-4">Sources &amp; References</h2>
   <ul class="text-sm text-slate-600 space-y-2 list-disc pl-5">
-    <li><a href="https://source-url.com" target="_blank" rel="noopener noreferrer" class="text-brandBlue hover:text-brandOrange">Authority Source Name</a></li>
+    <!-- 权威行业标准/机构 → rel="noopener external"（保留 referrer，建立语义关联） -->
+    <li><a href="https://www.wirelesspowerconsortium.com/products" target="_blank" rel="noopener external" class="text-brandBlue hover:text-brandOrange">WPC Product Registry</a></li>
+    <li><a href="https://www.iec.ch/" target="_blank" rel="noopener external" class="text-brandBlue hover:text-brandOrange">IEC 62368-1 Standard</a></li>
+    <!-- 商业/竞品网站 → rel="noopener noreferrer nofollow"（剥离关联信号） -->
+    <li><a href="https://competitor-blog.com" target="_blank" rel="noopener noreferrer nofollow" class="text-brandBlue hover:text-brandOrange">Market Analysis Source</a></li>
   </ul>
 </section>
 ```
 
----
-
-## 三、JSON-LD Schema 规范
-
-### 必须包含的结构化数据
-
-```json
-{
-  "@context": "https://schema.org",           ← 仅此一处！
-  "@graph": [
-    {
-      "@type": "Organization",
-      "@id": "https://www.wowohcool.com/#organization",
-      "name": "WOWOHCOOL",
-      "legalName": "Dong Yi Technology Co., Ltd",
-      "url": "https://www.wowohcool.com/LANG/about/",
-      "publishingPrinciples": "https://www.wowohcool.com/LANG/about/",
-      "logo": "https://www.wowohcool.com/image/logo/wowohcool-logo.png",
-      "areaServed": [...],
-      "contactPoint": { "@type": "ContactPoint", "contactType": "OEM/ODM Sales", "availableLanguage": [...] }
-    },
-    { "@type": "BreadcrumbList" },
-    {
-      "@type": "BlogPosting",
-      "author": { "@type": "Person", "sameAs": ["LinkedIn URL"] },
-      "publisher": { "@id": "https://www.wowohcool.com/#organization" },
-      "about": { "@type": "Thing", "name": "Topic", "sameAs": "Wikidata URL" },
-      "speakable": { "cssSelector": ["h1","h2",".speakable"] }
-    },
-    { "@type": "HowTo" },
-    { "@type": "FAQPage" }
-  ]
-}
-```
-
-### Organization 节点强制字段
-
-**每篇 Blog 的 `@graph` 第一条必须是独立 Organization 节点，包含以下 4 个强制字段：**
-
-| 字段 | 值 | 说明 |
-|------|-----|------|
-| `name` | `"WOWOHCOOL"` | 品牌名，固定值 |
-| `legalName` | `"Dong Yi Technology Co., Ltd"` | 法定公司名，固定值 |
-| `url` | 按语言映射 | 见下表 |
-| `publishingPrinciples` | 同 `url` | 与 url 保持一致 |
-
-**`url` / `publishingPrinciples` 语言映射：**
-
-| 语言 | URL |
-|------|-----|
-| EN | `https://www.wowohcool.com/about/` |
-| DE | `https://www.wowohcool.com/de/about/` |
-| ES | `https://www.wowohcool.com/es/about/` |
-| FR | `https://www.wowohcool.com/fr/about/` |
-
-**BlogPosting 的 `publisher` 使用 `@id` 引用**（不重复定义 Organization），避免 JSON-LD 膨胀。
-
-### Schema 检查清单
-
-- [ ] `@context` 仅根级 1 处
-- [ ] **`@graph` 第一条 = Organization 节点**，含 `name`, `legalName`, `url`, `publishingPrinciples`, `logo`
-- [ ] Organization `url` 和 `publishingPrinciples` 按语言映射到正确的 `/about/` 路径
-- [ ] BlogPosting `publisher` 使用 `@id` 引用（不重复定义 Organization）
-- [ ] 所有 URL 末尾带 `/`
-- [ ] `about.sameAs` 绑定 Wikidata ID
-- [ ] FAQPage Schema 与 HTML FAQ 正文**逐字一致**
-- [ ] `speakable` 选择器包含 `.speakable`，且 Hook 段落有 `speakable` class
+| 链接类型 | `rel` 属性 | 原因 |
+|---------|-----------|------|
+| 行业标准/认证机构（WPC, IEC, IEEE, TÜV, USB-IF） | `noopener external` | 保留 referrer → 对方日志可见引用来源 → 建立 co-citation 语义关联 |
+| 政府/法规（EU, BMWK, Stiftung EAR） | `noopener external` | 同上，公共数据源 |
+| 商业站点/竞品/媒体 | `noopener noreferrer nofollow` | 剥离 referrer + 不传递 PageRank |
 
 ---
 
-## 四、工厂数据统一值
+## 三、Schema & 数据 & FAQ — 权威源指针
 
-详见 `context/factory-data-canonical.md`
+排版规范只定义 HTML 结构和 CSS 类名。Schema 模板、工厂数据、FAQ 规则等由以下权威文件管辖，不在此重复：
 
-| 项目 | 值 |
-|------|-----|
-| MOQ | 500-1,000 (标准), 3,000+ (Custom OEM) |
-| OEM Lead Time | 25-30 days after sample approval |
-| ODM Lead Time | 45-60 days (including mold) |
-| 支付 | 30% deposit + 70% before shipment (T/T) |
-| CE/FCC/RoHS | $2,000-4,000 (含 UN38.3) |
-| Single-port Mold | $2,000-5,000 |
-| PCB Design + NRE | $2,000-5,000 |
-
----
-
-## 五、FAQ 常见问题修复模板
-
-| 问题类型 | 修复 |
-|---------|------|
-| 消费者语言 ("What is X?") | 改为采购决策视角 ("What X specs should OEM buyers verify?") |
-| 末题无 CTA | 最后 1 题加 CTA 桥梁链接 |
-| 问题数 <5 | 从 Schema 补齐到 ≥5 题 |
-| Schema 与正文不一致 | 逐字同步 |
-| H4 FAQ 标签 | 全部用 `<h3>` |
-| TOC 缺 FAQ | 补 `#faq` 链接 |
+| 需求 | 权威源 | 说明 |
+|------|--------|------|
+| JSON-LD Schema 完整模板 | `context/b2b-schema-template.json` | 7 节点，`json.load()` 直验。占位符替换规则见 `b2b-multilingual-metadata-standard.md` §二 |
+| Schema 设计原理 + 语言映射 | `context/b2b-multilingual-metadata-standard.md` | Organization 节点强制字段、FAQ 8 规则、wordCount 验证脚本 |
+| 工厂数据统一值 | `context/factory-data-canonical.md` | MOQ、Lead Time、认证成本、模具费用——全站唯一数据源 |
+| FAQ 质量规则 | `context/b2b-blog-quality-audit-standard.md` §III.4 | Rule 1-9、问题侧/答案侧分离评分、Body-Schema 逐字一致 |
+| Pre-Commit 自检清单 | `context/b2b-blog-quality-audit-standard.md` §X | 20 条发布前自检 |

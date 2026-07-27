@@ -585,12 +585,26 @@ drafts/
 ## Required Context Files
 
 Before writing, review these context files:
+
+**4-File B2B Authority System** (mandatory):
+- @context/b2b-blog-quality-audit-standard.md — Quality rules, 15 checks, FAQ 9 Rules, scoring
+- @context/blog-template-standard.md — HTML layout, CSS classes, 16-section ordering
+- @context/b2b-multilingual-metadata-standard.md — JSON-LD design, 4-language mappings
+- @context/b2b-schema-template.json — Production JSON-LD template (7 nodes)
+
+**Brand & Style**:
 - @context/brand-voice.md - your brand tone and messaging
 - @context/style-guide.md - Formatting rules
+- @context/writing-examples.md - Style reference
+
+**SEO & Links**:
 - @context/seo-guidelines.md - SEO requirements
 - @context/internal-links-map.md - Linking targets
+- @context/target-keywords.md - Keyword priority list
+
+**Product & Data**:
 - @context/features.md - your brand product information
-- @context/writing-examples.md - Style reference
+- @context/factory-data-canonical.md - Canonical factory numbers (MOQ, lead times, costs)
 
 ---
 

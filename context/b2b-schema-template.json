@@ -1,0 +1,101 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "{ORGANIZATION_ID}",
+      "name": "WOWOHCOOL",
+      "legalName": "Dong Yi Technology Co., Ltd",
+      "url": "{ORGANIZATION_URL}",
+      "publishingPrinciples": "{ORGANIZATION_URL}",
+      "logo": "https://www.wowohcool.com/image/wowohcool-logo-optimized.webp",
+      "areaServed": ["DE", "AT", "CH", "EU"],
+      "sameAs": [
+        "https://www.linkedin.com/company/wowohcool",
+        "https://www.facebook.com/wowohcoolelectronic",
+        "https://www.youtube.com/@WOWOHCOOL",
+        "https://x.com/wowohcool"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "OEM/ODM Sales",
+        "availableLanguage": ["English", "German", "Chinese"]
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "{WEBSITE_ID}",
+      "url": "{SITE_URL}",
+      "name": "{SITE_NAME}",
+      "inLanguage": "{LANG}",
+      "publisher": { "@id": "{ORGANIZATION_ID}" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "{HOME_LABEL}", "item": "{SITE_URL}" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "{BLOG_URL}" },
+        { "@type": "ListItem", "position": 3, "name": "{ARTICLE_SHORT_TITLE}", "item": "{CANONICAL_URL}" }
+      ]
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "{H1_TITLE}",
+      "description": "{META_DESCRIPTION}",
+      "author": {
+        "@type": "Person",
+        "name": "{AUTHOR_NAME}",
+        "url": "{AUTHOR_LINKEDIN}",
+        "jobTitle": "{AUTHOR_JOB_TITLE}",
+        "image": "{AUTHOR_IMAGE}",
+        "sameAs": ["{AUTHOR_LINKEDIN}"]
+      },
+      "publisher": { "@id": "{ORGANIZATION_ID}" },
+      "datePublished": "{PUBLISH_DATE}",
+      "dateModified": "{MODIFIED_DATE}",
+      "mainEntityOfPage": { "@type": "WebPage", "@id": "{CANONICAL_URL}" },
+      "wordCount": 0,
+      "inLanguage": "{LANG}",
+      "timeRequired": "{TIME_REQUIRED}",
+      "image": "{OG_IMAGE}",
+      "thumbnailUrl": "{OG_IMAGE}",
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", "h2", "[data-speakable]"] },
+      "about": { "@type": "Thing", "name": "{WIKIDATA_LABEL}", "sameAs": "{WIKIDATA_URL}" },
+      "citation": [
+        { "@type": "CreativeWork", "name": "{CITE_1_NAME}", "url": "{CITE_1_URL}" },
+        { "@type": "CreativeWork", "name": "{CITE_2_NAME}", "url": "{CITE_2_URL}" },
+        { "@type": "CreativeWork", "name": "{CITE_3_NAME}", "url": "{CITE_3_URL}" }
+      ]
+    },
+    {
+      "@type": "Person",
+      "name": "{AUTHOR_NAME}",
+      "jobTitle": "{AUTHOR_JOB_TITLE}",
+      "url": "{AUTHOR_LINKEDIN}",
+      "sameAs": ["{AUTHOR_LINKEDIN}"],
+      "image": "{AUTHOR_IMAGE}",
+      "worksFor": { "@type": "Organization", "name": "WOWOHCOOL (Dong Yi Technology Co., Ltd)" },
+      "knowsAbout": ["{KNOWS_ABOUT_1}", "{KNOWS_ABOUT_2}", "{KNOWS_ABOUT_3}"]
+    },
+    {
+      "@type": "HowTo",
+      "name": "{HOWTO_NAME}",
+      "description": "{HOWTO_DESC}",
+      "step": [
+        { "@type": "HowToStep", "position": 1, "name": "{STEP_1_NAME}", "itemListElement": [{ "@type": "HowToDirection", "text": "{STEP_1_TEXT}" }] },
+        { "@type": "HowToStep", "position": 2, "name": "{STEP_2_NAME}", "itemListElement": [{ "@type": "HowToDirection", "text": "{STEP_2_TEXT}" }] },
+        { "@type": "HowToStep", "position": 3, "name": "{STEP_3_NAME}", "itemListElement": [{ "@type": "HowToDirection", "text": "{STEP_3_TEXT}" }] }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "{FAQ_1_QUESTION}", "acceptedAnswer": { "@type": "Answer", "text": "{FAQ_1_ANSWER}" } },
+        { "@type": "Question", "name": "{FAQ_2_QUESTION}", "acceptedAnswer": { "@type": "Answer", "text": "{FAQ_2_ANSWER}" } },
+        { "@type": "Question", "name": "{FAQ_3_QUESTION}", "acceptedAnswer": { "@type": "Answer", "text": "{FAQ_3_ANSWER}" } },
+        { "@type": "Question", "name": "{FAQ_4_QUESTION}", "acceptedAnswer": { "@type": "Answer", "text": "{FAQ_4_ANSWER}" } },
+        { "@type": "Question", "name": "{FAQ_5_QUESTION}", "acceptedAnswer": { "@type": "Answer", "text": "{FAQ_5_ANSWER}" } }
+      ]
+    }
+  ]
+}

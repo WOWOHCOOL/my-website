@@ -5,6 +5,14 @@ Use this command to perform a final SEO optimization pass on completed articles 
 ## Usage
 `/optimize [article file]`
 
+## Canonical Context Files
+
+This command is governed by the 4-file B2B authority system:
+- `@context/b2b-blog-quality-audit-standard.md` — Quality rules, 15 checks, scoring thresholds
+- `@context/blog-template-standard.md` — HTML layout, CSS classes, DOM structure
+- `@context/b2b-multilingual-metadata-standard.md` — JSON-LD design, language mappings
+- `@context/b2b-schema-template.json` — Production JSON-LD template (7 nodes)
+
 ## What This Command Does
 1. Performs comprehensive SEO audit of article
 2. Fine-tunes keyword placement and density

@@ -1,6 +1,12 @@
 # B2B Audit Command
 
-Use this command to run a quick B2B content quality audit against 2026 Google standards on any article. Audit rules defined in `@context/b2b-blog-quality-audit-standard.md`; layout structure per `@context/blog-template-standard.md`.
+Use this command to run a quick B2B content quality audit against 2026 Google standards on any article.
+
+**Canonical context files** (the 4-file B2B authority system):
+- `@context/b2b-blog-quality-audit-standard.md` — Quality rules, 15 automated checks, scoring rubrics
+- `@context/blog-template-standard.md` — HTML layout, CSS classes, DOM structure, code examples
+- `@context/b2b-multilingual-metadata-standard.md` — JSON-LD design, 4-language mappings, wordCount verification
+- `@context/b2b-schema-template.json` — Production JSON-LD template, `json.load()` valid
 
 ## Usage
 `/b2b-audit [file path or URL]`

@@ -296,7 +296,9 @@ class B2BContentAuditor:
         article_type: Optional[str] = None,
         meta_title: Optional[str] = None,
         author_bio: Optional[str] = None,
-        language: str = 'en'
+        language: str = 'en',
+        syntax_only: bool = False,
+        verify_search_demand: bool = False
     ) -> Dict[str, Any]:
         """
         Run all B2B content checks. Auto-detects and preprocesses .njk files.
@@ -307,6 +309,8 @@ class B2BContentAuditor:
             meta_title: Optional meta title for additional context.
             author_bio: Optional author bio text for E-E-A-T audit.
             language: Content language code ('en', 'de', 'es', 'fr'). Default 'en'.
+            syntax_only: If True, run only fatal-error checks (schema parse, heading hierarchy, URL format).
+            verify_search_demand: If True, enable live WebSearch for FAQ verification.
 
         Returns:
             Dict with overall_score and per-check results.
@@ -317,10 +321,8 @@ class B2BContentAuditor:
         if is_njk(content):
             _njk_meta = njk_extract_meta(raw_content)
             content = njk_preprocess(content)
-            # Extract meta title/description from .njk if not explicitly provided
             if meta_title is None and _njk_meta.get('title'):
                 meta_title = _njk_meta['title']
-            # Extract author from frontmatter if not explicitly provided
         if author_bio is None and _njk_meta.get('author'):
             author_bio = _njk_meta['author']
 
@@ -332,6 +334,37 @@ class B2BContentAuditor:
         self.lang = language
         self.i18n = B2BI18n(language) if B2BI18n is not None else None
 
+        # ── syntax_only mode: fatal errors only, no NLP ──
+        if syntax_only:
+            schema_val = self._check_schema_validation(raw_content if is_njk(raw_content) else content)
+            hierarchy = self._check_heading_hierarchy(content)
+            url_quality = self._check_url_quality(
+                content=raw_content if is_njk(raw_content) else content,
+                canonical=_njk_meta.get('canonical') if _njk_meta else None
+            )
+            static_html = self._check_static_html_quality(raw_content if is_njk(raw_content) else content)
+            fatal_checks = [schema_val, hierarchy, url_quality, static_html]
+            fatal_scores = [c['score'] for c in fatal_checks if c['score'] is not None]
+            overall = round(sum(fatal_scores) / len(fatal_scores)) if fatal_scores else 100
+            return {
+                'overall_score': overall,
+                'syntax_only': True,
+                'opening_density': {'score': None}, 'tldr_block': {'score': None},
+                'h3_answer_length': {'score': None}, 'vague_headings': {'score': None},
+                'h2_b2b_density': {'score': None}, 'data_density': {'score': None},
+                'table_test': {'score': None}, 'stock_photo': {'score': None},
+                'faq_b2b_language': {'score': None}, 'author_eeat': {'score': None},
+                'weak_cta': {'score': None}, 'heading_hierarchy': hierarchy,
+                'url_quality': url_quality, 'cross_reference': {'score': None},
+                'schema_validation': schema_val, 'factory_data_canonical': {'score': None},
+                'static_html_quality': static_html,
+                'critical_issues': [i for c in fatal_checks for i in c.get('critical_issues', [])],
+                'warnings': [i for c in fatal_checks for i in c.get('warnings', [])],
+                'recommendations': [],
+                'scores_used': len(fatal_scores),
+                'checks_na': 13,
+            }
+
         # Extract author from JSON-LD in RAW content (before preprocessing strips it)
         _jsonld_author = self._extract_author_from_jsonld(raw_content) if is_njk(raw_content) else None
 
@@ -341,34 +374,29 @@ class B2BContentAuditor:
         data_density = self._check_data_density(content)
         table_test = self._check_table_test(content)
         stock_photo = self._check_stock_photos(content)
-        faq_lang = self._check_faq_language(raw_content)  # Use raw — HTML FAQ structure destroyed by preprocessor
+        faq_lang = self._check_faq_language(raw_content, verify_search=verify_search_demand)
 
-        # Author E-E-A-T check (uses author_bio + content + JSON-LD data)
         author_eeat = self._check_author_eeat(content, author_bio, _jsonld_author,
                                                 raw_content if is_njk(raw_content) else None)
 
-        # NEW: TL;DR block, vague headings, weak CTA, heading hierarchy, URL quality
         tldr = self._check_tldr_block(content)
         vague_headings = self._check_vague_headings(content)
         weak_cta = self._check_weak_cta(content)
         hierarchy = self._check_heading_hierarchy(content)
-        # URL check uses frontmatter canonical if available, otherwise scans content
         url_quality = self._check_url_quality(
             content=raw_content if is_njk(raw_content) else content,
             canonical=_njk_meta.get('canonical') if _njk_meta else None
         )
-        # Cross-reference: TL;DR vs FAQ vs Body consistency
         cross_ref = self._check_cross_reference_consistency(content)
         schema_val = self._check_schema_validation(raw_content if is_njk(raw_content) else content)
-
-        # Check 16: Factory data canonical verification
         factory_data = self._check_factory_data_canonical(content)
+        static_html = self._check_static_html_quality(raw_content if is_njk(raw_content) else content)
 
         # Composite: all non-None scores averaged equally
         all_checks = [opening, h3_answer, h2_density, data_density,
                       table_test, stock_photo, faq_lang, author_eeat,
                       tldr, vague_headings, weak_cta, hierarchy, url_quality,
-                      cross_ref, schema_val, factory_data]
+                      cross_ref, schema_val, factory_data, static_html]
         scores = []
         for check in all_checks:
             s = check.get('score')
@@ -405,6 +433,7 @@ class B2BContentAuditor:
             'cross_reference': cross_ref,
             'schema_validation': schema_val,
             'factory_data_canonical': factory_data,
+            'static_html_quality': static_html,
             'critical_issues': critical_issues,
             'warnings': warnings,
             'recommendations': recommendations,
@@ -713,6 +742,13 @@ class B2BContentAuditor:
         equipment = NAMED_EQUIPMENT_RE.findall(body)
         data_points += len(equipment)
 
+        # Count semantic GEO tags: <cite>, <data value="...">, <time datetime="...">
+        cite_tags = len(re.findall(r'<cite[^>]*>', body, re.IGNORECASE))
+        data_tags = len(re.findall(r'<data\s+value=', body, re.IGNORECASE))
+        time_tags = len(re.findall(r'<time\s+datetime=', body, re.IGNORECASE))
+        semantic_tags = cite_tags + data_tags + time_tags
+        data_points += semantic_tags * 2  # Each semantic tag = 2x weight (AST-level signal)
+
         per_1000 = round((data_points / word_count) * 1000, 1)
 
         # Score: staged — ≥3/k = 100, 2-2.9 = 70 (warning), 1-1.9 = 40, <1 = 10 (critical)
@@ -749,6 +785,7 @@ class B2BContentAuditor:
             'data_points_per_1000': per_1000,
             'units_found': sorted(units_set),
             'word_count': word_count,
+            'semantic_tags': {'cite': cite_tags, 'data': data_tags, 'time': time_tags} if semantic_tags > 0 else None,
             'critical_issues': [i['issue'] for i in issues if i['severity'] == 'high'],
             'warnings': [i['issue'] for i in issues if i['severity'] == 'medium'],
             'recommendations': [i['fix'] for i in issues],
@@ -941,105 +978,134 @@ class B2BContentAuditor:
     # 7. Final Question = CTA Bridge: Last FAQ naturally transitions to the buyer's next action
     # 9. Cross-Reference Consistency: FAQ numbers match TL;DR and body — no discrepancies between sources
 
-    def _check_faq_language(self, content: str) -> Dict[str, Any]:
-        """Verify FAQ questions use B2B buyer/procurement language, not consumer language."""
-        faq_questions = self._extract_faq_questions(content)
+    def _check_faq_language(self, content: str, verify_search: bool = False) -> Dict[str, Any]:
+        """
+        Verify FAQ language quality with question/answer side separation.
+
+        Question-side (20% weight): Check for consumer language patterns only.
+          Natural search language is ACCEPTED — real buyers type colloquial queries.
+          Only flag clear consumer-intent patterns ("best", "cheap", "for home").
+
+        Answer-side (80% weight): Check B2B vocabulary density + quantified data.
+          Answers must carry procurement depth: MOQ, FOB, certification, lead time,
+          compliance terms, and at least 1 specific number.
+        """
+        schema_faq_qs = self._extract_faq_questions(content)    # from JSON-LD Schema
+        body_faq_qs = self._extract_body_faq_questions(content)  # from HTML body
+
+        # Use body FAQ if available (real rendered text), fallback to Schema
+        faq_questions = body_faq_qs if body_faq_qs else schema_faq_qs
 
         if not faq_questions:
             return {
-                'score': None,  # N/A — no FAQ section
-                'total_faq': 0, 'b2b_faq': 0, 'consumer_language_faq': 0,
-                'critical_issues': [], 'warnings': [],
-                'recommendations': []
+                'score': None, 'total_faq': 0,
+                'question_side_score': None, 'answer_side_score': None,
+                'critical_issues': [], 'warnings': [], 'recommendations': []
             }
 
-        b2b_count = 0
+        # ── Extract FAQ answers from HTML body ──
+        faq_answers = self._extract_body_faq_answers(content)
+
+        # ── Question-Side (20%): flag consumer language only ──
+        consumer_patterns = self.i18n.get_patterns('CONSUMER_LANGUAGE') if self.i18n else CONSUMER_LANGUAGE
         consumer_count = 0
         consumer_questions = []
 
         for q in faq_questions:
-            is_b2b = False
-            is_consumer = False
-
-            b2b_patterns = self.i18n.get_patterns('B2B_BUYER_LANGUAGE') if self.i18n else B2B_BUYER_LANGUAGE
-            consumer_patterns = self.i18n.get_patterns('CONSUMER_LANGUAGE') if self.i18n else CONSUMER_LANGUAGE
-
-            for pattern in b2b_patterns:
-                if pattern.search(q):
-                    is_b2b = True
-                    break
-
             for pattern in consumer_patterns:
                 if pattern.search(q):
-                    is_consumer = True
+                    consumer_count += 1
                     consumer_questions.append({
-                        'question': q,
-                        'suggested_fix': 'Rephrase with B2B procurement language: '
-                                         'use MOQ, OEM, FOB, certification, lead time, compliance terms'
+                        'question': q[:120],
+                        'suggested_fix': 'Replace consumer phrasing with procurement context. '
+                                         'Natural search language is fine — just avoid consumer-intent signals.'
                     })
                     break
 
-            if is_b2b:
-                b2b_count += 1
-            if is_consumer:
-                consumer_count += 1
+        total_q = len(faq_questions)
+        question_side_score = round(((total_q - consumer_count) / total_q) * 100) if total_q > 0 else 100
 
-        total = len(faq_questions)
-        score = round((b2b_count / total) * 100) if total > 0 else 0
+        # ── Answer-Side (80%): B2B vocabulary + quantified data ──
+        b2b_patterns = self.i18n.get_patterns('B2B_BUYER_LANGUAGE') if self.i18n else B2B_BUYER_LANGUAGE
+        b2b_answer_count = 0
+        answers_with_data = 0
 
-        # Detect artificially long FAQ questions (>15 words = likely fabricated B2B-vocabulary, not real search query)
+        for answer_text in faq_answers:
+            # B2B vocabulary check
+            has_b2b = any(pattern.search(answer_text) for pattern in b2b_patterns)
+            if has_b2b:
+                b2b_answer_count += 1
+
+            # Quantified data check: at least 1 number + unit or currency
+            if re.search(r'\d+[\s]*(?:°C|mV|kHz|Wh/kg|mm|EUR|USD|€|\$|%|Watt|W\b)', answer_text):
+                answers_with_data += 1
+
+        total_a = len(faq_answers) if faq_answers else total_q
+        b2b_density = round((b2b_answer_count / total_a) * 100) if total_a > 0 else 0
+        data_density = round((answers_with_data / total_a) * 100) if total_a > 0 else 0
+        answer_side_score = round(b2b_density * 0.6 + data_density * 0.4)
+
+        # ── Weighted composite: 20% question-side + 80% answer-side ──
+        score = round(question_side_score * 0.2 + answer_side_score * 0.8)
+
+        # Fanout long questions (>15 words may reduce GEO citation match)
         long_questions = []
         for i, q_text in enumerate(faq_questions):
             word_count = len(q_text.split())
             if word_count > 15:
                 long_questions.append({
-                    'index': i + 1,
-                    'question': q_text[:100],
-                    'words': word_count,
-                    'issue': f'FAQ #{i + 1} is {word_count} words — real buyer search queries are typically 5-12 words. '
-                             'Long artificial B2B questions reduce GEO citation match rate.',
-                    'fix': 'Rewrite in natural search language: short keyword anchor + conversational follow-through. '
-                           'Example: "mAh vs Wh — which spec should OEM buyers use?" not '
-                           '"How should OEM buyers specify mAh vs Wh on product labeling and compliance documentation?"',
+                    'index': i + 1, 'question': q_text[:100], 'words': word_count,
+                    'issue': f'FAQ #{i + 1} is {word_count} words — real buyer queries are typically 5-12 words.',
+                    'fix': 'Shorten: keep the question mark, use em-dash format. '
+                           'Example: "mAh vs Wh — which spec should OEM buyers use?"'
                 })
 
         if long_questions:
             score = max(0, score - (len(long_questions) * 5))
 
+        # ── Issues ──
         issues = []
         if consumer_count > 0:
             issues.append({
-                'issue': f'{consumer_count}/{total} FAQ questions use consumer language instead of B2B buyer language',
-                'fix': 'Rewrite FAQ questions with procurement context. '
-                       'Use natural search language: short keyword-driven opening + B2B value in the answer, not forced into the question. '
-                       'Example: "mAh vs Wh — which spec should OEM buyers use?" not "What is mAh vs Wh?"',
+                'issue': f'{consumer_count}/{total_q} FAQ questions use consumer language (question-side)',
+                'fix': 'Question-side: remove consumer-intent signals. Natural search phrasing is fine.',
+                'severity': 'low'
+            })
+        if answer_side_score < 50:
+            issues.append({
+                'issue': f'FAQ answers lack B2B depth: {b2b_answer_count}/{total_a} have B2B vocabulary, '
+                         f'{answers_with_data}/{total_a} have quantified data',
+                'fix': 'Answer-side: add procurement terms (MOQ, FOB, certification) + at least 1 specific number per answer.',
                 'severity': 'medium'
             })
+        for lq in long_questions:
+            issues.append({'issue': lq['issue'], 'fix': lq['fix'], 'severity': 'medium'})
 
-        if long_questions:
-            for lq in long_questions:
-                issues.append({
-                    'issue': lq['issue'],
-                    'fix': lq['fix'],
-                    'severity': 'medium',
-                })
+        # Rule 2 notice
+        if verify_search:
+            rule2_notice = (
+                'FAQ search-demand verification (live): WebSearch each question against '
+                'OEM/factory/supplier/sourcing qualifiers + Alibaba/Global Sources cross-check.'
+            )
+        else:
+            rule2_notice = (
+                'MANUAL VERIFICATION REQUIRED (Rule 2): Verify all FAQ questions via '
+                '(1) Google search — do supplier/competitor pages answer the same question? '
+                '(2) Competitor FAQ audit — check 3-5 B2B sites for matching questions. '
+                '(3) Alibaba/Global Sources RFQ cross-check.'
+            )
 
-        # Rule 2: All FAQ questions require manual search-demand verification
-        rule2_notice = (
-            'MANUAL VERIFICATION REQUIRED (Rule 2): Verify all FAQ questions via '
-            '(1) Google search — do supplier/competitor pages answer the same question? '
-            '(2) Competitor FAQ audit — check 3-5 B2B sites for matching questions. '
-            '(3) Alibaba/Global Sources RFQ cross-check. '
-            'FAQ questions must reflect real buyer searches, not fabricated B2B vocabulary.'
-        )
-        if total > 0:
-            recommendations = [i['fix'] for i in issues]
+        recommendations = [i['fix'] for i in issues]
+        if total_q > 0:
             recommendations.append(rule2_notice)
 
         return {
             'score': score,
-            'total_faq': total,
-            'b2b_faq': b2b_count,
+            'total_faq': total_q,
+            'question_side_score': question_side_score,
+            'answer_side_score': answer_side_score,
+            'answers_with_b2b': b2b_answer_count,
+            'answers_with_data': answers_with_data,
             'consumer_language_faq': consumer_count,
             'consumer_questions': consumer_questions,
             'rule2_manual_verification_required': True,
@@ -1647,6 +1713,80 @@ class B2BContentAuditor:
             'recommendations': [i['fix'] for i in formatted_issues],
         }
 
+    # ── Check 17: Static HTML Quality (5 Common Bugs from 5-Article Production Audit) ──
+
+    def _check_static_html_quality(self, content: str) -> Dict[str, Any]:
+        """Detect 5 recurring bugs discovered during production optimization of 5 DE articles."""
+        score = 100
+        issues = []
+
+        # Bug 1: Tailwind mb-N!text-white missing space (CSS parse failure)
+        tailwind_bug = re.findall(r'mb-\d+!text-white', content)
+        if tailwind_bug:
+            score -= 10
+            issues.append(
+                f'CSS parse error: "{tailwind_bug[0]}" is missing a space → '
+                f'replace with "{tailwind_bug[0].replace("!", " !")}" in TOC heading. '
+                f'Tailwind strips this class silently — white text may not render on dark background.'
+            )
+
+        # Bug 2: class="speakable" residual (should be data-speakable attribute)
+        speakable_class_count = len(re.findall(
+            r'class=["\'][^"\']*\bspeakable\b[^"\']*["\']', content
+        ))
+        if speakable_class_count > 0:
+            score -= 5
+            issues.append(
+                f'{speakable_class_count} element(s) use class="speakable" → '
+                f'replace with data-speakable attribute (PurgeCSS-immune, self-documenting in static HTML). '
+                f'Update Schema cssSelector to ["h1","h2","[data-speakable]"]] if not already done.'
+            )
+
+        # Bug 3: ManufacturingBusiness residual (should be Organization)
+        if '"@type": "ManufacturingBusiness"' in content:
+            score -= 10
+            issues.append(
+                'Schema uses ManufacturingBusiness → replace with Organization + '
+                'add legalName, publishingPrinciples, contactPoint fields per '
+                'b2b-multilingual-metadata-standard.md §二'
+            )
+
+        # Bug 4: inLanguage lacks regional suffix (SEO-GEO precision)
+        bare_lang = re.findall(r'"inLanguage":\s*"(de|en|es|fr)"(?!-)', content)
+        if bare_lang:
+            score -= 5
+            issues.append(
+                f'inLanguage "{bare_lang[0]}" lacks regional suffix → '
+                f'replace with "{bare_lang[0]}-{bare_lang[0].upper()}" (e.g., de-DE, en-US, es-ES, fr-FR). '
+                f'Regional suffix improves GEO citation matching for country-specific AI queries.'
+            )
+
+        # Bug 5: FAQ TOC anchor missing (broken anchor jump)
+        has_faq_section = bool(re.search(r'<section[^>]*id=["\']faq["\']', content))
+        toc_has_faq = bool(re.search(r'href=["\']#faq["\']', content))
+        if has_faq_section and not toc_has_faq:
+            score -= 5
+            issues.append(
+                'FAQ section has id="faq" but TOC has no <a href="#faq"> link → '
+                'add FAQ link to Table of Contents for accessible anchor navigation'
+            )
+
+        # Collect issues by severity
+        critical = [i for i in issues if 'ManufacturingBusiness' in i or 'CSS parse error' in i]
+        warnings = [i for i in issues if i not in critical]
+
+        return {
+            'score': max(0, score),
+            'tailwind_bug_found': len(tailwind_bug) > 0 if tailwind_bug else False,
+            'speakable_class_count': speakable_class_count,
+            'manufacturing_business_residual': '"@type": "ManufacturingBusiness"' in content,
+            'bare_in_language': bare_lang[0] if bare_lang else None,
+            'toc_faq_anchor_missing': has_faq_section and not toc_has_faq,
+            'critical_issues': critical,
+            'warnings': warnings,
+            'recommendations': [i for i in issues],
+        }
+
     # ── Check 14: Schema Validation (JSON-LD Syntax + Required Fields + Slash Consistency) ──
 
     def _check_schema_validation(self, content: str) -> Dict[str, Any]:
@@ -1772,16 +1912,31 @@ class B2BContentAuditor:
                     f'and Schema URLs: {slash_mismatches[:3]} → all must use same trailing-slash format'
                 )
 
-        # ── Step 5: speakable class + SpeakableSpecification consistency ──
+        # ── Step 5: data-speakable attribute + SpeakableSpecification consistency ──
+        # Check both data-speakable (preferred) and .speakable class (fallback)
+        has_speakable_attr = bool(re.search(r'data-speakable', content))
         has_speakable_class = bool(re.search(r'class=["\'][^"\']*\bspeakable\b', content))
+        has_any_speakable = has_speakable_attr or has_speakable_class
         has_speakable_spec = bool(re.search(r'SpeakableSpecification', content))
+
+        # Count speakable nodes (enforce exactly 3 per standard)
+        # Strip <script> blocks first — JSON-LD contains "[data-speakable]" string which is NOT a DOM anchor
+        body_only = re.sub(r'<script[^>]*>.*?</script>', '', content, flags=re.DOTALL)
+        speakable_attr_count = len(re.findall(r'data-speakable', body_only))
+        speakable_class_count = len(re.findall(r'class=["\'][^"\']*\bspeakable\b', body_only))
+        total_speakable = speakable_attr_count + speakable_class_count
 
         if not has_speakable_spec:
             score -= 10
-            issues.append('Missing SpeakableSpecification in JSON-LD Schema → add with cssSelector: ["h1", "h2", ".speakable"]')
-        elif has_speakable_spec and not has_speakable_class:
+            issues.append('Missing SpeakableSpecification in JSON-LD Schema → add with cssSelector: ["h1", "h2", "[data-speakable]"]')
+        elif has_speakable_spec and not has_any_speakable:
             score -= 5
-            issues.append('SpeakableSpecification present in Schema but no HTML element has class="speakable" → add speakable class to KEY TAKEAWAYS summary paragraph')
+            issues.append('SpeakableSpecification present in Schema but no HTML element has data-speakable or class="speakable" → add exactly 3 data-speakable anchors (Hook, TL;DR, Quick Answer)')
+        elif total_speakable != 3:
+            score -= 3
+            issues.append(f'Speakable node count: {total_speakable} (recommended: exactly 3). '
+                          f'More than 3 dilutes AI extraction weight; fewer than 3 misses extraction opportunities. '
+                          f'Target: 1 Hook + 1 KERNERKENNTNISSE TL;DR + 1 SCHNELLANTWORT.')
 
         # ── Step 6: TOC ↔ FAQ anchor consistency ──
         has_faq_section = bool(re.search(r'<section[^>]*id=["\']faq["\']', content))
@@ -2286,6 +2441,47 @@ class B2BContentAuditor:
             questions = re.findall(r'<h3[^>]*>([^<]+)</h3>', faq_section)
         return [q.strip() for q in questions]
 
+    def _extract_body_faq_answers(self, content: str) -> List[str]:
+        """Extract FAQ answer text from raw HTML body (for answer-side B2B scoring)."""
+        answers = []
+        faq_section_match = re.search(r'<section[^>]*id=["\']faq["\'][^>]*>', content, re.IGNORECASE)
+        if not faq_section_match:
+            faq_section_match = re.search(r'<div[^>]*id=["\']faq["\'][^>]*>', content, re.IGNORECASE)
+        if faq_section_match:
+            faq_section = content[faq_section_match.start():]
+            depth = 0
+            pos = len('<section')
+            end_pos = len(faq_section)
+            while pos < len(faq_section):
+                next_open = faq_section.find('<section', pos)
+                next_close = faq_section.find('</section>', pos)
+                if next_close < 0:
+                    break
+                if 0 <= next_open < next_close:
+                    depth += 1
+                    pos = next_open + 8
+                else:
+                    if depth == 0:
+                        end_pos = next_close
+                        break
+                    depth -= 1
+                    pos = next_close + 10
+            faq_section = faq_section[:end_pos]
+            # Extract text from <p> elements inside FAQ items (faq-answer divs or direct children)
+            answer_blocks = re.findall(
+                r'<p[^>]*class=["\'][^"\']*faq-answer[^"\']*["\'][^>]*>(.*?)</p>',
+                faq_section, re.DOTALL
+            )
+            if not answer_blocks:
+                # Fallback: extract all <p> text after each <h3> within FAQ section
+                answer_blocks = re.findall(
+                    r'<p[^>]*>(.*?)</p>',
+                    faq_section, re.DOTALL
+                )
+            answers = [re.sub(r'<[^>]+>', ' ', a).strip() for a in answer_blocks]
+            answers = [re.sub(r'\s+', ' ', a).strip() for a in answers if a.strip()]
+        return answers
+
 
 # ── Module-level convenience function ──
 
@@ -2294,7 +2490,9 @@ def audit_b2b_content(
     article_type: Optional[str] = None,
     meta_title: Optional[str] = None,
     author_bio: Optional[str] = None,
-    language: str = 'en'
+    language: str = 'en',
+    syntax_only: bool = False,
+    verify_search_demand: bool = False
 ) -> Dict[str, Any]:
     """
     Convenience function: audit B2B blog content against 2026 Google standards.
@@ -2305,12 +2503,15 @@ def audit_b2b_content(
         meta_title: Optional meta title.
         author_bio: Optional author bio text.
         language: Content language code. Default 'en'.
+        syntax_only: If True, run only fatal-error checks (HTML syntax, heading hierarchy, URL format, schema parse). No NLP.
+        verify_search_demand: If True, enable live WebSearch for FAQ question verification.
 
     Returns:
         Dict with overall_score and per-check results.
     """
     auditor = B2BContentAuditor()
-    return auditor.audit(content, article_type, meta_title, author_bio, language)
+    return auditor.audit(content, article_type, meta_title, author_bio, language,
+                         syntax_only=syntax_only, verify_search_demand=verify_search_demand)
 
 
 # ── CLI Entry Point ──
@@ -2341,6 +2542,7 @@ def _format_report(result: Dict[str, Any]) -> str:
         ('Cross-Reference Consistency', 'cross_reference'),
         ('Schema Validation', 'schema_validation'),
         ('Factory Data Canonical', 'factory_data_canonical'),
+        ('Static HTML Quality', 'static_html_quality'),
     ]
 
     for label, key in checks:
@@ -2379,14 +2581,32 @@ def main():
         sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
 
     if len(sys.argv) < 2:
-        print("Usage: python b2b_content_auditor.py <article.md> [--lang de|es|fr] [article_type]")
+        print("Usage: python b2b_content_auditor.py <article.md> [options] [article_type]")
         print("  article_type: technical | procurement | oem_core (auto-detected if omitted)")
-        print("  --lang de|es|fr: article language (auto-detected from canonical URL if omitted)")
+        print("  Options:")
+        print("    --lang de|es|fr       Article language (auto-detected from canonical URL if omitted)")
+        print("    --check-syntax-only    Fatal errors only: HTML syntax, heading hierarchy, URL format, schema parse (< 1s)")
+        print("    --score-only           Output numeric score only (for CI/CD gating)")
+        print("    --verify-search-demand  Enable live WebSearch for FAQ question verification (disabled by default for offline/CI)")
         sys.exit(1)
 
-    # Parse --lang flag
+    # Parse flags
     language = 'en'
+    check_syntax_only = False
+    score_only = False
+    verify_search_demand = False
     args = sys.argv[1:]
+
+    for flag in ['--check-syntax-only', '--score-only', '--verify-search-demand']:
+        if flag in args:
+            if flag == '--check-syntax-only':
+                check_syntax_only = True
+            elif flag == '--score-only':
+                score_only = True
+            elif flag == '--verify-search-demand':
+                verify_search_demand = True
+            args.remove(flag)
+
     if '--lang' in args:
         idx = args.index('--lang')
         if idx + 1 < len(args):
@@ -2401,8 +2621,16 @@ def main():
     with open(file_path, 'r', encoding='utf-8') as f:
         content = f.read()
 
-    result = audit_b2b_content(content, article_type=article_type, language=language)
-    print(_format_report(result))
+    result = audit_b2b_content(
+        content, article_type=article_type, language=language,
+        syntax_only=check_syntax_only,
+        verify_search_demand=verify_search_demand
+    )
+
+    if score_only:
+        print(result['overall_score'])
+    else:
+        print(_format_report(result))
 
 
 if __name__ == "__main__":

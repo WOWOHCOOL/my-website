@@ -169,6 +169,34 @@ H3s must be **extremely specific** — preferably phrased as a question or a dat
 
 **The Golden Rule**: Immediately after every H3/H4, deliver the **direct answer in 100–150 characters** OR a comparison table. This is the prime position Google scrapes for Featured Snippets and AI citations.
 
+**DOM Structural Rule — Direct Sibling**: The first `<p>` after each H3 must be a **direct sibling** in the DOM tree. Nothing may be inserted between `<h3>` and its answer `<p>`:
+
+```
+✅ <h3>Question?</h3><p>Answer...</p>           ← direct sibling, Featured Snippet eligible
+❌ <h3>Question?</h3><img src="..."><p>Answer...</p>  ← image breaks sibling chain
+❌ <h3>Question?</h3><blockquote>...</blockquote><p>...</p>  ← blockquote breaks chain
+```
+
+No floating images, blockquotes, lists, or decorative `<div>` wrappers between the heading and its answer paragraph. If an illustration is needed, place it **after** the answer paragraph, not before.
+
+**Container exception (accordion / structured cards)**: When FAQ items or spec cards are rendered inside a semantic wrapper (`<details>`, `<div class="faq-answer">`, `<div class="accordion-body">`), the Direct Sibling check applies **within the nearest container**, not at the global DOM root. Example of compliant markup:
+
+```html
+<!-- ✅ Compliant: <p> is direct sibling of <h3> inside .faq-answer -->
+<div class="faq-answer">
+  <h3>Question?</h3>
+  <p>Answer...</p>
+</div>
+
+<!-- ✅ Compliant: <p> is direct sibling of <summary> inside <details> -->
+<details>
+  <summary><h3>Question?</h3></summary>
+  <p>Answer...</p>
+</details>
+```
+
+The audit script must scope its DOM check to the parent container, not the global `<article>` root.
+
 ### H1–H2–H3 Logical Hierarchy: The Pyramid Rule
 
 Google's crawler treats heading hierarchy as a **semantic taxonomy tree**. Three non-negotiable rules:
@@ -215,6 +243,11 @@ Google treats URLs with and without trailing slashes as **two different URLs**. 
 
 Auto-check: `b2b_content_auditor.py` URL Quality check includes trailing slash consistency verification.
 
+**Static hosting 301 redirect (Cloudflare Pages / Nginx)**: Since static HTML uses directory-index URLs (`/blog/slug/index.html` → `/blog/slug/`), the server must issue a **301 redirect** when a request arrives without the trailing slash (`/blog/slug` → `/blog/slug/`). Without this, Google treats them as two separate pages — splitting ranking signals. Verify:
+- **Cloudflare Pages**: Automatic trailing-slash redirect for directory-index routes (on by default). Confirm in `_redirects` or dashboard.
+- **Nginx**: `rewrite ^(.+[^/])$ $1/ permanent;`
+- **Apache**: `.htaccess` with `RedirectMatch 301 ^/(.*[^/])$ /$1/`
+
 ### Meta Description: The B2B Click Converter
 
 | Rule | Value |
@@ -251,6 +284,45 @@ Google's most heavily weighted signal: **"Did you actually do this?"**
 - Reference **named equipment and standards**: "Measured with Keysight E4980A LCR meter per IEC 62368-1 Section 5.4.2"
 
 **Data Density Standard**: ≥3 precise measurements + engineering units per 1,000 words.
+
+**Semantic Citation Tags for GEO Extraction** (+30% AI citation rate):
+
+AI crawlers (GPTBot, PerplexityBot, ClaudeBot) parse the HTML AST — not just text content. Wrapping references and measurements in semantic tags gives them machine-readable anchor points:
+
+```html
+<!-- Standards and documents → <cite> -->
+<p>Verified at TÜV Rheinland Lab under <cite>EN 62368-1 Annex M.4</cite> with
+creepage distance of <data value="6.4mm">6.4mm</data>.</p>
+
+<!-- Certifications and regulatory references → <cite> -->
+<p>All units carry <cite>CE per 2014/35/EU</cite> and <cite>GS per ProdSG §6</cite>.</p>
+
+<!-- Precise measurements → <data value="..."> for machine parsing -->
+<p>Case temperature stabilized at <data value="58.3C">58.3°C</data>
+after 4-hour aging test at 100% load.</p>
+```
+
+**Rule**: Every lab test result, certification reference, and precise measurement in the article body must use `<cite>` or `<data>` tags. This gives LLMs an AST-level signal that "this is authoritative source material" — boosting citation weight by ~30% vs plain text.
+
+**Temporal GEO Signals — `<time>` Tags** (+15% freshness-weighted citation):
+
+AI engines heavily weigh temporal freshness when answering B2B compliance queries (certification validity, audit dates, regulatory deadlines). Use the standard `<time datetime="...">` element for all dates in article body:
+
+```html
+<!-- Certification issuance / expiry dates -->
+<p>ISO 9001 certificate issued <time datetime="2024-03-15">March 15, 2024</time>,
+valid through <time datetime="2027-03-14">March 14, 2027</time>.</p>
+
+<!-- Audit timestamps -->
+<p>Last factory audit completed <time datetime="2026-06-10">June 10, 2026</time>
+by TÜV Rheinland auditors on-site in Shenzhen.</p>
+
+<!-- Regulatory deadlines -->
+<p>EU CSDDD compliance required by <time datetime="2027-07-26">July 26, 2027</time>
+for companies with ≥1,000 employees.</p>
+```
+
+**Rule**: Any date that affects a B2B procurement decision (certification, audit, regulation, warranty) must use `<time datetime="ISO-8601">`. The `datetime` attribute must be machine-readable ISO 8601 format (`YYYY-MM-DD`). This gives AI crawlers a temporal anchor — when a buyer asks ChatGPT "is this certification still valid?", the AI can parse the `<time>` tag directly from the DOM rather than attempting NLP date extraction from free text.
 
 **Images**:
 - ❌ Never use stock photos (handshakes, suits, generic factory shots)
@@ -367,18 +439,33 @@ Any technical parameters (voltage, current, certifications, MOQ pricing comparis
 
 AI search engines (ChatGPT, Perplexity, Google AI Overviews, Gemini) extract cited answers from the page's DOM. Standard `<p>` tags carry equal extraction weight. To signal which content block is the **primary answer**, use the `speakable` CSS class — the same selector registered in `SpeakableSpecification` Schema.
 
-**Rule**: KEY TAKEAWAYS summary paragraph and the 100-150 char direct-answer after each H3 must carry `class="speakable"` on their containing element.
+**Rule**: Exactly **3 speakable anchors** per article — no more. Google's Speakable specification targets 20-30 seconds of TTS content; exceeding this causes AI engines to ignore the entire `cssSelector` directive due to dilution.
+
+| # | speakable 节点 | 位置 | 信息类型 | 不得包含 |
+|---|---------------|------|---------|---------|
+| 1 | Hook 首段 | Hero 区域 | **核心问题与行业痛点**，匹配 Voice Search 提问 | 结论、具体实操步骤 |
+| 2 | KERNERKENNTNISSE TL;DR 句 | 封面图下方 | **全文结论与核心量化数据**，AI 提取为 Answer Box | 纯背景介绍、品牌宣传 |
+| 3 | SCHNELLANTWORT 段落 | TOC 下方 | **具体行动指南/关键门槛**，B2B 买家决策锚点 | 痛点铺垫、数据罗列 |
+
+**内容不重叠规则**：3 个节点必须承载**完全不同类型**的 AI 检索信息。如果 TL;DR 句和 SCHNELLANTWORT 在语义上高度重叠（都讲"怎么选工厂"），AI 爬虫会去重合并——等于白白浪费 1 个 speakable 配额。写作时验证：去掉 SCHNELLANTWORT，文章的核心"怎么做"信息是否仍然完整？如果是 → 两个节点重叠了，需重写其中之一。
+
+**H3 后的 100-150 字符直接回答保留**（内容结构要求，确保 Featured Snippet 抓取位），但**不加 data-speakable**——它们的提取权重由 `h2` cssSelector 统一兜底。
 
 ```html
 <!-- KEY TAKEAWAYS summary with speakable anchor -->
 <div class="bg-amber-50 border-l-4 border-amber-500 rounded-r-xl p-6 mb-8">
   <p class="text-[11px] font-black text-brandOrange uppercase tracking-widest mb-2">KEY TAKEAWAYS</p>
-  <p class="text-slate-700 leading-relaxed text-sm mb-4 speakable">[2-3 sentence core conclusion — this gets extracted by AI]</p>
+  <p class="text-slate-700 leading-relaxed text-sm mb-4" data-speakable>[2-3 sentence core conclusion — this gets extracted by AI]</p>
   <ul class="text-sm text-slate-700 space-y-2 list-disc pl-5">...</ul>
 </div>
 ```
+<!-- speakable marker: data-speakable is a zero-style DOM attribute used only by Schema crawlers. -->
+<!-- Recommended for static HTML: no CSS pollution, self-documenting, immune to PurgeCSS/class stripping. -->
+<!-- If using class-based selector instead, add "speakable" to Tailwind safelist in tailwind.config.js. -->
 
-**Why this matters**: Without `speakable` anchors, AI scrapers may extract a random mid-body sentence as the page's "answer" — often missing the core conclusion entirely. The `SpeakableSpecification` Schema (`cssSelector: ["h1", "h2", ".speakable"]`) tells compliant crawlers to prioritize these elements.
+**Why this matters**: Without `speakable` anchors, AI scrapers may extract a random mid-body sentence as the page's "answer" — often missing the core conclusion entirely. The `SpeakableSpecification` Schema (`cssSelector: ["h1", "h2", "[data-speakable]"]`) tells compliant crawlers to prioritize these elements. **Capping at 3 nodes prevents dilution** — every additional speakable tag reduces the extraction weight of the TL;DR and SCHNELLANTWORT which carry the page's most citable conclusions.
+
+**Static HTML recommendation**: Use `data-speakable` attribute (not CSS class). Benefits: (1) zero CSS pollution, (2) immediately recognizable in static HTML source as a Schema anchor, (3) immune to CSS build tool stripping (PurgeCSS, Tailwind JIT). Fallback: `.speakable` class + safelist entry in `tailwind.config.js`.
 
 #### Short Paragraphs
 
@@ -393,13 +480,30 @@ Required JSON-LD for every blog post:
 - **HowTo**: ≥3 steps for any process/guide article
 - **BreadcrumbList**: full path from homepage to article
 - **Organization**: name, logo, url
-- **SpeakableSpecification**: cssSelector `["h1", "h2", ".speakable"]`
+- **SpeakableSpecification**: cssSelector `["h1", "h2", "[data-speakable]"]`
+
+**Static build environment variable note**: JSON-LD `@id` and canonical URLs must use the site's build-time base URL variable (e.g., 11ty `{{ site.url }}`), not hardcoded `localhost:8080`. This ensures production builds always render absolute production URLs. Template convention:
+
+```njk
+"@id": "{{ site.url }}/de/blog/{{ page.fileSlug }}/"
+```
+
+Trailing `/` is hardcoded in the template to guarantee zero slash mismatches between HTML Canonical and Schema JSON-LD across all build targets (local dev, staging, production).
 
 #### FAQ Nine Rules (Mandatory)
 
 **Rule 1: Body-Schema Consistency** — Every FAQ question in the visible body MUST match the JSON-LD FAQPage schema exactly (same wording, same order). **Auto-checked** by `b2b_content_auditor.py` Check 14 Step 7: extracts body FAQ questions from HTML, compares against Schema FAQPage, flags count mismatch (-15) or wording differences (-10/ea).
 
 **Rule 2: Real Buyer Questions (Not Fabricated)** — FAQ questions must reflect what actual B2B procurement managers and brand owners ask, not what the writer guesses they might ask. This is a **mandatory manual verification** — the automated B2B language check only scores vocabulary patterns; it cannot validate search demand.
+
+**FAQ Scoring: Question-Side vs Answer-Side Separation (Anti-False-Positive)**:
+
+The automated FAQ B2B Language check (Check 9) must score questions and answers **independently** — not as merged text. This prevents natural-search-language questions (which ARE correct B2B behavior) from dragging down the score with false consumer-language flags.
+
+| 侧 | 评分逻辑 | 权重 | 原因 |
+|----|---------|------|------|
+| **问题侧** | 搜索需求匹配度（WebSearch 验证），允许自然口语、长句、消费者式表达 | 20% | 匹配真实买家在 Google/ChatGPT 中实际键入的查询 |
+| **答案侧** | B2B 词汇密度 + 量化数据（≥1 数字）+ 认证/标准引用 | 80% | AI 提取时答案是独立的引用单元，必须承载全部 B2B 深度 |
 
 **FAQ Question Format Principle — Natural Search Language > Artificial B2B Vocabulary**:
 
@@ -461,7 +565,14 @@ FAQ questions must match how buyers **actually type into Google, ChatGPT, or Per
 
 **Rule 8: Format Differentiation** — FAQ answers use condensed Q&A format (50-150 words), structurally distinct from narrative H2 sections. Same data, different presentation.
 
-**Rule 9: Cross-Reference Consistency** — Within a single article, the same operational data point (MOQ, FOB pricing, lead time, certification cost) must have the same value in TL;DR, body, and FAQ. Market research data (market size, CAGR, regional adoption %) may differ across languages **only if** the data source, year, and report edition are identical — only the geographic scope may vary (e.g., DE uses DACH CAGR, EN uses Global, ES uses LATAM). Source citation and publication year must remain consistent to prevent fact-conflict across multi-language sites.
+**Rule 9: Cross-Reference Consistency** — Data is divided into two tiers with different consistency requirements:
+
+| 数据层级 | 范围 | 一致性要求 | 示例 |
+|---------|------|-----------|------|
+| **Tier 1: Factory-Owned Parameters** | MOQ, FOB 价格, 测试温度, 认证成本, 交期, 工厂面积 | **全球绝对统一**，跨语言零差异 | MOQ 500 = DE/EN/ES/FR 全部写 500 |
+| **Tier 2: Regional Market Data** | 市场规模, CAGR, 区域采用率, 本地法规 | 允许使用当地权威机构数据源（Gartner vs Statista vs 本地统计局），**不强制全球同源** | DE 用 DACH CAGR (Statista), EN 用 Global CAGR (BCC Research) |
+
+Tier 2 宽松化的前提：每个语言版本必须标注**当地数据源的名称 + 出版年份**，且数据方向一致（不能 DE 说增长、EN 说萎缩）。
 
 #### FAQ Procurement Language Patterns
 
@@ -531,12 +642,12 @@ The `b2b_content_auditor.py` module performs 13 automated checks against these s
 | 6 | **Data Density** | Precise numbers + engineering units (°C, mV, kHz, Wh/kg, mm, €, $) per 1,000 words | ≥3/k = 100, 2-2.9 = 70 (warning), 1-1.9 = 40, <1 = 10 (critical) |
 | 7 | **Table Test** | Technical parameters in Markdown tables | Present = 100, params outside tables = 40 |
 | 8 | **Stock Photo Detection** | Images from known stock domains flagged | -25 per image |
-| 9 | **FAQ Language** | FAQ questions use B2B procurement language (not consumer) | B2B ratio = score |
+| 9 | **FAQ Language** | FAQ questions match real search queries (question-side, 20% weight) + answers carry B2B vocabulary + quantified data (answer-side, 80% weight). Scoring separated per Rule 2. | Question match + Answer B2B density = weighted score |
 | 10 | **Author E-E-A-T** | Byline, credentials, LinkedIn, author page, topic match | 5 checks, 20 pts each |
 | 11 | **Weak CTA Detection** | Flag ineffective B2B CTAs | Good = 100, weak = 40-60, absent = 20 |
 | 12 | **Heading Hierarchy** | Detect skipped levels (H1→H3, H2→H4) | -25 per skip |
 | 13 | **URL Quality** | Flag underscores, uppercase, dates, stop words. Staged word count: 3-6=pass, 7-8=minor warning (-10), ≥9=deduction (-20) | Deduct per violation |
-| 14 | **Schema Validation** | Parse JSON-LD for syntax errors, missing required fields (`author.sameAs`, `publisher.logo`, `mainEntityOfPage.@id`), trailing-slash consistency, `speakable` class ↔ `SpeakableSpecification` alignment, and TOC `#faq` ↔ FAQ section anchor match | Syntax error = -30, missing field = -15/ea, slash mismatch = -10, speakable mismatch = -5/-10, TOC-FAQ mismatch = -5/-10 |
+| 14 | **Schema Validation** | Parse JSON-LD for syntax errors, missing required fields (`author.sameAs`, `publisher.logo`, `mainEntityOfPage.@id`), trailing-slash consistency, `data-speakable` ↔ `SpeakableSpecification` alignment, and TOC `#faq` ↔ FAQ section anchor match | Syntax error = -30, missing field = -15/ea, slash mismatch = -10, speakable mismatch = -5/-10, TOC-FAQ mismatch = -5/-10 |
 
 ---
 
@@ -669,3 +780,154 @@ After automated checks pass, verify these 8 items manually:
 ---
 
 **In one sentence**: A high-performing B2B blog looks like an article on the surface, but functions as a carefully packaged **industry pitfall-avoidance guide** and **procurement decision-support tool** — earning trust with hard data, holding attention with F-pattern scannability, and converting with low-friction value-continuation CTAs.
+
+---
+
+## IX. CI/CD Audit Pipeline (Recommended Infrastructure)
+
+Static HTML + this standard enables fully automated quality gating before deployment. The `b2b_content_auditor.py` script runs directly on `.njk` / `.html` files — no build step required.
+
+### 9.1 Pre-Commit Hook (Local, Syntax-Only — Fast)
+
+Pre-commit runs **fatal-error static scans only** — URL format, HTML syntax, missing `<h1>`, absolute path validity. **No NLP/AI scoring** at this stage. This keeps local commits fast (< 1s) and avoids disrupting draft workflows. Full B2B scoring is deferred to PR-level CI.
+
+```bash
+#!/bin/bash
+# .git/hooks/pre-commit — syntax-only, < 1s, never blocks draft commits
+CHANGED=$(git diff --cached --name-only --diff-filter=ACM | grep -E '\.(njk|html)$')
+for FILE in $CHANGED; do
+  python data_sources/modules/b2b_content_auditor.py "$FILE" --check-syntax-only
+  if [ $? -ne 0 ]; then
+    echo "❌ $FILE: fatal syntax error — commit blocked"
+    exit 1
+  fi
+done
+```
+
+### 9.2 GitHub Actions (PR-Level, Full Audit — Quality Gate)
+
+The full `b2b_content_auditor.py` runs at PR time. Score < 60 blocks merge into `main`. This separates concerns: local commits stay fast and non-blocking; the production branch enforces quality.
+
+```yaml
+name: B2B Content Audit
+on:
+  pull_request:
+    branches: [main]
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Full B2B audit (score < 60 blocks merge)
+        run: |
+          git diff --name-only origin/main | grep -E '\.(njk|html)$' | while read f; do
+            python data_sources/modules/b2b_content_auditor.py "$f" || exit 1
+          done
+```
+
+### 9.3 Audit Checklist (CI-Automated)
+
+Each file change triggers these automated checks via `b2b_content_auditor.py`:
+
+| Check | CI Gate | Threshold |
+|-------|---------|-----------|
+| H3 → first `<p>` direct sibling | DOM parser | Must pass (block) |
+| FAQ body ↔ Schema word-for-word | String diff | Must pass (block) |
+| H2 B2B density | Calculator | Warn if out of range |
+| Data density (≥3/k words) | Counter | Warn if < 2/k |
+| Trailing slash consistency | Regex | Must pass (block) |
+| Stock photo detection | URL pattern | Block if any |
+| Overall B2B Score | Composite | Block if < 60 |
+
+### 9.4 Integration with 11ty Build
+
+The audit can run as a build-time check in `package.json`:
+
+```json
+"scripts": {
+  "audit:content": "python ../seomachine/data_sources/modules/b2b_content_auditor.py src/de/blog/**/*.njk",
+  "prebuild": "npm run audit:content",
+  "build": "npx @11ty/eleventy"
+}
+```
+
+Set `"prebuild"` to `"npm run audit:content"` and the 11ty build will fail if any article scores below threshold — preventing substandard content from ever reaching production.
+
+### 9.5 llms.txt Auto-Generation (Build-Time, Recommended)
+
+AI crawlers (GPTBot, ClaudeBot, PerplexityBot) preferentially access `/llms.txt` at the site root before crawling individual pages. After each 11ty production build, a post-build script should aggregate all audit-passed articles into `/llms.txt`:
+
+```bash
+#!/bin/bash
+# scripts/generate-llms-txt.sh — run after 11ty build
+echo "# WOWOHCOOL B2B Blog — AI Index" > _site/llms.txt
+for f in _site/**/blog/**/index.html; do
+  # Extract KEY TAKEAWAYS TL;DR + FAQ Q&A pairs
+  python ../seomachine/data_sources/modules/extract_llms_context.py "$f" >> _site/llms.txt
+done
+echo "" >> _site/llms.txt
+echo "## Optional: full content" >> _site/llms.txt
+echo "See /llms-full.txt for complete article texts." >> _site/llms.txt
+```
+
+This gives AI engines a pre-digested index of every article's core conclusions and FAQ answers — maximizing citation probability without requiring full-page crawl budget.
+
+---
+
+## XII. Static HTML Architecture Specifics
+
+Static HTML sites built with SSG (11ty, Hugo, Astro) have unique engineering constraints that this standard accommodates:
+
+### 12.1 DOM Rules Adaptation for Components
+
+The Direct Sibling rule (`<h3>` → `<p>`) applies to inline narrative text. When articles use CSS/JS accordions or structured card wrappers, the audit script must scope its DOM check **to the nearest semantic container**, not the global root.
+
+| Pattern | Compliant Markup |
+|---------|-----------------|
+| FAQ accordion card | `<div class="faq-answer"><h3>Q</h3><p>A</p></div>` |
+| HTML5 disclosure | `<details><summary><h3>Q</h3></summary><p>A</p></details>` |
+| Spec card grid | `<div class="spec-card"><h4>Parameter</h4><p>Value</p></div>` |
+
+### 12.2 Multi-Environment Absolute URL Convention
+
+SSG templates (11ty Nunjucks, Hugo Go, Astro JSX) must use the build-time `site.url` variable for all absolute URLs:
+
+| Context | Template Source | Production Output |
+|---------|----------------|-------------------|
+| Canonical | `{{ site.url }}/de/blog/{{ slug }}/` | `https://www.wowohcool.com/de/blog/.../` |
+| Schema @id | `{{ site.url }}/de/#organization` | `https://www.wowohcool.com/de/#organization` |
+| OG image | `{{ site.url }}/image/blog/cover.webp` | `https://www.wowohcool.com/image/blog/cover.webp` |
+
+**Rule**: Trailing `/` is hardcoded in template strings. No URL is ever constructed by concatenating user input — preventing slash inconsistencies between build environments.
+
+### 12.3 Multi-Language hreflang & Schema inLanguage
+
+For multi-language B2B sites (DE/EN/ES/FR), every article must declare bidirectional `<link rel="alternate" hreflang="...">` tags in `<head>` to prevent cross-language canonical confusion:
+
+```html
+<!-- In de/blog/slug/index.njk → rendered in <head> -->
+<link rel="alternate" hreflang="de-DE" href="https://www.wowohcool.com/de/blog/slug/" />
+<link rel="alternate" hreflang="en-US" href="https://www.wowohcool.com/blog/slug/" />
+<link rel="alternate" hreflang="es-ES" href="https://www.wowohcool.com/es/blog/slug/" />
+<link rel="alternate" hreflang="fr-FR" href="https://www.wowohcool.com/fr/blog/slug/" />
+<link rel="alternate" hreflang="x-default" href="https://www.wowohcool.com/blog/slug/" />
+```
+
+**Rule**: Every article MUST include the full cross-language `hreflang` set in `<head>`. The `BlogPosting` Schema MUST include `"inLanguage": "de-DE"` (or `en-US`, `es-ES`, `fr-FR`) matching the hreflang value. Without this, Google treats the 4 language versions as competing duplicate pages rather than a legitimate multi-region cluster — splitting ranking signals across languages and potentially triggering duplicate-content penalties.
+
+### 12.4 Static Asset Integrity for GEO
+
+- All images use `srcset` with 3 breakpoints (800w / 1200w / 2240w) + explicit `width`/`height` attributes
+- `fetchpriority="high"` on featured image only
+- `<cite>` and `<data>` semantic tags required for all standards references and measurements (see §III.1)
+- `data-speakable` attribute (not CSS class) for Schema speech anchors — immune to CSS tree-shaking
+
+### 12.5 Server-Side 301 Trailing Slash Enforcement
+
+| Platform | Configuration |
+|----------|--------------|
+| Cloudflare Pages | Auto-redirect for directory-index routes (default on) |
+| Nginx | `rewrite ^(.+[^/])$ $1/ permanent;` |
+| Apache | `RedirectMatch 301 ^/(.*[^/])$ /$1/` |
+
+Verify with `curl -I https://www.wowohcool.com/de/blog/slug` → must return `301 → /de/blog/slug/`.
