@@ -69,7 +69,13 @@ except ImportError:
 B2B_SIGNAL_WORDS = [
     'OEM', 'ODM', 'manufacturer', 'factory', 'supplier', 'importer',
     'sourcing', 'MOQ', 'FOB', 'B2B', 'procurement', 'wholesale',
-    'bulk', 'supply chain', 'vendor'
+    'bulk', 'supply chain', 'vendor',
+    # International / Spanish / German / French B2B terms
+    'BOM', 'fabricante', 'fabricación', 'importador', 'comprador',
+    'compradores', 'aduana', 'aduanero', 'arancel', 'aranceles',
+    'certificación', 'certificaciones', 'exportación', 'logística',
+    'Hersteller', 'Importeur', 'Einkäufer', 'Zertifizierung',
+    'fournisseur', 'importateur', 'acheteur', 'certification',
 ]
 
 # ── Engineering Units (for first-hand data detection) ──
@@ -370,7 +376,7 @@ class B2BContentAuditor:
 
         opening = self._check_opening_density(content)
         h3_answer = self._check_h3_answer_length(content)
-        h2_density = self._check_h2_b2b_density(content, article_type)
+        h2_density = self._check_h2_b2b_density(content, article_type, raw_content=raw_content)
         data_density = self._check_data_density(content)
         table_test = self._check_table_test(content)
         stock_photo = self._check_stock_photos(content)
@@ -596,10 +602,13 @@ class B2BContentAuditor:
     # ── Check 3: H2 B2B Signal Density ──
 
     def _check_h2_b2b_density(
-        self, content: str, article_type: Optional[str] = None
+        self, content: str, article_type: Optional[str] = None,
+        raw_content: Optional[str] = None
     ) -> Dict[str, Any]:
         """Audit H2 B2B signal word density per quality standards Section II."""
-        h2s = self._extract_h2s(content)
+        # Prefer raw (HTML) content for reliable H2 extraction
+        extract_from = raw_content if raw_content else content
+        h2s = self._extract_h2s(extract_from)
         content_h2s = [h for h in h2s if not self._is_excluded_h2(h)]
 
         if not content_h2s:
@@ -1872,10 +1881,31 @@ class B2BContentAuditor:
                             elif isinstance(author, str):
                                 pass  # author is a string reference — assume it's fine
                         elif field == 'logo':
-                            publisher = node.get('publisher', {})
-                            if isinstance(publisher, dict) and not publisher.get('logo'):
-                                score -= 15
-                                issues.append(f'{node_type} publisher missing "logo" field → add Organization logo ImageObject')
+                            # For Organization nodes: check logo directly on the node
+                            if node_type == 'Organization':
+                                logo = node.get('logo', {})
+                                if not logo or not isinstance(logo, dict) or not logo.get('url'):
+                                    score -= 15
+                                    issues.append(f'Organization missing "logo" ImageObject with url → add for Rich Result eligibility')
+                            else:
+                                # For BlogPosting etc: check publisher's logo, resolving @id if needed
+                                publisher = node.get('publisher', {})
+                                if isinstance(publisher, dict):
+                                    pub_id = publisher.get('@id', '')
+                                    if pub_id and not publisher.get('logo'):
+                                        # Resolve @id reference across @graph nodes
+                                        import re as _re
+                                        pub_id_normalized = _re.sub(r'/(es|de|fr|ru)/', '/', pub_id)
+                                        for ref_node in all_nodes:
+                                            if isinstance(ref_node, dict):
+                                                ref_node_id = ref_node.get('@id', '')
+                                                ref_id_normalized = _re.sub(r'/(es|de|fr|ru)/', '/', ref_node_id)
+                                                if ref_node_id == pub_id or ref_id_normalized == pub_id_normalized:
+                                                    publisher = ref_node
+                                                    break
+                                    if not publisher.get('logo'):
+                                        score -= 15
+                                        issues.append(f'{node_type} publisher missing "logo" field → add Organization logo ImageObject')
                         elif field == 'mainEntityOfPage':
                             if not node.get('mainEntityOfPage'):
                                 score -= 15
@@ -2244,8 +2274,12 @@ class B2BContentAuditor:
         return [s.strip() for s in raw if len(s.strip()) > 10]
 
     def _extract_h2s(self, content: str) -> List[str]:
-        """Extract all H2 heading texts."""
+        """Extract all H2 heading texts (supports both Markdown and HTML formats)."""
         h2s = re.findall(r'^##\s+(.+)$', content, re.MULTILINE)
+        if not h2s:
+            # Try HTML <h2> tags (for .njk/.html files)
+            h2s = re.findall(r'<h2[^>]*?>(.*?)</h2>', content, re.DOTALL)
+            h2s = [re.sub(r'<[^>]+>', '', h).strip() for h in h2s]
         return [h.strip() for h in h2s]
 
     def _is_excluded_h2(self, h2_text: str) -> bool:
@@ -2270,10 +2304,19 @@ class B2BContentAuditor:
         """Auto-classify article as technical, procurement, or oem_core."""
         content_lower = content.lower()
         h1_match = re.search(r'^#\s+(.+)$', content, re.MULTILINE)
+        if not h1_match:
+            # Try HTML <h1> tag
+            h1_match = re.search(r'<h1[^>]*?>(.*?)</h1>', content, re.DOTALL)
         h1_text = h1_match.group(1).lower() if h1_match else ''
+        if h1_match and re.search(r'<[^>]+>', h1_text):
+            h1_text = re.sub(r'<[^>]+>', '', h1_text)
 
         # Use H1 + first 2000 chars + full H2 texts for better coverage
-        h2s = ' '.join(re.findall(r'^##\s+(.+)$', content, re.MULTILINE))
+        h2_md = re.findall(r'^##\s+(.+)$', content, re.MULTILINE)
+        if not h2_md:
+            h2_html = re.findall(r'<h2[^>]*?>(.*?)</h2>', content, re.DOTALL)
+            h2_md = [re.sub(r'<[^>]+>', '', h).strip() for h in h2_html]
+        h2s = ' '.join(h2_md)
         combined = h1_text + ' ' + content_lower[:2000] + ' ' + h2s.lower()
 
         # Check OEM Core indicators

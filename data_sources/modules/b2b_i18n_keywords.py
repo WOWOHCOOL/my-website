@@ -155,8 +155,10 @@ I18N_TLDR_KEYWORDS: Dict[str, List[str]] = {
 I18N_B2B_SIGNAL_WORDS: Dict[str, List[str]] = {
     'en': [
         'OEM', 'ODM', 'manufacturer', 'factory', 'supplier', 'importer',
-        'sourcing', 'MOQ', 'FOB', 'B2B',
+        'sourcing', 'MOQ', 'FOB', 'B2B', 'DDP', 'CIF', 'EXW',
+        'BOM', 'buyer', 'buyers', 'certification', 'certifications',
         'procurement', 'wholesale', 'bulk', 'supply chain', 'vendor',
+        'customs', 'tariff', 'tariffs',
     ],
     'de': [
         # Universal acronyms
@@ -173,12 +175,15 @@ I18N_B2B_SIGNAL_WORDS: Dict[str, List[str]] = {
     ],
     'es': [
         'OEM', 'ODM', 'MOQ', 'FOB', 'B2B', 'DDP', 'CIF', 'EXW',
-        'fabricante', 'fábrica', 'proveedor', 'suministrador',
-        'importador', 'abastecimiento', 'adquisición', 'compras',
+        'BOM', 'comprador', 'compradores',
+        'fabricante', 'fabricantes', 'fábrica', 'proveedor', 'suministrador',
+        'importador', 'importadores', 'abastecimiento', 'adquisición', 'compras',
         'mayorista', 'venta al por mayor', 'pedido mínimo',
         'cadena de suministro', 'logística',
         'vendedor', 'socio comercial',
-        'aduana', 'importación', 'exportación',
+        'aduana', 'aduanero', 'arancel', 'aranceles',
+        'certificación', 'certificaciones',
+        'importación', 'exportación',
         'producción', 'fabricación', 'control de calidad',
         'almacén', 'envío', 'transporte',
     ],
