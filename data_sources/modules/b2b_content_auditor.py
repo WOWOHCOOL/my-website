@@ -1210,8 +1210,16 @@ class B2BContentAuditor:
                 checks['has_linkedin'] = True
 
             # Author page (internal link to /author/ or /about/ or /team/)
+            # MD link in byline_text (legacy check)
             if re.search(r'\[[^\]]*\]\(/(?:author|about|team)/[^)]+\)', byline_text, re.IGNORECASE):
                 checks['has_author_page'] = True
+            # HTML link in author bio section or body (primary check for .njk templates)
+            if not checks['has_author_page'] and raw_html:
+                if re.search(r'href="/(?:[a-z]{2}/)?(?:author|about|team|ueber-uns)/[^"]*"', raw_html, re.IGNORECASE):
+                    checks['has_author_page'] = True
+            if not checks['has_author_page']:
+                if re.search(r'href="/(?:[a-z]{2}/)?(?:author|about|team|ueber-uns)/[^"]*"', content, re.IGNORECASE):
+                    checks['has_author_page'] = True
 
             # Expertise angle: role relevant to article topic
             expertise_words = [
@@ -1739,16 +1747,16 @@ class B2BContentAuditor:
                 f'Tailwind strips this class silently — white text may not render on dark background.'
             )
 
-        # Bug 2: class="speakable" residual (should be data-speakable attribute)
-        speakable_class_count = len(re.findall(
-            r'class=["\'][^"\']*\bspeakable\b[^"\']*["\']', content
+        # Bug 2: data-speakable attribute residual (deprecated in v3.0 — use .speakable class)
+        data_speakable_count = len(re.findall(
+            r'data-speakable', content
         ))
-        if speakable_class_count > 0:
+        if data_speakable_count > 0:
             score -= 5
             issues.append(
-                f'{speakable_class_count} element(s) use class="speakable" → '
-                f'replace with data-speakable attribute (PurgeCSS-immune, self-documenting in static HTML). '
-                f'Update Schema cssSelector to ["h1","h2","[data-speakable]"]] if not already done.'
+                f'{data_speakable_count} element(s) use data-speakable attribute → '
+                f'replace with class="speakable" (v3.0 standard: CSS class selector, matches FAQPage .faq-answer naming convention). '
+                f'Update Schema cssSelector to ["h1",".speakable"] if not already done.'
             )
 
         # Bug 3: ManufacturingBusiness residual (should be Organization)
@@ -1787,7 +1795,7 @@ class B2BContentAuditor:
         return {
             'score': max(0, score),
             'tailwind_bug_found': len(tailwind_bug) > 0 if tailwind_bug else False,
-            'speakable_class_count': speakable_class_count,
+            'data_speakable_count': data_speakable_count,
             'manufacturing_business_residual': '"@type": "ManufacturingBusiness"' in content,
             'bare_in_language': bare_lang[0] if bare_lang else None,
             'toc_faq_anchor_missing': has_faq_section and not toc_has_faq,
@@ -1942,33 +1950,114 @@ class B2BContentAuditor:
                     f'and Schema URLs: {slash_mismatches[:3]} → all must use same trailing-slash format'
                 )
 
-        # ── Step 5: data-speakable attribute + SpeakableSpecification consistency ──
-        # Check both data-speakable (preferred) and .speakable class (fallback)
-        has_speakable_attr = bool(re.search(r'data-speakable', content))
+        # ── Step 5: .speakable class + SpeakableSpecification consistency (v3.0) ──
+        # v3.0 architecture: BlogPosting cssSelector ["h1",".speakable"] → H1 auto-accounted + 2×.speakable = 3 nodes
+        # FAQPage has independent speakable via [".faq-answer"]
+        # data-speakable attribute is DEPRECATED
         has_speakable_class = bool(re.search(r'class=["\'][^"\']*\bspeakable\b', content))
+        has_speakable_attr = bool(re.search(r'data-speakable', content))
         has_any_speakable = has_speakable_attr or has_speakable_class
         has_speakable_spec = bool(re.search(r'SpeakableSpecification', content))
 
-        # Count speakable nodes (enforce exactly 3 per standard)
-        # Strip <script> blocks first — JSON-LD contains "[data-speakable]" string which is NOT a DOM anchor
+        # Count speakable nodes (strip <script> blocks first — JSON-LD cssSelector strings are NOT DOM anchors)
         body_only = re.sub(r'<script[^>]*>.*?</script>', '', content, flags=re.DOTALL)
-        speakable_attr_count = len(re.findall(r'data-speakable', body_only))
         speakable_class_count = len(re.findall(r'class=["\'][^"\']*\bspeakable\b', body_only))
-        total_speakable = speakable_attr_count + speakable_class_count
+        speakable_attr_count = len(re.findall(r'data-speakable', body_only))
+        total_speakable = speakable_class_count + speakable_attr_count
 
         if not has_speakable_spec:
             score -= 10
-            issues.append('Missing SpeakableSpecification in JSON-LD Schema → add with cssSelector: ["h1", "h2", "[data-speakable]"]')
+            issues.append('Missing SpeakableSpecification in JSON-LD Schema → add BlogPosting speakable with cssSelector: ["h1",".speakable"] + FAQPage speakable with cssSelector: [".faq-answer"]')
         elif has_speakable_spec and not has_any_speakable:
             score -= 5
-            issues.append('SpeakableSpecification present in Schema but no HTML element has data-speakable or class="speakable" → add exactly 3 data-speakable anchors (Hook, TL;DR, Quick Answer)')
-        elif total_speakable != 3:
+            issues.append('SpeakableSpecification present in Schema but no HTML element has class="speakable" → add speakable class to Hook + Key Takeaways TL;DR (2 nodes, + H1 from cssSelector = 3 total)')
+        elif total_speakable == 0:
             score -= 3
-            issues.append(f'Speakable node count: {total_speakable} (recommended: exactly 3). '
-                          f'More than 3 dilutes AI extraction weight; fewer than 3 misses extraction opportunities. '
-                          f'Target: 1 Hook + 1 KERNERKENNTNISSE TL;DR + 1 SCHNELLANTWORT.')
+            issues.append('Speakable node count: 0 → add class="speakable" to Hook + Key Takeaways TL;DR (2 nodes, + H1 from cssSelector = 3 total)')
+        elif total_speakable > 3:
+            score -= 3
+            issues.append(f'Speakable node count: {total_speakable} (recommended: exactly 3). More than 3 dilutes AI extraction weight. H1 is auto-counted via cssSelector. Target: 2× class="speakable" (Hook + Key Takeaways TL;DR). Remove any speakable class from FAQ answers or other elements.')
 
-        # ── Step 6: TOC ↔ FAQ anchor consistency ──
+        # ── Step 6: Organization contact completeness (v2) ──
+        org_nodes = [n for n in all_nodes if isinstance(n, dict) and n.get('@type') == 'Organization']
+        for org in org_nodes:
+            address = org.get('address', {})
+            if not address or not isinstance(address, dict) or not address.get('streetAddress'):
+                score -= 10
+                issues.append('Organization missing "address" (PostalAddress) → add streetAddress, addressLocality, addressRegion, postalCode, addressCountry for B2B entity verification')
+            cp = org.get('contactPoint', {})
+            if not cp or not isinstance(cp, dict):
+                score -= 10
+                issues.append('Organization missing "contactPoint" with telephone + email → B2B trust signal weakened')
+            else:
+                if not cp.get('telephone'):
+                    score -= 5
+                    issues.append('Organization contactPoint missing "telephone" → add for B2B entity verification')
+                if not cp.get('email'):
+                    score -= 5
+                    issues.append('Organization contactPoint missing "email" → add for B2B entity verification')
+
+        # ── Step 7: Citation ↔ Fuentes alignment (v2) ──
+        citation_count = 0
+        for node in all_nodes:
+            if isinstance(node, dict) and node.get('@type') == 'BlogPosting':
+                citations = node.get('citation', [])
+                if isinstance(citations, list):
+                    citation_count = len(citations)
+                break
+        # Count visible sources in Fuentes/References section
+        sources_section = re.search(
+            r'(?:Fuentes y Referencias|Sources &? References|Quellen &? Referenzen)',
+            content, re.IGNORECASE
+        )
+        if sources_section:
+            # Count <li> items from the sources section to the next </section> or end of shared wrapper
+            section_start = sources_section.start()
+            section_end_match = re.search(r'</section>', content[section_start:])
+            if section_end_match:
+                section_text = content[section_start:section_start + section_end_match.end()]
+                visible_source_count = len(re.findall(r'<li>', section_text))
+                if citation_count < visible_source_count:
+                    score -= 10
+                    issues.append(f'Citation count mismatch: Schema has {citation_count} but visible Sources section has ~{visible_source_count} links → under-reporting wastes AI citation signals. Add all visible sources to citation array.')
+
+        # ── Step 8: timeRequired ↔ visible display (v2) ──
+        time_match = re.search(r'"timeRequired":\s*"PT(\d+)M"', content)
+        display_match = re.search(r'(\d+)\s*min\s*(?:de\s*)?lectura|(\d+)\s*min\s*read', content)
+        if time_match and display_match:
+            schema_min = int(time_match.group(1))
+            display_min = int(display_match.group(1) or display_match.group(2))
+            if schema_min != display_min:
+                score -= 5
+                issues.append(f'timeRequired mismatch: Schema says PT{schema_min}M but visible display shows {display_min} min → align them')
+
+        # ── Step 9: Author @id dedup (v2) ──
+        bp_author_is_inline = False
+        person_has_id = False
+        worksfor_is_inline = False
+        for node in all_nodes:
+            if isinstance(node, dict):
+                if node.get('@type') == 'BlogPosting':
+                    author = node.get('author', {})
+                    if isinstance(author, dict) and '@type' in author and author.get('@type') == 'Person':
+                        bp_author_is_inline = True
+                if node.get('@type') == 'Person':
+                    if node.get('@id'):
+                        person_has_id = True
+                    wf = node.get('worksFor', {})
+                    if isinstance(wf, dict) and '@type' in wf:
+                        worksfor_is_inline = True
+        if bp_author_is_inline:
+            score -= 10
+            issues.append('BlogPosting.author is inline Person — use @id reference to Person node to avoid entity duplication')
+        if not person_has_id:
+            score -= 10
+            issues.append('Person node missing @id — BlogPosting.author cannot reference it. Add @id for entity deduplication')
+        if worksfor_is_inline:
+            score -= 5
+            issues.append('Person.worksFor is inline Organization — use @id reference to main Organization node')
+
+        # ── Step 10: TOC ↔ FAQ anchor consistency ──
         has_faq_section = bool(re.search(r'<section[^>]*id=["\']faq["\']', content))
         toc_has_faq_link = bool(re.search(r'href=["\']#faq["\']', content))
 
