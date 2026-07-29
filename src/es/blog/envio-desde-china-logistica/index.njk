@@ -94,12 +94,13 @@ navActive: "blog"
  "description": "Guía práctica de logística desde China para importadores: Incoterms FOB vs DDP, costes marítimo, aéreo y ferroviario, despacho aduanero en España y LATAM, y normativa de baterías de litio 2026.",
  "speakable": {
  "@type": "SpeakableSpecification",
- "cssSelector": ["h1", "h2", "[data-speakable]"]
+ "cssSelector": ["h1", ".speakable"]
  }
  },
  {
  "@context": "https://schema.org",
  "@type": "FAQPage",
+ "speakable": { "@type": "SpeakableSpecification", "cssSelector": [".faq-answer"] },
  "mainEntity": [
  {
  "@type": "Question",
@@ -203,7 +204,7 @@ navActive: "blog"
  </div>
 
  <!-- The Hook -->
- <div class="bg-brandBlue/5 border-l-4 border-brandOrange p-6 rounded-r-xl mb-8" data-speakable>
+ <div class="bg-brandBlue/5 border-l-4 border-brandOrange p-6 rounded-r-xl mb-8 speakable">
  <p class="text-lg text-slate-700 italic">La logística desde China representa entre el <strong>5% y el 15%</strong> del coste total de una importación de cargadores. Sin embargo, un error en la elección del Incoterm puede convertir un margen del 35% en uno del 18%. Elegir el modo de transporte y el agente de aduanas correctos ahorra miles de euros por contenedor y semanas de retraso. Esta guía explica de forma práctica cómo importar a España y Latinoamérica, desde la perspectiva de un fabricante en Shenzhen que ha enviado más de <strong>500 contenedores</strong> en 2025.</p>
  </div>
  </div>
@@ -212,6 +213,10 @@ navActive: "blog"
  <!-- Featured Image -->
  <div class="max-w-4xl mx-auto px-6 mb-16">
  <img src="/image/blog/cover-en/shipping-from-china-guide.webp"
+ srcset="/image/blog/cover-en/shipping-from-china-guide-800.webp 800w,
+         /image/blog/cover-en/shipping-from-china-guide-1200.webp 1200w,
+         /image/blog/cover-en/shipping-from-china-guide.webp 2240w"
+ sizes="(max-width: 768px) 100vw, 896px"
  alt="Guía de envío desde China: logística marítima, aérea, Incoterms FOB DDP y costes para importadores en España y Latinoamérica 2026"
  width="2240" height="1260"
  loading="eager"
@@ -225,7 +230,7 @@ navActive: "blog"
  <!-- Key Takeaways -->
  <div class="bg-amber-50 border-l-4 border-amber-500 rounded-r-xl p-6 mb-8">
  <p class="text-[11px] font-black text-brandOrange uppercase tracking-widest mb-2">Puntos Clave</p>
- <p class="text-slate-700 leading-relaxed text-sm mb-4" data-speakable>La logística internacional no es donde recortar costes, sino donde garantizar control. Para el 80% de los importadores hispanohablantes, la estrategia óptima es empezar con DDP en los primeros 2-3 pedidos y migrar a FOB a partir del cuarto. El coste logístico total (flete + seguro + aranceles + IVA + despacho) representa típicamente un 15-25% adicional sobre el precio FOB del producto. Conocer los Incoterms, los modos de transporte y la documentación aduanera correcta es la diferencia entre un margen del 35% y una pérdida neta.</p>
+ <p class="text-slate-700 leading-relaxed text-sm mb-4 speakable">La logística internacional no es donde recortar costes, sino donde garantizar control. Para el 80% de los importadores hispanohablantes, la estrategia óptima es empezar con DDP en los primeros 2-3 pedidos y migrar a FOB a partir del cuarto. El coste logístico total (flete + seguro + aranceles + IVA + despacho) representa típicamente un 15-25% adicional sobre el precio FOB del producto. Conocer los Incoterms, los modos de transporte y la documentación aduanera correcta es la diferencia entre un margen del 35% y una pérdida neta.</p>
  <ul class="text-sm text-slate-700 space-y-2 list-disc pl-5">
  <li><strong>DDP para empezar, FOB para escalar:</strong> Primeros pedidos DDP (riesgo del proveedor), luego FOB (control total, 8-12% de ahorro)</li>
  <li><strong>Marítimo FCL 20':</strong> 1.500-2.500 €, 28-35 días Shenzhen-Valencia, viable desde ~25 CBM</li>
@@ -265,11 +270,6 @@ navActive: "blog"
  </ol>
  </div>
 
-		<!-- Quick Answer -->
-		<div class="bg-brandBlue/5 border-l-4 border-brandOrange rounded-r-xl p-6 mt-8 mb-12">
-			<p class="text-[11px] font-black text-brandOrange uppercase tracking-widest mb-2">RESPUESTA RÁPIDA</p>
-			<p class="text-slate-700 text-sm" data-speakable><strong>¿Cuál es la forma más eficiente de importar desde China a España?</strong> Para pedidos de más de 500 kg/CBM: <strong>FOB Shenzhen + marítimo a Valencia</strong> (28-35 días, 1.500-2.500 € por contenedor 20'). Para primeras importaciones: <strong>DDP a su almacén</strong> (el proveedor gestiona todo, 35-45 días). Para muestras y urgencias: <strong>express courier</strong> (4-7 días, 12-18 €/kg). El <strong>ferroviario China-Madrid</strong> (18-22 días, 200-280 €/CBM) es la opción intermedia más eficiente para electrónica. Los cargadores y power banks disfrutan de <strong>arancel 0% en la UE</strong> bajo el SPG (HS Code 8504.40).</p>
-		</div>
 
 <!-- Section 1: Incoterms -->
  <section id="h2-1" class="mb-16">
@@ -561,27 +561,27 @@ navActive: "blog"
 			<div class="space-y-6 max-w-3xl mx-auto">
 				<div class="bg-white rounded-xl p-6">
 					<h3 class="font-black text-brandBlue mb-2">¿Qué Incoterm conviene para importar cargadores de China a España?</h3>
-					<p class="text-slate-600 text-sm">Para importadores con experiencia: <strong>FOB Shenzhen</strong> (el fabricante carga el barco, usted contrata naviera y aduana en España). Para principiantes o pedidos pequeños: <strong>DDP</strong> (Delivered Duty Paid), el proveedor se encarga de todo hasta su almacén, incluido despacho aduanero y aranceles. DDP es 15-25% más caro pero elimina riesgo. A partir del 3er pedido, migre a FOB para optimizar margen.</p>
+					<p class="text-slate-600 text-sm faq-answer">Para importadores con experiencia: <strong>FOB Shenzhen</strong> (el fabricante carga el barco, usted contrata naviera y aduana en España). Para principiantes o pedidos pequeños: <strong>DDP</strong> (Delivered Duty Paid), el proveedor se encarga de todo hasta su almacén, incluido despacho aduanero y aranceles. DDP es 15-25% más caro pero elimina riesgo. A partir del 3er pedido, migre a FOB para optimizar margen.</p>
 				</div>
 				<div class="bg-white rounded-xl p-6">
 					<h3 class="font-black text-brandBlue mb-2">¿Marítimo, aéreo o ferroviario? ¿Cuál es la diferencia de coste?</h3>
-					<p class="text-slate-600 text-sm">Marítimo Shenzhen-Valencia: <strong>28-35 días, 1.500-2.500 €</strong> por contenedor 20'. Aéreo consolidado: 7-10 días, 6-9 €/kg. Express (DHL/FedEx): 4-7 días, 12-18 €/kg. Ferroviario China-Madrid: <strong>18-22 días, 200-280 €/CBM</strong>. Regla: marítimo para >500 kg/CBM, aéreo para urgencias, ferroviario es la opción intermedia más eficiente para electrónica de valor medio-alto.</p>
+					<p class="text-slate-600 text-sm faq-answer">Marítimo Shenzhen-Valencia: <strong>28-35 días, 1.500-2.500 €</strong> por contenedor 20'. Aéreo consolidado: 7-10 días, 6-9 €/kg. Express (DHL/FedEx): 4-7 días, 12-18 €/kg. Ferroviario China-Madrid: <strong>18-22 días, 200-280 €/CBM</strong>. Regla: marítimo para >500 kg/CBM, aéreo para urgencias, ferroviario es la opción intermedia más eficiente para electrónica de valor medio-alto.</p>
 				</div>
 				<div class="bg-white rounded-xl p-6">
 					<h3 class="font-black text-brandBlue mb-2">¿Cuánto arancel paga un cargador o power bank importado en España?</h3>
-					<p class="text-slate-600 text-sm">Cargadores y power banks usan <strong>HS Code 8504.40</strong> (convertidores estáticos) con arancel UE del <strong>0%</strong> bajo el SPG (Sistema de Preferencias Generalizadas) si provienen de China. IVA: 21% sobre valor CIF + arancel. Para power banks con batería de litio, aplican además requisitos UN38.3, MSDS y clasificación IMDG Clase 9 para transporte marítimo.</p>
+					<p class="text-slate-600 text-sm faq-answer">Cargadores y power banks usan <strong>HS Code 8504.40</strong> (convertidores estáticos) con arancel UE del <strong>0%</strong> bajo el SPG (Sistema de Preferencias Generalizadas) si provienen de China. IVA: 21% sobre valor CIF + arancel. Para power banks con batería de litio, aplican además requisitos UN38.3, MSDS y clasificación IMDG Clase 9 para transporte marítimo.</p>
 				</div>
 				<div class="bg-white rounded-xl p-6">
 					<h3 class="font-black text-brandBlue mb-2">¿Las baterías y power banks tienen restricciones especiales de envío?</h3>
-					<p class="text-slate-600 text-sm">Sí. Los power banks contienen litio y están clasificados como UN3481 o UN3480. Requieren certificación <strong>UN38.3 obligatoria</strong>, embalaje IATA PI967/PI966, y declaración Dangerous Goods. Desde enero 2026, el estado de carga (SOC) debe ser <strong>≤30%</strong> para todo transporte de baterías de litio (IATA DGR 67ª Edición). Sin certificación correcta, el envío será rechazado en origen.</p>
+					<p class="text-slate-600 text-sm faq-answer">Sí. Los power banks contienen litio y están clasificados como UN3481 o UN3480. Requieren certificación <strong>UN38.3 obligatoria</strong>, embalaje IATA PI967/PI966, y declaración Dangerous Goods. Desde enero 2026, el estado de carga (SOC) debe ser <strong>≤30%</strong> para todo transporte de baterías de litio (IATA DGR 67ª Edición). Sin certificación correcta, el envío será rechazado en origen.</p>
 				</div>
 				<div class="bg-white rounded-xl p-6">
 					<h3 class="font-black text-brandBlue mb-2">¿Puedo enviar a Amazon FBA directamente desde China?</h3>
-					<p class="text-slate-600 text-sm">Sí, mediante Amazon Partnered Carrier o un freight forwarder especializado. El proceso: producción en China → envío marítimo a puerto destino → despacho de aduanas → entrega directa al centro FBA (Madrid, Barcelona, Valencia, Sevilla). Plazo total: <strong>35-45 días</strong>. WOWOHCOOL coordina este flujo para más de 50 sellers FBA hispanohablantes con documentación completa incluida.</p>
+					<p class="text-slate-600 text-sm faq-answer">Sí, mediante Amazon Partnered Carrier o un freight forwarder especializado. El proceso: producción en China → envío marítimo a puerto destino → despacho de aduanas → entrega directa al centro FBA (Madrid, Barcelona, Valencia, Sevilla). Plazo total: <strong>35-45 días</strong>. WOWOHCOOL coordina este flujo para más de 50 sellers FBA hispanohablantes con documentación completa incluida.</p>
 				</div>
 				<div class="bg-white rounded-xl p-6">
 					<h3 class="font-black text-brandBlue mb-2">¿Qué documentos necesito para el despacho aduanero en España?</h3>
-					<p class="text-slate-600 text-sm">Documentos obligatorios: <strong>factura comercial, Packing List, Bill of Lading (B/L), Certificado de Origen Form A</strong> (para beneficiarse del arancel 0% SPG), <strong>DoC CE</strong> (Declaración de Conformidad), e informes RoHS/REACH. Para power banks: añadir <strong>UN38.3, MSDS</strong> y declaración IMDG Clase 9. El DUA (Documento Único Administrativo) lo presenta su agente aduanero en 24-48h tras la llegada de la mercancía.</p>
+					<p class="text-slate-600 text-sm faq-answer">Documentos obligatorios: <strong>factura comercial, Packing List, Bill of Lading (B/L), Certificado de Origen Form A</strong> (para beneficiarse del arancel 0% SPG), <strong>DoC CE</strong> (Declaración de Conformidad), e informes RoHS/REACH. Para power banks: añadir <strong>UN38.3, MSDS</strong> y declaración IMDG Clase 9. El DUA (Documento Único Administrativo) lo presenta su agente aduanero en 24-48h tras la llegada de la mercancía.</p>
 				</div>
 			</div>
 		</div>

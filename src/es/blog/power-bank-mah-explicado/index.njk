@@ -94,12 +94,13 @@ navActive: "blog"
  "description": "Guía técnica de capacidad mAh en power banks para compradores OEM: capacidad nominal vs utilizable, eficiencia de conversión, celdas grado A vs B y costes FOB para el mercado español.",
  "speakable": {
  "@type": "SpeakableSpecification",
- "cssSelector": ["h1", "h2", "[data-speakable]"]
+ "cssSelector": ["h1", ".speakable"]
  }
  },
  {
  "@context": "https://schema.org",
  "@type": "FAQPage",
+ "speakable": { "@type": "SpeakableSpecification", "cssSelector": [".faq-answer"] },
  "mainEntity": [
  {
  "@type": "Question",
@@ -201,7 +202,7 @@ navActive: "blog"
  </div>
 
  <!-- The Hook -->
- <div class="bg-brandBlue/5 border-l-4 border-brandOrange p-6 rounded-r-xl mb-8" data-speakable>
+ <div class="bg-brandBlue/5 border-l-4 border-brandOrange p-6 rounded-r-xl mb-8 speakable">
  <p class="text-lg text-slate-700 italic">Para un importador de power banks, el número de mAh impreso en la caja no es lo que realmente entrega el producto. La diferencia entre los 10.000mAh nominales y los ~6.300mAh utilizables que llegan al teléfono no es un defecto, es física de conversión de voltaje. Y esa diferencia del 30-40% es precisamente lo que separa un producto de 4.5 estrellas de uno de 3 estrellas en Amazon, y un margen del 49% de una pérdida neta. Esta guía explica todo lo que un comprador OEM necesita verificar sobre la capacidad mAh antes de hacer un pedido a fábrica.</p>
  </div>
  </div>
@@ -221,7 +222,7 @@ navActive: "blog"
  <div class="max-w-4xl mx-auto px-6 mb-8">
  <div class="bg-amber-50 border-l-4 border-amber-500 rounded-r-xl p-6">
  <p class="text-[11px] font-black text-brandOrange uppercase tracking-widest mb-2">Puntos Clave</p>
- <p class="text-slate-700 leading-relaxed text-sm mb-4" data-speakable>El mercado español de power banks mueve 1.7 millones de unidades al año (€31M). La capacidad mAh nominal (3.7V interno) no es la capacidad utilizable (5V USB): un power bank de 10.000mAh entrega ~6.300mAh reales con circuito eficiente. Para importadores, la diferencia entre celda grado A (85-92% eficiencia, 800+ ciclos) y grado B (60-70%, 500 ciclos) determina la tasa de devolución: 0.3% vs 3-5%. El FOB Shenzhen para 10.000mAh grado A es $4-6/ud con MOQ desde 500 unidades.</p>
+ <p class="text-slate-700 leading-relaxed text-sm mb-4 speakable">El mercado español de power banks mueve 1.7 millones de unidades al año (€31M). La capacidad mAh nominal (3.7V interno) no es la capacidad utilizable (5V USB): un power bank de 10.000mAh entrega ~6.300mAh reales con circuito eficiente. Para importadores, la diferencia entre celda grado A (85-92% eficiencia, 800+ ciclos) y grado B (60-70%, 500 ciclos) determina la tasa de devolución: 0.3% vs 3-5%. El FOB Shenzhen para 10.000mAh grado A es $4-6/ud con MOQ desde 500 unidades.</p>
  <ul class="text-sm text-slate-700 space-y-2 list-disc pl-5 mb-4">
  <li><strong>mAh utilizable = mAh nominal × 0.629:</strong> Fórmula de conversión 3.7V→5V con 85% eficiencia</li>
  <li><strong>10.000mAh = 40% ventas Amazon ES:</strong> Segmento dominante, precio retail €18-45, margen 45-65%</li>
@@ -267,11 +268,6 @@ navActive: "blog"
  </div>
 	</div>
 
-	<!-- Quick Answer -->
-		<div class="bg-brandBlue/5 border-l-4 border-brandOrange rounded-r-xl p-6 mt-8 mb-12">
-			<p class="text-[11px] font-black text-brandOrange uppercase tracking-widest mb-2">RESPUESTA RÁPIDA</p>
-			<p class="text-slate-700 text-sm" data-speakable>mAh (miliamperios-hora) mide la carga a <strong>3.7V interno</strong>. A la salida USB de 5V, un power bank de 10.000mAh entrega ~<strong>6.300mAh utilizables</strong>. La diferencia entre celda grado A (85-92% eficiencia, 800+ ciclos, 0.3% devoluciones) y grado B (60-70%, 500 ciclos, 3-5% devoluciones) cuesta solo <strong>$1.5-2.5/ud FOB</strong> pero determina el éxito o fracaso en Amazon. <strong>Fórmula clave: mAh utilizable = (mAh nominal × 3.7V × 0.85) ÷ 5V.</strong></p>
-		</div>
 
 <!-- Section 1: Spanish Market -->
  <section id="h2-1" class="mb-16">
@@ -624,27 +620,27 @@ navActive: "blog"
 			<div class="space-y-6 max-w-3xl mx-auto">
 				<div class="bg-white rounded-xl p-6">
 					<h3 class="font-black text-brandBlue mb-2">¿Cuántos mAh reales entrega un power bank de 10.000mAh?</h3>
-					<p class="text-slate-600 text-sm">Un power bank de 10.000mAh nominal entrega aproximadamente <strong>6.300mAh utilizables</strong> a 5V USB. La pérdida del 30-40% se debe a la conversión de voltaje de 3.7V (interno de la celda) a 5V (salida USB). Fórmula: mAh utilizable = (mAh nominal × 3.7V × eficiencia) ÷ 5V. Con 85% de eficiencia: 10.000 × 0.629 = 6.290mAh reales.</p>
+					<p class="text-slate-600 text-sm faq-answer">Un power bank de 10.000mAh nominal entrega aproximadamente <strong>6.300mAh utilizables</strong> a 5V USB. La pérdida del 30-40% se debe a la conversión de voltaje de 3.7V (interno de la celda) a 5V (salida USB). Fórmula: mAh utilizable = (mAh nominal × 3.7V × eficiencia) ÷ 5V. Con 85% de eficiencia: 10.000 × 0.629 = 6.290mAh reales.</p>
 				</div>
 				<div class="bg-white rounded-xl p-6">
 					<h3 class="font-black text-brandBlue mb-2">¿Qué diferencia hay entre celdas grado A y grado B para un importador?</h3>
-					<p class="text-slate-600 text-sm">Celdas grado A (Li-Po, 800+ ciclos, proveedores ATL/Lishen/BAK/EVE): degradación inferior al <strong>20%</strong> tras 800 ciclos, tasa de fallo inferior al <strong>0.3%</strong>, PCB de 4 capas. Celdas grado B (500 ciclos, genéricas): degradación superior al <strong>30%</strong>, tasa de fallo <strong>3-5%</strong>, PCB de 2 capas. Diferencia FOB: <strong>$1.5-2.5/ud</strong>.</p>
+					<p class="text-slate-600 text-sm faq-answer">Celdas grado A (Li-Po, 800+ ciclos, proveedores ATL/Lishen/BAK/EVE): degradación inferior al <strong>20%</strong> tras 800 ciclos, tasa de fallo inferior al <strong>0.3%</strong>, PCB de 4 capas. Celdas grado B (500 ciclos, genéricas): degradación superior al <strong>30%</strong>, tasa de fallo <strong>3-5%</strong>, PCB de 2 capas. Diferencia FOB: <strong>$1.5-2.5/ud</strong>.</p>
 				</div>
 				<div class="bg-white rounded-xl p-6">
 					<h3 class="font-black text-brandBlue mb-2">¿Qué certificaciones necesito para importar power banks a España?</h3>
-					<p class="text-slate-600 text-sm">Obligatorias: <strong>CE, RoHS, UN38.3</strong> (transporte de litio) y registro <strong>EPR</strong> a través de SCRAP (Ecopilas o ERP). Recomendadas para retail: AENOR N o TÜV/GS. FCC si también vende en Amazon.com. El importador es el responsable legal ante la UE según el <strong>Reglamento 2023/1542</strong>.</p>
+					<p class="text-slate-600 text-sm faq-answer">Obligatorias: <strong>CE, RoHS, UN38.3</strong> (transporte de litio) y registro <strong>EPR</strong> a través de SCRAP (Ecopilas o ERP). Recomendadas para retail: AENOR N o TÜV/GS. FCC si también vende en Amazon.com. El importador es el responsable legal ante la UE según el <strong>Reglamento 2023/1542</strong>.</p>
 				</div>
 				<div class="bg-white rounded-xl p-6">
 					<h3 class="font-black text-brandBlue mb-2">¿Cuál es el margen de un importador de power banks en España?</h3>
-					<p class="text-slate-600 text-sm">Para un power bank de 10.000mAh PD 30W con celda grado A: FOB Shenzhen <strong>$4-6/ud</strong>, coste DDP a almacén en España ~<strong>6.20 EUR/ud</strong>, precio de venta en Amazon ES <strong>24.99 EUR</strong>. Descontando comisión Amazon (15%) y FBA (~2.80 EUR), el margen neto es de aproximadamente <strong>12.24 EUR por unidad (49%)</strong>.</p>
+					<p class="text-slate-600 text-sm faq-answer">Para un power bank de 10.000mAh PD 30W con celda grado A: FOB Shenzhen <strong>$4-6/ud</strong>, coste DDP a almacén en España ~<strong>6.20 EUR/ud</strong>, precio de venta en Amazon ES <strong>24.99 EUR</strong>. Descontando comisión Amazon (15%) y FBA (~2.80 EUR), el margen neto es de aproximadamente <strong>12.24 EUR por unidad (49%)</strong>.</p>
 				</div>
 				<div class="bg-white rounded-xl p-6">
 					<h3 class="font-black text-brandBlue mb-2">¿Qué capacidad de power bank debo priorizar en mi cartera de importación para España?</h3>
-					<p class="text-slate-600 text-sm">El segmento de <strong>10.000mAh</strong> representa el <strong>40%</strong> de las ventas en Amazon España. El segmento de 20.000mAh+ crece al <strong>15% anual</strong>. El precio de venta más frecuente está entre <strong>18 y 35 EUR</strong>. El mercado español mueve aproximadamente <strong>1.7 millones de power banks al año (€31M)</strong>.</p>
+					<p class="text-slate-600 text-sm faq-answer">El segmento de <strong>10.000mAh</strong> representa el <strong>40%</strong> de las ventas en Amazon España. El segmento de 20.000mAh+ crece al <strong>15% anual</strong>. El precio de venta más frecuente está entre <strong>18 y 35 EUR</strong>. El mercado español mueve aproximadamente <strong>1.7 millones de power banks al año (€31M)</strong>.</p>
 				</div>
 				<div class="bg-white rounded-xl p-6">
 					<h3 class="font-black text-brandBlue mb-2">¿Cambia el mAh si uso "power bank" o "batería externa" en mi ficha de producto?</h3>
-					<p class="text-slate-600 text-sm">Sí. Power bank y batería externa son el mismo producto, la especificación mAh es idéntica. En España, los consumidores suelen buscar batería externa mientras que los importadores utilizan power bank. La fórmula de conversión (mAh nominal × 3.7V × eficiencia ÷ 5V) aplica igual para ambos. La diferencia real está en la calidad de las celdas y el circuito convertidor, no en el nombre.</p>
+					<p class="text-slate-600 text-sm faq-answer">Sí. Power bank y batería externa son el mismo producto, la especificación mAh es idéntica. En España, los consumidores suelen buscar batería externa mientras que los importadores utilizan power bank. La fórmula de conversión (mAh nominal × 3.7V × eficiencia ÷ 5V) aplica igual para ambos. La diferencia real está en la calidad de las celdas y el circuito convertidor, no en el nombre.</p>
 				</div>
 			</div>
 		</div>

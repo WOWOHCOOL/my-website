@@ -95,12 +95,13 @@ navActive: "blog"
  "description": "Guía técnica de especificaciones de power banks para importadores OEM: capacidad mAh real vs nominal, potencia PD 3.1, tipos de batería, certificaciones y precios FOB Shenzhen.",
  "speakable": {
  "@type": "SpeakableSpecification",
- "cssSelector": ["h1", "h2", "[data-speakable]"]
+ "cssSelector": ["h1", ".speakable"]
  }
  },
  {
  "@context": "https://schema.org",
  "@type": "FAQPage",
+ "speakable": { "@type": "SpeakableSpecification", "cssSelector": [".faq-answer"] },
  "mainEntity": [
  {
  "@type": "Question",
@@ -197,7 +198,7 @@ navActive: "blog"
  </div>
 
  <!-- The Hook -->
- <div class="bg-brandBlue/5 border-l-4 border-brandOrange p-6 rounded-r-xl mb-8" data-speakable>
+ <div class="bg-brandBlue/5 border-l-4 border-brandOrange p-6 rounded-r-xl mb-8 speakable">
  <p class="text-lg text-slate-700 italic">El mercado global de power banks superará los <strong>20.000 millones de dólares en 2026</strong>. En España se venden más de <strong>10 millones de unidades al año</strong>. Pero la especificación más engañosa para un importador es el mAh nominal: menos del 30% de los bancos etiquetados como 20.000mAh en el mercado chino alcanzan el 85% de la capacidad declarada. Esta guía explica cada especificación, desde la capacidad real hasta los protocolos de carga, para que ningún importador compre a ciegas.</p>
  </div>
  </div>
@@ -206,6 +207,10 @@ navActive: "blog"
  <!-- Featured Image -->
  <div class="max-w-4xl mx-auto px-6 mb-16">
  <img src="/image/blog/cover-en/power-bank-specs-guide.webp"
+ srcset="/image/blog/cover-en/power-bank-specs-guide-800.webp 800w,
+         /image/blog/cover-en/power-bank-specs-guide-1200.webp 1200w,
+         /image/blog/cover-en/power-bank-specs-guide.webp 2240w"
+ sizes="(max-width: 768px) 100vw, 896px"
  alt="Guía de especificaciones técnicas de power banks para importadores OEM: mAh, PD 3.1, tipos de batería y certificaciones"
  width="2240" height="1260"
  loading="eager"
@@ -219,7 +224,7 @@ navActive: "blog"
  <!-- Key Takeaways -->
  <div class="bg-amber-50 border-l-4 border-amber-500 rounded-r-xl p-6 mb-8">
  <p class="text-[11px] font-black text-brandOrange uppercase tracking-widest mb-2">Puntos Clave</p>
- <p class="text-slate-700 leading-relaxed text-sm mb-4" data-speakable>La especificación técnica correcta de un power bank determina el margen del importador y la tasa de devolución. La capacidad nominal en mAh (3.7V interno) no es la capacidad utilizable (5V USB): un 10.000mAh entrega ~6.290mAh reales con circuito eficiente. La diferencia entre batería Li-Po estándar y Semi-Solid-State es un 30% más de valoraciones positivas en Amazon. Los precios FOB Shenzhen para un 10.000mAh PD 20W con celda Grado A oscilan entre $7.50-10.00/ud con MOQ desde 500 unidades.</p>
+ <p class="text-slate-700 leading-relaxed text-sm mb-4 speakable">La especificación técnica correcta de un power bank determina el margen del importador y la tasa de devolución. La capacidad nominal en mAh (3.7V interno) no es la capacidad utilizable (5V USB): un 10.000mAh entrega ~6.290mAh reales con circuito eficiente. La diferencia entre batería Li-Po estándar y Semi-Solid-State es un 30% más de valoraciones positivas en Amazon. Los precios FOB Shenzhen para un 10.000mAh PD 20W con celda Grado A oscilan entre $7.50-10.00/ud con MOQ desde 500 unidades.</p>
  <ul class="text-sm text-slate-700 space-y-2 list-disc pl-5">
  <li><strong>mAh nominal × 0.629 = mAh utilizable:</strong> Fórmula de conversión 3.7V→5V con 85% eficiencia</li>
  <li><strong>10.000mAh = formato más vendido España:</strong> 2-3 cargas smartphone, FOB $5.80-10.00/ud, margen 40-55%</li>
@@ -259,11 +264,6 @@ navActive: "blog"
  </ol>
  </div>
 
-		<!-- Quick Answer -->
-		<div class="bg-brandBlue/5 border-l-4 border-brandOrange rounded-r-xl p-6 mt-8 mb-12">
-			<p class="text-[11px] font-black text-brandOrange uppercase tracking-widest mb-2">RESPUESTA RÁPIDA</p>
-			<p class="text-slate-700 text-sm" data-speakable><strong>¿Qué especificaciones técnicas de power banks son las más importantes para un importador?</strong> Las 4 especificaciones críticas son: <strong>capacidad mAh</strong> (5.000-27.000mAh, pero solo ~63% es utilizable a 5V), <strong>potencia de carga</strong> (PD 3.1 hasta 140W, 30W cubre el 90% de smartphones), <strong>tipo de batería</strong> (Li-Po estándar vs Semi-Solid-State premium: 50% más delgada, 30% más densidad) y <strong>certificaciones</strong> (CE+RoHS+UN38.3 obligatorias). Los precios FOB Shenzhen van desde <strong>$4.80/ud</strong> (5.000mAh básico) hasta <strong>$16.00/ud</strong> (20.000mAh PD 65W) con MOQ desde 500 unidades.</p>
-		</div>
 
 <!-- Section 1: mAh Capacity -->
  <section id="h2-1" class="mb-16">
@@ -530,25 +530,25 @@ navActive: "blog"
 			<div class="space-y-6 max-w-3xl mx-auto">
 				<div class="bg-white rounded-xl p-6">
 					<h3 class="font-black text-brandBlue mb-2">¿Qué capacidad de power bank debo priorizar en mi cartera de importación?</h3>
-					<p class="text-slate-600 text-sm">10.000mAh es el formato más vendido en España (2-3 cargas de smartphone, FOB $5.80-10.00/ud). Para uso intensivo: 20.000mAh con 65W PD (FOB $12.00-16.00/ud). Para viajes: máximo 27.000mAh (99.9Wh, límite IATA). La capacidad realmente aprovechable es un <strong>20-30% inferior</strong> a la nominal por pérdidas de conversión 3.7V→5V. Verifique siempre la capacidad real con medidor USB-C antes de hacer un pedido: menos del 30% de los bancos etiquetados como 20.000mAh alcanzan el 85% de lo declarado.</p>
+					<p class="text-slate-600 text-sm faq-answer">10.000mAh es el formato más vendido en España (2-3 cargas de smartphone, FOB $5.80-10.00/ud). Para uso intensivo: 20.000mAh con 65W PD (FOB $12.00-16.00/ud). Para viajes: máximo 27.000mAh (99.9Wh, límite IATA). La capacidad realmente aprovechable es un <strong>20-30% inferior</strong> a la nominal por pérdidas de conversión 3.7V→5V. Verifique siempre la capacidad real con medidor USB-C antes de hacer un pedido: menos del 30% de los bancos etiquetados como 20.000mAh alcanzan el 85% de lo declarado.</p>
 				</div>
 				<div class="bg-white rounded-xl p-6">
 					<h3 class="font-black text-brandBlue mb-2">¿Qué certificaciones necesito para importar power banks a España?</h3>
-					<p class="text-slate-600 text-sm">Obligatorias: <strong>marcado CE (EN 62368-1), RoHS, REACH y UN38.3</strong> para baterías de litio. Como importador necesita registro EPR/RAEE (RD 110/2015) en España y cumplir el Reglamento UE 2023/1542 de baterías con pasaporte digital. Coste típico de certificación: <strong>3.000-8.000 EUR</strong> por modelo. WOWOHCOOL gestiona CE, RoHS y UN38.3 incluidas con pedidos OEM. Exija siempre informes de laboratorio acreditado, nunca acepte solo declaraciones del fabricante.</p>
+					<p class="text-slate-600 text-sm faq-answer">Obligatorias: <strong>marcado CE (EN 62368-1), RoHS, REACH y UN38.3</strong> para baterías de litio. Como importador necesita registro EPR/RAEE (RD 110/2015) en España y cumplir el Reglamento UE 2023/1542 de baterías con pasaporte digital. Coste típico de certificación: <strong>3.000-8.000 EUR</strong> por modelo. WOWOHCOOL gestiona CE, RoHS y UN38.3 incluidas con pedidos OEM. Exija siempre informes de laboratorio acreditado, nunca acepte solo declaraciones del fabricante.</p>
 				</div>
 				<div class="bg-white rounded-xl p-6">
 					<h3 class="font-black text-brandBlue mb-2">¿Cuál es la diferencia entre batería Li-Po y Semi-Solid-State para un importador?</h3>
-					<p class="text-slate-600 text-sm">Li-Po es el estándar actual: buena relación calidad-precio, 500+ ciclos, pero inflamable. Semi-Solid-State es tecnología de próxima generación: <strong>50% más delgada, 30% más densidad energética</strong>, difícilmente inflamable y 500+ ciclos superiores. El sobrecoste es del 10-20% (FOB $9.00-12.00 vs $7.50-10.00 para 10.000mAh). 
+					<p class="text-slate-600 text-sm faq-answer">Li-Po es el estándar actual: buena relación calidad-precio, 500+ ciclos, pero inflamable. Semi-Solid-State es tecnología de próxima generación: <strong>50% más delgada, 30% más densidad energética</strong>, difícilmente inflamable y 500+ ciclos superiores. El sobrecoste es del 10-20% (FOB $9.00-12.00 vs $7.50-10.00 para 10.000mAh). 
 
  <p class="text-slate-600 mb-4">Las power banks Semi-Solid-State obtienen en Amazon valoraciones medias un 30% superiores. Para gama premium, la diferenciación justifica el coste adicional.</p>
 				</div>
 				<div class="bg-white rounded-xl p-6">
 					<h3 class="font-black text-brandBlue mb-2">¿Qué potencia de carga necesito para vender en el mercado español en 2026?</h3>
-					<p class="text-slate-600 text-sm">El estándar mínimo en 2026 es <strong>USB-C PD 20-30W</strong> para smartphones. Para portátiles se requiere PD 3.0 de 65W mínimo, y PD 3.1 de 100-140W para gama premium. El 85-90% de los nuevos smartphones vendidos en España ya usan USB-C PD. Los modelos solo USB-A o con carga lenta han perdido cuota de mercado y generan altas tasas de devolución. La configuración óptima para e-commerce es <strong>10.000mAh + 30W PD + PPS + USB-C×2</strong>.</p>
+					<p class="text-slate-600 text-sm faq-answer">El estándar mínimo en 2026 es <strong>USB-C PD 20-30W</strong> para smartphones. Para portátiles se requiere PD 3.0 de 65W mínimo, y PD 3.1 de 100-140W para gama premium. El 85-90% de los nuevos smartphones vendidos en España ya usan USB-C PD. Los modelos solo USB-A o con carga lenta han perdido cuota de mercado y generan altas tasas de devolución. La configuración óptima para e-commerce es <strong>10.000mAh + 30W PD + PPS + USB-C×2</strong>.</p>
 				</div>
 				<div class="bg-white rounded-xl p-6">
 					<h3 class="font-black text-brandBlue mb-2">¿Cómo verifico la capacidad real de un power bank antes de hacer un pedido OEM?</h3>
-					<p class="text-slate-600 text-sm">Solicite muestras y pruébelas con un medidor USB-C (Power-Z KM003C o Fnirsi C1, ~$20-50). Un power bank de 10.000mAh debe entregar <strong>8.000-9.000mAh utilizables</strong>. Exija informes de descarga de laboratorio externo (SGS, TÜV) bajo condiciones estándar (5V/2A, 25°C). Menos del 30% de los bancos etiquetados como 20.000mAh en el mercado chino alcanzan el 85% de la capacidad declarada. En WOWOHCOOL verificamos el 100% de unidades con carga electrónica Chroma.</p>
+					<p class="text-slate-600 text-sm faq-answer">Solicite muestras y pruébelas con un medidor USB-C (Power-Z KM003C o Fnirsi C1, ~$20-50). Un power bank de 10.000mAh debe entregar <strong>8.000-9.000mAh utilizables</strong>. Exija informes de descarga de laboratorio externo (SGS, TÜV) bajo condiciones estándar (5V/2A, 25°C). Menos del 30% de los bancos etiquetados como 20.000mAh en el mercado chino alcanzan el 85% de la capacidad declarada. En WOWOHCOOL verificamos el 100% de unidades con carga electrónica Chroma.</p>
 				</div>
 			</div>
 		</div>
