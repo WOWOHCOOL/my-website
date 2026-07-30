@@ -1,7 +1,7 @@
-# B2B 多语言文章元数据标准 (v1.0)
+# B2B 多语言文章元数据标准 (v2.0)
 
 **适用范围**: EN / DE / ES / FR 所有 B2B 博客文章
-**最后更新**: 2026-07-27
+**最后更新**: 2026-07-29
 
 ---
 
@@ -21,7 +21,18 @@
       "url": "{ORGANIZATION_URL}",
       "publishingPrinciples": "{ORGANIZATION_URL}",
       "logo": "https://www.wowohcool.com/image/wowohcool-logo-optimized.webp",
+      "foundingDate": "{FOUNDING_DATE}",
+      "vatID": "{VAT_OR_USCC_ID}",
       "areaServed": ["DE", "AT", "CH", "EU"],
+      "knowsAbout": ["{ORG_KNOWSABOUT_1}", "{ORG_KNOWSABOUT_2}", "{ORG_KNOWSABOUT_3}"],
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "{STREET_ADDRESS}",
+        "addressLocality": "{CITY}",
+        "addressRegion": "{REGION}",
+        "postalCode": "{POSTAL_CODE}",
+        "addressCountry": "{COUNTRY_CODE}"
+      },
       "sameAs": [
         "https://www.linkedin.com/company/wowohcool",
         "https://www.facebook.com/wowohcoolelectronic",
@@ -31,6 +42,8 @@
       "contactPoint": {
         "@type": "ContactPoint",
         "contactType": "OEM/ODM Sales",
+        "telephone": "{SALES_TELEPHONE}",
+        "email": "{SALES_EMAIL}",
         "availableLanguage": ["English", "German", "Chinese"]
       }
     },
@@ -40,7 +53,15 @@
       "url": "{SITE_URL}",
       "name": "{SITE_NAME}",
       "inLanguage": "{LANG}",
-      "publisher": { "@id": "{ORGANIZATION_ID}" }
+      "publisher": { "@id": "{ORGANIZATION_ID}" },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "{SITE_URL}/search?q={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+      }
     },
     {
       "@type": "BreadcrumbList",
@@ -52,26 +73,22 @@
     },
     {
       "@type": "BlogPosting",
+      "@id": "{CANONICAL_URL}#article",
       "headline": "{H1_TITLE}",
       "description": "{META_DESCRIPTION}",
-      "author": {
-        "@type": "Person",
-        "name": "{AUTHOR_NAME}",
-        "url": "{AUTHOR_LINKEDIN}",
-        "jobTitle": "{AUTHOR_JOB_TITLE}",
-        "image": "{AUTHOR_IMAGE}",
-        "sameAs": ["{AUTHOR_LINKEDIN}"]
-      },
+      "author": { "@id": "{AUTHOR_ID}" },
       "publisher": { "@id": "{ORGANIZATION_ID}" },
       "datePublished": "{PUBLISH_DATE}",
       "dateModified": "{MODIFIED_DATE}",
       "mainEntityOfPage": { "@type": "WebPage", "@id": "{CANONICAL_URL}" },
-      "wordCount": {WORD_COUNT},
+      "wordCount": "{ACTUAL_WORD_COUNT}",
       "inLanguage": "{LANG}",
       "timeRequired": "{TIME_REQUIRED}",
+      "keywords": ["{KEYWORD_1}", "{KEYWORD_2}", "{KEYWORD_3}"],
+      "articleSection": "{ARTICLE_CATEGORY}",
       "image": "{OG_IMAGE}",
       "thumbnailUrl": "{OG_IMAGE}",
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", "h2", ".speakable"] },
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".speakable"] },
       "about": { "@type": "Thing", "name": "{WIKIDATA_LABEL}", "sameAs": "{WIKIDATA_URL}" },
       "citation": [
         { "@type": "CreativeWork", "name": "{CITE_1_NAME}", "url": "{CITE_1_URL}" },
@@ -80,32 +97,68 @@
     },
     {
       "@type": "Person",
+      "@id": "{AUTHOR_ID}",
       "name": "{AUTHOR_NAME}",
       "jobTitle": "{AUTHOR_JOB_TITLE}",
       "url": "{AUTHOR_LINKEDIN}",
       "sameAs": ["{AUTHOR_LINKEDIN}"],
       "image": "{AUTHOR_IMAGE}",
-      "worksFor": { "@type": "Organization", "name": "WOWOHCOOL (Dong Yi Technology Co., Ltd)" },
+      "worksFor": { "@id": "{ORGANIZATION_ID}" },
       "knowsAbout": ["{KNOWS_ABOUT_1}", "{KNOWS_ABOUT_2}", "{KNOWS_ABOUT_3}"]
     },
     {
       "@type": "HowTo",
+      "@id": "{CANONICAL_URL}#howto",
       "name": "{HOWTO_NAME}",
       "description": "{HOWTO_DESC}",
       "step": [
         { "@type": "HowToStep", "position": 1, "name": "{STEP_1_NAME}", "itemListElement": [{ "@type": "HowToDirection", "text": "{STEP_1_TEXT}" }] },
-        { "@type": "HowToStep", "position": 2, "name": "{STEP_2_NAME}", "itemListElement": [{ "@type": "HowToDirection", "text": "{STEP_2_TEXT}" }] }
+        { "@type": "HowToStep", "position": 2, "name": "{STEP_2_NAME}", "itemListElement": [{ "@type": "HowToDirection", "text": "{STEP_2_TEXT}" }] },
+        { "@type": "HowToStep", "position": 3, "name": "{STEP_3_NAME}", "itemListElement": [{ "@type": "HowToDirection", "text": "{STEP_3_TEXT}" }] }
       ]
     },
     {
       "@type": "FAQPage",
+      "@id": "{CANONICAL_URL}#faq",
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": [".faq-answer"] },
       "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "{FAQ_1_QUESTION}",
-          "acceptedAnswer": { "@type": "Answer", "text": "{FAQ_1_ANSWER}" }
-        }
+        { "@type": "Question", "name": "{FAQ_1_QUESTION}", "acceptedAnswer": { "@type": "Answer", "text": "{FAQ_1_ANSWER}" } }
       ]
+    },
+    {
+      "@type": "Product",
+      "@id": "{PRODUCT_URL}#product",
+      "name": "{PRODUCT_NAME}",
+      "description": "{PRODUCT_DESCRIPTION}",
+      "image": ["{PRODUCT_IMAGE_1}", "{PRODUCT_IMAGE_2}"],
+      "sku": "{PRODUCT_SKU}",
+      "mpn": "{PRODUCT_MPN}",
+      "brand": { "@type": "Brand", "name": "WOWOHCOOL" },
+      "manufacturer": { "@id": "{ORGANIZATION_ID}" },
+      "category": "{PRODUCT_CATEGORY}",
+      "offers": {
+        "@type": "Offer",
+        "url": "{PRODUCT_URL}",
+        "priceCurrency": "{CURRENCY}",
+        "price": "{PRICE_OR_OMIT_IF_QUOTE_ONLY}",
+        "availability": "https://schema.org/InStock",
+        "businessFunction": "https://schema.org/Sell",
+        "eligibleCustomerType": "https://schema.org/Business",
+        "seller": { "@id": "{ORGANIZATION_ID}" }
+      }
+    },
+    {
+      "@type": "Service",
+      "@id": "{SERVICE_URL}#service",
+      "name": "{SERVICE_NAME}",
+      "description": "{SERVICE_DESCRIPTION}",
+      "provider": { "@id": "{ORGANIZATION_ID}" },
+      "areaServed": ["DE", "AT", "CH", "EU"],
+      "serviceType": "{SERVICE_TYPE}",
+      "audience": {
+        "@type": "BusinessAudience",
+        "audienceType": "B2B Buyers / Distributors / Retailers"
+      }
     }
   ]
 }
@@ -136,8 +189,11 @@
 | `{CANONICAL_URL}` | 完整 canonical URL（末尾带 `/`） | `https://www.wowohcool.com/de/blog/fabrikauswahl-china-leitfaden/` |
 | `{PUBLISH_DATE}` | 发布日期 `YYYY-MM-DD` | `2026-04-21` |
 | `{MODIFIED_DATE}` | 最后修改日期 | `2026-07-27` |
-| `{WORD_COUNT}` | 实际主体字数（整数，无引号），验证方法见 §四 | `3100` |
+| `{AUTHOR_ID}` | 作者 `@id`（Person 节点引用，BlogPosting.author 去重） | `https://www.wowohcool.com/de/#snowymay` |
+| `{ACTUAL_WORD_COUNT}` | 实际主体字数（整数，无引号），验证方法见 §四 | `3100` |
 | `{TIME_REQUIRED}` | ISO 8601 duration | `PT14M` |
+| `{KEYWORD_1}` 等 | 文章关键词（≥3） | `GaN-Ladegerät` |
+| `{ARTICLE_CATEGORY}` | 文章分类标签 | `GaN & Fast Charging` |
 | `{OG_IMAGE}` | 封面图完整 URL | `https://www.wowohcool.com/image/blog/cover-de/...` |
 | `{AUTHOR_NAME}` | 作者姓名 | `Nina Nico` |
 | `{AUTHOR_LINKEDIN}` | 作者 LinkedIn URL | `https://www.linkedin.com/in/nico-power-bank-chargers` |
@@ -151,18 +207,56 @@
 | `{CITE_1_NAME}` 等 | 权威引用源名称 + URL | `WPC Product Registry` / `https://www.wirelesspowerconsortium.com/products` |
 | `{FAQ_1_QUESTION}` 等 | FAQ 问答题对，5-8 条 | 见 §三 FAQ 8 规则 |
 
+### v2 新增：Organization 级占位符（全站统一填写一次）
+
+| 占位符 | 说明 | 示例 |
+|--------|------|------|
+| `{FOUNDING_DATE}` | 公司成立年份 | `2013` |
+| `{VAT_OR_USCC_ID}` | 增值税号 / 统一社会信用代码 | `91440300MA5DF9NB4M` |
+| `{ORG_KNOWSABOUT_1}` 等 | 公司专长领域（≥3） | `GaN Charger Manufacturing` / `Qi2 Wireless Charging` / `OEM/ODM Manufacturing` |
+| `{STREET_ADDRESS}` | 街道地址 | `Building X, Longhua District` |
+| `{CITY}` | 城市 | `Shenzhen` |
+| `{REGION}` | 省份/州 | `Guangdong` |
+| `{POSTAL_CODE}` | 邮编 | `518110` |
+| `{COUNTRY_CODE}` | ISO 3166-1 α-2 国家码 | `CN` |
+| `{SALES_TELEPHONE}` | 销售电话 | `+86-755-XXXX-XXXX` |
+| `{SALES_EMAIL}` | 销售邮箱 | `sales@wowohcool.com` |
+
+### v2 新增：Product / Service 节点占位符（产品页/服务页专用）
+
+| 占位符 | 说明 | 示例 |
+|--------|------|------|
+| `{PRODUCT_URL}` | 产品页 URL | `https://www.wowohcool.com/products/gan-charger/` |
+| `{PRODUCT_NAME}` | 产品名称 | `WOP140 140W GaN Charger 4-Port PD 3.1` |
+| `{PRODUCT_DESCRIPTION}` | 产品描述 | `GaN V 140W 4-port USB-C charger...` |
+| `{PRODUCT_IMAGE_1}` 等 | 产品图片 URL（≥2） | `https://www.wowohcool.com/image/product/...` |
+| `{PRODUCT_SKU}` | SKU 编号 | `WOP140` |
+| `{PRODUCT_MPN}` | 制造商零件号 | `DY-WOP140-001` |
+| `{PRODUCT_CATEGORY}` | 产品分类 | `GaN Chargers` |
+| `{CURRENCY}` | 价格货币 ISO 4217 | `USD` |
+| `{PRICE_OR_OMIT_IF_QUOTE_ONLY}` | 价格（纯询价可不填此字段） | `24.99` |
+| `{SERVICE_URL}` | 服务页 URL | `https://www.wowohcool.com/service/` |
+| `{SERVICE_NAME}` | 服务名称 | `OEM/ODM Manufacturing Service` |
+| `{SERVICE_DESCRIPTION}` | 服务描述 | `End-to-end OEM/ODM charger manufacturing...` |
+| `{SERVICE_TYPE}` | 服务类型 | `Manufacturing` |
+
 ---
 
 ## 三、Schema 节点设计原理
 
 ### 3.1 Organization（必须，`@graph` 第一条）
 
-**B2B 关键字段**：
+**B2B 关键字段（v2 增强）**：
 
 | 字段 | 用途 | GEO 影响 |
 |------|------|---------|
 | `legalName` | 对公验证、海关清关、合同匹配 | 实体消歧 |
+| `foundingDate`（v2 新增） | 公司成立年份，B2B 信任信号 | 实体时效性 |
+| `vatID`（v2 新增） | 增值税号 / 统一社会信用代码 | 实体可验证性 |
+| `address`（v2 新增） | 完整 PostalAddress | 本地搜索 + Google 商家匹配 |
+| `knowsAbout`（v2 新增） | 公司级别专长领域 | 知识图谱实体分类 |
 | `sameAs` | 跨平台实体关联（LinkedIn, YouTube, X, Facebook） | 知识图谱合并 |
+| `contactPoint.telephone/email`（v2 增强） | 真实联系方式 | AI 确认可联系实体 |
 | `contactPoint.contactType: "OEM/ODM Sales"` | 精准 B2B 意图信号 | AI 理解业务模型 |
 | `areaServed` | 目标市场地理范围 | 本地化搜索 |
 
@@ -170,7 +264,7 @@
 
 | 字段 | 用途 | GEO 影响 |
 |------|------|---------|
-| `speakable` | AI 语音提取锚点，cssSelector 必须包含 `.speakable` | +15% 语音搜索匹配 |
+| `speakable` | AI 语音提取锚点，cssSelector `["h1", ".speakable"]`（3 节点：H1+Hook+Key Takeaways）。FAQPage 独立 speakable | +15% 语音搜索匹配 |
 | `about.sameAs` | Wikidata 实体挂载，链接全球知识图谱 | **+5% AI 引用率** |
 | `citation` | 列出的权威来源链，建立信任传递 | **+3% AI 引用率** |
 | `wordCount` | 整数、无引号、已验证（见 §四） | Schema 验证 |
@@ -290,7 +384,7 @@ DE 文章在标准结构基础上增加以下板块（位置见 §5.1）：
 | # | 板块 | 说明 |
 |---|------|------|
 | 7 | **WOWOHCOOL FAKT** | 工厂硬数据卡片。面积（m²）、员工、R&D 工程师、月产能、认证年份 |
-| 8 | **SCHNELLANTWORT** | 1 段浓缩核心结论，B2B 买家快速预览。含 `speakable` class |
+| 8 | ~~SCHNELLANTWORT~~ | **已废弃**。与 Key Takeaways 重叠 60-95%，删除。参见 `b2b-blog-quality-audit-standard.md` §III.3 |
 | 10 | **FAZIT** | 可选总结。核心结论 + 实操流程，不含与 Related Articles 重复的内部链接 |
 
 ---
@@ -314,7 +408,7 @@ DE 文章在标准结构基础上增加以下板块（位置见 §5.1）：
 [ ] ≥3 citation 条（来自行业标准/政府/认证机构）
 [ ] about.sameAs Wikidata 实体挂载
 [ ] CTAs: 内联 gradient CTA + 页面级 blog-cta.njk
-[ ] speakable cssSelector: ["h1", "h2", ".speakable"]，且 Hook/KERNERKENNTNISSE/SCHNELLANTWORT 含 speakable class
+[ ] speakable cssSelector: ["h1", ".speakable"]（BlogPosting，3 节点）。FAQPage 独立 speakable: [".faq-answer"]。SCHNELLANTWORT/RESPUESTA RÁPIDA 禁止存在
 [ ] Expert Insight 嵌入在 H2 Section 内（非独立在文章末尾）
 [ ] Organization 节点含 legalName + url + publishingPrinciples + logo + sameAs + contactPoint
 [ ] Organization url/publishingPrinciples 按语言映射（§二映射表）
@@ -358,4 +452,5 @@ grossiste, OEM/ODM
 
 | 版本 | 日期 | 变更 |
 |------|------|------|
+| v2.0 | 2026-07-29 | Organization 增强（address, foundingDate, vatID, knowsAbout, telephone/email）；BlogPosting.author 改为 @id 引用去重；新增 Product/Service 节点；WebSite 增加 SearchAction；wordCount 占位符改名 {ACTUAL_WORD_COUNT}；Person 增加 @id；HowTo/FAQPage 增加 @id；移除 Quick Answer 板块；SCHNELLANTWORT 标记废弃 |
 | v1.0 | 2026-07-27 | 初始版本。合并 EN 模板 + DE 优化，统一 4 语言映射表、完整 JSON-LD 模板、FAQ 8 规则、wordCount 验证方法、B2B 质量门清单 |

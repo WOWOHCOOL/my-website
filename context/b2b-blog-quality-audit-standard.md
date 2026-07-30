@@ -1,7 +1,7 @@
 # B2B Blog Quality Audit Standard 2026
 
 **Applies to**: All WOWOHCOOL sites (DE, EN, ES, FR)
-**Last Updated**: 2026-07-24
+**Last Updated**: 2026-07-30
 **Based on**: Google Helpful Content System, E-E-A-T, Information Gain Patent, AI Overviews/SearchGPT/Perplexity
 
 ---
@@ -134,6 +134,25 @@ Organize by the **procurement manager's mental decision chain**:
 [ ] 8. If density too high: remove forced B2B prefixes from technical sections only
 [ ] 9. If density too low: add B2B identifiers to procurement decision sections only
 ```
+
+#### B2B Signal Words: Naturalness Principle (Anti-Keyword-Stuffing)
+
+**B2B signal words (MOQ, FOB, OEM, ODM, factory, supplier, importer, sourcing, B2B, procurement, supply chain) must integrate naturally into the sentence context. Never force them into a sentence where they don't belong.**
+
+| ✅ Natural Integration | ❌ Forced / Keyword-Stuffed |
+|------------------------|---------------------------|
+| "una planta ISO 9001 de 5.000m² con MOQ desde 500 uds para OEM" | "el MOQ OEM del fabricante B2B es de 500 para importadores" |
+| "certificación CE + UN38.3 exigidas por la normativa de importación" | "la certificación CE para importadores y compradores B2B del supply chain" |
+| "auditoría por vídeo, referencias de clientes y verificación de certificaciones ISO" | "auditoría de fábrica para sourcing y procurement B2B con verificación OEM" |
+
+**The Auditor's keyword-count mechanism may under-score content that is substantively B2B but uses varied vocabulary.** This is an expected limitation of automated detection. When the FAQ H2 B2B Language score is below 70 but the answers contain procurement substance (Trade Assurance, T/T 30/70, ISO 9001, UNE-EN, AENOR, ODM, moldes), the score should be treated as advisory, not a defect.
+
+**Integration rules:**
+1. Add B2B keywords only where they naturally fit the existing sentence structure
+2. One B2B keyword per sentence is sufficient; stacking multiple keywords in one sentence = spam signal
+3. If the sentence already has procurement substance (payment terms, certification codes, factory specs), it does not need a B2B keyword injected
+4. FAQ answers that contain real procurement data (pricing, lead times, certification requirements) are B2B by substance, even if they lack the literal word "OEM"
+5. When in doubt: leave it out. A natural sentence without B2B keywords is better than a keyword-stuffed sentence that reads as AI-generated
 
 #### Rule C — Implicit B2B Context (Anti-False-Positive)
 
@@ -435,37 +454,84 @@ Any technical parameters (voltage, current, certifications, MOQ pricing comparis
 - Some params in tables, some in prose: 60 ⚠️
 - No tables: 40 🔴
 
-#### AI Citation Anchors: `speakable` Class
+#### AI Citation Anchors: Speakable Architecture (v3.0 — July 2026)
 
 AI search engines (ChatGPT, Perplexity, Google AI Overviews, Gemini) extract cited answers from the page's DOM. Standard `<p>` tags carry equal extraction weight. To signal which content block is the **primary answer**, use the `speakable` CSS class — the same selector registered in `SpeakableSpecification` Schema.
 
 **Rule**: Exactly **3 speakable anchors** per article — no more. Google's Speakable specification targets 20-30 seconds of TTS content; exceeding this causes AI engines to ignore the entire `cssSelector` directive due to dilution.
 
-| # | speakable 节点 | 位置 | 信息类型 | 不得包含 |
+| # | speakable 节点 | 位置 | DOM 标记 | 信息类型 |
 |---|---------------|------|---------|---------|
-| 1 | Hook 首段 | Hero 区域 | **核心问题与行业痛点**，匹配 Voice Search 提问 | 结论、具体实操步骤 |
-| 2 | KERNERKENNTNISSE TL;DR 句 | 封面图下方 | **全文结论与核心量化数据**，AI 提取为 Answer Box | 纯背景介绍、品牌宣传 |
-| 3 | SCHNELLANTWORT 段落 | TOC 下方 | **具体行动指南/关键门槛**，B2B 买家决策锚点 | 痛点铺垫、数据罗列 |
+| 1 | **H1** | Hero 区域 | `<h1>` 自然匹配 `"h1"` selector | 文章主题声明 |
+| 2 | **Hook 首段** | Hero 区域 | `class="speakable"` | 行业痛点 + 核心冲突，匹配 Voice Search 提问 |
+| 3 | **Key Takeaways TL;DR 句** | 封面图下方 | `class="speakable"` | 全文结论与核心量化数据，AI 提取为 Answer Box |
 
-**内容不重叠规则**：3 个节点必须承载**完全不同类型**的 AI 检索信息。如果 TL;DR 句和 SCHNELLANTWORT 在语义上高度重叠（都讲"怎么选工厂"），AI 爬虫会去重合并——等于白白浪费 1 个 speakable 配额。写作时验证：去掉 SCHNELLANTWORT，文章的核心"怎么做"信息是否仍然完整？如果是 → 两个节点重叠了，需重写其中之一。
+**Schema Architecture — BlogPosting vs FAQPage 职责分离**:
 
-**H3 后的 100-150 字符直接回答保留**（内容结构要求，确保 Featured Snippet 抓取位），但**不加 data-speakable**——它们的提取权重由 `h2` cssSelector 统一兜底。
+```
+BlogPosting.speakable → ["h1", ".speakable"]  ← 3 nodes: H1 + Hook + Key Takeaways
+FAQPage.speakable     → [".faq-answer"]       ← 独立管理，5-8 FAQ answers
+```
+
+两个 speakable 各自独立。BlogPosting 只负责文章摘要播报；FAQPage 负责问答匹配。**禁止**在 BlogPosting 的 cssSelector 中包含 `"h2"`——这会导致 ~12 个副标题被全量抓取（~16 个节点），严重稀释 AI 提取权重。
+
+**❌ 禁止的 cssSelector（已废弃）**:
+```json
+"cssSelector": ["h1", "h2", "[data-speakable]"]  // ~16 nodes → dilution
+```
+
+**✅ 当前标准**:
+```json
+// BlogPosting
+"speakable": { "cssSelector": ["h1", ".speakable"] }
+
+// FAQPage (独立)
+"speakable": { "cssSelector": [".faq-answer"] }
+```
+
+**`.speakable` class 标记标准**:
 
 ```html
-<!-- KEY TAKEAWAYS summary with speakable anchor -->
+<!-- Hook: .speakable on the wrapper -->
+<div class="bg-brandBlue/5 border-l-4 border-brandOrange p-6 rounded-r-xl mb-8 speakable">
+  <p class="text-lg text-slate-700 italic">[痛点段落]</p>
+</div>
+
+<!-- Key Takeaways TL;DR: .speakable on the summary paragraph -->
 <div class="bg-amber-50 border-l-4 border-amber-500 rounded-r-xl p-6 mb-8">
-  <p class="text-[11px] font-black text-brandOrange uppercase tracking-widest mb-2">KEY TAKEAWAYS</p>
-  <p class="text-slate-700 leading-relaxed text-sm mb-4" data-speakable>[2-3 sentence core conclusion — this gets extracted by AI]</p>
+  <p class="text-[11px] font-black text-brandOrange uppercase tracking-widest mb-2">PUNTOS CLAVE</p>
+  <p class="text-slate-700 leading-relaxed text-sm mb-4 speakable">[2-3 sentence core conclusion]</p>
   <ul class="text-sm text-slate-700 space-y-2 list-disc pl-5">...</ul>
 </div>
 ```
-<!-- speakable marker: data-speakable is a zero-style DOM attribute used only by Schema crawlers. -->
-<!-- Recommended for static HTML: no CSS pollution, self-documenting, immune to PurgeCSS/class stripping. -->
-<!-- If using class-based selector instead, add "speakable" to Tailwind safelist in tailwind.config.js. -->
 
-**Why this matters**: Without `speakable` anchors, AI scrapers may extract a random mid-body sentence as the page's "answer" — often missing the core conclusion entirely. The `SpeakableSpecification` Schema (`cssSelector: ["h1", "h2", "[data-speakable]"]`) tells compliant crawlers to prioritize these elements. **Capping at 3 nodes prevents dilution** — every additional speakable tag reduces the extraction weight of the TL;DR and SCHNELLANTWORT which carry the page's most citable conclusions.
+**选择器规范**: 统一使用 `.speakable` CSS class（不再使用 `data-speakable` 属性选择器）。理由：(1) CSS class 选择器解析效率高于属性选择器，(2) 语义更清晰——Schema 锚点与样式挂钩逻辑一致，(3) 与 FAQPage 的 `.faq-answer` 命名风格一致。
 
-**Static HTML recommendation**: Use `data-speakable` attribute (not CSS class). Benefits: (1) zero CSS pollution, (2) immediately recognizable in static HTML source as a Schema anchor, (3) immune to CSS build tool stripping (PurgeCSS, Tailwind JIT). Fallback: `.speakable` class + safelist entry in `tailwind.config.js`.
+**H3 后的 100-150 字符直接回答保留**（内容结构要求，确保 Featured Snippet 抓取位），但**不加 `.speakable`**——它们的提取权重不应与核心 3 节点竞争。
+
+**内容不重叠规则**：Hook 和 Key Takeaways TL;DR 必须承载**完全不同类型**的信息。Hook = 痛点场景（"为什么你需要读这篇文章"），Key Takeaways = 核心结论（"读完你能得到什么"）。验证方法：去掉 Key Takeaways，文章的核心结论是否仍然完整？如果是 → Hook 写得太像总结，需要加重痛点元素。
+
+#### Anti-Pattern: RESPUESTA RÁPIDA / Quick Answer Block (Forbidden)
+
+**定义**: 在 TOC 与 H2 Sections 之间插入一个 `bg-brandBlue/5 border-l-4 border-brandOrange` 样式的蓝色卡片，标题为 "RESPUESTA RÁPIDA" / "SCHNELLANTWORT" / "Quick Answer"，内容与 Key Takeaways 高度重叠。
+
+**为什么是反模式**:
+1. **内容重叠 60-95%**：与 Key Takeaways amber 卡片的数据点几乎完全重复（共 12 篇 ES 审核实证）
+2. **speakable 超限**：多出一个 `data-speakable` 锚点，总 speakable 从 3→4
+3. **视觉冗余**：读者在正文前看到两张几乎相同的卡片
+4. **SEO 稀释**：相同信息在两处出现，AI 爬虫去重后抓取权重减半
+
+**✅ 正确做法**:
+```
+Hook → Featured Image → Key Takeaways (amber) → CIFRAS CLAVE (metrics grid) → TOC → §1
+```
+
+**❌ 已废弃**:
+```
+Hook → Featured Image → Key Takeaways → TOC → RESPUESTA RÁPIDA (删除!) → §1
+```
+
+**预发布检查**: 搜索 `RESPUESTA RÁPIDA` / `SCHNELLANTWORT` / `Quick Answer` — 出现即删除。此规则已通过 12 篇 ES 文章批量审计验证。
 
 #### Short Paragraphs
 
@@ -480,7 +546,7 @@ Required JSON-LD for every blog post:
 - **HowTo**: ≥3 steps for any process/guide article
 - **BreadcrumbList**: full path from homepage to article
 - **Organization**: name, logo, url
-- **SpeakableSpecification**: cssSelector `["h1", "h2", "[data-speakable]"]`
+- **SpeakableSpecification**: cssSelector `["h1", ".speakable"]` (BlogPosting — 3 nodes); FAQPage uses independent `[".faq-answer"]`
 
 **Static build environment variable note**: JSON-LD `@id` and canonical URLs must use the site's build-time base URL variable (e.g., 11ty `{{ site.url }}`), not hardcoded `localhost:8080`. This ensures production builds always render absolute production URLs. Template convention:
 
@@ -625,6 +691,7 @@ B2B procurement is a long-cycle decision. No one reads one article and clicks "B
 | 2 | **H2/H3 as meaningless short labels** (e.g., "Testing", "Benefits") | F-pattern readers skip these — no information communicated by heading alone | 🤖 |
 | 3 | **Keyword stacking in H2s** (consecutive H2s with same B2B word) | Reads as keyword stuffing. Each H2 must address a NEW dimension | 🤖 |
 | 4 | **Body-text mismatch with heading** (H3 says "Energy Density Comparison" but body talks about company history) | Reader loses trust instantly. First sentence after every heading MUST answer that heading | Manual |
+| 5 | **Hook paragraph contains duplicated data** (same stat or claim appears twice within the Hook paragraph) | Reads as sloppy editing; breaks reader trust in the first 10 seconds | Manual — search for repeated `<strong>` content or near-identical clauses within the Hook div |
 
 ---
 
@@ -647,7 +714,15 @@ The `b2b_content_auditor.py` module performs 13 automated checks against these s
 | 11 | **Weak CTA Detection** | Flag ineffective B2B CTAs | Good = 100, weak = 40-60, absent = 20 |
 | 12 | **Heading Hierarchy** | Detect skipped levels (H1→H3, H2→H4) | -25 per skip |
 | 13 | **URL Quality** | Flag underscores, uppercase, dates, stop words. Staged word count: 3-6=pass, 7-8=minor warning (-10), ≥9=deduction (-20) | Deduct per violation |
-| 14 | **Schema Validation** | Parse JSON-LD for syntax errors, missing required fields (`author.sameAs`, `publisher.logo`, `mainEntityOfPage.@id`), trailing-slash consistency, `data-speakable` ↔ `SpeakableSpecification` alignment, and TOC `#faq` ↔ FAQ section anchor match | Syntax error = -30, missing field = -15/ea, slash mismatch = -10, speakable mismatch = -5/-10, TOC-FAQ mismatch = -5/-10 |
+| 14 | **Schema Validation** | Parse JSON-LD for syntax errors, missing required fields, trailing-slash consistency, `.speakable` class ↔ `SpeakableSpecification` alignment, TOC-FAQ anchor match. **v2 required fields**: Organization (`legalName`, `url`, `publishingPrinciples`, `logo`, `contactPoint`, `address`, `telephone`, `email`), Person (`@id`, `sameAs`), BlogPosting (`author` as `@id` ref, not inline Person; `@id`; `keywords`; `articleSection`), FAQPage (independent `speakable: [".faq-answer"]`), HowTo (`@id`) | Syntax error = -30, missing field = -15/ea, slash mismatch = -10, speakable mismatch = -5/-10, TOC-FAQ mismatch = -5/-10, inline author = -10, missing Organization address/phone/email = -5~10 |
+| 15 | **RESPUESTA RÁPIDA Detection** | Search for "RESPUESTA RÁPIDA" / "SCHNELLANTWORT" / "Quick Answer" blocks in HTML — duplicate of Key Takeaways, forbidden | Present = -25 (automatic deletion recommended) |
+| 16 | **Hook Duplicate Detection** | Scan Hook paragraph for repeated `<strong>`-tagged statistics or near-identical clauses within the same paragraph | Duplicate found = -15 |
+| 17 | **Featured Image srcset** | Verify `srcset` attribute with 3 breakpoints (800w/1200w/2240w) + `sizes` + `fetchpriority="high"` | Missing = -15/ea |
+| 18 | **Organization Contact Completeness** | Organization node must include `address` (PostalAddress: streetAddress + addressLocality + addressRegion + postalCode + addressCountry), `contactPoint.telephone`, and `contactPoint.email`. B2B trust signal — missing fields weaken entity verification | Missing address = -10, missing telephone = -5, missing email = -5 |
+| 19 | **Citation ↔ Fuentes Alignment** | Schema `citation` array count must match visible Sources/Fuentes section link count. AI engines scan citation array directly for authority signals; under-reporting wastes GEO opportunities | Count mismatch = -10 |
+| 20 | **timeRequired ↔ Visible Display** | Schema `timeRequired` (ISO 8601) must match the visible reading time shown in the date row. Inconsistency is flagged as structured-data/visible-content mismatch by AI crawlers | Mismatch = -5 |
+| 21 | **Person @id Dedup** | `BlogPosting.author` must use `{ "@id": "{AUTHOR_ID}" }` reference, NOT an inline Person object. A separate Person node with matching `@id` must exist. Inline duplication creates ghost entities that weaken AI author credibility signals | Inline author = -10, missing Person @id = -10 |
+| 22 | **worksFor @id Reference** | Person `worksFor` must use `{ "@id": "{ORGANIZATION_ID}" }`, NOT an inline Organization object. Inline creates a phantom Organization entity disconnected from the main one | Inline worksFor = -5 |
 
 ---
 
@@ -743,22 +818,44 @@ Before publishing, verify all elements:
 | **Tables** | Technical parameters in Markdown tables | 🤖 |
 | **Images** | Real photos only, alt text with B2B keywords, no stock domains | 🤖 |
 | **FAQ** | 9 rules: body-schema consistent, real buyer questions, content-anchored, GEO-optimized, decision-chain ordered, quantitative answers, final-Q CTA bridge, format differentiated, cross-reference consistent | 🤖 + Manual |
+| **Speakable** | BlogPosting: `["h1", ".speakable"]` (3 nodes); FAQPage: `[".faq-answer"]` (independent). H1+Hook+Key Takeaways only; no H2 in selector; no `.speakable` on FAQ answers; `data-speakable` attribute deprecated | 🤖 |
+| **RESPUESTA RÁPIDA** | Must NOT exist — this block duplicates Key Takeaways content 60-95% and creates a 4th speakable anchor. Search for "RESPUESTA RÁPIDA" / "SCHNELLANTWORT" / "Quick Answer" — delete if found | Manual (grep) |
+| **Hook Duplicate** | Hook paragraph must not contain the same statistic or claim twice (e.g., "$1.200M market" appearing in two separate clauses). Read Hook aloud — any information repeated = edit | Manual |
+| **Featured Image** | Must include `srcset` (800w/1200w/2240w) + `sizes` + `fetchpriority="high"` for LCP optimization | 🤖 |
+| **Content Width** | All blocks from Featured Image through Sources must share a single `max-w-4xl mx-auto px-6` wrapper. No double-nested `max-w-4xl` wrappers (causes inconsistent margins) | Manual |
+| **Schema v2 — Organization** | `address` (PostalAddress: streetAddress + addressLocality + region + postalCode + country), `contactPoint.telephone`, `contactPoint.email` — B2B entity verification signals | 🤖 |
+| **Schema v2 — Citation** | `citation` array count must match visible Sources/Fuentes link count. Under-reporting wastes AI citation signals | Manual (count comparison) |
+| **Schema v2 — timeRequired** | Schema `timeRequired` must match visible reading time display (e.g., "9 min" = PT9M, not PT12M) | Manual |
+| **Schema v2 — Author @id** | `BlogPosting.author` = `{ "@id": "{AUTHOR_ID}" }` (reference, not inline Person); Person node has matching `@id`; `worksFor` = `{ "@id": "{ORG_ID}" }` | 🤖 |
 | **CTA** | Below Author Bio, h2 heading, gradient background, B2B button text, product keyword | 🤖 |
 | **Author** | Named, credential-rich byline, LinkedIn link, author page, topic-relevant expertise | 🤖 |
 
 ### Author Self-Check (8 Questions)
 
-After automated checks pass, verify these 8 items manually:
+After automated checks pass, verify these items manually:
 
 ```
 [ ] H1 contains ≥1 B2B signal word + 50-65 chars + audience/metric/return?
 [ ] Opening delivers core conclusion directly (not question, not industry preamble)?
 [ ] KEY TAKEAWAYS block present after H1, before first H2?
+[ ] RESPUESTA RÁPIDA / Quick Answer block absent? (grep for these strings — delete if found)
+[ ] Hook paragraph free of duplicated data? (no stat or claim repeated within the Hook)
+[ ] .speakable class on Hook div + Key Takeaways TL;DR only? No speakable on FAQ answers or H2s
+[ ] BlogPosting schema cssSelector = ["h1", ".speakable"] (NOT ["h1", "h2", "[data-speakable]"])?
+[ ] FAQPage has its own independent speakable with [".faq-answer"]?
+[ ] Featured Image has srcset (800w/1200w/2240w) + sizes + fetchpriority="high"?
+[ ] All content blocks share consistent max-w-4xl width? (no double-nested wrappers)
 [ ] All H2 headings scanned — 3 seconds to understand complete value?
 [ ] ≥2 H2s contain B2B signal words? No 3 consecutive H2s with same B2B word?
 [ ] Images are real product/factory/lab photos? Alt text contains B2B keywords?
 [ ] CTA is low-friction value continuation (download/checklist/consultation)? No "Buy now"?
 [ ] FAQ questions use B2B procurement language (MOQ/FOB/certification/lead time)? Not "Which is best?"?
+[ ] Schema v2: Organization has address + telephone + email? (B2B entity verification)
+[ ] Schema v2: citation array count = visible Sources/Fuentes link count? (AI citation signal)
+[ ] Schema v2: timeRequired matches visible reading time? (9 min = PT9M, not PT12M)
+[ ] Schema v2: BlogPosting.author = @id ref; Person has matching @id? (no inline duplication)
+[ ] Schema v2: Person.worksFor = @id ref (not inline Organization)? (entity consistency)
+[ ] Cover image matches article topic and language folder? (e.g., cover-es/ for ES articles)
 ```
 
 ---
@@ -920,7 +1017,7 @@ For multi-language B2B sites (DE/EN/ES/FR), every article must declare bidirecti
 - All images use `srcset` with 3 breakpoints (800w / 1200w / 2240w) + explicit `width`/`height` attributes
 - `fetchpriority="high"` on featured image only
 - `<cite>` and `<data>` semantic tags required for all standards references and measurements (see §III.1)
-- `data-speakable` attribute (not CSS class) for Schema speech anchors — immune to CSS tree-shaking
+- `.speakable` CSS class for Schema speech anchors on Hook + Key Takeaways TL;DR (exactly 3 nodes: H1 + 2×.speakable). BlogPosting cssSelector: `["h1", ".speakable"]`. FAQPage has independent speakable via `[".faq-answer"]`. `data-speakable` attribute is deprecated.
 
 ### 12.5 Server-Side 301 Trailing Slash Enforcement
 

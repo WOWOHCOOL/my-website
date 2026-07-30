@@ -9,7 +9,18 @@
       "url": "{ORGANIZATION_URL}",
       "publishingPrinciples": "{ORGANIZATION_URL}",
       "logo": "https://www.wowohcool.com/image/wowohcool-logo-optimized.webp",
+      "foundingDate": "{FOUNDING_DATE}",
+      "vatID": "{VAT_OR_USCC_ID}",
       "areaServed": ["DE", "AT", "CH", "EU"],
+      "knowsAbout": ["{ORG_KNOWSABOUT_1}", "{ORG_KNOWSABOUT_2}", "{ORG_KNOWSABOUT_3}"],
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "{STREET_ADDRESS}",
+        "addressLocality": "{CITY}",
+        "addressRegion": "{REGION}",
+        "postalCode": "{POSTAL_CODE}",
+        "addressCountry": "{COUNTRY_CODE}"
+      },
       "sameAs": [
         "https://www.linkedin.com/company/wowohcool",
         "https://www.facebook.com/wowohcoolelectronic",
@@ -19,6 +30,8 @@
       "contactPoint": {
         "@type": "ContactPoint",
         "contactType": "OEM/ODM Sales",
+        "telephone": "{SALES_TELEPHONE}",
+        "email": "{SALES_EMAIL}",
         "availableLanguage": ["English", "German", "Chinese"]
       }
     },
@@ -28,7 +41,15 @@
       "url": "{SITE_URL}",
       "name": "{SITE_NAME}",
       "inLanguage": "{LANG}",
-      "publisher": { "@id": "{ORGANIZATION_ID}" }
+      "publisher": { "@id": "{ORGANIZATION_ID}" },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "{SITE_URL}/search?q={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+      }
     },
     {
       "@type": "BreadcrumbList",
@@ -40,26 +61,22 @@
     },
     {
       "@type": "BlogPosting",
+      "@id": "{CANONICAL_URL}#article",
       "headline": "{H1_TITLE}",
       "description": "{META_DESCRIPTION}",
-      "author": {
-        "@type": "Person",
-        "name": "{AUTHOR_NAME}",
-        "url": "{AUTHOR_LINKEDIN}",
-        "jobTitle": "{AUTHOR_JOB_TITLE}",
-        "image": "{AUTHOR_IMAGE}",
-        "sameAs": ["{AUTHOR_LINKEDIN}"]
-      },
+      "author": { "@id": "{AUTHOR_ID}" },
       "publisher": { "@id": "{ORGANIZATION_ID}" },
       "datePublished": "{PUBLISH_DATE}",
       "dateModified": "{MODIFIED_DATE}",
       "mainEntityOfPage": { "@type": "WebPage", "@id": "{CANONICAL_URL}" },
-      "wordCount": 0,
+      "wordCount": "{ACTUAL_WORD_COUNT}",
       "inLanguage": "{LANG}",
       "timeRequired": "{TIME_REQUIRED}",
+      "keywords": ["{KEYWORD_1}", "{KEYWORD_2}", "{KEYWORD_3}"],
+      "articleSection": "{ARTICLE_CATEGORY}",
       "image": "{OG_IMAGE}",
       "thumbnailUrl": "{OG_IMAGE}",
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", "h2", "[data-speakable]"] },
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".speakable"] },
       "about": { "@type": "Thing", "name": "{WIKIDATA_LABEL}", "sameAs": "{WIKIDATA_URL}" },
       "citation": [
         { "@type": "CreativeWork", "name": "{CITE_1_NAME}", "url": "{CITE_1_URL}" },
@@ -69,16 +86,18 @@
     },
     {
       "@type": "Person",
+      "@id": "{AUTHOR_ID}",
       "name": "{AUTHOR_NAME}",
       "jobTitle": "{AUTHOR_JOB_TITLE}",
       "url": "{AUTHOR_LINKEDIN}",
       "sameAs": ["{AUTHOR_LINKEDIN}"],
       "image": "{AUTHOR_IMAGE}",
-      "worksFor": { "@type": "Organization", "name": "WOWOHCOOL (Dong Yi Technology Co., Ltd)" },
+      "worksFor": { "@id": "{ORGANIZATION_ID}" },
       "knowsAbout": ["{KNOWS_ABOUT_1}", "{KNOWS_ABOUT_2}", "{KNOWS_ABOUT_3}"]
     },
     {
       "@type": "HowTo",
+      "@id": "{CANONICAL_URL}#howto",
       "name": "{HOWTO_NAME}",
       "description": "{HOWTO_DESC}",
       "step": [
@@ -89,6 +108,8 @@
     },
     {
       "@type": "FAQPage",
+      "@id": "{CANONICAL_URL}#faq",
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": [".faq-answer"] },
       "mainEntity": [
         { "@type": "Question", "name": "{FAQ_1_QUESTION}", "acceptedAnswer": { "@type": "Answer", "text": "{FAQ_1_ANSWER}" } },
         { "@type": "Question", "name": "{FAQ_2_QUESTION}", "acceptedAnswer": { "@type": "Answer", "text": "{FAQ_2_ANSWER}" } },
@@ -96,6 +117,41 @@
         { "@type": "Question", "name": "{FAQ_4_QUESTION}", "acceptedAnswer": { "@type": "Answer", "text": "{FAQ_4_ANSWER}" } },
         { "@type": "Question", "name": "{FAQ_5_QUESTION}", "acceptedAnswer": { "@type": "Answer", "text": "{FAQ_5_ANSWER}" } }
       ]
+    },
+    {
+      "@type": "Product",
+      "@id": "{PRODUCT_URL}#product",
+      "name": "{PRODUCT_NAME}",
+      "description": "{PRODUCT_DESCRIPTION}",
+      "image": ["{PRODUCT_IMAGE_1}", "{PRODUCT_IMAGE_2}"],
+      "sku": "{PRODUCT_SKU}",
+      "mpn": "{PRODUCT_MPN}",
+      "brand": { "@type": "Brand", "name": "WOWOHCOOL" },
+      "manufacturer": { "@id": "{ORGANIZATION_ID}" },
+      "category": "{PRODUCT_CATEGORY}",
+      "offers": {
+        "@type": "Offer",
+        "url": "{PRODUCT_URL}",
+        "priceCurrency": "{CURRENCY}",
+        "price": "{PRICE_OR_OMIT_IF_QUOTE_ONLY}",
+        "availability": "https://schema.org/InStock",
+        "businessFunction": "https://schema.org/Sell",
+        "eligibleCustomerType": "https://schema.org/Business",
+        "seller": { "@id": "{ORGANIZATION_ID}" }
+      }
+    },
+    {
+      "@type": "Service",
+      "@id": "{SERVICE_URL}#service",
+      "name": "{SERVICE_NAME, e.g. OEM/ODM Manufacturing Service}",
+      "description": "{SERVICE_DESCRIPTION}",
+      "provider": { "@id": "{ORGANIZATION_ID}" },
+      "areaServed": ["DE", "AT", "CH", "EU"],
+      "serviceType": "{SERVICE_TYPE}",
+      "audience": {
+        "@type": "BusinessAudience",
+        "audienceType": "B2B Buyers / Distributors / Retailers"
+      }
     }
   ]
 }
