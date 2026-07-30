@@ -26,7 +26,7 @@ Repeating "Best GaN Charger Manufacturer, Custom GaN Charger Factory, China 140W
 
 ### Required: Information Gain
 
-Google's Information Gain patent compares your article's vocabulary against the top 5 ranking pages. If your article is just rewording what already exists, it's classified as "zero information gain" and suppressed.
+The Information Gain concept (derived from Google's patents US2022/0309025A1 and related filings, widely discussed in SEO research but never officially confirmed as a production ranking signal) suggests that pages adding unique vocabulary and entities beyond what the top SERP results already cover receive higher visibility. In practice, articles that reword existing content without adding first-party data consistently underperform.
 
 **How to win**: Deploy **exclusive industry terminology and first-party data** that competitors don't have:
 
@@ -304,7 +304,7 @@ Google's most heavily weighted signal: **"Did you actually do this?"**
 
 **Data Density Standard**: ≥3 precise measurements + engineering units per 1,000 words.
 
-**Semantic Citation Tags for GEO Extraction** (+30% AI citation rate):
+**Semantic Citation Tags for GEO Extraction**:
 
 AI crawlers (GPTBot, PerplexityBot, ClaudeBot) parse the HTML AST — not just text content. Wrapping references and measurements in semantic tags gives them machine-readable anchor points:
 
@@ -321,9 +321,9 @@ creepage distance of <data value="6.4mm">6.4mm</data>.</p>
 after 4-hour aging test at 100% load.</p>
 ```
 
-**Rule**: Every lab test result, certification reference, and precise measurement in the article body must use `<cite>` or `<data>` tags. This gives LLMs an AST-level signal that "this is authoritative source material" — boosting citation weight by ~30% vs plain text.
+**Rule**: Every lab test result, certification reference, and precise measurement in the article body must use `<cite>` or `<data>` tags. This gives LLMs an AST-level signal that the content is authoritative source material — expected to improve AI citation probability based on observed patterns in LLM context window behavior (citations are preferentially extracted from semantically tagged elements).
 
-**Temporal GEO Signals — `<time>` Tags** (+15% freshness-weighted citation):
+**Temporal GEO Signals — `<time>` Tags**:
 
 AI engines heavily weigh temporal freshness when answering B2B compliance queries (certification validity, audit dates, regulatory deadlines). Use the standard `<time datetime="...">` element for all dates in article body:
 
@@ -762,7 +762,7 @@ The `information_gain_analyzer.py` module evaluates content uniqueness:
 
 | Dimension | Weight | What It Measures |
 |-----------|--------|-----------------|
-| Content | 15% | Word count ≥2000, paragraphs 2-4 sentences |
+| Content | 15% | H2 decision-chain coverage complete (§II), Data Density ≥3/1K words, paragraphs 2-4 sentences |
 | Keywords | 20% | Keyword in H1/first-100-words/H2s/conclusion, density 1-2% |
 | Meta | 10% | Title 50-60 chars, Description 150-160 chars |
 | Structure | 12% | Unique H1, H2 ≥4, hierarchy complete |
@@ -770,6 +770,25 @@ The `information_gain_analyzer.py` module evaluates content uniqueness:
 | Readability | 8% | Flesch 60-70, avg sentence <25 words |
 | B2B Quality | 15% | From `b2b_content_auditor.py` composite |
 | Information Gain | 10% | From `information_gain_analyzer.py` composite |
+
+### Word Count Principle: Coverage Over Count
+
+Word count is **not a ranking factor** (Google official position, consistently stated since 2019; reaffirmed by Danny Sullivan at WordCamp US 2025). The 2026 paradigm measures **first-hand data density and decision-chain coverage** — not character count.
+
+**Two rules replace all hard word-count targets:**
+
+1. **Coverage completeness check** (§II H2 Decision Chain): The 5-stage procurement decision chain (Why this matters → What to verify → How it's done → What it costs → How to comply) must be addressed. If the H2 outline covers every stage, the article is "long enough" regardless of word count. Use `information_gain_analyzer.py` data density scoring as the quantitative signal — not word count.
+
+2. **Thin content red line**: Articles below **~800 words of body text** are unlikely to cover a B2B procurement decision adequately. This is a manual review trigger ("is this article too thin?") — not a target to write toward, and not a scoring criterion. Articles above this threshold with complete H2 coverage and ≥3 data points per 1K words are automatically sufficient.
+
+**Why this matters for GEO (AI citation)**: AI engines extract self-contained, information-dense paragraphs. A 1,800-word article where every section has specific data is cited more often than a 4,000-word article padded with paraphrase — the latter triggers the "zero information gain" classification the standard already warns against.
+
+**Typical ranges** (advisory, not mandatory):
+- Technical/educational: 1,000–2,500 words
+- Procurement/sourcing: 1,500–3,500 words
+- OEM/ODM core: 2,000–4,000 words
+
+These ranges reflect the natural length of well-covered B2B topics. Articles that fall outside these ranges should trigger a manual **coverage** review — not a word-count penalty.
 
 ### Quality Gate Thresholds
 
@@ -856,6 +875,18 @@ After automated checks pass, verify these items manually:
 [ ] Schema v2: BlogPosting.author = @id ref; Person has matching @id? (no inline duplication)
 [ ] Schema v2: Person.worksFor = @id ref (not inline Organization)? (entity consistency)
 [ ] Cover image matches article topic and language folder? (e.g., cover-es/ for ES articles)
+
+### Accessibility & Performance
+[ ] WCAG: color contrast ≥ 4.5:1 for body text? (Lighthouse audit)
+[ ] WCAG: all interactive elements keyboard-accessible? (Tab navigation test)
+[ ] WCAG: `<html lang="es">` (or de/en/fr) declared for screen reader pronunciation?
+[ ] CWV: LCP ≤ 2.5s (Lab ≤ 1.8s) — verified via Lighthouse?
+[ ] CWV: CLS ≤ 0.1 — no layout shift from images without dimensions?
+[ ] CWV: INP ≤ 200ms — no long-blocking JS tasks on interaction?
+
+### AI Crawler Access
+[ ] robots.txt: all 6 AI crawlers (GPTBot/ClaudeBot/PerplexityBot/ChatGPT-User/Googlebot/Bingbot) have Allow: /?
+[ ] llms.txt: returns 200 for all applicable languages (EN/DE/ES/FR)?
 ```
 
 ---
@@ -1028,3 +1059,97 @@ For multi-language B2B sites (DE/EN/ES/FR), every article must declare bidirecti
 | Apache | `RedirectMatch 301 ^/(.*[^/])$ /$1/` |
 
 Verify with `curl -I https://www.wowohcool.com/de/blog/slug` → must return `301 → /de/blog/slug/`.
+
+---
+
+## XIII. Accessibility Compliance (WCAG 2.2 + EAA)
+
+**Regulatory context**: The European Accessibility Act (EAA, Directive 2019/882) entered into force on **June 28, 2025** with compliance enforcement beginning **June 28, 2026**. For B2B content targeting EU markets (DE/AT/CH/ES/FR), the following minimum requirements apply to all blog articles:
+
+### Mandatory Checks
+
+| Element | Requirement | Verification |
+|---------|-------------|--------------|
+| Color contrast | Text ≥ 4.5:1, large text ≥ 3:1 | Lighthouse or axe DevTools |
+| Keyboard navigation | FAQ accordions, TOC links, CTA buttons reachable via Tab | Manual keyboard test |
+| Focus indicators | Visible focus ring on all interactive elements | Tab through page |
+| Alt text | All `<img>` have descriptive `alt` (no "image of" or "picture of") | Automated + spot check |
+| Heading hierarchy | No skipped levels (H1→H3), semantic structure preserved | b2b_content_auditor.py Check 12 |
+| Language declaration | `<html lang="es">` or equivalent for correct screen reader pronunciation | Visual check |
+
+### FAQ Accordion Accessibility
+
+FAQ sections using the standard white-card format (non-`<details>`) are inherently keyboard-accessible without additional work. If `<details>` elements are ever used:
+
+```html
+<!-- Required: keyboard-openable, screen-reader-announced state -->
+<details aria-expanded="false">
+  <summary>Question text</summary>
+  <p>Answer text.</p>
+</details>
+```
+
+**Rule**: The standard `.njk` FAQ template (`.bg-slate-50.rounded-2xl` container with `.bg-white.rounded-xl` cards) is preferred over `<details>` — it provides visible hierarchy that benefits all users regardless of assistive technology.
+
+---
+
+## XIV. Core Web Vitals Thresholds
+
+Content quality alone does not guarantee search visibility. The following Core Web Vitals pass thresholds are required for every blog article page:
+
+| Metric | Good (Pass) | Needs Improvement | Poor (Fail) |
+|--------|-------------|-------------------|-------------|
+| **LCP** (Largest Contentful Paint) | ≤ 2.5s | 2.5s–4.0s | > 4.0s |
+| **INP** (Interaction to Next Paint) | ≤ 200ms | 200ms–500ms | > 500ms |
+| **CLS** (Cumulative Layout Shift) | ≤ 0.1 | 0.1–0.25 | > 0.25 |
+
+**Enforcement checklist per article**:
+- [ ] Featured image has explicit `width`/`height` attributes (prevents CLS)
+- [ ] Featured image uses `loading="eager"` + `fetchpriority="high"` (LCP optimization)
+- [ ] Below-fold images use `loading="lazy"` (reduces initial bandwidth)
+- [ ] `srcset` with 3 breakpoints for responsive delivery (800w / 1200w / 2240w)
+- [ ] No layout shift from dynamically injected content (ads, cookie banners, chat widgets)
+- [ ] Tailwind purge removes unused CSS (already configured in `npm run build:css`)
+
+**Note**: LCP ≤ 2.5s is measured as the 75th percentile of real-user data (CrUX). Lab tests (Lighthouse) should target ≤ 1.8s to account for field data variance.
+
+---
+
+## XV. AI Crawler Access Verification (GEO Foundation)
+
+All content optimization for AI visibility is wasted if AI crawlers cannot access the page. This check must be part of every pre-publish audit:
+
+### 15.1 robots.txt Verification
+
+```bash
+curl -s https://www.wowohcool.com/robots.txt | grep -E "ClaudeBot|ChatGPT-User|PerplexityBot|GPTBot"
+```
+
+Expected output must show `Allow: /` for all of:
+- `ClaudeBot` (Claude AI)
+- `ChatGPT-User` (ChatGPT with browsing)
+- `PerplexityBot` (Perplexity AI)
+- `GPTBot` (OpenAI crawler)
+
+Additionally, Googlebot and Bingbot must be allowed for Google AI Overview and Bing Copilot respectively.
+
+### 15.2 llms.txt Generation & Verification
+
+After each 11ty production build, verify:
+- [ ] `https://www.wowohcool.com/llms.txt` returns 200 (EN)
+- [ ] `https://www.wowohcool.com/de/llms.txt` returns 200 (DE)
+- [ ] `https://www.wowohcool.com/es/llms.txt` returns 200 (ES)
+- [ ] `https://www.wowohcool.com/fr/llms.txt` returns 200 (FR)
+
+### 15.3 Pre-Publish Audit Inclusion
+
+The following items are added to the §X Full-Element Pre-Publish Checklist:
+
+```
+[ ] robots.txt: all 6 AI crawlers (GPTBot/ClaudeBot/PerplexityBot/ChatGPT-User/Googlebot/Bingbot) have Allow: /
+[ ] llms.txt: returns 200 for all 4 languages
+[ ] Core Web Vitals: LCP ≤ 2.5s, INP ≤ 200ms, CLS ≤ 0.1 (Lab: LCP ≤ 1.8s)
+[ ] WCAG: color contrast ≥ 4.5:1, keyboard navigation functional, heading hierarchy valid
+[ ] WCAG: all images have descriptive alt text
+[ ] EAA: page targets EU market (DE/AT/CH/ES/FR) → basic compliance verified
+```
