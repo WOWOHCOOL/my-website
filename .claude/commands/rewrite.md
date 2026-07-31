@@ -20,7 +20,6 @@ Use this command to update and improve existing blog posts based on analysis fin
 - **Research Brief**: Check if new research brief exists for updated angles
 - **Brand Voice**: Verify alignment with current @context/brand-voice.md
 - **SEO Guidelines**: Apply latest requirements from @context/seo-guidelines.md
-- **B2B Quality Standards**: Verify against `@context/b2b-blog-quality-audit-standard.md` — especially Information Gain, TL;DR block requirement, conclusion-style headings, and low-friction CTA rules
 - **Competitive Context**: Understand what's changed in SERP since original publication
 
 ### Rewrite Strategy
@@ -249,27 +248,12 @@ After saving the rewritten article, run optimization agents:
 - Verify keyword integration improvements
 - Confirm optimal keyword placement and density
 
-### 5. B2B Content Audit (Post-Rewrite)
-
-After the rewrite is complete, run the B2B auditor to verify all 2026 Google standards:
-```bash
-python data_sources/modules/b2b_content_auditor.py [rewritten-file].md
-```
-
-Key checks for rewritten content:
-- TL;DR / Key Takeaways block present above the fold
-- H2 headings are conclusion-style (not label-style like "Introduction" or "Specifications")
-- H2 B2B signal density within target range for article type
-- CTAs use B2B low-friction language (not "Buy now" or "Click here")
-- First-hand data density ≥ 3 data points per 1000 words
-- Author E-E-A-T signals intact (credentials, LinkedIn, author page)
-
 ## Next Steps
-After rewrite completion and B2B audit:
+After rewrite completion:
 1. Review change summary and ensure all updates are intentional
 2. Compare to original to verify improvements
 3. Run `/optimize` for final polish if needed
 4. Move to `/published` when ready
 5. Note original URL to ensure proper redirect/replacement
 
-This ensures every rewritten article is significantly improved while maintaining what worked in the original version, and passes all 2026 Google B2B quality standards.
+This ensures every rewritten article is significantly improved while maintaining what worked in the original version.

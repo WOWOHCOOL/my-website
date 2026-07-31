@@ -16,16 +16,9 @@ Use this command to create comprehensive, SEO-optimized long-form blog content.
 
 ### Pre-Writing Review
 - **Research Brief**: Review research brief from `/research` command if available
-- **Article Type Detection** (CRITICAL — read BEFORE writing Introduction):
-  - Check the research brief for `**Article Type**: B2B` or `**Article Type**: B2C`
-  - If no brief exists, auto-detect from the topic: run a quick keyword check against B2B signals (OEM, factory, manufacturer, supplier, importer, procurement, sourcing, MOQ, FOB, compliance, certification, B2B) and B2C signals (best, top, review, cheap, for beginners, budget, for home, consumer)
-  - **This single field controls which Introduction rules, CTA strategy, and checklist items apply.** Do NOT skip this step.
 - **Brand Voice**: Check @context/brand-voice.md for tone and messaging
 - **Writing Examples**: Study @context/writing-examples.md for style consistency
 - **Style Guide**: Follow formatting rules from @context/style-guide.md
-- **Blog Template Standard**: Follow layout and section ordering from @context/blog-template-standard.md (Hero → Hook → Featured Image → KEY TAKEAWAYS → TOC → H2 Sections → FAQ → Author Bio → CTA → Related → Sources)
-- **B2B Quality Standard**: Apply all content rules from @context/b2b-blog-quality-audit-standard.md (15 checks, FAQ 9 Rules, speakable 3-node cap, semantic tags, H2 B2B density tiers)
-- **Schema & Metadata**: Use JSON-LD template from @context/b2b-schema-template.json; language mappings and field rules from @context/b2b-multilingual-metadata-standard.md
 - **SEO Guidelines**: Apply requirements from @context/seo-guidelines.md
 - **Target Keywords**: Integrate keywords from @context/target-keywords.md naturally
 
@@ -37,32 +30,7 @@ Use this command to create comprehensive, SEO-optimized long-form blog content.
 - Keep under 60 characters for SERP display
 - Promise clear value to reader
 
-#### 2. Introduction (80–150 words)
-
-**The Article Type field from the research brief determines which Introduction rules to apply.** If no brief exists, auto-detect from B2B/B2C keyword signals (see Pre-Writing Review). Do NOT mix rules from both modes.
-
----
-
-##### ▶ Mode B2B: Direct Conclusion First — No Preamble, No Hook
-
-B2B buyers do not read for entertainment. They scan to confirm: *"Does this article have the specific answer I need?"* Every word of preamble increases bounce rate.
-
-**The first 2–3 sentences MUST deliver the core conclusion directly.** State the answer, the finding, or the key recommendation — not a question, not a story, not an industry trend.
-
-| ❌ Fluff Opening (Bounce) | ✅ Direct Conclusion (Stay) |
-|---|---|
-| "In today's fast-paced electronics market, choosing the right GaN charger manufacturer has never been more important..." | "Importers verifying a 140W GaN charger supplier must check 3 thermal benchmarks before placing a first order. Skipping these tests risks CE compliance failure and 100% shipment rejection at EU customs." |
-| "With the rapid development of battery technology, many businesses are wondering how to source semi-solid-state power banks..." | "Semi-solid-state power banks achieve 280 Wh/kg energy density — 40% higher than traditional lithium polymer — but only 6 factories worldwide can produce them at OEM scale. Here's how to qualify them." |
-
-**Three rules for B2B openings:**
-1. **Lead with a specific number or B2B signal word** — the reader must see a data point or procurement term in the first sentence
-2. **Name the buyer's risk or the buyer's gain** — make it clear what's at stake
-3. **No questions, no "Imagine...", no "In today's world..."** — these are recognized as SEO filler and cause instant bounce
-
-- **Keyword**: Include primary keyword naturally in the opening
-- **Credibility**: The opening itself demonstrates expertise — no need for a separate "why trust us" paragraph
-
-##### ▶ Mode B2C: Hook + APP Formula (Default)
+#### 2. Introduction (150-250 words)
 
 **CRITICAL: Direct Answer First (AI Search Optimization)**
 
@@ -115,12 +83,6 @@ This gets pulled into AI-generated summaries and helps both AI and human readers
 #### 4. Main Body (1800-2500+ words)
 - **Logical Flow**: Organize sections in clear, progressive order
 - **H2 Sections**: 4-7 main sections covering comprehensive topic scope
-- **H2 B2B Density**: Apply tiered standard from `@context/b2b-blog-quality-audit-standard.md` Section II:
-  - Technical/Educational articles: **10–40%** of H2s may contain B2B signal words
-  - Procurement/Supply Chain articles: **30–55%**
-  - OEM/ODM Core Topic articles: **50–80%**
-  - B2B modifiers belong on procurement decision sections, NOT on pure technical explanation sections
-  - No 3 consecutive H2s with the same B2B word; rotate vocabulary (sourcing/procurement/buying/supply)
 - **H3 Subsections**: Break complex sections into digestible pieces
 - **Keyword Integration**: Use primary keyword 1-2% density, variations throughout
 - **Depth**: Provide thorough, actionable information at each point
@@ -147,43 +109,16 @@ Research shows we're 22x more likely to remember facts wrapped in stories. Every
 
 **REQUIRED: Contextual CTAs (2-3 per article)**
 
-**The Article Type field controls which CTA strategy to apply.** B2B procurement is long-cycle; B2C conversion is shorter. Mixing strategies (e.g., "Buy Now" on a B2B article) kills credibility.
-
----
-
-##### ▶ Mode B2B: Low-Friction Value Continuation
-
-B2B procurement is a long-cycle decision. No one reads one article and clicks "Buy Now." Every CTA must offer **low-friction value continuation** — a logical next step that delivers additional utility without asking for a purchase commitment.
-
-**B2B CTA Placement Strategy:**
-
-| Location | CTA Type | Example |
-|----------|----------|---------|
-| After first data-heavy section | **Inline Resource Link** | "📥 Download the one-page thermal benchmark cheat sheet for your next factory audit." |
-| After comparison/proof section | **Tool/Checklist Offer** | "**Get Our 42-Point Factory Audit Checklist** — every verification point B2B importers must check before signing a PO." |
-| End of article | **Value-Continuation CTA** | "**[Download the Full 140W GaN Charger Aging Test Report (PDF) →]**" or "**[Schedule a 30-Minute OEM Consultation With Our Engineering Team →]**" |
-
-**B2B CTA Rules:**
-- **Never**: "Buy now", "Click here", "Sign up today", "Get started" — these are B2C language
-- **Always**: Offer a downloadable asset, checklist, report, spec sheet, or technical consultation
-- Match the CTA type to the article's depth: technical deep-dive → download report; process guide → checklist; compliance article → consultation
-- Inline CTAs inside body text convert better than end-only CTAs for B2B readers
-- First CTA should appear within the first 500 words
-- Never use generic "Click here" text
-
-##### ▶ Mode B2C: Soft → Medium → Strong Funnel (Default)
-
 Don't just put one CTA at the end. Embedded CTAs get 121% more conversions than end-only CTAs.
 
-**B2C CTA Placement Strategy:**
-
+**CTA Placement Strategy:**
 | Location | CTA Type | Example |
 |----------|----------|---------|
-| After first major value section | **Soft CTA** (learn more) | "Want to see how this works in practice? [Explore our features →]" |
-| After comparison/proof section | **Medium CTA** (try it) | "**Ready to test the difference?** Start a free trial, no credit card required." |
-| End of article | **Strong CTA** (convert) | "**[Start Your Free Trial →]**" with supporting text |
+| After first major value section | Soft CTA (learn more) | "Want to see how this works in practice? [Explore our features →]" |
+| After comparison/proof section | Medium CTA (try it) | "**Ready to test the difference?** Start a free trial, no credit card required." |
+| End of article | Strong CTA (convert) | "**[Start Your Free Trial →]**" with supporting text |
 
-**B2C CTA Rules:**
+**CTA Rules:**
 - Make CTAs contextual (relate to the section content)
 - Vary the format (inline text, bold callout, button-style)
 - First CTA should appear within the first 500 words
@@ -270,8 +205,6 @@ Word Count: [actual word count]
 - [ ] Primary keyword in first 100 words
 - [ ] Primary keyword in 2+ H2 headings
 - [ ] Keyword density 1-2%
-- [ ] *(B2B only)* H2 B2B density in correct tier (Technical 10-40% / Procurement 30-55% / OEM Core 50-80%)
-- [ ] *(B2B only)* No 3 consecutive H2s with identical B2B modifier
 - [ ] 3-5+ internal links included
 - [ ] 2-3 external authority links
 - [ ] Meta title 50-60 characters
@@ -290,26 +223,13 @@ Word Count: [actual word count]
 - [ ] **Author attribution**: Named author in frontmatter
 
 ### 5. Engagement Checklist
-
-**Article Type determines which items apply:**
-
-**▶ Both B2B & B2C:**
+- [ ] **Hook**: Opens with question, scenario, statistic, or bold statement (NOT generic definition)
+- [ ] **APP Formula**: Introduction includes Agree, Promise, Preview elements
 - [ ] **Mini-stories**: 2-3 specific scenarios with names, details, and outcomes
 - [ ] **Contextual CTAs**: 2-3 CTAs placed throughout (not just at end)
 - [ ] **First CTA**: Appears within first 500 words
 - [ ] **Paragraph length**: No paragraphs exceed 4 sentences
 - [ ] **Sentence rhythm**: Mix of short (5-10 words) and longer sentences (15-25 words)
-
-**▶ B2B only:**
-- [ ] **Direct Conclusion**: First 2-3 sentences deliver the core conclusion (no preamble, no question)
-- [ ] **Data-point lead**: First sentence contains a specific number or B2B signal word
-- [ ] **Risk or gain named**: The buyer's risk or upside is explicit in the opening
-- [ ] **No B2C hook types**: No provocative questions, scenarios, "Imagine...", or industry-trend openings
-
-**▶ B2C only (default):**
-- [ ] **Hook**: Opens with question, scenario, statistic, or bold statement (NOT generic definition)
-- [ ] **APP Formula**: Introduction includes Agree, Promise, Preview elements
-- [ ] **Hook variety**: Different hook types used across articles (don't always use the same type)
 
 ## File Management
 After completing the article, automatically save to:
@@ -360,17 +280,15 @@ After saving the main article, immediately execute optimization agents:
 ### 1. Content Analyzer Agent (NEW!)
 - **Agent**: `content-analyzer`
 - **Input**: Full article, meta elements, keywords, SERP data (if available)
-- **Output**: Comprehensive analysis covering search intent (with B2B/B2C classification), keyword density, content length comparison, readability score, SEO quality rating, **B2B content audit (11 checks)**, and **Information Gain scoring**
+- **Output**: Comprehensive analysis covering search intent, keyword density, content length comparison, readability score, and SEO quality rating
 - **File**: `drafts/content-analysis-[topic-slug]-[YYYY-MM-DD].md`
 
-This agent uses 7 specialized analysis modules:
-- Search intent analysis + B2B/B2C audience classification
+This new agent uses 5 specialized analysis modules:
+- Search intent analysis
 - Keyword density & clustering
 - Content length vs competitors
 - Readability scoring (Flesch scores)
-- SEO quality rating (0-100) with B2B + Information Gain integration
-- **B2B content audit (11 automated checks against 2026 Google standards)**
-- **Information Gain scoring (Mode A: SERP comparison / Mode B: heuristic estimate)**
+- SEO quality rating (0-100)
 
 ### 2. SEO Optimizer Agent
 - **Agent**: `seo-optimizer`
@@ -417,15 +335,6 @@ The scorer evaluates 5 dimensions (composite score must be ≥70):
 | SEO Compliance | 15% | Keywords, meta, structure |
 | Readability | 10% | Flesch 60-70, grade 8-10 |
 
-### Step 2.5: B2B Content Audit (2026 Google Standards)
-After the content scorer passes, run the B2B content auditor to verify 11 B2B-specific checks:
-```bash
-python data_sources/modules/b2b_content_auditor.py drafts/[article-file].md
-```
-**Critical checks**: TL;DR block present, no vague label-style headings, no weak B2C CTAs, H2 B2B signal density in range, first-hand data density ≥ 3 per 1000 words.
-
-If B2B audit score < 60: fix flagged issues before proceeding to agents.
-
 ### Step 3: Auto-Revise if Needed
 If composite score < 70:
 1. Review the `priority_fixes` from the scorer
@@ -467,22 +376,12 @@ Every article must meet these requirements:
 - Target audience focused
 
 ### Engagement Requirements
-
-**▶ Both B2B & B2C:**
+- **Compelling hook** in first 1-2 sentences (no generic openings)
 - **2-3 mini-stories** with specific names, details, and outcomes
 - **2-3 contextual CTAs** distributed throughout (not just at end)
 - **First CTA within 500 words**
 - **No paragraphs longer than 4 sentences**
 - **Varied sentence rhythm** (mix short punchy + longer flowing)
-
-**▶ B2B only:**
-- **Direct conclusion opening** (first 2-3 sentences deliver the answer — no preamble, no question)
-- **Data-point or B2B signal word in first sentence**
-- **Risk/gain explicitly named** in the opening
-
-**▶ B2C only (default):**
-- **Compelling hook** in first 1-2 sentences (no generic openings)
-- **APP Formula** in introduction (Agree, Promise, Preview)
 
 ### Quality Score
 - **Composite quality score ≥70**

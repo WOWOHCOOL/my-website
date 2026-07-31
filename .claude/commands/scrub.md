@@ -51,15 +51,7 @@ AI-generated content tends to overuse em-dashes (—). The scrubber intelligentl
 - **Conjunctive Adverbs**: Replaces with semicolon before words like "however", "therefore", "moreover"
   - Example: "Text — however, more text" becomes "Text; however, more text"
 
-### 3. Encoding Corruption Fix
-
-The scrubber automatically detects and fixes garbled Unicode characters caused by encoding issues in the content pipeline:
-- **Corrupted degree symbol**: `掳` → `°`
-- **Corrupted middle dot**: `路` → `·`
-- **Corrupted copyright**: `漏` → `©`
-- **Corrupted em-dash + letter**: e.g., `攆` → `—f` (restores em dash + swallowed letter)
-
-### 4. Whitespace Normalization
+### 3. Whitespace Normalization
 
 After removing watermarks and replacing em-dashes, the scrubber cleans up formatting:
 

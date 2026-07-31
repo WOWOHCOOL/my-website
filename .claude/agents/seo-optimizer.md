@@ -34,12 +34,6 @@ Analyze completed articles and provide actionable recommendations to maximize se
 - Check for keyword variations that capture different search intents
 - Ensure no keyword stuffing or over-optimization
 
-#### B2B Intent Verification (2026 Google Standards)
-- Check search intent classification includes B2B vs B2C dimension (from search_intent_analyzer.py)
-- Flag B2C keywords and suggest B2B procurement alternatives
-- Verify B2B signal words appear naturally in headings (not stuffed)
-- Cross-reference H2 B2B density results from b2b_content_auditor.py
-
 #### Opportunity Identification
 - Headings where keywords could be naturally added
 - Paragraphs that could benefit from keyword integration

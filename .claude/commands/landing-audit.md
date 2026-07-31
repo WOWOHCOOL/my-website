@@ -302,4 +302,4 @@ Then compare the audit reports side-by-side.
 1. Run audit on draft: `/landing-audit landing-pages/[file].md`
 2. Fix critical issues
 3. Re-audit until score ≥ 75
-4. 发布: 将 njk 文件写入 wowohcool.com 站点源码并部署
+4. Publish: `/landing-publish landing-pages/[file].md`

@@ -5,14 +5,6 @@ Use this command to perform a final SEO optimization pass on completed articles 
 ## Usage
 `/optimize [article file]`
 
-## Canonical Context Files
-
-This command is governed by the 4-file B2B authority system:
-- `@context/b2b-blog-quality-audit-standard.md` — Quality rules, 15 checks, scoring thresholds
-- `@context/blog-template-standard.md` — HTML layout, CSS classes, DOM structure
-- `@context/b2b-multilingual-metadata-standard.md` — JSON-LD design, language mappings
-- `@context/b2b-schema-template.json` — Production JSON-LD template (7 nodes)
-
 ## What This Command Does
 1. Performs comprehensive SEO audit of article
 2. Fine-tunes keyword placement and density
@@ -40,13 +32,6 @@ This command is governed by the 4-file B2B authority system:
 #### Heading Structure
 - **H1**: Only one H1, includes primary keyword
 - **H2s**: 4-7 H2 sections, at least 2-3 with keyword variations
-- **H2 B2B Density**: Audit per `@context/b2b-blog-quality-audit-standard.md` Section II:
-  - Classify article type (Technical / Procurement / OEM Core)
-  - Count B2B signal words across all content H2s
-  - Verify density in target range (Technical 10-40% / Procurement 30-55% / OEM Core 50-80%)
-  - Check adjacency: flag if 3+ consecutive H2s use same B2B modifier
-  - Check vocabulary rotation: flag if only 1 B2B term used across all H2s
-  - Report over-density or under-density with suggested H2 rewrites
 - **H3s**: Proper nesting under H2s, descriptive and keyword-rich
 - **Hierarchy**: Logical progression, no skipped levels (H1→H3)
 - **Length**: Headings are descriptive but concise
@@ -60,28 +45,6 @@ This command is governed by the 4-file B2B authority system:
 - **Transition Words**: Smooth flow between sections
 - **List Usage**: Bullets/numbers for scannability
 - **Formatting**: Bold, italics used appropriately for emphasis
-
-#### B2B Content Audit (2026 Google Standards — AUTOMATED)
-Run `b2b_content_auditor.py` for these checks (previously manual):
-- **Opening Density**: Verify first 2-3 sentences deliver core conclusion (no fluff preamble)
-- **H3 Answer Length**: 100-150 char direct answer after each H3/H4 heading
-- **H2 B2B Signal Density**: Automated via `h2_b2b_density_auditor.py` (was manual checklist)
-  - Classify article type → verify density in target range → check adjacency + vocabulary rotation
-- **First-Hand Data Density**: Count precise measurements + engineering units per 1000 words
-- **Table Test**: Verify technical parameters use markdown tables (not raw text)
-- **Stock Photo Detection**: Flag suspicious image URLs (unsplash/pexels/shutterstock domains)
-- **FAQ B2B Language**: Verify FAQ questions use procurement language (not consumer "which is best?")
-
-#### Information Gain Analysis (2026 Google Core Patent)
-Run `information_gain_analyzer.py`:
-- **Mode A** (with DataForSEO SERP data): Compare vocabulary/entity overlap vs top 5 competitors
-- **Mode B** (heuristic): Score based on technical anchors + data density + named entities + B2B diversity
-
-#### Author E-E-A-T Audit
-- [ ] Named author with credential-rich byline present? (role + years experience + expertise angle)
-- [ ] Author LinkedIn URL linked?
-- [ ] Author name links to dedicated author page?
-- [ ] Author's specific expertise relevant to article topic?
 
 ### Link Optimization
 
@@ -281,8 +244,8 @@ Example: `drafts/optimization-report-podcast-analytics-2025-10-15.md`
 
 ## Integration with Agents
 The `/optimize` command triggers final review from all agents:
-- **content-analyzer** (NEW!): Comprehensive analysis with search intent (now includes B2B/B2C dimension), keyword density & clustering, content length comparison, readability score, SEO quality rating (0-100), **B2B content audit (7 checks)**, and **Information Gain scoring**
-- **seo-optimizer**: Technical SEO final check + B2B intent verification
+- **content-analyzer** (NEW!): Comprehensive analysis with search intent, keyword density & clustering, content length comparison, readability score, and SEO quality rating (0-100)
+- **seo-optimizer**: Technical SEO final check
 - **meta-creator**: Best meta title/description options
 - **internal-linker**: Last opportunity internal linking suggestions
 - **keyword-mapper**: Final keyword distribution analysis

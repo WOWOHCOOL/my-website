@@ -25,6 +25,7 @@ Use this command to create high-converting landing pages optimized for either or
 ## Pre-Writing Review
 
 **Required Context:**
+- **Landing Page Templates**: @context/landing-page-templates.md for structure
 - **CRO Best Practices**: @context/cro-best-practices.md for conversion guidelines
 - **Brand Voice**: @context/brand-voice.md for tone and messaging
 
@@ -420,5 +421,6 @@ After saving and scrubbing, run these agents:
 # 4. Make revisions if needed
 # (edit the file in landing-pages/)
 
-# 5. 发布到站点 (手动将 njk 文件写入 wowohcool.com 站点源码)
+# 5. Publish when ready
+/landing-publish landing-pages/product-hosting-wordpress-2025-12-11.md
 ```
