@@ -25,78 +25,280 @@ hreflang:
 {
  "@context": "https://schema.org",
  "@graph": [
- {
- "@type": "Organization",
- "@id": "https://www.wowohcool.com/#organization",
- "name": "WOWOHCOOL",
- "legalName": "Dong Yi Technology Co., Ltd",
- "url": "https://www.wowohcool.com/es/sobre-nosotros/",
- "publishingPrinciples": "https://www.wowohcool.com/es/sobre-nosotros/",
- "logo": {"@type": "ImageObject", "url": "https://www.wowohcool.com/image/wowohcool-logo-optimized.webp", "width": 600, "height": 60},
- "areaServed": ["ES", "MX", "CO", "AR", "CL", "PE", "EU"],
- "sameAs": [
- "https://www.linkedin.com/company/wowohcool",
- "https://www.facebook.com/wowohcoolelectronic",
- "https://www.youtube.com/@WOWOHCOOL",
- "https://x.com/wowohcool"
- ],
- "address": { "@type": "PostalAddress", "streetAddress": "925, Yichuang International Center, Longhua District", "addressLocality": "Shenzhen", "addressRegion": "Guangdong", "postalCode": "518111", "addressCountry": "CN" },
- "contactPoint": {
- "@type": "ContactPoint",
- "contactType": "OEM/ODM Sales",
- "telephone": "+86-18620789739",
- "email": "info@wowohcool.com",
- "availableLanguage": ["Spanish", "English", "Chinese"]
- }
- },
- { "@type": "WebSite", "@id": "https://www.wowohcool.com/#website", "url": "https://www.wowohcool.com/es/", "name": "WOWOHCOOL" },
- { "@type": "BreadcrumbList", "itemListElement": [
- { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://www.wowohcool.com/es/" },
- { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.wowohcool.com/es/blog/" },
- { "@type": "ListItem", "position": 3, "name": "Generaciones de GaN", "item": "https://www.wowohcool.com/es/blog/generaciones-gan-comparativa" }
- ]},
- { "@type": "BlogPosting", "headline": "Generaciones GaN I-V: Comparativa OEM para Importadores 2026",
- "keywords": ["GaN", "GaN V", "Comparativa", "Generaciones", "Semiconductores", "OEM"],
- "author": { "@id": "https://www.wowohcool.com/#snowy-may" },
- "publisher": { "@id": "https://www.wowohcool.com/#organization" },
- "datePublished": "2026-05-15",
- "dateModified": "2026-08-01", "wordCount": 1963, "timeRequired": "PT10M",
- "mainEntityOfPage": {"@type": "WebPage", "@id": "https://www.wowohcool.com/es/blog/generaciones-gan-comparativa/"},
- "image": "https://www.wowohcool.com/image/blog/cover-en/gan-generations-guide.webp",
- "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".speakable"] },
- "citation": [
- { "@type": "CreativeWork", "name": "Navitas Semiconductor, GaN Power ICs", "url": "https://www.navitassemi.com/" },
- { "@type": "CreativeWork", "name": "Infineon CoolGaN, GaN HEMT Transistor Technology", "url": "https://www.infineon.com/cms/en/product/power/gan-hemt-gallium-nitride-transistor/" },
- { "@type": "CreativeWork", "name": "Innoscience, GaN FET Manufacturer", "url": "https://www.innoscience.com/" },
- { "@type": "CreativeWork", "name": "USB-IF, USB Power Delivery Specification", "url": "https://www.usb.org/usb-charger-pd" },
- { "@type": "CreativeWork", "name": "Persistence Market Research, GaN Charger Market 2026-2033", "url": "https://www.persistencemarketresearch.com/" }
- ],
- "about": { "@type": "Thing", "name": "Battery charger", "sameAs": "https://www.wikidata.org/entity/Q352917" }
- },
- { "@type": "Person", "@id": "https://www.wowohcool.com/#snowy-may", "name": "Snowy May", "jobTitle": "Market Manager", "url": "https://www.wowohcool.com/es/sobre-nosotros/",
- "sameAs": ["https://www.linkedin.com/in/snowy-wireless-charger"],
- "worksFor": { "@id": "https://www.wowohcool.com/#organization" },
- "knowsAbout": ["GaN Semiconductores", "Electrónica de Potencia", "USB-PD", "Fabricación OEM", "Cadena de Suministro"]
- },
- { "@type": "HowTo",
- "name": "Cómo verificar la generación GaN real de un cargador: guía anti-fraude para importadores",
- "description": "Guía de 3 pasos para importadores y compradores OEM para verificar qué generación GaN usa realmente un cargador, evitando etiquetado falso.",
- "step": [
- { "@type": "HowToStep", "position": 1, "name": "Solicitar el número de pieza del FET y el datasheet", "itemListElement": [{ "@type": "HowToDirection", "text": "Pide al fabricante el datasheet del FET GaN. Los proveedores reales (Navitas, Infineon, Innoscience) identifican claramente la generación en la referencia del componente. Ejemplo: Navitas NV6115 = GaN II, NV6132 = GaN III. Si el proveedor no puede facilitar el número de pieza, es señal de alerta." }] },
- { "@type": "HowToStep", "position": 2, "name": "Medir la frecuencia de conmutación en laboratorio", "itemListElement": [{ "@type": "HowToDirection", "text": "Un osciloscopio conectado al pin de drenaje del FET confirma la frecuencia real de conmutación. GaN II opera a 200-400 kHz, GaN III a 400-700 kHz, GaN IV a 700 kHz-2 MHz, GaN V a 500 kHz-5 MHz. La frecuencia medida debe coincidir con la generación declarada." }] },
- { "@type": "HowToStep", "position": 3, "name": "Verificar el perfil térmico bajo carga completa", "itemListElement": [{ "@type": "HowToDirection", "text": "Con un termógrafo o sonda térmica, mide la temperatura del encapsulado del FET tras 30 minutos al 100% de carga. GaN V opera a 45-55°C; GaN III suele estar 5-10°C por encima; silicio supera los 65-75°C. La diferencia es medible y no admite ambigüedad." }] }
- ]
- },
- { "@type": "FAQPage", "speakable": { "@type": "SpeakableSpecification", "cssSelector": [".faq-answer"] },
- "mainEntity": [
- { "@type": "Question", "name": "¿Qué diferencia hay entre GaN I y GaN V?", "acceptedAnswer": { "@type": "Answer", "text": "GaN I (2014): frecuencia de conmutación 100-200 kHz, eficiencia 88%, similar a silicio mejorado. GaN V (2024): frecuencia 500 kHz-5 MHz, eficiencia >95%, 40% menor tamaño y 30°C más frío que el silicio. Cinco generaciones en una década con mejoras exponenciales." }},
- { "@type": "Question", "name": "¿Vale la pena pagar más por GaN V para mi proyecto OEM?", "acceptedAnswer": { "@type": "Answer", "text": "Sí, para potencias >65W. Por debajo de 45W el sobrecoste del 15-25% no se justifica frente a GaN III o silicio. A partir de 65W, el tamaño compacto y la eficiencia GaN V se traducen en menor coste logístico, menos devoluciones (tasa <0,5% vs ~3% del silicio) y precio premium en retail con márgenes del 55-65%. Para 140W+, GaN V es prácticamente obligatorio." }},
- { "@type": "Question", "name": "¿Quién fabrica los FET GaN reales?", "acceptedAnswer": { "@type": "Answer", "text": "Los proveedores principales son Navitas (líder GaN III-V), Infineon (CoolGaN, con fábrica en Múnich), Innoscience (China, mayor volumen global), EPC (Efficient Power Conversion) y Texas Instruments. WOWOHCOOL trabaja con Navitas e Innoscience como proveedores principales, ambos calificados para uso comercial con certificación CE/FCC/GS." }},
- { "@type": "Question", "name": "¿GaN tiene riesgo de obsolescencia rápida?", "acceptedAnswer": { "@type": "Answer", "text": "Las generaciones avanzan, pero el GaN III-V actual (instalado desde 2022) seguirá siendo viable comercialmente hasta 2028-2029 según el roadmap de USB-IF y los principales OEM. Comprar GaN V en 2026 es invertir en la generación dominante de los próximos 3-4 años. La UE Common Charger Directive y USB PD 3.2 refuerzan la longevidad de GaN V." }},
- { "@type": "Question", "name": "¿Qué certificaciones necesita un cargador GaN para vender en Europa y LATAM?", "acceptedAnswer": { "@type": "Answer", "text": "Para Europa: CE (EN 62368-1) + RoHS obligatorios, GS (TÜV) recomendado para retail premium. Para LATAM: la mayoría de países reconocen CE o FCC como referencia; México exige NOM-001, Argentina IRAM, Brasil INMETRO. WOWOHCOOL incluye la gestión completa de certificación y cumplimiento normativo con pedidos OEM desde 500 unidades. Coste del paquete CE/FCC/RoHS estándar: $2,500-4,500 USD, 4-6 semanas." }},
- { "@type": "Question", "name": "¿Cuál es el MOQ mínimo para pedir cargadores GaN OEM de fábrica?", "acceptedAnswer": { "@type": "Answer", "text": "El MOQ estándar de WOWOHCOOL es 500 unidades para OEM completo (logo + color + embalaje + certificación). Para ODM con diseño nuevo desde plataforma existente: 500-1,000 unidades. Competidores típicamente exigen 1,000+. Plazo de producción: 25-30 días tras aprobación de muestra. Muestras en 3-7 días." }}
- ]
- }
+  {
+   "@type": "Organization",
+   "@id": "https://www.wowohcool.com/#organization",
+   "name": "WOWOHCOOL",
+   "legalName": "Dong Yi Technology Co., Ltd",
+   "url": "https://www.wowohcool.com/es/sobre-nosotros/",
+   "publishingPrinciples": "https://www.wowohcool.com/es/sobre-nosotros/",
+   "logo": {
+    "@type": "ImageObject",
+    "url": "https://www.wowohcool.com/image/wowohcool-logo-optimized.webp",
+    "width": 600,
+    "height": 60
+   },
+   "areaServed": [
+    "ES",
+    "MX",
+    "CO",
+    "AR",
+    "CL",
+    "PE",
+    "EU"
+   ],
+   "sameAs": [
+    "https://www.linkedin.com/company/wowohcool",
+    "https://www.facebook.com/wowohcoolelectronic",
+    "https://www.youtube.com/@WOWOHCOOL",
+    "https://x.com/wowohcool"
+   ],
+   "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "925, Yichuang International Center, Longhua District",
+    "addressLocality": "Shenzhen",
+    "addressRegion": "Guangdong",
+    "postalCode": "518111",
+    "addressCountry": "CN"
+   },
+   "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "OEM/ODM Sales",
+    "telephone": "+86-18620789739",
+    "email": "info@wowohcool.com",
+    "availableLanguage": [
+     "Spanish",
+     "English",
+     "Chinese"
+    ]
+   }
+  },
+  {
+   "@type": "WebSite",
+   "@id": "https://www.wowohcool.com/#website",
+   "url": "https://www.wowohcool.com/es/",
+   "name": "WOWOHCOOL",
+   "publisher": {
+    "@id": "https://www.wowohcool.com/#organization"
+   },
+   "inLanguage": "es-ES"
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Inicio",
+     "item": "https://www.wowohcool.com/es/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Blog",
+     "item": "https://www.wowohcool.com/es/blog/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "Generaciones de GaN",
+     "item": "https://www.wowohcool.com/es/blog/generaciones-gan-comparativa"
+    }
+   ]
+  },
+  {
+   "@type": "BlogPosting",
+   "headline": "Generaciones GaN I-V: Comparativa OEM para Importadores 2026",
+   "keywords": [
+    "GaN",
+    "GaN V",
+    "Comparativa",
+    "Generaciones",
+    "Semiconductores",
+    "OEM"
+   ],
+   "author": {
+    "@id": "https://www.wowohcool.com/#snowy-may"
+   },
+   "publisher": {
+    "@id": "https://www.wowohcool.com/#organization"
+   },
+   "datePublished": "2026-05-15",
+   "dateModified": "2026-08-01",
+   "wordCount": 1963,
+   "timeRequired": "PT10M",
+   "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.wowohcool.com/es/blog/generaciones-gan-comparativa/"
+   },
+   "image": "https://www.wowohcool.com/image/blog/cover-en/gan-generations-guide.webp",
+   "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+     "h1",
+     ".speakable"
+    ]
+   },
+   "citation": [
+    {
+     "@type": "CreativeWork",
+     "name": "Navitas Semiconductor, GaN Power ICs",
+     "url": "https://www.navitassemi.com/"
+    },
+    {
+     "@type": "CreativeWork",
+     "name": "Infineon CoolGaN, GaN HEMT Transistor Technology",
+     "url": "https://www.infineon.com/cms/en/product/power/gan-hemt-gallium-nitride-transistor/"
+    },
+    {
+     "@type": "CreativeWork",
+     "name": "Innoscience, GaN FET Manufacturer",
+     "url": "https://www.innoscience.com/"
+    },
+    {
+     "@type": "CreativeWork",
+     "name": "USB-IF, USB Power Delivery Specification",
+     "url": "https://www.usb.org/usb-charger-pd"
+    },
+    {
+     "@type": "CreativeWork",
+     "name": "Persistence Market Research, GaN Charger Market 2026-2033",
+     "url": "https://www.persistencemarketresearch.com/"
+    }
+   ],
+   "about": {
+    "@type": "Thing",
+    "name": "Battery charger",
+    "sameAs": "https://www.wikidata.org/wiki/Q352917"
+   },
+   "inLanguage": "es-ES",
+   "articleSection": "Tecnologías de Carga",
+   "thumbnailUrl": "https://www.wowohcool.com/image/blog/cover-en/gan-generations-guide.webp",
+   "@id": "https://www.wowohcool.com/es/blog/generaciones-gan-comparativa/#article",
+   "description": "Comparativa generaciones GaN I-V para importadores: frecuencia, eficiencia, coste BOM y aplicaciones OEM. MOQ 500, FOB Shenzhen. Fabricante ISO 9001 desde 2013."
+  },
+  {
+   "@type": "Person",
+   "@id": "https://www.wowohcool.com/#snowy-may",
+   "name": "Snowy May",
+   "jobTitle": "Market Manager",
+   "url": "https://www.wowohcool.com/authors/snowy-may/",
+   "sameAs": [
+    "https://www.linkedin.com/in/snowy-wireless-charger"
+   ],
+   "worksFor": {
+    "@id": "https://www.wowohcool.com/#organization"
+   },
+   "knowsAbout": [
+    "GaN Semiconductores",
+    "Electrónica de Potencia",
+    "USB-PD",
+    "Fabricación OEM",
+    "Cadena de Suministro"
+   ],
+   "image": "https://www.wowohcool.com/image/factory/team-snowy.webp"
+  },
+  {
+   "@type": "HowTo",
+   "name": "Cómo verificar la generación GaN real de un cargador: guía anti-fraude para importadores",
+   "description": "Guía de 3 pasos para importadores y compradores OEM para verificar qué generación GaN usa realmente un cargador, evitando etiquetado falso.",
+   "step": [
+    {
+     "@type": "HowToStep",
+     "position": 1,
+     "name": "Solicitar el número de pieza del FET y el datasheet",
+     "itemListElement": [
+      {
+       "@type": "HowToDirection",
+       "text": "Pide al fabricante el datasheet del FET GaN. Los proveedores reales (Navitas, Infineon, Innoscience) identifican claramente la generación en la referencia del componente. Ejemplo: Navitas NV6115 = GaN II, NV6132 = GaN III. Si el proveedor no puede facilitar el número de pieza, es señal de alerta."
+      }
+     ]
+    },
+    {
+     "@type": "HowToStep",
+     "position": 2,
+     "name": "Medir la frecuencia de conmutación en laboratorio",
+     "itemListElement": [
+      {
+       "@type": "HowToDirection",
+       "text": "Un osciloscopio conectado al pin de drenaje del FET confirma la frecuencia real de conmutación. GaN II opera a 200-400 kHz, GaN III a 400-700 kHz, GaN IV a 700 kHz-2 MHz, GaN V a 500 kHz-5 MHz. La frecuencia medida debe coincidir con la generación declarada."
+      }
+     ]
+    },
+    {
+     "@type": "HowToStep",
+     "position": 3,
+     "name": "Verificar el perfil térmico bajo carga completa",
+     "itemListElement": [
+      {
+       "@type": "HowToDirection",
+       "text": "Con un termógrafo o sonda térmica, mide la temperatura del encapsulado del FET tras 30 minutos al 100% de carga. GaN V opera a 45-55°C; GaN III suele estar 5-10°C por encima; silicio supera los 65-75°C. La diferencia es medible y no admite ambigüedad."
+      }
+     ]
+    }
+   ],
+   "@id": "https://www.wowohcool.com/es/blog/generaciones-gan-comparativa/#howto"
+  },
+  {
+   "@type": "FAQPage",
+   "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+     ".faq-answer"
+    ]
+   },
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "¿Qué diferencia hay entre GaN I y GaN V?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "GaN I (2014): frecuencia de conmutación 100-200 kHz, eficiencia 88%, similar a silicio mejorado. GaN V (2024): frecuencia 500 kHz-5 MHz, eficiencia >95%, 40% menor tamaño y 30°C más frío que el silicio. Cinco generaciones en una década con mejoras exponenciales."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "¿Vale la pena pagar más por GaN V para mi proyecto OEM?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Sí, para potencias >65W. Por debajo de 45W el sobrecoste del 15-25% no se justifica frente a GaN III o silicio. A partir de 65W, el tamaño compacto y la eficiencia GaN V se traducen en menor coste logístico, menos devoluciones (tasa <0,5% vs ~3% del silicio) y precio premium en retail con márgenes del 55-65%. Para 140W+, GaN V es prácticamente obligatorio."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "¿Quién fabrica los FET GaN reales?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Los proveedores principales son Navitas (líder GaN III-V), Infineon (CoolGaN, con fábrica en Múnich), Innoscience (China, mayor volumen global), EPC (Efficient Power Conversion) y Texas Instruments. WOWOHCOOL trabaja con Navitas e Innoscience como proveedores principales, ambos calificados para uso comercial con certificación CE/FCC/GS."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "¿GaN tiene riesgo de obsolescencia rápida?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Las generaciones avanzan, pero el GaN III-V actual (instalado desde 2022) seguirá siendo viable comercialmente hasta 2028-2029 según el roadmap de USB-IF y los principales OEM. Comprar GaN V en 2026 es invertir en la generación dominante de los próximos 3-4 años. La UE Common Charger Directive y USB PD 3.2 refuerzan la longevidad de GaN V."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "¿Qué certificaciones necesita un cargador GaN para vender en Europa y LATAM?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Para Europa: CE (EN 62368-1) + RoHS obligatorios, GS (TÜV) recomendado para retail premium. Para LATAM: la mayoría de países reconocen CE o FCC como referencia; México exige NOM-001, Argentina IRAM, Brasil INMETRO. WOWOHCOOL incluye la gestión completa de certificación y cumplimiento normativo con pedidos OEM desde 500 unidades. Coste del paquete CE/FCC/RoHS estándar: $2,500-4,500 USD, 4-6 semanas."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "¿Cuál es el MOQ mínimo para pedir cargadores GaN OEM de fábrica?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "El MOQ estándar de WOWOHCOOL es 500 unidades para OEM completo (logo + color + embalaje + certificación). Para ODM con diseño nuevo desde plataforma existente: 500-1,000 unidades. Competidores típicamente exigen 1,000+. Plazo de producción: 25-30 días tras aprobación de muestra. Muestras en 3-7 días."
+     }
+    }
+   ],
+   "@id": "https://www.wowohcool.com/es/blog/generaciones-gan-comparativa/#faq"
+  }
  ]
 }
 </script>
