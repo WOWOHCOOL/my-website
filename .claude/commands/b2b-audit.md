@@ -205,9 +205,10 @@ python data_sources/modules/information_gain_analyzer.py drafts/article.md
 
 ## Integration
 
-This command is automatically triggered by:
-- `/write` — as Step 2.5 in the Quality Loop (after content_scorer.py passes)
-- `/optimize` — as part of the full B2B content audit section
-- `/rewrite` — as the post-rewrite B2B verification step
+This command is a **standalone B2B quality check**. Run it explicitly when you need B2B-specific verification:
 
-Run it standalone when you want a focused B2B quality check without the full optimization pipeline.
+- After `/write` — verify the new article meets B2B quality standards
+- After `/rewrite` — verify the rewritten article meets B2B quality standards
+- On existing content — audit any page for B2B quality compliance
+
+It is NOT automatically triggered by other commands — call it explicitly with `/b2b-audit [file]`.

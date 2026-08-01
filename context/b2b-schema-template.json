@@ -8,11 +8,8 @@
       "legalName": "Dong Yi Technology Co., Ltd",
       "url": "{ORGANIZATION_URL}",
       "publishingPrinciples": "{ORGANIZATION_URL}",
-      "logo": "https://www.wowohcool.com/image/wowohcool-logo-optimized.webp",
-      "foundingDate": "{FOUNDING_DATE}",
-      "vatID": "{VAT_OR_USCC_ID}",
+      "logo": { "@type": "ImageObject", "url": "https://www.wowohcool.com/image/wowohcool-logo-optimized.webp" },
       "areaServed": ["DE", "AT", "CH", "EU"],
-      "knowsAbout": ["{ORG_KNOWSABOUT_1}", "{ORG_KNOWSABOUT_2}", "{ORG_KNOWSABOUT_3}"],
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "{STREET_ADDRESS}",
@@ -41,15 +38,7 @@
       "url": "{SITE_URL}",
       "name": "{SITE_NAME}",
       "inLanguage": "{LANG}",
-      "publisher": { "@id": "{ORGANIZATION_ID}" },
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": {
-          "@type": "EntryPoint",
-          "urlTemplate": "{SITE_URL}/search?q={search_term_string}"
-        },
-        "query-input": "required name=search_term_string"
-      }
+      "publisher": { "@id": "{ORGANIZATION_ID}" }
     },
     {
       "@type": "BreadcrumbList",
@@ -63,16 +52,16 @@
       "@type": "BlogPosting",
       "@id": "{CANONICAL_URL}#article",
       "headline": "{H1_TITLE}",
+      "keywords": ["{KEYWORD_1}", "{KEYWORD_2}", "{KEYWORD_3}"],
       "description": "{META_DESCRIPTION}",
       "author": { "@id": "{AUTHOR_ID}" },
       "publisher": { "@id": "{ORGANIZATION_ID}" },
       "datePublished": "{PUBLISH_DATE}",
       "dateModified": "{MODIFIED_DATE}",
       "mainEntityOfPage": { "@type": "WebPage", "@id": "{CANONICAL_URL}" },
-      "wordCount": "{ACTUAL_WORD_COUNT}",
+      "wordCount": 0,
       "inLanguage": "{LANG}",
       "timeRequired": "{TIME_REQUIRED}",
-      "keywords": ["{KEYWORD_1}", "{KEYWORD_2}", "{KEYWORD_3}"],
       "articleSection": "{ARTICLE_CATEGORY}",
       "image": "{OG_IMAGE}",
       "thumbnailUrl": "{OG_IMAGE}",
@@ -100,6 +89,7 @@
       "@id": "{CANONICAL_URL}#howto",
       "name": "{HOWTO_NAME}",
       "description": "{HOWTO_DESC}",
+      "totalTime": "{HOWTO_TOTAL_TIME}",
       "step": [
         { "@type": "HowToStep", "position": 1, "name": "{STEP_1_NAME}", "itemListElement": [{ "@type": "HowToDirection", "text": "{STEP_1_TEXT}" }] },
         { "@type": "HowToStep", "position": 2, "name": "{STEP_2_NAME}", "itemListElement": [{ "@type": "HowToDirection", "text": "{STEP_2_TEXT}" }] },
@@ -115,43 +105,11 @@
         { "@type": "Question", "name": "{FAQ_2_QUESTION}", "acceptedAnswer": { "@type": "Answer", "text": "{FAQ_2_ANSWER}" } },
         { "@type": "Question", "name": "{FAQ_3_QUESTION}", "acceptedAnswer": { "@type": "Answer", "text": "{FAQ_3_ANSWER}" } },
         { "@type": "Question", "name": "{FAQ_4_QUESTION}", "acceptedAnswer": { "@type": "Answer", "text": "{FAQ_4_ANSWER}" } },
-        { "@type": "Question", "name": "{FAQ_5_QUESTION}", "acceptedAnswer": { "@type": "Answer", "text": "{FAQ_5_ANSWER}" } }
+        { "@type": "Question", "name": "{FAQ_5_QUESTION}", "acceptedAnswer": { "@type": "Answer", "text": "{FAQ_5_ANSWER}" } },
+        { "@type": "Question", "name": "{FAQ_6_QUESTION}", "acceptedAnswer": { "@type": "Answer", "text": "{FAQ_6_ANSWER}" } },
+        { "@type": "Question", "name": "{FAQ_7_QUESTION}", "acceptedAnswer": { "@type": "Answer", "text": "{FAQ_7_ANSWER}" } },
+        { "@type": "Question", "name": "{FAQ_8_QUESTION}", "acceptedAnswer": { "@type": "Answer", "text": "{FAQ_8_ANSWER}" } }
       ]
-    },
-    {
-      "@type": "Product",
-      "@id": "{PRODUCT_URL}#product",
-      "name": "{PRODUCT_NAME}",
-      "description": "{PRODUCT_DESCRIPTION}",
-      "image": ["{PRODUCT_IMAGE_1}", "{PRODUCT_IMAGE_2}"],
-      "sku": "{PRODUCT_SKU}",
-      "mpn": "{PRODUCT_MPN}",
-      "brand": { "@type": "Brand", "name": "WOWOHCOOL" },
-      "manufacturer": { "@id": "{ORGANIZATION_ID}" },
-      "category": "{PRODUCT_CATEGORY}",
-      "offers": {
-        "@type": "Offer",
-        "url": "{PRODUCT_URL}",
-        "priceCurrency": "{CURRENCY}",
-        "price": "{PRICE_OR_OMIT_IF_QUOTE_ONLY}",
-        "availability": "https://schema.org/InStock",
-        "businessFunction": "https://schema.org/Sell",
-        "eligibleCustomerType": "https://schema.org/Business",
-        "seller": { "@id": "{ORGANIZATION_ID}" }
-      }
-    },
-    {
-      "@type": "Service",
-      "@id": "{SERVICE_URL}#service",
-      "name": "{SERVICE_NAME, e.g. OEM/ODM Manufacturing Service}",
-      "description": "{SERVICE_DESCRIPTION}",
-      "provider": { "@id": "{ORGANIZATION_ID}" },
-      "areaServed": ["DE", "AT", "CH", "EU"],
-      "serviceType": "{SERVICE_TYPE}",
-      "audience": {
-        "@type": "BusinessAudience",
-        "audienceType": "B2B Buyers / Distributors / Retailers"
-      }
     }
   ]
 }

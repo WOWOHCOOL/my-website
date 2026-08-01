@@ -20,11 +20,8 @@
       "legalName": "Dong Yi Technology Co., Ltd",
       "url": "{ORGANIZATION_URL}",
       "publishingPrinciples": "{ORGANIZATION_URL}",
-      "logo": "https://www.wowohcool.com/image/wowohcool-logo-optimized.webp",
-      "foundingDate": "{FOUNDING_DATE}",
-      "vatID": "{VAT_OR_USCC_ID}",
+      "logo": { "@type": "ImageObject", "url": "https://www.wowohcool.com/image/wowohcool-logo-optimized.webp" },
       "areaServed": ["DE", "AT", "CH", "EU"],
-      "knowsAbout": ["{ORG_KNOWSABOUT_1}", "{ORG_KNOWSABOUT_2}", "{ORG_KNOWSABOUT_3}"],
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "{STREET_ADDRESS}",
@@ -53,15 +50,7 @@
       "url": "{SITE_URL}",
       "name": "{SITE_NAME}",
       "inLanguage": "{LANG}",
-      "publisher": { "@id": "{ORGANIZATION_ID}" },
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": {
-          "@type": "EntryPoint",
-          "urlTemplate": "{SITE_URL}/search?q={search_term_string}"
-        },
-        "query-input": "required name=search_term_string"
-      }
+      "publisher": { "@id": "{ORGANIZATION_ID}" }
     },
     {
       "@type": "BreadcrumbList",
@@ -75,16 +64,16 @@
       "@type": "BlogPosting",
       "@id": "{CANONICAL_URL}#article",
       "headline": "{H1_TITLE}",
+      "keywords": ["{KEYWORD_1}", "{KEYWORD_2}", "{KEYWORD_3}"],
       "description": "{META_DESCRIPTION}",
       "author": { "@id": "{AUTHOR_ID}" },
       "publisher": { "@id": "{ORGANIZATION_ID}" },
       "datePublished": "{PUBLISH_DATE}",
       "dateModified": "{MODIFIED_DATE}",
       "mainEntityOfPage": { "@type": "WebPage", "@id": "{CANONICAL_URL}" },
-      "wordCount": "{ACTUAL_WORD_COUNT}",
+      "wordCount": 0,
       "inLanguage": "{LANG}",
       "timeRequired": "{TIME_REQUIRED}",
-      "keywords": ["{KEYWORD_1}", "{KEYWORD_2}", "{KEYWORD_3}"],
       "articleSection": "{ARTICLE_CATEGORY}",
       "image": "{OG_IMAGE}",
       "thumbnailUrl": "{OG_IMAGE}",
@@ -92,7 +81,8 @@
       "about": { "@type": "Thing", "name": "{WIKIDATA_LABEL}", "sameAs": "{WIKIDATA_URL}" },
       "citation": [
         { "@type": "CreativeWork", "name": "{CITE_1_NAME}", "url": "{CITE_1_URL}" },
-        { "@type": "CreativeWork", "name": "{CITE_2_NAME}", "url": "{CITE_2_URL}" }
+        { "@type": "CreativeWork", "name": "{CITE_2_NAME}", "url": "{CITE_2_URL}" },
+        { "@type": "CreativeWork", "name": "{CITE_3_NAME}", "url": "{CITE_3_URL}" }
       ]
     },
     {
@@ -100,7 +90,7 @@
       "@id": "{AUTHOR_ID}",
       "name": "{AUTHOR_NAME}",
       "jobTitle": "{AUTHOR_JOB_TITLE}",
-      "url": "{AUTHOR_LINKEDIN}",
+      "url": "{AUTHOR_PAGE_URL}",
       "sameAs": ["{AUTHOR_LINKEDIN}"],
       "image": "{AUTHOR_IMAGE}",
       "worksFor": { "@id": "{ORGANIZATION_ID}" },
@@ -111,6 +101,7 @@
       "@id": "{CANONICAL_URL}#howto",
       "name": "{HOWTO_NAME}",
       "description": "{HOWTO_DESC}",
+      "totalTime": "{HOWTO_TOTAL_TIME}",
       "step": [
         { "@type": "HowToStep", "position": 1, "name": "{STEP_1_NAME}", "itemListElement": [{ "@type": "HowToDirection", "text": "{STEP_1_TEXT}" }] },
         { "@type": "HowToStep", "position": 2, "name": "{STEP_2_NAME}", "itemListElement": [{ "@type": "HowToDirection", "text": "{STEP_2_TEXT}" }] },
@@ -122,43 +113,15 @@
       "@id": "{CANONICAL_URL}#faq",
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": [".faq-answer"] },
       "mainEntity": [
-        { "@type": "Question", "name": "{FAQ_1_QUESTION}", "acceptedAnswer": { "@type": "Answer", "text": "{FAQ_1_ANSWER}" } }
+        { "@type": "Question", "name": "{FAQ_1_QUESTION}", "acceptedAnswer": { "@type": "Answer", "text": "{FAQ_1_ANSWER}" } },
+        { "@type": "Question", "name": "{FAQ_2_QUESTION}", "acceptedAnswer": { "@type": "Answer", "text": "{FAQ_2_ANSWER}" } },
+        { "@type": "Question", "name": "{FAQ_3_QUESTION}", "acceptedAnswer": { "@type": "Answer", "text": "{FAQ_3_ANSWER}" } },
+        { "@type": "Question", "name": "{FAQ_4_QUESTION}", "acceptedAnswer": { "@type": "Answer", "text": "{FAQ_4_ANSWER}" } },
+        { "@type": "Question", "name": "{FAQ_5_QUESTION}", "acceptedAnswer": { "@type": "Answer", "text": "{FAQ_5_ANSWER}" } },
+        { "@type": "Question", "name": "{FAQ_6_QUESTION}", "acceptedAnswer": { "@type": "Answer", "text": "{FAQ_6_ANSWER}" } },
+        { "@type": "Question", "name": "{FAQ_7_QUESTION}", "acceptedAnswer": { "@type": "Answer", "text": "{FAQ_7_ANSWER}" } },
+        { "@type": "Question", "name": "{FAQ_8_QUESTION}", "acceptedAnswer": { "@type": "Answer", "text": "{FAQ_8_ANSWER}" } }
       ]
-    },
-    {
-      "@type": "Product",
-      "@id": "{PRODUCT_URL}#product",
-      "name": "{PRODUCT_NAME}",
-      "description": "{PRODUCT_DESCRIPTION}",
-      "image": ["{PRODUCT_IMAGE_1}", "{PRODUCT_IMAGE_2}"],
-      "sku": "{PRODUCT_SKU}",
-      "mpn": "{PRODUCT_MPN}",
-      "brand": { "@type": "Brand", "name": "WOWOHCOOL" },
-      "manufacturer": { "@id": "{ORGANIZATION_ID}" },
-      "category": "{PRODUCT_CATEGORY}",
-      "offers": {
-        "@type": "Offer",
-        "url": "{PRODUCT_URL}",
-        "priceCurrency": "{CURRENCY}",
-        "price": "{PRICE_OR_OMIT_IF_QUOTE_ONLY}",
-        "availability": "https://schema.org/InStock",
-        "businessFunction": "https://schema.org/Sell",
-        "eligibleCustomerType": "https://schema.org/Business",
-        "seller": { "@id": "{ORGANIZATION_ID}" }
-      }
-    },
-    {
-      "@type": "Service",
-      "@id": "{SERVICE_URL}#service",
-      "name": "{SERVICE_NAME}",
-      "description": "{SERVICE_DESCRIPTION}",
-      "provider": { "@id": "{ORGANIZATION_ID}" },
-      "areaServed": ["DE", "AT", "CH", "EU"],
-      "serviceType": "{SERVICE_TYPE}",
-      "audience": {
-        "@type": "BusinessAudience",
-        "audienceType": "B2B Buyers / Distributors / Retailers"
-      }
     }
   ]
 }
@@ -183,7 +146,7 @@
 
 | 占位符 | 说明 | 示例（DE） |
 |--------|------|-----------|
-| `{H1_TITLE}` | H1 标题，50-65 字符，含 ≥1 B2B 信号词 | `Ladegerät-Fabrik China: Audit-Leitfaden für Importeure 2026` |
+| `{H1_TITLE}` | H1 标题，50-65 字符，**不含品牌后缀**（`\| WOWOHCOOL` 仅用于 `<title>`） | `Ladegerät-Fabrik China: Audit-Leitfaden für Importeure 2026` |
 | `{META_DESCRIPTION}` | Meta 描述，150-160 字符 | `Ladegerät-Fabrik China: WPC/Qi2-Audit, FOD-Test...` |
 | `{ARTICLE_SHORT_TITLE}` | 面包屑短标题 | `Fabrikauswahl China` |
 | `{CANONICAL_URL}` | 完整 canonical URL（末尾带 `/`） | `https://www.wowohcool.com/de/blog/fabrikauswahl-china-leitfaden/` |
@@ -196,47 +159,20 @@
 | `{ARTICLE_CATEGORY}` | 文章分类标签 | `GaN & Fast Charging` |
 | `{OG_IMAGE}` | 封面图完整 URL | `https://www.wowohcool.com/image/blog/cover-de/...` |
 | `{AUTHOR_NAME}` | 作者姓名 | `Nina Nico` |
-| `{AUTHOR_LINKEDIN}` | 作者 LinkedIn URL | `https://www.linkedin.com/in/nico-power-bank-chargers` |
-| `{AUTHOR_JOB_TITLE}` | 作者职位（B2B 采购相关） | `Sales Managerin — OEM/ODM & Supply Chain` |
+| `{AUTHOR_LINKEDIN}` | 作者 LinkedIn URL（填入 `sameAs` 数组） | `https://www.linkedin.com/in/nico-power-bank-chargers` |
+| `{AUTHOR_PAGE_URL}` | 作者页面 URL（跨语言统一，不随文章语言变化） | `https://www.wowohcool.com/authors/nina-nico/` |
+| `{AUTHOR_JOB_TITLE}` | 作者职位（B2B 采购相关） | `Sales Manager, OEM/ODM Chargers & Power Banks` |
 | `{AUTHOR_IMAGE}` | 作者头像 URL | `https://www.wowohcool.com/image/factory/team-nina.webp` |
 | `{KNOWS_ABOUT_1}` 等 | 作者专长领域（≥3，每项独立占位，构建时输出标准 JSON Array） | `OEM/ODM Sourcing` / `Werksaudit China` / `Qi2 Wireless Charging` |
 | `{WIKIDATA_LABEL}` | 文章核心实体英文标签 | `Battery charger` |
 | `{WIKIDATA_URL}` | Wikidata 实体 URL | `https://www.wikidata.org/entity/Q352917` |
 | `{HOWTO_NAME}` | HowTo 名称 | `Eine seriöse Ladegerät-Fabrik in China auswählen` |
 | `{HOWTO_DESC}` | HowTo 简述 | `Schritt-für-Schritt-Verfahren zur Verifikation...` |
+| `{HOWTO_TOTAL_TIME}` | HowTo 总耗时 (ISO 8601) | `PT15M` |
 | `{CITE_1_NAME}` 等 | 权威引用源名称 + URL | `WPC Product Registry` / `https://www.wirelesspowerconsortium.com/products` |
 | `{FAQ_1_QUESTION}` 等 | FAQ 问答题对，5-8 条 | 见 §三 FAQ 8 规则 |
 
-### v2 新增：Organization 级占位符（全站统一填写一次）
-
-| 占位符 | 说明 | 示例 |
-|--------|------|------|
-| `{FOUNDING_DATE}` | 公司成立年份 | `2013` |
-| `{VAT_OR_USCC_ID}` | 增值税号 / 统一社会信用代码 | `91440300MA5DF9NB4M` |
-| `{ORG_KNOWSABOUT_1}` 等 | 公司专长领域（≥3） | `GaN Charger Manufacturing` / `Qi2 Wireless Charging` / `OEM/ODM Manufacturing` |
-| `{STREET_ADDRESS}` | 街道地址 | `Building X, Longhua District` |
-| `{CITY}` | 城市 | `Shenzhen` |
-| `{REGION}` | 省份/州 | `Guangdong` |
-| `{POSTAL_CODE}` | 邮编 | `518110` |
-| `{COUNTRY_CODE}` | ISO 3166-1 α-2 国家码 | `CN` |
-| `{SALES_TELEPHONE}` | 销售电话 | `+86-755-XXXX-XXXX` |
-| `{SALES_EMAIL}` | 销售邮箱 | `sales@wowohcool.com` |
-
-### v2 新增：Product / Service 节点占位符（产品页/服务页专用）
-
-| 占位符 | 说明 | 示例 |
-|--------|------|------|
-| `{PRODUCT_URL}` | 产品页 URL | `https://www.wowohcool.com/products/gan-charger/` |
-| `{PRODUCT_NAME}` | 产品名称 | `WOP140 140W GaN Charger 4-Port PD 3.1` |
-| `{PRODUCT_DESCRIPTION}` | 产品描述 | `GaN V 140W 4-port USB-C charger...` |
-| `{PRODUCT_IMAGE_1}` 等 | 产品图片 URL（≥2） | `https://www.wowohcool.com/image/product/...` |
-| `{PRODUCT_SKU}` | SKU 编号 | `WOP140` |
-| `{PRODUCT_MPN}` | 制造商零件号 | `DY-WOP140-001` |
-| `{PRODUCT_CATEGORY}` | 产品分类 | `GaN Chargers` |
-| `{CURRENCY}` | 价格货币 ISO 4217 | `USD` |
-| `{PRICE_OR_OMIT_IF_QUOTE_ONLY}` | 价格（纯询价可不填此字段） | `24.99` |
-| `{SERVICE_URL}` | 服务页 URL | `https://www.wowohcool.com/service/` |
-| `{SERVICE_NAME}` | 服务名称 | `OEM/ODM Manufacturing Service` |
+### Organization 级固定字段（全站统一，不设占位符）
 | `{SERVICE_DESCRIPTION}` | 服务描述 | `End-to-end OEM/ODM charger manufacturing...` |
 | `{SERVICE_TYPE}` | 服务类型 | `Manufacturing` |
 
