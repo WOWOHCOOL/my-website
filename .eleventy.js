@@ -118,10 +118,35 @@ module.exports = function (eleventyConfig) {
     return d;
   });
 
+  // Array concat filter for Nunjucks templates
+  eleventyConfig.addFilter("concat", (arr, item) => {
+    if (!Array.isArray(arr)) return [item];
+    return arr.concat(item);
+  });
+
   // Ensure trailing slash on path strings (returns empty string unchanged)
   eleventyConfig.addFilter("trailingSlash", (s) => {
     if (!s || s === '') return s;
     return s.endsWith('/') ? s : s + '/';
+  });
+
+  // Locale date filter: Date → "11. Mai 2026" (de), "May 11, 2026" (en), "11 de mayo de 2026" (es), "11 mai 2026" (fr)
+  eleventyConfig.addFilter("localeDate", (d, locale) => {
+    if (!(d instanceof Date)) return d;
+    const months = {
+      de: ["Januar","Februar","März","April","Mai","Juni","Juli","August","September","Oktober","November","Dezember"],
+      en: ["January","February","March","April","May","June","July","August","September","October","November","December"],
+      es: ["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre"],
+      fr: ["janvier","février","mars","avril","mai","juin","juillet","août","septembre","octobre","novembre","décembre"]
+    };
+    const m = months[locale] || months.en;
+    const day = d.getDate();
+    const month = m[d.getMonth()];
+    const year = d.getFullYear();
+    if (locale === "de") return `${day}. ${month} ${year}`;
+    if (locale === "es") return `${day} de ${month} de ${year}`;
+    if (locale === "fr") return `${day} ${month} ${year}`;
+    return `${month} ${day}, ${year}`; // en default
   });
 
   // RSS date filter: Date → "Thu, 14 May 2026 00:00:00 GMT"
