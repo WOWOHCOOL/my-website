@@ -87,13 +87,13 @@ ruPath: "blog/"
 <div class="hidden divide-y divide-slate-100">
 
 {% set sections = [] %}
-{% for item in collections.blog_es | rejectattr("url", "equalto", "/es/blog/") | sort(attribute="data.articleSection") %}
+{% for item in collections.blog_es | sort(attribute="data.articleSection") %}{% if item.url != "/es/blog/" %}
   {% if item.data.articleSection and item.data.articleSection not in sections %}
     {% set sections = sections | concat(item.data.articleSection) %}
     <div class="p-4 bg-brandBlue/5"><span class="text-[11px] font-black text-brandOrange uppercase tracking-widest">{{ item.data.articleSection }}</span></div>
   {% endif %}
   <a href="{{ item.url }}" class="block px-6 py-3 text-sm text-slate-700 hover:bg-brandBlue/5 hover:text-brandOrange transition flex items-center justify-between"><span>{{ item.data.title | replace(" | WOWOHCOOL", "") }}</span><span class="text-[11px] text-slate-400">{{ item.date | localeDate("es") }}</span></a>
-{% endfor %}
+{% endif %}{% endfor %}
 
 </div>
 </div>
