@@ -397,12 +397,13 @@ class B2BContentAuditor:
         schema_val = self._check_schema_validation(raw_content if is_njk(raw_content) else content)
         factory_data = self._check_factory_data_canonical(content)
         static_html = self._check_static_html_quality(raw_content if is_njk(raw_content) else content)
+        anti_patterns = self._check_anti_patterns(raw_content if is_njk(raw_content) else content)
 
         # Composite: all non-None scores averaged equally
         all_checks = [opening, h3_answer, h2_density, data_density,
                       table_test, stock_photo, faq_lang, author_eeat,
                       tldr, vague_headings, weak_cta, hierarchy, url_quality,
-                      cross_ref, schema_val, factory_data, static_html]
+                      cross_ref, schema_val, factory_data, static_html, anti_patterns]
         scores = []
         for check in all_checks:
             s = check.get('score')
@@ -440,6 +441,7 @@ class B2BContentAuditor:
             'schema_validation': schema_val,
             'factory_data_canonical': factory_data,
             'static_html_quality': static_html,
+            'anti_patterns': anti_patterns,
             'critical_issues': critical_issues,
             'warnings': warnings,
             'recommendations': recommendations,
@@ -2108,6 +2110,80 @@ class B2BContentAuditor:
             ] if score < 100 else [],
         }
 
+    # ── Check 18: Anti-Pattern Detection ──
+
+    # Patterns that should NOT appear in B2B articles (duplicate/forbidden blocks)
+    ANTI_PATTERNS = [
+        # RÉPONSE RAPIDA / Quick Answer block — duplicates Key Takeaways content 60-95%
+        (r'(?i)(RÉPONSE\s+RAPIDE|RÉPONSE\s+RAPIDA|SCHNELLANTWORT|Quick\s+Answer)',
+         -25, 'Forbidden RÉPONSE RAPIDA/Quick Answer block — duplicates Key Takeaways content'),
+        # Standalone TL;DR block (not to be confused with POINTS CLÉS amber card TL;DR sentence)
+        (r'(?i)<p[^>]*>\s*<strong>\s*TL;DR\s*</strong>|TL;DR',
+         -15, 'Standalone TL;DR block — content likely duplicates POINTS CLÉS TL;DR'),
+        # Cross-Links inside article that duplicate Related Articles section at bottom
+        (r'(?i)Guides?\s+connexes?|Cross[-\s]?Links?',
+         -10, 'Cross-Links block duplicates Related Articles — delete and keep only the <aside> at bottom'),
+        # Data Dump Intro: >2 consecutive paragraphs in intro area before first H2
+        # This is detected heuristically by counting <p> tags before first <h2>
+        # but we cannot easily regex it; marked as recommendation if no explicit anti-pattern found
+    ]
+
+    def _check_anti_patterns(self, content: str) -> Dict[str, Any]:
+        """Detect forbidden patterns: RÉPONSE RAPIDA, TL;DR standalone, Cross-Links."""
+        score = 100
+        violations = []
+        warnings = []
+        found_patterns = []
+
+        for pattern, deduction, description in self.ANTI_PATTERNS:
+            matches = list(re.finditer(pattern, content, re.IGNORECASE))
+            if matches:
+                score = max(0, score - (deduction * min(len(matches), 2)))
+                for m in matches[:2]:
+                    line_num = content[:m.start()].count('\n') + 1
+                    ctx = content[max(0, m.start()-20):m.end()+40].replace('\n', ' ')[:80]
+                    violations.append({
+                        'pattern': description,
+                        'line': line_num,
+                        'context': ctx,
+                        'severity': 'high' if deduction >= 20 else 'medium',
+                        'action': 'Delete this block. It duplicates content elsewhere in the article.',
+                    })
+                    found_patterns.append(description)
+
+        # Heuristic Data Dump Intro check: count <p> tags between intro area start and first <h2>
+        # Look for the intro/body area (after TOC, before first H2 section)
+        intro_match = re.search(
+            r'(?:<!--\s*Introduction\s*-->|class="prose prose-lg).*?<h2[^>]*>',
+            content, re.DOTALL
+        )
+        if intro_match:
+            intro_area = intro_match.group(0)
+            p_count = len(re.findall(r'<p[^>]*>', intro_area))
+            if p_count > 3:
+                score = max(0, score - 15)
+                warnings.append({
+                    'pattern': 'Data Dump Intro (>3 paragraphs before first H2)',
+                    'paragraphs_found': p_count,
+                    'severity': 'medium',
+                    'action': f'Reduce intro to ≤2 paragraphs. Move data paragraphs to the relevant H2 sections.',
+                })
+
+        if score == 100:
+            recommendations = ['No anti-patterns detected — article structure is clean.']
+        else:
+            recommendations = [f'Remove {len(found_patterns)} forbidden block(s) and fix intro length.']
+
+        return {
+            'score': score,
+            'violations': violations,
+            'warnings': warnings,
+            'patterns_found': found_patterns,
+            'patterns_checked': len(self.ANTI_PATTERNS),
+            'critical_issues': [v['pattern'] for v in violations if v.get('severity') == 'high'],
+            'recommendations': recommendations,
+        }
+
     # ── Check 16: Factory Data Canonical Verification ──
 
     def _check_factory_data_canonical(self, content: str) -> Dict[str, Any]:
@@ -2675,6 +2751,7 @@ def _format_report(result: Dict[str, Any]) -> str:
         ('Schema Validation', 'schema_validation'),
         ('Factory Data Canonical', 'factory_data_canonical'),
         ('Static HTML Quality', 'static_html_quality'),
+        ('Anti-Pattern Detection', 'anti_patterns'),
     ]
 
     for label, key in checks:

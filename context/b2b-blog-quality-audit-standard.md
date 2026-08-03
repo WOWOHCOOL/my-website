@@ -846,6 +846,7 @@ Before publishing, verify all elements:
 | **Schema v2 — Citation** | `citation` array count must match visible Sources/Fuentes link count. Under-reporting wastes AI citation signals | Manual (count comparison) |
 | **Schema v2 — timeRequired** | Schema `timeRequired` must match visible reading time display (e.g., "9 min" = PT9M, not PT12M) | Manual |
 | **Schema v2 — Author @id** | `BlogPosting.author` = `{ "@id": "{AUTHOR_ID}" }` (reference, not inline Person); Person node has matching `@id`; `worksFor` = `{ "@id": "{ORG_ID}" }` | 🤖 |
+| **Schema v2 — JSON Syntax Gate** | Post-build: `json.load()` on every generated `<script type="application/ld+json">` block. Must pass for ALL articles — a single unreplaced placeholder (e.g., `{ACTUAL_WORD_COUNT}` left as-is) produces invalid JSON, which silently disables ALL schema on that page (not just wordCount) | 🤖 (build script) |
 | **CTA** | Below Author Bio, h2 heading, gradient background, B2B button text, product keyword | 🤖 |
 | **Author** | Named, credential-rich byline, LinkedIn link, author page, topic-relevant expertise | 🤖 |
 
@@ -874,6 +875,7 @@ After automated checks pass, verify these items manually:
 [ ] Schema v2: timeRequired matches visible reading time? (9 min = PT9M, not PT12M)
 [ ] Schema v2: BlogPosting.author = @id ref; Person has matching @id? (no inline duplication)
 [ ] Schema v2: Person.worksFor = @id ref (not inline Organization)? (entity consistency)
+[ ] Schema v2: Run `json.load()` on every `<script type="application/ld+json">` block in `_site/` — zero syntax errors? (placeholder catch-all)
 [ ] Cover image matches article topic and language folder? (e.g., cover-es/ for ES articles)
 
 ### Accessibility & Performance

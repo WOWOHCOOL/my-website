@@ -66,17 +66,17 @@
 
 | Agent | 做什么 | 产出 |
 |-------|--------|------|
+| **Content Analyzer** | 搜索意图 + 关键词密度/聚类 + 内容长度 vs SERP + 可读性 + SEO 综合评分 + B2B 审计 + 信息增益 | 0-100 分 + 分类得分 + 具体修改建议 |
 | **SEO Optimizer** | 页面 SEO 分析 + 精选摘要机会识别 | SEO 评分 + Featured Snippet 建议 |
 | **Meta Creator** | 生成多组标题和描述变体 | 5 组 title 选项 + description 变体 |
 | **Internal Linker** | 分析内部链接策略 | 3-5 个锚文本 + 目标页面建议 |
 | **Keyword Mapper** | 关键词分布检查 + 蚕食风险 | 密度热力图 + 同类文章冲突预警 |
-| **Editor** | 人性化程度检查 | 人性化评分 0-100 + AI 痕迹标记 |
 
 #### `/optimize [file]` → 自动触发 5 个 Agent（并行）
 
 | Agent | 做什么 | 产出 |
 |-------|--------|------|
-| **content-analyzer** (NEW!) | 搜索意图 + 关键词密度/聚类 + 内容长度 vs SERP + 可读性 + SEO 综合评分 | 0-100 分 + 分类得分 + 具体修改建议 |
+| **content-analyzer** | 搜索意图 + 关键词密度/聚类 + 内容长度 vs SERP + 可读性 + SEO 综合评分 | 0-100 分 + 分类得分 + 具体修改建议 |
 | **seo-optimizer** | 技术 SEO 最终检查 | Schema 完整性 + 元数据 + 结构验证 |
 | **meta-creator** | 最后一轮 meta 优化 | 3-5 组优化后的 title/description |
 | **internal-linker** | 内部链接最终建议 | 新增/替换链接的具体位置和锚文本 |
@@ -105,7 +105,10 @@
 
 ### `/scrub` 单独使用场景
 
-`/scrub` 在新文章完整流程（`/research → /write → /optimize → /scrub`）中是第 4 步固定环节，**不需要单独手动调用**。
+`/scrub` 在新文章完整流程中扮演**双重角色**：
+
+1. **自动触发**：`/write` 和 `/rewrite` 在保存文章后自动运行 `/scrub`（去除 AI 隐形水印和 em-dash 等标记）
+2. **手动精修**：完整流程（`/research → /write → /optimize → /scrub`）中第 4 步的手动 `/scrub` 是对 `/optimize` 阶段 Agent 可能引入的 AI 痕迹做**最终清理**，同时检查全文语气一致性
 
 以下场景需要**单独使用** `/scrub`：
 
@@ -117,7 +120,7 @@
 | 📥 外部供稿 | 写手/外包团队提交的内容 | 行业专家供稿，跑 `/scrub` 确保没有 GPT 句式 |
 | 🌐 多语言文章独立检查 | DE/ES/FR/RU 文章不走完整 `/write` 流程时 | 手动本土化的 ES 文章，发布前跑 `/scrub` 确保本土化语言自然 |
 
-> ⚠️ **注意**：优化已有文章流程（`/analyze-existing → /optimize → geo-citability`）和重写流程（`/rewrite → geo-citability`）的**标准步骤中不包含 `/scrub`**——这两个场景默认不需要去 AI 味。如果执行这两个流程后发现文章仍然有机翻感，再单独跑 `/scrub`。
+> ⚠️ **注意**：`/rewrite` 在保存文章后**已自动触发** `/scrub`（与 `/write` 相同），所以重写流程标准步骤中不再列出单独的手动 `/scrub`。优化已有文章流程（`/analyze-existing → /optimize → geo-citability`）**不自动触发** `/scrub`，因为 `/optimize` 主要做 SEO 分析而非内容重写。如果执行这两个流程后发现文章仍然有机翻感，再单独跑 `/scrub`。
 
 ---
 
@@ -127,12 +130,13 @@
 
 ```
 第1步: /research [topic]              → 研究简报
-第2步: /write [topic]                 → 完整文章 + 5 个 Agent 自动优化
-第3步: /optimize [file]               → SEO 精修
-第4步: /scrub [file]                  → 去 AI 味
-第5步: geo-citability                 → AI 引用可能性检查 ← GEO 新增
-第6步: 根据 geo-citability 反馈修改文章 → 补齐 AI 引用要素
-第7步: 手动转 Nunjucks + 发布
+第2步: /write [topic]                 → 完整文章 + 5 个 Agent 自动优化（含 B2B 质量门）
+第3步: /optimize [file]               → SEO 精修（纯 SEO，不含 B2B 检查）
+第4步: /scrub [file]                  → 去 AI 味（最终清理）
+第5步: /b2b-audit [file] (可选)       → B2B 专项审计（15 项检查）← B2B 文章必跑
+第6步: geo-citability                 → AI 引用可能性检查 ← GEO 新增
+第7步: 根据 citability/B2B 反馈修改文章 → 补齐 AI 引用要素 + B2B 质量问题
+第8步: 手动转 Nunjucks + 发布
 ```
 
 ### 流程图解
@@ -140,8 +144,8 @@
 ```
 ┌─────────────┐    ┌──────────────┐    ┌──────────────┐    ┌────────────┐
 │ /research   │ →  │  /write      │ →  │  /optimize   │ →  │  /scrub    │
-│ SERP分析    │    │  5 Agent并行  │    │  SEO评分≥80  │    │  人性化    │
-│ 竞品差距    │    │  质量门自检   │    │  Schema验证  │    │  去AI痕迹  │
+│ SERP分析    │    │  5 Agent并行  │    │  纯SEO≥80分  │    │  去AI痕迹  │
+│ 竞品差距    │    │  质量门自检   │    │  Schema验证  │    │  人性化    │
 └─────────────┘    └──────────────┘    └──────────────┘    └────────────┘
                                                                 │
                                                                 ▼
@@ -150,6 +154,7 @@
 │ git push   │    │  本地验证     │    │  Schema+HTML │    │ citability │
 │ CF部署      │    │              │    │  hreflang    │    │ AI引用评分 │
 └─────────────┘    └──────────────┘    └──────────────┘    └────────────┘
+                                     ↑  B2B 文章在 /scrub 后加 /b2b-audit
 ```
 
 ### 第 1 步：`/research [topic]` — 调研先行
@@ -177,17 +182,17 @@ RU: /research "OEM производитель power bank"
 
 | Agent | 做什么 | 产出 |
 |-------|--------|------|
+| Content Analyzer | 搜索意图 + 关键词/内容长度/可读性/SEO/B2B/信息增益 | 0-100 分 + 分类得分 + 修改建议 |
 | SEO Optimizer | 页面 SEO 分析 | SEO 评分 + 精选摘要建议 |
 | Meta Creator | 标题和描述 | 5 组标题选项 + 描述变体 |
 | Internal Linker | 内部链接策略 | 3-5 个锚文本建议 |
 | Keyword Mapper | 关键词分布检查 | 密度热力图 + 蚕食风险 |
-| Editor | 人性化检查 | 人性化评分 0-100 |
 
 **B2B 站点的特殊要求**（CLAUDE.md 已配置质量门）：
 
 - H1 必须含 B2B 信号词：OEM, manufacturer, factory, supplier, importer, sourcing, MOQ, FOB, B2B
 - 关键词密度不是你该关心的——**一手数据密度和信息增益**才是
-- 必须引用 `context/factory-data-panel.md` 的真实工厂数据
+- 必须引用 `context/factory-data-canonical.md` 的真实工厂数据
 - 至少 2 个 H2 含 B2B 信号词
 - FAQ 用采购经理的语言提问（不要消费者口吻）
 
@@ -239,7 +244,7 @@ RU: /research "OEM производитель power bank"
 3. 加的数据是**真实工厂数据**还是 AI 编造的？
 4. 这个改动对**采购经理的决策**有帮助，还是只对 AI 爬虫有用？
 
-> **核心原则**：优先采纳「加真实数据」的建议（如引用 factory-data-panel.md 的具体数字），跳过「纯格式模板化」的建议（如每段必须 40-60 词的定义块）。信息增益 > 格式对齐。
+> **核心原则**：优先采纳「加真实数据」的建议（如引用 factory-data-canonical.md 的具体数字），跳过「纯格式模板化」的建议（如每段必须 40-60 词的定义块）。信息增益 > 格式对齐。
 
 ### 第 6 步：手动转 Nunjucks + 部署
 
@@ -268,9 +273,19 @@ npm run build && git push  → 部署
 
 ### 场景 B：大幅重写
 
+`/rewrite` 保存文章后**自动触发 4 个 Agent + `/scrub`**（不含 Content Analyzer 和 B2B 审计）：
+
+| Agent | 做什么 | 产出 |
+|-------|--------|------|
+| **SEO Optimizer** | 对比原版 SEO 指标，检查改进 | SEO 优化评分 |
+| **Meta Creator** | 生成新的 meta 选项 | 多组 title/description 变体 |
+| **Internal Linker** | 检查旧链接 + 建议新链接 | 链接更新建议 |
+| **Keyword Mapper** | 验证关键词改进效果 | 密度 + 分布分析 |
+
 ```
-/rewrite [topic]           → 生成新版本到 rewrites/
+/rewrite [topic]           → 生成新版本到 rewrites/（自动 /scrub + 4 Agent）
 手动对比新旧版本             → 挑选改进点
+/b2b-audit rewrites/xxx.md → B2B 文章专项审计（独立运行）
 geo-citability             → 检查新版本 AI 引用潜力
 手动更新 Nunjucks           → 替换旧内容
 npm run build && git push  → 部署
@@ -325,10 +340,14 @@ python research_priorities_comprehensive.py  # 全面优先级矩阵（所有数
 
 ### 运行前提
 
-确保 `data_sources/config/.env` 和 `config/competitors.json` 配置正确：
+确保 `data_sources/config/.env` 配置正确（GA4、GSC、DataForSEO 凭证）。
+
+**竞争对手配置**：复制 `config/competitors.example.json` 为 `config/competitors.json` 并填入实际数据：
 
 ```json
 {
+  "direct_competitors": ["competitor1.com", "competitor2.com"],
+  "content_competitors": ["industrysite1.com"],
   "bofu_keywords": [
     "OEM power bank manufacturer",
     "custom power bank factory",
@@ -341,8 +360,9 @@ python research_priorities_comprehensive.py  # 全面优先级矩阵（所有数
     "power bank MOQ",
     "power bank factory audit"
   ],
-  "direct_competitors": ["competitor1.com", "competitor2.com"],
-  "relevant_terms": ["power bank", "charger", "OEM", "factory", "manufacturing"]
+  "alternative_keywords": ["competitor1 alternatives"],
+  "relevant_terms": ["power bank", "charger", "OEM", "factory", "manufacturing"],
+  "skip_terms": ["celebrity", "net worth", "dating"]
 }
 ```
 
@@ -357,7 +377,7 @@ python research_priorities_comprehensive.py  # 全面优先级矩阵（所有数
 | `/research-ai-citations [topic]` | 命令 | 生成 100+ AI 提示词，审计 AI 引用哪些来源，产出差距分析 | 每进入一个新主题领域前 |
 | `context/ai-citation-targets.md` | 上下文 | 5 层引用平台清单（B2B 目录/认证数据库/榜单/社区/评价） | 品牌引用策略参考 |
 | `context/reddit-strategy.md` | 上下文 | Reddit 参与策略（Perplexity 引用 Reddit 46.7%） | 社区 SEO 执行参考 |
-| `aeo-geo-patterns.md` | 技能引用 | AI 可引用内容模板（定义块/对比表/证据三明治/语音搜索） | 写文章时参照格式 |
+| `.claude/skills/seo-audit/references/aeo-geo-patterns.md` | 技能引用 | AI 可引用内容模板（定义块/对比表/证据三明治/语音搜索） | 写文章时参照格式 |
 
 ### 全局 GEO 技能栈
 
@@ -463,7 +483,7 @@ python research_priorities_comprehensive.py  # 全面优先级矩阵（所有数
 [ ] 真实工厂数据/测试数据（不编造）
 [ ] 具体数字 + 单位（°C, mV, kHz, Wh/kg, mm, €, $）
 [ ] 一手经验细节（不是"good thermal performance"，是具体测试结果）
-[ ] 引用 context/factory-data-panel.md 的数据（如适用）
+[ ] 引用 context/factory-data-canonical.md 的数据（如适用）
 ```
 
 ### GEO 质量门（新增）
@@ -580,25 +600,29 @@ python research_priorities_comprehensive.py  # 全面优先级矩阵（所有数
 
 ## 十、命令执行顺序速查卡
 
-### 🆕 创建新文章（SEO + GEO 完整版）
+### 🆕 创建新文章（SEO + GEO + B2B 完整版）
 ```
 /research "keyword"
-  → /write "keyword"
-    → /optimize drafts/xxx.md （目标 ≥ 80 分）
-      → /scrub drafts/xxx.md
-        → geo-citability （目标 citability ≥ 70）
-          → 根据反馈修改
-            → 转 Nunjucks → npm run build → git push
+  → /write "keyword"           （自动触发 Content Analyzer + 4 Agent + /scrub + B2B 质量门）
+    → /optimize drafts/xxx.md  （纯 SEO，目标 ≥ 80 分，自动触发 5 Agent）
+      → /scrub drafts/xxx.md   （最终去 AI 味——/optimize Agent 可能引入新痕迹）
+        → /b2b-audit drafts/xxx.md  （B2B 文章必跑，15 项检查）
+          → geo-citability      （目标 citability ≥ 70）
+            → 根据反馈修改
+              → 转 Nunjucks → npm run build → git push
 ```
 
 ### 🔧 优化已有文章
 ```
 /analyze-existing URL → /optimize file → geo-citability → 手动改 Nunjucks → build → push
 ```
+> B2B 文章额外跑 `/b2b-audit file` 做专项质量检查
 
 ### 🔄 重写旧文章
 ```
-/rewrite "topic" → 对比新旧 → geo-citability → 手动更新 Nunjucks → build → push
+/rewrite "topic"               （自动触发 4 Agent + /scrub）
+  → /b2b-audit rewrites/xxx.md （B2B 文章必跑）
+  → 对比新旧 → geo-citability → 手动更新 Nunjucks → build → push
 ```
 
 ### 🎯 优化落地页
@@ -613,7 +637,7 @@ python seo_baseline_analysis.py → /performance-review → 制定行动计划
 
 ### 🌐 多语言扩展
 ```
-EN: /research → /write → /optimize → /scrub → geo-citability → 发布
+EN: /research → /write → /optimize → /scrub → /b2b-audit → geo-citability → 发布
 DE: /research(德语) → /write → 同上（独立执行，不是翻译）
 ES: /research(西语) → /write → 同上
 FR: /research(法语) → /write → 同上

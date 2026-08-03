@@ -16,9 +16,9 @@ def count_body_faq(content):
 
     # Find end of FAQ section (before Author Bio, CTA, or related-articles)
     end_patterns = [
-        r'<!-- Author Bio -->', r'id="author-bio"',
+        r'<!-- Author Bio -->', r'<section id="author-bio"',
         r'<!-- CTA -->', r'{% set cta', r'{% include "partials/blog-cta"',
-        r'id="related-articles"', r'<!-- Related Articles',
+        r'<aside id="related-articles"', r'<!-- Related Articles',
     ]
     end = len(content)
     for pat in end_patterns:
@@ -92,7 +92,7 @@ def add_to_body(content, schema_faqs, lang):
  </div>
 '''
 
-    html = f'''<section id="faq" class="max-w-4xl mx-auto px-6 mb-16">
+    html = f'''<section id="faq" class="mb-16">
  <div class="bg-slate-50 rounded-2xl p-8 border border-slate-200 shadow-sm">
  <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-8 text-center">{heading}</h2>
  <div class="space-y-6 max-w-3xl mx-auto">
@@ -144,7 +144,11 @@ def main():
             if body_count < schema_count:
                 # Rebuild body to match schema
                 new_section = add_to_body(c, schema_faqs, lang)
-                c = c[:faq_start] + new_section + c[faq_end:]
+                # Strip any nested <section tags left from previous rebuilds
+                prefix = c[:faq_start]
+                while prefix.rstrip().endswith('<section'):
+                    prefix = prefix.rstrip()[:-8].rstrip()
+                c = prefix + new_section + c[faq_end:]
                 open(f, 'w', encoding='utf-8').write(c)
                 stats['body_rebuilt'] += 1
             elif body_count > schema_count:
