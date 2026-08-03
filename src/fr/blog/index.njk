@@ -90,12 +90,13 @@ ruPath: "blog/"
 </a>
 
 </div>
+<a href="#alle-artikel" class="inline-flex items-center gap-2 text-brandOrange font-bold text-sm hover:gap-3 transition-all mt-6">Tous les 4 articles <svg class="icon-arrow-down" aria-hidden="true" focusable="false" viewBox="0 0 384 512" width="12"><path d="M169.4 470.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 370.8 224 32c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 338.8L54.6 265.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z" fill="currentColor"/></svg></a>
 </div>
 </section>
 {% endblock %}
 
 {% block blogAllArticles %}
-<!-- ALL FRENCH ARTICLES -->
+<!-- TOUS LES ARTICLES -->
 <section id="alle-artikel" class="py-16 bg-white">
 <div class="max-w-4xl mx-auto px-6">
 <div class="flex items-center gap-3 mb-6">
@@ -104,25 +105,23 @@ ruPath: "blog/"
 <span class="px-3 py-1 bg-brandBlue/10 text-brandBlue text-[11px] font-black rounded-full uppercase tracking-wider">4 articles</span>
 </div>
 <div class="bg-white border border-slate-200 rounded-2xl overflow-hidden">
+<button onclick="this.nextElementSibling.classList.toggle('hidden');this.querySelector('svg').classList.toggle('rotate-180')" class="w-full px-6 py-4 bg-slate-50 hover:bg-slate-100 transition flex items-center justify-between text-left">
+<span class="text-sm font-black text-brandBlue uppercase tracking-wider">Parcourir tous les articles</span>
+<svg class="icon-chevron-down text-brandOrange transition-transform duration-300" aria-hidden="true" focusable="false" viewBox="0 0 448 512" width="16"><path d="M201.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 338.7 54.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z" fill="currentColor"/></svg>
+</button>
+<div class="hidden divide-y divide-slate-100">
 
-{% set articles = [
-  {href: "/fr/blog/chargeurs-gan-guide-oem/", title: "Chargeurs GaN OEM: Guide Complet de Sourcing 2026", desc: "Technologie GaN V, PD 3.1 140W, prix FOB et checklist sourcing.", cat: "GaN Technologie", date: "4 mars 2026"},
-  {href: "/fr/blog/certification-qi2-importateurs/", title: "Certification Qi2 OEM: Couts WPC et Conformite 2026", desc: "Couts reels WPC, processus ATL et conformite DGCCRF/ANFR.", cat: "Qi2 Certification", date: "10 juin 2026"},
-  {href: "/fr/blog/charge-rapide-usb-c-pd-oem/", title: "Charge Rapide USB-C PD OEM: Guide PD 3.1, PPS et GaN", desc: "PD 3.1 240W EPR, decret chargeur universel et prix FOB.", cat: "USB-C PD", date: "29 avril 2026"},
-  {href: "/fr/blog/batterie-externe-specifications-oem/", title: "Batterie Externe OEM: Specifications Techniques 2026", desc: "Cellules Grade A, mAh, PD 3.1 et certifications CE/UN38.3.", cat: "Batterie Externe", date: "8 juillet 2026"}
-] %}
+<div class="p-4 bg-brandBlue/5"><span class="text-[11px] font-black text-brandOrange uppercase tracking-widest">Technologie GaN & USB-C</span></div>
+<a href="/fr/blog/chargeurs-gan-guide-oem/" class="block px-6 py-3 text-sm text-slate-700 hover:bg-brandBlue/5 hover:text-brandOrange transition flex items-center justify-between"><span>Chargeurs GaN OEM: Guide Complet de Sourcing 2026</span><span class="text-[11px] text-slate-400">4 mars 2026</span></a>
+<a href="/fr/blog/charge-rapide-usb-c-pd-oem/" class="block px-6 py-3 text-sm text-slate-700 hover:bg-brandBlue/5 hover:text-brandOrange transition flex items-center justify-between"><span>Charge Rapide USB-C PD OEM: Guide PD 3.1, PPS et GaN</span><span class="text-[11px] text-slate-400">29 avril 2026</span></a>
 
-{% for article in articles %}
-<a href="{{ article.href }}" class="flex flex-col sm:flex-row items-start gap-4 p-4 sm:p-5 hover:bg-slate-50 transition-colors{% if not loop.last %} border-b border-slate-100{% endif %}">
-<div class="shrink-0"><span class="inline-block px-3 py-1 bg-brandOrange/10 text-brandOrange text-[10px] font-black rounded-full uppercase tracking-wider">{{ article.cat }}</span></div>
-<div class="flex-1 min-w-0">
-<h3 class="text-sm sm:text-base font-bold text-brandBlue group-hover:text-brandOrange transition-colors">{{ article.title }}</h3>
-<p class="text-xs text-slate-500 mt-1 line-clamp-1">{{ article.desc }}</p>
+<div class="p-4 bg-brandBlue/5"><span class="text-[11px] font-black text-brandOrange uppercase tracking-widest">Charge sans fil & Certification</span></div>
+<a href="/fr/blog/certification-qi2-importateurs/" class="block px-6 py-3 text-sm text-slate-700 hover:bg-brandBlue/5 hover:text-brandOrange transition flex items-center justify-between"><span>Certification Qi2 OEM: Couts WPC et Conformite 2026</span><span class="text-[11px] text-slate-400">10 juin 2026</span></a>
+
+<div class="p-4 bg-brandBlue/5"><span class="text-[11px] font-black text-brandOrange uppercase tracking-widest">Batterie Externe & Technologie</span></div>
+<a href="/fr/blog/batterie-externe-specifications-oem/" class="block px-6 py-3 text-sm text-slate-700 hover:bg-brandBlue/5 hover:text-brandOrange transition flex items-center justify-between"><span>Batterie Externe OEM: Specifications Techniques 2026</span><span class="text-[11px] text-slate-400">8 juillet 2026</span></a>
+
 </div>
-<div class="shrink-0 text-xs text-slate-400">{{ article.date }}</div>
-</a>
-{% endfor %}
-
 </div>
 </div>
 </section>
