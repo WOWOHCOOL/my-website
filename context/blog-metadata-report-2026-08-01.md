@@ -1,7 +1,7 @@
 # wowohcool.com 博客元数据报告
 
-**生成日期**: 2026-08-01  
-**语言站点**: EN (29篇) · DE (29篇) · ES (29篇) · 合计 87 篇  
+**生成日期**: 2026-08-04  
+**语言站点**: EN (29篇) · DE (29篇) · ES (29篇) · **FR (7篇)** · 合计 94 篇  
 **数据来源**: 各站点 `src/{lang}/blog/*/index.njk` frontmatter + H1 模板标签
 
 ---
@@ -165,6 +165,75 @@
 ### 语言独占内容
 
 无。全部 29 个主题在 EN、DE、ES 三个语言站点均有对应文章，实现三语完整覆盖。
+
+---
+
+## 四、Français (FR) — 4 篇
+
+| # | URL | Title | Description | H1 | Keywords |
+|---|-----|-------|-------------|----|----------|
+| 1 | [/fr/blog/batterie-externe-specifications-oem/](https://www.wowohcool.com/fr/blog/batterie-externe-specifications-oem/) | Batterie Externe OEM: Specifications Techniques \| WOWOHCOOL | Specifications essentielles pour importateurs: mAh reel vs nominal, PD 3.1, types de batterie et certifications CE/UN38.3. Prix FOB des 4,80$, MOQ 500. | Batterie Externe OEM: Specifications Techniques pour Importateurs 2026 | Batterie Externe, Specifications, mAh, PD 3.1, Securite, OEM |
+| 2 | [/fr/blog/certification-qi2-importateurs/](https://www.wowohcool.com/fr/blog/certification-qi2-importateurs/) | Certification Qi2 OEM: Couts WPC et Conformite 2026 \| WOWOHCOOL | Certification Qi2 OEM 2026: couts WPC reels (Adopter $18K/an, ATL ~$15.5K, Qi-ID $750), processus complet, normes CE/RED/DEEE. Conformite DGCCRF/ANFR. | Certification Qi2 pour Importateurs: Guide WPC et Conformite OEM | Qi2, Certification, WPC, MPP, Qi2.2, Charge sans fil, OEM, Conformite CE, DEEE, Importateur, EN IEC 63563, ANFR |
+| 3 | [/fr/blog/charge-rapide-usb-c-pd-oem/](https://www.wowohcool.com/fr/blog/charge-rapide-usb-c-pd-oem/) | Charge Rapide USB-C PD OEM: Guide PD 3.1, PPS & GaN \| WOWOHCOOL | Guide OEM USB-C PD 2026: PD 3.1 240W EPR, PPS, GaN V. Obligation chargeur universel UE. Prix FOB des $6/piece, MOQ 500. Fabricant ISO 9001 Shenzhen. | Charge Rapide USB-C PD OEM: Guide PD 3.1, PPS et GaN pour Importateurs | USB-C, PD 3.1, Power Delivery, PPS, EPR, GaN V, Charge Rapide, OEM, Chargeur Universel, IEC 62680, Importateur |
+| 4 | [/fr/blog/chargeurs-gan-guide-oem/](https://www.wowohcool.com/fr/blog/chargeurs-gan-guide-oem/) | Chargeurs GaN OEM: Guide Sourcing PD 3.1 pour Importateurs \| WOWOHCOOL | Guide OEM chargeurs GaN: PD 3.1 140W, GaN V, certifies CE/GS. Prix FOB des 4,80EUR/piece, MOQ 500. Cas Bosch 10K en 25 jours. Fabricant Shenzhen ISO 9001. | Chargeurs GaN pour Importateurs: Guide OEM Complet de Sourcing 2026 | GaN, Chargeur, PD 3.1, GaN V, OEM, Sourcing, Guide, Fabricant, Importateur, CE, GS, FOB |
+| 5 | [/fr/blog/chargeur-voiture-oem-guide/](https://www.wowohcool.com/fr/blog/chargeur-voiture-oem-guide/) | Chargeur Voiture OEM: Guide GaN V, E-Mark \| WOWOHCOOL | Guide OEM chargeur voiture 2026: GaN V 140W, certifie E-Mark, PD 3.1. Donnees marche France, cas Bosch 10K unites. MOQ 500, echantillons 5j, livraison DDP. | Chargeur Voiture OEM: Guide Technique GaN V, PD 3.1, E-Mark pour Importateurs 2026 | Chargeur Voiture, GaN V, PD 3.1, E-Mark, Flottes, OEM |
+| 6 | [/fr/blog/fabrication-oem-gan-v/](https://www.wowohcool.com/fr/blog/fabrication-oem-gan-v/) | Fabrication OEM GaN V: Guide Chargeurs 20W-240W \| WOWOHCOOL | Fabrication OEM GaN V 2026: chargeurs 20W-240W PD 3.1, 40% plus compacts. BOM, CE/E-Mark, MOQ 500. Usine ISO 9001 Shenzhen, devis 24h. | Fabrication OEM GaN V: Guide Technique Chargeurs 20W-240W pour Importateurs 2026 | GaN V, OEM, Fabrication, Chargeur, PD 3.1, Shenzhen |
+| 7 | [/fr/blog/fournisseurs-chargeurs-chine-oem/](https://www.wowohcool.com/fr/blog/fournisseurs-chargeurs-chine-oem/) | Fournisseurs Chargeurs Chine: Guide Sourcing OEM \| WOWOHCOOL | Guide sourcing fournisseurs chargeurs Chine 2026: audit usine, ISO 9001, CE/E-Mark. MOQ 500, eviter trading companies. Usine Shenzhen depuis 2013, devis 24h. | Fournisseurs Chargeurs Chine: Guide Sourcing OEM pour Importateurs 2026 | Fournisseur, Chine, Sourcing, ISO 9001, Verification, Due Diligence |
+
+**FR 覆盖状态**: 7/29 篇已完成 v2 标准优化。剩余 22 篇计划见 `context/fr-blog-plan-2026-08-02.md`。
+
+---
+
+## 五、四站 Hreflang 映射表
+
+### FR 已优化文章映射
+
+| # | FR slug | EN slug | DE slug | ES slug |
+|---|---------|---------|---------|---------|
+| 1 | batterie-externe-specifications-oem | power-bank-specs-guide | powerbank-spezifikationen | especificaciones-power-banks-importadores |
+| 2 | certification-qi2-importateurs | qi-certification-guide | qi2-zertifizierung-importeure | certificacion-qi2-importadores |
+| 3 | charge-rapide-usb-c-pd-oem | usb-c-pd-fast-charging-guide | usb-c-pd-schnellladen | usb-c-pd-carga-rapida |
+| 4 | chargeurs-gan-guide-oem | gan-chargers-guide | gan-ladegeraete-leitfaden | guia-cargadores-gan-importadores |
+| 5 | chargeur-voiture-oem-guide | car-charger-guide | autoladegeraet-ratgeber | cargador-coche-guia |
+| 6 | fabrication-oem-gan-v | gan-v-charger-oem-manufacturing | gan-v-oem-fertigung | gan-v-fabricacion-oem |
+| 7 | fournisseurs-chargeurs-chine-oem | choose-reliable-china-charger-supplier | lieferanten-china-finden | proveedor-cargadores-china-fiable |
+
+### EN↔DE↔ES↔FR 全站映射（按 EN slug 排序）
+
+| EN slug | DE slug | ES slug | FR slug |
+|---------|---------|---------|---------|
+| car-charger-guide | autoladegeraet-ratgeber | cargador-coche-guia | **chargeur-voiture-oem-guide** ✅ |
+| certifications-us-eu-guide | zertifizierungen-eu-markt | guia-certificaciones-cargadores-importadores | certifications-chargeurs-oem-guide* |
+| charger-safety-standards | sicherheitsstandards-ladegeraete | normas-seguridad-cargadores | securite-chargeurs-normes-oem* |
+| charging-accessory-market-trends-2026 | markt-trends-ladegeraete-2026 | tendencias-mercado-cargadores-2026 | tendances-marche-chargeurs-2026-oem* |
+| choose-reliable-china-charger-supplier | lieferanten-china-finden | proveedor-cargadores-china-fiable | **fournisseurs-chargeurs-chine-oem** ✅ |
+| eu-battery-regulation-2023-1542-guide | eu-batterieverordnung-2023-1542-leitfaden | reglamento-ue-2023-1542-cumplimiento | reglement-ue-2023-1542-conformite-oem* |
+| factory-verification-checklist | fabrikpruefung-checkliste-importeure | verificacion-fabricas-checklist | checklist-verification-usine-chine-oem* |
+| gan-chargers-guide | gan-ladegeraete-leitfaden | guia-cargadores-gan-importadores | **chargeurs-gan-guide-oem** ✅ |
+| gan-generations-guide | gan-generationen-uebersicht | generaciones-gan-comparativa | generations-gan-comparaison-oem* |
+| gan-v-charger-oem-manufacturing | gan-v-oem-fertigung | gan-v-fabricacion-oem | **fabrication-oem-gan-v** ✅ |
+| gan-vs-silicon-charger-comparison | gan-vs-silizium-ladegeraete-vergleich | gan-vs-silicio-comparativa | gan-vs-silicium-comparaison-oem* |
+| hotel-charging-solutions | hotelladegeraete-oem-loesungen | soluciones-carga-hoteles | solutions-recharge-hotellerie-oem* |
+| how-to-choose-factory | fabrikauswahl-china-leitfaden | como-elegir-fabrica-china | audit-usine-chine-chargeurs-oem* |
+| how-to-choose-power-bank | powerbank-beschaffung-leitfaden | como-elegir-power-bank | choisir-batterie-externe-oem-guide* |
+| import-costs-guide | ladegeraet-import-china-zoll-zertifikate | importar-cargadores-china-aduanas | couts-import-chine-droits-douane-oem* |
+| oem-vs-odm-guide | oem-vs-odm-leitfaden | oem-vs-odm-guia-completa | oem-vs-odm-guide-importateurs* |
+| power-bank-mah-explained | powerbank-mah-kapazitaet | power-bank-mah-explicado | mAh-batterie-externe-guide-oem* |
+| power-bank-private-label-oem-production | powerbank-eigenmarke-oem-produktion | powerbank-marca-propia-produccion-oem | batterie-externe-marque-blanche-oem* |
+| power-bank-specs-guide | powerbank-spezifikationen | especificaciones-power-banks-importadores | **batterie-externe-specifications-oem** ✅ |
+| qi-certification-guide | qi2-zertifizierung-importeure | certificacion-qi2-importadores | **certification-qi2-importateurs** ✅ |
+| qi2-vs-magsafe-guide | qi2-vs-magsafe | qi2-vs-magsafe-diferencias | qi2-vs-magsafe-importateurs* |
+| quality-control-guide | qualitaetskontrolle-china | control-calidad-fabricas-chinas | controle-qualite-usines-chinoises-oem* |
+| semi-solid-state-power-bank-oem | semi-solid-state-powerbank | baterias-semi-solid-state | batterie-semi-solide-oem-guide* |
+| shipping-from-china-guide | oem-versand-aus-china-logistik | envio-desde-china-logistica | expedition-chine-logistique-oem* |
+| top-power-bank-manufacturers-china | powerbank-hersteller-china-oem-partner | fabricante-power-banks-china-oem | fabricants-batterie-externe-chine-oem* |
+| usb-c-pd-3-1-explained | usb-c-pd-3-1-erklaert | usb-c-pd-3-1-explicado | usb-c-pd-3-1-guide-oem* |
+| usb-c-pd-fast-charging-guide | usb-c-pd-schnellladen | usb-c-pd-carga-rapida | **charge-rapide-usb-c-pd-oem** ✅ |
+| what-is-gan-charger | gan-ladegeraet-technologie | que-es-cargador-gan | technologie-gan-chargeur-oem* |
+| wireless-charging-works | kabelloses-laden | carga-inalambrica-qi-qi2-magsafe | charge-sans-fil-qi2-guide-oem* |
+
+> ✅ = FR 文章已发布并完成 v2 优化  
+> \* = FR 文章计划中 (slug 来自 `fr-blog-plan-2026-08-02.md`)，尚未创建
 
 ---
 

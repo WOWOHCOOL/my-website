@@ -21,8 +21,30 @@
 | Export Coverage | 50+ countries |
 | Active Client Brands | 200+ globally |
 | R&D Team | 50+ engineers |
-| Key Markets | US, Germany, Austria, Switzerland, UK, France, Spain, Middle East, Southeast Asia |
+| Key Markets | Global — dedicated local sites in 5 languages: EN, DE, ES, FR, RU |
 | Trade Shows | CES 2026 (Las Vegas), IFA Berlin |
+
+### 1.1 Contact Information
+
+| Attribute | Value |
+|-----------|-------|
+| Street Address | 925, Yichuang International Center, Longhua District |
+| City | Shenzhen |
+| Province/Region | Guangdong |
+| Postal Code | 518111 |
+| Country | CN |
+| Sales Telephone | +86-18620789739 |
+| Sales Email | info@wowohcool.com |
+| Unified Social Credit Code | 91441900MA558A2N27 |
+
+### 1.2 Social Media
+
+| Platform | URL |
+|----------|-----|
+| LinkedIn | https://www.linkedin.com/company/wowohcool |
+| Facebook | https://www.facebook.com/wowohcoolelectronic |
+| YouTube | https://www.youtube.com/@WOWOHCOOL |
+| X (Twitter) | https://x.com/wowohcool |
 
 ---
 
@@ -361,6 +383,26 @@ All prices exclude shipping, duties, and certification fees. Tiered pricing drop
 | Quality Metrics | Quarterly | Internal QC reports |
 | MOQ & Lead Times | Quarterly | Production planning |
 | Technical Specs | Per product launch | R&D team |
+
+---
+
+## 15. Author Profiles
+
+Single source of truth for all blog article Person Schema. When creating a new article, copy the author's row directly — do not invent new values.
+
+| Attribute | Snowy May | Nina Nico |
+|-----------|-----------|-----------|
+| **Schema @id** | `https://www.wowohcool.com/#snowy-may` | `https://www.wowohcool.com/#nina-nico` |
+| **Full Name** | Snowy May | Nina Nico |
+| **Job Title** | Marketing Manager & Founder | Global Procurement & Sourcing Manager |
+| **LinkedIn** | https://www.linkedin.com/in/snowy-wireless-charger | https://www.linkedin.com/in/nico-power-bank-chargers |
+| **Author Page** | https://www.wowohcool.com/authors/snowy-may/ | https://www.wowohcool.com/authors/nina-nico/ |
+| **Avatar** | `/image/factory/team-snowy.webp` | `/image/factory/team-nina.webp` |
+| **Email** | snowy@wowohcool.com | nina@wowohcool.com |
+| **Location** | Dongguan, Guangdong, China | Shenzhen, Guangdong, China |
+| **Years Experience** | 10+ years in consumer electronics | 10+ years in 3C procurement & sourcing |
+| **Languages** | EN, ZH | EN, ZH |
+| **knowsAbout** | OEM/ODM Consumer Electronics, GaN Charger Technology, Qi2 Wireless Charging, Charger Certifications (UL/CE/FCC), EU/US Regulatory Compliance | Global Supply Chain Sourcing, Cross-Border OEM Negotiation, 3C Accessories OEM/ODM, EU Regulatory Compliance & Battery Regulation, GaN Charger & Power Bank Manufacturing |
 
 ---
 

@@ -131,16 +131,16 @@
 
 ## 二、占位符语言映射表
 
-| 占位符 | DE | EN | ES | FR |
-|--------|-----|-----|-----|-----|
-| `{LANG}` | `de-DE` | `en-US` | `es-ES` | `fr-FR` |
-| `{ORGANIZATION_ID}` | `https://www.wowohcool.com/de/#organization` | `https://www.wowohcool.com/#organization` | `https://www.wowohcool.com/es/#organization` | `https://www.wowohcool.com/fr/#organization` |
-| `{ORGANIZATION_URL}` | `https://www.wowohcool.com/de/about/` | `https://www.wowohcool.com/about/` | `https://www.wowohcool.com/es/about/` | `https://www.wowohcool.com/fr/about/` |
-| `{WEBSITE_ID}` | `https://www.wowohcool.com/de/#website` | `https://www.wowohcool.com/#website` | `https://www.wowohcool.com/es/#website` | `https://www.wowohcool.com/fr/#website` |
-| `{SITE_URL}` | `https://www.wowohcool.com/de/` | `https://www.wowohcool.com/` | `https://www.wowohcool.com/es/` | `https://www.wowohcool.com/fr/` |
-| `{SITE_NAME}` | `WOWOHCOOL Deutschland` | `WOWOHCOOL` | `WOWOHCOOL España` | `WOWOHCOOL France` |
-| `{HOME_LABEL}` | `Startseite` | `Home` | `Inicio` | `Accueil` |
-| `{BLOG_URL}` | `https://www.wowohcool.com/de/blog/` | `https://www.wowohcool.com/blog/` | `https://www.wowohcool.com/es/blog/` | `https://www.wowohcool.com/fr/blog/` |
+| 占位符 | DE | EN | ES | FR | RU |
+|--------|-----|-----|-----|-----|-----|
+| `{LANG}` | `de-DE` | `en-US` | `es-ES` | `fr-FR` | `ru-RU` |
+| `{ORGANIZATION_ID}` | `https://www.wowohcool.com/de/#organization` | `https://www.wowohcool.com/#organization` | `https://www.wowohcool.com/es/#organization` | `https://www.wowohcool.com/fr/#organization` | `https://www.wowohcool.com/ru/#organization` |
+| `{ORGANIZATION_URL}` | `https://www.wowohcool.com/de/about/` | `https://www.wowohcool.com/about/` | `https://www.wowohcool.com/es/about/` | `https://www.wowohcool.com/fr/about/` | `https://www.wowohcool.com/ru/about/` |
+| `{WEBSITE_ID}` | `https://www.wowohcool.com/de/#website` | `https://www.wowohcool.com/#website` | `https://www.wowohcool.com/es/#website` | `https://www.wowohcool.com/fr/#website` | `https://www.wowohcool.com/ru/#website` |
+| `{SITE_URL}` | `https://www.wowohcool.com/de/` | `https://www.wowohcool.com/` | `https://www.wowohcool.com/es/` | `https://www.wowohcool.com/fr/` | `https://www.wowohcool.com/ru/` |
+| `{SITE_NAME}` | `WOWOHCOOL Deutschland` | `WOWOHCOOL` | `WOWOHCOOL España` | `WOWOHCOOL France` | `WOWOHCOOL Россия` |
+| `{HOME_LABEL}` | `Startseite` | `Home` | `Inicio` | `Accueil` | `Главная` |
+| `{BLOG_URL}` | `https://www.wowohcool.com/de/blog/` | `https://www.wowohcool.com/blog/` | `https://www.wowohcool.com/es/blog/` | `https://www.wowohcool.com/fr/blog/` | `https://www.wowohcool.com/ru/blog/` |
 
 ### 文章级占位符（每篇文章独立填写）
 
@@ -290,7 +290,7 @@ print(f'Actual main content word count: {real_wc}')
 
 ## 五、文章结构排序
 
-### 5.1 标准结构（所有语言通用，16 板块）
+### 5.1 标准结构（所有语言通用，15 板块）
 
 ```
  1. Hero Header      面包屑→标签→H1→Compact Author Bar→日期行
@@ -300,15 +300,14 @@ print(f'Actual main content word count: {real_wc}')
  5. Key Metrics      可选，数据指标卡片
  6. Table of Contents 含 #faq 锚点
  7. Factory Data     工厂数据卡片（面积/员工/R&D/产能/认证）ⓕ
- 8. Quick Answer     快速回答，1 段浓缩核心结论 ⓢ
- 9. H2 Sections ×N   标准灰底卡片，嵌入式 Expert Insight + Factory Stat
-10. Conclusion       可选，依文章而定 — 总结 + 实操流程，不含重复链接 ⓕ
-11. FAQ               id="faq"，8 条规则
-12. Author Bio        id="author-bio"，含 Factory Footprint
-13. CTA               渐变背景，2 按钮：主 CTA + OEM/ODM Service
-14. Related Articles  id="related-articles"
-15. Sources           引用来源列表
-16. Global CTA        页面级 blog-cta.njk
+ 8. H2 Sections ×N   标准灰底卡片，嵌入式 Expert Insight + Factory Stat
+ 9. Conclusion       可选，依文章而定 — 总结 + 实操流程，不含重复链接 ⓕ
+10. FAQ               id="faq"，8 条规则
+11. Author Bio        id="author-bio"，含 Factory Footprint
+12. CTA               渐变背景，2 按钮：主 CTA + OEM/ODM Service
+13. Related Articles  id="related-articles"
+14. Sources           引用来源列表
+15. Global CTA        页面级 blog-cta.njk
 ```
 
 > Ⓢ = speakable class 必需   ⓕ = 工厂专属板块（含 B2B 硬数据）
@@ -320,8 +319,7 @@ DE 文章在标准结构基础上增加以下板块（位置见 §5.1）：
 | # | 板块 | 说明 |
 |---|------|------|
 | 7 | **WOWOHCOOL FAKT** | 工厂硬数据卡片。面积（m²）、员工、R&D 工程师、月产能、认证年份 |
-| 8 | ~~SCHNELLANTWORT~~ | **已废弃**。与 Key Takeaways 重叠 60-95%，删除。参见 `b2b-blog-quality-audit-standard.md` §III.3 |
-| 10 | **FAZIT** | 可选总结。核心结论 + 实操流程，不含与 Related Articles 重复的内部链接 |
+| 9 | **FAZIT** | 可选总结。核心结论 + 实操流程，不含与 Related Articles 重复的内部链接 |
 
 ---
 

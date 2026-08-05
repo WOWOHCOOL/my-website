@@ -1,256 +1,376 @@
-# B2B 博客实操指南 — 从研究到发布的完整操作手册
+# B2B 文章实操指南 — 从研究到发布的完整操作手册
 
-**适用站点**: wowohcool.com (DE/EN/ES/FR)  
-**适用领域**: B2B 充电设备/电源/储能外贸供应链  
-**最后更新**: 2026-07-22  
-**基于**: Google 2026 Helpful Content System + E-E-A-T + Information Gain 专利 + AI Overviews
+**适用站点**: wowohcool.com (DE/EN/ES/FR)
+**适用领域**: B2B 充电设备/电源/储能外贸供应链
+**最后更新**: 2026-08-05
+**基于**: certif-qi2 + charge-pd 两篇 FR 文章完整优化 + /b2b-audit 18-check 扩展
 
 ---
 
-## 一、系统概述
+## 核心原则
 
-这套 B2B 写作系统是一个 **命令-Agent-Python 三级管线**。你用斜杠命令触发流程，命令调用 Agent（AI 角色），Agent 调用 Python 模块（自动化分析）。最终产出是经过 11 项 B2B 质量检查、符合 Google 2026 标准的博客文章。
+每篇文章必须同时满足三个标准，缺一不可：
 
-### 核心原则
+| # | 标准 | 权威源 | 自动覆盖 |
+|---|------|--------|:--:|
+| 1 | B2B 质量 | `context/b2b-blog-quality-audit-standard.md` | 80% (/b2b-audit) |
+| 2 | 模板样式 | `context/blog-template-standard.md` | 40% (手动为主) |
+| 3 | 元数据 | `context/b2b-schema-template.json` + `context/b2b-multilingual-metadata-standard.md` | 85% (/b2b-audit) |
 
-> 一篇优质 B2B 博客，表面是文章，本质是一份精心包装的**行业避坑指南**和**采购决策助手**。
+辅助数据源: `context/factory-data-canonical.md` (工厂数据唯一真相源)
 
 ### 不要做的事
 
 - ❌ 不要用英文搜索 SERP 后翻译成其他语言
 - ❌ 不要在 B2B 文章中使用 stock photo（握手、西装、通用工厂图）
-- ❌ 不要写 "In today's digital world..." 这类 AI  preamble 开头
+- ❌ 不要写 "In today's digital world..." 这类 AI preamble 开头
 - ❌ 不要在 B2B 文章中使用 "Buy now"、"Click here"、"Start free trial" 这类 B2C CTA
 - ❌ 不要碰 B2C 泛词（"What is a GaN charger"、"best power bank"）
 
 ---
 
-## 二、命令目录（23 个命令）
+## 一、工作流（B2B 先过结构，SEO 后做抛光）
 
-### 2.1 核心写作管线（6 个 — 每次写文章必经）
+### 关键原则
 
-| 命令 | 唤醒词 | 用途 | 什么时候用 |
-|------|-------|------|-----------|
-| `/research [topic]` | research, 研究, 调研, keyword research | 关键词研究 + 竞品分析 + 写作简报 | **任何新文章的第一步**。必须先跑研究再写 |
-| `/research-serp [keyword]` | serp, SERP, 搜索结果 | 深度 SERP 分析（top 10 竞品内容拆解） | 目标关键词竞争激烈时；需要精确的竞品内容对标数据时 |
-| `/write [topic]` | write, 写, 撰写, 写作 | 完整文章创作（2000-3000+ 词）+ 自动质量门 + 5 个 Agent 优化 | 研究完成后，正式开始写文章 |
-| `/optimize [file]` | optimize, 优化, 打磨, SEO | 发布前最终 SEO 打磨（包括 B2B 审计 + 信息增益评分） | 文章写完、准备转为 .njk 模板部署前 |
-| `/b2b-audit [file]` | b2b-audit, B2B审计, B2B检查 | 独立的 11 项 B2B 质量快速审计 | 快速检查某篇文章的 B2B 合规性；不需要完整 /optimize 流程时 |
-| `/scrub [file]` | scrub, 清洗, AI检测 | AI 水印清洗（Unicode 水印、格式控制字符、AI 短语检测） | 每次写完文章后**立即**执行，在优化 Agent 之前 |
+B2B 质量门的改动是结构性的（H1 信号词、工厂数据密度、FAQ 采购语言、Schema），**必须先过**。反过来做：花 30 分钟调完关键词分布 → B2B 审计发现 FAQ 全是消费者语言要重写 → 关键词分布全部作废。
 
-### 2.2 存量内容管理（2 个）
+### 创建新 B2B 文章
 
-| 命令 | 唤醒词 | 用途 | 什么时候用 |
-|------|-------|------|-----------|
-| `/analyze-existing [URL or file]` | analyze, 分析, 审计, 诊断 | 存量文章健康审计（SEO + B2B + 信息增益） | 检查已发布文章是否需要更新；发现流量下降时诊断原因 |
-| `/rewrite [topic]` | rewrite, 重写, 更新 | 基于分析结果重写/更新存量文章 | 分析报告建议重写时；文章超过 6 个月需要刷新时 |
+```
+/research [topic]                  ← 目标语言搜索（如西班牙语关键词，不是翻译英文 SERP）
+    │
+    ▼
+/write-b2b [topic]                   ← 🔴 直接产出 .njk 模板（Schema 7 节点 + 13 板块 + .speakable）
+    │
+    ▼
+/b2b-audit [file]                  ← 🔴 B2B 质量门 — 结构性检查（18 checks）
+    │
+    ├─ 修复结构性缺陷:
+    │   ├─ H1 加 B2B 信号词（50-65 chars）
+    │   ├─ 补充工厂数据（对齐 factory-data-canonical.md）
+    │   ├─ FAQ 改为 B2B 采购语言
+    │   ├─ Schema 完整（7 节点，JSON-LD v2）
+    │   ├─ 12 板块结构到位
+    │   ├─ 法规本土化（FR→DGCCRF, DE→Stiftung Warentest）
+    │   └─ 竞争洞察嵌入 Hook
+    │
+    ▼
+/optimize [file]                   ← 通用 SEO 精修（SEO Machine 原版技能）
+    │
+    ├─ 微调:
+    │   ├─ 关键词密度 1-2%
+    │   ├─ Meta title 50-60, Meta desc 120-155
+    │   ├─ 内链 3-5+, 外链 2-3+
+    │   └─ 可读性 8-10 年级
+    │
+    ▼
+/b2b-audit [file]                  ← 🟢 最终验证 >= 90
+    │
+    ▼
+/scrub [file]                      ← 清除 AI 水印
+    │
+    ▼
+手动转 .njk → git push → Cloudflare Pages 部署
+```
 
-### 2.3 策略与规划（5 个）
+### 优化已有 B2B 文章
 
-| 命令 | 唤醒词 | 用途 | 什么时候用 |
-|------|-------|------|-----------|
-| `/cluster [topic]` | cluster, 专题, 集群, pillar | 构建完整专题集群策略（pillar + 支撑文章 + 内链地图） | 开拓新内容方向时；需要系统性覆盖一个主题时 |
-| `/priorities` | priorities, 优先级, 排期 | 内容优先级矩阵（基于机会评分） | 决定下一篇写什么时 |
-| `/performance-review` | performance, 表现, 数据 | 基于 GA4 数据分析内容表现 | 月度/季度内容复盘时 |
-| `/content-calendar` | calendar, 日历, 排期 | 内容日历生成 | 规划下月/下季度内容时 |
-| `/research-topics` | topics, 选题, 话题 | 话题发现 | 没有明确写作方向时 |
+```
+/b2b-audit [file]                  ← 先暴露 B2B 结构问题
+    │
+    ▼
+修复 B2B 问题（按审计报告逐项）
+    │
+    ▼
+/optimize [file]                   ← SEO 细调
+    │
+    ▼
+/b2b-audit [file]                  ← 确认 >= 90
+    │
+    ▼
+/scrub [file]
+```
 
-### 2.4 竞品与机会研究（5 个）
+### 快速 B2B 合规检查（不改文章只检查）
 
-| 命令 | 唤醒词 | 用途 | 什么时候用 |
-|------|-------|------|-----------|
-| `/research-gaps` | gaps, 差距, 缺口 | 竞品内容差距分析 | 找到竞品覆盖不全的机会点 |
-| `/research-trending` | trending, 趋势, 热门 | 趋势话题发现 | 找到上升期的搜索话题 |
-| `/research-performance` | 表现, 高流量 | 基于 GA4 表现数据的内容机会 | 找到已有流量但可提升的文章 |
-| `/research-ai-citations [topic]` | AI引用, citation, AI可见性 | AI 引用审计：哪些来源被 AI 引用，你的品牌是否在其中 | 提升 AI 搜索可见性前 |
-| `/repurpose [file]` | repurpose, 改编, 分发 | 将文章改编为 LinkedIn/Reddit/Quora 等渠道内容 | 文章发布后做内容分发 |
+```
+/b2b-audit [file or URL]
+    ↓ 产出: audits/b2b-audit-[slug]-[date].md
+    ↓ 18 项检查一次性完成
+```
 
-### 2.5 Landing Page（4 个 — 独立产品页管线）
+### 可选附加步骤
 
-| 命令 | 唤醒词 | 用途 |
-|------|-------|------|
-| `/landing-research [topic]` | landing research, 落地页研究 | Landing Page 关键词/竞品研究 |
-| `/landing-write [topic]` | landing write, 落地页撰写 | Landing Page 创作 |
-| `/landing-audit [URL]` | landing audit, 落地页审计 | Landing Page CRO + SEO 审计 |
-| `/landing-competitor [URL]` | landing competitor, 落地页竞品 | Landing Page 竞品分析 |
+| 步骤 | 命令 | 适用场景 |
+|------|------|---------|
+| 深度 SERP 分析 | `/research-serp [keyword]` | 关键词竞争度高、需要精确竞品内容对标 |
+| AI 引用审计 | `geo-citability` | 核心博客发布后，检查 AI 引用可能性 |
+| Schema 验证 | `geo-schema` | JSON-LD 报错时 |
+| 技术 SEO | `geo-technical` | 网站改版后、发现索引问题 |
+| IndexNow 通知 | `python data_sources/modules/indexnow_submitter.py --urls "..."` | 部署后立即通知 Bing + Yandex |
+
+### B2B 核心命令速查
+
+| 命令 | 用途 | 产出 |
+|------|------|------|
+| `/write-b2b [topic]` | 🔴 直接创建 B2B .njk 文章（Schema 7 节点 + 13 板块 + .speakable） | `src/{lang}/blog/{slug}/index.njk` |
+| `/b2b-audit [file]` | B2B 18 项质量检查 + 信息增益分析 | `audits/b2b-audit-*.md` |
+| `/research [topic]` | 关键词研究 + 竞品分析 + 写作简报（通用 SEO Machine） | `research/brief-*.md` |
+| `/optimize [file]` | 通用 SEO 精修（关键词密度、meta、内链、可读性） | `drafts/optimization-report-*.md` |
+| `/scrub [file]` | AI 水印清洗 | 原地修改 |
 
 ---
 
-## 三、完整写作管线（标准流程）
+## 二、`/b2b-audit` 18 项自动检查
 
-### 3.1 新文章标准流程
+### 内容质量 (Check 1-6)
+
+| # | 检查 | 检测内容 | 扣分规则 |
+|:--:|------|------|------|
+| 1 | Opening Density | 前 3 句直接结论, AI fluff 检测 | fluff -30/ea, 无结论 -40 |
+| 2 | TL;DR Block | KEY TAKEAWAYS amber 卡片存在 | 全块=100, 仅列表=60, 缺失=0 |
+| 3 | H3 Answer Length | 每个 H3 后 60-500 char 直接回答 | 合规比例=分数 |
+| 4 | Vague Headings | 标签式标题 ("Testing"), 结论式标题 | -15/ea |
+| 5 | H2 B2B Density | 分层密度 technical 10-40%, procurement 30-55%, oem_core 50-80% | 范围内=100 |
+| 6 | Data Density | >=3 精确数字+单位/1000 词 | 分级: >=3=100, 2-2.9=70, 1-1.9=40, <1=10 |
+
+### 信任与转换 (Check 7-11)
+
+| # | 检查 | 检测内容 | 扣分规则 |
+|:--:|------|------|------|
+| 7 | Table Test | 技术参数在表格中 | 存在=100, 参数在 prose=40 |
+| 8 | Stock Photo | 库存图片域名 | -25/img |
+| 9 | FAQ B2B Language | 问题侧(20%)+答案侧(80%) B2B 词汇 | 加权分 |
+| 10 | Author E-E-A-T | 6 项: 姓名/职位/LinkedIn/作者页/头像/专长 | 每项 20pts |
+| 11 | Weak CTA | B2B 价值延续 vs B2C | Good=100 |
+
+### 技术与一致性 (Check 12-18)
+
+| # | 检查 | 检测内容 | 扣分规则 |
+|:--:|------|------|------|
+| 12 | Heading Hierarchy | H1→H3 或 H2→H4 跳级 | -25/skip |
+| 13 | URL Quality | 下划线/大写/日期/停用词/词数 | 逐项扣 |
+| 14 | Schema Validation | JSON-LD 语法+必填字段+斜杠+speakable 对齐 | 语法错 -30, 缺字段 -15 |
+| 15 | Cross-Reference | TL;DR vs 正文 vs FAQ 数据一致性 | 偏差 -20/ea |
+| 16 | Factory Data Canonical | 14 项工厂数据验证 | 偏差 -15/ea |
+| 17 | Static HTML Quality | srcset/fetchpriority/speakable/TOC bug | 逐项扣 |
+| 18 | Anti-Pattern Detection | 4 类反模式 | 见下方 |
+
+### Check 18 反模式检测明细
+
+| 反模式 | 扣分 | 检测方式 |
+|--------|:--:|------|
+| REPONSE RAPIDA / SCHNELLANTWORT / Quick Answer | -25/ea | 正则, 大小写不敏感 |
+| TL;DR 独立 block | -15/ea | 正则 "TL;DR" |
+| Cross-Links (与 Related Articles 重叠) | -10/ea | 正则 "Guides connexes\|Cross-Links" |
+| Data Dump Intro (>3 段 `<p>`) | -15 | 启发式计数 (第一个 H2 前的 `<p>` 数) |
+
+### 仍需手动 (审计器无法检测)
+
+| 项目 | 原因 | 检查方法 |
+|------|------|---------|
+| 竞争洞察嵌入 Hook | 自然语言判断 | 朗读 Hook: 是否有 1 句点出信息真空? |
+| 法规本土化 (FR→DGCCRF, DE→Stiftung Warentest) | 需要外部知识库 | 检查法规引用 |
+| FAQ body-schema 逐字一致 | 精确文本对比 | 逐题对比正文 FAQ 与 JSON-LD |
+| 图片 alt 含 B2B 信号词 | 语义判断 | 检查 alt 属性 |
+| hreflang 四向映射 | cross-file | 检查 4 个文件的 enPath/dePath/esPath/frPath |
+| 12 板块排序 | 语义理解 | 对照下方板块顺序 |
+| 工厂 moat 数据嵌入 | 自然语言 | 搜索 "200+ marques" / "4 etapes" / "0,3 %" / "100 %" |
+
+---
+
+## 三、手动优化清单
+
+### A. JSON-LD Schema v2（7 节点必检）
 
 ```
-第 1 步: /research [topic]
-  ↓ 产出: research/[topic-slug]-[date].md
-  ↓ 耗时: ~5-10 分钟（AI 自动搜索+分析）
-  ↓ 检查: 研究简报是否包含 B2B 关键词？是否做了本地化搜索（目标语言）？
-
-第 2 步: (可选) /research-serp [primary-keyword]
-  ↓ 产出: SERP top 10 竞品深度拆解
-  ↓ 什么时候加这一步: 关键词竞争度高、需要精确字数对标数据时
-
-第 3 步: /write [topic or research brief]
-  ↓ 产出: drafts/[article-slug]-[date].md
-  ↓ 自动执行:
-        ├─ /scrub (AI 水印清洗)
-        ├─ content_scorer.py (5 维度质量门, ≥70 分)
-        ├─ b2b_content_auditor.py (11 项 B2B 检查)
-        ├─ content-analyzer agent (7 模块分析)
-        ├─ seo-optimizer agent
-        ├─ meta-creator agent
-        ├─ internal-linker agent
-        └─ keyword-mapper agent
-  ↓ 耗时: ~15-30 分钟
-  ↓ 检查: 质量门通过了吗？B2B 审计 ≥60 分了吗？
-
-第 4 步: /optimize [drafts/article.md]
-  ↓ 产出: drafts/optimization-report-[slug]-[date].md
-  ↓ 耗时: ~5-10 分钟
-  ↓ 检查: SEO 综合分 ≥80？B2B 审计分 ≥70？信息增益 ≥40？
-
-第 5 步: 手动转换
-  ↓ .md → .njk 模板 → C:\Users\wowoh\wowohcool.com\src\blog\[slug]\index.njk
-  ↓ git commit + push → Cloudflare Pages 自动部署
-
-第 6 步: (可选) IndexNow 通知
-  ↓ python data_sources/modules/indexnow_submitter.py --urls "https://www.wowohcool.com/blog/slug/"
-
-第 7 步: (可选) GEO AI 可见性审计 → 详见第四章 GEO 技能完整说明
+[ ] Organization: legalName + publishingPrinciples + logo + address(6 fields) + sameAs + contactPoint(telephone + email)
+[ ] WebSite: name("WOWOHCOOL", 不带语言后缀) + inLanguage + publisher @id ref
+[ ] BreadcrumbList: 3 levels, 所有 URL 末尾带 /
+[ ] BlogPosting: @id + headline + keywords[8-12] + author @id ref(非 inline Person!) + datePublished + dateModified + wordCount(integer!) + speakable["h1",".speakable"] + citation[3] + about.sameAs(Wikidata)
+[ ] Person: @id + jobTitle + url(author page) + sameAs[LinkedIn] + image + worksFor @id ref + knowsAbout[3-5]
+[ ] HowTo: @id + 3-6 steps(HowToDirection 格式)
+[ ] FAQPage: @id + speakable[".faq-answer"](独立于 BlogPosting) + 8 questions(与正文逐字一致)
 ```
 
-### 3.2 存量文章优化流程
+### B. 12 板块结构（排序固定）
 
 ```
-第 1 步: /analyze-existing [URL or file]
-  ↓ 产出: research/analysis-[slug]-[date].md
-  ↓ 判断: 需要 Light Update / Moderate Refresh / Major Rewrite / Complete Overhaul?
-
-第 2 步: (如果需要重写) /rewrite [topic]
-  ↓ 产出: rewrites/[article-slug]-[date].md
-  ↓ 自动执行: B2B 审计 + Agent 优化
-
-第 3 步: 如果只是小修 → 直接 /optimize [file]
-  ↓ 手动修改 + B2B 审计验证
-
-第 4 步: 更新 .njk 模板 → 部署 → IndexNow
+ 1. Hero           <nav> 面包屑 → 3 个橙色 pill 标签 → H1(50-65, 含 B2B) → Compact Author Bar(头像+姓名+职位) → 日期行(<time datetime>, 无更新日期, 阅读时间, 作者名)
+ 2. Hook           .speakable, <=2 段, 嵌入竞争洞察 1 句
+ 3. Featured Image srcset 三档 + fetchpriority="high"
+ 4. Key Takeaways  amber 卡片, TL;DR .speakable, 3-5 bullet
+ 5. TOC            bg-brandBlue, 含 #faq 锚点, !text-white 前必须有空格
+ 6. H2 xN          bg-slate-50 rounded-xl p-6, 表格 bg-brandBlue thead
+ 7. FAQ            id="faq", bg-slate-50 rounded-2xl, 8 题, 每答 >=1 数字, body-schema 逐字一致
+ 8. Author Bio     id="author-bio", + Empreinte Usine(4 格: 5000m2 / Since 2013 / 50+ pays / 50+ R&D)
+ 9. CTA            gradient from-brandBlue to-slate-800, 2 按钮, h2 标题
+10. Related        <aside>, card 格式, gradient bar, 3 张, 链接用语言前缀, 指向现有页面
+11. Sources        list-disc, 权威 rel="noopener external", 商业 rel="noopener noreferrer nofollow"
+12. blog-cta.njk   页面级 contact form
 ```
 
-### 3.3 快速 B2B 合规检查流程
+### C. 研究数据落地
+
+| 数据 | 位置 | 方式 |
+|------|------|------|
+| 竞品分析 | Hook | 嵌入 1 句 (与 EN/DE/ES 一致: 不独立板块) |
+| 市场数据 | 第 7 节 | 表格化, 不在 Intro 堆砌 |
+| SERP 空白 | Hook | 嵌入 "aucune ressource en [langue] ne couvre..." |
+| FOB 价格 | Sourcing 小节 | 表格, 对齐 factory-data-canonical.md |
+
+### D. 工厂数据分层运用
+
+| 层级 | 数据 | 位置 | 触发场景 |
+|------|------|------|---------|
+| 每篇必有 | 5000m2, ISO 9001, since 2013, 50+ R&D | Empreinte Usine | 页脚默认 |
+| 场景触发 | 200+ brands | WOWOHCOOL 蓝盒 / STAT 盒 | 证明交付记录 |
+| 场景触发 | 4-stage QC (IQC-IPQC-FQC-OQC) | 同上 | 证明质量体系 |
+| 场景触发 | 100% 4h aging test | 同上 | 证明全检非抽检 |
+| 场景触发 | <0.3% defect rate | 同上 | 证明长期可靠性 |
+
+用法: 合成 1 句, 不硬广。例:
+> notre controle qualite en 4 etapes (IQC-IPQC-FQC-OQC) avec 100 % de test de vieillissement de 4 heures garantit un taux de defaut inferieur a 0,3 %, valide sur plus de 200 marques servies dans 50+ pays.
+
+---
+
+## 四、各语言差异
+
+| 元素 | EN | DE | ES | FR |
+|------|----|----|----|-----|
+| `inLanguage` | `en-US` | `de-DE` | `es-ES` | `fr-FR` |
+| Org @id | `/#organization` | `/de/#organization` | `/es/#organization` | `/fr/#organization` |
+| 日期格式 | Mon DD, YYYY | DD.MM.YYYY | DD de Mon de YYYY | DD mois YYYY |
+| KEY TAKEAWAYS | KEY TAKEAWAYS | KERNERKENNTNISSE | PUNTOS CLAVE | POINTS CLES |
+| FAQ 标题 | Frequently Asked Questions | Haufig gestellte Fragen | Preguntas Frecuentes | Foire Aux Questions |
+| Sources 标题 | Sources & References | Quellen & Referenzen | Fuentes & Referencias | Sources & References |
+| 工厂足迹标签 | Factory Footprint | Fabrik-FuBabdruck | Huella de Fabrica | Empreinte Usine |
+| 阅读时间 | min read | Min. Lesezeit | min de lectura | min de lecture |
+| 作者标签 | Author | Autor | Autor | Auteur/Autrice |
+| 引号 | "straight" | "deutsch" | "latin" | "guillemets" |
+| 首页 | Home | Startseite | Inicio | Accueil |
+| 竞争洞察句式 | no English guide | keine deutsche Ressource | ninguna guia en espanol | aucune ressource en francais |
+
+### 法规本土化 (2026)
+
+| 市场 | 必须引用的法规/机构 |
+|------|--------------|
+| FR | DGCCRF, ANFR, decret 2023-1271, DEEE (Ecosystem/Ecologic), Triman, Loi Toubon, EN IEC 63563 |
+| DE | Stiftung Warentest, DIN, ProdSG, GS-Zeichen, Stiftung EAR, VerpackG, Batteriegesetz |
+| ES | AENOR, BOE, AEAT, UNE-EN, certificaciones LATAM (IRAM, NOM, ANATEL) |
+| EN | FCC, UL, CPSC, Prop 65, Section 301 tariffs, USMCA |
+
+---
+
+## 五、发布前自检
+
+### 自动验证
 
 ```
-第 1 步: /b2b-audit [file or URL]
-  ↓ 产出: audits/b2b-audit-[slug]-[date].md
-  ↓ 11 项检查一次性完成, 2 秒出结果
+[ ] /b2b-audit >=90
+```
 
-第 2 步: python data_sources/modules/information_gain_analyzer.py [file]
-  ↓ 产出: 信息增益评分 + 具体建议
+### 内容质量 (Gate 1-2)
+
+```
+[ ] H1 50-65 chars, 含 B2B 信号词 (该语言)
+[ ] Hook .speakable, <=2 段, 嵌入竞争洞察 1 句
+[ ] POINTS CLES / KEY TAKEAWAYS amber 卡片 + TL;DR .speakable, 3-5 bullet
+[ ] 工厂 moat: QC + aging + defect + brands >=3 项
+[ ] 市场数据表格化, 不在 Intro 堆砌
+[ ] 法规引用: 本地机构 (不用对岸的)
+```
+
+### Schema & 元数据 (Gate 3)
+
+```
+[ ] JSON-LD json.load() 通过
+[ ] wordCount integer, +-5% 实测值
+[ ] speakable: BlogPosting["h1",".speakable"], FAQPage[".faq-answer"]
+[ ] BlogPosting.author = @id ref (非 inline Person)
+[ ] Meta title 50-60, Meta desc 120-155
+[ ] dateModified = 当天
+[ ] 阅读时间匹配 Schema timeRequired
+```
+
+### 结构 & 板块 (Gate 4)
+
+```
+[ ] 12 板块顺序正确
+[ ] FAQ id="faq", 8 题, body-schema 逐字一致, 每答 >=1 数字
+[ ] Author Bio + Empreinte Usine (4 格)
+[ ] CTA gradient, 2 按钮, h2 标题
+[ ] Related Articles card 格式, 链接可访问
+[ ] Sources list-disc, rel 按权威/商业分级
+```
+
+### 技术 & 多语言 (Gate 5)
+
+```
+[ ] 无反模式 (Check 18 = 100)
+[ ] 图片 alt 含 B2B 信号词, 无 stock photo
+[ ] Featured Image srcset 三档 + fetchpriority="high"
+[ ] hreflang 四向正确, 无旧 slug, 无缺 trailing /
+[ ] /scrub = 0 watermark
+[ ] 构建 = 0 errors
 ```
 
 ---
 
-## 四、GEO AI 可见性技能（并行管线）
+## 六、Git 提交格式
 
-GEO（Generative Engine Optimization）技能是一套独立于写作管线的 AI 搜索优化工具。它们回答一个问题：**"AI 搜索引擎（ChatGPT、Perplexity、Gemini、Google AI Overviews）会不会引用我的内容？"**
-
-GEO 与 B2B 审计是互补关系：B2B 审计确保内容质量符合 Google 2026 标准，GEO 审计确保内容能被 AI 抓取和引用。
-
-### 4.1 GEO 核心技能（8 个）
-
-| 技能 | 唤醒词 | 用途 | 什么时候用 |
-|------|-------|------|-----------|
-| `geo-audit` | geo audit, GEO审计, AI审计 | 全站 GEO+SEO 综合审计（并行 5 个子 Agent 执行 5 个维度） | 新站上线前；每季度全站体检 |
-| `geo-citability` | citability, 可引用性, AI引用 | 单页面 AI 引用可能性评分（0-100）+ 逐段改写建议 | 核心博客发布后；发现 AI 不引用时 |
-| `geo-content` | geo content, E-E-A-T | 内容质量 E-E-A-T 四维度深度评估 | 怀疑某篇文章 E-E-A-T 不足时 |
-| `geo-technical` | geo technical, 技术SEO | 技术 SEO：可爬行性、可索引性、Core Web Vitals (INP)、SSR、AI 爬虫访问白名单 | 网站改版后；发现索引问题时 |
-| `geo-schema` | geo schema, Schema审计 | JSON-LD 检测/验证/生成（Organization / Person / Article / FAQ / HowTo / Breadcrumb / Speakable） | 新文章发布前；Schema 报错时 |
-| `geo-platform-optimizer` | platform optimizer, 平台优化 | 5 平台就绪度：Google AI Overviews / ChatGPT / Perplexity / Gemini / Bing Copilot | 针对特定 AI 平台优化时 |
-| `geo-brand-mentions` | brand mentions, 品牌提及 | 品牌在 AI 引用平台的存在度扫描 + Brand Authority Score (0-100) | 检查品牌 AI 生态可见度 |
-| `geo-llmstxt` | llms.txt, llms | llms.txt 生成与验证（AI 爬虫的内容地图） | 需要控制 AI 爬虫访问策略时 |
-
-### 4.2 GEO 辅助技能（4 个）
-
-| 技能 | 唤醒词 | 用途 |
-|------|-------|------|
-| `geo-compare` | compare, delta, 月度报告 | 两次 GEO 审计对比：分数变化 + 行动项完成追踪 |
-| `geo-report` | geo report, GEO报告 | 生成面向客户的 GEO 综合报告（分数 + 发现 + 行动项） |
-| `geo-report-pdf` | geo report pdf, PDF报告 | 生成专业 PDF 报告（ReportLab，含评分仪表盘和图表） |
-| `geo-proposal` | proposal, 提案, offer | 基于审计数据自动生成 GEO 服务提案（含套餐/定价/时间线） |
-
-### 4.3 B2B 场景下的 GEO 使用顺序
-
-```
-第 1 步: geo-technical
-  ↓ 确保 AI 爬虫能访问、robots.txt 正确、Core Web Vitals 达标
-  ↓ 关键: GPTBot ✅ / OAI-SearchBot ✅ / ClaudeBot ✅ / PerplexityBot ✅
-
-第 2 步: geo-llmstxt
-  ↓ 生成 /llms.txt，告诉 AI 爬虫哪些页面重要
-
-第 3 步: geo-schema
-  ↓ 验证所有页面的 JSON-LD
-  ↓ B2B 必检: BlogPosting / Person (author+sameAs+LinkedIn) /
-     FAQPage (B2B procurement questions) / HowTo / BreadcrumbList / Organization
-
-第 4 步: geo-citability (逐篇核心博客)
-  ↓ AI 引用可能性评分 + 逐段改写建议
-  ↓ 结合 b2b_content_auditor.py 结果调整 GEO 评分
-  ↓ 桥接参考: .claude/skills/seo-audit/references/b2b-geo-bridge.md
-
-第 5 步: geo-brand-mentions
-  ↓ 扫描品牌在 AI 引用平台上的存在度
-  ↓ 目标: WOWOHCOOL 作为制造商被 AI 引用
-
-第 6 步: geo-audit (全站综合)
-  ↓ 生成 GEO Score (0-100) + 优先级行动项
-  ↓ 每季度一次，用 geo-compare 追踪进度
+```bash
+cd C:\Users\wowoh\wowohcool.com
+git add -A
+git commit -m "feat(lang): short description"
+git push origin main
 ```
 
-### 4.4 GEO 使用时机决策
+示例:
+- `feat(fr): optimize certification-qi2-importateurs to v2 schema + FR standard`
+- `fix(fr): hreflang bidirectional mapping across 4 languages`
+- `feat(fr): embed factory moat data into WOWOHCOOL box`
+- `docs: add audit reports + research briefs for car charger and GaN V OEM guides (FR)`
 
-```
-新站上线 / 重大改版
-  ├─ geo-technical → 技术基础
-  ├─ geo-llmstxt → AI 爬虫策略
-  └─ geo-schema → 结构化数据验证
+---
 
-核心博客发布后
-  ├─ /optimize (B2B + SEO) → 内容质量过关
-  ├─ geo-citability → AI 引用评分
-  └─ geo-schema → 页面级 JSON-LD 验证
+## 七、评分标准速查
 
-每季度全站体检
-  ├─ geo-audit → 综合 GEO 评分
-  ├─ geo-brand-mentions → 品牌 AI 可见度
-  └─ geo-compare → 季度变化追踪
+### B2B 审计综合分
 
-AI 平台不引用我的内容
-  ├─ geo-citability → 诊断引用障碍 + 改写建议
-  ├─ geo-content → 深度 E-E-A-T 诊断
-  └─ 对照 /b2b-audit 结果 → 找到内容质量根因
+| 分数 | 等级 | 含义 | 行动 |
+|------|------|------|------|
+| 90-100 | A | B2B 合规优秀 | 可以直接发布 |
+| 75-89 | B | 良好，有小问题 | 修复 flagged items 后发布 |
+| 60-74 | C | 一般，有明显问题 | 必须修复 warnings 后重新审计 |
+| 40-59 | D | 差，多个维度不达标 | 需要显著修改 |
+| <40 | F | 严重不达标 | 不能发布，需要大修或重写 |
 
-客户报告
-  ├─ geo-report → Markdown 综合报告
-  └─ geo-report-pdf → 专业 PDF（含图表）
-```
+### 信息增益分
 
-### 4.5 B2B 特有的 GEO 优化重点
+| 分数 | 级别 | 含义 |
+|------|------|------|
+| 70-100 | High | 内容有显著差异化，Google 会奖励 |
+| 40-69 | Moderate | 有一定独特性，但可进一步加强 |
+| 20-39 | Low | 与 SERP 内容重叠度高，需要加入独家数据 |
+| 0-19 | Zero | 零信息增益，Google 会压制 |
 
-与 B2C 站点不同，B2B 制造业站点在 GEO 各维度的优化重点完全不同：
+### H2 B2B 密度分层
 
-| GEO 维度 | B2C 重点 | B2B 重点 |
-|----------|---------|---------|
-| **Cite Sources** | 媒体报道、学术论文 | **IEC/ISO/EN 标准号**、**认证机构报告**（TÜV/SGS/BV） |
-| **Statistics** | 市场调研数据、用户量 | **工厂测量数据+单位**（58.3°C、6.4mm、$12.50/unit） |
-| **Quotations** | 行业 KOL 引语 | **工程师/采购经理实名引语**（含职位+年资+工厂场景） |
-| **Authoritative Tone** | 品牌故事、媒体报道 | **工厂第一手经验**（"我们的 SMT 产线实测..."） |
-| **Technical Terms** | 产品功能词汇 | **PCBA ripple noise、GaN HEMT、AQL 2.5、BOM cost breakdown** |
-| **Unique Words** | 品牌差异化词汇 | **OEM/ODM/MOQ/FOB/supply chain/procurement/importer** |
-| **FAQ Schema** | "How to use?" "What is X?" | **"What MOQ applies?" "What FOB pricing?" "What certifications required?"** |
+| 文章类型 | 目标范围 | 典型文章 |
+|---------|---------|---------|
+| Technical/Educational | 10-40% | mAh 指南、GaN 原理、USB PD 规格、安全标准 |
+| Procurement/Supply Chain | 30-55% | 物流、工厂选择、采购指南、QC 指南 |
+| OEM/ODM Core Topic | 50-80% | OEM vs ODM 对比、制造商目录、私有标签指南 |
 
-### 4.6 B2B → GEO 桥接速查
+**B2B 信号词全集**（15 个）：OEM, ODM, manufacturer, factory, supplier, importer, sourcing, MOQ, FOB, B2B, procurement, wholesale, bulk, supply chain, vendor
 
-B2B 审计分数可直接调整 GEO citability 评分。详见 `.claude/skills/seo-audit/references/b2b-geo-bridge.md`。
+---
+
+## 八、B2B → GEO 桥接速查
+
+B2B 审计结果可反馈给 GEO citability 评分。详见 `.claude/skills/seo-audit/references/b2b-geo-bridge.md`。
 
 | B2B 审计发现 | GEO 调整 |
 |-------------|---------|
@@ -266,40 +386,28 @@ B2B 审计分数可直接调整 GEO citability 评分。详见 `.claude/skills/s
 | FAQ 消费者语言 | FAQPage Schema **-5** |
 | H2 B2B 密度在目标范围 | Unique Words **+5** |
 
-### 4.7 GEO vs B2B 审计分工
-
-| 你想知道... | 用哪个 | 为什么 |
-|-----------|-------|--------|
-| 这篇文章对 B2B 买家有说服力吗？ | `/b2b-audit` | 检查采购语言、数据密度、CTA 类型 |
-| AI 会不会引用这篇文章？ | `geo-citability` | 检查 AI 提取友好度、引用模式、自包含性 |
-| Schema 标记完整吗？ | `geo-schema` | 专注 JSON-LD，B2B 审计不覆盖 |
-| AI 爬虫能访问我的网站吗？ | `geo-technical` | 检查 robots.txt、爬虫白名单、Core Web Vitals |
-| 文章在 SERP 中有信息增益吗？ | `information_gain_analyzer.py` | B2B 模块独有能力，GEO 无此检查 |
-| 工厂数据够不够多？ | `/b2b-audit` | Data Density 比 GEO Statistics 更细粒度 |
-| 品牌在 AI 生态中的整体存在感？ | `geo-brand-mentions` | 跨平台品牌扫描，B2B 审计不覆盖 |
-
 ---
 
-## 五、技能使用条件与决策树
+## 九、常见工作流速查表
 
-### 5.1 "我现在应该用哪个命令？"
+### 9.1 "我现在应该用哪个命令？"
 
 ```
 我有一个新话题想写
-  ├─ 没做过研究 → /research [topic]
-  ├─ 有研究简报了 → /write [topic]
+  ├─ 没做过研究 → /research [topic]  ← 目标语言搜索
+  ├─ 有研究简报了 → /write [topic] → /b2b-audit → 修复 → /optimize → /b2b-audit
   └─ 不确定值不值得写 → /research-gaps 或 /research-trending
+
+我有一篇刚写完的草稿
+  ├─ 刚写完还没清洗 → /scrub [file]
+  ├─ 想知道 B2B 合规度 → /b2b-audit [file]
+  ├─ 准备发布了 → /optimize [file] → /b2b-audit [file]
+  └─ 优化分不够 → 按优化报告的 critical issues 逐条修复 → 再跑 /optimize
 
 我有一篇已发布文章
   ├─ 不知道表现如何 → /analyze-existing [URL]
   ├─ 表现下降了 → /analyze-existing [URL] → /rewrite [topic]
   └─ 需要快速 B2B 检查 → /b2b-audit [URL]
-
-我有一篇刚写完的草稿
-  ├─ 刚写完还没清洗 → /scrub [file]
-  ├─ 想知道 B2B 合规度 → /b2b-audit [file]
-  ├─ 准备发布了 → /optimize [file]
-  └─ 优化分不够 → 按优化报告的 critical issues 逐条修复 → 再跑 /optimize
 
 我不知道下一篇写什么
   ├─ 有 GA4 数据 → /performance-review
@@ -314,103 +422,17 @@ B2B 审计分数可直接调整 GEO citability 评分。详见 `.claude/skills/s
   └─ llms.txt 生成 → geo-llmstxt
 ```
 
-### 5.2 质量门触发条件
-
-| 质量门 | 触发时机 | 通过条件 | 不通过后果 |
-|--------|---------|---------|-----------|
-| `content_scorer.py` | `/write` 自动 | ≥70 分 | 自动修改 → 重新评分（最多 2 次） → 仍不通过则移到 `review-required/` |
-| `b2b_content_auditor.py` | `/write` Step 2.5 + `/optimize` + `/rewrite` | ≥60 分 | 修复 flagged issues → 重新审计 |
-| `seo_quality_rater.py` | `/optimize` | ≥80 分 + 无 critical issues | 90+: 立即发布 / 80-89: 小修后发布 / 70-79: 修复优先问题 / <70: 大修 |
-| `information_gain_analyzer.py` | `/optimize` + `/analyze-existing` | Mode B ≥40 / Mode A ≥50 | <20 = 零信息增益 → 禁止发布，需加入独家数据 |
-
----
-
-## 六、Python 模块参考（直接 CLI 调用）
-
-除了通过命令触发，你也可以直接运行 Python 模块进行单项检查：
-
-### 6.1 B2B 审计模块
+### 9.2 批量审计
 
 ```bash
-# 11 项 B2B 质量检查（最常用的单项检查）
-python data_sources/modules/b2b_content_auditor.py [file] [article_type]
-# article_type: technical | procurement | oem_core (可选, 自动检测)
-# 示例:
-python data_sources/modules/b2b_content_auditor.py drafts/my-article.md oem_core
-
-# 信息增益分析（Mode B — 不需要 SERP 数据）
-python data_sources/modules/information_gain_analyzer.py [file]
-
-# 信息增益分析（Mode A — 有竞品文件时）
-python data_sources/modules/information_gain_analyzer.py [file] competitor1.md competitor2.md
-```
-
-### 6.2 SEO 分析模块
-
-```bash
-# 内容质量评分（5 维度：AI痕迹/具体性/结构/SEO/可读性）
-python data_sources/modules/content_scorer.py [file]
-
-# SEO 综合评分（8 维度，含 B2B+IG 时）
-# 通常作为 Python import 使用，由 content-analyzer agent 调用
-```
-
-### 6.3 意图分析
-
-```bash
-# 搜索意图 + B2B/B2C 分类（通常作为 Python import 使用）
-python -c "
-from data_sources.modules.search_intent_analyzer import analyze_intent
-r = analyze_intent('your keyword here')
-print(r['primary_intent'], r['b2b_vs_b2c']['classification'])
-"
-```
-
-### 6.4 IndexNow 提交
-
-```bash
-# 部署后立即通知 Bing + Yandex
-python data_sources/modules/indexnow_submitter.py --urls "https://www.wowohcool.com/blog/slug/"
-```
-
----
-
-## 七、上下文文件参考（@context 引用）
-
-所有命令通过 `@context/` 路径引用以下文件，修改这些文件会影响全局写作行为：
-
-| 文件 | 控制内容 | 影响范围 |
-|------|---------|---------|
-| `b2b-blog-quality-standards-2026.md` | **核心质量标准** — H1/H2/H3 规则、B2B 信号词密度分层、Information Gain、5 道 Gate、F-pattern 扫读、TL;DR 要求、低摩擦 CTA | 所有命令、所有语言 |
-| `brand-voice.md` | 品牌语调、消息支柱 | `/write` `/rewrite` |
-| `style-guide.md` | 语法、格式规范 | `/write` `/rewrite` |
-| `seo-guidelines.md` | 关键词与结构规则 | `/write` `/rewrite` `/optimize` |
-| `internal-links-map.md` | 关键内链页面 | `/write` `/rewrite` `/optimize` |
-| `features.md` | 产品功能描述 | `/write` `/landing-write` |
-| `competitor-analysis.md` | 竞品情报 | `/research` |
-| `cro-best-practices.md` | 转化优化指南 | `/landing-audit` `/landing-write` |
-| `ai-citation-targets.md` | AI 引用目标目录/平台 | `/research-ai-citations` |
-| `factory-data-panel.md` | 工厂真实数据面板 | `/write`（Information Gain 数据源） |
-
----
-
-## 八、常见工作流速查表
-
-### 8.1 紧急修复一篇已发布文章
-```
-/analyze-existing [URL] → 看报告 → 直接改 .njk → git push
-（如果改动大） → /rewrite [topic] → /optimize [rewrite-file]
-```
-
-### 8.2 批量审计多篇文章
-```bash
-# 对 wowohcool.com 的某语言全部文章跑 B2B 审计
+# 对某语言全部文章跑 B2B 审计
 for dir in C:\Users\wowoh\wowohcool.com\src\blog\*/; do
   python data_sources/modules/b2b_content_auditor.py "${dir}index.njk"
 done
 ```
 
-### 8.3 竞品对标（写之前确认差异化空间）
+### 9.3 竞品对标（确保信息增益）
+
 ```
 /research-serp [keyword] → 获取 SERP top 10 内容
 → 将竞品内容保存为 .md 文件
@@ -418,285 +440,241 @@ done
 → 查看 Mode A 的 Jaccard 相似度 → 确保 < 0.5
 ```
 
-### 8.4 新建多语言文章（DE/ES/FR）
-```
-/research [topic]  ← 目标语言搜索（如西班牙语关键词）
-/write [topic]     ← 本地化写作（不是翻译！）
-注意: 每语言独立研究 SERP，不翻译英文结果
-```
-
-### 8.5 月度内容质量巡检
-```
-1. /performance-review → 找到流量下降的文章
-2. 对每篇: /analyze-existing [URL]
-3. 按优先级: /rewrite 或直接小修
-4. /b2b-audit 验证修改后的 B2B 合规性
-```
-
 ---
 
-## 九、作者自查清单（每次写完文章后）
+## 十、Python 模块直接调用
 
-这是发布前最后一道人工检查——自动化工具过完之后，用这 8 个问题再过一遍：
+```bash
+# 18 项 B2B 质量检查（最常用）
+python data_sources/modules/b2b_content_auditor.py [file] [article_type]
+# article_type: technical | procurement | oem_core (可选, 自动检测)
 
+# 信息增益分析（Mode B — 不需要 SERP 数据）
+python data_sources/modules/information_gain_analyzer.py [file]
+
+# 信息增益分析（Mode A — 有竞品文件时）
+python data_sources/modules/information_gain_analyzer.py [file] competitor1.md competitor2.md
+
+# 内容质量评分（5 维度）
+python data_sources/modules/content_scorer.py [file]
+
+# IndexNow 提交
+python data_sources/modules/indexnow_submitter.py --urls "https://www.wowohcool.com/blog/slug/"
 ```
-[ ] H1 是否包含 ≥1 个 B2B 信号词 + 50-65 字符 + 受众/指标/回报三要素？
-[ ] 开头是否直接给了核心结论（不是问句、不是行业背景铺垫）？
-[ ] TL;DR / Key Takeaways 块是否在 H1 之后、第一个 H2 之前？
-[ ] 所有 H2 标题扫描一遍——3 秒内能理解文章完整价值吗？
-[ ] 至少 2 个 H2 包含 B2B 信号词？没有连续 3 个 H2 用同一个 B2B 词？
-[ ] 图片是真实产品/工厂/实验室照片吗？alt text 含 B2B 关键词？
-[ ] CTA 是低摩擦价值延续吗（下载报告/获取清单/预约咨询）？没有 "Buy now"？
-[ ] FAQ 问题用 B2B 采购语言（MOQ/FOB/认证/交期）而不是 "Which one is best?"？
-```
-
----
-
-## 十、评分标准速查
-
-### 10.1 B2B 审计综合分
-
-| 分数 | 含义 | 行动 |
-|------|------|------|
-| 90-100 | B2B 合规优秀 | 可以直接发布 |
-| 75-89 | 良好，有小问题 | 修复 flagged items 后发布 |
-| 60-74 | 一般，有明显问题 | 必须修复 warnings 后重新审计 |
-| 40-59 | 差，多个维度不达标 | 需要显著修改 |
-| <40 | 严重不达标 | 不能发布，需要大修或重写 |
-
-### 10.2 信息增益分
-
-| 分数 | 级别 | 含义 |
-|------|------|------|
-| 70-100 | High | 内容有显著差异化，Google 会奖励 |
-| 40-69 | Moderate | 有一定独特性，但可进一步加强 |
-| 20-39 | Low | 与 SERP 内容重叠度高，需要加入独家数据 |
-| 0-19 | Zero | 与其他页面几乎没有区别，Google 会压制 |
-
-### 10.4 B2B → GEO 桥接
-
-B2B 审计结果可以反馈给 GEO citability 评分。映射逻辑详见 `.claude/skills/seo-audit/references/b2b-geo-bridge.md`。
-
-**快速参考**：
-| B2B 审计发现 | GEO 影响 |
-|-------------|---------|
-| Data Density ≥80 | Statistics Addition +10 |
-| Author E-E-A-T <40 | Authoritative Tone -10 |
-| Stock Photos 检测到 | Authoritative Tone -10 |
-| Information Gain = "zero" | 总体 GEO -25 |
-| Information Gain = "high" | 总体 GEO +15 |
-| TL;DR Block 存在 | Easy-to-Understand +5 |
-| FAQ 用 B2B 采购语言 | FAQPage Schema +8 |
-
-### 10.3 H2 B2B 密度分层
-
-| 文章类型 | 目标范围 | 典型文章 |
-|---------|---------|---------|
-| Technical/Educational | 10-40% | mAh 指南、GaN 原理、USB PD 规格、无线充电原理、安全标准 |
-| Procurement/Supply Chain | 30-55% | 物流/运输、如何选择工厂、酒店/企业采购、QC 指南、采购指南 |
-| OEM/ODM Core Topic | 50-80% | OEM vs ODM 对比、制造商目录、OEM 生产流程、私有标签指南 |
 
 ---
 
 ## 十一、注意事项与常见陷阱
 
-### 11.1 多语言陷阱
-- **ES 文章**：必须搜索西班牙语关键词，分析西语 SERP 竞品，引用 BOE/AEAT 西班牙法规
-- **DE 文章**：必须搜索德语关键词，引用 Stiftung Warentest、DIN 标准、德国市场数据
-- **FR 文章**：必须搜索法语关键词，引用法国/EU 法规
+### 多语言陷阱
+- **本地化不是翻译**：每语言独立研究 SERP，用目标语言关键词搜索
+- **ES 文章**：搜索西班牙语关键词，引用 BOE/AEAT 西班牙法规、LATAM 认证
+- **DE 文章**：搜索德语关键词，引用 Stiftung Warentest、DIN 标准
+- **FR 文章**：搜索法语关键词，引用 DGCCRF、ANFR、法国法规
 - **禁止**：用英文搜索 SERP 后翻译成目标语言——这会导致信息增益为零
 
-### 11.2 .njk vs .md 注意事项
-- `b2b_content_auditor.py` 可以处理 .njk 文件，但模板语法中的 H2/H3 提取可能不准确
+### .njk vs .md
 - 最佳实践：在 Markdown 草稿阶段（`drafts/`）跑审计，而不是在 .njk 模板阶段
 - .njk 文件中的 Nunjucks 变量（`{{ title }}`、`{% if %}`）会影响字数统计
+- SVG inline icon path data 会虚假膨胀 wordCount 40-50%
 
-### 11.3 Token 预算意识
-- `/write` + 5 个 Agent 是 token 消耗最大的操作（~30K-50K tokens）
-- 如果只是小修改，直接用 `/optimize` 而不是重跑 `/write`
-- `/b2b-audit` 是轻量操作（只跑 Python 模块，不消耗 LLM token）
-
-### 11.4 不要过度优化
+### 不要过度优化
 - H2 B2B 密度不是越高越好——Technical 文章超过 40% = 过度优化
+- 不要为了数据密度而在每段强行插入数字——数字必须有上下文意义
 - Information Gain Mode B 分不是越高越好——90+ 分可能意味着用了太多生僻术语
-- 不要为了数据密度而在每段插入强行数字——数字必须有上下文意义
 
 ---
 
-## 十二、系统文件地图
+## 十二、.njk 模板标准骨架（markdown → .njk 转换必检）
+
+> **用途**：每次 `/write` 产出 markdown 草稿后，转换为 `.njk` 模板时逐项对照此清单。参考模板文件：`src/fr/blog/batterie-externe-specifications-oem/index.njk`
+
+### A. Frontmatter（14 个必填字段）
+
+```yaml
+---
+title: "H1 标题 + 含 B2B 信号词 | WOWOHCOOL"
+lang: "fr"                              # de | en | es | fr | ru
+description: "Meta 描述 120-155 chars"
+date: YYYY-MM-DD                        # 首次发布日期（不变）
+modified: YYYY-MM-DD                    # 最后修改日期（每次更新）
+author: "Author Name"                   # Snowy May | Nina Nico
+articleSection: Category Name
+articleTags: [Tag1, Tag2, Tag3]
+canonical: "/fr/blog/slug/"             # 必须与 hreflang 中本语言路径一致
+enPath: "blog/en-slug/"                 # EN 版本路径（无前导 /）
+dePath: "blog/de-slug/"                 # DE 版本路径
+esPath: "blog/es-slug/"                 # ES 版本路径
+ogImage: "/image/blog/cover-en/image.webp"
+navActive: "blog"
+hreflang:                               # 四向映射，路径末尾必须有 /
+ en: "/blog/en-slug/"
+ de: "/de/blog/de-slug/"
+ es: "/es/blog/es-slug/"
+ fr: "/fr/blog/fr-slug/"
+---
+```
+
+### B. Schema（7 节点 @graph，逐项检查）
 
 ```
-seomachine/
-├── .claude/
-│   ├── commands/          ← 23 个斜杠命令（你触发的入口）
-│   │   ├── b2b-audit.md       ← 新增：独立 B2B 快速审计
-│   │   ├── write.md           ← 修改：Introduction + CTA + Quality Loop
-│   │   ├── optimize.md        ← 修改：加入 B2B audit + IG + Author E-E-A-T
-│   │   ├── analyze-existing.md← 修改：加入 B2B + IG 模块引用
-│   │   ├── rewrite.md         ← 修改：加入 B2B 标准引用
-│   │   └── research.md        ← 修改：加入 B2B/B2C 意图分类
-│   └── agents/            ← 11 个 Agent 角色定义
-│       ├── content-analyzer.md ← 修改：注册 7 个模块（原 5 个 + B2B + IG）
-│       └── seo-optimizer.md   ← 修改：加入 B2B Intent Verification
-├── data_sources/modules/  ← Python 分析管线
-│   ├── b2b_content_auditor.py       ← 新增：11 项 B2B 自动化检查
-│   ├── information_gain_analyzer.py ← 新增：信息增益双模式分析
-│   ├── search_intent_analyzer.py    ← 修改：加入 B2B/B2C 维度
-│   ├── seo_quality_rater.py         ← 修改：整合 B2B + IG 评分为 8 维度
-│   ├── content_scorer.py            ← 原有：5 维度质量门（未修改）
-│   ├── readability_scorer.py        ← 原有：Flesch 可读性
-│   ├── keyword_analyzer.py          ← 原有：关键词密度与聚类
-│   ├── content_length_comparator.py ← 原有：字数对标 SERP
-│   └── multilingual_b2b_patterns.py ← 原有：6 语言 B2B 模式库（被新模块复用）
-├── context/                ← 全局上下文文件
-│   └── b2b-blog-quality-standards-2026.md ← 修改：5 项增强（CTR公式/TL;DR/F-pattern/痛点优先/低摩擦CTA）
-└── tests/
-    └── test_b2b_compat.py  ← 新增：向后兼容验证（6 项测试）
+{% block head_schema %}
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+   [1] Organization    — legalName + address(6 fields) + sameAs[4] + contactPoint(telephone + email + availableLanguage)
+   [2] WebSite         — inLanguage + publisher @id ref
+   [3] BreadcrumbList  — 3 levels, 所有 URL 末尾带 /
+   [4] BlogPosting     — @id + headline + keywords[8+] + author @id ref(非 inline! COPY FROM factory-data-canonical.md §15) + speakable["h1",".speakable"] + about.sameAs(Wikidata) + citation[3+]
+   [5] Person          — @id(COPY FROM factory-data-canonical.md §15) + jobTitle + url(author page) + sameAs[LinkedIn] + image + worksFor @id ref + knowsAbout[3-5]
+
+   **作者 @id 速查（禁止变体，禁止去连字符）：**
+   - Snowy May: `https://www.wowohcool.com/{lang}/#snowy-may`
+   - Nina Nico: `https://www.wowohcool.com/{lang}/#nina-nico`
+   - `{lang}`: EN 为空，DE=`/de`，ES=`/es`，FR=`/fr`，RU=`/ru`
+   [6] HowTo           — @id + 3-6 steps(HowToDirection 格式)。非步骤类文章移除此节点
+   [7] FAQPage         — @id + speakable[".faq-answer"](独立于 BlogPosting) + 8 questions(与正文逐字一致)
+ ]
+}
+</script>
+{% endblock %}
 ```
+
+**Schema 红线（-30 分 / 条）**：
+
+| # | 检查项 | ✅ | ❌ |
+|---|--------|----|----|
+| 1 | `BlogPosting.author` = `{"@id": "...#author-id"}` 引用 | `@id` ref | inline Person 对象 |
+| 2 | `BlogPosting.speakable` = `["h1", ".speakable"]` | 3 节点 | `["h1", "h2"]` 废弃写法 |
+| 3 | `Person.worksFor` = `{"@id": "...#organization"}` 引用 | `@id` ref | inline Organization |
+| 4 | FAQPage 独立 `speakable: [".faq-answer"]` | 独立管理 | 复用 BlogPosting 的 selector |
+| 5 | Breadcrumb `item` = Canonical URL | 完全一致 | `/blog/old-slug/` ≠ `/blog/new-slug/` |
+| 6 | Organization 含完整 address + telephone + email | 6 地址字段 + 电话 + 邮箱 | 缺失字段 |
+| 7 | `wordCount` 整数，已验证（±5%） | 2800 | "2800" (字符串) |
+| 8 | 所有 URL 末尾带 `/` | `/blog/slug/` | `/blog/slug` |
+
+### C. HTML 结构（13 板块，排序固定）
+
+```
+{% block content %}
+<article class="py-12">
+
+ [1] Hero           — nav 面包屑 → 3 个橙色 pill 标签 → H1(50-65, B2B 信号词) → Compact Author Bar(头像40×40 + 姓名 + 职位) → 日期行(<time datetime> + 阅读时间 + 作者名)
+ [2] Hook           — .speakable, bg-brandBlue/5 border-l-4 border-brandOrange, ≤2 段
+ [3] Featured Image — srcset 三档(800w/1200w/2240w) + sizes + loading="eager" + fetchpriority="high" + width/height
+ [4] Key Takeaways  — POINTS CLÉS, bg-amber-50 border-l-4 border-amber-500, TL;DR .speakable, 3-5 bullet
+ [5] TOC            — bg-brandBlue rounded-2xl p-8, 含 #faq 锚点
+ [6] H2 Sections ×N — bg-slate-50 rounded-xl p-6 border, 表格 thead bg-brandBlue
+ [7] FAQ            — id="faq", bg-slate-50 rounded-2xl, 8 题, 每答 .faq-answer class, body-schema 逐字一致
+ [8] Author Bio     — id="author-bio", 头像(80×80 border-brandOrange) + LinkedIn 链接 + Empreinte Usine(4 格工厂数据)
+ [9] CTA            — bg-gradient-to-br from-brandBlue to-slate-800, h2 标题, 2 按钮(B2B 文案), 含产品词+MOQ
+[10] Related        — <aside>, grid md:grid-cols-3, card 格式(gradient bar + 标签 + 标题 + 描述), 链接用语言前缀
+[11] Sources        — list-disc, 权威 rel="noopener external", 商业 rel="noopener noreferrer nofollow"
+[12] Blog CTA       — {% include "partials/blog-cta.njk" %}, 页面级 contact form
+
+</article>
+{% endblock %}
+```
+
+### D. 板块级检查清单（转换后逐项验证）
+
+```
+[ ] Hero
+    [ ] Breadcrumb 3 级，URL 末尾 /
+    [ ] 3 个橙色 pill 标签（category tags）
+    [ ] H1 50-65 chars，含 B2B 信号词
+    [ ] Compact Author Bar: 头像 40×40 rounded-full border-brandOrange + <a href="#author-bio"> + 职位行
+    [ ] 日期行: <time datetime="YYYY-MM-DD"> + "X min de lecture" + 作者名
+    [ ] 无 "Mis à jour le" 行（更新日期只在 frontmatter 里）
+
+[ ] Hook
+    [ ] .speakable class 在 wrapper div 上
+    [ ] bg-brandBlue/5 border-l-4 border-brandOrange rounded-r-xl
+    [ ] ≤2 段，首段含具体数字 + B2B 竞争洞察
+
+[ ] Featured Image
+    [ ] srcset 三档: 800w / 1200w / 2240w
+    [ ] sizes="(max-width: 768px) 100vw, 896px"
+    [ ] loading="eager" + fetchpriority="high"
+    [ ] width="2240" height="1260"
+    [ ] alt 含 B2B 关键词
+
+[ ] Key Takeaways
+    [ ] POINTS CLÉS 标签（按语言变化）
+    [ ] bg-amber-50 border-l-4 border-amber-500 rounded-r-xl
+    [ ] TL;DR 段 .speakable，2-3 句核心结论
+    [ ] 3-5 bullet，每条含 ≥1 个数字
+
+[ ] TOC
+    [ ] bg-brandBlue rounded-2xl p-8 text-white
+    [ ] 含 #faq 锚点链接
+    [ ] 所有锚点 ID 与下方 section id 一致
+
+[ ] FAQ
+    [ ] id="faq"
+    [ ] 每个答案 div 有 .faq-answer class
+    [ ] 8 题 B2B 采购语言（MOQ/FOB/认证/交期/验证）
+    [ ] 与 JSON-LD FAQPage 逐字一致
+    [ ] 每条答案含 ≥1 个数字
+
+[ ] Author Bio
+    [ ] id="author-bio"
+    [ ] 头像 80×80 border-2 border-brandOrange
+    [ ] LinkedIn 链接 target="_blank" rel="noopener noreferrer"
+    [ ] Empreinte Usine 4 格: 5 000 m² / Depuis 2013 / 50+ / 50+ R&D
+
+[ ] CTA
+    [ ] h2 标题（非 h3）
+    [ ] bg-gradient-to-br from-brandBlue to-slate-800
+    [ ] 按钮文案 B2B 化（Demander un Devis / Voir le Catalogue）
+    [ ] 描述含产品词 + MOQ
+
+[ ] Related Articles
+    [ ] <aside> 语义容器
+    [ ] 链接使用语言前缀路径
+    [ ] card 格式: gradient bar + tag + h3 + description
+
+[ ] Sources
+    [ ] list-disc
+    [ ] 权威链接 rel="noopener external"
+    [ ] 商业链接 rel="noopener noreferrer nofollow"
+
+[ ] Blog CTA
+    [ ] {% include "partials/blog-cta.njk" %}
+    [ ] ctaSubject 包含文章主题关键词
+```
+
+### E. markdown 草稿 → .njk 转换流程
+
+```
+/write → drafts/article.md
+    │
+    ▼
+/b2b-audit drafts/article.md          ← 内容层面 18 checks
+    │
+    ▼
+修复 audit issues
+    │
+    ▼
+参照本清单 §A-D 创建 .njk 文件          ← 🔴 新增：结构层面 20+ checks
+    │
+    ▼
+/b2b-audit path/to/index.njk          ← 最终验证
+    │
+    ▼
+/scrub → git push
+```
+
+### F. 参考模板文件
+
+新文章从以下参考模板复制骨架（按语言选择最完整的那个）：
+
+| 语言 | 参考文件 | 状态 |
+|------|---------|:--:|
+| FR | `src/fr/blog/batterie-externe-specifications-oem/index.njk` | ✅ 完整 |
+| FR | `src/fr/blog/oem-vs-odm-guide-importateurs/index.njk` | ✅ 完整（v2 Schema 修复版） |
 
 ---
 
-## 十三、B2B 审计体系完整参考
-
-### 13.1 审计要素总览
-
-B2B 审计体系由 **6 个 Python 模块**组成，覆盖 **16 个检查维度**，在写作管线的 **3 个质量门**触发。
-
-```
-                     ┌──────────────────────────┐
-                     │   b2b_content_auditor.py  │  13 项 B2B 内容质量检查
-                     ├──────────────────────────┤
-                     │ information_gain_analyzer │  1 项 内容独特性检查（双模式）
-                     ├──────────────────────────┤
-  6 个 Python 模块   │ search_intent_analyzer   │  2 项 意图检查（意图分类 + B2B/B2C）
-                     ├──────────────────────────┤
-                     │ seo_quality_rater        │  8 维度 综合评分（整合上述所有分）
-                     ├──────────────────────────┤
-                     │ njk_preprocessor         │  7 步 .njk → Markdown 格式归一化
-                     ├──────────────────────────┤
-                     │ content_scorer           │  5 维度 AI 痕迹/基础质量检测
-                     └──────────────────────────┘
-```
-
-### 13.2 `b2b_content_auditor.py` — 13 项 B2B 内容质量检查
-
-| # | 检查项 | 测什么 | 评分逻辑 |
-|---|--------|--------|---------|
-| 1 | **Opening Density** | 开头 2-3 句是否直接给核心结论（不是行业背景铺垫） | 废话模式 -30/条，无结论信号 -40 |
-| 2 | **TL;DR Block** | 是否有 Key Takeaways 结构化摘要块 | 有标签=100，仅列表=60，无=0 |
-| 3 | **H3 Answer Length** | 每个 H3/H4 后的答案是否在 60-300 字符 | 合规 H3 占比=分数 |
-| 4 | **Vague Headings** | 标题是标签式（"Testing"）还是结论式（"3 Tests to Verify"） | 每检测到 1 个 -15 |
-| 5 | **H2 B2B Density** | H2 中 15 个 B2B 信号词密度是否在分层范围内 | Technical 10-40% / Procurement 30-55% / OEM Core 50-80% |
-| 6 | **Data Density** | 精确数值+工程单位（°C mV kHz Wh/kg mm €）每千词数量 | ≥5/千词=100，线性下降 |
-| 7 | **Table Test** | 技术参数是否用表格呈现 | 有表格=100，参数在表格外=40 |
-| 8 | **Stock Photo** | 图片 URL 是否来自 stock 平台（Unsplash/Shutterstock 等） | 每张 -25 |
-| 9 | **FAQ Language** | FAQ 是否遵守 8 条规则（见下方 FAQ 八规则） | B2B 问题占比=分数 + 8 规则手动审查 |
-
-> **FAQ 八规则**（详见 `b2b-blog-quality-standards-2026.md` Section III.4）：
-> 1. **Body-Schema 一致**：正文 FAQ = JSON-LD FAQPage 逐字相同
-> 2. **真实市场数据**：问题来自 B2B 买家真实搜索，非捏造
-> 3. **内容锚定**：每个答案可追溯到文章正文的具体段落
-> 4. **GEO 优化**：自包含 Q&A，AI 可直接提取引用
-> 5. **决策链排序**：产品匹配→规格→认证→定价→对比→下单流程
-> 6. **量化答案**：每条答案含 ≥1 个具体数字
-> 7. **末题 = CTA 桥梁**：最后一题自然过渡到买家行动
-> 8. **交叉一致性**：FAQ 数据与 TL;DR、正文三方一致，无矛盾 |
-| 10 | **Author E-E-A-T** | 署名/资历/LinkedIn/作者页/专长匹配（5 项各 20 分） | 从 YAML frontmatter + JSON-LD 提取 |
-| 11 | **Weak CTA** | 是否是低摩擦 B2B CTA（下载报告/获取清单/咨询） | 无=20，弱=40-60，好=100 |
-| 12 | **Heading Hierarchy** | H1→H3 是否跳级（如 H2→H4 没有 H3） | 每跳 1 级 -25 |
-| 13 | **URL Quality** | slug 是否全小写/连字符/无日期/无停用词 | 逐项扣分 |
-
-**H2 B2B 密度分层参考**：
-
-| 文章类型 | 目标范围 | 典型文章 |
-|---------|---------|---------|
-| Technical/Educational | 10–40% | mAh 指南、GaN 原理、USB PD 规格、安全标准 |
-| Procurement/Supply Chain | 30–55% | 物流、工厂选择、采购指南、QC 指南 |
-| OEM/ODM Core Topic | 50–80% | OEM vs ODM、制造商目录、私有标签指南 |
-
-**B2B 信号词全集**（15 个）：OEM, ODM, manufacturer, factory, supplier, importer, sourcing, MOQ, FOB, B2B, procurement, wholesale, bulk, supply chain, vendor
-
-### 13.3 `information_gain_analyzer.py` — 信息增益分析
-
-| 模式 | 条件 | 方法 | 权重 |
-|------|------|------|------|
-| **Mode A** | 有 SERP top 5 内容 | Jaccard 词汇相似度 + 独有实体比 + 独有数据点比 | 词汇 70% + 实体 20% + 数据 10% |
-| **Mode B** | 无 SERP 数据 | 启发式估算 | 技术锚点 40% + 数据密度 30% + 命名实体 20% + B2B 多样性 10% |
-
-**分数解读**：70+ = High（显著差异化），40-69 = Moderate，20-39 = Low，<20 = Zero（Google 会压制）
-
-### 13.4 `search_intent_analyzer.py` — 意图 + 受众分类
-
-| 检查 | 分类 |
-|------|------|
-| **Search Intent** | informational / navigational / transactional / commercial_investigation |
-| **B2B vs B2C** | b2b（OEM/manufacturer/MOQ 等 22 个信号词）/ b2c（best/review/cheap 等 19 个）/ mixed / neutral |
-
-### 13.5 `seo_quality_rater.py` — 8 维度综合评分
-
-| 维度 | 权重 | 测什么 |
-|------|------|--------|
-| Content | 15% | 字数 ≥2000，段落 2-4 句 |
-| Keywords | 20% | 关键词在 H1/开头/H2/结尾分布，密度 1-2% |
-| Meta | 10% | Title 50-60 字符，Description 150-160 字符 |
-| Structure | 12% | H1 唯一，H2 ≥4，层级完整 |
-| Links | 10% | 内链 ≥3，外链 ≥2 |
-| Readability | 8% | Flesch 60-70，句长 <25 词 |
-| B2B Quality | 15% | 来自 `b2b_content_auditor.py` 综合分 |
-| Information Gain | 10% | 来自 `information_gain_analyzer.py` 综合分 |
-
-### 13.6 `njk_preprocessor.py` — 7 步格式归一化
-
-| 步骤 | 功能 | 为什么需要 |
-|------|------|-----------|
-| 1 | Nunjucks 标签剥离 | `{% %}`, `{{ }}`, `{# #}` 是模板语法，非内容 |
-| 2 | JSON-LD 提取 | 从 `<script type="ld+json">` 提取作者/标题/描述/日期/canonical |
-| 3 | HTML → Markdown 标题 | `<h1>` → `#`（审计器只认 Markdown 格式） |
-| 4 | HTML → Markdown 链接 | `<a href>` → `[text](url)` |
-| 5 | HTML → Markdown 图片 | `<img>` → `![alt](src)` |
-| 6 | HTML → Markdown 表格 | `<table>` → `\|...\|` pipe table |
-| 7 | 残留 HTML 清理 | 移除 `<div>`, `<span>`, `<section>` 等 |
-
-**已知限制**：Nunjucks 模板 include 的 CTA（如 `{% set ctaHeading1 = "Ready to Source" %}`）在步骤 1 被剥离后无法恢复。此类文章的 CTA 检查以渲染页面为准。
-
-### 13.7 质量门触发点
-
-| 阶段 | 触发 | 模块 | 门槛 | 不通过后果 |
-|------|------|------|------|-----------|
-| `/write` Step 2 | 自动 | `content_scorer.py` | ≥70 | 自动修改→重评（最多 2 次）→仍不过移到 `review-required/` |
-| `/write` Step 2.5 | 自动 | `b2b_content_auditor.py` | ≥60 | 修复 flagged issues → 重新审计 |
-| `/optimize` | 手动 | `seo_quality_rater.py` | ≥80 + 无 critical | 90+: 立即发布 / 80-89: 小修 / 70-79: 优先级修复 / <70: 大修 |
-| `/b2b-audit` | 手动 | `b2b_content_auditor.py` | ≥75 建议发布 | 逐项查看 violations 和 recommendations |
-| `/analyze-existing` | 手动 | 全部模块 | 综合健康度 ≥70 | C 级以上可小幅优化，D 级以下建议重写 |
-
-### 13.8 评分标准速查
-
-**B2B 审计综合分**：
-
-| 分数 | 等级 | 含义 |
-|------|------|------|
-| 90-100 | A | B2B 合规优秀，可直接发布 |
-| 75-89 | B | 良好，有小问题 |
-| 60-74 | C | 一般，有明显问题需修复 |
-| 40-59 | D | 差，多维度不达标 |
-| <40 | F | 严重不达标，不可发布 |
-
-**信息增益分**：
-
-| 分数 | 级别 | 含义 |
-|------|------|------|
-| 70-100 | High | 内容显著差异化 |
-| 40-69 | Moderate | 有一定独特性 |
-| 20-39 | Low | 与 SERP 重叠度高 |
-| 0-19 | Zero | 零信息增益，Google 会压制 |
-
-**EN 博客优化后实测分布**（2026-07-22）：
-
-| 指标 | 优化前 | 优化后 |
-|------|--------|--------|
-| B2B 均分 | 68.5 | **89.6** |
-| A 级 | 0 篇 | **14 篇** |
-| B 级 | 3 篇 | **14 篇** |
-| C 级 | 23 篇 | **0 篇** |
-| D 级 | 2 篇 | **0 篇** |
-| TL;DR 覆盖率 | 1/28 | **28/28** |
+*SOP 基于 certif-qi2 + charge-pd 两篇 FR 文章完整优化 + /b2b-audit 18-check 扩展实战编写*

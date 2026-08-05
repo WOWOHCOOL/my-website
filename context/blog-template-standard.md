@@ -82,14 +82,14 @@
 
 ```html
 <div class="max-w-4xl mx-auto px-6 mb-8">
-  <div class="bg-brandBlue/5 border-l-4 border-brandOrange p-6 rounded-r-xl mb-8" data-speakable>
+  <div class="bg-brandBlue/5 border-l-4 border-brandOrange p-6 rounded-r-xl mb-8 speakable">
     <p class="text-lg text-slate-700 italic">引人入胜的痛点段落</p>
     <p class="text-slate-600 leading-relaxed mt-4">扩展数据段落</p>
   </div>
 </div>
 ```
 
-注意: Hook div 必须加 `data-speakable` 属性（或 `.speakable` class 作为回退）。这是 3 个 speakable 锚点中的第 1 个：Hook（痛点）→ Key Takeaways TL;DR（结论）→ FAQ 核心答案（决策）。超过 3 个会导致 AI 引擎抓取焦点分散。
+注意: Hook div 必须加 `.speakable` class。这是 3 个 speakable 锚点中的第 1 个：Hook（痛点）→ Key Takeaways TL;DR（结论）→ FAQ 核心答案（决策）。超过 3 个会导致 AI 引擎抓取焦点分散。`data-speakable` 属性已废弃，统一使用 `.speakable` CSS class（与 Schema `SpeakableSpecification` 的 `cssSelector: [".speakable"]` 保持一致）。
 
 ### 3. Featured Image
 
@@ -113,7 +113,7 @@
 ```html
 <div class="bg-amber-50 border-l-4 border-amber-500 rounded-r-xl p-6 mb-8">
   <p class="text-[11px] font-black text-brandOrange uppercase tracking-widest mb-2">KEY TAKEAWAYS</p>
-  <p class="text-slate-700 leading-relaxed text-sm mb-4" data-speakable>TL;DR 总结段 — 2-3 句概括全文核心结论</p>
+  <p class="text-slate-700 leading-relaxed text-sm mb-4 speakable">TL;DR 总结段 — 2-3 句概括全文核心结论</p>
   <ul class="text-sm text-slate-700 space-y-2 list-disc pl-5">
     <li><strong>要点标题:</strong> 数据描述</li>
   </ul>

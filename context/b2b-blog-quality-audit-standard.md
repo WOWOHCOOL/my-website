@@ -34,7 +34,7 @@ The Information Gain concept (derived from Google's patents US2022/0309025A1 and
 |---------------------|----------------------|
 | "GaN chargers are smaller" | "GaN HEMT switching at 3 MHz reduces transformer volume by 55% vs. silicon at 100 kHz" |
 | "Good thermal performance" | "Case temperature stabilized at 58.3°C under 100% load after 4-hour aging test" |
-| "Certified for EU market" | "EN 62368-1 Annex M.4 creepage distance: 6.4mm verified at TÜV Rheinheim Lab #C-2026-0842" |
+| "Certified for EU market" | "EN 62368-1 Annex M.4 creepage distance: 6.4mm verified at TÜV Rheinland Lab #C-2026-0842" |
 
 **B2B high-value anchor terms**:
 - `PCBA ripple noise testing (mVp-p)`
