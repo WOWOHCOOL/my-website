@@ -8,7 +8,6 @@ module.exports = function (eleventyConfig) {
     'image', 'css',
     'main.js', 'main.src.js',
     'robots.txt',
-    'llms.txt', 'llms-full.txt', 'rsl.txt',
     '_headers', '_redirects',
     'BingSiteAuth.xml',
     'favicon.ico',
@@ -29,7 +28,6 @@ module.exports = function (eleventyConfig) {
   // German site static assets
   const deStatic = [
     'de/js',
-    'de/llms.txt', 'de/llms-full.txt',
     'de/_headers',
   ];
 
@@ -42,7 +40,6 @@ module.exports = function (eleventyConfig) {
   // Spanish site static assets
   const esStatic = [
     'es/js',
-    'es/llms.txt', 'es/llms-full.txt',
   ];
 
   esStatic.forEach(p => {
@@ -54,7 +51,6 @@ module.exports = function (eleventyConfig) {
   // Russian site static assets
   const ruStatic = [
     'ru/js',
-    'ru/llms.txt', 'ru/llms-full.txt',
   ];
 
   ruStatic.forEach(p => {
