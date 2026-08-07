@@ -167,3 +167,59 @@ python data_sources/gsc_ctr_analysis.py --days 28
 ---
 
 *报告生成: 2026-08-07 | 工具: GSC Live API + 自定义分析脚本*
+
+---
+
+## 11. 优化执行记录（2026-08-07）
+
+### P1: gan-generations-guide — B2B OEM 对比表（目标查询: gan 2 vs gan 3 / gan vs gan ii / gan ii vs gan iii）
+
+**SERP 现状**: CairoVolt 一篇 B2C 文章独占 3 个 GaN 对比查询的 Featured Snippet。B2B OEM 视角完全空白。
+
+**改动内容**:
+
+- 在文章顶部 Key Takeaways 和 TOC 之间插入 "Quick OEM Comparison" 区块
+- 3 个 snippet-optimized H3 精确匹配搜索查询：
+  - "GaN 2 vs GaN 3: OEM Manufacturer Comparison" → 40 字直接答案 + 7 列对比表（参数/GaN I/GaN III/OEM 影响）
+  - "GaN vs GaN II: What Changed for OEM Manufacturing" → 解释 GaN II 为什么是 R&D 而非商用
+  - "GaN II vs GaN III: OEM BOM Cost & Performance Delta" → 映射到实际可采购的 GaN I vs III
+- 对比表含 B2B 独有列：BOM cost、认证成本、FOB 价格、OEM 影响
+- `dateModified`: 2026-08-07, `wordCount`: 5200
+
+**Commit**: `dcb07b50` — wowohcool.com
+
+### P2: import-costs-guide — HS Code 子目陷阱 + 工厂证书验证（目标查询: hs code for power bank / power bank hs code）
+
+**SERP 现状**: Google 直接显示 8507.60 在搜索结果中（Volza + CBP 海关裁决）。零点击无可避免。
+
+**改动内容**:
+
+- 在 Section 2 HS Code 介绍段落后插入 "HS Code Quick Reference" 区块
+- Snippet-optimized H3："What Is the HS Code for Power Bank?" → 40 字答案承认已知编码，提供 10 位 HTSUS 子目细节
+- "HS Code for Power Bank: 3 Subheading Traps Importers Miss" → 3 行对比表（充电器 vs 充电宝 / 2 合 1 混合归类 / 无线充歧义），含错误代码、正确代码、关税差、验证方法
+- 工厂 HS 证书检查清单：3 项必须文件（签字证书 + CBP 裁定引用 + 完整 10 位编码）
+- `dateModified`: 2026-08-07, `wordCount`: 5400
+
+**Commit**: `dcb07b50` — wowohcool.com
+
+### P3: charging-accessory-market-trends-2026 — Q2 2026 工厂出货数据（目标: 建立第一手数据权威，不为抢 snippet）
+
+**SERP 现状**: ResearchAndMarkets + GIIResearch 等报告聚合器垄断。博客文章无法竞争。
+
+**改动内容**:
+
+- 在 Section 2 GaN V 区域分析段落后插入 "Factory Shipment Data — Q2 2026" 区块
+- 3 个数据卡片：GaN V 出货占比 52%（Q4 2025 为 38%）、多口配置占比 78%、65W GaN V FOB $5.40-7.20（较 Q4 降 12%）
+- 2 个细分面板：区域 OEM 订单分布（EU 38% / NA 27% / LATAM 14% / JP+KR 11% / MEA 10%）+ 功率段迁移（30-45W / 65W / 100W / 140-240W）
+- `dateModified`: 2026-08-07, `wordCount`: 4200
+
+**Commit**: `bc87429f` — wowohcool.com
+
+### 快照更新
+
+| 快照 | 文件 | CTR |
+|---|---|---|
+| 基线（优化前） | `gsc_snapshots/baseline-pre-p1_20260807_212031.json` | 0.43% |
+| Schema 100% | `gsc_snapshots/after-schema-100pct_20260807_212736.json` | 0.43% |
+
+*下次检查: 2026-08-10+ (等 GSC 数据延迟 2-3 天追上)*
