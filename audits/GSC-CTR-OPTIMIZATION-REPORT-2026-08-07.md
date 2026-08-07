@@ -170,9 +170,65 @@ python data_sources/gsc_ctr_analysis.py --days 28
 
 ---
 
-## 11. 优化执行记录（2026-08-07）
+## 11. 优化执行记录（2026-08-06）— 内容深度 + 搜索意图对齐
 
-### P1: gan-generations-guide — B2B OEM 对比表（目标查询: gan 2 vs gan 3 / gan vs gan ii / gan ii vs gan iii）
+三篇文章独立优化，共用策略：对齐搜索意图 + B2B 信息增益 + 内链强化。
+
+### 11.1 import-costs-guide (`dec6ec02`)
+**新增 US+EU landed cost 计算实例 + 3 条精准内链**
+
+| 项目 | 详情 |
+|---|---|
+| 改动量 | +119 行 / 4 文件 |
+| 新增章节 | §6 "Worked Example: 5,000 GaN Chargers — Full Landed Cost from Shenzhen to Your Warehouse" |
+| 子内容 | US Landed Cost Breakdown / EU Landed Cost (Rotterdam) / FOB vs DDP vs Air 对比 |
+| 搜索意图 | 用户搜 "import costs" 不只是想看关税表，更想知道「我的 5,000 台货到底要花多少钱」— 直接给计算实例 |
+| 内链 | 同步更新 oem-vs-odm-guide、shipping-from-china-guide、top-power-bank-manufacturers-china 的锚文本 |
+
+### 11.2 charger-safety-standards (`ece47dbc`)
+**新增 IEC 62368-1 测试清单章节 + 3 条精准内链**
+
+| 项目 | 详情 |
+|---|---|
+| 改动量 | +123 行 / 4 文件 |
+| 新增章节 | §3 "IEC 62368-1 Testing Checklist: 6 Tests Every OEM Importer Must Verify" |
+| 6 项测试 | (1) Dielectric Withstand (Hi-Pot) / (2) Temperature Rise at Full Load / (3) Single Fault Condition / (4) Creepage & Clearance on PCB / (5) Enclosure Mechanical (Drop, Impact, Fire) / (6) Safety-Critical Components BOM Locked List |
+| 搜索意图 | 用户搜 "charger safety standards" 的隐含需求是「我怎么知道这个东西安全不安全」— 给可操作的测试清单而非概念解释 |
+| 内链 | 同步更新 certifications-us-eu-guide、factory-verification-checklist、gan-vs-silicon-charger-comparison 的锚文本 |
+
+### 11.3 certifications-us-eu-guide (`8085862b`)
+**新增认证真伪验证章节(§9)，对齐搜索意图**
+
+| 项目 | 详情 |
+|---|---|
+| 改动量 | +65 行 / 1 文件 |
+| 新增章节 | §9 "How to Verify Charger Certifications Are Real" |
+| 5 个验证方法 | (1) FCC ID Lookup (US) / (2) UL File Number Verification / (3) CE Marking & EU Declaration of Conformity / (4) GS Mark (Germany) — The Gold Standard / (5) Quick Visual Red Flags |
+| 搜索意图 | 用户搜 "certifications guide" 不只是想知道有哪些认证，更想知道「工厂给的证书是真的假的」— 给数据库查询方法 |
+
+### 优化策略共性
+
+| 策略 | 体现 |
+|---|---|
+| 对齐搜索意图 | 从「这是什么」转为「怎么验证/怎么测试/要花多少钱」 |
+| B2B 信息增益 | 竞品 SERP 没有的实操内容（计算实例、测试清单、证书验证数据库查询） |
+| OEM 语言 | Hi-Pot、creepage、BOM locked list、FCC ID lookup — 工厂审计语言，非消费者语言 |
+| 内链强化 | 每篇同步更新 3 篇相关文章的双向内链锚文本 |
+
+### 与 8/7 优化的关系
+
+| 日期 | 策略 | 目标 |
+|---|---|---|
+| 8/6 | 内容深度 + 搜索意图对齐 | 让内容值得被点（信息增益） |
+| 8/7 | Snippet 抓取格式优化 | 让内容能被 Google 抓取展示 |
+
+两者互补：8/6 确保内容本身是 Google 找不到的独家信息，8/7 确保这些信息以 Google snippet 友好的格式呈现。
+
+---
+
+## 12. 优化执行记录（2026-08-07）— Snippet 抓取格式优化
+
+### 12.1 P1: gan-generations-guide — B2B OEM 对比表（目标查询: gan 2 vs gan 3 / gan vs gan ii / gan ii vs gan iii）
 
 **SERP 现状**: CairoVolt 一篇 B2C 文章独占 3 个 GaN 对比查询的 Featured Snippet。B2B OEM 视角完全空白。
 
@@ -188,7 +244,7 @@ python data_sources/gsc_ctr_analysis.py --days 28
 
 **Commit**: `dcb07b50` — wowohcool.com
 
-### P2: import-costs-guide — HS Code 子目陷阱 + 工厂证书验证（目标查询: hs code for power bank / power bank hs code）
+### 12.2 P2: import-costs-guide — HS Code 子目陷阱 + 工厂证书验证（目标查询: hs code for power bank / power bank hs code）
 
 **SERP 现状**: Google 直接显示 8507.60 在搜索结果中（Volza + CBP 海关裁决）。零点击无可避免。
 
@@ -202,7 +258,7 @@ python data_sources/gsc_ctr_analysis.py --days 28
 
 **Commit**: `dcb07b50` — wowohcool.com
 
-### P3: charging-accessory-market-trends-2026 — Q2 2026 工厂出货数据（目标: 建立第一手数据权威，不为抢 snippet）
+### 12.3 P3: charging-accessory-market-trends-2026 — Q2 2026 工厂出货数据（目标: 建立第一手数据权威，不为抢 snippet）
 
 **SERP 现状**: ResearchAndMarkets + GIIResearch 等报告聚合器垄断。博客文章无法竞争。
 
