@@ -1,0 +1,575 @@
+---
+title: "USB-C PD Быстрая Зарядка OEM: Руководство PD 3.1, PPS и GaN 2026 | WOWOHCOOL"
+lang: "ru"
+description: "Руководство OEM USB-C PD 2026: PD 3.1 240W EPR, PPS, GaN V. Обязательный IEC 62680. Цены FOB от $6/шт, MOQ 500. Завод Shenzhen ISO 9001."
+date: 2026-08-07
+modified: 2026-08-07
+author: "Nina Nico"
+articleSection: USB-C и Быстрая Зарядка
+articleTags: [USB-C, PD 3.1, Power Delivery, PPS, EPR, Быстрая Зарядка, GaN, OEM]
+canonical: "/ru/blog/usb-c-pd-bystraya-zaryadka-oem/"
+enPath: "blog/usb-c-pd-fast-charging-guide/"
+dePath: "blog/usb-c-pd-schnellladen/"
+esPath: "blog/usb-c-pd-carga-rapida/"
+frPath: "blog/charge-rapide-usb-c-pd-oem/"
+ogImage: "/image/blog/cover-ru/usb-c-pd-bystraya-zaryadka-oem.webp"
+navActive: "blog"
+hreflang:
+ ru: "/ru/blog/usb-c-pd-bystraya-zaryadka-oem/"
+ en: "/blog/usb-c-pd-fast-charging-guide/"
+ de: "/de/blog/usb-c-pd-schnellladen/"
+ es: "/es/blog/usb-c-pd-carga-rapida/"
+ fr: "/fr/blog/charge-rapide-usb-c-pd-oem/"
+---
+{% extends "layout.njk" %}
+
+{% block head_schema %}
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+ {
+ "@type": "Organization",
+ "@id": "https://www.wowohcool.com/ru/#organization",
+ "name": "WOWOHCOOL",
+ "legalName": "Dong Yi Technology Co., Ltd",
+ "url": "https://www.wowohcool.com/ru/o-kompanii/",
+ "publishingPrinciples": "https://www.wowohcool.com/ru/o-kompanii/",
+ "logo": { "@type": "ImageObject", "url": "https://www.wowohcool.com/image/wowohcool-logo-optimized.webp" },
+ "areaServed": ["RU", "KZ", "BY", "EAEU"],
+ "address": {
+ "@type": "PostalAddress",
+ "streetAddress": "925, Yichuang International Center, Longhua District",
+ "addressLocality": "Shenzhen",
+ "addressRegion": "Guangdong",
+ "postalCode": "518111",
+ "addressCountry": "CN"
+ },
+ "sameAs": [
+ "https://www.linkedin.com/company/wowohcool",
+ "https://www.facebook.com/wowohcoolelectronic",
+ "https://www.youtube.com/@WOWOHCOOL",
+ "https://x.com/wowohcool"
+ ],
+ "contactPoint": {
+ "@type": "ContactPoint",
+ "contactType": "OEM/ODM Sales",
+ "telephone": "+86-18620789739",
+ "email": "info@wowohcool.com",
+ "availableLanguage": ["Russian", "English", "German", "Chinese"]
+ }
+ },
+ {
+ "@type": "WebSite",
+ "@id": "https://www.wowohcool.com/ru/#website",
+ "url": "https://www.wowohcool.com/ru/",
+ "name": "WOWOHCOOL",
+ "inLanguage": "ru-RU",
+ "publisher": { "@id": "https://www.wowohcool.com/ru/#organization" }
+ },
+ {
+ "@type": "BreadcrumbList",
+ "itemListElement": [
+ { "@type": "ListItem", "position": 1, "name": "Главная", "item": "https://www.wowohcool.com/ru/" },
+ { "@type": "ListItem", "position": 2, "name": "Блог", "item": "https://www.wowohcool.com/ru/blog/" },
+ { "@type": "ListItem", "position": 3, "name": "USB-C PD Быстрая Зарядка OEM", "item": "https://www.wowohcool.com/ru/blog/usb-c-pd-bystraya-zaryadka-oem/" }
+ ]
+ },
+ {
+ "@type": "BlogPosting",
+ "@id": "https://www.wowohcool.com/ru/blog/usb-c-pd-bystraya-zaryadka-oem/#article",
+ "headline": "USB-C PD Быстрая Зарядка для Импортёров: Руководство OEM 2026",
+ "keywords": ["USB-C", "PD 3.1", "Power Delivery", "PPS", "EPR", "E-Marker", "Быстрая Зарядка", "OEM", "EAC"],
+ "description": "Руководство OEM USB-C PD 2026: PD 3.1 240W EPR, PPS, GaN V. Обязательный IEC 62680. Цены FOB от $6/шт, MOQ 500. Завод Shenzhen ISO 9001.",
+ "author": { "@id": "https://www.wowohcool.com/ru/#nina-nico" },
+ "publisher": { "@id": "https://www.wowohcool.com/ru/#organization" },
+ "datePublished": "2026-08-07",
+ "dateModified": "2026-08-07",
+ "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.wowohcool.com/ru/blog/usb-c-pd-bystraya-zaryadka-oem/" },
+ "wordCount": 2400,
+ "inLanguage": "ru-RU",
+ "timeRequired": "PT14M",
+ "articleSection": "USB-C и Быстрая Зарядка",
+ "image": "https://www.wowohcool.com/image/blog/cover-ru/usb-c-pd-bystraya-zaryadka-oem.webp",
+ "thumbnailUrl": "https://www.wowohcool.com/image/blog/cover-ru/usb-c-pd-bystraya-zaryadka-oem.webp",
+ "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".speakable"] },
+ "about": { "@type": "Thing", "name": "USB-C Power Delivery", "sameAs": "https://www.wikidata.org/wiki/Q7864095" },
+ "citation": [
+ { "@type": "CreativeWork", "name": "USB-IF, USB Power Delivery Specification R3.2", "url": "https://www.usb.org/" },
+ { "@type": "CreativeWork", "name": "IEC 62680-1-2:2026, Universal Serial Bus Power Delivery", "url": "https://www.iec.ch/" },
+ { "@type": "CreativeWork", "name": "ТР ТС 004/2011, О безопасности низковольтного оборудования", "url": "https://docs.cntd.ru/" },
+ { "@type": "CreativeWork", "name": "WOWOHCOOL, Завод-производитель зарядных устройств с 2013 года", "url": "https://www.wowohcool.com/ru/o-kompanii/" }
+ ]
+ },
+ {
+ "@type": "Person",
+ "@id": "https://www.wowohcool.com/ru/#nina-nico",
+ "name": "Nina Nico",
+ "jobTitle": "Global Procurement & Sourcing Manager",
+ "url": "https://www.wowohcool.com/authors/nina-nico/",
+ "worksFor": { "@id": "https://www.wowohcool.com/ru/#organization" },
+ "knowsAbout": [
+ "Global Supply Chain Sourcing",
+ "USB-C PD 3.1 Protocol",
+ "3C Accessories OEM/ODM",
+ "GaN Charger Manufacturing",
+ "EU Regulatory Compliance"
+ ],
+ "image": "https://www.wowohcool.com/image/factory/team-nina.webp",
+ "sameAs": ["https://www.linkedin.com/in/nico-power-bank-chargers"]
+ },
+ {
+ "@type": "HowTo",
+ "@id": "https://www.wowohcool.com/ru/blog/usb-c-pd-bystraya-zaryadka-oem/#howto",
+ "name": "Выбрать USB-C PD зарядку для OEM за 4 шага",
+ "description": "Алгоритм выбора USB-C PD зарядного устройства: версия протокола, мощность, сертификация, E-Marker кабели. Для импортёров РФ.",
+ "totalTime": "P14D",
+ "step": [
+ {
+ "@type": "HowToStep",
+ "position": 1,
+ "name": "Выберите версию протокола: PD 3.2 обязателен для новых продуктов",
+ "itemListElement": [{
+ "@type": "HowToDirection",
+ "text": "PD 3.2 (IEC 62680-1-2:2026), текущий стандарт. AVS обязателен для >27W. PD 3.1 сертификация закрыта с марта 2026. Если поставщик предлагает «PD 3.0», продукт не пройдёт таможню ЕС с апреля 2026. WOWOHCOOL: все зарядки на PD 3.2 + PPS + AVS."
+ }]
+ },
+ {
+ "@type": "HowToStep",
+ "position": 2,
+ "name": "Определите мощность и необходимость EPR",
+ "itemListElement": [{
+ "@type": "HowToDirection",
+ "text": "До 100W: SPR (Standard Power Range), 5-20V. 100-240W: EPR (Extended Power Range), 28/36/48V. EPR требует кабель с чипом E-Marker. Без него зарядка ограничена 100W. 140W, самый востребованный тир для ноутбуков (65% поставок Q1 2026)."
+ }]
+ },
+ {
+ "@type": "HowToStep",
+ "position": 3,
+ "name": "Проверьте сертификацию USB-IF и региональные требования",
+ "itemListElement": [{
+ "@type": "HowToDirection",
+ "text": "USB-IF TID обязателен. ЕС: IEC 62680 с 28 апреля 2026 (ноутбуки). Корея: с 5 ноября 2026. Саудовская Аравия: с 1 апреля 2026. EAC для РФ: ТР ТС 004/2011 + 020/2011, бюджет €2,500-4,000. WOWOHCOOL: сертификация EAC включена."
+ }]
+ },
+ {
+ "@type": "HowToStep",
+ "position": 4,
+ "name": "Закажите образцы с тестированием PD-протокола",
+ "itemListElement": [{
+ "@type": "HowToDirection",
+ "text": "Обязательные тесты: AVS-регулирование (шаг 100 мВ), Shared Capacity (каждый порт ≥7.5W за 3 сек), FRS (Fast Role Swap). Термотест 60 мин при 100% нагрузке. WOWOHCOOL: образцы за 5 дней, 4-ступенчатый QC, 100% aging test 4 часа, MOQ от 500 шт."
+ }]
+ }
+ ]
+ },
+ {
+ "@type": "FAQPage",
+ "@id": "https://www.wowohcool.com/ru/blog/usb-c-pd-bystraya-zaryadka-oem/#faq",
+ "speakable": { "@type": "SpeakableSpecification", "cssSelector": [".faq-answer"] },
+ "mainEntity": [
+ {
+ "@type": "Question", "name": "Что такое USB-C Power Delivery и какие версии бывают?",
+ "acceptedAnswer": { "@type": "Answer", "text": "USB-C Power Delivery (PD), единый протокол быстрой зарядки через разъём USB-C. Версии: PD 3.0 (до 100W, сертификация прекращена), PD 3.1 (до 240W EPR, сертификация закрыта с марта 2026), PD 3.2 / IEC 62680-1-2:2026 (текущий стандарт, AVS обязателен для >27W). Для импортёра: все новые продукты с 2026 должны быть на PD 3.2." }
+ },
+ {
+ "@type": "Question", "name": "PD 3.0, 3.1 или 3.2, какую версию выбрать для OEM в 2026?",
+ "acceptedAnswer": { "@type": "Answer", "text": "PD 3.2, единственный выбор для новых продуктов. PD 3.1 можно использовать только для моделей, сертифицированных до марта 2026. PD 3.0, только для non-USB-C рынков (Индия, Африка). Для ЕС с 28 апреля 2026 все ноутбуки обязаны быть на IEC 62680. WOWOHCOOL производит все зарядки на PD 3.2 с PPS, AVS и поддержкой EPR до 240W." }
+ },
+ {
+ "@type": "Question", "name": "Какие сертификаты нужны для USB-C PD зарядок в РФ?",
+ "acceptedAnswer": { "@type": "Answer", "text": "Обязательные для РФ/ЕАЭС: EAC (ТР ТС 004/2011 + ТР ТС 020/2011), бюджет €2,500-4,000. USB-IF TID, международный стандарт, обязателен для совместимости. Для экспорта в ЕС: CE + IEC 62680. WOWOHCOOL: все сертификаты включены в OEM-проект, включая EAC." }
+ },
+ {
+ "@type": "Question", "name": "Что такое EPR 240W и нужен ли он моему продукту?",
+ "acceptedAnswer": { "@type": "Answer", "text": "EPR (Extended Power Range), режим PD 3.1/3.2 для мощностей 100-240W (28/36/48V). Нужен для: игровых ноутбуков, рабочих станций, мониторов USB-C. Не нужен для: смартфонов, планшетов, ультрабуков до 65W. Требует кабель с E-Marker чипом (EPR-сертифицированным). 140W EPR, самый востребованный тир (65% поставок Q1 2026). WOWOHCOOL: полный ряд 20-240W с EPR." }
+ },
+ {
+ "@type": "Question", "name": "Сколько стоит USB-C PD зарядка оптом из Китая?",
+ "acceptedAnswer": { "@type": "Answer", "text": "Цены FOB Shenzhen 2026: 20-30W PD $3-5/шт, 65W GaN PD $5-7/шт, 100W GaN PD $7-9/шт, 140W GaN PD 3.1 EPR $9-14/шт. Скидки: 500-1999 шт. = 8%, 2000-4999 = 12%, 5000+ = 18%. WOWOHCOOL: MOQ от 500 шт., образцы за 5 дней. Сертификация EAC включена." }
+ },
+ {
+ "@type": "Question", "name": "Что такое E-Marker кабель и зачем он нужен?",
+ "acceptedAnswer": { "@type": "Answer", "text": "E-Marker, чип внутри USB-C кабеля, сообщающий зарядному устройству максимальные параметры: ток (3A или 5A), напряжение (до 20V SPR или до 48V EPR). Без EPR E-Marker кабеля зарядка ограничена 100W (20V/5A). Для 140-240W зарядок EPR E-Marker кабель обязателен. USB-IF TID сертификация кабеля подтверждает подлинность чипа." }
+ },
+ {
+ "@type": "Question", "name": "Какие дедлайны USB-C обязательности в 2026 году?",
+ "acceptedAnswer": { "@type": "Answer", "text": "ЕС: 28 апреля 2026, все ноутбуки обязаны соответствовать IEC 62680 (Common Charger Directive). Южная Корея: 5 ноября 2026, 13 категорий устройств. Саудовская Аравия: 1 апреля 2026, Фаза 2 (ноутбуки). Индия: обсуждается, ожидается 2027. РФ: обязательных требований нет, но USB-C становится стандартом де-факто." }
+ },
+ {
+ "@type": "Question", "name": "Как WOWOHCOOL помогает с OEM USB-C PD зарядок?",
+ "acceptedAnswer": { "@type": "Answer", "text": "WOWOHCOOL, завод с 2013 года: 5,000 м², ISO 9001, 50+ R&D, 200+ брендов. Полный цикл OEM: подбор PD-контроллера (PD 3.2 + PPS + AVS), дизайн корпуса и PCB, сертификация EAC включена. Все зарядки с EPR до 240W, E-Marker кабели в комплекте. MOQ от 500 шт., образцы за 5 дней, производство 25-30 дней. Свяжитесь для расчёта за 24 часа." }
+ }
+ ]
+ }
+ ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+<article class="py-12">
+
+<!-- ===== [1] Hero ===== -->
+<div class="relative pt-24 md:pt-28 pb-12 lg:pt-28 lg:pb-16 bg-gradient-to-b from-slate-50 to-white overflow-hidden">
+ <div class="absolute top-0 left-1/4 w-64 h-64 bg-brandOrange/10 rounded-full blur-3xl"></div>
+ <div class="absolute bottom-0 right-1/4 w-64 h-64 bg-green-500/10 rounded-full blur-3xl"></div>
+ <div class="max-w-4xl mx-auto px-6 relative z-10">
+ <nav class="text-sm text-slate-500 mb-6">
+ <a href="/ru/" class="hover:text-brandOrange">Главная</a> /
+ <a href="/ru/blog/" class="hover:text-brandOrange">Блог</a> /
+ <span class="text-slate-900">USB-C PD Быстрая Зарядка</span>
+ </nav>
+ <div class="flex flex-wrap gap-2 mb-6">
+ <span class="px-3 py-1 bg-brandOrange/10 text-brandOrange text-[11px] font-black rounded-full uppercase">USB-C</span>
+ <span class="px-3 py-1 bg-brandOrange/10 text-brandOrange text-[11px] font-black rounded-full uppercase">PD 3.1</span>
+ <span class="px-3 py-1 bg-brandOrange/10 text-brandOrange text-[11px] font-black rounded-full uppercase">OEM</span>
+ </div>
+ <h1 class="text-3xl lg:text-5xl font-black text-brandBlue uppercase italic tracking-tighter mb-6 leading-tight">USB-C PD Быстрая Зарядка для Импортёров: Руководство OEM 2026</h1>
+ <div class="flex items-center gap-3 mb-6">
+ <img src="/image/factory/team-nina.webp" alt="Nina Nico, Global Procurement & Sourcing Manager, специалист по OEM USB-C PD зарядным устройствам в Китае" loading="lazy" width="40" height="40" class="w-10 h-10 rounded-full object-cover border border-brandOrange">
+ <div>
+ <a href="#author-bio" class="font-bold text-slate-900 text-sm hover:text-brandOrange transition">Nina Nico</a>
+ <p class="text-xs text-slate-500">Global Procurement & Sourcing Manager · 10+ лет в сорсинге 3C</p>
+ </div>
+ </div>
+ <div class="flex flex-wrap items-center gap-6 text-sm text-slate-500 pb-8 border-b border-slate-200">
+ <span><svg class="w-4 h-4 inline-block mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" stroke-width="2"/><line x1="16" y1="2" x2="16" y2="6" stroke-width="2"/><line x1="8" y1="2" x2="8" y2="6" stroke-width="2"/><line x1="3" y1="10" x2="21" y2="10" stroke-width="2"/></svg><time datetime="2026-08-07">7 августа 2026</time></span>
+ <span><svg class="w-4 h-4 inline-block mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke-width="2"/><polyline points="12 6 12 12 16 14" stroke-width="2"/></svg>14 мин чтения</span>
+ <span><svg class="w-4 h-4 inline-block mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" stroke-width="2"/><circle cx="12" cy="7" r="4" stroke-width="2"/></svg>Nina Nico</span>
+ </div>
+ </div>
+</div>
+
+<!-- ===== [2] Hook ===== -->
+<div class="max-w-4xl mx-auto px-6 mb-8">
+ <div class="bg-brandBlue/5 border-l-4 border-brandOrange p-6 rounded-r-xl mb-8 speakable">
+ <p class="text-lg text-slate-700 italic">Олег из Владивостока заказал 2,000 USB-C зарядок «с поддержкой быстрой зарядки» в 2025 году. На коробке было написано «65W PD». Через месяц, шквал возвратов: MacBook не заряжался, Samsung заряжался на 15W вместо 45W, два порта не делили мощность. Тест показал: PD-контроллер без PPS, кабель 3A без E-Marker. <strong>С февраля 2026 сертификация PD 3.1 закрыта. Новый стандарт, IEC 62680-1-2:2026 (PD 3.2) с обязательным AVS для >27W.</strong> Если ваш поставщик до сих пор предлагает «PD 3.0», ваш товар не пройдёт таможню ЕС. Вот полное руководство по протоколам, версиям, мощностям и сертификации USB-C PD.</p>
+ </div>
+</div>
+
+<!-- ===== [3] Featured Image ===== -->
+<div class="max-w-4xl mx-auto px-6 mb-16">
+ <img src="/image/blog/cover-ru/usb-c-pd-bystraya-zaryadka-oem.webp" alt="USB-C PD быстрая зарядка OEM руководство 2026: PD 3.1 240W EPR, PPS, GaN V, IEC 62680, сертификация EAC для импортёров РФ" width="2240" height="1260" loading="eager" decoding="async" class="w-full rounded-3xl shadow-xl" fetchpriority="high">
+</div>
+
+<!-- ===== [4] Key Takeaways ===== -->
+<div class="max-w-4xl mx-auto px-6">
+ <div class="bg-amber-50 border-l-4 border-amber-500 rounded-r-xl p-6 mb-8">
+ <p class="text-[11px] font-black text-brandOrange uppercase tracking-widest mb-2">Ключевые Выводы</p>
+ <p class="text-slate-700 leading-relaxed text-sm mb-4 speakable">USB-C Power Delivery (PD), единый протокол быстрой зарядки. Версии: PD 3.0 (устарел), PD 3.1 (сертификация закрыта), PD 3.2 / IEC 62680-1-2:2026 (текущий стандарт, AVS обязателен >27W). Четыре режима: SPR (до 100W), EPR (до 240W), PPS (точная регулировка), AVS (обязателен с 2026). Для импортёра критично: PD 3.2 + E-Marker кабели для EPR + сертификация EAC для РФ.</p>
+ <ul class="text-sm text-slate-700 space-y-2 list-disc pl-5">
+ <li><strong>PD 3.0 → 3.1 → 3.2:</strong> PD 3.2, единственный выбор для новых продуктов. PD 3.1 сертификация закрыта с марта 2026. AVS обязателен для >27W</li>
+ <li><strong>4 режима зарядки:</strong> SPR (5-20V, до 100W), EPR (28-48V, до 240W), PPS (шаг 20 мВ), AVS (шаг 100 мВ, обязателен с 2026)</li>
+ <li><strong>Цены FOB Shenzhen:</strong> 30W $3-5, 65W $5-7, 100W $7-9, 140W EPR $9-14/шт. MOQ от 500 шт., скидки до 18%</li>
+ <li><strong>Дедлайны 2026:</strong> ЕС 28 апр (ноутбуки), Корея 5 ноя (13 категорий), Саудовская Аравия 1 апр. EAC для РФ: €2,500-4,000</li>
+ <li><strong>WOWOHCOOL:</strong> все зарядки PD 3.2 + PPS + AVS + EPR 240W, E-Marker кабели в комплекте, сертификация EAC включена</li>
+ </ul>
+ </div>
+</div>
+
+<!-- ===== [5] Table of Contents ===== -->
+<div class="max-w-4xl mx-auto px-6">
+ <div class="bg-brandBlue rounded-2xl p-8 text-white mb-12">
+ <h2 class="text-lg font-black uppercase italic mb-6">Содержание</h2>
+ <nav class="text-sm space-y-2">
+ <a href="#protocols" class="block hover:text-brandOrange transition">1. Что Такое USB-C Power Delivery, Протоколы и Версии</a>
+ <a href="#requirements-2026" class="block hover:text-brandOrange transition">2. Требования 2026: IEC 62680 и Сертификация USB-IF</a>
+ <a href="#power-pricing" class="block hover:text-brandOrange transition">3. Мощности, Режимы и Цены FOB Shenzhen</a>
+ <a href="#emarker" class="block hover:text-brandOrange transition">4. E-Marker Кабели и EPR 240W, Что Нужно Знать</a>
+ <a href="#eac" class="block hover:text-brandOrange transition">5. Сертификация EAC для РФ и ЕАЭС</a>
+ <a href="#wowohcool-pd" class="block hover:text-brandOrange transition">6. Как WOWOHCOOL Производит USB-C PD Зарядки</a>
+ <a href="#faq" class="block hover:text-brandOrange transition">7. Часто Задаваемые Вопросы</a>
+ </nav>
+ </div>
+</div>
+
+<!-- ===== [6] H2 #1: Протоколы ===== -->
+<section id="protocols" class="mb-16">
+ <div class="max-w-4xl mx-auto px-6">
+ <div class="bg-slate-50 rounded-xl p-6 border border-slate-200 shadow-sm">
+ <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-6">1. Что Такое USB-C Power Delivery, Протоколы и Версии</h2>
+ <p class="text-slate-600 leading-relaxed mb-4"><strong>USB-C Power Delivery (PD), единый международный протокол быстрой зарядки через разъём USB-C, стандартизированный USB Implementers Forum (USB-IF).</strong> В отличие от проприетарных протоколов (Qualcomm Quick Charge, Huawei SuperCharge, OPPO VOOC), PD работает на всех устройствах с USB-C: от наушников до ноутбуков. Три версии протокола определяют, какую мощность и с какой гибкостью может выдавать зарядное устройство:</p>
+
+ <div class="overflow-x-auto mb-4">
+ <table class="w-full text-sm">
+ <thead class="bg-brandBlue text-white">
+ <tr><th class="p-3 text-left">Характеристика</th><th class="p-3 text-center">PD 3.0</th><th class="p-3 text-center">PD 3.1</th><th class="p-3 text-center text-green-600">PD 3.2 (2026)</th></tr>
+ </thead>
+ <tbody class="bg-white">
+ <tr class="border-b"><td class="p-3 font-bold">Макс. мощность</td><td class="p-3 text-center">100W</td><td class="p-3 text-center">240W (EPR)</td><td class="p-3 text-center text-green-600 font-bold">240W (EPR)</td></tr>
+ <tr class="border-b bg-slate-50"><td class="p-3 font-bold">AVS</td><td class="p-3 text-center">Нет</td><td class="p-3 text-center">Опционально</td><td class="p-3 text-center text-green-600 font-bold">Обязательно >27W</td></tr>
+ <tr class="border-b"><td class="p-3 font-bold">Сертификация</td><td class="p-3 text-center text-red-600">Прекращена</td><td class="p-3 text-center text-red-600">Закрыта с марта 2026</td><td class="p-3 text-center text-green-600 font-bold">Текущий стандарт</td></tr>
+ <tr><td class="p-3 font-bold">Применение в 2026</td><td class="p-3 text-center">Только non-USB-C рынки</td><td class="p-3 text-center">Ранее сертифицированные модели</td><td class="p-3 text-center text-green-600 font-bold">Все новые продукты</td></tr>
+ </tbody>
+ </table>
+ </div>
+
+ <h3 class="font-black text-brandBlue uppercase mb-3">4 режима зарядки: SPR, EPR, PPS, AVS</h3>
+ <div class="overflow-x-auto mb-4">
+ <table class="w-full text-sm">
+ <thead class="bg-brandBlue text-white">
+ <tr><th class="p-3 text-left">Режим</th><th class="p-3 text-center">Мощность</th><th class="p-3 text-left">Напряжения</th><th class="p-3 text-left">Для каких устройств</th></tr>
+ </thead>
+ <tbody class="bg-white">
+ <tr class="border-b"><td class="p-3 font-bold">SPR</td><td class="p-3 text-center">до 100W</td><td class="p-3">5/9/15/20V</td><td class="p-3">Смартфоны, планшеты, ультрабуки</td></tr>
+ <tr class="border-b bg-slate-50"><td class="p-3 font-bold">EPR</td><td class="p-3 text-center">100-240W</td><td class="p-3">28/36/48V</td><td class="p-3 text-green-600 font-bold">Ноутбуки 16", игровые ПК, мониторы USB-C</td></tr>
+ <tr class="border-b"><td class="p-3 font-bold">PPS</td><td class="p-3 text-center">до 100W</td><td class="p-3">3.3-21V (шаг 20 мВ)</td><td class="p-3">Samsung Super Fast Charging, точная регулировка</td></tr>
+ <tr><td class="p-3 font-bold">AVS</td><td class="p-3 text-center">>27W обязательно</td><td class="p-3">9-20V (шаг 100 мВ)</td><td class="p-3 text-green-600 font-bold">Все PD 3.2 устройства >27W</td></tr>
+ </tbody>
+ </table>
+ </div>
+ <p class="text-slate-600 leading-relaxed"><strong>Главное изменение 2026:</strong> AVS стал обязательным для всех зарядок мощностью >27W. Если ваш OEM-поставщик использует PD-контроллер с фиксированными PDO без AVS, продукт не пройдёт сертификацию PD 3.2. Проверяйте спецификацию контроллера до подписания контракта.</p>
+ </div>
+ </div>
+</section>
+
+<!-- ===== [6] H2 #2: Требования ===== -->
+<section id="requirements-2026" class="mb-16">
+ <div class="max-w-4xl mx-auto px-6">
+ <div class="bg-slate-50 rounded-xl p-6 border border-slate-200 shadow-sm">
+ <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-6">2. Требования 2026: IEC 62680 и Сертификация USB-IF</h2>
+
+ <h3 class="font-black text-brandBlue uppercase mb-3">Региональные дедлайны обязательного USB-C</h3>
+ <div class="overflow-x-auto mb-4">
+ <table class="w-full text-sm">
+ <thead class="bg-brandBlue text-white">
+ <tr><th class="p-3 text-left">Регион</th><th class="p-3 text-center">Дата</th><th class="p-3 text-left">Что попадает</th></tr>
+ </thead>
+ <tbody class="bg-white">
+ <tr class="border-b"><td class="p-3 font-bold">ЕС</td><td class="p-3 text-center text-red-600 font-bold">28 апр 2026</td><td class="p-3">Все ноутбуки, IEC 62680, Декларация соответствия</td></tr>
+ <tr class="border-b bg-slate-50"><td class="p-3 font-bold">Южная Корея</td><td class="p-3 text-center text-red-600 font-bold">5 ноя 2026</td><td class="p-3">13 категорий устройств, SDoC через RRA</td></tr>
+ <tr><td class="p-3 font-bold">Саудовская Аравия</td><td class="p-3 text-center text-red-600 font-bold">1 апр 2026</td><td class="p-3">Фаза 2, ноутбуки, SASO IEC 62680, CoC</td></tr>
+ </tbody>
+ </table>
+ </div>
+
+ <h3 class="font-black text-brandBlue uppercase mb-3">USB-IF сертификация: 3 уровня тестирования</h3>
+ <p class="text-slate-600 leading-relaxed mb-4">USB-IF TID (Test ID), обязательный идентификатор, подтверждающий, что продукт прошёл тестирование в аккредитованной лаборатории. Три уровня: <strong>Level 1</strong> (дизайн, проверка схемотехники и PD-контроллера), <strong>Level 2</strong> (производство, проверка стабильности процесса), <strong>Level 3</strong> (соответствие, полный цикл сертификации). Знак «Certified USB» можно использовать только при полной сертификации Level 3.</p>
+ <p class="text-slate-600 leading-relaxed"><strong>Ключевые тесты PD 3.2:</strong> AVS-тест (регулирование с шагом 100 мВ), Shared Capacity (каждый порт ≥7.5W за 3 сек), Fast Role Swap (переключение ролей без прерывания питания), защиты OVP/OCP/OTP. WOWOHCOOL: все зарядки проходят Level 3 сертификацию USB-IF.</p>
+ </div>
+ </div>
+</section>
+
+<!-- ===== [6] H2 #3: Мощности ===== -->
+<section id="power-pricing" class="mb-16">
+ <div class="max-w-4xl mx-auto px-6">
+ <div class="bg-slate-50 rounded-xl p-6 border border-slate-200 shadow-sm">
+ <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-6">3. Мощности, Режимы и Цены FOB Shenzhen</h2>
+
+ <div class="overflow-x-auto mb-4">
+ <table class="w-full text-sm">
+ <thead class="bg-brandBlue text-white">
+ <tr><th class="p-3 text-left">Мощность</th><th class="p-3 text-center">Режим</th><th class="p-3 text-center">Порты</th><th class="p-3 text-center">Цена FOB</th><th class="p-3 text-center">MOQ</th><th class="p-3 text-left">Рынок РФ</th></tr>
+ </thead>
+ <tbody class="bg-white">
+ <tr class="border-b"><td class="p-3 font-bold">20-30W</td><td class="p-3 text-center">SPR</td><td class="p-3 text-center">1C</td><td class="p-3 text-center">$3-5</td><td class="p-3 text-center">500</td><td class="p-3">Смартфоны, 1,200-2,000 ₽</td></tr>
+ <tr class="border-b bg-slate-50"><td class="p-3 font-bold text-brandBlue">65W ⭐</td><td class="p-3 text-center">SPR + PPS</td><td class="p-3 text-center">2C1A</td><td class="p-3 text-center text-brandBlue font-bold">$5-7</td><td class="p-3 text-center">500</td><td class="p-3 text-brandBlue font-bold">⭐ Бестселлер: ноутбук+телефон, 2,500-4,500 ₽</td></tr>
+ <tr class="border-b"><td class="p-3 font-bold">100W</td><td class="p-3 text-center">SPR + PPS</td><td class="p-3 text-center">3C1A</td><td class="p-3 text-center">$7-9</td><td class="p-3 text-center">500</td><td class="p-3">MacBook Pro, игровые ноутбуки</td></tr>
+ <tr><td class="p-3 font-bold">140-240W</td><td class="p-3 text-center">EPR</td><td class="p-3 text-center">3C1A</td><td class="p-3 text-center">$9-14</td><td class="p-3 text-center">500</td><td class="p-3">Премиум, 140W, 65% поставок Q1 2026</td></tr>
+ </tbody>
+ </table>
+ </div>
+ <p class="text-slate-600 leading-relaxed"><strong>140W EPR, самый востребованный тир 2026.</strong> Заряжает MacBook Pro 16" на полной скорости, совместим со всеми устройствами USB-C. Если вы выходите на рынок ноутбучных зарядок, начинайте с 140W GaN PD 3.2 с E-Marker кабелем в комплекте.</p>
+
+ <div class="bg-brandBlue/5 border-l-4 border-brandOrange rounded-r-xl p-6 mt-6">
+ <p class="text-[11px] font-black text-brandOrange uppercase tracking-widest mb-2">Мнение Эксперта</p>
+ <blockquote class="text-slate-700 text-base italic leading-relaxed">«Самая частая ошибка 2026: заказать PD-контроллер без AVS. На бумаге, 65W. На деле, не проходит сертификацию PD 3.2, не держит точное напряжение, возвраты 15%+. Проверка спецификации контроллера до подписания контракта, 5 минут, которые экономят $20,000 на возвратах.»</blockquote>
+ <p class="text-sm text-slate-500 mt-2">, Nina Nico, Global Procurement & Sourcing Manager, WOWOHCOOL</p>
+ </div>
+ </div>
+ </div>
+</section>
+
+<!-- Inline Image: Product lineup -->
+<div class="max-w-4xl mx-auto px-6 mb-16">
+ <img src="/image/factory/02/process-08-functional-testing.webp" alt="Функциональное тестирование USB-C PD зарядных устройств на заводе WOWOHCOOL Шэньчжэнь, проверка PD 3.2 протокола, PPS AVS сертификация, OEM производство для импортёров РФ" width="1440" height="960" loading="lazy" decoding="async" class="w-full rounded-3xl shadow-xl">
+</div>
+
+<!-- ===== [6] H2 #4: E-Marker ===== -->
+<section id="emarker" class="mb-16">
+ <div class="max-w-4xl mx-auto px-6">
+ <div class="bg-slate-50 rounded-xl p-6 border border-slate-200 shadow-sm">
+ <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-6">4. E-Marker Кабели и EPR 240W, Что Нужно Знать</h2>
+ <p class="text-slate-600 leading-relaxed mb-4"><strong>E-Marker, микрочип внутри разъёма USB-C кабеля, который сообщает зарядному устройству максимальные параметры кабеля.</strong> Без E-Marker чипа кабель по умолчанию ограничен 3A (60W при 20V). С E-Marker чипом: 5A (100W при 20V). С EPR E-Marker: 5A до 48V (240W).</p>
+
+ <div class="overflow-x-auto mb-4">
+ <table class="w-full text-sm">
+ <thead class="bg-brandBlue text-white">
+ <tr><th class="p-3 text-left">Тип кабеля</th><th class="p-3 text-center">Ток</th><th class="p-3 text-center">Макс. мощность</th><th class="p-3 text-left">Для каких зарядок</th></tr>
+ </thead>
+ <tbody class="bg-white">
+ <tr class="border-b"><td class="p-3">Без E-Marker (3A)</td><td class="p-3 text-center">3A</td><td class="p-3 text-center">60W (20V)</td><td class="p-3">20-45W, смартфоны</td></tr>
+ <tr class="border-b bg-slate-50"><td class="p-3 font-bold">E-Marker 5A (SPR)</td><td class="p-3 text-center">5A</td><td class="p-3 text-center">100W (20V)</td><td class="p-3">65-100W, ноутбуки, мультипорт</td></tr>
+ <tr><td class="p-3 font-bold text-green-600">EPR E-Marker</td><td class="p-3 text-center">5A</td><td class="p-3 text-center text-green-600 font-bold">240W (48V)</td><td class="p-3 text-green-600 font-bold">140-240W, игровые ноутбуки, станции</td></tr>
+ </tbody>
+ </table>
+ </div>
+ <p class="text-slate-600 leading-relaxed"><strong>Для импортёра:</strong> если вы продаёте зарядку >100W, EPR E-Marker кабель должен быть в комплекте. Без него зарядка ограничена 100W, и покупатель с MacBook Pro 16" получит медленную зарядку, возврат. USB-IF TID сертификация кабеля подтверждает подлинность E-Marker чипа. WOWOHCOOL: все зарядки 100W+ комплектуются EPR E-Marker кабелем с USB-IF TID.</p>
+ </div>
+ </div>
+</section>
+
+<!-- ===== [6] H2 #5: EAC ===== -->
+<section id="eac" class="mb-16">
+ <div class="max-w-4xl mx-auto px-6">
+ <div class="bg-slate-50 rounded-xl p-6 border border-slate-200 shadow-sm">
+ <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-6">5. Сертификация EAC для РФ и ЕАЭС</h2>
+ <p class="text-slate-600 leading-relaxed mb-4">Для импорта USB-C PD зарядок в РФ и ЕАЭС обязательны два технических регламента Таможенного союза: <strong>ТР ТС 004/2011</strong> (безопасность низковольтного оборудования, hi-pot 3,000V AC, creepage ≥6.4 мм) и <strong>ТР ТС 020/2011</strong> (электромагнитная совместимость, расширенный EMI-тест до 1 ГГц для GaN-зарядок с частотой 300-500 кГц).</p>
+ <p class="text-slate-600 leading-relaxed">Бюджет EAC: <strong>€2,500-4,000</strong> за полный пакет из 3 регламентов (включая ТР ТС 037/2016 для зарядок со встроенным аккумулятором). Декларация о соответствии регистрируется в Росаккредитации на импортёра. Маркировка EAC, лазерная гравировка на корпусе (≥5 мм). WOWOHCOOL: сертификация EAC включена в OEM-проект. Подробнее, в нашем <a href="/ru/blog/sertifikaciya-zaryadnyh-ustroystv-oem/" class="text-brandBlue hover:text-brandOrange">руководстве по сертификации</a>.</p>
+ </div>
+ </div>
+</section>
+
+<!-- ===== [6] H2 #6: WOWOHCOOL ===== -->
+<section id="wowohcool-pd" class="mb-16">
+ <div class="max-w-4xl mx-auto px-6">
+ <div class="bg-slate-50 rounded-xl p-6 border border-slate-200 shadow-sm">
+ <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-6">6. Как WOWOHCOOL Производит USB-C PD Зарядки</h2>
+ <p class="text-slate-600 leading-relaxed mb-4">Все USB-C PD зарядки WOWOHCOOL производятся на PD 3.2 с полной поддержкой PPS, AVS и EPR до 240W. Мы используем PD-контроллеры от ведущих производителей с USB-IF TID Level 3 сертификацией. Процесс: подбор контроллера → дизайн PCB → прототипирование (5 дней) → сертификация EAC + USB-IF → массовое производство (25-30 дней) → 4-ступенчатый QC (IQC→IPQC→FQC→OQC, 100% aging test 4 часа) → отгрузка DDP до РФ.</p>
+ <p class="text-slate-600 leading-relaxed">Каждая зарядка тестируется на AVS-регулирование (шаг 100 мВ), Shared Capacity (каждый порт ≥7.5W за 3 сек), и совместимость со всеми целевыми устройствами рынка РФ. EPR E-Marker кабели с USB-IF TID, в комплекте для зарядок 100W+. Детальнее о производственном процессе, в нашем <a href="/ru/blog/proizvodstvo-oem-gan-v/" class="text-brandBlue hover:text-brandOrange">руководстве по OEM производству GaN V</a>.</p>
+ </div>
+ </div>
+</section>
+
+<!-- ===== [7] FAQ ===== -->
+<section id="faq" class="mb-16">
+ <div class="max-w-4xl mx-auto px-6">
+ <div class="bg-slate-50 rounded-2xl p-8 border border-slate-200 shadow-sm">
+ <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-8 text-center">Часто Задаваемые Вопросы</h2>
+ <div class="space-y-6 max-w-3xl mx-auto">
+ <div class="bg-white rounded-xl p-6 faq-answer">
+ <h3 class="font-black text-brandBlue mb-2">Что такое USB-C Power Delivery и какие версии бывают?</h3>
+ <p class="text-slate-600 text-sm">USB-C Power Delivery (PD), единый протокол быстрой зарядки через разъём USB-C. Версии: PD 3.0 (до 100W, сертификация прекращена), PD 3.1 (до 240W EPR, сертификация закрыта с марта 2026), PD 3.2 / IEC 62680-1-2:2026 (текущий стандарт, AVS обязателен для >27W). Для импортёра: все новые продукты с 2026 должны быть на PD 3.2.</p>
+ </div>
+ <div class="bg-white rounded-xl p-6 faq-answer">
+ <h3 class="font-black text-brandBlue mb-2">PD 3.0, 3.1 или 3.2, какую версию выбрать для OEM в 2026?</h3>
+ <p class="text-slate-600 text-sm">PD 3.2, единственный выбор для новых продуктов. PD 3.1 можно использовать только для моделей, сертифицированных до марта 2026. PD 3.0, только для non-USB-C рынков (Индия, Африка). Для ЕС с 28 апреля 2026 все ноутбуки обязаны быть на IEC 62680. WOWOHCOOL производит все зарядки на PD 3.2 с PPS, AVS и поддержкой EPR до 240W.</p>
+ </div>
+ <div class="bg-white rounded-xl p-6 faq-answer">
+ <h3 class="font-black text-brandBlue mb-2">Какие сертификаты нужны для USB-C PD зарядок в РФ?</h3>
+ <p class="text-slate-600 text-sm">Обязательные для РФ/ЕАЭС: EAC (ТР ТС 004/2011 + ТР ТС 020/2011), бюджет €2,500-4,000. USB-IF TID, международный стандарт, обязателен для совместимости. Для экспорта в ЕС: CE + IEC 62680. WOWOHCOOL: все сертификаты включены в OEM-проект, включая EAC.</p>
+ </div>
+ <div class="bg-white rounded-xl p-6 faq-answer">
+ <h3 class="font-black text-brandBlue mb-2">Что такое EPR 240W и нужен ли он моему продукту?</h3>
+ <p class="text-slate-600 text-sm">EPR (Extended Power Range), режим PD 3.1/3.2 для мощностей 100-240W (28/36/48V). Нужен для: игровых ноутбуков, рабочих станций, мониторов USB-C. Не нужен для: смартфонов, планшетов, ультрабуков до 65W. Требует кабель с E-Marker чипом (EPR-сертифицированным). 140W EPR, самый востребованный тир (65% поставок Q1 2026). WOWOHCOOL: полный ряд 20-240W с EPR.</p>
+ </div>
+ <div class="bg-white rounded-xl p-6 faq-answer">
+ <h3 class="font-black text-brandBlue mb-2">Сколько стоит USB-C PD зарядка оптом из Китая?</h3>
+ <p class="text-slate-600 text-sm">Цены FOB Shenzhen 2026: 20-30W PD $3-5/шт, 65W GaN PD $5-7/шт, 100W GaN PD $7-9/шт, 140W GaN PD 3.1 EPR $9-14/шт. Скидки: 500-1999 шт. = 8%, 2000-4999 = 12%, 5000+ = 18%. WOWOHCOOL: MOQ от 500 шт., образцы за 5 дней. Сертификация EAC включена.</p>
+ </div>
+ <div class="bg-white rounded-xl p-6 faq-answer">
+ <h3 class="font-black text-brandBlue mb-2">Что такое E-Marker кабель и зачем он нужен?</h3>
+ <p class="text-slate-600 text-sm">E-Marker, чип внутри USB-C кабеля, сообщающий зарядному устройству максимальные параметры: ток (3A или 5A), напряжение (до 20V SPR или до 48V EPR). Без EPR E-Marker кабеля зарядка ограничена 100W (20V/5A). Для 140-240W зарядок EPR E-Marker кабель обязателен. USB-IF TID сертификация кабеля подтверждает подлинность чипа.</p>
+ </div>
+ <div class="bg-white rounded-xl p-6 faq-answer">
+ <h3 class="font-black text-brandBlue mb-2">Какие дедлайны USB-C обязательности в 2026 году?</h3>
+ <p class="text-slate-600 text-sm">ЕС: 28 апреля 2026, все ноутбуки обязаны соответствовать IEC 62680 (Common Charger Directive). Южная Корея: 5 ноября 2026, 13 категорий устройств. Саудовская Аравия: 1 апреля 2026, Фаза 2 (ноутбуки). Индия: обсуждается, ожидается 2027. РФ: обязательных требований нет, но USB-C становится стандартом де-факто.</p>
+ </div>
+ <div class="bg-white rounded-xl p-6 faq-answer">
+ <h3 class="font-black text-brandBlue mb-2">Как WOWOHCOOL помогает с OEM USB-C PD зарядок?</h3>
+ <p class="text-slate-600 text-sm">WOWOHCOOL, завод с 2013 года: 5,000 м², ISO 9001, 50+ R&D, 200+ брендов. Полный цикл OEM: подбор PD-контроллера (PD 3.2 + PPS + AVS), дизайн корпуса и PCB, сертификация EAC включена. Все зарядки с EPR до 240W, E-Marker кабели в комплекте. MOQ от 500 шт., образцы за 5 дней, производство 25-30 дней. Свяжитесь для расчёта за 24 часа.</p>
+ </div>
+ </div>
+ </div>
+ </div>
+</section>
+
+<!-- ===== [8] Author Bio ===== -->
+<section id="author-bio" class="max-w-4xl mx-auto px-6">
+ <div class="bg-slate-50 rounded-2xl p-6 md:p-8 mb-12 border border-slate-100">
+ <div class="flex flex-col sm:flex-row items-start gap-4 sm:gap-6">
+ <div class="w-20 h-20 rounded-full overflow-hidden flex items-center justify-center border-2 border-brandOrange bg-white shadow-lg shrink-0">
+ <img src="/image/factory/team-nina.webp" alt="Nina Nico, Global Procurement & Sourcing Manager, специалист по OEM USB-C PD зарядным устройствам" loading="lazy" width="400" height="400" class="w-full h-full object-cover">
+ </div>
+ <div class="flex-1 min-w-0">
+ <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 mb-2 sm:mb-3">
+ <a href="https://www.linkedin.com/in/nico-power-bank-chargers" target="_blank" rel="noopener noreferrer" class="font-black text-slate-900 text-lg hover:text-brandOrange transition">Nina Nico</a>
+ <span class="px-2 py-1 bg-brandOrange/10 text-brandOrange text-[11px] font-black rounded-full uppercase w-fit">Автор</span>
+ </div>
+ <p class="text-sm text-slate-500 mb-3">Global Procurement & Sourcing Manager · 10+ лет в сорсинге 3C · EN, ZH</p>
+ <p class="text-slate-600 text-sm leading-relaxed">Nina Nico управляет цепочками поставок и OEM/ODM проектами для WOWOHCOOL из Шэньчжэня. За 10+ лет она запустила производство USB-C PD зарядных устройств для 200+ международных брендов. Специализируется на протоколах PD 3.2, PPS, AVS, сертификации USB-IF и выводе продуктов на рынки РФ и ЕАЭС.</p>
+ <div class="mt-4 pt-4 border-t border-slate-200">
+ <p class="text-xs text-slate-400 uppercase tracking-wider mb-2">Производственная База</p>
+ <div class="grid grid-cols-2 md:grid-cols-4 gap-3 text-sm">
+ <div><span class="font-black text-brandBlue">5 000 м²</span><p class="text-xs text-slate-500">ISO 9001</p></div>
+ <div><span class="font-black text-brandBlue">С 2013 г.</span><p class="text-xs text-slate-500">Шэньчжэнь, Китай</p></div>
+ <div><span class="font-black text-brandBlue">50+</span><p class="text-xs text-slate-500">Стран экспорта</p></div>
+ <div><span class="font-black text-brandBlue">50+ R&D</span><p class="text-xs text-slate-500">Инженеров</p></div>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+</section>
+
+<!-- ===== [9] CTA ===== -->
+<section class="max-w-4xl mx-auto px-6">
+ <div class="relative bg-gradient-to-br from-brandBlue to-slate-800 rounded-3xl p-10 text-center mb-16 overflow-hidden">
+ <div class="absolute top-0 right-0 w-64 h-64 bg-brandOrange/20 rounded-full blur-3xl"></div>
+ <div class="absolute bottom-0 left-0 w-64 h-64 bg-brandBlue-400/20 rounded-full blur-3xl"></div>
+ <div class="relative z-10">
+ <h2 class="text-2xl font-black text-white uppercase italic mb-4">Ваши USB-C PD Зарядки, PD 3.2, EPR 240W, EAC в Комплекте</h2>
+ <p class="text-slate-300 mb-8 max-w-xl mx-auto">Полный цикл OEM: PD-контроллеры с AVS, E-Marker кабели, сертификация USB-IF + EAC. MOQ от 500 шт. Рассчитаем ваш проект за 24 часа.</p>
+ <div class="flex flex-col sm:flex-row gap-4 justify-center">
+ <a href="/ru/kontakty/" class="w-full sm:flex-1 bg-brandOrange text-white px-8 py-4 rounded-xl font-black uppercase text-sm shadow-lg hover:-translate-y-1 transition">Запросить Прайс</a>
+ <a href="/ru/produkty/gan-zaryadnye-ustroystva/" class="w-full sm:flex-1 text-center border-2 border-white text-white px-8 py-4 rounded-xl font-black uppercase text-sm hover:bg-white hover:text-brandBlue transition">Смотреть Каталог</a>
+ </div>
+ </div>
+ </div>
+</section>
+
+<!-- ===== [10] Related Articles ===== -->
+<aside id="related-articles" class="max-w-4xl mx-auto px-6 mb-16">
+ <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-6">Похожие Статьи</h2>
+ <div class="grid md:grid-cols-3 gap-6">
+ <a href="/ru/blog/gan-zaryadnye-ustroystva-oem-rukovodstvo/" class="bg-slate-50 rounded-xl overflow-hidden hover:shadow-xl transition group">
+ <div class="h-2 bg-gradient-to-r from-brandBlue to-brandOrange"></div>
+ <div class="p-6">
+ <span class="text-xs font-black text-brandOrange uppercase mb-2 block">GaN Зарядки</span>
+ <h3 class="font-black text-brandBlue uppercase mb-2 group-hover:text-brandOrange transition text-sm">GaN Зарядные Устройства: Полное Руководство OEM 2026</h3>
+ <p class="text-slate-600 text-xs">Технология, поколения, мощности, цены FOB, сертификация EAC.</p>
+ </div>
+ </a>
+ <a href="/ru/blog/proizvodstvo-oem-gan-v/" class="bg-slate-50 rounded-xl overflow-hidden hover:shadow-xl transition group">
+ <div class="h-2 bg-gradient-to-r from-brandBlue to-brandOrange"></div>
+ <div class="p-6">
+ <span class="text-xs font-black text-brandOrange uppercase mb-2 block">Производство</span>
+ <h3 class="font-black text-brandBlue uppercase mb-2 group-hover:text-brandOrange transition text-sm">Производство OEM GaN V: от Дизайна до Отгрузки</h3>
+ <p class="text-slate-600 text-xs">5 этапов, NRE $7,000-15,000, 4-ступенчатый QC, кейс Bosch.</p>
+ </div>
+ </a>
+ <a href="/ru/blog/sertifikaciya-zaryadnyh-ustroystv-oem/" class="bg-slate-50 rounded-xl overflow-hidden hover:shadow-xl transition group">
+ <div class="h-2 bg-gradient-to-r from-brandOrange to-brandBlue"></div>
+ <div class="p-6">
+ <span class="text-xs font-black text-brandOrange uppercase mb-2 block">Сертификация</span>
+ <h3 class="font-black text-brandBlue uppercase mb-2 group-hover:text-brandOrange transition text-sm">Сертификация Зарядных Устройств: EAC, CE, UL 2026</h3>
+ <p class="text-slate-600 text-xs">Стоимость, сроки и документация для импортёров РФ, ЕС и США.</p>
+ </div>
+ </a>
+ </div>
+</aside>
+
+<!-- ===== [11] Sources ===== -->
+<section class="max-w-4xl mx-auto px-6 mb-16">
+ <h2 class="text-lg font-black text-brandBlue uppercase italic mb-4">Источники</h2>
+ <ul class="text-sm text-slate-600 space-y-2 list-disc pl-5">
+ <li><a href="https://www.usb.org/" target="_blank" rel="noopener external" class="text-brandBlue hover:text-brandOrange">USB-IF, USB Power Delivery Specification R3.2 V1.1</a></li>
+ <li><a href="https://www.iec.ch/" target="_blank" rel="noopener external" class="text-brandBlue hover:text-brandOrange">IEC 62680-1-2:2026, Universal Serial Bus Power Delivery</a></li>
+ <li><a href="https://docs.cntd.ru/" target="_blank" rel="noopener external" class="text-brandBlue hover:text-brandOrange">ТР ТС 004/2011, О безопасности низковольтного оборудования</a></li>
+ <li><a href="https://docs.cntd.ru/" target="_blank" rel="noopener external" class="text-brandBlue hover:text-brandOrange">ТР ТС 020/2011, Электромагнитная совместимость технических средств</a></li>
+ <li><a href="https://www.wowohcool.com/ru/o-kompanii/" class="text-brandBlue hover:text-brandOrange">WOWOHCOOL, Завод-производитель зарядных устройств с 2013 года</a></li>
+ </ul>
+</section>
+
+</article>
+
+<!-- ===== [12] Blog CTA Partial ===== -->
+{%- set ctaLabel = "USB-C PD Зарядки OEM" %}
+{%- set ctaHeading1 = "Ваши USB-C PD" %}
+{%- set ctaHeading2 = "Зарядки с EAC" %}
+{%- set ctaSubtext = "Полный цикл OEM: PD 3.2 + PPS + AVS, EPR до 240W, E-Marker кабели. Сертификация USB-IF + EAC включена. MOQ от 500 шт." %}
+{%- set ctaSubject = "Запрос каталога USB-C PD зарядок OEM" %}
+{%- set ctaButton = "Запросить Расчёт" %}
+{% include "partials/blog-cta.njk" %}
+{% endblock %}
