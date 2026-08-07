@@ -126,35 +126,57 @@
 
 ## 二、核心工作流：从 0 到发布一篇新文章（SEO+GEO 完整版）
 
+### ⚠️ 执行顺序铁律
+
+**所有会改动内容的步骤必须在 `/optimize`（最终 SEO 验证）之前完成。** `/optimize` 之后只做 `/scrub`（去 AI 痕迹）和发布。
+
+```
+内容改动步骤（顺序可调，但必须在 /optimize 之前）
+  ├── /write-b2b          ← 创作主体
+  ├── /b2b-audit + 修复   ← B2B 质量验证
+  └── /geo-citability + 修复 ← GEO 引用优化
+         ↓
+      【所有内容改动在此截止】
+         ↓
+  /optimize               ← 最终 SEO 验证（覆盖全部累积改动）
+         ↓
+  /scrub                   ← 去 AI 痕迹
+         ↓
+  发布
+```
+
+**为什么 `/optimize` 必须最后**：如果 `/optimize` 之后又用 `/geo-citability` 改内容（如我们 2026-08-07 的实操），改完直接发布就跳过了 SEO 验证。虽然本次 3 处 GEO 改动都是增强型（additive）、实际未损害 SEO，但这是侥幸——流程上存在验证盲区。
+
 ### 完整流程（推荐，40-80 min 完成）
 
 ```
 第1步: /research [topic]              → 研究简报
-第2步: /write [topic]                 → 完整文章 + 5 个 Agent 自动优化（含 B2B 质量门）
-第3步: /optimize [file]               → SEO 精修（纯 SEO，不含 B2B 检查）
-第4步: /scrub [file]                  → 去 AI 味（最终清理）
-第5步: /b2b-audit [file] (可选)       → B2B 专项审计（15 项检查）← B2B 文章必跑
-第6步: geo-citability                 → AI 引用可能性检查 ← GEO 新增
-第7步: 根据 citability/B2B 反馈修改文章 → 补齐 AI 引用要素 + B2B 质量问题
-第8步: 手动转 Nunjucks + 发布
+第2步: /write-b2b [topic]             → 完整 .njk 文章（13-panel + Schema 7-node）
+第3步: /b2b-audit [file]              → B2B 专项审计（15 项检查），< 90 分必须修复
+第4步: /geo-citability [file]          → AI 引用可能性评分，< 70 必须修复弱块
+第5步: /b2b-audit [file] (重跑)       → 确认 GEO 修复未损害 B2B 指标
+第6步: /optimize [file]               → 🔒 最终 SEO 验证（覆盖全部累积改动）
+第7步: /scrub [file]                  → 去 AI 痕迹（/optimize 之后唯一允许的改动）
+第8步: 部署                           → git add + commit + push → Cloudflare Pages
 ```
 
 ### 流程图解
 
 ```
-┌─────────────┐    ┌──────────────┐    ┌──────────────┐    ┌────────────┐
-│ /research   │ →  │  /write      │ →  │  /optimize   │ →  │  /scrub    │
-│ SERP分析    │    │  5 Agent并行  │    │  纯SEO≥80分  │    │  去AI痕迹  │
-│ 竞品差距    │    │  质量门自检   │    │  Schema验证  │    │  人性化    │
-└─────────────┘    └──────────────┘    └──────────────┘    └────────────┘
-                                                                │
-                                                                ▼
-┌─────────────┐    ┌──────────────┐    ┌──────────────┐    ┌────────────┐
-│ 发布        │ ←  │ npm run build│ ←  │  转 Nunjucks │ ←  │ geo-       │
-│ git push   │    │  本地验证     │    │  Schema+HTML │    │ citability │
-│ CF部署      │    │              │    │  hreflang    │    │ AI引用评分 │
-└─────────────┘    └──────────────┘    └──────────────┘    └────────────┘
-                                     ↑  B2B 文章在 /scrub 后加 /b2b-audit
+┌─────────────┐    ┌──────────────┐    ┌──────────────┐    ┌───────────────┐
+│ /research   │ →  │ /write-b2b   │ →  │ /b2b-audit   │ →  │ geo-          │
+│ SERP分析    │    │ 13-panel     │    │ 15项检查     │    │ citability    │
+│ 竞品差距    │    │ Schema 7节点  │    │ <90 修复     │    │ <70 修复      │
+└─────────────┘    └──────────────┘    └──────────────┘    └───────────────┘
+                                                                  │
+                                              ┌───────────────────┘
+                                              ▼
+┌─────────────┐    ┌──────────────┐    ┌──────────────┐    ┌───────────────┐
+│ 发布        │ ←  │  /scrub      │ ←  │  /optimize   │ ←  │ /b2b-audit    │
+│ git push   │    │  去AI痕迹    │    │  🔒最终验证  │    │ (确认无损害)  │
+│ CF部署      │    │  最终清理    │    │  SEO≥80     │    │               │
+└─────────────┘    └──────────────┘    └──────────────┘    └───────────────┘
+                  ↑ 所有内容改动在 /optimize 之前截止 ↑
 ```
 
 ### 第 1 步：`/research [topic]` — 调研先行
@@ -268,6 +290,7 @@ RU: /research "OEM производитель power bank"
 /analyze-existing [URL]    → 了解当前健康度
 /optimize [file]           → 获取具体优化建议
 手动修改 Nunjucks           → 在 wowohcool.com 站点源码中改
+/scrub [file]              → 去 AI 痕迹
 npm run build && git push  → 部署
 ```
 
@@ -601,22 +624,25 @@ python research_priorities_comprehensive.py  # 全面优先级矩阵（所有数
 ## 十、命令执行顺序速查卡
 
 ### 🆕 创建新文章（SEO + GEO + B2B 完整版）
+
+**⚠️ 铁律：所有内容改动在 `/optimize` 之前完成。`/optimize` 之后只做 `/scrub` + 发布。**
+
 ```
-/research "keyword"
-  → /write "keyword"           （自动触发 Content Analyzer + 4 Agent + /scrub + B2B 质量门）
-    → /optimize drafts/xxx.md  （纯 SEO，目标 ≥ 80 分，自动触发 5 Agent）
-      → /scrub drafts/xxx.md   （最终去 AI 味——/optimize Agent 可能引入新痕迹）
-        → /b2b-audit drafts/xxx.md  （B2B 文章必跑，15 项检查）
-          → geo-citability      （目标 citability ≥ 70）
-            → 根据反馈修改
-              → 转 Nunjucks → npm run build → git push
+/research "keyword"                    → 研究简报
+  → /write-b2b [topic]                → 完整 .njk（13-panel + Schema 7-node）
+    → /b2b-audit [file]               → < 90 必须修复
+      → geo-citability                → < 70 必须修复弱块
+        → /b2b-audit [file] (重跑)     → 确认 GEO 修复未损害 B2B 指标
+          → /optimize [file]           → 🔒 最终 SEO 验证（目标 ≥ 80）
+            → /scrub [file]            → 去 AI 痕迹（最终清理）
+              → 部署                   → git add + commit + push
 ```
 
 ### 🔧 优化已有文章
 ```
-/analyze-existing URL → /optimize file → geo-citability → 手动改 Nunjucks → build → push
+/analyze-existing URL → /optimize file → /scrub → geo-citability → 手动改 Nunjucks → build → push
 ```
-> B2B 文章额外跑 `/b2b-audit file` 做专项质量检查
+> B2B 文章额外跑 `/b2b-audit file` 做专项质量检查。如果 geo-citability 后改了内容，重跑 `/optimize` 验证。
 
 ### 🔄 重写旧文章
 ```
@@ -637,11 +663,11 @@ python seo_baseline_analysis.py → /performance-review → 制定行动计划
 
 ### 🌐 多语言扩展
 ```
-EN: /research → /write → /optimize → /scrub → /b2b-audit → geo-citability → 发布
-DE: /research(德语) → /write → 同上（独立执行，不是翻译）
-ES: /research(西语) → /write → 同上
-FR: /research(法语) → /write → 同上
-RU: /research(俄语) → /write → 同上
+EN: /research → /write-b2b → /b2b-audit → geo-citability → /b2b-audit(重跑) → /optimize → /scrub → 发布
+DE: /research(德语) → /write-b2b → 同上（独立执行，不是翻译）
+ES: /research(西语) → /write-b2b → 同上
+FR: /research(法语) → /write-b2b → 同上
+RU: /research(俄语) → /write-b2b → 同上
 ```
 
 ### 🤖 GEO 季度审计
