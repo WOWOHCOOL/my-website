@@ -69,10 +69,12 @@ Must be the FIRST block after frontmatter, inside `{% block head_schema %}`:
 ```
 
 **Critical rules**:
+- `Organization.areaServed` = `["US","DE","AT","CH","UK","FR","ES","EU","JP","KR","AU","MX","CO","AR","CL","PE"]` — global list, NEVER single-region
 - `BlogPosting.author` = `{"@id": "https://www.wowohcool.com/{lang}/#author-id"}` — NEVER inline Person
 - `Person.worksFor` = `{"@id": "https://www.wowohcool.com/{lang}/#organization"}` — NEVER inline Organization
 - `BlogPosting.speakable.cssSelector` = `["h1", ".speakable"]` — NEVER use `["h1", "h2"]`
 - `FAQPage.speakable.cssSelector` = `[".faq-answer"]` — independent from BlogPosting
+- **Cover image**: `<img src="{IMAGE}">` only — NO `srcset`, NO `sizes`, NO variant (`-800`/`-1200`) files
 - Breadcrumb item[3] URL = canonical URL — must match exactly
 - All URLs end with `/`
 - `wordCount` = integer, no quotes
@@ -128,7 +130,7 @@ Must be the FIRST block after frontmatter, inside `{% block head_schema %}`:
 
 <!-- ===== [3] Featured Image ===== -->
 <div class="max-w-4xl mx-auto px-6 mb-16">
- <img src="{IMAGE}" srcset="{IMAGE} 2240w" sizes="(max-width: 768px) 100vw, 896px"
+ <img src="{IMAGE}"
       alt="{B2B keyword alt text}" width="2240" height="1260"
       loading="eager" decoding="async" class="w-full rounded-3xl shadow-xl" fetchpriority="high">
 </div>

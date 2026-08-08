@@ -1,6 +1,6 @@
 # WOWOHCOOL Factory Data — Single Source of Truth
 
-> **Scope**: All articles across DE/EN/ES/FR sites must use these numbers. No exceptions.
+> **Scope**: All articles across EN/DE/ES/FR/RU sites must use these numbers. No exceptions.
 > **Last Updated**: 2026-07-24
 > **Authority**: Dong Yi Technology Co., Ltd (WOWOHCOOL) — ISO 9001 certified manufacturer since 2013.
 > **Update Cycle**: FOB pricing + freight rates quarterly; certification costs annually; MOQ/lead times quarterly.
@@ -45,6 +45,23 @@
 | Facebook | https://www.facebook.com/wowohcoolelectronic |
 | YouTube | https://www.youtube.com/@WOWOHCOOL |
 | X (Twitter) | https://x.com/wowohcool |
+
+### 1.3 Site Architecture — Language-Specific URLs (Mandatory for Schema)
+
+> **BUG PREVENTION**: Every `.njk` article's Schema `Organization.url` and `Organization.publishingPrinciples` MUST use the language-specific about page path below. Do NOT guess — copy from this table.
+
+| Language | Lang Code | Site Prefix | About Page Path | Organization.url (Schema) |
+|----------|:---------:|-------------|-----------------|--------------------------|
+| English | `en` | (root) | `/about/` | `https://www.wowohcool.com/about/` |
+| Deutsch | `de` | `/de/` | `/de/ueber-uns/` | `https://www.wowohcool.com/de/ueber-uns/` |
+| Español | `es` | `/es/` | `/es/sobre-nosotros/` | `https://www.wowohcool.com/es/sobre-nosotros/` |
+| Français | `fr` | `/fr/` | `/fr/a-propos/` | `https://www.wowohcool.com/fr/a-propos/` |
+| Русский | `ru` | `/ru/` | `/ru/o-kompanii/` | `https://www.wowohcool.com/ru/o-kompanii/` |
+
+**Also applies to:**
+- `BlogPosting.citation[].url` — when citing WOWOHCOOL itself as a source
+- `<a href>` in the Sources section
+- **DO NOT** use `/about/` for non-EN languages — every language has its own localized about page slug
 
 ---
 

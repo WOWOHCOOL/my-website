@@ -717,7 +717,7 @@ The `b2b_content_auditor.py` module performs 13 automated checks against these s
 | 14 | **Schema Validation** | Parse JSON-LD for syntax errors, missing required fields, trailing-slash consistency, `.speakable` class ↔ `SpeakableSpecification` alignment, TOC-FAQ anchor match. **v2 required fields**: Organization (`legalName`, `url`, `publishingPrinciples`, `logo`, `contactPoint`, `address`, `telephone`, `email`), Person (`@id`, `sameAs`), BlogPosting (`author` as `@id` ref, not inline Person; `@id`; `keywords`; `articleSection`), FAQPage (independent `speakable: [".faq-answer"]`), HowTo (`@id`) | Syntax error = -30, missing field = -15/ea, slash mismatch = -10, speakable mismatch = -5/-10, TOC-FAQ mismatch = -5/-10, inline author = -10, missing Organization address/phone/email = -5~10 |
 | 15 | **RESPUESTA RÁPIDA Detection** | Search for "RESPUESTA RÁPIDA" / "SCHNELLANTWORT" / "Quick Answer" blocks in HTML — duplicate of Key Takeaways, forbidden | Present = -25 (automatic deletion recommended) |
 | 16 | **Hook Duplicate Detection** | Scan Hook paragraph for repeated `<strong>`-tagged statistics or near-identical clauses within the same paragraph | Duplicate found = -15 |
-| 17 | **Featured Image srcset** | Verify `srcset` attribute with 3 breakpoints (800w/1200w/2240w) + `sizes` + `fetchpriority="high"` | Missing = -15/ea |
+| 17 | **Featured Image NO srcset** | Cover image must use `<img src="{IMAGE}">` only — NO `srcset`, NO `sizes`, NO variant (`-800`/`-1200`) files. Variant files don't exist and cause 404s for AI crawlers. | `srcset` present = -15, variant URL present = -15 |
 | 18 | **Organization Contact Completeness** | Organization node must include `address` (PostalAddress: streetAddress + addressLocality + addressRegion + postalCode + addressCountry), `contactPoint.telephone`, and `contactPoint.email`. B2B trust signal — missing fields weaken entity verification | Missing address = -10, missing telephone = -5, missing email = -5 |
 | 19 | **Citation ↔ Fuentes Alignment** | Schema `citation` array count must match visible Sources/Fuentes section link count. AI engines scan citation array directly for authority signals; under-reporting wastes GEO opportunities | Count mismatch = -10 |
 | 20 | **timeRequired ↔ Visible Display** | Schema `timeRequired` (ISO 8601) must match the visible reading time shown in the date row. Inconsistency is flagged as structured-data/visible-content mismatch by AI crawlers | Mismatch = -5 |
@@ -840,7 +840,7 @@ Before publishing, verify all elements:
 | **Speakable** | BlogPosting: `["h1", ".speakable"]` (3 nodes); FAQPage: `[".faq-answer"]` (independent). H1+Hook+Key Takeaways only; no H2 in selector; no `.speakable` on FAQ answers; `data-speakable` attribute deprecated | 🤖 |
 | **RESPUESTA RÁPIDA** | Must NOT exist — this block duplicates Key Takeaways content 60-95% and creates a 4th speakable anchor. Search for "RESPUESTA RÁPIDA" / "SCHNELLANTWORT" / "Quick Answer" — delete if found | Manual (grep) |
 | **Hook Duplicate** | Hook paragraph must not contain the same statistic or claim twice (e.g., "$1.200M market" appearing in two separate clauses). Read Hook aloud — any information repeated = edit | Manual |
-| **Featured Image** | Must include `srcset` (800w/1200w/2240w) + `sizes` + `fetchpriority="high"` for LCP optimization | 🤖 |
+| **Featured Image** | `<img src="{IMAGE}">` only — NO `srcset`, NO `sizes`, NO variant files. `fetchpriority="high"` optional. Variant files (`-800`/`-1200`) don't exist on disk and cause AI crawler 404s | 🤖 |
 | **Content Width** | All blocks from Featured Image through Sources must share a single `max-w-4xl mx-auto px-6` wrapper. No double-nested `max-w-4xl` wrappers (causes inconsistent margins) | Manual |
 | **Schema v2 — Organization** | `address` (PostalAddress: streetAddress + addressLocality + region + postalCode + country), `contactPoint.telephone`, `contactPoint.email` — B2B entity verification signals | 🤖 |
 | **Schema v2 — Citation** | `citation` array count must match visible Sources/Fuentes link count. Under-reporting wastes AI citation signals | Manual (count comparison) |
@@ -863,7 +863,7 @@ After automated checks pass, verify these items manually:
 [ ] .speakable class on Hook div + Key Takeaways TL;DR only? No speakable on FAQ answers or H2s
 [ ] BlogPosting schema cssSelector = ["h1", ".speakable"] (NOT ["h1", "h2", "[data-speakable]"])?
 [ ] FAQPage has its own independent speakable with [".faq-answer"]?
-[ ] Featured Image has srcset (800w/1200w/2240w) + sizes + fetchpriority="high"?
+[ ] Featured Image has NO srcset/sizes (variant files don't exist), but has fetchpriority="high"?
 [ ] All content blocks share consistent max-w-4xl width? (no double-nested wrappers)
 [ ] All H2 headings scanned — 3 seconds to understand complete value?
 [ ] ≥2 H2s contain B2B signal words? No 3 consecutive H2s with same B2B word?
@@ -1047,7 +1047,7 @@ For multi-language B2B sites (DE/EN/ES/FR), every article must declare bidirecti
 
 ### 12.4 Static Asset Integrity for GEO
 
-- All images use `srcset` with 3 breakpoints (800w / 1200w / 2240w) + explicit `width`/`height` attributes
+- Featured image uses single `<img src="...">` (NO `srcset`, NO `sizes` — variant files don't exist) + explicit `width`/`height` attributes
 - `fetchpriority="high"` on featured image only
 - `<cite>` and `<data>` semantic tags required for all standards references and measurements (see §III.1)
 - `.speakable` CSS class for Schema speech anchors on Hook + Key Takeaways TL;DR (exactly 3 nodes: H1 + 2×.speakable). BlogPosting cssSelector: `["h1", ".speakable"]`. FAQPage has independent speakable via `[".faq-answer"]`. `data-speakable` attribute is deprecated.
@@ -1109,7 +1109,7 @@ Content quality alone does not guarantee search visibility. The following Core W
 - [ ] Featured image has explicit `width`/`height` attributes (prevents CLS)
 - [ ] Featured image uses `loading="eager"` + `fetchpriority="high"` (LCP optimization)
 - [ ] Below-fold images use `loading="lazy"` (reduces initial bandwidth)
-- [ ] `srcset` with 3 breakpoints for responsive delivery (800w / 1200w / 2240w)
+- [ ] NO `srcset` / `sizes` on featured image — variant files (`-800`/`-1200`) don't exist, cause AI crawler 404s
 - [ ] No layout shift from dynamically injected content (ads, cookie banners, chat widgets)
 - [ ] Tailwind purge removes unused CSS (already configured in `npm run build:css`)
 
