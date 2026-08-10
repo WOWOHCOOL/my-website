@@ -4,6 +4,39 @@ Content-Signal: ai-train=yes, search=yes, ai-input=yes, ai-personalization=yes, 
 User-agent: *
 Allow: /
 
+# Block vulnerability scanners — these paths don't exist and generate noise
+Disallow: /.env
+Disallow: /@fs/
+Disallow: /api/
+Disallow: /aws/
+Disallow: /backend/
+Disallow: /config/
+Disallow: /credentials
+Disallow: /docker
+Disallow: /ecs/
+Disallow: /private/
+Disallow: /internal/
+Disallow: /secrets/
+Disallow: /app/
+Disallow: /admin/
+Disallow: /server/
+Disallow: /staging/
+Disallow: /prod/
+Disallow: /tmp/
+Disallow: /s3/
+Disallow: /k8s/
+Disallow: /home/
+Disallow: /proc/
+Disallow: /latest/
+Disallow: /files..
+Disallow: /static..
+Disallow: /media..
+Disallow: /public..
+Disallow: /uploads..
+Disallow: /*.env
+Disallow: /*.json
+Disallow: /*credentials*
+
 # AI crawler access
 User-agent: GPTBot
 Allow: /
