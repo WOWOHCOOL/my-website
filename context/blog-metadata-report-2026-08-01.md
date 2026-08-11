@@ -1,7 +1,7 @@
 # wowohcool.com 博客元数据报告
 
-**生成日期**: 2026-08-09 (FR +1, RU +1 — 物流主题 5 站全覆盖)  
-**语言站点**: EN (30篇) · DE (30篇) · ES (30篇) · FR (13篇已发布 + 16篇计划) · RU (12篇已发布 + 1篇文件夹 + 17篇计划) · 合计 115 篇 (计划 149 篇)  
+**生成日期**: 2026-08-09 (FR +1, RU +1 — 物流主题 5 站全覆盖) · **更新**: 2026-08-11 (FR +2, RU +2 — 质量控制 + 进口成本)  
+**语言站点**: EN (30篇) · DE (30篇) · ES (30篇) · FR (15篇已发布 + 15篇计划) · RU (15篇已发布 + 15篇计划) · 合计 120 篇 (计划 150 篇)  
 **数据来源**: 各站点 `src/{lang}/blog/*/index.njk` frontmatter + H1 模板标签
 
 ---
@@ -133,8 +133,10 @@
 | 11 | [/fr/blog/securite-chargeurs-normes-oem/](https://www.wowohcool.com/fr/blog/securite-chargeurs-normes-oem/) | Normes Securite Chargeurs 2026: Guide Conformite pour Importateur OEM \| WOWOHCOOL | Normes securite chargeurs 2026: IEC 62368-1, UL 94 V-0, protection 10 couches. Certification CE/ErP (2 500-4 000EUR) incluse. 5 cas de rappel analyses. Donnees usine ISO 9001. | Normes de Securite des Chargeurs 2026: Guide Conformite pour Importateur OEM | Securite, Normes, IEC 62368-1, UL 94, CE, Conformite, Chargeur, OEM |
 | 12 | [/fr/blog/certifications-chargeurs-oem-guide/](https://www.wowohcool.com/fr/blog/certifications-chargeurs-oem-guide/) | Certifications Chargeurs: Guide UL, CE, FCC pour Importateurs OEM | Guide certification chargeur OEM 2026: CE, UL, FCC, RoHS. Coûts $2.500-4.500, 4-8 sem. GPSR et DGCCRF obligatoires. Devis OEM avec certifications incluses. | Certifications Chargeurs: Guide UL, CE, FCC pour Importateurs OEM | Certification, UL, CE, FCC, Marquage CE, Conformité, OEM, Importateur, DGCCRF, GPSR, RoHS |
 | 13 | [/fr/blog/expedition-chine-logistique-oem/](https://www.wowohcool.com/fr/blog/expedition-chine-logistique-oem/) | Expédition Chine OEM 2026: Logistique et DDP pour Importateurs | Expédition chargeurs et batteries externes de Chine en France 2026: FOB vs DDP, fret maritime/ferroviaire/aérien, dédouanement CE et UN38.3, calcul coût atterri | Expédition Chine OEM 2026: Logistique, Dédouanement et DDP pour Importateurs | Expédition, Chine, Logistique, DDP, FOB, Dédouanement, CE, UN38.3, Importateur, OEM, Fret |
+| 14 | [/fr/blog/controle-qualite-usines-chinoises-oem/](https://www.wowohcool.com/fr/blog/controle-qualite-usines-chinoises-oem/) | Contrôle Qualité Chine: Guide IQC-IPQC-FQC-OQC pour Importateurs OEM 2026 | Guide contrôle qualité usines chinoises pour importateurs: processus 4 niveaux (IQC/IPQC/FQC/OQC), table AQL, certification ISO 9001. Coûts 2026. | Contrôle Qualité Chine: Guide IQC-IPQC-FQC-OQC pour Importateurs OEM 2026 | Contrôle Qualité, Chine, QC, IQC, Audit, AQL, ISO 9001, OEM, Importateur |
+| 15 | [/fr/blog/couts-import-chine-droits-douane-oem/](https://www.wowohcool.com/fr/blog/couts-import-chine-droits-douane-oem/) | Coûts Import Chine OEM: Droits de Douane et Taxes 2026 | Guide coûts import Chine 2026: droits douane, TVA, code HS, FOB vs DDP, coût atterri chargeurs et batteries externes. Conformité DGCCRF. | Coûts Import Chine OEM: Guide Droits de Douane, Taxes et Coût Atterri 2026 | Coûts Import, Chine, Droits Douane, TVA, HS Code, DDP, FOB, OEM, Importateur, DGCCRF |
 
-**FR 覆盖状态**: 13/29 篇已发布（其中 4 篇为 Schema v2 + 13-panel 标准：oem-vs-odm, qi2-vs-magsafe, securite-chargeurs, certifications-chargeurs-oem）。
+**FR 覆盖状态**: 15/30 篇已发布（其中 4 篇为 Schema v2 + 13-panel 标准：oem-vs-odm, qi2-vs-magsafe, securite-chargeurs, certifications-chargeurs-oem）。
 
 ### 4.2 FR 优化策略（基于 EN/DE/ES 三站经验）
 
@@ -158,14 +160,14 @@
 | 6 | Tendances Marché 2026 | `tendances-marche-chargeurs-2026-oem` | charging-accessory-market-trends-2026 | Phase 1 |
 | 7 | Audit Usine Chine | `audit-usine-chine-chargeurs-oem` | how-to-choose-factory | Phase 3 |
 | 8 | Checklist Vérification | `checklist-verification-usine-chine-oem` | factory-verification-checklist | Phase 3 |
-| 9 | Contrôle Qualité | `controle-qualite-usines-chinoises-oem` | quality-control-guide | Phase 1 |
+| 9 | Contrôle Qualité | `controle-qualite-usines-chinoises-oem` | quality-control-guide | ✅ 已发布 |
 | 10 | mAh Batterie Externe | `mAh-batterie-externe-guide-oem` | power-bank-mah-explained | Phase 2 |
 | 11 | Choisir Batterie Externe | `choisir-batterie-externe-oem-guide` | how-to-choose-power-bank | Phase 3 |
 | 12 | Batterie Marque Blanche | `batterie-externe-marque-blanche-oem` | power-bank-private-label-oem-production | Phase 3 |
 | 13 | Fabricants Batterie Chine | `fabricants-batterie-externe-chine-oem` | top-power-bank-manufacturers-china | Phase 3 |
 | 14 | Batterie Semi-Solide | `batterie-semi-solide-oem-guide` | semi-solid-state-power-bank-oem | Phase 2 |
 | 15 | Expédition Chine | `expedition-chine-logistique-oem` | shipping-from-china-guide | ✅ 已发布 |
-| 16 | Coûts Import Chine | `couts-import-chine-droits-douane-oem` | import-costs-guide | Phase 1 |
+| 16 | Coûts Import Chine | `couts-import-chine-droits-douane-oem` | import-costs-guide | ✅ 已发布 |
 | 17 | Règlement UE Batteries | `reglement-ue-2023-1542-conformite-oem` | eu-battery-regulation-2023-1542-guide | Phase 1 |
 
 ### 4.4 FR 站点本土化质量门
@@ -180,7 +182,7 @@
 
 ### 4.5 FR 优先级
 
-**Phase 1 — 高流量 B2B 核心 (6 篇)**: Règlement UE 2023/1542, Tendances Marché 2026, Certifications Chargeurs, Coûts Import Chine, Expédition Chine, Contrôle Qualité
+**Phase 1 — 高流量 B2B 核心 (6 篇)**: Règlement UE 2023/1542, Tendances Marché 2026, Certifications Chargeurs ✅, Coûts Import Chine ✅, Expédition Chine ✅, Contrôle Qualité ✅
 
 **Phase 2 — 技术深度 (7 篇)**: Technologie GaN, GaN vs Silicium, Générations GaN, USB-C PD 3.1, Charge Sans Fil Qi2, Batterie Semi-Solide, mAh Batterie Externe
 
@@ -206,8 +208,11 @@
 | 10 | [/ru/blog/sertifikaciya-qi2-wpc-oem/](https://www.wowohcool.com/ru/blog/sertifikaciya-qi2-wpc-oem/) | Сертификация Qi2 OEM: Стоимость WPC и EAC для Импортёров 2026 | Сертификация Qi2 OEM 2026: стоимость WPC (Adopter $18K/год, ATL ~$17K), Qi-ID $750. Соответствие EAC (ТР ТС). Процесс для импортёров РФ. Данные завода ISO 9001. | Сертификация Qi2 для Импортёров: Полное Руководство WPC и EAC 2026 | 97.8 | 90 |
 | 11 | [/ru/blog/specifikacii-power-bank-oem/](https://www.wowohcool.com/ru/blog/specifikacii-power-bank-oem/) | Power Bank OEM: Технические Спецификации для Импортёров 2026 | Спецификации power bank для импортёров OEM: мАч (реальная vs номинальная), PD 3.1, типы аккумуляторов (Li-Po, LiFePO4, Semi-Solid). Сертификация EAC/UN38.3. Цены FOB от $4,80/шт, MOQ 500. | Power Bank OEM: Технические Спецификации для Импортёров 2026 | 97.5 | 90 |
 | 12 | [/ru/blog/dostavka-iz-kitaya-logistika-oem/](https://www.wowohcool.com/ru/blog/dostavka-iz-kitaya-logistika-oem/) | Доставка из Китая OEM 2026: Логистика и DDP для Импортёров | Доставка зарядных устройств и power bank из Китая в РФ 2026: FOB vs DDP, стоимость фрахта, таможня с EAC и UN38.3, оплата в юанях. Расчёт landed cost. | Доставка из Китая OEM 2026: Логистика, Таможня и DDP для Импортёров | Доставка, Китай, Логистика, DDP, FOB, Таможня, EAC, UN38.3, Импортёр, OEM |
+| 13 | [/ru/blog/sertifikaciya-upakovki-opasnyh-gruzov-litievye-batarei-oem/](https://www.wowohcool.com/ru/blog/sertifikaciya-upakovki-opasnyh-gruzov-litievye-batarei-oem/) | Сертификация Упаковки Опасных Грузов для Литиевых Батарей OEM: UN38.3 и Экспорт 2026 | Сертификация упаковки литиевых батарей для экспорта из Китая 2026: UN38.3,危包证, таможня, ADR/IMDG/IATA. Полный процесс от завода ISO 9001. MOQ от 500. | Сертификация Упаковки Опасных Грузов для Литиевых Батарей OEM: UN38.3 и Экспорт 2026 | Литиевые Батареи, Опасные Грузы, UN38.3, Упаковка, Сертификация, Экспорт, Китай |
+| 14 | [/ru/blog/kontrol-kachestva-zavody-kitay-oem/](https://www.wowohcool.com/ru/blog/kontrol-kachestva-zavody-kitay-oem/) | Контроль Качества в Китае: IQC-IPQC-FQC-OQC для Импортёров OEM 2026 | Контроль качества на заводах Китая для импортёров: процесс 4 уровня (IQC/IPQC/FQC/OQC), таблица AQL, сертификация ISO 9001. Стоимость 2026. | Контроль Качества в Китае: Руководство IQC-IPQC-FQC-OQC для Импортёров OEM | Контроль Качества, Китай, QC, IQC, Аудит, AQL, ISO 9001, OEM, Импортёр |
+| 15 | [/ru/blog/zatraty-import-kitay-poshliny-oem/](https://www.wowohcool.com/ru/blog/zatraty-import-kitay-poshliny-oem/) | Затраты на Импорт из Китая OEM: Пошлины, НДС, Таможня 2026 | Затраты на импорт из Китая 2026: пошлины, НДС 20%, код ТН ВЭД, FOB vs DDP, расчёт landed cost. Сертификация EAC. Для импортёров РФ и СНГ. | Затраты на Импорт из Китая OEM: Пошлины, НДС и Таможенное Оформление 2026 | Затраты, Импорт, Китай, Пошлины, НДС, ТН ВЭД, DDP, FOB, EAC, OEM, Импортёр |
 
-**RU 覆盖状态**: 12/30 篇已发布 + 1 篇文件夹 — #1-3 为初始 3 篇，#4-6 为 2026-08-07 新增，#7-9 为 2026-08-08 新增，#10-11 为 2026-08-08 新增（报告补充），#12 为 2026-08-09 新增（物流主题）。全部为 Schema v2 + 13-panel 标准。另有 1 篇文件夹（锂电池危包认证），待撰写。
+**RU 覆盖状态**: 15/30 篇已发布 — #1-3 为初始 3 篇，#4-6 为 2026-08-07 新增，#7-9 为 2026-08-08 新增，#10-11 为 2026-08-08 新增（报告补充），#12 为 2026-08-09 新增（物流），#13 为 2026-08-09 新增（锂电池危包认证），#14-15 为 2026-08-10 新增（质量控制 + 进口成本）。全部为 Schema v2 + 13-panel 标准。
 
 ### 5.2 Яндекс SEO 核心规则
 
@@ -235,7 +240,7 @@
 | 9 | Тенденции Рынка 2026 | `tendencii-rynka-zaryadnyh-ustroystv-2026-oem` | charging-accessory-market-trends-2026 | Фаза 3 |
 | 10 | Выбор Завода в Китае | `vybor-zavoda-kitay-audit-oem` | how-to-choose-factory | — |
 | 11 | Чек-лист Проверки Завода | `chek-list-proverki-zavoda-kitay-oem` | factory-verification-checklist | — |
-| 12 | Контроль Качества | `kontrol-kachestva-zavody-kitay-oem` | quality-control-guide | Фаза 1 |
+| 12 | Контроль Качества | `kontrol-kachestva-zavody-kitay-oem` | quality-control-guide | ✅ 已发布 |
 | 13 | Спецификации Power Bank | `specifikacii-power-bank-oem` | power-bank-specs-guide | ✅ 已发布 |
 | 14 | мАч Power Bank | `mAh-power-bank-rukovodstvo-oem` | power-bank-mah-explained | Фаза 2 |
 | 15 | Выбор Power Bank OEM | `power-bank-vybor-oem-rukovodstvo` | how-to-choose-power-bank | Фаза 3 |
@@ -243,15 +248,15 @@
 | 17 | Производители Power Bank | `proizvoditeli-power-bank-kitay-oem` | top-power-bank-manufacturers-china | — |
 | 18 | Полу-Твердотельный Power Bank | `polutverdotelnye-power-bank-oem` | semi-solid-state-power-bank-oem | Фаза 2 |
 | 19 | Доставка из Китая | `dostavka-iz-kitaya-logistika-oem` | shipping-from-china-guide | ✅ 已发布 |
-| 20 | Затраты на Импорт | `zatraty-import-kitay-poshliny-oem` | import-costs-guide | Фаза 1 |
+| 20 | Затраты на Импорт | `zatraty-import-kitay-poshliny-oem` | import-costs-guide | ✅ 已发布 |
 | 21 | Автомобильные Зарядки | `avtomobilnye-zaryadki-oem-rukovodstvo` | car-charger-guide | ✅ 已发布 |
 | 22 | Зарядки для Гостиниц | `zaryadnye-resheniya-gostinicy-oem` | hotel-charging-solutions | Фаза 3 |
 | 23 | Регламент ЕС Батареи | `reglament-es-2023-1542-batarei-oem` | eu-battery-regulation-2023-1542-guide | Фаза 3 |
-| 24 | Сертификация Упаковки Опасных Грузов (Литиевые Батареи) | `sertifikaciya-upakovki-opasnyh-gruzov-litievye-batarei-oem` | lithium-battery-dangerous-goods-packaging-certification | 📁 文件夹已创建 |
+| 24 | Сертификация Упаковки Опасных Грузов (Литиевые Батареи) | `sertifikaciya-upakovki-opasnyh-gruzov-litievye-batarei-oem` | lithium-battery-dangerous-goods-packaging-certification | ✅ 已发布 |
 
 ### 5.4 RU 优先级
 
-**Фаза 1 — Высокий спрос B2B (7 статей)**: Сертификация ЗУ (EAC) ✅, Стандарты Безопасности (IEC + ГОСТ) ✅, OEM vs ODM ✅, Затраты на Импорт 📁, Доставка из Китая 📁, Поиск Поставщиков ✅, Контроль Качества 📁
+**Фаза 1 — Высокий спрос B2B (7 статей)**: Сертификация ЗУ (EAC) ✅, Стандарты Безопасности (IEC + ГОСТ) ✅, OEM vs ODM ✅, Затраты на Импорт ✅, Доставка из Китая ✅, Поиск Поставщиков ✅, Контроль Качества ✅
 
 **Фаза 2 — Техническая глубина (8 статей)**: Технология GaN, GaN vs Кремний, Производство GaN V, USB-C PD 3.1, Беспроводная Зарядка, Полу-Твердотельные PB, мАч PB, GaN ЗУ (каталог)
 
@@ -295,7 +300,7 @@
 | **工厂选择** | how-to-choose-factory | fabrikauswahl-china-leitfaden | como-elegir-fabrica-china | audit-usine-chine-chargeurs-oem* | vybor-zavoda-kitay-audit-oem* |
 | **工厂审核清单** | factory-verification-checklist | fabrikpruefung-checkliste-importeure | verificacion-fabricas-checklist | checklist-verification-usine-chine-oem* | chek-list-proverki-zavoda-kitay-oem* |
 | **中国供应商筛选** | choose-reliable-china-charger-supplier | lieferanten-china-finden | proveedor-cargadores-china-fiable | fournisseurs-chargeurs-chine-oem ✅ | **poisk-postavshchikov-kitay-oem** ✅ |
-| **质量控制** | quality-control-guide | qualitaetskontrolle-china | control-calidad-fabricas-chinas | controle-qualite-usines-chinoises-oem* | kontrol-kachestva-zavody-kitay-oem 📁 |
+| **质量控制** | quality-control-guide | qualitaetskontrolle-china | control-calidad-fabricas-chinas | **controle-qualite-usines-chinoises-oem** ✅ | **kontrol-kachestva-zavody-kitay-oem** ✅ |
 | **Power Bank 规格** | power-bank-specs-guide | powerbank-spezifikationen | especificaciones-power-banks-importadores | batterie-externe-specifications-oem ✅ | **specifikacii-power-bank-oem** ✅ |
 | **Power Bank mAh** | power-bank-mah-explained | powerbank-mah-kapazitaet | power-bank-mah-explicado | mAh-batterie-externe-guide-oem* | mAh-power-bank-rukovodstvo-oem* |
 | **Power Bank 采购** | how-to-choose-power-bank | powerbank-beschaffung-leitfaden | como-elegir-power-bank | choisir-batterie-externe-oem-guide* | power-bank-vybor-oem-rukovodstvo* |
@@ -303,11 +308,11 @@
 | **中国 Power Bank 厂家** | top-power-bank-manufacturers-china | powerbank-hersteller-china-oem-partner | fabricante-power-banks-china-oem | fabricants-batterie-externe-chine-oem* | proizvoditeli-power-bank-kitay-oem* |
 | **半固态电池** | semi-solid-state-power-bank-oem | semi-solid-state-powerbank | baterias-semi-solid-state | batterie-semi-solide-oem-guide* | polutverdotelnye-power-bank-oem* |
 | **中国发货物流** | shipping-from-china-guide | oem-versand-aus-china-logistik | envio-desde-china-logistica | **expedition-chine-logistique-oem** ✅ | **dostavka-iz-kitaya-logistika-oem** ✅ |
-| **进口成本/关税** | import-costs-guide | ladegeraet-import-china-zoll-zertifikate | importar-cargadores-china-aduanas | couts-import-chine-droits-douane-oem* | zatraty-import-kitay-poshliny-oem 📁 |
+| **进口成本/关税** | import-costs-guide | ladegeraet-import-china-zoll-zertifikate | importar-cargadores-china-aduanas | **couts-import-chine-droits-douane-oem** ✅ | **zatraty-import-kitay-poshliny-oem** ✅ |
 | **车充 OEM** | car-charger-guide | autoladegeraet-ratgeber | cargador-coche-guia | chargeur-voiture-oem-guide ✅ | **avtomobilnye-zaryadki-oem-rukovodstvo** ✅ |
 | **酒店充电方案** | hotel-charging-solutions | hotelladegeraete-oem-loesungen | soluciones-carga-hoteles | solutions-recharge-hotellerie-oem* | zaryadnye-resheniya-gostinicy-oem* |
 | **EU 电池法规** | eu-battery-regulation-2023-1542-guide | eu-batterieverordnung-2023-1542-leitfaden | reglamento-ue-2023-1542-cumplimiento | reglement-ue-2023-1542-conformite-oem* | reglament-es-2023-1542-batarei-oem* |
-| **锂电池危包认证** | lithium-battery-dangerous-goods-packaging-certification | gefahrgutverpackung-lithium-batterien-export-zertifizierung | certificacion-embalaje-mercancias-peligrosas-baterias-litio | **certification-emballage-marchandises-dangereuses-batteries-lithium** ✅ | sertifikaciya-upakovki-opasnyh-gruzov-litievye-batarei-oem* |
+| **锂电池危包认证** | lithium-battery-dangerous-goods-packaging-certification | gefahrgutverpackung-lithium-batterien-export-zertifizierung | certificacion-embalaje-mercancias-peligrosas-baterias-litio | **certification-emballage-marchandises-dangereuses-batteries-lithium** ✅ | **sertifikaciya-upakovki-opasnyh-gruzov-litievye-batarei-oem** ✅ |
 
 > ✅ = 已发布  
 > \* = 计划中（slug 已确定，尚未创建）
@@ -318,17 +323,17 @@
 
 | 指标 | EN | DE | ES | FR | RU | 合计 |
 |---|---|---|---|---|---|---|
-| 已发布 | 30 | 30 | 30 | 13 | 12 (+1 📁) | **115** |
-| 计划中 | 0 | 0 | 0 | 16 | 17 | **33** |
-| 目标总量 | 30 | 30 | 30 | 29 | 30 | **149** |
-| Title 均含 B2B 信号词 | 30 | 30 | 30 | 13 | 12 | **115 (100%)** |
-| Schema v2 + 13-panel | 0 | 0 | 0 | 4 | 12 | **16** |
+| 已发布 | 30 | 30 | 30 | 15 | 15 | **120** |
+| 计划中 | 0 | 0 | 0 | 15 | 15 | **30** |
+| 目标总量 | 30 | 30 | 30 | 30 | 30 | **150** |
+| Title 均含 B2B 信号词 | 30 | 30 | 30 | 15 | 15 | **120 (100%)** |
+| Schema v2 + 13-panel | 0 | 0 | 0 | 4 | 15 | **19** |
 
 ### 语言覆盖
 
 - EN/DE/ES: 29 个主题三语完整覆盖
-- FR: 13/30 个主题已发布（4 篇为 Schema v2 标准），16 篇计划中
-- RU: 12/30 个主题已发布（全部为 Schema v2 + 13-panel 标准），1 篇文件夹（锂电池危包认证），17 篇计划中
+- FR: 15/30 个主题已发布（4 篇为 Schema v2 标准），15 篇计划中
+- RU: 15/30 个主题已发布（全部为 Schema v2 + 13-panel 标准），15 篇计划中
 
 ---
 
@@ -352,14 +357,14 @@
 | hotel-charging-solutions | hotelladegeraete-oem-loesungen | soluciones-carga-hoteles | solutions-recharge-hotellerie-oem* | zaryadnye-resheniya-gostinicy-oem* |
 | how-to-choose-factory | fabrikauswahl-china-leitfaden | como-elegir-fabrica-china | audit-usine-chine-chargeurs-oem* | vybor-zavoda-kitay-audit-oem* |
 | how-to-choose-power-bank | powerbank-beschaffung-leitfaden | como-elegir-power-bank | choisir-batterie-externe-oem-guide* | power-bank-vybor-oem-rukovodstvo* |
-| import-costs-guide | ladegeraet-import-china-zoll-zertifikate | importar-cargadores-china-aduanas | couts-import-chine-droits-douane-oem* | zatraty-import-kitay-poshliny-oem 📁 |
+| import-costs-guide | ladegeraet-import-china-zoll-zertifikate | importar-cargadores-china-aduanas | **couts-import-chine-droits-douane-oem** ✅ | **zatraty-import-kitay-poshliny-oem** ✅ |
 | oem-vs-odm-guide | oem-vs-odm-leitfaden | oem-vs-odm-guia-completa | **oem-vs-odm-guide-importateurs** ✅ | **oem-vs-odm-rukovodstvo-importyor** ✅ |
 | power-bank-mah-explained | powerbank-mah-kapazitaet | power-bank-mah-explicado | mAh-batterie-externe-guide-oem* | mAh-power-bank-rukovodstvo-oem* |
 | power-bank-private-label-oem-production | powerbank-eigenmarke-oem-produktion | powerbank-marca-propia-produccion-oem | batterie-externe-marque-blanche-oem* | power-bank-stm-oem-proizvodstvo* |
 | power-bank-specs-guide | powerbank-spezifikationen | especificaciones-power-banks-importadores | **batterie-externe-specifications-oem** ✅ | **specifikacii-power-bank-oem** ✅ |
 | qi-certification-guide | qi2-zertifizierung-importeure | certificacion-qi2-importadores | **certification-qi2-importateurs** ✅ | **sertifikaciya-qi2-wpc-oem** ✅ |
 | qi2-vs-magsafe-guide | qi2-vs-magsafe | qi2-vs-magsafe-diferencias | **qi2-vs-magsafe-importateurs** ✅ | **qi2-vs-magsafe-sravneniye-oem** ✅ |
-| quality-control-guide | qualitaetskontrolle-china | control-calidad-fabricas-chinas | controle-qualite-usines-chinoises-oem* | kontrol-kachestva-zavody-kitay-oem 📁 |
+| quality-control-guide | qualitaetskontrolle-china | control-calidad-fabricas-chinas | **controle-qualite-usines-chinoises-oem** ✅ | **kontrol-kachestva-zavody-kitay-oem** ✅ |
 | semi-solid-state-power-bank-oem | semi-solid-state-powerbank | baterias-semi-solid-state | batterie-semi-solide-oem-guide* | polutverdotelnye-power-bank-oem* |
 | shipping-from-china-guide | oem-versand-aus-china-logistik | envio-desde-china-logistica | **expedition-chine-logistique-oem** ✅ | **dostavka-iz-kitaya-logistika-oem** ✅ |
 | top-power-bank-manufacturers-china | powerbank-hersteller-china-oem-partner | fabricante-power-banks-china-oem | fabricants-batterie-externe-chine-oem* | proizvoditeli-power-bank-kitay-oem* |
@@ -367,11 +372,11 @@
 | usb-c-pd-fast-charging-guide | usb-c-pd-schnellladen | usb-c-pd-carga-rapida | **charge-rapide-usb-c-pd-oem** ✅ | **usb-c-pd-bystraya-zaryadka-oem** ✅ |
 | what-is-gan-charger | gan-ladegeraet-technologie | que-es-cargador-gan | technologie-gan-chargeur-oem* | technologiya-gan-zaryadnye-ustroystva-oem* |
 | wireless-charging-works | kabelloses-laden | carga-inalambrica-qi-qi2-magsafe | charge-sans-fil-qi2-guide-oem* | besprovodnaya-zaryadka-qi2-oem* |
-| lithium-battery-dangerous-goods-packaging-certification | gefahrgutverpackung-lithium-batterien-export-zertifizierung | certificacion-embalaje-mercancias-peligrosas-baterias-litio | **certification-emballage-marchandises-dangereuses-batteries-lithium** ✅ | sertifikaciya-upakovki-opasnyh-gruzov-litievye-batarei-oem* |
+| lithium-battery-dangerous-goods-packaging-certification | gefahrgutverpackung-lithium-batterien-export-zertifizierung | certificacion-embalaje-mercancias-peligrosas-baterias-litio | **certification-emballage-marchandises-dangereuses-batteries-lithium** ✅ | **sertifikaciya-upakovki-opasnyh-gruzov-litievye-batarei-oem** ✅ |
 
 > ✅ = 已发布  
 > \* = 计划中（slug 已确定，尚未创建）
 
 ---
 
-*报告由 Claude Code 自动生成 · 数据提取自 wowohcool.com 站点源码 frontmatter · 2026-08-08 合并 FR + RU 博客计划*
+*报告由 Claude Code 自动生成 · 数据提取自 wowohcool.com 站点源码 frontmatter · 2026-08-08 合并 FR + RU 博客计划 · 2026-08-11 更新 (FR+2/RU+2)*
