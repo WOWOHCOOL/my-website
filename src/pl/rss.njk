@@ -1,0 +1,30 @@
+---
+permalink: "pl/rss.xml"
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+ <channel>
+ <title>WOWOHCOOL Blog, Wiedza OEM/ODM dla Polskich Importerów</title>
+ <link>https://www.wowohcool.com/pl/blog/</link>
+ <description>Praktyczne poradniki dla polskich importerów: power bank OEM, certyfikacja CE i UN38.3, technologia GaN, Qi2, import z Chin i produkcja OEM/ODM. Wiedza ekspercka z fabryki w Shenzhen od 2013.</description>
+ <language>pl</language>
+ <lastBuildDate>{{ collections.blog_pl[0].date | rssDate }}</lastBuildDate>
+ <generator>Eleventy</generator>
+ <atom:link href="https://www.wowohcool.com/pl/rss.xml" rel="self" type="application/rss+xml"/>
+ <image>
+ <url>https://www.wowohcool.com/image/wowohcool-logo-optimized.webp</url>
+ <title>WOWOHCOOL Blog PL</title>
+ <link>https://www.wowohcool.com/pl/blog/</link>
+ </image>
+ {%- for post in collections.blog_pl %}
+ <item>
+ <title>{{ post.data.title | e }}</title>
+ <link>https://www.wowohcool.com{{ post.data.canonical }}</link>
+ <guid isPermaLink="true">https://www.wowohcool.com{{ post.data.canonical }}</guid>
+ <description>{{ post.data.description | e }}</description>
+ <pubDate>{{ post.date | rssDate }}</pubDate>
+
+ </item>
+ {%- endfor %}
+ </channel>
+</rss>

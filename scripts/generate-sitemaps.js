@@ -78,7 +78,7 @@ function genSitemap(langFilter) {
 
     // Language filtering: EN sitemap = no prefix, others = must start with /lang/
     if (langFilter === null) {
-      if (pathname.startsWith('/de/') || pathname.startsWith('/es/') || pathname.startsWith('/fr/') || pathname.startsWith('/ru/')) continue;
+      if (pathname.startsWith('/de/') || pathname.startsWith('/es/') || pathname.startsWith('/fr/') || pathname.startsWith('/ru/') || pathname.startsWith('/pl/')) continue;
     } else {
       if (!pathname.startsWith(`/${langFilter}/`)) continue;
     }
@@ -131,6 +131,7 @@ const configs = [
   ['es', 'es/sitemap.xml', 'ES'],
   ['fr', 'fr/sitemap.xml', 'FR'],
   ['ru', 'ru/sitemap.xml', 'RU'],
+  ['pl', 'pl/sitemap.xml', 'PL'],
 ];
 
 for (const [lang, filename, label] of configs) {

@@ -59,10 +59,21 @@ module.exports = function (eleventyConfig) {
     }
   });
 
+  // Polish site static assets
+  const plStatic = [
+    'pl/js',
+  ];
+
+  plStatic.forEach(p => {
+    if (fs.existsSync(p)) {
+      eleventyConfig.addPassthroughCopy(p);
+    }
+  });
+
   // Wrap h2 sections in .blog-content into card divs (DE/ES blog posts)
   eleventyConfig.addTransform("blogSectionCards", function (content) {
     if (!this.outputPath || !this.outputPath.endsWith('.html')) return content;
-    if (!this.outputPath.match(/\/(de|es)\/blog\/.+\/index\.html$/)) return content;
+    if (!this.outputPath.match(/\/(de|es|pl)\/blog\/.+\/index\.html$/)) return content;
     if (!content.includes('blog-content')) return content;
 
     const marker = '<div class="max-w-4xl mx-auto px-6 blog-content">';
@@ -133,7 +144,8 @@ module.exports = function (eleventyConfig) {
       de: ["Januar","Februar","März","April","Mai","Juni","Juli","August","September","Oktober","November","Dezember"],
       en: ["January","February","March","April","May","June","July","August","September","October","November","December"],
       es: ["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre"],
-      fr: ["janvier","février","mars","avril","mai","juin","juillet","août","septembre","octobre","novembre","décembre"]
+      fr: ["janvier","février","mars","avril","mai","juin","juillet","août","septembre","octobre","novembre","décembre"],
+      pl: ["stycznia","lutego","marca","kwietnia","maja","czerwca","lipca","sierpnia","września","października","listopada","grudnia"]
     };
     const m = months[locale] || months.en;
     const day = d.getDate();
@@ -142,6 +154,7 @@ module.exports = function (eleventyConfig) {
     if (locale === "de") return `${day}. ${month} ${year}`;
     if (locale === "es") return `${day} de ${month} de ${year}`;
     if (locale === "fr") return `${day} ${month} ${year}`;
+    if (locale === "pl") return `${day} ${month} ${year}`;
     return `${month} ${day}, ${year}`; // en default
   });
 
@@ -183,6 +196,13 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addCollection("blog_ru", function (collectionApi) {
     return collectionApi.getFilteredByGlob("./src/ru/blog/**/*.njk")
       .filter(item => item.data.canonical && item.data.canonical !== "/ru/blog/")
+      .sort((a, b) => b.date - a.date);
+  });
+
+  // PL blog collection, sorted newest first
+  eleventyConfig.addCollection("blog_pl", function (collectionApi) {
+    return collectionApi.getFilteredByGlob("./src/pl/blog/**/*.njk")
+      .filter(item => item.data.canonical && item.data.canonical !== "/pl/blog/")
       .sort((a, b) => b.date - a.date);
   });
 

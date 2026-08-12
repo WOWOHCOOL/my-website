@@ -18,65 +18,28 @@
  {% if lang == "en" %}<meta name="author" content="WOWOHCOOL">{% endif %}
  <link rel="preconnect" href="https://api.web3forms.com">
  {% if not noSeoTags %}
- {% if lang == "en" %}
- <link rel="canonical" href="https://www.wowohcool.com{{ canonical or "/" }}">
- <link rel="alternate" hreflang="en" href="https://www.wowohcool.com{{ canonical or "/" }}">
- {% if dePath is defined %}<link rel="alternate" hreflang="de" href="https://www.wowohcool.com/de/{{ dePath | trailingSlash }}">{% endif %}
- {% if esPath is defined %}<link rel="alternate" hreflang="es" href="https://www.wowohcool.com/es/{{ esPath | trailingSlash }}">{% endif %}
- {% if frPath is defined %}<link rel="alternate" hreflang="fr" href="https://www.wowohcool.com/fr/{{ frPath | trailingSlash }}">{% endif %}
- {% if ruPath is defined %}<link rel="alternate" hreflang="ru" href="https://www.wowohcool.com/ru/{{ ruPath | trailingSlash }}">{% endif %}
- <link rel="alternate" hreflang="x-default" href="https://www.wowohcool.com{{ canonical or "/" }}">
- {% elif lang == "de" %}
- <link rel="canonical" href="https://www.wowohcool.com{{ canonical or "/de/" }}">
- <link rel="alternate" hreflang="de" href="https://www.wowohcool.com{{ canonical or "/de/" }}">
- {% if enPath is defined %}<link rel="alternate" hreflang="en" href="https://www.wowohcool.com/{{ enPath | trailingSlash }}">{% endif %}
- {% if esPath is defined %}<link rel="alternate" hreflang="es" href="https://www.wowohcool.com/es/{{ esPath | trailingSlash }}">{% endif %}
- {% if frPath is defined %}<link rel="alternate" hreflang="fr" href="https://www.wowohcool.com/fr/{{ frPath | trailingSlash }}">{% endif %}
- {% if ruPath is defined %}<link rel="alternate" hreflang="ru" href="https://www.wowohcool.com/ru/{{ ruPath | trailingSlash }}">{% endif %}
- <link rel="alternate" hreflang="x-default" href="https://www.wowohcool.com/{{ (enPath or "") | trailingSlash }}">
- {% elif lang == "es" %}
- <link rel="canonical" href="https://www.wowohcool.com{{ canonical or "/es/" }}">
- <link rel="alternate" hreflang="es" href="https://www.wowohcool.com{{ canonical or "/es/" }}">
- {% if skipHreflang != "en" %}<link rel="alternate" hreflang="en" href="https://www.wowohcool.com/{{ (enPath or "") | trailingSlash }}">{% endif %}
- {% if skipHreflang != "de" %}<link rel="alternate" hreflang="de" href="https://www.wowohcool.com/de/{{ (dePath or "") | trailingSlash }}">{% endif %}
- {% if skipHreflang != "fr" and frPath is defined %}<link rel="alternate" hreflang="fr" href="https://www.wowohcool.com/fr/{{ (frPath or "") | trailingSlash }}">{% endif %}
- {% if ruPath is defined %}<link rel="alternate" hreflang="ru" href="https://www.wowohcool.com/ru/{{ ruPath | trailingSlash }}">{% endif %}
- <link rel="alternate" hreflang="x-default" href="https://www.wowohcool.com/{{ (enPath or "") | trailingSlash }}">
- {% elif lang == "fr" %}
- <link rel="canonical" href="https://www.wowohcool.com{{ canonical or "/fr/" }}">
- <link rel="alternate" hreflang="fr" href="https://www.wowohcool.com{{ canonical or "/fr/" }}">
- {% if enPath is defined %}<link rel="alternate" hreflang="en" href="https://www.wowohcool.com/{{ enPath | trailingSlash }}">{% endif %}
- {% if dePath is defined %}<link rel="alternate" hreflang="de" href="https://www.wowohcool.com/de/{{ (dePath or "") | trailingSlash }}">{% endif %}
- {% if esPath is defined %}<link rel="alternate" hreflang="es" href="https://www.wowohcool.com/es/{{ (esPath or "") | trailingSlash }}">{% endif %}
- {% if ruPath is defined %}<link rel="alternate" hreflang="ru" href="https://www.wowohcool.com/ru/{{ ruPath | trailingSlash }}">{% endif %}
- <link rel="alternate" hreflang="x-default" href="https://www.wowohcool.com/{{ (enPath or "") | trailingSlash }}">
- {% elif lang == "ru" %}
- <link rel="canonical" href="https://www.wowohcool.com{{ canonical or "/ru/" }}">
- <link rel="alternate" hreflang="ru" href="https://www.wowohcool.com{{ canonical or "/ru/" }}">
- {% if enPath is defined %}<link rel="alternate" hreflang="en" href="https://www.wowohcool.com/{{ enPath | trailingSlash }}">{% endif %}
- {% if dePath is defined %}<link rel="alternate" hreflang="de" href="https://www.wowohcool.com/de/{{ (dePath or "") | trailingSlash }}">{% endif %}
- {% if esPath is defined %}<link rel="alternate" hreflang="es" href="https://www.wowohcool.com/es/{{ (esPath or "") | trailingSlash }}">{% endif %}
- {% if frPath is defined %}<link rel="alternate" hreflang="fr" href="https://www.wowohcool.com/fr/{{ (frPath or "") | trailingSlash }}">{% endif %}
- <link rel="alternate" hreflang="x-default" href="https://www.wowohcool.com/{{ (enPath or "") | trailingSlash }}">
- {% endif %}
- {% endif %}
+ <link rel="canonical" href="https://www.wowohcool.com{{ canonical }}">
+ {% if lang == "en" %}<link rel="alternate" hreflang="en" href="https://www.wowohcool.com{{ canonical }}">
+ {% elif enPath is defined %}<link rel="alternate" hreflang="en" href="https://www.wowohcool.com/{{ enPath | trailingSlash }}">{% endif %}
+ {% if lang == "de" %}<link rel="alternate" hreflang="de" href="https://www.wowohcool.com{{ canonical }}">
+ {% elif dePath is defined %}<link rel="alternate" hreflang="de" href="https://www.wowohcool.com/de/{{ dePath | trailingSlash }}">{% endif %}
+ {% if lang == "es" %}<link rel="alternate" hreflang="es" href="https://www.wowohcool.com{{ canonical }}">
+ {% elif esPath is defined %}<link rel="alternate" hreflang="es" href="https://www.wowohcool.com/es/{{ esPath | trailingSlash }}">{% endif %}
+ {% if lang == "fr" %}<link rel="alternate" hreflang="fr" href="https://www.wowohcool.com{{ canonical }}">
+ {% elif frPath is defined %}<link rel="alternate" hreflang="fr" href="https://www.wowohcool.com/fr/{{ frPath | trailingSlash }}">{% endif %}
+ {% if lang == "ru" %}<link rel="alternate" hreflang="ru" href="https://www.wowohcool.com{{ canonical }}">
+ {% elif ruPath is defined %}<link rel="alternate" hreflang="ru" href="https://www.wowohcool.com/ru/{{ ruPath | trailingSlash }}">{% endif %}
+ {% if lang == "pl" %}<link rel="alternate" hreflang="pl" href="https://www.wowohcool.com{{ canonical }}">
+ {% elif plPath is defined %}<link rel="alternate" hreflang="pl" href="https://www.wowohcool.com/pl/{{ plPath | trailingSlash }}">{% endif %}
+ <link rel="alternate" hreflang="x-default" href="https://www.wowohcool.com/{{ (enPath | default("")) | trailingSlash }}">
+{% endif %}
 
  <!-- Open Graph -->
  <meta property="og:site_name" content="WOWOHCOOL">
- {% if lang == "en" %}<meta property="og:locale" content="en_US">
- {% elif lang == "de" %}<meta property="og:locale" content="de_DE">
- {% elif lang == "es" %}<meta property="og:locale" content="es_ES">
- {% elif lang == "fr" %}<meta property="og:locale" content="fr_FR">
- {% elif lang == "ru" %}<meta property="og:locale" content="ru_RU">
- {% endif %}
+ {% for l in siteLangs %}{% if l.code == lang %}<meta property="og:locale" content="{{ l.og }}">{% endif %}{% endfor %}
  <meta property="og:title" content="{{ ogTitle or title or i18nLayout.defaultOgTitle }}">
  <meta property="og:description" content="{{ ogDescription or description or i18nLayout.defaultOgDescription }}">
- {% if lang == "en" %}<meta property="og:url" content="https://www.wowohcool.com{{ canonical or "/" }}">
- {% elif lang == "de" %}<meta property="og:url" content="https://www.wowohcool.com{{ canonical or "/de/" }}">
- {% elif lang == "es" %}<meta property="og:url" content="https://www.wowohcool.com{{ canonical or "/es/" }}">
- {% elif lang == "fr" %}<meta property="og:url" content="https://www.wowohcool.com{{ canonical or "/fr/" }}">
- {% elif lang == "ru" %}<meta property="og:url" content="https://www.wowohcool.com{{ canonical or "/ru/" }}">
- {% endif %}
+ <meta property="og:url" content="https://www.wowohcool.com{{ canonical }}">
  <meta property="og:type" content="{{ ogType or "website" }}">
  <meta property="og:image" content="https://www.wowohcool.com{{ ogImage or "/image/factory/wowohcool-smart-charging-solutions.webp" }}">
  <meta property="og:image:width" content="{{ ogImageWidth or "1200" }}">
