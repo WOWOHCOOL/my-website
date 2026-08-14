@@ -881,6 +881,40 @@ const FR_TRANSLIT = {
   "zero": "zéro"
 };
 
+// PL 缺变音词表（波兰语特殊字母 ą/ć/ę/ł/ń/ó/ś/ź/ż）
+const PL_TRANSLIT = {
+  "bezpieczenstwo": "bezpieczeństwo",
+  "dlugosc": "długość",
+  "efektywnosc": "efektywność",
+  "elastycznosc": "elastyczność",
+  "ilosc": "ilość",
+  "jakosc": "jakość",
+  "kompatybilnosc": "kompatybilność",
+  "ladowanie": "ładowanie",
+  "ladowarka": "ładowarka",
+  "ladowarki": "ładowarki",
+  "laduje": "ładuje",
+  "napiecia": "napięcia",
+  "napiecie": "napięcie",
+  "odpornosc": "odporność",
+  "ognioodpornosc": "ognioodporność",
+  "oszczednosc": "oszczędność",
+  "predkosc": "prędkość",
+  "szybkosc": "szybkość",
+  "tozsamosc": "tożsamość",
+  "trwalosc": "trwałość",
+  "wielkosc": "wielkość",
+  "wszechstronnosc": "wszechstronność",
+  "wydajnosc": "wydajność",
+  "wylacznosc": "wyłączność",
+  "wyswietlacz": "wyświetlacz",
+  "zaleznosc": "zależność",
+  "zamowienia": "zamówienia",
+  "zamowienie": "zamówienie",
+  "zgodnosc": "zgodność",
+  "zlacza": "złącza"
+};
+
 // Regex patterns to find paths in file content
 const PATH_PATTERNS = [
   // href="/xx/..." or href="https://www.wowohcool.com/xx/..."
@@ -1100,6 +1134,33 @@ function findViolations(filePath, content, lang) {
         current: fm[1],
         fixed,
         reason: `"${fm[1]}" → "${fixed}" (accent)`,
+      });
+    }
+  }
+
+
+  // Check 6: PL 缺变音（波兰语特殊字母）
+  if (lang === "pl") {
+    let body = content
+      .replace(/<script[\s\S]*?<\/script>/g, (m) => m.replace(/[^\n]/g, " "))
+      .replace(/<!--[\s\S]*?-->/g, (m) => m.replace(/[^\n]/g, " "))
+      .replace(/(?:id|href|src|srcset|class|style)="[^"]*"/g, (m) => m.replace(/[^\n]/g, " "))
+      .replace(/url\s*:\s*"[^"]*"/g, (m) => m.replace(/[^\n]/g, " "))
+      .replace(/(?:^|\n)(?:canonical|enPath|dePath|esPath|frPath|ruPath|plPath|ogImage|ogType|navActive|articleSection|articleTags):\s*[^\n]*/g, (m) => m.replace(/[^\n]/g, " "))
+      .replace(/(?:^|\n)\s*(?:en|de|es|fr|ru|pl):\s*"[^"]*"/g, (m) => m.replace(/[^\n]/g, " "))
+      .replace(/\{%[^%]*%\}/g, (m) => m.replace(/[^\n]/g, " "))
+      .replace(/https?:\/\/[^\s"'<>]+/g, (m) => m.replace(/[^\n]/g, " "))
+      .replace(/\/[a-z0-9/_.-]+\.(?:webp|jpg|png|jpeg|json|njk)/g, (m) => m.replace(/[^\n]/g, " "));
+    const plRe = new RegExp("(?<![A-Za-zÀ-ÿ])(" + Object.keys(PL_TRANSLIT).join("|") + ")(?![A-Za-zÀ-ÿ])", "gi");
+    let pm;
+    while ((pm = plRe.exec(body)) !== null) {
+      const w = pm[1].toLowerCase();
+      const fixed = pm[1][0] === pm[1][0].toLowerCase() ? PL_TRANSLIT[w] : PL_TRANSLIT[w][0].toUpperCase() + PL_TRANSLIT[w].slice(1);
+      violations.push({
+        line: lineNumberOf(body, pm.index),
+        current: pm[1],
+        fixed,
+        reason: `"${pm[1]}" → "${fixed}" (diacritic)`,
       });
     }
   }
