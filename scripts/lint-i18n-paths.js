@@ -19,20 +19,20 @@ const path = require("path");
 // Only entries where the EN word DIFFERS from the localized word.
 // "faq" and "blog" are universal — not included.
 const PAGE_MAP = {
-  about:          { de: "ueber-uns",        es: "sobre-nosotros",      fr: "a-propos",            ru: "o-kompanii" },
-  contact:        { de: "kontakt",          es: "contacto",            /* fr: same */             ru: "kontakty" },
-  service:        { de: "oem-odm-service",  es: "servicio-oem-odm",    fr: "service-oem-odm",    ru: "oem-odm-uslugi" },
-  "case-studies": { de: "fallbeispiele",    es: "casos-de-exito",      fr: "fallbeispiele",      ru: "keysy" },
-  "terms-of-service": { de: "agb",          es: "terminos-condiciones", fr: "cgv",               ru: "usloviya-ispolzovaniya" },
-  "privacy-policy":  { de: "datenschutz",   es: "politica-privacidad", fr: "confidentialite",   ru: "politika-konfidencialnosti" },
-  "thank-you":    { de: "danke",            es: "gracias",              fr: "remerciments",       ru: "spasibo" },
+  about:          { de: "ueber-uns",        es: "sobre-nosotros",      fr: "a-propos",            ru: "o-kompanii",               pl: "o-nas" },
+  contact:        { de: "kontakt",          es: "contacto",            /* fr: same */             ru: "kontakty",                 pl: "kontakt" },
+  service:        { de: "oem-odm-service",  es: "servicio-oem-odm",    fr: "service-oem-odm",    ru: "oem-odm-uslugi",           pl: "uslugi-oem-odm" },
+  "case-studies": { de: "fallbeispiele",    es: "casos-de-exito",      fr: "fallbeispiele",      ru: "keysy",                    pl: "studia-przypadkow" },
+  "terms-of-service": { de: "agb",          es: "terminos-condiciones", fr: "cgv",               ru: "usloviya-ispolzovaniya",   pl: "regulamin" },
+  "privacy-policy":  { de: "datenschutz",   es: "politica-privacidad", fr: "confidentialite",   ru: "politika-konfidencialnosti", pl: "polityka-prywatnosci" },
+  "thank-you":    { de: "danke",            es: "gracias",              fr: "remerciments",       ru: "spasibo",                  pl: "dziekujemy" },
 };
 
 const PRODUCT_MAP = {
-  "power-bank":       { de: "powerbank",              es: "powerbank",               fr: "batterie-externe",          ru: "poverbanki" },
-  "wireless-charger": { de: "kabelloses-ladegeraet",  es: "cargador-inalambrico",    fr: "chargeur-sans-fil",         ru: "besprovodnye-zaryadki" },
-  "gan-charger":      { de: "gan-ladegeraet",         es: "cargador-gan",            fr: "chargeur-gan",             ru: "gan-zaryadnye-ustroystva" },
-  "car-charger":      { de: "autoladegeraet",         es: "cargador-coche",          fr: "chargeur-voiture",         ru: "avtomobilnye-zaryadki" },
+  "power-bank":       { de: "powerbank",              es: "powerbank",               fr: "batterie-externe",          ru: "poverbanki",               pl: "power-bank" },
+  "wireless-charger": { de: "kabelloses-ladegeraet",  es: "cargador-inalambrico",    fr: "chargeur-sans-fil",         ru: "besprovodnye-zaryadki",     pl: "ladowarka-bezprzewodowa" },
+  "gan-charger":      { de: "gan-ladegeraet",         es: "cargador-gan",            fr: "chargeur-gan",             ru: "gan-zaryadnye-ustroystva",  pl: "ladowarka-gan" },
+  "car-charger":      { de: "autoladegeraet",         es: "cargador-coche",          fr: "chargeur-voiture",         ru: "avtomobilnye-zaryadki",     pl: "ladowarka-samochodowa" },
 };
 
 const PRODUCT_SUB_MAP = {
@@ -50,14 +50,14 @@ const PRODUCT_SUB_MAP = {
 // Regex patterns to find paths in file content
 const PATH_PATTERNS = [
   // href="/xx/..." or href="https://www.wowohcool.com/xx/..."
-  /href="(https?:\/\/www\.wowohcool\.com)?\/(de|es|fr|ru)\/([^"]+)"/g,
+  /href="(https?:\/\/www\.wowohcool\.com)?\/(de|es|fr|ru|pl)\/([^"]+)"/g,
   // "url": "https://www.wowohcool.com/xx/..."
-  /"url":\s*"(https?:\/\/www\.wowohcool\.com)?\/(de|es|fr|ru)\/([^"]+)"/g,
+  /"url":\s*"(https?:\/\/www\.wowohcool\.com)?\/(de|es|fr|ru|pl)\/([^"]+)"/g,
   // "publishingPrinciples": "..."
-  /"publishingPrinciples":\s*"(https?:\/\/www\.wowohcool\.com)?\/(de|es|fr|ru)\/([^"]+)"/g,
+  /"publishingPrinciples":\s*"(https?:\/\/www\.wowohcool\.com)?\/(de|es|fr|ru|pl)\/([^"]+)"/g,
 ];
 
-const LANG_DIRS = { de: "de", es: "es", fr: "fr", ru: "ru" };
+const LANG_DIRS = { de: "de", es: "es", fr: "fr", ru: "ru", pl: "pl" };
 const SRC_ROOT = path.resolve(__dirname, "..", "src");
 
 // ── Helpers ──────────────────────────────────────────────────────────────
@@ -96,7 +96,7 @@ function findViolations(filePath, content, lang) {
           const correct = PRODUCT_MAP[segments[1]][prefix];
           const fixed = match[0].replace(
             `/${prefix}/products/${segments[1]}`,
-            `/${prefix}/produ${prefix === "ru" ? "kty" : prefix === "de" ? "kte" : prefix === "es" ? "ctos" : "its"}/${correct}`
+            `/${prefix}/produ${prefix === "ru" || prefix === "pl" ? "kty" : prefix === "de" ? "kte" : prefix === "es" ? "ctos" : "its"}/${correct}`
           );
           violations.push({
             line: lineNumberOf(content, match.index),
@@ -154,16 +154,16 @@ function findViolations(filePath, content, lang) {
     }
   }
 
-  // Check 2: site-level @id missing the lang prefix
-  const unprefixedIdRe = /"@id":\s*"https?:\/\/www\.wowohcool\.com\/#([a-z-]+)"/g;
+  // Check 2: site-level @id must be lang-agnostic (one shared @id across locales)
+  const prefixedIdRe = /"@id":\s*"https?:\/\/www\.wowohcool\.com\/(de|es|fr|ru|pl)\/#([a-z-]+)"/g;
   let uid;
-  while ((uid = unprefixedIdRe.exec(content)) !== null) {
-    const frag = uid[1];
+  while ((uid = prefixedIdRe.exec(content)) !== null) {
+    const frag = uid[2];
     violations.push({
       line: lineNumberOf(content, uid.index),
       current: uid[0],
-      fixed: uid[0].replace("wowohcool.com/#", `wowohcool.com/${lang}/#`),
-      reason: `@id "#${frag}" is missing the "${lang}/" prefix`,
+      fixed: uid[0].replace(/www\.wowohcool\.com\/(de|es|fr|ru|pl)\/#/, "www.wowohcool.com/#"),
+      reason: `@id "#${frag}" should not have a lang prefix (use one shared @id)`,
     });
   }
 
