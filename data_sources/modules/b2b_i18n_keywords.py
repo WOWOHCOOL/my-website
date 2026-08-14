@@ -21,7 +21,7 @@ import re
 from typing import Any, Dict, List, Optional, Set
 
 # ── Supported languages ──
-SUPPORTED_LANGS = frozenset({'en', 'de', 'es', 'fr', 'ru'})
+SUPPORTED_LANGS = frozenset({'en', 'de', 'es', 'fr', 'ru', 'pl'})
 
 # ═══════════════════════════════════════════════════════════
 # Language Detection
@@ -43,6 +43,11 @@ _LANG_FUNCTION_WORDS: Dict[str, List[str]] = {
            'при', 'под', 'над', 'без', 'через', 'между', 'перед',
            'также', 'только', 'ещё', 'очень', 'весь', 'весьма',
            'который', 'свой', 'себя', 'один', 'такой', 'чтобы'],
+    'pl': ['i', 'w', 'na', 'z', 'do', 'dla', 'od', 'że', 'się', 'nie',
+           'to', 'jest', 'ale', 'lub', 'czy', 'jak', 'po', 'przez',
+           'bez', 'nad', 'pod', 'przed', 'między', 'także', 'tylko',
+           'bardzo', 'który', 'która', 'które', 'jego', 'ich', 'ten',
+           'ta', 'co', 'już', 'jeszcze', 'oraz', 'więc'],
     'ar': ['في', 'من', 'على', 'مع', 'عن', 'إلى', 'هذا', 'ذلك',
            'هذه', 'تلك', 'التي', 'الذي', 'كان', 'كانت', 'يكون',
            'كما', 'أو', 'لا', 'ما', 'إذا', 'قد', 'قد', 'لم'],
@@ -73,7 +78,7 @@ def detect_language(content: str, meta: Optional[Dict] = None) -> str:
         )
         canonical = c_match.group(1).strip().strip('"').strip("'") if c_match else ''
 
-    for lang_code in ('de', 'es', 'fr', 'ru'):
+    for lang_code in ('de', 'es', 'fr', 'ru', 'pl'):
         if f'/{lang_code}/' in canonical or canonical.startswith(f'{lang_code}/'):
             return lang_code
 
@@ -146,6 +151,12 @@ I18N_TLDR_KEYWORDS: Dict[str, List[str]] = {
         'TL;DR', 'TLDR',
         'В двух словах', 'Самое важное',
     ],
+    'pl': [
+        'KLUCZOWE WNIOSKI', 'Kluczowe Wnioski', 'Kluczowe wnioski',
+        'W SKRÓCIE', 'W skrócie', 'Najważniejsze',
+        'Podsumowanie', 'Skrót', 'W punktach',
+        'TL;DR', 'TLDR',
+    ],
 }
 
 # ═══════════════════════════════════════════════════════════
@@ -208,6 +219,17 @@ I18N_B2B_SIGNAL_WORDS: Dict[str, List[str]] = {
         'таможня', 'таможенная очистка', 'доставка', 'фрахт',
         'производство', 'контроль качества', 'сертификация',
         'отгрузка', 'экспорт', 'импортозамещение',
+    ],
+    'pl': [
+        'OEM', 'ODM', 'MOQ', 'FOB', 'B2B', 'DDP', 'CIF', 'EXW',
+        'producent', 'fabryka', 'dostawca', 'importer',
+        'zaopatrzenie', 'zakupy', 'sourcing',
+        'hurt', 'hurtownia', 'zamówienie minimalne',
+        'łańcuch dostaw', 'logistyka',
+        'sprzedawca', 'partner handlowy',
+        'cło', 'odprawa celna', 'import', 'eksport',
+        'produkcja', 'kontrola jakości', 'certyfikacja',
+        'magazyn', 'wysyłka', 'fracht',
     ],
 }
 
@@ -307,6 +329,13 @@ I18N_CONCLUSION_SIGNALS: Dict[str, List[str]] = {
         r'(?:мы|наш|наша|наши)\s+(?:протестировали|проверили|измерили|обнаружили|достигли)',
         r'\b(?:снижает|достигает|обеспечивает|позволяет|производит|устраняет|предотвращает)\s+\d',
         r'\b\d+\s*(?:%|процентов|°C|мВ|кВ|кВт|МГц|кГц|ГГц|мм|см|м|г|кг|Вт|А|В|Гц|€|\$|₽)\b',
+    ],
+    'pl': [
+        r'\bISO\s+\d{4,5}\b',
+        r'\b(?:EN|IEC|PN)\s+\d{4,}[-\d]*\b',
+        r'(?:my|nasz|nasza|nasze)\s+(?:przetestowaliśmy|zweryfikowaliśmy|zmierzyliśmy|osiągnęliśmy|znaleźliśmy|odkryliśmy)',
+        r'\b(?:zmniejsza|osiąga|zapewnia|pozwala|produkuje|eliminuje|zapobiega)\s+\d',
+        r'\b\d+\s*(?:%|procent|°C|mV|kV|kW|kWh|MHz|kHz|GHz|mm|cm|m|g|kg|W|A|V|Hz|€|zł)\b',
     ],
 }
 
@@ -574,6 +603,20 @@ I18N_B2B_BUYER_LANGUAGE: Dict[str, List[str]] = {
         r'\b(?:код\s+ТН\s*ВЭД|таможенная\s+классификация|таможенная\s+очистка)\b',
         r'\b(?:соответствие|сертификация|ГОСТ|EN\s+\d+|IEC\s+\d+|EAC|ЕАС)\b',
     ],
+    'pl': [
+        r'\bzamówienie\s+minimalne\b|\bminimalna\s+partia\b',
+        r'\bmarka\s+własna\b|\bprivate\s*label\b',
+        r'\bFOB\b|\bCIF\b|\bDDP\b|\bEXW\b',
+        r'\bMOQ\b',
+        r'\btermin\s+(?:realizacji|produkcji|dostawy)\b',
+        r'\b(?:minimalne|hurtowe|duże)\s+zamówienie\b',
+        r'\b(?:importer|zaopatrzenie|zakupy|łańcuch\s+dostaw)\b',
+        r'\b(?:audyt\s+fabryki|weryfikować|sprawdzić|ocenić|wybrać)\s+(?:dostawcę|producenta)\b',
+        r'\b(?:współczynnik\s+defektów|test\s+starzenia|AQL|kontrola\s+jakości)\b',
+        r'\b(?:fracht|wysyłka|cło|koszt\s+dostawy|incoterm|spedytor)\b',
+        r'\b(?:kontener|list\s+przewozowy|FCL|LCL)\b',
+        r'\b(?:zgodność|certyfikacja|EN\s+\d+|IEC\s+\d+|oznakowanie\s+CE)\b',
+    ],
 }
 
 # ═══════════════════════════════════════════════════════════
@@ -666,6 +709,13 @@ I18N_CTA_POSITIVE_PATTERNS: Dict[str, List[str]] = {
         r'Смотреть\s+(?:каталог|продукты|ассортимент)|'
         r'Рассчитать\s+(?:стоимость|цену|проект)|'
         r'Оставить\s+(?:заявку|запрос))\b',
+    ],
+    'pl': [
+        r'\b(?:Zapytaj\s+o\s+wycenę|Poproś\s+o\s+wycenę|Zapytaj\s+o\s+cenę|'
+        r'Odbierz\s+(?:wycenę|katalog|ofertę)|Zamów\s+(?:próbki|katalog)|'
+        r'Zobacz\s+(?:katalog|produkty|ofertę)|Skontaktuj\s+się(?:\s+z\s+nami)?|'
+        r'Rozpocznij\s+(?:projekt|współpracę)|Pobierz\s+(?:katalog|przewodnik)|'
+        r'Darmowa\s+wycena|Poproś\s+o\s+katalog|Zapytaj\s+o\s+ofertę)\b',
     ],
 }
 
@@ -864,6 +914,11 @@ I18N_CROSS_REF_ANCHORS: Dict[str, Dict[str, List[str]]] = {
         'tldr': ['КРАТКИЙ ОБЗОР', 'Краткий обзор', 'Ключевые выводы', 'Основные выводы', 'Коротко о главном', 'Главное', 'Резюме', 'TL;DR', 'TLDR'],
         'toc': ['Содержание', 'Оглавление'],
         'faq': ['Часто задаваемые вопросы', 'Частые вопросы', 'FAQ', 'FAQs', 'Вопросы и ответы'],
+    },
+    'pl': {
+        'tldr': ['KLUCZOWE WNIOSKI', 'Kluczowe Wnioski', 'W SKRÓCIE', 'W skrócie', 'Najważniejsze', 'TL;DR', 'TLDR'],
+        'toc': ['Spis Treści', 'Spis treści'],
+        'faq': ['Często Zadawane Pytania', 'Często zadawane pytania', 'FAQ', 'FAQs'],
     },
 }
 

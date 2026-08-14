@@ -23,6 +23,7 @@ All checks return 0-100 scores. Composite score is equal-weighted average.
 
 import re
 import sys
+import html
 from typing import Dict, List, Optional, Any, Tuple
 
 # Try to import njk preprocessor (optional — only needed for .njk files)
@@ -2070,27 +2071,46 @@ class B2BContentAuditor:
             score -= 10
             issues.append('TOC links to #faq but no <section id="faq"> found in body → add FAQ section or fix anchor')
 
-        # ── Step 7: Rule 1 — Body-Schema FAQ consistency ──
+        # ── Step 7: Rule 1 — Body-Schema FAQ consistency (questions + answers) ──
         body_faq_qs = self._extract_body_faq_questions(content)
+        # Extract body answers with empty-string tag strip (avoids "</a>." → " .")
+        body_faq_as = []
+        faq_sec = re.search(r'<section[^>]*id=["\']faq["\'][^>]*>(.*?)</section>', content, re.IGNORECASE | re.DOTALL)
+        if faq_sec:
+            for div in re.findall(r'faq-answer">(.*?)</div>', faq_sec.group(1), re.DOTALL):
+                p = re.search(r'<p[^>]*>(.*?)</p>', div, re.DOTALL)
+                if p:
+                    body_faq_as.append(re.sub(r'<[^>]+>', '', p.group(1)))
         schema_faq_qs = []
+        schema_faq_as = []
         for block in parsed_blocks:
             if isinstance(block, dict):
                 for node in block.get('@graph', [block]):
                     if isinstance(node, dict) and node.get('@type') == 'FAQPage':
                         for q in node.get('mainEntity', []):
                             schema_faq_qs.append(q.get('name', ''))
+                            schema_faq_as.append(q.get('acceptedAnswer', {}).get('text', ''))
 
         if body_faq_qs and schema_faq_qs:
-            mismatch_count = 0
-            for i, (body_q, schema_q) in enumerate(zip(body_faq_qs, schema_faq_qs)):
-                if body_q.strip() != schema_q.strip():
-                    mismatch_count += 1
+            # Normalize: decode HTML entities + collapse whitespace (so "&gt;" == ">")
+            def _norm(t):
+                t = html.unescape(t)
+                t = re.sub(r'<[^>]+>', '', t)
+                return re.sub(r'\s+', ' ', t).strip()
+
+            q_mismatches = sum(1 for bq, sq in zip(body_faq_qs, schema_faq_qs) if _norm(bq) != _norm(sq))
+            a_mismatches = sum(1 for ba, sa in zip(body_faq_as, schema_faq_as) if _norm(ba) != _norm(sa))
+
             if len(body_faq_qs) != len(schema_faq_qs):
                 score -= 15
                 issues.append(f'FAQ count mismatch: Body has {len(body_faq_qs)} questions, Schema has {len(schema_faq_qs)} → must match exactly (Rule 1)')
-            elif mismatch_count > 0:
-                score -= 10
-                issues.append(f'{mismatch_count} FAQ question(s) differ between body and Schema → Rule 1 requires word-for-word match')
+            else:
+                if q_mismatches > 0:
+                    score -= 10
+                    issues.append(f'{q_mismatches} FAQ question(s) differ between body and Schema → Rule 1 requires word-for-word match')
+                if a_mismatches > 0:
+                    score -= 10
+                    issues.append(f'{a_mismatches} FAQ answer(s) differ between body and Schema → Rule 1 requires word-for-word match')
             # If 0 mismatches and count matches, no deduction — body-schema consistency verified
 
         score = max(0, min(100, score))

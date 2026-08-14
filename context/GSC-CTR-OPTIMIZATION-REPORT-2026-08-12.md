@@ -251,3 +251,75 @@
 ---
 
 *报告生成: 2026-08-12 | 工具: GSC Live API + 5 个自定义分析脚本*
+
+---
+
+## 10. 8/13 执行更新：「2 周内」两篇转型完成
+
+### 10.1 转型总览
+
+| 文章 | 展示/CTR | 转型前 H1 | 转型后 H1 | 状态 |
+|---|---|---|---|---|
+| gan-vs-silicon-charger-comparison | 1,520 / 0.13% | GaN vs Silicon Charger: OEM Cost & Performance Comparison | GaN vs Silicon Charger: 3-Year Total Cost of Ownership for OEM | ✅ |
+| charging-accessory-market-trends-2026 | 920 / 0.00% | 2026 Market Trends: B2B OEM Sourcing & Technology Forecast | 2026 Charger Factory Data: What OEM Buyers Are Ordering | ✅ |
+
+### 10.2 gan-vs-silicon-charger-comparison
+
+- **零点击根因**：H1 含 "vs/Comparison" 信号，Google AI Overview 直接生成完整对比表
+- **转型策略**：规格对比 → 3 年 TCO 决策框架。标题保留 "GaN vs Silicon Charger" 前缀（维持 1,520 展示的查询相关性），重心移到 "3-Year TCO"（Google 无法直接回答）
+- **关键改动**：第 7 节从 "Cost Analysis" 升级为 "3-Year TCO"，新增 10,000 单 3 年 TCO 分解表（return 0.3% vs 3.2%、warranty −$11,600、freight −$0.50-1.50/unit、energy −$3.50/unit/yr）；Category tag、HowTo name、封面 alt 同步
+- **目标**：CTR 0.13% → 0.5%+
+
+### 10.3 charging-accessory-market-trends-2026
+
+- **零点击根因**："market trends/analysis" 查询被 AI Overview 垄断（43.5% 展示零点击）
+- **转型策略**：市场报告 → 工厂订单数据。H1 从 "Market Trends" 改为 "Charger Factory Data"（第一手数据，Google 无法直接回答）
+- **关键改动**：工厂数据章节（68% GaN V RFQs、2.4× Qi2.2、41% DDP）从文章末尾前置为开篇主线；articleTags/keywords 从 "Market Trends" → "Factory Data, Order Trends"；市场数据章节降级为支撑背景
+- **目标**：CTR 0.00% → 0.3%+
+
+### 10.4 验证计划
+
+| 文章 | 基线 CTR | 目标 CTR | 复查时间 |
+|---|---|---|---|
+| gan-vs-silicon-charger-comparison | 0.13% | 0.5%+ | 8/18-8/20 |
+| charging-accessory-market-trends-2026 | 0.00% | 0.3%+ | 8/18-8/20 |
+
+> 复查方法：跑 `data_sources/gsc_fresh_check.py` 追踪两篇页面 CTR（需等 5-7 天 post-opt 数据）。
+
+### 10.5 剩余计划
+
+| 优先级 | 行动 | 状态 |
+|---|---|---|
+| 不紧急 | qi2-vs-magsafe、qi-certification、usb-c-pd-3-1 | ✅ 完成（见 10.6） |
+| 中期 | 写 3 篇「必须点击」EN 新文章（Semi-Solid-State / Factory Audit / Verify Certificates） | 待做 |
+| 中期 | 扩展 ES 博客 | 待做 |
+
+### 10.6 不紧急 3 篇转型完成
+
+| 文章 | 展示/CTR | 转型前 H1 | 转型后 H1 |
+|---|---|---|---|
+| qi2-vs-magsafe-guide | 829 / 0.12% | Qi2 vs MagSafe: OEM Manufacturer Comparison | Qi2 vs MagSafe: 3-Year TCO & Sourcing Cost for OEM Buyers |
+| qi-certification-guide | 294 / 0.00% | Qi2 Certification: Cost & Process Guide | Qi2 Certification Verification: How to Spot Fake WPC Certificates |
+| usb-c-pd-3-1-explained | 60 / 0.00% | USB-C PD 3.1: 240W Factory Sourcing Guide（title 已转型） | 清理封面 alt/title 的 explained/comparison 残留 |
+
+- **qi2-vs-magsafe**：vs/Comparison → 3-Year TCO（复用 gan-vs-silicon 转型模式，保留 "Qi2 vs MagSafe" 前缀维持查询相关性）
+- **qi-certification**：compliance → Verification（复用 certifications-us-eu-guide 转型模式，从"认证流程"→"验证/防欺诈"）
+- **usb-c-pd-3-1**：title/H1 已 Factory Sourcing，仅清理封面 alt/title 残留（URL slug 含 explained 不改，60 展示改 slug 风险高收益小）
+
+### 10.7 内容优化（基于 SERP 市场调查，先研究后改）
+
+> 用户提醒：标题转型后，正文内容必须同步优化，否则「标题-内容不一致」导致跳出率升高。先做 SERP 研究确认角度需求 + 竞品空白，再优化内容。
+
+#### qi2-vs-magsafe（新增 TCO 章节 + 数据校准）
+- SERP 发现：MFi royalty 市场调查是 **$1-3/unit**（文章原 $4-6 偏高），年费 $99/年，3 年累计 royalty $300K-900K（10 万件/年）
+- 新增「8. 3-Year TCO」章节：量化 3 年成本（per-unit royalty / 年费 / 3 年累计 / 认证费）
+- 校准 4 处 royalty 数据（Hook / Key Takeaways / FAQ Schema，$4-6 → $1-3）
+- 竞品 amjortech 已覆盖成本对比，但未量化 3 年累计 → 信息增益
+
+#### qi-certification（新增验证章节）
+- SERP 发现：竞品（zehsm、chargekeku 等第三方指南）已有验证内容，但 WOWOHCOOL 用「WPC 成员 + 工厂」第一手视角差异化
+- 新增「8. How to Verify WPC Certificates Are Real」章节：WPC 数据库查询 + 6 假证书套路 + 3 项下单前检查（Qi-ID 查询、CoC 交叉核对、ATL 验证）
+- 编号 8→11 顺延
+
+#### usb-c-pd-3-1
+- 内容已是 Factory Sourcing（H2 全是 What to Verify / Sourcing），无需内容优化
