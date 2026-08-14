@@ -1025,7 +1025,7 @@ SSG templates (11ty Nunjucks, Hugo Go, Astro JSX) must use the build-time `site.
 | Context | Template Source | Production Output |
 |---------|----------------|-------------------|
 | Canonical | `{{ site.url }}/de/blog/{{ slug }}/` | `https://www.wowohcool.com/de/blog/.../` |
-| Schema @id | `{{ site.url }}/de/#organization` | `https://www.wowohcool.com/de/#organization` |
+| Schema @id | `{{ site.url }}/#organization` | `https://www.wowohcool.com/#organization` |
 | OG image | `{{ site.url }}/image/blog/cover.webp` | `https://www.wowohcool.com/image/blog/cover.webp` |
 
 **Rule**: Trailing `/` is hardcoded in template strings. No URL is ever constructed by concatenating user input — preventing slash inconsistencies between build environments.
