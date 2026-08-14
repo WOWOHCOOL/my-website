@@ -62,7 +62,7 @@ const SRC_ROOT = path.resolve(__dirname, "..", "src");
 
 // ── Helpers ──────────────────────────────────────────────────────────────
 
-function findViolations(filePath, content) {
+function findViolations(filePath, content, lang) {
   const violations = [];
 
   for (const re of PATH_PATTERNS) {
@@ -127,6 +127,46 @@ function findViolations(filePath, content) {
     }
   }
 
+  // ── Catch unprefixed site-level paths (added 2026-08-14) ────────────────
+  // Two bug classes previously slipped past this hook:
+  //   1. url/publishingPrinciples/href → English page WITHOUT a lang prefix
+  //      (e.g. "...wowohcool.com/about/" instead of ".../de/ueber-uns/").
+  //   2. Site-level @id missing the lang prefix (e.g. "#organization"
+  //      instead of "/de/#organization").
+
+  // Check 1: unprefixed English page path in url/publishingPrinciples/href
+  const englishSlugs = Object.keys(PAGE_MAP).join("|");
+  const unprefixedPathRe = new RegExp(
+    '(href|"url"|"publishingPrinciples")\\s*[:=]\\s*"(?:https?://www\\.wowohcool\\.com)?/(' + englishSlugs + ')(/|")',
+    "g"
+  );
+  let upm;
+  while ((upm = unprefixedPathRe.exec(content)) !== null) {
+    const slug = upm[2];
+    const correct = PAGE_MAP[slug][lang];
+    if (correct) {
+      violations.push({
+        line: lineNumberOf(content, upm.index),
+        current: upm[0],
+        fixed: upm[0].replace(`/${slug}`, `/${lang}/${correct}`),
+        reason: `"${slug}" is missing the "${lang}/" prefix → "${lang}/${correct}"`,
+      });
+    }
+  }
+
+  // Check 2: site-level @id missing the lang prefix
+  const unprefixedIdRe = /"@id":\s*"https?:\/\/www\.wowohcool\.com\/#([a-z-]+)"/g;
+  let uid;
+  while ((uid = unprefixedIdRe.exec(content)) !== null) {
+    const frag = uid[1];
+    violations.push({
+      line: lineNumberOf(content, uid.index),
+      current: uid[0],
+      fixed: uid[0].replace("wowohcool.com/#", `wowohcool.com/${lang}/#`),
+      reason: `@id "#${frag}" is missing the "${lang}/" prefix`,
+    });
+  }
+
   return violations;
 }
 
@@ -162,7 +202,7 @@ function main() {
     walkDir(langRoot, (filePath) => {
       const relPath = path.relative(SRC_ROOT, filePath);
       const content = fs.readFileSync(filePath, "utf-8");
-      const violations = findViolations(filePath, content);
+      const violations = findViolations(filePath, content, lang);
 
       if (violations.length > 0) {
         filesWithIssues.push({ filePath, relPath, violations });
