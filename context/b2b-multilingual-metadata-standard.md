@@ -154,7 +154,7 @@
 | `{CANONICAL_URL}` | 完整 canonical URL（末尾带 `/`） | `https://www.wowohcool.com/de/blog/fabrikauswahl-china-leitfaden/` |
 | `{PUBLISH_DATE}` | 发布日期 `YYYY-MM-DD` | `2026-04-21` |
 | `{MODIFIED_DATE}` | 最后修改日期 | `2026-07-27` |
-| `{AUTHOR_ID}` | 作者 `@id`（Person 节点引用，BlogPosting.author 去重） | `https://www.wowohcool.com/#snowy-may` |
+| `{AUTHOR_ID}` | 作者 `@id`（Person 节点引用，BlogPosting.author 去重）。两个作者按专长交叉使用：`#snowy-may`（技术/认证类）、`#nina-nico`（采购/供应链类），完整信息见 `factory-data-canonical.md` §15 | `https://www.wowohcool.com/#snowy-may` |
 | `{ACTUAL_WORD_COUNT}` | 实际主体字数（整数，无引号），验证方法见 §四 | `3100` |
 | `{TIME_REQUIRED}` | ISO 8601 duration | `PT14M` |
 | `{KEYWORD_1}` 等 | 文章关键词（≥3） | `GaN-Ladegerät` |
@@ -348,6 +348,7 @@ DE 文章在标准结构基础上增加以下板块（位置见 §5.1）：
 [ ] Expert Insight 嵌入在 H2 Section 内（非独立在文章末尾）
 [ ] Organization 节点含 legalName + url + publishingPrinciples + logo + sameAs + contactPoint
 [ ] Organization url/publishingPrinciples 按语言映射（§二映射表）
+[ ] Organization/WebSite/Person @id 全站唯一、不带语言前缀（§二 @id 规则）
 ```
 
 ---
