@@ -14,10 +14,12 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - **SERP 研究用目标语言搜索**：优化 ES 文章 → 搜索西班牙语关键词，分析西班牙语 SERP 竞品（不是翻译英文 SERP）
 - **本土化数据**：引用目标市场的法规、统计、案例（如 ES 文章引用 BOE/AEAT 西班牙法规、LATAM 各国认证；DE 文章引用 Stiftung Warentest、德国 DIN 标准）
 - **本土化语言**：使用该语言的母语表达习惯、商业术语、B2B 行话（不是从英文逐字翻译）
+- **拼写与用词准确（专业/国际术语除外）**：本土语言正文禁止单词拼写错误（缺重音 é→e、slug 拼写 typo、错误变音符号）和语言混用（母语术语存在时用英文词，如法语用 "charger" 而非 "chargeur"、波兰语用 "charger" 而非 "ładowarka"）。**例外**：专业术语和国际通用词保持英文/缩写（OEM、ODM、FOB、MOQ、GaN、PD 3.1、CE、EAC、BOM、QC 等）
 - **本土化案例**：优先使用目标市场进口商的真实场景（如 ES 文章用西班牙进口商视角，不是美国进口商视角）
 - **对标检查**：如果文章有对应的 EN/DE/ES/FR 版本，内容方向一致但**语言表达完全独立**，不是逐段翻译
+- **ES 本土化自检清单**（完整词表见 `context/es-localization-dict.md` 和 `context/es-title-case-dict.md`）：重音准确（certificación/fábrica/ñ）；方言统一（móvil/ordenador 非 celular/computadora）；倒置标点 ¿¡、€ 在数字后、月份小写、标题 sentence case；专业术语/专名保留英文（OEM/PD/DDP/机构名）、普通词用西语（entrega 非 delivery）；URL/slug 保持 ASCII；判断英语词先看上下文（术语/专名→英文，翻译腔→西语）
 
-违反此规则的标志：用英文搜索 SERP 后翻译成西班牙语、引用美国法规在西班牙文章中、使用机器翻译句式（如 ES 文章出现 "En orden a" 这种非自然表达）。
+违反此规则的标志：用英文搜索 SERP 后翻译成西班牙语、引用美国法规在西班牙文章中、使用机器翻译句式（如 ES 文章出现 "En orden a" 这种非自然表达）、缺重音/变音符号（如 "certifie" 应为 "certifié"）、slug 拼写 typo（如 "technologya" 应为 "technologiya"）、母语术语存在时混用英文词（法语用 "sourcing" 代替 "approvisionnement"，但 "OEM/FOB/MOQ" 等国际术语保留）。
 
 ## Article Optimization Quality Gates (Mandatory)
 
