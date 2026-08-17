@@ -17,7 +17,11 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - **拼写与用词准确（专业/国际术语除外）**：本土语言正文禁止单词拼写错误（缺重音 é→e、slug 拼写 typo、错误变音符号）和语言混用（母语术语存在时用英文词，如法语用 "charger" 而非 "chargeur"、波兰语用 "charger" 而非 "ładowarka"）。**例外**：专业术语和国际通用词保持英文/缩写（OEM、ODM、FOB、MOQ、GaN、PD 3.1、CE、EAC、BOM、QC 等）
 - **本土化案例**：优先使用目标市场进口商的真实场景（如 ES 文章用西班牙进口商视角，不是美国进口商视角）
 - **对标检查**：如果文章有对应的 EN/DE/ES/FR 版本，内容方向一致但**语言表达完全独立**，不是逐段翻译
-- **ES 本土化自检清单**（完整词表见 `context/es-localization-dict.md` 和 `context/es-title-case-dict.md`）：重音准确（certificación/fábrica/ñ）；方言统一（móvil/ordenador 非 celular/computadora）；倒置标点 ¿¡、€ 在数字后、月份小写、标题 sentence case；专业术语/专名保留英文（OEM/PD/DDP/机构名）、普通词用西语（entrega 非 delivery）；URL/slug 保持 ASCII；判断英语词先看上下文（术语/专名→英文，翻译腔→西语）
+- **ES 本土化自检清单**（完整词表见 `context/es-dict.md`）：重音准确（certificación/fábrica/ñ）；方言统一（móvil/ordenador 非 celular/computadora）；倒置标点 ¿¡、€ 在数字后、月份小写、标题 sentence case；专业术语/专名保留英文（OEM/PD/DDP/机构名）、普通词用西语（entrega 非 delivery）；URL/slug 保持 ASCII；判断英语词先看上下文（术语/专名→英文，翻译腔→西语）
+- **PL 本土化自检清单**（完整词表见 `context/pl-dict.md`）：变音字母准确（ą ć ę ł ń ó ś ź ż，如 ładowarka/jakość/pojemność 非 ladowarka/jakosc/pojemnosc）；小数用逗号（6,8 mm）、货币后置（500 zł）、引号 `«...»`、标题 sentence case；专业术语保留英文（OEM/GaN/PD 3.1）、普通词用波兰语；URL/slug 全小写 ASCII 无变音；注意 moc（功率）≠ móc（能够）
+- **DE 本土化自检清单**（完整词表见 `context/de-dict.md`）：变音符号准确（正文 ä/ö/ü/ß、slug/URL 转写 ae/oe/ue/ss，如 für/groß/qualität/ladegerät 非 fuer/gross/qualitaet/ladegeraet）；名词首字母大写；小数逗号（3,7 V）、千分位点（1.000）、€ 在数字后（100 €）；标题 sentence case；专业术语保留英文（OEM/GaN/PD 3.1）、普通词用德语
+- **FR 本土化自检清单**（完整词表见 `context/fr-dict.md`）：重音准确（é/è/ê/à/ç/ô/û/ï，如 accès/conformité/qualité 非 acces/conformite/qualite）；引号 «...»、冒号/分号/问号/感叹号前加空格（: ; ! ?）、€ 在数字后（100 €）；小数逗号（3,7 V）、千分位空格（1 000）；标题 sentence case；专业术语保留英文（OEM/GaN/PD 3.1）、普通词用法语；URL/slug 无重音
+- **通用保护规则**（见 `context/localization-rules.md`）：任何重音/变音替换前必须先隔离 URL/slug、HTML 实体、注释、script/style、frontmatter 路径——只改正文可见文本，避免误改 href/src 的 slug 和 HTML 实体
 
 违反此规则的标志：用英文搜索 SERP 后翻译成西班牙语、引用美国法规在西班牙文章中、使用机器翻译句式（如 ES 文章出现 "En orden a" 这种非自然表达）、缺重音/变音符号（如 "certifie" 应为 "certifié"）、slug 拼写 typo（如 "technologya" 应为 "technologiya"）、母语术语存在时混用英文词（法语用 "sourcing" 代替 "approvisionnement"，但 "OEM/FOB/MOQ" 等国际术语保留）。
 
@@ -75,6 +79,38 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - [ ] ≥2 个外部权威链接 (rel="noopener noreferrer")
 - [ ] ≥3 个内部链接到产品页/服务页/相关文章
 - [ ] FAQ 问题使用 B2B 采购语言（非消费者语言）
+
+## 内容选题铁律（GSC 零点击教训 · 强制）
+
+**每次 /research 选题、/write 新文章前必须套用**（源自 2026-08 GSC 三轮优化复盘，完整分析见 `context/GSC-CTR-OPTIMIZATION-LOG.md` Part 7.9）。
+
+**背景**：站点博客 CTR 仅 0.24%，根因是**结构性零点击**——信息型查询被 Google 在 SERP 直接回答（AI Overview / Featured Snippet / PAA / Knowledge Panel），用户无需点击进站。这是查询层级问题，页面优化触及不到。
+
+### 禁止写的选题（信息型，零点击陷阱）
+
+- ❌ "what is X" / "X explained" / 协议定义
+- ❌ "X vs Y" 纯对比（Google SERP 直接给对比表）
+- ❌ "market trends / market size / industry analysis"（AI Overview 垄断）
+- ❌ "HS code 是多少" / "认证有哪些" 纯事实罗列（Google 直接显示）
+- ❌ 任何 Google 能一句话在 SERP 回答的话题
+
+### 必须写的选题（商业意图 + 第一手数据）
+
+- ✅ **商业意图查询**（commercial CTR 1.20% vs informational 0.69%）
+- ✅ **第一手工厂数据**：测试数据 / 质检流程 / 供应商评估 / 成本分解——Google 无法编造，必须点击进站
+- ✅ **操作型决策框架**："如何做"而非"是什么"（TCO 计算、审核清单、证书真伪验证）
+- ✅ **风险/代价角度**："申报错误代价 5-15% 关税" 而非 "HS code 是什么"
+
+### 选题自检（每条新选题必答）
+
+1. Google 能否在 SERP 直接回答这个查询？若能 → 放弃或换角度
+2. 有没有第一手数据（工厂测试/成本/退货率）？若没有 → 补或换
+3. 目标查询是 commercial 还是 informational？informational → 换到决策/风险/验证角度
+4. 对标 DE/ES 高 CTR 页面（测试数据/质检/供应商评估）——操作型内容，非英语市场零点击少得多
+
+### 市场优先级
+
+ES（CTR 1.20%）、DE（0.86%）、RU（0.98%）CTR 全远超 EN（0.19%）——同样的操作型内容，优先投向竞争更弱的非英语市场。**注意**：此优先级针对「CTR 优化」，与「六语言主题覆盖」是两回事——覆盖目标仍按 hreflang 六站补齐，但选题角度一律走「商业意图 + 第一手数据」。
 
 ## Project Overview
 

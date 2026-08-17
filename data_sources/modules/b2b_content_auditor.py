@@ -364,7 +364,8 @@ class B2BContentAuditor:
                 'weak_cta': {'score': None}, 'heading_hierarchy': hierarchy,
                 'url_quality': url_quality, 'cross_reference': {'score': None},
                 'schema_validation': schema_val, 'factory_data_canonical': {'score': None},
-                'static_html_quality': static_html,
+                'static_html_quality': static_html, 'anti_patterns': {'score': None},
+                'accent_spelling': {'score': None},
                 'critical_issues': [i for c in fatal_checks for i in c.get('critical_issues', [])],
                 'warnings': [i for c in fatal_checks for i in c.get('warnings', [])],
                 'recommendations': [],
@@ -399,12 +400,14 @@ class B2BContentAuditor:
         factory_data = self._check_factory_data_canonical(content)
         static_html = self._check_static_html_quality(raw_content if is_njk(raw_content) else content)
         anti_patterns = self._check_anti_patterns(raw_content if is_njk(raw_content) else content)
+        accent_spelling = self._check_accent_spelling(raw_content if is_njk(raw_content) else content)
 
         # Composite: all non-None scores averaged equally
         all_checks = [opening, h3_answer, h2_density, data_density,
                       table_test, stock_photo, faq_lang, author_eeat,
                       tldr, vague_headings, weak_cta, hierarchy, url_quality,
-                      cross_ref, schema_val, factory_data, static_html, anti_patterns]
+                      cross_ref, schema_val, factory_data, static_html, anti_patterns,
+                      accent_spelling]
         scores = []
         for check in all_checks:
             s = check.get('score')
@@ -443,6 +446,7 @@ class B2BContentAuditor:
             'factory_data_canonical': factory_data,
             'static_html_quality': static_html,
             'anti_patterns': anti_patterns,
+            'accent_spelling': accent_spelling,
             'critical_issues': critical_issues,
             'warnings': warnings,
             'recommendations': recommendations,
@@ -1214,14 +1218,14 @@ class B2BContentAuditor:
 
             # Author page (internal link to /author/ or /about/ or /team/)
             # MD link in byline_text (legacy check)
-            if re.search(r'\[[^\]]*\]\(/(?:author|about|team)/[^)]+\)', byline_text, re.IGNORECASE):
+            if re.search(r'\[[^\]]*\]\(/(?:authors?|about|team)/[^)]+\)', byline_text, re.IGNORECASE):
                 checks['has_author_page'] = True
             # HTML link in author bio section or body (primary check for .njk templates)
             if not checks['has_author_page'] and raw_html:
-                if re.search(r'href="/(?:[a-z]{2}/)?(?:author|about|team|ueber-uns)/[^"]*"', raw_html, re.IGNORECASE):
+                if re.search(r'href="/(?:[a-z]{2}/)?(?:authors?|about|team|ueber-uns)/[^"]*"', raw_html, re.IGNORECASE):
                     checks['has_author_page'] = True
             if not checks['has_author_page']:
-                if re.search(r'href="/(?:[a-z]{2}/)?(?:author|about|team|ueber-uns)/[^"]*"', content, re.IGNORECASE):
+                if re.search(r'href="/(?:[a-z]{2}/)?(?:authors?|about|team|ueber-uns)/[^"]*"', content, re.IGNORECASE):
                     checks['has_author_page'] = True
 
             # Expertise angle: role relevant to article topic
@@ -2206,6 +2210,247 @@ class B2BContentAuditor:
 
     # ── Check 16: Factory Data Canonical Verification ──
 
+    # ── Accent/Spelling Check (per-language dictionaries) ──
+    # These are unambiguous accent-stripped forms. When any of these appear in body content
+    # (excluding URLs / HTML attributes / Nunjucks / JSON-LD), that word is a spelling error.
+    # Rule: Spanish -ción → -ciones plural loses the accent, so plural forms of -ción nouns are NOT listed.
+    #       French/Spanish/German verbs conjugating identically to accented forms are NOT listed to avoid false positives.
+    ACCENT_DICT = {
+        'fr': {
+            # 高频名词
+            'conformite': 'conformité', 'qualite': 'qualité', 'qualites': 'qualités',
+            'delai': 'délai', 'delais': 'délais',
+            'capacite': 'capacité', 'capacites': 'capacités',
+            'frequence': 'fréquence', 'frequences': 'fréquences',
+            'difference': 'différence', 'differences': 'différences',
+            'securite': 'sécurité', 'reglement': 'règlement', 'reglements': 'règlements',
+            'efficacite': 'efficacité', 'systeme': 'système', 'systemes': 'systèmes',
+            'cout': 'coût', 'couts': 'coûts', 'generation': 'génération', 'generations': 'générations',
+            'certifie': 'certifié', 'certifies': 'certifiés', 'certifiee': 'certifiée', 'certifiees': 'certifiées',
+            'marche': 'marché', 'marches': 'marchés',
+            'verifier': 'vérifier', 'etape': 'étape', 'etapes': 'étapes',
+            'authenticite': 'authenticité', 'agree': 'agréé', 'meme': 'même',
+            'contrefacon': 'contrefaçon', 'reglementaire': 'réglementaire',
+            'reference': 'référence', 'references': 'références',
+            'boitier': 'boîtier', 'modele': 'modèle', 'modeles': 'modèles',
+            'temperature': 'température', 'penalite': 'pénalité', 'defaut': 'défaut',
+            'echantillon': 'échantillon', 'echantillons': 'échantillons',
+            'fevrier': 'février', 'negocier': 'négocier',
+            'numero': 'numéro', 'numeros': 'numéros', 'premiere': 'première',
+            'reglementation': 'réglementation', 'specification': 'spécification', 'specifications': 'spécifications',
+            'declaration': 'déclaration', 'declarations': 'déclarations', 'declarer': 'déclarer',
+            'necessite': 'nécessite', 'specifique': 'spécifique', 'specifiques': 'spécifiques',
+            'penetration': 'pénétration', 'donnees': 'données',
+            'electrolyte': 'électrolyte', 'electrolytes': 'électrolytes',
+            'densite': 'densité', 'verifications': 'vérifications',
+            'melange': 'mélange', 'reglage': 'réglage', 'mesuree': 'mesurée',
+            'ete': 'été', 'seche': 'sèche', 'demasque': 'démasqué',
+            'supplementaire': 'supplémentaire', 'energetique': 'énergétique',
+            'polymere': 'polymère', 'polymeres': 'polymères',
+            'schema': 'schéma', 'francais': 'français',
+            'controle': 'contrôle', 'controles': 'contrôles',
+            'ingenieurs': 'ingénieurs', 'edition': 'édition',
+            'unites': 'unités', 'unite': 'unité',
+            'reponse': 'réponse', 'reponses': 'réponses',
+            'aerien': 'aérien', 'basee': 'basée', 'matieres': 'matières',
+            'dedouanement': 'dédouanement', 'zero': 'zéro',
+            'demarrer': 'démarrer', 'regulations': 'régulations',
+            'cable': 'câble', 'aout': 'août', 'etre': 'être',
+            'methode': 'méthode', 'pret': 'prêt',
+            'reglementaires': 'réglementaires', 'adhesion': 'adhésion',
+            'reduit': 'réduit', 'compatibilite': 'compatibilité',
+            'equipe': 'équipe', 'chaine': 'chaîne',
+            'pieces': 'pièces', 'video': 'vidéo',
+            'reel': 'réel', 'reels': 'réels', 'resultat': 'résultat',
+            'duree': 'durée', 'electronique': 'électronique',
+            'detection': 'détection', 'fiabilite': 'fiabilité',
+            'ideal': 'idéal', 'critere': 'critère', 'criteres': 'critères',
+            'europeennes': 'européennes', 'defauts': 'défauts',
+            'etude': 'étude', 'formalites': 'formalités',
+            'controleur': 'contrôleur', 'automatisee': 'automatisée',
+            'eviter': 'éviter', 'strategique': 'stratégique',
+            'regulation': 'régulation',
+        },
+        'es': {
+            # -ción 单数带重音, 复数(-ciones)重音消失, 复数不列
+            'certificacion': 'certificación',
+            'fabricacion': 'fabricación', 'produccion': 'producción',
+            'importacion': 'importación', 'exportacion': 'exportación',
+            'inspeccion': 'inspección', 'verificacion': 'verificación',
+            'informacion': 'información', 'documentacion': 'documentación',
+            'especificacion': 'especificación', 'comparacion': 'comparación',
+            'medicion': 'medición', 'edicion': 'edición', 'seleccion': 'selección',
+            'proteccion': 'protección', 'construccion': 'construcción',
+            'validacion': 'validación', 'aceptacion': 'aceptación',
+            'aplicacion': 'aplicación', 'evaluacion': 'evaluación',
+            'facturacion': 'facturación', 'distribucion': 'distribución',
+            'automatizacion': 'automatización', 'personalizacion': 'personalización',
+            'cotizacion': 'cotización', 'operacion': 'operación',
+            'condicion': 'condición', 'regulacion': 'regulación',
+            'combinacion': 'combinación', 'colocacion': 'colocación',
+            'gestion': 'gestión', 'seccion': 'sección', 'reduccion': 'reducción',
+            'transmision': 'transmisión', 'expansion': 'expansión',
+            'conexion': 'conexión', 'emision': 'emisión',
+            'presion': 'presión', 'tension': 'tensión',
+            'discusion': 'discusión', 'conclusion': 'conclusión',
+            'decision': 'decisión', 'union': 'unión', 'version': 'versión',
+            'conversion': 'conversión', 'aviacion': 'aviación',
+            'autenticacion': 'autenticación', 'amortiguacion': 'amortiguación',
+            'elaboracion': 'elaboración', 'duracion': 'duración',
+            'institucion': 'institución', 'precision': 'precisión',
+            # -a/-o/-í 名词(复数带重音,单复数都修)
+            'fabrica': 'fábrica', 'fabricas': 'fábricas',
+            'bateria': 'batería', 'baterias': 'baterías',
+            'guia': 'guía', 'guias': 'guías', 'envio': 'envío', 'envios': 'envíos',
+            'codigo': 'código', 'codigos': 'códigos',
+            'numero': 'número', 'numeros': 'números',
+            'indice': 'índice', 'indices': 'índices',
+            'metodo': 'método', 'metodos': 'métodos',
+            'articulo': 'artículo', 'articulos': 'artículos',
+            'catalogo': 'catálogo', 'catalogos': 'catálogos',
+            'diametro': 'diámetro', 'termino': 'término', 'terminos': 'términos',
+            'trafico': 'tráfico', 'grafico': 'gráfico', 'grafica': 'gráfica',
+            'analisis': 'análisis', 'sintesis': 'síntesis',
+            'formula': 'fórmula', 'formulas': 'fórmulas',
+            'canton': 'cantón', 'exito': 'éxito', 'almacen': 'almacén',
+            'proposito': 'propósito', 'caida': 'caída',
+            'diseno': 'diseño', 'disenos': 'diseños',
+            'estadia': 'estadía', 'latin': 'latín',
+            'modulo': 'módulo', 'modulos': 'módulos',
+            'mayoria': 'mayoría', 'sintomas': 'síntomas',
+            'sinonimo': 'sinónimo', 'angulo': 'ángulo', 'angulos': 'ángulos',
+            'via': 'vía', 'vias': 'vías', 'dia': 'día', 'dias': 'días',
+            'america': 'América', 'espana': 'España',
+            'espanol': 'español', 'espanola': 'española',
+            # 形容词/副词
+            'especifica': 'específica', 'especifico': 'específico',
+            'especificos': 'específicos', 'especificas': 'específicas',
+            'unica': 'única', 'unico': 'único', 'unicos': 'únicos', 'unicas': 'únicas',
+            'facil': 'fácil', 'faciles': 'fáciles',
+            'dificil': 'difícil', 'dificiles': 'difíciles',
+            'rapido': 'rápido', 'rapida': 'rápida',
+            'rapidos': 'rápidos', 'rapidas': 'rápidas', 'rapidamente': 'rápidamente',
+            'tecnico': 'técnico', 'tecnica': 'técnica',
+            'tecnicos': 'técnicos', 'tecnicas': 'técnicas',
+            'economico': 'económico', 'economica': 'económica', 'economicos': 'económicos',
+            'electronico': 'electrónico', 'electronica': 'electrónica',
+            'electronicos': 'electrónicos', 'electronicas': 'electrónicas',
+            'practico': 'práctico', 'practica': 'práctica',
+            'basico': 'básico', 'basica': 'básica',
+            'critico': 'crítico', 'critica': 'crítica',
+            'automatico': 'automático', 'automatica': 'automática',
+            'maritimo': 'marítimo', 'maritima': 'marítima',
+            'aereo': 'aéreo', 'aerea': 'aérea',
+            'ultima': 'última', 'ultimo': 'último',
+            'ultimos': 'últimos', 'ultimas': 'últimas',
+            'proximo': 'próximo', 'proxima': 'próxima',
+            'debil': 'débil', 'inalambrica': 'inalámbrica', 'inalambrico': 'inalámbrico',
+            'retractil': 'retráctil', 'hidraulica': 'hidráulica',
+            'fotografico': 'fotográfico', 'fisicamente': 'físicamente',
+            'invalida': 'inválida', 'comun': 'común',
+            'termica': 'térmica', 'termico': 'térmico',
+            'calida': 'cálida', 'metrica': 'métrica',
+            'aqui': 'aquí', 'alli': 'allí', 'asi': 'así',
+            'ademas': 'además', 'traves': 'través',
+            'despues': 'después', 'segun': 'según', 'aun': 'aún',
+        },
+        'de': {
+            'ladegerate': 'Ladegeräte', 'kompatibilitat': 'Kompatibilität',
+            'kopfhorer': 'Kopfhörer', 'prufen': 'prüfen', 'ubersicht': 'Übersicht',
+            'erklart': 'erklärt', 'geoffnet': 'geöffnet',
+            'ansassig': 'ansässig', 'reprasentatives': 'repräsentatives',
+            'markteinfuhrung': 'Markteinführung', 'ubernimmt': 'übernimmt',
+            'qualitatskontrolle': 'Qualitätskontrolle', 'haufig': 'häufig',
+            'gunstige': 'günstige', 'herkommlicher': 'herkömmlicher',
+            'dafur': 'dafür', 'nennkapazitat': 'Nennkapazität',
+            'tatsachlich': 'tatsächlich', 'tatsachliche': 'tatsächliche',
+            'langere': 'längere', 'nachsten': 'nächsten',
+            'benotigt': 'benötigt', 'unabhangig': 'unabhängig',
+            'verstandlich': 'verständlich', 'kaufer': 'Käufer',
+            'dunne': 'dünne', 'zusatzliche': 'zusätzliche',
+            'flussigkeit': 'Flüssigkeit', 'leistungsfahigkeit': 'Leistungsfähigkeit',
+            'dunn': 'dünn', 'hoherer': 'höherer', 'haufigsten': 'häufigsten',
+            'unprazise': 'unpräzise', 'portabilitat': 'Portabilität',
+            'ladt': 'lädt', 'konnen': 'können', 'mehrtagige': 'mehrtägige',
+            'bevollmachtigten': 'bevollmächtigten', 'verfugbar': 'verfügbar',
+            'aufschlusselung': 'Aufschlüsselung', 'buroangestellte': 'Büroangestellte',
+            'dunner': 'dünner', 'tagliches': 'tägliches',
+            'daruber': 'darüber', 'dunnen': 'dünnen',
+            'unterstutzen': 'unterstützen', 'baumusterprufung': 'Baumusterprüfung',
+            'starkstes': 'stärkstes', 'uber': 'über', 'fur': 'für',
+            'haustur': 'Haustür', 'stuck': 'Stück',
+        },
+    }
+
+    def _check_accent_spelling(self, content: str) -> Dict[str, Any]:
+        """Detect accent-stripped words in non-English languages (Rule 16, added 2026-08-14).
+
+        Only checks main body text — excludes:
+          - <script> blocks (JSON-LD Schema)
+          - HTML attributes (id/href/src/srcset)
+          - URLs (https://... and local paths)
+          - Nunjucks tags {% %} and {{ }}
+          - Frontmatter path fields (canonical/*Path/ogImage/hreflang)
+
+        Score deducted per violation. Language auto-detected via self.lang.
+        """
+        result = {'score': None, 'violations': [], 'total': 0,
+                  'critical_issues': [], 'warnings': [], 'recommendations': []}
+
+        lang = getattr(self, 'lang', None)
+        if lang not in self.ACCENT_DICT:
+            # Not applicable to English, Russian (Cyrillic), Polish (special chars, not accents)
+            return result
+
+        accent_map = self.ACCENT_DICT[lang]
+
+        # Strip content that must remain ASCII (URLs / attributes / Nunjucks / JSON-LD)
+        body = content
+        body = re.sub(r'<script.*?</script>', ' ', body, flags=re.DOTALL)
+        body = re.sub(r'\{%.*?%\}', ' ', body, flags=re.DOTALL)
+        body = re.sub(r'\{\{.*?\}\}', ' ', body, flags=re.DOTALL)
+        body = re.sub(r'(?:id|href|src|srcset)="[^"]*"', ' ', body)
+        body = re.sub(r'https?://[^\s"\'<>]+', ' ', body)
+        body = re.sub(r'/[a-z0-9/_.-]+\.(?:webp|jpg|png|json|njk)', ' ', body)
+        body = re.sub(r'^(?:canonical|enPath|dePath|esPath|frPath|ruPath|plPath|ogImage):[^\n]*',
+                      ' ', body, flags=re.MULTILINE)
+        body = re.sub(r'^\s*(?:en|de|es|fr|ru|pl):\s*"[^"]*"', ' ', body, flags=re.MULTILINE)
+
+        # Build one big pattern for all accent-stripped words
+        pattern = re.compile(
+            r'(?<![A-Za-zÀ-ÿ])(' + '|'.join(re.escape(w) for w in accent_map) + r')(?![A-Za-zÀ-ÿ])',
+            re.IGNORECASE
+        )
+
+        violations_by_word = {}
+        for m in pattern.finditer(body):
+            w = m.group(0).lower()
+            if w in accent_map:
+                violations_by_word[w] = violations_by_word.get(w, 0) + 1
+
+        total = sum(violations_by_word.values())
+        result['total'] = total
+
+        # Score: 100 - min(80, 2 * total) — 40+ errors = 20/100
+        score = max(20, 100 - 2 * total) if total > 0 else 100
+        result['score'] = score
+
+        if total > 0:
+            top = sorted(violations_by_word.items(), key=lambda x: -x[1])[:8]
+            details = ', '.join(f'{w}→{accent_map[w]}({n})' for w, n in top)
+            result['critical_issues'].append(
+                f'{total} 处缺重音词(non-English正字法): {details}'
+            )
+            result['recommendations'].append(
+                f'运行 accent_scan.py 或 accent_es.py 修复。语言 {lang.upper()}: 每处扣 2 分,最低 20/100。'
+            )
+            result['violations'] = [
+                {'word': w, 'correct': accent_map[w], 'count': n}
+                for w, n in top
+            ]
+
+        return result
+
     def _check_factory_data_canonical(self, content: str) -> Dict[str, Any]:
         """
         Verify factory data points against canonical source (factory-data-canonical.md).
@@ -2772,6 +3017,7 @@ def _format_report(result: Dict[str, Any]) -> str:
         ('Factory Data Canonical', 'factory_data_canonical'),
         ('Static HTML Quality', 'static_html_quality'),
         ('Anti-Pattern Detection', 'anti_patterns'),
+        ('Accent/Spelling (i18n)', 'accent_spelling'),
     ]
 
     for label, key in checks:

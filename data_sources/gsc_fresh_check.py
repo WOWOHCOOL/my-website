@@ -294,7 +294,7 @@ def main():
     # 10. COMPARISON WITH LAST CHECK (Aug 10 snapshot)
     # =========================================================================
     print("\n" + "─" * 80)
-    print("10. COMPARISON: Aug 10 → Aug 12 (2-day delta)")
+    print("10. COMPARISON: baseline snapshot (8/10) vs current 28-day window")
     print("─" * 80)
 
     snapshot_path = os.path.join(os.path.dirname(__file__), "gsc_snapshots", "post-opt-check-20260810_20260810_171257.json")
@@ -316,7 +316,7 @@ def main():
         print(f"  {'─'*20} {'─'*12} {'─'*12} {'─'*12}")
         print(f"  {'Clicks':<20} {prev['clicks']:>12} {cur_clicks:>12} {cur_clicks - prev['clicks']:>+12}")
         print(f"  {'Impressions':<20} {prev['impressions']:>12,} {cur_impr:>12,} {cur_impr - prev['impressions']:>+12,}")
-        print(f"  {'CTR':<20} {prev['ctr']*100:>11.2f}% {cur_ctr:>11.2f}% {cur_ctr - prev['ctr']*100:>+11.2f}pp")
+        print(f"  {'CTR':<20} {prev['ctr']:>11.2f}% {cur_ctr:>11.2f}% {cur_ctr - prev['ctr']:>+11.2f}pp")
     except FileNotFoundError:
         print(f"  Snapshot not found: {snapshot_path}")
 

@@ -70,8 +70,9 @@ Must be the FIRST block after frontmatter, inside `{% block head_schema %}`:
 
 **Critical rules**:
 - `Organization.areaServed` = `["US","DE","AT","CH","UK","FR","ES","EU","JP","KR","AU","MX","CO","AR","CL","PE"]` — global list, NEVER single-region
-- `BlogPosting.author` = `{"@id": "https://www.wowohcool.com/{lang}/#author-id"}` — NEVER inline Person
-- `Person.worksFor` = `{"@id": "https://www.wowohcool.com/{lang}/#organization"}` — NEVER inline Organization
+- `BlogPosting.author` = `{"@id": "https://www.wowohcool.com/#author-id"}` — NEVER inline Person
+- `Person.worksFor` = `{"@id": "https://www.wowohcool.com/#organization"}` — NEVER inline Organization
+- **Shared entity @ids (#organization / #website / #author) have NO language prefix** — use `https://www.wowohcool.com/#...` in ALL languages (same global entity). Only article-level @ids (`#article` / `#faq`) and URL/path fields (Organization.url, Breadcrumb item, canonical, ogImage) keep the `{lang}/` prefix.
 - `BlogPosting.speakable.cssSelector` = `["h1", ".speakable"]` — NEVER use `["h1", "h2"]`
 - `FAQPage.speakable.cssSelector` = `[".faq-answer"]` — independent from BlogPosting
 - **Cover image**: `<img src="{IMAGE}">` only — NO `srcset`, NO `sizes`, NO variant (`-800`/`-1200`) files
@@ -352,10 +353,10 @@ COPY these verbatim — never invent variants or remove hyphens:
 
 | Author | Schema @id | Author Page URL |
 |--------|-----------|-----------------|
-| Snowy May | `https://www.wowohcool.com/{lang}/#snowy-may` | `https://www.wowohcool.com/authors/snowy-may/` |
-| Nina Nico | `https://www.wowohcool.com/{lang}/#nina-nico` | `https://www.wowohcool.com/authors/nina-nico/` |
+| Snowy May | `https://www.wowohcool.com/#snowy-may` | `https://www.wowohcool.com/authors/snowy-may/` |
+| Nina Nico | `https://www.wowohcool.com/#nina-nico` | `https://www.wowohcool.com/authors/nina-nico/` |
 
-Where `{lang}` is empty for EN, or `de`/`es`/`fr`/`ru` for other languages.
+> **Author Page URL 每位作者不同** — Snowy May 用 `/authors/snowy-may/`，Nina Nico 用 `/authors/nina-nico/`，按作者复制对应 URL，不要混用。Schema @id 用共享形式（无语言前缀）：`https://www.wowohcool.com/#snowy-may` / `#nina-nico`。
 
 ## File Management
 Save directly to the site source directory:
