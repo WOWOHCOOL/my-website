@@ -31,7 +31,8 @@
  {% elif ruPath is defined %}<link rel="alternate" hreflang="ru" href="https://www.wowohcool.com/ru/{{ ruPath | trailingSlash }}">{% endif %}
  {% if lang == "pl" %}<link rel="alternate" hreflang="pl" href="https://www.wowohcool.com{{ canonical }}">
  {% elif plPath is defined %}<link rel="alternate" hreflang="pl" href="https://www.wowohcool.com/pl/{{ plPath | trailingSlash }}">{% endif %}
- <link rel="alternate" hreflang="x-default" href="https://www.wowohcool.com/{{ (enPath | default("")) | trailingSlash }}">
+ {% if enPath is defined %}<link rel="alternate" hreflang="x-default" href="https://www.wowohcool.com/{{ enPath | trailingSlash }}">
+ {% else %}<link rel="alternate" hreflang="x-default" href="https://www.wowohcool.com{{ canonical }}">{% endif %}
 {% endif %}
 
  <!-- Open Graph -->
