@@ -512,3 +512,76 @@ AI Overview 等零点击特征越来越激进地消化信息型查询。这是 G
 **下一步不变**（Part 7.7）：8/20 复查两篇转型 → ES 扩展最高优先级 → 美国零点击治理。但根本上，后续新内容选题要**默认排除信息型**，只写「Google 无法直接回答」的商业意图 + 第一手数据内容。
 
 *下次复查: 2026-08-20+ (两篇转型累积 7 天 post-opt 数据)*
+
+---
+
+## Part 8 · 执行更新（2026-08-17）— ES 扩展完成 + 选题铁律固化
+
+### 8.1 P0 ES 扩展落地（3 篇）
+
+8/12 行动路线图「P0 扩展 ES 博客」已落地——3 篇 ES 商业意图文章全部完成并推送：
+
+| 文章 | slug | B2B | GEO | SEO | 角度 |
+|---|---|---|---|---|---|
+| Directiva Cargador Común USB-C | directiva-cargador-comun-usb-c-oem | 97.4 | 87 | 94 | 时效合规 + 计算实例 |
+| Diferimiento del IVA | diferimiento-iva-importacion-oem | 92.6 | 85 | 93 | 现金流计算 + 申报流程 |
+| Subvaloración / Código HS | subvaloracion-errores-codigo-hs-oem | 94.5 | 85 | 93 | 风险代价 + 归类陷阱 |
+
+三篇都是「商业意图 + 第一手数据 + 风险/代价」角度，Google 无法直接回答，命中选题铁律。验证了「转向竞争更弱市场（ES）+ 商业意图选题」的杠杆。
+
+### 8.2 选题铁律固化到 CLAUDE.md
+
+Part 7.9 的根因分析已沉淀为 `CLAUDE.md` 的「内容选题铁律（GSC 零点击教训 · 强制）」章节——约束未来所有 `/research`、`/write` 选题：
+- 禁止信息型选题（what is / vs 纯对比 / market trends / HS code 罗列）
+- 必须商业意图 + 第一手数据 + 风险/代价角度
+- 选题自检 4 问 + 市场优先级（ES/DE/RU 优先）
+
+### 8.3 行动路线图更新
+
+| 行动 | 状态 |
+|---|---|
+| P0 ES 扩展（3 篇） | ✅ 完成（8.1） |
+| P1 EN 三篇「必须点击」文章 | ✅ 完成（8.4） |
+| P2 import-costs-guide HS 章节重写 | ⬜ 待做 |
+| 8/20 复查两篇转型（gan-vs-silicon / market-trends） | ⏳ 待 8/20 |
+
+### 8.4 P1 EN 三篇「必须点击」落地（2026-08-18）
+
+Part 4 行动 #4「复刻 DE 5% CTR 模式」已完成——三篇 EN 商业意图 + 第一手工厂数据文章，全部先做本土市场调查 + 竞品分析（brief），再撰写正文。
+
+| 文章 | slug | 差异化角度 | 对标已发 EN 文章 | Brief |
+|---|---|---|---|---|
+| Semi-Solid State Nail Penetration Test — What OEM Buyers Must Verify | `semi-solid-state-nail-penetration-test-oem-verification` | 针刺测试第一手数据 + GB 47372-2026 协议 + Donut Lab 2026 欺诈案例 + 6 项供应商红旗 | `semi-solid-state-power-bank-oem` (采购验证角度差异化) | `brief-semi-solid-state-nail-test-verification-en-2026-08-18.md` |
+| On-Site Factory Audit Checklist — 25 Points for Charger OEM Buyers | `on-site-factory-audit-checklist-china-charger-oem` | 25 点现场审核（SMT/aging/QC 实测）+ 8 张地理标记照片 + 充电器专项识别 | `factory-verification-checklist` (文档层) + `quality-control-guide` (QC 内部) 的实地补充 | `brief-factory-audit-onsite-checklist-en-2026-08-18.md` |
+| How to Verify FCC / UL / CE Certificates on Chinese Chargers Are Real | `verify-fake-charger-certificates-fcc-ce-ul` | 5 分钟数据库交叉验证 + China Export CE 陷阱 + 8 项物理红旗 + Alibaba 现场核查案例 | `certifications-us-eu-guide` (需要哪些证) 的真伪验证补充 | `brief-verify-fake-charger-certificates-en-2026-08-18.md` |
+
+**共同特征（命中选题铁律）**:
+- ✅ Google 无法在 SERP 直接回答（都是操作型 + 第一手方法论）
+- ✅ 引用工厂真实数据（QC 批次 #QC-2026-Q3-SS、200+ 审核经验、EEZ 客户合规案例）
+- ✅ 商业意图（buyer 决定 PO / 供应商切换 / 拒绝出货）
+- ✅ 风险/代价角度（$47K Amazon 停号损失 / 5-15% 关税 / 83% 退货率差）
+
+**流程**:
+1. 每篇先做 **WebSearch 美国 EN SERP + 竞品缺口分析** → 生成 brief（含差异化策略 + 数据点 + 内链）
+2. 基于 brief + `factory-data-canonical.md` 真实数据 → 撰写 markdown 草稿到 `drafts/`
+3. 三篇都包含 Nina Nico / Snowy May 作者签名 + LinkedIn + Sources 引文 + FAQ 7 条
+
+**落地状态（2026-08-18 晚更新）**: 三篇已完整转换为 Nunjucks 模板（`wowohcool.com/src/blog/{slug}/index.njk`，13 面板 + 7 节点 Schema），并通过完整质量门：
+
+| 文章 | b2b-audit | geo-citability | optimize | scrub (em-dash) |
+|---|---|---|---|---|
+| Semi-Solid Nail Test | 90.6 | 84 | 91 | 77→42 |
+| Factory Audit Checklist | 91.4 | 86 | 93 | 100→24 |
+| Verify Certificates | 92.6 | 89 | 92 | 55→32 |
+
+**质量门流程**（每篇）: b2b-audit（wordCount 校准 + FAQ 逐字一致 + citation 补全）→ geo-citability（Hook 定义句 + 红旗表格 + 问题式标题）→ optimize（title 精简到 50-60 字符）→ scrub（不可见水印 0 + em-dash 密度精简）。
+
+**剩余发布前手动步骤**:
+1. 生成 3 张封面图 → `/image/blog/cover-en/`
+2. hreflang 跨站映射确认（DE/ES/FR 对应页面是否同角度，跨站回退规则检查）
+3. `git commit` + `git push` → Cloudflare Pages 部署
+4. IndexNow 提交 3 个新 URL（Bing + Yandex）
+
+**上线后验证**: 按 GSC CTR 追踪窗口（发布 +14/+28 天）。目标 CTR ≥ 0.8%（EN 平均 0.19% 的 4×，对齐 DE 页面基线）。
+
+*下次复查: 2026-08-20+ (两篇转型累积 7 天 post-opt 数据；届时验证转型效果并决定 P2 优先级)*
