@@ -1064,7 +1064,7 @@ function findViolations(filePath, content, lang) {
   if (lang === "es") {
     let body = content
       .replace(/<script[\s\S]*?<\/script>/g, (m) => m.replace(/[^\n]/g, " "))
-      .replace(/(?:id|href|src|srcset|class|style)="[^"]*"/g, (m) => m.replace(/[^\n]/g, " "))
+      .replace(/(?:id|href|src|srcset|class|style|version|encoding)="[^"]*"/g, (m) => m.replace(/[^\n]/g, " "))
       .replace(/url\s*:\s*"[^"]*"/g, (m) => m.replace(/[^\n]/g, " "))
       .replace(/(?:^|\n)(?:canonical|enPath|dePath|esPath|frPath|ruPath|plPath|ogImage|ogType|navActive|articleSection|articleTags):\s*[^\n]*/g, (m) => m.replace(/[^\n]/g, " "))
       .replace(/(?:^|\n)\s*(?:en|de|es|fr|ru|pl):\s*"[^"]*"/g, (m) => m.replace(/[^\n]/g, " "))
@@ -1117,7 +1117,7 @@ function findViolations(filePath, content, lang) {
     let body = content
       .replace(/<script[\s\S]*?<\/script>/g, (m) => m.replace(/[^\n]/g, " "))
       .replace(/<!--[\s\S]*?-->/g, (m) => m.replace(/[^\n]/g, " "))
-      .replace(/(?:id|href|src|srcset|class|style)="[^"]*"/g, (m) => m.replace(/[^\n]/g, " "))
+      .replace(/(?:id|href|src|srcset|class|style|version|encoding)="[^"]*"/g, (m) => m.replace(/[^\n]/g, " "))
       .replace(/url\s*:\s*"[^"]*"/g, (m) => m.replace(/[^\n]/g, " "))
       .replace(/(?:^|\n)(?:canonical|enPath|dePath|esPath|frPath|ruPath|plPath|ogImage|ogType|navActive|articleSection|articleTags):\s*[^\n]*/g, (m) => m.replace(/[^\n]/g, " "))
       .replace(/(?:^|\n)\s*(?:en|de|es|fr|ru|pl):\s*"[^"]*"/g, (m) => m.replace(/[^\n]/g, " "))
@@ -1144,7 +1144,7 @@ function findViolations(filePath, content, lang) {
     let body = content
       .replace(/<script[\s\S]*?<\/script>/g, (m) => m.replace(/[^\n]/g, " "))
       .replace(/<!--[\s\S]*?-->/g, (m) => m.replace(/[^\n]/g, " "))
-      .replace(/(?:id|href|src|srcset|class|style)="[^"]*"/g, (m) => m.replace(/[^\n]/g, " "))
+      .replace(/(?:id|href|src|srcset|class|style|version|encoding)="[^"]*"/g, (m) => m.replace(/[^\n]/g, " "))
       .replace(/url\s*:\s*"[^"]*"/g, (m) => m.replace(/[^\n]/g, " "))
       .replace(/(?:^|\n)(?:canonical|enPath|dePath|esPath|frPath|ruPath|plPath|ogImage|ogType|navActive|articleSection|articleTags):\s*[^\n]*/g, (m) => m.replace(/[^\n]/g, " "))
       .replace(/(?:^|\n)\s*(?:en|de|es|fr|ru|pl):\s*"[^"]*"/g, (m) => m.replace(/[^\n]/g, " "))
