@@ -1,0 +1,596 @@
+---
+title: "Ёмкость Power Bank мАч: Верификация Импортёра | WOWOHCOOL"
+lang: "ru"
+description: "Реальная vs заявленная ёмкость power bank: формула 3.7V→5V, классы ячеек A/B/C/D, КПД 80-93%. EAC + маркировка. FOB Shenzhen, MOQ 500. Расчёт 24ч."
+date: 2026-08-19
+modified: 2026-08-19
+author: "Nina Nico"
+articleSection: Power Bank и Аккумуляторы
+articleTags: [Power Bank, мАч, Ёмкость, Ячейки, КПД, EAC, OEM, Импортёр, FOB, MOQ, UN38.3]
+canonical: "/ru/blog/mah-power-bank-rukovodstvo-oem/"
+enPath: "blog/power-bank-mah-explained/"
+dePath: "blog/powerbank-mah-kapazitaet/"
+esPath: "blog/power-bank-mah-explicado/"
+frPath: "blog/mah-batterie-externe-guide-oem/"
+ogImage: "/image/blog/cover-ru/mah-power-bank-rukovodstvo-oem.webp"
+navActive: "blog"
+hreflang:
+ en: "/blog/power-bank-mah-explained/"
+ de: "/de/blog/powerbank-mah-kapazitaet/"
+ es: "/es/blog/power-bank-mah-explicado/"
+ fr: "/fr/blog/mah-batterie-externe-guide-oem/"
+ ru: "/ru/blog/mah-power-bank-rukovodstvo-oem/"
+---
+{% extends "layout.njk" %}
+
+{% block head_schema %}
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "Organization",
+   "@id": "https://www.wowohcool.com/#organization",
+   "name": "WOWOHCOOL",
+   "legalName": "Dong Yi Technology Co., Ltd",
+   "url": "https://www.wowohcool.com/ru/o-kompanii/",
+   "publishingPrinciples": "https://www.wowohcool.com/ru/o-kompanii/",
+   "logo": { "@type": "ImageObject", "url": "https://www.wowohcool.com/image/wowohcool-logo-optimized.webp", "width": 600, "height": 60 },
+   "areaServed": ["US","DE","AT","CH","UK","FR","ES","EU","JP","KR","AU","MX","CO","AR","CL","PE"],
+   "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "925, Yichuang International Center, Longhua District",
+    "addressLocality": "Shenzhen",
+    "addressRegion": "Guangdong",
+    "postalCode": "518111",
+    "addressCountry": "CN"
+   },
+   "sameAs": [
+    "https://www.linkedin.com/company/wowohcool",
+    "https://www.facebook.com/wowohcoolelectronic",
+    "https://www.youtube.com/@WOWOHCOOL",
+    "https://x.com/wowohcool"
+   ],
+   "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "OEM/ODM Sales",
+    "telephone": "+86-18620789739",
+    "email": "info@wowohcool.com",
+    "availableLanguage": ["English", "French", "German", "Spanish", "Russian", "Polish", "Chinese"]
+   }
+  },
+  {
+   "@type": "WebSite",
+   "@id": "https://www.wowohcool.com/#website",
+   "url": "https://www.wowohcool.com/ru/",
+   "name": "WOWOHCOOL",
+   "inLanguage": "ru-RU",
+   "publisher": { "@id": "https://www.wowohcool.com/#organization" }
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Главная", "item": "https://www.wowohcool.com/ru/" },
+    { "@type": "ListItem", "position": 2, "name": "Блог", "item": "https://www.wowohcool.com/ru/blog/" },
+    { "@type": "ListItem", "position": 3, "name": "Ёмкость Power Bank мАч OEM", "item": "https://www.wowohcool.com/ru/blog/mah-power-bank-rukovodstvo-oem/" }
+   ]
+  },
+  {
+   "@type": "BlogPosting",
+   "@id": "https://www.wowohcool.com/ru/blog/mah-power-bank-rukovodstvo-oem/#article",
+   "headline": "Ёмкость Power Bank мАч: Верификация для Импортёров OEM 2026",
+   "keywords": ["Power Bank","мАч","Ёмкость","Ячейки","КПД","EAC","OEM","Импортёр","FOB","MOQ","UN38.3"],
+   "description": "Реальная vs заявленная ёмкость power bank: формула 3.7V→5V, классы ячеек A/B/C/D, КПД 80-93%. EAC + маркировка. FOB Shenzhen, MOQ 500. Расчёт 24ч.",
+   "author": { "@id": "https://www.wowohcool.com/#nina-nico" },
+   "publisher": { "@id": "https://www.wowohcool.com/#organization" },
+   "datePublished": "2026-08-19",
+   "dateModified": "2026-08-19",
+   "wordCount": 1980,
+   "timeRequired": "PT12M",
+   "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.wowohcool.com/ru/blog/mah-power-bank-rukovodstvo-oem/" },
+   "image": "https://www.wowohcool.com/image/blog/cover-ru/mah-power-bank-rukovodstvo-oem.webp",
+   "thumbnailUrl": "https://www.wowohcool.com/image/blog/cover-ru/mah-power-bank-rukovodstvo-oem.webp",
+   "inLanguage": "ru-RU",
+   "articleSection": "Power Bank и Аккумуляторы",
+   "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".speakable"] },
+   "citation": [
+    { "@type": "CreativeWork", "name": "ЕЭК, ТР ТС 004/2011 о безопасности низковольтного оборудования", "url": "https://eec.eaeunion.org/" },
+    { "@type": "CreativeWork", "name": "Росаккредитация, Единый реестр деклараций", "url": "https://fsa.gov.ru/" },
+    { "@type": "CreativeWork", "name": "UN38.3, Manual of Tests and Criteria, Section 38.3", "url": "https://unece.org/" }
+   ],
+   "about": { "@type": "Thing", "name": "Power Bank", "sameAs": "https://www.wikidata.org/wiki/Q15961849" }
+  },
+  {
+   "@type": "Person",
+   "@id": "https://www.wowohcool.com/#nina-nico",
+   "name": "Nina Nico",
+   "jobTitle": "Менеджер по глобальным закупкам и сорсингу",
+   "url": "https://www.wowohcool.com/authors/nina-nico/",
+   "sameAs": ["https://www.linkedin.com/in/nico-power-bank-chargers"],
+   "image": "https://www.wowohcool.com/image/factory/team-nina.webp",
+   "worksFor": { "@id": "https://www.wowohcool.com/#organization" },
+   "knowsAbout": ["Ёмкость Power Bank","Классы ячеек Grade A/B/C","Сертификация EAC и UN38.3","Сорсинг OEM в Шэньчжэне","Верификация аккумуляторов для импортёров"]
+  },
+  {
+   "@type": "HowTo",
+   "@id": "https://www.wowohcool.com/ru/blog/mah-power-bank-rukovodstvo-oem/#howto",
+   "name": "Проверить реальную ёмкость power bank перед заказом OEM",
+   "description": "Алгоритм из 5 шагов для верификации реальной ёмкости power bank и класса ячеек перед подтверждением OEM-заказа в Китае.",
+   "totalTime": "PT4H",
+   "step": [
+    {
+     "@type": "HowToStep",
+     "position": 1,
+     "name": "Рассчитайте теоретическую полезную ёмкость",
+     "itemListElement": [
+      { "@type": "HowToDirection", "text": "Примените формулу 3.7V→5V: Реальная ёмкость = Заявленная × 3.7/5 × КПД. Для 10 000 мАч с КПД 85% ожидайте ~6 290 мАч полезных при 5V." }
+     ]
+    },
+    {
+     "@type": "HowToStep",
+     "position": 2,
+     "name": "Запросите отчёт IQC по ячейкам",
+     "itemListElement": [
+      { "@type": "HowToDirection", "text": "Потребуйте отчёт IQC (входной контроль) с маркой ячеек (Samsung/LG/EVE/BAK), номером партии и тестом разряда. Отсутствие прослеживаемости — признак перемаркированных ячеек Grade C." }
+     ]
+    },
+    {
+     "@type": "HowToStep",
+     "position": 3,
+     "name": "Измерьте USB-тестером разряда",
+     "itemListElement": [
+      { "@type": "HowToDirection", "text": "Подключите USB-тестер (ZKETECH, Atorch, DL24) и разрядите при 5V/2A. Измеренная ёмкость не должна отклоняться более чем на ±5% от теоретического значения." }
+     ]
+    },
+    {
+     "@type": "HowToStep",
+     "position": 4,
+     "name": "Взвесьте и осмотрите ячейки",
+     "itemListElement": [
+      { "@type": "HowToDirection", "text": "Ячейка 18650 Grade A на 3 000+ мАч весит 45-48 г, перемаркированная — 30-35 г. Проверьте маркировку, сварку и отсутствие наклеенной поверх этикетки." }
+     ]
+    },
+    {
+     "@type": "HowToStep",
+     "position": 5,
+     "name": "Проверьте маркировку EAC и декларацию ТР ТС",
+     "itemListElement": [
+      { "@type": "HowToDirection", "text": "Подтвердите знак EAC, декларацию соответствия ТР ТС 004/2011 и ТР ТС 020/2011, и русскоязычную маркировку с ёмкостью и импортёром. Штраф по ст. 14.43 КоАП РФ — до 300 000 ₽." }
+     ]
+    }
+   ]
+  },
+  {
+   "@type": "FAQPage",
+   "@id": "https://www.wowohcool.com/ru/blog/mah-power-bank-rukovodstvo-oem/#faq",
+   "speakable": { "@type": "SpeakableSpecification", "cssSelector": [".faq-answer"] },
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "Почему реальная ёмкость power bank всегда ниже заявленной?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Заявленная ёмкость (например, 10 000 мАч) измеряется при внутреннем напряжении ячейки 3,7V, а выход USB работает при 5V. Конверсия 3.7V→5V плюс КПД преобразователя (80-93% в зависимости от чипа TI или Injoinic) снижают полезную ёмкость. Формула: Реальная = Заявленная × 3.7/5 × КПД. У 10 000 мАч с КПД 85% реальная отдача ~6 290 мАч. Это физика, а не обман. Но расхождение свыше 30% указывает на ячейки Grade C или дешёвую плату."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Как отличить ячейки Grade A, B и C перед заказом OEM?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Три сигнала: (1) марка — Grade A = Samsung SDI, LG, Panasonic, EVE, BAK; Grade B = Highstar, Lishen; Grade C = no-name или восстановленные. (2) вес — 18650 Grade A на 3 000+ мАч весит 45-48 г, перемаркированная — 30-35 г. (3) цена FOB — Grade A $3,5-5,0/ячейка, Grade B $2,0-3,0, Grade C <$1,5. Требуйте отчёт IQC с номером партии и проверяйте отсутствие перемаркировки."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Какая разница в КПД между дешёвой платой и чипом TI?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "КПД преобразования (эффективность буст-преобразователя) варьируется от 70-80% у дешёвых плат до 85-93% у чипов TI или Injoinic. На 10 000 мАч плата с КПД 75% даёт 5 550 мАч полезных, а чип с 93% — 6 880 мАч, то есть на 24% больше энергии при той же стоимости ячеек. Чип занимает меньше 1% BOM, но определяет до 25% реальной полезной ёмкости."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Какие требования EAC и маркировки обязательны для power bank в РФ?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Power bank подлежит обязательному декларированию по ТР ТС 004/2011 (низковольтное оборудование) и ТР ТС 020/2011 (электромагнитная совместимость). Маркировка на русском языке обязательна: наименование, страна-изготовитель, импортёр, ёмкость в мАч, входное/выходное напряжение, знак EAC. Отсутствие декларации — штраф по ст. 14.43 КоАП РФ до 300 000 ₽ для юрлиц."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Сколько стоит power bank 10 000 мАч в FOB Шэньчжэнь?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Цена FOB power bank 10 000 мАч зависит от класса ячеек: Grade A (Samsung/LG) ~$6,20-8,50, Grade B (EVE/BAK) ~$4,80-6,20, Grade C <$3,50. Разница $1-2 на единицу между Grade A и B даёт возвраты 3% против 20% на Wildberries. На 5 000 единиц Grade B экономит $7 500 в BOM, но стоит $25 000+ возвратами и репутацией. MOQ 500, срок 25-30 дней."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Какие сертификаты обязательны для ввоза power bank в Россию?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Обязательны: (1) Декларация соответствия ТР ТС 004/2011 и ТР ТС 020/2011 с протоколами испытаний. (2) UN38.3 — 8 тестов безопасности транспортировки литиевых батарей, отчёт аккредитованной лаборатории, $500-800 за модель. (3) MSDS — паспорт безопасности. (4) Для продажи B2C — маркировка на русском языке и знак EAC. Срок сертификации: 4-8 недель."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Как проверить ёмкость образца перед серийным производством?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Процедура из 3 шагов: (1) тест разряда USB-тестером (ZKETECH, Atorch) при 5V/2A — измеренная ёмкость должна быть в пределах ±5% от теоретической (10 000 мАч × 3.7/5 × 0.85 = 6 290 мАч). (2) взвешивание ячеек — 45-48 г для 18650 Grade A. (3) 3 полных цикла заряда/разряда — ёмкость не должна меняться более чем на 3% между циклами. Документируйте фото и сохраните образец как golden sample."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Как начать OEM-заказ power bank с верификацией ёмкости?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Процесс из 4 шагов: (1) Определите ёмкость, класс ячеек и сертификацию, запросите расчёт OEM за 24 часа. (2) Утвердите образец с тестом разряда и взвешиванием — отправка за 3-7 дней. (3) Подтвердите заказ с предоплатой T/T 30%. (4) Получите отчёт теста ёмкости каждой партии + доставку DDP в РФ за 25-30 дней. WOWOHCOOL предоставляет отчёт IQC, тест разряда и прослеживаемые ячейки Grade A. Запросите расчёт OEM с верификацией ёмкости."
+     }
+    }
+   ]
+  }
+ ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+<article class="py-12">
+<!-- ===== [1] Hero ===== -->
+<div class="relative pt-24 md:pt-28 pb-12 lg:pt-28 lg:pb-16 bg-gradient-to-b from-slate-50 to-white overflow-hidden">
+ <div class="absolute top-0 left-1/4 w-64 h-64 bg-brandOrange/10 rounded-full blur-3xl"></div>
+ <div class="absolute bottom-0 right-1/4 w-64 h-64 bg-green-500/10 rounded-full blur-3xl"></div>
+ <div class="max-w-4xl mx-auto px-6 relative z-10">
+  <nav class="text-sm text-slate-500 mb-6">
+   <a href="/ru/" class="hover:text-brandOrange">Главная</a> /
+   <a href="/ru/blog/" class="hover:text-brandOrange">Блог</a> /
+   <span class="text-slate-900">Ёмкость Power Bank мАч</span>
+  </nav>
+  <div class="flex flex-wrap gap-2 mb-6">
+   <span class="px-3 py-1 bg-brandOrange/10 text-brandOrange text-[11px] font-black rounded-full uppercase">Верификация Ёмкости</span>
+   <span class="px-3 py-1 bg-brandOrange/10 text-brandOrange text-[11px] font-black rounded-full uppercase">Ячейки Grade A/B/C</span>
+   <span class="px-3 py-1 bg-brandOrange/10 text-brandOrange text-[11px] font-black rounded-full uppercase">EAC 2026</span>
+  </div>
+  <h1 class="text-3xl lg:text-5xl font-black text-brandBlue uppercase italic tracking-tighter mb-6 leading-tight">Ёмкость Power Bank мАч: Верификация для Импортёров OEM 2026</h1>
+  <div class="flex items-center gap-3 mb-6">
+   <img src="/image/factory/team-nina.webp" alt="Nina Nico — менеджер по глобальным закупкам и сорсингу, WOWOHCOOL" loading="lazy" width="40" height="40" class="w-10 h-10 rounded-full object-cover border border-brandOrange">
+   <div>
+    <a href="#author-bio" class="font-bold text-slate-900 text-sm hover:text-brandOrange transition">Nina Nico</a>
+    <p class="text-xs text-slate-500">Менеджер по закупкам · 10+ лет в сорсинге электроники</p>
+   </div>
+  </div>
+  <div class="flex flex-wrap items-center gap-6 text-sm text-slate-500 pb-8 border-b border-slate-200">
+   <span><svg class="icon-calendar mr-2" aria-hidden="true" focusable="false" viewBox="0 0 448 512"><path d="M128 0C110.3 0 96 14.3 96 32l0 32-32 0C28.7 64 0 92.7 0 128l0 48 448 0 0-48c0-35.3-28.7-64-64-64l-32 0 0-32c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 32-128 0 0-32c0-17.7-14.3-32-32-32zM0 224L0 416c0 35.3 28.7 64 64 64l320 0c35.3 0 64-28.7 64-64l0-192-448 0z" fill="currentColor"/></svg><time datetime="2026-08-19">19 августа 2026</time></span>
+   <span><svg class="icon-clock mr-2" aria-hidden="true" focusable="false" viewBox="0 0 512 512"><path d="M256 0a256 256 0 1 1 0 512 256 256 0 1 1 0-512zM232 120l0 136c0 8 4 15.5 10.7 20l96 64c11 7.4 25.9 4.4 33.3-6.7s4.4-25.9-6.7-33.3L280 243.2 280 120c0-13.3-10.7-24-24-24s-24 10.7-24 24z" fill="currentColor"/></svg>12 мин чтения</span>
+   <span><svg class="icon-user mr-2" aria-hidden="true" focusable="false" viewBox="0 0 448 512"><path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512l388.6 0c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304l-91.4 0z" fill="currentColor"/></svg>Nina Nico</span>
+  </div>
+ </div>
+</div>
+
+<!-- ===== [2] Hook ===== -->
+<div class="max-w-4xl mx-auto px-6 mb-8">
+ <div class="bg-brandBlue/5 border-l-4 border-brandOrange p-6 rounded-r-xl mb-8 speakable">
+  <p class="text-lg text-slate-700 italic">В марте 2026 российский импортёр заказал 5 000 power bank «10 000 мАч» у поставщика из Шэньчжэня. При приёмке реальная отдача составила 5 200 мАч — расхождение 48%. Причина: перемаркированные ячейки Grade C по цене Grade A и плата преобразования с КПД 72%. Результат: 20% возвратов на Wildberries, блокировка карточки за недостоверную маркировку и 2,4 млн ₽ потерь. Завышение ёмкости на 30-50% — риск №1 в OEM power bank, и он полностью устраним, если знать, как проверять.</p>
+ </div>
+</div>
+
+<!-- ===== [3] Featured Image ===== -->
+<div class="max-w-4xl mx-auto px-6 mb-16">
+ <img src="/image/blog/cover-ru/mah-power-bank-rukovodstvo-oem.webp"
+      alt="Верификация ёмкости power bank мАч на заводе OEM в Шэньчжэне — тест разряда и контроль ячеек Grade A для импортёров РФ"
+      width="2240" height="1260"
+      loading="eager" decoding="async" class="w-full rounded-3xl shadow-xl" fetchpriority="high">
+</div>
+
+<!-- ===== [4] Key Takeaways ===== -->
+<div class="max-w-4xl mx-auto px-6">
+ <div class="bg-amber-50 border-l-4 border-amber-500 rounded-r-xl p-6 mb-8">
+  <p class="text-[11px] font-black text-brandOrange uppercase tracking-widest mb-2">КЛЮЧЕВЫЕ ВЫВОДЫ</p>
+  <p class="text-slate-700 leading-relaxed text-sm mb-4 speakable">Заявленная ёмкость в мАч никогда не равна полезной: конверсия 3.7V→5V плюс КПД преобразователя (80-93%) снижают реальное значение на 26-41%. Power bank 10 000 мАч с чипом TI на 85% отдаёт 6 290 мАч полезных. Разница между ячейками Grade A и Grade C — это $2-4 на единице в BOM, но 17 процентных пунктов возвратов.</p>
+  <ul class="text-sm text-slate-700 space-y-2 list-disc pl-5">
+   <li><strong>Формула расчёта:</strong> Реальная ёмкость = Заявленная × 3.7/5 × КПД. У 10 000 мАч при 85% = 6 290 мАч полезных, а не 10 000.</li>
+   <li><strong>Классы ячеек:</strong> Grade A (Samsung/LG/EVE) весит 45-48 г и стоит $3,5-5,0/ячейка; Grade C перемаркированная весит 30-35 г и стоит <$1,5. Вес — тест №1 против контрафакта.</li>
+   <li><strong>Маркировка EAC:</strong> декларация ТР ТС 004/2011 + 020/2011 и русскоязычная маркировка обязательны. Штраф по ст. 14.43 КоАП РФ — до 300 000 ₽.</li>
+  </ul>
+ </div>
+</div>
+
+<!-- ===== [5] Table of Contents ===== -->
+<div class="max-w-4xl mx-auto px-6">
+ <div class="bg-brandBlue rounded-2xl p-8 text-white mb-12">
+  <h2 class="text-lg font-black uppercase italic mb-6">Содержание</h2>
+  <nav class="text-sm space-y-2">
+   <a href="#pochemu" class="block hover:text-brandOrange transition">1. Почему реальная ёмкость всегда ниже заявленной</a>
+   <a href="#klassy" class="block hover:text-brandOrange transition">2. Классы ячеек для power bank</a>
+   <a href="#eac" class="block hover:text-brandOrange transition">3. EAC и маркировка power bank — требования для импортёра</a>
+   <a href="#proverit" class="block hover:text-brandOrange transition">4. Как проверить ёмкость до отправки из Китая</a>
+   <a href="#primer" class="block hover:text-brandOrange transition">5. Пример расчёта: power bank 10 000 мАч для Ozon/Wildberries</a>
+   <a href="#faq" class="block hover:text-brandOrange transition">6. Часто Задаваемые Вопросы</a>
+  </nav>
+ </div>
+</div>
+
+<!-- ===== [6] H2 Sections ===== -->
+
+<!-- Section 1: Why real capacity is lower -->
+<section id="pochemu" class="mb-16">
+ <div class="max-w-4xl mx-auto px-6">
+  <div class="bg-slate-50 rounded-xl p-6 border border-slate-200 shadow-sm">
+   <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-6">1. Почему реальная ёмкость всегда ниже заявленной</h2>
+
+   <h3 class="font-black text-brandBlue uppercase mb-3">Формула 3.7V → 5V: как считать реальную отдачу</h3>
+   <p class="text-slate-600 leading-relaxed mb-4">Заявленная ёмкость power bank измеряется при <strong>внутреннем напряжении ячейки 3,7V</strong>, а выход USB работает при <strong>5V</strong>. Эта разница напряжений плюс КПД буст-преобразователя механически снижают полезную ёмкость. Формула простая:</p>
+   <div class="bg-brandBlue rounded-2xl p-6 text-white mb-4">
+    <p class="text-sm font-mono text-slate-200">Реальная ёмкость = Заявленная × (3,7V / 5V) × КПД</p>
+    <p class="text-sm font-mono text-slate-200 mt-2">10 000 мАч × 0,74 × 0,85 = <strong class="text-brandOrange">6 290 мАч полезных</strong></p>
+   </div>
+   <p class="text-slate-600 leading-relaxed mb-4">Расхождение 26-41% между заявленным и полезным значением — это <strong>нормальная физика</strong>, а не обман. Но расхождение свыше 45% сигнализирует о проблеме: ячейки Grade C перемаркированные или дешёвая плата преобразования.</p>
+
+   <h3 class="font-black text-brandBlue uppercase mb-3">КПД преобразователя: 70-80% (дешёвые) vs 85-93% (TI, Injoinic)</h3>
+   <p class="text-slate-600 leading-relaxed mb-4">КПД буст-преобразователя (эффективность трансформации 3.7V→5V) сильно зависит от чипа. Дешёвая плата даёт 70-80%, а чип Texas Instruments или Injoinic достигает 85-93%. На 10 000 мАч эта разница в КПД составляет <strong>до 1 330 мАч полезных</strong> — на 24% больше энергии при надбавке BOM меньше 1%.</p>
+
+   <div class="bg-brandBlue/5 border-l-4 border-brandOrange rounded-r-xl p-6 mt-6">
+    <p class="text-[11px] font-black text-brandOrange uppercase tracking-widest mb-2">МНЕНИЕ ЭКСПЕРТА</p>
+    <blockquote class="text-slate-700 text-base italic leading-relaxed">«Завышение ёмкости на 30-50% — главный риск при заказе power bank OEM в Китае. Разница между ячейками класса A (Samsung/LG) и класса B (EVE/BAK) — это не только $1-2 на единице, но и 20% возвратов на Wildberries против 3%. Всегда требуйте фотоотчёт теста ёмкости до отправки.»</blockquote>
+    <p class="text-sm text-slate-500 mt-2">— Nina Nico, менеджер по глобальным закупкам и сорсингу, WOWOHCOOL</p>
+   </div>
+  </div>
+ </div>
+</section>
+
+<!-- Section 2: Cell classes -->
+<section id="klassy" class="mb-16">
+ <div class="max-w-4xl mx-auto px-6">
+  <div class="bg-slate-50 rounded-xl p-6 border border-slate-200 shadow-sm">
+   <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-6">2. Классы ячеек для power bank — что должен знать импортёр</h2>
+
+   <h3 class="font-black text-brandBlue uppercase mb-3">Таблица классов A/B/C/D: производитель, цена, реальная ёмкость, циклы</h3>
+   <div class="overflow-x-auto mb-4">
+    <table class="w-full text-sm border-collapse">
+     <thead><tr class="bg-brandBlue text-white text-[11px] font-black uppercase tracking-widest"><th class="p-3 text-left">Класс</th><th class="p-3 text-left">Производитель</th><th class="p-3 text-left">Цена FOB/ячейка</th><th class="p-3 text-left">Реальная ёмкость</th><th class="p-3 text-left">Циклы</th></tr></thead>
+     <tbody class="text-slate-600 divide-y divide-slate-200">
+      <tr class="bg-white"><td class="p-3 font-bold text-brandOrange">Grade A</td><td class="p-3">Samsung SDI, LG, Panasonic, EVE, BAK</td><td class="p-3">$3,5-5,0</td><td class="p-3">95-100% от номинала</td><td class="p-3">500+</td></tr>
+      <tr class="bg-slate-50"><td class="p-3 font-bold text-brandOrange">Grade B</td><td class="p-3">Highstar, Lishen</td><td class="p-3">$2,0-3,0</td><td class="p-3">90-95%</td><td class="p-3">300-400</td></tr>
+      <tr class="bg-white"><td class="p-3 font-bold text-brandOrange">Grade C</td><td class="p-3">No-name, восстановленные</td><td class="p-3"><$1,5</td><td class="p-3">40-70%</td><td class="p-3"><200</td></tr>
+      <tr class="bg-slate-50"><td class="p-3 font-bold text-brandOrange">Grade D</td><td class="p-3">Перемаркированные б/у</td><td class="p-3"><$0,8</td><td class="p-3">10-30%</td><td class="p-3">Не гарантировано</td></tr>
+     </tbody>
+    </table>
+   </div>
+
+   <h3 class="font-black text-brandBlue uppercase mb-3">Как определить класс ячейки по маркировке и весу (18650: 45-48 г = качественная)</h3>
+   <p class="text-slate-600 leading-relaxed mb-4">Самый надёжный тест на контрафакт — <strong>взвешивание</strong>. Ячейка 18650 Grade A на 3 000+ мАч весит <strong>45-48 г</strong>, а перемаркированная — <strong>30-35 г</strong>: разница обусловлена количеством реально заложенного активного материала (лития). Дополните взвешивание тремя проверками:</p>
+   <ul class="text-slate-600 text-sm space-y-2 list-disc pl-5 mb-4">
+    <li><strong>Маркировка:</strong> у Grade A код производителя выгравирован лазером; у перемаркированных часто наклеена этикетка поверх оригинала</li>
+    <li><strong>Сварка:</strong> точки сварки Grade A чистые и ровные; у восстановленных видны следы предыдущей сварки</li>
+    <li><strong>Отчёт IQC:</strong> требуйте номер партии и тест разряда от поставщика — отсутствие прослеживаемости сигнализирует о перемаркировке</li>
+   </ul>
+   <div class="mt-4 mb-6">
+    <img src="/image/blog/power-bank/power-bank-internal-battery-cells.webp" alt="Внутренние литиевые ячейки Grade A power bank OEM — проверка маркировки производителя и сварки для импортёров РФ" title="Ячейки Grade A, Проверка Маркировки и Сварки Power Bank OEM" width="800" height="600" loading="lazy" decoding="async" class="w-full max-w-3xl mx-auto rounded-2xl shadow-lg">
+    <p class="text-center text-slate-500 text-sm mt-3">Инспекция литиевых ячеек Grade A: маркировка производителя, чистая сварка и номер партии — тест против контрафакта перед заказом OEM</p>
+   </div>
+  </div>
+ </div>
+</section>
+
+<!-- Section 3: EAC requirements -->
+<section id="eac" class="mb-16">
+ <div class="max-w-4xl mx-auto px-6">
+  <div class="bg-slate-50 rounded-xl p-6 border border-slate-200 shadow-sm">
+   <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-6">3. EAC и маркировка power bank — требования для импортёра</h2>
+
+   <h3 class="font-black text-brandBlue uppercase mb-3">ТР ТС 004/2011 и ТР ТС 020/2011 — декларация соответствия</h3>
+   <p class="text-slate-600 leading-relaxed mb-4">Power bank относится к низковольтному оборудованию и подлежит обязательному декларированию по <strong>ТР ТС 004/2011</strong> (безопасность низковольтного оборудования) и <strong>ТР ТС 020/2011</strong> (электромагнитная совместимость). Декларация оформляется на импортёра или уполномоченное лицо и сопровождается протоколами испытаний аккредитованной лаборатории.</p>
+
+   <h3 class="font-black text-brandBlue uppercase mb-3">Что должно быть на этикетке: ёмкость, напряжение, знак EAC, импортёр</h3>
+   <p class="text-slate-600 leading-relaxed mb-4">Маркировка на русском языке обязательна и должна содержать:</p>
+   <ul class="text-slate-600 text-sm space-y-2 list-disc pl-5 mb-4">
+    <li><strong>Наименование изделия</strong> — «Внешний аккумулятор» / «Power Bank» на русском</li>
+    <li><strong>Ёмкость в мАч</strong> — заявленная и (рекомендуется) полезная</li>
+    <li><strong>Входное/выходное напряжение и сила тока</strong></li>
+    <li><strong>Знак EAC</strong> — единый знак обращения продукции на рынке ЕАЭС</li>
+    <li><strong>Импортёр/изготовитель</strong> — наименование и юридический адрес</li>
+    <li><strong>Дата изготовления</strong> — месяц, год</li>
+   </ul>
+   <p class="text-slate-600 leading-relaxed mb-4">Отсутствие декларации или маркировки — штраф по <strong>ст. 14.43 КоАП РФ</strong> до <strong>300 000 ₽</strong> для юридических лиц, а продукция может быть изъята таможенными органами.</p>
+  </div>
+ </div>
+</section>
+
+<!-- Section 4: How to verify capacity -->
+<section id="proverit" class="mb-16">
+ <div class="max-w-4xl mx-auto px-6">
+  <div class="bg-slate-50 rounded-xl p-6 border border-slate-200 shadow-sm">
+   <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-6">4. Как проверить ёмкость до отправки из Китая</h2>
+
+   <h3 class="font-black text-brandBlue uppercase mb-3">USB-тестер (ZKETECH, Atorch, DL24) — замер реальной ёмкости</h3>
+   <p class="text-slate-600 leading-relaxed mb-4">Измеренная полезная ёмкость должна оставаться в пределах <strong>±5% от теоретического значения</strong> (6 290 мАч для 10 000 мАч). USB-тестер разряда (ZKETECH, Atorch, DL24) — самый надёжный инструмент для проверки: подключите его между power bank и нагрузкой 5V/2A, дайте полностью разрядиться и считайте ёмкость в мАч или Вт·ч.</p>
+   <div class="mt-4 mb-6">
+    <img src="/image/blog/power-bank/power-bank-discharge-test.webp" alt="Тест разряда power bank OEM на заводе в Шэньчжэне — измерение реальной ёмкости в мАч для импортёров РФ" title="Тест Разряда, Измерение Реальной Ёмкости Power Bank OEM" width="800" height="600" loading="lazy" decoding="async" class="w-full max-w-3xl mx-auto rounded-2xl shadow-lg">
+    <p class="text-center text-slate-500 text-sm mt-3">Тест разряда при 5V/2A: USB-тестер измеряет реальную полезную ёмкость в мАч — значение должно оставаться в пределах ±5% от теоретического (6 290 мАч для 10 000 мАч)</p>
+   </div>
+
+   <h3 class="font-black text-brandBlue uppercase mb-3">Чек-лист проверки: фото ячеек, тест разряда, отчёт о ёмкости</h3>
+   <p class="text-slate-600 leading-relaxed mb-4">Пакет верификации из 5 пунктов закрывает три вопроса: <strong>реальная ёмкость</strong> (тест разряда + 3 цикла), <strong>класс ячеек</strong> (взвешивание + маркировка) и <strong>прослеживаемость</strong> (отчёт IQC). Перед запуском серийного производства потребуйте от поставщика:</p>
+   <ol class="text-slate-600 text-sm space-y-2 list-decimal pl-5 mb-4">
+    <li><strong>Фото разобранных ячеек</strong> — видимая маркировка, чистая сварка, нет наклеенной поверх этикетки</li>
+    <li><strong>Взвешивание каждой ячейки</strong> — 45-48 г для 18650 Grade A, 30-35 г для перемаркированной</li>
+    <li><strong>Тест разряда при 5V/2A</strong> — полная кривая в Вт·ч, отклонение <5% от теоретического</li>
+    <li><strong>Отчёт IQC с номером партии</strong> — прослеживаемость ячеек до производителя</li>
+    <li><strong>3 полных цикла</strong> — ёмкость не должна меняться более чем на 3% между циклами</li>
+   </ol>
+   <p class="text-slate-600 leading-relaxed mb-4">Документируйте всё фото и сохраните образец как <strong>golden sample</strong> (эталонный образец). WOWOHCOOL предоставляет этот пакет с каждым OEM-заказом — отчёт IQC, тест разряда и прослеживаемые ячейки Grade A.</p>
+  </div>
+ </div>
+</section>
+
+<!-- Section 5: Worked example -->
+<section id="primer" class="mb-16">
+ <div class="max-w-4xl mx-auto px-6">
+  <div class="bg-slate-50 rounded-xl p-6 border border-slate-200 shadow-sm">
+   <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-6">5. Пример расчёта: power bank 10 000 мАч для Ozon/Wildberries</h2>
+
+   <h3 class="font-black text-brandBlue uppercase mb-3">Расчёт реальной отдачи и цены за мАч</h3>
+   <p class="text-slate-600 leading-relaxed mb-4">Возьмём power bank 10 000 мАч для маркетплейса Wildberries. С чипом Injoinic на 88% КПД:</p>
+   <div class="overflow-x-auto mb-4">
+    <table class="w-full text-sm border-collapse">
+     <thead><tr class="bg-brandBlue text-white text-[11px] font-black uppercase tracking-widest"><th class="p-3 text-left">Параметр</th><th class="p-3 text-left">Grade A (Samsung)</th><th class="p-3 text-left">Grade B (EVE)</th></tr></thead>
+     <tbody class="text-slate-600 divide-y divide-slate-200">
+      <tr class="bg-white"><td class="p-3 font-bold">Цена FOB/единица</td><td class="p-3">$8,50</td><td class="p-3">$6,20</td></tr>
+      <tr class="bg-slate-50"><td class="p-3 font-bold">Полезная ёмкость (88% КПД)</td><td class="p-3">6 512 мАч</td><td class="p-3">6 200 мАч</td></tr>
+      <tr class="bg-white"><td class="p-3 font-bold">Цена за 1 000 мАч полезных</td><td class="p-3">$1,31</td><td class="p-3">$1,00</td></tr>
+      <tr class="bg-slate-50"><td class="p-3 font-bold">Возвраты на Wildberries</td><td class="p-3">3%</td><td class="p-3">20%</td></tr>
+      <tr class="bg-white"><td class="p-3 font-bold">Стоимость возвратов на 5 000 ед.</td><td class="p-3">$1 275</td><td class="p-3">$8 500</td></tr>
+     </tbody>
+    </table>
+   </div>
+
+   <h3 class="font-black text-brandBlue uppercase mb-3">Сравнение FOB Shenzhen: класс A vs класс B ячейки</h3>
+   <p class="text-slate-600 leading-relaxed mb-4">На 5 000 единиц выбор Grade B экономит <strong>$11 500 в BOM</strong> (($8,50-$6,20) × 5 000). Но возвраты на Wildberries вырастают с 3% до 20%, то есть <strong>$7 225 дополнительных возвратов</strong>, не считая негативных отзывов, разрушающих позицию карточки. В долгосрочной перспективе Grade A дешевле: разница $2,30 на единицу стирается ценой карточки с рейтингом 4,5 звёзд.</p>
+   <div class="mt-4 mb-6">
+    <img src="/image/blog/power-bank/power-bank-current-voltage-test.webp" alt="Контроль тока и напряжения power bank OEM в лаборатории WOWOHCOOL Шэньчжэнь для верификации ёмкости Grade A" title="Контроль Тока и Напряжения, Верификация Ёмкости Power Bank OEM" width="800" height="600" loading="lazy" decoding="async" class="w-full max-w-3xl mx-auto rounded-2xl shadow-lg">
+    <p class="text-center text-slate-500 text-sm mt-3">Контроль тока и напряжения в лаборатории: финальная проверка подтверждает, что полезная ёмкость и КПД соответствуют заказанным ячейкам Grade A</p>
+   </div>
+  </div>
+ </div>
+</section>
+
+<!-- ===== [7] FAQ ===== -->
+<section id="faq" class="mb-16">
+ <div class="max-w-4xl mx-auto px-6">
+  <div class="bg-slate-50 rounded-2xl p-8 border border-slate-200 shadow-sm">
+   <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-8 text-center">Часто Задаваемые Вопросы</h2>
+   <div class="space-y-6 max-w-3xl mx-auto">
+    <div class="bg-white rounded-xl p-6 faq-answer">
+     <h3 class="font-black text-brandBlue mb-2">Почему реальная ёмкость power bank всегда ниже заявленной?</h3>
+     <p class="text-slate-600 text-sm">Заявленная ёмкость (например, 10 000 мАч) измеряется при внутреннем напряжении ячейки 3,7V, а выход USB работает при 5V. Конверсия 3.7V→5V плюс КПД преобразователя (80-93% в зависимости от чипа TI или Injoinic) снижают полезную ёмкость. Формула: Реальная = Заявленная × 3.7/5 × КПД. У 10 000 мАч с КПД 85% реальная отдача ~6 290 мАч. Это физика, а не обман. Но расхождение свыше 30% указывает на ячейки Grade C или дешёвую плату.</p>
+    </div>
+    <div class="bg-white rounded-xl p-6 faq-answer">
+     <h3 class="font-black text-brandBlue mb-2">Как отличить ячейки Grade A, B и C перед заказом OEM?</h3>
+     <p class="text-slate-600 text-sm">Три сигнала: (1) марка — Grade A = Samsung SDI, LG, Panasonic, EVE, BAK; Grade B = Highstar, Lishen; Grade C = no-name или восстановленные. (2) вес — 18650 Grade A на 3 000+ мАч весит 45-48 г, перемаркированная — 30-35 г. (3) цена FOB — Grade A $3,5-5,0/ячейка, Grade B $2,0-3,0, Grade C <$1,5. Требуйте отчёт IQC с номером партии и проверяйте отсутствие перемаркировки.</p>
+    </div>
+    <div class="bg-white rounded-xl p-6 faq-answer">
+     <h3 class="font-black text-brandBlue mb-2">Какая разница в КПД между дешёвой платой и чипом TI?</h3>
+     <p class="text-slate-600 text-sm">КПД преобразования (эффективность буст-преобразователя) варьируется от 70-80% у дешёвых плат до 85-93% у чипов TI или Injoinic. На 10 000 мАч плата с КПД 75% даёт 5 550 мАч полезных, а чип с 93% — 6 880 мАч, то есть на 24% больше энергии при той же стоимости ячеек. Чип занимает меньше 1% BOM, но определяет до 25% реальной полезной ёмкости.</p>
+    </div>
+    <div class="bg-white rounded-xl p-6 faq-answer">
+     <h3 class="font-black text-brandBlue mb-2">Какие требования EAC и маркировки обязательны для power bank в РФ?</h3>
+     <p class="text-slate-600 text-sm">Power bank подлежит обязательному декларированию по ТР ТС 004/2011 (низковольтное оборудование) и ТР ТС 020/2011 (электромагнитная совместимость). Маркировка на русском языке обязательна: наименование, страна-изготовитель, импортёр, ёмкость в мАч, входное/выходное напряжение, знак EAC. Отсутствие декларации — штраф по ст. 14.43 КоАП РФ до 300 000 ₽ для юрлиц.</p>
+    </div>
+    <div class="bg-white rounded-xl p-6 faq-answer">
+     <h3 class="font-black text-brandBlue mb-2">Сколько стоит power bank 10 000 мАч в FOB Шэньчжэнь?</h3>
+     <p class="text-slate-600 text-sm">Цена FOB power bank 10 000 мАч зависит от класса ячеек: Grade A (Samsung/LG) ~$6,20-8,50, Grade B (EVE/BAK) ~$4,80-6,20, Grade C <$3,50. Разница $1-2 на единицу между Grade A и B даёт возвраты 3% против 20% на Wildberries. На 5 000 единиц Grade B экономит $7 500 в BOM, но стоит $25 000+ возвратами и репутацией. MOQ 500, срок 25-30 дней.</p>
+    </div>
+    <div class="bg-white rounded-xl p-6 faq-answer">
+     <h3 class="font-black text-brandBlue mb-2">Какие сертификаты обязательны для ввоза power bank в Россию?</h3>
+     <p class="text-slate-600 text-sm">Обязательны: (1) Декларация соответствия ТР ТС 004/2011 и ТР ТС 020/2011 с протоколами испытаний. (2) UN38.3 — 8 тестов безопасности транспортировки литиевых батарей, отчёт аккредитованной лаборатории, $500-800 за модель. (3) MSDS — паспорт безопасности. (4) Для продажи B2C — маркировка на русском языке и знак EAC. Срок сертификации: 4-8 недель.</p>
+    </div>
+    <div class="bg-white rounded-xl p-6 faq-answer">
+     <h3 class="font-black text-brandBlue mb-2">Как проверить ёмкость образца перед серийным производством?</h3>
+     <p class="text-slate-600 text-sm">Процедура из 3 шагов: (1) тест разряда USB-тестером (ZKETECH, Atorch) при 5V/2A — измеренная ёмкость должна быть в пределах ±5% от теоретической (10 000 мАч × 3.7/5 × 0.85 = 6 290 мАч). (2) взвешивание ячеек — 45-48 г для 18650 Grade A. (3) 3 полных цикла заряда/разряда — ёмкость не должна меняться более чем на 3% между циклами. Документируйте фото и сохраните образец как golden sample.</p>
+    </div>
+    <div class="bg-white rounded-xl p-6 faq-answer">
+     <h3 class="font-black text-brandBlue mb-2">Как начать OEM-заказ power bank с верификацией ёмкости?</h3>
+     <p class="text-slate-600 text-sm">Процесс из 4 шагов: (1) Определите ёмкость, класс ячеек и сертификацию, запросите расчёт OEM за 24 часа. (2) Утвердите образец с тестом разряда и взвешиванием — отправка за 3-7 дней. (3) Подтвердите заказ с предоплатой T/T 30%. (4) Получите отчёт теста ёмкости каждой партии + доставку DDP в РФ за 25-30 дней. WOWOHCOOL предоставляет отчёт IQC, тест разряда и прослеживаемые ячейки Grade A. <strong><a href="/ru/kontakty/" class="text-brandOrange hover:underline">Запросите расчёт OEM с верификацией ёмкости</a>.</strong></p>
+    </div>
+   </div>
+  </div>
+ </div>
+</section>
+
+<!-- ===== [8] Author Bio ===== -->
+<section id="author-bio" class="max-w-4xl mx-auto px-6">
+ <div class="bg-slate-50 rounded-2xl p-6 md:p-8 mb-12 border border-slate-100">
+  <div class="flex flex-col sm:flex-row items-start gap-4 sm:gap-6">
+   <div class="w-20 h-20 rounded-full overflow-hidden flex items-center justify-center border-2 border-brandOrange bg-white shadow-lg shrink-0">
+    <img src="/image/factory/team-nina.webp" alt="Nina Nico — менеджер по глобальным закупкам и сорсингу, WOWOHCOOL" loading="lazy" width="400" height="400" class="w-full h-full object-cover">
+   </div>
+   <div class="flex-1 min-w-0">
+    <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 mb-2 sm:mb-3">
+     <a href="https://www.linkedin.com/in/nico-power-bank-chargers" target="_blank" rel="noopener noreferrer" class="font-black text-slate-900 text-lg hover:text-brandOrange transition">Nina Nico</a>
+     <span class="px-2 py-1 bg-brandOrange/10 text-brandOrange text-[11px] font-black rounded-full uppercase w-fit">Автор</span>
+    </div>
+    <p class="text-sm text-slate-500 mb-3">Менеджер по глобальным закупкам и сорсингу · 10+ лет в сорсинге электроники 3C · RU, EN, ZH</p>
+    <p class="text-slate-600 text-sm leading-relaxed">10+ лет опыта в глобальном сорсинге аккумуляторов и потребительской электроники, переговорах OEM и верификации качества ячеек в Китае. Специализация — сертификация EAC/UN38.3 и контроль ёмкости для импортёров РФ и ЕАЭС. В <a href="/ru/o-kompanii" class="text-brandBlue font-bold hover:text-brandOrange transition">WOWOHCOOL</a> отвечает за прослеживаемость ячеек Grade A для 200+ брендов.</p>
+    <div class="mt-4 pt-4 border-t border-slate-200">
+     <p class="text-xs text-slate-400 uppercase tracking-wider mb-2">Производственная База</p>
+     <div class="grid grid-cols-2 md:grid-cols-4 gap-3 text-sm">
+      <div><span class="font-black text-brandBlue">5 000 м²</span><p class="text-xs text-slate-500">ISO 9001</p></div>
+      <div><span class="font-black text-brandBlue">С 2013</span><p class="text-xs text-slate-500">Шэньчжэнь, Китай</p></div>
+      <div><span class="font-black text-brandBlue">50+</span><p class="text-xs text-slate-500">Стран экспорта</p></div>
+      <div><span class="font-black text-brandBlue">50+ R&D</span><p class="text-xs text-slate-500">Инженеров</p></div>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</section>
+
+<!-- ===== [9] CTA ===== -->
+<section class="max-w-4xl mx-auto px-6">
+ <div class="relative bg-gradient-to-br from-brandBlue to-slate-800 rounded-3xl p-10 text-center mb-16 overflow-hidden">
+  <div class="absolute top-0 right-0 w-64 h-64 bg-brandOrange/20 rounded-full blur-3xl"></div>
+  <div class="absolute bottom-0 left-0 w-64 h-64 bg-brandBlue-400/20 rounded-full blur-3xl"></div>
+  <div class="relative z-10">
+   <h2 class="text-2xl font-black text-white uppercase italic mb-4">Запросите Расчёт OEM с Верификацией Ёмкости</h2>
+   <p class="text-slate-300 mb-8 max-w-xl mx-auto">WOWOHCOOL предоставляет ячейки Grade A с прослеживаемостью, отчёт IQC и тест разряда с каждым заказом. ISO 9001 с 2013, MOQ 500 единиц. Расчёт за 24 часа.</p>
+   <div class="flex flex-col sm:flex-row gap-4 justify-center">
+    <a href="/ru/kontakty/" class="w-full sm:flex-1 bg-brandOrange text-white px-8 py-4 rounded-xl font-black uppercase text-sm shadow-lg hover:-translate-y-1 transition">Запросить Прайс</a>
+    <a href="/ru/produkty/" class="w-full sm:flex-1 text-center border-2 border-white text-white px-8 py-4 rounded-xl font-black uppercase text-sm hover:bg-white hover:text-brandBlue transition">Смотреть Каталог</a>
+   </div>
+  </div>
+ </div>
+</section>
+
+<!-- ===== [10] Related Articles ===== -->
+<aside id="related-articles" class="max-w-4xl mx-auto px-6 mb-16">
+ <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-6">Похожие Статьи</h2>
+ <div class="grid md:grid-cols-3 gap-6">
+  <a href="/ru/blog/specifikacii-power-bank-oem/" class="bg-slate-50 rounded-xl overflow-hidden hover:shadow-xl transition group">
+   <div class="h-2 bg-gradient-to-r from-brandBlue to-brandOrange"></div>
+   <div class="p-6">
+    <span class="text-xs font-black text-brandOrange uppercase mb-2 block">Спецификации</span>
+    <h3 class="font-black text-brandBlue uppercase mb-2 group-hover:text-brandOrange transition text-sm">Спецификации Power Bank OEM</h3>
+    <p class="text-slate-600 text-xs">мАч, PD 3.1, типы аккумуляторов и сертификация EAC/UN38.3 для импортёров.</p>
+   </div>
+  </a>
+  <a href="/ru/blog/sertifikaciya-zaryadnyh-ustroystv-oem/" class="bg-slate-50 rounded-xl overflow-hidden hover:shadow-xl transition group">
+   <div class="h-2 bg-gradient-to-r from-brandOrange to-slate-800"></div>
+   <div class="p-6">
+    <span class="text-xs font-black text-brandOrange uppercase mb-2 block">Сертификация</span>
+    <h3 class="font-black text-brandBlue uppercase mb-2 group-hover:text-brandOrange transition text-sm">Сертификация EAC, CE, UL</h3>
+    <p class="text-slate-600 text-xs">Стоимость, сроки и документация для импортёров OEM.</p>
+   </div>
+  </a>
+  <a href="/ru/blog/dostavka-iz-kitaya-logistika-oem/" class="bg-slate-50 rounded-xl overflow-hidden hover:shadow-xl transition group">
+   <div class="h-2 bg-gradient-to-r from-brandBlue to-slate-800"></div>
+   <div class="p-6">
+    <span class="text-xs font-black text-brandOrange uppercase mb-2 block">Логистика</span>
+    <h3 class="font-black text-brandBlue uppercase mb-2 group-hover:text-brandOrange transition text-sm">Доставка из Китая OEM</h3>
+    <p class="text-slate-600 text-xs">FOB vs DDP, таможня с EAC и UN38.3, расчёт landed cost.</p>
+   </div>
+  </a>
+ </div>
+</aside>
+
+<!-- ===== [11] Sources ===== -->
+<section class="max-w-4xl mx-auto px-6 mb-16">
+ <h2 class="text-lg font-black text-brandBlue uppercase italic mb-4">Источники</h2>
+ <ul class="text-sm text-slate-600 space-y-2 list-disc pl-5">
+  <li><a href="https://eec.eaeunion.org/" target="_blank" rel="noopener external" class="text-brandBlue hover:text-brandOrange">ЕЭК — ТР ТС 004/2011 о безопасности низковольтного оборудования</a></li>
+  <li><a href="https://fsa.gov.ru/" target="_blank" rel="noopener external" class="text-brandBlue hover:text-brandOrange">Росаккредитация — Единый реестр деклараций о соответствии</a></li>
+  <li><a href="https://unece.org/" target="_blank" rel="noopener external" class="text-brandBlue hover:text-brandOrange">UN38.3 — Manual of Tests and Criteria, Section 38.3</a></li>
+ </ul>
+</section>
+
+</article>
+
+{%- set ctaLabel = "Power Bank OEM" %}
+{%- set ctaHeading1 = "Запросите Расчёт OEM" %}
+{%- set ctaHeading2 = "с Верификацией Ёмкости" %}
+{%- set ctaSubtext = "WOWOHCOOL предоставляет ячейки Grade A с прослеживаемостью, отчёт IQC и тест разряда с каждым заказом. ISO 9001 с 2013, MOQ 500 единиц. Расчёт за 24 часа." %}
+{%- set ctaSubject = "Запрос Расчёта Power Bank OEM" %}
+{%- set ctaButton = "Запросить Прайс" %}
+{% include "partials/blog-cta.njk" %}
+{% endblock %}
