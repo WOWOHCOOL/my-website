@@ -340,7 +340,6 @@ const ES_ACCENT = {
   "exito": "éxito",
   "expansion": "expansión",
   "exportacion": "exportación",
-  "fabrica": "fábrica",
   "fabricacion": "fabricación",
   "fabricas": "fábricas",
   "facil": "fácil",
