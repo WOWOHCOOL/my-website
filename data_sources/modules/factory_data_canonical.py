@@ -78,7 +78,7 @@ FACTORY_RULES: List[Tuple[str, Tuple, str, int, float]] = [
     # ── Defect rate ──
     (
         r'(?:Defektrate|defect\s+rate|tasa\s+de\s+defectos|taux\s+de\s+défaut|уровень\s+дефектов|Ausschussrate)'
-        r'.{0,30}?([<>]?\s*\d+\.?\d*)\s*%',
+        r'.{0,30}?([<>]?\s*\d+[.,]?\d*)\s*%',
         (0, 0.3), 'Defect rate (%)', 10, 30  # <0.3% → 0-0.39
     ),
     # ── Factory size ──
@@ -107,7 +107,15 @@ def _extract_number(text: str, match_groups: Tuple) -> float:
     for g in match_groups:
         if g is None:
             continue
-        clean = g.replace(',', '').replace(' ', '')
+        clean = g.replace(' ', '')
+        # European decimal comma → dot (e.g. "0,3" → "0.3")
+        # English thousand comma → strip (e.g. "2,500" → "2500")
+        # Heuristic: comma followed by exactly 1-2 digits at end = decimal; else thousand
+        if ',' in clean:
+            if re.search(r',\d{1,2}$', clean):
+                clean = clean.replace(',', '.')
+            else:
+                clean = clean.replace(',', '')
         try:
             values.append(float(clean))
         except ValueError:
