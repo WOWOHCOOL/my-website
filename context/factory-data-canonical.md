@@ -1,7 +1,7 @@
 # WOWOHCOOL Factory Data — Single Source of Truth
 
 > **Scope**: All articles across EN/DE/ES/FR/RU sites must use these numbers. No exceptions.
-> **Last Updated**: 2026-07-24
+> **Last Updated**: 2026-08-20
 > **Authority**: Dong Yi Technology Co., Ltd (WOWOHCOOL) — ISO 9001 certified manufacturer since 2013.
 > **Update Cycle**: FOB pricing + freight rates quarterly; certification costs annually; MOQ/lead times quarterly.
 
@@ -208,11 +208,17 @@ All prices exclude shipping, duties, and certification fees. Tiered pricing drop
 | E-Mark (automotive) | EU | $0.80-1.20/unit | 3-6 weeks | Yes (car chargers) |
 | CCC + GB 47372-2026 | China | Factory-held | Annual | Mandatory for domestic production (power banks); export-only OEM may apply exemption but factory must hold certification for sample logistics, domestic transport, and customs clearance |
 | GB 31241 (lithium cell safety) | China | Factory-held | Annual | Mandatory for lithium battery products manufactured in China |
+| EAC (Eurasian Conformity) | EAEU (RU/BY/KZ/AM/KG) | $800-5,000 | 1-6 weeks | Yes (Russia/EAEU) |
 | UKCA | UK | $800-1,500 | 2-3 weeks | Yes (UK) |
 | KC | South Korea | $1,500-3,000 | 3-5 weeks | Yes (Korea) |
 | PSE | Japan | $1,000-2,500 | 3-5 weeks | Yes (Japan) |
 
 **WOWOHCOOL Value**: We manage the certification process — testing coordination, documentation, and compliance guidance — included with OEM orders.
+
+**EAC (Eurasian Conformity) — DoC vs CoC + 2026 rule**:
+- EAC DoC (Declaration of Conformity, low-risk products): ~$800-1,500, 1-4 weeks
+- EAC CoC (Certificate of Conformity, high-risk or serial production): ~$2,000-5,000, 3-6 weeks (6-12 weeks with factory audit)
+- **2026 (Russia)**: only RA.RU-accredited bodies + Russian labs; paper certificates abolished — electronic FGIS registration mandatory; dynamic QR code + EAC mark ≥5 mm on the product.
 
 ### CB Scheme (IECEE)
 - Single test (IEC 62368-1) recognized by 60+ countries

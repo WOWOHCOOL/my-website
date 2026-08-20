@@ -21,7 +21,7 @@
       "url": "{ORGANIZATION_URL}",
       "publishingPrinciples": "{ORGANIZATION_URL}",
       "logo": { "@type": "ImageObject", "url": "https://www.wowohcool.com/image/wowohcool-logo-optimized.webp" },
-      "areaServed": ["DE", "AT", "CH", "EU"],
+      "areaServed": ["US", "DE", "AT", "CH", "UK", "FR", "ES", "PL", "EU", "JP", "KR", "AU", "MX", "CO", "AR", "CL", "PE", "RU", "KZ", "BY", "EAEU"],
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "{STREET_ADDRESS}",

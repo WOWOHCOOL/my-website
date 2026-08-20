@@ -69,7 +69,7 @@ Must be the FIRST block after frontmatter, inside `{% block head_schema %}`:
 ```
 
 **Critical rules**:
-- `Organization.areaServed` = `["US","DE","AT","CH","UK","FR","ES","EU","JP","KR","AU","MX","CO","AR","CL","PE"]` — global list, NEVER single-region
+- `Organization.areaServed` = `["US","DE","AT","CH","UK","FR","ES","PL","EU","JP","KR","AU","MX","CO","AR","CL","PE","RU","KZ","BY","EAEU"]` — global list, NEVER single-region
 - `BlogPosting.author` = `{"@id": "https://www.wowohcool.com/#author-id"}` — NEVER inline Person
 - `Person.worksFor` = `{"@id": "https://www.wowohcool.com/#organization"}` — NEVER inline Organization
 - **Shared entity @ids (#organization / #website / #author) have NO language prefix** — use `https://www.wowohcool.com/#...` in ALL languages (same global entity). Only article-level @ids (`#article` / `#faq`) and URL/path fields (Organization.url, Breadcrumb item, canonical, ogImage) keep the `{lang}/` prefix.
