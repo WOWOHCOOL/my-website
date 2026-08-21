@@ -1,0 +1,544 @@
+---
+title: "Испытание Проколом Полутвердотельных Аккумуляторов: Проверка OEM | WOWOHCOOL"
+lang: "ru"
+description: "Проверьте поставщика полутвердотельных power bank испытанием проколом. Протокол GB 47372-2026, кейс Donut Lab, 6 сигналов тревоги для импортёра."
+date: 2026-08-21
+modified: 2026-08-21
+author: "Nina Nico"
+articleSection: Технологии
+articleTags: [Power Bank, Полутвердотельный, Испытание Проколом, GB 47372-2026, UN38.3, OEM, Импортёр, Проверка]
+canonical: "/ru/blog/ispytanie-prokolom-gvozdem-polutverdotelnye-oem/"
+enPath: "blog/semi-solid-state-nail-penetration-test-oem-verification/"
+dePath: "blog/semi-solid-state-powerbank/"
+esPath: "blog/prueba-penetracion-clavo-baterias-semisolidas-oem/"
+frPath: "blog/batterie-semi-solide-oem-guide/"
+plPath: "blog/baterie-polstale-power-bank-oem/"
+ogImage: "/image/blog/cover-ru/ispytanie-prokolom-gvozdem-polutverdotelnye-oem.webp"
+navActive: "blog"
+hreflang:
+ ru: "/ru/blog/ispytanie-prokolom-gvozdem-polutverdotelnye-oem/"
+ en: "/blog/semi-solid-state-nail-penetration-test-oem-verification/"
+ de: "/de/blog/semi-solid-state-powerbank/"
+ es: "/es/blog/prueba-penetracion-clavo-baterias-semisolidas-oem/"
+ fr: "/fr/blog/batterie-semi-solide-oem-guide/"
+ pl: "/pl/blog/baterie-polstale-power-bank-oem/"
+---
+{% extends "layout.njk" %}
+
+{% block head_schema %}
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "Organization",
+   "@id": "https://www.wowohcool.com/#organization",
+   "name": "WOWOHCOOL",
+   "legalName": "Dong Yi Technology Co., Ltd",
+   "url": "https://www.wowohcool.com/ru/o-kompanii/",
+   "publishingPrinciples": "https://www.wowohcool.com/ru/o-kompanii/",
+   "logo": { "@type": "ImageObject", "url": "https://www.wowohcool.com/image/wowohcool-logo-optimized.webp", "width": 600, "height": 60 },
+   "areaServed": ["US","DE","AT","CH","UK","FR","ES","PL","EU","JP","KR","AU","MX","CO","AR","CL","PE","RU","KZ","BY","EAEU"],
+   "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "925, Yichuang International Center, Longhua District",
+    "addressLocality": "Shenzhen",
+    "addressRegion": "Guangdong",
+    "postalCode": "518111",
+    "addressCountry": "CN"
+   },
+   "sameAs": [
+    "https://www.linkedin.com/company/wowohcool",
+    "https://www.facebook.com/wowohcoolelectronic",
+    "https://www.youtube.com/@WOWOHCOOL",
+    "https://x.com/wowohcool"
+   ],
+   "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "OEM/ODM Sales",
+    "telephone": "+86-18620789739",
+    "email": "info@wowohcool.com",
+    "availableLanguage": ["Russian", "English", "German", "Spanish", "Chinese"]
+   }
+  },
+  {
+   "@type": "WebSite",
+   "@id": "https://www.wowohcool.com/#website",
+   "url": "https://www.wowohcool.com/ru/",
+   "name": "WOWOHCOOL",
+   "inLanguage": "ru-RU",
+   "publisher": { "@id": "https://www.wowohcool.com/#organization" }
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Главная", "item": "https://www.wowohcool.com/ru/" },
+    { "@type": "ListItem", "position": 2, "name": "Блог", "item": "https://www.wowohcool.com/ru/blog/" },
+    { "@type": "ListItem", "position": 3, "name": "Испытание Проколом Полутвердотельных Аккумуляторов", "item": "https://www.wowohcool.com/ru/blog/ispytanie-prokolom-gvozdem-polutverdotelnye-oem/" }
+   ]
+  },
+  {
+   "@type": "BlogPosting",
+   "@id": "https://www.wowohcool.com/ru/blog/ispytanie-prokolom-gvozdem-polutverdotelnye-oem/#article",
+   "headline": "Испытание Проколом Гвоздём Полутвердотельных Аккумуляторов: Что Проверить OEM-Покупателю",
+   "keywords": ["испытание проколом гвоздём", "полутвердотельный power bank", "GB 47372-2026", "проверка поставщика OEM", "распознать подделку полутвердотельный аккумулятор", "кейс Donut Lab мошенничество", "UN38.3 power bank", "импортёр полутвердотельный OEM"],
+   "description": "Проверьте поставщика полутвердотельных power bank испытанием проколом. Протокол GB 47372-2026, кейс Donut Lab, 6 сигналов тревоги для импортёра.",
+   "author": { "@id": "https://www.wowohcool.com/#nina-nico" },
+   "publisher": { "@id": "https://www.wowohcool.com/#organization" },
+   "datePublished": "2026-08-21",
+   "dateModified": "2026-08-21",
+   "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.wowohcool.com/ru/blog/ispytanie-prokolom-gvozdem-polutverdotelnye-oem/" },
+   "wordCount": 2131,
+   "inLanguage": "ru-RU",
+   "timeRequired": "PT14M",
+   "articleSection": "Технологии",
+   "image": "https://www.wowohcool.com/image/blog/cover-ru/ispytanie-prokolom-gvozdem-polutverdotelnye-oem.webp",
+   "thumbnailUrl": "https://www.wowohcool.com/image/blog/cover-ru/ispytanie-prokolom-gvozdem-polutverdotelnye-oem.webp",
+   "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".speakable"] },
+   "about": { "@type": "Thing", "name": "Lithium-ion battery", "sameAs": "https://www.wikidata.org/entity/Q2822895" },
+   "citation": [
+    { "@type": "CreativeWork", "name": "GB 47372-2026, Safety technical specification for portable power banks", "url": "https://www.gdestl.com/" },
+    { "@type": "CreativeWork", "name": "UN Manual of Tests and Criteria, Sub-section 38.3", "url": "https://unece.org/transport/dangerous-goods/rev-8-2026" },
+    { "@type": "CreativeWork", "name": "ТР ТС 004/2011 О безопасности низковольтного оборудования", "url": "https://docs.cntd.ru/document/902299536" }
+   ]
+  },
+  {
+   "@type": "Person",
+   "@id": "https://www.wowohcool.com/#nina-nico",
+   "name": "Nina Nico",
+   "jobTitle": "Global Procurement & Sourcing Manager",
+   "url": "https://www.wowohcool.com/authors/nina-nico/",
+   "sameAs": ["https://www.linkedin.com/in/nico-power-bank-chargers"],
+   "image": "https://www.wowohcool.com/image/factory/team-nina.webp",
+   "worksFor": { "@id": "https://www.wowohcool.com/#organization" },
+   "knowsAbout": ["Глобальный сорсинг 3C", "Трансграничные OEM переговоры", "Полутвердотельные и литий-ионные аккумуляторы", "Сертификация UN38.3 и GB 47372-2026", "Контроль качества производства"]
+  },
+  {
+   "@type": "HowTo",
+   "@id": "https://www.wowohcool.com/ru/blog/ispytanie-prokolom-gvozdem-polutverdotelnye-oem/#howto",
+   "name": "Проверить поставщика полутвердотельных power bank до размещения заказа",
+   "description": "Процесс проверки поставщика полутвердотельных аккумуляторов испытанием проколом и аудитом завода.",
+   "totalTime": "PT2W",
+   "step": [
+    { "@type": "HowToStep", "position": 1, "name": "Запросите отчёт теста на уровне ячейки", "itemListElement": [{ "@type": "HowToDirection", "text": "Требуйте отчёт испытания проколом по GB 47372-2026 на уровне ячейки (игла 4 мм, 20 ± 1 мм/с, 5 минут, без возгорания, взрыва и утечки) и отчёт UN38.3 на уровне ячейки, а не сборки. Отчёт только на уровне пака — первый сигнал тревоги." }] },
+    { "@type": "HowToStep", "position": 2, "name": "Проверьте производственную линию видеотуром", "itemListElement": [{ "@type": "HowToDirection", "text": "Запросите живой видеотур сухой комнаты (точка росы ≤ −40 °C) и станции смешивания гель-полимерного электролита. Если поставщик не может их показать, он продаёт стандартный Li-polymer." }] },
+    { "@type": "HowToStep", "position": 3, "name": "Запросите живое испытание проколом", "itemListElement": [{ "@type": "HowToDirection", "text": "Во время аудита завода попросите провести испытание проколом на стенде в зоне QC. Полутвердотельная ячейка не должна воспламеняться и взрываться; WOWOHCOOL фиксирует температуру поверхности ниже 60 °C." }] },
+    { "@type": "HowToStep", "position": 4, "name": "Проверьте цену FOB и документы", "itemListElement": [{ "@type": "HowToDirection", "text": "Настоящая полутвердотельная ячейка стоит $14-18 FOB (10 000 мАч, 500 шт) — более чем вдвое к Li-polymer. Если котировка на 30% ниже сектора — отказывайтесь. Требуйте MSDS электролита с указанием полимерной матрицы и имени производителя ячейки." }] }
+   ]
+  },
+  {
+   "@type": "FAQPage",
+   "@id": "https://www.wowohcool.com/ru/blog/ispytanie-prokolom-gvozdem-polutverdotelnye-oem/#faq",
+   "speakable": { "@type": "SpeakableSpecification", "cssSelector": [".faq-answer"] },
+   "mainEntity": [
+    { "@type": "Question", "name": "Как узнать, что поставщик действительно поставляет полутвердотельные ячейки, а не переупакованный Li-polymer?", "acceptedAnswer": { "@type": "Answer", "text": "До подписания PO требуйте три доказательства: (1) отчёт испытания проколом на уровне ячейки по GB 47372-2026 (игла 4 мм, без возгорания, взрыва и утечки), (2) MSDS электролита с указанием полимерной матрицы (не только карбонатные растворители), и (3) видеотур сухой комнаты (точка росы ≤ −40 °C) и станции смешивания гель-полимерного электролита. При MOQ 500 у WOWOHCOOL каждая партия сопровождается пакетом из трёх документов; если поставщик не может показать ни одного из трёх — он продаёт стандартный Li-polymer с маркетинговой этикеткой." } },
+    { "@type": "Question", "name": "Что такое GB 47372-2026 и распространяется ли он на мой OEM-заказ?", "acceptedAnswer": { "@type": "Answer", "text": "GB 47372-2026 — первый обязательный национальный стандарт Китая для power bank, опубликован 31 марта 2026 года. Вводит испытание проколом гвоздём: стальная игла 4 мм пронзает вертикально геометрический центр полностью заряженной ячейки со скоростью 20 ± 1 мм/с, удерживается 5 минут, критерий прохождения — без возгорания, взрыва и утечки. Обязателен для сертификации CCC каждой партии ячеек, произведённых в Китае, с 1 апреля 2027 года. Если ваш OEM-заказ производится в Китае, стандарт распространяется и на вас: FOB-предложение без ссылки на отчёт GB 47372-2026 после апреля 2027 — сигнал теневой линии." } },
+    { "@type": "Question", "name": "Почему испытание проколом — самая важная проверка полутвердотельных аккумуляторов?", "acceptedAnswer": { "@type": "Answer", "text": "Потому что это единственный тест, который физически отличает гель-полимерный электролит (полутвердотельный) от жидкого (Li-polymer). Гель-электролит не воспламеняется и не вытекает при пробитии; жидкий вызывает тепловой разгон. Спецификацию и маркетинговый сертификат можно подделать, но температурную подпись под иглой 4 мм — нельзя. Для OEM-импортёра это единственная физическая проверка, которую поставщик не может обойти, и потому она — проверка истины перед подписанием контракта FOB." } },
+    { "@type": "Question", "name": "Что пошло не так в мошенничестве Donut Lab 2026 и как избежать той же ловушки?", "acceptedAnswer": { "@type": "Answer", "text": "Donut Lab привлёк $25 миллионов от более чем 1 300 инвесторов при оценке $1,25 миллиарда, продавая стандартные литий-ионные NCM-ячейки как «твердотельные батареи». Более 20 независимых экспертов подтвердили мошенничество в июне 2026 года. Урок для импортёра: две проверки бы его выявили — (1) испытание проколом на уровне ячейки (NCM-ячейка воспламенилась бы под иглой) и (2) MSDS электролита (не декларировал полимерную матрицу)." } },
+    { "@type": "Question", "name": "Какой диапазон FOB физически реалистичен для полутвердотельного power bank 10 000 мАч?", "acceptedAnswer": { "@type": "Answer", "text": "$14-18 FOB Шэньчжэнь для 10 000 мАч при 500 штуках — более чем вдвое к Li-polymer ($5,80-8,00). Премия исходит из полутвердотельной ячейки и производства в сухой комнате. Если поставщик предлагает «полутвердотельную» ячейку по цене, близкой к Li-polymer (или на 30% ниже сектора), это физически невозможно — отказывайтесь." } },
+    { "@type": "Question", "name": "Какие документы требовать до подписания заказа на полутвердотельные аккумуляторы?", "acceptedAnswer": { "@type": "Answer", "text": "Требуйте пять документов: (1) отчёт испытания проколом GB 47372-2026 на уровне ячейки, (2) отчёт UN38.3 на уровне ячейки (не пака), (3) MSDS электролита с указанием полимерной матрицы, (4) имя производителя ячейки и код партии для трассируемости, и (5) EAC-сертификацию по ТР ТС 004/2011 + 020/2011 + 037/2016 для рынка ЕАЭС. WOWOHCOOL предоставляет полный пакет с каждым OEM-заказом." } },
+    { "@type": "Question", "name": "Могу ли я запросить живое испытание проколом во время аудита завода?", "acceptedAnswer": { "@type": "Answer", "text": "Да, и должны. Легитимный завод имеет стенд испытания проколом в зоне QC (AQL 2.5 Level II) и может провести живую демонстрацию во время OEM-аудита. Попросите увидеть полутвердотельную ячейку из текущей партии, пробитую без возгорания и взрыва, с термографией FLIR E8, показывающей температуру поверхности ниже 60 °C. Если поставщик отказывает в живой демонстрации при заказе от MOQ 500 — считайте это сигналом тревоги." } }
+   ]
+  }
+ ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+<article class="py-12">
+
+<!-- ===== [1] Hero ===== -->
+<div class="relative pt-24 md:pt-28 pb-12 lg:pt-28 lg:pb-16 bg-gradient-to-b from-slate-50 to-white overflow-hidden">
+ <div class="absolute top-0 left-1/4 w-64 h-64 bg-brandOrange/10 rounded-full blur-3xl"></div>
+ <div class="absolute bottom-0 right-1/4 w-64 h-64 bg-green-500/10 rounded-full blur-3xl"></div>
+ <div class="max-w-4xl mx-auto px-6 relative z-10">
+ <nav class="text-sm text-slate-500 mb-6">
+ <a href="/ru/" class="hover:text-brandOrange">Главная</a> /
+ <a href="/ru/blog/" class="hover:text-brandOrange">Блог</a> /
+ <span class="text-slate-900">Испытание Проколом Полутвердотельных Аккумуляторов</span>
+ </nav>
+ <div class="flex flex-wrap gap-2 mb-6">
+ <span class="px-3 py-1 bg-brandOrange/10 text-brandOrange text-[11px] font-black rounded-full uppercase">Полутвердотельный</span>
+ <span class="px-3 py-1 bg-brandOrange/10 text-brandOrange text-[11px] font-black rounded-full uppercase">GB 47372-2026</span>
+ <span class="px-3 py-1 bg-brandOrange/10 text-brandOrange text-[11px] font-black rounded-full uppercase">Проверка OEM</span>
+ </div>
+ <h1 class="text-3xl lg:text-5xl font-black text-brandBlue uppercase italic tracking-tighter mb-6 leading-tight">Испытание Проколом Гвоздём Полутвердотельных Аккумуляторов: Что Проверить OEM-Покупателю</h1>
+ <div class="flex items-center gap-3 mb-6">
+ <img src="/image/factory/team-nina.webp" alt="Nina Nico, менеджер по глобальным закупкам, проверка полутвердотельных аккумуляторов и испытания проколом OEM, WOWOHCOOL" loading="lazy" width="40" height="40" class="w-10 h-10 rounded-full object-cover border border-brandOrange">
+ <div>
+ <a href="#author-bio" class="font-bold text-slate-900 text-sm hover:text-brandOrange transition">Nina Nico</a>
+ <p class="text-xs text-slate-500">Менеджер по глобальным закупкам · 10+ лет в 3C</p>
+ </div>
+ </div>
+ <div class="flex flex-wrap items-center gap-6 text-sm text-slate-500 pb-8 border-b border-slate-200">
+ <span><svg class="icon-calendar mr-2" aria-hidden="true" focusable="false" viewBox="0 0 448 512"><path d="M128 0C110.3 0 96 14.3 96 32l0 32-32 0C28.7 64 0 92.7 0 128l0 48 448 0 0-48c0-35.3-28.7-64-64-64l-32 0 0-32c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 32-128 0 0-32c0-17.7-14.3-32-32-32zM0 224L0 416c0 35.3 28.7 64 64 64l320 0c35.3 0 64-28.7 64-64l0-192-448 0z" fill="currentColor"/></svg><time datetime="2026-08-21">21 августа 2026</time></span>
+ <span><svg class="icon-clock mr-2" aria-hidden="true" focusable="false" viewBox="0 0 512 512"><path d="M256 0a256 256 0 1 1 0 512 256 256 0 1 1 0-512zM232 120l0 136c0 8 4 15.5 10.7 20l96 64c11 7.4 25.9 4.4 33.3-6.7s4.4-25.9-6.7-33.3L280 243.2 280 120c0-13.3-10.7-24-24-24s-24 10.7-24 24z" fill="currentColor"/></svg>14 мин чтения</span>
+ <span><svg class="icon-user mr-2" aria-hidden="true" focusable="false" viewBox="0 0 448 512"><path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512l388.6 0c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304l-91.4 0z" fill="currentColor"/></svg>Nina Nico</span>
+ </div>
+ </div>
+</div>
+
+<!-- ===== [2] Hook ===== -->
+<div class="max-w-4xl mx-auto px-6 mb-8">
+ <div class="bg-brandBlue/5 border-l-4 border-brandOrange p-6 rounded-r-xl mb-8 speakable">
+ <p class="text-lg text-slate-700 italic">Испытание проколом гвоздём — единственный тест, который доказывает, использует ли «полутвердотельный» power bank настоящий гель-электролит или переупакованный стандартный Li-polymer. В июне 2026 года Donut Lab был публично разоблачён за продажу Li-ion как «твердотельного» в течение более трёх лет: $25 миллионов от 1 300 инвесторов, оценка $1,25 миллиарда, опровергнуто более чем 20 экспертами. Импортёр РФ и ЕАЭС, размещающий заказ на полутвердотельный power bank, сталкивается с тем же вакуумом проверки: спецификация выглядит одинаково, а разница проявляется только под иглой 4 мм. Вот что нужно проверить до оплаты, а не после прибытия контейнера в Санкт-Петербург.</p>
+ </div>
+</div>
+
+<!-- ===== [3] Featured Image ===== -->
+<div class="max-w-4xl mx-auto px-6 mb-16">
+ <img src="/image/blog/cover-ru/ispytanie-prokolom-gvozdem-polutverdotelnye-oem.webp"
+      alt="Испытание проколом полутвердотельных аккумуляторов: протокол GB 47372-2026 и проверка поставщиков OEM. Завод WOWOHCOOL Шэньчжэнь ISO 9001"
+      width="2240" height="1260"
+      loading="eager" decoding="async"
+      class="w-full rounded-3xl shadow-xl" fetchpriority="high">
+</div>
+
+<!-- ===== [4] Key Takeaways ===== -->
+<div class="max-w-4xl mx-auto px-6">
+ <div class="bg-amber-50 border-l-4 border-amber-500 rounded-r-xl p-6 mb-8">
+ <p class="text-[11px] font-black text-brandOrange uppercase tracking-widest mb-2">КЛЮЧЕВЫЕ ВЫВОДЫ</p>
+ <p class="text-slate-700 leading-relaxed text-sm mb-4 speakable">Испытание проколом гвоздём (GB 47372-2026) — проверка истины для полутвердотельной батареи: игла 4 мм пронзает заряженную ячейку со скоростью 20 ± 1 мм/с в течение 5 минут, критерий прохождения — без возгорания, взрыва и утечки. Настоящий гель-электролит не воспламеняется; переупакованный Li-polymer — воспламеняется. Легитимный поставщик показывает сухую комнату (точка росы ≤ −40 °C) и берёт $14-18 FOB (10 000 мАч) — более чем вдвое к Li-polymer.</p>
+ <ul class="text-sm text-slate-700 space-y-2 list-disc pl-5">
+ <li><strong>GB 47372-2026:</strong> игла 4 мм, 20 ± 1 мм/с, 5 минут, без возгорания, взрыва и утечки. Обязателен с 1 апреля 2027</li>
+ <li><strong>Мошенничество Donut Lab 2026:</strong> $25M от 1 300 инвесторов за продажу Li-ion NCM как «твердотельного» — 20+ экспертов опровергли</li>
+ <li><strong>6 сигналов тревоги:</strong> нет отчёта на уровне ячейки, нет сухой комнаты, нет станции смешивания электролита, MSDS только карбонат, FOB ниже $4, «500 циклов» без кривой удержания</li>
+ <li><strong>Реальная стоимость:</strong> FOB $14-18 (10 000 мАч, 500 шт) vs $5,80-8,00 Li-polymer — если на 30% дешевле, отказывайтесь</li>
+ <li><strong>WOWOHCOOL:</strong> живое испытание проколом + дефектность &lt;0,3% vs 2-5% сектора + MOQ 500</li>
+ </ul>
+ </div>
+</div>
+
+<!-- ===== [5] Table of Contents ===== -->
+<div class="max-w-4xl mx-auto px-6">
+ <div class="bg-brandBlue rounded-2xl p-8 text-white mb-12">
+ <h2 class="text-lg font-black uppercase italic mb-6">Содержание</h2>
+ <nav class="text-sm space-y-2">
+ <a href="#istina" class="block hover:text-brandOrange transition">1. Почему Испытание Проколом — Проверка Истины</a>
+ <a href="#protokol" class="block hover:text-brandOrange transition">2. GB 47372-2026: Протокол Прокола для Импортёра</a>
+ <a href="#trevoga" class="block hover:text-brandOrange transition">3. Шесть Сигналов Тревоги Ложного Поставщика</a>
+ <a href="#donut" class="block hover:text-brandOrange transition">4. Кейс Donut Lab: Что Произошло и Что Пропустили</a>
+ <a href="#audit" class="block hover:text-brandOrange transition">5. Аудит Завода: Что Увидеть Лично</a>
+ <a href="#stoimost" class="block hover:text-brandOrange transition">6. Проверка Стоимости и Документы до Заказа</a>
+ <a href="#faq" class="block hover:text-brandOrange transition">7. Часто Задаваемые Вопросы (FAQ)</a>
+ </nav>
+ </div>
+</div>
+
+<!-- ===== [6.1] H2 Section 1: Истина ===== -->
+<section id="istina" class="mb-16">
+ <div class="max-w-4xl mx-auto px-6">
+ <div class="bg-slate-50 rounded-xl p-6 border border-slate-200 shadow-sm">
+ <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-6">1. Почему Испытание Проколом — Проверка Истины</h2>
+
+ <p class="text-slate-600 leading-relaxed mb-4">Спецификацию, маркетинговый сертификат и даже фото продукта можно подделать. А температурную подпись пробитой ячейки — нет. Испытание проколом физически отличает гель-электролит от жидкого, и именно поэтому это окончательная проверка для импортёра полутвердотельных power bank.</p>
+
+ <div class="mt-6 mb-6">
+ <img src="/image/product/power-bank/wop27-semi-solid-pro.webp"
+      alt="Полутвердотельный power bank OEM: гель-полимерная ячейка, плотность 30% выше. Проверка испытанием проколом GB 47372-2026"
+      loading="lazy"
+      class="max-w-3xl mx-auto rounded-2xl shadow-lg w-full">
+ </div>
+
+ <h3 class="font-black text-brandBlue uppercase mb-3">Что доказывает прокол, чего не может скрыть спецификация</h3>
+ <p class="text-slate-600 leading-relaxed mb-4">Гель-электролит (полутвердотельный) не воспламеняется и не вытекает при пробитии иглой; жидкий электролит (Li-polymer) вызывает тепловой разгон. Спецификация может утверждать «безопасно» и «революционно», но под иглой 4 мм разница бинарна: проходит или воспламеняется. Ни один поставщик не может замаскировать этот результат.</p>
+
+ <div class="overflow-x-auto mb-6">
+ <table class="w-full text-sm text-left border-collapse">
+ <thead><tr class="bg-brandBlue text-white"><th class="p-3 font-black uppercase text-xs">Параметр</th><th class="p-3 font-black uppercase text-xs">Полутвердотельный (гель)</th><th class="p-3 font-black uppercase text-xs">Li-polymer (жидкий)</th></tr></thead>
+ <tbody class="divide-y divide-slate-200">
+ <tr class="bg-white"><td class="p-3 font-bold">Плотность энергии</td><td class="p-3">30% выше</td><td class="p-3">Базовая линия</td></tr>
+ <tr class="bg-slate-50"><td class="p-3 font-bold">Циклы службы</td><td class="p-3">500+ до 80%</td><td class="p-3">Стандарт</td></tr>
+ <tr class="bg-white"><td class="p-3 font-bold">Риск возгорания при проколе</td><td class="p-3 text-green-600 font-bold">Минимальный (гель)</td><td class="p-3 text-brandOrange font-bold">Высокий (тепловой разгон)</td></tr>
+ <tr class="bg-slate-50"><td class="p-3 font-bold">Дефектность</td><td class="p-3 text-green-600 font-bold">&lt;0,3%</td><td class="p-3">2-5%</td></tr>
+ </tbody>
+ </table>
+ </div>
+
+ <h3 class="font-black text-brandBlue uppercase mb-3">Полутвердотельный vs Li-polymer: подпись роста температуры</h3>
+ <p class="text-slate-600 leading-relaxed">В испытательной партии WOWOHCOOL #QC-2026-Q3-SS пробитая полутвердотельная ячейка удерживала температуру поверхности ниже 60 °C без возгорания и утечки; эталонная Li-polymer вошла в тепловой разгон за секунды. Эта разница температур на отметке t+30 секунд — подпись, которую импортёр должен увидеть собственными глазами во время аудита. Наше <a href="/ru/blog/polutverdotelnye-power-bank-oem/" class="text-brandBlue hover:text-brandOrange">полное руководство по полутвердотельным power bank OEM</a> раскрывает технологию подробно.</p>
+ </div>
+ </div>
+</section>
+
+<!-- ===== [6.2] H2 Section 2: Протокол ===== -->
+<section id="protokol" class="mb-16">
+ <div class="max-w-4xl mx-auto px-6">
+ <div class="bg-slate-50 rounded-xl p-6 border border-slate-200 shadow-sm">
+ <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-6">2. GB 47372-2026: Протокол Прокола для Импортёра OEM</h2>
+
+ <p class="text-slate-600 leading-relaxed mb-4">GB 47372-2026 — первый обязательный национальный стандарт Китая для power bank, опубликован 31 марта 2026 года. Вводит испытание проколом гвоздём как обязательное требование со следующими точными параметрами:</p>
+
+ <div class="overflow-x-auto mb-6">
+ <table class="w-full text-sm text-left border-collapse">
+ <thead><tr class="bg-brandBlue text-white"><th class="p-3 font-black uppercase text-xs">Параметр</th><th class="p-3 font-black uppercase text-xs">Значение</th></tr></thead>
+ <tbody class="divide-y divide-slate-200">
+ <tr class="bg-white"><td class="p-3 font-bold">Игла</td><td class="p-3">Сталь, диаметр 4 мм</td></tr>
+ <tr class="bg-slate-50"><td class="p-3 font-bold">Проникновение</td><td class="p-3">Вертикально, через геометрический центр полностью заряженной ячейки</td></tr>
+ <tr class="bg-white"><td class="p-3 font-bold">Скорость</td><td class="p-3">20 ± 1 мм/с</td></tr>
+ <tr class="bg-slate-50"><td class="p-3 font-bold">Удержание</td><td class="p-3">5 минут</td></tr>
+ <tr class="bg-white"><td class="p-3 font-bold">Критерий прохождения</td><td class="p-3 text-green-600 font-bold">Без возгорания, взрыва и утечки</td></tr>
+ <tr class="bg-slate-50"><td class="p-3 font-bold">Обязателен с</td><td class="p-3">1 апреля 2027 (12 месяцев переходного периода)</td></tr>
+ </tbody>
+ </table>
+ </div>
+
+ <h3 class="font-black text-brandBlue uppercase mb-3">Критерии проходит/не проходит: без возгорания, взрыва и утечки</h3>
+ <p class="text-slate-600 leading-relaxed mb-4">Официальный критерий GB 47372-2026 строг: без возгорания, взрыва и утечки электролита. WOWOHCOOL идёт дальше с внутренним стандартом температуры поверхности ниже 60 °C, измеренной термографом FLIR E8. Требуйте от поставщика отчёт испытания на уровне ячейки, а не только на уровне сборки, и подтвердите, что регистрируются все три критерия.</p>
+
+ <h3 class="font-black text-brandBlue uppercase mb-3">Обязателен с 1 апреля 2027: что это значит для российского импортёра</h3>
+ <p class="text-slate-600 leading-relaxed">С 1 апреля 2027 года каждая ячейка power bank, произведённая в Китае, должна пройти GB 47372-2026 для внутренней сертификации CCC. Хотя экспортёры формально не подпадают под CCC, завод не может держать одну линию для внутреннего рынка и другую для экспорта — все партии проходят один и тот же тест. Для импортёра РФ и ЕАЭС это означает: с апреля 2027 года каждый серьёзный китайский завод будет иметь отчёт испытания проколом, а его отсутствие в предложении — сигнал о теневой линии.</p>
+
+ <div class="mt-6">
+ <img src="/image/blog/power-bank/power-bank-fire-retardant-packaging.webp"
+      alt="Огнеупорная упаковка для полутвердотельного power bank: безопасность литиевой батареи UN38.3 и испытание проколом GB 47372-2026"
+      loading="lazy"
+      class="max-w-3xl mx-auto rounded-2xl shadow-lg w-full">
+ </div>
+ </div>
+ </div>
+</section>
+
+<!-- ===== [6.3] H2 Section 3: Тревога ===== -->
+<section id="trevoga" class="mb-16">
+ <div class="max-w-4xl mx-auto px-6">
+ <div class="bg-slate-50 rounded-xl p-6 border border-slate-200 shadow-sm">
+ <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-6">3. Шесть Сигналов Тревоги Ложного «Полутвердотельного» Поставщика</h2>
+
+ <p class="text-slate-600 leading-relaxed mb-4">Поставщик, который продаёт Li-polymer как «полутвердотельный», оставляет шесть следов, которые внимательный импортёр обнаруживает до оплаты:</p>
+
+ <ol class="list-decimal pl-5 text-slate-600 space-y-2 mb-4">
+ <li><strong>Нет отчёта испытания на уровне ячейки</strong> — только отчёт на уровне сборки скрывает реальную ячейку.</li>
+ <li><strong>Нет сухой комнаты</strong> — производство полутвердотельных ячеек требует точки росы ≤ −40 °C; стандартная линия заливки жидкости не имеет её.</li>
+ <li><strong>Нет станции смешивания гель-полимерного электролита</strong> — без специализированного оборудования это стандартный литий-полимер под другим названием.</li>
+ <li><strong>MSDS электролита только с карбонатными растворителями</strong> — без объявленной полимерной матрицы это не гель.</li>
+ <li><strong>FOB ниже $4 за 10 000 мАч</strong> — физически невозможно для настоящей полутвердотельной ячейки.</li>
+ <li><strong>Заявление «500 циклов» без кривой удержания ёмкости</strong> — настоящий полутвердотельный документирует 500+ циклов до 80% ёмкости, с графиком.</li>
+ </ol>
+
+ <div class="bg-brandBlue/5 border-l-4 border-brandOrange rounded-r-xl p-6 mt-6">
+ <p class="text-[11px] font-black text-brandOrange uppercase tracking-widest mb-2">МНЕНИЕ ЭКСПЕРТА</p>
+ <blockquote class="text-slate-700 text-base italic leading-relaxed">«Самый надёжный сигнал тревоги — не спецификация, а сухая комната. Поставщик может прислать любой PDF, но не может имитировать точку росы −40 °C в живом видеотуре. Если он отказывается её показать — у него нет полутвердотельной линии.»</blockquote>
+ <p class="text-sm text-slate-500 mt-2">— Nina Nico, Global Procurement &amp; Sourcing Manager, WOWOHCOOL</p>
+ </div>
+ </div>
+ </div>
+</section>
+
+<!-- ===== [6.4] H2 Section 4: Donut Lab ===== -->
+<section id="donut" class="mb-16">
+ <div class="max-w-4xl mx-auto px-6">
+ <div class="bg-slate-50 rounded-xl p-6 border border-slate-200 shadow-sm">
+ <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-6">4. Кейс Donut Lab: Что Произошло и Что Было Пропущено</h2>
+
+ <p class="text-slate-600 leading-relaxed mb-4">Donut Lab — литовский стартап аккумуляторов, разоблачённый в июне 2026 года за продажу стандартных литий-ионных NCM-ячеек как «твердотельных батарей». Компания привлекла $25 миллионов от более чем 1 300 инвесторов и достигла оценки $1,25 миллиарда, обещая 400 Вт·ч/кг натриевых батарей. Более 20 независимых экспертов подтвердили, что это были обычные NCM-ячейки.</p>
+
+ <h3 class="font-black text-brandBlue uppercase mb-3">Что не раскрывала спецификация</h3>
+ <p class="text-slate-600 leading-relaxed mb-4">Спецификация Donut Lab не декларировала реальную химию ячейки и матрицу электролита. Она показывала маркетинговые цифры (плотность, циклы) без отчётов тестов на уровне ячейки, которые бы их подтверждали. Импортёр, который бы потребовал MSDS электролита или испытание проколом, увидел бы правду до инвестирования.</p>
+
+ <h3 class="font-black text-brandBlue uppercase mb-3">Две проверки, которые бы выявили мошенничество</h3>
+ <p class="text-slate-600 leading-relaxed">Два контроля вскрыли бы мошенничество за минуты: (1) испытание проколом на уровне ячейки — NCM-ячейка воспламенилась бы под иглой 4 мм, тогда как настоящая полутвердотельная — нет; и (2) MSDS электролита — показал бы только карбонатные растворители без полимерной матрицы. Урок прост: проверяйте ячейку, а не презентацию.</p>
+ </div>
+ </div>
+</section>
+
+<!-- ===== [6.5] H2 Section 5: Аудит ===== -->
+<section id="audit" class="mb-16">
+ <div class="max-w-4xl mx-auto px-6">
+ <div class="bg-slate-50 rounded-xl p-6 border border-slate-200 shadow-sm">
+ <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-6">5. Аудит Завода: Что Увидеть Лично</h2>
+
+ <p class="text-slate-600 leading-relaxed mb-4">Аудит завода полутвердотельного power bank проверяет три физических элемента, которые не может подделать ни один PDF: сухую комнату (точка росы ≤ −40 °C), станцию смешивания гель-полимерного электролита и стенд испытания проколом в зоне QC (AQL 2.5 Level II, старение 100% 4 часа). Эти три станции требуют капитальных вложений $200 000-400 000 — что физически отсекает не менее 90% «полутвердотельных» поставщиков на Alibaba. Вот что нужно увидеть лично или через живой видеопоток:</p>
+
+ <h3 class="font-black text-brandBlue uppercase mb-3">Тур по сухой комнате и станции смешивания электролита</h3>
+ <p class="text-slate-600 leading-relaxed mb-4">Попросите увидеть сухую комнату с дисплеем точки росы, показывающим ≤ −40 °C, и входной шлюз. Затем — станцию смешивания гель-полимерного электролита с полимерной матрицей. Если линия — стандартная заливка жидкости без сухой комнаты, поставщик не производит полутвердотельные ячейки.</p>
+
+ <h3 class="font-black text-brandBlue uppercase mb-3">Стенд прокола и камера старения (100% 4 часа)</h3>
+ <p class="text-slate-600 leading-relaxed mb-4">Легитимный завод имеет стенд испытания проколом в зоне QC и может провести живую демонстрацию. Попросите увидеть пробитую ячейку без возгорания и взрыва, с термографией, показывающей температуру поверхности ниже 60 °C. Подтвердите камеру старения со стандартом 100% в течение 4 часов. <a href="/ru/blog/kontrol-kachestva-zavody-kitay-oem/" class="text-brandBlue hover:text-brandOrange">Четырёхэтапный контроль качества</a> WOWOHCOOL прозрачен в каждой партии.</p>
+
+ <div class="mt-6">
+ <img src="/image/blog/power-bank/power-bank-internal-structure-pcba.webp"
+      alt="Внутренняя структура полутвердотельного power bank: гель-ячейка и плата PCBA. Испытание проколом GB 47372-2026 для проверки OEM. Завод WOWOHCOOL Шэньчжэнь"
+      loading="lazy"
+      class="max-w-3xl mx-auto rounded-2xl shadow-lg w-full">
+ </div>
+ </div>
+ </div>
+</section>
+
+<!-- ===== [6.6] H2 Section 6: Стоимость ===== -->
+<section id="stoimost" class="mb-16">
+ <div class="max-w-4xl mx-auto px-6">
+ <div class="bg-slate-50 rounded-xl p-6 border border-slate-200 shadow-sm">
+ <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-6">6. Проверка Стоимости и Документы до Заказа</h2>
+
+ <p class="text-slate-600 leading-relaxed mb-4">Настоящая полутвердотельная ячейка стоит $14-18 FOB Шэньчжэнь за 10 000 мАч при 500 штуках — более чем вдвое к $5,80-8,00 Li-polymer. Разница проистекает из премии на ячейку в сухой комнате (точка росы ≤ −40 °C) и полимерной матрицы электролита. Цена — ещё одна проверка истины: если поставщик котирует «полутвердотельный» на 30% ниже сектора, это физически невозможно.</p>
+
+ <h3 class="font-black text-brandBlue uppercase mb-3">Почему настоящий полутвердотельный не может стоить как Li-polymer</h3>
+ <div class="overflow-x-auto mb-6">
+ <table class="w-full text-sm text-left border-collapse">
+ <thead><tr class="bg-brandBlue text-white"><th class="p-3 font-black uppercase text-xs">Тип</th><th class="p-3 font-black uppercase text-xs">FOB 10 000 мАч (500 шт)</th><th class="p-3 font-black uppercase text-xs">Премия</th></tr></thead>
+ <tbody class="divide-y divide-slate-200">
+ <tr class="bg-white"><td class="p-3 font-bold">Полутвердотельный (гель)</td><td class="p-3 text-brandOrange font-bold">$14-18</td><td class="p-3">более чем вдвое к Li-polymer</td></tr>
+ <tr class="bg-slate-50"><td class="p-3 font-bold">Li-polymer (жидкий)</td><td class="p-3">$5,80-8,00</td><td class="p-3">Базовая линия</td></tr>
+ </tbody>
+ </table>
+ </div>
+
+ <h3 class="font-black text-brandBlue uppercase mb-3">Документы, которые требовать до подписания заказа</h3>
+ <ol class="list-decimal pl-5 text-slate-600 space-y-2 mb-4">
+ <li><strong>Отчёт испытания проколом GB 47372-2026</strong> на уровне ячейки (игла 4 мм, без возгорания, взрыва и утечки).</li>
+ <li><strong>Отчёт UN38.3</strong> на уровне ячейки, не пака.</li>
+ <li><strong>MSDS электролита</strong> с указанием полимерной матрицы.</li>
+ <li><strong>Имя производителя ячейки и код партии</strong> для трассируемости.</li>
+ <li><strong>Сертификация EAC</strong> по ТР ТС 004/2011 + 020/2011 + 037/2016 для рынка ЕАЭС, согласно <a href="/ru/blog/sertifikaciya-eas-poverbankov-tr-ts-oem/" class="text-brandBlue hover:text-brandOrange">сертификации EAC power bank</a>.</li>
+ </ol>
+ <p class="text-slate-600 leading-relaxed">WOWOHCOOL предоставляет полный пакет с каждым OEM-заказом. Запросите видео испытания проколом и приглашение на аудит завода до подписания: <a href="/ru/produkty/poverbanki/polutverdotelnyy/" class="text-brandBlue hover:text-brandOrange">полутвердотельный power bank OEM</a> с MOQ 500.</p>
+ </div>
+ </div>
+</section>
+
+<!-- ===== [7] FAQ ===== -->
+<section id="faq" class="mb-16">
+ <div class="max-w-4xl mx-auto px-6">
+ <div class="bg-slate-50 rounded-2xl p-8 border border-slate-200 shadow-sm">
+ <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-8 text-center">Часто Задаваемые Вопросы (FAQ)</h2>
+ <div class="space-y-6 max-w-3xl mx-auto">
+
+ <div class="bg-white rounded-xl p-6 faq-answer">
+ <h3 class="font-black text-brandBlue mb-2">Как узнать, что поставщик действительно поставляет полутвердотельные ячейки, а не переупакованный Li-polymer?</h3>
+ <p class="text-slate-600 text-sm">До подписания PO требуйте три доказательства: (1) отчёт испытания проколом на уровне ячейки по GB 47372-2026 (игла 4 мм, без возгорания, взрыва и утечки), (2) MSDS электролита с указанием полимерной матрицы (не только карбонатные растворители), и (3) видеотур сухой комнаты (точка росы ≤ −40 °C) и станции смешивания гель-полимерного электролита. При MOQ 500 у WOWOHCOOL каждая партия сопровождается пакетом из трёх документов; если поставщик не может показать ни одного из трёх — он продаёт стандартный Li-polymer с маркетинговой этикеткой.</p>
+ </div>
+
+ <div class="bg-white rounded-xl p-6 faq-answer">
+ <h3 class="font-black text-brandBlue mb-2">Что такое GB 47372-2026 и распространяется ли он на мой OEM-заказ?</h3>
+ <p class="text-slate-600 text-sm">GB 47372-2026 — первый обязательный национальный стандарт Китая для power bank, опубликован <strong>31 марта 2026 года</strong>. Вводит испытание проколом гвоздём: стальная игла <strong>4 мм</strong> пронзает вертикально геометрический центр полностью заряженной ячейки со скоростью <strong>20 ± 1 мм/с</strong>, удерживается <strong>5 минут</strong>, критерий прохождения — без возгорания, взрыва и утечки. Обязателен для сертификации CCC каждой партии ячеек, произведённых в Китае, с <strong>1 апреля 2027 года</strong>. Если ваш OEM-заказ производится в Китае, стандарт распространяется и на вас: FOB-предложение без ссылки на отчёт GB 47372-2026 после апреля 2027 — сигнал теневой линии.</p>
+ </div>
+
+ <div class="bg-white rounded-xl p-6 faq-answer">
+ <h3 class="font-black text-brandBlue mb-2">Почему испытание проколом — самая важная проверка полутвердотельных аккумуляторов?</h3>
+ <p class="text-slate-600 text-sm">Потому что это единственный тест, который физически отличает гель-полимерный электролит (полутвердотельный) от жидкого (Li-polymer). Гель-электролит не воспламеняется и не вытекает при пробитии; жидкий вызывает тепловой разгон. Спецификацию и маркетинговый сертификат можно подделать, но температурную подпись под иглой <strong>4 мм</strong> — нельзя. Для OEM-импортёра это единственная физическая проверка, которую поставщик не может обойти, и потому она — проверка истины перед подписанием контракта FOB.</p>
+ </div>
+
+ <div class="bg-white rounded-xl p-6 faq-answer">
+ <h3 class="font-black text-brandBlue mb-2">Что пошло не так в мошенничестве Donut Lab 2026 и как избежать той же ловушки?</h3>
+ <p class="text-slate-600 text-sm">Donut Lab привлёк <strong>$25 миллионов</strong> от более чем <strong>1 300 инвесторов</strong> при оценке <strong>$1,25 миллиарда</strong>, продавая стандартные литий-ионные NCM-ячейки как «твердотельные батареи». Более <strong>20 независимых экспертов</strong> подтвердили мошенничество в июне 2026 года. Урок для импортёра: две проверки бы его выявили — (1) испытание проколом на уровне ячейки (NCM-ячейка воспламенилась бы под иглой) и (2) MSDS электролита (не декларировал полимерную матрицу).</p>
+ </div>
+
+ <div class="bg-white rounded-xl p-6 faq-answer">
+ <h3 class="font-black text-brandBlue mb-2">Какой диапазон FOB физически реалистичен для полутвердотельного power bank 10 000 мАч?</h3>
+ <p class="text-slate-600 text-sm"><strong>$14-18 FOB</strong> Шэньчжэнь для 10 000 мАч при 500 штуках — более чем вдвое к Li-polymer ($5,80-8,00). Премия исходит из полутвердотельной ячейки и производства в сухой комнате. Если поставщик предлагает «полутвердотельную» ячейку по цене, близкой к Li-polymer (или на 30% ниже сектора), это физически невозможно — отказывайтесь.</p>
+ </div>
+
+ <div class="bg-white rounded-xl p-6 faq-answer">
+ <h3 class="font-black text-brandBlue mb-2">Какие документы требовать до подписания заказа на полутвердотельные аккумуляторы?</h3>
+ <p class="text-slate-600 text-sm">Требуйте пять документов: (1) отчёт испытания проколом GB 47372-2026 на уровне ячейки, (2) отчёт UN38.3 на уровне ячейки (не пака), (3) MSDS электролита с указанием полимерной матрицы, (4) имя производителя ячейки и код партии для трассируемости, и (5) EAC-сертификацию по ТР ТС 004/2011 + 020/2011 + 037/2016 для рынка ЕАЭС. <strong>WOWOHCOOL предоставляет полный пакет с каждым OEM-заказом.</strong></p>
+ </div>
+
+ <div class="bg-white rounded-xl p-6 faq-answer">
+ <h3 class="font-black text-brandBlue mb-2">Могу ли я запросить живое испытание проколом во время аудита завода?</h3>
+ <p class="text-slate-600 text-sm"><strong>Да, и должны.</strong> Легитимный завод имеет стенд испытания проколом в зоне QC (AQL 2.5 Level II) и может провести живую демонстрацию во время OEM-аудита. Попросите увидеть полутвердотельную ячейку из текущей партии, пробитую без возгорания и взрыва, с термографией <strong>FLIR E8</strong>, показывающей температуру поверхности <strong>ниже 60 °C</strong>. Если поставщик отказывает в живой демонстрации при заказе от MOQ 500 — считайте это сигналом тревоги.</p>
+ </div>
+
+ </div>
+ </div>
+ </div>
+</section>
+
+<!-- ===== [8] Author Bio ===== -->
+<section id="author-bio" class="max-w-4xl mx-auto px-6">
+ <div class="bg-slate-50 rounded-2xl p-6 md:p-8 mb-12 border border-slate-100">
+ <div class="flex flex-col sm:flex-row items-start gap-4 sm:gap-6">
+ <div class="w-20 h-20 rounded-full overflow-hidden flex items-center justify-center border-2 border-brandOrange bg-white shadow-lg shrink-0">
+ <img src="/image/factory/team-nina.webp" alt="Nina Nico, менеджер по глобальным закупкам, проверка полутвердотельных аккумуляторов и испытания проколом OEM, WOWOHCOOL" loading="lazy" width="400" height="400" class="w-full h-full object-cover">
+ </div>
+ <div class="flex-1 min-w-0">
+ <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 mb-2 sm:mb-3">
+ <a href="https://www.linkedin.com/in/nico-power-bank-chargers" target="_blank" rel="noopener noreferrer" class="font-black text-slate-900 text-lg hover:text-brandOrange transition">Nina Nico</a>
+ <span class="px-2 py-1 bg-brandOrange/10 text-brandOrange text-[11px] font-black rounded-full uppercase w-fit">Автор</span>
+ </div>
+ <p class="text-sm text-slate-500 mb-3">Менеджер по глобальным закупкам · OEM/ODM 3C · 10+ лет в отрасли · EN, ZH</p>
+ <p class="text-slate-600 text-sm leading-relaxed">10+ лет в глобальном сорсинге аксессуаров 3C и трансграничных OEM-переговорах. Специалист по полутвердотельным и литий-ионным аккумуляторам, сертификации UN38.3 и GB 47372-2026, аудитор десятков заводов power bank в Шэньчжэне. Работает на заводе <a href="/ru/o-kompanii/" class="text-brandBlue hover:text-brandOrange">WOWOHCOOL</a> в Шэньчжэне.</p>
+ <div class="mt-4 pt-4 border-t border-slate-200">
+ <p class="text-xs text-slate-400 uppercase tracking-wider mb-2">Производственная База</p>
+ <div class="grid grid-cols-2 md:grid-cols-4 gap-3 text-sm">
+ <div><span class="font-black text-brandBlue">5 000 м²</span><p class="text-xs text-slate-500">ISO 9001</p></div>
+ <div><span class="font-black text-brandBlue">С 2013</span><p class="text-xs text-slate-500">Шэньчжэнь, Китай</p></div>
+ <div><span class="font-black text-brandBlue">50+</span><p class="text-xs text-slate-500">Стран экспорта</p></div>
+ <div><span class="font-black text-brandBlue">50+ R&amp;D</span><p class="text-xs text-slate-500">Инженеров</p></div>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+</section>
+
+<!-- ===== [9] CTA ===== -->
+<section class="max-w-4xl mx-auto px-6">
+ <div class="relative bg-gradient-to-br from-brandBlue to-slate-800 rounded-3xl p-10 text-center mb-16 overflow-hidden">
+ <div class="absolute top-0 right-0 w-64 h-64 bg-brandOrange/20 rounded-full blur-3xl"></div>
+ <div class="absolute bottom-0 left-0 w-64 h-64 bg-brandBlue-400/20 rounded-full blur-3xl"></div>
+ <div class="relative z-10">
+ <h2 class="text-2xl font-black text-white uppercase italic mb-4">Проверенный Полутвердотельный Power Bank OEM, MOQ 500</h2>
+ <p class="text-slate-300 mb-8 max-w-xl mx-auto">Запросите видео испытания проколом и приглашение на аудит завода. Настоящая полутвердотельная ячейка с дефектностью менее 0,3%. Прайс за 24 часа, образцы за 3-7 дней.</p>
+ <div class="flex flex-col sm:flex-row gap-4 justify-center">
+ <a href="/ru/kontakty/" class="w-full sm:flex-1 bg-brandOrange text-white px-8 py-4 rounded-xl font-black uppercase text-sm shadow-lg hover:-translate-y-1 transition">Запросить Прайс</a>
+ <a href="/ru/produkty/poverbanki/polutverdotelnyy/" class="w-full sm:flex-1 text-center border-2 border-white text-white px-8 py-4 rounded-xl font-black uppercase text-sm hover:bg-white hover:text-brandBlue transition">Смотреть Каталог</a>
+ </div>
+ </div>
+ </div>
+</section>
+
+<!-- ===== [10] Related Articles ===== -->
+<aside id="related-articles" class="max-w-4xl mx-auto px-6 mb-16">
+ <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-6">Похожие Статьи</h2>
+ <div class="grid md:grid-cols-3 gap-6">
+ <a href="/ru/blog/polutverdotelnye-power-bank-oem/" class="bg-slate-50 rounded-xl overflow-hidden hover:shadow-xl transition group">
+ <div class="h-2 bg-gradient-to-r from-brandBlue to-brandOrange"></div>
+ <div class="p-6">
+ <span class="text-xs font-black text-brandOrange uppercase mb-2 block">Технологии</span>
+ <h3 class="font-black text-brandBlue uppercase mb-2 group-hover:text-brandOrange transition text-sm">Полутвердотельный Power Bank OEM: Руководство</h3>
+ <p class="text-slate-600 text-xs">30% выше плотности vs Li-Po. EAC, UN38.3, MOQ 500 для импортёров РФ и ЕАЭС.</p>
+ </div>
+ </a>
+ <a href="/ru/blog/kontrol-kachestva-zavody-kitay-oem/" class="bg-slate-50 rounded-xl overflow-hidden hover:shadow-xl transition group">
+ <div class="h-2 bg-gradient-to-r from-brandBlue to-brandOrange"></div>
+ <div class="p-6">
+ <span class="text-xs font-black text-brandOrange uppercase mb-2 block">Контроль качества</span>
+ <h3 class="font-black text-brandBlue uppercase mb-2 group-hover:text-brandOrange transition text-sm">Контроль Качества на Заводах Китая</h3>
+ <p class="text-slate-600 text-xs">4 этапа QC, старение 100% 4 часа, дефектность менее 0,3%.</p>
+ </div>
+ </a>
+ <a href="/ru/blog/sertifikaciya-eas-poverbankov-tr-ts-oem/" class="bg-slate-50 rounded-xl overflow-hidden hover:shadow-xl transition group">
+ <div class="h-2 bg-gradient-to-r from-brandBlue to-brandOrange"></div>
+ <div class="p-6">
+ <span class="text-xs font-black text-brandOrange uppercase mb-2 block">Сертификация</span>
+ <h3 class="font-black text-brandBlue uppercase mb-2 group-hover:text-brandOrange transition text-sm">Сертификация EAC Power Bank ТР ТС</h3>
+ <p class="text-slate-600 text-xs">ТР ТС 004/2011, 020/2011, 037/2016 для импорта в РФ и ЕАЭС.</p>
+ </div>
+ </a>
+ </div>
+</aside>
+
+<!-- ===== [11] Sources ===== -->
+<section class="max-w-4xl mx-auto px-6 mb-16">
+ <h2 class="text-lg font-black text-brandBlue uppercase italic mb-4">Источники и Ссылки</h2>
+ <ul class="text-sm text-slate-600 space-y-2 list-disc pl-5">
+ <li><a href="https://www.gdestl.com/" target="_blank" rel="noopener external" class="text-brandBlue hover:text-brandOrange">GB 47372-2026, Safety technical specification for portable power banks</a></li>
+ <li><a href="https://unece.org/transport/dangerous-goods/rev-8-2026" target="_blank" rel="noopener external" class="text-brandBlue hover:text-brandOrange">UN Manual of Tests and Criteria, Sub-section 38.3 (Rev. 8)</a></li>
+ <li><a href="https://docs.cntd.ru/document/902299536" target="_blank" rel="noopener external" class="text-brandBlue hover:text-brandOrange">ТР ТС 004/2011, О безопасности низковольтного оборудования</a></li>
+ </ul>
+</section>
+
+</article>
+
+<!-- ===== [12] Blog CTA Partial ===== -->
+{%- set ctaLabel = "Запросить прайс" %}
+{%- set ctaHeading1 = "Готовы запустить" %}
+{%- set ctaHeading2 = "ваш OEM-проект?" %}
+{%- set ctaSubtext = "Получите прайс на производство проверенного полутвердотельного power bank под вашим брендом. Ответ за 24 часа, образцы за 3-7 дней." %}
+{%- set ctaSubject = "Запрос прайса, Блог Испытание Проколом" %}
+{%- set ctaButton = "Запросить Прайс OEM" %}
+{% include "partials/blog-cta.njk" %}
+{% endblock %}
