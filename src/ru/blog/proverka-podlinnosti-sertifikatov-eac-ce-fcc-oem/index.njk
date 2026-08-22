@@ -1,0 +1,633 @@
+---
+title: "Проверка Сертификатов EAC/CE/FCC на Подлинность | WOWOHCOOL"
+lang: "ru"
+description: "Как импортёру проверить сертификат ЕАС, CE и FCC китайского поставщика за 10 минут: реестр ФГИС, проверка органа и лаборатории, 9 признаков подделки."
+date: 2026-08-22
+modified: 2026-08-22
+author: "Nina Nico"
+articleSection: Сертификация и Соответствие
+articleTags: [Сертификация, EAC, Проверка, ФГИС, Росаккредитация, CE, FCC, Импортёр]
+canonical: "/ru/blog/proverka-podlinnosti-sertifikatov-eac-ce-fcc-oem/"
+enPath: "blog/verify-fake-charger-certificates-fcc-ce-ul/"
+esPath: "blog/verificar-certificados-falsos-cargadores-ce-fcc-ul/"
+ogImage: "/image/blog/cover-ru/proverka-podlinnosti-sertifikatov-eac-ce-fcc-oem.webp"
+navActive: "blog"
+hreflang:
+ ru: "/ru/blog/proverka-podlinnosti-sertifikatov-eac-ce-fcc-oem/"
+ en: "/blog/verify-fake-charger-certificates-fcc-ce-ul/"
+ es: "/es/blog/verificar-certificados-falsos-cargadores-ce-fcc-ul/"
+---
+{% extends "layout.njk" %}
+
+{% block head_schema %}
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+ {
+ "@type": "Organization",
+ "@id": "https://www.wowohcool.com/#organization",
+ "name": "WOWOHCOOL",
+ "legalName": "Dong Yi Technology Co., Ltd",
+ "url": "https://www.wowohcool.com/ru/o-kompanii/",
+ "publishingPrinciples": "https://www.wowohcool.com/ru/o-kompanii/",
+ "logo": { "@type": "ImageObject", "url": "https://www.wowohcool.com/image/wowohcool-logo-optimized.webp" },
+ "areaServed": ["US", "DE", "AT", "CH", "UK", "FR", "ES", "PL", "EU", "JP", "KR", "AU", "MX", "CO", "AR", "CL", "PE", "RU", "KZ", "BY", "EAEU"],
+ "address": {
+ "@type": "PostalAddress",
+ "streetAddress": "925, Yichuang International Center, Longhua District",
+ "addressLocality": "Shenzhen",
+ "addressRegion": "Guangdong",
+ "postalCode": "518111",
+ "addressCountry": "CN"
+ },
+ "sameAs": [
+ "https://www.linkedin.com/company/wowohcool",
+ "https://www.facebook.com/wowohcoolelectronic",
+ "https://www.youtube.com/@WOWOHCOOL",
+ "https://x.com/wowohcool"
+ ],
+ "contactPoint": {
+ "@type": "ContactPoint",
+ "contactType": "OEM/ODM Sales",
+ "telephone": "+86-18620789739",
+ "email": "info@wowohcool.com",
+ "availableLanguage": ["Russian", "English", "German", "Chinese"]
+ }
+ },
+ {
+ "@type": "WebSite",
+ "@id": "https://www.wowohcool.com/#website",
+ "url": "https://www.wowohcool.com/ru/",
+ "name": "WOWOHCOOL",
+ "inLanguage": "ru-RU",
+ "publisher": { "@id": "https://www.wowohcool.com/#organization" }
+ },
+ {
+ "@type": "BreadcrumbList",
+ "itemListElement": [
+ { "@type": "ListItem", "position": 1, "name": "Главная", "item": "https://www.wowohcool.com/ru/" },
+ { "@type": "ListItem", "position": 2, "name": "Блог", "item": "https://www.wowohcool.com/ru/blog/" },
+ { "@type": "ListItem", "position": 3, "name": "Проверка Подлинности Сертификатов", "item": "https://www.wowohcool.com/ru/blog/proverka-podlinnosti-sertifikatov-eac-ce-fcc-oem/" }
+ ]
+ },
+ {
+ "@type": "BlogPosting",
+ "@id": "https://www.wowohcool.com/ru/blog/proverka-podlinnosti-sertifikatov-eac-ce-fcc-oem/#article",
+ "headline": "Проверка Подлинности Сертификатов EAC/CE/FCC: 5 Реестров для Импортёра OEM",
+ "keywords": ["проверка подлинности сертификата ЕАС", "проверить сертификат по номеру ФГИС", "реестр Росаккредитации проверка", "поддельный сертификат ЕАЭС признаки", "сертификат Киргизии не действует в России", "Постановление 87 приостановление сертификатов", "FCC ID проверить зарядное устройство", "проверка поставщика OEM Китай"],
+ "description": "Как импортёру проверить сертификат ЕАС, CE и FCC китайского поставщика за 10 минут: реестр ФГИС, проверка органа и лаборатории, 9 признаков подделки.",
+ "author": { "@id": "https://www.wowohcool.com/#nina-nico" },
+ "publisher": { "@id": "https://www.wowohcool.com/#organization" },
+ "datePublished": "2026-08-22",
+ "dateModified": "2026-08-22",
+ "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.wowohcool.com/ru/blog/proverka-podlinnosti-sertifikatov-eac-ce-fcc-oem/" },
+ "wordCount": 3104,
+ "inLanguage": "ru-RU",
+ "timeRequired": "PT18M",
+ "articleSection": "Сертификация и Соответствие",
+ "image": "https://www.wowohcool.com/image/blog/cover-ru/proverka-podlinnosti-sertifikatov-eac-ce-fcc-oem.webp",
+ "thumbnailUrl": "https://www.wowohcool.com/image/blog/cover-ru/proverka-podlinnosti-sertifikatov-eac-ce-fcc-oem.webp",
+ "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".speakable"] },
+ "about": { "@type": "Thing", "name": "Certification mark", "sameAs": "https://www.wikidata.org/entity/Q1520343" },
+ "citation": [
+ { "@type": "CreativeWork", "name": "Росаккредитация, Единый реестр сертификатов соответствия и деклараций о соответствии", "url": "https://pub.fsa.gov.ru/rds" },
+ { "@type": "CreativeWork", "name": "Росаккредитация, Реестр аккредитованных лиц", "url": "https://pub.fsa.gov.ru/ral" },
+ { "@type": "CreativeWork", "name": "Постановление Правительства РФ № 87 от 06.02.2026", "url": "https://publication.pravo.gov.ru/" },
+ { "@type": "CreativeWork", "name": "FCC, Equipment Authorization Search", "url": "https://www.fcc.gov/oet/ea/fccid" },
+ { "@type": "CreativeWork", "name": "КоАП РФ, Статья 14.43", "url": "https://docs.cntd.ru/" }
+ ]
+ },
+ {
+ "@type": "Person",
+ "@id": "https://www.wowohcool.com/#nina-nico",
+ "name": "Nina Nico",
+ "jobTitle": "Global Procurement & Sourcing Manager",
+ "url": "https://www.wowohcool.com/authors/nina-nico/",
+ "sameAs": ["https://www.linkedin.com/in/nico-power-bank-chargers"],
+ "image": "https://www.wowohcool.com/image/factory/team-nina.webp",
+ "worksFor": { "@id": "https://www.wowohcool.com/#organization" },
+ "knowsAbout": ["Глобальные закупки и сорсинг 3C", "Проверка поставщиков и документов соответствия", "Сертификация EAC и ТР ТС", "Регламенты ЕАЭС и аккредитация лабораторий", "Производство зарядных устройств и повербанков"]
+ },
+ {
+ "@type": "HowTo",
+ "@id": "https://www.wowohcool.com/ru/blog/proverka-podlinnosti-sertifikatov-eac-ce-fcc-oem/#howto",
+ "name": "Проверить подлинность сертификата китайского поставщика перед оплатой",
+ "description": "Пошаговый рабочий процесс проверки сертификата ЕАС, CE и FCC по официальным реестрам за 10 минут.",
+ "totalTime": "PT10M",
+ "step": [
+ { "@type": "HowToStep", "position": 1, "name": "Запросите полный пакет, а не одну страницу", "itemListElement": [{ "@type": "HowToDirection", "text": "Потребуйте от поставщика три документа: протокол испытаний аккредитованной лаборатории, сам разрешительный документ (сертификат или декларацию) и технический файл с BOM. Файл должен быть защищённым PDF, а не фотографией или скриншотом. Отсутствие протокола испытаний — стоп-сигнал ещё до проверки в реестре." }] },
+ { "@type": "HowToStep", "position": 2, "name": "Проверьте документ в едином реестре ФГИС", "itemListElement": [{ "@type": "HowToDirection", "text": "Откройте pub.fsa.gov.ru/rds, выберите тип документа (сертификат или декларация) и введите последнюю часть номера, например АЖ58.В.01238/21. Сверьте статус: действующий, приостановлен или недействительный. Затем построчно сравните заявителя, изготовителя и наименование продукции с присланным PDF." }] },
+ { "@type": "HowToStep", "position": 3, "name": "Проверьте орган по сертификации и лабораторию", "itemListElement": [{ "@type": "HowToDirection", "text": "В реестре аккредитованных лиц pub.fsa.gov.ru/ral найдите орган, выдавший документ, и лабораторию из протокола испытаний. Убедитесь, что аттестат аккредитации действует и что в области аккредитации лаборатории есть нужный регламент — ТР ТС 004/2011 для электробезопасности и ТР ТС 020/2011 для ЭМС." }] },
+ { "@type": "HowToStep", "position": 4, "name": "Сверьте документ с реальным товаром", "itemListElement": [{ "@type": "HowToDirection", "text": "Сравните модель, входные и выходные параметры, изготовителя и адрес завода в документе с шильдиком на образце и с BOM. Проверьте, есть ли на корпусе русская маркировка и данные уполномоченного представителя в ЕАЭС. Расхождение хотя бы в одном поле означает, что документ выдан на другую продукцию." }] },
+ { "@type": "HowToStep", "position": 5, "name": "Проверьте зарубежные маркировки, если партия идёт не только в ЕАЭС", "itemListElement": [{ "@type": "HowToDirection", "text": "Для рынка США проверьте FCC ID на fcc.gov/oet/ea/fccid и номер файла UL на productiq.ul.com — держатель должен совпадать с вашим поставщиком или его заказчиком. Для рынка ЕС запросите декларацию о соответствии с номерами директив, а номер нотифицированного органа сверьте в базе NANDO." }] }
+ ]
+ },
+ {
+ "@type": "FAQPage",
+ "@id": "https://www.wowohcool.com/ru/blog/proverka-podlinnosti-sertifikatov-eac-ce-fcc-oem/#faq",
+ "speakable": { "@type": "SpeakableSpecification", "cssSelector": [".faq-answer"] },
+ "mainEntity": [
+ { "@type": "Question", "name": "Как проверить сертификат ЕАС по номеру и что означают статусы в реестре?", "acceptedAnswer": { "@type": "Answer", "text": "Откройте единый реестр Росаккредитации на pub.fsa.gov.ru/rds, выберите тип документа и введите последнюю часть номера — например, для сертификата EAC вида ЕАЭС RU C-RU.АЖ58.В.01238/21 достаточно ввести АЖ58.В.01238/21. Реестр покажет статус: действующий, приостановлен, недействительный или архивный. Зелёный статус — только первый шаг: сверьте заявителя, изготовителя и наименование продукции с присланным PDF, затем проверьте орган по сертификации в реестре pub.fsa.gov.ru/ral." } },
+ { "@type": "Question", "name": "Сертификата нет в реестре ФГИС — это подделка?", "acceptedAnswer": { "@type": "Answer", "text": "Не обязательно, но проверять нужно дальше. Российские органы обязаны внести документ в реестр, и запись появляется в течение до 3 рабочих дней с даты выдачи. Если документ выдан неделю назад и его до сих пор нет — это красный флаг. Проверьте также, не ошиблись ли вы в формате номера: искать надо по последней части, без префикса ЕАЭС RU C-RU. Если после этого записи нет, документ не имеет юридической силы, и таможенная очистка по нему невозможна." } },
+ { "@type": "Question", "name": "Поставщик прислал сертификат, выданный органом из Киргизии. Он действует в России в 2026 году?", "acceptedAnswer": { "@type": "Answer", "text": "Проверять обязательно. Постановление Правительства РФ № 87 от 06.02.2026 дало Росаккредитации право приостанавливать в России действие документов EAC, выданных органами других стран ЕАЭС: например, если ФТС сообщила, что ввоз проб для испытаний не подтверждён. При трёх и более приостановках за год действие всех документов такого органа в РФ прекращается на срок до 12 месяцев. В 2026 году под меру попали семь киргизских органов: на них приходилось свыше 60% документов Киргизии за 2025 год." } },
+ { "@type": "Question", "name": "Как проверить, что лаборатория имела право испытывать зарядное устройство?", "acceptedAnswer": { "@type": "Answer", "text": "В протоколе испытаний найдите номер аттестата аккредитации лаборатории и введите его в реестр аккредитованных лиц pub.fsa.gov.ru/ral. Проверьте две вещи: аттестат действует, и в области аккредитации есть нужные регламенты — ТР ТС 004/2011 для электробезопасности, ТР ТС 020/2011 для ЭМС, для литиевой ячейки ГОСТ IEC 62133. Испытание вне области аккредитации аннулирует документ так же надёжно, как прямая подделка." } },
+ { "@type": "Question", "name": "Знак CE и «China Export» — чем они отличаются на практике?", "acceptedAnswer": { "@type": "Answer", "text": "Отдельного знака «China Export» не существует — это официальная позиция Европейской комиссии. То, что так называют, — настоящий знак CE с нарушенными пропорциями: буквы стоят слишком близко, высота меньше обязательных 5 мм. Это индикатор небрежного производителя, а не юридическое доказательство. Соответствие подтверждают два документа: декларация с номерами директив и протокол испытаний по IEC 62368-1 от аккредитованной лаборатории." } },
+ { "@type": "Question", "name": "Какие документы обязан предоставить OEM-поставщик кроме самого сертификата?", "acceptedAnswer": { "@type": "Answer", "text": "Полный пакет — это три документа, а не один. Первый: протокол испытаний аккредитованной лаборатории с номером аттестата и перечнем проведённых тестов. Второй: разрешительный документ, подтверждающий соответствие, с номером для проверки в реестре. Третий: технический файл со схемами, BOM и данными испытаний, где зафиксированы конкретные компоненты. Если поставщик присылает только страницу с логотипом и отказывается дать протокол и технический файл, пакета у него нет." } },
+ { "@type": "Question", "name": "Груз уже в пути, а сертификат приостановили. Что делать импортёру?", "acceptedAnswer": { "@type": "Answer", "text": "Действуйте по трём шагам. Первый: остановите следующие отгрузки, чтобы не увеличивать объём проблемного товара. Второй: запросите испытания в российской аккредитованной лаборатории и переоформление документа — от 1 до 6 недель в зависимости от схемы. Третий: считайте простой, пока таможенная очистка невозможна: хранение на СВХ плюс штраф по статье 14.43 КоАП РФ — 100 000–300 000 ₽ по части 1 и до 1 000 000 ₽ или приостановление деятельности до 90 суток по части 3." } },
+ { "@type": "Question", "name": "Сколько стоит настоящий сертификационный пакет и что входит в OEM-заказ WOWOHCOOL?", "acceptedAnswer": { "@type": "Answer", "text": "Стандартный пакет CE + FCC SDoC + RoHS с отчётом UN 38.3 стоит $2 500-4 500 и занимает 4-6 недель. UL 62368-1 — $1 500-3 000, FCC ID для беспроводных моделей — $2 000-5 000, EAC — $800-5 000 в зависимости от схемы. Мы координируем испытания, готовим технический файл с зафиксированным BOM и передаём номера документов для проверки в реестрах. MOQ 500 единиц, приёмка по AQL 2.5 Level II, дефектность ниже 0,3%." } }
+ ]
+ }
+ ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+<!-- ===== Hero ===== -->
+<article class="py-12">
+<div class="relative pt-24 md:pt-28 pb-12 lg:pt-28 lg:pb-16 bg-gradient-to-b from-slate-50 to-white overflow-hidden">
+ <div class="absolute top-0 left-1/4 w-64 h-64 bg-brandOrange/10 rounded-full blur-3xl"></div>
+ <div class="absolute bottom-0 right-1/4 w-64 h-64 bg-green-500/10 rounded-full blur-3xl"></div>
+ <div class="max-w-4xl mx-auto px-6 relative z-10">
+ <nav class="text-sm text-slate-500 mb-6">
+ <a href="/ru/" class="hover:text-brandOrange">Главная</a> /
+ <a href="/ru/blog/" class="hover:text-brandOrange">Блог</a> /
+ <span class="text-slate-900">Проверка Подлинности Сертификатов</span>
+ </nav>
+ <div class="flex flex-wrap gap-2 mb-6">
+ <span class="px-3 py-1 bg-brandOrange/10 text-brandOrange text-[11px] font-black rounded-full uppercase">EAC</span>
+ <span class="px-3 py-1 bg-brandOrange/10 text-brandOrange text-[11px] font-black rounded-full uppercase">Проверка</span>
+ <span class="px-3 py-1 bg-brandOrange/10 text-brandOrange text-[11px] font-black rounded-full uppercase">Импортёр</span>
+ </div>
+ <h1 class="text-3xl lg:text-5xl font-black text-brandBlue uppercase italic tracking-tighter mb-6 leading-tight">Проверка Подлинности Сертификатов EAC/CE/FCC: 5 Реестров для Импортёра OEM</h1>
+ <div class="flex items-center gap-3 mb-6">
+ <img src="/image/factory/team-nina.webp" alt="Nina Nico, менеджер по глобальным закупкам, проверка сертификатов EAC и сорсинг зарядных устройств OEM, WOWOHCOOL" loading="lazy" width="40" height="40" class="w-10 h-10 rounded-full object-cover border border-brandOrange">
+ <div>
+ <a href="#author-bio" class="font-bold text-slate-900 text-sm hover:text-brandOrange transition">Nina Nico</a>
+ <p class="text-xs text-slate-500">Менеджер по закупкам · 10+ лет в 3C-сорсинге</p>
+ </div>
+ </div>
+ <div class="flex flex-wrap items-center gap-6 text-sm text-slate-500 pb-8 border-b border-slate-200">
+ <span><svg class="icon-calendar mr-2" aria-hidden="true" focusable="false" viewBox="0 0 448 512"><path d="M128 0C110.3 0 96 14.3 96 32l0 32-32 0C28.7 64 0 92.7 0 128l0 48 448 0 0-48c0-35.3-28.7-64-64-64l-32 0 0-32c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 32-128 0 0-32c0-17.7-14.3-32-32-32zM0 224L0 416c0 35.3 28.7 64 64 64l320 0c35.3 0 64-28.7 64-64l0-192-448 0z" fill="currentColor"/></svg><time datetime="2026-08-22">22 августа 2026</time></span>
+ <span><svg class="icon-clock mr-2" aria-hidden="true" focusable="false" viewBox="0 0 512 512"><path d="M256 0a256 256 0 1 1 0 512 256 256 0 1 1 0-512zM232 120l0 136c0 8 4 15.5 10.7 20l96 64c11 7.4 25.9 4.4 33.3-6.7s4.4-25.9-6.7-33.3L280 243.2 280 120c0-13.3-10.7-24-24-24s-24 10.7-24 24z" fill="currentColor"/></svg>18 мин чтения</span>
+ <span><svg class="icon-user mr-2" aria-hidden="true" focusable="false" viewBox="0 0 448 512"><path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512l388.6 0c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304l-91.4 0z" fill="currentColor"/></svg>Nina Nico</span>
+ </div>
+ </div>
+</div>
+
+<!-- ===== Hook ===== -->
+<div class="max-w-4xl mx-auto px-6 mb-8">
+ <div class="bg-brandBlue/5 border-l-4 border-brandOrange p-6 rounded-r-xl mb-8 speakable">
+ <p class="text-lg text-slate-700 italic">Проверка подлинности сертификата — это сверка номера документа с единым реестром Росаккредитации на pub.fsa.gov.ru и проверка самого органа, который его выдал. Обе процедуры бесплатны и занимают около 10 минут. В феврале 2026 года Росаккредитация приостановила действие документов семи киргизских органов по сертификации: на них, по данным отраслевых источников, приходилось больше 60 процентов всех разрешительных документов, выданных в Киргизии за 2025 год. Вывод для закупщика неприятный: сертификат вашего поставщика может быть настоящим, зарегистрированным в реестре страны выдачи — и при этом не действовать в России. За 10 лет сорсинга 3C-аксессуаров я разобрала сотни таких пакетов документов. Ниже — рабочий процесс, который отделяет реальный сертификационный пакет от красивого PDF.</p>
+ </div>
+</div>
+
+<!-- ===== Featured Image ===== -->
+<div class="max-w-4xl mx-auto px-6 mb-16">
+ <img src="/image/blog/cover-ru/proverka-podlinnosti-sertifikatov-eac-ce-fcc-oem.webp"
+ alt="Проверка сертификатов EAC/CE/FCC на подлинность — 5 официальных реестров для импортёра OEM зарядных устройств. Завод WOWOHCOOL Shenzhen ISO 9001"
+ width="2240" height="1260" loading="eager" decoding="async"
+ class="w-full rounded-3xl shadow-xl" fetchpriority="high">
+</div>
+
+<!-- ===== Key Takeaways ===== -->
+<div class="max-w-4xl mx-auto px-6">
+ <div class="bg-amber-50 border-l-4 border-amber-500 rounded-r-xl p-6 mb-8">
+ <p class="text-[11px] font-black text-brandOrange uppercase tracking-widest mb-2">КЛЮЧЕВЫЕ ВЫВОДЫ</p>
+ <p class="text-slate-700 leading-relaxed text-sm mb-4 speakable">Проверять надо не только номер документа, но и орган, который его выдал, и лабораторию, которая проводила испытания. Единый реестр Росаккредитации (pub.fsa.gov.ru/rds) показывает статус документа, реестр аккредитованных лиц (pub.fsa.gov.ru/ral) — статус органа и область аккредитации лаборатории. Постановление Правительства РФ № 87 от 06.02.2026 позволило приостанавливать в России документы ЕАЭС, выданные за её пределами, а при трёх нарушениях за год — прекращать действие всех документов органа на срок до 12 месяцев.</p>
+ <ul class="text-sm text-slate-700 space-y-2 list-disc pl-5">
+ <li><strong>5 реестров, 10 минут:</strong> ФГИС Росаккредитации (документ), реестр аккредитованных лиц (орган и лаборатория), FCC OET, UL Product iQ, NANDO — все бесплатны</li>
+ <li><strong>Настоящий пакет — это 3 документа:</strong> протокол испытаний аккредитованной лаборатории, разрешительный документ и технический файл с зафиксированным BOM</li>
+ <li><strong>Постановление № 87 от 06.02.2026:</strong> основание для приостановки — данные ФТС о неподтверждённом ввозе проб для испытаний или об отсутствии протокола</li>
+ <li><strong>Штраф по статье 14.43 КоАП РФ:</strong> для юридических лиц 100 000–300 000 ₽ по части 1 и до 1 000 000 ₽ или приостановление деятельности до 90 суток по части 3</li>
+ <li><strong>WOWOHCOOL:</strong> пакет CE/FCC/RoHS с UN 38.3 — $2 500-4 500 за 4-6 недель, EAC — $800-5 000, номера документов передаём для самостоятельной проверки в реестрах</li>
+ </ul>
+ </div>
+</div>
+
+<!-- ===== Table of Contents ===== -->
+<div class="max-w-4xl mx-auto px-6">
+ <div class="bg-brandBlue rounded-2xl p-8 text-white mb-12">
+ <h2 class="text-lg font-black uppercase italic mb-6">Содержание</h2>
+ <nav class="text-sm space-y-2">
+ <a href="#package" class="block hover:text-brandOrange transition">1. Что входит в настоящий сертификационный пакет</a>
+ <a href="#fgis" class="block hover:text-brandOrange transition">2. Проверка сертификата ЕАС за 5 минут — реестр ФГИС</a>
+ <a href="#organ" class="block hover:text-brandOrange transition">3. Проверка органа и лаборатории — шаг, который пропускают почти все</a>
+ <a href="#case-2026" class="block hover:text-brandOrange transition">4. Кейс 2026: настоящий сертификат, который не работает в России</a>
+ <a href="#fcc-ul-ce" class="block hover:text-brandOrange transition">5. Проверка FCC, UL и CE — если партия идёт не только в ЕАЭС</a>
+ <a href="#red-flags" class="block hover:text-brandOrange transition">6. Девять признаков подделки: документ, орган, товар</a>
+ <a href="#cost-of-failure" class="block hover:text-brandOrange transition">7. Документ приостановлен, груз в пути — сколько это стоит</a>
+ <a href="#wowohcool-package" class="block hover:text-brandOrange transition">8. Как устроен сертификационный пакет OEM на нашем заводе</a>
+ <a href="#faq" class="block hover:text-brandOrange transition">9. Часто Задаваемые Вопросы (FAQ)</a>
+ </nav>
+ </div>
+</div>
+
+<!-- ===== H2 Section 1 ===== -->
+<section id="package" class="mb-16">
+ <div class="max-w-4xl mx-auto px-6">
+ <div class="bg-slate-50 rounded-xl p-6 border border-slate-200 shadow-sm">
+ <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-6">1. Что входит в настоящий сертификационный пакет</h2>
+
+ <p class="text-slate-600 leading-relaxed mb-4">Настоящий сертификационный пакет — это три документа, а не один: протокол испытаний, разрешительный документ и технический файл. Проверка всех трёх занимает около 10 минут и делается бесплатно в двух государственных реестрах. Когда поставщик присылает единственную страницу с логотипом органа, проверять там ещё нечего: сама эта страница — только вывеска над испытаниями, которых вы пока не видели. Вот из чего складывается пакет и как проверяется каждая часть.</p>
+
+ <div class="overflow-x-auto mb-6">
+ <table class="w-full text-sm text-left border-collapse">
+ <thead><tr class="bg-brandBlue text-white"><th class="p-3 font-black uppercase text-xs">Документ</th><th class="p-3 font-black uppercase text-xs">Что доказывает</th><th class="p-3 font-black uppercase text-xs">Как проверить</th></tr></thead>
+ <tbody class="divide-y divide-slate-200">
+ <tr class="bg-white"><td class="p-3 font-bold">Протокол испытаний</td><td class="p-3">Что образец физически прошёл тесты в аккредитованной лаборатории</td><td class="p-3">Номер аттестата лаборатории в реестре pub.fsa.gov.ru/ral</td></tr>
+ <tr class="bg-slate-50"><td class="p-3 font-bold">Сертификат или декларация</td><td class="p-3">Что орган принял результаты испытаний и зарегистрировал документ</td><td class="p-3">Номер документа в реестре pub.fsa.gov.ru/rds</td></tr>
+ <tr class="bg-white"><td class="p-3 font-bold">Технический файл</td><td class="p-3">Что серийный товар совпадает с испытанным образцом</td><td class="p-3">Сверка BOM и схем с реальным изделием и шильдиком</td></tr>
+ </tbody>
+ </table>
+ </div>
+
+ <h3 class="font-black text-brandBlue uppercase mb-3">Почему протокол испытаний важнее самого сертификата?</h3>
+ <p class="text-slate-600 leading-relaxed mb-4">Сертификат — это вывод, протокол — доказательство. В 2026 году именно отсутствие протокола стало главным основанием, по которому документы аннулируют задним числом: если ФТС сообщает, что пробы для испытаний в страну вообще не ввозились, испытывать было нечего, и документ теряет силу.</p>
+
+ <p class="text-slate-600 leading-relaxed mb-4">Поэтому первый вопрос поставщику звучит не «есть ли сертификат», а «пришлите протокол испытаний с номером аттестата лаборатории». Лаборатория должна быть аккредитована по ISO/IEC 17025 — это международное требование к компетентности испытательных лабораторий, и его российский аналог проверяется в реестре Росаккредитации.</p>
+
+ <h3 class="font-black text-brandBlue uppercase mb-3">Технический файл: где ломается связь «образец — партия»</h3>
+ <p class="text-slate-600 leading-relaxed">Даже подлинный сертификат покрывает ровно ту конфигурацию, которая была на испытаниях. Замена трансформатора, контроллера заряда или корпуса выводит серийную продукцию за пределы документа. Именно поэтому в техническом файле BOM должен быть зафиксирован пофамильно: производитель и артикул каждого критичного компонента.</p>
+
+ <p class="text-slate-600 leading-relaxed">О том, какие именно испытания стоят за этими документами, мы подробно писали в разборе <a href="/ru/blog/standarty-bezopasnosti-zaryadnyh-ustroystv-oem/" class="text-brandBlue hover:text-brandOrange">стандартов безопасности зарядных устройств</a>.</p>
+ </div>
+ </div>
+</section>
+
+<!-- ===== H2 Section 2 ===== -->
+<section id="fgis" class="mb-16">
+ <div class="max-w-4xl mx-auto px-6">
+ <div class="bg-slate-50 rounded-xl p-6 border border-slate-200 shadow-sm">
+ <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-6">2. Проверка сертификата ЕАС за 5 минут — реестр ФГИС</h2>
+
+ <p class="text-slate-600 leading-relaxed mb-4">Единый реестр сертификатов соответствия и деклараций о соответствии ведёт Росаккредитация. Он открыт, бесплатен и не требует регистрации: адрес — <a href="https://pub.fsa.gov.ru/rds" target="_blank" rel="noopener external" class="text-brandBlue hover:text-brandOrange">pub.fsa.gov.ru/rds</a>. Это первая и обязательная проверка любого документа, который вам прислали: российский орган обязан внести документ в реестр в течение 3 рабочих дней с даты выдачи, и запись в реестре — единственное подтверждение юридической силы.</p>
+
+ <h3 class="font-black text-brandBlue uppercase mb-3">Как искать: вводите только последнюю часть номера</h3>
+ <p class="text-slate-600 leading-relaxed mb-4">Полный номер выглядит как ЕАЭС RU C-RU.АЖ58.В.01238/21 для сертификата или ЕАЭС № RU Д-RU.СЩ03.В.00184/20 для декларации. Поиск по всей строке часто не даёт результата — вводите только последнюю часть: АЖ58.В.01238/21. Сначала выберите тип документа, иначе сертификат не найдётся в разделе деклараций. Если на присланном PDF есть QR-код, отсканируйте его камерой — но проверьте, что он ведёт именно на домен fsa.gov.ru, а не на сайт поставщика.</p>
+
+ <h3 class="font-black text-brandBlue uppercase mb-3">Статусы документа и решение импортёра</h3>
+ <div class="overflow-x-auto mb-6">
+ <table class="w-full text-sm text-left border-collapse">
+ <thead><tr class="bg-brandBlue text-white"><th class="p-3 font-black uppercase text-xs">Статус в реестре</th><th class="p-3 font-black uppercase text-xs">Что это значит</th><th class="p-3 font-black uppercase text-xs">Решение по заказу</th></tr></thead>
+ <tbody class="divide-y divide-slate-200">
+ <tr class="bg-white"><td class="p-3 font-bold text-green-600">Действующий</td><td class="p-3">Документ зарегистрирован и действует</td><td class="p-3">Переходить к сверке данных и проверке органа</td></tr>
+ <tr class="bg-slate-50"><td class="p-3 font-bold text-brandOrange">Приостановлен</td><td class="p-3">Действие временно прекращено — чаще всего по протоколам или пробам</td><td class="p-3">Не оплачивать, запросить переоформление</td></tr>
+ <tr class="bg-white"><td class="p-3 font-bold text-red-600">Недействительный</td><td class="p-3">Документ аннулирован</td><td class="p-3">Отказ от партии по этому документу</td></tr>
+ <tr class="bg-slate-50"><td class="p-3 font-bold">Архивный</td><td class="p-3">Срок действия истёк</td><td class="p-3">Требовать новый документ на текущую партию</td></tr>
+ <tr class="bg-white"><td class="p-3 font-bold">Не найден</td><td class="p-3">Записи нет — либо документ свежий, либо силы не имеет</td><td class="p-3">Ждать до 3 рабочих дней, затем считать красным флагом</td></tr>
+ </tbody>
+ </table>
+ </div>
+
+ <h3 class="font-black text-brandBlue uppercase mb-3">Что сверять дословно, а не «на глаз»</h3>
+ <p class="text-slate-600 leading-relaxed">Зелёный статус — это только треть проверки. Дальше сравните четыре поля в реестре и в присланном PDF символ в символ: заявитель, изготовитель, наименование продукции и перечень моделей. Самая частая схема подмены выглядит безобидно — берётся реальный действующий документ другой компании, а в PDF меняются название завода, адрес и модель. В реестре в таком случае всё зелёное, но данные не совпадут с тем, что вы держите в руках.</p>
+ </div>
+ </div>
+</section>
+
+<!-- ===== H2 Section 3 ===== -->
+<section id="organ" class="mb-16">
+ <div class="max-w-4xl mx-auto px-6">
+ <div class="bg-slate-50 rounded-xl p-6 border border-slate-200 shadow-sm">
+ <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-6">3. Проверка органа и лаборатории — шаг, который пропускают почти все</h2>
+
+ <p class="text-slate-600 leading-relaxed mb-4">Закупщики обычно останавливаются на зелёном статусе документа. Между тем в 2026 году основной риск сместился на уровень выше: документ действителен, а орган, который его выдал, уже лишён права работать на российском рынке. Проверяется это в реестре аккредитованных лиц — <a href="https://pub.fsa.gov.ru/ral" target="_blank" rel="noopener external" class="text-brandBlue hover:text-brandOrange">pub.fsa.gov.ru/ral</a>.</p>
+
+ <h3 class="font-black text-brandBlue uppercase mb-3">Что проверять в реестре аккредитованных лиц</h3>
+ <div class="overflow-x-auto mb-6">
+ <table class="w-full text-sm text-left border-collapse">
+ <thead><tr class="bg-brandBlue text-white"><th class="p-3 font-black uppercase text-xs">Объект</th><th class="p-3 font-black uppercase text-xs">Где взять номер</th><th class="p-3 font-black uppercase text-xs">Что должно быть в порядке</th></tr></thead>
+ <tbody class="divide-y divide-slate-200">
+ <tr class="bg-white"><td class="p-3 font-bold">Орган по сертификации</td><td class="p-3">Шапка сертификата или декларации</td><td class="p-3">Аттестат действует, санкций нет</td></tr>
+ <tr class="bg-slate-50"><td class="p-3 font-bold">Испытательная лаборатория</td><td class="p-3">Шапка протокола испытаний</td><td class="p-3">Аттестат действует, регламент в области аккредитации</td></tr>
+ <tr class="bg-white"><td class="p-3 font-bold">Область аккредитации</td><td class="p-3">Карточка лаборатории в реестре</td><td class="p-3">Есть ТР ТС 004/2011 и ТР ТС 020/2011</td></tr>
+ </tbody>
+ </table>
+ </div>
+
+ <h3 class="font-black text-brandBlue uppercase mb-3">Область аккредитации: тихая причина аннулирования</h3>
+ <p class="text-slate-600 leading-relaxed mb-4">Лаборатория может быть аккредитована — но не на ту продукцию. Испытания, проведённые вне области аккредитации, аннулируют документ так же надёжно, как прямая подделка, и именно по этому основанию надзорные органы массово признают декларации недействительными. </p>
+
+ <p class="text-slate-600 leading-relaxed mb-4">Для зарядного устройства в области аккредитации должны присутствовать ТР ТС 004/2011 (электробезопасность) и ТР ТС 020/2011 (электромагнитная совместимость), для продукции с литиевой ячейкой — дополнительно испытания по ГОСТ IEC 62133. Базовый стандарт безопасности для зарядных устройств — IEC 62368-1.</p>
+
+ <h3 class="font-black text-brandBlue uppercase mb-3">Постановление № 87 от 06.02.2026: как ФТС стала триггером проверки</h3>
+ <p class="text-slate-600 leading-relaxed mb-4">Постановление Правительства РФ № 87 от <time datetime="2026-02-06">6 февраля 2026 года</time> (в силе с 7 февраля 2026 года) изменило механику надзора. Росаккредитация получила право приостанавливать на территории России действие деклараций и сертификатов ЕАЭС, выданных органами других стран союза, — по данным, поступившим от таможенных органов.</p>
+
+ <p class="text-slate-600 leading-relaxed mb-4">Оснований четыре: протоколов испытаний нет; ввоз проб продукции для испытаний не подтверждён; таможенная экспертиза выявила несоответствие показателей безопасности; национальный орган по аккредитации сообщил, что указанный протокол не выдавался. Отдельная норма бьёт по системным нарушителям: если документы одного органа приостанавливались три и более раза в течение года, действие всех его документов в РФ может быть прекращено на срок до 12 месяцев.</p>
+ </div>
+ </div>
+</section>
+
+<!-- ===== H2 Section 4 ===== -->
+<section id="case-2026" class="mb-16">
+ <div class="max-w-4xl mx-auto px-6">
+ <div class="bg-slate-50 rounded-xl p-6 border border-slate-200 shadow-sm">
+ <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-6">4. Кейс 2026: настоящий сертификат, который не работает в России</h2>
+
+ <p class="text-slate-600 leading-relaxed mb-4">Постановление № 87 не осталось на бумаге. В течение первых месяцев 2026 года Росаккредитация приостановила действие документов сразу нескольких киргизских органов по сертификации — среди них «Мурас», «Эксперт-Лайн», «Центр сертификации и испытаний», «Аурум», «Тантал», «Азия Сертификат» и «Евразия Сертификат». По данным отраслевых источников, на эти органы приходилось больше 60% всех разрешительных документов, выданных в Киргизии за 2025 год, а три из них выпустили свыше 15 500 документов за год.</p>
+
+ <h3 class="font-black text-brandBlue uppercase mb-3">Почему это бьёт именно по закупке из Китая?</h3>
+ <p class="text-slate-600 leading-relaxed mb-4">Схема «быстрый EAC» продаётся китайским заводам как услуга: документ оформляется за несколько дней через орган в стране, где требования к подтверждению испытаний мягче. Для завода это способ закрыть строку в спецификации, для вас — риск, который проявляется только на границе. Формально документ подлинный и числится в национальном реестре страны выдачи. Практически он не признаётся в России, и таможня видит это в реестре раньше, чем вы.</p>
+
+ <h3 class="font-black text-brandBlue uppercase mb-3">Две проверки, которые сняли бы вопрос до оплаты</h3>
+ <p class="text-slate-600 leading-relaxed mb-4">Импортёр из Екатеринбурга, с которым мы работали в начале года, получил от предыдущего поставщика комплект на 3 000 сетевых зарядных устройств: сертификат ЕАЭС, красивый PDF, зелёный статус в национальном реестре. Две проверки заняли бы у него семь минут.</p>
+
+ <p class="text-slate-600 leading-relaxed mb-4">Первая: страна органа по сертификации — если это не Россия, документ подпадает под механизм Постановления № 87 и требует отдельной оценки риска. Вторая: наличие таможенной декларации на ввезённые для испытаний образцы — если проб не ввозили, испытаний не было, и приостановка документа лишь вопрос времени. Он их не сделал, и партия встала на складе временного хранения.</p>
+
+ <p class="text-slate-600 leading-relaxed">Практический вывод для спецификации закупки: для российского рынка требуйте документ, выданный органом, аккредитованным Росаккредитацией. Как именно оформляется такой документ и сколько это стоит по схемам DoC и CoC, разобрано в нашем материале про <a href="/ru/blog/sertifikaciya-eas-poverbankov-tr-ts-oem/" class="text-brandBlue hover:text-brandOrange">сертификацию ЕАС повербанков</a>, а требования к зарядным устройствам — в <a href="/ru/blog/sertifikaciya-zaryadnyh-ustroystv-oem/" class="text-brandBlue hover:text-brandOrange">руководстве по сертификации зарядных устройств</a>.</p>
+ </div>
+ </div>
+</section>
+
+<!-- ===== H2 Section 5 ===== -->
+<section id="fcc-ul-ce" class="mb-16">
+ <div class="max-w-4xl mx-auto px-6">
+ <div class="bg-slate-50 rounded-xl p-6 border border-slate-200 shadow-sm">
+ <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-6">5. Проверка FCC, UL и CE — если партия идёт не только в ЕАЭС</h2>
+
+ <p class="text-slate-600 leading-relaxed mb-4">Многие российские закупщики берут товар не только под внутренний рынок: часть партии уходит на реэкспорт, часть заказывается совместно с европейским или американским контрагентом. Все три западные маркировки проверяются публично и бесплатно.</p>
+
+ <h3 class="font-black text-brandBlue uppercase mb-3">FCC ID: 90 секунд на проверку</h3>
+ <p class="text-slate-600 leading-relaxed mb-4">FCC ID состоит из двух частей: кода получателя разрешения (grantee code, 3-5 символов) и кода продукта. Введите его в базу <a href="https://www.fcc.gov/oet/ea/fccid" target="_blank" rel="noopener external" class="text-brandBlue hover:text-brandOrange">fcc.gov/oet/ea/fccid</a>. Три красных флага: идентификатора нет на корпусе изделия, идентификатор не находится в базе, имя получателя разрешения не имеет отношения к вашему поставщику.</p>
+
+ <p class="text-slate-600 leading-relaxed mb-4">Важная деталь: FCC ID обязателен для устройств с радиомодулем — беспроводных зарядок, повербанков с Bluetooth. Для обычного проводного зарядного устройства применяется процедура SDoC, и наличие «FCC ID» на таком корпусе само по себе подозрительно.</p>
+
+ <h3 class="font-black text-brandBlue uppercase mb-3">UL Product iQ: 2 минуты и совпадение по держателю</h3>
+ <p class="text-slate-600 leading-relaxed mb-4">Знак UL проверяется по номеру файла формата E12345 в базе <a href="https://productiq.ul.com/" target="_blank" rel="noopener external" class="text-brandBlue hover:text-brandOrange">productiq.ul.com</a> — там же указан код категории CCN. Проверяйте не факт существования номера, а совпадение компании-держателя с вашим поставщиком или его контрактным заказчиком. Самая частая подделка выглядит так: номер настоящий, но принадлежит другому заводу, иногда из другой отрасли.</p>
+
+ <h3 class="font-black text-brandBlue uppercase mb-3">CE и миф о «China Export»</h3>
+ <p class="text-slate-600 leading-relaxed mb-4">Отдельного знака «China Export» не существует — это официальная позиция Европейской комиссии. То, что описывают под этим названием, — настоящий знак CE, нанесённый с нарушением пропорций: буквы стоят слишком тесно, высота меньше обязательных 5 мм. Нарушенные пропорции говорят о небрежном производителе, но юридически ничего не доказывают.</p>
+
+ <p class="text-slate-600 leading-relaxed">Соответствие подтверждают декларация о соответствии с прямыми ссылками на директивы (для зарядных устройств — LVD 2014/35/EU и EMC 2014/30/EU) и протокол испытаний по IEC 62368-1. Если в схеме оценки участвует нотифицированный орган, его четырёхзначный номер проверяется в базе NANDO. Требуйте документы, а не измеряйте расстояние между буквами.</p>
+ </div>
+ </div>
+</section>
+
+<!-- ===== H2 Section 6 ===== -->
+<section id="red-flags" class="mb-16">
+ <div class="max-w-4xl mx-auto px-6">
+ <div class="bg-slate-50 rounded-xl p-6 border border-slate-200 shadow-sm">
+ <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-6">6. Девять признаков подделки: документ, орган, товар</h2>
+
+ <p class="text-slate-600 leading-relaxed mb-4">Поддельный сертификат распознаётся по девяти признакам на трёх уровнях: три видны в самом файле, три — в государственных реестрах, три — на образце, который вы держите в руках. Один сработавший признак означает дополнительную проверку, два и больше — стоп по оплате до замены документа.</p>
+
+ <div class="overflow-x-auto mb-6">
+ <table class="w-full text-sm text-left border-collapse">
+ <thead><tr class="bg-brandBlue text-white"><th class="p-3 font-black uppercase text-xs w-10">#</th><th class="p-3 font-black uppercase text-xs">Уровень</th><th class="p-3 font-black uppercase text-xs">Признак</th></tr></thead>
+ <tbody class="divide-y divide-slate-200">
+ <tr class="bg-white"><td class="p-3 font-bold">1</td><td class="p-3">Документ</td><td class="p-3">Прислан JPG, скриншот или файл Word вместо защищённого PDF</td></tr>
+ <tr class="bg-slate-50"><td class="p-3 font-bold">2</td><td class="p-3">Документ</td><td class="p-3">Есть только страница с логотипом, протокол испытаний и технический файл не предоставляются</td></tr>
+ <tr class="bg-white"><td class="p-3 font-bold">3</td><td class="p-3">Документ</td><td class="p-3">QR-код ведёт на сайт поставщика или стороннюю страницу проверки, а не на домен fsa.gov.ru</td></tr>
+ <tr class="bg-slate-50"><td class="p-3 font-bold">4</td><td class="p-3">Орган</td><td class="p-3">Аттестат органа или лаборатории приостановлен либо не находится в реестре</td></tr>
+ <tr class="bg-white"><td class="p-3 font-bold">5</td><td class="p-3">Орган</td><td class="p-3">Регламента, по которому выдан документ, нет в области аккредитации лаборатории</td></tr>
+ <tr class="bg-slate-50"><td class="p-3 font-bold">6</td><td class="p-3">Орган</td><td class="p-3">Изготовитель, модель или адрес завода в реестре не совпадают с присланным файлом</td></tr>
+ <tr class="bg-white"><td class="p-3 font-bold">7</td><td class="p-3">Товар</td><td class="p-3">Нет русской маркировки и данных уполномоченного представителя в ЕАЭС</td></tr>
+ <tr class="bg-slate-50"><td class="p-3 font-bold">8</td><td class="p-3">Товар</td><td class="p-3">Опечатки на шильдике, диапазон входного напряжения не соответствует рынку, наклейка легко отходит</td></tr>
+ <tr class="bg-white"><td class="p-3 font-bold">9</td><td class="p-3">Поведение</td><td class="p-3">Обещание оформить документ за 2-3 дня и отказ раскрыть лабораторию</td></tr>
+ </tbody>
+ </table>
+ </div>
+
+ <h3 class="font-black text-brandBlue uppercase mb-3">Почему шильдик проверяют вместе с документом?</h3>
+ <p class="text-slate-600 leading-relaxed mb-4">Документ описывает конкретное изделие с конкретными параметрами. Если на шильдике образца стоит вход 100-240 В, а в сертификате указан другой диапазон, либо если выходная мощность отличается от испытанной, документ формально относится к другой продукции. На нашем заводе шильдик формируется из тех же полей, что уходят в технический файл, а его читаемость проверяется на этапе OQC — последней из четырёх ступеней контроля качества.</p>
+
+ <div class="mt-6">
+ <img src="/image/blog/power-bank/lithium-battery-product-label-closeup.webp"
+ alt="Шильдик литиевого аккумулятора крупным планом: входные и выходные параметры, маркировка и данные изготовителя для сверки с сертификатом EAC. Завод WOWOHCOOL Shenzhen"
+ loading="lazy"
+ class="max-w-3xl mx-auto rounded-2xl shadow-lg w-full">
+ </div>
+ </div>
+ </div>
+</section>
+
+<!-- ===== H2 Section 7 ===== -->
+<section id="cost-of-failure" class="mb-16">
+ <div class="max-w-4xl mx-auto px-6">
+ <div class="bg-slate-50 rounded-xl p-6 border border-slate-200 shadow-sm">
+ <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-6">7. Документ приостановлен, груз в пути — сколько это стоит</h2>
+
+ <p class="text-slate-600 leading-relaxed mb-4">Проверка до оплаты стоит 10 минут. Проверка после отгрузки стоит хранения, пересертификации и, при неблагоприятном развитии, административного штрафа. Импортёр в этой конструкции — не сторонний наблюдатель: по статье 14.43 КоАП РФ он выступает как лицо, выполняющее функции иностранного изготовителя, и отвечает за соответствие продукции техническим регламентам.</p>
+
+ <div class="overflow-x-auto mb-6">
+ <table class="w-full text-sm text-left border-collapse">
+ <thead><tr class="bg-brandBlue text-white"><th class="p-3 font-black uppercase text-xs">Статья 14.43 КоАП РФ</th><th class="p-3 font-black uppercase text-xs">Состав</th><th class="p-3 font-black uppercase text-xs">Штраф для юридического лица</th></tr></thead>
+ <tbody class="divide-y divide-slate-200">
+ <tr class="bg-white"><td class="p-3 font-bold">Часть 1</td><td class="p-3">Нарушение требований технических регламентов</td><td class="p-3">100 000–300 000 ₽</td></tr>
+ <tr class="bg-slate-50"><td class="p-3 font-bold">Часть 2</td><td class="p-3">То же с причинением вреда или угрозой вреда</td><td class="p-3">300 000–600 000 ₽, возможна конфискация</td></tr>
+ <tr class="bg-white"><td class="p-3 font-bold">Часть 3</td><td class="p-3">Повторное нарушение по части 2</td><td class="p-3">700 000–1 000 000 ₽ либо приостановление деятельности до 90 суток, с конфискацией</td></tr>
+ </tbody>
+ </table>
+ </div>
+
+ <h3 class="font-black text-brandBlue uppercase mb-3">Порядок действий, если документ уже приостановлен</h3>
+ <p class="text-slate-600 leading-relaxed mb-4">Приостановка документа не означает автоматической конфискации партии, но означает, что таможенная очистка по нему невозможна. Задача импортёра — остановить рост убытка и восстановить документальную базу. Пять шагов ниже расставлены по срочности.</p>
+ <ol class="list-decimal pl-5 text-slate-600 space-y-2 mb-4">
+ <li><strong>Остановите следующие отгрузки.</strong> Пока схема не исправлена, каждая новая партия увеличивает объём проблемного товара на складе.</li>
+ <li><strong>Зафиксируйте основание приостановки.</strong> В карточке документа в реестре видно, по какому основанию он приостановлен — от этого зависит, хватит ли переоформления или нужны новые испытания.</li>
+ <li><strong>Запросите испытания в российской аккредитованной лаборатории.</strong> Сроки по схемам: декларация — 1-4 недели, сертификат на партию — 3-6 недель, сертификат на серийное производство с заводским аудитом — 6-12 недель.</li>
+ <li><strong>Посчитайте простой заранее.</strong> Хранение на складе временного хранения плюс возможный штраф по статье 14.43 обычно превышают стоимость легального документа в несколько раз.</li>
+ <li><strong>Пересоберите спецификацию закупки.</strong> Внесите в договор требование: документ выдан органом, аккредитованным Росаккредитацией, с приложением протокола испытаний.</li>
+ </ol>
+ <p class="text-slate-600 leading-relaxed mb-4">Полный расчёт таможенных платежей, включая НДС и пошлины, разобран в нашем <a href="/ru/blog/zatraty-import-kitay-poshliny-oem/" class="text-brandBlue hover:text-brandOrange">руководстве по затратам на импорт из Китая</a> — простой на СВХ считается поверх этих цифр.</p>
+
+ <div class="bg-brandBlue/5 border-l-4 border-brandOrange rounded-r-xl p-6 mt-6">
+ <p class="text-[11px] font-black text-brandOrange uppercase tracking-widest mb-2">МНЕНИЕ ЭКСПЕРТА</p>
+ <blockquote class="text-slate-700 text-base italic leading-relaxed">«Закупщики проверяют номер документа и на этом останавливаются. В 2026 году риск переехал на уровень выше: документ зелёный, а орган, который его выдал, уже под санкциями Росаккредитации. Добавьте в чек-лист один вопрос — кто выдал и действует ли его аттестат. Это тридцать секунд, которые отделяют оплаченный инвойс от груза на складе временного хранения.»</blockquote>
+ <p class="text-sm text-slate-500 mt-2">, Nina Nico, Global Procurement &amp; Sourcing Manager, WOWOHCOOL</p>
+ </div>
+ </div>
+ </div>
+</section>
+
+<!-- ===== H2 Section 8 ===== -->
+<section id="wowohcool-package" class="mb-16">
+ <div class="max-w-4xl mx-auto px-6">
+ <div class="bg-slate-50 rounded-xl p-6 border border-slate-200 shadow-sm">
+ <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-6">8. Как устроен сертификационный пакет OEM на нашем заводе</h2>
+
+ <p class="text-slate-600 leading-relaxed mb-4">Проверка со стороны покупателя работает только тогда, когда с другой стороны есть что проверять. Наш завод в Шэньчжэне работает с 2013 года, площадь 5 000 м², сертификация ISO 9001, более 1 млн единиц в месяц для 200+ брендов. Вот что конкретно получает OEM-клиент вместе с партией.</p>
+
+ <h3 class="font-black text-brandBlue uppercase mb-3">Что входит в пакет и что можно проверить самостоятельно</h3>
+ <p class="text-slate-600 leading-relaxed mb-4">Мы передаём три документа, а не один: протокол испытаний с номером аттестата лаборатории, разрешительный документ с номером для поиска в реестре и технический файл со схемами и зафиксированным BOM. Номера отдаются заказчику именно для того, чтобы он прошёл по тому же чек-листу, который описан выше, — без нашего участия. Для продукции с литиевой ячейкой в пакет входит отчёт UN 38.3.</p>
+
+ <h3 class="font-black text-brandBlue uppercase mb-3">Стоимость и сроки без серых схем</h3>
+ <div class="overflow-x-auto mb-6">
+ <table class="w-full text-sm text-left border-collapse">
+ <thead><tr class="bg-brandBlue text-white"><th class="p-3 font-black uppercase text-xs">Пакет / сертификация</th><th class="p-3 font-black uppercase text-xs">Стоимость</th><th class="p-3 font-black uppercase text-xs">Срок</th></tr></thead>
+ <tbody class="divide-y divide-slate-200">
+ <tr class="bg-white"><td class="p-3 font-bold">CE + FCC SDoC + RoHS + UN 38.3</td><td class="p-3">$2 500-4 500</td><td class="p-3">4-6 недель</td></tr>
+ <tr class="bg-slate-50"><td class="p-3 font-bold">UL 62368-1</td><td class="p-3">$1 500-3 000</td><td class="p-3">4-8 недель</td></tr>
+ <tr class="bg-white"><td class="p-3 font-bold">FCC ID (беспроводные модели)</td><td class="p-3">$2 000-5 000</td><td class="p-3">3-6 недель</td></tr>
+ <tr class="bg-slate-50"><td class="p-3 font-bold">EAC — декларация</td><td class="p-3">$800-1 500</td><td class="p-3">1-4 недели</td></tr>
+ <tr class="bg-white"><td class="p-3 font-bold">EAC — сертификат</td><td class="p-3">$2 000-5 000</td><td class="p-3">3-6 недель (с аудитом 6-12)</td></tr>
+ </tbody>
+ </table>
+ </div>
+
+ <h3 class="font-black text-brandBlue uppercase mb-3">Почему контроль качества — часть сертификационного пакета?</h3>
+ <p class="text-slate-600 leading-relaxed mb-4">Сертификат подтверждает соответствие образца, а серийное производство удерживает это соответствие через контроль качества. У нас это четыре ступени — IQC, IPQC, FQC и OQC — плюс 100% старение в течение 4 часов и приёмка по AQL 2.5 Level II. Результат: дефектность ниже 0,3% против отраслевых 2-5%.</p>
+
+ <p class="text-slate-600 leading-relaxed mb-4">Подробный разбор процесса — в статье про <a href="/ru/blog/kontrol-kachestva-zavody-kitay-oem/" class="text-brandBlue hover:text-brandOrange">контроль качества на заводах Китая</a>, а линейка сертифицированных моделей — в каталоге <a href="/ru/produkty/gan-zaryadnye-ustroystva/" class="text-brandBlue hover:text-brandOrange">GaN зарядных устройств OEM</a>.</p>
+
+ <div class="mt-6">
+ <img src="/image/blog/oem-vs-odm-guide/oem-odm-aging-test-quality-control.webp"
+ alt="Стенд 100% 4-часового старения зарядных устройств на заводе WOWOHCOOL: контроль качества за сертификационным пакетом OEM, дефектность ниже 0,3%"
+ loading="lazy"
+ class="max-w-3xl mx-auto rounded-2xl shadow-lg w-full">
+ </div>
+ </div>
+ </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section id="faq" class="mb-16">
+ <div class="max-w-4xl mx-auto px-6">
+ <div class="bg-slate-50 rounded-2xl p-8 border border-slate-200 shadow-sm">
+ <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-8 text-center">Часто Задаваемые Вопросы (FAQ)</h2>
+ <div class="space-y-6 max-w-3xl mx-auto">
+
+ <div class="bg-white rounded-xl p-6 faq-answer">
+ <h3 class="font-black text-brandBlue mb-2">Как проверить сертификат ЕАС по номеру и что означают статусы в реестре?</h3>
+ <p class="text-slate-600 text-sm">Откройте единый реестр Росаккредитации на <strong>pub.fsa.gov.ru/rds</strong>, выберите тип документа и введите последнюю часть номера — например, для сертификата EAC вида ЕАЭС RU C-RU.АЖ58.В.01238/21 достаточно ввести АЖ58.В.01238/21. Реестр покажет статус: действующий, приостановлен, недействительный или архивный. Зелёный статус — только первый шаг: сверьте заявителя, изготовителя и наименование продукции с присланным PDF, затем проверьте орган по сертификации в реестре <strong>pub.fsa.gov.ru/ral</strong>.</p>
+ </div>
+
+ <div class="bg-white rounded-xl p-6 faq-answer">
+ <h3 class="font-black text-brandBlue mb-2">Сертификата нет в реестре ФГИС — это подделка?</h3>
+ <p class="text-slate-600 text-sm">Не обязательно, но проверять нужно дальше. Российские органы обязаны внести документ в реестр, и запись появляется в течение <strong>до 3 рабочих дней</strong> с даты выдачи. Если документ выдан неделю назад и его до сих пор нет — это красный флаг. Проверьте также, не ошиблись ли вы в формате номера: искать надо по последней части, без префикса ЕАЭС RU C-RU. Если после этого записи нет, документ не имеет юридической силы, и <strong>таможенная очистка по нему невозможна</strong>.</p>
+ </div>
+
+ <div class="bg-white rounded-xl p-6 faq-answer">
+ <h3 class="font-black text-brandBlue mb-2">Поставщик прислал сертификат, выданный органом из Киргизии. Он действует в России в 2026 году?</h3>
+ <p class="text-slate-600 text-sm">Проверять обязательно. <strong>Постановление Правительства РФ № 87 от 06.02.2026</strong> дало Росаккредитации право приостанавливать в России действие документов EAC, выданных органами других стран ЕАЭС: например, если ФТС сообщила, что ввоз проб для испытаний не подтверждён. При трёх и более приостановках за год действие всех документов такого органа в РФ прекращается на срок <strong>до 12 месяцев</strong>. В 2026 году под меру попали семь киргизских органов: на них приходилось свыше <strong>60%</strong> документов Киргизии за 2025 год.</p>
+ </div>
+
+ <div class="bg-white rounded-xl p-6 faq-answer">
+ <h3 class="font-black text-brandBlue mb-2">Как проверить, что лаборатория имела право испытывать зарядное устройство?</h3>
+ <p class="text-slate-600 text-sm">В протоколе испытаний найдите номер аттестата аккредитации лаборатории и введите его в реестр аккредитованных лиц <strong>pub.fsa.gov.ru/ral</strong>. Проверьте две вещи: аттестат действует, и в области аккредитации есть нужные регламенты — <strong>ТР ТС 004/2011</strong> для электробезопасности, <strong>ТР ТС 020/2011</strong> для ЭМС, для литиевой ячейки <strong>ГОСТ IEC 62133</strong>. Испытание вне области аккредитации аннулирует документ так же надёжно, как прямая подделка.</p>
+ </div>
+
+ <div class="bg-white rounded-xl p-6 faq-answer">
+ <h3 class="font-black text-brandBlue mb-2">Знак CE и «China Export» — чем они отличаются на практике?</h3>
+ <p class="text-slate-600 text-sm">Отдельного знака «China Export» <strong>не существует</strong> — это официальная позиция Европейской комиссии. То, что так называют, — настоящий знак CE с нарушенными пропорциями: буквы стоят слишком близко, высота меньше обязательных 5 мм. Это индикатор небрежного производителя, а не юридическое доказательство. Соответствие подтверждают два документа: декларация с номерами директив и протокол испытаний по <strong>IEC 62368-1</strong> от аккредитованной лаборатории.</p>
+ </div>
+
+ <div class="bg-white rounded-xl p-6 faq-answer">
+ <h3 class="font-black text-brandBlue mb-2">Какие документы обязан предоставить OEM-поставщик кроме самого сертификата?</h3>
+ <p class="text-slate-600 text-sm">Полный пакет — это <strong>три документа</strong>, а не один. Первый: протокол испытаний аккредитованной лаборатории с номером аттестата и перечнем проведённых тестов. Второй: разрешительный документ, подтверждающий <strong>соответствие</strong>, с номером для проверки в реестре. Третий: технический файл со схемами, BOM и данными испытаний, где зафиксированы конкретные компоненты. Если поставщик присылает только страницу с логотипом и отказывается дать протокол и технический файл, пакета у него нет.</p>
+ </div>
+
+ <div class="bg-white rounded-xl p-6 faq-answer">
+ <h3 class="font-black text-brandBlue mb-2">Груз уже в пути, а сертификат приостановили. Что делать импортёру?</h3>
+ <p class="text-slate-600 text-sm">Действуйте по трём шагам. Первый: остановите следующие отгрузки, чтобы не увеличивать объём проблемного товара. Второй: запросите испытания в российской аккредитованной лаборатории и переоформление документа — <strong>от 1 до 6 недель</strong> в зависимости от схемы. Третий: считайте простой, пока <strong>таможенная очистка невозможна</strong>: хранение на СВХ плюс штраф по статье 14.43 КоАП РФ — <strong>100 000–300 000 ₽</strong> по части 1 и до <strong>1 000 000 ₽</strong> или приостановление деятельности до 90 суток по части 3.</p>
+ </div>
+
+ <div class="bg-white rounded-xl p-6 faq-answer">
+ <h3 class="font-black text-brandBlue mb-2">Сколько стоит настоящий сертификационный пакет и что входит в OEM-заказ WOWOHCOOL?</h3>
+ <p class="text-slate-600 text-sm">Стандартный пакет CE + FCC SDoC + RoHS с отчётом UN 38.3 стоит <strong>$2 500-4 500</strong> и занимает 4-6 недель. UL 62368-1 — $1 500-3 000, FCC ID для беспроводных моделей — $2 000-5 000, EAC — $800-5 000 в зависимости от схемы. Мы координируем испытания, готовим технический файл с зафиксированным BOM и передаём номера документов для проверки в реестрах. <strong>MOQ 500 единиц</strong>, приёмка по <strong>AQL 2.5 Level II</strong>, <strong>дефектность ниже 0,3%</strong>.</p>
+ </div>
+
+ </div>
+ </div>
+ </div>
+</section>
+
+<!-- ===== Author Bio ===== -->
+<section id="author-bio" class="max-w-4xl mx-auto px-6">
+ <div class="bg-slate-50 rounded-2xl p-6 md:p-8 mb-12 border border-slate-100">
+ <div class="flex flex-col sm:flex-row items-start gap-4 sm:gap-6">
+ <div class="w-20 h-20 rounded-full overflow-hidden flex items-center justify-center border-2 border-brandOrange bg-white shadow-lg shrink-0">
+ <img src="/image/factory/team-nina.webp" alt="Nina Nico, менеджер по глобальным закупкам, проверка сертификатов EAC и сорсинг зарядных устройств OEM, WOWOHCOOL" loading="lazy" width="400" height="400" class="w-full h-full object-cover">
+ </div>
+ <div class="flex-1 min-w-0">
+ <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 mb-2 sm:mb-3">
+ <a href="https://www.linkedin.com/in/nico-power-bank-chargers" target="_blank" rel="noopener noreferrer" class="font-black text-slate-900 text-lg hover:text-brandOrange transition">Nina Nico</a>
+ <span class="px-2 py-1 bg-brandOrange/10 text-brandOrange text-[11px] font-black rounded-full uppercase w-fit">Автор</span>
+ </div>
+ <p class="text-sm text-slate-500 mb-3">Менеджер по глобальным закупкам · 3C-сорсинг и OEM/ODM · 10+ лет в отрасли</p>
+ <p class="text-slate-600 text-sm leading-relaxed">10+ лет в глобальных закупках 3C-аксессуаров и кросс-бордерных OEM-переговорах. Специализируется на проверке поставщиков и документов соответствия: сертификация EAC/ТР ТС, аккредитация лабораторий, регламенты ЕАЭС. Проверила сотни сертификационных пакетов китайских заводов для рынков России и СНГ. Базируется на заводе <a href="/ru/o-kompanii/" class="text-brandBlue hover:text-brandOrange">WOWOHCOOL</a> в Шэньчжэне.</p>
+ <div class="mt-4 pt-4 border-t border-slate-200">
+ <p class="text-xs text-slate-400 uppercase tracking-wider mb-2">Производственная База</p>
+ <div class="grid grid-cols-2 md:grid-cols-4 gap-3 text-sm">
+ <div><span class="font-black text-brandBlue">5 000 м²</span><p class="text-xs text-slate-500">ISO 9001</p></div>
+ <div><span class="font-black text-brandBlue">С 2013</span><p class="text-xs text-slate-500">Шэньчжэнь, Китай</p></div>
+ <div><span class="font-black text-brandBlue">50+</span><p class="text-xs text-slate-500">Стран Экспорта</p></div>
+ <div><span class="font-black text-brandBlue">50+ R&amp;D</span><p class="text-xs text-slate-500">Инженеров</p></div>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section class="max-w-4xl mx-auto px-6">
+ <div class="relative bg-gradient-to-br from-brandBlue to-slate-800 rounded-3xl p-10 text-center mb-16 overflow-hidden">
+ <div class="absolute top-0 right-0 w-64 h-64 bg-brandOrange/20 rounded-full blur-3xl"></div>
+ <div class="absolute bottom-0 left-0 w-64 h-64 bg-brandBlue-400/20 rounded-full blur-3xl"></div>
+ <div class="relative z-10">
+ <h2 class="text-2xl font-black text-white uppercase italic mb-4">Сертификационный Пакет, Который Проверяется в Реестре, MOQ 500</h2>
+ <p class="text-slate-300 mb-8 max-w-xl mx-auto">Протокол испытаний, разрешительный документ и технический файл с зафиксированным BOM — с номерами для самостоятельной проверки. Расчёт за 24 часа, образцы за 3-7 дней.</p>
+ <div class="flex flex-col sm:flex-row gap-4 justify-center">
+ <a href="/ru/kontakty/" class="w-full sm:flex-1 bg-brandOrange text-white px-8 py-4 rounded-xl font-black uppercase text-sm shadow-lg hover:-translate-y-1 transition">Запросить Прайс</a>
+ <a href="/ru/produkty/gan-zaryadnye-ustroystva/" class="w-full sm:flex-1 text-center border-2 border-white text-white px-8 py-4 rounded-xl font-black uppercase text-sm hover:bg-white hover:text-brandBlue transition">Смотреть Каталог</a>
+ </div>
+ </div>
+ </div>
+</section>
+
+<!-- ===== Related Articles ===== -->
+<aside id="related-articles" class="max-w-4xl mx-auto px-6 mb-16">
+ <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-6">Похожие Статьи</h2>
+ <div class="grid md:grid-cols-3 gap-6">
+ <a href="/ru/blog/sertifikaciya-eas-poverbankov-tr-ts-oem/" class="bg-slate-50 rounded-xl overflow-hidden hover:shadow-xl transition group">
+ <div class="h-2 bg-gradient-to-r from-brandBlue to-brandOrange"></div>
+ <div class="p-6">
+ <span class="text-xs font-black text-brandOrange uppercase mb-2 block">Сертификация</span>
+ <h3 class="font-black text-brandBlue uppercase mb-2 group-hover:text-brandOrange transition text-sm">Сертификация ЕАС Повербанков: Ошибки и Штрафы</h3>
+ <p class="text-slate-600 text-xs">Как оформить документ: ТР ТС 004/2011, DoC против CoC, стоимость $800-5 000.</p>
+ </div>
+ </a>
+ <a href="/ru/blog/sertifikaciya-zaryadnyh-ustroystv-oem/" class="bg-slate-50 rounded-xl overflow-hidden hover:shadow-xl transition group">
+ <div class="h-2 bg-gradient-to-r from-brandBlue to-brandOrange"></div>
+ <div class="p-6">
+ <span class="text-xs font-black text-brandOrange uppercase mb-2 block">Сертификация</span>
+ <h3 class="font-black text-brandBlue uppercase mb-2 group-hover:text-brandOrange transition text-sm">Сертификация Зарядных Устройств: EAC, CE, UL</h3>
+ <p class="text-slate-600 text-xs">Какие документы нужны зарядному устройству, стоимость и сроки по рынкам.</p>
+ </div>
+ </a>
+ <a href="/ru/blog/kontrol-kachestva-zavody-kitay-oem/" class="bg-slate-50 rounded-xl overflow-hidden hover:shadow-xl transition group">
+ <div class="h-2 bg-gradient-to-r from-brandBlue to-brandOrange"></div>
+ <div class="p-6">
+ <span class="text-xs font-black text-brandOrange uppercase mb-2 block">Контроль качества</span>
+ <h3 class="font-black text-brandBlue uppercase mb-2 group-hover:text-brandOrange transition text-sm">Контроль Качества на Заводах Китая</h3>
+ <p class="text-slate-600 text-xs">4-ступенчатый QC, AQL 2.5, старение 100% 4 часа, дефектность ниже 0,3%.</p>
+ </div>
+ </a>
+ </div>
+</aside>
+
+<!-- ===== Sources ===== -->
+<section class="max-w-4xl mx-auto px-6 mb-16">
+ <h2 class="text-lg font-black text-brandBlue uppercase italic mb-4">Источники</h2>
+ <ul class="text-sm text-slate-600 space-y-2 list-disc pl-5">
+ <li><a href="https://pub.fsa.gov.ru/rds" target="_blank" rel="noopener external" class="text-brandBlue hover:text-brandOrange"><cite>Росаккредитация, Единый реестр сертификатов соответствия и деклараций о соответствии</cite></a></li>
+ <li><a href="https://pub.fsa.gov.ru/ral" target="_blank" rel="noopener external" class="text-brandBlue hover:text-brandOrange"><cite>Росаккредитация, Реестр аккредитованных лиц</cite></a></li>
+ <li><a href="https://publication.pravo.gov.ru/" target="_blank" rel="noopener external" class="text-brandBlue hover:text-brandOrange"><cite>Постановление Правительства РФ № 87 от 06.02.2026</cite></a></li>
+ <li><a href="https://www.fcc.gov/oet/ea/fccid" target="_blank" rel="noopener external" class="text-brandBlue hover:text-brandOrange"><cite>FCC, Equipment Authorization Search (FCC ID)</cite></a></li>
+ <li><a href="https://productiq.ul.com/" target="_blank" rel="noopener external" class="text-brandBlue hover:text-brandOrange"><cite>UL Solutions, Product iQ</cite></a></li>
+ <li><a href="https://docs.cntd.ru/" target="_blank" rel="noopener external" class="text-brandBlue hover:text-brandOrange"><cite>КоАП РФ, Статья 14.43, Нарушение требований технических регламентов</cite></a></li>
+ </ul>
+</section>
+
+</article>
+{%- set ctaLabel = "Запросить расчёт" %}
+{%- set ctaHeading1 = "Готовы Начать" %}
+{%- set ctaHeading2 = "Ваш OEM Проект?" %}
+{%- set ctaSubtext = "Получите расчёт стоимости производства и сертификационного пакета с номерами для проверки в реестрах. Ответ за 24 часа, образцы за 3-7 дней." %}
+{%- set ctaSubject = "Запрос расчёта, Блог Проверка Сертификатов" %}
+{%- set ctaButton = "Запросить Прайс OEM" %}
+{% include "partials/blog-cta.njk" %}
+{% endblock %}
