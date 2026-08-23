@@ -30,11 +30,17 @@ http.createServer((req, res) => {
     let url = req.url.split('?')[0].split('#')[0];
 
     // Decode URL-encoded characters (e.g. %C3%A4 → ä)
-    url = decodeURIComponent(url);
+    try {
+      url = decodeURIComponent(url);
+    } catch {
+      res.writeHead(400);
+      return res.end('Bad Request');
+    }
 
     // Directory traversal protection
     const requestedPath = path.resolve(ROOT, '.' + url);
-    if (!requestedPath.startsWith(ROOT)) {
+    const rel = path.relative(ROOT, requestedPath);
+    if (rel.startsWith('..') || path.isAbsolute(rel)) {
       res.writeHead(403);
       return res.end('Forbidden');
     }

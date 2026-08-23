@@ -48,6 +48,17 @@ module.exports = function (eleventyConfig) {
     }
   });
 
+  // French site static assets
+  const frStatic = [
+    'fr/js',
+  ];
+
+  frStatic.forEach(p => {
+    if (fs.existsSync(p)) {
+      eleventyConfig.addPassthroughCopy(p);
+    }
+  });
+
   // Russian site static assets
   const ruStatic = [
     'ru/js',

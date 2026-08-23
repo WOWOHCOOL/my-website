@@ -1,10 +1,28 @@
-{% macro contactForm(action, label, subject, name_prefix, show_product_select) %}
-<form class="space-y-5" action="{{ action | default('https://api.web3forms.com/submit') }}" method="POST" accept-charset="UTF-8" aria-label="Contact form">
+{% macro contactForm(action, label, subject, name_prefix, show_product_select, lang, i18n) %}
+{%- set t = i18n.blogCta[lang] if lang == "pl" else {
+      redirectUrl: "https://www.wowohcool.com/thank-you",
+      nameLabel: "Name *",
+      namePlaceholder: "Name *",
+      emailLabel: "Email *",
+      emailPlaceholder: "Email *",
+      companyLabel: "Company *",
+      companyPlaceholder: "Company *",
+      productLabel: "Product Interest",
+      productDefault: "Select product category",
+      messageLabel: "Tell us about your requirements *",
+      messagePlaceholder: "Tell us about your requirements *",
+      privacyText: "I agree to the",
+      privacyLinkText: "Privacy Policy",
+      privacyHref: "/privacy-policy",
+      privacySuffix: ". *",
+      submitButton: "Request A Quote"
+} -%}
+<form class="space-y-5" action="https://api.web3forms.com/submit" method="POST" accept-charset="UTF-8" aria-label="Contact form">
 
  <input type="hidden" name="access_key" value="7f077cf3-642b-4aba-9be2-cb99c0c65b19">
  <input type="hidden" name="subject" value="{{ subject | default('New Inquiry from Website') }}">
  {% if action!= 'modal' %}
- <input type="hidden" name="redirect" value="https://www.wowohcool.com/thank-you">
+ <input type="hidden" name="redirect" value="{{ t.redirectUrl }}">
  {% endif %}
  <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;opacity:0;height:0;width:0">
  <input type="hidden" name="utm_source" id="{{ name_prefix }}utm_source" value="">
@@ -12,26 +30,26 @@
  <input type="hidden" name="utm_campaign" id="{{ name_prefix }}utm_campaign" value="">
 
  <div class="grid md:grid-cols-2 gap-5">
- <label for="{{ name_prefix }}name" class="sr-only">Name *</label>
- <input id="{{ name_prefix }}name" name="name" type="text" placeholder="Name *" required autocomplete="name"
+ <label for="{{ name_prefix }}name" class="sr-only">{{ t.nameLabel }}</label>
+ <input id="{{ name_prefix }}name" name="name" type="text" placeholder="{{ t.namePlaceholder }}" required autocomplete="name"
  class="w-full bg-slate-50 p-3 md:p-4 rounded-xl text-sm border-2 border-transparent focus:border-brandOrange focus:bg-white transition-all outline-none font-medium">
 
- <label for="{{ name_prefix }}email" class="sr-only">Email *</label>
- <input id="{{ name_prefix }}email" name="email" type="email" placeholder="Email *" required autocomplete="email"
+ <label for="{{ name_prefix }}email" class="sr-only">{{ t.emailLabel }}</label>
+ <input id="{{ name_prefix }}email" name="email" type="email" placeholder="{{ t.emailPlaceholder }}" required autocomplete="email"
  class="w-full bg-slate-50 p-3 md:p-4 rounded-xl text-sm border-2 border-transparent focus:border-brandOrange focus:bg-white transition-all outline-none font-medium">
  </div>
 
- <label for="{{ name_prefix }}company" class="sr-only">Company *</label>
- <input id="{{ name_prefix }}company" name="company" type="text" placeholder="Company *" required
+ <label for="{{ name_prefix }}company" class="sr-only">{{ t.companyLabel }}</label>
+ <input id="{{ name_prefix }}company" name="company" type="text" placeholder="{{ t.companyPlaceholder }}" required
  class="w-full bg-slate-50 p-3 md:p-4 rounded-xl text-sm border-2 border-transparent focus:border-brandOrange focus:bg-white transition-all outline-none font-medium">
 
  {% if show_product_select %}
  <div class="space-y-1">
- <label for="{{ name_prefix }}product" class="text-[11px] font-black text-brandBlue uppercase ml-2 tracking-widest">Product Interest</label>
+ <label for="{{ name_prefix }}product" class="text-[11px] font-black text-brandBlue uppercase ml-2 tracking-widest">{{ t.productLabel }}</label>
  <div class="relative">
  <select id="{{ name_prefix }}product" name="product"
  class="w-full bg-slate-50 p-3 md:p-4 rounded-xl text-sm border-2 border-transparent focus:border-brandOrange focus:bg-white transition-all outline-none font-medium appearance-none">
- <option value="">Select product category</option>
+ <option value="">{{ t.productDefault }}</option>
  {% for p in products %}<option value="{{ p.value }}">{{ p.label }}</option>
  {% endfor %}
  </select>
@@ -40,19 +58,19 @@
  </div>
  {% endif %}
 
- <label for="{{ name_prefix }}message" class="sr-only">Tell us about your requirements *</label>
- <textarea id="{{ name_prefix }}message" name="message" placeholder="Tell us about your requirements *" rows="4" required minlength="10"
+ <label for="{{ name_prefix }}message" class="sr-only">{{ t.messageLabel }}</label>
+ <textarea id="{{ name_prefix }}message" name="message" placeholder="{{ t.messagePlaceholder }}" rows="4" required minlength="10"
  class="w-full bg-slate-50 p-3 md:p-4 rounded-xl text-sm border-2 border-transparent focus:border-brandOrange focus:bg-white transition-all outline-none font-medium resize-none"></textarea>
 
  <div>
  <label class="flex items-start gap-3">
  <input type="checkbox" required class="mt-0.5 accent-brandOrange shrink-0">
- <span class="text-xs text-slate-500">I agree to the <a href="/privacy-policy" class="text-brandOrange hover:underline">Privacy Policy</a>. *</span>
+ <span class="text-xs text-slate-500">{{ t.privacyText }} <a href="{{ t.privacyHref }}" class="text-brandOrange hover:underline">{{ t.privacyLinkText }}</a>{{ t.privacySuffix }}</span>
  </label>
  </div>
 
  <button type="submit" class="w-full bg-brandOrange text-white py-3.5 sm:py-4 rounded-xl font-black uppercase tracking-widest text-sm shadow-xl hover:bg-brandOrange/90 transition">
- {{ label | default('Request A Quote') }}
+ {{ label | default(t.submitButton) }}
  </button>
 </form>
 {% endmacro %}

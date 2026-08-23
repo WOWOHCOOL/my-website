@@ -25,7 +25,7 @@ const PAGE_MAP = {
   "case-studies": { de: "fallbeispiele",    es: "casos-de-exito",      fr: "fallbeispiele",      ru: "keysy",                    pl: "studia-przypadkow" },
   "terms-of-service": { de: "agb",          es: "terminos-condiciones", fr: "cgv",               ru: "usloviya-ispolzovaniya",   pl: "regulamin" },
   "privacy-policy":  { de: "datenschutz",   es: "politica-privacidad", fr: "confidentialite",   ru: "politika-konfidencialnosti", pl: "polityka-prywatnosci" },
-  "thank-you":    { de: "danke",            es: "gracias",              fr: "remerciments",       ru: "spasibo",                  pl: "dziekujemy" },
+  "thank-you":    { de: "danke",            es: "gracias",              fr: "remerciements",       ru: "spasibo",                  pl: "dziekujemy" },
 };
 
 const PRODUCT_MAP = {
@@ -1098,7 +1098,7 @@ function findViolations(filePath, content, lang) {
     }
 
     // 4c. € 在数字前
-    const euroRe = /€\s*\d/g;
+    const euroRe = /€[ \t]*\d/g;
     let em;
     while ((em = euroRe.exec(body)) !== null) {
       violations.push({
@@ -1122,7 +1122,8 @@ function findViolations(filePath, content, lang) {
       .replace(/(?:^|\n)\s*(?:en|de|es|fr|ru|pl):\s*"[^"]*"/g, (m) => m.replace(/[^\n]/g, " "))
       .replace(/\{%[^%]*%\}/g, (m) => m.replace(/[^\n]/g, " "))
       .replace(/https?:\/\/[^\s"'<>]+/g, (m) => m.replace(/[^\n]/g, " "))
-      .replace(/\/[a-z0-9/_.-]+\.(?:webp|jpg|png|jpeg|json|njk)/g, (m) => m.replace(/[^\n]/g, " "));
+      .replace(/\/[a-z0-9/_.-]+\.(?:webp|jpg|png|jpeg|json|njk)/g, (m) => m.replace(/[^\n]/g, " "))
+      .replace(/<[^>]*>/g, (m) => m.replace(/[^\n]/g, " "));
     const frRe = new RegExp("(?<![A-Za-zÀ-ÿ])(" + Object.keys(FR_TRANSLIT).join("|") + ")(?![A-Za-zÀ-ÿ])", "gi");
     let fm;
     while ((fm = frRe.exec(body)) !== null) {

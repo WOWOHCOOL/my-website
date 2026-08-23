@@ -26,9 +26,9 @@ html{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica N
 .reveal{opacity:0;transform:translateY(25px);transition:opacity .6s ease-out,transform .6s ease-out}
 .reveal.active{opacity:1;transform:translateY(0)}
 #backToTop,.dropdown-content{transform:translateY(10px);opacity:0}
-#backToTop.show,.group:hover .dropdown-content{opacity:1;transform:translateY(0)}
+#backToTop.show,.group:hover .dropdown-content,.group:focus-within .dropdown-content{opacity:1;transform:translateY(0)}
 .dropdown-content{visibility:hidden;transition:all .3s ease}
-.group:hover .dropdown-content{visibility:visible}
+.group:hover .dropdown-content,.group:focus-within .dropdown-content{visibility:visible}
 #backToTop{transition:transform .25s ease,opacity .25s ease;pointer-events:none}
 #backToTop.show{pointer-events:auto}
 :focus-visible{outline:3px solid var(--brand-orange);outline-offset:2px}
@@ -558,7 +558,8 @@ table td, table th { overflow-wrap: break-word; word-break: normal; }
   transition: all .25s ease;
   z-index: 150;
 }
-.group.sub-parent:hover .sub-dropdown {
+.group.sub-parent:hover .sub-dropdown,
+.group.sub-parent:focus-within .sub-dropdown {
   opacity: 1;
   visibility: visible;
   transform: translateX(0);
@@ -572,7 +573,8 @@ table td, table th { overflow-wrap: break-word; word-break: normal; }
   color: #94a3b8;
   transition: color .2s ease;
 }
-.sub-parent:hover > a .sub-arrow {
+.sub-parent:hover > a .sub-arrow,
+.sub-parent:focus-within > a .sub-arrow {
   color: var(--brand-orange);
 }
 .sub-dropdown a {

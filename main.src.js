@@ -4,6 +4,10 @@
  * Build:
  *   EN: esbuild main.src.js --bundle --minify --outfile=main.js           --define:LANG="\"en\""
  *   DE: esbuild main.src.js --bundle --minify --outfile=de/js/de-main.js  --define:LANG="\"de\""
+ *   ES: esbuild main.src.js --bundle --minify --outfile=es/js/es-main.js  --define:LANG="\"es\""
+ *   FR: esbuild main.src.js --bundle --minify --outfile=fr/js/fr-main.js  --define:LANG="\"fr\""
+ *   RU: esbuild main.src.js --bundle --minify --outfile=ru/js/ru-main.js  --define:LANG="\"ru\""
+ *   PL: esbuild main.src.js --bundle --minify --outfile=pl/js/pl-main.js  --define:LANG="\"pl\""
  */
 
 // ─── Language Configuration ──────────────────────────────────────────
@@ -46,6 +50,32 @@ const _ = typeof LANG !== "undefined" && LANG === "de"
       newInquiryPrefix: 'Новый запрос: ',
       generalInquiryText: 'Общий запрос с сайта',
       locale: 'ru-RU',
+    }
+  : typeof LANG !== "undefined" && LANG === "fr"
+  ? {
+      redirectUrl: '/fr/remerciements',
+      sendingText: 'Envoi en cours...',
+      successTitle: 'Merci !',
+      successMsg: 'Votre demande a bien été envoyée.<br>Nous vous répondrons sous 24 heures.',
+      redirectingText: 'Redirection...',
+      submitError: 'Échec de l\'envoi. Veuillez réessayer.',
+      networkError: 'Erreur réseau. Veuillez vérifier votre connexion.',
+      newInquiryPrefix: 'Nouvelle demande : ',
+      generalInquiryText: 'Demande générale depuis le site',
+      locale: 'fr-FR',
+    }
+  : typeof LANG !== "undefined" && LANG === "pl"
+  ? {
+      redirectUrl: '/pl/dziekujemy',
+      sendingText: 'Wysyłanie zapytania...',
+      successTitle: 'Dziękujemy!',
+      successMsg: 'Twoje zapytanie zostało wysłane.<br>Odpowiemy w ciągu 24 godzin.',
+      redirectingText: 'Przekierowywanie...',
+      submitError: 'Nie udało się wysłać zapytania. Spróbuj ponownie.',
+      networkError: 'Błąd sieci. Sprawdź połączenie i spróbuj ponownie.',
+      newInquiryPrefix: 'Nowe zapytanie: ',
+      generalInquiryText: 'Zapytanie ogólne ze strony',
+      locale: 'pl-PL',
     }
   : {
       redirectUrl: '/thank-you',
@@ -308,10 +338,6 @@ document.addEventListener('click', (e) => {
         case 'close-mobile':        closeMobileMenu(); break;
         case 'toggle-mobile-submenu': toggleMobileSubmenu(); break;
         case 'scroll-to-top':       window.scrollTo({ top: 0, behavior: 'smooth' }); break;
-        case 'toggle-article-list':
-          trigger.nextElementSibling.classList.toggle('hidden');
-          trigger.querySelector('svg').classList.toggle('rotate-180');
-          break;
       }
     });
     return;
@@ -402,6 +428,7 @@ function initDropdownHover() {
       }
     });
     el.addEventListener('mouseleave', () => {
+      if (el.matches(':focus-within')) return;
       const dc = el.querySelector('.dropdown-content');
       if (dc) {
         dc.style.opacity = '0';
