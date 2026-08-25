@@ -116,6 +116,31 @@ print(f'Actual main content word count: {real_wc}')
 - HTML/CSS class names and attributes
 - Nunjucks template directives
 
+### Step 2.6: FAQ Consistency Check (MANDATORY — Schema ↔ Body word-for-word)
+
+`b2b_content_auditor.py` Check 14 documents "Rule 1: Body-Schema FAQ word-for-word match" but does **NOT** implement it. Run this dedicated check to close the gap:
+
+```bash
+python3 data_sources/modules/faq_consistency_check.py [file]
+```
+
+Verifies:
+- FAQ question count matches (Schema FAQPage vs body `.faq-answer`)
+- Each question word-for-word identical
+- Each answer word-for-word identical (HTML entities decoded, so `&lt;` ≡ `<`)
+
+Exit code `0` = all match, `1` = mismatch (fix before publishing). HTML-entity decode prevents false positives on `&lt;` vs `<`.
+
+### Step 2.7: Placeholder Check (empty SVG / unresolved template tokens)
+
+Detect copy-paste placeholders that should never ship (e.g. the old `<!-- calendar SVG -->` icon placeholder):
+
+```bash
+grep -nE '<svg[^>]*><!--|\{PLACEHOLDER\}|<!-- (calendar|clock|user) SVG -->' [file] && echo "WARN: placeholder found" || echo "OK: no placeholder"
+```
+
+Flags empty SVG (`<svg...><!--...-->`), `{PLACEHOLDER}` sentinels, and unresolved icon comments.
+
 ### Step 3: Run Information Gain Analysis
 ```bash
 python data_sources/modules/information_gain_analyzer.py [file]

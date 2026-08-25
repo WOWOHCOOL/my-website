@@ -21,6 +21,7 @@ Use this command to create B2B-optimized blog articles that output directly as `
   - `context/b2b-blog-quality-audit-standard.md` — B2B quality rules and scoring
   - `context/target-keywords.md` — Keyword clusters and forbidden B2C keywords
   - `context/internal-links-map.md` — Internal linking targets
+  - `context/image-assets.md` — Reusable factory/product images + alt localization + 插图数量规则
 
 ## Output Format — .njk Template Structure
 
@@ -115,9 +116,9 @@ Must be the FIRST block after frontmatter, inside `{% block head_schema %}`:
    </div>
    <!-- Date Row: NO "Updated on" line -->
    <div class="flex flex-wrap items-center gap-6 text-sm text-slate-500 pb-8 border-b border-slate-200">
-     <span><svg class="icon-calendar"><!-- calendar SVG --></svg><time datetime="{YYYY-MM-DD}">{FORMATTED_DATE}</time></span>
-     <span><svg class="icon-clock"><!-- clock SVG --></svg>{N} min de lecture</span>
-     <span><svg class="icon-user"><!-- user SVG --></svg>{AUTHOR_NAME}</span>
+     <span><svg class="icon-calendar inline w-4 h-4 text-slate-400 mr-1" aria-hidden="true" focusable="false" viewBox="0 0 448 512"><path d="M152 24c0-13.3-10.7-24-24-24s-24 10.7-24 24l0 40L64 64C28.7 64 0 92.7 0 128l0 16 0 48L0 448c0 35.3 28.7 64 64 64l320 0c35.3 0 64-28.7 64-64l0-256 0-48 0-16c0-35.3-28.7-64-64-64l-40 0 0-40c0-13.3-10.7-24-24-24s-24 10.7-24 24l0 40L152 64l0-40zM448 192L0 192l0 272c0 17.7 14.3 32 32 32l384 0c17.7 0 32-14.3 32-32l0-272z" fill="currentColor"/></svg><time datetime="{YYYY-MM-DD}">{FORMATTED_DATE}</time></span>
+     <span><svg class="icon-clock inline w-4 h-4 text-slate-400 mr-1" aria-hidden="true" focusable="false" viewBox="0 0 512 512"><path d="M464 256A208 208 0 1 1 48 256a208 208 0 1 1 416 0zM0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM232 120l0 136c0 8 4 15.5 10.7 20l96 64c11 7.4 25.9 4.4 33.3-6.7s4.4-25.9-6.7-33.3L280 243.2 280 120c0-13.3-10.7-24-24-24s-24 10.7-24 24z" fill="currentColor"/></svg>{N} min de lecture</span>
+     <span><svg class="icon-user inline w-4 h-4 text-slate-400 mr-1" aria-hidden="true" focusable="false" viewBox="0 0 448 512"><path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512l388.6 0c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304l-91.4 0z" fill="currentColor"/></svg>{AUTHOR_NAME}</span>
    </div>
  </div>
 </div>
@@ -301,10 +302,13 @@ Must be the FIRST block after frontmatter, inside `{% block head_schema %}`:
 - **H3 answer**: 60-500 char direct answer or comparison table immediately after each H3
 - No empty H2s (every H2 must have ≥1 H3)
 
-### Gate 4: Visual Authenticity
+### Gate 4: Visual Authenticity + 插图数量（不可跳过）
 - ❌ Forbidden: stock photos (handshakes, suits, generic factory images)
-- ✅ Required: real product/factory/lab photos
-- Every image must have descriptive alt text with B2B keywords
+- ✅ Required: real product/factory/lab photos — 从 `context/image-assets.md` 选可复用真实图
+- **插图数量（按正文词数，见 image-assets.md）**: <1500 词 = 1 张；1500–2500 = 2 张；2500+ = 3 张
+- **插图位置**: 插在相关 H2/H3 段落之间（生产/测试/QC/产品/物流段），图片内容与上下文对齐
+- **alt 本土化**: 用目标语言写 alt（非英文），嵌入 B2B 关键词，≤125 字符（示例见 image-assets.md）
+- **正文插图 HTML**: `<div class="mt-6 mb-6"><img src="{path}" alt="{本土化 alt}" loading="lazy" class="max-w-3xl mx-auto rounded-2xl shadow-lg w-full"></div>`
 
 ### Gate 5: CTA Relevance
 - End with logical B2B buyer next step

@@ -1,7 +1,7 @@
 # wowohcool.com 博客元数据报告
 
-**生成日期**: 2026-08-09 · **更新**: 2026-08-19 (新增 QC PL + mAh FR/RU 三篇 + hreflang 补齐 → 全站对齐 33/30/33/24/24/11)  
-**语言站点**: EN (33篇) · DE (30篇) · ES (33篇) · FR (24+6) · RU (24+6) · **PL (11+19)** · 合计 155 篇 (计划 180 篇)  
+**生成日期**: 2026-08-09 · **更新**: 2026-08-25 (新增 RU 3 篇 EAC 移动电源/针刺测试/证书验证 → 全站对齐 33/30/33/24/27/11)  
+**语言站点**: EN (33篇) · DE (30篇) · ES (33篇) · FR (24+6) · RU (27+6) · **PL (11+19)** · 合计 158 篇 (计划 180 篇)  
 **数据来源**: 各站点 `src/{lang}/blog/*/index.njk` frontmatter + H1 模板标签
 
 ---
@@ -235,8 +235,11 @@
 | 21 | [/ru/blog/usb-c-pd-3-1-specifikacii-oem/](https://www.wowohcool.com/ru/blog/usb-c-pd-3-1-specifikacii-oem/) | USB-C PD 3.1 240W EPR: Спецификация Импортёра \| WOWOHCOOL | Спецификация USB-C PD 3.1 240W EPR для импортёров: SPR vs EPR, AVS, кабели E-Marker. Сертификация EAC ТР ТС. FOB от $8/шт, MOQ 500. Завод ISO 9001 Shenzhen. | USB-C PD 3.1: Спецификация 240W EPR для Импортёров OEM | — | 86 |
 | 22 | [/ru/blog/besprovodnaya-zaryadka-qi2-oem/](https://www.wowohcool.com/ru/blog/besprovodnaya-zaryadka-qi2-oem/) | Беспроводная Зарядка Qi2 OEM: Гид Импортёра \| WOWOHCOOL | Беспроводная зарядка Qi2 OEM: индукция, MPP магниты N52H, Qi2.2 25W, FOD. Гид для импортёров. FOB от $6,50/пад, MOQ 500. Завод ISO 9001 Shenzhen. | Беспроводная Зарядка Qi2: Технический Гид для Импортёров OEM | — | 87 |
 | 23 | [/ru/blog/pokoleniya-gan-sravneniye-oem/](https://www.wowohcool.com/ru/blog/pokoleniya-gan-sravneniye-oem/) | Поколения GaN I-V: Сравнение для Импортёров OEM \| WOWOHCOOL | Поколения GaN I-V для импортёров: КПД 93-95%, частота ~1 МГц, FET Navitas/Innoscience, цена FOB Shenzhen. MOQ 500, завод ISO 9001, EAC. Расчёт OEM за 24 часа. | Поколения GaN I-V: Сравнение для Импортёров OEM 2026 | 95.2 | 86 |
+| 24 | [/ru/blog/sertifikaciya-eas-poverbankov-tr-ts-oem/](https://www.wowohcool.com/ru/blog/sertifikaciya-eas-poverbankov-tr-ts-oem/) | Сертификация ЕАС повербанков 2026: ошибки и штрафы для импортёра OEM | С 2026 повербанки в России требуют только сертификаты RA.RU, электронный ФГИС и QR-код. Разбираем DoC vs CoC, стоимость и 6 ошибок декларирования, которые стоят до 200% штрафа. | Сертификация ЕАС повербанков 2026: ошибки декларирования, которые стоят импортёру 200% штрафа | 89.1 | 89 |
+| 25 | [/ru/blog/ispytanie-prokolom-gvozdem-polutverdotelnye-oem/](https://www.wowohcool.com/ru/blog/ispytanie-prokolom-gvozdem-polutverdotelnye-oem/) | Испытание Проколом Полутвердотельных Аккумуляторов: Проверка OEM \| WOWOHCOOL | Проверьте поставщика полутвердотельных power bank испытанием проколом. Протокол GB 47372-2026, кейс Donut Lab, 6 сигналов тревоги для импортёра. | Испытание Проколом Гвоздём Полутвердотельных Аккумуляторов: Что Проверить OEM-Покупателю | 96.1 | 92 |
+| 26 | [/ru/blog/proverka-podlinnosti-sertifikatov-eac-ce-fcc-oem/](https://www.wowohcool.com/ru/blog/proverka-podlinnosti-sertifikatov-eac-ce-fcc-oem/) | Проверка сертификатов EAC/CE/FCC на подлинность: 5 реестров \| WOWOHCOOL | Как импортёру проверить сертификат ЕАС, CE и FCC китайского поставщика за 10 минут: реестр ФГИС, проверка органа и лаборатории, 9 признаков подделки. | Проверка подлинности сертификатов EAC/CE/FCC: 5 реестров и 9 признаков подделки для импортёра | 96.2 | 90 |
 
-**RU 覆盖状态**: 24/30 篇已发布，全部为 Schema v2 + 13-panel 标准。
+**RU 覆盖状态**: 27/30 篇已发布（24 基线 + 3 新角度），全部为 Schema v2 + 13-panel 标准。基线缺口仍 6 篇（见 §十）。
 
 ### 5.2 Яндекс SEO 核心规则
 
@@ -424,7 +427,7 @@ PL 站作为全新站点，首批 5 篇覆盖采购经理最核心的 5 个问�
 
 | 指标 | EN | DE | ES | FR | RU | PL | 合计 |
 |---|---|---|---|---|---|---|---|
-| 已发布 | 33 | 30 | 33 | 24 | 24 | **11** | **155** |
+| 已发布 | 33 | 30 | 33 | 24 | 27 | **11** | **158** |
 | 计划中 | 0 | 0 | 0 | 6 | 6 | **19** | **31** |
 | 目标总量 | 30 | 30 | 30 | 30 | 30 | **30** | **180** |
 | Title 均含 B2B 信号词 | 30 | 30 | 30 | 23 | 23 | 10 | **146 (100%)** |
@@ -483,4 +486,45 @@ PL 站作为全新站点，首批 5 篇覆盖采购经理最核心的 5 个问�
 
 ---
 
-*报告由 Claude Code 自动生成 · 数据提取自 wowohcool.com 站点源码 frontmatter · 2026-08-19 更新 (新增 QC PL + mAh FR/RU 三篇 + hreflang 补齐 → 全站对齐 33/30/33/24/24/11)*
+---
+
+## 十、缺口补齐计划（2026-08-25 制定）
+
+**节奏**: 每天 ≤3 篇（每站 1 篇优先）。**铁律**: 每篇先本土 SERP 调研 → 官方原文核实 → brief → `.njk` 正文 → 质量门 → 部署。
+
+### 10.1 缺口清单（scoped，有 slug）
+
+| 站点 | 缺口 | 篇目（按优先级） |
+|---|---|---|
+| RU | 6 | ①验厂清单 ②选厂审计 ③PB 厂家 ④选 PB ⑤СТМ 自有品牌 ⑥酒店充电 |
+| FR | 6 | ①验厂清单 ②工厂审核 ③PB 厂家 ④选 PB ⑤自有品牌 ⑥酒店方案 |
+| PL | 13 | ①进口成本 ②选 PB ③Qi2 vs MagSafe ④EU 电池法规 ⑤市场趋势 ⑥车充 ⑦物流 ⑧电池安全 ⑨自有品牌 ⑩TFT ⑪2合1 ⑫笔记本 ⑬3合1站 |
+
+> PL 另有 6 篇未 scoped（补到 30 目标）：GaN 充电器指南 / 安全标准 IEC / 工厂选择 / 供应商筛选 / Power Bank mAh / Power Bank 采购 —— 待 13 篇 scoped 完成后按 CTR 数据决定去留。
+
+### 10.2 排期（每天 3 篇）
+
+| Day | RU | FR | PL |
+|---|---|---|---|
+| 1（8/25） | ①验厂清单 | ①验厂清单 | ①进口成本 |
+| 2 | ②选厂审计 | ②工厂审核 | ②选 PB |
+| 3 | ③PB 厂家 | ③PB 厂家 | ③Qi2 vs MagSafe |
+| 4 | ④选 PB | ④选 PB | ④EU 电池法规 |
+| 5 | ⑤СТМ | ⑤自有品牌 | ⑤市场趋势 |
+| 6 | ⑥酒店 | ⑥酒店 | ⑥车充 |
+| 7-13 | — | — | PL 剩余 7 篇（物流/电池安全/自有品牌/TFT/2合1/笔记本/3合1站） |
+
+### 10.3 差异化角度要点（防重叠）
+
+- RU 验厂清单 vs 已有 QC（生产 4 阶段）= 下单前现场审核清单
+- RU 选厂 vs 已有 poisk（找供应商）= 低漏斗审计决策
+- RU 选 PB vs 已有 specifikacii / mAh = 选型决策框架
+- PL 市场趋势 → 工厂订单数据角度；Qi2 vs MagSafe → 3 年 TCO 角度（避免零点击陷阱）
+
+### 10.4 每篇流程
+
+`/research`（本土调研 + brief）→ `/write-b2b`（`.njk` 产出到 `wowohcool.com/src/{lang}/blog/{slug}/index.njk`）→ `/b2b-audit`（≥90）→ 封面 + 部署 + IndexNow。
+
+---
+
+*报告由 Claude Code 自动生成 · 数据提取自 wowohcool.com 站点源码 frontmatter · 2026-08-25 更新 (新增 RU 3 篇 + 缺口补齐计划)*

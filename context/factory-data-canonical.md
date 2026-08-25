@@ -1,6 +1,6 @@
 # WOWOHCOOL Factory Data — Single Source of Truth
 
-> **Scope**: All articles across EN/DE/ES/FR/RU sites must use these numbers. No exceptions.
+> **Scope**: All articles across EN/DE/ES/FR/RU/PL sites must use these numbers. No exceptions.
 > **Last Updated**: 2026-08-20
 > **Authority**: Dong Yi Technology Co., Ltd (WOWOHCOOL) — ISO 9001 certified manufacturer since 2013.
 > **Update Cycle**: FOB pricing + freight rates quarterly; certification costs annually; MOQ/lead times quarterly.
@@ -21,7 +21,7 @@
 | Export Coverage | 50+ countries |
 | Active Client Brands | 200+ globally |
 | R&D Team | 50+ engineers |
-| Key Markets | Global — dedicated local sites in 5 languages: EN, DE, ES, FR, RU |
+| Key Markets | Global — dedicated local sites in 6 languages: EN, DE, ES, FR, RU, PL |
 | Trade Shows | CES 2026 (Las Vegas), IFA Berlin |
 
 ### 1.1 Contact Information
@@ -57,6 +57,7 @@
 | Español | `es` | `/es/` | `/es/sobre-nosotros/` | `https://www.wowohcool.com/es/sobre-nosotros/` |
 | Français | `fr` | `/fr/` | `/fr/a-propos/` | `https://www.wowohcool.com/fr/a-propos/` |
 | Русский | `ru` | `/ru/` | `/ru/o-kompanii/` | `https://www.wowohcool.com/ru/o-kompanii/` |
+| Polski | `pl` | `/pl/` | `/pl/o-nas/` | `https://www.wowohcool.com/pl/o-nas/` |
 
 **Also applies to:**
 - `BlogPosting.citation[].url` — when citing WOWOHCOOL itself as a source
