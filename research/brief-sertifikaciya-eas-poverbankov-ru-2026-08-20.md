@@ -171,7 +171,7 @@ FAQ (8 вопросов)
 | `/ru/blog/sertifikaciya-zaryadnyh-ustroystv-oem/` | «сертификация зарядных устройств»（充电器认证——互补不打架） |
 | `/ru/blog/specifikacii-power-bank-oem/` | «спецификации power bank OEM»（移动电源规格） |
 | `/ru/blog/zatraty-import-kitay-poshliny-oem/` | «таможенные пошлины при импорте из Китая»（进口关税——海关衔接） |
-| `/ru/products/power-bank/` 产品页 | «повербанки OEM с сертификацией EAC»（产品页） |
+| `/ru/produkty/poverbanki/` 产品页 | «повербанки OEM с сертификацией EAC»（产品页） |
 | `/ru/blog/kontrol-kachestva-zavody-kitay-oem/` | «контроль качества на заводе»（质检——电池测试衔接） |
 
 ---

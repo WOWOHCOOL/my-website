@@ -695,3 +695,187 @@ areaServed 升级为全局 21 区域列表（新增 PL + RU/KZ/BY/EAEU），更�
 | 4 | 后续 RU/ES 文章一律套「本土 SERP + 官方原文核实」流程 | 铁律固化 |
 
 *下次复查: 三篇 EN「必须点击」+ 三篇 ES 新文累积 14 天 post-opt 数据（约 9 月初）；届时验证「商业意图新内容」是否兑现 RU/ES 高 CTR 预期*
+
+---
+
+## Part 11 · 执行更新（2026-08-22）— RU P0-3 证书真伪验证完成
+
+### 11.1 选题与差异化
+
+RU P0-3（`research/es-ru-topic-pipeline-2026-08-20.md`）落地：**证书真伪验证**，slug `proverka-podlinnosti-sertifikatov-eac-ce-fcc-oem`。
+
+RU 站已有 3 篇认证相关文章，本篇严格切分「验供应商给的证」这一操作角度：
+
+| 已有 RU 文章 | 角度 | 本篇差异 |
+|---|---|---|
+| `sertifikaciya-zaryadnyh-ustroystv-oem` | 充电器**需要哪些证** | — |
+| `sertifikaciya-eas-poverbankov-tr-ts-oem`（P0-1） | 移动电源 **EAC 怎么办**（流程/成本） | P0-1 是「自己办证」，本篇是「验别人的证」 |
+| 本篇 P0-3 | **证的真伪怎么验** | 5 个官方реестр 实操 + 9 项红旗 + органы 被停牌 |
+
+### 11.2 俄语本土调研的核心发现（选题铁律命中）
+
+俄语 SERP 只有两类内容：政府/市政的**消费者版** ФГИС 查询备忘录，和中国 EAC 代理机构广告页；西方 sourcing 博客只讲 CE/FCC，**完全没有 EAC/ФГИС**。无人把 EAC+CE+FCC 合成一个可执行流程，也无工厂视角。
+
+挖到 RU 独有的强角度——**2026「吉尔吉斯清洗」**：
+
+- **ПП РФ № 87 от 06.02.2026**（07.02 生效）：ФТС 报告「未确认样品进口 / 无检测报告 / 报告未签发 / 海关鉴定不合格」→ Росаккредитация 可在俄境内暂停 EAEU 他国机构签发的证书
+- **一年内 3 次以上** → 该机构在俄的全部文件失效最长 12 个月
+- 7 家吉尔吉斯认证机构已被停牌（2025-12-26 ~ 2026-04-21），涉 15 500+ 份证书
+
+> 这条命中铁律核心：**证书本身是真的，但在俄罗斯不生效**——Google 无法一句话回答，且是付款前的真实决策点。
+
+### 11.3 数据三层分级（沿用 P0-1 教训）
+
+| 层级 | 内容 |
+|---|---|
+| ✅ 已核实 17 条 | pub.fsa.gov.ru/rds + /ral、ПП № 87 机制与文号、КоАП 14.43 三档罚金、canonical §6/§8 工厂数据 |
+| ⚠️ 修正 3 条 | **「China Export」标志欧盟委员会官方否认存在**（ES 版 brief 当真实陷阱写了，RU 版改为「误区 + 真正的证据是 DoC + 检测报告」）；「30% 中国证书是假」无方法论 → 弃用；EN 博客的「假证 2-3 天 500-3000 元」不可核实 → 换 canonical 价格 |
+| 🔴 禁用 5 条 | 全部来自 cu-tr.* 类中国代理机构（Ozon/WB AI 实时查、200-300% 罚款、刑责 6 年、01.09.2026 卡片新规、KZ/BY 证书 100% 无效）——与 P0-1 夸大日期/机制/罚则的来源同类 |
+
+### 11.4 质量门结果
+
+| 门 | 结果 |
+|---|---|
+| b2b-audit | **96.2/100**（RU 三篇最高；P0-1 89.1 / P0-2 96.1） |
+| geo-citability | **90/100**，覆盖率 100%（9/9 区块 >70），报告见 `audits/geo-citability-proverka-podlinnosti-sertifikatov-ru-2026-08-22.md` |
+| optimize | title 59 字符 / description 149 字符 / H1 74 字符（RU 可接受） |
+| scrub | **跳过 em-dash 精简**（RU тире 语法必需，P0-1 铁律） |
+| 构建 | `npx @11ty/eleventy` 通过；`lint-i18n-paths.js` 全绿 |
+
+**Schema**: 7 节点 @graph（含 HowTo 5 步）+ FAQ 8 条 body/schema 逐字一致 + 21 区域 areaServed + 6 个 `<cite>` 来源标记。wordCount 3 104（实测校准）。
+
+### 11.5 交叉链接与 hreflang 簇修复（2026-08-22）
+
+**① 「证书验证」三语簇建成（EN/ES/RU 完全互指）**
+
+原状态：EN 版只有 `hreflang.en`；ES 版和 RU 版把 `dePath`/`frPath`/`plPath` 指向 **certifications-guide 簇**的 DE/FR/PL 页面——而那三页自己指回 `certifications-us-eu-guide` 和 `sertifikaciya-zaryadnyh-ustroystv-oem`，形成**非互指 + 一页被两个簇争抢**。
+
+修复：EN 版补 `esPath`/`ruPath`；ES/RU 版删除 de/fr/pl 的越界 fallback。三页现在发出**完全一致的 4 条注解**（en/es/ru + x-default→EN），已构建验证：
+
+| 页面 | hreflang 注解 |
+|---|---|
+| `blog/verify-fake-charger-certificates-fcc-ce-ul` | en + es + ru + x-default |
+| `es/blog/verificar-certificados-falsos-cargadores-ce-fcc-ul` | 同上 |
+| `ru/blog/proverka-podlinnosti-sertifikatov-eac-ce-fcc-oem` | 同上 |
+
+> 副作用（可接受）：DE/FR/PL 的语言切换器从「跳到认证指南」变为「跳到该语言首页」。角度不同的文章不该互指——这正是选题铁律区分的两类内容。
+
+**② P0-1 brief 内链笔误已改**：`research/brief-sertifikaciya-eas-poverbankov-ru-2026-08-20.md` 的 `/ru/products/power-bank/` → `/ru/produkty/poverbanki/`。**P0-1 正文未受影响**（已核查，正文用的是正确路径）。
+
+**③ 顺带修掉一个真实 404**：`ru/blog/sertifikaciya-upakovki-opasnyh-gruzov-litievye-batarei-oem` 的 CTA 指向 `/ru/products/poverbanki/`（404），已改为 `/ru/produkty/poverbanki/`。`lint-i18n-paths.js` 没抓到这条——**该脚本对 `products` 这个英文路径词存在漏检**，值得回头补规则。
+
+> ⚠️ **同类缺陷仍存 1 处（未擅自改动）**：`ru/blog/sertifikaciya-eas-poverbankov-tr-ts-oem`（P0-1）把 en/de/es/fr/pl 全部指向 certifications-guide 簇，而该簇成员一致指回 `sertifikaciya-zaryadnyh-ustroystv-oem`——P0-1 发出 5 条非互指注解并与 RU 槽位重复。P0-1 是 RU 独有选题（移动电源 EAC），干净做法是清空 `*Path` 字段（与近期 ES 文章 `subvaloracion` / `diferimiento` 的无 Path 约定一致）。涉及已发布文章的对外 SEO 配置，待决策。
+
+### 11.6 全站 hreflang 互指清理（2026-08-22）
+
+对 `src/` 全部 314 个有 canonical 的页面做互指审计（脚本按 canonical 前缀判定语言，因为**早期文章没有 `lang:` 字段**；并需 `utf-8-sig` 读取，部分静态页有 BOM）。博客侧原有 **11 页有问题**，已全部修复至 0。
+
+**修复 1 · 三个「新角度」簇建成（与 11.5 同一类缺陷）**
+
+2026-08 批次的新角度文章都把 `dePath`/`frPath`/`plPath` 指向了**旧角度簇**的页面，形成非互指 + 一页被两簇争抢：
+
+| 簇 | 成员 | 处理 |
+|---|---|---|
+| 针刺测试验证 | EN `semi-solid-state-nail-penetration-test-oem-verification` + ES `prueba-penetracion-clavo-...` + RU `ispytanie-prokolom-...`（P0-2） | EN 补 es/ru；ES/RU 删除指向半固态科普簇的 de/fr/pl |
+| 现场验厂 25 点 | EN `on-site-factory-audit-checklist-china-charger-oem` + ES `auditoria-fabrica-in-situ-...` | EN 补 es；ES 删除指向 QC/验厂旧簇的 de/fr/ru/pl |
+| 证书真伪验证 | EN/ES/RU 三篇（见 11.5） | 已完成 |
+
+**修复 2 · P0-1 清空 `*Path`**：`sertifikaciya-eas-poverbankov-tr-ts-oem` 是 RU 独有选题（移动电源 EAC），现在只发 `hreflang="ru"` + `x-default` 指向自身。
+
+**修复 3 · 两个 PL 页面并入既有簇**
+
+- `pl/blog/certyfikacja-ce-un38-3-importer-polska` 只有 `enPath`，导致 certifications-guide 簇的 DE/ES/FR/RU 四页各有一条 pl 悬空注解 → 补齐 en/de/es/fr/ru，簇变六语互指
+- `pl/blog/kontrola-jakosci-fabryka-chiny-oem` 声明了 QC 簇 5 语言但无人回指 → 给 QC 簇 5 页（EN/DE/ES/FR/RU）补 `plPath`
+
+**修复 4 · 两条陈旧 frPath**：`es/blog/como-elegir-fabrica-china` 与 `es/blog/como-elegir-power-bank` 的 `frPath` 指向**另一个簇**的 FR 页（`fournisseurs-chargeurs-chine-oem` / `batterie-externe-specifications-oem`）。两簇实际都是 EN+DE+ES 三语，无 FR 成员 → 删除悬空 frPath。
+
+**验证**：eleventy 构建通过；`lint-i18n-paths.js` 全绿；博客 hreflang 问题 11 → **0**；三篇 RU 文章 b2b-audit 无回归（P0-1 89.1 / P0-2 96.1 / P0-3 96.2）。
+
+> 剩余 5 处非博客问题（未处理，与 CTR 无关）：DE/ES/FR/RU 四个「法律声明 / Impressum」页把 `enPath` 指向 `/terms-of-service/`，而后者回指的是各语言 AGB/条款页——EN 站没有独立 Impressum，属内容映射决策；`/pl/404/` 指向其它语言 404 页（404 本身 noindex，无影响）。
+
+### 11.6 剩余发布前手动步骤
+
+1. 封面图 `image/blog/cover-ru/proverka-podlinnosti-sertifikatov-eac-ce-fcc-oem.webp`
+2. 两张реестр 查询截图（可选，见 citability 报告建议 #7）
+3. `git commit` + `git push` → Cloudflare Pages
+4. IndexNow 提交新 URL
+
+### 11.7 行动路线图更新
+
+| 行动 | 状态 |
+|---|---|
+| RU P0-1 EAC 移动电源 | ✅ 完成（10.2） |
+| RU P0-2 针刺测试验证 | ✅ brief + 文章已入站点源码 |
+| **RU P0-3 证书真伪验证** | ✅ **完成（本节，待封面图 + 部署）** |
+| ES P0-1/2/3 | ✅ 三篇已在站点源码 |
+| ES P1-4 供应商评估矩阵 / RU P1-4 现场验厂 | ⏳ 视前批 GSC 数据再决定 |
+
+*下次复查: 三篇 EN「必须点击」+ 三篇 ES 新文累积 14 天 post-opt 数据（约 9 月初）；RU P0-1/2/3 按发布 +14/+28 天单独追踪*
+
+---
+
+## Part 12 · 询盘异常诊断（2026-08-23）— 连续 3 天零询盘
+
+**异常**: 5月中旬上线以来平均每天有 WhatsApp/邮件询盘，但 8月21-23日连续 3 天为零。
+
+### 12.1 日期确认
+
+| 日期 | 星期 | 类型 |
+|---|---|---|
+| 8月21日 | **周五** | 工作日（但下午 B2B 活跃度下降） |
+| 8月22日 | **周六** | 周末 |
+| 8月23日 | **周日** | 周末 |
+
+### 12.2 根因分析（三层叠加）
+
+**① 周末效应（最直接）**
+
+B2B 采购决策者周末不工作，周五下午询盘量也显著下降。5月中旬以来「每天都有」可能是之前询盘量较大时零星周末询盘也能覆盖，但叠加下面两个因素后断崖。
+
+**② 8月欧洲假期（结构性因素）**
+
+8月15日是欧洲核心假期（法国 Assumption / 意大利 Ferragosto / 西班牙 Asunción）：
+- 意大利：8月整月半停工状态
+- 法国：8月15日前后两周大量公司休假
+- 西班牙：8月是传统休假月
+
+8月17-23日这周虽然法定假期已过，但大量欧洲 B2B 买家仍在休假或刚回来处理积压邮件，**不会主动发新询盘**。从 GSC 数据看，欧洲市场（ES 1.03% / DE 0.73% / FR 0.21% CTR）虽然展示量小但转化质量高——这些市场的买家在休假，询盘自然断档。
+
+**③ 8月整体询盘可能已在下降通道**
+
+博客 CTR 持续走低（0.24%→0.22%），美国市场 73% 展示但 CTR 仅 0.09%。虽然询盘不完全依赖博客流量，但整体搜索可见度在下降是事实。8月叠加假期效应，可能是「已经在降的询盘量 + 周末 + 假期」三重叠加导致首次归零。
+
+### 12.3 排查清单
+
+| 检查项 | 方法 | 状态 |
+|---|---|---|
+| WhatsApp Business API 是否正常 | 用手机号发一条测试消息 | ⬜ 待验证 |
+| 联系表单是否正常提交 | 提交一次测试询盘，看是否收到通知 | ⬜ 待验证 |
+| 邮件系统是否正常 | 发测试邮件到客服邮箱 | ⬜ 待验证 |
+| 8月20日(周四)有没有询盘 | 回溯确认最后一个询盘日期 | ⬜ 待验证 |
+| 8月前几周周末有没有询盘 | 对比历史周末数据 | ⬜ 待验证 |
+
+### 12.4 判断与预期
+
+**大概率不是技术问题**，而是周末 + 8月欧洲假期 + 季节性低位叠加：
+- 如果 **8月25日(周一)** 恢复询盘 → 确认周末效应，正常波动
+- 如果 **周一仍然零询盘** → 排查技术问题（表单/WhatsApp API/邮件）+ 可能的流量异常
+
+### 12.5 后续行动
+
+| # | 行动 | 优先级 |
+|---|---|---|
+| 1 | 完成 12.3 技术排查清单 | 立即 |
+| 2 | 8月25日(周一)观察询盘是否恢复 | P0 |
+| 3 | 若周一恢复→记录为正常季节性波动；若未恢复→深度排查 | 视情况 |
+| 4 | 9月初 GSC 复查时，同步对比 8月 vs 7月询盘总量 | P1 |
+
+### 12.6 结案（2026-08-25）— 询盘恢复，季节性波动确认
+
+8/25（周一）询盘恢复 → **确认 12.4 的第一种判断**：周末效应 + 8 月欧洲假期 + 季节性低位叠加，**非技术问题**。
+
+- 12.3 技术排查清单降级为「无需深查」——询盘恢复即证表单 / WhatsApp / 邮件链路正常
+- 8/22-24 三天零询盘 = 周五下午 + 完整周末 + 欧洲 8 月休假尾期，属正常波动
+- 12.5 #4 留档：9 月初 GSC 复查时对比 8 月 vs 7 月询盘总量，确认 8 月是否整体处于下降通道
+
+*下次复查: 三篇 EN「必须点击」+ 三篇 ES 新文累积 14 天 post-opt 数据（约 9 月初）；RU P0-1/2/3 按发布 +14/+28 天单独追踪；9 月初同步对比 8/7 月询盘总量*
