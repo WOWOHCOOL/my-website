@@ -44,7 +44,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - **H1**: 50–65 字符, 必须含 ≥1 个 B2B 信号词 (OEM, manufacturer, factory, supplier, importer, sourcing, MOQ, FOB, B2B)
 - **H2**: 按采购经理决策链组织（Why → What to verify → How it's done → What it costs → How to comply），至少 2 个 H2 含 B2B 信号词
 - **H3**: 必须具体 — 优先使用问题格式或数据结论，不要泛泛的 "Thermal Performance"
-- **H3/H4 后**: 立即给出 100–150 字符的直接回答或对比表格（Featured Snippet 抓取位）
+- **H3/H4 后**: 第一句立即给出 ≤150 字符的自包含结论（answer-first，Featured Snippet 抓取位），后续可自由展开；或直接跟对比表格
 - 每个 H2 至少含 1 个 H3（不得有空 H2）
 
 ### Gate 4: Visual Authenticity (不可跳过)
@@ -200,8 +200,8 @@ Rewrites go to `rewrites/`. Audits go to `audits/`.
 
 `context/` contains brand guidelines that inform all content generation:
 - **`b2b-blog-quality-audit-standard.md`** — **CANONICAL quality standard for ALL blog content across DE/EN/ES/FR sites.** Covers: Information Gain vs. top-5 SERP, E-E-A-T first-hand experience requirements, H1-H4 structural rules, Schema Markup 9 FAQ rules, B2B CTA standard, 13 automated audit checks, dual-mode Information Gain scoring, and quality gate thresholds. Every `/write`, `/optimize`, `/rewrite` must apply this standard. Keyword density is dead — first-party data density and Information Gain are the new metrics.
-- **`b2b-multilingual-metadata-standard.md`** — **CANONICAL B2B metadata standard for ALL 4 languages.** Complete JSON-LD schema template with placeholder docs, DE/EN/ES/FR language mapping table, FAQ 8 rules, wordCount verification script, 20-point pre-publish checklist, B2B signal word glossary. Every `/write` and `/optimize` must use this as the schema authority.
-- `b2b-schema-template.json` — Standalone JSON-LD template (7 nodes), `json.load()` valid with `{PLACEHOLDER}` sentinel syntax. Use for build-script schema generation and automated validation. Derived from `b2b-multilingual-metadata-standard.md` §一.
+- **`b2b-multilingual-metadata-standard.md`** — **CANONICAL B2B metadata standard for ALL 6 languages.** Complete JSON-LD schema template with placeholder docs, DE/EN/ES/FR/RU/PL language mapping table, FAQ 9 rules, wordCount verification script, 20-point pre-publish checklist, B2B signal word glossary. Every `/write` and `/optimize` must use this as the schema authority.
+- `b2b-schema-template.json` — Standalone JSON-LD template (7 nodes), `json.load()` valid after `{PLACEHOLDER}` substitution. Use for build-script schema generation and automated validation. Derived from `b2b-multilingual-metadata-standard.md` §一.
 - `brand-voice.md` - Tone, messaging pillars
 - `style-guide.md` - Grammar, formatting standards
 - `blog-template-standard.md` - EN/DE Blog layout template: 16-section ordering, code standards, Schema checklist, FAQ 8 rules, factory data values

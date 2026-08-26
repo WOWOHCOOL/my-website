@@ -1,23 +1,26 @@
 """
 B2B Content Auditor — 2026 Google B2B SEO Standards Compliance
 
-Performs 15 automated checks against Google's 2026 B2B blog quality standards:
+Performs 19 automated checks against Google's 2026 B2B blog quality standards:
   1. Opening Density — first 3 sentences must deliver core conclusion (no fluff preamble)
-  2. H3 Answer Length — 100-150 char direct answer after each H3/H4
-  3. H2 B2B Signal Density — tiered B2B signal word density in H2 headings
-  4. First-Hand Data Density — ≥3 precise measurements + engineering units per 1000 words (staged: ≥3=100, 2-2.9=70, 1-1.9=40, <1=10)
-  5. Table Test — technical parameters must use markdown tables
-  6. Stock Photo Detection — flag suspicious image URLs
-  7. FAQ B2B Language — FAQ questions must use buyer/procurement language
-  8. Author E-E-A-T Audit — byline, credentials, LinkedIn, author page
-  9. TL;DR Block Detection — mandatory Key Takeaways block after H1 (NEW)
-  10. Vague Heading Detection — flag label-style H2/H3, enforce conclusion-style (NEW)
-  11. Weak CTA Detection — flag ineffective B2B CTAs, suggest value-continuation (NEW)
-  12. Heading Hierarchy Validation — detect skipped levels (H1→H3), enforce pyramid structure (NEW)
-  13. URL Quality Check — flag underscores, uppercase, dates, stop words in URL slug (NEW)
-  14. Schema Validation — JSON-LD syntax, required fields (author.sameAs, publisher.logo, mainEntityOfPage.@id), trailing-slash consistency with canonical URL (NEW)
-  15. Cross-Reference Consistency — verify TL;DR, body, and FAQ numbers match (Rule 8) (NEW)
-
+  2. TL;DR Block Detection — mandatory Key Takeaways block after H1
+  3. H3 Answer Length — ≤150 char first-sentence conclusion after each H3/H4
+  4. Vague Heading Detection — flag label-style H2/H3, enforce conclusion-style
+  5. H2 B2B Signal Density — tiered B2B signal word density in H2 headings
+  6. First-Hand Data Density — ≥3 precise measurements + engineering units per 1000 words (staged: ≥3=100, 2-2.9=70, 1-1.9=40, <1=10)
+  7. Table Test — technical parameters must use markdown tables
+  8. Stock Photo Detection — flag suspicious image URLs
+  9. FAQ B2B Language — FAQ questions must use buyer/procurement language
+  10. Author E-E-A-T Audit — byline, credentials, LinkedIn, author page
+  11. Weak CTA Detection — flag ineffective B2B CTAs, suggest value-continuation
+  12. Heading Hierarchy Validation — detect skipped levels (H1→H3), enforce pyramid structure
+  13. URL Quality Check — flag underscores, uppercase, dates, stop words in URL slug
+  14. Cross-Reference Consistency — verify TL;DR, body, and FAQ numbers match (Rule 9)
+  15. Schema Validation — JSON-LD syntax, required fields, trailing-slash consistency with canonical URL
+  16. Factory Data Canonical — MOQ, lead time, deposit, certification claims match factory-data-canonical.md
+  17. Static HTML Quality — featured image srcset/sizes/fetchpriority/speakable/TOC bugs
+  18. Anti-Pattern Detection — Quick Answer blocks, TL;DR duplicates, cross-link overlap, data-dump intro
+  19. Accent/Spelling (i18n) — language-specific accent/spelling correctness
 All checks return 0-100 scores. Composite score is equal-weighted average.
 """
 
@@ -541,7 +544,13 @@ class B2BContentAuditor:
     # ── Check 2: H3 Answer Length ──
 
     def _check_h3_answer_length(self, content: str) -> Dict[str, Any]:
-        """Verify H3/H4 answers: 60-500 chars (B2B technical content needs space for data+context)."""
+        """Verify H3/H4 leading sentence: ≤150 chars (answer-first, Featured Snippet zone).
+
+        Mirrors FAQ Rule 4 (answer-first format): AI engines extract the opening
+        sentence as the citation. Only the FIRST SENTENCE after a heading is capped
+        at 150 chars — the rest of the paragraph may expand freely with data. Capping
+        the full paragraph would conflict with data-density (≥3 data points / 1000 words).
+        """
         h3_blocks = self._extract_h3_blocks(content)
         h4_blocks = self._extract_h4_blocks(content)
         all_blocks = h3_blocks + h4_blocks
@@ -559,27 +568,24 @@ class B2BContentAuditor:
         for block in all_blocks:
             heading = block['heading']
             first_block_text = block['first_block']
-            length = len(first_block_text)
             level = block.get('level', 'H3')  # H3 or H4
 
-            # Tables are auto-pass. Group-header headings (0-10 chars) are expected.
-            if block['is_table'] or (length <= 10 and not first_block_text.strip()):
+            # Tables are auto-pass. Empty content blocks skip.
+            if block['is_table'] or not first_block_text.strip():
                 continue
 
-            # H4 blocks (cards, feature grids) have lower minimum: 15 chars is reasonable
-            min_len = 15 if level == 'H4' else 60
+            # Answer-first (mirrors FAQ Rule 4): cap the LEADING SENTENCE only.
+            # The rest of the paragraph may expand with data points and detail.
+            lead = first_block_text.strip()
+            terminator = re.search(r'[.!?。！？]\s', lead)
+            lead_sentence = lead[:terminator.start() + 1] if terminator else lead
+            length = len(lead_sentence)
 
-            if length < min_len:
+            if length > 150:
                 violations.append({
                     'h3': heading[:80],
                     'length': length,
-                    'issue': f'{level} answer too short ({length} chars). Target: {min_len}-500 chars.'
-                })
-            elif length > 500:
-                violations.append({
-                    'h3': heading[:80],
-                    'length': length,
-                    'issue': f'{level} answer exceeds optimal length ({length} chars). Target: under 500 chars.'
+                    'issue': f'{level} leading sentence too long ({length} chars). Target: ≤150 chars for the first sentence (answer-first).'
                 })
 
         total = len(all_blocks)
@@ -589,10 +595,10 @@ class B2BContentAuditor:
         issues = []
         if violations:
             issues.append({
-                'issue': f'{len(violations)}/{total} H3/H4 sections lack optimal answer length (target: 60-500 chars)',
-                'fix': 'Place a 60-500 char direct answer (or a comparison table) '
-                       'immediately after each H3/H4. For B2B technical content, '
-                       '500 chars allows a data point + standards reference + brief context.',
+                'issue': f'{len(violations)}/{total} H3/H4 leading sentences exceed 150 chars',
+                'fix': 'Keep the FIRST SENTENCE after each H3/H4 to ≤150 chars as a '
+                       'self-contained conclusion (answer-first). The rest of the '
+                       'paragraph may expand with data and detail.',
                 'severity': 'medium'
             })
 
@@ -1945,7 +1951,10 @@ class B2BContentAuditor:
             slash_mismatches = []
             for url in id_urls:
                 if '/blog/' in url or '/about' in url:
-                    url_has_slash = url.endswith('/')
+                    # Strip URL fragment (#article, #faq, ...) — fragments are
+                    # entity identifiers, not path segments, so exclude them from
+                    # the trailing-slash comparison.
+                    url_has_slash = url.split('#')[0].endswith('/')
                     canonical_has_slash = canonical_url.rstrip('/') + '/' == canonical_url if canonical_url.endswith('/') else canonical_url == canonical_url.rstrip('/')
                     if url_has_slash != canonical_has_slash:
                         slash_mismatches.append(url)

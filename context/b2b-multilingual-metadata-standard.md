@@ -1,6 +1,6 @@
 # B2B 多语言文章元数据标准 (v2.0)
 
-**适用范围**: EN / DE / ES / FR 所有 B2B 博客文章
+**适用范围**: EN / DE / ES / FR / RU / PL 所有 B2B 博客文章
 **最后更新**: 2026-07-29
 
 ---
@@ -18,10 +18,13 @@
       "@id": "{ORGANIZATION_ID}",
       "name": "WOWOHCOOL",
       "legalName": "Dong Yi Technology Co., Ltd",
+      "foundingDate": "{FOUNDING_DATE}",
+      "vatID": "{VAT_ID}",
       "url": "{ORGANIZATION_URL}",
       "publishingPrinciples": "{ORGANIZATION_URL}",
       "logo": { "@type": "ImageObject", "url": "https://www.wowohcool.com/image/wowohcool-logo-optimized.webp" },
       "areaServed": ["US", "DE", "AT", "CH", "UK", "FR", "ES", "PL", "EU", "JP", "KR", "AU", "MX", "CO", "AR", "CL", "PE", "RU", "KZ", "BY", "EAEU"],
+      "knowsAbout": ["{ORG_KNOWS_ABOUT_1}", "{ORG_KNOWS_ABOUT_2}", "{ORG_KNOWS_ABOUT_3}"],
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "{STREET_ADDRESS}",
@@ -41,7 +44,7 @@
         "contactType": "OEM/ODM Sales",
         "telephone": "{SALES_TELEPHONE}",
         "email": "{SALES_EMAIL}",
-        "availableLanguage": ["English", "German", "Chinese"]
+        "availableLanguage": ["English", "German", "Spanish", "French", "Russian", "Polish"]
       }
     },
     {
@@ -71,7 +74,7 @@
       "datePublished": "{PUBLISH_DATE}",
       "dateModified": "{MODIFIED_DATE}",
       "mainEntityOfPage": { "@type": "WebPage", "@id": "{CANONICAL_URL}" },
-      "wordCount": 0,
+      "wordCount": {ACTUAL_WORD_COUNT},
       "inLanguage": "{LANG}",
       "timeRequired": "{TIME_REQUIRED}",
       "articleSection": "{ARTICLE_CATEGORY}",
@@ -131,16 +134,16 @@
 
 ## 二、占位符语言映射表
 
-| 占位符 | DE | EN | ES | FR | RU |
-|--------|-----|-----|-----|-----|-----|
-| `{LANG}` | `de-DE` | `en-US` | `es-ES` | `fr-FR` | `ru-RU` |
-| `{ORGANIZATION_ID}` | `https://www.wowohcool.com/#organization` | `https://www.wowohcool.com/#organization` | `https://www.wowohcool.com/#organization` | `https://www.wowohcool.com/#organization` | `https://www.wowohcool.com/#organization` |
-| `{ORGANIZATION_URL}` | `https://www.wowohcool.com/de/ueber-uns/` | `https://www.wowohcool.com/about/` | `https://www.wowohcool.com/es/sobre-nosotros/` | `https://www.wowohcool.com/fr/a-propos/` | `https://www.wowohcool.com/ru/o-kompanii/` |
-| `{WEBSITE_ID}` | `https://www.wowohcool.com/#website` | `https://www.wowohcool.com/#website` | `https://www.wowohcool.com/#website` | `https://www.wowohcool.com/#website` | `https://www.wowohcool.com/#website` |
-| `{SITE_URL}` | `https://www.wowohcool.com/de/` | `https://www.wowohcool.com/` | `https://www.wowohcool.com/es/` | `https://www.wowohcool.com/fr/` | `https://www.wowohcool.com/ru/` |
-| `{SITE_NAME}` | `WOWOHCOOL Deutschland` | `WOWOHCOOL` | `WOWOHCOOL España` | `WOWOHCOOL France` | `WOWOHCOOL Россия` |
-| `{HOME_LABEL}` | `Startseite` | `Home` | `Inicio` | `Accueil` | `Главная` |
-| `{BLOG_URL}` | `https://www.wowohcool.com/de/blog/` | `https://www.wowohcool.com/blog/` | `https://www.wowohcool.com/es/blog/` | `https://www.wowohcool.com/fr/blog/` | `https://www.wowohcool.com/ru/blog/` |
+| 占位符 | DE | EN | ES | FR | RU | PL |
+|--------|-----|-----|-----|-----|-----|-----|
+| `{LANG}` | `de-DE` | `en-US` | `es-ES` | `fr-FR` | `ru-RU` | `pl-PL` |
+| `{ORGANIZATION_ID}` | `https://www.wowohcool.com/#organization` | `https://www.wowohcool.com/#organization` | `https://www.wowohcool.com/#organization` | `https://www.wowohcool.com/#organization` | `https://www.wowohcool.com/#organization` | `https://www.wowohcool.com/#organization` |
+| `{ORGANIZATION_URL}` | `https://www.wowohcool.com/de/ueber-uns/` | `https://www.wowohcool.com/about/` | `https://www.wowohcool.com/es/sobre-nosotros/` | `https://www.wowohcool.com/fr/a-propos/` | `https://www.wowohcool.com/ru/o-kompanii/` | `https://www.wowohcool.com/pl/o-nas/` |
+| `{WEBSITE_ID}` | `https://www.wowohcool.com/#website` | `https://www.wowohcool.com/#website` | `https://www.wowohcool.com/#website` | `https://www.wowohcool.com/#website` | `https://www.wowohcool.com/#website` | `https://www.wowohcool.com/#website` |
+| `{SITE_URL}` | `https://www.wowohcool.com/de/` | `https://www.wowohcool.com/` | `https://www.wowohcool.com/es/` | `https://www.wowohcool.com/fr/` | `https://www.wowohcool.com/ru/` | `https://www.wowohcool.com/pl/` |
+| `{SITE_NAME}` | `WOWOHCOOL Deutschland` | `WOWOHCOOL` | `WOWOHCOOL España` | `WOWOHCOOL France` | `WOWOHCOOL Россия` | `WOWOHCOOL Polska` |
+| `{HOME_LABEL}` | `Startseite` | `Home` | `Inicio` | `Accueil` | `Главная` | `Strona główna` |
+| `{BLOG_URL}` | `https://www.wowohcool.com/de/blog/` | `https://www.wowohcool.com/blog/` | `https://www.wowohcool.com/es/blog/` | `https://www.wowohcool.com/fr/blog/` | `https://www.wowohcool.com/ru/blog/` | `https://www.wowohcool.com/pl/blog/` |
 
 > **@id 规则（区别于 URL）**：`{ORGANIZATION_ID}` / `{WEBSITE_ID}` / `{AUTHOR_ID}` 全站唯一、**不带语言前缀**（如 `https://www.wowohcool.com/#organization`）——它们是实体标识符，指同一家公司，不是页面 URL。而 `{ORGANIZATION_URL}` 指向本地化 about 页，**必须带语言前缀**（如 `/de/ueber-uns/`）。
 
@@ -149,7 +152,7 @@
 | 占位符 | 说明 | 示例（DE） |
 |--------|------|-----------|
 | `{H1_TITLE}` | H1 标题，50-65 字符，**不含品牌后缀**（`\| WOWOHCOOL` 仅用于 `<title>`） | `Ladegerät-Fabrik China: Audit-Leitfaden für Importeure 2026` |
-| `{META_DESCRIPTION}` | Meta 描述，150-160 字符 | `Ladegerät-Fabrik China: WPC/Qi2-Audit, FOD-Test...` |
+| `{META_DESCRIPTION}` | Meta 描述，120-155 字符 | `Ladegerät-Fabrik China: WPC/Qi2-Audit, FOD-Test...` |
 | `{ARTICLE_SHORT_TITLE}` | 面包屑短标题 | `Fabrikauswahl China` |
 | `{CANONICAL_URL}` | 完整 canonical URL（末尾带 `/`） | `https://www.wowohcool.com/de/blog/fabrikauswahl-china-leitfaden/` |
 | `{PUBLISH_DATE}` | 发布日期 `YYYY-MM-DD` | `2026-04-21` |
@@ -172,7 +175,7 @@
 | `{HOWTO_DESC}` | HowTo 简述 | `Schritt-für-Schritt-Verfahren zur Verifikation...` |
 | `{HOWTO_TOTAL_TIME}` | HowTo 总耗时 (ISO 8601) | `PT15M` |
 | `{CITE_1_NAME}` 等 | 权威引用源名称 + URL | `WPC Product Registry` / `https://www.wirelesspowerconsortium.com/products` |
-| `{FAQ_1_QUESTION}` 等 | FAQ 问答题对，5-8 条 | 见 §三 FAQ 8 规则 |
+| `{FAQ_1_QUESTION}` 等 | FAQ 问答题对，5-8 条 | 见 §三 FAQ 9 规则 |
 
 ### Organization 级固定字段（全站统一，不设占位符）
 | `{SERVICE_DESCRIPTION}` | 服务描述 | `End-to-end OEM/ODM charger manufacturing...` |
@@ -219,7 +222,7 @@
 5. ✅ `worksFor` 关联 Organization
 6. ✅ `knowsAbout` ≥3 个与文章主题匹配的专长领域
 
-### 3.4 FAQPage（8 条强制规则）
+### 3.4 FAQPage（9 条强制规则）
 
 | # | 规则 | 验证方法 |
 |---|------|---------|
@@ -230,7 +233,8 @@
 | 5 | **决策链排序** | 规格→认证→定价→采购流程 |
 | 6 | **量化答案** | 每条答案含 ≥1 个具体数字 |
 | 7 | **末题 = CTA 桥梁** | 最后 1 题自然过渡到买家行动 |
-| 8 | **交叉一致性** | FAQ 数据与 KERNERKENNTNISSE、正文三方一致 |
+| 8 | **格式差异化** | FAQ 用 50-150 字简明问答格式，与叙述性 H2 正文结构区分（同数据、不同呈现） |
+| 9 | **交叉一致性** | FAQ 数据与 KERNERKENNTNISSE、正文三方一致 |
 
 ### 3.5 HowTo（条件性 — 仅步骤类文章）
 
@@ -250,6 +254,12 @@
 - 政府/监管机构（Stiftung EAR, BMWK, EU）
 - 认证机构（TÜV, SGS, Bureau Veritas）
 - 官方数据库（NECIPS, IAF CertSearch）
+### 3.7 不在博客模板内的节点
+
+| 节点/字段 | 博客文章是否需要 | 说明 |
+|-----------|-----------------|------|
+| `SearchAction` | 否 | 功能已失效，非必需。不要在博客 JSON-LD 中添加。 |
+| `Product` / `Service` | 否 | 仅产品/服务页需要，博客文章模板不包含这两个节点。 |
 
 ---
 
@@ -297,14 +307,14 @@ print(f'Actual main content word count: {real_wc}')
 ```
  1. Hero Header      面包屑→标签→H1→Compact Author Bar→日期行
  2. The Hook         引入段落（≤2 段，开门见山）ⓢ
- 3. Featured Image   封面图 2240×1260，srcset 三档响应式
+ 3. Featured Image   封面图 2240×1260，<img src> only（NO srcset/sizes，无 variant 文件）
  4. Key Takeaways    KERNERKENNTNISSE，amber 卡片，3-5 条要点 + TL;DR ⓢ
  5. Key Metrics      可选，数据指标卡片
  6. Table of Contents 含 #faq 锚点
  7. Factory Data     工厂数据卡片（面积/员工/R&D/产能/认证）ⓕ
  8. H2 Sections ×N   标准灰底卡片，嵌入式 Expert Insight + Factory Stat
  9. Conclusion       可选，依文章而定 — 总结 + 实操流程，不含重复链接 ⓕ
-10. FAQ               id="faq"，8 条规则
+10. FAQ               id="faq"，9 条规则
 11. Author Bio        id="author-bio"，含 Factory Footprint
 12. CTA               渐变背景，2 按钮：主 CTA + OEM/ODM Service
 13. Related Articles  id="related-articles"
@@ -334,11 +344,11 @@ DE 文章在标准结构基础上增加以下板块（位置见 §5.1）：
 [ ] KERNERKENNTNISSE 含 3-5 条量化要点
 [ ] HowTo Schema 已添加（如有步骤流程）
 [ ] 图片 alt text 含 B2B 关键词
-[ ] 封面图 srcset 三档（800w/1200w/2240w）+ loading="eager" + fetchpriority="high"
+[ ] 封面图 <img src> only（NO srcset/sizes）+ loading="eager" + fetchpriority="high"
 [ ] dateModified 更新为当天日期
 [ ] wordCount 为整数（无引号），且通过 §四 验证
 [ ] FAQ body-schema 逐字一致（§三 Rule 1）
-[ ] FAQ 8 条全部通过 WebSearch 验证（§三 Rule 2）
+[ ] FAQ 9 条全部通过 WebSearch 验证（§三 Rule 2）
 [ ] ≥2 外部权威链接（rel="noopener noreferrer"）
 [ ] ≥3 内部链接到产品页/服务页/相关文章
 [ ] ≥3 citation 条（来自行业标准/政府/认证机构）
@@ -389,5 +399,5 @@ grossiste, OEM/ODM
 
 | 版本 | 日期 | 变更 |
 |------|------|------|
-| v2.0 | 2026-07-29 | Organization 增强（address, foundingDate, vatID, knowsAbout, telephone/email）；BlogPosting.author 改为 @id 引用去重；新增 Product/Service 节点；WebSite 增加 SearchAction；wordCount 占位符改名 {ACTUAL_WORD_COUNT}；Person 增加 @id；HowTo/FAQPage 增加 @id；移除 Quick Answer 板块；SCHNELLANTWORT 标记废弃 |
+| v2.0 | 2026-07-29 | Organization 增强（address, foundingDate, vatID, knowsAbout, telephone/email）；BlogPosting.author 改为 @id 引用去重；移除博客模板中的 Product/Service 节点，SearchAction 标记为已失效非必需；wordCount 占位符改名 {ACTUAL_WORD_COUNT}；Person 增加 @id；HowTo/FAQPage 增加 @id；移除 Quick Answer 板块；SCHNELLANTWORT 标记废弃 |
 | v1.0 | 2026-07-27 | 初始版本。合并 EN 模板 + DE 优化，统一 4 语言映射表、完整 JSON-LD 模板、FAQ 8 规则、wordCount 验证方法、B2B 质量门清单 |

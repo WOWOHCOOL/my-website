@@ -1,14 +1,18 @@
 # Write-B2B Command
 
-Use this command to create B2B-optimized blog articles that output directly as `.njk` templates matching the WOWOHCOOL 13-panel standard. No markdown-to-.njk conversion step needed.
+Use this command to create B2B-optimized blog articles that output directly as `.njk` templates matching the WOWOHCOOL 15-panel standard. No markdown-to-.njk conversion step needed.
 
-**Canonical template reference**: `B2B实操指南.md` §十二
+**Canonical authority system** (the 4-file B2B standard — these are the source of truth; anything inline below that conflicts with them yields to these files):
+- `@context/b2b-blog-quality-audit-standard.md` — Quality rules, 19 automated checks, scoring rubrics
+- `@context/blog-template-standard.md` — HTML layout, CSS classes, DOM structure, code examples
+- `@context/b2b-multilingual-metadata-standard.md` — JSON-LD design, language mappings, wordCount verification
+- `@context/b2b-schema-template.json` — Production JSON-LD template, `json.load()` valid after placeholder substitution
 
 ## Usage
 `/write-b2b [topic or research brief]`
 
 ## What This Command Does
-1. Creates a complete `.njk` article file matching the 13-panel B2B standard
+1. Creates a complete `.njk` article file matching the 15-panel B2B standard
 2. Embeds full Schema 7-node @graph (Organization / WebSite / BreadcrumbList / BlogPosting / Person / HowTo / FAQPage)
 3. Applies all 5 B2B quality gates inline during writing
 4. Outputs directly to the appropriate language blog directory
@@ -19,6 +23,9 @@ Use this command to create B2B-optimized blog articles that output directly as `
   - `context/brand-voice.md` — 5 voice pillars (Factory Authority, Technical Precision, Solution-Oriented, Global Trust, Innovation Forward)
   - `context/factory-data-canonical.md` — All factory data claims (MOQ, pricing, lead times, QC metrics, certifications)
   - `context/b2b-blog-quality-audit-standard.md` — B2B quality rules and scoring
+  - `context/blog-template-standard.md` — HTML layout, CSS classes, DOM structure
+  - `context/b2b-multilingual-metadata-standard.md` — JSON-LD design, language mappings
+  - `context/b2b-schema-template.json` — Production JSON-LD template
   - `context/target-keywords.md` — Keyword clusters and forbidden B2C keywords
   - `context/internal-links-map.md` — Internal linking targets
   - `context/image-assets.md` — Reusable factory/product images + alt localization + 插图数量规则
@@ -32,7 +39,7 @@ The output is a complete `.njk` file. Do NOT output markdown. The file follows t
 ```yaml
 ---
 title: "H1 Title with B2B Signal Word | WOWOHCOOL"
-lang: "fr"                              # de | en | es | fr | ru
+lang: "fr"                              # de | en | es | fr | ru | pl
 description: "Meta description 120-155 chars with B2B conversion word"
 date: YYYY-MM-DD
 modified: YYYY-MM-DD
@@ -71,7 +78,7 @@ Must be the FIRST block after frontmatter, inside `{% block head_schema %}`:
 
 **Critical rules**:
 - `Organization.areaServed` = `["US","DE","AT","CH","UK","FR","ES","PL","EU","JP","KR","AU","MX","CO","AR","CL","PE","RU","KZ","BY","EAEU"]` — global list, NEVER single-region
-- `BlogPosting.author` = `{"@id": "https://www.wowohcool.com/#author-id"}` — NEVER inline Person
+- `BlogPosting.author` = `{"@id": "https://www.wowohcool.com/#snowy-may"}` or `{"@id": "https://www.wowohcool.com/#nina-nico"}` — see Author @id Reference below, NEVER inline Person
 - `Person.worksFor` = `{"@id": "https://www.wowohcool.com/#organization"}` — NEVER inline Organization
 - **Shared entity @ids (#organization / #website / #author) have NO language prefix** — use `https://www.wowohcool.com/#...` in ALL languages (same global entity). Only article-level @ids (`#article` / `#faq`) and URL/path fields (Organization.url, Breadcrumb item, canonical, ogImage) keep the `{lang}/` prefix.
 - `BlogPosting.speakable.cssSelector` = `["h1", ".speakable"]` — NEVER use `["h1", "h2"]`
@@ -82,7 +89,7 @@ Must be the FIRST block after frontmatter, inside `{% block head_schema %}`:
 - `wordCount` = integer, no quotes
 - `datePublished` = first publish date (never changes), `dateModified` = today
 
-### HTML Body — 13 Panels (Fixed Order)
+### HTML Body — 15 Panels (Fixed Order)
 
 ```html
 {% block content %}
@@ -151,7 +158,18 @@ Must be the FIRST block after frontmatter, inside `{% block head_schema %}`:
  </div>
 </div>
 
-<!-- ===== [5] Table of Contents ===== -->
+<!-- ===== [5] Key Metrics (optional) ===== -->
+<div class="max-w-4xl mx-auto px-6">
+ <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+   <div class="bg-white rounded-xl p-5 border border-slate-200 text-center">
+     <p class="text-2xl font-black text-brandBlue">58.3°C</p>
+     <p class="text-xs text-slate-500 mt-1">{METRIC_1_LABEL}</p>
+   </div>
+   <!-- Repeat 2-4 metric cards; omit section entirely when not applicable -->
+ </div>
+</div>
+
+<!-- ===== [6] Table of Contents ===== -->
 <div class="max-w-4xl mx-auto px-6">
  <div class="bg-brandBlue rounded-2xl p-8 text-white mb-12">
    <h2 class="text-lg font-black uppercase italic mb-6">{TOC_TITLE}</h2>
@@ -163,7 +181,20 @@ Must be the FIRST block after frontmatter, inside `{% block head_schema %}`:
  </div>
 </div>
 
-<!-- ===== [6] H2 Sections × N ===== -->
+<!-- ===== [7] Factory Data ===== -->
+<div class="max-w-4xl mx-auto px-6">
+ <div class="bg-slate-50 rounded-xl p-6 border border-slate-200 shadow-sm mb-12">
+   <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-6">{FACTORY_DATA_TITLE}</h2>
+   <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
+     <div><span class="font-black text-brandBlue">5 000 m²</span><p class="text-xs text-slate-500">{FACTORY_AREA_LABEL}</p></div>
+     <div><span class="font-black text-brandBlue">{SINCE_LABEL}</span><p class="text-xs text-slate-500">Shenzhen, Chine</p></div>
+     <div><span class="font-black text-brandBlue">50+</span><p class="text-xs text-slate-500">{COUNTRIES_LABEL}</p></div>
+     <div><span class="font-black text-brandBlue">50+ R&D</span><p class="text-xs text-slate-500">{ENGINEERS_LABEL}</p></div>
+   </div>
+ </div>
+</div>
+
+<!-- ===== [8] H2 Sections × N ===== -->
 <section id="section-1" class="mb-16">
  <div class="max-w-4xl mx-auto px-6">
    <div class="bg-slate-50 rounded-xl p-6 border border-slate-200 shadow-sm">
@@ -182,7 +213,15 @@ Must be the FIRST block after frontmatter, inside `{% block head_schema %}`:
  </div>
 </section>
 
-<!-- ===== [7] FAQ ===== -->
+<!-- ===== [9] Conclusion (optional) ===== -->
+<section id="conclusion" class="max-w-4xl mx-auto px-6 mb-16">
+ <div class="bg-slate-50 rounded-xl p-6 border border-slate-200 shadow-sm">
+   <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-6">{CONCLUSION_TITLE}</h2>
+   <p class="text-slate-600 leading-relaxed mb-4">{CONCLUSION: recap + actionable next step, no internal links}</p>
+ </div>
+</section>
+
+<!-- ===== [10] FAQ ===== -->
 <section id="faq" class="mb-16">
  <div class="max-w-4xl mx-auto px-6">
    <div class="bg-slate-50 rounded-2xl p-8 border border-slate-200 shadow-sm">
@@ -198,7 +237,7 @@ Must be the FIRST block after frontmatter, inside `{% block head_schema %}`:
  </div>
 </section>
 
-<!-- ===== [8] Author Bio ===== -->
+<!-- ===== [11] Author Bio ===== -->
 <section id="author-bio" class="max-w-4xl mx-auto px-6">
  <div class="bg-slate-50 rounded-2xl p-6 md:p-8 mb-12 border border-slate-100">
    <div class="flex flex-col sm:flex-row items-start gap-4 sm:gap-6">
@@ -227,7 +266,7 @@ Must be the FIRST block after frontmatter, inside `{% block head_schema %}`:
  </div>
 </section>
 
-<!-- ===== [9] CTA ===== -->
+<!-- ===== [12] CTA ===== -->
 <section class="max-w-4xl mx-auto px-6">
  <div class="relative bg-gradient-to-br from-brandBlue to-slate-800 rounded-3xl p-10 text-center mb-16 overflow-hidden">
    <div class="absolute top-0 right-0 w-64 h-64 bg-brandOrange/20 rounded-full blur-3xl"></div>
@@ -243,7 +282,7 @@ Must be the FIRST block after frontmatter, inside `{% block head_schema %}`:
  </div>
 </section>
 
-<!-- ===== [10] Related Articles ===== -->
+<!-- ===== [13] Related Articles ===== -->
 <aside id="related-articles" class="max-w-4xl mx-auto px-6 mb-16">
  <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-6">{RELATED_TITLE}</h2>
  <div class="grid md:grid-cols-3 gap-6">
@@ -259,7 +298,7 @@ Must be the FIRST block after frontmatter, inside `{% block head_schema %}`:
  </div>
 </aside>
 
-<!-- ===== [11] Sources ===== -->
+<!-- ===== [14] Sources ===== -->
 <section class="max-w-4xl mx-auto px-6 mb-16">
  <h2 class="text-lg font-black text-brandBlue uppercase italic mb-4">{SOURCES_TITLE}</h2>
  <ul class="text-sm text-slate-600 space-y-2 list-disc pl-5">
@@ -271,7 +310,7 @@ Must be the FIRST block after frontmatter, inside `{% block head_schema %}`:
 
 </article>
 
-<!-- ===== [12] Blog CTA Partial ===== -->
+<!-- ===== [15] Blog CTA Partial ===== -->
 {%- set ctaLabel = "{CTA_LABEL}" %}
 {%- set ctaHeading1 = "{CTA_HEADING1}" %}
 {%- set ctaHeading2 = "{CTA_HEADING2}" %}
@@ -299,7 +338,7 @@ Must be the FIRST block after frontmatter, inside `{% block head_schema %}`:
 - **H1**: 50-65 chars, must contain ≥1 B2B signal word (OEM, manufacturer, factory, supplier, importer, sourcing, MOQ, FOB, B2B)
 - **H2**: organized by procurement decision chain (Why → What to verify → How it's done → What it costs → How to comply), ≥2 H2s with B2B signal words
 - **H3**: specific — prefer question format or data conclusions, never vague labels
-- **H3 answer**: 60-500 char direct answer or comparison table immediately after each H3
+- **H3 answer**: ≤150 char first-sentence conclusion (answer-first) or comparison table immediately after each H3
 - No empty H2s (every H2 must have ≥1 H3)
 
 ### Gate 4: Visual Authenticity + 插图数量（不可跳过）
@@ -385,6 +424,6 @@ Save directly to the site source directory:
 
 ## Automatic Next Steps
 After saving the .njk file, immediately:
-1. Run `/b2b-audit [file]` to verify 18 B2B quality checks
+1. Run `/b2b-audit [file]` to verify 19 B2B quality checks
 2. Report score — fix critical issues if < 90
 3. Remind user: `/scrub` + `git push` when ready

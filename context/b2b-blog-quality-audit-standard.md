@@ -1,6 +1,6 @@
 # B2B Blog Quality Audit Standard 2026
 
-**Applies to**: All WOWOHCOOL sites (DE, EN, ES, FR)
+**Applies to**: All WOWOHCOOL sites (DE, EN, ES, FR, RU, PL)
 **Last Updated**: 2026-07-30
 **Based on**: Google Helpful Content System, E-E-A-T, Information Gain Patent, AI Overviews/SearchGPT/Perplexity
 
@@ -186,7 +186,7 @@ H3s must be **extremely specific** — preferably phrased as a question or a dat
 ✅ H4: "Why Keeping the Housing Under 65°C Prevents GS-Zeichen Rejection"
 ```
 
-**The Golden Rule**: Immediately after every H3/H4, deliver the **direct answer in 100–150 characters** OR a comparison table. This is the prime position Google scrapes for Featured Snippets and AI citations.
+**The Golden Rule (answer-first)**: Immediately after every H3/H4, open with a **self-contained first sentence ≤150 characters** stating the direct conclusion — this is the prime position Google scrapes for Featured Snippets and AI citations. The rest of the paragraph may then expand freely with data points and detail. Alternatively, lead with a comparison table.
 
 **DOM Structural Rule — Direct Sibling**: The first `<p>` after each H3 must be a **direct sibling** in the DOM tree. Nothing may be inserted between `<h3>` and its answer `<p>`:
 
@@ -507,7 +507,7 @@ FAQPage.speakable     → [".faq-answer"]       ← 独立管理，5-8 FAQ answe
 
 **选择器规范**: 统一使用 `.speakable` CSS class（不再使用 `data-speakable` 属性选择器）。理由：(1) CSS class 选择器解析效率高于属性选择器，(2) 语义更清晰——Schema 锚点与样式挂钩逻辑一致，(3) 与 FAQPage 的 `.faq-answer` 命名风格一致。
 
-**H3 后的 100-150 字符直接回答保留**（内容结构要求，确保 Featured Snippet 抓取位），但**不加 `.speakable`**——它们的提取权重不应与核心 3 节点竞争。
+**H3 后的第一句 ≤150 字符直接结论保留**（内容结构要求，确保 Featured Snippet 抓取位），但**不加 `.speakable`**——它们的提取权重不应与核心 3 节点竞争。
 
 **内容不重叠规则**：Hook 和 Key Takeaways TL;DR 必须承载**完全不同类型**的信息。Hook = 痛点场景（"为什么你需要读这篇文章"），Key Takeaways = 核心结论（"读完你能得到什么"）。验证方法：去掉 Key Takeaways，文章的核心结论是否仍然完整？如果是 → Hook 写得太像总结，需要加重痛点元素。
 
@@ -695,15 +695,15 @@ B2B procurement is a long-cycle decision. No one reads one article and clicks "B
 
 ---
 
-## VI. B2B Content Audit: 13 Automated Checks
+## VI. B2B Content Audit: 19 Automated Checks
 
-The `b2b_content_auditor.py` module performs 13 automated checks against these standards:
+The `b2b_content_auditor.py` module performs 19 automated checks against these standards:
 
 | # | Check | What It Measures | Scoring |
 |---|-------|-----------------|---------|
 | 1 | **Opening Density** | First 2-3 sentences deliver core conclusion (no fluff preamble) | Fluff pattern -30/ea, no conclusion signal -40 |
 | 2 | **KEY TAKEAWAYS Block** | Structured summary block present above fold | Full block = 100, list only = 60, absent = 0 |
-| 3 | **H3 Answer Length** | 100-150 char direct answer after each H3/H4 | Compliance ratio = score |
+| 3 | **H3 Answer Length** | ≤150 char first-sentence conclusion after each H3/H4 (answer-first) | Compliance ratio = score |
 | 4 | **Vague Headings** | Label-style headings flagged (e.g., "Introduction", "Specifications") | -15 per detection |
 | 5 | **H2 B2B Density** | Density within tiered range + adjacency + vocabulary rotation | In range = 100, out = 60 |
 | 6 | **Data Density** | Precise numbers + engineering units (°C, mV, kHz, Wh/kg, mm, €, $) per 1,000 words | ≥3/k = 100, 2-2.9 = 70 (warning), 1-1.9 = 40, <1 = 10 (critical) |
@@ -714,15 +714,12 @@ The `b2b_content_auditor.py` module performs 13 automated checks against these s
 | 11 | **Weak CTA Detection** | Flag ineffective B2B CTAs | Good = 100, weak = 40-60, absent = 20 |
 | 12 | **Heading Hierarchy** | Detect skipped levels (H1→H3, H2→H4) | -25 per skip |
 | 13 | **URL Quality** | Flag underscores, uppercase, dates, stop words. Staged word count: 3-6=pass, 7-8=minor warning (-10), ≥9=deduction (-20) | Deduct per violation |
-| 14 | **Schema Validation** | Parse JSON-LD for syntax errors, missing required fields, trailing-slash consistency, `.speakable` class ↔ `SpeakableSpecification` alignment, TOC-FAQ anchor match. **v2 required fields**: Organization (`legalName`, `url`, `publishingPrinciples`, `logo`, `contactPoint`, `address`, `telephone`, `email`), Person (`@id`, `sameAs`), BlogPosting (`author` as `@id` ref, not inline Person; `@id`; `keywords`; `articleSection`), FAQPage (independent `speakable: [".faq-answer"]`), HowTo (`@id`) | Syntax error = -30, missing field = -15/ea, slash mismatch = -10, speakable mismatch = -5/-10, TOC-FAQ mismatch = -5/-10, inline author = -10, missing Organization address/phone/email = -5~10 |
-| 15 | **RESPUESTA RÁPIDA Detection** | Search for "RESPUESTA RÁPIDA" / "SCHNELLANTWORT" / "Quick Answer" blocks in HTML — duplicate of Key Takeaways, forbidden | Present = -25 (automatic deletion recommended) |
-| 16 | **Hook Duplicate Detection** | Scan Hook paragraph for repeated `<strong>`-tagged statistics or near-identical clauses within the same paragraph | Duplicate found = -15 |
-| 17 | **Featured Image NO srcset** | Cover image must use `<img src="{IMAGE}">` only — NO `srcset`, NO `sizes`, NO variant (`-800`/`-1200`) files. Variant files don't exist and cause 404s for AI crawlers. | `srcset` present = -15, variant URL present = -15 |
-| 18 | **Organization Contact Completeness** | Organization node must include `address` (PostalAddress: streetAddress + addressLocality + addressRegion + postalCode + addressCountry), `contactPoint.telephone`, and `contactPoint.email`. B2B trust signal — missing fields weaken entity verification | Missing address = -10, missing telephone = -5, missing email = -5 |
-| 19 | **Citation ↔ Fuentes Alignment** | Schema `citation` array count must match visible Sources/Fuentes section link count. AI engines scan citation array directly for authority signals; under-reporting wastes GEO opportunities | Count mismatch = -10 |
-| 20 | **timeRequired ↔ Visible Display** | Schema `timeRequired` (ISO 8601) must match the visible reading time shown in the date row. Inconsistency is flagged as structured-data/visible-content mismatch by AI crawlers | Mismatch = -5 |
-| 21 | **Person @id Dedup** | `BlogPosting.author` must use `{ "@id": "{AUTHOR_ID}" }` reference, NOT an inline Person object. A separate Person node with matching `@id` must exist. Inline duplication creates ghost entities that weaken AI author credibility signals | Inline author = -10, missing Person @id = -10 |
-| 22 | **worksFor @id Reference** | Person `worksFor` must use `{ "@id": "{ORGANIZATION_ID}" }`, NOT an inline Organization object. Inline creates a phantom Organization entity disconnected from the main one | Inline worksFor = -5 |
+| 14 | **Cross-Reference Consistency** | TL;DR, body, and FAQ numbers/data must agree (Rule 9) | Discrepancy = -20/ea |
+| 15 | **Schema Validation** | Parse JSON-LD for syntax errors, missing required fields, trailing-slash consistency, `.speakable` ↔ `SpeakableSpecification` alignment, TOC-FAQ anchor match. **v2 required fields**: Organization (`legalName`, `url`, `publishingPrinciples`, `logo`, `contactPoint`, `address`, `telephone`, `email`), Person (`@id`, `sameAs`), BlogPosting (`author` as `@id` ref, not inline Person; `@id`; `keywords`; `articleSection`), FAQPage (independent `speakable: [".faq-answer"]`), HowTo (`@id`). Sub-rules: Organization contact completeness (missing address = -10, telephone = -5, email = -5); citation count = visible Sources/Fuentes link count (mismatch = -10); `timeRequired` = visible reading time (mismatch = -5); Person `@id` dedup (inline author = -10, missing Person @id = -10); `worksFor` as `@id` ref (inline = -5) | Syntax = -30, missing field = -15/ea, slash mismatch = -10, speakable mismatch = -5/-10, TOC-FAQ mismatch = -5/-10 |
+| 16 | **Factory Data Canonical** | MOQ, lead time, deposit, and certification claims must match `factory-data-canonical.md` | Canonical violation = -15/ea |
+| 17 | **Static HTML Quality** | Featured image `<img src>` only (NO `srcset`/`sizes`/variant files), `fetchpriority`, `.speakable`, TOC anchor bugs. Sub-rule: no RESPUESTA RÁPIDA / SCHNELLANTWORT / Quick Answer block (present = -25) | `srcset` present = -15, variant URL = -15, per violation |
+| 18 | **Anti-Pattern Detection** | Hook duplicate statistics/clauses (-15), TL;DR duplicates, cross-link overlap, data-dump intro | -10~25/ea |
+| 19 | **Accent/Spelling (i18n)** | Language-specific accent/spelling correctness (de/es/fr) | Per violation |
 
 ---
 
@@ -831,7 +828,7 @@ Before publishing, verify all elements:
 | **Meta Description** | 120-155 chars, [pain]+[solution]+[low-friction CTA], keyword included | Manual (length checked) |
 | **H1** | 50-65 chars, ≥1 B2B signal word | 🤖 |
 | **H2** | 4-7 sections, B2B density in tier range, conclusion-style, no consecutive same-word, no skipped levels | 🤖 |
-| **H3** | Belongs to parent H2, specific question/data conclusion, 100-150 char answer after | 🤖 |
+| **H3** | Belongs to parent H2, specific question/data conclusion, ≤150 char first-sentence answer after | 🤖 |
 | **H4** | Belongs to parent H3, no level skipping | Manual |
 | **KEY TAKEAWAYS Block** | Present above fold, 3-5 bullet conclusions, uppercase label | 🤖 |
 | **Tables** | Technical parameters in Markdown tables | 🤖 |
@@ -1032,7 +1029,7 @@ SSG templates (11ty Nunjucks, Hugo Go, Astro JSX) must use the build-time `site.
 
 ### 12.3 Multi-Language hreflang & Schema inLanguage
 
-For multi-language B2B sites (DE/EN/ES/FR), every article must declare bidirectional `<link rel="alternate" hreflang="...">` tags in `<head>` to prevent cross-language canonical confusion:
+For multi-language B2B sites (DE/EN/ES/FR/RU/PL), every article must declare bidirectional `<link rel="alternate" hreflang="...">` tags in `<head>` to prevent cross-language canonical confusion:
 
 ```html
 <!-- In de/blog/slug/index.njk → rendered in <head> -->
@@ -1040,10 +1037,12 @@ For multi-language B2B sites (DE/EN/ES/FR), every article must declare bidirecti
 <link rel="alternate" hreflang="en-US" href="https://www.wowohcool.com/blog/slug/" />
 <link rel="alternate" hreflang="es-ES" href="https://www.wowohcool.com/es/blog/slug/" />
 <link rel="alternate" hreflang="fr-FR" href="https://www.wowohcool.com/fr/blog/slug/" />
+<link rel="alternate" hreflang="ru-RU" href="https://www.wowohcool.com/ru/blog/slug/" />
+<link rel="alternate" hreflang="pl-PL" href="https://www.wowohcool.com/pl/blog/slug/" />
 <link rel="alternate" hreflang="x-default" href="https://www.wowohcool.com/blog/slug/" />
 ```
 
-**Rule**: Every article MUST include the full cross-language `hreflang` set in `<head>`. The `BlogPosting` Schema MUST include `"inLanguage": "de-DE"` (or `en-US`, `es-ES`, `fr-FR`) matching the hreflang value. Without this, Google treats the 4 language versions as competing duplicate pages rather than a legitimate multi-region cluster — splitting ranking signals across languages and potentially triggering duplicate-content penalties.
+**Rule**: Every article MUST include the full cross-language `hreflang` set in `<head>`. The `BlogPosting` Schema MUST include `"inLanguage": "de-DE"` (or `en-US`, `es-ES`, `fr-FR`, `ru-RU`, `pl-PL`) matching the hreflang value. Without this, Google treats the 6 language versions as competing duplicate pages rather than a legitimate multi-region cluster — splitting ranking signals across languages and potentially triggering duplicate-content penalties.
 
 ### 12.4 Static Asset Integrity for GEO
 
@@ -1066,7 +1065,7 @@ Verify with `curl -I https://www.wowohcool.com/de/blog/slug` → must return `30
 
 ## XIII. Accessibility Compliance (WCAG 2.2 + EAA)
 
-**Regulatory context**: The European Accessibility Act (EAA, Directive 2019/882) entered into force on **June 28, 2025** with compliance enforcement beginning **June 28, 2026**. For B2B content targeting EU markets (DE/AT/CH/ES/FR), the following minimum requirements apply to all blog articles:
+**Regulatory context**: The European Accessibility Act (EAA, Directive 2019/882) entered into force on **June 28, 2025** with compliance enforcement beginning **June 28, 2026**. For B2B content targeting EU markets (DE/AT/CH/ES/FR/PL), the following minimum requirements apply to all blog articles:
 
 ### Mandatory Checks
 
@@ -1153,5 +1152,5 @@ The following items are added to the §X Full-Element Pre-Publish Checklist:
 [ ] Core Web Vitals: LCP ≤ 2.5s, INP ≤ 200ms, CLS ≤ 0.1 (Lab: LCP ≤ 1.8s)
 [ ] WCAG: color contrast ≥ 4.5:1, keyboard navigation functional, heading hierarchy valid
 [ ] WCAG: all images have descriptive alt text
-[ ] EAA: page targets EU market (DE/AT/CH/ES/FR) → basic compliance verified
+[ ] EAA: page targets EU market (DE/AT/CH/ES/FR/PL) → basic compliance verified
 ```

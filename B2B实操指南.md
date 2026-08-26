@@ -41,7 +41,7 @@ B2B 质量门的改动是结构性的（H1 信号词、工厂数据密度、FAQ 
 /research [topic]                  ← 目标语言搜索（如西班牙语关键词，不是翻译英文 SERP）
     │
     ▼
-/write-b2b [topic]                   ← 🔴 直接产出 .njk 模板（Schema 7 节点 + 13 板块 + .speakable）
+/write-b2b [topic]                   ← 🔴 直接产出 .njk 模板（Schema 7 节点 + 15 板块 + .speakable）
     │
     ▼
 /b2b-audit [file]                  ← 🔴 B2B 质量门 — 结构性检查（18 checks）
@@ -51,7 +51,7 @@ B2B 质量门的改动是结构性的（H1 信号词、工厂数据密度、FAQ 
     │   ├─ 补充工厂数据（对齐 factory-data-canonical.md）
     │   ├─ FAQ 改为 B2B 采购语言
     │   ├─ Schema 完整（7 节点，JSON-LD v2）
-    │   ├─ 12 板块结构到位
+    │   ├─ 15 板块结构到位
     │   ├─ 法规本土化（FR→DGCCRF, DE→Stiftung Warentest）
     │   └─ 竞争洞察嵌入 Hook
     │
@@ -114,7 +114,7 @@ B2B 质量门的改动是结构性的（H1 信号词、工厂数据密度、FAQ 
 
 | 命令 | 用途 | 产出 |
 |------|------|------|
-| `/write-b2b [topic]` | 🔴 直接创建 B2B .njk 文章（Schema 7 节点 + 13 板块 + .speakable） | `src/{lang}/blog/{slug}/index.njk` |
+| `/write-b2b [topic]` | 🔴 直接创建 B2B .njk 文章（Schema 7 节点 + 15 板块 + .speakable） | `src/{lang}/blog/{slug}/index.njk` |
 | `/b2b-audit [file]` | B2B 18 项质量检查 + 信息增益分析 | `audits/b2b-audit-*.md` |
 | `/research [topic]` | 关键词研究 + 竞品分析 + 写作简报（通用 SEO Machine） | `research/brief-*.md` |
 | `/optimize [file]` | 通用 SEO 精修（关键词密度、meta、内链、可读性） | `drafts/optimization-report-*.md` |
@@ -122,7 +122,7 @@ B2B 质量门的改动是结构性的（H1 信号词、工厂数据密度、FAQ 
 
 ---
 
-## 二、`/b2b-audit` 18 项自动检查
+## 二、`/b2b-audit` 19 项自动检查
 
 ### 内容质量 (Check 1-6)
 
@@ -130,7 +130,7 @@ B2B 质量门的改动是结构性的（H1 信号词、工厂数据密度、FAQ 
 |:--:|------|------|------|
 | 1 | Opening Density | 前 3 句直接结论, AI fluff 检测 | fluff -30/ea, 无结论 -40 |
 | 2 | TL;DR Block | KEY TAKEAWAYS amber 卡片存在 | 全块=100, 仅列表=60, 缺失=0 |
-| 3 | H3 Answer Length | 每个 H3 后 60-500 char 直接回答 | 合规比例=分数 |
+| 3 | H3 Answer Length | 每个 H3 后第一句 ≤150 char 结论（answer-first） | 合规比例=分数 |
 | 4 | Vague Headings | 标签式标题 ("Testing"), 结论式标题 | -15/ea |
 | 5 | H2 B2B Density | 分层密度 technical 10-40%, procurement 30-55%, oem_core 50-80% | 范围内=100 |
 | 6 | Data Density | >=3 精确数字+单位/1000 词 | 分级: >=3=100, 2-2.9=70, 1-1.9=40, <1=10 |
@@ -145,7 +145,7 @@ B2B 质量门的改动是结构性的（H1 信号词、工厂数据密度、FAQ 
 | 10 | Author E-E-A-T | 6 项: 姓名/职位/LinkedIn/作者页/头像/专长 | 每项 20pts |
 | 11 | Weak CTA | B2B 价值延续 vs B2C | Good=100 |
 
-### 技术与一致性 (Check 12-18)
+### 技术与一致性 (Check 12-19)
 
 | # | 检查 | 检测内容 | 扣分规则 |
 |:--:|------|------|------|
@@ -154,8 +154,9 @@ B2B 质量门的改动是结构性的（H1 信号词、工厂数据密度、FAQ 
 | 14 | Schema Validation | JSON-LD 语法+必填字段+斜杠+speakable 对齐 | 语法错 -30, 缺字段 -15 |
 | 15 | Cross-Reference | TL;DR vs 正文 vs FAQ 数据一致性 | 偏差 -20/ea |
 | 16 | Factory Data Canonical | 14 项工厂数据验证 | 偏差 -15/ea |
-| 17 | Static HTML Quality | srcset/fetchpriority/speakable/TOC bug | 逐项扣 |
+| 17 | Static HTML Quality | NO srcset/fetchpriority/speakable/TOC bug | 逐项扣 |
 | 18 | Anti-Pattern Detection | 4 类反模式 | 见下方 |
+| 19 | Accent/Spelling (i18n) | 语言专属重音/拼写正确性 | 逐项扣 |
 
 ### Check 18 反模式检测明细
 
@@ -175,7 +176,7 @@ B2B 质量门的改动是结构性的（H1 信号词、工厂数据密度、FAQ 
 | FAQ body-schema 逐字一致 | 精确文本对比 | 逐题对比正文 FAQ 与 JSON-LD |
 | 图片 alt 含 B2B 信号词 | 语义判断 | 检查 alt 属性 |
 | hreflang 四向映射 | cross-file | 检查 4 个文件的 enPath/dePath/esPath/frPath |
-| 12 板块排序 | 语义理解 | 对照下方板块顺序 |
+| 15 板块排序 | 语义理解 | 对照下方板块顺序 |
 | 工厂 moat 数据嵌入 | 自然语言 | 搜索 "200+ marques" / "4 etapes" / "0,3 %" / "100 %" |
 
 ---
@@ -194,21 +195,24 @@ B2B 质量门的改动是结构性的（H1 信号词、工厂数据密度、FAQ 
 [ ] FAQPage: @id + speakable[".faq-answer"](独立于 BlogPosting) + 8 questions(与正文逐字一致)
 ```
 
-### B. 12 板块结构（排序固定）
+### B. 15 板块结构（排序固定）
 
 ```
  1. Hero           <nav> 面包屑 → 3 个橙色 pill 标签 → H1(50-65, 含 B2B) → Compact Author Bar(头像+姓名+职位) → 日期行(<time datetime>, 无更新日期, 阅读时间, 作者名)
  2. Hook           .speakable, <=2 段, 嵌入竞争洞察 1 句
- 3. Featured Image srcset 三档 + fetchpriority="high"
+ 3. Featured Image <img src> only (NO srcset/sizes) + fetchpriority="high"
  4. Key Takeaways  amber 卡片, TL;DR .speakable, 3-5 bullet
- 5. TOC            bg-brandBlue, 含 #faq 锚点, !text-white 前必须有空格
- 6. H2 xN          bg-slate-50 rounded-xl p-6, 表格 bg-brandBlue thead
- 7. FAQ            id="faq", bg-slate-50 rounded-2xl, 8 题, 每答 >=1 数字, body-schema 逐字一致
- 8. Author Bio     id="author-bio", + Empreinte Usine(4 格: 5000m2 / Since 2013 / 50+ pays / 50+ R&D)
- 9. CTA            gradient from-brandBlue to-slate-800, 2 按钮, h2 标题
-10. Related        <aside>, card 格式, gradient bar, 3 张, 链接用语言前缀, 指向现有页面
-11. Sources        list-disc, 权威 rel="noopener external", 商业 rel="noopener noreferrer nofollow"
-12. blog-cta.njk   页面级 contact form
+ 5. Key Metrics    可选, 数据指标卡片
+ 6. TOC            bg-brandBlue, 含 #faq 锚点, !text-white 前必须有空格
+ 7. Factory Data   工厂数据卡片(面积/员工/R&D/产能/认证) ⓕ
+ 8. H2 xN          bg-slate-50 rounded-xl p-6, 表格 bg-brandBlue thead
+ 9. Conclusion     可选, 总结 + 实操流程, 不含重复链接 ⓕ
+10. FAQ            id="faq", bg-slate-50 rounded-2xl, 8 题, 每答 >=1 数字, body-schema 逐字一致
+11. Author Bio     id="author-bio", + Empreinte Usine(4 格: 5000m2 / Since 2013 / 50+ pays / 50+ R&D)
+12. CTA            gradient from-brandBlue to-slate-800, 2 按钮, h2 标题
+13. Related        <aside>, card 格式, gradient bar, 3 张, 链接用语言前缀, 指向现有页面
+14. Sources        list-disc, 权威 rel="noopener external", 商业 rel="noopener noreferrer nofollow"
+15. blog-cta.njk   页面级 contact form
 ```
 
 ### C. 研究数据落地
@@ -297,7 +301,7 @@ B2B 质量门的改动是结构性的（H1 信号词、工厂数据密度、FAQ 
 ### 结构 & 板块 (Gate 4)
 
 ```
-[ ] 12 板块顺序正确
+[ ] 15 板块顺序正确
 [ ] FAQ id="faq", 8 题, body-schema 逐字一致, 每答 >=1 数字
 [ ] Author Bio + Empreinte Usine (4 格)
 [ ] CTA gradient, 2 按钮, h2 标题
@@ -310,7 +314,7 @@ B2B 质量门的改动是结构性的（H1 信号词、工厂数据密度、FAQ 
 ```
 [ ] 无反模式 (Check 18 = 100)
 [ ] 图片 alt 含 B2B 信号词, 无 stock photo
-[ ] Featured Image srcset 三档 + fetchpriority="high"
+[ ] Featured Image <img src> only (NO srcset/sizes) + fetchpriority="high"
 [ ] hreflang 四向正确, 无旧 slug, 无缺 trailing /
 [ ] /scrub = 0 watermark
 [ ] 构建 = 0 errors
@@ -554,7 +558,7 @@ hreflang:                               # 四向映射，路径末尾必须有 /
 | 7 | `wordCount` 整数，已验证（±5%） | 2800 | "2800" (字符串) |
 | 8 | 所有 URL 末尾带 `/` | `/blog/slug/` | `/blog/slug` |
 
-### C. HTML 结构（13 板块，排序固定）
+### C. HTML 结构（15 板块，排序固定）
 
 ```
 {% block content %}
@@ -562,16 +566,19 @@ hreflang:                               # 四向映射，路径末尾必须有 /
 
  [1] Hero           — nav 面包屑 → 3 个橙色 pill 标签 → H1(50-65, B2B 信号词) → Compact Author Bar(头像40×40 + 姓名 + 职位) → 日期行(<time datetime> + 阅读时间 + 作者名)
  [2] Hook           — .speakable, bg-brandBlue/5 border-l-4 border-brandOrange, ≤2 段
- [3] Featured Image — srcset 三档(800w/1200w/2240w) + sizes + loading="eager" + fetchpriority="high" + width/height
+ [3] Featured Image — <img src="{IMAGE}"> only (NO srcset, NO sizes) + loading="eager" + fetchpriority="high" + width/height
  [4] Key Takeaways  — POINTS CLÉS, bg-amber-50 border-l-4 border-amber-500, TL;DR .speakable, 3-5 bullet
- [5] TOC            — bg-brandBlue rounded-2xl p-8, 含 #faq 锚点
- [6] H2 Sections ×N — bg-slate-50 rounded-xl p-6 border, 表格 thead bg-brandBlue
- [7] FAQ            — id="faq", bg-slate-50 rounded-2xl, 8 题, 每答 .faq-answer class, body-schema 逐字一致
- [8] Author Bio     — id="author-bio", 头像(80×80 border-brandOrange) + LinkedIn 链接 + Empreinte Usine(4 格工厂数据)
- [9] CTA            — bg-gradient-to-br from-brandBlue to-slate-800, h2 标题, 2 按钮(B2B 文案), 含产品词+MOQ
-[10] Related        — <aside>, grid md:grid-cols-3, card 格式(gradient bar + 标签 + 标题 + 描述), 链接用语言前缀
-[11] Sources        — list-disc, 权威 rel="noopener external", 商业 rel="noopener noreferrer nofollow"
-[12] Blog CTA       — {% include "partials/blog-cta.njk" %}, 页面级 contact form
+ [5] Key Metrics    — 可选, 数据指标卡片
+ [6] TOC            — bg-brandBlue rounded-2xl p-8, 含 #faq 锚点
+ [7] Factory Data   — 工厂数据卡片(面积/员工/R&D/产能/认证)
+ [8] H2 Sections ×N — bg-slate-50 rounded-xl p-6 border, 表格 thead bg-brandBlue
+ [9] Conclusion     — 可选, 总结 + 实操流程, 不含重复链接
+[10] FAQ            — id="faq", bg-slate-50 rounded-2xl, 8 题, 每答 .faq-answer class, body-schema 逐字一致
+[11] Author Bio     — id="author-bio", 头像(80×80 border-brandOrange) + LinkedIn 链接 + Empreinte Usine(4 格工厂数据)
+[12] CTA            — bg-gradient-to-br from-brandBlue to-slate-800, h2 标题, 2 按钮(B2B 文案), 含产品词+MOQ
+[13] Related        — <aside>, grid md:grid-cols-3, card 格式(gradient bar + 标签 + 标题 + 描述), 链接用语言前缀
+[14] Sources        — list-disc, 权威 rel="noopener external", 商业 rel="noopener noreferrer nofollow"
+[15] Blog CTA       — {% include "partials/blog-cta.njk" %}, 页面级 contact form
 
 </article>
 {% endblock %}
@@ -594,8 +601,8 @@ hreflang:                               # 四向映射，路径末尾必须有 /
     [ ] ≤2 段，首段含具体数字 + B2B 竞争洞察
 
 [ ] Featured Image
-    [ ] srcset 三档: 800w / 1200w / 2240w
-    [ ] sizes="(max-width: 768px) 100vw, 896px"
+    [ ] NO srcset (单一 <img src>, 无 variant 文件)
+    [ ] NO sizes 属性
     [ ] loading="eager" + fetchpriority="high"
     [ ] width="2240" height="1260"
     [ ] alt 含 B2B 关键词

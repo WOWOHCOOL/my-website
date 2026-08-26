@@ -3,10 +3,10 @@
 Use this command to run a quick B2B content quality audit against 2026 Google standards on any article.
 
 **Canonical context files** (the 4-file B2B authority system):
-- `@context/b2b-blog-quality-audit-standard.md` — Quality rules, 15 automated checks, scoring rubrics
+- `@context/b2b-blog-quality-audit-standard.md` — Quality rules, 19 automated checks, scoring rubrics
 - `@context/blog-template-standard.md` — HTML layout, CSS classes, DOM structure, code examples
-- `@context/b2b-multilingual-metadata-standard.md` — JSON-LD design, 4-language mappings, wordCount verification
-- `@context/b2b-schema-template.json` — Production JSON-LD template, `json.load()` valid
+- `@context/b2b-multilingual-metadata-standard.md` — JSON-LD design, 6-language mappings, wordCount verification
+- `@context/b2b-schema-template.json` — Production JSON-LD template, `json.load()` valid after placeholder substitution
 
 ## Usage
 `/b2b-audit [file path or URL]`
@@ -18,7 +18,7 @@ Use this command to run a quick B2B content quality audit against 2026 Google st
 
 ## What This Command Does
 
-Runs the complete B2B Content Auditor (`b2b_content_auditor.py`) with **15 automated checks + FAQ search-demand verification**:
+Runs the complete B2B Content Auditor (`b2b_content_auditor.py`) with **19 automated checks + FAQ search-demand verification**:
 
 ### Content Quality (Checks 1-4)
 
@@ -26,7 +26,7 @@ Runs the complete B2B Content Auditor (`b2b_content_auditor.py`) with **15 autom
 |---|-------|-----------------|---------|
 | 1 | **Opening Density** | First 2-3 sentences deliver core conclusion (no fluff preamble)? AI fluff patterns detected? | Fluff -30/ea, no conclusion -40 |
 | 2 | **KEY TAKEAWAYS Block** | Uppercase label + TL;DR summary + 3-5 bullet points above the fold? | Full=100, list only=60, absent=0 |
-| 3 | **H3 Answer Length** | 60-500 char direct answer after each H3/H4? (Featured Snippet extraction zone) | Compliance ratio = score |
+| 3 | **H3 Answer Length** | ≤150 char first-sentence conclusion after each H3/H4 (answer-first) | Compliance ratio = score |
 | 4 | **Vague Heading Detection** | Label-style headings flagged? ("Testing" vs "3 Thermal Benchmarks to Verify") | -15/detection |
 
 ### Structure & SEO (Checks 5-8)
@@ -36,7 +36,7 @@ Runs the complete B2B Content Auditor (`b2b_content_auditor.py`) with **15 autom
 | 5 | **H2 B2B Signal Density** | Density in tiered range + adjacency cap (no 3 consecutive same B2B word) + vocabulary rotation | In range=100 |
 | 6 | **First-Hand Data Density** | ≥3 precise measurements + engineering units (°C, mV, kHz, mm, $, €) per 1000 words | Staged: ≥3=100, 2-2.9=70, 1-1.9=40, <1=10 |
 | 7 | **Table Test** | Technical parameters in Markdown tables? | Present=100, params outside tables=40 |
-| 8 | **Stock Photo + LCP** | Images from stock domains flagged? Featured image has loading="eager" + fetchpriority="high" + 2240×1260? | Stock -25/img, LCP violations -5~15 |
+| 8 | **Stock Photo Detection** | Images from stock domains flagged? | Stock -25/img |
 
 ### Trust & Conversion (Checks 9-11)
 
@@ -46,15 +46,18 @@ Runs the complete B2B Content Auditor (`b2b_content_auditor.py`) with **15 autom
 | 10 | **Author E-E-A-T** | Named author + credentials + LinkedIn + author page + topic expertise + compact author bar (6 checks) | 6/6=100 |
 | 11 | **Weak CTA Detection** | CTA type (B2B value-continuation vs B2C "Buy now")? h2 heading? Gradient background? | Good=100, weak=40-60 |
 
-### Technical & Consistency (Checks 12-15)
+### Technical & Consistency (Checks 12-19)
 
 | # | Check | What It Verifies | Scoring |
 |---|-------|-----------------|---------|
 | 12 | **Heading Hierarchy** | H1→H3 or H2→H4 skips? (Fatal logic error — Google treats as broken taxonomy) | -25/skip |
 | 13 | **URL Quality** | Underscores, uppercase, dates, stop words, word count. Staged: 3-6 words=pass, 7-8=warning, ≥9=deduction | Per violation |
-| 14 | **Schema Validation** | JSON syntax? Missing fields? Trailing slash? speakable ↔ Schema? TOC-FAQ anchor? **Rule 1: Body-Schema FAQ word-for-word match**? | Syntax -30, missing field -15, mismatch -5~15 |
-| 15 | **Cross-Reference + Factory Canonical** | TL;DR vs body vs FAQ data consistency? MOQ/lead time/deposit/certification vs factory-data-canonical.md? | Discrepancy -20/ea, canonical violation -15/ea |
-
+| 14 | **Cross-Reference Consistency** | TL;DR vs body vs FAQ data consistency? | Discrepancy -20/ea |
+| 15 | **Schema Validation** | JSON syntax? Missing fields? Trailing slash? speakable ↔ Schema? TOC-FAQ anchor? **Rule 1: Body-Schema FAQ word-for-word match**? | Syntax -30, missing field -15, mismatch -5~15 |
+| 16 | **Factory Data Canonical** | MOQ/lead time/deposit/certification vs factory-data-canonical.md? | Canonical violation -15/ea |
+| 17 | **Static HTML Quality** | Featured image srcset/sizes/fetchpriority/speakable/TOC bugs? | Per violation |
+| 18 | **Anti-Pattern Detection** | Quick Answer blocks, TL;DR duplicates, cross-link overlap, data-dump intro? | -10~25/ea |
+| 19 | **Accent/Spelling (i18n)** | Language-specific accent/spelling correctness? | Per violation |
 ## Process
 
 ### Step 1: Fetch/Read Content

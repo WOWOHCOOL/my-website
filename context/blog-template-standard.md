@@ -1,7 +1,7 @@
 # Blog 标准排版规范 (v2.1)
 
 **基于**: 28 篇 EN + 11 篇 DE 文章完整审计优化
-**适用**: 所有 EN/DE 博客文章 (wowohcool.com/blog/ + /de/blog/)
+**适用**: 所有 EN/DE/ES/FR/RU/PL 博客文章 (wowohcool.com/blog/ + /de/blog/ + /es/blog/ + /fr/blog/ + /ru/blog/ + /pl/blog/)
 **规则权威源**: 详细质量标准见 `context/b2b-blog-quality-audit-standard.md`
 
 ---
@@ -15,17 +15,19 @@
 ```
  1. Hero Header         面包屑→标签→H1→Compact Author Bar→日期行
  2. The Hook            引入段落（≤2 段，开门见山，直击采购痛点）
- 3. Featured Image      封面图 2240×1260，srcset 三档响应式
+ 3. Featured Image      封面图 2240×1260，<img src> only（NO srcset/sizes）
  4. Key Takeaways       合并 TL;DR 的总结段，amber 卡片，3-5 条量化要点
  5. Key Metrics Cards   可选，数据指标
  6. Table of Contents   含 #faq 锚点
- 7. H2 Sections × N     标准灰底卡片，嵌入式 Expert Insight + Factory Stat
- 8. FAQ                 id="faq"，8 条规则，答案量化 ≥1 个数字
- 9. Full Author Bio     id="author-bio"，含 Factory Footprint（4 项工厂硬数据）
-10. CTA                 渐变背景，2 按钮：主 CTA + OEM/ODM Service
-11. Related Articles    id="related-articles"
-12. Sources & References 权威引用来源
-13. Global CTA          页面级 blog-cta.njk
+ 7. Factory Data        工厂数据卡片（面积/员工/R&D/产能/认证）ⓕ
+ 8. H2 Sections × N     标准灰底卡片，嵌入式 Expert Insight + Factory Stat
+ 9. Conclusion          可选，依文章而定 — 总结 + 实操流程，不含重复链接 ⓕ
+10. FAQ                 id="faq"，9 条规则，答案量化 ≥1 个数字
+11. Full Author Bio     id="author-bio"，含 Factory Footprint（4 项工厂硬数据）
+12. CTA                 渐变背景，2 按钮：主 CTA + OEM/ODM Service
+13. Related Articles    id="related-articles"
+14. Sources & References 权威引用来源
+15. Global CTA          页面级 blog-cta.njk
 ```
 
 ---
@@ -96,17 +98,13 @@
 ```html
 <div class="max-w-4xl mx-auto px-6 mb-16">
   <img src="/image/blog/cover-en/article-slug.webp"
-       srcset="/image/blog/cover-en/article-slug-800.webp 800w,
-               /image/blog/cover-en/article-slug-1200.webp 1200w,
-               /image/blog/cover-en/article-slug.webp 2240w"
-       sizes="(max-width: 768px) 100vw, 896px"
        alt="B2B keyword alt text"
        width="2240" height="1260" loading="eager" decoding="async"
        class="w-full rounded-3xl shadow-xl" fetchpriority="high">
 </div>
 ```
 
-⚠️ `srcset` + `sizes` 防止移动端加载 2240px 原图导致 LCP 延迟。需生成 800w/1200w/2240w 三档 WebP。
+⚠️ 封面图仅使用单一 `<img src>`，NO `srcset`/`sizes`。不要生成 800w/1200w 变体文件——变体文件不存在会导致 AI 爬虫 404。
 
 ### 4. Key Takeaways（已合并 TL;DR）
 
@@ -169,7 +167,7 @@
 
 ⚠️ **嵌入在相关正文段落内（H2 Section 中）**，不要放在文章末尾。
 
-### 8. FAQ（8 条规则强制）
+### 8. FAQ（9 条规则强制）
 
 ```html
 <!-- FAQ -->
@@ -186,7 +184,7 @@
 </section>
 ```
 
-#### FAQ 8 规则
+#### FAQ 9 规则
 
 | # | 规则 | 验证方法 |
 |---|------|---------|
@@ -197,7 +195,8 @@
 | 5 | **决策链排序** | 规格→认证→定价→采购流程 |
 | 6 | **量化答案** | 每条答案含 ≥1 个具体数字 |
 | 7 | **末题 = CTA 桥梁** | 最后一题自然过渡到买家行动（含联系链接） |
-| 8 | **交叉一致性** | FAQ 数据与 TL;DR、正文三方一致 |
+| 8 | **格式差异化** | FAQ 用 50-150 字简明问答格式，与叙述性 H2 正文结构区分（同数据、不同呈现） |
+| 9 | **交叉一致性** | FAQ 数据与 TL;DR、正文三方一致 |
 
 ### 9. Full Author Bio（含 Factory Footprint）
 
@@ -306,8 +305,8 @@
 
 | 需求 | 权威源 | 说明 |
 |------|--------|------|
-| JSON-LD Schema 完整模板 | `context/b2b-schema-template.json` | 7 节点，`json.load()` 直验。占位符替换规则见 `b2b-multilingual-metadata-standard.md` §二 |
-| Schema 设计原理 + 语言映射 | `context/b2b-multilingual-metadata-standard.md` | Organization 节点强制字段、FAQ 8 规则、wordCount 验证脚本 |
+| JSON-LD Schema 完整模板 | `context/b2b-schema-template.json` | 7 节点，占位符替换后 `json.load()` 可验证。占位符替换规则见 `b2b-multilingual-metadata-standard.md` §二 |
+| Schema 设计原理 + 语言映射 | `context/b2b-multilingual-metadata-standard.md` | Organization 节点强制字段、FAQ 9 规则、wordCount 验证脚本 |
 | 工厂数据统一值 | `context/factory-data-canonical.md` | MOQ、Lead Time、认证成本、模具费用——全站唯一数据源 |
 | FAQ 质量规则 | `context/b2b-blog-quality-audit-standard.md` §III.4 | Rule 1-9、问题侧/答案侧分离评分、Body-Schema 逐字一致 |
 | Pre-Commit 自检清单 | `context/b2b-blog-quality-audit-standard.md` §X | 20 条发布前自检 |
