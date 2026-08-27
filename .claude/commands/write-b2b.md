@@ -73,7 +73,7 @@ Must be the FIRST block after frontmatter, inside `{% block head_schema %}`:
 4. BlogPosting     — @id ending #article + headline + keywords[8+] + author @id ref(COPY FROM factory-data-canonical.md §15) + speakable["h1",".speakable"] + about.sameAs(Wikidata) + citation[3+]
 5. Person          — @id(COPY FROM factory-data-canonical.md §15) + jobTitle + url(author page) + sameAs[LinkedIn] + image + worksFor @id ref + knowsAbout[3-5]
 6. HowTo           — @id ending #howto + 3-6 steps(HowToDirection). Remove node entirely for non-process articles
-7. FAQPage         — @id ending #faq + speakable[".faq-answer"](independent) + 8 questions(word-for-word match with body FAQ)
+7. FAQPage         — @id ending #faq + speakable[".faq-answer"](independent) + 5–8 questions(word-for-word match with body FAQ)
 ```
 
 **Critical rules**:
@@ -83,7 +83,7 @@ Must be the FIRST block after frontmatter, inside `{% block head_schema %}`:
 - **Shared entity @ids (#organization / #website / #author) have NO language prefix** — use `https://www.wowohcool.com/#...` in ALL languages (same global entity). Only article-level @ids (`#article` / `#faq`) and URL/path fields (Organization.url, Breadcrumb item, canonical, ogImage) keep the `{lang}/` prefix.
 - `BlogPosting.speakable.cssSelector` = `["h1", ".speakable"]` — NEVER use `["h1", "h2"]`
 - `FAQPage.speakable.cssSelector` = `[".faq-answer"]` — independent from BlogPosting
-- **Cover image**: `<img src="{IMAGE}">` only — NO `srcset`, NO `sizes`, NO variant (`-800`/`-1200`) files
+- **Cover image**: `<img src="{IMAGE}">` only — NO hand-written `srcset`/`sizes`, NO variant (`-800`/`-1200`) files. `srcset` allowed only when produced by the 11ty/SSG image pipeline and every referenced variant file is verified to exist
 - Breadcrumb item[3] URL = canonical URL — must match exactly
 - All URLs end with `/`
 - `wordCount` = integer, no quotes
@@ -231,7 +231,7 @@ Must be the FIRST block after frontmatter, inside `{% block head_schema %}`:
          <h3 class="font-black text-brandBlue mb-2">{Question 1}?</h3>
          <p class="text-slate-600 text-sm">{Answer 1 with ≥1 specific number}</p>
        </div>
-       <!-- Repeat for questions 2-8 -->
+       <!-- Repeat for questions 2–N (5–8 total) -->
      </div>
    </div>
  </div>
@@ -374,7 +374,7 @@ First 3 sentences must contain: number + unit + B2B signal word + first-hand exp
 - Technical parameters MUST be in tables (not prose)
 - Tables use: `thead bg-brandBlue text-white`, `tbody bg-white / bg-slate-50`
 
-### FAQ (8 questions, mandatory)
+### FAQ (5–8 questions, mandatory)
 - Body-Schema word-for-word match
 - B2B procurement language: MOQ, FOB, certification, lead time, compliance
 - Each answer: ≥1 specific number

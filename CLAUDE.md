@@ -58,6 +58,9 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - 示例: "Solicitar presupuesto OEM", "Solicitar catálogo", "Consultar certificación"
 
 ### Schema 强制清单 (每条必须)
+
+> ⚠️ 本清单为通用文章（`/write`、`/optimize` 等 markdown 流程）的 Schema 要求。**B2B 文章**（`/write-b2b`、`/b2b-audit`，.njk 流程）以 `context/` 下 4 份 B2B 标准文件为 canonical 权威源，其中 `SpeakableSpecification` 的 cssSelector 为 `["h1", ".speakable"]`（非 `["h1", "h2", ...]`），冲突时以 4 份标准为准。
+
 ```
 ✅ BlogPosting (headline + description + datePublished + dateModified + wordCount)
 ✅ Person (Author with LinkedIn URL + jobTitle + knowsAbout)

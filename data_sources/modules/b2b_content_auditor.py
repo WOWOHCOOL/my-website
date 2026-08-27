@@ -18,7 +18,7 @@ Performs 19 automated checks against Google's 2026 B2B blog quality standards:
   14. Cross-Reference Consistency — verify TL;DR, body, and FAQ numbers match (Rule 9)
   15. Schema Validation — JSON-LD syntax, required fields, trailing-slash consistency with canonical URL
   16. Factory Data Canonical — MOQ, lead time, deposit, certification claims match factory-data-canonical.md
-  17. Static HTML Quality — featured image srcset/sizes/fetchpriority/speakable/TOC bugs
+  17. Static HTML Quality — hand-written srcset/sizes, fetchpriority, .speakable placement, TOC bugs
   18. Anti-Pattern Detection — Quick Answer blocks, TL;DR duplicates, cross-link overlap, data-dump intro
   19. Accent/Spelling (i18n) — language-specific accent/spelling correctness
 All checks return 0-100 scores. Composite score is equal-weighted average.
@@ -1047,25 +1047,38 @@ class B2BContentAuditor:
         total_q = len(faq_questions)
         question_side_score = round(((total_q - consumer_count) / total_q) * 100) if total_q > 0 else 100
 
-        # ── Answer-Side (80%): B2B vocabulary + quantified data ──
+        # ── Answer-Side (80%): quantified data OR compliance standard OR B2B vocabulary ──
+        # An answer is B2B-deep if it carries a concrete number+unit, a named
+        # compliance standard, or procurement vocabulary. This avoids forcing
+        # writers to stuff OEM/FOB into naturally quantified answers.
         b2b_patterns = self.i18n.get_patterns('B2B_BUYER_LANGUAGE') if self.i18n else B2B_BUYER_LANGUAGE
+        quantified_re = re.compile(r'\d+[\s]*(?:°C|mV|kHz|Wh/kg|mm|EUR|USD|€|\$|%|Watt|W\b)', re.IGNORECASE)
+        compliance_re = re.compile(
+            r'\b(?:IEC|ISO|EN|UL|CE|RoHS|REACH|FCC|GS|UN38\.3|WPC|Qi2?|USB-IF)\b',
+            re.IGNORECASE
+        )
+
         b2b_answer_count = 0
         answers_with_data = 0
+        answers_with_compliance = 0
+        deep_answers = 0
 
         for answer_text in faq_answers:
-            # B2B vocabulary check
             has_b2b = any(pattern.search(answer_text) for pattern in b2b_patterns)
+            has_data = bool(quantified_re.search(answer_text))
+            has_compliance = bool(compliance_re.search(answer_text))
+
             if has_b2b:
                 b2b_answer_count += 1
-
-            # Quantified data check: at least 1 number + unit or currency
-            if re.search(r'\d+[\s]*(?:°C|mV|kHz|Wh/kg|mm|EUR|USD|€|\$|%|Watt|W\b)', answer_text):
+            if has_data:
                 answers_with_data += 1
+            if has_compliance:
+                answers_with_compliance += 1
+            if has_b2b or has_data or has_compliance:
+                deep_answers += 1
 
         total_a = len(faq_answers) if faq_answers else total_q
-        b2b_density = round((b2b_answer_count / total_a) * 100) if total_a > 0 else 0
-        data_density = round((answers_with_data / total_a) * 100) if total_a > 0 else 0
-        answer_side_score = round(b2b_density * 0.6 + data_density * 0.4)
+        answer_side_score = round((deep_answers / total_a) * 100) if total_a > 0 else 0
 
         # ── Weighted composite: 20% question-side + 80% answer-side ──
         score = round(question_side_score * 0.2 + answer_side_score * 0.8)
@@ -1095,9 +1108,10 @@ class B2BContentAuditor:
             })
         if answer_side_score < 50:
             issues.append({
-                'issue': f'FAQ answers lack B2B depth: {b2b_answer_count}/{total_a} have B2B vocabulary, '
-                         f'{answers_with_data}/{total_a} have quantified data',
-                'fix': 'Answer-side: add procurement terms (MOQ, FOB, certification) + at least 1 specific number per answer.',
+                'issue': f'FAQ answers lack B2B depth: {deep_answers}/{total_a} have quantified data, '
+                         f'a compliance standard, or B2B vocabulary',
+                'fix': 'Answer-side: add a specific number+unit, a compliance standard (CE/IEC/RoHS), '
+                       'or procurement terms (MOQ, FOB, lead time).',
                 'severity': 'medium'
             })
         for lq in long_questions:
@@ -1128,6 +1142,8 @@ class B2BContentAuditor:
             'answer_side_score': answer_side_score,
             'answers_with_b2b': b2b_answer_count,
             'answers_with_data': answers_with_data,
+            'answers_with_compliance': answers_with_compliance,
+            'answers_with_b2b_depth': deep_answers,
             'consumer_language_faq': consumer_count,
             'consumer_questions': consumer_questions,
             'rule2_manual_verification_required': True,
@@ -1801,6 +1817,34 @@ class B2BContentAuditor:
                 'add FAQ link to Table of Contents for accessible anchor navigation'
             )
 
+        # Bug 6: hand-written uncompiled srcset relative paths (allowed only via SSG pipeline)
+        handwritten_srcset = re.findall(
+            r'<img[^>]*\bsrcset=["\'][^"\']*["\']',
+            content,
+            re.IGNORECASE
+        )
+        if handwritten_srcset:
+            score -= 15
+            issues.append(
+                f'{len(handwritten_srcset)} image(s) contain hand-written srcset/sizes relative paths. '
+                'Remove hand-written srcset; generate variants through the 11ty/SSG image pipeline '
+                'and verify every referenced variant file exists before publishing.'
+            )
+
+        # Bug 7: narrative H3/H4 must never carry .speakable (only Hook + Key Takeaways TL;DR)
+        h34_speakable = re.findall(
+            r'<h[34][^>]*class=["\'][^"\']*\bspeakable\b[^"\']*["\'][^>]*>',
+            content,
+            re.IGNORECASE
+        )
+        if h34_speakable:
+            score -= 15
+            issues.append(
+                f'{len(h34_speakable)} narrative H3/H4 heading(s) carry class="speakable". '
+                '.speakable is reserved for Hook + Key Takeaways TL;DR only; FAQ answers use .faq-answer. '
+                'Remove speakable from body headings.'
+            )
+
         # Collect issues by severity
         critical = [i for i in issues if 'ManufacturingBusiness' in i or 'CSS parse error' in i]
         warnings = [i for i in issues if i not in critical]
@@ -1812,6 +1856,8 @@ class B2BContentAuditor:
             'manufacturing_business_residual': '"@type": "ManufacturingBusiness"' in content,
             'bare_in_language': bare_lang[0] if bare_lang else None,
             'toc_faq_anchor_missing': has_faq_section and not toc_has_faq,
+            'handwritten_srcset_count': len(handwritten_srcset),
+            'narrative_speakable_h34_count': len(h34_speakable),
             'critical_issues': critical,
             'warnings': warnings,
             'recommendations': [i for i in issues],

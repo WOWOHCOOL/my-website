@@ -91,7 +91,7 @@
 </div>
 ```
 
-注意: Hook div 必须加 `.speakable` class。这是 3 个 speakable 锚点中的第 1 个：Hook（痛点）→ Key Takeaways TL;DR（结论）→ FAQ 核心答案（决策）。超过 3 个会导致 AI 引擎抓取焦点分散。`data-speakable` 属性已废弃，统一使用 `.speakable` CSS class（与 Schema `SpeakableSpecification` 的 `cssSelector: [".speakable"]` 保持一致）。
+注意: Hook div 必须加 `.speakable` class。BlogPosting 的 3 个 speakable 节点是：H1 → Hook（痛点）→ Key Takeaways TL;DR（结论）。FAQ 答案属于独立的 FAQPage speakable（`.faq-answer`），不占用这 3 个节点。超过 3 个会导致 AI 引擎抓取焦点分散。`data-speakable` 属性已废弃，统一使用 `.speakable` CSS class（与 Schema `SpeakableSpecification` 的 `cssSelector: ["h1", ".speakable"]` 保持一致）。
 
 ### 3. Featured Image
 
@@ -104,7 +104,7 @@
 </div>
 ```
 
-⚠️ 封面图仅使用单一 `<img src>`，NO `srcset`/`sizes`。不要生成 800w/1200w 变体文件——变体文件不存在会导致 AI 爬虫 404。
+⚠️ 封面图默认单一 `<img src>`。禁止手写未编译的 `srcset`/`sizes` 相对路径——手写变体文件不存在会导致 AI 爬虫 404。`srcset` 仅允许由 11ty/SSG 图片管线自动生成，且每个引用的变体文件必须已验证存在。
 
 ### 4. Key Takeaways（已合并 TL;DR）
 
@@ -118,7 +118,7 @@
 </div>
 ```
 
-⚠️ **不再使用独立的 TL;DR 区块**。speakable 锚点严格限制为 **3 个**：Hook 段落、KERNERKENNTNISSE TL;DR 句、FAQ 区最核心的一个答案段落。`<ul>` 列表和 Expert Insight 的 `<blockquote>` **不加** speakable——超过 3 个节点会导致 AI 抓取权重稀释。详见 `b2b-blog-quality-audit-standard.md` §III.3。
+⚠️ **不再使用独立的 TL;DR 区块**。BlogPosting 的 speakable 锚点严格限制为 **3 个节点**：H1、Hook 段落、KERNERKENNTNISSE TL;DR 句。FAQ 答案走独立的 FAQPage speakable（`.faq-answer`），不在这 3 个节点内。`<ul>` 列表和 Expert Insight 的 `<blockquote>` **不加** speakable——超过 3 个节点会导致 AI 抓取权重稀释。详见 `b2b-blog-quality-audit-standard.md` §III.3。
 
 ### 5. Table of Contents
 
@@ -175,7 +175,7 @@
   <div class="bg-slate-50 rounded-2xl p-8 border border-slate-200 shadow-sm">
     <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-8 text-center">Frequently Asked Questions</h2>
     <div class="space-y-6 max-w-3xl mx-auto">
-      <div class="bg-white rounded-xl p-6">
+      <div class="bg-white rounded-xl p-6 faq-answer">
         <h3 class="font-black text-brandBlue mb-2">Question?</h3>
         <p class="text-slate-600 text-sm">Answer with ≥1 specific number.</p>
       </div>
