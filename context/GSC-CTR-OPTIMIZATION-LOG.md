@@ -81,6 +81,21 @@
 3. 即使 Schema 完美、H1 完美、title/meta 优化过，用户不需要点进页面就能得到答案
 4. 真正产生点击的查询是高度具体的商业意图查询（"oem power bank manufacturer"、"gan5 vs gan3"），但这类查询展示量极少
 
+### 1.7 已有优化措施审计（2026-08-07 基线时点）
+
+**Schema 标记覆盖率**（全站 109 篇）：
+
+| Schema 类型 | 覆盖 | 状态 |
+|---|---|---|
+| JSON-LD（整体） | 109/109 | 100% |
+| FAQPage | 109/109 | 100% |
+| BlogPosting | 109/109 | 100% |
+| HowTo | 109/109 | 100%（3 篇 8/7 补齐） |
+
+**H1 B2B 信号词**：10 篇最低 CTR 页面 H1 全部含 "OEM"，部分含 "factory"、"sourcing"、"B2B"。缺失的信号词：importer、MOQ、FOB、wholesale、procurement、supply chain。
+
+**Title/Meta 优化**（8/6 已完成）：P1 页面 title/meta 重写已完成；GSC 数据截止 8/5，暂未包含优化后数据。
+
 ---
 
 ## Part 2 · 优化执行（2026-08-06 ~ 08-07）
@@ -104,6 +119,22 @@
 | charging-accessory-market-trends-2026 (P3) | （建立第一手数据权威） | 加 "Factory Shipment Data — Q2 2026"（GaN V 52%、多口 78%、65W FOB $5.40-7.20）+ 区域订单分布 + 功率段迁移，wordCount 4200 |
 
 **Commit**: `dcb07b50` / `bc87429f`
+
+### 2.3 优化策略共性 & 8/6 与 8/7 的互补关系
+
+| 策略 | 体现 |
+|---|---|
+| 对齐搜索意图 | 从「这是什么」转为「怎么验证 / 怎么测试 / 要花多少钱」 |
+| B2B 信息增益 | 竞品 SERP 没有的实操内容（计算实例、测试清单、证书验证数据库查询） |
+| OEM 语言 | Hi-Pot、creepage、BOM locked list、FCC ID lookup — 工厂审计语言，非消费者语言 |
+| 内链强化 | 每篇同步更新 3 篇相关文章的双向内链锚文本 |
+
+8/6（内容深度 + 搜索意图对齐）与 8/7（Snippet 抓取格式优化）互补：8/6 确保内容本身是 Google 找不到的独家信息，8/7 确保这些信息以 Google snippet 友好的格式呈现。
+
+**Snippet 优化目标选择的 SERP 现状**：
+- **gan-generations-guide**（gan 2 vs gan 3 / gan vs gan ii / gan ii vs gan iii）：CairoVolt 一篇 B2C 文章独占 3 个 GaN 对比查询的 Featured Snippet，B2B OEM 视角完全空白 → 3 个 snippet-optimized H3（"GaN 2 vs GaN 3: OEM Manufacturer Comparison" 等）+ 7 列对比表（含 BOM/FOB/认证成本列）
+- **import-costs-guide**（hs code for power bank / power bank hs code）：Google 直接显示 8507.60（Volza + CBP 海关裁决），零点击无可避免 → 改为承认已知编码 + 提供 10 位 HTSUS 子目细节 + 3 行子目陷阱对比表
+- **charging-accessory-market-trends-2026**：ResearchAndMarkets + GIIResearch 等报告聚合器垄断，博客无法竞争 → 目标改为「建立第一手数据权威」，不为抢 snippet
 
 ---
 
