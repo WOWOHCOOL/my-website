@@ -1,7 +1,7 @@
 # wowohcool.com 博客元数据报告
 
-**生成日期**: 2026-08-09 · **更新**: 2026-08-27 (新增 FR/RU/PL 选厂 3 篇 → 全站对齐 33/30/36/26/28/14)  
-**语言站点**: EN (33篇) · DE (30篇) · ES (36篇) · FR (26篇) · RU (28篇) · **PL (14篇)** · 合计 167 篇 (计划 180 篇)  
+**生成日期**: 2026-08-09 · **更新**: 2026-08-28 (新增 FR/RU/PL 选 PB 3 篇 → 全站对齐 33/30/36/27/30/15)  
+**语言站点**: EN (33篇) · DE (30篇) · ES (36篇) · FR (27篇) · RU (30篇) · **PL (15篇)** · 合计 171 篇 (计划 180 篇)  
 **数据来源**: 各站点 `src/{lang}/blog/*/index.njk` frontmatter + H1 模板标签
 
 ---
@@ -157,8 +157,9 @@
 | 24 | [/fr/blog/checklist-verification-usine-chine-oem/](https://www.wowohcool.com/fr/blog/checklist-verification-usine-chine-oem/) | Audit Usine Chine: Checklist pour Importateur OEM \| WOWOHCOOL | Checklist d'audit d'usine en Chine avant commande : licence, dossier technique CE, EN 62368-1, SMT, QC et drapeaux rouges. Coûts 450-1 400 €. | Audit Usine Chine: Checklist Vérification pour Importateur OEM 2026 | Audit Usine, Vérification, Chine, CE, OEM, Drapeaux Rouges |
 | 25 | [/fr/blog/mah-batterie-externe-guide-oem/](https://www.wowohcool.com/fr/blog/mah-batterie-externe-guide-oem/) | Capacité Batterie Externe mAh: Guide Importateur | Capacité réelle vs nominale batterie externe: formule 3.7V→5V, classes cellules A/B/C/D, rendement 80-93%. DGCCRF, UN38.3. FOB Shenzhen, MOQ 500. Devis 24h. | Capacité Batterie Externe mAh: Guide Vérification pour Importateurs OEM 2026 | Batterie Externe, mAh, Capacité, Cellules, DGCCRF, OEM, Importateur, FOB, MOQ, UN38.3 |
 | 26 | [/fr/blog/audit-usine-chine-chargeurs-oem/](https://www.wowohcool.com/fr/blog/audit-usine-chine-chargeurs-oem/) | Choisir une Usine en Chine : Matrice Évaluation OEM \| WOWOHCOOL | Matrice de choix d'usine : 5 critères pondérés, usine vs société de négoce, T/T 30/70, golden sample, conformité CE. MOQ 500, FOB Shenzhen, ISO 9001. | Comment choisir une usine en Chine : matrice d'évaluation OEM 2026 | Choisir Usine, Chine, Matrice, OEM, Audit, T/T 30/70, CE, Importateur, Golden Sample |
+| 27 | [/fr/blog/choisir-batterie-externe-oem-guide/](https://www.wowohcool.com/fr/blog/choisir-batterie-externe-oem-guide/) | Choisir sa Batterie Externe OEM : Guide Importateur 2026 \| WOWOHCOOL | Guide d'achat batterie externe OEM : capacités mAh, cellules Grade A vs B, certifications CE/UN38.3. Prix FOB dès 4,80 $, MOQ 500, usine Shenzhen ISO 9001. | Choisir sa Batterie Externe OEM : Guide d'Achat Importateur 2026 | Batterie Externe, Choix OEM, mAh, Grade A, Importateur, Sourcing |
 
-**FR 覆盖状态**: 26/30 篇已发布。
+**FR 覆盖状态**: 27/30 篇已发布。
 
 ### 4.2 FR 优化策略（基于 EN/DE/ES 三站经验）
 
@@ -184,7 +185,7 @@
 | 8 | Checklist Vérification | `checklist-verification-usine-chine-oem` | factory-verification-checklist | Phase 3 |
 | 9 | Contrôle Qualité | `controle-qualite-usines-chinoises-oem` | quality-control-guide | ✅ 已发布 |
 | 10 | mAh Batterie Externe | `mah-batterie-externe-guide-oem` | power-bank-mah-explained | ✅ 已发布 |
-| 11 | Choisir Batterie Externe | `choisir-batterie-externe-oem-guide` | how-to-choose-power-bank | Phase 3 |
+| 11 | Choisir Batterie Externe | `choisir-batterie-externe-oem-guide` | how-to-choose-power-bank | ✅ 已发布 |
 | 12 | Batterie Marque Blanche | `batterie-externe-marque-blanche-oem` | power-bank-private-label-oem-production | Phase 3 |
 | 13 | Fabricants Batterie Chine | `fabricants-batterie-externe-chine-oem` | top-power-bank-manufacturers-china | Phase 3 |
 | 14 | Batterie Semi-Solide | `batterie-semi-solide-oem-guide` | semi-solid-state-power-bank-oem | ✅ 已发布 |
@@ -247,8 +248,9 @@
 | 27 | [/ru/blog/chek-list-proverki-zavoda-kitay-oem/](https://www.wowohcool.com/ru/blog/chek-list-proverki-zavoda-kitay-oem/) | Чек-лист проверки завода в Китае: 25 пунктов OEM \| WOWOHCOOL | 25 пунктов проверки завода в Китае перед заказом: документы, SMT, ESD, QC, EAC-комплаенс и 10 красных флагов. Видеоаудит vs выездной $300-800. | Чек-лист проверки завода в Китае: 25 пунктов для импортёра OEM 2026 | 93.9 | 88 |
 | 28 | [/ru/blog/mah-power-bank-rukovodstvo-oem/](https://www.wowohcool.com/ru/blog/mah-power-bank-rukovodstvo-oem/) | Ёмкость Power Bank мАч: Верификация Импортёра | Реальная vs заявленная ёмкость power bank: формула 3.7V→5V, классы ячеек A/B/C/D, КПД 80-93%. EAC + маркировка. FOB Shenzhen, MOQ 500. Расчёт 24ч. | Ёмкость Power Bank мАч: Верификация для Импортёров OEM 2026 | — | — |
 | 29 | [/ru/blog/vybor-zavoda-kitay-audit-oem/](https://www.wowohcool.com/ru/blog/vybor-zavoda-kitay-audit-oem/) | Выбор Завода в Китае: Матрица Оценки OEM \| WOWOHCOOL | Матрица выбора завода: 5 критериев с весами, завод vs торговая компания, T/T 30/70, golden sample, EAC. MOQ 500, FOB Шэньчжэнь, ISO 9001. | Как выбрать завод в Китае: матрица оценки OEM-поставщика 2026 | 93.9 | 82 |
+| 30 | [/ru/blog/power-bank-vybor-oem-rukovodstvo/](https://www.wowohcool.com/ru/blog/power-bank-vybor-oem-rukovodstvo/) | Как выбрать Power Bank OEM: руководство для импортёров 2026 \| WOWOHCOOL | Как выбрать повербанк OEM: ёмкости мАч, ячейки Grade A vs B, сертификация EAC/UN38.3. Цены FOB от $4,80, MOQ 500, завод Шэньчжэнь ISO 9001. | Как выбрать Power Bank OEM: руководство для импортёров 2026 | 95.9 | 86 |
 
-**RU 覆盖状态**: 29/30 篇已发布（26 基线 + 3 新角度：EAC/针刺/证书），全部为 Schema v2 + 13-panel 标准。基线缺口 4 篇（见 §十）。
+**RU 覆盖状态**: 30/30 篇已发布（全部为 Schema v2 + 13-panel 标准）。基线缺口 3 篇（见 §十）。
 
 ### 5.2 Яндекс SEO 核心规则
 
@@ -279,7 +281,7 @@
 | 12 | Контроль Качества | `kontrol-kachestva-zavody-kitay-oem` | quality-control-guide | ✅ 已发布 |
 | 13 | Спецификации Power Bank | `specifikacii-power-bank-oem` | power-bank-specs-guide | ✅ 已发布 |
 | 14 | мАч Power Bank | `mah-power-bank-rukovodstvo-oem` | power-bank-mah-explained | ✅ 已发布 |
-| 15 | Выбор Power Bank OEM | `power-bank-vybor-oem-rukovodstvo` | how-to-choose-power-bank | Фаза 3 |
+| 15 | Выбор Power Bank OEM | `power-bank-vybor-oem-rukovodstvo` | how-to-choose-power-bank | ✅ 已发布 |
 | 16 | Power Bank СТМ | `power-bank-stm-oem-proizvodstvo` | power-bank-private-label-oem-production | Фаза 3 |
 | 17 | Производители Power Bank | `proizvoditeli-power-bank-kitay-oem` | top-power-bank-manufacturers-china | — |
 | 18 | Полу-Твердотельный Power Bank | `polutverdotelnye-power-bank-oem` | semi-solid-state-power-bank-oem | ✅ 已发布 |
@@ -313,7 +315,7 @@
 
 ---
 
-## 六、Polski (PL) — 14 篇已发布 + 16 篇计划
+## 六、Polski (PL) — 15 篇已发布 + 15 篇计划
 
 ### 6.1 已发布文章
 
@@ -333,6 +335,7 @@
 | 12 | [/pl/blog/checklista-weryfikacji-fabryki-chiny-oem/](https://www.wowohcool.com/pl/blog/checklista-weryfikacji-fabryki-chiny-oem/) | Weryfikacja Fabryki w Chinach: 25 Punktów OEM \| WOWOHCOOL | 25 punktów weryfikacji fabryki w Chinach przed zamówieniem: licencja, CE, SMT, ESD, QC i 10 czerwonych flag. Video audit vs audyt na miejscu 300-800 $. | Checklista Weryfikacji Fabryki w Chinach: 25 Punktów dla Importera OEM 2026 | ~90 | 88 |
 | 13 | [/pl/blog/kontrola-jakosci-fabryka-chiny-oem/](https://www.wowohcool.com/pl/blog/kontrola-jakosci-fabryka-chiny-oem/) | Kontrola Jakości Chiny OEM: Checklista Importera | Kontrola jakości elektroniki z Chin: proces IQC-IPQC-FQC-OQC, AQL 2.5, Hi-Pot 3000 V, aging test 4h. GPSR 2023/988. ISO 9001, MOQ 500. Wycena 24h. | Kontrola Jakości w Fabryce Chiny: Checklista dla Importerów OEM 2026 | — | — |
 | 14 | [/pl/blog/wybor-fabryki-chiny-audyt-oem/](https://www.wowohcool.com/pl/blog/wybor-fabryki-chiny-audyt-oem/) | Wybór Fabryki w Chinach: Matryca Oceny OEM \| WOWOHCOOL | Matryca wyboru fabryki: 5 kryteriów z wagami, fabryka vs firma handlowa, T/T 30/70, golden sample, zgodność CE. MOQ 500, FOB Shenzhen, ISO 9001. | Jak wybrać fabrykę w Chinach: matryca oceny OEM 2026 | 96.4 | 85 |
+| 15 | [/pl/blog/power-bank-oem-wybor-specyfikacja/](https://www.wowohcool.com/pl/blog/power-bank-oem-wybor-specyfikacja/) | Jak wybrać Power Bank OEM: przewodnik importera 2026 \| WOWOHCOOL | Jak wybrać power bank OEM: pojemności mAh, ogniwa Grade A vs B, certyfikacja CE/UN38.3/GPSR. Ceny FOB od 4,80 $, MOQ 500, fabryka Shenzhen ISO 9001. | Jak wybrać Power Bank OEM: przewodnik dla importerów 2026 | 95.7 | 86 |
 
 ### 6.2 PL 优先文章计划（按采购决策链排序）
 
@@ -352,7 +355,7 @@ PL 站作为全新站点，首批 5 篇覆盖采购经理最核心的 5 个问�
 
 | # | 主题 | PL slug | EN 对应 |
 |---|------|---------|---------|
-| 6 | Power Bank OEM — Wybór i Specyfikacja | `power-bank-oem-wybor-specyfikacja` | how-to-choose-power-bank |
+| 6 | ✅ Power Bank OEM — Wybór i Specyfikacja | `power-bank-oem-wybor-specyfikacja` | how-to-choose-power-bank |
 | 7 | ✅ Technologia GaN dla Importerów | `technologia-gan-ladowarki-oem` | what-is-gan-charger |
 | 8 | ✅ GaN vs Krzem — Porównanie OEM | `gan-vs-krzem-porownanie-oem` | gan-vs-silicon-charger-comparison |
 | 9 | ✅ USB-C PD 3.1 — Specyfikacja OEM | `usb-c-pd-3-1-specyfikacja-oem` | usb-c-pd-3-1-explained |
@@ -374,7 +377,7 @@ PL 站作为全新站点，首批 5 篇覆盖采购经理最核心的 5 个问�
 | 20 | Stacje Ładowania 3w1 OEM | `stacje-ladowania-3w1-oem` | (product page) |
 | 21 | Wysyłka z Chin — Logistyka OEM | `wysylka-z-chin-logistyka-oem` | shipping-from-china-guide |
 | 22 | Bezpieczeństwo Baterii Litowych | `bezpieczenstwo-baterii-litowych-oem` | charger-safety-standards |
-| 23 | Private Label — Własna Marka OEM | `private-label-power-bank-oem` | power-bank-private-label-oem-production |
+| 23 | Marka Własna OEM | `power-bank-marka-wlasna-oem` | power-bank-private-label-oem-production |
 
 ### 6.3 PL 本土化质量门
 
@@ -420,8 +423,8 @@ PL 站作为全新站点，首批 5 篇覆盖采购经理最核心的 5 个问�
 | **质量控制** | quality-control-guide | qualitaetskontrolle-china | control-calidad-fabricas-chinas | **controle-qualite-usines-chinoises-oem** ✅ | **kontrol-kachestva-zavody-kitay-oem** ✅ | kontrola-jakosci-fabryka-chiny-oem ✅ |
 | **Power Bank 规格** | power-bank-specs-guide | powerbank-spezifikationen | especificaciones-power-banks-importadores | batterie-externe-specifications-oem ✅ | **specifikacii-power-bank-oem** ✅ | power-bank-oem-wybor-specyfikacja* |
 | **Power Bank mAh** | power-bank-mah-explained | powerbank-mah-kapazitaet | power-bank-mah-explicado | mah-batterie-externe-guide-oem ✅ | mah-power-bank-rukovodstvo-oem ✅ | - |
-| **Power Bank 采购** | how-to-choose-power-bank | powerbank-beschaffung-leitfaden | como-elegir-power-bank | choisir-batterie-externe-oem-guide* | power-bank-vybor-oem-rukovodstvo* | - |
-| **Power Bank 自有品牌** | power-bank-private-label-oem-production | powerbank-eigenmarke-oem-produktion | powerbank-marca-propia-produccion-oem | batterie-externe-marque-blanche-oem* | power-bank-stm-oem-proizvodstvo* | private-label-power-bank-oem* |
+| **Power Bank 采购** | how-to-choose-power-bank | powerbank-beschaffung-leitfaden | como-elegir-power-bank | choisir-batterie-externe-oem-guide ✅ | power-bank-vybor-oem-rukovodstvo ✅ | power-bank-oem-wybor-specyfikacja ✅ |
+| **Power Bank 自有品牌** | power-bank-private-label-oem-production | powerbank-eigenmarke-oem-produktion | powerbank-marca-propia-produccion-oem | batterie-externe-marque-blanche-oem* | power-bank-stm-oem-proizvodstvo* | power-bank-marka-wlasna-oem* |
 | **中国 Power Bank 厂家** | top-power-bank-manufacturers-china | powerbank-hersteller-china-oem-partner | fabricante-power-banks-china-oem | fabricants-batterie-externe-chine-oem* | proizvoditeli-power-bank-kitay-oem* | - |
 | **半固态电池** | semi-solid-state-power-bank-oem | semi-solid-state-powerbank | baterias-semi-solid-state | batterie-semi-solide-oem-guide ✅ | polutverdotelnye-power-bank-oem ✅ | baterie-polstale-power-bank-oem ✅ |
 | **中国发货物流** | shipping-from-china-guide | oem-versand-aus-china-logistik | envio-desde-china-logistica | **expedition-chine-logistique-oem** ✅ | **dostavka-iz-kitaya-logistika-oem** ✅ | wysylka-z-chin-logistyka-oem* |
@@ -443,18 +446,18 @@ PL 站作为全新站点，首批 5 篇覆盖采购经理最核心的 5 个问�
 
 | 指标 | EN | DE | ES | FR | RU | PL | 合计 |
 |---|---|---|---|---|---|---|---|
-| 已发布 | 33 | 30 | 36 | 26 | 29 | **14** | **168** |
-| 计划中 | 0 | 0 | 0 | 4 | 1 | **16** | **21** |
+| 已发布 | 33 | 30 | 36 | 27 | 30 | **15** | **171** |
+| 计划中 | 0 | 0 | 0 | 3 | 0 | **15** | **18** |
 | 目标总量 | 30 | 30 | 30 | 30 | 30 | **30** | **180** |
-| Title 均含 B2B 信号词 | 30 | 30 | 30 | 24 | 23 | 11 | **148 (100%)** |
-| Schema v2 + 13-panel | 0 | 0 | 0 | 24 | 23 | 11 | **58** |
+| Title 均含 B2B 信号词 | 30 | 30 | 30 | 25 | 24 | 12 | **151 (100%)** |
+| Schema v2 + 13-panel | 0 | 0 | 0 | 25 | 24 | 12 | **61** |
 
 ### 语言覆盖
 
 - EN/DE/ES: 30 个主题三语完整覆盖（EN/ES 已扩展至 33 篇，超出 30 基线）
-- FR: 25/30 个主题已发布，5 篇计划中
-- RU: 24/30 个主题已发布（全部为 Schema v2 + 13-panel），6 篇计划中
-- **PL: 12/30 个主题已发布（全部为 Schema v2 + 13-panel），18 篇计划中**
+- FR: 26/30 个主题已发布，4 篇计划中
+- RU: 30/30 篇已发布（含 4 篇新角度；基线缺口 3 篇见 §十）
+- **PL: 13/30 个主题已发布（全部为 Schema v2 + 13-panel），17 篇计划中**
 
 > 注：「计划中」= 目标总量 30 − 已发布，是到目标的缺口数；§4.3/§5.3/§6.2 三张计划表是已 scoped 的路线图，未穷尽全部目标主题。
 
@@ -479,7 +482,7 @@ PL 站作为全新站点，首批 5 篇覆盖采购经理最核心的 5 个问�
 | gan-vs-silicon-charger-comparison | gan-vs-silizium-ladegeraete-vergleich | gan-vs-silicio-comparativa | gan-vs-silicium-comparaison-oem ✅ | gan-vs-kremniy-sravneniye-oem ✅ | gan-vs-krzem-porownanie-oem ✅ |
 | hotel-charging-solutions | hotelladegeraete-oem-loesungen | soluciones-carga-hoteles | - | - | - |
 | how-to-choose-factory | fabrikauswahl-china-leitfaden | como-elegir-fabrica-china | **audit-usine-chine-chargeurs-oem** ✅ | **vybor-zavoda-kitay-audit-oem** ✅ | **wybor-fabryki-chiny-audyt-oem** ✅ |
-| how-to-choose-power-bank | powerbank-beschaffung-leitfaden | como-elegir-power-bank | - | - | - |
+| how-to-choose-power-bank | powerbank-beschaffung-leitfaden | como-elegir-power-bank | choisir-batterie-externe-oem-guide ✅ | power-bank-vybor-oem-rukovodstvo ✅ | power-bank-oem-wybor-specyfikacja ✅ |
 | import-costs-guide | ladegeraet-import-china-zoll-zertifikate | importar-cargadores-china-aduanas | **couts-import-chine-droits-douane-oem** ✅ | **zatraty-import-kitay-poshliny-oem** ✅ | **import-chiny-polska-clo-vat-certyfikacja** ✅ |
 | oem-vs-odm-guide | oem-vs-odm-leitfaden | oem-vs-odm-guia-completa | **oem-vs-odm-guide-importateurs** ✅ | **oem-vs-odm-rukovodstvo-importyor** ✅ | oem-vs-odm-polska-marka ✅ |
 | power-bank-mah-explained | powerbank-mah-kapazitaet | power-bank-mah-explicado | mah-batterie-externe-guide-oem ✅ | mah-power-bank-rukovodstvo-oem ✅ |
@@ -515,9 +518,9 @@ PL 站作为全新站点，首批 5 篇覆盖采购经理最核心的 5 个问�
 
 | 站点 | 缺口 | 篇目（按优先级） |
 |---|---|---|
-| RU | 6 | ①验厂清单 ②选厂审计 ③PB 厂家 ④选 PB ⑤СТМ 自有品牌 ⑥酒店充电 |
-| FR | 6 | ①验厂清单 ②工厂审核 ③PB 厂家 ④选 PB ⑤自有品牌 ⑥酒店方案 |
-| PL | 13 | ①进口成本 ②选 PB ③Qi2 vs MagSafe ④EU 电池法规 ⑤市场趋势 ⑥车充 ⑦物流 ⑧电池安全 ⑨自有品牌 ⑩TFT ⑪2合1 ⑫笔记本 ⑬3合1站 |
+| RU | 3 | ①PB 厂家 ②СТМ 自有品牌 ③酒店充电 |
+| FR | 3 | ①PB 厂家 ②自有品牌 ③酒店方案 |
+| PL | 11 | ①Qi2 vs MagSafe ②EU 电池法规 ③市场趋势 ④车充 ⑤物流 ⑥电池安全 ⑦自有品牌 ⑧TFT ⑨2合1 ⑩笔记本 ⑪3合1站 |
 
 > PL 另有 6 篇未 scoped（补到 30 目标）：GaN 充电器指南 / 安全标准 IEC / 工厂选择 / 供应商筛选 / Power Bank mAh / Power Bank 采购 —— 待 13 篇 scoped 完成后按 CTR 数据决定去留。
 
@@ -542,7 +545,19 @@ PL 站作为全新站点，首批 5 篇覆盖采购经理最核心的 5 个问�
 
 ### 10.4 每篇流程
 
-`/research`（本土调研 + brief）→ `/write-b2b`（`.njk` 产出到 `wowohcool.com/src/{lang}/blog/{slug}/index.njk`）→ `/b2b-audit`（≥90）→ 封面 + 部署 + IndexNow。
+`/research`（本土调研 + brief）→ `/write-b2b`（`.njk` 产出到 `wowohcool.com/src/{lang}/blog/{slug}/index.njk`）→ `/b2b-audit`（≥90）→ geo-citability → optimize → 封面 + 部署 + IndexNow。
+
+### 10.5 接下来的文章计划（2026-08-28 更新）
+
+「选 PB」话题已补齐（FR/RU/PL 三站 + 6 站 hreflang 闭环）。剩余缺口按优先级：
+
+| 顺序 | 话题 | FR | RU | PL |
+|---|---|---|---|---|
+| 1 | ⑤自有品牌（private label / СТМ / własna marka） | batterie-externe-marque-blanche-oem | power-bank-stm-oem-proizvodstvo | power-bank-marka-wlasna-oem |
+| 2 | ③PB 厂家（top-power-bank-manufacturers） | fabricants-batterie-externe-chine-oem | proizvoditeli-power-bank-kitay-oem | —（PL 未 scoped） |
+| 3 | ⑥酒店充电（hotel-charging） | solutions-recharge-hotellerie-oem | zaryadnye-resheniya-gostinicy-oem | —（PL 未 scoped） |
+
+每篇流程沿用 §10.4：本土 SERP 调研 → brief → write-b2b → b2b-audit ≥90 → geo-citability → optimize → 封面 + hreflang 闭环 + 部署。
 
 ---
 

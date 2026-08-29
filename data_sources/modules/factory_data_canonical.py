@@ -60,19 +60,19 @@ FACTORY_RULES: List[Tuple[str, Tuple, str, int, float]] = [
     # ── CE/FCC/RoHS Certification Cost ──
     (
         r'(?:CE|FCC|RoHS).{0,100}?(?:Zertifizierung|certification|certificación)'
-        r'.{0,50}?[\$€]?\s*(\d[\d,.]*)[-\s]*(\d[\d,.]*)\s*(?:USD|€|\$)',
+        r'.{0,50}?[\$€]?\s*(\d[\d,.\s]*)[-\s]*(\d[\d,.\s]*)\s*(?:USD|€|\$)',
         (2500, 4500), 'CE/FCC/RoHS cert cost', 15, 10
     ),
     # ── Single-port Mold Cost ──
     (
         r'(?:single.?port|Einzelport|puerto\s+único|port\s+unique).{0,50}(?:mold|Form|molde|moule|пресс.?форма)'
-        r'.{0,30}?[\$€]?\s*(\d[\d,.]*)[-\s]*(\d[\d,.]*)\s*(?:USD|€|\$)',
+        r'.{0,30}?[\$€]?\s*(\d[\d,.\s]*)[-\s]*(\d[\d,.\s]*)\s*(?:USD|€|\$)',
         (2000, 5000), 'Single-port mold cost', 15, 10
     ),
     # ── PCB Design + NRE ──
     (
         r'(?:PCB|pcb).{0,30}(?:Design|design|NRE|nre)'
-        r'.{0,30}?[\$€]?\s*(\d[\d,.]*)[-\s]*(\d[\d,.]*)\s*(?:USD|€|\$)',
+        r'.{0,30}?[\$€]?\s*(\d[\d,.\s]*)[-\s]*(\d[\d,.\s]*)\s*(?:USD|€|\$)',
         (2000, 5000), 'PCB design + NRE', 15, 10
     ),
     # ── Defect rate ──
@@ -84,7 +84,7 @@ FACTORY_RULES: List[Tuple[str, Tuple, str, int, float]] = [
     # ── Factory size ──
     (
         r'(?:Fabrik|factory|fábrica|usine|завод|фабрика).{0,30}(?:Größe|size|tamaño|taille|площадь)'
-        r'.{0,20}?(\d[\d,.]*)\s*(?:㎡|m²|sqm|sq\.?\s*m|кв\.?\s*м)',
+        r'.{0,20}?(\d[\d,.\s]*)\s*(?:㎡|m²|sqm|sq\.?\s*m|кв\.?\s*м)',
         (5000, 5000), 'Factory size (sqm)', 10, 0  # exact
     ),
     # ── R&D Team ──
@@ -107,7 +107,7 @@ def _extract_number(text: str, match_groups: Tuple) -> float:
     for g in match_groups:
         if g is None:
             continue
-        clean = g.replace(' ', '')
+        clean = re.sub(r'[\s  ]', '', g)
         # European decimal comma → dot (e.g. "0,3" → "0.3")
         # English thousand comma → strip (e.g. "2,500" → "2500")
         # Heuristic: comma followed by exactly 1-2 digits at end = decimal; else thousand

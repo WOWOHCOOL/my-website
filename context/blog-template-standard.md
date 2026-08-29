@@ -19,7 +19,7 @@
  4. Key Takeaways       合并 TL;DR 的总结段，amber 卡片，3-5 条量化要点
  5. Key Metrics Cards   可选，数据指标
  6. Table of Contents   含 #faq 锚点
- 7. Factory Data        工厂数据卡片（面积/员工/R&D/产能/认证）ⓕ
+ 7. ~~Factory Data~~     已废弃 — 与 Author Bio 的 Factory Footprint 重复，勿再使用
  8. H2 Sections × N     标准灰底卡片，嵌入式 Expert Insight + Factory Stat
  9. Conclusion          可选，依文章而定 — 总结 + 实操流程，不含重复链接 ⓕ
 10. FAQ                 id="faq"，9 条规则，答案量化 ≥1 个数字
