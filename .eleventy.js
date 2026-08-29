@@ -169,6 +169,39 @@ module.exports = function (eleventyConfig) {
     return `${month} ${day}, ${year}`; // en default
   });
 
+  // Visible dateModified filter: "YYYY-MM-DD" string (or Date) + locale → localized date.
+  // Parses string parts directly to avoid UTC timezone day-shift (new Date("YYYY-MM-DD") is UTC midnight).
+  eleventyConfig.addFilter("dateDisplay", (d, locale) => {
+    let day, monthIdx, year;
+    if (d instanceof Date) {
+      day = d.getDate(); monthIdx = d.getMonth(); year = d.getFullYear();
+    } else if (typeof d === "string" && /^\d{4}-\d{2}-\d{2}$/.test(d)) {
+      const [y, m, dd] = d.split("-").map(Number);
+      year = y; monthIdx = m - 1; day = dd;
+    } else {
+      return d;
+    }
+    const months = {
+      en: ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],
+      de: ["Januar","Februar","März","April","Mai","Juni","Juli","August","September","Oktober","November","Dezember"],
+      es: ["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre"],
+      fr: ["janvier","février","mars","avril","mai","juin","juillet","août","septembre","octobre","novembre","décembre"],
+      ru: ["января","февраля","марта","апреля","мая","июня","июля","августа","сентября","октября","ноября","декабря"],
+      pl: ["stycznia","lutego","marca","kwietnia","maja","czerwca","lipca","sierpnia","września","października","listopada","grudnia"]
+    };
+    const month = (months[locale] || months.en)[monthIdx];
+    if (locale === "en") return `${month} ${day}, ${year}`;
+    if (locale === "de") return `${day}. ${month} ${year}`;
+    if (locale === "es") return `${day} de ${month} de ${year}`;
+    return `${day} ${month} ${year}`; // fr / ru / pl
+  });
+
+  // Visible "Updated" label per locale
+  eleventyConfig.addFilter("updatedLabel", (locale) => {
+    const labels = { en: "Updated", de: "Aktualisiert", es: "Actualizado", fr: "Mis à jour", ru: "Обновлено", pl: "Zaktualizowano" };
+    return labels[locale] || labels.en;
+  });
+
   // RSS date filter: Date → "Thu, 14 May 2026 00:00:00 GMT"
   eleventyConfig.addFilter("rssDate", (d) => {
     if (d instanceof Date) return d.toUTCString();
