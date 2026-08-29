@@ -175,7 +175,7 @@
 | `{HOWTO_DESC}` | HowTo 简述 | `Schritt-für-Schritt-Verfahren zur Verifikation...` |
 | `{HOWTO_TOTAL_TIME}` | HowTo 总耗时 (ISO 8601) | `PT15M` |
 | `{CITE_1_NAME}` 等 | 权威引用源名称 + URL | `WPC Product Registry` / `https://www.wirelesspowerconsortium.com/products` |
-| `{FAQ_1_QUESTION}` 等 | FAQ 问答题对，5-8 条 | 见 §三 FAQ 9 规则 |
+| `{FAQ_1_QUESTION}` 等 | FAQ 问答题对，3-5 条 | 见 §三 FAQ 9 规则 |
 
 ### Organization 级固定字段（全站统一，不设占位符）
 | `{SERVICE_DESCRIPTION}` | 服务描述 | `End-to-end OEM/ODM charger manufacturing...` |

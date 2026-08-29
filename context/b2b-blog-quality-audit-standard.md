@@ -470,7 +470,7 @@ AI search engines (ChatGPT, Perplexity, Google AI Overviews, Gemini) extract cit
 
 ```
 BlogPosting.speakable → ["h1", ".speakable"]  ← 3 nodes: H1 + Hook + Key Takeaways
-FAQPage.speakable     → [".faq-answer"]       ← 独立管理，5-8 FAQ answers
+FAQPage.speakable     → [".faq-answer"]       ← 独立管理，3-5 FAQ answers
 ```
 
 两个 speakable 各自独立。BlogPosting 只负责文章摘要播报；FAQPage 负责问答匹配。**禁止**在 BlogPosting 的 cssSelector 中包含 `"h2"`——这会导致 ~12 个副标题被全量抓取（~16 个节点），严重稀释 AI 提取权重。
@@ -544,7 +544,7 @@ Hook → Featured Image → Key Takeaways → TOC → RESPUESTA RÁPIDA (删除!
 Required JSON-LD for every blog post:
 - **BlogPosting**: headline, description, datePublished, dateModified, wordCount, author, publisher
 - **Person (Author)**: name, jobTitle, knowsAbout, sameAs (LinkedIn URL)
-- **FAQPage**: 5–8 B2B-focused questions
+- **FAQPage**: 3–5 B2B-focused questions
 - **HowTo**: ≥3 steps for any process/guide article
 - **BreadcrumbList**: full path from homepage to article
 - **Organization**: name, logo, url
@@ -559,6 +559,8 @@ Required JSON-LD for every blog post:
 Trailing `/` is hardcoded in the template to guarantee zero slash mismatches between HTML Canonical and Schema JSON-LD across all build targets (local dev, staging, production).
 
 #### FAQ Nine Rules (Mandatory)
+
+**Rule 0: 数量控制 — 3–5 个精细化高频采购问答** — FAQPage 只保留 **3–5 个**核心问答（长文/常规 B2B 博客以 3–5 为上限，不堆叠）。理由：(1) FAQ 堆叠会稀释每个问题在 AI 抓取时的权重，单题 relevance 下降；(2) Google FAQ 富摘要最多展示 2–3 条，多余无增量收益；(3) 超过 5 个容易触发 Google 对「低质量/泛化问答」的算法降权。筛选标准：覆盖 MOQ / pricing / lead time / certification / customization / order process 这 6 大通用 B2B 采购类别中最高频的 3–5 个；纯技术细节、与正文 H2 重复、纯前瞻（非当前采购决策）的问题一律剔除。每个回答必须含具体参数（数字+单位）、认证代号或工程/采购逻辑，禁止废话。
 
 **Rule 1: Body-Schema Consistency** — Every FAQ question in the visible body MUST match the JSON-LD FAQPage schema exactly (same wording, same order). **Auto-checked** by `b2b_content_auditor.py` Check 14 Step 7: extracts body FAQ questions from HTML, compares against Schema FAQPage, flags count mismatch (-15) or wording differences (-10/ea).
 

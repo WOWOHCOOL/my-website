@@ -73,7 +73,7 @@ Must be the FIRST block after frontmatter, inside `{% block head_schema %}`:
 4. BlogPosting     — @id ending #article + headline + keywords[8+] + author @id ref(COPY FROM factory-data-canonical.md §15) + speakable["h1",".speakable"] + about.sameAs(Wikidata) + citation[3+]
 5. Person          — @id(COPY FROM factory-data-canonical.md §15) + jobTitle + url(author page) + sameAs[LinkedIn] + image + worksFor @id ref + knowsAbout[3-5]
 6. HowTo           — @id ending #howto + 3-6 steps(HowToDirection). Remove node entirely for non-process articles
-7. FAQPage         — @id ending #faq + speakable[".faq-answer"](independent) + 5–8 questions(word-for-word match with body FAQ)
+7. FAQPage         — @id ending #faq + speakable[".faq-answer"](independent) + 3–5 questions(word-for-word match with body FAQ)
 ```
 
 **Critical rules**:
@@ -231,7 +231,7 @@ Must be the FIRST block after frontmatter, inside `{% block head_schema %}`:
          <h3 class="font-black text-brandBlue mb-2">{Question 1}?</h3>
          <p class="text-slate-600 text-sm">{Answer 1 with ≥1 specific number}</p>
        </div>
-       <!-- Repeat for questions 2–N (5–8 total) -->
+       <!-- Repeat for questions 2–N (3–5 total) -->
      </div>
    </div>
  </div>
@@ -374,7 +374,7 @@ First 3 sentences must contain: number + unit + B2B signal word + first-hand exp
 - Technical parameters MUST be in tables (not prose)
 - Tables use: `thead bg-brandBlue text-white`, `tbody bg-white / bg-slate-50`
 
-### FAQ (5–8 questions, mandatory)
+### FAQ (3–5 questions, mandatory)
 - Body-Schema word-for-word match
 - B2B procurement language: MOQ, FOB, certification, lead time, compliance
 - Each answer: ≥1 specific number
