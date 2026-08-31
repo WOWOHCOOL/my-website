@@ -26,188 +26,346 @@ hreflang:
 {% extends "layout.njk" %}
 
 {% block head_schema %}
-<script type="application/ld+json">
-{
- "@context": "https://schema.org",
- "@graph": [
- {
- "@type": "Organization",
- "@id": "https://www.wowohcool.com/#organization",
- "name": "WOWOHCOOL",
- "legalName": "Dong Yi Technology Co., Ltd",
- "url": "https://www.wowohcool.com/fr/a-propos/",
- "publishingPrinciples": "https://www.wowohcool.com/fr/a-propos/",
- "logo": { "@type": "ImageObject", "url": "https://www.wowohcool.com/image/wowohcool-logo-optimized.webp" },
- "areaServed": ["FR", "BE", "CH", "EU"],
- "address": {
- "@type": "PostalAddress",
- "streetAddress": "925, Yichuang International Center, Longhua District",
- "addressLocality": "Shenzhen",
- "addressRegion": "Guangdong",
- "postalCode": "518111",
- "addressCountry": "CN"
- },
- "sameAs": [
- "https://www.linkedin.com/company/wowohcool",
- "https://www.facebook.com/wowohcoolelectronic",
- "https://www.youtube.com/@WOWOHCOOL",
- "https://x.com/wowohcool"
- ],
- "contactPoint": {
- "@type": "ContactPoint",
- "contactType": "OEM/ODM Sales",
- "telephone": "+86-18620789739",
- "email": "info@wowohcool.com",
- "availableLanguage": ["French", "English", "German", "Spanish", "Chinese"]
- }
- },
- {
- "@type": "WebSite",
- "@id": "https://www.wowohcool.com/#website",
- "url": "https://www.wowohcool.com/fr/",
- "name": "WOWOHCOOL",
- "inLanguage": "fr-FR",
- "publisher": { "@id": "https://www.wowohcool.com/#organization" }
- },
- {
- "@type": "BreadcrumbList",
- "itemListElement": [
- { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.wowohcool.com/fr/" },
- { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.wowohcool.com/fr/blog/" },
- { "@type": "ListItem", "position": 3, "name": "Guide Certifications Chargeurs", "item": "https://www.wowohcool.com/fr/blog/certifications-chargeurs-oem-guide/" }
- ]
- },
- {
- "@type": "BlogPosting",
- "@id": "https://www.wowohcool.com/fr/blog/certifications-chargeurs-oem-guide/#article",
- "headline": "Certifications Chargeurs: Guide UL, CE, FCC pour Importateurs OEM 2026",
- "keywords": ["Certification", "UL", "CE", "FCC", "Marquage CE", "Conformité", "OEM", "Importateur", "DGCCRF", "GPSR", "RoHS", "EN 62368-1"],
- "description": "Guide certification chargeur OEM 2026: CE, UL, FCC, RoHS. Coûts $2.500-4.500, 4-8 sem. GPSR et DGCCRF obligatoires. Devis OEM avec certifications incluses.",
- "author": { "@id": "https://www.wowohcool.com/#nina-nico" },
- "publisher": { "@id": "https://www.wowohcool.com/#organization" },
- "datePublished": "2026-08-06",
- "dateModified": "2026-08-06",
- "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.wowohcool.com/fr/blog/certifications-chargeurs-oem-guide/" },
- "wordCount": 3200,
- "inLanguage": "fr-FR",
- "timeRequired": "PT15M",
- "articleSection": "Conformité & Certification",
- "image": "https://www.wowohcool.com/image/blog/cover-fr/certifications-chargeurs-oem-guide.webp",
- "thumbnailUrl": "https://www.wowohcool.com/image/blog/cover-fr/certifications-chargeurs-oem-guide.webp",
- "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".speakable"] },
- "about": { "@type": "Thing", "name": "Marquage CE", "sameAs": "https://www.wikidata.org/wiki/Q228055" },
- "citation": [
- { "@type": "CreativeWork", "name": "Directive chargeur commun 2022/2380, EUR-Lex", "url": "https://eur-lex.europa.eu/legal-content/FR/TXT/?uri=CELEX:32022L2380" },
- { "@type": "CreativeWork", "name": "EN 62368-1, Sécurité des équipements TIC, CENELEC", "url": "https://www.cencenelec.eu/" },
- { "@type": "CreativeWork", "name": "Règlement GPSR (UE) 2023/988, EUR-Lex", "url": "https://eur-lex.europa.eu/legal-content/FR/TXT/?uri=CELEX:32023R0988" },
- { "@type": "CreativeWork", "name": "DGCCRF, Contrôles sécurité produits électriques 2025", "url": "https://www.economie.gouv.fr/dgccrf" },
- { "@type": "CreativeWork", "name": "Directive Basse Tension 2014/35/UE, Commission Européenne", "url": "https://single-market-economy.ec.europa.eu/sectors/electrical-and-electronic-engineering/low-voltage-directive_fr" }
- ]
- },
- {
- "@type": "Person",
- "@id": "https://www.wowohcool.com/#nina-nico",
- "name": "Nina Nico",
- "jobTitle": "Global Procurement & Sourcing Manager",
- "url": "https://www.wowohcool.com/authors/nina-nico/",
- "worksFor": { "@id": "https://www.wowohcool.com/#organization" },
- "knowsAbout": [
- "Global Supply Chain Sourcing",
- "Cross-Border OEM Negotiation",
- "3C Accessories OEM/ODM",
- "EU Regulatory Compliance & Battery Régulation",
- "GaN Charger & Power Bank Manufacturing"
- ],
- "image": "https://www.wowohcool.com/image/factory/team-nina.webp",
- "sameAs": ["https://www.linkedin.com/in/nico-power-bank-chargers"]
- },
- {
- "@type": "HowTo",
- "@id": "https://www.wowohcool.com/fr/blog/certifications-chargeurs-oem-guide/#howto",
- "name": "Certifier un chargeur pour le marché français et européen en 4 étapes",
- "description": "Processus pas-à-pas pour obtenir les certifications obligatoires (CE, RoHS) avant importation en France.",
- "totalTime": "P8W",
- "step": [
- {
- "@type": "HowToStep",
- "position": 1,
- "name": "Identifier les certifications obligatoires selon vos marchés cibles",
- "itemListElement": [{
- "@type": "HowToDirection",
- "text": "UE: CE (LVD + EMC + RoHS + ErP) + DEEE + GPSR personne responsable. USB-C obligatoire via directive 2022/2380. France: DoC en français + Triman + éco-organisme. US: FCC SDoC + UL 62368-1 (commercial). UK: UKCA. Budget standard: $2.500-4.500 pour le bundle CE/FCC/RoHS."
- }]
- },
- {
- "@type": "HowToStep",
- "position": 2,
- "name": "Choisir entre plateforme pré-certifiée ODM ou certification complète",
- "itemListElement": [{
- "@type": "HowToDirection",
- "text": "Plateforme ODM pré-certifiée: 3-4 semaines, 50-70% d'économies, idéal pour marques utilisant des designs existants. Certification complète: 8-16 semaines, requis pour designs personnalisés. Vérifier que le certificat couvre votre SKU exact, pas une série générique."
- }]
- },
- {
- "@type": "HowToStep",
- "position": 3,
- "name": "Faire tester en laboratoire et constituer le dossier technique",
- "itemListElement": [{
- "@type": "HowToDirection",
- "text": "Soumettre échantillons à un labo accrédité ISO 17025 (TÜV, SGS, Bureau Veritas, DEKRA). CE: 2-4 sem., $1.500-3.500. FCC: 1-2 sem., $500-1.200. UL: 4-8 sem., $1.500-3.000 + audit annuel. Exiger rapports originaux (30-80 pages). Attention: labos chinois interdits pour nouvelles demandes FCC depuis mai 2026."
- }]
- },
- {
- "@type": "HowToStep",
- "position": 4,
- "name": "Signer la Déclaration de Conformité et vérifier avant expédition",
- "itemListElement": [{
- "@type": "HowToDirection",
- "text": "L'importateur signe la DoC en son nom propre, une DoC au nom de l'usine est légalement invalide. Confirmer que le matériel correspond exactement à l'unité certifiée. Verrouiller la BOM dans le contrat d'achat. Archiver les rapports originaux 10 ans minimum (obligation UE). Vérifier les identifiants FCC et UL sur les bases officielles."
- }]
- }
- ]
- },
- {
- "@type": "FAQPage",
- "@id": "https://www.wowohcool.com/fr/blog/certifications-chargeurs-oem-guide/#faq",
- "speakable": { "@type": "SpeakableSpecification", "cssSelector": [".faq-answer"] },
- "mainEntity": [
- {
- "@type": "Question", "name": "Quelles certifications sont obligatoires pour vendre des chargeurs en France?",
- "acceptedAnswer": { "@type": "Answer", "text": "Le marquage CE est obligatoire, il couvre la directive Basse Tension (EN 62368-1), la directive CEM (EN 55032/55035), RoHS, et l'écoconception (ErP). La directive chargeur commun 2022/2380 impose l'USB-C. En France spécifiquement: DoC et manuel en français (Loi Toubon), symbole Triman (Loi AGEC), immatriculation DEEE (ecosystem ou Ecologic), et prise Type E. Budget: $1.500-3.500 pour la certification CE complète." }
- },
- {
- "@type": "Question", "name": "Quelle est la différence entre CE, UL, FCC et RoHS?",
- "acceptedAnswer": { "@type": "Answer", "text": "CE (UE): couvre sécurité électrique + CEM + RoHS + efficacité énergétique, conformité globale obligatoire. FCC (US): couvre uniquement les interférences électromagnétiques, n'aborde PAS la sécurité électrique. UL comble le vide sécurité aux US: exigé par Amazon et la grande distribution. RoHS: limite 6 substances dangereuses, obligatoire en UE et US. CE = auto-déclaration avec dossier technique; FCC = tests labo accrédité; UL = tests NRTL + audits trimestriels." }
- },
- {
- "@type": "Question", "name": "Combien coûte la certification complète d'un chargeur pour l'UE et les US?",
- "acceptedAnswer": { "@type": "Answer", "text": "Budget standard: $2.500-4.500 pour le bundle CE/FCC/RoHS/UN38.3 (4-6 semaines, 30-40% d'économie vs certifications séparées). Certification complète US+EU avec UL: $3.000-8.000 (6-10 semaines). Détail par certification: CE $1.500-3.500, FCC SDoC $500-1.200, UL $1.500-3.000 + audit annuel. CB Scheme (IECEE): un seul test IEC 62368-1 reconnu par 60+ pays, réduit les coûts de 30-50%." }
- },
- {
- "@type": "Question", "name": "Qu'est-ce que le GPSR et comment impacte-t-il les importateurs français?",
- "acceptedAnswer": { "@type": "Answer", "text": "Le Règlement (UE) 2023/988 sur la sécurité générale des produits (GPSR) est en vigueur depuis le 13 décembre 2024. Il exige qu'une « personne responsable » établie dans l'UE soit désignée pour tout produit. Pour un importateur français important de Chine, vous devenez automatiquement cette personne responsable. Vos nom, adresse postale et électronique doivent figurer sur le produit. Sans GPSR: saisie douane, retrait Amazon, amendes jusqu'à 750.000 €." }
- },
- {
- "@type": "Question", "name": "Puis-je utiliser les certificats CE fournis par mon usine en Chine?",
- "acceptedAnswer": { "@type": "Answer", "text": "Oui, vous pouvez utiliser les rapports de tests du fournisseur, mais la Déclaration de Conformité (DoC) doit être signée par vous, l'importateur, en votre nom propre. Une DoC au nom de l'usine chinoise n'a aucune valeur légale pour le marché français. Vérifiez aussi que les rapports utilisent les normes 2024-2026 (EN 62368-1:2020+A11:2020), pas des normes obsolètes (EN 60950-1). Exigez les rapports originaux (30-80 pages), pas seulement la page de garde." }
- },
- {
- "@type": "Question", "name": "La certification UL est-elle obligatoire pour vendre en France?",
- "acceptedAnswer": { "@type": "Answer", "text": "Non. UL est une certification nord-américaine sans valeur légale en France. Pour le marché français, seul le marquage CE est obligatoire. Cependant, si vous exportez aussi aux États-Unis, UL 62368-1 est commercialement indispensable: Amazon, Walmart et Best Buy l'exigent sous peine de déréférencement. Alternatives reconnues: ETL (Intertek), CSA, TÜV Rheinland, tous acceptés comme NRTL." }
- },
- {
- "@type": "Question", "name": "Quels sont les délais réels pour certifier un chargeur?",
- "acceptedAnswer": { "@type": "Answer", "text": "Délais standards: CE (LVD+EMC) 2-4 semaines, RoHS 1-2 semaines, FCC SDoC 1-2 semaines, UL 4-8 semaines, UN38.3 2-4 semaines. Bundle CE/FCC/RoHS/UN38.3: 4-6 semaines. Plateforme ODM pré-certifiée WOWOHCOOL: 3-4 semaines (50-70% d'économies). Pour un projet multi-marchés, soumettez tous les dossiers en parallèle, cela fait gagner 3-4 mois par rapport à une approche séquentielle." }
- },
- {
- "@type": "Question", "name": "Comment WOWOHCOOL simplifie-t-il la certification pour les importateurs français?",
- "acceptedAnswer": { "@type": "Answer", "text": "WOWOHCOOL gère l'intégralité du processus de certification, coordination des tests, documentation technique, et guidance réglementaire, inclus dans les commandes OEM. Notre usine ISO 9001 de 5.000 m² à Shenzhen a déjà certifié des chargeurs pour 200+ marques, couvrant CE, FCC, UL, RoHS, UN38.3. Plateforme ODM pré-certifiée: 3-4 semaines au lieu de 8-16. MOQ 500 pièces, échantillons en 5 jours. Contactez-nous pour un devis avec certifications incluses." }
- }
- ]
- }
- ]
-}
-</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.wowohcool.com/#organization",
+      "name": "WOWOHCOOL",
+      "legalName": "Dong Yi Technology Co., Ltd",
+      "foundingDate": "2013",
+      "vatID": "91441900MA558A2N27",
+      "url": "https://www.wowohcool.com/fr/a-propos/",
+      "publishingPrinciples": "https://www.wowohcool.com/fr/a-propos/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.wowohcool.com/image/wowohcool-logo-optimized.webp"
+      },
+      "areaServed": [
+        "US",
+        "DE",
+        "AT",
+        "CH",
+        "UK",
+        "FR",
+        "ES",
+        "PL",
+        "EU",
+        "JP",
+        "KR",
+        "AU",
+        "MX",
+        "CO",
+        "AR",
+        "CL",
+        "PE",
+        "RU",
+        "KZ",
+        "BY",
+        "EAEU"
+      ],
+      "knowsAbout": [
+        "OEM/ODM Power Bank Manufacturing",
+        "Qi2 Wireless Charging Standard",
+        "GaN Power Architecture",
+        "Automotive Fast Charging Systems",
+        "Custom Power Adapter Production",
+        "Consumer Electronics Sourcing",
+        "UL & CE Safety Compliance"
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "925, Yichuang International Center, Longhua District",
+        "addressLocality": "Shenzhen",
+        "addressRegion": "Guangdong",
+        "postalCode": "518111",
+        "addressCountry": "CN"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/company/wowohcool",
+        "https://www.facebook.com/wowohcoolelectronic",
+        "https://www.youtube.com/@WOWOHCOOL",
+        "https://x.com/wowohcool"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "OEM/ODM Sales",
+        "telephone": "+86-18620789739",
+        "email": "info@wowohcool.com",
+        "availableLanguage": [
+          "English",
+          "German",
+          "Spanish",
+          "French",
+          "Russian",
+          "Polish"
+        ]
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.wowohcool.com/#website",
+      "url": "https://www.wowohcool.com/fr/",
+      "name": "WOWOHCOOL",
+      "inLanguage": "fr-FR",
+      "publisher": {
+        "@id": "https://www.wowohcool.com/#organization"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Accueil",
+          "item": "https://www.wowohcool.com/fr/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://www.wowohcool.com/fr/blog/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Guide Certifications Chargeurs",
+          "item": "https://www.wowohcool.com/fr/blog/certifications-chargeurs-oem-guide/"
+        }
+      ]
+    },
+    {
+      "@type": "BlogPosting",
+      "@id": "https://www.wowohcool.com/fr/blog/certifications-chargeurs-oem-guide/#article",
+      "headline": "Certifications Chargeurs: Guide UL, CE, FCC pour Importateurs OEM 2026",
+      "keywords": [
+        "Certification",
+        "UL",
+        "CE",
+        "FCC",
+        "Marquage CE",
+        "Conformité",
+        "OEM",
+        "Importateur",
+        "DGCCRF",
+        "GPSR",
+        "RoHS",
+        "EN 62368-1"
+      ],
+      "description": "Guide certification chargeur OEM 2026: CE, UL, FCC, RoHS. Coûts $2.500-4.500, 4-8 sem. GPSR et DGCCRF obligatoires. Devis OEM avec certifications incluses.",
+      "author": {
+        "@id": "https://www.wowohcool.com/#nina-nico"
+      },
+      "publisher": {
+        "@id": "https://www.wowohcool.com/#organization"
+      },
+      "datePublished": "2026-08-06",
+      "dateModified": "2026-08-06",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://www.wowohcool.com/fr/blog/certifications-chargeurs-oem-guide/"
+      },
+      "wordCount": 3200,
+      "inLanguage": "fr-FR",
+      "timeRequired": "PT15M",
+      "articleSection": "Conformité & Certification",
+      "image": "https://www.wowohcool.com/image/blog/cover-fr/certifications-chargeurs-oem-guide.webp",
+      "thumbnailUrl": "https://www.wowohcool.com/image/blog/cover-fr/certifications-chargeurs-oem-guide.webp",
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [
+          "h1",
+          ".speakable"
+        ]
+      },
+      "about": {
+        "@type": "Thing",
+        "name": "Marquage CE",
+        "sameAs": "https://www.wikidata.org/wiki/Q467405"
+      },
+      "citation": [
+        {
+          "@type": "CreativeWork",
+          "name": "Directive chargeur commun 2022/2380, EUR-Lex",
+          "url": "https://eur-lex.europa.eu/legal-content/FR/TXT/?uri=CELEX:32022L2380"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "EN 62368-1, Sécurité des équipements TIC, CENELEC",
+          "url": "https://www.cencenelec.eu/"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "Règlement GPSR (UE) 2023/988, EUR-Lex",
+          "url": "https://eur-lex.europa.eu/legal-content/FR/TXT/?uri=CELEX:32023R0988"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "DGCCRF, Contrôles sécurité produits électriques 2025",
+          "url": "https://www.economie.gouv.fr/dgccrf"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "Directive Basse Tension 2014/35/UE, Commission Européenne",
+          "url": "https://single-market-economy.ec.europa.eu/sectors/electrical-and-electronic-engineering/low-voltage-directive_fr"
+        }
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://www.wowohcool.com/#nina-nico",
+      "name": "Nina Nico",
+      "jobTitle": "Global Procurement & Sourcing Manager",
+      "url": "https://www.wowohcool.com/authors/nina-nico/",
+      "worksFor": {
+        "@id": "https://www.wowohcool.com/#organization"
+      },
+      "knowsAbout": [
+        "B2B Hardware Sourcing",
+        "OEM/ODM Power Bank Manufacturing",
+        "Supply Chain Quality Assurance",
+        "International Electronics Trade Compliance",
+        "Custom Power Adapter Production",
+        "Factory Audit Standards"
+      ],
+      "image": "https://www.wowohcool.com/image/factory/team-nina.webp",
+      "sameAs": [
+        "https://www.linkedin.com/in/nico-power-bank-chargers"
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://www.wowohcool.com/fr/blog/certifications-chargeurs-oem-guide/#howto",
+      "name": "Certifier un chargeur pour le marché français et européen en 4 étapes",
+      "description": "Processus pas-à-pas pour obtenir les certifications obligatoires (CE, RoHS) avant importation en France.",
+      "totalTime": "P8W",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Identifier les certifications obligatoires selon vos marchés cibles",
+          "itemListElement": [
+            {
+              "@type": "HowToDirection",
+              "text": "UE: CE (LVD + EMC + RoHS + ErP) + DEEE + GPSR personne responsable. USB-C obligatoire via directive 2022/2380. France: DoC en français + Triman + éco-organisme. US: FCC SDoC + UL 62368-1 (commercial). UK: UKCA. Budget standard: $2.500-4.500 pour le bundle CE/FCC/RoHS."
+            }
+          ]
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Choisir entre plateforme pré-certifiée ODM ou certification complète",
+          "itemListElement": [
+            {
+              "@type": "HowToDirection",
+              "text": "Plateforme ODM pré-certifiée: 3-4 semaines, 50-70% d'économies, idéal pour marques utilisant des designs existants. Certification complète: 8-16 semaines, requis pour designs personnalisés. Vérifier que le certificat couvre votre SKU exact, pas une série générique."
+            }
+          ]
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Faire tester en laboratoire et constituer le dossier technique",
+          "itemListElement": [
+            {
+              "@type": "HowToDirection",
+              "text": "Soumettre échantillons à un labo accrédité ISO 17025 (TÜV, SGS, Bureau Veritas, DEKRA). CE: 2-4 sem., $1.500-3.500. FCC: 1-2 sem., $500-1.200. UL: 4-8 sem., $1.500-3.000 + audit annuel. Exiger rapports originaux (30-80 pages). Attention: labos chinois interdits pour nouvelles demandes FCC depuis mai 2026."
+            }
+          ]
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Signer la Déclaration de Conformité et vérifier avant expédition",
+          "itemListElement": [
+            {
+              "@type": "HowToDirection",
+              "text": "L'importateur signe la DoC en son nom propre, une DoC au nom de l'usine est légalement invalide. Confirmer que le matériel correspond exactement à l'unité certifiée. Verrouiller la BOM dans le contrat d'achat. Archiver les rapports originaux 10 ans minimum (obligation UE). Vérifier les identifiants FCC et UL sur les bases officielles."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.wowohcool.com/fr/blog/certifications-chargeurs-oem-guide/#faq",
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [
+          ".faq-answer"
+        ]
+      },
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Quelles certifications sont obligatoires pour vendre des chargeurs en France?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Le marquage CE est obligatoire, il couvre la directive Basse Tension (EN 62368-1), la directive CEM (EN 55032/55035), RoHS, et l'écoconception (ErP). La directive chargeur commun 2022/2380 impose l'USB-C. En France spécifiquement: DoC et manuel en français (Loi Toubon), symbole Triman (Loi AGEC), immatriculation DEEE (ecosystem ou Ecologic), et prise Type E. Budget: $1.500-3.500 pour la certification CE complète."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quelle est la différence entre CE, UL, FCC et RoHS?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "CE (UE): couvre sécurité électrique + CEM + RoHS + efficacité énergétique, conformité globale obligatoire. FCC (US): couvre uniquement les interférences électromagnétiques, n'aborde PAS la sécurité électrique. UL comble le vide sécurité aux US: exigé par Amazon et la grande distribution. RoHS: limite 6 substances dangereuses, obligatoire en UE et US. CE = auto-déclaration avec dossier technique; FCC = tests labo accrédité; UL = tests NRTL + audits trimestriels."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Combien coûte la certification complète d'un chargeur pour l'UE et les US?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Budget standard: $2.500-4.500 pour le bundle CE/FCC/RoHS/UN38.3 (4-6 semaines, 30-40% d'économie vs certifications séparées). Certification complète US+EU avec UL: $3.000-8.000 (6-10 semaines). Détail par certification: CE $1.500-3.500, FCC SDoC $500-1.200, UL $1.500-3.000 + audit annuel. CB Scheme (IECEE): un seul test IEC 62368-1 reconnu par 60+ pays, réduit les coûts de 30-50%."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Qu'est-ce que le GPSR et comment impacte-t-il les importateurs français?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Le Règlement (UE) 2023/988 sur la sécurité générale des produits (GPSR) est en vigueur depuis le 13 décembre 2024. Il exige qu'une « personne responsable » établie dans l'UE soit désignée pour tout produit. Pour un importateur français important de Chine, vous devenez automatiquement cette personne responsable. Vos nom, adresse postale et électronique doivent figurer sur le produit. Sans GPSR: saisie douane, retrait Amazon, amendes jusqu'à 750.000 €."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Puis-je utiliser les certificats CE fournis par mon usine en Chine?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Oui, vous pouvez utiliser les rapports de tests du fournisseur, mais la Déclaration de Conformité (DoC) doit être signée par vous, l'importateur, en votre nom propre. Une DoC au nom de l'usine chinoise n'a aucune valeur légale pour le marché français. Vérifiez aussi que les rapports utilisent les normes 2024-2026 (EN 62368-1:2020+A11:2020), pas des normes obsolètes (EN 60950-1). Exigez les rapports originaux (30-80 pages), pas seulement la page de garde."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "La certification UL est-elle obligatoire pour vendre en France?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Non. UL est une certification nord-américaine sans valeur légale en France. Pour le marché français, seul le marquage CE est obligatoire. Cependant, si vous exportez aussi aux États-Unis, UL 62368-1 est commercialement indispensable: Amazon, Walmart et Best Buy l'exigent sous peine de déréférencement. Alternatives reconnues: ETL (Intertek), CSA, TÜV Rheinland, tous acceptés comme NRTL."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quels sont les délais réels pour certifier un chargeur?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Délais standards: CE (LVD+EMC) 2-4 semaines, RoHS 1-2 semaines, FCC SDoC 1-2 semaines, UL 4-8 semaines, UN38.3 2-4 semaines. Bundle CE/FCC/RoHS/UN38.3: 4-6 semaines. Plateforme ODM pré-certifiée WOWOHCOOL: 3-4 semaines (50-70% d'économies). Pour un projet multi-marchés, soumettez tous les dossiers en parallèle, cela fait gagner 3-4 mois par rapport à une approche séquentielle."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Comment WOWOHCOOL simplifie-t-il la certification pour les importateurs français?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "WOWOHCOOL gère l'intégralité du processus de certification, coordination des tests, documentation technique, et guidance réglementaire, inclus dans les commandes OEM. Notre usine ISO 9001 de 5.000 m² à Shenzhen a déjà certifié des chargeurs pour 200+ marques, couvrant CE, FCC, UL, RoHS, UN38.3. Plateforme ODM pré-certifiée: 3-4 semaines au lieu de 8-16. MOQ 500 pièces, échantillons en 5 jours. Contactez-nous pour un devis avec certifications incluses."
+          }
+        }
+      ]
+    }
+  ]
+}</script>
 {% endblock %}
 
 {% block content %}
@@ -230,7 +388,7 @@ hreflang:
  </div>
  <h1 class="text-3xl lg:text-5xl font-black text-brandBlue uppercase italic tracking-tighter mb-6 leading-tight">Certifications Chargeurs: Guide UL, CE, FCC pour Importateurs OEM</h1>
  <div class="flex items-center gap-3 mb-6">
- <img src="/image/factory/team-nina.webp" alt="Nina Nico, Global Procurement Manager chez WOWOHCOOL" loading="lazy" width="40" height="40" class="w-10 h-10 rounded-full object-cover border border-brandOrange">
+ <img src="/image/factory/team-nina.webp" alt="Nina Nico, Global Procurement & Sourcing Manager chez WOWOHCOOL — spécialiste du sourcing OEM/ODM" loading="lazy" width="40" height="40" class="w-10 h-10 rounded-full object-cover border border-brandOrange">
  <div>
  <a href="#author-bio" class="font-bold text-slate-900 text-sm hover:text-brandOrange transition">Nina Nico</a>
  <p class="text-xs text-slate-500">Global Procurement & Sourcing Manager · 10+ ans en sourcing 3C</p>
@@ -602,7 +760,7 @@ hreflang:
  <div class="bg-slate-50 rounded-2xl p-6 md:p-8 mb-12 border border-slate-100">
  <div class="flex flex-col sm:flex-row items-start gap-4 sm:gap-6">
  <div class="w-20 h-20 rounded-full overflow-hidden flex items-center justify-center border-2 border-brandOrange bg-white shadow-lg shrink-0">
- <img src="/image/factory/team-nina.webp" alt="Nina Nico, Global Procurement & Sourcing Manager, spécialiste conformité UE" loading="lazy" width="400" height="400" class="w-full h-full object-cover">
+ <img src="/image/factory/team-nina.webp" alt="Nina Nico, Global Procurement & Sourcing Manager chez WOWOHCOOL — spécialiste du sourcing OEM/ODM" loading="lazy" width="400" height="400" class="w-full h-full object-cover">
  </div>
  <div class="flex-1 min-w-0">
  <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 mb-2 sm:mb-3">

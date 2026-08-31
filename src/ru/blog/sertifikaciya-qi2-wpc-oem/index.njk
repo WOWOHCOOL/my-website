@@ -24,238 +24,370 @@ hreflang:
 {% extends "layout.njk" %}
 
 {% block head_schema %}
-<script type="application/ld+json">
-{
- "@context": "https://schema.org",
- "@graph": [
-  {
-   "@type": "Organization",
-   "@id": "https://www.wowohcool.com/#organization",
-   "name": "WOWOHCOOL",
-   "legalName": "Dong Yi Technology Co., Ltd",
-   "url": "https://www.wowohcool.com/ru/o-kompanii/",
-   "publishingPrinciples": "https://www.wowohcool.com/ru/o-kompanii/",
-   "logo": { "@type": "ImageObject", "url": "https://www.wowohcool.com/image/wowohcool-logo-optimized.webp", "width": 600, "height": 60 },
-   "areaServed": ["RU", "KZ", "BY", "EAEU"],
-   "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "925, Yichuang International Center, Longhua District",
-    "addressLocality": "Shenzhen",
-    "addressRegion": "Guangdong",
-    "postalCode": "518111",
-    "addressCountry": "CN"
-   },
-   "sameAs": [
-    "https://www.linkedin.com/company/wowohcool",
-    "https://www.facebook.com/wowohcoolelectronic",
-    "https://www.youtube.com/@WOWOHCOOL",
-    "https://x.com/wowohcool"
-   ],
-   "contactPoint": {
-    "@type": "ContactPoint",
-    "contactType": "OEM/ODM Sales",
-    "telephone": "+86-18620789739",
-    "email": "info@wowohcool.com",
-    "availableLanguage": ["Russian", "English", "German", "Chinese"]
-   }
-  },
-  {
-   "@type": "WebSite",
-   "@id": "https://www.wowohcool.com/#website",
-   "url": "https://www.wowohcool.com/ru/",
-   "name": "WOWOHCOOL",
-   "inLanguage": "ru-RU",
-   "publisher": { "@id": "https://www.wowohcool.com/#organization" }
-  },
-  {
-   "@type": "BreadcrumbList",
-   "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": "Главная", "item": "https://www.wowohcool.com/ru/" },
-    { "@type": "ListItem", "position": 2, "name": "Блог", "item": "https://www.wowohcool.com/ru/blog/" },
-    { "@type": "ListItem", "position": 3, "name": "Сертификация Qi2 WPC OEM", "item": "https://www.wowohcool.com/ru/blog/sertifikaciya-qi2-wpc-oem/" }
-   ]
-  },
-  {
-   "@type": "BlogPosting",
-   "@id": "https://www.wowohcool.com/ru/blog/sertifikaciya-qi2-wpc-oem/#article",
-   "headline": "Сертификация Qi2 для Импортёров: Полное Руководство WPC и EAC 2026",
-   "keywords": ["Qi2", "Сертификация", "WPC", "EAC", "ТР ТС", "Беспроводная Зарядка", "OEM", "Импортёр", "Qi2.2", "MPP", "Стоимость", "FOB"],
-   "description": "Сертификация Qi2 OEM 2026: стоимость WPC (Adopter $18K/год, ATL ~$17K), Qi-ID $750. Соответствие EAC (ТР ТС). Процесс для импортёров РФ. Данные завода ISO 9001.",
-   "author": { "@id": "https://www.wowohcool.com/#snowy-may" },
-   "publisher": { "@id": "https://www.wowohcool.com/#organization" },
-   "datePublished": "2026-08-08",
-   "dateModified": "2026-08-08",
-   "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.wowohcool.com/ru/blog/sertifikaciya-qi2-wpc-oem/" },
-   "wordCount": 3352,
-   "inLanguage": "ru-RU",
-   "timeRequired": "PT16M",
-   "articleSection": "Беспроводная Зарядка и Стандарты",
-   "image": "https://www.wowohcool.com/image/blog/cover-ru/sertifikaciya-qi2-wpc-oem.webp",
-   "thumbnailUrl": "https://www.wowohcool.com/image/blog/cover-ru/sertifikaciya-qi2-wpc-oem.webp",
-   "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".speakable"] },
-   "about": { "@type": "Thing", "name": "Qi2 Wireless Power Consortium", "sameAs": "https://www.wikidata.org/wiki/Q107342669" },
-   "citation": [
-    { "@type": "CreativeWork", "name": "Wireless Power Consortium, Membership & Certification", "url": "https://www.wirelesspowerconsortium.com/membership/" },
-    { "@type": "CreativeWork", "name": "Qi v2.0 Specification, IEC 63563-1 International Standard", "url": "https://www.wirelesspowerconsortium.com/" },
-    { "@type": "CreativeWork", "name": "ТР ТС 004/2011, О безопасности низковольтного оборудования", "url": "https://docs.cntd.ru/" },
-    { "@type": "CreativeWork", "name": "ТР ТС 020/2011, Электромагнитная совместимость технических средств", "url": "https://docs.cntd.ru/" },
-    { "@type": "CreativeWork", "name": "WOWOHCOOL, WPC Member с 2013 года — Завод-производитель Qi2 зарядных устройств", "url": "https://www.wowohcool.com/ru/o-kompanii/" }
-   ]
-  },
-  {
-   "@type": "Person",
-   "@id": "https://www.wowohcool.com/#snowy-may",
-   "name": "Snowy May",
-   "jobTitle": "Marketing Manager & Founder",
-   "url": "https://www.wowohcool.com/authors/snowy-may/",
-   "worksFor": { "@id": "https://www.wowohcool.com/#organization" },
-   "knowsAbout": [
-    "OEM/ODM Consumer Electronics",
-    "GaN Charger Technology",
-    "Qi2 Wireless Charging",
-    "Charger Certifications (UL/CE/FCC)",
-    "EU/US Regulatory Compliance"
-   ],
-   "image": "https://www.wowohcool.com/image/factory/team-snowy.webp",
-   "sameAs": ["https://www.linkedin.com/in/snowy-wireless-charger"]
-  },
-  {
-   "@type": "HowTo",
-   "@id": "https://www.wowohcool.com/ru/blog/sertifikaciya-qi2-wpc-oem/#howto",
-   "name": "Сертифицировать Qi2 продукт за 6 этапов",
-   "description": "Алгоритм сертификации Qi2: членство WPC, разработка продукта, предварительное тестирование, ATL-тестирование, IOC, регистрация Qi-ID. Для импортёров РФ и ЕАЭС.",
-   "totalTime": "P84D",
-   "step": [
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
     {
-     "@type": "HowToStep",
-     "position": 1,
-     "name": "Оформите членство WPC (Adopter $18K или Regular $30K/год)",
-     "itemListElement": [{
-      "@type": "HowToDirection",
-      "text": "Adopter Member ($18 000/год) оптимален для большинства импортёров: неограниченная регистрация продуктов, Qi-ID $750/продукт, доступ к черновикам спецификаций. Pro-rata расчёт при вступлении в середине года. Без членства WPC вы не можете легально использовать логотип Qi2."
-     }]
+      "@type": "Organization",
+      "@id": "https://www.wowohcool.com/#organization",
+      "name": "WOWOHCOOL",
+      "legalName": "Dong Yi Technology Co., Ltd",
+      "foundingDate": "2013",
+      "vatID": "91441900MA558A2N27",
+      "url": "https://www.wowohcool.com/ru/o-kompanii/",
+      "publishingPrinciples": "https://www.wowohcool.com/ru/o-kompanii/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.wowohcool.com/image/wowohcool-logo-optimized.webp",
+        "width": 600,
+        "height": 60
+      },
+      "areaServed": [
+        "US",
+        "DE",
+        "AT",
+        "CH",
+        "UK",
+        "FR",
+        "ES",
+        "PL",
+        "EU",
+        "JP",
+        "KR",
+        "AU",
+        "MX",
+        "CO",
+        "AR",
+        "CL",
+        "PE",
+        "RU",
+        "KZ",
+        "BY",
+        "EAEU"
+      ],
+      "knowsAbout": [
+        "OEM/ODM Power Bank Manufacturing",
+        "Qi2 Wireless Charging Standard",
+        "GaN Power Architecture",
+        "Automotive Fast Charging Systems",
+        "Custom Power Adapter Production",
+        "Consumer Electronics Sourcing",
+        "UL & CE Safety Compliance"
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "925, Yichuang International Center, Longhua District",
+        "addressLocality": "Shenzhen",
+        "addressRegion": "Guangdong",
+        "postalCode": "518111",
+        "addressCountry": "CN"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/company/wowohcool",
+        "https://www.facebook.com/wowohcoolelectronic",
+        "https://www.youtube.com/@WOWOHCOOL",
+        "https://x.com/wowohcool"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "OEM/ODM Sales",
+        "telephone": "+86-18620789739",
+        "email": "info@wowohcool.com",
+        "availableLanguage": [
+          "English",
+          "German",
+          "Spanish",
+          "French",
+          "Russian",
+          "Polish"
+        ]
+      }
     },
     {
-     "@type": "HowToStep",
-     "position": 2,
-     "name": "Подготовьте продукт и проведите предварительное тестирование",
-     "itemListElement": [{
-      "@type": "HowToDirection",
-      "text": "Pre-compliance тестирование в независимой лаборатории ($2 000-5 000) выявляет проблемы до официального ATL-теста. Ключевые проверки: полярность магнитов N52H, калибровка FOD, тепловой режим (≤17,5°C выше ambient при 15W). Экономит $3 000-10 000 на повторном тестировании."
-     }]
+      "@type": "WebSite",
+      "@id": "https://www.wowohcool.com/#website",
+      "url": "https://www.wowohcool.com/ru/",
+      "name": "WOWOHCOOL",
+      "inLanguage": "ru-RU",
+      "publisher": {
+        "@id": "https://www.wowohcool.com/#organization"
+      }
     },
     {
-     "@type": "HowToStep",
-     "position": 3,
-     "name": "Пройдите ATL-тестирование в авторизованной лаборатории WPC",
-     "itemListElement": [{
-      "@type": "HowToDirection",
-      "text": "ATL (Authorized Test Lab) тестирование MPP 15W: $17 000-20 000. Qi2.2 25W: $20 000-25 000. Китайские лаборатории (Microtest/GTS) на 20-50% дешевле международных. Требуется 2-6 недель. Только 2 IOC-лаборатории в мире (Бельгия и Корея)."
-     }]
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Главная",
+          "item": "https://www.wowohcool.com/ru/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Блог",
+          "item": "https://www.wowohcool.com/ru/blog/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Сертификация Qi2 WPC OEM",
+          "item": "https://www.wowohcool.com/ru/blog/sertifikaciya-qi2-wpc-oem/"
+        }
+      ]
     },
     {
-     "@type": "HowToStep",
-     "position": 4,
-     "name": "Получите ключи аутентификации и пройдите IOC",
-     "itemListElement": [{
-      "@type": "HowToDirection",
-      "text": "Интероперабельное тестирование (IOC): $1 500 фиксированная плата. Выпуск ключей X.509: $1 500-3 000. Чип аутентификации обязателен для Qi2.2 (ECDSA P-256, SHA-256). Без чипа продукт ограничен 5 Вт (BPP)."
-     }]
+      "@type": "BlogPosting",
+      "@id": "https://www.wowohcool.com/ru/blog/sertifikaciya-qi2-wpc-oem/#article",
+      "headline": "Сертификация Qi2 для Импортёров: Полное Руководство WPC и EAC 2026",
+      "keywords": [
+        "Qi2",
+        "Сертификация",
+        "WPC",
+        "EAC",
+        "ТР ТС",
+        "Беспроводная Зарядка",
+        "OEM",
+        "Импортёр",
+        "Qi2.2",
+        "MPP",
+        "Стоимость",
+        "FOB"
+      ],
+      "description": "Сертификация Qi2 OEM 2026: стоимость WPC (Adopter $18K/год, ATL ~$17K), Qi-ID $750. Соответствие EAC (ТР ТС). Процесс для импортёров РФ. Данные завода ISO 9001.",
+      "author": {
+        "@id": "https://www.wowohcool.com/#snowy-may"
+      },
+      "publisher": {
+        "@id": "https://www.wowohcool.com/#organization"
+      },
+      "datePublished": "2026-08-08",
+      "dateModified": "2026-08-08",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://www.wowohcool.com/ru/blog/sertifikaciya-qi2-wpc-oem/"
+      },
+      "wordCount": 3352,
+      "inLanguage": "ru-RU",
+      "timeRequired": "PT16M",
+      "articleSection": "Беспроводная Зарядка и Стандарты",
+      "image": "https://www.wowohcool.com/image/blog/cover-ru/sertifikaciya-qi2-wpc-oem.webp",
+      "thumbnailUrl": "https://www.wowohcool.com/image/blog/cover-ru/sertifikaciya-qi2-wpc-oem.webp",
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [
+          "h1",
+          ".speakable"
+        ]
+      },
+      "about": {
+        "@type": "Thing",
+        "name": "Qi2 Wireless Power Consortium",
+        "sameAs": "https://www.wikidata.org/wiki/Q3616482"
+      },
+      "citation": [
+        {
+          "@type": "CreativeWork",
+          "name": "Wireless Power Consortium, Membership & Certification",
+          "url": "https://www.wirelesspowerconsortium.com/membership/"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "Qi v2.0 Specification, IEC 63563-1 International Standard",
+          "url": "https://www.wirelesspowerconsortium.com/"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "ТР ТС 004/2011, О безопасности низковольтного оборудования",
+          "url": "https://docs.cntd.ru/"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "ТР ТС 020/2011, Электромагнитная совместимость технических средств",
+          "url": "https://docs.cntd.ru/"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "WOWOHCOOL, WPC Member с 2013 года — Завод-производитель Qi2 зарядных устройств",
+          "url": "https://www.wowohcool.com/ru/o-kompanii/"
+        }
+      ]
     },
     {
-     "@type": "HowToStep",
-     "position": 5,
-     "name": "Зарегистрируйте продукт в WPC и получите Qi-ID",
-     "itemListElement": [{
-      "@type": "HowToDirection",
-      "text": "Регистрация продукта: $750/продукт (Qi-ID). Производный продукт (тот же дизайн, другой бренд): $250. Подсистема (сертифицированный модуль в готовом изделии): $250. После регистрации продукт появляется в WPC Certified Product Database."
-     }]
+      "@type": "Person",
+      "@id": "https://www.wowohcool.com/#snowy-may",
+      "name": "Snowy May",
+      "jobTitle": "Marketing Manager & Founder",
+      "url": "https://www.wowohcool.com/authors/snowy-may/",
+      "worksFor": {
+        "@id": "https://www.wowohcool.com/#organization"
+      },
+      "knowsAbout": [
+        "Qi2 Wireless Charging Standard",
+        "GaN Power Architecture",
+        "Thermal Management in Power Electronics",
+        "PCBA Efficiency Testing",
+        "UL 2056 & CE Safety Compliance",
+        "EU Battery Regulation 2023/1542"
+      ],
+      "image": "https://www.wowohcool.com/image/factory/team-snowy.webp",
+      "sameAs": [
+        "https://www.linkedin.com/in/snowy-wireless-charger"
+      ]
     },
     {
-     "@type": "HowToStep",
-     "position": 6,
-     "name": "Оформите EAC сертификацию для рынка РФ и ЕАЭС",
-     "itemListElement": [{
-      "@type": "HowToDirection",
-      "text": "Для РФ дополнительно требуется: Декларация EAC по ТР ТС 004/2011 + ТР ТС 020/2011 + ТР ЕАЭС 037/2016 (стоимость $1 500-3 000, срок 2-4 нед.). Для Qi2-зарядок ≤60 Вт достаточно DoC (декларация). Сертификат только от аккредитованного органа RA/RU, испытания в российской лаборатории, внесение в ФГИС в течение 24 часов."
-     }]
+      "@type": "HowTo",
+      "@id": "https://www.wowohcool.com/ru/blog/sertifikaciya-qi2-wpc-oem/#howto",
+      "name": "Сертифицировать Qi2 продукт за 6 этапов",
+      "description": "Алгоритм сертификации Qi2: членство WPC, разработка продукта, предварительное тестирование, ATL-тестирование, IOC, регистрация Qi-ID. Для импортёров РФ и ЕАЭС.",
+      "totalTime": "P8W",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Оформите членство WPC (Adopter $18K или Regular $30K/год)",
+          "itemListElement": [
+            {
+              "@type": "HowToDirection",
+              "text": "Adopter Member ($18 000/год) оптимален для большинства импортёров: неограниченная регистрация продуктов, Qi-ID $750/продукт, доступ к черновикам спецификаций. Pro-rata расчёт при вступлении в середине года. Без членства WPC вы не можете легально использовать логотип Qi2."
+            }
+          ]
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Подготовьте продукт и проведите предварительное тестирование",
+          "itemListElement": [
+            {
+              "@type": "HowToDirection",
+              "text": "Pre-compliance тестирование в независимой лаборатории ($2 000-5 000) выявляет проблемы до официального ATL-теста. Ключевые проверки: полярность магнитов N52H, калибровка FOD, тепловой режим (≤17,5°C выше ambient при 15W). Экономит $3 000-10 000 на повторном тестировании."
+            }
+          ]
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Пройдите ATL-тестирование в авторизованной лаборатории WPC",
+          "itemListElement": [
+            {
+              "@type": "HowToDirection",
+              "text": "ATL (Authorized Test Lab) тестирование MPP 15W: $17 000-20 000. Qi2.2 25W: $20 000-25 000. Китайские лаборатории (Microtest/GTS) на 20-50% дешевле международных. Требуется 2-6 недель. Только 2 IOC-лаборатории в мире (Бельгия и Корея)."
+            }
+          ]
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Получите ключи аутентификации и пройдите IOC",
+          "itemListElement": [
+            {
+              "@type": "HowToDirection",
+              "text": "Интероперабельное тестирование (IOC): $1 500 фиксированная плата. Выпуск ключей X.509: $1 500-3 000. Чип аутентификации обязателен для Qi2.2 (ECDSA P-256, SHA-256). Без чипа продукт ограничен 5 Вт (BPP)."
+            }
+          ]
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Зарегистрируйте продукт в WPC и получите Qi-ID",
+          "itemListElement": [
+            {
+              "@type": "HowToDirection",
+              "text": "Регистрация продукта: $750/продукт (Qi-ID). Производный продукт (тот же дизайн, другой бренд): $250. Подсистема (сертифицированный модуль в готовом изделии): $250. После регистрации продукт появляется в WPC Certified Product Database."
+            }
+          ]
+        },
+        {
+          "@type": "HowToStep",
+          "position": 6,
+          "name": "Оформите EAC сертификацию для рынка РФ и ЕАЭС",
+          "itemListElement": [
+            {
+              "@type": "HowToDirection",
+              "text": "Для РФ дополнительно требуется: Декларация EAC по ТР ТС 004/2011 + ТР ТС 020/2011 + ТР ЕАЭС 037/2016 (стоимость $1 500-3 000, срок 2-4 нед.). Для Qi2-зарядок ≤60 Вт достаточно DoC (декларация). Сертификат только от аккредитованного органа RA/RU, испытания в российской лаборатории, внесение в ФГИС в течение 24 часов."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.wowohcool.com/ru/blog/sertifikaciya-qi2-wpc-oem/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Сколько стоит сертификация Qi2 для первого продукта?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Полный бюджет первого продукта Qi2 15W: $32 750-38 000, включая членство WPC Adopter ($18 000/год), ATL-тестирование ($17 000-20 000), IOC ($1 500), ключи X.509 ($1 500-3 000) и регистрацию Qi-ID ($750). С предсертифицированным ODM-модулем стоимость снижается до $5 000-12 000 (экономия 50-70%). Qi2.2 25W дороже на $3 000-5 000 за счёт расширенного теплового тестирования."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Можно ли продавать Qi2-зарядки в РФ без сертификации WPC?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Без WPC-сертификации продукт не может использовать логотип Qi2 и ограничен базовым профилем мощности 5 Вт (BPP). Магнитное выравнивание MPP недоступно без сертификации. Для РФ дополнительно обязательна EAC-декларация (ТР ТС 004/2011, 020/2011, 037/2016). Маркетплейсы Ozon и Wildberries применяют ИИ-верификацию сертификатов — отсутствие документов ведёт к блокировке карточки товара."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Какой срок сертификации Qi2 от начала до получения Qi-ID?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Полный цикл: от 8 недель до 6 месяцев. Членство WPC: 1-2 недели. Разработка продукта: 4-12 недель. Пре-тестирование: 1-3 недели. Производство образцов: 1-3 недели. ATL-тестирование: 2-6 недель. Проверка и выдача сертификата: 1-2 недели. Быстрый трек (предсертифицированный ODM-модуль + китайская ATL): 8-10 недель от контракта до Qi-ID."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Чем Qi2.2 отличается от Qi2 и нужно ли пересертифицировать?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Qi2.2 (25W) vs Qi2 (15W): мощность выше на 67%, обязательный чип аутентификации (X.509), тепловое тестирование 500 циклов с требованием КПД ≥83%, расширенная совместимость с iPhone. По состоянию на май 2026: 637 продуктов Qi2.2 (69,6% от всех Qi2). Для нового продукта в 2026 году рекомендуем сразу сертифицировать Qi2.2 — это будущее стандарта. Пересертификация с Qi2 на Qi2.2 требует нового ATL-тестирования ($20 000-25 000)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Какие документы нужны для EAC сертификации беспроводной зарядки?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Для EAC-декларации на Qi2-зарядку: заявка по форме CU-TR, код ТН ВЭД, реквизиты заявителя с российским уполномоченным представителем, сертификат ISO 9001 (при наличии), руководство по эксплуатации на русском языке, технические чертежи, протоколы испытаний (CE/CB принимаются как справочные), фотографии изделия, контракт на поставку в ЕАЭС. Испытания только в аккредитованных лабораториях РФ (RA/RU) с загрузкой данных в ФГИС."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Можно ли использовать готовый ODM-модуль и сократить стоимость сертификации?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Да, это главная стратегия экономии. Предсертифицированный ODM-модуль Qi2 от завода в Шэньчжэне исключает ATL-тестирование модуля — вы платите только регистрацию продукта как подсистемы ($250) + IOC ($1 500). Суммарная экономия: 50-70% ($15 000-25 000). WOWOHCOOL как WPC Member с 2013 года предоставляет предсертифицированные Qi2.2 модули с OEM-брендированием, сокращая срок выхода на рынок до 8-10 недель."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Работает ли Qi2 с iPhone на российском рынке?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Да, Qi2 полностью совместим с iPhone 15/16 (MagSafe) без лицензионных отчислений Apple. Магнитное кольцо Qi2 MPP обеспечивает такое же выравнивание и мощность 15 Вт, как оригинальный MagSafe. iPhone автоматически распознаёт Qi2-сертифицированное устройство. В отличие от MFM (Made for MagSafe), Qi2 не требует членства в программе MFi Apple ($99/год) и не платит роялти $4 за разъём. Экономия на модуле: Qi2 ~$5 vs MagSafe ~$16."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Как проверить, что завод действительно сертифицирован WPC?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Проверьте завод в WPC Certified Product Database (публичный реестр): введите название компании и проверьте наличие действующих Qi-ID. Запросите номер членства WPC и сертификат ISO 9001 (проверяемый через IAF CertSearch). Проведите видеоаудит производственной линии SMT и тестового оборудования (Keysight E4980A, FLIR E8). WOWOHCOOL: WPC Member с 2013 года, 30+ сертифицированных моделей, ISO 9001, 5 000 м² завод в Шэньчжэне — все данные публично верифицируемы."
+          }
+        }
+      ],
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [
+          ".faq-answer"
+        ]
+      }
     }
-   ]
-  },
-  {
-   "@type": "FAQPage",
-   "@id": "https://www.wowohcool.com/ru/blog/sertifikaciya-qi2-wpc-oem/#faq",
-   "mainEntity": [
-    {
-     "@type": "Question",
-     "name": "Сколько стоит сертификация Qi2 для первого продукта?",
-     "acceptedAnswer": {
-      "@type": "Answer",
-      "text": "Полный бюджет первого продукта Qi2 15W: $32 750-38 000, включая членство WPC Adopter ($18 000/год), ATL-тестирование ($17 000-20 000), IOC ($1 500), ключи X.509 ($1 500-3 000) и регистрацию Qi-ID ($750). С предсертифицированным ODM-модулем стоимость снижается до $5 000-12 000 (экономия 50-70%). Qi2.2 25W дороже на $3 000-5 000 за счёт расширенного теплового тестирования."
-     }
-    },
-    {
-     "@type": "Question",
-     "name": "Можно ли продавать Qi2-зарядки в РФ без сертификации WPC?",
-     "acceptedAnswer": {
-      "@type": "Answer",
-      "text": "Без WPC-сертификации продукт не может использовать логотип Qi2 и ограничен базовым профилем мощности 5 Вт (BPP). Магнитное выравнивание MPP недоступно без сертификации. Для РФ дополнительно обязательна EAC-декларация (ТР ТС 004/2011, 020/2011, 037/2016). Маркетплейсы Ozon и Wildberries применяют ИИ-верификацию сертификатов — отсутствие документов ведёт к блокировке карточки товара."
-     }
-    },
-    {
-     "@type": "Question",
-     "name": "Какой срок сертификации Qi2 от начала до получения Qi-ID?",
-     "acceptedAnswer": {
-      "@type": "Answer",
-      "text": "Полный цикл: от 8 недель до 6 месяцев. Членство WPC: 1-2 недели. Разработка продукта: 4-12 недель. Пре-тестирование: 1-3 недели. Производство образцов: 1-3 недели. ATL-тестирование: 2-6 недель. Проверка и выдача сертификата: 1-2 недели. Быстрый трек (предсертифицированный ODM-модуль + китайская ATL): 8-10 недель от контракта до Qi-ID."
-     }
-    },
-    {
-     "@type": "Question",
-     "name": "Чем Qi2.2 отличается от Qi2 и нужно ли пересертифицировать?",
-     "acceptedAnswer": {
-      "@type": "Answer",
-      "text": "Qi2.2 (25W) vs Qi2 (15W): мощность выше на 67%, обязательный чип аутентификации (X.509), тепловое тестирование 500 циклов с требованием КПД ≥83%, расширенная совместимость с iPhone. По состоянию на май 2026: 637 продуктов Qi2.2 (69,6% от всех Qi2). Для нового продукта в 2026 году рекомендуем сразу сертифицировать Qi2.2 — это будущее стандарта. Пересертификация с Qi2 на Qi2.2 требует нового ATL-тестирования ($20 000-25 000)."
-     }
-    },
-    {
-     "@type": "Question",
-     "name": "Какие документы нужны для EAC сертификации беспроводной зарядки?",
-     "acceptedAnswer": {
-      "@type": "Answer",
-      "text": "Для EAC-декларации на Qi2-зарядку: заявка по форме CU-TR, код ТН ВЭД, реквизиты заявителя с российским уполномоченным представителем, сертификат ISO 9001 (при наличии), руководство по эксплуатации на русском языке, технические чертежи, протоколы испытаний (CE/CB принимаются как справочные), фотографии изделия, контракт на поставку в ЕАЭС. Испытания только в аккредитованных лабораториях РФ (RA/RU) с загрузкой данных в ФГИС."
-     }
-    },
-    {
-     "@type": "Question",
-     "name": "Можно ли использовать готовый ODM-модуль и сократить стоимость сертификации?",
-     "acceptedAnswer": {
-      "@type": "Answer",
-      "text": "Да, это главная стратегия экономии. Предсертифицированный ODM-модуль Qi2 от завода в Шэньчжэне исключает ATL-тестирование модуля — вы платите только регистрацию продукта как подсистемы ($250) + IOC ($1 500). Суммарная экономия: 50-70% ($15 000-25 000). WOWOHCOOL как WPC Member с 2013 года предоставляет предсертифицированные Qi2.2 модули с OEM-брендированием, сокращая срок выхода на рынок до 8-10 недель."
-     }
-    },
-    {
-     "@type": "Question",
-     "name": "Работает ли Qi2 с iPhone на российском рынке?",
-     "acceptedAnswer": {
-      "@type": "Answer",
-      "text": "Да, Qi2 полностью совместим с iPhone 15/16 (MagSafe) без лицензионных отчислений Apple. Магнитное кольцо Qi2 MPP обеспечивает такое же выравнивание и мощность 15 Вт, как оригинальный MagSafe. iPhone автоматически распознаёт Qi2-сертифицированное устройство. В отличие от MFM (Made for MagSafe), Qi2 не требует членства в программе MFi Apple ($99/год) и не платит роялти $4 за разъём. Экономия на модуле: Qi2 ~$5 vs MagSafe ~$16."
-     }
-    },
-    {
-     "@type": "Question",
-     "name": "Как проверить, что завод действительно сертифицирован WPC?",
-     "acceptedAnswer": {
-      "@type": "Answer",
-      "text": "Проверьте завод в WPC Certified Product Database (публичный реестр): введите название компании и проверьте наличие действующих Qi-ID. Запросите номер членства WPC и сертификат ISO 9001 (проверяемый через IAF CertSearch). Проведите видеоаудит производственной линии SMT и тестового оборудования (Keysight E4980A, FLIR E8). WOWOHCOOL: WPC Member с 2013 года, 30+ сертифицированных моделей, ISO 9001, 5 000 м² завод в Шэньчжэне — все данные публично верифицируемы."
-     }
-    }
-   ],
-   "speakable": { "@type": "SpeakableSpecification", "cssSelector": [".faq-answer"] }
-  }
- ]
-}
-</script>
+  ]
+}</script>
 {% endblock %}
 
 {% block content %}
@@ -278,7 +410,7 @@ hreflang:
   </div>
   <h1 class="text-3xl lg:text-5xl font-black text-brandBlue uppercase italic tracking-tighter mb-6 leading-tight">Сертификация Qi2 для Импортёров: Полное Руководство WPC и EAC 2026</h1>
   <div class="flex items-center gap-3 mb-6">
-   <img src="/image/factory/team-snowy.webp" alt="Snowy May — Marketing Manager & Founder, WOWOHCOOL" width="40" height="40" loading="lazy" class="w-10 h-10 rounded-full object-cover border border-brandOrange">
+   <img src="/image/factory/team-snowy.webp" alt="Snowy May, Marketing Manager & Founder в WOWOHCOOL — специалист по зарядным устройствам GaN и Qi2" width="40" height="40" loading="lazy" class="w-10 h-10 rounded-full object-cover border border-brandOrange">
    <div>
     <a href="#author-bio" class="font-bold text-slate-900 text-sm hover:text-brandOrange transition">Snowy May</a>
     <p class="text-xs text-slate-500">Marketing Manager & Founder · 10+ лет в consumer electronics</p>
@@ -684,7 +816,7 @@ hreflang:
  <div class="bg-slate-50 rounded-2xl p-6 md:p-8 mb-12 border border-slate-100">
   <div class="flex flex-col sm:flex-row items-start gap-4 sm:gap-6">
    <div class="w-20 h-20 rounded-full overflow-hidden flex items-center justify-center border-2 border-brandOrange bg-white shadow-lg shrink-0">
-    <img src="/image/factory/team-snowy.webp" alt="Snowy May — Marketing Manager & Founder, 10+ лет в consumer electronics и сертификации зарядных устройств" loading="lazy" width="400" height="400" class="w-full h-full object-cover">
+    <img src="/image/factory/team-snowy.webp" alt="Snowy May, Marketing Manager & Founder в WOWOHCOOL — специалист по зарядным устройствам GaN и Qi2" loading="lazy" width="400" height="400" class="w-full h-full object-cover">
    </div>
    <div class="flex-1 min-w-0">
     <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 mb-2 sm:mb-3">

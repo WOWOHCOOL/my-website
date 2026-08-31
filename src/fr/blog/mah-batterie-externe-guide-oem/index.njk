@@ -26,212 +26,345 @@ hreflang:
 {% block head_schema %}
 <script type="application/ld+json">
 {
- "@context": "https://schema.org",
- "@graph": [
-  {
-   "@type": "Organization",
-   "@id": "https://www.wowohcool.com/#organization",
-   "name": "WOWOHCOOL",
-   "legalName": "Dong Yi Technology Co., Ltd",
-   "url": "https://www.wowohcool.com/fr/a-propos/",
-   "publishingPrinciples": "https://www.wowohcool.com/fr/a-propos/",
-   "logo": { "@type": "ImageObject", "url": "https://www.wowohcool.com/image/wowohcool-logo-optimized.webp", "width": 600, "height": 60 },
-   "areaServed": ["US","DE","AT","CH","UK","FR","ES","EU","JP","KR","AU","MX","CO","AR","CL","PE"],
-   "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "925, Yichuang International Center, Longhua District",
-    "addressLocality": "Shenzhen",
-    "addressRegion": "Guangdong",
-    "postalCode": "518111",
-    "addressCountry": "CN"
-   },
-   "sameAs": [
-    "https://www.linkedin.com/company/wowohcool",
-    "https://www.facebook.com/wowohcoolelectronic",
-    "https://www.youtube.com/@WOWOHCOOL",
-    "https://x.com/wowohcool"
-   ],
-   "contactPoint": {
-    "@type": "ContactPoint",
-    "contactType": "OEM/ODM Sales",
-    "telephone": "+86-18620789739",
-    "email": "info@wowohcool.com",
-    "availableLanguage": ["English", "French", "German", "Spanish", "Russian", "Polish", "Chinese"]
-   }
-  },
-  {
-   "@type": "WebSite",
-   "@id": "https://www.wowohcool.com/#website",
-   "url": "https://www.wowohcool.com/fr/",
-   "name": "WOWOHCOOL",
-   "inLanguage": "fr-FR",
-   "publisher": { "@id": "https://www.wowohcool.com/#organization" }
-  },
-  {
-   "@type": "BreadcrumbList",
-   "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.wowohcool.com/fr/" },
-    { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.wowohcool.com/fr/blog/" },
-    { "@type": "ListItem", "position": 3, "name": "Capacité Batterie Externe mAh OEM", "item": "https://www.wowohcool.com/fr/blog/mah-batterie-externe-guide-oem/" }
-   ]
-  },
-  {
-   "@type": "BlogPosting",
-   "@id": "https://www.wowohcool.com/fr/blog/mah-batterie-externe-guide-oem/#article",
-   "headline": "Capacité Batterie Externe mAh: Guide Vérification pour Importateurs OEM 2026",
-   "keywords": ["Batterie Externe","mAh","Capacité","Cellules","DGCCRF","OEM","Importateur","FOB","MOQ","UN38.3"],
-   "description": "Capacité réelle vs nominale batterie externe: formule 3.7V→5V, classes cellules A/B/C/D, rendement 80-93%. DGCCRF, UN38.3. FOB Shenzhen, MOQ 500. Devis 24h.",
-   "author": { "@id": "https://www.wowohcool.com/#nina-nico" },
-   "publisher": { "@id": "https://www.wowohcool.com/#organization" },
-   "datePublished": "2026-08-19",
-   "dateModified": "2026-08-19",
-   "wordCount": 2351,
-   "timeRequired": "PT12M",
-   "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.wowohcool.com/fr/blog/mah-batterie-externe-guide-oem/" },
-   "image": "https://www.wowohcool.com/image/blog/cover-fr/mah-batterie-externe-guide-oem.webp",
-   "thumbnailUrl": "https://www.wowohcool.com/image/blog/cover-fr/mah-batterie-externe-guide-oem.webp",
-   "inLanguage": "fr-FR",
-   "articleSection": "Batterie Externe & Sourcing",
-   "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".speakable"] },
-   "citation": [
-    { "@type": "CreativeWork", "name": "DGCCRF, Pratiques commerciales trompeuses", "url": "https://www.economie.gouv.fr/dgccrf" },
-    { "@type": "CreativeWork", "name": "EUR-Lex, Règlement UE 2023/1542 batteries", "url": "https://eur-lex.europa.eu/eli/reg/2023/1542/oj" },
-    { "@type": "CreativeWork", "name": "Douane Française, Référentiel RITA code SH 8507", "url": "https://www.douane.gouv.fr/" }
-   ],
-   "about": { "@type": "Thing", "name": "Battery charger", "sameAs": "https://www.wikidata.org/entity/Q352917" }
-  },
-  {
-   "@type": "Person",
-   "@id": "https://www.wowohcool.com/#nina-nico",
-   "name": "Nina Nico",
-   "jobTitle": "Manager Approvisionnement et Sourcing Global",
-   "url": "https://www.wowohcool.com/authors/nina-nico/",
-   "sameAs": ["https://www.linkedin.com/in/nico-power-bank-chargers"],
-   "image": "https://www.wowohcool.com/image/factory/team-nina.webp",
-   "worksFor": { "@id": "https://www.wowohcool.com/#organization" },
-   "knowsAbout": ["Capacité Batterie Lithium","Cellules Grade A/B/C","Conformité DGCCRF","Sourcing OEM Shenzhen","Négociation FOB Importateur"]
-  },
-  {
-   "@type": "HowTo",
-   "@id": "https://www.wowohcool.com/fr/blog/mah-batterie-externe-guide-oem/#howto",
-   "name": "Vérifier la capacité réelle d'une batterie externe avant commande OEM",
-   "description": "Procédure en 5 étapes pour vérifier la capacité réelle d'une batterie externe et la classe des cellules avant de valider une commande OEM en Chine.",
-   "totalTime": "PT4H",
-   "step": [
+  "@context": "https://schema.org",
+  "@graph": [
     {
-     "@type": "HowToStep",
-     "position": 1,
-     "name": "Calculer la capacité utile théorique",
-     "itemListElement": [
-      { "@type": "HowToDirection", "text": "Appliquez la formule 3.7V→5V : Capacité réelle = Capacité nominale × 3.7/5 × rendement. Pour 10 000 mAh avec un rendement de 85%, attendez ~6 290 mAh utiles à 5V." }
-     ]
+      "@type": "Organization",
+      "@id": "https://www.wowohcool.com/#organization",
+      "name": "WOWOHCOOL",
+      "legalName": "Dong Yi Technology Co., Ltd",
+      "foundingDate": "2013",
+      "vatID": "91441900MA558A2N27",
+      "url": "https://www.wowohcool.com/fr/a-propos/",
+      "publishingPrinciples": "https://www.wowohcool.com/fr/a-propos/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.wowohcool.com/image/wowohcool-logo-optimized.webp",
+        "width": 600,
+        "height": 60
+      },
+      "areaServed": [
+        "US",
+        "DE",
+        "AT",
+        "CH",
+        "UK",
+        "FR",
+        "ES",
+        "PL",
+        "EU",
+        "JP",
+        "KR",
+        "AU",
+        "MX",
+        "CO",
+        "AR",
+        "CL",
+        "PE",
+        "RU",
+        "KZ",
+        "BY",
+        "EAEU"
+      ],
+      "knowsAbout": [
+        "OEM/ODM Power Bank Manufacturing",
+        "Qi2 Wireless Charging Standard",
+        "GaN Power Architecture",
+        "Automotive Fast Charging Systems",
+        "Custom Power Adapter Production",
+        "Consumer Electronics Sourcing",
+        "UL & CE Safety Compliance"
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "925, Yichuang International Center, Longhua District",
+        "addressLocality": "Shenzhen",
+        "addressRegion": "Guangdong",
+        "postalCode": "518111",
+        "addressCountry": "CN"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/company/wowohcool",
+        "https://www.facebook.com/wowohcoolelectronic",
+        "https://www.youtube.com/@WOWOHCOOL",
+        "https://x.com/wowohcool"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "OEM/ODM Sales",
+        "telephone": "+86-18620789739",
+        "email": "info@wowohcool.com",
+        "availableLanguage": [
+          "English",
+          "German",
+          "Spanish",
+          "French",
+          "Russian",
+          "Polish"
+        ]
+      }
     },
     {
-     "@type": "HowToStep",
-     "position": 2,
-     "name": "Exiger le rapport IQC des cellules",
-     "itemListElement": [
-      { "@type": "HowToDirection", "text": "Demandez le rapport IQC (Incoming Quality Control) avec la marque des cellules (Samsung/LG/EVE/BAK), le numéro de lot et le test de décharge. Refusez les cellules sans traçabilité — c'est le signe d'un reconditionnement Grade C." }
-     ]
+      "@type": "WebSite",
+      "@id": "https://www.wowohcool.com/#website",
+      "url": "https://www.wowohcool.com/fr/",
+      "name": "WOWOHCOOL",
+      "inLanguage": "fr-FR",
+      "publisher": {
+        "@id": "https://www.wowohcool.com/#organization"
+      }
     },
     {
-     "@type": "HowToStep",
-     "position": 3,
-     "name": "Mesurer avec un testeur USB de décharge",
-     "itemListElement": [
-      { "@type": "HowToDirection", "text": "Branchez un testeur USB (ZKETECH, Atorch, DL24) et déchargez à 5V/2A. La capacité mesurée ne doit pas s'écarter de plus de 5% de la valeur théorique calculée à l'étape 1." }
-     ]
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Accueil",
+          "item": "https://www.wowohcool.com/fr/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://www.wowohcool.com/fr/blog/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Capacité Batterie Externe mAh OEM",
+          "item": "https://www.wowohcool.com/fr/blog/mah-batterie-externe-guide-oem/"
+        }
+      ]
     },
     {
-     "@type": "HowToStep",
-     "position": 4,
-     "name": "Peser et inspecter les cellules",
-     "itemListElement": [
-      { "@type": "HowToDirection", "text": "Une cellule 18650 Grade A de 3 000+ mAh pèse 45-48 g. Une cellule reconditionnée pèse 30-35 g. Vérifiez la marque, la soudure et l'absence de re-marquage (étiquette collée par-dessus l'originale)." }
-     ]
+      "@type": "BlogPosting",
+      "@id": "https://www.wowohcool.com/fr/blog/mah-batterie-externe-guide-oem/#article",
+      "headline": "Capacité Batterie Externe mAh: Guide Vérification pour Importateurs OEM 2026",
+      "keywords": [
+        "Batterie Externe",
+        "mAh",
+        "Capacité",
+        "Cellules",
+        "DGCCRF",
+        "OEM",
+        "Importateur",
+        "FOB",
+        "MOQ",
+        "UN38.3"
+      ],
+      "description": "Capacité réelle vs nominale batterie externe: formule 3.7V→5V, classes cellules A/B/C/D, rendement 80-93%. DGCCRF, UN38.3. FOB Shenzhen, MOQ 500. Devis 24h.",
+      "author": {
+        "@id": "https://www.wowohcool.com/#nina-nico"
+      },
+      "publisher": {
+        "@id": "https://www.wowohcool.com/#organization"
+      },
+      "datePublished": "2026-08-19",
+      "dateModified": "2026-08-19",
+      "wordCount": 2351,
+      "timeRequired": "PT12M",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://www.wowohcool.com/fr/blog/mah-batterie-externe-guide-oem/"
+      },
+      "image": "https://www.wowohcool.com/image/blog/cover-fr/mah-batterie-externe-guide-oem.webp",
+      "thumbnailUrl": "https://www.wowohcool.com/image/blog/cover-fr/mah-batterie-externe-guide-oem.webp",
+      "inLanguage": "fr-FR",
+      "articleSection": "Batterie Externe & Sourcing",
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [
+          "h1",
+          ".speakable"
+        ]
+      },
+      "citation": [
+        {
+          "@type": "CreativeWork",
+          "name": "DGCCRF, Pratiques commerciales trompeuses",
+          "url": "https://www.economie.gouv.fr/dgccrf"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "EUR-Lex, Règlement UE 2023/1542 batteries",
+          "url": "https://eur-lex.europa.eu/eli/reg/2023/1542/oj"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "Douane Française, Référentiel RITA code SH 8507",
+          "url": "https://www.douane.gouv.fr/"
+        }
+      ],
+      "about": {
+        "@type": "Thing",
+        "name": "Battery charger",
+        "sameAs": "https://www.wikidata.org/entity/Q352917"
+      }
     },
     {
-     "@type": "HowToStep",
-     "position": 5,
-     "name": "Valider la conformité DGCCRF et l'étiquetage",
-     "itemListElement": [
-      { "@type": "HowToDirection", "text": "Confirmez le marquage CE, la Déclaration de Conformité, l'étiquetage Triman/Info-Tri, et l'affichage de la capacité nominale ET utile en mAh. La DGCCRF sanctionne la pratique commerciale trompeuse jusqu'à 10% du chiffre d'affaires." }
-     ]
+      "@type": "Person",
+      "@id": "https://www.wowohcool.com/#nina-nico",
+      "name": "Nina Nico",
+      "jobTitle": "Global Procurement & Sourcing Manager",
+      "url": "https://www.wowohcool.com/authors/nina-nico/",
+      "sameAs": [
+        "https://www.linkedin.com/in/nico-power-bank-chargers"
+      ],
+      "image": "https://www.wowohcool.com/image/factory/team-nina.webp",
+      "worksFor": {
+        "@id": "https://www.wowohcool.com/#organization"
+      },
+      "knowsAbout": [
+        "B2B Hardware Sourcing",
+        "OEM/ODM Power Bank Manufacturing",
+        "Supply Chain Quality Assurance",
+        "International Electronics Trade Compliance",
+        "Custom Power Adapter Production",
+        "Factory Audit Standards"
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://www.wowohcool.com/fr/blog/mah-batterie-externe-guide-oem/#howto",
+      "name": "Vérifier la capacité réelle d'une batterie externe avant commande OEM",
+      "description": "Procédure en 5 étapes pour vérifier la capacité réelle d'une batterie externe et la classe des cellules avant de valider une commande OEM en Chine.",
+      "totalTime": "PT4H",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Calculer la capacité utile théorique",
+          "itemListElement": [
+            {
+              "@type": "HowToDirection",
+              "text": "Appliquez la formule 3.7V→5V : Capacité réelle = Capacité nominale × 3.7/5 × rendement. Pour 10 000 mAh avec un rendement de 85%, attendez ~6 290 mAh utiles à 5V."
+            }
+          ]
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Exiger le rapport IQC des cellules",
+          "itemListElement": [
+            {
+              "@type": "HowToDirection",
+              "text": "Demandez le rapport IQC (Incoming Quality Control) avec la marque des cellules (Samsung/LG/EVE/BAK), le numéro de lot et le test de décharge. Refusez les cellules sans traçabilité — c'est le signe d'un reconditionnement Grade C."
+            }
+          ]
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Mesurer avec un testeur USB de décharge",
+          "itemListElement": [
+            {
+              "@type": "HowToDirection",
+              "text": "Branchez un testeur USB (ZKETECH, Atorch, DL24) et déchargez à 5V/2A. La capacité mesurée ne doit pas s'écarter de plus de 5% de la valeur théorique calculée à l'étape 1."
+            }
+          ]
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Peser et inspecter les cellules",
+          "itemListElement": [
+            {
+              "@type": "HowToDirection",
+              "text": "Une cellule 18650 Grade A de 3 000+ mAh pèse 45-48 g. Une cellule reconditionnée pèse 30-35 g. Vérifiez la marque, la soudure et l'absence de re-marquage (étiquette collée par-dessus l'originale)."
+            }
+          ]
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Valider la conformité DGCCRF et l'étiquetage",
+          "itemListElement": [
+            {
+              "@type": "HowToDirection",
+              "text": "Confirmez le marquage CE, la Déclaration de Conformité, l'étiquetage Triman/Info-Tri, et l'affichage de la capacité nominale ET utile en mAh. La DGCCRF sanctionne la pratique commerciale trompeuse jusqu'à 10% du chiffre d'affaires."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.wowohcool.com/fr/blog/mah-batterie-externe-guide-oem/#faq",
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [
+          ".faq-answer"
+        ]
+      },
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Pourquoi la capacité réelle d'une batterie externe est-elle toujours inférieure à la valeur annoncée?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "La capacité annoncée (ex. 10 000 mAh) est mesurée à la tension interne de la cellule (3,7V), alors que la sortie USB fonctionne à 5V. La conversion 3.7V→5V plus le rendement du convertisseur (80-93% selon le chip TI ou Injoinic) réduisent la capacité utile. Formule : Capacité réelle = Nominale × 3.7/5 × rendement. Un 10 000 mAh avec rendement 85% délivre ~6 290 mAh utiles. Ce n'est pas une arnaque — c'est de la physique. Mais un écart supérieur à 30% signale des cellules Grade C ou un PCB bas de gamme."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Comment distinguer les cellules Grade A, B et C avant commande OEM?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Trois signaux: (1) la marque — Grade A = Samsung SDI, LG, Panasonic, EVE, BAK; Grade B = Highstar, Lishen; Grade C = no-name ou reconditionné. (2) le poids — une 18650 Grade A de 3 000+ mAh pèse 45-48 g, une reconditionnée 30-35 g. (3) le prix FOB — Grade A $3,5-5,0/cellule, Grade B $2,0-3,0, Grade C <$1,5. Exigez le rapport IQC avec numéro de lot et test de décharge, et vérifiez l'absence de re-marquage."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Rendement conversion — quel écart entre un PCB bas de gamme et un chip TI?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Le rendement de conversion (efficacité du convertisseur boost) varie de 70-80% pour les PCB bas de gamme à 85-93% pour les chips TI ou Injoinic. Sur un 10 000 mAh, un PCB à 75% délivre 5 550 mAh utiles, contre 6 880 mAh pour un chip à 93% — soit 24% d'énergie en plus pour le même coût de cellule. Le chip représente moins de 1% du BOM mais détermine jusqu'à 25% de la capacité utile réelle."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quelles sont les obligations DGCCRF pour l'affichage de la capacité?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "La DGCCRF contrôle l'affichage des capacités et sanctionne la pratique commerciale trompeuse (amende jusqu'à 10% du chiffre d'affaires annuel). Les obligations: afficher la capacité nominale ET la capacité utile en mAh, mentionner la tension nominale (3,7V), le fabricant et l'importateur. Le marquage Triman/Info-Tri est obligatoire depuis décembre 2022 (Code de l'environnement L.541-9-3). L'affichage en français est requis par la loi Toubon."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Combien coûte une batterie externe 10 000 mAh en FOB Shenzhen?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Le prix FOB d'une batterie externe 10 000 mAh dépend de la classe de cellules: Grade A (Samsung/LG) ~$6,20-8,50, Grade B (EVE/BAK) ~$4,80-6,20, Grade C <$3,50. La différence de $1-2 par unité entre Grade A et B se traduit par un taux de retour Amazon de 3% contre 20%. Sur 5 000 unités, choisir Grade B économise $7 500 en BOM mais coûte $25 000+ en retours et réputation. MOQ 500 unités, délai 25-30 jours."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quelles certifications sont obligatoires pour importer une batterie externe en France?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Quatre éléments obligatoires: (1) UN38.3 — 8 tests de transport batteries lithium, rapport de laboratoire accrédité (TÜV/SGS/Bureau Veritas), 500-800$ par modèle. (2) Marquage CE — directives LVD 2014/35/UE + CEM 2014/30/UE + RoHS. (3) DEEE — enregistrement SYDEREP + adhésion éco-organisme batteries (Screlec ou Corepile). (4) Code SH 8507 60 00 — droits 0-3,7%, TVA 20%. Délai de certification: 4-8 semaines."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Comment vérifier la capacité d'un échantillon avant la production en série?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Procédure en 3 étapes: (1) test de décharge avec un testeur USB (ZKETECH, Atorch) à 5V/2A — la capacité mesurée doit être à ±5% de la valeur théorique (10 000 mAh × 3.7/5 × 0.85 = 6 290 mAh utiles). (2) pesée des cellules — 45-48 g pour une 18650 Grade A. (3) 3 cycles complets de charge/décharge — la capacité ne doit pas varier de plus de 3% entre cycles. Documentez tout avec photos et conservez l'échantillon comme golden sample."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Comment démarrer une commande OEM de batteries externes avec vérification capacité?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Le processus en 4 étapes: (1) Définissez capacité, classe de cellules et certifications, demandez un devis gratuit sous 24h. (2) Validez l'échantillon avec test de décharge et pesée — nous expédions en 3-7 jours. (3) Confirmez la commande avec acompte T/T 30%. (4) Recevez le rapport de test capacité de chaque lot + livraison DDP France en 25-30 jours. WOWOHCOOL fournit le rapport IQC, le test de décharge et les cellules Grade A traçables. Demandez un devis OEM avec vérification capacité."
+          }
+        }
+      ]
     }
-   ]
-  },
-  {
-   "@type": "FAQPage",
-   "@id": "https://www.wowohcool.com/fr/blog/mah-batterie-externe-guide-oem/#faq",
-   "speakable": { "@type": "SpeakableSpecification", "cssSelector": [".faq-answer"] },
-   "mainEntity": [
-    {
-     "@type": "Question",
-     "name": "Pourquoi la capacité réelle d'une batterie externe est-elle toujours inférieure à la valeur annoncée?",
-     "acceptedAnswer": {
-      "@type": "Answer",
-      "text": "La capacité annoncée (ex. 10 000 mAh) est mesurée à la tension interne de la cellule (3,7V), alors que la sortie USB fonctionne à 5V. La conversion 3.7V→5V plus le rendement du convertisseur (80-93% selon le chip TI ou Injoinic) réduisent la capacité utile. Formule : Capacité réelle = Nominale × 3.7/5 × rendement. Un 10 000 mAh avec rendement 85% délivre ~6 290 mAh utiles. Ce n'est pas une arnaque — c'est de la physique. Mais un écart supérieur à 30% signale des cellules Grade C ou un PCB bas de gamme."
-     }
-    },
-    {
-     "@type": "Question",
-     "name": "Comment distinguer les cellules Grade A, B et C avant commande OEM?",
-     "acceptedAnswer": {
-      "@type": "Answer",
-      "text": "Trois signaux: (1) la marque — Grade A = Samsung SDI, LG, Panasonic, EVE, BAK; Grade B = Highstar, Lishen; Grade C = no-name ou reconditionné. (2) le poids — une 18650 Grade A de 3 000+ mAh pèse 45-48 g, une reconditionnée 30-35 g. (3) le prix FOB — Grade A $3,5-5,0/cellule, Grade B $2,0-3,0, Grade C <$1,5. Exigez le rapport IQC avec numéro de lot et test de décharge, et vérifiez l'absence de re-marquage."
-     }
-    },
-    {
-     "@type": "Question",
-     "name": "Rendement conversion — quel écart entre un PCB bas de gamme et un chip TI?",
-     "acceptedAnswer": {
-      "@type": "Answer",
-      "text": "Le rendement de conversion (efficacité du convertisseur boost) varie de 70-80% pour les PCB bas de gamme à 85-93% pour les chips TI ou Injoinic. Sur un 10 000 mAh, un PCB à 75% délivre 5 550 mAh utiles, contre 6 880 mAh pour un chip à 93% — soit 24% d'énergie en plus pour le même coût de cellule. Le chip représente moins de 1% du BOM mais détermine jusqu'à 25% de la capacité utile réelle."
-     }
-    },
-    {
-     "@type": "Question",
-     "name": "Quelles sont les obligations DGCCRF pour l'affichage de la capacité?",
-     "acceptedAnswer": {
-      "@type": "Answer",
-      "text": "La DGCCRF contrôle l'affichage des capacités et sanctionne la pratique commerciale trompeuse (amende jusqu'à 10% du chiffre d'affaires annuel). Les obligations: afficher la capacité nominale ET la capacité utile en mAh, mentionner la tension nominale (3,7V), le fabricant et l'importateur. Le marquage Triman/Info-Tri est obligatoire depuis décembre 2022 (Code de l'environnement L.541-9-3). L'affichage en français est requis par la loi Toubon."
-     }
-    },
-    {
-     "@type": "Question",
-     "name": "Combien coûte une batterie externe 10 000 mAh en FOB Shenzhen?",
-     "acceptedAnswer": {
-      "@type": "Answer",
-      "text": "Le prix FOB d'une batterie externe 10 000 mAh dépend de la classe de cellules: Grade A (Samsung/LG) ~$6,20-8,50, Grade B (EVE/BAK) ~$4,80-6,20, Grade C <$3,50. La différence de $1-2 par unité entre Grade A et B se traduit par un taux de retour Amazon de 3% contre 20%. Sur 5 000 unités, choisir Grade B économise $7 500 en BOM mais coûte $25 000+ en retours et réputation. MOQ 500 unités, délai 25-30 jours."
-     }
-    },
-    {
-     "@type": "Question",
-     "name": "Quelles certifications sont obligatoires pour importer une batterie externe en France?",
-     "acceptedAnswer": {
-      "@type": "Answer",
-      "text": "Quatre éléments obligatoires: (1) UN38.3 — 8 tests de transport batteries lithium, rapport de laboratoire accrédité (TÜV/SGS/Bureau Veritas), 500-800$ par modèle. (2) Marquage CE — directives LVD 2014/35/UE + CEM 2014/30/UE + RoHS. (3) DEEE — enregistrement SYDEREP + adhésion éco-organisme batteries (Screlec ou Corepile). (4) Code SH 8507 60 00 — droits 0-3,7%, TVA 20%. Délai de certification: 4-8 semaines."
-     }
-    },
-    {
-     "@type": "Question",
-     "name": "Comment vérifier la capacité d'un échantillon avant la production en série?",
-     "acceptedAnswer": {
-      "@type": "Answer",
-      "text": "Procédure en 3 étapes: (1) test de décharge avec un testeur USB (ZKETECH, Atorch) à 5V/2A — la capacité mesurée doit être à ±5% de la valeur théorique (10 000 mAh × 3.7/5 × 0.85 = 6 290 mAh utiles). (2) pesée des cellules — 45-48 g pour une 18650 Grade A. (3) 3 cycles complets de charge/décharge — la capacité ne doit pas varier de plus de 3% entre cycles. Documentez tout avec photos et conservez l'échantillon comme golden sample."
-     }
-    },
-    {
-     "@type": "Question",
-     "name": "Comment démarrer une commande OEM de batteries externes avec vérification capacité?",
-     "acceptedAnswer": {
-      "@type": "Answer",
-      "text": "Le processus en 4 étapes: (1) Définissez capacité, classe de cellules et certifications, demandez un devis gratuit sous 24h. (2) Validez l'échantillon avec test de décharge et pesée — nous expédions en 3-7 jours. (3) Confirmez la commande avec acompte T/T 30%. (4) Recevez le rapport de test capacité de chaque lot + livraison DDP France en 25-30 jours. WOWOHCOOL fournit le rapport IQC, le test de décharge et les cellules Grade A traçables. Demandez un devis OEM avec vérification capacité."
-     }
-    }
-   ]
-  }
- ]
+  ]
 }
 </script>
 {% endblock %}
@@ -255,10 +388,10 @@ hreflang:
   </div>
   <h1 class="text-3xl lg:text-5xl font-black text-brandBlue uppercase italic tracking-tighter mb-6 leading-tight">Capacité Batterie Externe mAh: Guide Vérification pour Importateurs OEM 2026</h1>
   <div class="flex items-center gap-3 mb-6">
-   <img src="/image/factory/team-nina.webp" alt="Nina Nico — Manager Approvisionnement et Sourcing Global, WOWOHCOOL" loading="lazy" width="40" height="40" class="w-10 h-10 rounded-full object-cover border border-brandOrange">
+   <img src="/image/factory/team-nina.webp" alt="Nina Nico, Global Procurement & Sourcing Manager chez WOWOHCOOL — spécialiste du sourcing OEM/ODM" loading="lazy" width="40" height="40" class="w-10 h-10 rounded-full object-cover border border-brandOrange">
    <div>
     <a href="#author-bio" class="font-bold text-slate-900 text-sm hover:text-brandOrange transition">Nina Nico</a>
-    <p class="text-xs text-slate-500">Manager Approvisionnement · 10+ ans en sourcing électronique</p>
+    <p class="text-xs text-slate-500">Global Procurement & Sourcing Manager · 10+ ans en sourcing électronique</p>
    </div>
   </div>
   {% from "partials/post-meta.njk" import postMeta %}
@@ -331,7 +464,7 @@ hreflang:
    <div class="bg-brandBlue/5 border-l-4 border-brandOrange rounded-r-xl p-6 mt-6">
     <p class="text-[11px] font-black text-brandOrange uppercase tracking-widest mb-2">APERÇU D'EXPERT</p>
     <blockquote class="text-slate-700 text-base italic leading-relaxed">«La surévaluation de capacité de 30-50% est le risque n°1 en OEM batterie externe. La différence entre cellules Grade A (Samsung/LG) et Grade B (EVE/BAK), ce n'est pas seulement 1-2$ par unité — c'est 20% de retours Amazon contre 3%. Exigez toujours un rapport de test de capacité avant expédition.»</blockquote>
-    <p class="text-sm text-slate-500 mt-2">— Nina Nico, Manager Approvisionnement et Sourcing Global, WOWOHCOOL</p>
+    <p class="text-sm text-slate-500 mt-2">— Nina Nico, Global Procurement & Sourcing Manager, WOWOHCOOL</p>
    </div>
   </div>
  </div>
@@ -498,14 +631,14 @@ hreflang:
  <div class="bg-slate-50 rounded-2xl p-6 md:p-8 mb-12 border border-slate-100">
   <div class="flex flex-col sm:flex-row items-start gap-4 sm:gap-6">
    <div class="w-20 h-20 rounded-full overflow-hidden flex items-center justify-center border-2 border-brandOrange bg-white shadow-lg shrink-0">
-    <img src="/image/factory/team-nina.webp" alt="Nina Nico — Manager Approvisionnement et Sourcing Global, WOWOHCOOL" loading="lazy" width="400" height="400" class="w-full h-full object-cover">
+    <img src="/image/factory/team-nina.webp" alt="Nina Nico, Global Procurement & Sourcing Manager chez WOWOHCOOL — spécialiste du sourcing OEM/ODM" loading="lazy" width="400" height="400" class="w-full h-full object-cover">
    </div>
    <div class="flex-1 min-w-0">
     <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 mb-2 sm:mb-3">
      <a href="https://www.linkedin.com/in/nico-power-bank-chargers" target="_blank" rel="noopener noreferrer" class="font-black text-slate-900 text-lg hover:text-brandOrange transition">Nina Nico</a>
      <span class="px-2 py-1 bg-brandOrange/10 text-brandOrange text-[11px] font-black rounded-full uppercase w-fit">Auteure</span>
     </div>
-    <p class="text-sm text-slate-500 mb-3">Manager Approvisionnement et Sourcing Global · 10+ ans en sourcing 3C · FR, EN, ZH</p>
+    <p class="text-sm text-slate-500 mb-3">Global Procurement & Sourcing Manager · 10+ ans en sourcing 3C · FR, EN, ZH</p>
     <p class="text-slate-600 text-sm leading-relaxed">10+ ans d'expérience dans le sourcing global de batteries et d'électronique grand public, la négociation OEM et la vérification de la qualité des cellules en Chine. Spécialisée dans la conformité DGCCRF, UN38.3 et le contrôle de capacité pour importateurs européens. Chez <a href="/fr/a-propos" class="text-brandBlue font-bold hover:text-brandOrange transition">WOWOHCOOL</a>, elle supervise la traçabilité des cellules Grade A pour 200+ marques.</p>
     <div class="mt-4 pt-4 border-t border-slate-200">
      <p class="text-xs text-slate-400 uppercase tracking-wider mb-2">Empreinte Usine</p>

@@ -26,272 +26,338 @@ hreflang:
 {% extends "layout.njk" %}
 
 {% block head_schema %}
-<script type="application/ld+json">
-{
- "@context": "https://schema.org",
- "@graph": [
- {
- "@type": "Organization",
- "@id": "https://www.wowohcool.com/#organization",
- "name": "WOWOHCOOL",
- "legalName": "Dong Yi Technology Co., Ltd",
- "url": "https://www.wowohcool.com/fr/a-propos/",
- "publishingPrinciples": "https://www.wowohcool.com/fr/a-propos/",
- "logo": {
- "@type": "ImageObject",
- "url": "https://www.wowohcool.com/image/wowohcool-logo-optimized.webp",
- "width": 600,
- "height": 60
- },
- "areaServed": [
- "US","DE","AT","CH","UK","FR","ES","EU","JP","KR","AU","MX","CO","AR","CL","PE"
- ],
- "address": {
- "@type": "PostalAddress",
- "streetAddress": "925, Yichuang International Center, Longhua District",
- "addressLocality": "Shenzhen",
- "addressRegion": "Guangdong",
- "postalCode": "518111",
- "addressCountry": "CN"
- },
- "sameAs": [
- "https://www.linkedin.com/company/wowohcool",
- "https://www.facebook.com/wowohcoolelectronic",
- "https://www.youtube.com/@WOWOHCOOL",
- "https://x.com/wowohcool"
- ],
- "contactPoint": {
- "@type": "ContactPoint",
- "contactType": "OEM/ODM Sales",
- "telephone": "+86-18620789739",
- "email": "info@wowohcool.com",
- "availableLanguage": ["English","German","Spanish","French","Russian"]
- }
- },
- {
- "@type": "WebSite",
- "@id": "https://www.wowohcool.com/#website",
- "url": "https://www.wowohcool.com/fr/",
- "name": "WOWOHCOOL, Fabricant OEM de Chargeurs",
- "inLanguage": "fr-FR",
- "publisher": {"@id": "https://www.wowohcool.com/#organization"}
- },
- {
- "@type": "BreadcrumbList",
- "@id": "https://www.wowohcool.com/#breadcrumb",
- "itemListElement": [
- {
- "@type": "ListItem",
- "position": 1,
- "name": "Accueil",
- "item": "https://www.wowohcool.com/fr/"
- },
- {
- "@type": "ListItem",
- "position": 2,
- "name": "Blog",
- "item": "https://www.wowohcool.com/fr/blog/"
- },
- {
- "@type": "ListItem",
- "position": 3,
- "name": "Coût Import Chine OEM: Droits Douane, TVA & Prix de Revient 2026",
- "item": "https://www.wowohcool.com/fr/blog/couts-import-chine-droits-douane-oem/"
- }
- ]
- },
- {
- "@type": "BlogPosting",
- "@id": "https://www.wowohcool.com/fr/blog/couts-import-chine-droits-douane-oem/#article",
- "headline": "Coût Import Chine OEM: Droits Douane, TVA & Prix de Revient 2026",
- "description": "Guide importateur OEM 2026: frais de douane, TVA 20 %, code TARIC 8504.40, calcul landed cost. DAP vs DDP, EORI, UN38.3. FOB Shenzhen, livraison Le Havre.",
- "keywords": "Import, Chine, Douane, TVA, Dédouanement, Code TARIC, FOB, DDP, OEM, Importateur, Batterie, UN38.3",
- "datePublished": "2026-08-10",
- "dateModified": "2026-08-10",
- "wordCount": 3600,
- "mainEntityOfPage": {"@type": "WebPage", "@id": "https://www.wowohcool.com/fr/blog/couts-import-chine-droits-douane-oem/"},
- "author": {"@id": "https://www.wowohcool.com/#nina-nico"},
- "publisher": {"@id": "https://www.wowohcool.com/#organization"},
- "inLanguage": "fr-FR",
- "isAccessibleForFree": true,
- "speakable": {
- "@type": "SpeakableSpecification",
- "cssSelector": ["h1", ".speakable"]
- },
- "about": {
- "@type": "Thing",
- "name": "Coûts d'importation et fiscalité douanière pour chargeurs et batteries depuis la Chine",
- "sameAs": "https://www.wikidata.org/wiki/Q845739"
- },
- "citation": [
- {
- "@type": "CreativeWork",
- "name": "Douane Française, Guide Importation et TARIC 2026",
- "url": "https://www.douane.gouv.fr/"
- },
- {
- "@type": "CreativeWork",
- "name": "TARIC Europa, Tarif Intégré de l'Union Européenne",
- "url": "https://ec.europa.eu/taxation_customs/dds2/taric/"
- },
- {
- "@type": "CreativeWork",
- "name": "Code Général des Impôts, Article 1695 (Autoliquidation TVA Import)",
- "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000041466029/"
- }
- ]
- },
- {
- "@type": "Person",
- "@id": "https://www.wowohcool.com/#nina-nico",
- "name": "Nina Nico",
- "jobTitle": "Global Procurement & Sourcing Manager",
- "url": "https://www.wowohcool.com/authors/nina-nico/",
- "sameAs": ["https://www.linkedin.com/in/nico-power-bank-chargers"],
- "image": {
- "@type": "ImageObject",
- "url": "https://www.wowohcool.com/image/factory/team-nina.webp",
- "width": 400,
- "height": 400
- },
- "worksFor": {"@id": "https://www.wowohcool.com/#organization"},
- "knowsAbout": [
- "Global Supply Chain Sourcing",
- "Cross-Border OEM Negotiation",
- "3C Accessories OEM/ODM",
- "EU Regulatory Compliance & Battery Régulation",
- "GaN Charger & Power Bank Manufacturing"
- ]
- },
- {
- "@type": "HowTo",
- "@id": "https://www.wowohcool.com/fr/blog/couts-import-chine-droits-douane-oem/#howto",
- "name": "Comment calculer le prix de revient de votre import depuis la Chine",
- "step": [
- {
- "@type": "HowToStep",
- "position": 1,
- "name": "Classez votre produit avec le code TARIC à 10 chiffres",
- "itemListElement": [{
- "@type": "HowToDirection",
- "text": "Vérifiez le code TARIC sur RITA (douane.gouv.fr): 8504.40 pour chargeurs secteur, 8507.60 pour power banks, 8504.40 ou 8543.70 pour chargeurs sans fil. Le droit de douane UE est de 0% sur 8504.40 et ~2,7% sur 8507.60. Demandez un BTI/RTC (gratuit, 3 ans) en cas d'incertitude, une erreur de classement coûte jusqu'à 4× les droits éludés."
- }]
- },
- {
- "@type": "HowToStep",
- "position": 2,
- "name": "Choisissez l'Incoterm adapté à votre situation",
- "itemListElement": [{
- "@type": "HowToDirection",
- "text": "Privilégiez DAP (vous contrôlez le dédouanement et récupérez la TVA via votre EORI FR). Évitez DDP pour une première commande, si le transitaire dédouane sous son EORI, le crédit de TVA reste sur ses registres. FOB n'est recommandé qu'avec un transitaire français établi."
- }]
- },
- {
- "@type": "HowToStep",
- "position": 3,
- "name": "Sélectionnez le mode de transport optimal",
- "itemListElement": [{
- "@type": "HowToDirection",
- "text": "Maritime FCL 40' (Le Havre): 2 150-5 850 $, 28-35 jours, volumes >10 m³. Maritime LCL: 55-120 $/m³, petits volumes. Ferroviaire: 14-23 jours, 0,40-0,80 €/kg, compromis coût/délai. Aérien: 4-10 $/kg, 3-10 jours, urgent. Batteries lithium: ajoutez 25-40% de surcharge fret + documents UN38.3/MSDS obligatoires."
- }]
- },
- {
- "@type": "HowToStep",
- "position": 4,
- "name": "Calculez le prix de revient complet (landed cost)",
- "itemListElement": [{
- "@type": "HowToDirection",
- "text": "Formule: Landed Cost = FOB + Fret + Assurance (0,3-0,5% CIF) + Droits de douane (0-3,5% × CIF) + TVA 20% × (CIF + Droits) + Frais transitaire (150-400 €) + Livraison terminale. Pour 1 000 chargeurs GaN 65W à 6,50 $/pièce FOB: coût atterri ~8,70 $/pièce, la logistique et fiscalité ajoutent ~34% au prix FOB."
- }]
- },
- {
- "@type": "HowToStep",
- "position": 5,
- "name": "Récupérez la TVA via l'autoliquidation",
- "itemListElement": [{
- "@type": "HowToDirection",
- "text": "Depuis 2022, la TVA à l'importation est autoliquidée (article 1695 CGI). Elle est déclarée et déduite simultanément sur votre déclaration CA3 (case A4). L'impact de trésorerie est neutre. Vérifiez que le dédouanement s'effectue sous votre EORI FR, jamais sous celui du fournisseur chinois ou du transitaire."
- }]
- }
- ]
- },
- {
- "@type": "FAQPage",
- "@id": "https://www.wowohcool.com/fr/blog/couts-import-chine-droits-douane-oem/#faq",
- "mainEntity": [
- {
- "@type": "Question",
- "name": "Quel droit de douane pour les chargeurs USB importés de Chine en 2026?",
- "acceptedAnswer": {
- "@type": "Answer",
- "text": "Les chargeurs secteur (GaN, USB-C, PD) classés sous le code TARIC 8504.40 bénéficient d'un droit de douane UE de 0 %. Les power banks (code 8507.60) sont taxés à ~2,7 %. Les chargeurs sans fil peuvent relever de 8504.40 (0 %) ou 8543.70 (2,5 %) selon la technologie. Vérifiez toujours le code TARIC à 10 chiffres sur RITA (douane.gouv.fr) ou demandez un BTI/RTC gratuit valable 3 ans."
- }
- },
- {
- "@type": "Question",
- "name": "Comment calculer le prix de revient total d'une importation depuis la Chine?",
- "acceptedAnswer": {
- "@type": "Answer",
- "text": "Formule: Landed Cost = FOB + Fret + Assurance (0,3-0,5 % CIF) + Droits de douane (0-3,5 % × CIF) + TVA 20 % × (CIF + Droits) + Frais transitaire (150-400 €) + Livraison terminale. Exemple réel: 1 000 chargeurs GaN 65W FOB 6 500 $, fret maritime LCL 250 $, assurance 20 $ → CIF 6 770 $ → droits 0 % → TVA 20 % × 6 770 = 1 354 $. Coût atterri total ~8 700 $, soit 8,70 $/pièce. Le prix FOB seul est trompeur, ajoutez systématiquement 25-40 % pour le coût réel."
- }
- },
- {
- "@type": "Question",
- "name": "Faut-il un numéro EORI pour importer des chargeurs de Chine?",
- "acceptedAnswer": {
- "@type": "Answer",
- "text": "Oui, un numéro EORI FR est obligatoire pour toute déclaration en douane dans l'UE. La demande se fait en ligne sur douane.gouv.fr (service SOPRANO-EORI), délai 3-5 jours ouvrés, gratuit. Sans EORI, la marchandise est bloquée au port et des frais de stockage (50-150 €/jour) s'accumulent. Important: le dédouanement doit impérativement s'effectuer sous votre EORI pour que vous puissiez récupérer la TVA via l'autoliquidation."
- }
- },
- {
- "@type": "Question",
- "name": "Quelle est la différence entre FOB, DAP et DDP pour un importateur français?",
- "acceptedAnswer": {
- "@type": "Answer",
- "text": "FOB (Free On Board): l'usine livre au port chinois, vous gérez le fret, l'assurance et le dédouanement en France. DAP (Delivered at Place): l'usine livre à votre adresse en France, vous gérez uniquement le dédouanement et la TVA, recommandé car vous gardez le contrôle de l'EORI et récupérez la TVA. DDP (Delivered Duty Paid): tout inclus jusqu'à votre porte. Pratique mais risqué fiscalement, si le transitaire dédouane sous son EORI, vous perdez le crédit de TVA (20 % de la valeur)."
- }
- },
- {
- "@type": "Question",
- "name": "Les power banks ont-ils des frais d'importation supplémentaires par rapport aux chargeurs?",
- "acceptedAnswer": {
- "@type": "Answer",
- "text": "Oui, trois surcoûts majeurs: (1) Droit de douane ~2,7 % (code TARIC 8507.60) contre 0 % pour les chargeurs 8504.40; (2) Surcharge transport matières dangereuses Classe 9: +25-40 % sur le fret aérien et +150-300 $ par conteneur maritime; (3) Documents obligatoires supplémentaires: rapport UN38.3 (1 000-2 500 $), MSDS (300-500 $), certificat d'emballage dangereux. Budget total conformité batterie: 1 500-3 500 $ par modèle."
- }
- },
- {
- "@type": "Question",
- "name": "Comment fonctionne l'autoliquidation de la TVA à l'importation en France?",
- "acceptedAnswer": {
- "@type": "Answer",
- "text": "Depuis le 1er janvier 2022 (article 1695 du CGI), la TVA à l'importation n'est plus payée au dédouanement. Elle est autoliquidée: vous déclarez la TVA collectée et la TVA déductible simultanément sur votre déclaration CA3 (case A4). L'impact de trésorerie est neutre. Condition: détenir un numéro EORI FR valide et un numéro de TVA intracommunautaire actif. Attention, si le transitaire dédouane sous son propre EORI, c'est lui qui récupère le crédit de TVA, pas vous."
- }
- },
- {
- "@type": "Question",
- "name": "Quels documents sont obligatoires pour dédouaner des chargeurs en France?",
- "acceptedAnswer": {
- "@type": "Answer",
- "text": "Documents obligatoires: (1) Facture commerciale avec code TARIC, valeur unitaire et Incoterm; (2) Liste de colisage (poids brut/net, dimensions, SKU); (3) Connaissement maritime (B/L) ou LTA aérienne; (4) Déclaration de conformité CE (e-DoC électronique, le format papier est refusé depuis 2026); (5) Numéro EORI FR; (6) Pour power banks: rapport UN38.3 + MSDS + certificat d'emballage classe 9; (7) Preuve d'enregistrement éco-organisme (AGEC/Triman) pour la mise sur le marché français."
- }
- },
- {
- "@type": "Question",
- "name": "Le transport maritime est-il plus économique que l'aérien pour des chargeurs?",
- "acceptedAnswer": {
- "@type": "Answer",
- "text": "Pour 1 000 chargeurs GaN 65W (~150 kg, ~0,4 m³): maritime LCL coûte 55-100 $ (0,06-0,10 $/pièce), délai 28-35 jours Le Havre. Aérien coûte 600-1 500 $ (0,60-1,50 $/pièce), délai 3-10 jours. Maritime est 10-15× moins cher mais 4-8× plus lent. Point de bascule: à partir de ~200 kg, le maritime devient nettement plus économique. Pour des échantillons (<20 kg), l'express DHL/FedEx à 50-150 $ total est le plus rentable."
- }
- }
- ],
- "speakable": {
- "@type": "SpeakableSpecification",
- "cssSelector": [".faq-answer"]
- }
- }
- ]
-}
-</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.wowohcool.com/#organization",
+      "name": "WOWOHCOOL",
+      "legalName": "Dong Yi Technology Co., Ltd",
+      "foundingDate": "2013",
+      "vatID": "91441900MA558A2N27",
+      "url": "https://www.wowohcool.com/fr/a-propos/",
+      "publishingPrinciples": "https://www.wowohcool.com/fr/a-propos/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.wowohcool.com/image/wowohcool-logo-optimized.webp",
+        "width": 600,
+        "height": 60
+      },
+      "areaServed": [
+        "US",
+        "DE",
+        "AT",
+        "CH",
+        "UK",
+        "FR",
+        "ES",
+        "PL",
+        "EU",
+        "JP",
+        "KR",
+        "AU",
+        "MX",
+        "CO",
+        "AR",
+        "CL",
+        "PE",
+        "RU",
+        "KZ",
+        "BY",
+        "EAEU"
+      ],
+      "knowsAbout": [
+        "OEM/ODM Power Bank Manufacturing",
+        "Qi2 Wireless Charging Standard",
+        "GaN Power Architecture",
+        "Automotive Fast Charging Systems",
+        "Custom Power Adapter Production",
+        "Consumer Electronics Sourcing",
+        "UL & CE Safety Compliance"
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "925, Yichuang International Center, Longhua District",
+        "addressLocality": "Shenzhen",
+        "addressRegion": "Guangdong",
+        "postalCode": "518111",
+        "addressCountry": "CN"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/company/wowohcool",
+        "https://www.facebook.com/wowohcoolelectronic",
+        "https://www.youtube.com/@WOWOHCOOL",
+        "https://x.com/wowohcool"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "OEM/ODM Sales",
+        "telephone": "+86-18620789739",
+        "email": "info@wowohcool.com",
+        "availableLanguage": [
+          "English",
+          "German",
+          "Spanish",
+          "French",
+          "Russian",
+          "Polish"
+        ]
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.wowohcool.com/#website",
+      "url": "https://www.wowohcool.com/fr/",
+      "name": "WOWOHCOOL, Fabricant OEM de Chargeurs",
+      "inLanguage": "fr-FR",
+      "publisher": {
+        "@id": "https://www.wowohcool.com/#organization"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.wowohcool.com/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Accueil",
+          "item": "https://www.wowohcool.com/fr/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://www.wowohcool.com/fr/blog/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Coût Import Chine OEM: Droits Douane, TVA & Prix de Revient 2026",
+          "item": "https://www.wowohcool.com/fr/blog/couts-import-chine-droits-douane-oem/"
+        }
+      ]
+    },
+    {
+      "@type": "BlogPosting",
+      "@id": "https://www.wowohcool.com/fr/blog/couts-import-chine-droits-douane-oem/#article",
+      "headline": "Coût Import Chine OEM: Droits Douane, TVA & Prix de Revient 2026",
+      "description": "Guide importateur OEM 2026: frais de douane, TVA 20 %, code TARIC 8504.40, calcul landed cost. DAP vs DDP, EORI, UN38.3. FOB Shenzhen, livraison Le Havre.",
+      "keywords": "Import, Chine, Douane, TVA, Dédouanement, Code TARIC, FOB, DDP, OEM, Importateur, Batterie, UN38.3",
+      "datePublished": "2026-08-10",
+      "dateModified": "2026-08-10",
+      "wordCount": 3600,
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://www.wowohcool.com/fr/blog/couts-import-chine-droits-douane-oem/"
+      },
+      "author": {
+        "@id": "https://www.wowohcool.com/#nina-nico"
+      },
+      "publisher": {
+        "@id": "https://www.wowohcool.com/#organization"
+      },
+      "inLanguage": "fr-FR",
+      "isAccessibleForFree": true,
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [
+          "h1",
+          ".speakable"
+        ]
+      },
+      "about": {
+        "@type": "Thing",
+        "name": "Coûts d'importation et fiscalité douanière pour chargeurs et batteries depuis la Chine",
+        "sameAs": "https://www.wikidata.org/wiki/Q62955"
+      },
+      "citation": [
+        {
+          "@type": "CreativeWork",
+          "name": "Douane Française, Guide Importation et TARIC 2026",
+          "url": "https://www.douane.gouv.fr/"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "TARIC Europa, Tarif Intégré de l'Union Européenne",
+          "url": "https://ec.europa.eu/taxation_customs/dds2/taric/"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "Code Général des Impôts, Article 1695 (Autoliquidation TVA Import)",
+          "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000041466029/"
+        }
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://www.wowohcool.com/#nina-nico",
+      "name": "Nina Nico",
+      "jobTitle": "Global Procurement & Sourcing Manager",
+      "url": "https://www.wowohcool.com/authors/nina-nico/",
+      "sameAs": [
+        "https://www.linkedin.com/in/nico-power-bank-chargers"
+      ],
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://www.wowohcool.com/image/factory/team-nina.webp",
+        "width": 400,
+        "height": 400
+      },
+      "worksFor": {
+        "@id": "https://www.wowohcool.com/#organization"
+      },
+      "knowsAbout": [
+        "B2B Hardware Sourcing",
+        "OEM/ODM Power Bank Manufacturing",
+        "Supply Chain Quality Assurance",
+        "International Electronics Trade Compliance",
+        "Custom Power Adapter Production",
+        "Factory Audit Standards"
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://www.wowohcool.com/fr/blog/couts-import-chine-droits-douane-oem/#howto",
+      "name": "Comment calculer le prix de revient de votre import depuis la Chine",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Classez votre produit avec le code TARIC à 10 chiffres",
+          "itemListElement": [
+            {
+              "@type": "HowToDirection",
+              "text": "Vérifiez le code TARIC sur RITA (douane.gouv.fr): 8504.40 pour chargeurs secteur, 8507.60 pour power banks, 8504.40 ou 8543.70 pour chargeurs sans fil. Le droit de douane UE est de 0% sur 8504.40 et ~2,7% sur 8507.60. Demandez un BTI/RTC (gratuit, 3 ans) en cas d'incertitude, une erreur de classement coûte jusqu'à 4× les droits éludés."
+            }
+          ]
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Choisissez l'Incoterm adapté à votre situation",
+          "itemListElement": [
+            {
+              "@type": "HowToDirection",
+              "text": "Privilégiez DAP (vous contrôlez le dédouanement et récupérez la TVA via votre EORI FR). Évitez DDP pour une première commande, si le transitaire dédouane sous son EORI, le crédit de TVA reste sur ses registres. FOB n'est recommandé qu'avec un transitaire français établi."
+            }
+          ]
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Sélectionnez le mode de transport optimal",
+          "itemListElement": [
+            {
+              "@type": "HowToDirection",
+              "text": "Maritime FCL 40' (Le Havre): 2 150-5 850 $, 28-35 jours, volumes >10 m³. Maritime LCL: 55-120 $/m³, petits volumes. Ferroviaire: 14-23 jours, 0,40-0,80 €/kg, compromis coût/délai. Aérien: 4-10 $/kg, 3-10 jours, urgent. Batteries lithium: ajoutez 25-40% de surcharge fret + documents UN38.3/MSDS obligatoires."
+            }
+          ]
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Calculez le prix de revient complet (landed cost)",
+          "itemListElement": [
+            {
+              "@type": "HowToDirection",
+              "text": "Formule: Landed Cost = FOB + Fret + Assurance (0,3-0,5% CIF) + Droits de douane (0-3,5% × CIF) + TVA 20% × (CIF + Droits) + Frais transitaire (150-400 €) + Livraison terminale. Pour 1 000 chargeurs GaN 65W à 6,50 $/pièce FOB: coût atterri ~8,70 $/pièce, la logistique et fiscalité ajoutent ~34% au prix FOB."
+            }
+          ]
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Récupérez la TVA via l'autoliquidation",
+          "itemListElement": [
+            {
+              "@type": "HowToDirection",
+              "text": "Depuis 2022, la TVA à l'importation est autoliquidée (article 1695 CGI). Elle est déclarée et déduite simultanément sur votre déclaration CA3 (case A4). L'impact de trésorerie est neutre. Vérifiez que le dédouanement s'effectue sous votre EORI FR, jamais sous celui du fournisseur chinois ou du transitaire."
+            }
+          ]
+        }
+      ],
+      "totalTime": "PT2H"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.wowohcool.com/fr/blog/couts-import-chine-droits-douane-oem/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Quel droit de douane pour les chargeurs USB importés de Chine en 2026?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Les chargeurs secteur (GaN, USB-C, PD) classés sous le code TARIC 8504.40 bénéficient d'un droit de douane UE de 0 %. Les power banks (code 8507.60) sont taxés à ~2,7 %. Les chargeurs sans fil peuvent relever de 8504.40 (0 %) ou 8543.70 (2,5 %) selon la technologie. Vérifiez toujours le code TARIC à 10 chiffres sur RITA (douane.gouv.fr) ou demandez un BTI/RTC gratuit valable 3 ans."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Comment calculer le prix de revient total d'une importation depuis la Chine?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Formule: Landed Cost = FOB + Fret + Assurance (0,3-0,5 % CIF) + Droits de douane (0-3,5 % × CIF) + TVA 20 % × (CIF + Droits) + Frais transitaire (150-400 €) + Livraison terminale. Exemple réel: 1 000 chargeurs GaN 65W FOB 6 500 $, fret maritime LCL 250 $, assurance 20 $ → CIF 6 770 $ → droits 0 % → TVA 20 % × 6 770 = 1 354 $. Coût atterri total ~8 700 $, soit 8,70 $/pièce. Le prix FOB seul est trompeur, ajoutez systématiquement 25-40 % pour le coût réel."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Faut-il un numéro EORI pour importer des chargeurs de Chine?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Oui, un numéro EORI FR est obligatoire pour toute déclaration en douane dans l'UE. La demande se fait en ligne sur douane.gouv.fr (service SOPRANO-EORI), délai 3-5 jours ouvrés, gratuit. Sans EORI, la marchandise est bloquée au port et des frais de stockage (50-150 €/jour) s'accumulent. Important: le dédouanement doit impérativement s'effectuer sous votre EORI pour que vous puissiez récupérer la TVA via l'autoliquidation."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quelle est la différence entre FOB, DAP et DDP pour un importateur français?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "FOB (Free On Board): l'usine livre au port chinois, vous gérez le fret, l'assurance et le dédouanement en France. DAP (Delivered at Place): l'usine livre à votre adresse en France, vous gérez uniquement le dédouanement et la TVA, recommandé car vous gardez le contrôle de l'EORI et récupérez la TVA. DDP (Delivered Duty Paid): tout inclus jusqu'à votre porte. Pratique mais risqué fiscalement, si le transitaire dédouane sous son EORI, vous perdez le crédit de TVA (20 % de la valeur)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Les power banks ont-ils des frais d'importation supplémentaires par rapport aux chargeurs?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Oui, trois surcoûts majeurs: (1) Droit de douane ~2,7 % (code TARIC 8507.60) contre 0 % pour les chargeurs 8504.40; (2) Surcharge transport matières dangereuses Classe 9: +25-40 % sur le fret aérien et +150-300 $ par conteneur maritime; (3) Documents obligatoires supplémentaires: rapport UN38.3 (1 000-2 500 $), MSDS (300-500 $), certificat d'emballage dangereux. Budget total conformité batterie: 1 500-3 500 $ par modèle."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Comment fonctionne l'autoliquidation de la TVA à l'importation en France?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Depuis le 1er janvier 2022 (article 1695 du CGI), la TVA à l'importation n'est plus payée au dédouanement. Elle est autoliquidée: vous déclarez la TVA collectée et la TVA déductible simultanément sur votre déclaration CA3 (case A4). L'impact de trésorerie est neutre. Condition: détenir un numéro EORI FR valide et un numéro de TVA intracommunautaire actif. Attention, si le transitaire dédouane sous son propre EORI, c'est lui qui récupère le crédit de TVA, pas vous."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quels documents sont obligatoires pour dédouaner des chargeurs en France?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Documents obligatoires: (1) Facture commerciale avec code TARIC, valeur unitaire et Incoterm; (2) Liste de colisage (poids brut/net, dimensions, SKU); (3) Connaissement maritime (B/L) ou LTA aérienne; (4) Déclaration de conformité CE (e-DoC électronique, le format papier est refusé depuis 2026); (5) Numéro EORI FR; (6) Pour power banks: rapport UN38.3 + MSDS + certificat d'emballage classe 9; (7) Preuve d'enregistrement éco-organisme (AGEC/Triman) pour la mise sur le marché français."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Le transport maritime est-il plus économique que l'aérien pour des chargeurs?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Pour 1 000 chargeurs GaN 65W (~150 kg, ~0,4 m³): maritime LCL coûte 55-100 $ (0,06-0,10 $/pièce), délai 28-35 jours Le Havre. Aérien coûte 600-1 500 $ (0,60-1,50 $/pièce), délai 3-10 jours. Maritime est 10-15× moins cher mais 4-8× plus lent. Point de bascule: à partir de ~200 kg, le maritime devient nettement plus économique. Pour des échantillons (<20 kg), l'express DHL/FedEx à 50-150 $ total est le plus rentable."
+          }
+        }
+      ],
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [
+          ".faq-answer"
+        ]
+      }
+    }
+  ]
+}</script>
 {% endblock %}
 
 {% block content %}
@@ -314,7 +380,7 @@ hreflang:
  </div>
  <h1 class="text-3xl lg:text-5xl font-black text-brandBlue uppercase italic tracking-tighter mb-6 leading-tight">Coût Import Chine OEM: Droits Douane, TVA & Prix de Revient 2026</h1>
  <div class="flex items-center gap-3 mb-6">
- <img src="/image/factory/team-nina.webp" alt="Nina Nico, Global Procurement & Sourcing Manager, 10+ ans expertise sourcing 3C Chine" loading="lazy" width="40" height="40" class="w-10 h-10 rounded-full object-cover border border-brandOrange">
+ <img src="/image/factory/team-nina.webp" alt="Nina Nico, Global Procurement & Sourcing Manager chez WOWOHCOOL — spécialiste du sourcing OEM/ODM" loading="lazy" width="40" height="40" class="w-10 h-10 rounded-full object-cover border border-brandOrange">
  <div>
  <a href="#author-bio" class="font-bold text-slate-900 text-sm hover:text-brandOrange transition">Nina Nico</a>
  <p class="text-xs text-slate-500">Global Procurement & Sourcing Manager · 10+ ans en sourcing 3C</p>
@@ -935,7 +1001,7 @@ hreflang:
  <div class="bg-slate-50 rounded-2xl p-6 md:p-8 mb-12 border border-slate-100">
  <div class="flex flex-col sm:flex-row items-start gap-4 sm:gap-6">
  <div class="w-20 h-20 rounded-full overflow-hidden flex items-center justify-center border-2 border-brandOrange bg-white shadow-lg shrink-0">
- <img src="/image/factory/team-nina.webp" alt="Nina Nico, Global Procurement & Sourcing Manager, WOWOHCOOL, spécialiste sourcing 3C Chine" loading="lazy" width="400" height="400" class="w-full h-full object-cover">
+ <img src="/image/factory/team-nina.webp" alt="Nina Nico, Global Procurement & Sourcing Manager chez WOWOHCOOL — spécialiste du sourcing OEM/ODM" loading="lazy" width="400" height="400" class="w-full h-full object-cover">
  </div>
  <div class="flex-1 min-w-0">
  <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 mb-2 sm:mb-3">

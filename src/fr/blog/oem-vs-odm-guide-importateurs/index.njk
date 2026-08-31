@@ -26,124 +26,332 @@ hreflang:
 {% extends "layout.njk" %}
 
 {% block head_schema %}
-<script type="application/ld+json">
-{
- "@context": "https://schema.org",
- "@graph": [
- {
- "@type": "Organization",
- "@id": "https://www.wowohcool.com/#organization",
- "name": "WOWOHCOOL",
- "legalName": "Dong Yi Technology Co., Ltd",
- "url": "https://www.wowohcool.com/fr/a-propos/",
- "publishingPrinciples": "https://www.wowohcool.com/fr/a-propos/",
- "logo": { "@type": "ImageObject", "url": "https://www.wowohcool.com/image/wowohcool-logo-optimized.webp" },
- "areaServed": ["FR", "BE", "CH", "EU"],
- "address": {
- "@type": "PostalAddress",
- "streetAddress": "925, Yichuang International Center, Longhua District",
- "addressLocality": "Shenzhen",
- "addressRegion": "Guangdong",
- "postalCode": "518111",
- "addressCountry": "CN"
- },
- "sameAs": [
- "https://www.linkedin.com/company/wowohcool",
- "https://www.facebook.com/wowohcoolelectronic",
- "https://www.youtube.com/@WOWOHCOOL",
- "https://x.com/wowohcool"
- ],
- "contactPoint": {
- "@type": "ContactPoint",
- "contactType": "OEM/ODM Sales",
- "telephone": "+86-18620789739",
- "email": "info@wowohcool.com",
- "availableLanguage": ["French", "English", "German", "Spanish", "Chinese"]
- }
- },
- {
- "@type": "WebSite",
- "@id": "https://www.wowohcool.com/#website",
- "url": "https://www.wowohcool.com/fr/",
- "name": "WOWOHCOOL",
- "inLanguage": "fr-FR",
- "publisher": { "@id": "https://www.wowohcool.com/#organization" }
- },
- {
- "@type": "BreadcrumbList",
- "itemListElement": [
- { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.wowohcool.com/fr/" },
- { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.wowohcool.com/fr/blog/" },
- { "@type": "ListItem", "position": 3, "name": "Guide OEM vs ODM", "item": "https://www.wowohcool.com/fr/blog/oem-vs-odm-guide-importateurs/" }
- ]
- },
- {
- "@type": "BlogPosting",
- "@id": "https://www.wowohcool.com/fr/blog/oem-vs-odm-guide-importateurs/#article",
- "headline": "OEM vs ODM: Guide Stratégique pour Importateur Français 2026",
- "keywords": ["OEM", "ODM", "Fabrication", "Comparaison", "MOQ", "Importation", "France", "Certification CE"],
- "description": "OEM vs ODM 2026: coûts réels FOB Shenzhen, MOQ dès 500 pièces, certifications CE incluses. Données usine ISO 9001, 200+ marques servies. Guide décisionnel importateur.",
- "author": { "@id": "https://www.wowohcool.com/#nina-nico" },
- "publisher": { "@id": "https://www.wowohcool.com/#organization" },
- "datePublished": "2026-03-18",
- "dateModified": "2026-08-05",
- "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.wowohcool.com/fr/blog/oem-vs-odm-guide-importateurs/" },
- "wordCount": 2700,
- "inLanguage": "fr-FR",
- "timeRequired": "PT14M",
- "articleSection": "Sourcing & Fabrication",
- "image": "https://www.wowohcool.com/image/blog/cover-fr/oem-vs-odm-guide-importateur.webp",
- "thumbnailUrl": "https://www.wowohcool.com/image/blog/cover-fr/oem-vs-odm-guide-importateur.webp",
- "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".speakable"] },
- "about": { "@type": "Thing", "name": "Original equipment manufacturer", "sameAs": "https://www.wikidata.org/entity/Q1434858" },
- "citation": [
- { "@type": "CreativeWork", "name": "Directive chargeur commun 2022/2380, EUR-Lex", "url": "https://eur-lex.europa.eu/legal-content/FR/TXT/?uri=CELEX%3A32022L2380" },
- { "@type": "CreativeWork", "name": "DGCCRF, Sécurité des produits électriques et électroniques", "url": "https://www.economie.gouv.fr/dgccrf" },
- { "@type": "CreativeWork", "name": "Décret 2023-1271, Transposition directive chargeur commun", "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000048354874" }
- ]
- },
- {
- "@type": "Person",
- "@id": "https://www.wowohcool.com/#nina-nico",
- "name": "Nina Nico",
- "jobTitle": "Global Procurement & Sourcing Manager",
- "url": "https://www.wowohcool.com/authors/nina-nico/",
- "sameAs": ["https://www.linkedin.com/in/nico-power-bank-chargers"],
- "image": "https://www.wowohcool.com/image/factory/team-nina.webp",
- "worksFor": { "@id": "https://www.wowohcool.com/#organization" },
- "knowsAbout": ["Sourcing International", "Négociation OEM Transfrontalière", "Conformité Réglementaire UE", "Fabrication Chargeurs GaN & Power Banks", "Supply Chain Shenzhen"]
- },
- {
- "@type": "HowTo",
- "@id": "https://www.wowohcool.com/fr/blog/oem-vs-odm-guide-importateurs/#howto",
- "name": "Choisir entre OEM et ODM pour votre projet d'importation",
- "description": "Procédure en 4 étapes pour décider entre la fabrication OEM et ODM selon votre stade de développement, budget et objectifs de marque.",
- "totalTime": "PT20M",
- "step": [
- { "@type": "HowToStep", "position": 1, "name": "Évaluez votre stade de développement", "itemListElement": [{ "@type": "HowToDirection", "text": "Déterminez si vous testez un marché (privilégiez l'ODM) ou si vous avez déjà validé la demande et souhaitez sécuriser vos marges (passez en OEM)." }] },
- { "@type": "HowToStep", "position": 2, "name": "Comparez les coûts réels", "itemListElement": [{ "@type": "HowToDirection", "text": "Calculez le coût total atterrissage France: produit FOB + outillage éventuel + certifications + fret + droits de douane. Budget ODM minimum ~3 500€, OEM standard 50 000-200 000€." }] },
- { "@type": "HowToStep", "position": 3, "name": "Vérifiez les certifications", "itemListElement": [{ "@type": "HowToDirection", "text": "En ODM, exigez de voir le titulaire du certificat CE. S'il est au nom de l'usine chinoise, prévoyez 1 500-5 000€ et 4-12 semaines pour les refaire à votre nom. En OEM, les certifications sont incluses à votre nom." }] },
- { "@type": "HowToStep", "position": 4, "name": "Sécurisez vos actifs par contrat", "itemListElement": [{ "@type": "HowToDirection", "text": "En OEM, exigez une clause de propriété des moules avec droit de transfert. En ODM, négociez une exclusivité territoriale de 6-12 mois. Dans les deux cas, signez un NDA avant de partager vos spécifications." }] }
- ]
- },
- {
- "@type": "FAQPage",
- "@id": "https://www.wowohcool.com/fr/blog/oem-vs-odm-guide-importateurs/#faq",
- "speakable": { "@type": "SpeakableSpecification", "cssSelector": [".faq-answer"] },
- "mainEntity": [
- { "@type": "Question", "name": "Quel est le MOQ pour une commande OEM de chargeurs en France?", "acceptedAnswer": { "@type": "Answer", "text": "Le MOQ standard pour une commande OEM complète (logo + packaging + certifications) est de 500 pièces chez WOWOHCOOL. Pour une commande avec nouveau moule et design exclusif, le MOQ passe à 3 000 pièces afin d'amortir l'investissement d'outillage. La plupart des concurrents exigent 1 000-3 000 pièces pour un OEM basique, notre MOQ de 500 est un avantage délibéré pour les marques qui testent le marché français." } },
- { "@type": "Question", "name": "Combien coûte une certification CE pour un produit OEM?", "acceptedAnswer": { "@type": "Answer", "text": "Le package standard CE/FCC/RoHS coûte entre 2 500 et 4 500 $ (4-6 semaines), incluant UN38.3 pour les batteries. Ce package est inclus avec nos commandes OEM. Pour un produit ODM, si les certifications existantes sont au nom de l'usine, vous devrez les refaire à votre nom: prévoyez 1 500-3 500 $ et 4-8 semaines supplémentaires." } },
- { "@type": "Question", "name": "Quel délai pour une production OEM vs ODM?", "acceptedAnswer": { "@type": "Answer", "text": "ODM: 4 à 8 semaines de la commande à l'expédition. Le produit existe déjà, seuls le logo et le packaging sont personnalisés. OEM: 25-30 jours de production après approbation de l'échantillon, plus 1-6 mois de développement en amont (design, prototypage, outillage). Porte-à-porte total vers la France: 10-12 semaines en OEM (fret maritime inclus)." } },
- { "@type": "Question", "name": "Comment vérifier qu'une usine chinoise est bien le vrai fabricant?", "acceptedAnswer": { "@type": "Answer", "text": "Exigez la licence commerciale chinoise avec le Unified Social Crédit Code à 18 chiffres. Vérifiez-la sur le registre national NECIPS. Demandez une visite vidéo en direct de la chaîne de production. Vérifiez la certification ISO 9001 sur IAF CertSearch. Méfiez-vous des fournisseurs qui refusent la visite vidéo ou dont l'adresse de licence ne correspond pas à l'adresse de production déclarée." } },
- { "@type": "Question", "name": "Puis-je commencer en ODM puis passer en OEM avec le même produit?", "acceptedAnswer": { "@type": "Answer", "text": "Oui, et c'est la stratégie que nous recommandons. Commencez avec 500 pièces en ODM pour valider le marché. Une fois les ventes confirmées, nous migrons votre SKU en OEM: vous investissez dans vos propres moules, vous obtenez des certifications à votre nom, et votre produit devient exclusif. La transition prend 45-60 jours et réduit le coût unitaire de 15-22 % sur les volumes OEM." } },
- { "@type": "Question", "name": "Les certifications ODM sont-elles valables pour vendre sous ma marque en UE?", "acceptedAnswer": { "@type": "Answer", "text": "Non, dans la plupart des cas. 80 % des certifications ODM sont au nom de l'usine chinoise. Pour vendre sous votre marque dans l'UE, le certificat CE doit désigner votre entreprise comme responsable de la mise sur le marché. Vendre sous votre marque avec des certifications au nom de l'usine expose à un retrait du produit par la DGCCRF et à des amendes. Faites vérifier le titulaire du certificat avant toute commande." } },
- { "@type": "Question", "name": "Qui est propriétaire des moules en OEM?", "acceptedAnswer": { "@type": "Answer", "text": "Vous, à condition de l'avoir stipulé par écrit dans le contrat de fabrication. Sans clause de propriété explicite, l'usine peut légalement conserver les moules que vous avez payés (2 000-30 000 $). Exigez un contrat qui précise: propriété de l'acheteur, inventaire avec numéros de série, droit de transfert vers une autre usine avec préavis de 30 jours." } },
- { "@type": "Question", "name": "Comment démarrer une première commande OEM avec WOWOHCOOL?", "acceptedAnswer": { "@type": "Answer", "text": "Contactez-nous avec votre cahier des charges ou simplement une idée de produit. Nous produisons un échantillon sous 3-7 jours (frais d'échantillon déductibles de votre commande). Après validation, la production démarre: 25-30 jours pour l'OEM standard. Paiement: 30 % à la commande, 70 % avant expédition. Nos chefs de projet parlent français, anglais, allemand, espagnol et chinois." } }
- ]
- }
- ]
-}
-</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.wowohcool.com/#organization",
+      "name": "WOWOHCOOL",
+      "legalName": "Dong Yi Technology Co., Ltd",
+      "foundingDate": "2013",
+      "vatID": "91441900MA558A2N27",
+      "url": "https://www.wowohcool.com/fr/a-propos/",
+      "publishingPrinciples": "https://www.wowohcool.com/fr/a-propos/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.wowohcool.com/image/wowohcool-logo-optimized.webp"
+      },
+      "areaServed": [
+        "US",
+        "DE",
+        "AT",
+        "CH",
+        "UK",
+        "FR",
+        "ES",
+        "PL",
+        "EU",
+        "JP",
+        "KR",
+        "AU",
+        "MX",
+        "CO",
+        "AR",
+        "CL",
+        "PE",
+        "RU",
+        "KZ",
+        "BY",
+        "EAEU"
+      ],
+      "knowsAbout": [
+        "OEM/ODM Power Bank Manufacturing",
+        "Qi2 Wireless Charging Standard",
+        "GaN Power Architecture",
+        "Automotive Fast Charging Systems",
+        "Custom Power Adapter Production",
+        "Consumer Electronics Sourcing",
+        "UL & CE Safety Compliance"
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "925, Yichuang International Center, Longhua District",
+        "addressLocality": "Shenzhen",
+        "addressRegion": "Guangdong",
+        "postalCode": "518111",
+        "addressCountry": "CN"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/company/wowohcool",
+        "https://www.facebook.com/wowohcoolelectronic",
+        "https://www.youtube.com/@WOWOHCOOL",
+        "https://x.com/wowohcool"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "OEM/ODM Sales",
+        "telephone": "+86-18620789739",
+        "email": "info@wowohcool.com",
+        "availableLanguage": [
+          "English",
+          "German",
+          "Spanish",
+          "French",
+          "Russian",
+          "Polish"
+        ]
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.wowohcool.com/#website",
+      "url": "https://www.wowohcool.com/fr/",
+      "name": "WOWOHCOOL",
+      "inLanguage": "fr-FR",
+      "publisher": {
+        "@id": "https://www.wowohcool.com/#organization"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Accueil",
+          "item": "https://www.wowohcool.com/fr/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://www.wowohcool.com/fr/blog/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Guide OEM vs ODM",
+          "item": "https://www.wowohcool.com/fr/blog/oem-vs-odm-guide-importateurs/"
+        }
+      ]
+    },
+    {
+      "@type": "BlogPosting",
+      "@id": "https://www.wowohcool.com/fr/blog/oem-vs-odm-guide-importateurs/#article",
+      "headline": "OEM vs ODM: Guide Stratégique pour Importateur Français 2026",
+      "keywords": [
+        "OEM",
+        "ODM",
+        "Fabrication",
+        "Comparaison",
+        "MOQ",
+        "Importation",
+        "France",
+        "Certification CE"
+      ],
+      "description": "OEM vs ODM 2026: coûts réels FOB Shenzhen, MOQ dès 500 pièces, certifications CE incluses. Données usine ISO 9001, 200+ marques servies. Guide décisionnel importateur.",
+      "author": {
+        "@id": "https://www.wowohcool.com/#nina-nico"
+      },
+      "publisher": {
+        "@id": "https://www.wowohcool.com/#organization"
+      },
+      "datePublished": "2026-03-18",
+      "dateModified": "2026-08-05",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://www.wowohcool.com/fr/blog/oem-vs-odm-guide-importateurs/"
+      },
+      "wordCount": 2700,
+      "inLanguage": "fr-FR",
+      "timeRequired": "PT14M",
+      "articleSection": "Sourcing & Fabrication",
+      "image": "https://www.wowohcool.com/image/blog/cover-fr/oem-vs-odm-guide-importateur.webp",
+      "thumbnailUrl": "https://www.wowohcool.com/image/blog/cover-fr/oem-vs-odm-guide-importateur.webp",
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [
+          "h1",
+          ".speakable"
+        ]
+      },
+      "about": {
+        "@type": "Thing",
+        "name": "Original equipment manufacturer",
+        "sameAs": "https://www.wikidata.org/entity/Q267558"
+      },
+      "citation": [
+        {
+          "@type": "CreativeWork",
+          "name": "Directive chargeur commun 2022/2380, EUR-Lex",
+          "url": "https://eur-lex.europa.eu/legal-content/FR/TXT/?uri=CELEX%3A32022L2380"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "DGCCRF, Sécurité des produits électriques et électroniques",
+          "url": "https://www.economie.gouv.fr/dgccrf"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "Décret 2023-1271, Transposition directive chargeur commun",
+          "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000048354874"
+        }
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://www.wowohcool.com/#nina-nico",
+      "name": "Nina Nico",
+      "jobTitle": "Global Procurement & Sourcing Manager",
+      "url": "https://www.wowohcool.com/authors/nina-nico/",
+      "sameAs": [
+        "https://www.linkedin.com/in/nico-power-bank-chargers"
+      ],
+      "image": "https://www.wowohcool.com/image/factory/team-nina.webp",
+      "worksFor": {
+        "@id": "https://www.wowohcool.com/#organization"
+      },
+      "knowsAbout": [
+        "B2B Hardware Sourcing",
+        "OEM/ODM Power Bank Manufacturing",
+        "Supply Chain Quality Assurance",
+        "International Electronics Trade Compliance",
+        "Custom Power Adapter Production",
+        "Factory Audit Standards"
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://www.wowohcool.com/fr/blog/oem-vs-odm-guide-importateurs/#howto",
+      "name": "Choisir entre OEM et ODM pour votre projet d'importation",
+      "description": "Procédure en 4 étapes pour décider entre la fabrication OEM et ODM selon votre stade de développement, budget et objectifs de marque.",
+      "totalTime": "PT20M",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Évaluez votre stade de développement",
+          "itemListElement": [
+            {
+              "@type": "HowToDirection",
+              "text": "Déterminez si vous testez un marché (privilégiez l'ODM) ou si vous avez déjà validé la demande et souhaitez sécuriser vos marges (passez en OEM)."
+            }
+          ]
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Comparez les coûts réels",
+          "itemListElement": [
+            {
+              "@type": "HowToDirection",
+              "text": "Calculez le coût total atterrissage France: produit FOB + outillage éventuel + certifications + fret + droits de douane. Budget ODM minimum ~3 500€, OEM standard 50 000-200 000€."
+            }
+          ]
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Vérifiez les certifications",
+          "itemListElement": [
+            {
+              "@type": "HowToDirection",
+              "text": "En ODM, exigez de voir le titulaire du certificat CE. S'il est au nom de l'usine chinoise, prévoyez 1 500-5 000€ et 4-12 semaines pour les refaire à votre nom. En OEM, les certifications sont incluses à votre nom."
+            }
+          ]
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Sécurisez vos actifs par contrat",
+          "itemListElement": [
+            {
+              "@type": "HowToDirection",
+              "text": "En OEM, exigez une clause de propriété des moules avec droit de transfert. En ODM, négociez une exclusivité territoriale de 6-12 mois. Dans les deux cas, signez un NDA avant de partager vos spécifications."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.wowohcool.com/fr/blog/oem-vs-odm-guide-importateurs/#faq",
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [
+          ".faq-answer"
+        ]
+      },
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Quel est le MOQ pour une commande OEM de chargeurs en France?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Le MOQ standard pour une commande OEM complète (logo + packaging + certifications) est de 500 pièces chez WOWOHCOOL. Pour une commande avec nouveau moule et design exclusif, le MOQ passe à 3 000 pièces afin d'amortir l'investissement d'outillage. La plupart des concurrents exigent 1 000-3 000 pièces pour un OEM basique, notre MOQ de 500 est un avantage délibéré pour les marques qui testent le marché français."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Combien coûte une certification CE pour un produit OEM?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Le package standard CE/FCC/RoHS coûte entre 2 500 et 4 500 $ (4-6 semaines), incluant UN38.3 pour les batteries. Ce package est inclus avec nos commandes OEM. Pour un produit ODM, si les certifications existantes sont au nom de l'usine, vous devrez les refaire à votre nom: prévoyez 1 500-3 500 $ et 4-8 semaines supplémentaires."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quel délai pour une production OEM vs ODM?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "ODM: 4 à 8 semaines de la commande à l'expédition. Le produit existe déjà, seuls le logo et le packaging sont personnalisés. OEM: 25-30 jours de production après approbation de l'échantillon, plus 1-6 mois de développement en amont (design, prototypage, outillage). Porte-à-porte total vers la France: 10-12 semaines en OEM (fret maritime inclus)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Comment vérifier qu'une usine chinoise est bien le vrai fabricant?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Exigez la licence commerciale chinoise avec le Unified Social Crédit Code à 18 chiffres. Vérifiez-la sur le registre national NECIPS. Demandez une visite vidéo en direct de la chaîne de production. Vérifiez la certification ISO 9001 sur IAF CertSearch. Méfiez-vous des fournisseurs qui refusent la visite vidéo ou dont l'adresse de licence ne correspond pas à l'adresse de production déclarée."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Puis-je commencer en ODM puis passer en OEM avec le même produit?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Oui, et c'est la stratégie que nous recommandons. Commencez avec 500 pièces en ODM pour valider le marché. Une fois les ventes confirmées, nous migrons votre SKU en OEM: vous investissez dans vos propres moules, vous obtenez des certifications à votre nom, et votre produit devient exclusif. La transition prend 45-60 jours et réduit le coût unitaire de 15-22 % sur les volumes OEM."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Les certifications ODM sont-elles valables pour vendre sous ma marque en UE?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Non, dans la plupart des cas. 80 % des certifications ODM sont au nom de l'usine chinoise. Pour vendre sous votre marque dans l'UE, le certificat CE doit désigner votre entreprise comme responsable de la mise sur le marché. Vendre sous votre marque avec des certifications au nom de l'usine expose à un retrait du produit par la DGCCRF et à des amendes. Faites vérifier le titulaire du certificat avant toute commande."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Qui est propriétaire des moules en OEM?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Vous, à condition de l'avoir stipulé par écrit dans le contrat de fabrication. Sans clause de propriété explicite, l'usine peut légalement conserver les moules que vous avez payés (2 000-30 000 $). Exigez un contrat qui précise: propriété de l'acheteur, inventaire avec numéros de série, droit de transfert vers une autre usine avec préavis de 30 jours."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Comment démarrer une première commande OEM avec WOWOHCOOL?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Contactez-nous avec votre cahier des charges ou simplement une idée de produit. Nous produisons un échantillon sous 3-7 jours (frais d'échantillon déductibles de votre commande). Après validation, la production démarre: 25-30 jours pour l'OEM standard. Paiement: 30 % à la commande, 70 % avant expédition. Nos chefs de projet parlent français, anglais, allemand, espagnol et chinois."
+          }
+        }
+      ]
+    }
+  ]
+}</script>
 {% endblock %}
 
 {% block content %}
@@ -168,7 +376,7 @@ hreflang:
  <h1 class="text-3xl lg:text-5xl font-black text-brandBlue uppercase italic tracking-tighter mb-6 leading-tight">OEM vs ODM: Guide Stratégique pour Importateur Français 2026</h1>
 
  <div class="flex items-center gap-3 mb-6">
- <img src="/image/factory/team-nina.webp" alt="Nina Nico, Global Procurement & Sourcing Manager, OEM/ODM Chargeurs et Power Banks chez WOWOHCOOL" loading="lazy" width="40" height="40" class="w-10 h-10 rounded-full object-cover border border-brandOrange">
+ <img src="/image/factory/team-nina.webp" alt="Nina Nico, Global Procurement & Sourcing Manager chez WOWOHCOOL — spécialiste du sourcing OEM/ODM" loading="lazy" width="40" height="40" class="w-10 h-10 rounded-full object-cover border border-brandOrange">
  <div>
  <a href="#author-bio" class="font-bold text-slate-900 text-sm hover:text-brandOrange transition">Nina Nico</a>
  <p class="text-xs text-slate-500">Global Procurement & Sourcing Manager · 10+ ans en sourcing 3C</p>
@@ -514,7 +722,7 @@ hreflang:
  <div class="bg-slate-50 rounded-2xl p-6 md:p-8 mb-12 border border-slate-100">
  <div class="flex flex-col sm:flex-row items-start gap-4 sm:gap-6">
  <div class="w-20 h-20 rounded-full overflow-hidden flex items-center justify-center border-2 border-brandOrange bg-white shadow-lg shrink-0">
- <img src="/image/factory/team-nina.webp" alt="Nina Nico, Global Procurement & Sourcing Manager, OEM/ODM Chargeurs et Power Banks chez WOWOHCOOL" loading="lazy" width="400" height="400" class="w-full h-full object-cover">
+ <img src="/image/factory/team-nina.webp" alt="Nina Nico, Global Procurement & Sourcing Manager chez WOWOHCOOL — spécialiste du sourcing OEM/ODM" loading="lazy" width="400" height="400" class="w-full h-full object-cover">
  </div>
  <div class="flex-1 min-w-0">
  <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 mb-2 sm:mb-3">

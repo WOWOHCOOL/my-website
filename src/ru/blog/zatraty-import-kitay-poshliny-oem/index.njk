@@ -4,7 +4,7 @@ lang: "ru"
 description: "Руководство импортёра OEM 2026: пошлины, НДС 22 %, коды ТН ВЭД, расчёт себестоимости. FOB Шэньчжэнь, EAC, доставка в РФ. Запросите расчёт landed cost."
 date: 2026-08-10
 modified: 2026-08-10
-author: "Snowy May"
+author: "Nina Nico"
 articleSection: Импорт и Логистика
 articleTags: [Импорт, Китай, Пошлина, НДС, ТН ВЭД, EAC, FOB, DDP, OEM, Таможня, Power Bank, UN38.3]
 canonical: "/ru/blog/zatraty-import-kitay-poshliny-oem/"
@@ -26,272 +26,338 @@ hreflang:
 {% extends "layout.njk" %}
 
 {% block head_schema %}
-<script type="application/ld+json">
-{
- "@context": "https://schema.org",
- "@graph": [
-  {
-   "@type": "Organization",
-   "@id": "https://www.wowohcool.com/#organization",
-   "name": "WOWOHCOOL",
-   "legalName": "Dong Yi Technology Co., Ltd",
-   "url": "https://www.wowohcool.com/ru/o-kompanii/",
-   "publishingPrinciples": "https://www.wowohcool.com/ru/o-kompanii/",
-   "logo": {
-    "@type": "ImageObject",
-    "url": "https://www.wowohcool.com/image/wowohcool-logo-optimized.webp",
-    "width": 600,
-    "height": 60
-   },
-   "areaServed": [
-    "US","DE","AT","CH","UK","FR","ES","EU","JP","KR","AU","MX","CO","AR","CL","PE"
-   ],
-   "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "925, Yichuang International Center, Longhua District",
-    "addressLocality": "Shenzhen",
-    "addressRegion": "Guangdong",
-    "postalCode": "518111",
-    "addressCountry": "CN"
-   },
-   "sameAs": [
-    "https://www.linkedin.com/company/wowohcool",
-    "https://www.facebook.com/wowohcoolelectronic",
-    "https://www.youtube.com/@WOWOHCOOL",
-    "https://x.com/wowohcool"
-   ],
-   "contactPoint": {
-    "@type": "ContactPoint",
-    "contactType": "OEM/ODM Sales",
-    "telephone": "+86-18620789739",
-    "email": "info@wowohcool.com",
-    "availableLanguage": ["English","German","Spanish","French","Russian"]
-   }
-  },
-  {
-   "@type": "WebSite",
-   "@id": "https://www.wowohcool.com/#website",
-   "url": "https://www.wowohcool.com/ru/",
-   "name": "WOWOHCOOL — OEM Производитель Зарядных Устройств",
-   "inLanguage": "ru-RU",
-   "publisher": {"@id": "https://www.wowohcool.com/#organization"}
-  },
-  {
-   "@type": "BreadcrumbList",
-   "@id": "https://www.wowohcool.com/#breadcrumb",
-   "itemListElement": [
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
     {
-     "@type": "ListItem",
-     "position": 1,
-     "name": "Главная",
-     "item": "https://www.wowohcool.com/ru/"
+      "@type": "Organization",
+      "@id": "https://www.wowohcool.com/#organization",
+      "name": "WOWOHCOOL",
+      "legalName": "Dong Yi Technology Co., Ltd",
+      "foundingDate": "2013",
+      "vatID": "91441900MA558A2N27",
+      "url": "https://www.wowohcool.com/ru/o-kompanii/",
+      "publishingPrinciples": "https://www.wowohcool.com/ru/o-kompanii/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.wowohcool.com/image/wowohcool-logo-optimized.webp",
+        "width": 600,
+        "height": 60
+      },
+      "areaServed": [
+        "US",
+        "DE",
+        "AT",
+        "CH",
+        "UK",
+        "FR",
+        "ES",
+        "PL",
+        "EU",
+        "JP",
+        "KR",
+        "AU",
+        "MX",
+        "CO",
+        "AR",
+        "CL",
+        "PE",
+        "RU",
+        "KZ",
+        "BY",
+        "EAEU"
+      ],
+      "knowsAbout": [
+        "OEM/ODM Power Bank Manufacturing",
+        "Qi2 Wireless Charging Standard",
+        "GaN Power Architecture",
+        "Automotive Fast Charging Systems",
+        "Custom Power Adapter Production",
+        "Consumer Electronics Sourcing",
+        "UL & CE Safety Compliance"
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "925, Yichuang International Center, Longhua District",
+        "addressLocality": "Shenzhen",
+        "addressRegion": "Guangdong",
+        "postalCode": "518111",
+        "addressCountry": "CN"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/company/wowohcool",
+        "https://www.facebook.com/wowohcoolelectronic",
+        "https://www.youtube.com/@WOWOHCOOL",
+        "https://x.com/wowohcool"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "OEM/ODM Sales",
+        "telephone": "+86-18620789739",
+        "email": "info@wowohcool.com",
+        "availableLanguage": [
+          "English",
+          "German",
+          "Spanish",
+          "French",
+          "Russian",
+          "Polish"
+        ]
+      }
     },
     {
-     "@type": "ListItem",
-     "position": 2,
-     "name": "Блог",
-     "item": "https://www.wowohcool.com/ru/blog/"
+      "@type": "WebSite",
+      "@id": "https://www.wowohcool.com/#website",
+      "url": "https://www.wowohcool.com/ru/",
+      "name": "WOWOHCOOL — OEM Производитель Зарядных Устройств",
+      "inLanguage": "ru-RU",
+      "publisher": {
+        "@id": "https://www.wowohcool.com/#organization"
+      }
     },
     {
-     "@type": "ListItem",
-     "position": 3,
-     "name": "Затраты Импорт Китай OEM: Пошлины, НДС и Себестоимость 2026",
-     "item": "https://www.wowohcool.com/ru/blog/zatraty-import-kitay-poshliny-oem/"
+      "@type": "BreadcrumbList",
+      "@id": "https://www.wowohcool.com/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Главная",
+          "item": "https://www.wowohcool.com/ru/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Блог",
+          "item": "https://www.wowohcool.com/ru/blog/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Затраты Импорт Китай OEM: Пошлины, НДС и Себестоимость 2026",
+          "item": "https://www.wowohcool.com/ru/blog/zatraty-import-kitay-poshliny-oem/"
+        }
+      ]
+    },
+    {
+      "@type": "BlogPosting",
+      "@id": "https://www.wowohcool.com/ru/blog/zatraty-import-kitay-poshliny-oem/#article",
+      "headline": "Затраты Импорт Китай OEM: Пошлины, НДС и Себестоимость 2026",
+      "description": "Руководство импортёра OEM 2026: пошлины, НДС 22 %, коды ТН ВЭД, расчёт себестоимости. FOB Шэньчжэнь, EAC сертификация, доставка в РФ. Запросите расчёт landed cost.",
+      "keywords": "Импорт, Китай, Пошлина, НДС, ТН ВЭД, EAC, FOB, DDP, OEM, Таможня, Power Bank, UN38.3",
+      "datePublished": "2026-08-10",
+      "dateModified": "2026-08-10",
+      "wordCount": 2800,
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://www.wowohcool.com/ru/blog/zatraty-import-kitay-poshliny-oem/"
+      },
+      "author": {
+        "@id": "https://www.wowohcool.com/#nina-nico"
+      },
+      "publisher": {
+        "@id": "https://www.wowohcool.com/#organization"
+      },
+      "inLanguage": "ru-RU",
+      "isAccessibleForFree": true,
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [
+          "h1",
+          ".speakable"
+        ]
+      },
+      "about": {
+        "@type": "Thing",
+        "name": "Таможенные платежи и расчёт себестоимости импорта зарядных устройств из Китая в Россию",
+        "sameAs": "https://www.wikidata.org/wiki/Q62955"
+      },
+      "citation": [
+        {
+          "@type": "CreativeWork",
+          "name": "Федеральная Таможенная Служба России — Официальный Портал",
+          "url": "https://customs.gov.ru/"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "Евразийская Экономическая Комиссия — Технические Регламенты ЕАЭС",
+          "url": "https://eec.eaeunion.org/"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "IATA Dangerous Goods Regulations 67th Edition (2026)",
+          "url": "https://www.iata.org/en/publications/dgr/"
+        }
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://www.wowohcool.com/#nina-nico",
+      "name": "Nina Nico",
+      "jobTitle": "Global Procurement & Sourcing Manager",
+      "url": "https://www.wowohcool.com/authors/nina-nico/",
+      "sameAs": [
+        "https://www.linkedin.com/in/nico-power-bank-chargers"
+      ],
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://www.wowohcool.com/image/factory/team-nina.webp",
+        "width": 400,
+        "height": 400
+      },
+      "worksFor": {
+        "@id": "https://www.wowohcool.com/#organization"
+      },
+      "knowsAbout": [
+        "B2B Hardware Sourcing",
+        "OEM/ODM Power Bank Manufacturing",
+        "Supply Chain Quality Assurance",
+        "International Electronics Trade Compliance",
+        "Custom Power Adapter Production",
+        "Factory Audit Standards"
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://www.wowohcool.com/ru/blog/zatraty-import-kitay-poshliny-oem/#howto",
+      "name": "Как рассчитать себестоимость импорта зарядных устройств из Китая",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Определите код ТН ВЭД для вашего товара",
+          "itemListElement": [
+            {
+              "@type": "HowToDirection",
+              "text": "Проверьте 10-значный код через таможенного брокера: 8504.40 для зарядных устройств (пошлина 0–5 %), 8507.60 для power bank (пошлина ~5 %), 8504.40 или 8543.70 для беспроводных зарядок. Ошибка в одном знаке — разница в пошлине до 30 % и штраф до 100 % от стоимости груза."
+            }
+          ]
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Выберите оптимальный маршрут доставки",
+          "itemListElement": [
+            {
+              "@type": "HowToDirection",
+              "text": "Море FCL/LCL (Владивосток, СПб): 30–45 дней, самый дешёвый. Ж/д (Алашанькоу, Хоргос): 14–23 дня, компромисс цена/срок. Авто TIR: 10–18 дней, высокая стабильность. Авиа: 3–7 дней, срочно. Литиевые батареи: +25–40 % к фрахту + UN38.3 обязателен."
+            }
+          ]
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Оформите сертификацию EAC до отправки",
+          "itemListElement": [
+            {
+              "@type": "HowToDirection",
+              "text": "Для зарядных устройств обязательна декларация о соответствии ТР ТС 004/2011 (безопасность низковольтного оборудования) и ТР ТС 020/2011 (электромагнитная совместимость). Срок: 3–6 месяцев. Стоимость: $1 000–3 000 (декларация) или $3 000–5 000+ (сертификат). Запросите у завода готовый пакет документов EAC."
+            }
+          ]
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Рассчитайте полную себестоимость (landed cost)",
+          "itemListElement": [
+            {
+              "@type": "HowToDirection",
+              "text": "Формула: Себестоимость = FOB + Логистика + Пошлина (0–10 % от CIF) + НДС 22 % × (CIF + Пошлина) + Таможенный сбор (500–5 000 ₽) + Брокер (5 000–25 000 ₽). Пример: 1 000 зарядок GaN 65W FOB $6 500 → полная себестоимость ~320 000 ₽ ($3 520), или ~$3,52/шт. при FOB $6,50/шт. — логистика и платежи добавляют ~30–35 % к FOB."
+            }
+          ]
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Оплатите поставщику в юанях и получите возмещение НДС",
+          "itemListElement": [
+            {
+              "@type": "HowToDirection",
+              "text": "Юаневый перевод через ВТБ, Сбербанк или МТС-Банк (1–3 дня, комиссия 15–50 $). Условия WOWOHCOOL: 30 % при заказе, 70 % перед отгрузкой. После растаможки юрлица на ОСНО могут возместить ввозной НДС 22 % при реализации товара — фактическая нагрузка снижается до суммы пошлины и сборов."
+            }
+          ]
+        }
+      ],
+      "totalTime": "PT2H"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.wowohcool.com/ru/blog/zatraty-import-kitay-poshliny-oem/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Какая пошлина на зарядные устройства из Китая в 2026 году?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Зарядные устройства (код ТН ВЭД 8504.40) облагаются пошлиной 0–5 % от таможенной стоимости CIF. Power bank (код 8507.60) — ~5 %. Беспроводные зарядки могут попадать под 8504.40 (0–5 %) или 8543.70 (5–10 %) в зависимости от технологии. Точная ставка определяется по 10-значному коду ТН ВЭД — всегда уточняйте у таможенного брокера до отправки груза."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Какой код ТН ВЭД у зарядного устройства GaN USB-C?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Зарядные устройства GaN, PD, USB-C классифицируются под кодом ТН ВЭД 8504.40 (преобразователи статические). Пошлина: 0–5 %. Power bank — код 8507.60 (аккумуляторы литий-ионные), пошлина ~5 %. Важно: код ТН ВЭД должен быть 10-значным — 6 или 8 знаков таможня РФ не принимает. Ошибка в одном знаке может изменить ставку пошлины на 30 %."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Нужна ли сертификация EAC для зарядных устройств?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Да, EAC-декларация обязательна по двум техрегламентам: ТР ТС 004/2011 (безопасность низковольтного оборудования) и ТР ТС 020/2011 (электромагнитная совместимость). Срок оформления: 3–6 месяцев. Стоимость: $1 000–3 000 (декларация), $3 000–5 000+ (сертификат для высокорискового оборудования). С 01.07.2026 — система SPOT: обязательное предварительное декларирование, AI-сверка кода и сертификата. WOWOHCOOL предоставляет готовый пакет документов для EAC с каждым OEM заказом."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Как рассчитать полную себестоимость импорта из Китая?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Формула: Себестоимость = FOB + Логистика + Пошлина (0–10 % × CIF) + НДС 22 % × (CIF + Пошлина) + Таможенный сбор (500–5 000 ₽) + Брокер (5 000–25 000 ₽). Пример: 1 000 зарядок GaN 65W, FOB $6 500, доставка морем $1 800 (Владивосток) → CIF $8 300 → пошлина 5 % = $415 → НДС 22 % × $8 715 = $1 917 → полная себестоимость ~$11 132 ($11,13/шт.). Логистика и платежи добавляют ~30–35 % к FOB."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Чем отличается FOB от DDP при импорте в Россию?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "FOB (Free On Board): завод доставляет до китайского порта, покупатель организует фрахт, страховку и таможню в РФ. DAP (рекомендуется): завод доставляет до адреса в РФ, покупатель оформляет таможню под своим ИНН — сохраняет право на возмещение НДС 22 %. DDP: всё включено до двери, но таможня оформляется на брокера — вы теряете право на НДС-вычет. Для первого заказа выбирайте DAP."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Какие документы нужны для растаможки электроники?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Обязательные документы: (1) Внешнеторговый контракт; (2) Инвойс с кодами ТН ВЭД; (3) Упаковочный лист; (4) Транспортные документы (коносамент/CMR/ж/д накладная); (5) Декларация о соответствии EAC (ТР ТС 004, 020); (6) Сертификат происхождения. Для power bank дополнительно: отчёт UN38.3 (8 тестов, $1 000–2 500), MSDS (паспорт безопасности), сертификат упаковки опасных грузов класса 9. Коммерческий инвойс — требуется русский перевод."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Как оплатить китайскому поставщику из России в 2026 году?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Юаневый банковский перевод — основной канал 2026 года: ВТБ, Сбербанк, МТС-Банк. Срок: 1–3 дня. Комиссия: 15–50 $ за перевод. Группируйте платежи — один перевод на $50 000 стоит столько же, сколько на $5 000. Условия WOWOHCOOL: 30 % при заказе (запуск производства), 70 % перед отгрузкой. Принимаем оплату в CNY, USD и EUR. Для крупных заказов (>$50 000) доступен аккредитив."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Что выгоднее — море или ж/д для доставки зарядок из Китая в РФ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Для 1 000 зарядок GaN 65W (~150 кг, ~0,4 м³): море LCL (Владивосток) стоит 55–100 $, 30–45 дней — $0,06–0,10/шт. Ж/д (Алашанькоу → Москва) стоит 60–120 $, 14–23 дня — $0,06–0,12/шт. Море в 10–15× дешевле авиа, но в 2–3× медленнее ж/д. Точка переключения: от ~200 кг море становится самым экономичным. Для образцов (<20 кг) — экспресс-доставка DHL/FedEx за 50–150 $."
+          }
+        }
+      ],
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [
+          ".faq-answer"
+        ]
+      }
     }
-   ]
-  },
-  {
-   "@type": "BlogPosting",
-   "@id": "https://www.wowohcool.com/ru/blog/zatraty-import-kitay-poshliny-oem/#article",
-   "headline": "Затраты Импорт Китай OEM: Пошлины, НДС и Себестоимость 2026",
-   "description": "Руководство импортёра OEM 2026: пошлины, НДС 22 %, коды ТН ВЭД, расчёт себестоимости. FOB Шэньчжэнь, EAC сертификация, доставка в РФ. Запросите расчёт landed cost.",
-   "keywords": "Импорт, Китай, Пошлина, НДС, ТН ВЭД, EAC, FOB, DDP, OEM, Таможня, Power Bank, UN38.3",
-   "datePublished": "2026-08-10",
-   "dateModified": "2026-08-10",
-   "wordCount": 2800,
-   "mainEntityOfPage": {"@type": "WebPage", "@id": "https://www.wowohcool.com/ru/blog/zatraty-import-kitay-poshliny-oem/"},
-   "author": {"@id": "https://www.wowohcool.com/#snowy-may"},
-   "publisher": {"@id": "https://www.wowohcool.com/#organization"},
-   "inLanguage": "ru-RU",
-   "isAccessibleForFree": true,
-   "speakable": {
-    "@type": "SpeakableSpecification",
-    "cssSelector": ["h1", ".speakable"]
-   },
-   "about": {
-    "@type": "Thing",
-    "name": "Таможенные платежи и расчёт себестоимости импорта зарядных устройств из Китая в Россию",
-    "sameAs": "https://www.wikidata.org/wiki/Q845739"
-   },
-   "citation": [
-    {
-     "@type": "CreativeWork",
-     "name": "Федеральная Таможенная Служба России — Официальный Портал",
-     "url": "https://customs.gov.ru/"
-    },
-    {
-     "@type": "CreativeWork",
-     "name": "Евразийская Экономическая Комиссия — Технические Регламенты ЕАЭС",
-     "url": "https://eec.eaeunion.org/"
-    },
-    {
-     "@type": "CreativeWork",
-     "name": "IATA Dangerous Goods Regulations 67th Edition (2026)",
-     "url": "https://www.iata.org/en/publications/dgr/"
-    }
-   ]
-  },
-  {
-   "@type": "Person",
-   "@id": "https://www.wowohcool.com/#snowy-may",
-   "name": "Snowy May",
-   "jobTitle": "Основатель и Генеральный Директор",
-   "url": "https://www.wowohcool.com/authors/snowy-may/",
-   "sameAs": ["https://www.linkedin.com/in/snowy-may-wowohcool"],
-   "image": {
-    "@type": "ImageObject",
-    "url": "https://www.wowohcool.com/image/factory/team-snowy.webp",
-    "width": 400,
-    "height": 400
-   },
-   "worksFor": {"@id": "https://www.wowohcool.com/#organization"},
-   "knowsAbout": [
-    "OEM/ODM Manufacturing of Charging Accessories",
-    "China-Russia Cross-Border Trade and Customs",
-    "GaN Charger and Power Bank Production",
-    "EAC Certification and EAEU Technical Regulations",
-    "B2B Sourcing and Supply Chain from Shenzhen"
-   ]
-  },
-  {
-   "@type": "HowTo",
-   "@id": "https://www.wowohcool.com/ru/blog/zatraty-import-kitay-poshliny-oem/#howto",
-   "name": "Как рассчитать себестоимость импорта зарядных устройств из Китая",
-   "step": [
-    {
-     "@type": "HowToStep",
-     "position": 1,
-     "name": "Определите код ТН ВЭД для вашего товара",
-     "itemListElement": [{
-      "@type": "HowToDirection",
-      "text": "Проверьте 10-значный код через таможенного брокера: 8504.40 для зарядных устройств (пошлина 0–5 %), 8507.60 для power bank (пошлина ~5 %), 8504.40 или 8543.70 для беспроводных зарядок. Ошибка в одном знаке — разница в пошлине до 30 % и штраф до 100 % от стоимости груза."
-     }]
-    },
-    {
-     "@type": "HowToStep",
-     "position": 2,
-     "name": "Выберите оптимальный маршрут доставки",
-     "itemListElement": [{
-      "@type": "HowToDirection",
-      "text": "Море FCL/LCL (Владивосток, СПб): 30–45 дней, самый дешёвый. Ж/д (Алашанькоу, Хоргос): 14–23 дня, компромисс цена/срок. Авто TIR: 10–18 дней, высокая стабильность. Авиа: 3–7 дней, срочно. Литиевые батареи: +25–40 % к фрахту + UN38.3 обязателен."
-     }]
-    },
-    {
-     "@type": "HowToStep",
-     "position": 3,
-     "name": "Оформите сертификацию EAC до отправки",
-     "itemListElement": [{
-      "@type": "HowToDirection",
-      "text": "Для зарядных устройств обязательна декларация о соответствии ТР ТС 004/2011 (безопасность низковольтного оборудования) и ТР ТС 020/2011 (электромагнитная совместимость). Срок: 3–6 месяцев. Стоимость: $1 000–3 000 (декларация) или $3 000–5 000+ (сертификат). Запросите у завода готовый пакет документов EAC."
-     }]
-    },
-    {
-     "@type": "HowToStep",
-     "position": 4,
-     "name": "Рассчитайте полную себестоимость (landed cost)",
-     "itemListElement": [{
-      "@type": "HowToDirection",
-      "text": "Формула: Себестоимость = FOB + Логистика + Пошлина (0–10 % от CIF) + НДС 22 % × (CIF + Пошлина) + Таможенный сбор (500–5 000 ₽) + Брокер (5 000–25 000 ₽). Пример: 1 000 зарядок GaN 65W FOB $6 500 → полная себестоимость ~320 000 ₽ ($3 520), или ~$3,52/шт. при FOB $6,50/шт. — логистика и платежи добавляют ~30–35 % к FOB."
-     }]
-    },
-    {
-     "@type": "HowToStep",
-     "position": 5,
-     "name": "Оплатите поставщику в юанях и получите возмещение НДС",
-     "itemListElement": [{
-      "@type": "HowToDirection",
-      "text": "Юаневый перевод через ВТБ, Сбербанк или МТС-Банк (1–3 дня, комиссия 15–50 $). Условия WOWOHCOOL: 30 % при заказе, 70 % перед отгрузкой. После растаможки юрлица на ОСНО могут возместить ввозной НДС 22 % при реализации товара — фактическая нагрузка снижается до суммы пошлины и сборов."
-     }]
-    }
-   ]
-  },
-  {
-   "@type": "FAQPage",
-   "@id": "https://www.wowohcool.com/ru/blog/zatraty-import-kitay-poshliny-oem/#faq",
-   "mainEntity": [
-    {
-     "@type": "Question",
-     "name": "Какая пошлина на зарядные устройства из Китая в 2026 году?",
-     "acceptedAnswer": {
-      "@type": "Answer",
-      "text": "Зарядные устройства (код ТН ВЭД 8504.40) облагаются пошлиной 0–5 % от таможенной стоимости CIF. Power bank (код 8507.60) — ~5 %. Беспроводные зарядки могут попадать под 8504.40 (0–5 %) или 8543.70 (5–10 %) в зависимости от технологии. Точная ставка определяется по 10-значному коду ТН ВЭД — всегда уточняйте у таможенного брокера до отправки груза."
-     }
-    },
-    {
-     "@type": "Question",
-     "name": "Какой код ТН ВЭД у зарядного устройства GaN USB-C?",
-     "acceptedAnswer": {
-      "@type": "Answer",
-      "text": "Зарядные устройства GaN, PD, USB-C классифицируются под кодом ТН ВЭД 8504.40 (преобразователи статические). Пошлина: 0–5 %. Power bank — код 8507.60 (аккумуляторы литий-ионные), пошлина ~5 %. Важно: код ТН ВЭД должен быть 10-значным — 6 или 8 знаков таможня РФ не принимает. Ошибка в одном знаке может изменить ставку пошлины на 30 %."
-     }
-    },
-    {
-     "@type": "Question",
-     "name": "Нужна ли сертификация EAC для зарядных устройств?",
-     "acceptedAnswer": {
-      "@type": "Answer",
-      "text": "Да, EAC-декларация обязательна по двум техрегламентам: ТР ТС 004/2011 (безопасность низковольтного оборудования) и ТР ТС 020/2011 (электромагнитная совместимость). Срок оформления: 3–6 месяцев. Стоимость: $1 000–3 000 (декларация), $3 000–5 000+ (сертификат для высокорискового оборудования). С 01.07.2026 — система SPOT: обязательное предварительное декларирование, AI-сверка кода и сертификата. WOWOHCOOL предоставляет готовый пакет документов для EAC с каждым OEM заказом."
-     }
-    },
-    {
-     "@type": "Question",
-     "name": "Как рассчитать полную себестоимость импорта из Китая?",
-     "acceptedAnswer": {
-      "@type": "Answer",
-      "text": "Формула: Себестоимость = FOB + Логистика + Пошлина (0–10 % × CIF) + НДС 22 % × (CIF + Пошлина) + Таможенный сбор (500–5 000 ₽) + Брокер (5 000–25 000 ₽). Пример: 1 000 зарядок GaN 65W, FOB $6 500, доставка морем $1 800 (Владивосток) → CIF $8 300 → пошлина 5 % = $415 → НДС 22 % × $8 715 = $1 917 → полная себестоимость ~$11 132 ($11,13/шт.). Логистика и платежи добавляют ~30–35 % к FOB."
-     }
-    },
-    {
-     "@type": "Question",
-     "name": "Чем отличается FOB от DDP при импорте в Россию?",
-     "acceptedAnswer": {
-      "@type": "Answer",
-      "text": "FOB (Free On Board): завод доставляет до китайского порта, покупатель организует фрахт, страховку и таможню в РФ. DAP (рекомендуется): завод доставляет до адреса в РФ, покупатель оформляет таможню под своим ИНН — сохраняет право на возмещение НДС 22 %. DDP: всё включено до двери, но таможня оформляется на брокера — вы теряете право на НДС-вычет. Для первого заказа выбирайте DAP."
-     }
-    },
-    {
-     "@type": "Question",
-     "name": "Какие документы нужны для растаможки электроники?",
-     "acceptedAnswer": {
-      "@type": "Answer",
-      "text": "Обязательные документы: (1) Внешнеторговый контракт; (2) Инвойс с кодами ТН ВЭД; (3) Упаковочный лист; (4) Транспортные документы (коносамент/CMR/ж/д накладная); (5) Декларация о соответствии EAC (ТР ТС 004, 020); (6) Сертификат происхождения. Для power bank дополнительно: отчёт UN38.3 (8 тестов, $1 000–2 500), MSDS (паспорт безопасности), сертификат упаковки опасных грузов класса 9. Коммерческий инвойс — требуется русский перевод."
-     }
-    },
-    {
-     "@type": "Question",
-     "name": "Как оплатить китайскому поставщику из России в 2026 году?",
-     "acceptedAnswer": {
-      "@type": "Answer",
-      "text": "Юаневый банковский перевод — основной канал 2026 года: ВТБ, Сбербанк, МТС-Банк. Срок: 1–3 дня. Комиссия: 15–50 $ за перевод. Группируйте платежи — один перевод на $50 000 стоит столько же, сколько на $5 000. Условия WOWOHCOOL: 30 % при заказе (запуск производства), 70 % перед отгрузкой. Принимаем оплату в CNY, USD и EUR. Для крупных заказов (>$50 000) доступен аккредитив."
-     }
-    },
-    {
-     "@type": "Question",
-     "name": "Что выгоднее — море или ж/д для доставки зарядок из Китая в РФ?",
-     "acceptedAnswer": {
-      "@type": "Answer",
-      "text": "Для 1 000 зарядок GaN 65W (~150 кг, ~0,4 м³): море LCL (Владивосток) стоит 55–100 $, 30–45 дней — $0,06–0,10/шт. Ж/д (Алашанькоу → Москва) стоит 60–120 $, 14–23 дня — $0,06–0,12/шт. Море в 10–15× дешевле авиа, но в 2–3× медленнее ж/д. Точка переключения: от ~200 кг море становится самым экономичным. Для образцов (<20 кг) — экспресс-доставка DHL/FedEx за 50–150 $."
-     }
-    }
-   ],
-   "speakable": {
-    "@type": "SpeakableSpecification",
-    "cssSelector": [".faq-answer"]
-   }
-  }
- ]
-}
-</script>
+  ]
+}</script>
 {% endblock %}
 
 {% block content %}
@@ -314,10 +380,10 @@ hreflang:
   </div>
   <h1 class="text-3xl lg:text-5xl font-black text-brandBlue uppercase italic tracking-tighter mb-6 leading-tight">Затраты Импорт Китай OEM: Пошлины, НДС и Себестоимость 2026</h1>
   <div class="flex items-center gap-3 mb-6">
-   <img src="/image/factory/team-snowy.webp" alt="Snowy May — основатель и генеральный директор WOWOHCOOL, 12+ лет в производстве зарядных устройств" loading="lazy" width="40" height="40" class="w-10 h-10 rounded-full object-cover border border-brandOrange">
+   <img src="/image/factory/team-nina.webp" alt="Nina Nico, Global Procurement & Sourcing Manager в WOWOHCOOL — специалист по OEM/ODM-сорсингу" loading="lazy" width="40" height="40" class="w-10 h-10 rounded-full object-cover border border-brandOrange">
    <div>
-    <a href="#author-bio" class="font-bold text-slate-900 text-sm hover:text-brandOrange transition">Snowy May</a>
-    <p class="text-xs text-slate-500">Основатель и Генеральный Директор · 12+ лет в OEM-производстве</p>
+    <a href="#author-bio" class="font-bold text-slate-900 text-sm hover:text-brandOrange transition">Nina Nico</a>
+    <p class="text-xs text-slate-500">Global Procurement & Sourcing Manager · 10+ лет в закупках 3C-электроники</p>
    </div>
   </div>
   {% from "partials/post-meta.njk" import postMeta %}
@@ -394,7 +460,7 @@ hreflang:
    <div class="bg-brandBlue/5 border-l-4 border-brandOrange rounded-r-xl p-6 mt-6">
     <p class="text-[11px] font-black text-brandOrange uppercase tracking-widest mb-2">МНЕНИЕ ЭКСПЕРТА</p>
     <blockquote class="text-slate-700 text-base italic leading-relaxed">«Никогда не полагайтесь на код ТН ВЭД, который дал китайский поставщик. Китайская товарная номенклатура использует 8-значную систему, отличную от 10-значной ТН ВЭД ЕАЭС. В нашей практике был случай: импортёр из Новосибирска два года платил 10 % пошлины на беспроводные зарядки, ошибочно классифицированные под кодом 8543.70. После правильной классификации 8504.40 с пошлиной 0 % он вернул 840 000 ₽ переплаты за 24 месяца. Предварительная проверка кода у брокера заняла бы 15 минут.»</blockquote>
-    <p class="text-sm text-slate-500 mt-2">— Snowy May, Основатель и Генеральный Директор, WOWOHCOOL</p>
+    <p class="text-sm text-slate-500 mt-2">— Nina Nico, Global Procurement & Sourcing Manager, WOWOHCOOL</p>
    </div>
   </div>
  </div>
@@ -894,15 +960,15 @@ hreflang:
  <div class="bg-slate-50 rounded-2xl p-6 md:p-8 mb-12 border border-slate-100">
   <div class="flex flex-col sm:flex-row items-start gap-4 sm:gap-6">
    <div class="w-20 h-20 rounded-full overflow-hidden flex items-center justify-center border-2 border-brandOrange bg-white shadow-lg shrink-0">
-    <img src="/image/factory/team-snowy.webp" alt="Snowy May — основатель и генеральный директор WOWOHCOOL, 12+ лет в производстве зарядных устройств в Шэньчжэне" loading="lazy" width="400" height="400" class="w-full h-full object-cover">
+    <img src="/image/factory/team-nina.webp" alt="Nina Nico, Global Procurement & Sourcing Manager в WOWOHCOOL — специалист по OEM/ODM-сорсингу" loading="lazy" width="400" height="400" class="w-full h-full object-cover">
    </div>
    <div class="flex-1 min-w-0">
     <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 mb-2 sm:mb-3">
-     <a href="https://www.linkedin.com/in/snowy-may-wowohcool" target="_blank" rel="noopener noreferrer" class="font-black text-slate-900 text-lg hover:text-brandOrange transition">Snowy May</a>
+     <a href="https://www.linkedin.com/in/nico-power-bank-chargers" target="_blank" rel="noopener noreferrer" class="font-black text-slate-900 text-lg hover:text-brandOrange transition">Nina Nico</a>
      <span class="px-2 py-1 bg-brandOrange/10 text-brandOrange text-[11px] font-black rounded-full uppercase w-fit">Автор</span>
     </div>
-    <p class="text-sm text-slate-500 mb-3">Основатель и Генеральный Директор · 12+ лет в OEM-производстве · RU/EN/CN</p>
-    <p class="text-slate-600 text-sm leading-relaxed">Snowy May основал WOWOHCOOL в 2013 году и вывел завод от стартапа до производителя с мощностью 1M+ единиц в месяц для 200+ глобальных брендов, включая Bosch. За 12 лет он лично провёл более 300 трансграничных сделок с клиентами из РФ и СНГ и досконально знает специфику российского таможенного оформления, сертификации EAC и валютного контроля.</p>
+    <p class="text-sm text-slate-500 mb-3">Global Procurement & Sourcing Manager · 10+ лет в закупках 3C-электроники</p>
+    <p class="text-slate-600 text-sm leading-relaxed">Nina Nico — менеджер по глобальным закупкам WOWOHCOOL с более чем 10-летним опытом в закупках 3C-электроники. Специализируется на B2B-сорсинге оборудования, OEM/ODM-производстве повербанков, аудите заводов, обеспечении качества цепочки поставок и международном торговом комплаенсе.</p>
     <div class="mt-4 pt-4 border-t border-slate-200">
      <p class="text-xs text-slate-400 uppercase tracking-wider mb-2">Производственная База</p>
      <div class="grid grid-cols-2 md:grid-cols-4 gap-3 text-sm">

@@ -3,7 +3,7 @@ title: "Verify FCC / UL / CE Charger Certificates | WOWOHCOOL"
 description: "Verify FCC / UL / CE certificates on Chinese chargers in 5 minutes. Database walkthrough, China Export CE trap, 8 counterfeit red flags for OEM importers."
 date: 2026-08-18
 modified: 2026-08-18
-author: "Snowy May"
+author: "Nina Nico"
 articleSection: Compliance & Certification
 articleTags: [Certification Verification, FCC ID, UL Mark, CE Mark, China Export, OEM Buyer Guide]
 canonical: "/blog/verify-fake-charger-certificates-fcc-ce-ul/"
@@ -19,120 +19,370 @@ hreflang:
 {% extends "layout.njk" %}
 
 {% block head_schema %}
-<script type="application/ld+json">
-{
- "@context": "https://schema.org",
- "@graph": [
-  {
-   "@type": "Organization",
-   "@id": "https://www.wowohcool.com/#organization",
-   "name": "WOWOHCOOL",
-   "legalName": "Dong Yi Technology Co., Ltd",
-   "url": "https://www.wowohcool.com/about/",
-   "publishingPrinciples": "https://www.wowohcool.com/about/",
-   "logo": {"@type": "ImageObject","url": "https://www.wowohcool.com/image/wowohcool-logo-optimized.webp","width": 600,"height": 60},
-   "areaServed": ["US","DE","AT","CH","UK","FR","ES","EU","JP","KR","AU","MX","CO","AR","CL","PE"],
-   "address": {"@type": "PostalAddress","streetAddress": "925, Yichuang International Center, Longhua District","addressLocality": "Shenzhen","addressRegion": "Guangdong","postalCode": "518111","addressCountry": "CN"},
-   "sameAs": ["https://www.linkedin.com/company/wowohcool","https://www.facebook.com/wowohcoolelectronic","https://www.youtube.com/@WOWOHCOOL","https://x.com/wowohcool"],
-   "contactPoint": {"@type": "ContactPoint","contactType": "OEM/ODM Sales","telephone": "+86-18620789739","email": "info@wowohcool.com","availableLanguage": ["English","German","Spanish","French","Chinese"]}
-  },
-  {"@type": "WebSite","@id": "https://www.wowohcool.com/#website","url": "https://www.wowohcool.com/","name": "WOWOHCOOL","inLanguage": "en-US","publisher": {"@id": "https://www.wowohcool.com/#organization"}},
-  {
-   "@type": "BreadcrumbList",
-   "itemListElement": [
-    {"@type": "ListItem","position": 1,"name": "Home","item": "https://www.wowohcool.com/"},
-    {"@type": "ListItem","position": 2,"name": "Blog","item": "https://www.wowohcool.com/blog/"},
-    {"@type": "ListItem","position": 3,"name": "Verify Fake Charger Certificates","item": "https://www.wowohcool.com/blog/verify-fake-charger-certificates-fcc-ce-ul/"}
-   ]
-  },
-  {
-   "@type": "BlogPosting",
-   "@id": "https://www.wowohcool.com/blog/verify-fake-charger-certificates-fcc-ce-ul/#article",
-   "headline": "How to Verify FCC / UL / CE Certificates on Chinese Chargers Are Real",
-   "keywords": [
-    "FCC ID Verification",
-    "UL Product iQ",
-    "CE vs China Export",
-    "NANDO Notified Body",
-    "Counterfeit Charger Certificates",
-    "OEM Certification Fraud",
-    "Fake UL Mark",
-    "FCC OET Database"
-   ],
-   "author": {"@id": "https://www.wowohcool.com/#snowy-may"},
-   "publisher": {"@id": "https://www.wowohcool.com/#organization"},
-   "datePublished": "2026-08-18",
-   "dateModified": "2026-08-18",
-   "mainEntityOfPage": {"@type": "WebPage","@id": "https://www.wowohcool.com/blog/verify-fake-charger-certificates-fcc-ce-ul/"},
-   "wordCount": 2855,
-   "inLanguage": "en-US",
-   "timeRequired": "PT12M",
-   "articleSection": "Compliance & Certification",
-   "image": "https://www.wowohcool.com/image/blog/cover-en/verify-fake-charger-certificates-fcc-ce-ul.webp",
-   "thumbnailUrl": "https://www.wowohcool.com/image/blog/cover-en/verify-fake-charger-certificates-fcc-ce-ul.webp",
-   "description": "Verify FCC / UL / CE certificates on Chinese chargers in 5 minutes. Database walkthrough, China Export CE trap, 8 counterfeit red flags for OEM importers.",
-   "citation": [
-    {"@type": "CreativeWork","name": "FCC Part 15 — Radio Frequency Devices","url": "https://www.ecfr.gov/current/title-47/chapter-I/subchapter-A/part-15"},
-    {"@type": "CreativeWork","name": "EU Council Decision 768/2008 — CE Marking Requirements","url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32008D0768"},
-    {"@type": "CreativeWork","name": "UL 62368-1 — Safety Standard for ICT Equipment","url": "https://www.ul.com/resources/ul-62368-1"},
-    {"@type": "CreativeWork","name": "EU Regulation 2019/1020 — Market Surveillance","url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32019R1020"},
-    {"@type": "CreativeWork","name": "FCC ID Search — Official Database","url": "https://www.fcc.gov/oet/ea/fccid"},
-    {"@type": "CreativeWork","name": "UL Product iQ — Certification Database","url": "https://productiq.ul.com"},
-    {"@type": "CreativeWork","name": "UL Counterfeit Mark Warning (20PN-27)","url": "https://www.ul.com/news/ul-warns-counterfeit-ul-marks-usb-chargers-release-20pn-27"},
-    {"@type": "CreativeWork","name": "NANDO Notified Body Database","url": "https://ec.europa.eu/growth/tools-databases/nando/"}
-   ],
-   "speakable": {"@type": "SpeakableSpecification","cssSelector": ["h1",".speakable"]},
-   "about": {"@type": "Thing","name": "CE marking","sameAs": "https://www.wikidata.org/wiki/Q228055"}
-  },
-  {
-   "@type": "Person",
-   "@id": "https://www.wowohcool.com/#snowy-may",
-   "name": "Snowy May",
-   "jobTitle": "Marketing Manager & Founder",
-   "url": "https://www.wowohcool.com/authors/snowy-may/",
-   "worksFor": {"@id": "https://www.wowohcool.com/#organization"},
-   "knowsAbout": [
-    "OEM/ODM Consumer Electronics",
-    "Charger Certifications UL / CE / FCC",
-    "EU/US Regulatory Compliance",
-    "Qi2 Wireless Charging Standards",
-    "Counterfeit Certificate Detection"
-   ],
-   "image": "https://www.wowohcool.com/image/factory/team-snowy.webp",
-   "sameAs": ["https://www.linkedin.com/in/snowy-wireless-charger"]
-  },
-  {
-   "@type": "HowTo",
-   "@id": "https://www.wowohcool.com/blog/verify-fake-charger-certificates-fcc-ce-ul/#howto",
-   "name": "Verify Charger Certificates in 5 Minutes",
-   "description": "Five-step database verification workflow for FCC, UL, and CE certificates on Chinese-manufactured chargers.",
-   "totalTime": "PT5M",
-   "step": [
-    {"@type": "HowToStep","position": 1,"name": "Verify FCC ID in the official database","itemListElement": [{"@type": "HowToDirection","text": "Go to fcc.gov/oet/ea/fccid, enter the grantee code (first 3-5 characters) and product code (remaining characters). The result must show the grantee company name matching the supplier's business license, application type Certification or DoC, and downloadable test reports plus internal/external photos. No match or company mismatch means the ID is fake."}]},
-    {"@type": "HowToStep","position": 2,"name": "Verify UL file number in Product iQ","itemListElement": [{"@type": "HowToDirection","text": "Go to productiq.ul.com (free account required, 60-second signup). Enter the E-number (e.g., E123456) or company name. Confirm company name matches business license, CCN matches product category, and Enforcement column shows no active warnings. Absence signals a fake number."}]},
-    {"@type": "HowToStep","position": 3,"name": "Compare CE mark visually against China Export imitation","itemListElement": [{"@type": "HowToDirection","text": "Real CE (Conformité Européenne) uses equal-diameter circles for C and E with a gap between them equal to half the letter width. Fake China Export mark has letters touching, disproportionate E width, and non-circular geometry. Print both at same size and overlay for definitive comparison."}]},
-    {"@type": "HowToStep","position": 4,"name": "Verify CE Notified Body number on NANDO","itemListElement": [{"@type": "HowToDirection","text": "If the CE mark shows a 4-digit number (e.g., \"CE 0123\"), search that number at ec.europa.eu/growth/tools-databases/nando/. Confirm the body is currently active and accredited for the specific EU directive relevant to your product. Body not accredited for consumer electronics cannot legally issue a CE for a charger."}]},
-    {"@type": "HowToStep","position": 5,"name": "Cross-check 8 physical red flags on the charger itself","itemListElement": [{"@type": "HowToDirection","text": "Weigh the charger (genuine 30W weighs 55-75 g, hollow fake 25-40 g). Shake for rattling internals. Inspect enclosure seams. Check label for misspellings, wrong voltage range (US requires 100-240V AC), missing manufacturer address. Confirm UL Mark includes 'LISTED' text plus 4-char control number. Reject sticker labels that peel: real marks are permanent."}]}
-   ]
-  },
-  {
-   "@type": "FAQPage",
-   "@id": "https://www.wowohcool.com/blog/verify-fake-charger-certificates-fcc-ce-ul/#faq",
-   "speakable": {"@type": "SpeakableSpecification","cssSelector": [".faq-answer"]},
-   "mainEntity": [
-    {"@type": "Question","name": "How do I verify an FCC ID on a Chinese USB charger?","acceptedAnswer": {"@type": "Answer","text": "Enter the grantee code (first 3-5 characters) and product code (remaining characters) at fcc.gov/oet/ea/fccid. The result should show the grantee company matching the supplier's business license, application type \"Certification\" or \"DoC\", and downloadable test reports and photos. If the ID does not resolve or the company name mismatches, the certification is fake. WOWOHCOOL FCC ID resolves in under 30 seconds. Request a live database screenshot with any supplier."}},
-    {"@type": "Question","name": "What is the difference between the real CE mark and the \"China Export\" CE?","acceptedAnswer": {"@type": "Answer","text": "The real CE (Conformité Européenne) has letters C and E formed from equal-diameter circles with a gap between them roughly half the letter width. The \"China Export\" imitation has letters closer together with no gap and disproportionate widths. Print both at the same size and overlay for a definitive visual comparison. Only the real CE authorizes EU sale. The China Export mark has no regulatory meaning."}},
-    {"@type": "Question","name": "Can I verify a UL certificate for free, or does it cost money?","acceptedAnswer": {"@type": "Answer","text": "Free. UL Product iQ at productiq.ul.com requires only a free account (email registration, no credit card, 60-second signup). Search by file number (E-number, format E123456) or company name. Every UL certification, listing, and category assignment is publicly searchable at no cost. Amazon and major retailers run this exact check on every seller upload."}},
-    {"@type": "Question","name": "What documents should a real charger OEM supplier provide with their certification?","acceptedAnswer": {"@type": "Answer","text": "Four per certification: (1) test report from an ISO 17025-accredited lab (30-80 pages, not a single certificate page), (2) Declaration of Conformity signed by the manufacturer referencing specific directives (LVD 2014/35/EU, EMC 2014/30/EU, RoHS 2011/65/EU), (3) technical file (schematic, BOM, PCB layout, risk assessment), (4) production consistency evidence (IQC records, batch tracking). A single-page \"certificate\" without these is not sufficient for cross-border sale."}},
-    {"@type": "Question","name": "What are the top 3 red flags of a counterfeit UL Mark?","acceptedAnswer": {"@type": "Answer","text": "Three: (1) UL logo without the word \"LISTED\" and a 4-character control number; (2) file number that does not resolve on Product iQ or resolves to a different company than the supplier; (3) sticker that peels easily: real UL Marks are permanent labels (thermal-transfer print) or laser-etched. Any single red flag is grounds to reject the shipment. UL has issued 20+ counterfeit warnings for USB chargers since 2015."}},
-    {"@type": "Question","name": "How do I check a CE Notified Body number on the NANDO database?","acceptedAnswer": {"@type": "Answer","text": "Go to ec.europa.eu/growth/tools-databases/nando/, enter the 4-digit body number visible next to the CE mark (e.g., \"CE 0123\"), and verify the body is currently active and accredited for the specific EU directive relevant to your product. A body not accredited for consumer electronics cannot legally issue a CE for a charger, even if the body itself is valid for machinery or medical devices."}},
-    {"@type": "Question","name": "If a supplier's certificate does not verify, is the product illegal to import?","acceptedAnswer": {"@type": "Answer","text": "Yes. Products with false or unverifiable certifications are non-compliant for sale in the destination market. In the US, FCC violations carry fines up to $10,000 per unit. In the EU, non-compliant products can be seized at customs under Regulation (EU) 2019/1020, and importers face fines and enforcement action. Amazon, Walmart, and most major retailers suspend seller accounts within 30 days of first verification failure."}},
-    {"@type": "Question","name": "How much does a real CE / FCC / UL certification package cost?","acceptedAnswer": {"@type": "Answer","text": "WOWOHCOOL's CE/FCC/RoHS Standard package is $2,500-4,500 (4-6 weeks) covering CE with LVD + EMC + RoHS, FCC SDoC, RoHS, and UN38.3 for battery products. Full US+EU with UL 62368-1 adds $1,500-3,000 (6-10 weeks total). Suppliers quoting $500 for \"CE + FCC + UL\" are selling paper: a real test report from an ISO 17025 lab starts at $1,500. Request WOWOHCOOL certification catalog at wowohcool.com/contact/."}}
-   ]
-  }
- ]
-}
-</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.wowohcool.com/#organization",
+      "name": "WOWOHCOOL",
+      "legalName": "Dong Yi Technology Co., Ltd",
+      "foundingDate": "2013",
+      "vatID": "91441900MA558A2N27",
+      "url": "https://www.wowohcool.com/about/",
+      "publishingPrinciples": "https://www.wowohcool.com/about/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.wowohcool.com/image/wowohcool-logo-optimized.webp",
+        "width": 600,
+        "height": 60
+      },
+      "areaServed": [
+        "US",
+        "DE",
+        "AT",
+        "CH",
+        "UK",
+        "FR",
+        "ES",
+        "PL",
+        "EU",
+        "JP",
+        "KR",
+        "AU",
+        "MX",
+        "CO",
+        "AR",
+        "CL",
+        "PE",
+        "RU",
+        "KZ",
+        "BY",
+        "EAEU"
+      ],
+      "knowsAbout": [
+        "OEM/ODM Power Bank Manufacturing",
+        "Qi2 Wireless Charging Standard",
+        "GaN Power Architecture",
+        "Automotive Fast Charging Systems",
+        "Custom Power Adapter Production",
+        "Consumer Electronics Sourcing",
+        "UL & CE Safety Compliance"
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "925, Yichuang International Center, Longhua District",
+        "addressLocality": "Shenzhen",
+        "addressRegion": "Guangdong",
+        "postalCode": "518111",
+        "addressCountry": "CN"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/company/wowohcool",
+        "https://www.facebook.com/wowohcoolelectronic",
+        "https://www.youtube.com/@WOWOHCOOL",
+        "https://x.com/wowohcool"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "OEM/ODM Sales",
+        "telephone": "+86-18620789739",
+        "email": "info@wowohcool.com",
+        "availableLanguage": [
+          "English",
+          "German",
+          "Spanish",
+          "French",
+          "Russian",
+          "Polish"
+        ]
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.wowohcool.com/#website",
+      "url": "https://www.wowohcool.com/",
+      "name": "WOWOHCOOL",
+      "inLanguage": "en-US",
+      "publisher": {
+        "@id": "https://www.wowohcool.com/#organization"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.wowohcool.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://www.wowohcool.com/blog/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Verify Fake Charger Certificates",
+          "item": "https://www.wowohcool.com/blog/verify-fake-charger-certificates-fcc-ce-ul/"
+        }
+      ]
+    },
+    {
+      "@type": "BlogPosting",
+      "@id": "https://www.wowohcool.com/blog/verify-fake-charger-certificates-fcc-ce-ul/#article",
+      "headline": "How to Verify FCC / UL / CE Certificates on Chinese Chargers Are Real",
+      "keywords": [
+        "FCC ID Verification",
+        "UL Product iQ",
+        "CE vs China Export",
+        "NANDO Notified Body",
+        "Counterfeit Charger Certificates",
+        "OEM Certification Fraud",
+        "Fake UL Mark",
+        "FCC OET Database"
+      ],
+      "author": {
+        "@id": "https://www.wowohcool.com/#nina-nico"
+      },
+      "publisher": {
+        "@id": "https://www.wowohcool.com/#organization"
+      },
+      "datePublished": "2026-08-18",
+      "dateModified": "2026-08-18",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://www.wowohcool.com/blog/verify-fake-charger-certificates-fcc-ce-ul/"
+      },
+      "wordCount": 2855,
+      "inLanguage": "en-US",
+      "timeRequired": "PT12M",
+      "articleSection": "Compliance & Certification",
+      "image": "https://www.wowohcool.com/image/blog/cover-en/verify-fake-charger-certificates-fcc-ce-ul.webp",
+      "thumbnailUrl": "https://www.wowohcool.com/image/blog/cover-en/verify-fake-charger-certificates-fcc-ce-ul.webp",
+      "description": "Verify FCC / UL / CE certificates on Chinese chargers in 5 minutes. Database walkthrough, China Export CE trap, 8 counterfeit red flags for OEM importers.",
+      "citation": [
+        {
+          "@type": "CreativeWork",
+          "name": "FCC Part 15 — Radio Frequency Devices",
+          "url": "https://www.ecfr.gov/current/title-47/chapter-I/subchapter-A/part-15"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "EU Council Decision 768/2008 — CE Marking Requirements",
+          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32008D0768"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "UL 62368-1 — Safety Standard for ICT Equipment",
+          "url": "https://www.ul.com/resources/ul-62368-1"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "EU Regulation 2019/1020 — Market Surveillance",
+          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32019R1020"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "FCC ID Search — Official Database",
+          "url": "https://www.fcc.gov/oet/ea/fccid"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "UL Product iQ — Certification Database",
+          "url": "https://productiq.ul.com"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "UL Counterfeit Mark Warning (20PN-27)",
+          "url": "https://www.ul.com/news/ul-warns-counterfeit-ul-marks-usb-chargers-release-20pn-27"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "NANDO Notified Body Database",
+          "url": "https://ec.europa.eu/growth/tools-databases/nando/"
+        }
+      ],
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [
+          "h1",
+          ".speakable"
+        ]
+      },
+      "about": {
+        "@type": "Thing",
+        "name": "CE marking",
+        "sameAs": "https://www.wikidata.org/wiki/Q467405"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://www.wowohcool.com/#nina-nico",
+      "name": "Nina Nico",
+      "jobTitle": "Global Procurement & Sourcing Manager",
+      "url": "https://www.wowohcool.com/authors/nina-nico/",
+      "worksFor": {
+        "@id": "https://www.wowohcool.com/#organization"
+      },
+      "knowsAbout": [
+        "B2B Hardware Sourcing",
+        "OEM/ODM Power Bank Manufacturing",
+        "Supply Chain Quality Assurance",
+        "International Electronics Trade Compliance",
+        "Custom Power Adapter Production",
+        "Factory Audit Standards"
+      ],
+      "image": "https://www.wowohcool.com/image/factory/team-nina.webp",
+      "sameAs": [
+        "https://www.linkedin.com/in/nico-power-bank-chargers"
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://www.wowohcool.com/blog/verify-fake-charger-certificates-fcc-ce-ul/#howto",
+      "name": "Verify Charger Certificates in 5 Minutes",
+      "description": "Five-step database verification workflow for FCC, UL, and CE certificates on Chinese-manufactured chargers.",
+      "totalTime": "PT5M",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Verify FCC ID in the official database",
+          "itemListElement": [
+            {
+              "@type": "HowToDirection",
+              "text": "Go to fcc.gov/oet/ea/fccid, enter the grantee code (first 3-5 characters) and product code (remaining characters). The result must show the grantee company name matching the supplier's business license, application type Certification or DoC, and downloadable test reports plus internal/external photos. No match or company mismatch means the ID is fake."
+            }
+          ]
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Verify UL file number in Product iQ",
+          "itemListElement": [
+            {
+              "@type": "HowToDirection",
+              "text": "Go to productiq.ul.com (free account required, 60-second signup). Enter the E-number (e.g., E123456) or company name. Confirm company name matches business license, CCN matches product category, and Enforcement column shows no active warnings. Absence signals a fake number."
+            }
+          ]
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Compare CE mark visually against China Export imitation",
+          "itemListElement": [
+            {
+              "@type": "HowToDirection",
+              "text": "Real CE (Conformité Européenne) uses equal-diameter circles for C and E with a gap between them equal to half the letter width. Fake China Export mark has letters touching, disproportionate E width, and non-circular geometry. Print both at same size and overlay for definitive comparison."
+            }
+          ]
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Verify CE Notified Body number on NANDO",
+          "itemListElement": [
+            {
+              "@type": "HowToDirection",
+              "text": "If the CE mark shows a 4-digit number (e.g., \"CE 0123\"), search that number at ec.europa.eu/growth/tools-databases/nando/. Confirm the body is currently active and accredited for the specific EU directive relevant to your product. Body not accredited for consumer electronics cannot legally issue a CE for a charger."
+            }
+          ]
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Cross-check 8 physical red flags on the charger itself",
+          "itemListElement": [
+            {
+              "@type": "HowToDirection",
+              "text": "Weigh the charger (genuine 30W weighs 55-75 g, hollow fake 25-40 g). Shake for rattling internals. Inspect enclosure seams. Check label for misspellings, wrong voltage range (US requires 100-240V AC), missing manufacturer address. Confirm UL Mark includes 'LISTED' text plus 4-char control number. Reject sticker labels that peel: real marks are permanent."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.wowohcool.com/blog/verify-fake-charger-certificates-fcc-ce-ul/#faq",
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [
+          ".faq-answer"
+        ]
+      },
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How do I verify an FCC ID on a Chinese USB charger?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Enter the grantee code (first 3-5 characters) and product code (remaining characters) at fcc.gov/oet/ea/fccid. The result should show the grantee company matching the supplier's business license, application type \"Certification\" or \"DoC\", and downloadable test reports and photos. If the ID does not resolve or the company name mismatches, the certification is fake. WOWOHCOOL FCC ID resolves in under 30 seconds. Request a live database screenshot with any supplier."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between the real CE mark and the \"China Export\" CE?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The real CE (Conformité Européenne) has letters C and E formed from equal-diameter circles with a gap between them roughly half the letter width. The \"China Export\" imitation has letters closer together with no gap and disproportionate widths. Print both at the same size and overlay for a definitive visual comparison. Only the real CE authorizes EU sale. The China Export mark has no regulatory meaning."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I verify a UL certificate for free, or does it cost money?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Free. UL Product iQ at productiq.ul.com requires only a free account (email registration, no credit card, 60-second signup). Search by file number (E-number, format E123456) or company name. Every UL certification, listing, and category assignment is publicly searchable at no cost. Amazon and major retailers run this exact check on every seller upload."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What documents should a real charger OEM supplier provide with their certification?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Four per certification: (1) test report from an ISO 17025-accredited lab (30-80 pages, not a single certificate page), (2) Declaration of Conformity signed by the manufacturer referencing specific directives (LVD 2014/35/EU, EMC 2014/30/EU, RoHS 2011/65/EU), (3) technical file (schematic, BOM, PCB layout, risk assessment), (4) production consistency evidence (IQC records, batch tracking). A single-page \"certificate\" without these is not sufficient for cross-border sale."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What are the top 3 red flags of a counterfeit UL Mark?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Three: (1) UL logo without the word \"LISTED\" and a 4-character control number; (2) file number that does not resolve on Product iQ or resolves to a different company than the supplier; (3) sticker that peels easily: real UL Marks are permanent labels (thermal-transfer print) or laser-etched. Any single red flag is grounds to reject the shipment. UL has issued 20+ counterfeit warnings for USB chargers since 2015."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I check a CE Notified Body number on the NANDO database?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Go to ec.europa.eu/growth/tools-databases/nando/, enter the 4-digit body number visible next to the CE mark (e.g., \"CE 0123\"), and verify the body is currently active and accredited for the specific EU directive relevant to your product. A body not accredited for consumer electronics cannot legally issue a CE for a charger, even if the body itself is valid for machinery or medical devices."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "If a supplier's certificate does not verify, is the product illegal to import?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Products with false or unverifiable certifications are non-compliant for sale in the destination market. In the US, FCC violations carry fines up to $10,000 per unit. In the EU, non-compliant products can be seized at customs under Regulation (EU) 2019/1020, and importers face fines and enforcement action. Amazon, Walmart, and most major retailers suspend seller accounts within 30 days of first verification failure."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How much does a real CE / FCC / UL certification package cost?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "WOWOHCOOL's CE/FCC/RoHS Standard package is $2,500-4,500 (4-6 weeks) covering CE with LVD + EMC + RoHS, FCC SDoC, RoHS, and UN38.3 for battery products. Full US+EU with UL 62368-1 adds $1,500-3,000 (6-10 weeks total). Suppliers quoting $500 for \"CE + FCC + UL\" are selling paper: a real test report from an ISO 17025 lab starts at $1,500. Request WOWOHCOOL certification catalog at wowohcool.com/contact/."
+          }
+        }
+      ]
+    }
+  ]
+}</script>
 {% endblock %}
 
 {% block content %}
@@ -157,10 +407,10 @@ hreflang:
   </div>
   <h1 class="text-3xl lg:text-5xl font-black text-brandBlue uppercase italic tracking-tighter mb-6 leading-tight">How to Verify FCC / UL / CE Certificates on Chinese Chargers Are Real</h1>
   <div class="flex items-center gap-3 mb-6">
-   <img src="/image/factory/team-snowy.webp" alt="Snowy May — WOWOHCOOL Marketing Manager charger certification expert" loading="lazy" width="40" height="40" class="w-10 h-10 rounded-full object-cover border border-brandOrange">
+   <img src="/image/factory/team-nina.webp" alt="Nina Nico, Global Procurement & Sourcing Manager at WOWOHCOOL — OEM/ODM sourcing specialist" loading="lazy" width="40" height="40" class="w-10 h-10 rounded-full object-cover border border-brandOrange">
    <div>
-    <a href="#author-bio" class="font-bold text-slate-900 text-sm hover:text-brandOrange transition">Snowy May</a>
-    <p class="text-xs text-slate-500">Marketing Manager & Founder · 10+ years</p>
+    <a href="#author-bio" class="font-bold text-slate-900 text-sm hover:text-brandOrange transition">Nina Nico</a>
+    <p class="text-xs text-slate-500">Global Procurement & Sourcing Manager · 10+ years in 3C procurement & sourcing</p>
    </div>
   </div>
   {% from "partials/post-meta.njk" import postMeta %}
@@ -324,7 +574,7 @@ hreflang:
    <div class="bg-brandBlue/5 border-l-4 border-brandOrange rounded-r-xl p-6 mt-6">
     <p class="text-[11px] font-black text-brandOrange uppercase tracking-widest mb-2">Expert Insight</p>
     <blockquote class="text-slate-700 text-base italic leading-relaxed">"An OEM buyer forwarded me three PDFs from a Shenzhen supplier last month — CE, FCC, and UL for a 65W GaN charger. Twelve minutes on three databases: FCC ID unresolved, UL number belonged to a Taiwanese motor manufacturer, CE Notified Body accredited only for medical devices. All three were fake. The buyer switched suppliers, the order shipped in 4 weeks, the Amazon listing stayed live. Averted loss: an estimated $47,000. Verification cost: zero."</blockquote>
-    <p class="text-sm text-slate-500 mt-2">— Snowy May, Marketing Manager & Founder, WOWOHCOOL</p>
+    <p class="text-sm text-slate-500 mt-2">— Nina Nico, Global Procurement & Sourcing Manager, WOWOHCOOL</p>
    </div>
 
    <h3 class="font-black text-brandBlue uppercase mb-3">CE Is Self-Declared — Always Demand the DoC</h3>
@@ -458,15 +708,15 @@ hreflang:
  <div class="bg-slate-50 rounded-2xl p-6 md:p-8 mb-12 border border-slate-100">
   <div class="flex flex-col sm:flex-row items-start gap-4 sm:gap-6">
    <div class="w-20 h-20 rounded-full overflow-hidden flex items-center justify-center border-2 border-brandOrange bg-white shadow-lg shrink-0">
-    <img src="/image/factory/team-snowy.webp" alt="Snowy May WOWOHCOOL Marketing Manager charger certification specialist" loading="lazy" width="400" height="400" class="w-full h-full object-cover">
+    <img src="/image/factory/team-nina.webp" alt="Nina Nico, Global Procurement & Sourcing Manager at WOWOHCOOL — OEM/ODM sourcing specialist" loading="lazy" width="400" height="400" class="w-full h-full object-cover">
    </div>
    <div class="flex-1 min-w-0">
     <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 mb-2 sm:mb-3">
-     <a href="https://www.linkedin.com/in/snowy-wireless-charger" target="_blank" rel="noopener noreferrer" class="font-black text-slate-900 text-lg hover:text-brandOrange transition">Snowy May</a>
+     <a href="https://www.linkedin.com/in/nico-power-bank-chargers" target="_blank" rel="noopener noreferrer" class="font-black text-slate-900 text-lg hover:text-brandOrange transition">Nina Nico</a>
      <span class="px-2 py-1 bg-brandOrange/10 text-brandOrange text-[11px] font-black rounded-full uppercase w-fit">Author</span>
     </div>
-    <p class="text-sm text-slate-500 mb-3">Marketing Manager & Founder · 10+ years · EN, ZH</p>
-    <p class="text-slate-600 text-sm leading-relaxed">Snowy is founder of WOWOHCOOL (Dong Yi Technology Co., Ltd) and leads certification management for OEM/ODM GaN chargers, Qi2 wireless charging, and lithium-battery products. Specialties: UL / CE / FCC certification workflows, EU and US regulatory compliance, counterfeit certificate detection.</p>
+    <p class="text-sm text-slate-500 mb-3">Global Procurement & Sourcing Manager · 10+ years in 3C procurement & sourcing</p>
+    <p class="text-slate-600 text-sm leading-relaxed">Nina Nico is WOWOHCOOL's Global Procurement & Sourcing Manager with 10+ years in 3C procurement. She specializes in B2B hardware sourcing, OEM/ODM power bank manufacturing, factory audits, supply chain quality assurance, and international trade compliance.</p>
     <div class="mt-4 pt-4 border-t border-slate-200">
      <p class="text-xs text-slate-400 uppercase tracking-wider mb-2">Factory Footprint</p>
      <div class="grid grid-cols-2 md:grid-cols-4 gap-3 text-sm">

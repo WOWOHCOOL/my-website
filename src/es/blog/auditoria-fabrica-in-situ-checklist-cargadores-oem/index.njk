@@ -22,123 +22,324 @@ hreflang:
 {% extends "layout.njk" %}
 
 {% block head_schema %}
-<script type="application/ld+json">
-{
- "@context": "https://schema.org",
- "@graph": [
- {
- "@type": "Organization",
- "@id": "https://www.wowohcool.com/#organization",
- "name": "WOWOHCOOL",
- "legalName": "Dong Yi Technology Co., Ltd",
- "url": "https://www.wowohcool.com/es/sobre-nosotros/",
- "publishingPrinciples": "https://www.wowohcool.com/es/sobre-nosotros/",
- "logo": { "@type": "ImageObject", "url": "https://www.wowohcool.com/image/wowohcool-logo-optimized.webp" },
- "areaServed": ["US", "DE", "AT", "CH", "UK", "FR", "ES", "PL", "EU", "JP", "KR", "AU", "MX", "CO", "AR", "CL", "PE", "RU", "KZ", "BY", "EAEU"],
- "address": {
- "@type": "PostalAddress",
- "streetAddress": "925, Yichuang International Center, Longhua District",
- "addressLocality": "Shenzhen",
- "addressRegion": "Guangdong",
- "postalCode": "518111",
- "addressCountry": "CN"
- },
- "sameAs": [
- "https://www.linkedin.com/company/wowohcool",
- "https://www.facebook.com/wowohcoolelectronic",
- "https://www.youtube.com/@WOWOHCOOL",
- "https://x.com/wowohcool"
- ],
- "contactPoint": {
- "@type": "ContactPoint",
- "contactType": "OEM/ODM Sales",
- "telephone": "+86-18620789739",
- "email": "info@wowohcool.com",
- "availableLanguage": ["Spanish", "English", "German", "Chinese"]
- }
- },
- {
- "@type": "WebSite",
- "@id": "https://www.wowohcool.com/#website",
- "url": "https://www.wowohcool.com/es/",
- "name": "WOWOHCOOL",
- "inLanguage": "es-ES",
- "publisher": { "@id": "https://www.wowohcool.com/#organization" }
- },
- {
- "@type": "BreadcrumbList",
- "itemListElement": [
- { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://www.wowohcool.com/es/" },
- { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.wowohcool.com/es/blog/" },
- { "@type": "ListItem", "position": 3, "name": "Auditoría de Fábrica in situ", "item": "https://www.wowohcool.com/es/blog/auditoria-fabrica-in-situ-checklist-cargadores-oem/" }
- ]
- },
- {
- "@type": "BlogPosting",
- "@id": "https://www.wowohcool.com/es/blog/auditoria-fabrica-in-situ-checklist-cargadores-oem/#article",
- "headline": "Auditoría de Fábrica in situ en China: Checklist de 25 Puntos para Compradores OEM",
- "keywords": ["auditoría de fábrica en China", "checklist importador cargadores", "visitar fábrica China verificación OEM", "red flags fábrica cargadores SMT", "línea SMT inspección power bank", "sala de envejecimiento auditoría", "prueba en vivo QC laboratorio", "auditoría fábrica vs verificación proveedor"],
- "description": "Checklist de 25 puntos para auditar fábricas de cargadores y power banks en China. Línea SMT, sala de envejecimiento, pruebas en vivo QC, red flags, costes.",
- "author": { "@id": "https://www.wowohcool.com/#nina-nico" },
- "publisher": { "@id": "https://www.wowohcool.com/#organization" },
- "datePublished": "2026-08-20",
- "dateModified": "2026-08-20",
- "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.wowohcool.com/es/blog/auditoria-fabrica-in-situ-checklist-cargadores-oem/" },
- "wordCount": 2236,
- "inLanguage": "es-ES",
- "timeRequired": "PT15M",
- "articleSection": "Sourcing y Verificación de Proveedores",
- "image": "https://www.wowohcool.com/image/blog/cover-es/auditoria-fabrica-in-situ-checklist-cargadores-oem.webp",
- "thumbnailUrl": "https://www.wowohcool.com/image/blog/cover-es/auditoria-fabrica-in-situ-checklist-cargadores-oem.webp",
- "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".speakable"] },
- "about": { "@type": "Thing", "name": "Factory audit", "sameAs": "https://www.wikidata.org/entity/Q1798454" },
- "citation": [
- { "@type": "CreativeWork", "name": "ISO 9001, Quality management systems", "url": "https://www.iso.org/iso-9001-quality-management.html" },
- { "@type": "CreativeWork", "name": "IEC 62368-1, Safety requirements for audio/video and ICT equipment", "url": "https://www.iec.ch/" },
- { "@type": "CreativeWork", "name": "IPC-A-610, Acceptability of Electronic Assemblies", "url": "https://www.ipc.org/" }
- ]
- },
- {
- "@type": "Person",
- "@id": "https://www.wowohcool.com/#nina-nico",
- "name": "Nina Nico",
- "jobTitle": "Global Procurement & Sourcing Manager",
- "url": "https://www.wowohcool.com/authors/nina-nico/",
- "sameAs": ["https://www.linkedin.com/in/nico-power-bank-chargers"],
- "image": "https://www.wowohcool.com/image/factory/team-nina.webp",
- "worksFor": { "@id": "https://www.wowohcool.com/#organization" },
- "knowsAbout": ["Sourcing global 3C", "Auditoría de fábricas en China", "Control de calidad IQC/IPQC/FQC/OQC", "Línea SMT y ensamblaje electrónico", "Negociación OEM transfronteriza"]
- },
- {
- "@type": "HowTo",
- "@id": "https://www.wowohcool.com/es/blog/auditoria-fabrica-in-situ-checklist-cargadores-oem/#howto",
- "name": "Auditar una fábrica de cargadores en China in situ",
- "description": "Proceso de 25 puntos para auditar una fábrica de cargadores o power banks en China en persona.",
- "totalTime": "PT6H",
- "step": [
- { "@type": "HowToStep", "position": 1, "name": "Solicite los 4 documentos antes de embarcar", "itemListElement": [{ "@type": "HowToDirection", "text": "Pida la licencia comercial (código USCC + capital registrado), el certificado ISO 9001 (verifíquelo en el registro), la dirección de la fábrica en Baidu Maps y los nombres del gerente de QC y de producción. Si no entregan el paquete documental en 24 horas, la cadena de cumplimiento no está integrada." }] },
- { "@type": "HowToStep", "position": 2, "name": "Recorra las zonas de la fábrica en orden", "itemListElement": [{ "@type": "HowToDirection", "text": "Visite la puerta y recepción, la línea SMT (marca de máquina, horno de reflujo, SPI, AOI), el ensamblaje (protección ESD, IPQC en línea) y la sala de envejecimiento. WOWOHCOOL hace 100% de 4 horas de envejecimiento frente a las 2 horas por lote de la industria." }] },
- { "@type": "HowToStep", "position": 3, "name": "Pida 3 pruebas en vivo en el laboratorio QC", "itemListElement": [{ "@type": "HowToDirection", "text": "Solicite Hi-Pot (rigidez dieléctrica a 3.000 V AC durante 1 s), térmica (carga de 65W durante 30 min con imagen térmica FLIR) y analizador de protocolo USB-C PD. Si se niegan a correr las pruebas delante de usted, trátelo como una señal de alerta." }] },
- { "@type": "HowToStep", "position": 4, "name": "Tome las 8 fotos de verificación y compare costes", "itemListElement": [{ "@type": "HowToDirection", "text": "Fotografíe el letrero de la fábrica (geotag), la placa de la línea SMT, el reloj de la sala de envejecimiento, el equipo del laboratorio, la pared de certificados, el estante de retención de muestras, la tarjeta del gerente de QC y una foto grupal. Compare el coste de auditoría ($300-800) con la verificación previa ($100-200)." }] }
- ]
- },
- {
- "@type": "FAQPage",
- "@id": "https://www.wowohcool.com/es/blog/auditoria-fabrica-in-situ-checklist-cargadores-oem/#faq",
- "speakable": { "@type": "SpeakableSpecification", "cssSelector": [".faq-answer"] },
- "mainEntity": [
- { "@type": "Question", "name": "¿Cuál es la diferencia entre auditoría de fábrica, verificación de proveedor e inspección pre-embarque?", "acceptedAnswer": { "@type": "Answer", "text": "Son tres controles distintos: la verificación de proveedor ($100-200) revisa documentación antes del pedido; la auditoría de fábrica ($300-800) es la visita física al piso de producción para confirmar que la fábrica puede producir tu pedido de forma consistente; la inspección pre-embarque ($200-350) revisa la mercancía terminada antes del envío. Para pedidos mayores de $50.000 o producto insignia, usa las tres." } },
- { "@type": "Question", "name": "¿Puedo hacer una auditoría de fábrica a distancia, o necesito volar a China?", "acceptedAnswer": { "@type": "Answer", "text": "Una videollamada en horario laboral (9:00-17:00 hora China) sirve como cribado inicial, pero no reemplaza la auditoría presencial: un intermediario puede pedir prestado un taller durante una hora, pero no sobrevive 4-6 horas de verificación con revisión documental. Para pedidos superiores a $50.000 o producto complejo, vuela a China." } },
- { "@type": "Question", "name": "¿Cuánto dura una auditoría de fábrica in situ para un proveedor de cargadores o power banks?", "acceptedAnswer": { "@type": "Answer", "text": "Una auditoría completa toma 4-6 horas: 15 minutos en la puerta y recepción, 30 minutos en la línea SMT, 30 minutos en el ensamblaje, 30 minutos en la sala de envejecimiento, 30-60 minutos en el laboratorio QC con pruebas en vivo, y 30 minutos en el almacén. WOWOHCOOL ofrece un recorrido de 30 minutos con el gerente de QC." } },
- { "@type": "Question", "name": "¿Cuáles son las 3 señales de alerta que revelan a una trading company haciéndose pasar por fábrica?", "acceptedAnswer": { "@type": "Answer", "text": "Las tres más fiables: (1) se niega a mostrar el piso de producción o a hacer videollamada en vivo, (2) los trabajadores no reconocen a la persona que guía el tour o parecen escenificados, y (3) el almacén de materias primas está vacío o las placas de los equipos muestran otra empresa. Un fabricante real se especializa y puede nombrar clientes en tu categoría." } },
- { "@type": "Question", "name": "¿Qué pruebas en vivo debo solicitar durante la visita al laboratorio QC?", "acceptedAnswer": { "@type": "Answer", "text": "Pida tres: Hi-Pot (rigidez dieléctrica a 3.000 V AC durante 1 s), térmica (carga de 65W durante 30 minutos con imagen térmica FLIR — WOWOHCOOL registra 52,4 °C en GaN V frente a 76,8 °C en silicio), y analizador de protocolo USB-C PD para verificar la negociación PDO. Además, pida ver el rizado en osciloscopio (menos de 25 mVpp a 15W)." } },
- { "@type": "Question", "name": "¿Cuánto cuesta una auditoría profesional en Shenzhen (SGS/Bureau Veritas/QIMA)?", "acceptedAnswer": { "@type": "Answer", "text": "Una auditoría de terceros cuesta $300-800 por inspección. SGS, Bureau Veritas, QIMA e Intertek ofrecen auditorías de un día. La verificación de proveedor previa cuesta $100-200, y la inspección pre-embarque $200-350. Para pedidos recurrentes, combina una auditoría anual con una inspección pre-embarque en cada pedido." } },
- { "@type": "Question", "name": "¿Qué hago si la fábrica se niega a correr una prueba en vivo delante de mí?", "acceptedAnswer": { "@type": "Answer", "text": "Trátelo como una señal de alerta significativa y pase al siguiente candidato. Una fábrica legítima tiene el equipo de prueba en el laboratorio y puede correr Hi-Pot, térmica y análisis PD delante de usted. Si solo ofrece informes de prueba sin demostración en vivo, es probable que no controle el proceso de producción o que subcontrate." } }
- ]
- }
- ]
-}
-</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.wowohcool.com/#organization",
+      "name": "WOWOHCOOL",
+      "legalName": "Dong Yi Technology Co., Ltd",
+      "foundingDate": "2013",
+      "vatID": "91441900MA558A2N27",
+      "url": "https://www.wowohcool.com/es/sobre-nosotros/",
+      "publishingPrinciples": "https://www.wowohcool.com/es/sobre-nosotros/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.wowohcool.com/image/wowohcool-logo-optimized.webp"
+      },
+      "areaServed": [
+        "US",
+        "DE",
+        "AT",
+        "CH",
+        "UK",
+        "FR",
+        "ES",
+        "PL",
+        "EU",
+        "JP",
+        "KR",
+        "AU",
+        "MX",
+        "CO",
+        "AR",
+        "CL",
+        "PE",
+        "RU",
+        "KZ",
+        "BY",
+        "EAEU"
+      ],
+      "knowsAbout": [
+        "OEM/ODM Power Bank Manufacturing",
+        "Qi2 Wireless Charging Standard",
+        "GaN Power Architecture",
+        "Automotive Fast Charging Systems",
+        "Custom Power Adapter Production",
+        "Consumer Electronics Sourcing",
+        "UL & CE Safety Compliance"
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "925, Yichuang International Center, Longhua District",
+        "addressLocality": "Shenzhen",
+        "addressRegion": "Guangdong",
+        "postalCode": "518111",
+        "addressCountry": "CN"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/company/wowohcool",
+        "https://www.facebook.com/wowohcoolelectronic",
+        "https://www.youtube.com/@WOWOHCOOL",
+        "https://x.com/wowohcool"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "OEM/ODM Sales",
+        "telephone": "+86-18620789739",
+        "email": "info@wowohcool.com",
+        "availableLanguage": [
+          "English",
+          "German",
+          "Spanish",
+          "French",
+          "Russian",
+          "Polish"
+        ]
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.wowohcool.com/#website",
+      "url": "https://www.wowohcool.com/es/",
+      "name": "WOWOHCOOL",
+      "inLanguage": "es-ES",
+      "publisher": {
+        "@id": "https://www.wowohcool.com/#organization"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Inicio",
+          "item": "https://www.wowohcool.com/es/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://www.wowohcool.com/es/blog/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Auditoría de Fábrica in situ",
+          "item": "https://www.wowohcool.com/es/blog/auditoria-fabrica-in-situ-checklist-cargadores-oem/"
+        }
+      ]
+    },
+    {
+      "@type": "BlogPosting",
+      "@id": "https://www.wowohcool.com/es/blog/auditoria-fabrica-in-situ-checklist-cargadores-oem/#article",
+      "headline": "Auditoría de Fábrica in situ en China: Checklist de 25 Puntos para Compradores OEM",
+      "keywords": [
+        "auditoría de fábrica en China",
+        "checklist importador cargadores",
+        "visitar fábrica China verificación OEM",
+        "red flags fábrica cargadores SMT",
+        "línea SMT inspección power bank",
+        "sala de envejecimiento auditoría",
+        "prueba en vivo QC laboratorio",
+        "auditoría fábrica vs verificación proveedor"
+      ],
+      "description": "Checklist de 25 puntos para auditar fábricas de cargadores y power banks en China. Línea SMT, sala de envejecimiento, pruebas en vivo QC, red flags, costes.",
+      "author": {
+        "@id": "https://www.wowohcool.com/#nina-nico"
+      },
+      "publisher": {
+        "@id": "https://www.wowohcool.com/#organization"
+      },
+      "datePublished": "2026-08-20",
+      "dateModified": "2026-08-20",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://www.wowohcool.com/es/blog/auditoria-fabrica-in-situ-checklist-cargadores-oem/"
+      },
+      "wordCount": 2236,
+      "inLanguage": "es-ES",
+      "timeRequired": "PT15M",
+      "articleSection": "Sourcing y Verificación de Proveedores",
+      "image": "https://www.wowohcool.com/image/blog/cover-es/auditoria-fabrica-in-situ-checklist-cargadores-oem.webp",
+      "thumbnailUrl": "https://www.wowohcool.com/image/blog/cover-es/auditoria-fabrica-in-situ-checklist-cargadores-oem.webp",
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [
+          "h1",
+          ".speakable"
+        ]
+      },
+      "about": {
+        "@type": "Thing",
+        "name": "Factory audit",
+        "sameAs": "https://www.wikidata.org/entity/Q181487"
+      },
+      "citation": [
+        {
+          "@type": "CreativeWork",
+          "name": "ISO 9001, Quality management systems",
+          "url": "https://www.iso.org/iso-9001-quality-management.html"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "IEC 62368-1, Safety requirements for audio/video and ICT equipment",
+          "url": "https://www.iec.ch/"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "IPC-A-610, Acceptability of Electronic Assemblies",
+          "url": "https://www.ipc.org/"
+        }
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://www.wowohcool.com/#nina-nico",
+      "name": "Nina Nico",
+      "jobTitle": "Global Procurement & Sourcing Manager",
+      "url": "https://www.wowohcool.com/authors/nina-nico/",
+      "sameAs": [
+        "https://www.linkedin.com/in/nico-power-bank-chargers"
+      ],
+      "image": "https://www.wowohcool.com/image/factory/team-nina.webp",
+      "worksFor": {
+        "@id": "https://www.wowohcool.com/#organization"
+      },
+      "knowsAbout": [
+        "B2B Hardware Sourcing",
+        "OEM/ODM Power Bank Manufacturing",
+        "Supply Chain Quality Assurance",
+        "International Electronics Trade Compliance",
+        "Custom Power Adapter Production",
+        "Factory Audit Standards"
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://www.wowohcool.com/es/blog/auditoria-fabrica-in-situ-checklist-cargadores-oem/#howto",
+      "name": "Auditar una fábrica de cargadores en China in situ",
+      "description": "Proceso de 25 puntos para auditar una fábrica de cargadores o power banks en China en persona.",
+      "totalTime": "PT6H",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Solicite los 4 documentos antes de embarcar",
+          "itemListElement": [
+            {
+              "@type": "HowToDirection",
+              "text": "Pida la licencia comercial (código USCC + capital registrado), el certificado ISO 9001 (verifíquelo en el registro), la dirección de la fábrica en Baidu Maps y los nombres del gerente de QC y de producción. Si no entregan el paquete documental en 24 horas, la cadena de cumplimiento no está integrada."
+            }
+          ]
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Recorra las zonas de la fábrica en orden",
+          "itemListElement": [
+            {
+              "@type": "HowToDirection",
+              "text": "Visite la puerta y recepción, la línea SMT (marca de máquina, horno de reflujo, SPI, AOI), el ensamblaje (protección ESD, IPQC en línea) y la sala de envejecimiento. WOWOHCOOL hace 100% de 4 horas de envejecimiento frente a las 2 horas por lote de la industria."
+            }
+          ]
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Pida 3 pruebas en vivo en el laboratorio QC",
+          "itemListElement": [
+            {
+              "@type": "HowToDirection",
+              "text": "Solicite Hi-Pot (rigidez dieléctrica a 3.000 V AC durante 1 s), térmica (carga de 65W durante 30 min con imagen térmica FLIR) y analizador de protocolo USB-C PD. Si se niegan a correr las pruebas delante de usted, trátelo como una señal de alerta."
+            }
+          ]
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Tome las 8 fotos de verificación y compare costes",
+          "itemListElement": [
+            {
+              "@type": "HowToDirection",
+              "text": "Fotografíe el letrero de la fábrica (geotag), la placa de la línea SMT, el reloj de la sala de envejecimiento, el equipo del laboratorio, la pared de certificados, el estante de retención de muestras, la tarjeta del gerente de QC y una foto grupal. Compare el coste de auditoría ($300-800) con la verificación previa ($100-200)."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.wowohcool.com/es/blog/auditoria-fabrica-in-situ-checklist-cargadores-oem/#faq",
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [
+          ".faq-answer"
+        ]
+      },
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Cuál es la diferencia entre auditoría de fábrica, verificación de proveedor e inspección pre-embarque?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Son tres controles distintos: la verificación de proveedor ($100-200) revisa documentación antes del pedido; la auditoría de fábrica ($300-800) es la visita física al piso de producción para confirmar que la fábrica puede producir tu pedido de forma consistente; la inspección pre-embarque ($200-350) revisa la mercancía terminada antes del envío. Para pedidos mayores de $50.000 o producto insignia, usa las tres."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Puedo hacer una auditoría de fábrica a distancia, o necesito volar a China?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Una videollamada en horario laboral (9:00-17:00 hora China) sirve como cribado inicial, pero no reemplaza la auditoría presencial: un intermediario puede pedir prestado un taller durante una hora, pero no sobrevive 4-6 horas de verificación con revisión documental. Para pedidos superiores a $50.000 o producto complejo, vuela a China."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cuánto dura una auditoría de fábrica in situ para un proveedor de cargadores o power banks?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Una auditoría completa toma 4-6 horas: 15 minutos en la puerta y recepción, 30 minutos en la línea SMT, 30 minutos en el ensamblaje, 30 minutos en la sala de envejecimiento, 30-60 minutos en el laboratorio QC con pruebas en vivo, y 30 minutos en el almacén. WOWOHCOOL ofrece un recorrido de 30 minutos con el gerente de QC."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cuáles son las 3 señales de alerta que revelan a una trading company haciéndose pasar por fábrica?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Las tres más fiables: (1) se niega a mostrar el piso de producción o a hacer videollamada en vivo, (2) los trabajadores no reconocen a la persona que guía el tour o parecen escenificados, y (3) el almacén de materias primas está vacío o las placas de los equipos muestran otra empresa. Un fabricante real se especializa y puede nombrar clientes en tu categoría."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué pruebas en vivo debo solicitar durante la visita al laboratorio QC?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Pida tres: Hi-Pot (rigidez dieléctrica a 3.000 V AC durante 1 s), térmica (carga de 65W durante 30 minutos con imagen térmica FLIR — WOWOHCOOL registra 52,4 °C en GaN V frente a 76,8 °C en silicio), y analizador de protocolo USB-C PD para verificar la negociación PDO. Además, pida ver el rizado en osciloscopio (menos de 25 mVpp a 15W)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cuánto cuesta una auditoría profesional en Shenzhen (SGS/Bureau Veritas/QIMA)?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Una auditoría de terceros cuesta $300-800 por inspección. SGS, Bureau Veritas, QIMA e Intertek ofrecen auditorías de un día. La verificación de proveedor previa cuesta $100-200, y la inspección pre-embarque $200-350. Para pedidos recurrentes, combina una auditoría anual con una inspección pre-embarque en cada pedido."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué hago si la fábrica se niega a correr una prueba en vivo delante de mí?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Trátelo como una señal de alerta significativa y pase al siguiente candidato. Una fábrica legítima tiene el equipo de prueba en el laboratorio y puede correr Hi-Pot, térmica y análisis PD delante de usted. Si solo ofrece informes de prueba sin demostración en vivo, es probable que no controle el proceso de producción o que subcontrate."
+          }
+        }
+      ]
+    }
+  ]
+}</script>
 {% endblock %}
 
 {% block content %}
@@ -164,10 +365,10 @@ hreflang:
  <h1 class="text-3xl lg:text-5xl font-black text-brandBlue uppercase italic tracking-tighter mb-6 leading-tight">Auditoría de Fábrica in situ en China: Checklist de 25 Puntos para Compradores OEM</h1>
 
  <div class="flex items-center gap-3 mb-6">
- <img src="/image/factory/team-nina.webp" alt="Nina Nico, gerente de sourcing global, auditoría de fábricas en China y verificación OEM, WOWOHCOOL" loading="lazy" width="40" height="40" class="w-10 h-10 rounded-full object-cover border border-brandOrange">
+ <img src="/image/factory/team-nina.webp" alt="Nina Nico, Global Procurement & Sourcing Manager de WOWOHCOOL — especialista en abastecimiento OEM/ODM" loading="lazy" width="40" height="40" class="w-10 h-10 rounded-full object-cover border border-brandOrange">
  <div>
  <a href="#author-bio" class="font-bold text-slate-900 text-sm hover:text-brandOrange transition">Nina Nico</a>
- <p class="text-xs text-slate-500">Gerente de Sourcing · 10+ años en 3C</p>
+ <p class="text-xs text-slate-500">Global Procurement & Sourcing Manager · 10+ años en 3C</p>
  </div>
  </div>
 
@@ -327,7 +528,7 @@ hreflang:
  <div class="bg-brandBlue/5 border-l-4 border-brandOrange rounded-r-xl p-6 mt-6">
  <p class="text-[11px] font-black text-brandOrange uppercase tracking-widest mb-2">PERSPECTIVA EXPERTO</p>
  <blockquote class="text-slate-700 text-base italic leading-relaxed">«La prueba en vivo es la que separa al fabricante del intermediario. Un intermediario puede enviar cualquier informe de prueba, pero no puede encender el analizador PD delante de usted y mostrar la negociación PDO en tiempo real. Si se niega a correr la prueba, no controla la producción.»</blockquote>
- <p class="text-sm text-slate-500 mt-2">, Nina Nico, Global Procurement &amp; Sourcing Manager, WOWOHCOOL</p>
+ <p class="text-sm text-slate-500 mt-2">, Nina Nico, Global Procurement & Sourcing Manager, WOWOHCOOL</p>
  </div>
  </div>
  </div>
@@ -438,14 +639,14 @@ hreflang:
  <div class="bg-slate-50 rounded-2xl p-6 md:p-8 mb-12 border border-slate-100">
  <div class="flex flex-col sm:flex-row items-start gap-4 sm:gap-6">
  <div class="w-20 h-20 rounded-full overflow-hidden flex items-center justify-center border-2 border-brandOrange bg-white shadow-lg shrink-0">
- <img src="/image/factory/team-nina.webp" alt="Nina Nico, gerente de sourcing global, auditoría de fábricas en China y verificación OEM, WOWOHCOOL" loading="lazy" width="400" height="400" class="w-full h-full object-cover">
+ <img src="/image/factory/team-nina.webp" alt="Nina Nico, Global Procurement & Sourcing Manager de WOWOHCOOL — especialista en abastecimiento OEM/ODM" loading="lazy" width="400" height="400" class="w-full h-full object-cover">
  </div>
  <div class="flex-1 min-w-0">
  <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 mb-2 sm:mb-3">
  <a href="https://www.linkedin.com/in/nico-power-bank-chargers" target="_blank" rel="noopener noreferrer" class="font-black text-slate-900 text-lg hover:text-brandOrange transition">Nina Nico</a>
  <span class="px-2 py-1 bg-brandOrange/10 text-brandOrange text-[11px] font-black rounded-full uppercase w-fit">Autora</span>
  </div>
- <p class="text-sm text-slate-500 mb-3">Gerente de Sourcing Global · OEM/ODM 3C · 10+ años en la industria</p>
+ <p class="text-sm text-slate-500 mb-3">Global Procurement & Sourcing Manager · OEM/ODM 3C · 10+ años en la industria</p>
  <p class="text-slate-600 text-sm leading-relaxed">10+ años en sourcing global de accesorios 3C y auditoría de fábricas en Shenzhen. Especialista en control de calidad IQC/IPQC/FQC/OQC, línea SMT y ensamblaje electrónico, ha auditado decenas de fábricas de cargadores y power banks. Basada en la fábrica <a href="/es/sobre-nosotros/" class="text-brandBlue hover:text-brandOrange">WOWOHCOOL</a> de Shenzhen.</p>
  <div class="mt-4 pt-4 border-t border-slate-200">
  <p class="text-xs text-slate-400 uppercase tracking-wider mb-2">Huella de Fábrica</p>

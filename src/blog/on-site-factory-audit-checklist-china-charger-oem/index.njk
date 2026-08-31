@@ -21,119 +21,371 @@ hreflang:
 {% extends "layout.njk" %}
 
 {% block head_schema %}
-<script type="application/ld+json">
-{
- "@context": "https://schema.org",
- "@graph": [
-  {
-   "@type": "Organization",
-   "@id": "https://www.wowohcool.com/#organization",
-   "name": "WOWOHCOOL",
-   "legalName": "Dong Yi Technology Co., Ltd",
-   "url": "https://www.wowohcool.com/about/",
-   "publishingPrinciples": "https://www.wowohcool.com/about/",
-   "logo": {"@type": "ImageObject","url": "https://www.wowohcool.com/image/wowohcool-logo-optimized.webp","width": 600,"height": 60},
-   "areaServed": ["US","DE","AT","CH","UK","FR","ES","EU","JP","KR","AU","MX","CO","AR","CL","PE"],
-   "address": {"@type": "PostalAddress","streetAddress": "925, Yichuang International Center, Longhua District","addressLocality": "Shenzhen","addressRegion": "Guangdong","postalCode": "518111","addressCountry": "CN"},
-   "sameAs": ["https://www.linkedin.com/company/wowohcool","https://www.facebook.com/wowohcoolelectronic","https://www.youtube.com/@WOWOHCOOL","https://x.com/wowohcool"],
-   "contactPoint": {"@type": "ContactPoint","contactType": "OEM/ODM Sales","telephone": "+86-18620789739","email": "info@wowohcool.com","availableLanguage": ["English","German","Spanish","French","Chinese"]}
-  },
-  {"@type": "WebSite","@id": "https://www.wowohcool.com/#website","url": "https://www.wowohcool.com/","name": "WOWOHCOOL","inLanguage": "en-US","publisher": {"@id": "https://www.wowohcool.com/#organization"}},
-  {
-   "@type": "BreadcrumbList",
-   "itemListElement": [
-    {"@type": "ListItem","position": 1,"name": "Home","item": "https://www.wowohcool.com/"},
-    {"@type": "ListItem","position": 2,"name": "Blog","item": "https://www.wowohcool.com/blog/"},
-    {"@type": "ListItem","position": 3,"name": "On-Site Factory Audit Checklist","item": "https://www.wowohcool.com/blog/on-site-factory-audit-checklist-china-charger-oem/"}
-   ]
-  },
-  {
-   "@type": "BlogPosting",
-   "@id": "https://www.wowohcool.com/blog/on-site-factory-audit-checklist-china-charger-oem/#article",
-   "headline": "On-Site Factory Audit Checklist: 25 Points for Charger OEM Buyers",
-   "keywords": [
-    "Factory Audit",
-    "On-Site Inspection",
-    "OEM Sourcing",
-    "China Manufacturing",
-    "Charger Factory Verification",
-    "SMT Line Audit",
-    "Aging Room QC",
-    "AQL Sampling"
-   ],
-   "author": {"@id": "https://www.wowohcool.com/#nina-nico"},
-   "publisher": {"@id": "https://www.wowohcool.com/#organization"},
-   "datePublished": "2026-08-18",
-   "dateModified": "2026-08-18",
-   "mainEntityOfPage": {"@type": "WebPage","@id": "https://www.wowohcool.com/blog/on-site-factory-audit-checklist-china-charger-oem/"},
-   "wordCount": 3217,
-   "inLanguage": "en-US",
-   "timeRequired": "PT12M",
-   "articleSection": "Sourcing & Supply Chain",
-   "image": "https://www.wowohcool.com/image/blog/cover-en/on-site-factory-audit-checklist-china-charger-oem.webp",
-   "thumbnailUrl": "https://www.wowohcool.com/image/blog/cover-en/on-site-factory-audit-checklist-china-charger-oem.webp",
-   "description": "25-point on-site factory audit checklist for charger and power bank OEM importers in China. SMT line, aging room, QC lab live tests, red flags, cost breakdown.",
-   "citation": [
-    {"@type": "CreativeWork","name": "ISO 9001:2015 Quality Management Systems","url": "https://www.iso.org/standard/62085.html"},
-    {"@type": "CreativeWork","name": "ISO 2859-1 — Sampling procedures for inspection by attributes","url": "https://www.iso.org/standard/1141.html"},
-    {"@type": "CreativeWork","name": "IEC 62368-1 — Audio/Video ICT Equipment Safety","url": "https://webstore.iec.ch/publication/27412"},
-    {"@type": "CreativeWork","name": "Alibaba OEM Electronics Supplier Verification","url": "https://seller.alibaba.com/blogs/2026/southeast-asia/electronics/china-oem-supplier-verification-factory-audit-guide-alibaba-b2b"},
-    {"@type": "CreativeWork","name": "Sinospect China Factory Audit Checklist","url": "https://sinospect.com/resources/china-factory-audit-checklist"},
-    {"@type": "CreativeWork","name": "Unit Circuits SMT Factory Audit Checklist","url": "https://unitcircuits.com/smt-factory-audit-checklist-china-2025/"}
-   ],
-   "speakable": {"@type": "SpeakableSpecification","cssSelector": ["h1",".speakable"]},
-   "about": {"@type": "Thing","name": "Factory audit","sameAs": "https://www.wikidata.org/wiki/Q1439150"}
-  },
-  {
-   "@type": "Person",
-   "@id": "https://www.wowohcool.com/#nina-nico",
-   "name": "Nina Nico",
-   "jobTitle": "Global Procurement & Sourcing Manager",
-   "url": "https://www.wowohcool.com/authors/nina-nico/",
-   "worksFor": {"@id": "https://www.wowohcool.com/#organization"},
-   "knowsAbout": [
-    "Global Supply Chain Sourcing",
-    "Cross-Border OEM Negotiation",
-    "China Charger Factory Audit",
-    "AQL 2.5 Level II Sampling",
-    "GaN Charger & Power Bank Manufacturing"
-   ],
-   "image": "https://www.wowohcool.com/image/factory/team-nina.webp",
-   "sameAs": ["https://www.linkedin.com/in/nico-power-bank-chargers"]
-  },
-  {
-   "@type": "HowTo",
-   "@id": "https://www.wowohcool.com/blog/on-site-factory-audit-checklist-china-charger-oem/#howto",
-   "name": "Run a Charger Factory On-Site Audit in 6 Zones",
-   "description": "Six-zone on-site audit protocol for charger and power bank OEM buyers visiting Chinese factories.",
-   "totalTime": "PT4H",
-   "step": [
-    {"@type": "HowToStep","position": 1,"name": "Verify pre-visit documentation before boarding","itemListElement": [{"@type": "HowToDirection","text": "Cross-check Unified Social Credit Code on gsxt.gov.cn, verify ISO 9001 certificate on the registrar site, view the factory address on Baidu Maps satellite view, obtain QC and production manager names. This desk work disqualifies 20-30% of suppliers before the trip."}]},
-    {"@type": "HowToStep","position": 2,"name": "Inspect gate and reception (Zone 1)","itemListElement": [{"@type": "HowToDirection","text": "Verify signage matches business license. Ask to see visitor log: busy OEM factories log 3-10 visitors daily. Look for client photo wall, trophy display, and certification frames with visible dates. Empty walls or shared entrances signal a trading company."}]},
-    {"@type": "HowToStep","position": 3,"name": "Audit SMT and assembly lines (Zones 2-3)","itemListElement": [{"@type": "HowToDirection","text": "Confirm brand-name SMT machines (Panasonic NPM, Yamaha YSM, JUKI RS, or Fuji NXT). Verify reflow oven with temperature-profile printout, SPI machine after paste printing, and AOI after reflow. Workers wear ESD wristbands; parts bins have batch codes."}]},
-    {"@type": "HowToStep","position": 4,"name": "Verify aging room (Zone 4)","itemListElement": [{"@type": "HowToDirection","text": "WOWOHCOOL standard is 100% four-hour aging at 45 °C. Request today's aging log and cross-check aging jig capacity against claimed daily throughput. Empty jigs mid-day or missing logs indicate on-demand aging, not standard practice."}]},
-    {"@type": "HowToStep","position": 5,"name": "Run 3 live QC tests (Zone 5)","itemListElement": [{"@type": "HowToDirection","text": "Request live: Hi-Pot at 3,000 V AC 1 s dielectric withstand; 65W thermal load for 30 min with FLIR imaging (case ≤ 55 °C); USB-C PD protocol handshake showing PDOs. Ripple below 25 mVpp at 15W. Refusal to run any test is a walk-away signal."}]},
-    {"@type": "HowToStep","position": 6,"name": "Inspect warehouse and photograph evidence (Zone 6)","itemListElement": [{"@type": "HowToDirection","text": "Cartons bar-coded with client PO numbers. Sample retention shelf with two-year batch codes. Take 8 geo-tagged photos: gate sign, SMT brand plate, aging room clock, QC lab equipment, certificate wall, sample shelf, QC manager business card, production manager group photo."}]}
-   ]
-  },
-  {
-   "@type": "FAQPage",
-   "@id": "https://www.wowohcool.com/blog/on-site-factory-audit-checklist-china-charger-oem/#faq",
-   "speakable": {"@type": "SpeakableSpecification","cssSelector": [".faq-answer"]},
-   "mainEntity": [
-    {"@type": "Question","name": "What is the difference between a factory audit, supplier verification, and pre-shipment inspection?","acceptedAnswer": {"@type": "Answer","text": "Supplier verification is desk research: business license check, ISO cert verification, financial background: cost $100-200. Factory audit is on-site: walkthrough, equipment inspection, live tests, red flag hunting: cost $300-800. Pre-shipment inspection (PSI) is per-order: inspecting finished goods before they leave the factory at 80-100% production completion: cost $200-350. A first-time supplier requires all three; repeat suppliers need only PSI on each order."}},
-    {"@type": "Question","name": "Can I do a factory audit remotely, or do I need to fly to China?","acceptedAnswer": {"@type": "Answer","text": "Remote video audits catch documentation issues but rarely catch physical staging (empty aging rooms, borrowed SMT lines, brokered facilities). For first-time suppliers or orders above $50,000, an in-person audit is worth the flight. For subsequent visits to a verified supplier, a video walk-through led by the same QC manager can substitute at 40-50% of on-site cost."}},
-    {"@type": "Question","name": "How long does an on-site factory audit take for a charger or power bank supplier?","acceptedAnswer": {"@type": "Answer","text": "Half a day (3-4 hours) for a focused audit covering the 25 checkpoints in this article. A full-day audit adds financial due diligence, environmental compliance review, and social audit elements: 7-8 hours total. Most buyers underinvest. A 2-hour audit is a photo op, not verification. Budget the full 4 hours to reach Zones 4-6 (aging, QC lab, warehouse) where verification value peaks."}},
-    {"@type": "Question","name": "What are the top 3 red flags of a trading company posing as a factory?","acceptedAnswer": {"@type": "Answer","text": "Three: (1) no visible SMT line: trading companies show an assembly area only; (2) empty aging room mid-day with no active load current; (3) reception with generic office decor and no client photo wall or sample display. Any two together reduce the probability of a real factory to under 30%. Cross-check with Baidu Maps satellite footprint. A 5,000 m² claim on a 400 m² floor is diagnostic."}},
-    {"@type": "Question","name": "What live tests should I request during the QC lab visit?","acceptedAnswer": {"@type": "Answer","text": "Three at minimum: Hi-Pot at 3,000 V AC for 1 s dielectric withstand; thermal loading at 65W output for 30 min with FLIR camera (case temperature ≤ 55 °C on GaN, ≤ 65 °C on silicon); USB-C PD protocol handshake showing PDO negotiation on a laptop screen. Add ripple measurement on an oscilloscope for wireless chargers or high-current outputs: target below 25 mVpp at 15W. Refusal to run any of these is a walk-away signal."}},
-    {"@type": "Question","name": "How much does a professional factory audit cost in Shenzhen (SGS/Bureau Veritas/QIMA)?","acceptedAnswer": {"@type": "Answer","text": "$300-600 per auditor-day in Shenzhen for a single-auditor day. Multi-day comprehensive audits run $1,000-2,500. QIMA is typically the most cost-effective for a first audit at ~$309 flat. SGS $350-550/day. Bureau Veritas $350-550/day. Intertek $400-600/day. All four publish English-language reports within 5-7 business days. Bring your own audit priorities. Third parties run a generic checklist unless you specify what matters."}},
-    {"@type": "Question","name": "What if the factory refuses to run a live test?","acceptedAnswer": {"@type": "Answer","text": "Walk. A factory that cannot demonstrate Hi-Pot, thermal, and PD tests during a scheduled audit cannot certify the same tests on your production batch. The refusal is diagnostic — either the equipment does not work, the personnel do not exist, or the \"factory\" is a broker. There are 300+ registered charger OEM factories in the Pearl River Delta; find one that will run the tests. First-shipment savings of $500-1,000 are not worth a $50,000 return risk."}},
-    {"@type": "Question","name": "What MOQ and payment terms should I expect from a WOWOHCOOL factory audit visit?","acceptedAnswer": {"@type": "Answer","text": "WOWOHCOOL MOQ is 500 units for ODM, 3,000 units for full OEM with logo + color + packaging + certification. Payment: 30% deposit + 70% before shipment via T/T for first order; 30/70 or net-30 after 3 orders; L/C available above $50,000. Factory visits include a 30-minute walkthrough with the QC manager plus a live nail test / thermal / Hi-Pot demonstration at no cost. Request a visit at wowohcool.com/contact/."}}
-   ]
-  }
- ]
-}
-</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.wowohcool.com/#organization",
+      "name": "WOWOHCOOL",
+      "legalName": "Dong Yi Technology Co., Ltd",
+      "foundingDate": "2013",
+      "vatID": "91441900MA558A2N27",
+      "url": "https://www.wowohcool.com/about/",
+      "publishingPrinciples": "https://www.wowohcool.com/about/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.wowohcool.com/image/wowohcool-logo-optimized.webp",
+        "width": 600,
+        "height": 60
+      },
+      "areaServed": [
+        "US",
+        "DE",
+        "AT",
+        "CH",
+        "UK",
+        "FR",
+        "ES",
+        "PL",
+        "EU",
+        "JP",
+        "KR",
+        "AU",
+        "MX",
+        "CO",
+        "AR",
+        "CL",
+        "PE",
+        "RU",
+        "KZ",
+        "BY",
+        "EAEU"
+      ],
+      "knowsAbout": [
+        "OEM/ODM Power Bank Manufacturing",
+        "Qi2 Wireless Charging Standard",
+        "GaN Power Architecture",
+        "Automotive Fast Charging Systems",
+        "Custom Power Adapter Production",
+        "Consumer Electronics Sourcing",
+        "UL & CE Safety Compliance"
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "925, Yichuang International Center, Longhua District",
+        "addressLocality": "Shenzhen",
+        "addressRegion": "Guangdong",
+        "postalCode": "518111",
+        "addressCountry": "CN"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/company/wowohcool",
+        "https://www.facebook.com/wowohcoolelectronic",
+        "https://www.youtube.com/@WOWOHCOOL",
+        "https://x.com/wowohcool"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "OEM/ODM Sales",
+        "telephone": "+86-18620789739",
+        "email": "info@wowohcool.com",
+        "availableLanguage": [
+          "English",
+          "German",
+          "Spanish",
+          "French",
+          "Russian",
+          "Polish"
+        ]
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.wowohcool.com/#website",
+      "url": "https://www.wowohcool.com/",
+      "name": "WOWOHCOOL",
+      "inLanguage": "en-US",
+      "publisher": {
+        "@id": "https://www.wowohcool.com/#organization"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.wowohcool.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://www.wowohcool.com/blog/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "On-Site Factory Audit Checklist",
+          "item": "https://www.wowohcool.com/blog/on-site-factory-audit-checklist-china-charger-oem/"
+        }
+      ]
+    },
+    {
+      "@type": "BlogPosting",
+      "@id": "https://www.wowohcool.com/blog/on-site-factory-audit-checklist-china-charger-oem/#article",
+      "headline": "On-Site Factory Audit Checklist: 25 Points for Charger OEM Buyers",
+      "keywords": [
+        "Factory Audit",
+        "On-Site Inspection",
+        "OEM Sourcing",
+        "China Manufacturing",
+        "Charger Factory Verification",
+        "SMT Line Audit",
+        "Aging Room QC",
+        "AQL Sampling"
+      ],
+      "author": {
+        "@id": "https://www.wowohcool.com/#nina-nico"
+      },
+      "publisher": {
+        "@id": "https://www.wowohcool.com/#organization"
+      },
+      "datePublished": "2026-08-18",
+      "dateModified": "2026-08-18",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://www.wowohcool.com/blog/on-site-factory-audit-checklist-china-charger-oem/"
+      },
+      "wordCount": 3217,
+      "inLanguage": "en-US",
+      "timeRequired": "PT12M",
+      "articleSection": "Sourcing & Supply Chain",
+      "image": "https://www.wowohcool.com/image/blog/cover-en/on-site-factory-audit-checklist-china-charger-oem.webp",
+      "thumbnailUrl": "https://www.wowohcool.com/image/blog/cover-en/on-site-factory-audit-checklist-china-charger-oem.webp",
+      "description": "25-point on-site factory audit checklist for charger and power bank OEM importers in China. SMT line, aging room, QC lab live tests, red flags, cost breakdown.",
+      "citation": [
+        {
+          "@type": "CreativeWork",
+          "name": "ISO 9001:2015 Quality Management Systems",
+          "url": "https://www.iso.org/standard/62085.html"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "ISO 2859-1 — Sampling procedures for inspection by attributes",
+          "url": "https://www.iso.org/standard/1141.html"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "IEC 62368-1 — Audio/Video ICT Equipment Safety",
+          "url": "https://webstore.iec.ch/publication/27412"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "Alibaba OEM Electronics Supplier Verification",
+          "url": "https://seller.alibaba.com/blogs/2026/southeast-asia/electronics/china-oem-supplier-verification-factory-audit-guide-alibaba-b2b"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "Sinospect China Factory Audit Checklist",
+          "url": "https://sinospect.com/resources/china-factory-audit-checklist"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "Unit Circuits SMT Factory Audit Checklist",
+          "url": "https://unitcircuits.com/smt-factory-audit-checklist-china-2025/"
+        }
+      ],
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [
+          "h1",
+          ".speakable"
+        ]
+      },
+      "about": {
+        "@type": "Thing",
+        "name": "Factory audit",
+        "sameAs": "https://www.wikidata.org/wiki/Q181487"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://www.wowohcool.com/#nina-nico",
+      "name": "Nina Nico",
+      "jobTitle": "Global Procurement & Sourcing Manager",
+      "url": "https://www.wowohcool.com/authors/nina-nico/",
+      "worksFor": {
+        "@id": "https://www.wowohcool.com/#organization"
+      },
+      "knowsAbout": [
+        "B2B Hardware Sourcing",
+        "OEM/ODM Power Bank Manufacturing",
+        "Supply Chain Quality Assurance",
+        "International Electronics Trade Compliance",
+        "Custom Power Adapter Production",
+        "Factory Audit Standards"
+      ],
+      "image": "https://www.wowohcool.com/image/factory/team-nina.webp",
+      "sameAs": [
+        "https://www.linkedin.com/in/nico-power-bank-chargers"
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://www.wowohcool.com/blog/on-site-factory-audit-checklist-china-charger-oem/#howto",
+      "name": "Run a Charger Factory On-Site Audit in 6 Zones",
+      "description": "Six-zone on-site audit protocol for charger and power bank OEM buyers visiting Chinese factories.",
+      "totalTime": "PT4H",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Verify pre-visit documentation before boarding",
+          "itemListElement": [
+            {
+              "@type": "HowToDirection",
+              "text": "Cross-check Unified Social Credit Code on gsxt.gov.cn, verify ISO 9001 certificate on the registrar site, view the factory address on Baidu Maps satellite view, obtain QC and production manager names. This desk work disqualifies 20-30% of suppliers before the trip."
+            }
+          ]
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Inspect gate and reception (Zone 1)",
+          "itemListElement": [
+            {
+              "@type": "HowToDirection",
+              "text": "Verify signage matches business license. Ask to see visitor log: busy OEM factories log 3-10 visitors daily. Look for client photo wall, trophy display, and certification frames with visible dates. Empty walls or shared entrances signal a trading company."
+            }
+          ]
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Audit SMT and assembly lines (Zones 2-3)",
+          "itemListElement": [
+            {
+              "@type": "HowToDirection",
+              "text": "Confirm brand-name SMT machines (Panasonic NPM, Yamaha YSM, JUKI RS, or Fuji NXT). Verify reflow oven with temperature-profile printout, SPI machine after paste printing, and AOI after reflow. Workers wear ESD wristbands; parts bins have batch codes."
+            }
+          ]
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Verify aging room (Zone 4)",
+          "itemListElement": [
+            {
+              "@type": "HowToDirection",
+              "text": "WOWOHCOOL standard is 100% four-hour aging at 45 °C. Request today's aging log and cross-check aging jig capacity against claimed daily throughput. Empty jigs mid-day or missing logs indicate on-demand aging, not standard practice."
+            }
+          ]
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Run 3 live QC tests (Zone 5)",
+          "itemListElement": [
+            {
+              "@type": "HowToDirection",
+              "text": "Request live: Hi-Pot at 3,000 V AC 1 s dielectric withstand; 65W thermal load for 30 min with FLIR imaging (case ≤ 55 °C); USB-C PD protocol handshake showing PDOs. Ripple below 25 mVpp at 15W. Refusal to run any test is a walk-away signal."
+            }
+          ]
+        },
+        {
+          "@type": "HowToStep",
+          "position": 6,
+          "name": "Inspect warehouse and photograph evidence (Zone 6)",
+          "itemListElement": [
+            {
+              "@type": "HowToDirection",
+              "text": "Cartons bar-coded with client PO numbers. Sample retention shelf with two-year batch codes. Take 8 geo-tagged photos: gate sign, SMT brand plate, aging room clock, QC lab equipment, certificate wall, sample shelf, QC manager business card, production manager group photo."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.wowohcool.com/blog/on-site-factory-audit-checklist-china-charger-oem/#faq",
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [
+          ".faq-answer"
+        ]
+      },
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is the difference between a factory audit, supplier verification, and pre-shipment inspection?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Supplier verification is desk research: business license check, ISO cert verification, financial background: cost $100-200. Factory audit is on-site: walkthrough, equipment inspection, live tests, red flag hunting: cost $300-800. Pre-shipment inspection (PSI) is per-order: inspecting finished goods before they leave the factory at 80-100% production completion: cost $200-350. A first-time supplier requires all three; repeat suppliers need only PSI on each order."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I do a factory audit remotely, or do I need to fly to China?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Remote video audits catch documentation issues but rarely catch physical staging (empty aging rooms, borrowed SMT lines, brokered facilities). For first-time suppliers or orders above $50,000, an in-person audit is worth the flight. For subsequent visits to a verified supplier, a video walk-through led by the same QC manager can substitute at 40-50% of on-site cost."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How long does an on-site factory audit take for a charger or power bank supplier?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Half a day (3-4 hours) for a focused audit covering the 25 checkpoints in this article. A full-day audit adds financial due diligence, environmental compliance review, and social audit elements: 7-8 hours total. Most buyers underinvest. A 2-hour audit is a photo op, not verification. Budget the full 4 hours to reach Zones 4-6 (aging, QC lab, warehouse) where verification value peaks."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What are the top 3 red flags of a trading company posing as a factory?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Three: (1) no visible SMT line: trading companies show an assembly area only; (2) empty aging room mid-day with no active load current; (3) reception with generic office decor and no client photo wall or sample display. Any two together reduce the probability of a real factory to under 30%. Cross-check with Baidu Maps satellite footprint. A 5,000 m² claim on a 400 m² floor is diagnostic."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What live tests should I request during the QC lab visit?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Three at minimum: Hi-Pot at 3,000 V AC for 1 s dielectric withstand; thermal loading at 65W output for 30 min with FLIR camera (case temperature ≤ 55 °C on GaN, ≤ 65 °C on silicon); USB-C PD protocol handshake showing PDO negotiation on a laptop screen. Add ripple measurement on an oscilloscope for wireless chargers or high-current outputs: target below 25 mVpp at 15W. Refusal to run any of these is a walk-away signal."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How much does a professional factory audit cost in Shenzhen (SGS/Bureau Veritas/QIMA)?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "$300-600 per auditor-day in Shenzhen for a single-auditor day. Multi-day comprehensive audits run $1,000-2,500. QIMA is typically the most cost-effective for a first audit at ~$309 flat. SGS $350-550/day. Bureau Veritas $350-550/day. Intertek $400-600/day. All four publish English-language reports within 5-7 business days. Bring your own audit priorities. Third parties run a generic checklist unless you specify what matters."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What if the factory refuses to run a live test?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Walk. A factory that cannot demonstrate Hi-Pot, thermal, and PD tests during a scheduled audit cannot certify the same tests on your production batch. The refusal is diagnostic — either the equipment does not work, the personnel do not exist, or the \"factory\" is a broker. There are 300+ registered charger OEM factories in the Pearl River Delta; find one that will run the tests. First-shipment savings of $500-1,000 are not worth a $50,000 return risk."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What MOQ and payment terms should I expect from a WOWOHCOOL factory audit visit?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "WOWOHCOOL MOQ is 500 units for ODM, 3,000 units for full OEM with logo + color + packaging + certification. Payment: 30% deposit + 70% before shipment via T/T for first order; 30/70 or net-30 after 3 orders; L/C available above $50,000. Factory visits include a 30-minute walkthrough with the QC manager plus a live nail test / thermal / Hi-Pot demonstration at no cost. Request a visit at wowohcool.com/contact/."
+          }
+        }
+      ]
+    }
+  ]
+}</script>
 {% endblock %}
 
 {% block content %}
@@ -158,7 +410,7 @@ hreflang:
   </div>
   <h1 class="text-3xl lg:text-5xl font-black text-brandBlue uppercase italic tracking-tighter mb-6 leading-tight">On-Site Factory Audit Checklist: 25 Points for Charger OEM Buyers</h1>
   <div class="flex items-center gap-3 mb-6">
-   <img src="/image/factory/team-nina.webp" alt="Nina Nico — Global Procurement Manager WOWOHCOOL factory audit expert" loading="lazy" width="40" height="40" class="w-10 h-10 rounded-full object-cover border border-brandOrange">
+   <img src="/image/factory/team-nina.webp" alt="Nina Nico, Global Procurement & Sourcing Manager at WOWOHCOOL — OEM/ODM sourcing specialist" loading="lazy" width="40" height="40" class="w-10 h-10 rounded-full object-cover border border-brandOrange">
    <div>
     <a href="#author-bio" class="font-bold text-slate-900 text-sm hover:text-brandOrange transition">Nina Nico</a>
     <p class="text-xs text-slate-500">Global Procurement & Sourcing Manager · 10+ years</p>
@@ -473,7 +725,7 @@ hreflang:
  <div class="bg-slate-50 rounded-2xl p-6 md:p-8 mb-12 border border-slate-100">
   <div class="flex flex-col sm:flex-row items-start gap-4 sm:gap-6">
    <div class="w-20 h-20 rounded-full overflow-hidden flex items-center justify-center border-2 border-brandOrange bg-white shadow-lg shrink-0">
-    <img src="/image/factory/team-nina.webp" alt="Nina Nico WOWOHCOOL Global Procurement Manager factory audit expert" loading="lazy" width="400" height="400" class="w-full h-full object-cover">
+    <img src="/image/factory/team-nina.webp" alt="Nina Nico, Global Procurement & Sourcing Manager at WOWOHCOOL — OEM/ODM sourcing specialist" loading="lazy" width="400" height="400" class="w-full h-full object-cover">
    </div>
    <div class="flex-1 min-w-0">
     <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 mb-2 sm:mb-3">

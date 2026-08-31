@@ -14,125 +14,337 @@ navActive: "blog"
 {% extends "layout.njk" %}
 
 {% block head_schema %}
-<script type="application/ld+json">
-{
- "@context": "https://schema.org",
- "@graph": [
- {
- "@type": "Organization",
- "@id": "https://www.wowohcool.com/#organization",
- "name": "WOWOHCOOL",
- "legalName": "Dong Yi Technology Co., Ltd",
- "url": "https://www.wowohcool.com/ru/o-kompanii/",
- "publishingPrinciples": "https://www.wowohcool.com/ru/o-kompanii/",
- "logo": { "@type": "ImageObject", "url": "https://www.wowohcool.com/image/wowohcool-logo-optimized.webp" },
- "areaServed": ["US", "DE", "AT", "CH", "UK", "FR", "ES", "PL", "EU", "JP", "KR", "AU", "MX", "CO", "AR", "CL", "PE", "RU", "KZ", "BY", "EAEU"],
- "address": {
- "@type": "PostalAddress",
- "streetAddress": "925, Yichuang International Center, Longhua District",
- "addressLocality": "Shenzhen",
- "addressRegion": "Guangdong",
- "postalCode": "518111",
- "addressCountry": "CN"
- },
- "sameAs": [
- "https://www.linkedin.com/company/wowohcool",
- "https://www.facebook.com/wowohcoolelectronic",
- "https://www.youtube.com/@WOWOHCOOL",
- "https://x.com/wowohcool"
- ],
- "contactPoint": {
- "@type": "ContactPoint",
- "contactType": "OEM/ODM Sales",
- "telephone": "+86-18620789739",
- "email": "info@wowohcool.com",
- "availableLanguage": ["Russian", "English", "German", "Chinese"]
- }
- },
- {
- "@type": "WebSite",
- "@id": "https://www.wowohcool.com/#website",
- "url": "https://www.wowohcool.com/ru/",
- "name": "WOWOHCOOL",
- "inLanguage": "ru-RU",
- "publisher": { "@id": "https://www.wowohcool.com/#organization" }
- },
- {
- "@type": "BreadcrumbList",
- "itemListElement": [
- { "@type": "ListItem", "position": 1, "name": "Главная", "item": "https://www.wowohcool.com/ru/" },
- { "@type": "ListItem", "position": 2, "name": "Блог", "item": "https://www.wowohcool.com/ru/blog/" },
- { "@type": "ListItem", "position": 3, "name": "Сертификация ЕАС Повербанков", "item": "https://www.wowohcool.com/ru/blog/sertifikaciya-eas-poverbankov-tr-ts-oem/" }
- ]
- },
- {
- "@type": "BlogPosting",
- "@id": "https://www.wowohcool.com/ru/blog/sertifikaciya-eas-poverbankov-tr-ts-oem/#article",
- "headline": "Сертификация ЕАС Повербанков 2026: Ошибки, Которые Стоят Импортёру Груза на Таможне",
- "keywords": ["Сертификация ЕАС повербанк", "ТР ТС 004/2011", "декларация соответствия ЕАЭС", "повербанк EAC импортёр", "маркировка повербанк Честный знак", "UN38.3 повербанк", "повербанк таможня Россия", "OEM повербанк сертификация"],
- "description": "Сертификация ЕАС повербанков 2026: ТР ТС 004/2011, DoC vs CoC, стоимость ($800-5 000), риски задержания груза. Данные завода ISO 9001, 200+ брендов.",
- "author": { "@id": "https://www.wowohcool.com/#nina-nico" },
- "publisher": { "@id": "https://www.wowohcool.com/#organization" },
- "datePublished": "2026-08-20",
- "dateModified": "2026-08-20",
- "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.wowohcool.com/ru/blog/sertifikaciya-eas-poverbankov-tr-ts-oem/" },
- "wordCount": 2376,
- "inLanguage": "ru-RU",
- "timeRequired": "PT16M",
- "articleSection": "Сертификация и Соответствие",
- "image": "https://www.wowohcool.com/image/blog/cover-ru/sertifikaciya-eas-poverbankov-tr-ts-oem.webp",
- "thumbnailUrl": "https://www.wowohcool.com/image/blog/cover-ru/sertifikaciya-eas-poverbankov-tr-ts-oem.webp",
- "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".speakable"] },
- "about": { "@type": "Thing", "name": "Certification mark", "sameAs": "https://www.wikidata.org/entity/Q1520343" },
- "citation": [
- { "@type": "CreativeWork", "name": "ТР ТС 004/2011, О безопасности низковольтного оборудования", "url": "https://docs.cntd.ru/" },
- { "@type": "CreativeWork", "name": "ТР ТС 020/2011, Электромагнитная совместимость технических средств", "url": "https://docs.cntd.ru/" },
- { "@type": "CreativeWork", "name": "ТР ЕАЭС 037/2016, Об ограничении применения опасных веществ", "url": "https://docs.cntd.ru/" },
- { "@type": "CreativeWork", "name": "Росаккредитация, Реестр аккредитованных органов и лабораторий", "url": "https://fsa.gov.ru/" }
- ]
- },
- {
- "@type": "Person",
- "@id": "https://www.wowohcool.com/#nina-nico",
- "name": "Nina Nico",
- "jobTitle": "Global Procurement & Sourcing Manager",
- "url": "https://www.wowohcool.com/authors/nina-nico/",
- "sameAs": ["https://www.linkedin.com/in/nico-power-bank-chargers"],
- "image": "https://www.wowohcool.com/image/factory/team-nina.webp",
- "worksFor": { "@id": "https://www.wowohcool.com/#organization" },
- "knowsAbout": ["Глобальные закупки и сорсинг 3C", "Кросс-бордерные OEM-переговоры", "Сертификация EAC и ТР ТС", "Регламенты ЕАЭС и батарей", "Производство зарядных устройств и повербанков"]
- },
- {
- "@type": "HowTo",
- "@id": "https://www.wowohcool.com/ru/blog/sertifikaciya-eas-poverbankov-tr-ts-oem/#howto",
- "name": "Пройти сертификацию EAC повербанка для импорта в ЕАЭС",
- "description": "Пошаговое руководство по сертификации повербанка для рынка ЕАЭС в 2026 году.",
- "totalTime": "PT4W",
- "step": [
- { "@type": "HowToStep", "position": 1, "name": "Определите схему подтверждения (DoC или CoC)", "itemListElement": [{ "@type": "HowToDirection", "text": "По ёмкости, мощности и функциям определите, нужна декларация (DoC) для низкорисковых моделей ≤20 000 мАч без беспроводных модулей, или сертификат (CoC) для моделей >20 000 мАч, быстрой зарядки ≥45 Вт и беспроводных функций. Ошибка в схеме — самая частая причина задержки груза." }] },
- { "@type": "HowToStep", "position": 2, "name": "Подготовьте техническую документацию на русском", "itemListElement": [{ "@type": "HowToDirection", "text": "Соберите BOM, электрические схемы, руководство пользователя на русском языке, параметры аккумулятора и отчёты UN 38.3 + IEC 62133 на ячейку. Назначьте уполномоченного представителя в ЕАЭС с нотариально заверенным договором." }] },
- { "@type": "HowToStep", "position": 3, "name": "Проведите испытания в лаборатории RA/RU", "itemListElement": [{ "@type": "HowToDirection", "text": "Отправьте 2-5 образцов в аккредитованную Росаккредитацией лабораторию. Тесты: электробезопасность (ТР ТС 004/2011), ЭМС (ТР ТС 020/2011), RoHS (ТР ЕАЭС 037/2016), а для батареи — перезаряд, короткое замыкание, термоудар. Отчёты CE/CB/CNAS используются только как справочные." }] },
- { "@type": "HowToStep", "position": 4, "name": "Зарегистрируйте сертификат в реестре и нанесите маркировку", "itemListElement": [{ "@type": "HowToDirection", "text": "Сертификат регистрируется в едином реестре ЕАЭС. Нанесите знак EAC ≥5 мм литьём или лазером на корпус, оформите русскую этикетку. После этого повербанк готов к таможенному оформлению по коду ТН ВЭД 850760." }] }
- ]
- },
- {
- "@type": "FAQPage",
- "@id": "https://www.wowohcool.com/ru/blog/sertifikaciya-eas-poverbankov-tr-ts-oem/#faq",
- "speakable": { "@type": "SpeakableSpecification", "cssSelector": [".faq-answer"] },
- "mainEntity": [
- { "@type": "Question", "name": "Какой сертификат нужен для повербанка в России в 2026 году?", "acceptedAnswer": { "@type": "Answer", "text": "Повербанк в ЕАЭС подлежит обязательной сертификации EAC по трём техническим регламентам: ТР ТС 004/2011 (безопасность низковольтного оборудования), ТР ТС 020/2011 (электромагнитная совместимость) и ТР ЕАЭС 037/2016 (RoHS). Дополнительно на литиевую ячейку требуется отчёт UN 38.3 (транспортировка) и IEC 62133 (безопасность ячейки). С ноября 2025 года Росаккредитация вправе приостанавливать действие сертификатов, выданных в других странах ЕАЭС, поэтому для России безопаснее оформлять сертификацию через российские органы (RA.RU)." } },
- { "@type": "Question", "name": "Повербанк — это сертификат или декларация?", "acceptedAnswer": { "@type": "Answer", "text": "Зависит от параметров. EAC DoC (декларация, $800-1 500) возможна для низкорисковых моделей ёмкостью до 20 000 мАч без беспроводных модулей. EAC CoC (сертификат, $2 000-5 000) требуется для моделей больше 20 000 мАч, с быстрой зарядкой ≥45 Вт или беспроводными функциями — с заводским аудитом. В 2026 году порог ужесточился, и источники расходятся: уточняйте схему по конкретному коду ТН ВЭД и модели у аккредитованного органа, не полагайтесь на совет поставщика." } },
- { "@type": "Question", "name": "Можно ли использовать сертификат ЕАЭС из Казахстана или Беларуси?", "acceptedAnswer": { "@type": "Answer", "text": "Нет. С ноября 2025 года Росаккредитация получила право приостанавливать действие сертификатов, выданных в Казахстане, Беларуси, Киргизии и Армении, если продукция не соответствует регламентам или отсутствуют протоколы испытаний. Таможня может задержать груз до выяснения, возможен штраф за нарушение таможенных правил. Перед заказом проверяйте номер органа в реестре fsa.gov.ru." } },
- { "@type": "Question", "name": "Кто может быть держателем сертификата EAC?", "acceptedAnswer": { "@type": "Answer", "text": "Только российское юридическое лицо (ООО или ИП), зарегистрированное в ЕАЭС. Китайский завод-производитель не может быть прямым заявителем. Для иностранного производителя обязателен уполномоченный представитель в ЕАЭС по нотариально заверенному договору. WOWOHCOOL помогает оформить сертификат через аккредитованных представителей — эта услуга включена в OEM-заказ." } },
- { "@type": "Question", "name": "Сколько стоит сертификация повербанка в 2026 году?", "acceptedAnswer": { "@type": "Answer", "text": "EAC DoC (декларация): $800-1 500, срок 1-4 недели. EAC CoC на партию: $2 000-5 000, срок 3-6 недель. EAC CoC на серийное производство с заводским аудитом: 6-12 недель. Дополнительно: услуги уполномоченного представителя ($500-1 000/год), перевод документации на русский, UN 38.3 ($1 000-2 500, входит в стандартный пакет). Пакет сертификации включён в наши OEM-заказы." } },
- { "@type": "Question", "name": "Сколько времени занимает сертификация повербанка?", "acceptedAnswer": { "@type": "Answer", "text": "EAC DoC: 1-4 недели. EAC CoC на партию: 3-6 недель. EAC CoC на серийное производство (с заводским аудитом): 6-12 недель. Ускоренный режим DoC — 7-15 дней с доплатой. Планируйте сертификацию параллельно с производством: OEM-производство повербанка занимает 25-30 дней, поэтому сертификацию стоит запускать до отгрузки, а не после." } },
- { "@type": "Question", "name": "Какие документы нужны для сертификации повербанка?", "acceptedAnswer": { "@type": "Answer", "text": "Пакет: (1) уставные документы заявителя (юрлицо ЕАЭС), (2) технический паспорт на русском, (3) руководство по эксплуатации на русском, (4) электрические схемы и BOM, (5) отчёт UN 38.3 и IEC 62133 на ячейку, (6) этикетка с знаком EAC, (7) нотариально заверенный договор с производителем, (8) данные уполномоченного представителя. WOWOHCOOL предоставляет полный пакет технической документации с каждым OEM-заказом." } },
- { "@type": "Question", "name": "Что делать, если поставщик предлагает сертификат без испытаний?", "acceptedAnswer": { "@type": "Answer", "text": "Отказаться. С ноября 2025 года сертификаты и декларации, выданные без реальных испытаний в аккредитованной лаборатории, подлежат приостановлению Росаккредитацией — документ без подтверждённых протоколов испытаний таможня может не принять. Запросите у поставщика номер сертификата и проверьте его онлайн в реестре Росаккредитации до оплаты. WOWOHCOOL предоставляет сертификаты с полными протоколами испытаний для каждого OEM-заказа." } }
- ]
- }
- ]
-}
-</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.wowohcool.com/#organization",
+      "name": "WOWOHCOOL",
+      "legalName": "Dong Yi Technology Co., Ltd",
+      "foundingDate": "2013",
+      "vatID": "91441900MA558A2N27",
+      "url": "https://www.wowohcool.com/ru/o-kompanii/",
+      "publishingPrinciples": "https://www.wowohcool.com/ru/o-kompanii/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.wowohcool.com/image/wowohcool-logo-optimized.webp"
+      },
+      "areaServed": [
+        "US",
+        "DE",
+        "AT",
+        "CH",
+        "UK",
+        "FR",
+        "ES",
+        "PL",
+        "EU",
+        "JP",
+        "KR",
+        "AU",
+        "MX",
+        "CO",
+        "AR",
+        "CL",
+        "PE",
+        "RU",
+        "KZ",
+        "BY",
+        "EAEU"
+      ],
+      "knowsAbout": [
+        "OEM/ODM Power Bank Manufacturing",
+        "Qi2 Wireless Charging Standard",
+        "GaN Power Architecture",
+        "Automotive Fast Charging Systems",
+        "Custom Power Adapter Production",
+        "Consumer Electronics Sourcing",
+        "UL & CE Safety Compliance"
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "925, Yichuang International Center, Longhua District",
+        "addressLocality": "Shenzhen",
+        "addressRegion": "Guangdong",
+        "postalCode": "518111",
+        "addressCountry": "CN"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/company/wowohcool",
+        "https://www.facebook.com/wowohcoolelectronic",
+        "https://www.youtube.com/@WOWOHCOOL",
+        "https://x.com/wowohcool"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "OEM/ODM Sales",
+        "telephone": "+86-18620789739",
+        "email": "info@wowohcool.com",
+        "availableLanguage": [
+          "English",
+          "German",
+          "Spanish",
+          "French",
+          "Russian",
+          "Polish"
+        ]
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.wowohcool.com/#website",
+      "url": "https://www.wowohcool.com/ru/",
+      "name": "WOWOHCOOL",
+      "inLanguage": "ru-RU",
+      "publisher": {
+        "@id": "https://www.wowohcool.com/#organization"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Главная",
+          "item": "https://www.wowohcool.com/ru/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Блог",
+          "item": "https://www.wowohcool.com/ru/blog/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Сертификация ЕАС Повербанков",
+          "item": "https://www.wowohcool.com/ru/blog/sertifikaciya-eas-poverbankov-tr-ts-oem/"
+        }
+      ]
+    },
+    {
+      "@type": "BlogPosting",
+      "@id": "https://www.wowohcool.com/ru/blog/sertifikaciya-eas-poverbankov-tr-ts-oem/#article",
+      "headline": "Сертификация ЕАС Повербанков 2026: Ошибки, Которые Стоят Импортёру Груза на Таможне",
+      "keywords": [
+        "Сертификация ЕАС повербанк",
+        "ТР ТС 004/2011",
+        "декларация соответствия ЕАЭС",
+        "повербанк EAC импортёр",
+        "маркировка повербанк Честный знак",
+        "UN38.3 повербанк",
+        "повербанк таможня Россия",
+        "OEM повербанк сертификация"
+      ],
+      "description": "Сертификация ЕАС повербанков 2026: ТР ТС 004/2011, DoC vs CoC, стоимость ($800-5 000), риски задержания груза. Данные завода ISO 9001, 200+ брендов.",
+      "author": {
+        "@id": "https://www.wowohcool.com/#nina-nico"
+      },
+      "publisher": {
+        "@id": "https://www.wowohcool.com/#organization"
+      },
+      "datePublished": "2026-08-20",
+      "dateModified": "2026-08-20",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://www.wowohcool.com/ru/blog/sertifikaciya-eas-poverbankov-tr-ts-oem/"
+      },
+      "wordCount": 2376,
+      "inLanguage": "ru-RU",
+      "timeRequired": "PT16M",
+      "articleSection": "Сертификация и Соответствие",
+      "image": "https://www.wowohcool.com/image/blog/cover-ru/sertifikaciya-eas-poverbankov-tr-ts-oem.webp",
+      "thumbnailUrl": "https://www.wowohcool.com/image/blog/cover-ru/sertifikaciya-eas-poverbankov-tr-ts-oem.webp",
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [
+          "h1",
+          ".speakable"
+        ]
+      },
+      "about": {
+        "@type": "Thing",
+        "name": "Certification mark",
+        "sameAs": "https://www.wikidata.org/entity/Q908620"
+      },
+      "citation": [
+        {
+          "@type": "CreativeWork",
+          "name": "ТР ТС 004/2011, О безопасности низковольтного оборудования",
+          "url": "https://docs.cntd.ru/"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "ТР ТС 020/2011, Электромагнитная совместимость технических средств",
+          "url": "https://docs.cntd.ru/"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "ТР ЕАЭС 037/2016, Об ограничении применения опасных веществ",
+          "url": "https://docs.cntd.ru/"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "Росаккредитация, Реестр аккредитованных органов и лабораторий",
+          "url": "https://fsa.gov.ru/"
+        }
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://www.wowohcool.com/#nina-nico",
+      "name": "Nina Nico",
+      "jobTitle": "Global Procurement & Sourcing Manager",
+      "url": "https://www.wowohcool.com/authors/nina-nico/",
+      "sameAs": [
+        "https://www.linkedin.com/in/nico-power-bank-chargers"
+      ],
+      "image": "https://www.wowohcool.com/image/factory/team-nina.webp",
+      "worksFor": {
+        "@id": "https://www.wowohcool.com/#organization"
+      },
+      "knowsAbout": [
+        "B2B Hardware Sourcing",
+        "OEM/ODM Power Bank Manufacturing",
+        "Supply Chain Quality Assurance",
+        "International Electronics Trade Compliance",
+        "Custom Power Adapter Production",
+        "Factory Audit Standards"
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://www.wowohcool.com/ru/blog/sertifikaciya-eas-poverbankov-tr-ts-oem/#howto",
+      "name": "Пройти сертификацию EAC повербанка для импорта в ЕАЭС",
+      "description": "Пошаговое руководство по сертификации повербанка для рынка ЕАЭС в 2026 году.",
+      "totalTime": "PT4W",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Определите схему подтверждения (DoC или CoC)",
+          "itemListElement": [
+            {
+              "@type": "HowToDirection",
+              "text": "По ёмкости, мощности и функциям определите, нужна декларация (DoC) для низкорисковых моделей ≤20 000 мАч без беспроводных модулей, или сертификат (CoC) для моделей >20 000 мАч, быстрой зарядки ≥45 Вт и беспроводных функций. Ошибка в схеме — самая частая причина задержки груза."
+            }
+          ]
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Подготовьте техническую документацию на русском",
+          "itemListElement": [
+            {
+              "@type": "HowToDirection",
+              "text": "Соберите BOM, электрические схемы, руководство пользователя на русском языке, параметры аккумулятора и отчёты UN 38.3 + IEC 62133 на ячейку. Назначьте уполномоченного представителя в ЕАЭС с нотариально заверенным договором."
+            }
+          ]
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Проведите испытания в лаборатории RA/RU",
+          "itemListElement": [
+            {
+              "@type": "HowToDirection",
+              "text": "Отправьте 2-5 образцов в аккредитованную Росаккредитацией лабораторию. Тесты: электробезопасность (ТР ТС 004/2011), ЭМС (ТР ТС 020/2011), RoHS (ТР ЕАЭС 037/2016), а для батареи — перезаряд, короткое замыкание, термоудар. Отчёты CE/CB/CNAS используются только как справочные."
+            }
+          ]
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Зарегистрируйте сертификат в реестре и нанесите маркировку",
+          "itemListElement": [
+            {
+              "@type": "HowToDirection",
+              "text": "Сертификат регистрируется в едином реестре ЕАЭС. Нанесите знак EAC ≥5 мм литьём или лазером на корпус, оформите русскую этикетку. После этого повербанк готов к таможенному оформлению по коду ТН ВЭД 850760."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.wowohcool.com/ru/blog/sertifikaciya-eas-poverbankov-tr-ts-oem/#faq",
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [
+          ".faq-answer"
+        ]
+      },
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Какой сертификат нужен для повербанка в России в 2026 году?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Повербанк в ЕАЭС подлежит обязательной сертификации EAC по трём техническим регламентам: ТР ТС 004/2011 (безопасность низковольтного оборудования), ТР ТС 020/2011 (электромагнитная совместимость) и ТР ЕАЭС 037/2016 (RoHS). Дополнительно на литиевую ячейку требуется отчёт UN 38.3 (транспортировка) и IEC 62133 (безопасность ячейки). С ноября 2025 года Росаккредитация вправе приостанавливать действие сертификатов, выданных в других странах ЕАЭС, поэтому для России безопаснее оформлять сертификацию через российские органы (RA.RU)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Повербанк — это сертификат или декларация?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Зависит от параметров. EAC DoC (декларация, $800-1 500) возможна для низкорисковых моделей ёмкостью до 20 000 мАч без беспроводных модулей. EAC CoC (сертификат, $2 000-5 000) требуется для моделей больше 20 000 мАч, с быстрой зарядкой ≥45 Вт или беспроводными функциями — с заводским аудитом. В 2026 году порог ужесточился, и источники расходятся: уточняйте схему по конкретному коду ТН ВЭД и модели у аккредитованного органа, не полагайтесь на совет поставщика."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Можно ли использовать сертификат ЕАЭС из Казахстана или Беларуси?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Нет. С ноября 2025 года Росаккредитация получила право приостанавливать действие сертификатов, выданных в Казахстане, Беларуси, Киргизии и Армении, если продукция не соответствует регламентам или отсутствуют протоколы испытаний. Таможня может задержать груз до выяснения, возможен штраф за нарушение таможенных правил. Перед заказом проверяйте номер органа в реестре fsa.gov.ru."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Кто может быть держателем сертификата EAC?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Только российское юридическое лицо (ООО или ИП), зарегистрированное в ЕАЭС. Китайский завод-производитель не может быть прямым заявителем. Для иностранного производителя обязателен уполномоченный представитель в ЕАЭС по нотариально заверенному договору. WOWOHCOOL помогает оформить сертификат через аккредитованных представителей — эта услуга включена в OEM-заказ."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Сколько стоит сертификация повербанка в 2026 году?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "EAC DoC (декларация): $800-1 500, срок 1-4 недели. EAC CoC на партию: $2 000-5 000, срок 3-6 недель. EAC CoC на серийное производство с заводским аудитом: 6-12 недель. Дополнительно: услуги уполномоченного представителя ($500-1 000/год), перевод документации на русский, UN 38.3 ($1 000-2 500, входит в стандартный пакет). Пакет сертификации включён в наши OEM-заказы."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Сколько времени занимает сертификация повербанка?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "EAC DoC: 1-4 недели. EAC CoC на партию: 3-6 недель. EAC CoC на серийное производство (с заводским аудитом): 6-12 недель. Ускоренный режим DoC — 7-15 дней с доплатой. Планируйте сертификацию параллельно с производством: OEM-производство повербанка занимает 25-30 дней, поэтому сертификацию стоит запускать до отгрузки, а не после."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Какие документы нужны для сертификации повербанка?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Пакет: (1) уставные документы заявителя (юрлицо ЕАЭС), (2) технический паспорт на русском, (3) руководство по эксплуатации на русском, (4) электрические схемы и BOM, (5) отчёт UN 38.3 и IEC 62133 на ячейку, (6) этикетка с знаком EAC, (7) нотариально заверенный договор с производителем, (8) данные уполномоченного представителя. WOWOHCOOL предоставляет полный пакет технической документации с каждым OEM-заказом."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Что делать, если поставщик предлагает сертификат без испытаний?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Отказаться. С ноября 2025 года сертификаты и декларации, выданные без реальных испытаний в аккредитованной лаборатории, подлежат приостановлению Росаккредитацией — документ без подтверждённых протоколов испытаний таможня может не принять. Запросите у поставщика номер сертификата и проверьте его онлайн в реестре Росаккредитации до оплаты. WOWOHCOOL предоставляет сертификаты с полными протоколами испытаний для каждого OEM-заказа."
+          }
+        }
+      ]
+    }
+  ]
+}</script>
 {% endblock %}
 
 {% block content %}
@@ -158,10 +370,10 @@ navActive: "blog"
  <h1 class="text-3xl lg:text-5xl font-black text-brandBlue uppercase italic tracking-tighter mb-6 leading-tight">Сертификация ЕАС Повербанков 2026: Ошибки, Которые Стоят Импортёру Груза на Таможне</h1>
 
  <div class="flex items-center gap-3 mb-6">
- <img src="/image/factory/team-nina.webp" alt="Nina Nico, менеджер по глобальным закупкам, сертификация EAC и сорсинг повербанков OEM, WOWOHCOOL" loading="lazy" width="40" height="40" class="w-10 h-10 rounded-full object-cover border border-brandOrange">
+ <img src="/image/factory/team-nina.webp" alt="Nina Nico, Global Procurement & Sourcing Manager в WOWOHCOOL — специалист по OEM/ODM-сорсингу" loading="lazy" width="40" height="40" class="w-10 h-10 rounded-full object-cover border border-brandOrange">
  <div>
  <a href="#author-bio" class="font-bold text-slate-900 text-sm hover:text-brandOrange transition">Nina Nico</a>
- <p class="text-xs text-slate-500">Менеджер по закупкам · 10+ лет в 3C-сорсинге</p>
+ <p class="text-xs text-slate-500">Global Procurement & Sourcing Manager · 10+ лет в 3C-сорсинге</p>
  </div>
  </div>
 
@@ -309,7 +521,7 @@ navActive: "blog"
  <div class="bg-brandBlue/5 border-l-4 border-brandOrange rounded-r-xl p-6 mt-6">
  <p class="text-[11px] font-black text-brandOrange uppercase tracking-widest mb-2">МНЕНИЕ ЭКСПЕРТА</p>
  <blockquote class="text-slate-700 text-base italic leading-relaxed">«Главная ловушка 2026 года — не сам сертификат, а схема его подтверждения. Импортёры массово подают декларацию на повербанки большой ёмкости, где по новым правилам нужен сертификат с заводским аудитом. Груз стоит на таможне, а сезон продаж горит. Определяйте схему по ёмкости, мощности и функциям до заказа — а не по совету поставщика.»</blockquote>
- <p class="text-sm text-slate-500 mt-2">, Nina Nico, Global Procurement &amp; Sourcing Manager, WOWOHCOOL</p>
+ <p class="text-sm text-slate-500 mt-2">, Nina Nico, Global Procurement & Sourcing Manager, WOWOHCOOL</p>
  </div>
  </div>
  </div>
@@ -444,14 +656,14 @@ navActive: "blog"
  <div class="bg-slate-50 rounded-2xl p-6 md:p-8 mb-12 border border-slate-100">
  <div class="flex flex-col sm:flex-row items-start gap-4 sm:gap-6">
  <div class="w-20 h-20 rounded-full overflow-hidden flex items-center justify-center border-2 border-brandOrange bg-white shadow-lg shrink-0">
- <img src="/image/factory/team-nina.webp" alt="Nina Nico, менеджер по глобальным закупкам, сертификация EAC и сорсинг повербанков OEM, WOWOHCOOL" loading="lazy" width="400" height="400" class="w-full h-full object-cover">
+ <img src="/image/factory/team-nina.webp" alt="Nina Nico, Global Procurement & Sourcing Manager в WOWOHCOOL — специалист по OEM/ODM-сорсингу" loading="lazy" width="400" height="400" class="w-full h-full object-cover">
  </div>
  <div class="flex-1 min-w-0">
  <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 mb-2 sm:mb-3">
  <a href="https://www.linkedin.com/in/nico-power-bank-chargers" target="_blank" rel="noopener noreferrer" class="font-black text-slate-900 text-lg hover:text-brandOrange transition">Nina Nico</a>
  <span class="px-2 py-1 bg-brandOrange/10 text-brandOrange text-[11px] font-black rounded-full uppercase w-fit">Автор</span>
  </div>
- <p class="text-sm text-slate-500 mb-3">Менеджер по глобальным закупкам · 3C-сорсинг и OEM/ODM · 10+ лет в отрасли</p>
+ <p class="text-sm text-slate-500 mb-3">Global Procurement & Sourcing Manager · 3C-сорсинг и OEM/ODM · 10+ лет в отрасли</p>
  <p class="text-slate-600 text-sm leading-relaxed">10+ лет в глобальных закупках 3C-аксессуаров и кросс-бордерных OEM-переговорах. Специалист по сертификации EAC/ТР ТС и регламентам ЕАЭС, провела сертификацию десятков моделей повербанков и зарядных устройств для рынков России и СНГ. Базируется на заводе <a href="/ru/o-kompanii/" class="text-brandBlue hover:text-brandOrange">WOWOHCOOL</a> в Шэньчжэне.</p>
  <div class="mt-4 pt-4 border-t border-slate-200">
  <p class="text-xs text-slate-400 uppercase tracking-wider mb-2">Производственная База</p>

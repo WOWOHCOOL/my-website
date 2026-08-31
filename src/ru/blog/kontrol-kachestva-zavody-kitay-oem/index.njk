@@ -4,7 +4,7 @@ lang: "ru"
 description: "Руководство импортёра OEM 2026: QC 4 этапа (IQC-IPQC-FQC-OQC), AQL 2.5, тест старения, оборудование. Брак <0,3 %, aging 100 % 4ч. ISO 9001 Шэньчжэнь."
 date: 2026-08-10
 modified: 2026-08-10
-author: "Snowy May"
+author: "Nina Nico"
 articleSection: Контроль Качества
 articleTags: [Контроль Качества, QC, Китай, Завод, OEM, AQL, IQC, IPQC, FQC, OQC, Импортёр, ISO 9001]
 canonical: "/ru/blog/kontrol-kachestva-zavody-kitay-oem/"
@@ -26,103 +26,341 @@ hreflang:
 {% extends "layout.njk" %}
 
 {% block head_schema %}
-<script type="application/ld+json">
-{
- "@context": "https://schema.org",
- "@graph": [
-  {
-   "@type": "Organization",
-   "@id": "https://www.wowohcool.com/#organization",
-   "name": "WOWOHCOOL",
-   "legalName": "Dong Yi Technology Co., Ltd",
-   "url": "https://www.wowohcool.com/ru/o-kompanii/",
-   "publishingPrinciples": "https://www.wowohcool.com/ru/o-kompanii/",
-   "logo": {"@type": "ImageObject","url": "https://www.wowohcool.com/image/wowohcool-logo-optimized.webp","width": 600,"height": 60},
-   "areaServed": ["US","DE","AT","CH","UK","FR","ES","EU","JP","KR","AU","MX","CO","AR","CL","PE"],
-   "address": {"@type": "PostalAddress","streetAddress": "925, Yichuang International Center, Longhua District","addressLocality": "Shenzhen","addressRegion": "Guangdong","postalCode": "518111","addressCountry": "CN"},
-   "sameAs": ["https://www.linkedin.com/company/wowohcool","https://www.facebook.com/wowohcoolelectronic","https://www.youtube.com/@WOWOHCOOL","https://x.com/wowohcool"],
-   "contactPoint": {"@type": "ContactPoint","contactType": "OEM/ODM Sales","telephone": "+86-18620789739","email": "info@wowohcool.com","availableLanguage": ["English","German","Spanish","French","Russian"]}
-  },
-  {
-   "@type": "WebSite",
-   "@id": "https://www.wowohcool.com/#website",
-   "url": "https://www.wowohcool.com/ru/",
-   "name": "WOWOHCOOL — OEM Производитель Зарядных Устройств",
-   "inLanguage": "ru-RU",
-   "publisher": {"@id": "https://www.wowohcool.com/#organization"}
-  },
-  {
-   "@type": "BreadcrumbList",
-   "@id": "https://www.wowohcool.com/#breadcrumb",
-   "itemListElement": [
-    {"@type": "ListItem","position": 1,"name": "Главная","item": "https://www.wowohcool.com/ru/"},
-    {"@type": "ListItem","position": 2,"name": "Блог","item": "https://www.wowohcool.com/ru/blog/"},
-    {"@type": "ListItem","position": 3,"name": "Контроль Качества Завод Китай OEM: IQC-IPQC-FQC-OQC 2026","item": "https://www.wowohcool.com/ru/blog/kontrol-kachestva-zavody-kitay-oem/"}
-   ]
-  },
-  {
-   "@type": "BlogPosting",
-   "@id": "https://www.wowohcool.com/ru/blog/kontrol-kachestva-zavody-kitay-oem/#article",
-   "headline": "Контроль Качества Завод Китай OEM: IQC-IPQC-FQC-OQC 2026",
-   "description": "Руководство импортёра OEM 2026: QC 4 этапа (IQC-IPQC-FQC-OQC), AQL 2.5, тест старения, оборудование. Брак <0,3 %, aging 100 % 4ч. ISO 9001 Шэньчжэнь.",
-   "keywords": "Контроль Качества, QC, Китай, Завод, OEM, AQL, IQC, IPQC, FQC, OQC, Импортёр, ISO 9001",
-   "datePublished": "2026-08-10",
-   "dateModified": "2026-08-10",
-   "wordCount": 1700,
-   "mainEntityOfPage": {"@type": "WebPage", "@id": "https://www.wowohcool.com/ru/blog/kontrol-kachestva-zavody-kitay-oem/"},
-   "author": {"@id": "https://www.wowohcool.com/#snowy-may"},
-   "publisher": {"@id": "https://www.wowohcool.com/#organization"},
-   "inLanguage": "ru-RU",
-   "isAccessibleForFree": true,
-   "speakable": {"@type": "SpeakableSpecification","cssSelector": ["h1", ".speakable"]},
-   "about": {"@type": "Thing","name": "Контроль качества зарядных устройств и power bank на заводах OEM в Китае","sameAs": "https://www.wikidata.org/wiki/Q845739"},
-   "citation": [
-    {"@type": "CreativeWork","name": "ISO 2859-1 — Процедуры выборочного контроля по альтернативному признаку","url": "https://www.iso.org/ru/standard/72355.html"},
-    {"@type": "CreativeWork","name": "IPC-A-610 — Критерии приёмки электронных сборок","url": "https://www.ipc.org/ipc-a-610"},
-    {"@type": "CreativeWork","name": "IEC 62368-1 — Безопасность аудио/видео и ИТ-оборудования","url": "https://www.iec.ch/ru"}
-   ]
-  },
-  {
-   "@type": "Person",
-   "@id": "https://www.wowohcool.com/#snowy-may",
-   "name": "Snowy May",
-   "jobTitle": "Основатель и Генеральный Директор",
-   "url": "https://www.wowohcool.com/authors/snowy-may/",
-   "sameAs": ["https://www.linkedin.com/in/snowy-may-wowohcool"],
-   "image": {"@type": "ImageObject","url": "https://www.wowohcool.com/image/factory/team-snowy.webp","width": 400,"height": 400},
-   "worksFor": {"@id": "https://www.wowohcool.com/#organization"},
-   "knowsAbout": ["OEM/ODM Manufacturing of Charging Accessories","China Factory Quality Control and Audit","GaN Charger and Power Bank Production","EAC Certification and EAEU Technical Regulations","B2B Sourcing and Supply Chain from Shenzhen"]
-  },
-  {
-   "@type": "HowTo",
-   "@id": "https://www.wowohcool.com/ru/blog/kontrol-kachestva-zavody-kitay-oem/#howto",
-   "name": "Как провести аудит контроля качества завода зарядных устройств в Китае",
-   "step": [
-    {"@type": "HowToStep","position": 1,"name": "Проверьте процесс IQC (входной контроль)","itemListElement": [{"@type": "HowToDirection","text": "Запросите отчёты IQC: сертификаты на ячейки Grade-A (LG, Samsung SDI, Panasonic), проверка даты производства (<12 месяцев), тест партий печатных плат. Откажитесь от дешёвых китайских ячеек (возврат 5-8 % против <0,3 %). Завод должен тестировать 100 % критических компонентов — выборочный контроль на этом этапе недопустим."}]},
-    {"@type": "HowToStep","position": 2,"name": "Проконтролируйте IPQC на линии SMT","itemListElement": [{"@type": "HowToDirection","text": "Проверьте защиту ESD (заземление рабочих мест, антистатические браслеты и коврики — 35 % необъяснимых отказов электроники связаны с повреждением ESD). Контроль пайки: автоматическая оптическая инспекция (AOI) выявляет на 45 % больше дефектов, чем ручная. Инспекция первого изделия при каждой смене линии."}]},
-    {"@type": "HowToStep","position": 3,"name": "Потребуйте тест старения (aging test) 100 % в течение 4 часов","itemListElement": [{"@type": "HowToDirection","text": "Самый строгий тест старения на рынке: 100 % устройств испытываются под 100 % нагрузкой 4 часа. Отраслевой стандарт — выборочная проверка 2 часа. WOWOHCOOL: температура корпуса GaN 65W стабилизируется на 52,4°C (кремниевый аналог: 76,8°C). MTBF GaN V >15 000 часов против ~6 500 часов у кремния."}]},
-    {"@type": "HowToStep","position": 4,"name": "Примените AQL 2.5 Уровень II для финальной инспекции (FQC/OQC)","itemListElement": [{"@type": "HowToDirection","text": "Для партии в 1 000 зарядок: проверьте 80 единиц (Уровень II). AQL 0.0 критические (безопасность), 2.5 значительные (функциональность), 4.0 незначительные (косметика). Максимум 7 значительных дефектов для приёмки. Если >2 % брака на этапе DUPRO (30 % готовности), остановите производство и потребуйте план корректирующих действий."}]},
-    {"@type": "HowToStep","position": 5,"name": "Проверьте сертификаты по оригиналам лабораторных отчётов","itemListElement": [{"@type": "HowToDirection","text": "Требуйте оригиналы тест-отчётов (не только сертификаты). Проверьте каждый номер FCC ID / CE в официальной базе. Для power bank: полный UN38.3 (8 тестов + штабелирование 3 м), MSDS с отметкой SOC ≤30 %. WOWOHCOOL предоставляет полный пакет документации с каждым OEM заказом."}]}
-   ]
-  },
-  {
-   "@type": "FAQPage",
-   "@id": "https://www.wowohcool.com/ru/blog/kontrol-kachestva-zavody-kitay-oem/#faq",
-   "mainEntity": [
-    {"@type": "Question","name": "Что такое AQL и какой уровень выбрать для зарядных устройств?","acceptedAnswer": {"@type": "Answer","text": "AQL (Acceptable Quality Limit) определён стандартом ISO 2859-1. Для зарядных устройств стандарт: AQL 0.0 критические (безопасность), 2.5 значительные (функциональность), 4.0 незначительные (косметика), Общий Уровень II. Пример: партия 1 000 зарядок → 80 единиц проверяется, макс. 7 значительных дефектов. AQL 0.0 означает ноль допуска по безопасности — один критический дефект, и вся партия отклоняется."}},
-    {"@type": "Question","name": "Чем отличаются IQC, IPQC, FQC и OQC?","acceptedAnswer": {"@type": "Answer","text": "IQC (входной): проверка сырья и компонентов до производства (ячейки Grade-A, печатные платы, разъёмы). IPQC (производственный): мониторинг в реальном времени на линии SMT — пайка, защита ESD, прошивка. FQC (финальный): 100 % функциональный тест + тест старения 4ч. OQC (выходной): выборочный AQL-контроль перед отгрузкой + проверка упаковки. WOWOHCOOL выполняет все 4 этапа на каждом OEM заказе. Итоговый брак: <0,3 % против 2–5 % в среднем по отрасли."}},
-    {"@type": "Question","name": "Нужна ли сторонняя инспекция для первого заказа в Китае?","acceptedAnswer": {"@type": "Answer","text": "Да, настоятельно рекомендуется. Бюджет: $300–600 за аудит фабрики (SGS, Bureau Veritas, QIMA) + $250–400/день за предотгрузочную инспекцию (PSI). Для заказа на $15 000 это 2–5 % — страховка от бракованной партии. WOWOHCOOL приветствует сторонние инспекции: мы предоставляем полный доступ к производственной линии, внутренним отчётам IQC и испытательному оборудованию."}},
-    {"@type": "Question","name": "Как проверить подлинность сертификатов EAC и CE у китайского завода?","acceptedAnswer": {"@type": "Answer","text": "Не довольствуйтесь логотипом на продукте. Требуйте оригиналы лабораторных отчётов с номером сертификата и проверяйте его в официальной базе: NANDO (CE), FCC ID Database, UL Product iQ, реестр ЕАЭС (EAC). WOWOHCOOL предоставляет полный пакет сертификации (EAC ТР ТС 004+020, CE LVD+EMC, RoHS, REACH) с каждым OEM заказом — номера проверяются онлайн."}},
-    {"@type": "Question","name": "Какие самые частые дефекты у GaN зарядок?","acceptedAnswer": {"@type": "Answer","text": "4 самых частых дефекта: (1) Выходное напряжение вне допуска (>±5 %) — неисправный PD-контроллер или плохо откалиброванная плата; (2) Аномальный нагрев — недостаточный радиатор или дешёвая термопаста; (3) Расшатанные/неисправные USB-порты — 12 % отказов на инспекциях в Шэньчжэне; (4) Чрезмерные пульсации >50 мВпик-пик — недостаточные фильтрующие конденсаторы. WOWOHCOOL: пульсации <25 мВпик-пик на каждом производственном лоте."}},
-    {"@type": "Question","name": "Что такое тест старения (aging test) и почему он критичен?","acceptedAnswer": {"@type": "Answer","text": "Тест старения (burn-in / aging test) — это работа каждого зарядного устройства под 100 % нагрузкой в течение 4 часов. Он выявляет дефекты раннего отказа (infant mortality): компоненты, которые проходят быстрый функциональный тест, но выходят из строя через несколько часов работы. WOWOHCOOL: 100 % устройств тестируются 4ч под нагрузкой (отрасль — выборочно 2ч). Результат: возвраты с рынка <0,3 % против 2–5 % в среднем по отрасли."}},
-    {"@type": "Question","name": "Сколько стоит полный контроль качества в Китае?","acceptedAnswer": {"@type": "Answer","text": "Бюджет полного QC для первого заказа: Аудит фабрики (SGS/BV/QIMA): $300–600; Инспекция в процессе DUPRO: $250–350; Предотгрузочная инспекция PSI: $250–350. Итого: ~$700–1 500, или 1,5–3 % от заказа на $50 000. Для сравнения: переделка бракованной партии обходится в 20–40 % от стоимости заказа. WOWOHCOOL: QC 4 этапа включены в стоимость OEM — без доплаты."}},
-    {"@type": "Question","name": "Чем отличается внутренний QC завода от сторонней инспекции?","acceptedAnswer": {"@type": "Answer","text": "Внутренний QC (WOWOHCOOL) охватывает 100 % продукции: IQC всех партий компонентов, IPQC непрерывно на линиях, FQC 100 % с тестом старения 4ч, OQC выборочно по AQL. Сторонняя инспекция — это разовый выборочный аудит, проверяющий работу системы QC, но не заменяющий её. Оба подхода дополняют друг друга: внутренний QC для ежедневного качества, сторонняя инспекция для независимой верификации."}}
-   ],
-   "speakable": {"@type": "SpeakableSpecification","cssSelector": [".faq-answer"]}
-  }
- ]
-}
-</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.wowohcool.com/#organization",
+      "name": "WOWOHCOOL",
+      "legalName": "Dong Yi Technology Co., Ltd",
+      "foundingDate": "2013",
+      "vatID": "91441900MA558A2N27",
+      "url": "https://www.wowohcool.com/ru/o-kompanii/",
+      "publishingPrinciples": "https://www.wowohcool.com/ru/o-kompanii/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.wowohcool.com/image/wowohcool-logo-optimized.webp",
+        "width": 600,
+        "height": 60
+      },
+      "areaServed": [
+        "US",
+        "DE",
+        "AT",
+        "CH",
+        "UK",
+        "FR",
+        "ES",
+        "PL",
+        "EU",
+        "JP",
+        "KR",
+        "AU",
+        "MX",
+        "CO",
+        "AR",
+        "CL",
+        "PE",
+        "RU",
+        "KZ",
+        "BY",
+        "EAEU"
+      ],
+      "knowsAbout": [
+        "OEM/ODM Power Bank Manufacturing",
+        "Qi2 Wireless Charging Standard",
+        "GaN Power Architecture",
+        "Automotive Fast Charging Systems",
+        "Custom Power Adapter Production",
+        "Consumer Electronics Sourcing",
+        "UL & CE Safety Compliance"
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "925, Yichuang International Center, Longhua District",
+        "addressLocality": "Shenzhen",
+        "addressRegion": "Guangdong",
+        "postalCode": "518111",
+        "addressCountry": "CN"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/company/wowohcool",
+        "https://www.facebook.com/wowohcoolelectronic",
+        "https://www.youtube.com/@WOWOHCOOL",
+        "https://x.com/wowohcool"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "OEM/ODM Sales",
+        "telephone": "+86-18620789739",
+        "email": "info@wowohcool.com",
+        "availableLanguage": [
+          "English",
+          "German",
+          "Spanish",
+          "French",
+          "Russian",
+          "Polish"
+        ]
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.wowohcool.com/#website",
+      "url": "https://www.wowohcool.com/ru/",
+      "name": "WOWOHCOOL — OEM Производитель Зарядных Устройств",
+      "inLanguage": "ru-RU",
+      "publisher": {
+        "@id": "https://www.wowohcool.com/#organization"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.wowohcool.com/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Главная",
+          "item": "https://www.wowohcool.com/ru/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Блог",
+          "item": "https://www.wowohcool.com/ru/blog/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Контроль Качества Завод Китай OEM: IQC-IPQC-FQC-OQC 2026",
+          "item": "https://www.wowohcool.com/ru/blog/kontrol-kachestva-zavody-kitay-oem/"
+        }
+      ]
+    },
+    {
+      "@type": "BlogPosting",
+      "@id": "https://www.wowohcool.com/ru/blog/kontrol-kachestva-zavody-kitay-oem/#article",
+      "headline": "Контроль Качества Завод Китай OEM: IQC-IPQC-FQC-OQC 2026",
+      "description": "Руководство импортёра OEM 2026: QC 4 этапа (IQC-IPQC-FQC-OQC), AQL 2.5, тест старения, оборудование. Брак <0,3 %, aging 100 % 4ч. ISO 9001 Шэньчжэнь.",
+      "keywords": "Контроль Качества, QC, Китай, Завод, OEM, AQL, IQC, IPQC, FQC, OQC, Импортёр, ISO 9001",
+      "datePublished": "2026-08-10",
+      "dateModified": "2026-08-10",
+      "wordCount": 1700,
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://www.wowohcool.com/ru/blog/kontrol-kachestva-zavody-kitay-oem/"
+      },
+      "author": {
+        "@id": "https://www.wowohcool.com/#nina-nico"
+      },
+      "publisher": {
+        "@id": "https://www.wowohcool.com/#organization"
+      },
+      "inLanguage": "ru-RU",
+      "isAccessibleForFree": true,
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [
+          "h1",
+          ".speakable"
+        ]
+      },
+      "about": {
+        "@type": "Thing",
+        "name": "Контроль качества зарядных устройств и power bank на заводах OEM в Китае",
+        "sameAs": "https://www.wikidata.org/wiki/Q827792"
+      },
+      "citation": [
+        {
+          "@type": "CreativeWork",
+          "name": "ISO 2859-1 — Процедуры выборочного контроля по альтернативному признаку",
+          "url": "https://www.iso.org/ru/standard/72355.html"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "IPC-A-610 — Критерии приёмки электронных сборок",
+          "url": "https://www.ipc.org/ipc-a-610"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "IEC 62368-1 — Безопасность аудио/видео и ИТ-оборудования",
+          "url": "https://www.iec.ch/ru"
+        }
+      ],
+      "knowsAbout": [
+        "Engineering R&D & Testing Certification Specialties"
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://www.wowohcool.com/#nina-nico",
+      "name": "Nina Nico",
+      "jobTitle": "Global Procurement & Sourcing Manager",
+      "url": "https://www.wowohcool.com/authors/nina-nico/",
+      "sameAs": [
+        "https://www.linkedin.com/in/nico-power-bank-chargers"
+      ],
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://www.wowohcool.com/image/factory/team-nina.webp",
+        "width": 400,
+        "height": 400
+      },
+      "worksFor": {
+        "@id": "https://www.wowohcool.com/#organization"
+      },
+      "knowsAbout": [
+        "B2B Hardware Sourcing",
+        "OEM/ODM Power Bank Manufacturing",
+        "Supply Chain Quality Assurance",
+        "International Electronics Trade Compliance",
+        "Custom Power Adapter Production",
+        "Factory Audit Standards"
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://www.wowohcool.com/ru/blog/kontrol-kachestva-zavody-kitay-oem/#howto",
+      "name": "Как провести аудит контроля качества завода зарядных устройств в Китае",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Проверьте процесс IQC (входной контроль)",
+          "itemListElement": [
+            {
+              "@type": "HowToDirection",
+              "text": "Запросите отчёты IQC: сертификаты на ячейки Grade-A (LG, Samsung SDI, Panasonic), проверка даты производства (<12 месяцев), тест партий печатных плат. Откажитесь от дешёвых китайских ячеек (возврат 5-8 % против <0,3 %). Завод должен тестировать 100 % критических компонентов — выборочный контроль на этом этапе недопустим."
+            }
+          ]
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Проконтролируйте IPQC на линии SMT",
+          "itemListElement": [
+            {
+              "@type": "HowToDirection",
+              "text": "Проверьте защиту ESD (заземление рабочих мест, антистатические браслеты и коврики — 35 % необъяснимых отказов электроники связаны с повреждением ESD). Контроль пайки: автоматическая оптическая инспекция (AOI) выявляет на 45 % больше дефектов, чем ручная. Инспекция первого изделия при каждой смене линии."
+            }
+          ]
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Потребуйте тест старения (aging test) 100 % в течение 4 часов",
+          "itemListElement": [
+            {
+              "@type": "HowToDirection",
+              "text": "Самый строгий тест старения на рынке: 100 % устройств испытываются под 100 % нагрузкой 4 часа. Отраслевой стандарт — выборочная проверка 2 часа. WOWOHCOOL: температура корпуса GaN 65W стабилизируется на 52,4°C (кремниевый аналог: 76,8°C). MTBF GaN V >15 000 часов против ~6 500 часов у кремния."
+            }
+          ]
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Примените AQL 2.5 Уровень II для финальной инспекции (FQC/OQC)",
+          "itemListElement": [
+            {
+              "@type": "HowToDirection",
+              "text": "Для партии в 1 000 зарядок: проверьте 80 единиц (Уровень II). AQL 0.0 критические (безопасность), 2.5 значительные (функциональность), 4.0 незначительные (косметика). Максимум 7 значительных дефектов для приёмки. Если >2 % брака на этапе DUPRO (30 % готовности), остановите производство и потребуйте план корректирующих действий."
+            }
+          ]
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Проверьте сертификаты по оригиналам лабораторных отчётов",
+          "itemListElement": [
+            {
+              "@type": "HowToDirection",
+              "text": "Требуйте оригиналы тест-отчётов (не только сертификаты). Проверьте каждый номер FCC ID / CE в официальной базе. Для power bank: полный UN38.3 (8 тестов + штабелирование 3 м), MSDS с отметкой SOC ≤30 %. WOWOHCOOL предоставляет полный пакет документации с каждым OEM заказом."
+            }
+          ]
+        }
+      ],
+      "totalTime": "PT2H"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.wowohcool.com/ru/blog/kontrol-kachestva-zavody-kitay-oem/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Что такое AQL и какой уровень выбрать для зарядных устройств?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "AQL (Acceptable Quality Limit) определён стандартом ISO 2859-1. Для зарядных устройств стандарт: AQL 0.0 критические (безопасность), 2.5 значительные (функциональность), 4.0 незначительные (косметика), Общий Уровень II. Пример: партия 1 000 зарядок → 80 единиц проверяется, макс. 7 значительных дефектов. AQL 0.0 означает ноль допуска по безопасности — один критический дефект, и вся партия отклоняется."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Чем отличаются IQC, IPQC, FQC и OQC?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "IQC (входной): проверка сырья и компонентов до производства (ячейки Grade-A, печатные платы, разъёмы). IPQC (производственный): мониторинг в реальном времени на линии SMT — пайка, защита ESD, прошивка. FQC (финальный): 100 % функциональный тест + тест старения 4ч. OQC (выходной): выборочный AQL-контроль перед отгрузкой + проверка упаковки. WOWOHCOOL выполняет все 4 этапа на каждом OEM заказе. Итоговый брак: <0,3 % против 2–5 % в среднем по отрасли."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Нужна ли сторонняя инспекция для первого заказа в Китае?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Да, настоятельно рекомендуется. Бюджет: $300–600 за аудит фабрики (SGS, Bureau Veritas, QIMA) + $250–400/день за предотгрузочную инспекцию (PSI). Для заказа на $15 000 это 2–5 % — страховка от бракованной партии. WOWOHCOOL приветствует сторонние инспекции: мы предоставляем полный доступ к производственной линии, внутренним отчётам IQC и испытательному оборудованию."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Как проверить подлинность сертификатов EAC и CE у китайского завода?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Не довольствуйтесь логотипом на продукте. Требуйте оригиналы лабораторных отчётов с номером сертификата и проверяйте его в официальной базе: NANDO (CE), FCC ID Database, UL Product iQ, реестр ЕАЭС (EAC). WOWOHCOOL предоставляет полный пакет сертификации (EAC ТР ТС 004+020, CE LVD+EMC, RoHS, REACH) с каждым OEM заказом — номера проверяются онлайн."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Какие самые частые дефекты у GaN зарядок?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "4 самых частых дефекта: (1) Выходное напряжение вне допуска (>±5 %) — неисправный PD-контроллер или плохо откалиброванная плата; (2) Аномальный нагрев — недостаточный радиатор или дешёвая термопаста; (3) Расшатанные/неисправные USB-порты — 12 % отказов на инспекциях в Шэньчжэне; (4) Чрезмерные пульсации >50 мВпик-пик — недостаточные фильтрующие конденсаторы. WOWOHCOOL: пульсации <25 мВпик-пик на каждом производственном лоте."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Что такое тест старения (aging test) и почему он критичен?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Тест старения (burn-in / aging test) — это работа каждого зарядного устройства под 100 % нагрузкой в течение 4 часов. Он выявляет дефекты раннего отказа (infant mortality): компоненты, которые проходят быстрый функциональный тест, но выходят из строя через несколько часов работы. WOWOHCOOL: 100 % устройств тестируются 4ч под нагрузкой (отрасль — выборочно 2ч). Результат: возвраты с рынка <0,3 % против 2–5 % в среднем по отрасли."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Сколько стоит полный контроль качества в Китае?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Бюджет полного QC для первого заказа: Аудит фабрики (SGS/BV/QIMA): $300–600; Инспекция в процессе DUPRO: $250–350; Предотгрузочная инспекция PSI: $250–350. Итого: ~$700–1 500, или 1,5–3 % от заказа на $50 000. Для сравнения: переделка бракованной партии обходится в 20–40 % от стоимости заказа. WOWOHCOOL: QC 4 этапа включены в стоимость OEM — без доплаты."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Чем отличается внутренний QC завода от сторонней инспекции?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Внутренний QC (WOWOHCOOL) охватывает 100 % продукции: IQC всех партий компонентов, IPQC непрерывно на линиях, FQC 100 % с тестом старения 4ч, OQC выборочно по AQL. Сторонняя инспекция — это разовый выборочный аудит, проверяющий работу системы QC, но не заменяющий её. Оба подхода дополняют друг друга: внутренний QC для ежедневного качества, сторонняя инспекция для независимой верификации."
+          }
+        }
+      ],
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [
+          ".faq-answer"
+        ]
+      }
+    }
+  ]
+}</script>
 {% endblock %}
 
 {% block content %}
@@ -145,10 +383,10 @@ hreflang:
   </div>
   <h1 class="text-3xl lg:text-5xl font-black text-brandBlue uppercase italic tracking-tighter mb-6 leading-tight">Контроль Качества Завод Китай OEM: IQC-IPQC-FQC-OQC 2026</h1>
   <div class="flex items-center gap-3 mb-6">
-   <img src="/image/factory/team-snowy.webp" alt="Snowy May — основатель и генеральный директор WOWOHCOOL, 12+ лет в OEM-производстве зарядных устройств, аудит качества заводов Китай" loading="lazy" width="40" height="40" class="w-10 h-10 rounded-full object-cover border border-brandOrange">
+   <img src="/image/factory/team-nina.webp" alt="Nina Nico, Global Procurement & Sourcing Manager в WOWOHCOOL — специалист по OEM/ODM-сорсингу" loading="lazy" width="40" height="40" class="w-10 h-10 rounded-full object-cover border border-brandOrange">
    <div>
-    <a href="#author-bio" class="font-bold text-slate-900 text-sm hover:text-brandOrange transition">Snowy May</a>
-    <p class="text-xs text-slate-500">Основатель и Генеральный Директор · 12+ лет в OEM-производстве</p>
+    <a href="#author-bio" class="font-bold text-slate-900 text-sm hover:text-brandOrange transition">Nina Nico</a>
+    <p class="text-xs text-slate-500">Global Procurement & Sourcing Manager · 10+ лет в закупках 3C-электроники</p>
    </div>
   </div>
   {% from "partials/post-meta.njk" import postMeta %}
@@ -216,7 +454,7 @@ hreflang:
    <div class="bg-brandBlue/5 border-l-4 border-brandOrange rounded-r-xl p-6 mt-6">
     <p class="text-[11px] font-black text-brandOrange uppercase tracking-widest mb-2">МНЕНИЕ ЭКСПЕРТА</p>
     <blockquote class="text-slate-700 text-base italic leading-relaxed">«Разница между браком 0,3 % и 5 % — это разница между брендом, который строится, и брендом, который горит. На 10 000 зарядок 5 % дефектов = 500 недовольных клиентов. При 1 500 ₽ логистики возврата это 750 000 ₽, исчезнувших из вашей маржи — без учёта негативных отзывов. QC не центр затрат, а ваша лучшая страховка качества.»</blockquote>
-    <p class="text-sm text-slate-500 mt-2">— Snowy May, Основатель и Генеральный Директор, WOWOHCOOL</p>
+    <p class="text-sm text-slate-500 mt-2">— Nina Nico, Global Procurement & Sourcing Manager, WOWOHCOOL</p>
    </div>
   </div>
  </div>
@@ -327,15 +565,15 @@ hreflang:
  <div class="bg-slate-50 rounded-2xl p-6 md:p-8 mb-12 border border-slate-100">
   <div class="flex flex-col sm:flex-row items-start gap-4 sm:gap-6">
    <div class="w-20 h-20 rounded-full overflow-hidden flex items-center justify-center border-2 border-brandOrange bg-white shadow-lg shrink-0">
-    <img src="/image/factory/team-snowy.webp" alt="Snowy May — основатель и генеральный директор WOWOHCOOL, 12+ лет аудита качества заводов и OEM-производства зарядных устройств в Шэньчжэне" loading="lazy" width="400" height="400" class="w-full h-full object-cover">
+    <img src="/image/factory/team-nina.webp" alt="Nina Nico, Global Procurement & Sourcing Manager в WOWOHCOOL — специалист по OEM/ODM-сорсингу" loading="lazy" width="400" height="400" class="w-full h-full object-cover">
    </div>
    <div class="flex-1 min-w-0">
     <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 mb-2 sm:mb-3">
-     <a href="https://www.linkedin.com/in/snowy-may-wowohcool" target="_blank" rel="noopener noreferrer" class="font-black text-slate-900 text-lg hover:text-brandOrange transition">Snowy May</a>
+     <a href="https://www.linkedin.com/in/nico-power-bank-chargers" target="_blank" rel="noopener noreferrer" class="font-black text-slate-900 text-lg hover:text-brandOrange transition">Nina Nico</a>
      <span class="px-2 py-1 bg-brandOrange/10 text-brandOrange text-[11px] font-black rounded-full uppercase w-fit">Автор</span>
     </div>
-    <p class="text-sm text-slate-500 mb-3">Основатель и Генеральный Директор · 12+ лет в OEM-производстве · RU/EN/CN</p>
-    <p class="text-slate-600 text-sm leading-relaxed">Snowy May основал WOWOHCOOL в 2013 году и построил систему QC с нуля до уровня <0,3 % брака при 1M+ единиц в месяц. Он лично провёл более 50 аудитов качества заводов-партнёров и вёл переговоры с клиентами из РФ и СНГ по специфике российских требований к контролю качества электроники.</p>
+    <p class="text-sm text-slate-500 mb-3">Global Procurement & Sourcing Manager · 10+ лет в закупках 3C-электроники</p>
+    <p class="text-slate-600 text-sm leading-relaxed">Nina Nico — менеджер по глобальным закупкам WOWOHCOOL с более чем 10-летним опытом в закупках 3C-электроники. Специализируется на B2B-сорсинге оборудования, OEM/ODM-производстве повербанков, аудите заводов, обеспечении качества цепочки поставок и международном торговом комплаенсе.</p>
     <div class="mt-4 pt-4 border-t border-slate-200">
      <p class="text-xs text-slate-400 uppercase tracking-wider mb-2">Производственная База</p>
      <div class="grid grid-cols-2 md:grid-cols-4 gap-3 text-sm">

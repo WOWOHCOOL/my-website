@@ -27,119 +27,316 @@ hreflang:
 {% extends "layout.njk" %}
 
 {% block head_schema %}
-<script type="application/ld+json">
-{
- "@context": "https://schema.org",
- "@graph": [
- {
- "@type": "Organization",
- "@id": "https://www.wowohcool.com/#organization",
- "legalName": "Dong Yi Technology Co., Ltd",
- "name": "WOWOHCOOL",
- "url": "https://www.wowohcool.com/pl/",
- "logo": {"@type": "ImageObject", "url": "https://www.wowohcool.com/image/wowohcool-logo-optimized.webp", "width": "600", "height": "60"},
- "publishingPrinciples": "https://www.wowohcool.com/pl/o-nas/",
- "areaServed": ["US","DE","AT","CH","UK","FR","ES","EU","JP","KR","AU","MX","CO","AR","CL","PE","PL"],
- "address": {
- "@type": "PostalAddress",
- "streetAddress": "925, Yichuang International Center, Longhua District",
- "addressLocality": "Shenzhen",
- "addressRegion": "Guangdong",
- "postalCode": "518111",
- "addressCountry": "CN"
- },
- "sameAs": [
- "https://www.linkedin.com/company/wowohcool",
- "https://www.facebook.com/wowohcoolelectronic",
- "https://www.youtube.com/@WOWOHCOOL",
- "https://x.com/wowohcool"
- ],
- "contactPoint": {
- "@type": "ContactPoint",
- "telephone": "+86-186-2078-9739",
- "email": "info@wowohcool.com",
- "contactType": "Sprzedaż",
- "availableLanguage": ["English","Chinese","Polish"]
- }
- },
- {
- "@type": "WebSite",
- "@id": "https://www.wowohcool.com/#website",
- "url": "https://www.wowohcool.com/pl/",
- "name": "WOWOHCOOL Polska",
- "inLanguage": "pl",
- "publisher": {"@id": "https://www.wowohcool.com/#organization"}
- },
- {
- "@type": "BreadcrumbList",
- "itemListElement": [
- {"@type": "ListItem", "position": 1, "name": "Strona Główna", "item": "https://www.wowohcool.com/pl/"},
- {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.wowohcool.com/pl/blog/"},
- {"@type": "ListItem", "position": 3, "name": "Weryfikacja Producentów", "item": "https://www.wowohcool.com/pl/blog/weryfikacja-producentow-power-bank-shenzhen/"}
- ]
- },
- {
- "@type": "BlogPosting",
- "@id": "https://www.wowohcool.com/pl/blog/weryfikacja-producentow-power-bank-shenzhen/#article",
- "headline": "Jak Znaleźć i Zweryfikować Producenta Power Banków OEM w Shenzhen, Poradnik 2026",
- "description": "Kompletny poradnik weryfikacji producenta power banków w Shenzhen: audyt wideo, dokumenty, certyfikaty, test rozładowania. Fabryka WOWOHCOOL, ISO 9001.",
- "datePublished": "2026-08-12",
- "dateModified": "2026-08-12",
- "author": {"@id": "https://www.wowohcool.com/#nina-nico"},
- "wordCount": 3000,
- "keywords": ["producent power bank Shenzhen", "weryfikacja fabryki Chiny", "audyt OEM", "gsxt.gov.cn", "certyfikaty UN38.3", "ISO 9001 BSCI", "sourcing z Chin"],
- "speakable": {"@type": "SpeakableSpecification", "cssSelector": ["h1", ".speakable"]},
- "about": {"@type": "Thing", "sameAs": "https://www.wikidata.org/wiki/Q1188694"},
- "mainEntityOfPage": {"@id": "https://www.wowohcool.com/pl/blog/weryfikacja-producentow-power-bank-shenzhen/"},
- "citation": [
- {"@type": "CreativeWork", "name": "gsxt.gov.cn, Krajowy System Informacji Kredytowej Przedsiębiorstw", "url": "http://www.gsxt.gov.cn"},
- {"@type": "CreativeWork", "name": "IEC 62133, Wymagania bezpieczeństwa dla ogniw litowych", "url": "https://webstore.iec.ch/publication/62133"},
- {"@type": "CreativeWork", "name": "ISO 9001:2015, System zarządzania jakością", "url": "https://www.iso.org/standard/62085.html"}
- ]
- },
- {
- "@type": "Person",
- "@id": "https://www.wowohcool.com/#nina-nico",
- "name": "Nina Nico",
- "jobTitle": "Global Procurement & Sourcing Manager",
- "url": "https://www.wowohcool.com/authors/nina-nico/",
- "sameAs": ["https://www.linkedin.com/in/nico-power-bank-chargers"],
- "image": "https://www.wowohcool.com/image/factory/team-nina.webp",
- "worksFor": {"@id": "https://www.wowohcool.com/#organization"},
- "knowsAbout": ["Weryfikacja Fabryk w Shenzhen", "Audyt OEM Power Bank", "Sourcing z Chin dla Importerów", "Certyfikacja ISO 9001 i BSCI"]
- },
- {
- "@type": "HowTo",
- "@id": "https://www.wowohcool.com/pl/blog/weryfikacja-producentow-power-bank-shenzhen/#howto",
- "name": "Jak Zweryfikować Producenta Power Banków w Shenzhen",
- "description": "Proces weryfikacji producenta w 6 krokach: dokumenty, certyfikaty, wirtualny audyt wideo, próbki, audyt zewnętrzny, zamówienie próbne.",
- "step": [
- {"@type": "HowToStep", "position": 1, "name": "Sprawdź dokumenty przez gsxt.gov.cn", "text": "Poproś o biznes licencję i zweryfikuj ją w chińskim rejestrze przedsiębiorstw gsxt.gov.cn."},
- {"@type": "HowToStep", "position": 2, "name": "Zamów wirtualny audyt wideo na żywo", "text": "Przeprowadź live video tour fabryki. Poproś o pokazanie linii SMT, komór testowych i stanowisk QC."},
- {"@type": "HowToStep", "position": 3, "name": "Zweryfikuj certyfikaty", "text": "Sprawdź ISO 9001, UN38.3, CE, BSCI. Poproś o oryginalne raporty SGS/TÜV, nie tylko certyfikaty."},
- {"@type": "HowToStep", "position": 4, "name": "Zamów i przetestuj próbki", "text": "Przeprowadź test rozładowania miernikiem USB. Power bank 10 000 mAh powinien oddać 8 000-9 000 mAh."},
- {"@type": "HowToStep", "position": 5, "name": "Zleć audyt zewnętrzny", "text": "Dla zamówień powyżej $50 000 zleć audyt przez SGS, TÜV lub Bureau Veritas. Koszt: $300-800."},
- {"@type": "HowToStep", "position": 6, "name": "Złóż małe zamówienie próbne", "text": "Przed skalowaniem zamów 500-1 000 sztuk i oceń jakość produkcji seryjnej oraz terminowość dostawy."}
- ]
- },
- {
- "@type": "FAQPage",
- "@id": "https://www.wowohcool.com/pl/blog/weryfikacja-producentow-power-bank-shenzhen/#faq",
- "speakable": {"@type": "SpeakableSpecification", "cssSelector": [".faq-answer"]},
- "mainEntity": [
- {"@type": "Question", "name": "Jak odróżnić prawdziwą fabrykę od trading company w Chinach?", "acceptedAnswer": {"@type": "Answer", "text": "5 sygnałów: (1) Fabryka ma własne linie SMT i komory testowe widoczne na wideo. (2) Biznes licencja zawiera 'produkcja' w zakresie działalności. (3) Adres na Google Maps pokazuje budynek przemysłowy, nie biurowiec. (4) Fabryka specjalizuje się w 1-3 kategoriach produktów, nie sprzedaje wszystkiego. (5) Akceptuje audyt SGS/TÜV bez wymówek. WOWOHCOOL zaprasza na audyt wideo na żywo, pokażemy Ci każdą linię produkcyjną."}},
- {"@type": "Question", "name": "Co to jest gsxt.gov.cn i jak sprawdzić chińską firmę?", "acceptedAnswer": {"@type": "Answer", "text": "gsxt.gov.cn to oficjalny chiński rejestr przedsiębiorstw. Aby zweryfikować producenta OEM: (1) Poproś o Unified Social Credit Code (18 cyfr). (2) Wejdź na gsxt.gov.cn. (3) Wpisz nazwę firmy po chińsku lub kod. (4) Sprawdź: kapitał zakładowy, zakres działalności, adres rejestracji, datę założenia. Legalny producent dostarczy te dane w ciągu 24h."}},
- {"@type": "Question", "name": "Jakie certyfikaty musi mieć producent power banków?", "acceptedAnswer": {"@type": "Answer", "text": "Minimum: UN38.3 (transport baterii), CE (rynek UE), RoHS (substancje niebezpieczne), ISO 9001 (zarządzanie jakością). Dla wyższego standardu: BSCI (audyt społeczny), IEC 62133 (bezpieczeństwo ogniw), UL (rynek USA). WOWOHCOOL posiada wszystkie te certyfikaty, poproś o kopie raportów SGS przed złożeniem zamówienia."}},
- {"@type": "Question", "name": "Jak przeprowadzić wirtualny audyt wideo fabryki w Chinach?", "acceptedAnswer": {"@type": "Answer", "text": "Krok po kroku: (1) Umów rozmowę przez WeChat lub Zoom. (2) Poproś o pokazanie zewnętrznej części budynku, porównaj z Baidu Maps. (3) Poproś o przejście przez linie SMT, komory aging-test, stanowiska QC. (4) Zweryfikuj, czy tabliczki znamionowe maszyn zgadzają się z nazwą firmy. (5) Obserwuj pracowników, czy pracują, czy pozują. Czerwona flaga: odmowa wideo na żywo. WOWOHCOOL oferuje audyt wideo dla każdego potencjalnego klienta."}},
- {"@type": "Question", "name": "Ile kosztuje zewnętrzny audyt fabryki w Shenzhen?", "acceptedAnswer": {"@type": "Answer", "text": "Audyt przez SGS, TÜV lub Bureau Veritas kosztuje $300-800 USD w zależności od zakresu. Obejmuje: weryfikację dokumentów, inspekcję linii produkcyjnych, audyt systemu jakości i raport końcowy. Dla zamówień OEM powyżej $50 000 to obowiązkowe ubezpieczenie. WOWOHCOOL przeszedł audyt SGS ISO 9001, raport dostępny na życzenie."}},
- {"@type": "Question", "name": "Jak przetestować próbkę power banku przed zamówieniem?", "acceptedAnswer": {"@type": "Answer", "text": "3 testy które możesz zrobić sam: (1) Test rozładowania miernikiem USB (np. YK-001, <$20), power bank 10 000 mAh powinien oddać 8 000-9 000 mAh. (2) Test ładowania, sprawdź czy moc (W) odpowiada deklarowanej. (3) Tear-down, otwórz obudowę i sprawdź markę ogniw (Samsung, LG, EVE to klasa A). Ogniwa z recyklingu mają ślady punktowego spawania."}},
- {"@type": "Question", "name": "Jakie są czerwone flagi przy wyborze producenta w Shenzhen?", "acceptedAnswer": {"@type": "Answer", "text": "7 sygnałów ostrzegawczych: (1) Odmowa wideo na żywo. (2) Ceny 30%+ poniżej rynku, ryzyko ogniw z odzysku. (3) Brak polityki próbek, nie mogą wyprodukować według specyfikacji. (4) Tylko Western Union, profesjonalne fabryki akceptują T/T i L/C. (5) Zbyt wiele kategorii produktów, to trading company. (6) Adres na Google Maps to biurowiec. (7) Presja czasu."}},
- {"@type": "Question", "name": "Czy WOWOHCOOL przechodzi audyt klienta przed zamówieniem?", "acceptedAnswer": {"@type": "Answer", "text": "Tak. Oferujemy: (1) Wirtualny audyt wideo na żywo, pokażemy każdy etap produkcji OEM. (2) Wizytę w fabryce 5 000 m² w Longhua, Shenzhen. (3) Raport audytu ISO 9001 przez SGS. (4) Referencje od 200+ marek globalnych, w tym Bosch. (5) Próbki w 3-7 dni z pełnym raportem z testów. MOQ 500 szt. Skontaktuj się, aby umówić audyt."}}
- ]
- }
- ]
-}
-</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.wowohcool.com/#organization",
+      "legalName": "Dong Yi Technology Co., Ltd",
+      "foundingDate": "2013",
+      "vatID": "91441900MA558A2N27",
+      "name": "WOWOHCOOL",
+      "url": "https://www.wowohcool.com/pl/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.wowohcool.com/image/wowohcool-logo-optimized.webp",
+        "width": "600",
+        "height": "60"
+      },
+      "publishingPrinciples": "https://www.wowohcool.com/pl/o-nas/",
+      "areaServed": [
+        "US",
+        "DE",
+        "AT",
+        "CH",
+        "UK",
+        "FR",
+        "ES",
+        "PL",
+        "EU",
+        "JP",
+        "KR",
+        "AU",
+        "MX",
+        "CO",
+        "AR",
+        "CL",
+        "PE",
+        "RU",
+        "KZ",
+        "BY",
+        "EAEU"
+      ],
+      "knowsAbout": [
+        "OEM/ODM Power Bank Manufacturing",
+        "Qi2 Wireless Charging Standard",
+        "GaN Power Architecture",
+        "Automotive Fast Charging Systems",
+        "Custom Power Adapter Production",
+        "Consumer Electronics Sourcing",
+        "UL & CE Safety Compliance"
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "925, Yichuang International Center, Longhua District",
+        "addressLocality": "Shenzhen",
+        "addressRegion": "Guangdong",
+        "postalCode": "518111",
+        "addressCountry": "CN"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/company/wowohcool",
+        "https://www.facebook.com/wowohcoolelectronic",
+        "https://www.youtube.com/@WOWOHCOOL",
+        "https://x.com/wowohcool"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+86-186-2078-9739",
+        "email": "info@wowohcool.com",
+        "contactType": "Sprzedaż",
+        "availableLanguage": [
+          "English",
+          "German",
+          "Spanish",
+          "French",
+          "Russian",
+          "Polish"
+        ]
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.wowohcool.com/#website",
+      "url": "https://www.wowohcool.com/pl/",
+      "name": "WOWOHCOOL Polska",
+      "inLanguage": "pl",
+      "publisher": {
+        "@id": "https://www.wowohcool.com/#organization"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Strona Główna",
+          "item": "https://www.wowohcool.com/pl/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://www.wowohcool.com/pl/blog/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Weryfikacja Producentów",
+          "item": "https://www.wowohcool.com/pl/blog/weryfikacja-producentow-power-bank-shenzhen/"
+        }
+      ]
+    },
+    {
+      "@type": "BlogPosting",
+      "@id": "https://www.wowohcool.com/pl/blog/weryfikacja-producentow-power-bank-shenzhen/#article",
+      "headline": "Jak Znaleźć i Zweryfikować Producenta Power Banków OEM w Shenzhen, Poradnik 2026",
+      "description": "Kompletny poradnik weryfikacji producenta power banków w Shenzhen: audyt wideo, dokumenty, certyfikaty, test rozładowania. Fabryka WOWOHCOOL, ISO 9001.",
+      "datePublished": "2026-08-12",
+      "dateModified": "2026-08-12",
+      "author": {
+        "@id": "https://www.wowohcool.com/#nina-nico"
+      },
+      "wordCount": 3000,
+      "keywords": [
+        "producent power bank Shenzhen",
+        "weryfikacja fabryki Chiny",
+        "audyt OEM",
+        "gsxt.gov.cn",
+        "certyfikaty UN38.3",
+        "ISO 9001 BSCI",
+        "sourcing z Chin"
+      ],
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [
+          "h1",
+          ".speakable"
+        ]
+      },
+      "about": {
+        "@type": "Thing",
+        "sameAs": "https://www.wikidata.org/wiki/Q15941790",
+        "name": "Power bank"
+      },
+      "mainEntityOfPage": {
+        "@id": "https://www.wowohcool.com/pl/blog/weryfikacja-producentow-power-bank-shenzhen/"
+      },
+      "citation": [
+        {
+          "@type": "CreativeWork",
+          "name": "gsxt.gov.cn, Krajowy System Informacji Kredytowej Przedsiębiorstw",
+          "url": "http://www.gsxt.gov.cn"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "IEC 62133, Wymagania bezpieczeństwa dla ogniw litowych",
+          "url": "https://webstore.iec.ch/publication/62133"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "ISO 9001:2015, System zarządzania jakością",
+          "url": "https://www.iso.org/standard/62085.html"
+        }
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://www.wowohcool.com/#nina-nico",
+      "name": "Nina Nico",
+      "jobTitle": "Global Procurement & Sourcing Manager",
+      "url": "https://www.wowohcool.com/authors/nina-nico/",
+      "sameAs": [
+        "https://www.linkedin.com/in/nico-power-bank-chargers"
+      ],
+      "image": "https://www.wowohcool.com/image/factory/team-nina.webp",
+      "worksFor": {
+        "@id": "https://www.wowohcool.com/#organization"
+      },
+      "knowsAbout": [
+        "B2B Hardware Sourcing",
+        "OEM/ODM Power Bank Manufacturing",
+        "Supply Chain Quality Assurance",
+        "International Electronics Trade Compliance",
+        "Custom Power Adapter Production",
+        "Factory Audit Standards"
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://www.wowohcool.com/pl/blog/weryfikacja-producentow-power-bank-shenzhen/#howto",
+      "name": "Jak Zweryfikować Producenta Power Banków w Shenzhen",
+      "description": "Proces weryfikacji producenta w 6 krokach: dokumenty, certyfikaty, wirtualny audyt wideo, próbki, audyt zewnętrzny, zamówienie próbne.",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Sprawdź dokumenty przez gsxt.gov.cn",
+          "text": "Poproś o biznes licencję i zweryfikuj ją w chińskim rejestrze przedsiębiorstw gsxt.gov.cn."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Zamów wirtualny audyt wideo na żywo",
+          "text": "Przeprowadź live video tour fabryki. Poproś o pokazanie linii SMT, komór testowych i stanowisk QC."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Zweryfikuj certyfikaty",
+          "text": "Sprawdź ISO 9001, UN38.3, CE, BSCI. Poproś o oryginalne raporty SGS/TÜV, nie tylko certyfikaty."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Zamów i przetestuj próbki",
+          "text": "Przeprowadź test rozładowania miernikiem USB. Power bank 10 000 mAh powinien oddać 8 000-9 000 mAh."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Zleć audyt zewnętrzny",
+          "text": "Dla zamówień powyżej $50 000 zleć audyt przez SGS, TÜV lub Bureau Veritas. Koszt: $300-800."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 6,
+          "name": "Złóż małe zamówienie próbne",
+          "text": "Przed skalowaniem zamów 500-1 000 sztuk i oceń jakość produkcji seryjnej oraz terminowość dostawy."
+        }
+      ],
+      "totalTime": "PT2H"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.wowohcool.com/pl/blog/weryfikacja-producentow-power-bank-shenzhen/#faq",
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [
+          ".faq-answer"
+        ]
+      },
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Jak odróżnić prawdziwą fabrykę od trading company w Chinach?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "5 sygnałów: (1) Fabryka ma własne linie SMT i komory testowe widoczne na wideo. (2) Biznes licencja zawiera 'produkcja' w zakresie działalności. (3) Adres na Google Maps pokazuje budynek przemysłowy, nie biurowiec. (4) Fabryka specjalizuje się w 1-3 kategoriach produktów, nie sprzedaje wszystkiego. (5) Akceptuje audyt SGS/TÜV bez wymówek. WOWOHCOOL zaprasza na audyt wideo na żywo, pokażemy Ci każdą linię produkcyjną."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Co to jest gsxt.gov.cn i jak sprawdzić chińską firmę?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "gsxt.gov.cn to oficjalny chiński rejestr przedsiębiorstw. Aby zweryfikować producenta OEM: (1) Poproś o Unified Social Credit Code (18 cyfr). (2) Wejdź na gsxt.gov.cn. (3) Wpisz nazwę firmy po chińsku lub kod. (4) Sprawdź: kapitał zakładowy, zakres działalności, adres rejestracji, datę założenia. Legalny producent dostarczy te dane w ciągu 24h."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Jakie certyfikaty musi mieć producent power banków?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Minimum: UN38.3 (transport baterii), CE (rynek UE), RoHS (substancje niebezpieczne), ISO 9001 (zarządzanie jakością). Dla wyższego standardu: BSCI (audyt społeczny), IEC 62133 (bezpieczeństwo ogniw), UL (rynek USA). WOWOHCOOL posiada wszystkie te certyfikaty, poproś o kopie raportów SGS przed złożeniem zamówienia."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Jak przeprowadzić wirtualny audyt wideo fabryki w Chinach?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Krok po kroku: (1) Umów rozmowę przez WeChat lub Zoom. (2) Poproś o pokazanie zewnętrznej części budynku, porównaj z Baidu Maps. (3) Poproś o przejście przez linie SMT, komory aging-test, stanowiska QC. (4) Zweryfikuj, czy tabliczki znamionowe maszyn zgadzają się z nazwą firmy. (5) Obserwuj pracowników, czy pracują, czy pozują. Czerwona flaga: odmowa wideo na żywo. WOWOHCOOL oferuje audyt wideo dla każdego potencjalnego klienta."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Ile kosztuje zewnętrzny audyt fabryki w Shenzhen?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Audyt przez SGS, TÜV lub Bureau Veritas kosztuje $300-800 USD w zależności od zakresu. Obejmuje: weryfikację dokumentów, inspekcję linii produkcyjnych, audyt systemu jakości i raport końcowy. Dla zamówień OEM powyżej $50 000 to obowiązkowe ubezpieczenie. WOWOHCOOL przeszedł audyt SGS ISO 9001, raport dostępny na życzenie."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Jak przetestować próbkę power banku przed zamówieniem?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "3 testy które możesz zrobić sam: (1) Test rozładowania miernikiem USB (np. YK-001, <$20), power bank 10 000 mAh powinien oddać 8 000-9 000 mAh. (2) Test ładowania, sprawdź czy moc (W) odpowiada deklarowanej. (3) Tear-down, otwórz obudowę i sprawdź markę ogniw (Samsung, LG, EVE to klasa A). Ogniwa z recyklingu mają ślady punktowego spawania."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Jakie są czerwone flagi przy wyborze producenta w Shenzhen?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "7 sygnałów ostrzegawczych: (1) Odmowa wideo na żywo. (2) Ceny 30%+ poniżej rynku, ryzyko ogniw z odzysku. (3) Brak polityki próbek, nie mogą wyprodukować według specyfikacji. (4) Tylko Western Union, profesjonalne fabryki akceptują T/T i L/C. (5) Zbyt wiele kategorii produktów, to trading company. (6) Adres na Google Maps to biurowiec. (7) Presja czasu."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Czy WOWOHCOOL przechodzi audyt klienta przed zamówieniem?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Tak. Oferujemy: (1) Wirtualny audyt wideo na żywo, pokażemy każdy etap produkcji OEM. (2) Wizytę w fabryce 5 000 m² w Longhua, Shenzhen. (3) Raport audytu ISO 9001 przez SGS. (4) Referencje od 200+ marek globalnych, w tym Bosch. (5) Próbki w 3-7 dni z pełnym raportem z testów. MOQ 500 szt. Skontaktuj się, aby umówić audyt."
+          }
+        }
+      ]
+    }
+  ]
+}</script>
 {% endblock %}
 
 {% block content %}
@@ -162,10 +359,10 @@ hreflang:
  </div>
  <h1 class="text-3xl lg:text-5xl font-black text-brandBlue uppercase italic tracking-tighter mb-6 leading-tight">Jak Znaleźć i Zweryfikować<br><span class="text-brandOrange">Producenta Power Banków</span> w Shenzhen</h1>
  <div class="flex items-center gap-3 mb-6">
- <img src="/image/factory/team-nina.webp" alt="Nina Nico, Global Procurement & Sourcing Manager WOWOHCOOL, 10+ lat w weryfikacji dostawców OEM w Chinach" loading="lazy" width="40" height="40" class="w-10 h-10 rounded-full object-cover border border-brandOrange">
+ <img src="/image/factory/team-nina.webp" alt="Nina Nico, Global Procurement & Sourcing Manager w WOWOHCOOL — specjalistka ds. sourcingu OEM/ODM" loading="lazy" width="40" height="40" class="w-10 h-10 rounded-full object-cover border border-brandOrange">
  <div>
  <a href="#author-bio" class="font-bold text-slate-900 text-sm hover:text-brandOrange transition">Nina Nico</a>
- <p class="text-xs text-slate-500">Global Procurement Manager, 10+ lat w sourcingu</p>
+ <p class="text-xs text-slate-500">Global Procurement & Sourcing Manager, 10+ lat w zakupach 3C</p>
  </div>
  </div>
  {% from "partials/post-meta.njk" import postMeta %}
@@ -425,7 +622,7 @@ hreflang:
  <div class="bg-slate-50 rounded-2xl p-6 md:p-8 mb-12 border border-slate-100">
  <div class="flex flex-col sm:flex-row items-start gap-4 sm:gap-6">
  <div class="w-20 h-20 rounded-full overflow-hidden flex items-center justify-center border-2 border-brandOrange bg-white shadow-lg shrink-0">
- <img src="/image/factory/team-nina.webp" alt="Nina Nico, Global Procurement & Sourcing Manager WOWOHCOOL, ekspertka ds. weryfikacji dostawców OEM w Shenzhen" loading="lazy" width="400" height="400" class="w-full h-full object-cover">
+ <img src="/image/factory/team-nina.webp" alt="Nina Nico, Global Procurement & Sourcing Manager w WOWOHCOOL — specjalistka ds. sourcingu OEM/ODM" loading="lazy" width="400" height="400" class="w-full h-full object-cover">
  </div>
  <div class="flex-1 min-w-0">
  <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 mb-2 sm:mb-3">

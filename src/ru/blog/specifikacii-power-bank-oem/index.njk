@@ -24,229 +24,359 @@ hreflang:
 {% extends "layout.njk" %}
 
 {% block head_schema %}
-<script type="application/ld+json">
-{
- "@context": "https://schema.org",
- "@graph": [
-  {
-   "@type": "Organization",
-   "@id": "https://www.wowohcool.com/#organization",
-   "name": "WOWOHCOOL",
-   "legalName": "Dong Yi Technology Co., Ltd",
-   "url": "https://www.wowohcool.com/ru/o-kompanii/",
-   "publishingPrinciples": "https://www.wowohcool.com/ru/o-kompanii/",
-   "logo": { "@type": "ImageObject", "url": "https://www.wowohcool.com/image/wowohcool-logo-optimized.webp", "width": 600, "height": 60 },
-   "areaServed": ["RU", "KZ", "BY", "EAEU"],
-   "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "925, Yichuang International Center, Longhua District",
-    "addressLocality": "Shenzhen",
-    "addressRegion": "Guangdong",
-    "postalCode": "518111",
-    "addressCountry": "CN"
-   },
-   "sameAs": [
-    "https://www.linkedin.com/company/wowohcool",
-    "https://www.facebook.com/wowohcoolelectronic",
-    "https://www.youtube.com/@WOWOHCOOL",
-    "https://x.com/wowohcool"
-   ],
-   "contactPoint": {
-    "@type": "ContactPoint",
-    "contactType": "OEM/ODM Sales",
-    "telephone": "+86-18620789739",
-    "email": "info@wowohcool.com",
-    "availableLanguage": ["Russian", "English", "German", "Chinese"]
-   }
-  },
-  {
-   "@type": "WebSite",
-   "@id": "https://www.wowohcool.com/#website",
-   "url": "https://www.wowohcool.com/ru/",
-   "name": "WOWOHCOOL",
-   "inLanguage": "ru-RU",
-   "publisher": { "@id": "https://www.wowohcool.com/#organization" }
-  },
-  {
-   "@type": "BreadcrumbList",
-   "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": "Главная", "item": "https://www.wowohcool.com/ru/" },
-    { "@type": "ListItem", "position": 2, "name": "Блог", "item": "https://www.wowohcool.com/ru/blog/" },
-    { "@type": "ListItem", "position": 3, "name": "Спецификации Power Bank OEM", "item": "https://www.wowohcool.com/ru/blog/specifikacii-power-bank-oem/" }
-   ]
-  },
-  {
-   "@type": "BlogPosting",
-   "@id": "https://www.wowohcool.com/ru/blog/specifikacii-power-bank-oem/#article",
-   "headline": "Power Bank OEM: Технические Спецификации для Импортёров 2026",
-   "keywords": ["Power Bank", "Спецификации", "мАч", "PD 3.1", "Аккумулятор", "Li-Po", "LiFePO4", "EAC", "UN38.3", "OEM", "Импортёр", "Grade A"],
-   "description": "Спецификации power bank для импортёров OEM: мАч (реальная vs номинальная), PD 3.1, типы аккумуляторов (Li-Po, LiFePO4, Semi-Solid). Сертификация EAC/UN38.3. Цены FOB от $4,80/шт, MOQ 500.",
-   "author": { "@id": "https://www.wowohcool.com/#nina-nico" },
-   "publisher": { "@id": "https://www.wowohcool.com/#organization" },
-   "datePublished": "2026-08-08",
-   "dateModified": "2026-08-08",
-   "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.wowohcool.com/ru/blog/specifikacii-power-bank-oem/" },
-   "wordCount": 2558,
-   "inLanguage": "ru-RU",
-   "timeRequired": "PT17M",
-   "articleSection": "Power Bank и Аккумуляторы",
-   "image": "https://www.wowohcool.com/image/blog/cover-ru/specifikacii-power-bank-oem.webp",
-   "thumbnailUrl": "https://www.wowohcool.com/image/blog/cover-ru/specifikacii-power-bank-oem.webp",
-   "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".speakable"] },
-   "about": { "@type": "Thing", "name": "Power Bank", "sameAs": "https://www.wikidata.org/wiki/Q15961849" },
-   "citation": [
-    { "@type": "CreativeWork", "name": "IATA DGR 67th Edition, Lithium Battery Transport Regulations", "url": "https://www.iata.org/" },
-    { "@type": "CreativeWork", "name": "UN38.3, Manual of Tests and Criteria, Section 38.3", "url": "https://unece.org/" },
-    { "@type": "CreativeWork", "name": "GB 47372-2026, Safety Technical Specification for Power Banks", "url": "https://www.sac.gov.cn/" },
-    { "@type": "CreativeWork", "name": "ТР ТС 004/2011, О безопасности низковольтного оборудования", "url": "https://docs.cntd.ru/" },
-    { "@type": "CreativeWork", "name": "WOWOHCOOL, Завод-производитель power bank с 2013 года", "url": "https://www.wowohcool.com/ru/o-kompanii/" }
-   ]
-  },
-  {
-   "@type": "Person",
-   "@id": "https://www.wowohcool.com/#nina-nico",
-   "name": "Nina Nico",
-   "jobTitle": "Global Procurement & Sourcing Manager",
-   "url": "https://www.wowohcool.com/authors/nina-nico/",
-   "worksFor": { "@id": "https://www.wowohcool.com/#organization" },
-   "knowsAbout": [
-    "Global Supply Chain Sourcing",
-    "Cross-Border OEM Negotiation",
-    "3C Accessories OEM/ODM",
-    "Power Bank Battery Cell Verification",
-    "EU & EAC Regulatory Compliance"
-   ],
-   "image": "https://www.wowohcool.com/image/factory/team-nina.webp",
-   "sameAs": ["https://www.linkedin.com/in/nico-power-bank-chargers"]
-  },
-  {
-   "@type": "HowTo",
-   "@id": "https://www.wowohcool.com/ru/blog/specifikacii-power-bank-oem/#howto",
-   "name": "Проверить спецификации power bank перед заказом OEM за 5 шагов",
-   "description": "Алгоритм верификации спецификаций power bank: реальная ёмкость, тип ячеек, протокол PD, сертификация, авиаперевозка. Для импортёров РФ.",
-   "totalTime": "P14D",
-   "step": [
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
     {
-     "@type": "HowToStep",
-     "position": 1,
-     "name": "Проверьте реальную ёмкость: закажите разрядный тест 0.2C",
-     "itemListElement": [{
-      "@type": "HowToDirection",
-      "text": "Номинальная ёмкость (10 000 мАч при 3,7V = 37 Вт·ч) не равна полезной. Формула: Полезная = (Номинальная × 3,7V × КПД) / 5V. При КПД 85% банк 10 000 мАч отдаст ~6 290 мАч. Требуйте от поставщика отчёт разрядного теста 0.2C до отсечки 3.0V — полезная ёмкость должна быть ≥60% номинальной."
-     }]
+      "@type": "Organization",
+      "@id": "https://www.wowohcool.com/#organization",
+      "name": "WOWOHCOOL",
+      "legalName": "Dong Yi Technology Co., Ltd",
+      "foundingDate": "2013",
+      "vatID": "91441900MA558A2N27",
+      "url": "https://www.wowohcool.com/ru/o-kompanii/",
+      "publishingPrinciples": "https://www.wowohcool.com/ru/o-kompanii/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.wowohcool.com/image/wowohcool-logo-optimized.webp",
+        "width": 600,
+        "height": 60
+      },
+      "areaServed": [
+        "US",
+        "DE",
+        "AT",
+        "CH",
+        "UK",
+        "FR",
+        "ES",
+        "PL",
+        "EU",
+        "JP",
+        "KR",
+        "AU",
+        "MX",
+        "CO",
+        "AR",
+        "CL",
+        "PE",
+        "RU",
+        "KZ",
+        "BY",
+        "EAEU"
+      ],
+      "knowsAbout": [
+        "OEM/ODM Power Bank Manufacturing",
+        "Qi2 Wireless Charging Standard",
+        "GaN Power Architecture",
+        "Automotive Fast Charging Systems",
+        "Custom Power Adapter Production",
+        "Consumer Electronics Sourcing",
+        "UL & CE Safety Compliance"
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "925, Yichuang International Center, Longhua District",
+        "addressLocality": "Shenzhen",
+        "addressRegion": "Guangdong",
+        "postalCode": "518111",
+        "addressCountry": "CN"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/company/wowohcool",
+        "https://www.facebook.com/wowohcoolelectronic",
+        "https://www.youtube.com/@WOWOHCOOL",
+        "https://x.com/wowohcool"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "OEM/ODM Sales",
+        "telephone": "+86-18620789739",
+        "email": "info@wowohcool.com",
+        "availableLanguage": [
+          "English",
+          "German",
+          "Spanish",
+          "French",
+          "Russian",
+          "Polish"
+        ]
+      }
     },
     {
-     "@type": "HowToStep",
-     "position": 2,
-     "name": "Запросите модель и Grade ячеек в контракте",
-     "itemListElement": [{
-      "@type": "HowToDirection",
-      "text": "Укажите в PO: «Ячейки Grade A — Samsung SDI 50E (INR21700-50E), LG MH1, или Panasonic NCR18650B». Grade A: ресурс 500+ циклов до 80%, внутреннее сопротивление <60 мОм. Grade B: ёмкость 1 800-2 100 мАч вместо заявленных 2 600 мАч, <200 циклов, возвраты 5-8%. WOWOHCOOL использует только Grade A — возвраты <0,3%."
-     }]
+      "@type": "WebSite",
+      "@id": "https://www.wowohcool.com/#website",
+      "url": "https://www.wowohcool.com/ru/",
+      "name": "WOWOHCOOL",
+      "inLanguage": "ru-RU",
+      "publisher": {
+        "@id": "https://www.wowohcool.com/#organization"
+      }
     },
     {
-     "@type": "HowToStep",
-     "position": 3,
-     "name": "Выберите протокол зарядки под целевой сегмент рынка",
-     "itemListElement": [{
-      "@type": "HowToDirection",
-      "text": "18-20W PD — минимальный стандарт 2026 года (iPhone быстрая зарядка). 30W PD + PPS — флагманский телефонный сегмент (Samsung, Pixel). 45-65W PD 3.0 — самый быстрорастущий сегмент (iPad, MacBook Air). 100W+ PD 3.1 EPR — ноутбучный сегмент, требует кабель с чипом E-Marker. Затраты растут на $0.50-15.00 в зависимости от тира мощности."
-     }]
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Главная",
+          "item": "https://www.wowohcool.com/ru/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Блог",
+          "item": "https://www.wowohcool.com/ru/blog/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Спецификации Power Bank OEM",
+          "item": "https://www.wowohcool.com/ru/blog/specifikacii-power-bank-oem/"
+        }
+      ]
     },
     {
-     "@type": "HowToStep",
-     "position": 4,
-     "name": "Проверьте сертификацию: UN38.3 + EAC обязательны",
-     "itemListElement": [{
-      "@type": "HowToDirection",
-      "text": "UN38.3 — обязателен для авиа и моря (8 тестов на уровне ячейки и батареи). EAC — ТР ТС 004/2011 + ТР ТС 020/2011, декларация DoC ($1 500-3 000, 2-4 нед.). GB 47372-2026 — новый китайский стандарт безопасности power bank (обязателен для заводов в КНР с 2026). CE/FCC/RoHS — для рынков ЕС и США. Запросите сертификаты на конкретную модель ячейки."
-     }]
+      "@type": "BlogPosting",
+      "@id": "https://www.wowohcool.com/ru/blog/specifikacii-power-bank-oem/#article",
+      "headline": "Power Bank OEM: Технические Спецификации для Импортёров 2026",
+      "keywords": [
+        "Power Bank",
+        "Спецификации",
+        "мАч",
+        "PD 3.1",
+        "Аккумулятор",
+        "Li-Po",
+        "LiFePO4",
+        "EAC",
+        "UN38.3",
+        "OEM",
+        "Импортёр",
+        "Grade A"
+      ],
+      "description": "Спецификации power bank для импортёров OEM: мАч (реальная vs номинальная), PD 3.1, типы аккумуляторов (Li-Po, LiFePO4, Semi-Solid). Сертификация EAC/UN38.3. Цены FOB от $4,80/шт, MOQ 500.",
+      "author": {
+        "@id": "https://www.wowohcool.com/#nina-nico"
+      },
+      "publisher": {
+        "@id": "https://www.wowohcool.com/#organization"
+      },
+      "datePublished": "2026-08-08",
+      "dateModified": "2026-08-08",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://www.wowohcool.com/ru/blog/specifikacii-power-bank-oem/"
+      },
+      "wordCount": 2558,
+      "inLanguage": "ru-RU",
+      "timeRequired": "PT17M",
+      "articleSection": "Power Bank и Аккумуляторы",
+      "image": "https://www.wowohcool.com/image/blog/cover-ru/specifikacii-power-bank-oem.webp",
+      "thumbnailUrl": "https://www.wowohcool.com/image/blog/cover-ru/specifikacii-power-bank-oem.webp",
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [
+          "h1",
+          ".speakable"
+        ]
+      },
+      "about": {
+        "@type": "Thing",
+        "name": "Power Bank",
+        "sameAs": "https://www.wikidata.org/wiki/Q15941790"
+      },
+      "citation": [
+        {
+          "@type": "CreativeWork",
+          "name": "IATA DGR 67th Edition, Lithium Battery Transport Regulations",
+          "url": "https://www.iata.org/"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "UN38.3, Manual of Tests and Criteria, Section 38.3",
+          "url": "https://unece.org/"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "GB 47372-2026, Safety Technical Specification for Power Banks",
+          "url": "https://www.sac.gov.cn/"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "ТР ТС 004/2011, О безопасности низковольтного оборудования",
+          "url": "https://docs.cntd.ru/"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "WOWOHCOOL, Завод-производитель power bank с 2013 года",
+          "url": "https://www.wowohcool.com/ru/o-kompanii/"
+        }
+      ]
     },
     {
-     "@type": "HowToStep",
-     "position": 5,
-     "name": "Рассчитайте Вт·ч и проверьте лимиты авиаперевозки",
-     "itemListElement": [{
-      "@type": "HowToDirection",
-      "text": "Вт·ч = (мАч × 3,7V) / 1 000. До 100 Вт·ч (≈27 000 мАч) — ручная кладь без согласования. 100-160 Вт·ч — согласование авиакомпании. >160 Вт·ч — запрещено. UN3480 (отдельные батареи) — строже, чем UN3481 (в оборудовании). IATA 2026: SOC ≤30% для авиаперевозки литиевых батарей."
-     }]
+      "@type": "Person",
+      "@id": "https://www.wowohcool.com/#nina-nico",
+      "name": "Nina Nico",
+      "jobTitle": "Global Procurement & Sourcing Manager",
+      "url": "https://www.wowohcool.com/authors/nina-nico/",
+      "worksFor": {
+        "@id": "https://www.wowohcool.com/#organization"
+      },
+      "knowsAbout": [
+        "B2B Hardware Sourcing",
+        "OEM/ODM Power Bank Manufacturing",
+        "Supply Chain Quality Assurance",
+        "International Electronics Trade Compliance",
+        "Custom Power Adapter Production",
+        "Factory Audit Standards"
+      ],
+      "image": "https://www.wowohcool.com/image/factory/team-nina.webp",
+      "sameAs": [
+        "https://www.linkedin.com/in/nico-power-bank-chargers"
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://www.wowohcool.com/ru/blog/specifikacii-power-bank-oem/#howto",
+      "name": "Проверить спецификации power bank перед заказом OEM за 5 шагов",
+      "description": "Алгоритм верификации спецификаций power bank: реальная ёмкость, тип ячеек, протокол PD, сертификация, авиаперевозка. Для импортёров РФ.",
+      "totalTime": "PT2H",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Проверьте реальную ёмкость: закажите разрядный тест 0.2C",
+          "itemListElement": [
+            {
+              "@type": "HowToDirection",
+              "text": "Номинальная ёмкость (10 000 мАч при 3,7V = 37 Вт·ч) не равна полезной. Формула: Полезная = (Номинальная × 3,7V × КПД) / 5V. При КПД 85% банк 10 000 мАч отдаст ~6 290 мАч. Требуйте от поставщика отчёт разрядного теста 0.2C до отсечки 3.0V — полезная ёмкость должна быть ≥60% номинальной."
+            }
+          ]
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Запросите модель и Grade ячеек в контракте",
+          "itemListElement": [
+            {
+              "@type": "HowToDirection",
+              "text": "Укажите в PO: «Ячейки Grade A — Samsung SDI 50E (INR21700-50E), LG MH1, или Panasonic NCR18650B». Grade A: ресурс 500+ циклов до 80%, внутреннее сопротивление <60 мОм. Grade B: ёмкость 1 800-2 100 мАч вместо заявленных 2 600 мАч, <200 циклов, возвраты 5-8%. WOWOHCOOL использует только Grade A — возвраты <0,3%."
+            }
+          ]
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Выберите протокол зарядки под целевой сегмент рынка",
+          "itemListElement": [
+            {
+              "@type": "HowToDirection",
+              "text": "18-20W PD — минимальный стандарт 2026 года (iPhone быстрая зарядка). 30W PD + PPS — флагманский телефонный сегмент (Samsung, Pixel). 45-65W PD 3.0 — самый быстрорастущий сегмент (iPad, MacBook Air). 100W+ PD 3.1 EPR — ноутбучный сегмент, требует кабель с чипом E-Marker. Затраты растут на $0.50-15.00 в зависимости от тира мощности."
+            }
+          ]
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Проверьте сертификацию: UN38.3 + EAC обязательны",
+          "itemListElement": [
+            {
+              "@type": "HowToDirection",
+              "text": "UN38.3 — обязателен для авиа и моря (8 тестов на уровне ячейки и батареи). EAC — ТР ТС 004/2011 + ТР ТС 020/2011, декларация DoC ($1 500-3 000, 2-4 нед.). GB 47372-2026 — новый китайский стандарт безопасности power bank (обязателен для заводов в КНР с 2026). CE/FCC/RoHS — для рынков ЕС и США. Запросите сертификаты на конкретную модель ячейки."
+            }
+          ]
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Рассчитайте Вт·ч и проверьте лимиты авиаперевозки",
+          "itemListElement": [
+            {
+              "@type": "HowToDirection",
+              "text": "Вт·ч = (мАч × 3,7V) / 1 000. До 100 Вт·ч (≈27 000 мАч) — ручная кладь без согласования. 100-160 Вт·ч — согласование авиакомпании. >160 Вт·ч — запрещено. UN3480 (отдельные батареи) — строже, чем UN3481 (в оборудовании). IATA 2026: SOC ≤30% для авиаперевозки литиевых батарей."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.wowohcool.com/ru/blog/specifikacii-power-bank-oem/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Какая реальная ёмкость у power bank 10 000 мАч?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Реальная (полезная) ёмкость составляет 60-75% от номинальной. Power bank 10 000 мАч при 3,7V (37 Вт·ч) после преобразования в 5V с КПД 85% отдаст ~6 290 мАч. Точная цифра зависит от КПД преобразователя (80-92% в качественных моделях). При приёмке всегда проводите разрядный тест 5V/2A — полезная ёмкость ниже 60% номинальной означает некачественные ячейки."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Чем отличаются ячейки Grade A от Grade B и как это проверить?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Grade A (Samsung SDI, LG, Panasonic): полная спецификация по ёмкости, 500+ циклов до 80%, внутреннее сопротивление <60 мОм, индивидуальная прослеживаемость, возвраты <0,3%. Grade B (отбраковка производства): ёмкость 1 800-2 100 мАч вместо 2 600 мАч, <200 циклов, возвраты 5-8%. Проверка: запросите модель ячеек в PO и проведите разрядный тест 0.2C до 3.0V на 10 случайных образцах из партии."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Какой тип аккумулятора лучше для OEM — Li-Po или 18650?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Li-Polymer (pouch): тоньше (до 8 мм в корпусе), легче (150-200 Вт·ч/кг), дороже. Оптимален для премиальных и тонких power bank 10 000-20 000 мАч. 18650/21700 (цилиндрические): дешевле, ремонтопригоднее, но толще (>18 мм). Оптимален для бюджетных и high-capacity моделей 20 000-30 000 мАч. LiFePO4 — максимальная безопасность (3 000+ циклов), но тяжелее и дороже. Semi-Solid-State — флагман (260-350 Вт·ч/кг, 500+ циклов, нулевой риск теплового разгона), цена от $14/шт (10 000 мАч, 500 шт.)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Какие сертификаты обязательны для импорта power bank в РФ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Обязательные: UN38.3 (8 тестов безопасности, авиа и море), EAC декларация ТР ТС 004/2011 + ТР ТС 020/2011 ($1 500-3 000, 2-4 нед.), Рекомендуемые: CE (EU), FCC (US), RoHS. Для маркетплейсов (Ozon, Wildberries) критично наличие записи EAC в ФГИС Росаккредитации в течение 24 часов после выдачи — без неё карточка товара блокируется. GB 47372-2026 — новый китайский стандарт (обязателен для заводов, не для импортёров, но полезен при аудите поставщика)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Сколько стоит OEM power bank 10 000 мАч с PD 20W?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "FOB Shenzhen, 500 шт.: $7,50-10,00/шт (Grade A ячейки, PD 20W). При 1 000 шт.: $6,80-9,00/шт. При 5 000 шт.: $6,20-8,20/шт. Цена включает: сертификацию CE/FCC/RoHS/UN38.3, 4-ступенчатый QC, лазерную гравировку логотипа. Не включает: EAC-декларирование ($1 500-3 000), доставку. Бюджетные фабрики предлагают цены на 15-25% ниже, но на ячейках Grade B с возвратами 5-8%."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Что такое GB 47372-2026 и касается ли он импортёров РФ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "GB 47372-2026 — новый обязательный китайский стандарт безопасности power bank, вступивший в силу в 2026 году. Требования: максимальная температура поверхности ≤48°C при полной нагрузке (вместо прежних 65°C), обязательный сертификат CCC для внутреннего рынка КНР, протоколы утилизации. Для импортёров РФ стандарт не обязателен, но критичен при аудите завода: завод без сертификата GB 47372-2026 не может легально производить power bank в Китае. WOWOHCOOL: сертифицирован по GB 47372-2026 с июля 2026."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Как проверить качество ячеек при приёмке партии power bank?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Три шага: (1) Разрядный тест — 5V/2A нагрузка, замер полезной ёмкости, должно быть ≥60% от номинальной. (2) Внутреннее сопротивление — замер на 1 кГц, Grade A <60 мОм для 18650, <30 мОм для 21700. (3) Циклический тест — 50 циклов заряд-разряд, остаточная ёмкость ≥95% от начальной. Заводы ISO 9001 (как WOWOHCOOL) проводят 100% aging test 4 часа и предоставляют отчёты по каждому батчу. Сторонняя инспекция (SGS, Bureau Veritas): $300-800."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Можно ли возить power bank самолётом — какие ограничения?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Да, с ограничениями. До 100 Вт·ч (≈27 000 мАч при 3,7V) — ручная кладь, без согласования авиакомпании. 100-160 Вт·ч — до 2 шт. на пассажира, требуется согласование. >160 Вт·ч — запрещено. Только ручная кладь (не багаж). IATA DGR 67th Edition (2026): state of charge ≤30% для авиаперевозки. UN3480 (отдельный power bank): Class 9 dangerous goods, строже чем UN3481 (встроенный в устройство)."
+          }
+        }
+      ],
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [
+          ".faq-answer"
+        ]
+      }
     }
-   ]
-  },
-  {
-   "@type": "FAQPage",
-   "@id": "https://www.wowohcool.com/ru/blog/specifikacii-power-bank-oem/#faq",
-   "mainEntity": [
-    {
-     "@type": "Question",
-     "name": "Какая реальная ёмкость у power bank 10 000 мАч?",
-     "acceptedAnswer": {
-      "@type": "Answer",
-      "text": "Реальная (полезная) ёмкость составляет 60-75% от номинальной. Power bank 10 000 мАч при 3,7V (37 Вт·ч) после преобразования в 5V с КПД 85% отдаст ~6 290 мАч. Точная цифра зависит от КПД преобразователя (80-92% в качественных моделях). При приёмке всегда проводите разрядный тест 5V/2A — полезная ёмкость ниже 60% номинальной означает некачественные ячейки."
-     }
-    },
-    {
-     "@type": "Question",
-     "name": "Чем отличаются ячейки Grade A от Grade B и как это проверить?",
-     "acceptedAnswer": {
-      "@type": "Answer",
-      "text": "Grade A (Samsung SDI, LG, Panasonic): полная спецификация по ёмкости, 500+ циклов до 80%, внутреннее сопротивление <60 мОм, индивидуальная прослеживаемость, возвраты <0,3%. Grade B (отбраковка производства): ёмкость 1 800-2 100 мАч вместо 2 600 мАч, <200 циклов, возвраты 5-8%. Проверка: запросите модель ячеек в PO и проведите разрядный тест 0.2C до 3.0V на 10 случайных образцах из партии."
-     }
-    },
-    {
-     "@type": "Question",
-     "name": "Какой тип аккумулятора лучше для OEM — Li-Po или 18650?",
-     "acceptedAnswer": {
-      "@type": "Answer",
-      "text": "Li-Polymer (pouch): тоньше (до 8 мм в корпусе), легче (150-200 Вт·ч/кг), дороже. Оптимален для премиальных и тонких power bank 10 000-20 000 мАч. 18650/21700 (цилиндрические): дешевле, ремонтопригоднее, но толще (>18 мм). Оптимален для бюджетных и high-capacity моделей 20 000-30 000 мАч. LiFePO4 — максимальная безопасность (3 000+ циклов), но тяжелее и дороже. Semi-Solid-State — флагман (260-350 Вт·ч/кг, 500+ циклов, нулевой риск теплового разгона), цена от $14/шт (10 000 мАч, 500 шт.)."
-     }
-    },
-    {
-     "@type": "Question",
-     "name": "Какие сертификаты обязательны для импорта power bank в РФ?",
-     "acceptedAnswer": {
-      "@type": "Answer",
-      "text": "Обязательные: UN38.3 (8 тестов безопасности, авиа и море), EAC декларация ТР ТС 004/2011 + ТР ТС 020/2011 ($1 500-3 000, 2-4 нед.), Рекомендуемые: CE (EU), FCC (US), RoHS. Для маркетплейсов (Ozon, Wildberries) критично наличие записи EAC в ФГИС Росаккредитации в течение 24 часов после выдачи — без неё карточка товара блокируется. GB 47372-2026 — новый китайский стандарт (обязателен для заводов, не для импортёров, но полезен при аудите поставщика)."
-     }
-    },
-    {
-     "@type": "Question",
-     "name": "Сколько стоит OEM power bank 10 000 мАч с PD 20W?",
-     "acceptedAnswer": {
-      "@type": "Answer",
-      "text": "FOB Shenzhen, 500 шт.: $7,50-10,00/шт (Grade A ячейки, PD 20W). При 1 000 шт.: $6,80-9,00/шт. При 5 000 шт.: $6,20-8,20/шт. Цена включает: сертификацию CE/FCC/RoHS/UN38.3, 4-ступенчатый QC, лазерную гравировку логотипа. Не включает: EAC-декларирование ($1 500-3 000), доставку. Бюджетные фабрики предлагают цены на 15-25% ниже, но на ячейках Grade B с возвратами 5-8%."
-     }
-    },
-    {
-     "@type": "Question",
-     "name": "Что такое GB 47372-2026 и касается ли он импортёров РФ?",
-     "acceptedAnswer": {
-      "@type": "Answer",
-      "text": "GB 47372-2026 — новый обязательный китайский стандарт безопасности power bank, вступивший в силу в 2026 году. Требования: максимальная температура поверхности ≤48°C при полной нагрузке (вместо прежних 65°C), обязательный сертификат CCC для внутреннего рынка КНР, протоколы утилизации. Для импортёров РФ стандарт не обязателен, но критичен при аудите завода: завод без сертификата GB 47372-2026 не может легально производить power bank в Китае. WOWOHCOOL: сертифицирован по GB 47372-2026 с июля 2026."
-     }
-    },
-    {
-     "@type": "Question",
-     "name": "Как проверить качество ячеек при приёмке партии power bank?",
-     "acceptedAnswer": {
-      "@type": "Answer",
-      "text": "Три шага: (1) Разрядный тест — 5V/2A нагрузка, замер полезной ёмкости, должно быть ≥60% от номинальной. (2) Внутреннее сопротивление — замер на 1 кГц, Grade A <60 мОм для 18650, <30 мОм для 21700. (3) Циклический тест — 50 циклов заряд-разряд, остаточная ёмкость ≥95% от начальной. Заводы ISO 9001 (как WOWOHCOOL) проводят 100% aging test 4 часа и предоставляют отчёты по каждому батчу. Сторонняя инспекция (SGS, Bureau Veritas): $300-800."
-     }
-    },
-    {
-     "@type": "Question",
-     "name": "Можно ли возить power bank самолётом — какие ограничения?",
-     "acceptedAnswer": {
-      "@type": "Answer",
-      "text": "Да, с ограничениями. До 100 Вт·ч (≈27 000 мАч при 3,7V) — ручная кладь, без согласования авиакомпании. 100-160 Вт·ч — до 2 шт. на пассажира, требуется согласование. >160 Вт·ч — запрещено. Только ручная кладь (не багаж). IATA DGR 67th Edition (2026): state of charge ≤30% для авиаперевозки. UN3480 (отдельный power bank): Class 9 dangerous goods, строже чем UN3481 (встроенный в устройство)."
-     }
-    }
-   ],
-   "speakable": { "@type": "SpeakableSpecification", "cssSelector": [".faq-answer"] }
-  }
- ]
-}
-</script>
+  ]
+}</script>
 {% endblock %}
 
 {% block content %}
@@ -269,7 +399,7 @@ hreflang:
   </div>
   <h1 class="text-3xl lg:text-5xl font-black text-brandBlue uppercase italic tracking-tighter mb-6 leading-tight">Power Bank OEM: Технические Спецификации для Импортёров 2026</h1>
   <div class="flex items-center gap-3 mb-6">
-   <img src="/image/factory/team-nina.webp" alt="Nina Nico — Global Procurement & Sourcing Manager, WOWOHCOOL" width="40" height="40" loading="lazy" class="w-10 h-10 rounded-full object-cover border border-brandOrange">
+   <img src="/image/factory/team-nina.webp" alt="Nina Nico, Global Procurement & Sourcing Manager в WOWOHCOOL — специалист по OEM/ODM-сорсингу" width="40" height="40" loading="lazy" class="w-10 h-10 rounded-full object-cover border border-brandOrange">
    <div>
     <a href="#author-bio" class="font-bold text-slate-900 text-sm hover:text-brandOrange transition">Nina Nico</a>
     <p class="text-xs text-slate-500">Global Procurement & Sourcing Manager · 10+ лет в 3C sourcing</p>
@@ -623,7 +753,7 @@ hreflang:
  <div class="bg-slate-50 rounded-2xl p-6 md:p-8 mb-12 border border-slate-100">
   <div class="flex flex-col sm:flex-row items-start gap-4 sm:gap-6">
    <div class="w-20 h-20 rounded-full overflow-hidden flex items-center justify-center border-2 border-brandOrange bg-white shadow-lg shrink-0">
-    <img src="/image/factory/team-nina.webp" alt="Nina Nico — Global Procurement & Sourcing Manager, 10+ лет в 3C procurement и sourcing ячеек power bank" loading="lazy" width="400" height="400" class="w-full h-full object-cover">
+    <img src="/image/factory/team-nina.webp" alt="Nina Nico, Global Procurement & Sourcing Manager в WOWOHCOOL — специалист по OEM/ODM-сорсингу" loading="lazy" width="400" height="400" class="w-full h-full object-cover">
    </div>
    <div class="flex-1 min-w-0">
     <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 mb-2 sm:mb-3">

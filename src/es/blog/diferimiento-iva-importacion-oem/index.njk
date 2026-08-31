@@ -16,115 +16,273 @@ hreflang:
 {% extends "layout.njk" %}
 
 {% block head_schema %}
-<script type="application/ld+json">
-{
- "@context": "https://schema.org",
- "@graph": [
-  {
-   "@type": "Organization",
-   "@id": "https://www.wowohcool.com/#organization",
-   "name": "WOWOHCOOL",
-   "legalName": "Dong Yi Technology Co., Ltd",
-   "url": "https://www.wowohcool.com/es/sobre-nosotros/",
-   "publishingPrinciples": "https://www.wowohcool.com/es/sobre-nosotros/",
-   "logo": {
-    "@type": "ImageObject",
-    "url": "https://www.wowohcool.com/image/wowohcool-logo-optimized.webp",
-    "width": 600,
-    "height": 60
-   },
-   "areaServed": ["US","DE","AT","CH","UK","FR","ES","EU","JP","KR","AU","MX","CO","AR","CL","PE"],
-   "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "925, Yichuang International Center, Longhua District",
-    "addressLocality": "Shenzhen",
-    "addressRegion": "Guangdong",
-    "postalCode": "518111",
-    "addressCountry": "CN"
-   },
-   "sameAs": [
-    "https://www.linkedin.com/company/wowohcool",
-    "https://www.facebook.com/wowohcoolelectronic",
-    "https://www.youtube.com/@WOWOHCOOL",
-    "https://x.com/wowohcool"
-   ],
-   "contactPoint": {
-    "@type": "ContactPoint",
-    "contactType": "OEM/ODM Sales",
-    "telephone": "+86-18620789739",
-    "email": "info@wowohcool.com",
-    "availableLanguage": ["English","German","Spanish","French","Chinese"]
-   }
-  },
-  {
-   "@type": "WebSite",
-   "@id": "https://www.wowohcool.com/#website",
-   "url": "https://www.wowohcool.com/es/",
-   "name": "WOWOHCOOL",
-   "inLanguage": "es-ES",
-   "publisher": { "@id": "https://www.wowohcool.com/#organization" }
-  },
-  {
-   "@type": "BreadcrumbList",
-   "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://www.wowohcool.com/es/" },
-    { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.wowohcool.com/es/blog/" },
-    { "@type": "ListItem", "position": 3, "name": "Diferimiento del IVA de Importación", "item": "https://www.wowohcool.com/es/blog/diferimiento-iva-importacion-oem/" }
-   ]
-  },
-  {
-   "@type": "BlogPosting",
-   "@id": "https://www.wowohcool.com/es/blog/diferimiento-iva-importacion-oem/#article",
-   "headline": "Diferimiento del IVA de Importación: Guía para Importadores 2026",
-   "description": "IVA importación 21% diferido: REDEME, modelo 036 casilla 530, modelo 303 casilla 77 y cálculo de flujo de caja. Guía para importadores.",
-   "keywords": ["IVA", "diferimiento IVA", "importación", "REDEME", "modelo 303", "casilla 77", "modelo 036", "casilla 530", "importador", "OEM", "flujo de caja"],
-   "author": { "@id": "https://www.wowohcool.com/#nina-nico" },
-   "publisher": { "@id": "https://www.wowohcool.com/#organization" },
-   "image": "https://www.wowohcool.com/image/blog/cover-es/diferimiento-iva-importacion-oem.webp",
-   "datePublished": "2026-08-17",
-   "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://www.wowohcool.com/es/blog/diferimiento-iva-importacion-oem/"
-   },
-   "dateModified": "2026-08-17",
-   "wordCount": 2018,
-   "inLanguage": "es-ES",
-   "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".speakable"] },
-   "about": { "@type": "Thing", "name": "Impuesto sobre el Valor Añadido", "sameAs": "https://www.wikidata.org/wiki/Q4118" },
-   "citation": [
-    { "@type": "CreativeWork", "name": "Agencia Tributaria — IVA diferido a la importación", "url": "https://sede.agenciatributaria.gob.es/" },
-    { "@type": "CreativeWork", "name": "Agencia Tributaria — Manual del IVA (modelo 303)", "url": "https://sede.agenciatributaria.gob.es/" },
-    { "@type": "CreativeWork", "name": "BestWay — Deferred import VAT", "url": "https://bestwaycargo.es/en/deferred-import-vat/" }
-   ]
-  },
-  {
-   "@type": "Person",
-   "@id": "https://www.wowohcool.com/#nina-nico",
-   "name": "Nina Nico",
-   "jobTitle": "Global Procurement & Sourcing Manager",
-   "url": "https://www.wowohcool.com/authors/nina-nico/",
-   "sameAs": "https://www.linkedin.com/in/nico-power-bank-chargers",
-   "image": "https://www.wowohcool.com/image/factory/team-nina.webp",
-   "worksFor": { "@id": "https://www.wowohcool.com/#organization" },
-   "knowsAbout": ["Global Supply Chain Sourcing", "Cross-Border OEM Negotiation", "GaN Charger & Power Bank Manufacturing", "EU Regulatory Compliance & Battery Regulation"]
-  },
-  {
-   "@type": "FAQPage",
-   "@id": "https://www.wowohcool.com/es/blog/diferimiento-iva-importacion-oem/#faq",
-   "mainEntity": [
-    { "@type": "Question", "name": "¿Qué es el diferimiento del IVA a la importación?", "acceptedAnswer": { "@type": "Answer", "text": "Es un régimen que permite no pagar el IVA del 21% en la aduana al levantar la mercancía, sino liquidarlo en el modelo 303/322 y deducirlo simultáneamente. El efecto financiero suele ser neutro, liberando flujo de caja." } },
-    { "@type": "Question", "name": "¿Quién puede acogerse al IVA diferido?", "acceptedAnswer": { "@type": "Answer", "text": "Importadores con liquidación mensual, grandes empresas con volumen superior a 6.010.121,04 € el año anterior, o inscritos en REDEME. Basta haber solicitado la inscripción en REDEME para poder aplicar el diferimiento." } },
-    { "@type": "Question", "name": "¿Qué es el REDEME y qué requisitos tiene?", "acceptedAnswer": { "@type": "Answer", "text": "El REDEME (Registro de Devolución Mensual) adelanta las devoluciones de IVA. Requiere presentar la declaración censal en plazo, estar al corriente de obligaciones y no haber sido excluido en los 3 años previos. Implica la obligación de SII desde el 1 de enero siguiente." } },
-    { "@type": "Question", "name": "¿Cómo solicito el diferimiento (modelo 036)?", "acceptedAnswer": { "@type": "Answer", "text": "Se ejerce mediante el modelo 036 en la sección 6 «IVA», opción F «Pago del IVA a la importación», marcando la casilla 530. El plazo es durante el mes de noviembre del año anterior, con efecto obligatorio para todo el año natural siguiente." } },
-    { "@type": "Question", "name": "¿Qué casilla del modelo 303 corresponde al IVA diferido?", "acceptedAnswer": { "@type": "Answer", "text": "La casilla 77 corresponde al «IVA a la importación liquidado por la Aduana pendiente de ingreso». La casilla 33 corresponde a las cuotas ya pagadas en importaciones. El importador deduce el IVA diferido en la misma autoliquidación." } },
-    { "@type": "Question", "name": "¿Cuánto flujo de caja libera el diferimiento?", "acceptedAnswer": { "@type": "Answer", "text": "En una importación de 5 000 cargadores con CIF de 26 350 $ y arancel del 4,5%, el IVA del 21% asciende a 5 783 $. Con diferimiento, ese importe no queda retenido en aduana y se liquida y deduce en el modelo 303, con efecto neutro de caja." } },
-    { "@type": "Question", "name": "¿Qué pasa si no incluyo todas las cuotas de IVA diferido?", "acceptedAnswer": { "@type": "Answer", "text": "Las cuotas no incluidas pasan directamente a período ejecutivo de recaudación, aplicando el criterio FIFO. La consignación incorrecta o incompleta puede constituir infracción tributaria sancionable." } },
-    { "@type": "Question", "name": "¿Cómo aplica un importador de cargadores el diferimiento?", "acceptedAnswer": { "@type": "Answer", "text": "Solicita la inscripción en REDEME en noviembre (modelo 036 casilla 530), y a partir del año siguiente declara el IVA de importación en la casilla 77 del modelo 303 de cada período, deduciéndolo en la misma declaración. Consulte las cuotas diferidas en la Sede Electrónica." } }
-   ]
-  }
- ]
-}
-</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.wowohcool.com/#organization",
+      "name": "WOWOHCOOL",
+      "legalName": "Dong Yi Technology Co., Ltd",
+      "foundingDate": "2013",
+      "vatID": "91441900MA558A2N27",
+      "url": "https://www.wowohcool.com/es/sobre-nosotros/",
+      "publishingPrinciples": "https://www.wowohcool.com/es/sobre-nosotros/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.wowohcool.com/image/wowohcool-logo-optimized.webp",
+        "width": 600,
+        "height": 60
+      },
+      "areaServed": [
+        "US",
+        "DE",
+        "AT",
+        "CH",
+        "UK",
+        "FR",
+        "ES",
+        "PL",
+        "EU",
+        "JP",
+        "KR",
+        "AU",
+        "MX",
+        "CO",
+        "AR",
+        "CL",
+        "PE",
+        "RU",
+        "KZ",
+        "BY",
+        "EAEU"
+      ],
+      "knowsAbout": [
+        "OEM/ODM Power Bank Manufacturing",
+        "Qi2 Wireless Charging Standard",
+        "GaN Power Architecture",
+        "Automotive Fast Charging Systems",
+        "Custom Power Adapter Production",
+        "Consumer Electronics Sourcing",
+        "UL & CE Safety Compliance"
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "925, Yichuang International Center, Longhua District",
+        "addressLocality": "Shenzhen",
+        "addressRegion": "Guangdong",
+        "postalCode": "518111",
+        "addressCountry": "CN"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/company/wowohcool",
+        "https://www.facebook.com/wowohcoolelectronic",
+        "https://www.youtube.com/@WOWOHCOOL",
+        "https://x.com/wowohcool"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "OEM/ODM Sales",
+        "telephone": "+86-18620789739",
+        "email": "info@wowohcool.com",
+        "availableLanguage": [
+          "English",
+          "German",
+          "Spanish",
+          "French",
+          "Russian",
+          "Polish"
+        ]
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.wowohcool.com/#website",
+      "url": "https://www.wowohcool.com/es/",
+      "name": "WOWOHCOOL",
+      "inLanguage": "es-ES",
+      "publisher": {
+        "@id": "https://www.wowohcool.com/#organization"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Inicio",
+          "item": "https://www.wowohcool.com/es/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://www.wowohcool.com/es/blog/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Diferimiento del IVA de Importación",
+          "item": "https://www.wowohcool.com/es/blog/diferimiento-iva-importacion-oem/"
+        }
+      ]
+    },
+    {
+      "@type": "BlogPosting",
+      "@id": "https://www.wowohcool.com/es/blog/diferimiento-iva-importacion-oem/#article",
+      "headline": "Diferimiento del IVA de Importación: Guía para Importadores 2026",
+      "description": "IVA importación 21% diferido: REDEME, modelo 036 casilla 530, modelo 303 casilla 77 y cálculo de flujo de caja. Guía para importadores.",
+      "keywords": [
+        "IVA",
+        "diferimiento IVA",
+        "importación",
+        "REDEME",
+        "modelo 303",
+        "casilla 77",
+        "modelo 036",
+        "casilla 530",
+        "importador",
+        "OEM",
+        "flujo de caja"
+      ],
+      "author": {
+        "@id": "https://www.wowohcool.com/#nina-nico"
+      },
+      "publisher": {
+        "@id": "https://www.wowohcool.com/#organization"
+      },
+      "image": "https://www.wowohcool.com/image/blog/cover-es/diferimiento-iva-importacion-oem.webp",
+      "datePublished": "2026-08-17",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://www.wowohcool.com/es/blog/diferimiento-iva-importacion-oem/"
+      },
+      "dateModified": "2026-08-17",
+      "wordCount": 2018,
+      "inLanguage": "es-ES",
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [
+          "h1",
+          ".speakable"
+        ]
+      },
+      "about": {
+        "@type": "Thing",
+        "name": "Impuesto sobre el Valor Añadido",
+        "sameAs": "https://www.wikidata.org/wiki/Q128635"
+      },
+      "citation": [
+        {
+          "@type": "CreativeWork",
+          "name": "Agencia Tributaria — IVA diferido a la importación",
+          "url": "https://sede.agenciatributaria.gob.es/"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "Agencia Tributaria — Manual del IVA (modelo 303)",
+          "url": "https://sede.agenciatributaria.gob.es/"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "BestWay — Deferred import VAT",
+          "url": "https://bestwaycargo.es/en/deferred-import-vat/"
+        }
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://www.wowohcool.com/#nina-nico",
+      "name": "Nina Nico",
+      "jobTitle": "Global Procurement & Sourcing Manager",
+      "url": "https://www.wowohcool.com/authors/nina-nico/",
+      "sameAs": "https://www.linkedin.com/in/nico-power-bank-chargers",
+      "image": "https://www.wowohcool.com/image/factory/team-nina.webp",
+      "worksFor": {
+        "@id": "https://www.wowohcool.com/#organization"
+      },
+      "knowsAbout": [
+        "B2B Hardware Sourcing",
+        "OEM/ODM Power Bank Manufacturing",
+        "Supply Chain Quality Assurance",
+        "International Electronics Trade Compliance",
+        "Custom Power Adapter Production",
+        "Factory Audit Standards"
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.wowohcool.com/es/blog/diferimiento-iva-importacion-oem/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Qué es el diferimiento del IVA a la importación?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Es un régimen que permite no pagar el IVA del 21% en la aduana al levantar la mercancía, sino liquidarlo en el modelo 303/322 y deducirlo simultáneamente. El efecto financiero suele ser neutro, liberando flujo de caja."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Quién puede acogerse al IVA diferido?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Importadores con liquidación mensual, grandes empresas con volumen superior a 6.010.121,04 € el año anterior, o inscritos en REDEME. Basta haber solicitado la inscripción en REDEME para poder aplicar el diferimiento."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué es el REDEME y qué requisitos tiene?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "El REDEME (Registro de Devolución Mensual) adelanta las devoluciones de IVA. Requiere presentar la declaración censal en plazo, estar al corriente de obligaciones y no haber sido excluido en los 3 años previos. Implica la obligación de SII desde el 1 de enero siguiente."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cómo solicito el diferimiento (modelo 036)?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Se ejerce mediante el modelo 036 en la sección 6 «IVA», opción F «Pago del IVA a la importación», marcando la casilla 530. El plazo es durante el mes de noviembre del año anterior, con efecto obligatorio para todo el año natural siguiente."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué casilla del modelo 303 corresponde al IVA diferido?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "La casilla 77 corresponde al «IVA a la importación liquidado por la Aduana pendiente de ingreso». La casilla 33 corresponde a las cuotas ya pagadas en importaciones. El importador deduce el IVA diferido en la misma autoliquidación."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cuánto flujo de caja libera el diferimiento?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "En una importación de 5 000 cargadores con CIF de 26 350 $ y arancel del 4,5%, el IVA del 21% asciende a 5 783 $. Con diferimiento, ese importe no queda retenido en aduana y se liquida y deduce en el modelo 303, con efecto neutro de caja."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué pasa si no incluyo todas las cuotas de IVA diferido?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Las cuotas no incluidas pasan directamente a período ejecutivo de recaudación, aplicando el criterio FIFO. La consignación incorrecta o incompleta puede constituir infracción tributaria sancionable."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cómo aplica un importador de cargadores el diferimiento?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Solicita la inscripción en REDEME en noviembre (modelo 036 casilla 530), y a partir del año siguiente declara el IVA de importación en la casilla 77 del modelo 303 de cada período, deduciéndolo en la misma declaración. Consulte las cuotas diferidas en la Sede Electrónica."
+          }
+        }
+      ]
+    }
+  ]
+}</script>
 {% endblock %}
 
 {% block content %}
@@ -147,10 +305,10 @@ hreflang:
    </div>
    <h1 class="text-3xl lg:text-5xl font-black text-brandBlue uppercase italic tracking-tighter mb-6 leading-tight">Diferimiento del IVA de Importación: Guía para Importadores 2026</h1>
    <div class="flex items-center gap-3 mb-6">
-     <img src="/image/factory/team-nina.webp" alt="Nina Nico, Global Procurement & Sourcing Manager en WOWOHCOOL" loading="lazy" width="40" height="40" class="w-10 h-10 rounded-full object-cover border border-brandOrange">
+     <img src="/image/factory/team-nina.webp" alt="Nina Nico, Global Procurement & Sourcing Manager de WOWOHCOOL — especialista en abastecimiento OEM/ODM" loading="lazy" width="40" height="40" class="w-10 h-10 rounded-full object-cover border border-brandOrange">
      <div>
        <a href="#author-bio" class="font-bold text-slate-900 text-sm hover:text-brandOrange transition">Nina Nico</a>
-       <p class="text-xs text-slate-500">Global Procurement &amp; Sourcing Manager · 10+ años de experiencia</p>
+       <p class="text-xs text-slate-500">Global Procurement & Sourcing Manager · 10+ años de experiencia</p>
      </div>
    </div>
    {% from "partials/post-meta.njk" import postMeta %}
@@ -349,14 +507,14 @@ hreflang:
  <div class="bg-slate-50 rounded-2xl p-6 md:p-8 mb-12 border border-slate-100">
    <div class="flex flex-col sm:flex-row items-start gap-4 sm:gap-6">
      <div class="w-20 h-20 rounded-full overflow-hidden flex items-center justify-center border-2 border-brandOrange bg-white shadow-lg shrink-0">
-       <img src="/image/factory/team-nina.webp" alt="Nina Nico, Global Procurement & Sourcing Manager en WOWOHCOOL" loading="lazy" width="400" height="400" class="w-full h-full object-cover">
+       <img src="/image/factory/team-nina.webp" alt="Nina Nico, Global Procurement & Sourcing Manager de WOWOHCOOL — especialista en abastecimiento OEM/ODM" loading="lazy" width="400" height="400" class="w-full h-full object-cover">
      </div>
      <div class="flex-1 min-w-0">
        <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 mb-2 sm:mb-3">
          <a href="https://www.linkedin.com/in/nico-power-bank-chargers" target="_blank" rel="noopener noreferrer" class="font-black text-slate-900 text-lg hover:text-brandOrange transition">Nina Nico</a>
          <span class="px-2 py-1 bg-brandOrange/10 text-brandOrange text-[11px] font-black rounded-full uppercase w-fit">Autora</span>
        </div>
-       <p class="text-sm text-slate-500 mb-3">Global Procurement &amp; Sourcing Manager · 10+ años de experiencia · EN, ZH</p>
+       <p class="text-sm text-slate-500 mb-3">Global Procurement & Sourcing Manager · 10+ años de experiencia · EN, ZH</p>
        <p class="text-slate-600 text-sm leading-relaxed">Nina Nico gestiona el aprovisionamiento global y las negociaciones OEM transfronterizas desde Shenzhen. Especializada en la fabricación de cargadores GaN y power banks, acompaña a importadores europeos en la conformidad CE y la normativa de baterías. Ha supervisado más de 500 proyectos OEM para marcas en Europa y América.</p>
        <p class="text-sm mb-3"><a href="/authors/nina-nico/" class="text-brandBlue hover:text-brandOrange font-bold">Ver el perfil completo de la autora →</a></p>
        <div class="mt-4 pt-4 border-t border-slate-200">

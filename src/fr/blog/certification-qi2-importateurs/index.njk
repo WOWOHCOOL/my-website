@@ -25,193 +25,360 @@ hreflang:
 {% extends "layout.njk" %}
 
 {% block head_schema %}
-<script type="application/ld+json">
-{
- "@context": "https://schema.org",
- "@graph": [
- {
- "@type": "Organization",
- "@id": "https://www.wowohcool.com/#organization",
- "name": "WOWOHCOOL",
- "legalName": "Dong Yi Technology Co., Ltd",
- "url": "https://www.wowohcool.com/fr/a-propos/",
- "publishingPrinciples": "https://www.wowohcool.com/fr/a-propos/",
- "logo": {
- "@type": "ImageObject",
- "url": "https://www.wowohcool.com/image/wowohcool-logo-optimized.webp",
- "width": 600,
- "height": 60
- },
- "areaServed": ["FR", "BE", "CH", "LU", "EU", "DZ", "MA", "TN", "CI", "SN"],
- "address": {
- "@type": "PostalAddress",
- "streetAddress": "925, Yichuang International Center, Longhua District",
- "addressLocality": "Shenzhen",
- "addressRegion": "Guangdong",
- "postalCode": "518111",
- "addressCountry": "CN"
- },
- "sameAs": [
- "https://www.linkedin.com/company/wowohcool",
- "https://www.facebook.com/wowohcoolelectronic",
- "https://www.youtube.com/@WOWOHCOOL",
- "https://x.com/wowohcool"
- ],
- "contactPoint": {
- "@type": "ContactPoint",
- "contactType": "OEM/ODM Sales",
- "telephone": "+86-18620789739",
- "email": "info@wowohcool.com",
- "availableLanguage": ["English", "French", "German", "Spanish", "Chinese"]
- }
- },
- {
- "@type": "WebSite",
- "@id": "https://www.wowohcool.com/#website",
- "url": "https://www.wowohcool.com/fr/",
- "name": "WOWOHCOOL",
- "inLanguage": "fr-FR",
- "publisher": { "@id": "https://www.wowohcool.com/#organization" }
- },
- {
- "@type": "BreadcrumbList",
- "itemListElement": [
- { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.wowohcool.com/fr/" },
- { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.wowohcool.com/fr/blog/" },
- { "@type": "ListItem", "position": 3, "name": "Certification Qi2", "item": "https://www.wowohcool.com/fr/blog/certification-qi2-importateurs/" }
- ]
- },
- {
- "@type": "BlogPosting",
- "@id": "https://www.wowohcool.com/fr/blog/certification-qi2-importateurs/#article",
- "headline": "Certification Qi2 pour Importateurs: Guide WPC et Conformité OEM",
- "keywords": ["Qi2", "Certification", "WPC", "MPP", "Qi2.2", "Charge sans fil", "OEM", "Conformité CE", "DEEE", "Importateur", "EN IEC 63563", "ANFR"],
- "description": "Certification Qi2 OEM 2026: coûts WPC réels (Adopter $18K/an, ATL ~$15.5K, Qi-ID $750), processus complet, normes CE/RED/DEEE. Conformité DGCCRF/ANFR pour importateurs français.",
- "author": { "@id": "https://www.wowohcool.com/#snowy-may" },
- "publisher": { "@id": "https://www.wowohcool.com/#organization" },
- "datePublished": "2026-06-10",
- "dateModified": "2026-08-03",
- "wordCount": 4840,
- "timeRequired": "PT16M",
- "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.wowohcool.com/fr/blog/certification-qi2-importateurs/" },
- "image": "https://www.wowohcool.com/image/blog/cover-fr/certification-qi2-importateurs-oem.webp",
- "thumbnailUrl": "https://www.wowohcool.com/image/blog/cover-fr/certification-qi2-importateurs-oem.webp",
- "inLanguage": "fr-FR",
- "articleSection": "Charge sans fil & Certification",
- "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".speakable"] },
- "citation": [
- { "@type": "CreativeWork", "name": "Wireless Power Consortium, Membership & Certification", "url": "https://www.wirelesspowerconsortium.com/membership/" },
- { "@type": "CreativeWork", "name": "IndexBox, France Wireless Battery Charger Market 2026", "url": "https://www.indexbox.io/store/france-kw-wireless-battery-charger-840-market-analysis-forecast-size-trends-and-insights/" },
- { "@type": "CreativeWork", "name": "ANFR, Agence Nationale des Fréquences", "url": "https://www.anfr.fr/" }
- ],
- "about": { "@type": "Thing", "name": "Inductive charging", "sameAs": "https://www.wikidata.org/entity/Q746782" }
- },
- {
- "@type": "Person",
- "@id": "https://www.wowohcool.com/#snowy-may",
- "name": "Snowy May",
- "jobTitle": "Responsable de marché, Certification & Conformité UE",
- "url": "https://www.wowohcool.com/authors/snowy-may/",
- "sameAs": ["https://www.linkedin.com/in/snowy-wireless-charger"],
- "image": "https://www.wowohcool.com/image/factory/team-snowy.webp",
- "worksFor": { "@id": "https://www.wowohcool.com/#organization" },
- "knowsAbout": ["Qi2 & MPP", "Certification WPC", "Charge sans fil OEM/ODM", "Conformité CE/RED/DEEE", "Sourcing Asie", "Réglementation UE"]
- },
- {
- "@type": "HowTo",
- "@id": "https://www.wowohcool.com/fr/blog/certification-qi2-importateurs/#howto",
- "name": "Obtenir la certification Qi2 pour un chargeur sans fil, processus complet",
- "description": "Guide étape par étape du processus de certification Qi2 pour les importateurs: adhésion WPC, design avec puce d'authentification, tests ATL, enregistrement Qi-ID et mise en conformité réglementaire française.",
- "totalTime": "P16W",
- "step": [
- {
- "@type": "HowToStep",
- "position": 1,
- "name": "Adhérer au WPC et choisir le bon tier de membre",
- "itemListElement": [{ "@type": "HowToDirection", "text": "Adhérez au Wireless Power Consortium. Adopter Member: $18 000/an (prorata mensuel, dès $6 000 en septembre). Regular Member: $30 000/an (inclut $10 000 d'Ecosystem Fée, prorata mensuel). Pour les importateurs avec ≤10 produits/an, l'Adopter est recommandé. WOWOHCOOL est membre WPC depuis 2013 et guide ses clients OEM dans le choix du tier optimal." }]
- },
- {
- "@type": "HowToStep",
- "position": 2,
- "name": "Développer ou sélectionner un design avec puce d'authentification WPC",
- "itemListElement": [{ "@type": "HowToDirection", "text": "Le chargeur doit intégrer le Magnetic Power Profile (MPP), des aimants néodyme N52H et une puce d'authentification WPC (certificats X.509). Sans cette puce, l'iPhone limite la charge à 7,5W. Les designs ODM pré-certifiés WOWOHCOOL réduisent le délai de 16 à 3-4 semaines. Qi2.2 (25W) est le standard actuel pour toute nouvelle certification en 2026." }]
- },
- {
- "@type": "HowToStep",
- "position": 3,
- "name": "Soumettre le produit aux tests en laboratoire agréé WPC (ATL)",
- "itemListElement": [{ "@type": "HowToDirection", "text": "Tests ATL en deux phases: EPP (Extended Power Profile) ~$14 000, sécurité, FOD, efficacité (>75%), limites thermiques, plus IOP (Interopérabilité) ~$1 500 avec 10+ appareils de référence. Total ATL: ~$15 500 en Chine, jusqu'à $20 000 en Europe (Element/CETECOM). Délai: 6-12 semaines. Le test EPP Qi2.2 (25W) est légèrement plus exigeant que le Qi2.0 (15W)." }]
- },
- {
- "@type": "HowToStep",
- "position": 4,
- "name": "Enregistrer le produit et obtenir le numéro QIID",
- "itemListElement": [{ "@type": "HowToDirection", "text": "Après réussite des tests, enregistrez le produit auprès du WPC: $750 par nouveau Qi-ID, $250 par produit similaire (changement cosmétique/logo). Le QIID est vérifiable dans la base publique WPC. Exigez toujours le QIID de votre fournisseur, c'est la seule preuve de certification. Un fabricant sans QIID ne possède pas de produit certifié." }]
- },
- {
- "@type": "HowToStep",
- "position": 5,
- "name": "Constituer le dossier de conformité réglementaire français",
- "itemListElement": [{ "@type": "HowToDirection", "text": "Pour le marché français: déclaration CE (EN 62368-1 + EN IEC 63563 pour Qi2), RED 2014/53/UE (EN 300 330, EN 301 489, EN 62311 pour DAS), RoHS, REACH, DEEE (adhésion éco-organisme Ecosystem/Ecologic), marquage Triman + Info-tri, UN 38.3 (si batterie intégrée). L'ANFR et la DGCCRF surveillent le marché, étiquetage en français obligatoire (nom fabricant, adresse importateur UE, Wh, puissance, avertissements sécurité). Amazon FR exige le dossier complet pour autoriser la mise en vente." }]
- },
- {
- "@type": "HowToStep",
- "position": 6,
- "name": "Lancer la production et recevoir la certification",
- "itemListElement": [{ "@type": "HowToDirection", "text": "Après validation de tous les tests et documents, le WPC émet la certification officielle. Coût total: ~$34 250 pour 1 produit (Adopter + ATL + Qi-ID). Avec un design ODM pré-certifié WOWOHCOOL, le processus est réduit à 3-4 semaines et les coûts sont intégrés au prix FOB. Production OEM à partir de 500 pièces, livraison DDP France en 8-12 semaines." }]
- }
- ]
- },
- {
- "@type": "FAQPage",
- "@id": "https://www.wowohcool.com/fr/blog/certification-qi2-importateurs/#faq",
- "speakable": { "@type": "SpeakableSpecification", "cssSelector": [".faq-answer"] },
- "mainEntity": [
- {
- "@type": "Question",
- "name": "Certification Qi2, quel est le coût total pour un importateur en 2026?",
- "acceptedAnswer": { "@type": "Answer", "text": "Pour 1 produit: adhésion WPC Adopter $18 000/an (prorata mensuel, $6 000 en septembre) + tests ATL ~$15 500 (EPP ~$14 000 + IOP ~$1 500) + enregistrement Qi-ID $750. Total ~$34 250. Pour 10 produits avec 9 similaires: Regular $30 000 + test initial $14 000 + $750 + 9×$250 = ~$47 000 (~$4 700/produit). WOWOHCOOL intègre ces coûts dans ses solutions OEM clé en main." }
- },
- {
- "@type": "Question",
- "name": "Adhésion WPC Adopter vs Regular, quelle formule pour un importateur?",
- "acceptedAnswer": { "@type": "Answer", "text": "Adopter Member ($18 000/an, prorata mensuel): recommandé pour ≤10 produits/an, PME et primo-importateurs. Regular Member ($30 000/an, inclut $10 000 d'Ecosystem Fée): rentable pour >10 produits/an, grands volumes. Les deux donnent accès à la certification Qi2. L'Adopter suffit pour la plupart des importateurs français. Le prorata mensuel réduit le coût si vous adhérez en cours d'année." }
- },
- {
- "@type": "Question",
- "name": "Combien de temps prend la certification Qi2 pour un produit OEM?",
- "acceptedAnswer": { "@type": "Answer", "text": "Processus complet: 3-6 mois (design + tests ATL + documentation + enregistrement). Tests ATL seuls: 6-12 semaines (10-20 jours ouvrés hors corrections). Avec un design ODM pré-certifié WOWOHCOOL: 3-4 semaines, nous avons déjà passé les tests pour nos plateformes. Service accéléré disponible: +$5 000-10 000 pour 45 jours." }
- },
- {
- "@type": "Question",
- "name": "Qi2 vs Qi2.2, quelle est la différence et laquelle choisir en 2026?",
- "acceptedAnswer": { "@type": "Answer", "text": "Qi2.0 = 15W MPP (2023). Qi2.2 = 25W (juillet 2025), +67% de puissance. Depuis janvier 2026, 69,6% des nouvelles certifications sont Qi2.2. Appareils compatibles: iPhone 16/17, Galaxy S26, Pixel 10 Pro XL. La différence de coût d'approvisionnement est faible (~1-2€/pièce) mais l'avantage marketing est considérable. WOWOHCOOL recommande Qi2.2 pour tout nouveau projet OEM, c'est le standard 2026-2027." }
- },
- {
- "@type": "Question",
- "name": "Comment vérifier qu'un fournisseur chinois a vraiment la certification Qi2?",
- "acceptedAnswer": { "@type": "Answer", "text": "3 vérifications obligatoires: (1) Demandez le numéro QIID exact du modèle et vérifiez-le sur wirelesspowerconsortium.com/products, c'est la seule preuve. (2) Vérifiez l'adhésion WPC du fabricant, demandez le numéro de membre. (3) Exigez le certificat par modèle, un certificat pour le modèle A ne couvre pas le modèle B. Attention: 'compatible Qi2' sans QIID = 7,5W max sur iPhone, pas de logo Qi2, risque de retrait Amazon et sanctions DGCCRF." }
- },
- {
- "@type": "Question",
- "name": "Normes CE, DEEE, RED, lesquelles sont obligatoires pour vendre un chargeur Qi2 en France?",
- "acceptedAnswer": { "@type": "Answer", "text": "Obligatoires: CE (EN 62368-1 sécurité + EN IEC 63563 Qi2 harmonisé 2026), RED 2014/53/UE (EN 300 330, EN 301 489 CEM, EN 62311 DAS/EMF), RoHS, DEEE (adhésion Ecosystem/Ecologic), marquage Triman + Info-tri, UN 38.3 (si batterie). L'ANFR surveille la conformité DAS (<2 W/kg). L'étiquetage en français est obligatoire. Amazon FR exige le dossier complet. La DGCCRF peut ordonner retrait/rappel avec une tolérance de ±8% sur la puissance affichée." }
- },
- {
- "@type": "Question",
- "name": "Quel est le MOQ pour une commande OEM de chargeurs certifiés Qi2?",
- "acceptedAnswer": { "@type": "Answer", "text": "MOQ standard OEM: 500 pièces (logo + couleur + packaging + certification). ODM sur plateforme existante: 500-1 000 pièces. Prix FOB Shenzhen 2026: pad magnétique Qi2 15W ~$6.50-9.00/pièce (500 unités), station 3-en-1 Qi2.2 ~$12.00-16.00/pièce. Délai production: 25-30 jours. Livraison DDP France: 8-12 semaines door-to-door. WOWOHCOOL gère l'ensemble du processus certification + production + logistique." }
- },
- {
- "@type": "Question",
- "name": "Comment démarrer un projet OEM de chargeur Qi2 certifié pour le marché français?",
- "acceptedAnswer": { "@type": "Answer", "text": "Contactez WOWOHCOOL pour un devis gratuit. Nous vous guidons en 4 étapes: (1) sélection du modèle Qi2.2 adapté à votre marché (pad, station 3-en-1, support voiture), (2) personnalisation (logo, couleur, packaging français), (3) certification clé en main (WPC + CE/RED/DEEE), nous sommes membres WPC depuis 2013, (4) production et livraison DDP France. MOQ 500 pièces, délai total 8-12 semaines. Demandez votre devis sur wowohcool.com/fr/contact/." }
- }
- ]
- }
- ]
-}
-</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.wowohcool.com/#organization",
+      "name": "WOWOHCOOL",
+      "legalName": "Dong Yi Technology Co., Ltd",
+      "foundingDate": "2013",
+      "vatID": "91441900MA558A2N27",
+      "url": "https://www.wowohcool.com/fr/a-propos/",
+      "publishingPrinciples": "https://www.wowohcool.com/fr/a-propos/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.wowohcool.com/image/wowohcool-logo-optimized.webp",
+        "width": 600,
+        "height": 60
+      },
+      "areaServed": [
+        "US",
+        "DE",
+        "AT",
+        "CH",
+        "UK",
+        "FR",
+        "ES",
+        "PL",
+        "EU",
+        "JP",
+        "KR",
+        "AU",
+        "MX",
+        "CO",
+        "AR",
+        "CL",
+        "PE",
+        "RU",
+        "KZ",
+        "BY",
+        "EAEU"
+      ],
+      "knowsAbout": [
+        "OEM/ODM Power Bank Manufacturing",
+        "Qi2 Wireless Charging Standard",
+        "GaN Power Architecture",
+        "Automotive Fast Charging Systems",
+        "Custom Power Adapter Production",
+        "Consumer Electronics Sourcing",
+        "UL & CE Safety Compliance"
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "925, Yichuang International Center, Longhua District",
+        "addressLocality": "Shenzhen",
+        "addressRegion": "Guangdong",
+        "postalCode": "518111",
+        "addressCountry": "CN"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/company/wowohcool",
+        "https://www.facebook.com/wowohcoolelectronic",
+        "https://www.youtube.com/@WOWOHCOOL",
+        "https://x.com/wowohcool"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "OEM/ODM Sales",
+        "telephone": "+86-18620789739",
+        "email": "info@wowohcool.com",
+        "availableLanguage": [
+          "English",
+          "German",
+          "Spanish",
+          "French",
+          "Russian",
+          "Polish"
+        ]
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.wowohcool.com/#website",
+      "url": "https://www.wowohcool.com/fr/",
+      "name": "WOWOHCOOL",
+      "inLanguage": "fr-FR",
+      "publisher": {
+        "@id": "https://www.wowohcool.com/#organization"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Accueil",
+          "item": "https://www.wowohcool.com/fr/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://www.wowohcool.com/fr/blog/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Certification Qi2",
+          "item": "https://www.wowohcool.com/fr/blog/certification-qi2-importateurs/"
+        }
+      ]
+    },
+    {
+      "@type": "BlogPosting",
+      "@id": "https://www.wowohcool.com/fr/blog/certification-qi2-importateurs/#article",
+      "headline": "Certification Qi2 pour Importateurs: Guide WPC et Conformité OEM",
+      "keywords": [
+        "Qi2",
+        "Certification",
+        "WPC",
+        "MPP",
+        "Qi2.2",
+        "Charge sans fil",
+        "OEM",
+        "Conformité CE",
+        "DEEE",
+        "Importateur",
+        "EN IEC 63563",
+        "ANFR"
+      ],
+      "description": "Certification Qi2 OEM 2026: coûts WPC réels (Adopter $18K/an, ATL ~$15.5K, Qi-ID $750), processus complet, normes CE/RED/DEEE. Conformité DGCCRF/ANFR pour importateurs français.",
+      "author": {
+        "@id": "https://www.wowohcool.com/#snowy-may"
+      },
+      "publisher": {
+        "@id": "https://www.wowohcool.com/#organization"
+      },
+      "datePublished": "2026-06-10",
+      "dateModified": "2026-08-03",
+      "wordCount": 4840,
+      "timeRequired": "PT16M",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://www.wowohcool.com/fr/blog/certification-qi2-importateurs/"
+      },
+      "image": "https://www.wowohcool.com/image/blog/cover-fr/certification-qi2-importateurs-oem.webp",
+      "thumbnailUrl": "https://www.wowohcool.com/image/blog/cover-fr/certification-qi2-importateurs-oem.webp",
+      "inLanguage": "fr-FR",
+      "articleSection": "Charge sans fil & Certification",
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [
+          "h1",
+          ".speakable"
+        ]
+      },
+      "citation": [
+        {
+          "@type": "CreativeWork",
+          "name": "Wireless Power Consortium, Membership & Certification",
+          "url": "https://www.wirelesspowerconsortium.com/membership/"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "IndexBox, France Wireless Battery Charger Market 2026",
+          "url": "https://www.indexbox.io/store/france-kw-wireless-battery-charger-840-market-analysis-forecast-size-trends-and-insights/"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "ANFR, Agence Nationale des Fréquences",
+          "url": "https://www.anfr.fr/"
+        }
+      ],
+      "about": {
+        "@type": "Thing",
+        "name": "Inductive charging",
+        "sameAs": "https://www.wikidata.org/entity/Q2611270"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://www.wowohcool.com/#snowy-may",
+      "name": "Snowy May",
+      "jobTitle": "Marketing Manager & Founder",
+      "url": "https://www.wowohcool.com/authors/snowy-may/",
+      "sameAs": [
+        "https://www.linkedin.com/in/snowy-wireless-charger"
+      ],
+      "image": "https://www.wowohcool.com/image/factory/team-snowy.webp",
+      "worksFor": {
+        "@id": "https://www.wowohcool.com/#organization"
+      },
+      "knowsAbout": [
+        "Qi2 Wireless Charging Standard",
+        "GaN Power Architecture",
+        "Thermal Management in Power Electronics",
+        "PCBA Efficiency Testing",
+        "UL 2056 & CE Safety Compliance",
+        "EU Battery Regulation 2023/1542"
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://www.wowohcool.com/fr/blog/certification-qi2-importateurs/#howto",
+      "name": "Obtenir la certification Qi2 pour un chargeur sans fil, processus complet",
+      "description": "Guide étape par étape du processus de certification Qi2 pour les importateurs: adhésion WPC, design avec puce d'authentification, tests ATL, enregistrement Qi-ID et mise en conformité réglementaire française.",
+      "totalTime": "P8W",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Adhérer au WPC et choisir le bon tier de membre",
+          "itemListElement": [
+            {
+              "@type": "HowToDirection",
+              "text": "Adhérez au Wireless Power Consortium. Adopter Member: $18 000/an (prorata mensuel, dès $6 000 en septembre). Regular Member: $30 000/an (inclut $10 000 d'Ecosystem Fée, prorata mensuel). Pour les importateurs avec ≤10 produits/an, l'Adopter est recommandé. WOWOHCOOL est membre WPC depuis 2013 et guide ses clients OEM dans le choix du tier optimal."
+            }
+          ]
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Développer ou sélectionner un design avec puce d'authentification WPC",
+          "itemListElement": [
+            {
+              "@type": "HowToDirection",
+              "text": "Le chargeur doit intégrer le Magnetic Power Profile (MPP), des aimants néodyme N52H et une puce d'authentification WPC (certificats X.509). Sans cette puce, l'iPhone limite la charge à 7,5W. Les designs ODM pré-certifiés WOWOHCOOL réduisent le délai de 16 à 3-4 semaines. Qi2.2 (25W) est le standard actuel pour toute nouvelle certification en 2026."
+            }
+          ]
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Soumettre le produit aux tests en laboratoire agréé WPC (ATL)",
+          "itemListElement": [
+            {
+              "@type": "HowToDirection",
+              "text": "Tests ATL en deux phases: EPP (Extended Power Profile) ~$14 000, sécurité, FOD, efficacité (>75%), limites thermiques, plus IOP (Interopérabilité) ~$1 500 avec 10+ appareils de référence. Total ATL: ~$15 500 en Chine, jusqu'à $20 000 en Europe (Element/CETECOM). Délai: 6-12 semaines. Le test EPP Qi2.2 (25W) est légèrement plus exigeant que le Qi2.0 (15W)."
+            }
+          ]
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Enregistrer le produit et obtenir le numéro QIID",
+          "itemListElement": [
+            {
+              "@type": "HowToDirection",
+              "text": "Après réussite des tests, enregistrez le produit auprès du WPC: $750 par nouveau Qi-ID, $250 par produit similaire (changement cosmétique/logo). Le QIID est vérifiable dans la base publique WPC. Exigez toujours le QIID de votre fournisseur, c'est la seule preuve de certification. Un fabricant sans QIID ne possède pas de produit certifié."
+            }
+          ]
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Constituer le dossier de conformité réglementaire français",
+          "itemListElement": [
+            {
+              "@type": "HowToDirection",
+              "text": "Pour le marché français: déclaration CE (EN 62368-1 + EN IEC 63563 pour Qi2), RED 2014/53/UE (EN 300 330, EN 301 489, EN 62311 pour DAS), RoHS, REACH, DEEE (adhésion éco-organisme Ecosystem/Ecologic), marquage Triman + Info-tri, UN 38.3 (si batterie intégrée). L'ANFR et la DGCCRF surveillent le marché, étiquetage en français obligatoire (nom fabricant, adresse importateur UE, Wh, puissance, avertissements sécurité). Amazon FR exige le dossier complet pour autoriser la mise en vente."
+            }
+          ]
+        },
+        {
+          "@type": "HowToStep",
+          "position": 6,
+          "name": "Lancer la production et recevoir la certification",
+          "itemListElement": [
+            {
+              "@type": "HowToDirection",
+              "text": "Après validation de tous les tests et documents, le WPC émet la certification officielle. Coût total: ~$34 250 pour 1 produit (Adopter + ATL + Qi-ID). Avec un design ODM pré-certifié WOWOHCOOL, le processus est réduit à 3-4 semaines et les coûts sont intégrés au prix FOB. Production OEM à partir de 500 pièces, livraison DDP France en 8-12 semaines."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.wowohcool.com/fr/blog/certification-qi2-importateurs/#faq",
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [
+          ".faq-answer"
+        ]
+      },
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Certification Qi2, quel est le coût total pour un importateur en 2026?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Pour 1 produit: adhésion WPC Adopter $18 000/an (prorata mensuel, $6 000 en septembre) + tests ATL ~$15 500 (EPP ~$14 000 + IOP ~$1 500) + enregistrement Qi-ID $750. Total ~$34 250. Pour 10 produits avec 9 similaires: Regular $30 000 + test initial $14 000 + $750 + 9×$250 = ~$47 000 (~$4 700/produit). WOWOHCOOL intègre ces coûts dans ses solutions OEM clé en main."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Adhésion WPC Adopter vs Regular, quelle formule pour un importateur?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Adopter Member ($18 000/an, prorata mensuel): recommandé pour ≤10 produits/an, PME et primo-importateurs. Regular Member ($30 000/an, inclut $10 000 d'Ecosystem Fée): rentable pour >10 produits/an, grands volumes. Les deux donnent accès à la certification Qi2. L'Adopter suffit pour la plupart des importateurs français. Le prorata mensuel réduit le coût si vous adhérez en cours d'année."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Combien de temps prend la certification Qi2 pour un produit OEM?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Processus complet: 3-6 mois (design + tests ATL + documentation + enregistrement). Tests ATL seuls: 6-12 semaines (10-20 jours ouvrés hors corrections). Avec un design ODM pré-certifié WOWOHCOOL: 3-4 semaines, nous avons déjà passé les tests pour nos plateformes. Service accéléré disponible: +$5 000-10 000 pour 45 jours."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Qi2 vs Qi2.2, quelle est la différence et laquelle choisir en 2026?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Qi2.0 = 15W MPP (2023). Qi2.2 = 25W (juillet 2025), +67% de puissance. Depuis janvier 2026, 69,6% des nouvelles certifications sont Qi2.2. Appareils compatibles: iPhone 16/17, Galaxy S26, Pixel 10 Pro XL. La différence de coût d'approvisionnement est faible (~1-2€/pièce) mais l'avantage marketing est considérable. WOWOHCOOL recommande Qi2.2 pour tout nouveau projet OEM, c'est le standard 2026-2027."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Comment vérifier qu'un fournisseur chinois a vraiment la certification Qi2?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "3 vérifications obligatoires: (1) Demandez le numéro QIID exact du modèle et vérifiez-le sur wirelesspowerconsortium.com/products, c'est la seule preuve. (2) Vérifiez l'adhésion WPC du fabricant, demandez le numéro de membre. (3) Exigez le certificat par modèle, un certificat pour le modèle A ne couvre pas le modèle B. Attention: 'compatible Qi2' sans QIID = 7,5W max sur iPhone, pas de logo Qi2, risque de retrait Amazon et sanctions DGCCRF."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Normes CE, DEEE, RED, lesquelles sont obligatoires pour vendre un chargeur Qi2 en France?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Obligatoires: CE (EN 62368-1 sécurité + EN IEC 63563 Qi2 harmonisé 2026), RED 2014/53/UE (EN 300 330, EN 301 489 CEM, EN 62311 DAS/EMF), RoHS, DEEE (adhésion Ecosystem/Ecologic), marquage Triman + Info-tri, UN 38.3 (si batterie). L'ANFR surveille la conformité DAS (<2 W/kg). L'étiquetage en français est obligatoire. Amazon FR exige le dossier complet. La DGCCRF peut ordonner retrait/rappel avec une tolérance de ±8% sur la puissance affichée."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quel est le MOQ pour une commande OEM de chargeurs certifiés Qi2?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "MOQ standard OEM: 500 pièces (logo + couleur + packaging + certification). ODM sur plateforme existante: 500-1 000 pièces. Prix FOB Shenzhen 2026: pad magnétique Qi2 15W ~$6.50-9.00/pièce (500 unités), station 3-en-1 Qi2.2 ~$12.00-16.00/pièce. Délai production: 25-30 jours. Livraison DDP France: 8-12 semaines door-to-door. WOWOHCOOL gère l'ensemble du processus certification + production + logistique."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Comment démarrer un projet OEM de chargeur Qi2 certifié pour le marché français?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Contactez WOWOHCOOL pour un devis gratuit. Nous vous guidons en 4 étapes: (1) sélection du modèle Qi2.2 adapté à votre marché (pad, station 3-en-1, support voiture), (2) personnalisation (logo, couleur, packaging français), (3) certification clé en main (WPC + CE/RED/DEEE), nous sommes membres WPC depuis 2013, (4) production et livraison DDP France. MOQ 500 pièces, délai total 8-12 semaines. Demandez votre devis sur wowohcool.com/fr/contact/."
+          }
+        }
+      ]
+    }
+  ]
+}</script>
 {% endblock %}
 
 {% block content %}
@@ -237,10 +404,10 @@ hreflang:
  <h1 class="text-3xl lg:text-5xl font-black text-brandBlue uppercase italic tracking-tighter mb-6 leading-tight">Certification Qi2 pour Importateurs: Guide WPC et Conformité OEM</h1>
 
  <div class="flex items-center gap-3 mb-6">
- <img src="/image/factory/team-snowy.webp" alt="Snowy May, Responsable Certification & Conformité UE chez WOWOHCOOL" loading="lazy" width="40" height="40" class="w-10 h-10 rounded-full object-cover border border-brandOrange">
+ <img src="/image/factory/team-snowy.webp" alt="Snowy May, Marketing Manager & Founder chez WOWOHCOOL — spécialiste de la charge GaN et Qi2" loading="lazy" width="40" height="40" class="w-10 h-10 rounded-full object-cover border border-brandOrange">
  <div>
  <a href="#author-bio" class="font-bold text-slate-900 text-sm hover:text-brandOrange transition">Snowy May</a>
- <p class="text-xs text-slate-500">Responsable Certification & Conformité UE · 10+ ans en certification de chargeurs</p>
+ <p class="text-xs text-slate-500">Marketing Manager & Founder · 10+ ans en certification de chargeurs</p>
  </div>
  </div>
 
@@ -607,7 +774,7 @@ hreflang:
  <!-- Expert Quotes -->
  <div class="bg-brandBlue/5 border-l-4 border-brandOrange p-5 rounded-r-xl mb-6">
  <p class="text-[11px] font-black text-brandOrange uppercase tracking-widest mb-2">AVIS D'EXPERT</p>
- <p class="text-slate-700 text-base leading-relaxed">« Avec l'entrée en vigueur de la norme EN IEC 63563 en 2026, la certification Qi2 n'est plus optionnelle pour le marché européen, c'est un prérequis réglementaire, » déclare Snowy May, Responsable Certification & Conformité UE chez WOWOHCOOL. « Les importateurs qui s'appuient sur un fabricant OEM déjà certifié WPC évitent $34 250 de frais directs et 3-6 mois de délai. C'est le choix le plus rationnel pour entrer rapidement sur le marché français avec un produit conforme. »</p>
+ <p class="text-slate-700 text-base leading-relaxed">« Avec l'entrée en vigueur de la norme EN IEC 63563 en 2026, la certification Qi2 n'est plus optionnelle pour le marché européen, c'est un prérequis réglementaire, » déclare Snowy May, Marketing Manager & Founder chez WOWOHCOOL. « Les importateurs qui s'appuient sur un fabricant OEM déjà certifié WPC évitent $34 250 de frais directs et 3-6 mois de délai. C'est le choix le plus rationnel pour entrer rapidement sur le marché français avec un produit conforme. »</p>
  </div>
  <div class="bg-brandBlue/5 border-l-4 border-brandBlue p-5 rounded-r-xl mb-12">
  <p class="text-[11px] font-black text-brandBlue uppercase tracking-widest mb-2">DONNÉES DU SECTEUR</p>
@@ -678,14 +845,14 @@ hreflang:
  <div class="bg-slate-50 rounded-2xl p-6 md:p-8 mb-12 border border-slate-100">
  <div class="flex flex-col sm:flex-row items-start gap-4 sm:gap-6">
  <div class="w-20 h-20 rounded-full overflow-hidden flex items-center justify-center border-2 border-brandOrange bg-white shadow-lg shrink-0">
- <img src="/image/factory/team-snowy.webp" alt="Snowy May, Responsable Certification & Conformité UE chez WOWOHCOOL" loading="lazy" width="400" height="400" class="w-full h-full object-cover">
+ <img src="/image/factory/team-snowy.webp" alt="Snowy May, Marketing Manager & Founder chez WOWOHCOOL — spécialiste de la charge GaN et Qi2" loading="lazy" width="400" height="400" class="w-full h-full object-cover">
  </div>
  <div class="flex-1 min-w-0">
  <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 mb-2 sm:mb-3">
  <a href="https://www.linkedin.com/in/snowy-wireless-charger" target="_blank" rel="noopener noreferrer" class="font-black text-slate-900 text-lg hover:text-brandOrange transition">Snowy May</a>
  <span class="px-2 py-1 bg-brandOrange/10 text-brandOrange text-[11px] font-black rounded-full uppercase w-fit">Autrice</span>
  </div>
- <p class="text-sm text-slate-500 mb-3">Responsable Certification & Conformité UE · Experte Qi2 WPC · 10+ ans en certification de chargeurs</p>
+ <p class="text-sm text-slate-500 mb-3">Marketing Manager & Founder · Experte Qi2 WPC · 10+ ans en certification de chargeurs</p>
  <p class="text-slate-600 text-sm leading-relaxed">10+ ans dans l'industrie de la charge sans fil et des normes de certification. Spécialiste de la certification Qi2 WPC, de la conformité réglementaire européenne (CE, RED, DEEE, EN IEC 63563) et de l'accompagnement des importateurs français. Membre active du WPC depuis 2013, basée à l'usine <a href="/fr/a-propos/" class="text-brandBlue hover:text-brandOrange">WOWOHCOOL</a> de Shenzhen.</p>
  <div class="mt-4 pt-4 border-t border-slate-200">
  <p class="text-xs text-slate-400 uppercase tracking-wider mb-2">Empreinte Usine</p>

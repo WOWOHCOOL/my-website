@@ -25,125 +25,347 @@ hreflang:
 ---
 {% extends "layout.njk" %}
 {% block head_schema %}
-<script type="application/ld+json">
-{
- "@context": "https://schema.org",
- "@graph": [
- {
- "@type": "Organization",
- "@id": "https://www.wowohcool.com/#organization",
- "name": "WOWOHCOOL",
- "legalName": "Dong Yi Technology Co., Ltd",
- "url": "https://www.wowohcool.com/pl/o-nas/",
- "publishingPrinciples": "https://www.wowohcool.com/pl/o-nas/",
- "logo": { "@type": "ImageObject", "url": "https://www.wowohcool.com/image/wowohcool-logo-optimized.webp", "width": 600, "height": 60 },
- "areaServed": ["US","DE","AT","CH","UK","FR","ES","EU","JP","KR","AU","MX","CO","AR","CL","PE"],
- "address": {
- "@type": "PostalAddress",
- "streetAddress": "925, Yichuang International Center, Longhua District",
- "addressLocality": "Shenzhen",
- "addressRegion": "Guangdong",
- "postalCode": "518111",
- "addressCountry": "CN"
- },
- "sameAs": [
- "https://www.linkedin.com/company/wowohcool",
- "https://www.facebook.com/wowohcoolelectronic",
- "https://www.youtube.com/@WOWOHCOOL",
- "https://x.com/wowohcool"
- ],
- "contactPoint": {
- "@type": "ContactPoint",
- "contactType": "OEM/ODM Sales",
- "telephone": "+86-18620789739",
- "email": "info@wowohcool.com",
- "availableLanguage": ["English", "French", "German", "Spanish", "Russian", "Polish", "Chinese"]
- }
- },
- {
- "@type": "WebSite",
- "@id": "https://www.wowohcool.com/#website",
- "url": "https://www.wowohcool.com/pl/",
- "name": "WOWOHCOOL",
- "inLanguage": "pl-PL",
- "publisher": { "@id": "https://www.wowohcool.com/#organization" }
- },
- {
- "@type": "BreadcrumbList",
- "itemListElement": [
- { "@type": "ListItem", "position": 1, "name": "Strona Główna", "item": "https://www.wowohcool.com/pl/" },
- { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.wowohcool.com/pl/blog/" },
- { "@type": "ListItem", "position": 3, "name": "OEM vs ODM Producent", "item": "https://www.wowohcool.com/pl/blog/oem-vs-odm-polska-marka/" }
- ]
- },
- {
- "@type": "BlogPosting",
- "@id": "https://www.wowohcool.com/pl/blog/oem-vs-odm-polska-marka/#article",
- "headline": "OEM vs ODM: Przewodnik Strategiczny dla Importerów 2026",
- "keywords": ["OEM","ODM","producent","ładowarka","własna marka","importer","MOQ","FOB","CE","certyfikacja"],
- "description": "OEM vs ODM 2026: porównanie kosztów FOB, MOQ od 500 szt., terminy 25-60 dni. Certyfikacja CE w cenie. Dane fabryczne ISO 9001 — 200+ marek.",
- "author": { "@id": "https://www.wowohcool.com/#nina-nico" },
- "publisher": { "@id": "https://www.wowohcool.com/#organization" },
- "datePublished": "2026-08-14",
- "dateModified": "2026-08-14",
- "wordCount": 1758,
- "timeRequired": "PT12M",
- "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.wowohcool.com/pl/blog/oem-vs-odm-polska-marka/" },
- "image": "https://www.wowohcool.com/image/blog/cover-pl/oem-vs-odm-polska-marka.webp",
- "thumbnailUrl": "https://www.wowohcool.com/image/blog/cover-pl/oem-vs-odm-polska-marka.webp",
- "inLanguage": "pl-PL",
- "articleSection": "Produkcja OEM/ODM",
- "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".speakable"] },
- "citation": [
- { "@type": "CreativeWork", "name": "EUR-Lex, Dyrektywa wspólnej ładowarki 2022/2380", "url": "https://eur-lex.europa.eu/" },
- { "@type": "CreativeWork", "name": "UOKiK, Bezpieczeństwo produktów i GPSR", "url": "https://uokik.gov.pl/" },
- { "@type": "CreativeWork", "name": "IAF CertSearch, Weryfikacja ISO 9001", "url": "https://www.iafcertsearch.org/" }
- ],
- "about": { "@type": "Thing", "name": "Original equipment manufacturer", "sameAs": "https://www.wikidata.org/entity/Q2273901" }
- },
- {
- "@type": "Person",
- "@id": "https://www.wowohcool.com/#nina-nico",
- "name": "Nina Nico",
- "jobTitle": "Manager ds. Globalnych Zakupów i Sourcingu",
- "url": "https://www.wowohcool.com/authors/nina-nico/",
- "sameAs": ["https://www.linkedin.com/in/nico-power-bank-chargers"],
- "image": "https://www.wowohcool.com/image/factory/team-nina.webp",
- "worksFor": { "@id": "https://www.wowohcool.com/#organization" },
- "knowsAbout": ["Produkcja OEM/ODM","Sourcing w Chinach","Własna marka i private label","Certyfikacja CE","GPSR i zgodność UE"]
- },
- {
- "@type": "HowTo",
- "@id": "https://www.wowohcool.com/pl/blog/oem-vs-odm-polska-marka/#howto",
- "name": "Wybrać między OEM a ODM, proces decyzyjny w 5 krokach",
- "description": "Ramy decyzyjne dla importerów: budżet na tooling, czas, IP i wyłączność, certyfikacja GPSR/CE, strategia hybrydowa.",
- "totalTime": "P20M",
- "step": [
- { "@type": "HowToStep", "position": 1, "name": "Określ budżet na tooling", "itemListElement": [{ "@type": "HowToDirection", "text": "OEM wymaga formy ($2 000-30 000) i NRE PCB ($2 000-5 000). ODM nie wymaga toolingu — forma już istnieje. Jeśli budżet startowy to ~$3 500, wybierz ODM." }] },
- { "@type": "HowToStep", "position": 2, "name": "Określ czas wprowadzenia na rynek", "itemListElement": [{ "@type": "HowToDirection", "text": "ODM: 45-60 dni (gotowy projekt). OEM: 25-30 dni produkcji, ale dołóż 4-8 tygodni na projekt, formę i certyfikację. Jeśli testujesz rynek na Allegro, wybierz ODM." }] },
- { "@type": "HowToStep", "position": 3, "name": "Zdecyduj o IP i wyłączności", "itemListElement": [{ "@type": "HowToDirection", "text": "OEM: własność intelektualna i forma należą do Ciebie. ODM: projekt należy do fabryki — negocjuj wyłączność, jeśli nie chcesz identycznych produktów u konkurencji na Allegro." }] },
- { "@type": "HowToStep", "position": 4, "name": "Sprawdź certyfikację i GPSR", "itemListElement": [{ "@type": "HowToDirection", "text": "CE musi być na Twoje nazwisko jako importera. Od 13.12.2024 GPSR wymaga podania chińskiej fabryki jako producenta prawnego. Weryfikuj, czy deklaracja zgodności jest na Twój model, nie cudzy." }] },
- { "@type": "HowToStep", "position": 5, "name": "Wybierz strategię hybrydową ODM → OEM", "itemListElement": [{ "@type": "HowToDirection", "text": "Zacznij od ODM (niskie ryzyko, ~$3 500), zweryfikuj sprzedaż, potem przejdź na OEM z własną formą i wyłącznością. To ścieżka, którą stosuje większość marek WOWOHCOOL." }] }
- ]
- },
- {
- "@type": "FAQPage",
- "@id": "https://www.wowohcool.com/pl/blog/oem-vs-odm-polska-marka/#faq",
- "speakable": { "@type": "SpeakableSpecification", "cssSelector": [".faq-answer"] },
- "mainEntity": [
- { "@type": "Question", "name": "OEM vs ODM producent — jaka jest różnica dla importera?", "acceptedAnswer": { "@type": "Answer", "text": "OEM (Original Equipment Manufacturer) — producent wykonuje produkt według Twojego projektu i specyfikacji, forma i IP należą do Ciebie. ODM (Original Design Manufacturer) — producent ma gotowy projekt, Ty dodajesz logo, kolor i opakowanie, a podstawowy projekt należy do fabryki. OEM to pełna kontrola za wyższy koszt toolingu; ODM to szybki start bez kosztów formy." } },
- { "@type": "Question", "name": "Jaki jest MOQ dla OEM i ODM ładowarek?", "acceptedAnswer": { "@type": "Answer", "text": "MOQ WOWOHCOOL: OEM od 500 szt. (logo + kolor + opakowanie + certyfikacja), ODM 500-1 000 szt. Większość konkurentów wymaga 1 000+ dla pełnego OEM. Przy ODM negocjuj wyłączność, jeśli chcesz uniknąć identycznych produktów na Allegro." } },
- { "@type": "Question", "name": "Ile kosztuje forma (tooling) do produkcji ładowarki OEM?", "acceptedAnswer": { "@type": "Answer", "text": "Forma pojedynczego portu: $2 000-5 000. Obudowa: $5 000-30 000 (zależnie od złożoności i materiału). NRE PCB (projekt + firmware): $2 000-5 000. Łączny budżet startowy OEM to $50 000-200 000+, podczas gdy ODM startuje od ~$3 500." } },
- { "@type": "Question", "name": "Jaki jest czas realizacji produkcji OEM vs ODM ładowarek?", "acceptedAnswer": { "@type": "Answer", "text": "ODM: 45-60 dni (gotowy projekt, krótszy czas wprowadzenia). OEM: 25-30 dni sama produkcja, ale dolicz 4-8 tygodni na projekt, formę i certyfikację. Jeśli testujesz rynek na Allegro, ODM jest szybszy o 6-10 tygodni." } },
- { "@type": "Question", "name": "Czy mogę zacząć od ODM i przejść na OEM pod własną marką?", "acceptedAnswer": { "@type": "Answer", "text": "Tak — to zalecana strategia hybrydowa. Zacznij od ODM (~$3 500, niskie ryzyko), zweryfikuj sprzedaż na Allegro/Amazon PL, potem przejdź na OEM z własną formą i wyłącznością. Większość marek WOWOHCOOL zaczynała od ODM." } },
- { "@type": "Question", "name": "Czyje są certyfikaty CE w ODM — moje czy fabryki?", "acceptedAnswer": { "@type": "Answer", "text": "To najczęstsza pułapka. W ODM certyfikaty CE często są na nazwisko fabryki, nie Twoje. Wymagaj deklaracji zgodności na swoje nazwisko jako importera. Od 13.12.2024 GPSR wymaga podania chińskiej fabryki jako producenta prawnego na Allegro." } },
- { "@type": "Question", "name": "Kto jest właścicielem formy i wyłączności w produkcji OEM?", "acceptedAnswer": { "@type": "Answer", "text": "W OEM forma i własność intelektualna należą do Ciebie (po opłaceniu toolingu $2 000-30 000). Zawsze zapisuj w kontrakcie, że forma jest Twoją własnością i fabryka nie może jej używać dla innych klientów. W ODM forma należy do fabryki — chyba że wynegocjujesz wyłączność." } },
- { "@type": "Question", "name": "Jak rozpocząć projekt OEM/ODM ładowarki dla Polski?", "acceptedAnswer": { "@type": "Answer", "text": "4 kroki: (1) wybierz OEM lub ODM według budżetu i czasu. (2) spersonalizuj logo, kolor, opakowanie. (3) WOWOHCOOL załatwia certyfikację CE, WEEE/BDO i zgodność GPSR. (4) produkcja 25-60 dni, dostawa DDP do Polski. MOQ 500, wycena gratis w 24 h na wowohcool.com/pl/kontakt/." } }
- ]
- }
- ]
-}
-</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.wowohcool.com/#organization",
+      "name": "WOWOHCOOL",
+      "legalName": "Dong Yi Technology Co., Ltd",
+      "foundingDate": "2013",
+      "vatID": "91441900MA558A2N27",
+      "url": "https://www.wowohcool.com/pl/o-nas/",
+      "publishingPrinciples": "https://www.wowohcool.com/pl/o-nas/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.wowohcool.com/image/wowohcool-logo-optimized.webp",
+        "width": 600,
+        "height": 60
+      },
+      "areaServed": [
+        "US",
+        "DE",
+        "AT",
+        "CH",
+        "UK",
+        "FR",
+        "ES",
+        "PL",
+        "EU",
+        "JP",
+        "KR",
+        "AU",
+        "MX",
+        "CO",
+        "AR",
+        "CL",
+        "PE",
+        "RU",
+        "KZ",
+        "BY",
+        "EAEU"
+      ],
+      "knowsAbout": [
+        "OEM/ODM Power Bank Manufacturing",
+        "Qi2 Wireless Charging Standard",
+        "GaN Power Architecture",
+        "Automotive Fast Charging Systems",
+        "Custom Power Adapter Production",
+        "Consumer Electronics Sourcing",
+        "UL & CE Safety Compliance"
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "925, Yichuang International Center, Longhua District",
+        "addressLocality": "Shenzhen",
+        "addressRegion": "Guangdong",
+        "postalCode": "518111",
+        "addressCountry": "CN"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/company/wowohcool",
+        "https://www.facebook.com/wowohcoolelectronic",
+        "https://www.youtube.com/@WOWOHCOOL",
+        "https://x.com/wowohcool"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "OEM/ODM Sales",
+        "telephone": "+86-18620789739",
+        "email": "info@wowohcool.com",
+        "availableLanguage": [
+          "English",
+          "German",
+          "Spanish",
+          "French",
+          "Russian",
+          "Polish"
+        ]
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.wowohcool.com/#website",
+      "url": "https://www.wowohcool.com/pl/",
+      "name": "WOWOHCOOL",
+      "inLanguage": "pl-PL",
+      "publisher": {
+        "@id": "https://www.wowohcool.com/#organization"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Strona Główna",
+          "item": "https://www.wowohcool.com/pl/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://www.wowohcool.com/pl/blog/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "OEM vs ODM Producent",
+          "item": "https://www.wowohcool.com/pl/blog/oem-vs-odm-polska-marka/"
+        }
+      ]
+    },
+    {
+      "@type": "BlogPosting",
+      "@id": "https://www.wowohcool.com/pl/blog/oem-vs-odm-polska-marka/#article",
+      "headline": "OEM vs ODM: Przewodnik Strategiczny dla Importerów 2026",
+      "keywords": [
+        "OEM",
+        "ODM",
+        "producent",
+        "ładowarka",
+        "własna marka",
+        "importer",
+        "MOQ",
+        "FOB",
+        "CE",
+        "certyfikacja"
+      ],
+      "description": "OEM vs ODM 2026: porównanie kosztów FOB, MOQ od 500 szt., terminy 25-60 dni. Certyfikacja CE w cenie. Dane fabryczne ISO 9001 — 200+ marek.",
+      "author": {
+        "@id": "https://www.wowohcool.com/#nina-nico"
+      },
+      "publisher": {
+        "@id": "https://www.wowohcool.com/#organization"
+      },
+      "datePublished": "2026-08-14",
+      "dateModified": "2026-08-14",
+      "wordCount": 1758,
+      "timeRequired": "PT12M",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://www.wowohcool.com/pl/blog/oem-vs-odm-polska-marka/"
+      },
+      "image": "https://www.wowohcool.com/image/blog/cover-pl/oem-vs-odm-polska-marka.webp",
+      "thumbnailUrl": "https://www.wowohcool.com/image/blog/cover-pl/oem-vs-odm-polska-marka.webp",
+      "inLanguage": "pl-PL",
+      "articleSection": "Produkcja OEM/ODM",
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [
+          "h1",
+          ".speakable"
+        ]
+      },
+      "citation": [
+        {
+          "@type": "CreativeWork",
+          "name": "EUR-Lex, Dyrektywa wspólnej ładowarki 2022/2380",
+          "url": "https://eur-lex.europa.eu/"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "UOKiK, Bezpieczeństwo produktów i GPSR",
+          "url": "https://uokik.gov.pl/"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "IAF CertSearch, Weryfikacja ISO 9001",
+          "url": "https://www.iafcertsearch.org/"
+        }
+      ],
+      "about": {
+        "@type": "Thing",
+        "name": "Original equipment manufacturer",
+        "sameAs": "https://www.wikidata.org/entity/Q267558"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://www.wowohcool.com/#nina-nico",
+      "name": "Nina Nico",
+      "jobTitle": "Global Procurement & Sourcing Manager",
+      "url": "https://www.wowohcool.com/authors/nina-nico/",
+      "sameAs": [
+        "https://www.linkedin.com/in/nico-power-bank-chargers"
+      ],
+      "image": "https://www.wowohcool.com/image/factory/team-nina.webp",
+      "worksFor": {
+        "@id": "https://www.wowohcool.com/#organization"
+      },
+      "knowsAbout": [
+        "B2B Hardware Sourcing",
+        "OEM/ODM Power Bank Manufacturing",
+        "Supply Chain Quality Assurance",
+        "International Electronics Trade Compliance",
+        "Custom Power Adapter Production",
+        "Factory Audit Standards"
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://www.wowohcool.com/pl/blog/oem-vs-odm-polska-marka/#howto",
+      "name": "Wybrać między OEM a ODM, proces decyzyjny w 5 krokach",
+      "description": "Ramy decyzyjne dla importerów: budżet na tooling, czas, IP i wyłączność, certyfikacja GPSR/CE, strategia hybrydowa.",
+      "totalTime": "PT20M",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Określ budżet na tooling",
+          "itemListElement": [
+            {
+              "@type": "HowToDirection",
+              "text": "OEM wymaga formy ($2 000-30 000) i NRE PCB ($2 000-5 000). ODM nie wymaga toolingu — forma już istnieje. Jeśli budżet startowy to ~$3 500, wybierz ODM."
+            }
+          ]
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Określ czas wprowadzenia na rynek",
+          "itemListElement": [
+            {
+              "@type": "HowToDirection",
+              "text": "ODM: 45-60 dni (gotowy projekt). OEM: 25-30 dni produkcji, ale dołóż 4-8 tygodni na projekt, formę i certyfikację. Jeśli testujesz rynek na Allegro, wybierz ODM."
+            }
+          ]
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Zdecyduj o IP i wyłączności",
+          "itemListElement": [
+            {
+              "@type": "HowToDirection",
+              "text": "OEM: własność intelektualna i forma należą do Ciebie. ODM: projekt należy do fabryki — negocjuj wyłączność, jeśli nie chcesz identycznych produktów u konkurencji na Allegro."
+            }
+          ]
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Sprawdź certyfikację i GPSR",
+          "itemListElement": [
+            {
+              "@type": "HowToDirection",
+              "text": "CE musi być na Twoje nazwisko jako importera. Od 13.12.2024 GPSR wymaga podania chińskiej fabryki jako producenta prawnego. Weryfikuj, czy deklaracja zgodności jest na Twój model, nie cudzy."
+            }
+          ]
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Wybierz strategię hybrydową ODM → OEM",
+          "itemListElement": [
+            {
+              "@type": "HowToDirection",
+              "text": "Zacznij od ODM (niskie ryzyko, ~$3 500), zweryfikuj sprzedaż, potem przejdź na OEM z własną formą i wyłącznością. To ścieżka, którą stosuje większość marek WOWOHCOOL."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.wowohcool.com/pl/blog/oem-vs-odm-polska-marka/#faq",
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [
+          ".faq-answer"
+        ]
+      },
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "OEM vs ODM producent — jaka jest różnica dla importera?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "OEM (Original Equipment Manufacturer) — producent wykonuje produkt według Twojego projektu i specyfikacji, forma i IP należą do Ciebie. ODM (Original Design Manufacturer) — producent ma gotowy projekt, Ty dodajesz logo, kolor i opakowanie, a podstawowy projekt należy do fabryki. OEM to pełna kontrola za wyższy koszt toolingu; ODM to szybki start bez kosztów formy."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Jaki jest MOQ dla OEM i ODM ładowarek?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "MOQ WOWOHCOOL: OEM od 500 szt. (logo + kolor + opakowanie + certyfikacja), ODM 500-1 000 szt. Większość konkurentów wymaga 1 000+ dla pełnego OEM. Przy ODM negocjuj wyłączność, jeśli chcesz uniknąć identycznych produktów na Allegro."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Ile kosztuje forma (tooling) do produkcji ładowarki OEM?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Forma pojedynczego portu: $2 000-5 000. Obudowa: $5 000-30 000 (zależnie od złożoności i materiału). NRE PCB (projekt + firmware): $2 000-5 000. Łączny budżet startowy OEM to $50 000-200 000+, podczas gdy ODM startuje od ~$3 500."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Jaki jest czas realizacji produkcji OEM vs ODM ładowarek?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "ODM: 45-60 dni (gotowy projekt, krótszy czas wprowadzenia). OEM: 25-30 dni sama produkcja, ale dolicz 4-8 tygodni na projekt, formę i certyfikację. Jeśli testujesz rynek na Allegro, ODM jest szybszy o 6-10 tygodni."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Czy mogę zacząć od ODM i przejść na OEM pod własną marką?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Tak — to zalecana strategia hybrydowa. Zacznij od ODM (~$3 500, niskie ryzyko), zweryfikuj sprzedaż na Allegro/Amazon PL, potem przejdź na OEM z własną formą i wyłącznością. Większość marek WOWOHCOOL zaczynała od ODM."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Czyje są certyfikaty CE w ODM — moje czy fabryki?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "To najczęstsza pułapka. W ODM certyfikaty CE często są na nazwisko fabryki, nie Twoje. Wymagaj deklaracji zgodności na swoje nazwisko jako importera. Od 13.12.2024 GPSR wymaga podania chińskiej fabryki jako producenta prawnego na Allegro."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Kto jest właścicielem formy i wyłączności w produkcji OEM?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "W OEM forma i własność intelektualna należą do Ciebie (po opłaceniu toolingu $2 000-30 000). Zawsze zapisuj w kontrakcie, że forma jest Twoją własnością i fabryka nie może jej używać dla innych klientów. W ODM forma należy do fabryki — chyba że wynegocjujesz wyłączność."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Jak rozpocząć projekt OEM/ODM ładowarki dla Polski?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "4 kroki: (1) wybierz OEM lub ODM według budżetu i czasu. (2) spersonalizuj logo, kolor, opakowanie. (3) WOWOHCOOL załatwia certyfikację CE, WEEE/BDO i zgodność GPSR. (4) produkcja 25-60 dni, dostawa DDP do Polski. MOQ 500, wycena gratis w 24 h na wowohcool.com/pl/kontakt/."
+          }
+        }
+      ]
+    }
+  ]
+}</script>
 {% endblock %}
 {% block content %}
 <!-- ===== Hero ===== -->
@@ -168,10 +390,10 @@ hreflang:
  <h1 class="text-3xl lg:text-5xl font-black text-brandBlue uppercase italic tracking-tighter mb-6 leading-tight">OEM vs ODM: Przewodnik Strategiczny dla Importerów 2026</h1>
 
  <div class="flex items-center gap-3 mb-6">
- <img src="/image/factory/team-nina.webp" alt="Nina Nico, Manager ds. Globalnych Zakupów i Sourcingu, WOWOHCOOL" loading="lazy" width="40" height="40" class="w-10 h-10 rounded-full object-cover border border-brandOrange">
+ <img src="/image/factory/team-nina.webp" alt="Nina Nico, Global Procurement & Sourcing Manager w WOWOHCOOL — specjalistka ds. sourcingu OEM/ODM" loading="lazy" width="40" height="40" class="w-10 h-10 rounded-full object-cover border border-brandOrange">
  <div>
  <a href="#author-bio" class="font-bold text-slate-900 text-sm hover:text-brandOrange transition">Nina Nico</a>
- <p class="text-xs text-slate-500">Manager ds. Globalnych Zakupów, 10+ lat w sourcingu</p>
+ <p class="text-xs text-slate-500">Global Procurement & Sourcing Manager, 10+ lat w sourcingu</p>
  </div>
  </div>
 
@@ -236,7 +458,7 @@ hreflang:
  <div class="bg-brandBlue/5 border-l-4 border-brandOrange rounded-r-xl p-6 mt-6">
  <p class="text-[11px] font-black text-brandOrange uppercase tracking-widest mb-2">Spostrzeżenie Eksperta</p>
  <blockquote class="text-slate-700 text-base italic leading-relaxed">«Różnica między dobrze wynegocjowanym OEM a źle zrozumianym ODM może kosztować polskiego importera 50 000-200 000 zł. Prawdziwe ryzyko to nie cena jednostkowa — to odkrycie po 6 miesiącach, że Twoje certyfikaty CE są na nazwisko chińskiej fabryki, a GPSR wymaga podania producenta, którym nie jesteś.»</blockquote>
- <p class="text-sm text-slate-500 mt-2">Nina Nico, Manager ds. Globalnych Zakupów i Sourcingu, WOWOHCOOL</p>
+ <p class="text-sm text-slate-500 mt-2">Nina Nico, Global Procurement & Sourcing Manager, WOWOHCOOL</p>
  </div>
  </div>
  </section>
@@ -392,14 +614,14 @@ hreflang:
  <div class="bg-slate-50 rounded-2xl p-6 md:p-8 mb-12 border border-slate-100">
  <div class="flex flex-col sm:flex-row items-start gap-4 sm:gap-6">
  <div class="w-20 h-20 rounded-full overflow-hidden flex items-center justify-center border-2 border-brandOrange bg-white shadow-lg shrink-0">
- <img src="/image/factory/team-nina.webp" alt="Nina Nico, Manager ds. Globalnych Zakupów i Sourcingu, WOWOHCOOL" loading="lazy" width="400" height="400" class="w-full h-full object-cover">
+ <img src="/image/factory/team-nina.webp" alt="Nina Nico, Global Procurement & Sourcing Manager w WOWOHCOOL — specjalistka ds. sourcingu OEM/ODM" loading="lazy" width="400" height="400" class="w-full h-full object-cover">
  </div>
  <div class="flex-1 min-w-0">
  <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 mb-2 sm:mb-3">
  <a href="https://www.linkedin.com/in/nico-power-bank-chargers" target="_blank" rel="noopener noreferrer" class="font-black text-slate-900 text-lg hover:text-brandOrange transition">Nina Nico</a>
  <span class="px-2 py-1 bg-brandOrange/10 text-brandOrange text-[11px] font-black rounded-full uppercase w-fit">Autorka</span>
  </div>
- <p class="text-sm text-slate-500 mb-3">Manager ds. Globalnych Zakupów i Sourcingu, 10+ lat w sourcingu elektroniki</p>
+ <p class="text-sm text-slate-500 mb-3">Global Procurement & Sourcing Manager, 10+ lat w sourcingu elektroniki</p>
  <p class="text-slate-600 text-sm leading-relaxed">10+ lat w sourcingu ładowarek i zarządzaniu łańcuchem dostaw. Specjalistka produkcji OEM/ODM, własnej marki i certyfikacji CE/GPSR dla rynku polskiego i UE. Pracuje w fabryce <a href="/pl/o-nas/" class="text-brandBlue hover:text-brandOrange">WOWOHCOOL</a> w Shenzhen i wspiera polskich importerów oraz sprzedawców Allegro i Amazon PL w projektach OEM/ODM.</p>
  <div class="mt-4 pt-4 border-t border-slate-200">
  <p class="text-xs text-slate-400 uppercase tracking-wider mb-2">Baza Produkcyjna</p>
