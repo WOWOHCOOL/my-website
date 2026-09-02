@@ -40,6 +40,7 @@ Checks (per metadata standard):
       commercial noreferrer nofollow)                           [WARN]
   C22 HowTo.totalTime within FAQ duration ranges                [WARN]
   C23 citation bare org-names (no descriptor, §3.6)             [WARN]
+  C24 HTML tag balance + panel anchor ordering                  [CRITICAL]
   W1  wordCount vs actual visible words (±5%)                  [WARN]
   W2  timeRequired minutes vs visible reading-time number       [WARN]
   W3  citation count vs visible Sources external links          [WARN]
@@ -230,6 +231,32 @@ def audit_file(path, lang_key):
     stripped_tags = re.sub(r"<[^>]+>", "\n", stripped_src)
     if re.search(r'(target="_blank"|rel=")', stripped_tags):
         add("CRITICAL", "C1", "HTML 标签残段渲染为页面明文（拼接损伤）")
+
+    # C24: HTML structural integrity — tag balance + panel anchor ordering.
+    # Catches splicing corruption where every tag is individually legal but the
+    # nesting breaks (e.g. a swallowed </ul> melts Sources into Related Articles).
+    # Ground truth = the RENDERED page (_site/<rel>.html): source-level .njk counts
+    # are distorted by Nunjucks conditionals/includes (false positives both ways).
+    PAIRED = ("section", "div", "ul", "ol", "aside", "article", "nav", "table")
+    rendered = None
+    r_path = os.path.join(SITE.replace(os.sep, "/").rstrip("/").rsplit("/src", 1)[0], "_site", rel.replace("/", os.sep)).replace(".njk", ".html")
+    if os.path.exists(r_path):
+        rendered = io.open(r_path, encoding="utf-8", errors="replace").read()
+        r_stripped = re.sub(r"<script[^>]*>.*?</script>", " ", rendered, flags=re.DOTALL | re.IGNORECASE)
+        r_stripped = re.sub(r"\{%.*?%\}|\{\{.*?\}\}", " ", r_stripped, flags=re.DOTALL)
+        for tag in PAIRED:
+            opens = len(re.findall(rf"<{tag}(?=[\s>])", r_stripped, re.I))
+            closes = len(re.findall(rf"</{tag}>", r_stripped, re.I))
+            if opens != closes:
+                add("CRITICAL", "C24", f"渲染页 <{tag}> 不配平: open={opens} close={closes}（嵌套熔坏/板块被吞）")
+                break
+        _anchors = [(m.start(), m.group(1)) for m in re.finditer(r'id="(faq|author-bio|related-articles)"', r_stripped)]
+        _apos = {name: pos for pos, name in _anchors}
+        if {"faq", "author-bio", "related-articles"} <= set(_apos.values()):
+            if not (_apos["faq"] < _apos["author-bio"] < _apos["related-articles"]):
+                add("CRITICAL", "C24", "渲染页板块锚点顺序错误: faq/author-bio/related-articles 应依次出现")
+        if r_stripped.count("<!--") != r_stripped.count("-->"):
+            add("CRITICAL", "C24", f"渲染页 HTML 注释未闭合: <!-- ×{r_stripped.count('<!--')} vs --> ×{r_stripped.count('-->')}")
     blocks = re.findall(r'<script type="application/ld\+json">\s*(.*?)\s*</script>', src, re.DOTALL)
     if not blocks:
         add("CRITICAL", "C1", "无 JSON-LD schema")
