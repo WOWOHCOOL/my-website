@@ -1,8 +1,9 @@
-# Blog 标准排版规范 (v2.1)
+# Blog 标准排版规范 (v2.2)
 
 **基于**: 28 篇 EN + 11 篇 DE 文章完整审计优化
 **适用**: 所有 EN/DE/ES/FR/RU/PL 博客文章 (wowohcool.com/blog/ + /de/blog/ + /es/blog/ + /fr/blog/ + /ru/blog/ + /pl/blog/)
 **规则权威源**: 详细质量标准见 `context/b2b-blog-quality-audit-standard.md`
+**最后更新**: 2026-09-02（FAQ 规则表述统一为 Rule 0-9 共 10 条，与 `b2b-blog-quality-audit-standard.md` 对齐）
 
 ---
 
@@ -22,7 +23,7 @@
  7. ~~Factory Data~~     已废弃 — 与 Author Bio 的 Factory Footprint 重复，勿再使用
  8. H2 Sections × N     标准灰底卡片，嵌入式 Expert Insight + Factory Stat
  9. Conclusion          可选，依文章而定 — 总结 + 实操流程，不含重复链接 ⓕ
-10. FAQ                 id="faq"，9 条规则，答案量化 ≥1 个数字
+10. FAQ                 id="faq"，Rule 0-9 共 10 条规则，答案量化 ≥1 个数字
 11. Full Author Bio     id="author-bio"，含 Factory Footprint（4 项工厂硬数据）
 12. CTA                 渐变背景，2 按钮：主 CTA + OEM/ODM Service
 13. Related Articles    id="related-articles"
@@ -63,7 +64,7 @@
       </div>
     </div>
     <!-- 日期行 — <time datetime> 统一 ISO 8601，展示格式按语言 -->
-    <!-- ⚠️ EN → Mon DD, YYYY | DE → DD.MM.YYYY | ES → DD de Mon de YYYY | FR → DD Mon YYYY -->
+    <!-- ⚠️ EN → Mon DD, YYYY | DE → DD.MM.YYYY | ES → DD de Mon de YYYY | FR → DD Mon YYYY | RU → DD.MM.YYYY | PL → DD.MM.YYYY -->
     <!-- <time datetime="YYYY-MM-DD"> 的 ISO 值在所有语言中保持统一，只有展示文本变化 -->
     <div class="flex flex-wrap items-center gap-6 text-sm text-slate-500 pb-8 border-b border-slate-200">
       <span><time datetime="YYYY-MM-DD">Mon DD, YYYY</time></span>
@@ -118,9 +119,23 @@
 </div>
 ```
 
-⚠️ **不再使用独立的 TL;DR 区块**。BlogPosting 的 speakable 锚点严格限制为 **3 个节点**：H1、Hook 段落、KERNERKENNTNISSE TL;DR 句。FAQ 答案走独立的 FAQPage speakable（`.faq-answer`），不在这 3 个节点内。`<ul>` 列表和 Expert Insight 的 `<blockquote>` **不加** speakable——超过 3 个节点会导致 AI 抓取权重稀释。详见 `b2b-blog-quality-audit-standard.md` §III.3。
+⚠️ **不再使用独立的 TL;DR 区块**。BlogPosting 的 speakable 锚点严格限制为 **3 个节点**：H1、Hook 段落、Key Takeaways TL;DR 句。FAQ 答案走独立的 FAQPage speakable（`.faq-answer`），不在这 3 个节点内。`<ul>` 列表和 Expert Insight 的 `<blockquote>` **不加** speakable——超过 3 个节点会导致 AI 抓取权重稀释。详见 `b2b-blog-quality-audit-standard.md` §III.3。
 
-### 5. Table of Contents
+### 5. Key Metrics Cards（可选）
+
+```html
+<div class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-8">
+  <div class="bg-slate-50 rounded-xl p-4 text-center border border-slate-200">
+    <span class="font-black text-brandBlue text-lg">93-95%</span>
+    <p class="text-xs text-slate-500 uppercase tracking-wider mt-1">GaN V Efficiency</p>
+  </div>
+  <!-- 其余 2-3 张卡片同构 -->
+</div>
+```
+
+⚠️ 仅在文章有 2-4 个**可独立成卡**的硬数据时使用；数字必须来自 `context/factory-data-canonical.md`，禁止编造。卡片网格样式与 Author Bio 的 Factory Footprint（§11）保持一致。
+
+### 6. Table of Contents
 
 ```html
 <div class="bg-brandBlue rounded-2xl p-8 text-white mb-12">
@@ -134,7 +149,11 @@
 
 ⚠️ **TOC 必须包含 `#faq` 链接**。
 
-### 6. H2 Section（标准正文分段）
+### 7. ~~Factory Data~~（已废弃）
+
+已废弃 — 与 Author Bio 的 Factory Footprint 重复，勿再使用。无代码标准，勿在新文章中创建该板块。
+
+### 8. H2 Section（标准正文分段）
 
 ```html
 <section id="section-id" class="mb-16">
@@ -154,7 +173,7 @@
 | 正文 | `text-slate-600 leading-relaxed mb-6` |
 | 正文图片 | `max-w-3xl mx-auto rounded-2xl shadow-lg` |
 
-### 7. Expert Insight（嵌入正文，非末尾独立）
+#### 8.1 Expert Insight（嵌入 H2 内，非独立板块）
 
 ```html
 <!-- Expert Insight — embedded in [context] -->
@@ -167,7 +186,18 @@
 
 ⚠️ **嵌入在相关正文段落内（H2 Section 中）**，不要放在文章末尾。
 
-### 8. FAQ（9 条规则强制）
+### 9. Conclusion（可选）
+
+```html
+<section class="max-w-4xl mx-auto px-6 mb-16">
+  <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-6">Conclusion</h2>
+  <p class="text-slate-600 leading-relaxed mb-6">总结段 — 回收 Hook 痛点 + 核心结论，不引入新数据。</p>
+  <!-- 实操流程（如适用）：3-5 步 <ol> 决策/执行清单 -->
+  <!-- ⚠️ 不含重复 CTA 链接（转化由 §12 CTA 板块承担） -->
+</section>
+```
+
+### 10. FAQ（Rule 0-9 共 10 条规则强制；数量 3-5 条见 Rule 0）
 
 ```html
 <!-- FAQ -->
@@ -184,7 +214,7 @@
 </section>
 ```
 
-#### FAQ 9 规则
+#### FAQ Rule 0-9（共 10 条规则）
 
 | # | 规则 | 验证方法 |
 |---|------|---------|
@@ -198,7 +228,7 @@
 | 8 | **格式差异化** | FAQ 用 50-150 字简明问答格式，与叙述性 H2 正文结构区分（同数据、不同呈现） |
 | 9 | **交叉一致性** | FAQ 数据与 TL;DR、正文三方一致 |
 
-### 9. Full Author Bio（含 Factory Footprint）
+### 11. Full Author Bio（含 Factory Footprint）
 
 ```html
 <!-- Author Bio -->
@@ -231,7 +261,7 @@
 
 ⚠️ **Factory Footprint 必须有**（4 个工厂硬数据）。
 
-### 10. CTA
+### 12. CTA
 
 ```html
 <!-- CTA -->
@@ -251,16 +281,16 @@
 
 ⚠️ CTA 必须是 `<h2>`。按钮文案用 `Get Factory Pricing` / `Request OEM Quote`，不用 `Contact Us`。
 
-### 11. Related Articles
+### 13. Related Articles
 
-使用 `<aside>` 语义容器包裹，让搜索爬虫明确区分"正文推荐"与"全局侧栏/脚部"。卡片链接必须使用**语言前缀路径**（`/de/blog/...`），避免 DE 文章误链到 EN 文章。
+使用 `<aside>` 语义容器包裹，让搜索爬虫明确区分"正文推荐"与"全局侧栏/脚部"。卡片链接必须使用**语言前缀路径**（EN `/blog/` | DE `/de/blog/` | ES `/es/blog/` | FR `/fr/blog/` | RU `/ru/blog/` | PL `/pl/blog/`），避免非 EN 文章误链到 EN 版本——此前 Cloudflare 爬虫审计抓到的"路径重复拼接"死链正源于此类前缀错误。
 
 ```html
 <!-- Related Articles — <aside> signals "supplementary content" to crawlers -->
 <aside id="related-articles" class="mb-16">
   <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-6">Related Articles</h2>
   <div class="grid md:grid-cols-3 lg:grid-cols-3">
-    <!-- ⚠️ 链接必须含语言前缀: /blog/ (EN) | /de/blog/ (DE) | /es/blog/ (ES) | /fr/blog/ (FR) -->
+    <!-- ⚠️ 链接必须含语言前缀: /blog/ (EN) | /de/blog/ (DE) | /es/blog/ (ES) | /fr/blog/ (FR) | /ru/blog/ (RU) | /pl/blog/ (PL) -->
     <a href="/blog/article-slug" class="bg-slate-50 rounded-xl overflow-hidden hover:shadow-xl transition group">
       <div class="h-2 bg-gradient-to-r from-brandBlue to-brandOrange"></div>
       <div class="p-6">
@@ -273,7 +303,7 @@
 </aside>
 ```
 
-### 12. Sources & References
+### 14. Sources & References
 
 `rel` 属性按链接类型分级——权威标准机构保留 referrer 以建立共引信号（co-citation），商业/竞品站点剥离 referrer：
 
@@ -297,6 +327,10 @@
 | 政府/法规（EU, BMWK, Stiftung EAR） | `noopener external` | 同上，公共数据源 |
 | 商业站点/竞品/媒体 | `noopener noreferrer nofollow` | 剥离 referrer + 不传递 PageRank |
 
+### 15. Global CTA
+
+页面级组件 `blog-cta.njk`，由 layout 全局注入。文章内**不单独编码**此板块，勿在正文中手写其 HTML。
+
 ---
 
 ## 三、Schema & 数据 & FAQ — 权威源指针
@@ -306,7 +340,7 @@
 | 需求 | 权威源 | 说明 |
 |------|--------|------|
 | JSON-LD Schema 完整模板 | `context/b2b-schema-template.json` | 7 节点，占位符替换后 `json.load()` 可验证。占位符替换规则见 `b2b-multilingual-metadata-standard.md` §二 |
-| Schema 设计原理 + 语言映射 | `context/b2b-multilingual-metadata-standard.md` | Organization 节点强制字段、FAQ 9 规则、wordCount 验证脚本 |
+| Schema 设计原理 + 语言映射 | `context/b2b-multilingual-metadata-standard.md` | Organization 节点强制字段、FAQ Rule 0-9（10 条）、wordCount 验证脚本 |
 | 工厂数据统一值 | `context/factory-data-canonical.md` | MOQ、Lead Time、认证成本、模具费用——全站唯一数据源 |
 | FAQ 质量规则 | `context/b2b-blog-quality-audit-standard.md` §III.4 | Rule 1-9、问题侧/答案侧分离评分、Body-Schema 逐字一致 |
 | Pre-Commit 自检清单 | `context/b2b-blog-quality-audit-standard.md` §X | 20 条发布前自检 |

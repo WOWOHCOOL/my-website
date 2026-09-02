@@ -439,7 +439,7 @@ print(f'Actual main content word count: {real_wc}')
  7. ~~Factory Data~~  已废弃 — 工厂数据已融入 Author Bio 的 Factory Footprint（§5.1 板块 11），单独卡片属页面冗余，勿再使用
  8. H2 Sections ×N   标准灰底卡片，嵌入式 Expert Insight + Factory Stat
  9. Conclusion       可选，依文章而定 — 总结 + 实操流程，不含重复链接 ⓕ
-10. FAQ               id="faq"，9 条规则
+10. FAQ               id="faq"，Rule 0-9 共 10 条规则
 11. Author Bio        id="author-bio"，含 Factory Footprint
 12. CTA               渐变背景，2 按钮：主 CTA + OEM/ODM Service
 13. Related Articles  id="related-articles"
