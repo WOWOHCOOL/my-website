@@ -1,6 +1,6 @@
 # 多语言本土化通用规则
 
-> 适用 DE / ES / FR 站点。各语言词表见 de-dict.md / es-dict.md / fr-dict.md。
+> 适用 DE / ES / FR / RU / PL 站点（2026-09-02 扩 RU/PL）。各语言词表见 de-dict.md / es-dict.md / fr-dict.md / pl-dict.md（RU 无独立词表，遵循本文件 + 正文实抓语料）。
 
 ## 保护规则（任何替换前必须先隔离，只改正文可见文本）
 
@@ -14,6 +14,20 @@
 7. **email / 域名 / mailto:**：email 地址、域名、`mailto:` 链接——ASCII，不加重音/转写
 8. **产品型号 / 编号**：`WOW93`、`UN3090`、HS 代码——技术标识（形态判断含数字/全大写已挡大部分，纯字母型号需词表）
 9. **文件路径**：`/xxx.webp` 等资源路径
+10. **JSON-LD 值内嵌引号**：改写 JSON-LD 里的可见文本时，值内的 `"` 必须转义或改用单引号/语言引号——曾发生 FAQ 答案文本里裸引号导致整个 JSON 块解析失败（C1 CRITICAL）
+
+## 数字 / 标点 / 格式速查（六语言）
+
+| 格式项 | EN | DE | ES | FR | RU | PL |
+|--------|----|----|----|----|----|----|
+| 小数分隔符 | 3.7 | 3,7 | 3,7 | 3,7 | 3,7 | 3,7 |
+| 千分位 | 1,000 | 1.000 | 1.000 | 1 000（空格） | 1 000（空格） | 1 000（空格） |
+| 货币位置 | $100 | 100 € | 100 € | 100 € | 100 € | 100 zł |
+| 引号 | "..." | „..." | "..." | «...» | «...» | „..." |
+| 省略号/破折号 | — | – | — | —（前后空格） | — | – |
+| 标题大小写 | Title Case | Sentence case | Sentence case | Sentence case | Sentence case | Sentence case |
+| 月份 | Capitalized | klein | klein | klein | klein | klein |
+| 百分号 | 50% | 50 %（空格） | 50 % | 50 % | 50 % | 50% |
 
 ## 判断规则
 
@@ -27,6 +41,13 @@
 2. URL 必须隔离——否则误改 href/src 里的 slug（usb-c→USB-C），导致 404。
 3. HTML 注释必须隔离——否则注释里的 autres 被误改成 autrès（假词）。
 4. 英语词不能凭直觉「该西语化」——delivery 可能是 DDP 术语、insights 可能是机构名，先看上下文。
+
+## ⚠️ 教训（2026-09-02 批量脚本轮）
+
+5. **HTML h3 与 JSON-LD name 双源**：同簇脚本改一边不改另一边 → Rule 1 违规（实测 15 篇）。批量脚本必须以可见 HTML 为准重建 JSON，或两边同步校验。
+6. **德语 slug 转写词回流正文**：`Pruefbericht`/`Nutzkapazitaet` 这类 slug 式转写（ae/oe/ue/ss）出现在可见正文即为错——正文必须 ä/ö/ü/ß。**仅限** slug/URL 用转写（见保护规则 0）。
+7. **JSON-LD 重建不能只查 name**：答案文本同样可能漂移（如 fr `separee`→`séparée`），重建后必须整块 verify（计数 + name + text 三项）。
+8. **语言键判断统一写法**：脚本里判断文章语言只允许 `rel.startswith("<lang>/")`——`"/de/" in rel` 会漏掉 `de/blog/...`（相对路径无前导斜杠），此错误本日复发 3 次。
 
 ## hreflang 同簇框架层规则（2026-08-27 教训）
 

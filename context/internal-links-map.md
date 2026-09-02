@@ -1,7 +1,9 @@
 # Internal Links Map — WOWOHCOOL
 
-**Last Updated:** 2026-07-12
+**Last Updated:** 2026-09-02
 **URL Structure:** Clean URLs (no .html). All links relative to root.
+
+> ⚠️ **六语言前缀规则（2026-09-02 扩充）**：本表 URL 均为 EN 路径。其他语言文章内链时必须加语言前缀并本地化 slug：DE `/de/blog/{de-slug}/`、ES `/es/blog/{es-slug}/`、FR `/fr/blog/{fr-slug}/`、RU `/ru/blog/{ru-slug}/`、PL `/pl/blog/{pl-slug}/`。**正确做法：先在目标文章 frontmatter 的 `hreflang` 块里查同簇目标语言的真实 slug**（如 EN `how-to-choose-factory` → DE `fabrikauswahl-china-leitfaden`），禁止把 EN slug 直接加前缀（产生死链/错链）。产品页/服务页同理：`/de/produkte/powerbank/`、`/es/productos/powerbank/`、`/fr/produits/batterie-externe/`、`/ru/produkty/poverbanki/`、`/pl/produkty/power-bank/`——以各语言站实际路由为准。
 
 ---
 
@@ -76,6 +78,23 @@ All power bank articles should link to each other and to `/products/power-bank/`
 
 1. **Every internal link must use descriptive B2B anchor text** — never "click here" or "learn more"
 2. **Vary anchor text across articles** — don't use identical anchors for the same target
-3. **Include B2B signal words in anchors**: "OEM", "factory", "wholesale", "sourcing", "manufacturer"
+3. **Include B2B signal words in anchors**: "OEM", "factory", "wholesale", "sourcing", "manufacturer"（本土化等价词：Hersteller / fabricante / fabricant / производитель / producent）
 4. **Minimum 3 internal links per article** to product pages, service pages, or other blog articles
 5. **Link depth**: Product pages should be reachable in ≤2 clicks from any blog article
+6. **锚文本用目标语言**（本土化规则）：DE 文章用德语锚文本指向 `/de/blog/...`，禁止英文锚文本链到英文版页面
+
+---
+
+## 非博客页各语言路由速查（2026-09 实测）
+
+| EN | DE | ES | FR | RU | PL |
+|----|----|----|----|----|----|
+| `/about/` | `/de/ueber-uns/` | `/es/sobre-nosotros/` | `/fr/a-propos/` | `/ru/o-kompanii/` | `/pl/o-nas/` |
+| `/service/` | `/de/oem-odm-service/` | `/es/servicio-oem-odm/` | `/fr/service-oem-odm/` | `/ru/oem-odm-uslugi/` | `/pl/uslugi-oem-odm/` |
+| `/contact/` | `/de/kontakt/` | `/es/contacto/` | `/fr/contact/` | `/ru/kontakty/` | `/pl/kontakt/` |
+| `/products/power-bank/` | `/de/produkte/powerbank/` | `/es/productos/powerbank/` | `/fr/produits/batterie-externe/` | `/ru/produkty/poverbanki/` | `/pl/produkty/power-bank/` |
+| `/products/gan-charger/` | `/de/produkte/gan-ladegeraet/` | `/es/productos/cargador-gan/` | `/fr/produits/chargeur-gan/` | `/ru/produkty/gan-zaryadnye-ustroystva/` | `/pl/produkty/ladowarka-gan/` |
+| `/products/wireless-charger/` | `/de/produkte/kabelloses-ladegeraet/` | `/es/productos/cargador-inalambrico/` | `/fr/produits/chargeur-sans-fil/` | `/ru/produkty/besprovodnye-zaryadki/` | `/pl/produkty/ladowarka-bezprzewodowa/` |
+| `/products/car-charger/` | `/de/produkte/autoladegeraet/` | `/es/productos/cargador-coche/` | `/fr/produits/chargeur-voiture/` | `/ru/produkty/avtomobilnye-zaryadki/` | `/pl/produkty/ladowarka-samochodowa/` |
+
+> 写非 EN 文章时从本表复制对应语言路径（均实测存在），配合目标文章 frontmatter `hreflang` 块查同簇博客 slug。
