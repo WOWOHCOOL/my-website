@@ -43,7 +43,7 @@ Runs the complete B2B Content Auditor (`b2b_content_auditor.py`) with **19 autom
 | # | Check | What It Verifies | Scoring |
 |---|-------|-----------------|---------|
 | 9 | **FAQ B2B Language** | Questions use procurement language? Over 15 words flagged? → Auto-triggers Step 3.5 WebSearch verification | B2B ratio = score, >15 words -5/ea |
-| 10 | **Author E-E-A-T** | Named author + credentials + LinkedIn + author page + topic expertise + compact author bar (6 checks) | 6/6=100 |
+| 10 | **Author E-E-A-T** | Named author + credentials + LinkedIn + author page + topic expertise + compact author bar (6 checks) + **knowsAbout = 作者固定专长池**（逐字匹配 factory-data-canonical.md §15.2 对应作者池，全站统一不逐篇变化）+ **作者 URL 禁止本土化**（LinkedIn/作者页/头像路径/@id 保持英文原样，作者页仅英文版 /authors/ 总页 + 两个详情页，禁止 /de/authors/ 等本地化）+ **头像 alt 三处一致**（Author Bar / Author Bio / Person.image，按 §15.4 语言表）+ **作者展示位齐全**（H1 下 Author Bar + CTA 前 Author Bio）+ **作者独占**（文章唯一作者；同话题簇同作者，无双署名/换人）+ **Schema ↔ 前端一致**（Person.name/jobTitle 与 Author Bar / Author Bio 显示逐字一致） | 6/6=100；knowsAbout 池不匹配 -15；URL 被本土化 -15；alt 不一致 -10；双署名/同簇混写 -10；name/jobTitle 与前端不一致 -15 |
 | 11 | **Weak CTA Detection** | CTA type (B2B value-continuation vs B2C "Buy now")? h2 heading? Gradient background? | Good=100, weak=40-60 |
 
 ### Technical & Consistency (Checks 12-19)
@@ -53,7 +53,7 @@ Runs the complete B2B Content Auditor (`b2b_content_auditor.py`) with **19 autom
 | 12 | **Heading Hierarchy** | H1→H3 or H2→H4 skips? (Fatal logic error — Google treats as broken taxonomy) | -25/skip |
 | 13 | **URL Quality** | Underscores, uppercase, dates, stop words, word count. Staged: 3-6 words=pass, 7-8=warning, ≥9=deduction | Per violation |
 | 14 | **Cross-Reference Consistency** | TL;DR vs body vs FAQ data consistency? | Discrepancy -20/ea |
-| 15 | **Schema Validation** | JSON syntax? Missing fields? Trailing slash? speakable ↔ Schema? TOC-FAQ anchor? **Rule 1: Body-Schema FAQ word-for-word match**? | Syntax -30, missing field -15, mismatch -5~15 |
+| 15 | **Schema Validation** | JSON syntax? Missing fields? Trailing slash? speakable ↔ Schema? TOC-FAQ anchor? **Rule 1: Body-Schema FAQ word-for-word match**? Person knowsAbout vs 作者固定池（factory-data-canonical.md §15.2）？ | Syntax -30, missing field -15, mismatch -5~15 |
 | 16 | **Factory Data Canonical** | MOQ/lead time/deposit/certification vs factory-data-canonical.md? | Canonical violation -15/ea |
 | 17 | **Static HTML Quality** | Featured image srcset/sizes/fetchpriority/speakable/TOC bugs? | Per violation |
 | 18 | **Anti-Pattern Detection** | Quick Answer blocks, TL;DR duplicates, cross-link overlap, data-dump intro? | -10~25/ea |
@@ -75,37 +75,7 @@ Auto-detects article type (technical / procurement / oem_core) if not specified.
 
 The `information_gain_analyzer.py` word count includes ALL file content: SVG path data, JSON-LD schema text, HTML/Nunjucks template code, and frontmatter. This routinely produces **40-50% inflated counts** (e.g., 9,755 reported vs 5,300 actual main content).
 
-**Always run this verification immediately after Step 2 and Step 3:**
-
-```bash
-python3 -c "
-import re
-filepath = r'[FILE_PATH]'
-with open(filepath, 'r', encoding='utf-8') as f:
-    content = f.read()
-
-# Strip non-content: script, style, svg, html comments, html tags, nunjucks
-content = re.sub(r'<script[^>]*>.*?</script>', ' ', content, flags=re.DOTALL)
-content = re.sub(r'<style[^>]*>.*?</style>', ' ', content, flags=re.DOTALL)
-content = re.sub(r'<svg[^>]*>.*?</svg>', ' ', content, flags=re.DOTALL)
-content = re.sub(r'<!--.*?-->', ' ', content, flags=re.DOTALL)
-content = re.sub(r'<[^>]+>', ' ', content)
-content = re.sub(r'\{%[^%]*%\}', ' ', content)
-content = re.sub(r'\{\{[^}]*\}\}', ' ', content)
-content = re.sub(r'\s+', ' ', content).strip()
-
-# Focus on block content only
-body_match = re.search(r'\{% block content %\}(.*?)\{% endblock %\}', content, re.DOTALL)
-if body_match:
-    content = body_match.group(1)
-    content = re.sub(r'<[^>]+>', ' ', content)
-    content = re.sub(r'\{%[^%]*%\}', ' ', content)
-    content = re.sub(r'\s+', ' ', content).strip()
-
-real_wc = len(content.split())
-print(f'Actual main content word count: {real_wc}')
-"
-```
+**Always run this verification immediately after Step 2 and Step 3.** The canonical verification script lives in **`@context/b2b-multilingual-metadata-standard.md` §四（wordCount 验证）** — copy it from there (唯一维护源，本文件不重复内嵌脚本，避免两处漂移)。
 
 **Decision rule**:
 - If Info Gain analyzer reports 9,000+ words but the verified script above shows ~5,000: **override Schema wordCount with the verified value**
@@ -121,7 +91,7 @@ print(f'Actual main content word count: {real_wc}')
 
 ### Step 2.6: FAQ Consistency Check (MANDATORY — Schema ↔ Body word-for-word)
 
-`b2b_content_auditor.py` Check 14 documents "Rule 1: Body-Schema FAQ word-for-word match" but does **NOT** implement it. Run this dedicated check to close the gap:
+`b2b_content_auditor.py` Check 14 documents "Rule 1: Body-Schema FAQ word-for-word match" but does **NOT** implement it at single-file level. Site-wide, the metadata audit auto-enforces it (**C11**: question names + counts), but for the single file being audited run this dedicated check:
 
 ```bash
 python3 data_sources/modules/faq_consistency_check.py [file]
@@ -152,15 +122,6 @@ python data_sources/modules/information_gain_analyzer.py [file]
 Uses Mode B (heuristic estimate) unless SERP competitor data is available. Evaluates: technical anchors, data points, named entities, B2B vocabulary diversity.
 
 **Score tiers**: 70+ HIGH (Google rewards), 40-69 MODERATE, 20-39 LOW, <20 ZERO (Google suppresses).
-
-Uses Mode B (heuristic estimate) unless SERP competitor data is available.
-
-### Step 3.5: FAQ Search-Demand Verification (AUTO)
-```bash
-python data_sources/modules/information_gain_analyzer.py [file]
-```
-
-Uses Mode B (heuristic estimate) unless SERP competitor data is available.
 
 ### Step 3.5: FAQ Search-Demand Verification (AUTO)
 

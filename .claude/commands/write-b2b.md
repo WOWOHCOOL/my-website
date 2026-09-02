@@ -51,6 +51,8 @@ enPath: "blog/{en-slug}/"
 dePath: "blog/{de-slug}/"
 esPath: "blog/{es-slug}/"
 frPath: "blog/{fr-slug}/"
+ruPath: "blog/{ru-slug}/"
+plPath: "blog/{pl-slug}/"
 ogImage: "/image/blog/cover-en/{image}.webp"
 navActive: "blog"
 hreflang:
@@ -58,6 +60,8 @@ hreflang:
  de: "/de/blog/{de-slug}/"
  es: "/es/blog/{es-slug}/"
  fr: "/fr/blog/{fr-slug}/"
+ ru: "/ru/blog/{ru-slug}/"
+ pl: "/pl/blog/{pl-slug}/"
 ---
 {% extends "layout.njk" %}
 ```
@@ -70,9 +74,11 @@ Must be the FIRST block after frontmatter, inside `{% block head_schema %}`:
 1. Organization    — legalName + url + publishingPrinciples + logo + areaServed + address(6 fields) + sameAs[4] + contactPoint(telephone + email + availableLanguage)
 2. WebSite         — url + name + inLanguage + publisher @id ref
 3. BreadcrumbList  — 3 levels, all URLs end with /
-4. BlogPosting     — @id ending #article + headline + keywords[8+] + author @id ref(COPY FROM factory-data-canonical.md §15) + speakable["h1",".speakable"] + about.sameAs(Wikidata) + citation[3+]
-5. Person          — @id(COPY FROM factory-data-canonical.md §15) + jobTitle + url(author page) + sameAs[LinkedIn] + image + worksFor @id ref + knowsAbout[3-5]
-6. HowTo           — @id ending #howto + 3-6 steps(HowToDirection). Remove node entirely for non-process articles
+> ⚠️ hreflang 六向映射规则（对齐 `b2b-multilingual-metadata-standard.md` §六 + 审计 C12）：**该语言版本真实存在才写**——版本不存在时**省略该行**（诚实 W4 WARN），禁止指向其它语言的路径凑数（C12 CRITICAL）。ruPath/plPath 同理，仅当对应语言版本已建时填写。
+
+4. BlogPosting     — @id ending #article + headline + keywords[≥3 下限 + §3.2.1 三维度写作规范（核心产品词 + B2B 场景词 + 标准/长尾词，豁免见 metadata-standard §3.2.1）] + author @id ref(COPY FROM factory-data-canonical.md §15) + speakable["h1",".speakable"] + about.sameAs(Wikidata /wiki/ 格式，查 wikidata-entity-map.md) + citation[3+ 描述名]
+5. Person          — @id(COPY FROM factory-data-canonical.md §15) + jobTitle + url(author page) + sameAs[LinkedIn] + image + worksFor @id ref + knowsAbout(author's FIXED pool — copy verbatim from factory-data-canonical.md §15.2, same values on every article by this author, never per-article variants)
+6. HowTo           — @id ending #howto + 3-6 steps(HowToDirection). Remove node entirely for non-process articles. `totalTime` 按 `b2b-multilingual-metadata-standard.md` §3.5.1 分型规则填（PT2H 核查 / P1W 甄选 / PT4H 审核 / P10W 全流程 / P60D GaN V ODM / 认证簇查表）；分钟值必须 `PT` 前缀（`PT25M` 非 `P25M`），认证周期值六语言一致、须经权威数据核实、禁止多数派归一
 7. FAQPage         — @id ending #faq + speakable[".faq-answer"](independent) + 3–5 questions(word-for-word match with body FAQ)
 ```
 
@@ -388,6 +394,18 @@ COPY these verbatim — never invent variants or remove hyphens:
 
 > **Author Page URL 每位作者不同** — Snowy May 用 `/authors/snowy-may/`，Nina Nico 用 `/authors/nina-nico/`，按作者复制对应 URL，不要混用。Schema @id 用共享形式（无语言前缀）：`https://www.wowohcool.com/#snowy-may` / `#nina-nico`。
 
+**Author Master Data Rules（唯一来源：factory-data-canonical.md §15）**：
+
+- **knowsAbout 固定池**：同一作者的所有文章 Person 节点逐字复制同一组 knowsAbout（§15.2），不逐篇变化。全站同质化由每篇文章的 about(Wikidata)/keywords/headline/description 动态生成来消除
+- **作者页仅英文版**：作者总页 `https://www.wowohcool.com/authors/` + 详情页 `/authors/snowy-may/`、`/authors/nina-nico/`。六语言文章（含 DE/ES/FR/RU/PL）的作者链接一律指向英文作者页，禁止本地化
+- **URL 禁止本土化**：LinkedIn / 作者页 / 头像路径 / @id / Email 在任何语言保持英文原样。本土化只作用于 bio 正文（§15.3 母版）、职位头衔、avatar alt（§15.4）
+- **头像 alt 三处逐字一致**：H1 下 Compact Author Bar、文末 Author Bio、Person Schema `image` — 按 §15.4 语言表复制
+- **作者展示位**：H1 下 Compact Author Bar（板块 1）+ 文末 Author Bio（板块 11，CTA 之前）为每篇文章强制板块
+- **作者独占（话题簇不混写）**：每篇文章有且仅有一位作者；同一话题簇（同主题 + 簇内互链）全部由同一作者撰写 — 技术/合规/认证簇归 Snowy，采购/供应链/验厂/成本簇归 Nina。禁止双署名、同簇换作者或接力补写。规划新簇时先定作者，簇内 brief/draft/发布沿用
+- **Schema ↔ 前端一致**：Person.name / Person.jobTitle 与页面 Author Bar、Author Bio 显示的姓名职位逐字一致（同一语言同一字符串）；职位以 factory-data-canonical.md §15.1 为唯一事实源，本地化时 Schema 与前端用同一职位串，禁止双轨
+
+**Market Data Citation Fallback（§15.5）**：工厂第一手数据（MOQ/FOB/QC/测试数据）引用 `factory-data-canonical.md` 并标注 WOWOHCOOL 来源；非工厂的市场/技术声明引用治理标准组织（WPC/USB-IF/IEEE/IEC/EU 法规）并在 Sources 区给链接，正文内嵌回退标注如 EN `(per IEEE / WPC industry-recognized standards)` — 六语言格式见 factory-data-canonical.md §15.5。
+
 ## File Management
 Save directly to the site source directory:
 - **File Location**: `C:\Users\wowoh\wowohcool.com\src\{lang}\blog\{slug}\index.njk`
@@ -395,22 +413,23 @@ Save directly to the site source directory:
 
 ## Language-Specific Labels
 
-| Element | DE | EN | ES | FR | RU |
-|---------|----|----|----|----|----|
-| Home | Startseite | Home | Inicio | Accueil | Главная |
-| KEY TAKEAWAYS | KERNERKENNTNISSE | KEY TAKEAWAYS | PUNTOS CLAVE | POINTS CLÉS | КЛЮЧЕВЫЕ ВЫВОДЫ |
-| Table of Contents | Inhaltsverzeichnis | Table of Contents | Índice | Table des Matières | Содержание |
-| FAQ Title | Häufig Gestellte Fragen | Frequently Asked Questions | Preguntas Frecuentes | Foire Aux Questions | Часто Задаваемые Вопросы |
-| EXPERT INSIGHT | EXPERTENWISSEN | EXPERT INSIGHT | PERSPECTIVA EXPERTO | APERÇU D'EXPERT | МНЕНИЕ ЭКСПЕРТА |
-| Factory Footprint | Fabrik-Fußabdruck | Factory Footprint | Huella de Fábrica | Empreinte Usine | Производственная База |
-| Author Label | Autor | Author | Autor | Auteure/Auteur | Автор |
-| Sources | Quellen & Referenzen | Sources & References | Fuentes & Referencias | Sources & Références | Источники |
-| Related Articles | Ähnliche Artikel | Related Articles | Artículos Relacionados | Articles Connexes | Похожие Статьи |
-| CTA Primary | Angebot Anfordern | Get Factory Pricing | Solicitar Presupuesto | Demander un Devis OEM | Запросить Прайс |
-| CTA Secondary | Katalog Ansehen | View Catalog | Ver Catálogo | Voir le Catalogue | Смотреть Каталог |
+| Element | DE | EN | ES | FR | RU | PL |
+|---------|----|----|----|----|----|----|
+| Home | Startseite | Home | Inicio | Accueil | Главная | Strona główna |
+| KEY TAKEAWAYS | KERNERKENNTNISSE | KEY TAKEAWAYS | PUNTOS CLAVE | POINTS CLÉS | КЛЮЧЕВЫЕ ВЫВОДЫ | KLUCZOWE WNIOSKI |
+| Table of Contents | Inhaltsverzeichnis | Table of Contents | Índice | Table des Matières | Содержание | Spis treści |
+| FAQ Title | Häufig Gestellte Fragen | Frequently Asked Questions | Preguntas Frecuentes | Foire Aux Questions | Часто Задаваемые Вопросы | Często Zadawane Pytania |
+| EXPERT INSIGHT | EXPERTENWISSEN | EXPERT INSIGHT | PERSPECTIVA EXPERTO | APERÇU D'EXPERT | МНЕНИЕ ЭКСПЕРТА | EKSPERCKA WIEDZA |
+| Factory Footprint | Fabrik-Fußabdruck | Factory Footprint | Huella de Fábrica | Empreinte Usine | Производственная База | Ślad Fabryki |
+| Author Label | Autor | Author | Autor | Auteure/Auteur | Автор | Autor |
+| Sources | Quellen & Referenzen | Sources & References | Fuentes & Referencias | Sources & Références | Источники | Źródła |
+| Related Articles | Ähnliche Artikel | Related Articles | Artículos Relacionados | Articles Connexes | Похожие Статьи | Podobne Artykuły |
+| CTA Primary | Angebot Anfordern | Get Factory Pricing | Solicitar Presupuesto | Demander un Devis OEM | Запросить Прайс | Zapytaj o Wycenę |
+| CTA Secondary | Katalog Ansehen | View Catalog | Ver Catálogo | Voir le Catalogue | Смотреть Каталог | Zobacz Katalog |
 
 ## Automatic Next Steps
 After saving the .njk file, immediately:
-1. Run `/b2b-audit [file]` to verify 19 B2B quality checks
-2. Report score — fix critical issues if < 90
-3. Remind user: `/scrub` + `git push` when ready
+1. Run `python data_sources/modules/check_new_article.py <file>` — 5-step writing gate (i18n lint → factory consistency → B2B auditor → FAQ consistency → accent scan). **0 FAIL required**; this replaces the standalone first `/b2b-audit` (same 19 checks, plus 4 more steps)
+2. Run `/b2b-audit [file]` only as the **final verification after `/optimize`** (target ≥ 90) — the regression gate that catches SEO-polish damage
+3. `python data_sources/modules/wordcount_sync.py` (dry-run) — sync Schema wordCount to actual if outside ±5%
+4. Remind user: `/scrub` → `git push` (build-side `prebuild_gate.py` runs automatically as step 1 of `npm run build`: metadata audit C1-C22 + non-blog Organization + author consistency; CRITICAL > 0 blocks deploy)

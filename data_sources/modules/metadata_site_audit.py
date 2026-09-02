@@ -39,6 +39,7 @@ Checks (per metadata standard):
   C21 rel rules on Sources links (authority no nofollow;
       commercial noreferrer nofollow)                           [WARN]
   C22 HowTo.totalTime within FAQ duration ranges                [WARN]
+  C23 citation bare org-names (no descriptor, §3.6)             [WARN]
   W1  wordCount vs actual visible words (±5%)                  [WARN]
   W2  timeRequired minutes vs visible reading-time number       [WARN]
   W3  citation count vs visible Sources external links          [WARN]
@@ -567,6 +568,10 @@ def audit_file(path, lang_key):
                 path = re.sub(r'^https?://[^/]+', '', u)
                 if u and path in ("", "/"):
                     add("WARN", "C20", f"citation 挂站点首页（弱引用，需指明具体页面/报告）: {u}")
+                # C23 companion: bare org-name citations (no descriptor) dilute AI entity signals
+                nm = str(c.get("name", "")) if isinstance(c, dict) else ""
+                if nm and not re.search(r'[—:,\-]|\b(specification|report|standard|datasheet|database|registry|regulation|directive|norm|guideline|survey|study|analysis|coverage|verordnung|règlement|reglamento|rozporządzenie|rapport|bericht|informe|отчет|raport)\b', nm, re.I):
+                    add("WARN", "C23", f"citation 裸机构名（缺描述性名称，§3.6）: {nm[:50]}")
 
     # ── C21 rel attribute rules on Sources external links (§六) ──
     src_seg_m = re.search(r'<h2[^>]*>\s*(?:Sources\s*&amp;\s*References|Sources & References|Fuentes|Quellen|Sources|Источники|Źródła)\s*</h2>(.*?)(?:<h2|</section>)', src, re.DOTALL | re.IGNORECASE)
