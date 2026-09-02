@@ -105,6 +105,8 @@ check_new_article.py（5 步写作门禁，0 FAIL）→ git push
 
 | 步骤 | 命令 | 适用场景 |
 |------|------|---------|
+| **元数据全站审计** | `python data_sources/modules/metadata_site_audit.py` | ⭐ 最常用入口 — 174 篇 6 语言 C1-C22 一次扫完（Schema/FAQ/hreflang/citation/rel/作者/词数），CRITICAL>0 构建门拦截 |
+| wordCount 回填 | `python data_sources/modules/wordcount_sync.py --apply` | W1 报警后同步实测词数到 Schema |
 | 深度 SERP 分析 | `/research-serp [keyword]` | 关键词竞争度高、需要精确竞品内容对标 |
 | AI 引用审计 | `geo-citability` | 核心博客发布后，检查 AI 引用可能性 |
 | Schema 验证 | `geo-schema` | JSON-LD 报错时 |
