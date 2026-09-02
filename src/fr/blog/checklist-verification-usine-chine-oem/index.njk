@@ -19,6 +19,7 @@ hreflang:
   de: "/de/blog/fabrikpruefung-checkliste-importeure/"
   es: "/es/blog/verificacion-fabricas-checklist/"
   fr: "/fr/blog/checklist-verification-usine-chine-oem/"
+    
 ---
 {% extends "layout.njk" %}
 
@@ -36,7 +37,9 @@ hreflang:
       "url": "https://www.wowohcool.com/fr/a-propos/",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://www.wowohcool.com/image/wowohcool-logo-optimized.webp"
+        "url": "https://www.wowohcool.com/image/wowohcool-logo-optimized.webp",
+        "width": 263,
+        "height": 70
       },
       "publishingPrinciples": "https://www.wowohcool.com/fr/a-propos/",
       "areaServed": [
@@ -96,7 +99,8 @@ hreflang:
           "French",
           "Russian",
           "Polish"
-        ]
+        ],
+        "contactType": "OEM/ODM Sales"
       }
     },
     {
@@ -104,7 +108,7 @@ hreflang:
       "@id": "https://www.wowohcool.com/#website",
       "url": "https://www.wowohcool.com/fr/",
       "name": "WOWOHCOOL",
-      "inLanguage": "fr",
+      "inLanguage": "fr-FR",
       "publisher": {
         "@id": "https://www.wowohcool.com/#organization"
       }
@@ -151,8 +155,9 @@ hreflang:
       ],
       "datePublished": "2026-08-25",
       "dateModified": "2026-08-25",
-      "wordCount": 2040,
-      "inLanguage": "fr",
+      "timeRequired": "PT11M",
+      "wordCount": 1752,
+      "inLanguage": "fr-FR",
       "author": {
         "@id": "https://www.wowohcool.com/#nina-nico"
       },
@@ -177,10 +182,23 @@ hreflang:
         "sameAs": "https://www.wikidata.org/wiki/Q181487"
       },
       "citation": [
-        "https://ec.europa.eu/growth/tools-databases/nando/",
-        "https://www.economie.gouv.fr/dgccrf",
-        "https://www.iafcertsearch.org/"
-      ]
+        {
+          "@type": "CreativeWork",
+          "name": "NANDO — organismes notifiés de l'UE",
+          "url": "https://ec.europa.eu/growth/tools-databases/nando/"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "DGCCRF — Direction générale de la concurrence, de la consommation et de la répression des fraudes",
+          "url": "https://www.economie.gouv.fr/dgccrf"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "IAF CertSearch — vérification des certificats ISO 9001",
+          "url": "https://www.iafcertsearch.org/"
+        }
+      ],
+      "thumbnailUrl": "https://www.wowohcool.com/image/blog/cover-fr/checklist-verification-usine-chine-oem.webp"
     },
     {
       "@type": "Person",
@@ -191,7 +209,12 @@ hreflang:
       "sameAs": [
         "https://www.linkedin.com/in/nico-power-bank-chargers"
       ],
-      "image": "https://www.wowohcool.com/image/factory/team-nina.webp",
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://www.wowohcool.com/image/factory/team-nina.webp",
+        "width": 400,
+        "height": 400
+      },
       "worksFor": {
         "@id": "https://www.wowohcool.com/#organization"
       },
@@ -213,34 +236,60 @@ hreflang:
           "@type": "HowToStep",
           "position": 1,
           "name": "Vérifiez les documents",
-          "text": "Demandez la licence commerciale, les certificats ISO 9001 et CE, recoupez les numéros dans IAF CertSearch et NANDO."
+          "itemListElement": [
+            {
+              "@type": "HowToDirection",
+              "text": "Demandez la licence commerciale, les certificats ISO 9001 et CE, recoupez les numéros dans IAF CertSearch et NANDO."
+            }
+          ]
         },
         {
           "@type": "HowToStep",
           "position": 2,
           "name": "Faites une visite vidéo",
-          "text": "Exigez un appel vidéo en direct de l'atelier : lignes SMT, équipements de test, département QC, machines en marche."
+          "itemListElement": [
+            {
+              "@type": "HowToDirection",
+              "text": "Exigez un appel vidéo en direct de l'atelier : lignes SMT, équipements de test, département QC, machines en marche."
+            }
+          ]
         },
         {
           "@type": "HowToStep",
           "position": 3,
           "name": "Commandez des échantillons",
-          "text": "Commandez 3-5 échantillons (pas un seul) et testez selon un plan écrit : fonctions, échauffement, tests de stress."
+          "itemListElement": [
+            {
+              "@type": "HowToDirection",
+              "text": "Commandez 3-5 échantillons (pas un seul) et testez selon un plan écrit : fonctions, échauffement, tests de stress."
+            }
+          ]
         },
         {
           "@type": "HowToStep",
           "position": 4,
           "name": "Faites un audit sur site",
-          "text": "Pour les commandes au-delà de 50 000 $, commandez un audit tiers SGS/Bureau Veritas/TÜV à 450-900 €."
+          "itemListElement": [
+            {
+              "@type": "HowToDirection",
+              "text": "Pour les commandes au-delà de 50 000 $, commandez un audit tiers SGS/Bureau Veritas/TÜV à 450-900 €."
+            }
+          ]
         },
         {
           "@type": "HowToStep",
           "position": 5,
           "name": "Fixez dans le contrat",
-          "text": "Validez le golden sample, fixez l'AQL 2.5 et l'inspection pré-expédition PSI avant le solde."
+          "itemListElement": [
+            {
+              "@type": "HowToDirection",
+              "text": "Validez le golden sample, fixez l'AQL 2.5 et l'inspection pré-expédition PSI avant le solde."
+            }
+          ]
         }
       ],
-      "totalTime": "PT4H"
+      "totalTime": "PT4H",
+      "description": "Checklist d'audit d'usine en Chine avant commande : licence, dossier technique CE, EN 62368-1, SMT, QC et drapeaux rouges. Coûts 450-1 400 €."
     },
     {
       "@type": "FAQPage",
@@ -282,30 +331,6 @@ hreflang:
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "Refus de vidéo en direct, « l'usine est trop occupée », plaques d'équipement d'une autre société, ouvriers mis en scène, bruit de production sans machines en marche."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Quel standard AQL exiger d'une usine ?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Pour l'électronique, exigez AQL 2.5 Level II (défauts critiques : 0). WOWOHCOOL applique AQL 2.5 et 100 % de vieillissement 4 heures par unité, avec un taux de défaut <0,3 % contre 2-5 % pour le secteur."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Que vérifier dans le dossier technique CE avant commande ?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Exigez la DoC avec les normes harmonisées en vigueur (EN 62368-1, pas EN 60950), le dossier technique complet et le rapport d'essai. La responsabilité CE pèse sur l'importateur, pas sur l'usine chinoise."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Faut-il un audit tiers pour une petite commande ?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Pour 500 unités, une vidéo + des échantillons suffisent. L'audit tiers se rentabilise à partir de 50 000 $ : 450-900 € représentent moins de 2 % d'une grosse commande."
           }
         },
         {
@@ -546,18 +571,9 @@ hreflang:
           <h3 class="font-black text-brandBlue mb-2">Quels sont les drapeaux rouges lors d'une visite vidéo ?</h3>
           <p class="text-slate-600 text-sm">Refus de vidéo en direct, « l'usine est trop occupée », plaques d'équipement d'une autre société, ouvriers mis en scène, bruit de production sans machines en marche.</p>
         </div>
-        <div class="bg-white rounded-xl p-6 faq-answer">
-          <h3 class="font-black text-brandBlue mb-2">Quel standard AQL exiger d'une usine ?</h3>
-          <p class="text-slate-600 text-sm">Pour l'électronique, exigez AQL 2.5 Level II (défauts critiques : 0). WOWOHCOOL applique AQL 2.5 et 100 % de vieillissement 4 heures par unité, avec un taux de défaut &lt;0,3 % contre 2-5 % pour le secteur.</p>
-        </div>
-        <div class="bg-white rounded-xl p-6 faq-answer">
-          <h3 class="font-black text-brandBlue mb-2">Que vérifier dans le dossier technique CE avant commande ?</h3>
-          <p class="text-slate-600 text-sm">Exigez la DoC avec les normes harmonisées en vigueur (EN 62368-1, pas EN 60950), le dossier technique complet et le rapport d'essai. La responsabilité CE pèse sur l'importateur, pas sur l'usine chinoise.</p>
-        </div>
-        <div class="bg-white rounded-xl p-6 faq-answer">
-          <h3 class="font-black text-brandBlue mb-2">Faut-il un audit tiers pour une petite commande ?</h3>
-          <p class="text-slate-600 text-sm">Pour 500 unités, une vidéo + des échantillons suffisent. L'audit tiers se rentabilise à partir de 50 000 $ : 450-900 € représentent moins de 2 % d'une grosse commande.</p>
-        </div>
+        
+        
+        
         <div class="bg-white rounded-xl p-6 faq-answer">
           <h3 class="font-black text-brandBlue mb-2">Comment WOWOHCOOL aide-t-il à passer l'audit ?</h3>
           <p class="text-slate-600 text-sm">Nous montrons l'ISO 9001, une vidéo en direct de 4 lignes SMT, un portefeuille de 200+ marques et passons l'audit en 48 heures. Demandez la visite vidéo de notre usine via le formulaire.</p>

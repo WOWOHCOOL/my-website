@@ -25,8 +25,7 @@ hreflang:
 {% extends "layout.njk" %}
 
 {% block head_schema %}
-<script type="application/ld+json">
-{
+<script type="application/ld+json">{
   "@context": "https://schema.org",
   "@graph": [
     {
@@ -41,32 +40,10 @@ hreflang:
       "logo": {
         "@type": "ImageObject",
         "url": "https://www.wowohcool.com/image/wowohcool-logo-optimized.webp",
-        "width": 600,
-        "height": 60
+        "width": 263,
+        "height": 70
       },
-      "areaServed": [
-        "US",
-        "DE",
-        "AT",
-        "CH",
-        "UK",
-        "FR",
-        "ES",
-        "PL",
-        "EU",
-        "JP",
-        "KR",
-        "AU",
-        "MX",
-        "CO",
-        "AR",
-        "CL",
-        "PE",
-        "RU",
-        "KZ",
-        "BY",
-        "EAEU"
-      ],
+      "areaServed": ["US", "DE", "AT", "CH", "UK", "FR", "ES", "PL", "EU", "JP", "KR", "AU", "MX", "CO", "AR", "CL", "PE", "RU", "KZ", "BY", "EAEU"],
       "knowsAbout": [
         "OEM/ODM Power Bank Manufacturing",
         "Qi2 Wireless Charging Standard",
@@ -95,14 +72,7 @@ hreflang:
         "contactType": "OEM/ODM Sales",
         "telephone": "+86-18620789739",
         "email": "info@wowohcool.com",
-        "availableLanguage": [
-          "English",
-          "German",
-          "Spanish",
-          "French",
-          "Russian",
-          "Polish"
-        ]
+        "availableLanguage": ["English", "German", "Spanish", "French", "Russian", "Polish"]
       }
     },
     {
@@ -136,7 +106,8 @@ hreflang:
           "name": "GaN Generations Guide",
           "item": "https://www.wowohcool.com/blog/gan-generations-guide/"
         }
-      ]
+      ],
+      "@id": "https://www.wowohcool.com/blog/gan-generations-guide/#breadcrumb"
     },
     {
       "@type": "BlogPosting",
@@ -179,18 +150,23 @@ hreflang:
       "citation": [
         {
           "@type": "CreativeWork",
-          "name": "Yole Group — Power GaN 2024 Market and Technology Report",
-          "url": "https://www.yolegroup.com/product/report/power-gan-2024/"
-        },
-        {
-          "@type": "CreativeWork",
-          "name": "USB-IF — USB Power Delivery Specification",
+          "name": "USB-IF, USB Power Delivery 3.1 EPR Specification",
           "url": "https://www.usb.org/usb-charger-pd"
         },
         {
           "@type": "CreativeWork",
           "name": "Navitas Semiconductor — GaNFast Power ICs",
           "url": "https://navitassemi.com/"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "Innoscience — GaN-on-Si Power Device Datasheets",
+          "url": "https://www.innoscience.com/"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "Semiconductor Today — Anker all-GaN charger partnership report (2022)",
+          "url": "https://www.semiconductor-today.com/news_items/2022/jul/anker-190722.shtml"
         }
       ],
       "about": {
@@ -219,7 +195,12 @@ hreflang:
         "UL 2056 & CE Safety Compliance",
         "EU Battery Regulation 2023/1542"
       ],
-      "image": "https://www.wowohcool.com/image/factory/team-snowy.webp"
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://www.wowohcool.com/image/factory/team-snowy.webp",
+        "width": 400,
+        "height": 400
+      }
     },
     {
       "@type": "HowTo",
@@ -311,29 +292,12 @@ hreflang:
             "@type": "Answer",
             "text": "For EU: CE (LVD EN 62368-1, EMC EN 55032/55035, RoHS), WEEE registration, and EU Ecodesign 2025/2052 (standby power below 0.3W). GaN V is required to meet USB PD 3.2 SPR AVS, mandatory for new chargers from March 2026. For US: UL 62368-1, FCC Part 15, and DOE Level VI efficiency. WOWOHCOOL ships every OEM GaN V order with complete CE and UL documentation at no extra charge."
           }
-        },
-        {
-          "@type": "Question",
-          "name": "What return-rate difference do OEM brands see between GaN V and silicon chargers?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Across WOWOHCOOL production lines, genuine GaN V stabilizes at roughly 58°C under 100% load versus about 83°C for equivalent silicon chargers. That thermal margin drops field return rates to 0.3% versus 3.2% for silicon — a 10x reduction. For a 5,000-unit OEM run, that is roughly 145 fewer returns to process and replace."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Is GaN I or GaN II still viable for a new 2026 product?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "No. GaN I-II (2019-2021) should be avoided for new designs: they run near 1MHz switching, offer only marginal size gains over silicon, and most factories have stopped producing those generations. GaN IV (2023-2024) at 100W with 93-95% efficiency is the budget baseline; GaN V (2025+) at 5MHz+ with 240W PD 3.1 and 96%+ efficiency is the premium standard for new OEM chargers."
-          }
         }
       ],
       "@id": "https://www.wowohcool.com/blog/gan-generations-guide/#faq"
     }
   ]
-}
-</script>
+}</script>
 
 {% endblock %}
 
@@ -624,10 +588,11 @@ hreflang:
  <div class="bg-slate-50 rounded-2xl p-8 border border-slate-200 shadow-sm">
  <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-8 text-center">12. Frequently Asked Questions</h2>
  <div class="space-y-6 max-w-3xl mx-auto">
- <div class="bg-white rounded-xl p-6"><h3 class="font-black text-brandBlue mb-2">How do OEM buyers identify which GaN generation a charger uses?</h3><p class="text-slate-600 text-sm faq-answer">Check the datasheet for switching frequency (GaN V = 5MHz+), GaN FET part number, and supported PD version. Reputable OEM suppliers provide this information on request.</p></div>
- <div class="bg-white rounded-xl p-6"><h3 class="font-black text-brandBlue mb-2">GaN V vs GaN III, what's the OEM price gap at 1,000 units?</h3><p class="text-slate-600 text-sm faq-answer">At 1,000-unit OEM volume FOB Shenzhen: GaN V 65W charger ~$8-12/unit, GaN III 65W ~$5-8/unit, a 20-35% BOM premium. The gap narrows to 10-15% at 5,000+ units as GaN V production scales. The premium is offset by 30% smaller form factor, lower shipping weight, and 95%+ efficiency for premium retail positioning.</p></div>
- <div class="bg-white rounded-xl p-6"><h3 class="font-black text-brandBlue mb-2">What is the MOQ for OEM GaN V chargers?</h3><p class="text-slate-600 text-sm faq-answer">500-1,000 units for standard ODM configurations with branding. Custom OEM with tooling: MOQ 3,000+ units. WOWOHCOOL offers OEM/ODM GaN chargers from 20W to 240W with full certification included.</p></div>
- <div class="bg-white rounded-xl p-6"><h3 class="font-black text-brandBlue mb-2">What GaN FET part numbers should I look for in OEM quotes?</h3><p class="text-slate-600 text-sm faq-answer">For GaN V: Navitas NV6128/NV6169, Innoscience INN700D240A, Infineon CoolGaN G5, or EPC EPC2218. For GaN III: Navitas NV6115 or GaN Systems GS66508T. Always cross-reference the part number against the manufacturer's published datasheet to confirm the generation.</p></div>
+ <div class="bg-white rounded-xl p-6 faq-answer"><h3 class="font-black text-brandBlue mb-2">How do OEM buyers identify which GaN generation a charger uses?</h3><p class="text-slate-600 text-sm">Check the datasheet for switching frequency (GaN V = 5MHz+), GaN FET part number, and supported PD version. Reputable OEM suppliers provide this information on request.</p></div>
+ <div class="bg-white rounded-xl p-6 faq-answer"><h3 class="font-black text-brandBlue mb-2">GaN V vs GaN III, what's the OEM price gap at 1,000 units?</h3><p class="text-slate-600 text-sm">At 1,000-unit OEM volume FOB Shenzhen: GaN V 65W charger ~$8-12/unit, GaN III 65W ~$5-8/unit, a 20-35% BOM premium. The gap narrows to 10-15% at 5,000+ units as GaN V production scales. The premium is offset by 30% smaller form factor, lower shipping weight, and 95%+ efficiency for premium retail positioning.</p></div>
+ <div class="bg-white rounded-xl p-6 faq-answer"><h3 class="font-black text-brandBlue mb-2">What is the MOQ for OEM GaN V chargers?</h3><p class="text-slate-600 text-sm">500-1,000 units for standard ODM configurations with branding. Custom OEM with tooling: MOQ 3,000+ units. WOWOHCOOL offers OEM/ODM GaN chargers from 20W to 240W with full certification included.</p></div>
+ <div class="bg-white rounded-xl p-6 faq-answer"><h3 class="font-black text-brandBlue mb-2">What GaN FET part numbers should I look for in OEM quotes?</h3><p class="text-slate-600 text-sm">For GaN V: Navitas NV6128/NV6169, Innoscience INN700D240A, Infineon CoolGaN G5, or EPC EPC2218. For GaN III: Navitas NV6115 or GaN Systems GS66508T. Always cross-reference the part number against the manufacturer's published datasheet to confirm the generation.</p></div>
+ <div class="bg-white rounded-xl p-6 faq-answer"><h3 class="font-black text-brandBlue mb-2">Which certifications does GaN V require for an EU or US launch in 2026?</h3><p class="text-slate-600 text-sm">For EU: CE (LVD EN 62368-1, EMC EN 55032/55035, RoHS), WEEE registration, and EU Ecodesign 2025/2052 (standby power below 0.3W). GaN V is required to meet USB PD 3.2 SPR AVS, mandatory for new chargers from March 2026. For US: UL 62368-1, FCC Part 15, and DOE Level VI efficiency. WOWOHCOOL ships every OEM GaN V order with complete CE and UL documentation at no extra charge.</p></div>
  </div>
  </div>
  </section>
@@ -707,7 +672,7 @@ hreflang:
  <li><a href="https://www.usb.org/usb-charger-pd" target="_blank" rel="noopener noreferrer" class="text-brandBlue hover:text-brandOrange">USB-IF, USB Power Delivery 3.1 EPR Specification</a></li>
  <li><a href="https://navitassemi.com/" target="_blank" rel="noopener noreferrer" class="text-brandBlue hover:text-brandOrange">Navitas Semiconductor</a>, GaNFast power IC datasheets</li>
  <li><a href="https://www.innoscience.com/" target="_blank" rel="noopener noreferrer" class="text-brandBlue hover:text-brandOrange">Innoscience</a>, GaN-on-Si power device manufacturer</li>
- <li><a href="https://www.semiconductor-today.com/" target="_blank" rel="noopener noreferrer" class="text-brandBlue hover:text-brandOrange">Semiconductor Today</a>, GaN charger industry coverage</li>
+ <li><a href="https://www.semiconductor-today.com/news_items/2022/jul/anker-190722.shtml" target="_blank" rel="noopener noreferrer" class="text-brandBlue hover:text-brandOrange">Semiconductor Today</a>, Anker all-GaN fast charger partnership report (2022)</li>
  </ul>
  </section>
  </div>

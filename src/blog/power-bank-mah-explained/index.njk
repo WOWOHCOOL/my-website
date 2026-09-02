@@ -19,13 +19,11 @@ hreflang:
  es: "/es/blog/power-bank-mah-explicado/"
  fr: "/fr/blog/mah-batterie-externe-guide-oem/"
  ru: "/ru/blog/mah-power-bank-rukovodstvo-oem/"
-
 ---
 {% extends "layout.njk" %}
 
 {% block head_schema %}
-<script type="application/ld+json">
-{
+<script type="application/ld+json">{
   "@context": "https://schema.org",
   "@graph": [
     {
@@ -40,32 +38,10 @@ hreflang:
       "logo": {
         "@type": "ImageObject",
         "url": "https://www.wowohcool.com/image/wowohcool-logo-optimized.webp",
-        "width": 600,
-        "height": 60
+        "width": 263,
+        "height": 70
       },
-      "areaServed": [
-        "US",
-        "DE",
-        "AT",
-        "CH",
-        "UK",
-        "FR",
-        "ES",
-        "PL",
-        "EU",
-        "JP",
-        "KR",
-        "AU",
-        "MX",
-        "CO",
-        "AR",
-        "CL",
-        "PE",
-        "RU",
-        "KZ",
-        "BY",
-        "EAEU"
-      ],
+      "areaServed": ["US", "DE", "AT", "CH", "UK", "FR", "ES", "PL", "EU", "JP", "KR", "AU", "MX", "CO", "AR", "CL", "PE", "RU", "KZ", "BY", "EAEU"],
       "knowsAbout": [
         "OEM/ODM Power Bank Manufacturing",
         "Qi2 Wireless Charging Standard",
@@ -94,14 +70,7 @@ hreflang:
         "contactType": "OEM/ODM Sales",
         "telephone": "+86-18620789739",
         "email": "info@wowohcool.com",
-        "availableLanguage": [
-          "English",
-          "German",
-          "Spanish",
-          "French",
-          "Russian",
-          "Polish"
-        ]
+        "availableLanguage": ["English", "German", "Spanish", "French", "Russian", "Polish"]
       }
     },
     {
@@ -135,7 +104,8 @@ hreflang:
           "name": "Power Bank mAh Guide for OEM Buyers",
           "item": "https://www.wowohcool.com/blog/power-bank-mah-explained/"
         }
-      ]
+      ],
+      "@id": "https://www.wowohcool.com/blog/power-bank-mah-explained/#breadcrumb"
     },
     {
       "@type": "BlogPosting",
@@ -161,8 +131,8 @@ hreflang:
         "@id": "https://www.wowohcool.com/blog/power-bank-mah-explained/"
       },
       "dateModified": "2026-07-24",
-      "wordCount": 3400,
-      "timeRequired": "PT10M",
+      "wordCount": 3033,
+      "timeRequired": "PT6M",
       "image": "https://www.wowohcool.com/image/blog/cover-en/power-bank-mah-explained.webp",
       "description": "Power bank capacity for OEM buyers: mAh fundamentals, Grade-A vs B-grade cell verification, conversion efficiency benchmarks (60-92%), UN38.3 compliance.",
       "speakable": {
@@ -178,18 +148,23 @@ hreflang:
       "citation": [
         {
           "@type": "CreativeWork",
-          "name": "FAA",
+          "name": "FAA, Lithium Battery Safety & Watt-Hour Regulations",
           "url": "https://www.faa.gov/hazmat/packsafe"
         },
         {
           "@type": "CreativeWork",
-          "name": "IATA",
+          "name": "IATA, Lithium Battery Dangerous Goods Regulations",
           "url": "https://www.iata.org/en/programs/cargo/dgr/lithium-batteries/"
         },
         {
           "@type": "CreativeWork",
-          "name": "USB-IF",
+          "name": "USB-IF, USB Power Delivery Specification",
           "url": "https://www.usb.org/document-library/usb-power-delivery"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "Battery University, Li-ion Battery Fundamentals",
+          "url": "https://batteryuniversity.com/"
         }
       ],
       "about": {
@@ -218,7 +193,12 @@ hreflang:
         "Custom Power Adapter Production",
         "Factory Audit Standards"
       ],
-      "image": "https://www.wowohcool.com/image/factory/team-nina.webp"
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://www.wowohcool.com/image/factory/team-nina.webp",
+        "width": 400,
+        "height": 400
+      }
     },
     {
       "@type": "HowTo",
@@ -305,30 +285,6 @@ hreflang:
         },
         {
           "@type": "Question",
-          "name": "What cell grade should OEM brands demand from their power battery supplier?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Demand A-grade cells exclusively, the purchase price difference of $0.30-0.50/unit vs B-grade is recovered 10× through reduced warranty returns. A-grade (Samsung SDI, LG, Panasonic, CATL, ATL): ≥98% label accuracy, ≥80% retention after 500 cycles, <2% return risk. B-grade (sorted factory rejects): 85-93% accuracy, 60-75% retention after 200 cycles, 3-8% return risk, these savings are wiped out by return shipping and replacement costs. For a 10,000-unit order, B-grade cells generate 500-800 additional returns vs A-grade. Essential documentation: request cell supplier certificates, batch test reports with serial traceability, and a quality agreement specifying AQL 1.0 for critical defects. Verify that 100% of units undergo capacity testing + 4-hour aging before shipping, reject units below 95% of rated capacity."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How does GaN technology improve power bank charging efficiency for OEM products?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "GaN (Gallium Nitride) power management ICs achieve 85-92% conversion efficiency vs 60-75% for budget silicon circuits, an 8-25 percentage point gap that directly determines usable capacity. The math: a 10,000mAh cell through a 90% GaN circuit delivers ~6,660mAh usable; through a 65% budget circuit delivers ~4,810mAh. That 1,850mAh difference means an extra 0.5 phone charges from the same cell, your customer's real experience. GaN also enables 30% smaller PCB, meaning slimmer products, and generates less heat which extends cell lifespan. For OEM product positioning: GaN efficiency is the single largest quality differentiator in the power bank market. Budget $1-3 BOM premium for GaN vs silicon at 30W+, offset by 15-25% retail price premium and measurably lower return rates."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What is the maximum power bank capacity allowed on airplanes for international shipping?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "≤100Wh (~27,000mAh at 3.7V): allowed in carry-on baggage without airline approval, this is the practical product ceiling for global consumer sales. 100-160Wh: requires airline approval, maximum 2 units per passenger. Above 160Wh: prohibited on passenger aircraft entirely. Critical for OEM brands: 27,000mAh at 3.7V = 99.9Wh, sitting exactly at the limit. Any product labeled above 27,000mAh becomes a restricted item that limits distribution channels and triggers customer complaints at airport security. For air freight shipping: all lithium battery products require UN38.3 test certification and MSDS documentation. Products must ship at ≤30% charge state. DDP shipping from Shenzhen includes all DG (Dangerous Goods) declarations, WOWOHCOOL handles this as standard OEM service."
-          }
-        },
-        {
-          "@type": "Question",
           "name": "How do OEM buyers source power banks with verified real capacity from Shenzhen factories?",
           "acceptedAnswer": {
             "@type": "Answer",
@@ -339,8 +295,7 @@ hreflang:
       "@id": "https://www.wowohcool.com/blog/power-bank-mah-explained/#faq"
     }
   ]
-}
-</script>
+}</script>
 
 {% endblock %}
 
@@ -373,7 +328,7 @@ hreflang:
  {{ postMeta(date, modified, "6 min read", "en") }}
 
  <!-- Introduction -->
- <div class="bg-brandBlue/5 border-l-4 border-brandOrange p-6 rounded-r-xl" speakable>
+ <div class="bg-brandBlue/5 border-l-4 border-brandOrange p-6 rounded-r-xl speakable" >
  <p class="text-lg text-slate-700 italic">A 10,000mAh power bank does NOT deliver 10,000mAh to your phone. The 3.7V→5V voltage conversion costs ~35%, a "10,000mAh" unit typically delivers 6,000-6,500mAh usable. For OEM buyers, the difference between Grade-A cells (≥85% efficiency) and Grade-B cells (60-75%) is the #1 driver of customer reviews and warranty returns. This guide gives you the formula, the verification method, and the factory QC questions that separate honest specs from inflated marketing numbers.</p>
  </div>
  </div>
@@ -681,37 +636,28 @@ hreflang:
  <div class="bg-slate-50 rounded-2xl p-8 border border-slate-200 shadow-sm">
  <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-8 text-center">Frequently Asked Questions</h2>
  <div class="space-y-6 max-w-3xl mx-auto">
- <div class="bg-white rounded-xl p-6">
+ <div class="bg-white rounded-xl p-6 faq-answer">
  <h3 class="font-black text-brandBlue mb-2">Cell mAh vs USB output mAh, OEM packaging rules for Amazon FBA compliance?</h3>
- <p class="text-slate-600 text-sm faq-answer">The advertised mAh is measured at the internal battery cell's <strong>3.7V</strong>, but USB output requires 5V minimum. The voltage boost inherently loses energy. <strong>Formula: Usable mAh = (Rated mAh × 3.7V × Efficiency) ÷ 5V.</strong> At 85% efficiency (GaN-based circuit), a 10,000mAh cell delivers ~6,290mAh usable. At 65% efficiency (budget circuit), the same cell delivers only ~4,800mAh, a 24% real-world difference. Additional losses from cable resistance (5-10%), fast-charging protocol overhead (1-2%), and thermal throttling (5-10% at sustained high load) further reduce end-user delivered capacity. <strong>A 10,000mAh bank delivering 6,000-6,500mAh at 5V output is normal, not defective.</strong></p>
+ <p class="text-slate-600 text-sm">The advertised mAh is measured at the internal battery cell's <strong>3.7V</strong>, but USB output requires 5V minimum. The voltage boost inherently loses energy. <strong>Formula: Usable mAh = (Rated mAh × 3.7V × Efficiency) ÷ 5V.</strong> At 85% efficiency (GaN-based circuit), a 10,000mAh cell delivers ~6,290mAh usable. At 65% efficiency (budget circuit), the same cell delivers only ~4,800mAh, a 24% real-world difference. Additional losses from cable resistance (5-10%), fast-charging protocol overhead (1-2%), and thermal throttling (5-10% at sustained high load) further reduce end-user delivered capacity. <strong>A 10,000mAh bank delivering 6,000-6,500mAh at 5V output is normal, not defective.</strong></p>
  </div>
- <div class="bg-white rounded-xl p-6">
+ <div class="bg-white rounded-xl p-6 faq-answer">
  <h3 class="font-black text-brandBlue mb-2">How do OEM buyers verify a power bank factory's real capacity is genuine?</h3>
- <p class="text-slate-600 text-sm faq-answer"><strong>Capacity fraud is the #1 supply chain risk</strong> in power bank procurement. A-grade cells (Panasonic, Samsung SDI, CATL, ATL): ≤2% label error, ≥80% retention after 500 cycles, <2% return risk. B-grade cells (sorted factory rejects): 5-15% error, 60-75% retention after 200 cycles, 3-8% returns. Three verification steps: (1) Demand a <strong>0.2C discharge test report</strong> with cell brand, batch number, and test date. (2) Request conversion efficiency per production lot, GaN achieves 85-92%, budget circuits 60-70%. (3) Test samples with a USB power meter at 5V/2A constant load. <strong>Price sanity check:</strong> A-grade 10,000mAh GaN runs $6-11/pcs FOB at MOQ 1,000; B-grade at $4-5 signals >30% real capacity gaps.</p>
+ <p class="text-slate-600 text-sm"><strong>Capacity fraud is the #1 supply chain risk</strong> in power bank procurement. A-grade cells (Panasonic, Samsung SDI, CATL, ATL): ≤2% label error, ≥80% retention after 500 cycles, <2% return risk. B-grade cells (sorted factory rejects): 5-15% error, 60-75% retention after 200 cycles, 3-8% returns. Three verification steps: (1) Demand a <strong>0.2C discharge test report</strong> with cell brand, batch number, and test date. (2) Request conversion efficiency per production lot, GaN achieves 85-92%, budget circuits 60-70%. (3) Test samples with a USB power meter at 5V/2A constant load. <strong>Price sanity check:</strong> A-grade 10,000mAh GaN runs $6-11/pcs FOB at MOQ 1,000; B-grade at $4-5 signals >30% real capacity gaps.</p>
  </div>
- <div class="bg-white rounded-xl p-6">
+ <div class="bg-white rounded-xl p-6 faq-answer">
  <h3 class="font-black text-brandBlue mb-2">How many phone charges does each power bank capacity tier actually deliver?</h3>
- <p class="text-slate-600 text-sm faq-answer">Real-world expectations (85% GaN efficiency, 3,300mAh phone): <strong>5,000mAh = 0.5-0.7 charges</strong> (emergency top-up). <strong>10,000mAh = 1-1.5 charges</strong>, the gold standard for daily use, highest volume at 47.89% market share. <strong>20,000mAh = 2.5-3 charges</strong>, weekend travel, 74Wh within IATA 100Wh limit. <strong>27,000mAh = 3.5-4 charges</strong>, 99.9Wh, airline ceiling, requires 65W+ PD output. For wireless/Qi2 magnetic banks: expect 15-20% fewer cycles, a 12,000-15,000mAh magnetic bank matches a wired 10,000mAh. <strong>For retail packaging:</strong> print conservative estimates using 65% efficiency factor with a formula footnote to preempt the #1 cause of 1-2 star reviews: capacity discrepancy complaints.</p>
+ <p class="text-slate-600 text-sm">Real-world expectations (85% GaN efficiency, 3,300mAh phone): <strong>5,000mAh = 0.5-0.7 charges</strong> (emergency top-up). <strong>10,000mAh = 1-1.5 charges</strong>, the gold standard for daily use, highest volume at 47.89% market share. <strong>20,000mAh = 2.5-3 charges</strong>, weekend travel, 74Wh within IATA 100Wh limit. <strong>27,000mAh = 3.5-4 charges</strong>, 99.9Wh, airline ceiling, requires 65W+ PD output. For wireless/Qi2 magnetic banks: expect 15-20% fewer cycles, a 12,000-15,000mAh magnetic bank matches a wired 10,000mAh. <strong>For retail packaging:</strong> print conservative estimates using 65% efficiency factor with a formula footnote to preempt the #1 cause of 1-2 star reviews: capacity discrepancy complaints.</p>
  </div>
- <div class="bg-white rounded-xl p-6">
+ <div class="bg-white rounded-xl p-6 faq-answer">
  <h3 class="font-black text-brandBlue mb-2">mAh vs Wh, which unit should OEM buyers use for procurement and compliance?</h3>
- <p class="text-slate-600 text-sm faq-answer"><strong>Wh is the regulatory standard</strong>, IATA, FAA, UN38.3 all use Wh, not mAh. Conversion: Wh = (mAh × 3.7V) ÷ 1,000. Compliance thresholds: <strong>≤100Wh (~27,000mAh)</strong> = standard air freight without airline approval. 100-160Wh = airline approval, 2-unit max. >160Wh = prohibited on passenger aircraft. <strong>For B2B procurement:</strong> always compare products using Wh. If a manufacturer omits the Wh rating, treat it as a red flag. Amazon FBA specifically requires Wh on product detail pages. For retail packaging: Wh must be printed alongside mAh on both the product label and outer carton. WOWOHCOOL includes both as standard.</p>
+ <p class="text-slate-600 text-sm"><strong>Wh is the regulatory standard</strong>, IATA, FAA, UN38.3 all use Wh, not mAh. Conversion: Wh = (mAh × 3.7V) ÷ 1,000. Compliance thresholds: <strong>≤100Wh (~27,000mAh)</strong> = standard air freight without airline approval. 100-160Wh = airline approval, 2-unit max. >160Wh = prohibited on passenger aircraft. <strong>For B2B procurement:</strong> always compare products using Wh. If a manufacturer omits the Wh rating, treat it as a red flag. Amazon FBA specifically requires Wh on product detail pages. For retail packaging: Wh must be printed alongside mAh on both the product label and outer carton. WOWOHCOOL includes both as standard.</p>
  </div>
- <div class="bg-white rounded-xl p-6">
- <h3 class="font-black text-brandBlue mb-2">What cell grade should OEM brands demand from their power battery supplier?</h3>
- <p class="text-slate-600 text-sm faq-answer"><strong>Demand A-grade cells exclusively</strong>, the $0.30-0.50/unit savings from B-grade is recovered 10× through reduced warranty returns. A-grade (Samsung SDI, LG, Panasonic, CATL, ATL): ≥98% label accuracy, ≥80% retention after 500 cycles, <2% returns. B-grade: 85-93% accuracy, 60-75% retention after 200 cycles, 3-8% returns. For a 10,000-unit order, B-grade generates 500-800 additional returns. Essential documentation: cell supplier certificates, batch test reports with serial traceability, quality agreement with AQL 1.0 for critical defects. Verify <strong>100% of units undergo capacity testing + 4-hour aging</strong>, reject units below 95% of rated capacity.</p>
- </div>
- <div class="bg-white rounded-xl p-6">
- <h3 class="font-black text-brandBlue mb-2">How does GaN technology improve power bank charging efficiency for OEM products?</h3>
- <p class="text-slate-600 text-sm faq-answer">GaN (Gallium Nitride) power management ICs achieve <strong>85-92% conversion efficiency vs 60-75% for budget silicon</strong>, an 8-25 point gap that directly determines usable capacity. The math: a 10,000mAh cell through 90% GaN delivers ~6,660mAh; through 65% budget delivers ~4,810mAh. That <strong>1,850mAh difference = an extra 0.5 phone charges</strong> from the same cell, your customer's real experience. GaN also enables 30% smaller PCB (slimmer products) and generates less heat (longer cell lifespan). For OEM positioning: GaN efficiency is the single largest quality differentiator. Budget $1-3 BOM premium for GaN vs silicon at 30W+, offset by 15-25% retail premium and measurably lower returns.</p>
- </div>
- <div class="bg-white rounded-xl p-6">
- <h3 class="font-black text-brandBlue mb-2">What is the maximum power bank capacity allowed on airplanes for international shipping?</h3>
- <p class="text-slate-600 text-sm faq-answer"><strong>≤100Wh (~27,000mAh at 3.7V):</strong> allowed in carry-on without airline approval, the practical product ceiling for global consumer sales. <strong>100-160Wh:</strong> airline approval required, max 2 units per passenger. <strong>>160Wh:</strong> prohibited on passenger aircraft. Critical for OEM brands: 27,000mAh = 99.9Wh, sitting exactly at the limit. Products labeled above 27,000mAh become restricted items, limiting distribution channels and triggering customer complaints at airport security. For air freight: all lithium battery products require UN38.3 test certification and MSDS documentation. Products must ship at ≤30% charge. DDP shipping from Shenzhen includes all DG declarations.</p>
- </div>
- <div class="bg-white rounded-xl p-6">
+ 
+ 
+ 
+ <div class="bg-white rounded-xl p-6 faq-answer">
  <h3 class="font-black text-brandBlue mb-2">How do OEM buyers source power banks with verified real capacity from Shenzhen factories?</h3>
- <p class="text-slate-600 text-sm faq-answer"><strong>Step 1:</strong> Set your capacity tier, 10,000mAh for volume entry (47.89% market share, FOB $4-7 at 1,000 units), 20,000mAh for premium/travel. <strong>Step 2:</strong> Demand a 0.2C discharge report and Grade-A cell certification BEFORE deposit, reject any supplier who cannot provide batch-tested data within 48 hours. <strong>Step 3:</strong> Order 3-5 samples, test with a USB power meter at 5V/2A, compare real output against rated spec. <strong>Step 4:</strong> Specify conversion efficiency ≥85% in your purchase agreement. <strong>Step 5:</strong> Require Wh labeling alongside mAh on all products and packaging. <strong>WOWOHCOOL provides factory-direct OEM power banks with verified Grade-A cells, GaN efficiency, and complete UN38.3/CE/FCC documentation. <a href="/contact/" class="text-brandBlue hover:text-brandOrange underline">Request a quote with serial-traceable capacity test reports.</a></strong></p>
+ <p class="text-slate-600 text-sm"><strong>Step 1:</strong> Set your capacity tier, 10,000mAh for volume entry (47.89% market share, FOB $4-7 at 1,000 units), 20,000mAh for premium/travel. <strong>Step 2:</strong> Demand a 0.2C discharge report and Grade-A cell certification BEFORE deposit, reject any supplier who cannot provide batch-tested data within 48 hours. <strong>Step 3:</strong> Order 3-5 samples, test with a USB power meter at 5V/2A, compare real output against rated spec. <strong>Step 4:</strong> Specify conversion efficiency ≥85% in your purchase agreement. <strong>Step 5:</strong> Require Wh labeling alongside mAh on all products and packaging. <strong>WOWOHCOOL provides factory-direct OEM power banks with verified Grade-A cells, GaN efficiency, and complete UN38.3/CE/FCC documentation. <a href="/contact/" class="text-brandBlue hover:text-brandOrange underline">Request a quote with serial-traceable capacity test reports.</a></strong></p>
  </div>
  </div>
  </div>

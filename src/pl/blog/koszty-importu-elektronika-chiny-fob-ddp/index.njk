@@ -13,7 +13,6 @@ ogType: "article"
 navActive: "blog"
 hreflang:
   pl: "/pl/blog/koszty-importu-elektronika-chiny-fob-ddp/"
-  x-default: "/pl/blog/koszty-importu-elektronika-chiny-fob-ddp/"
 ---
 {% extends "layout.njk" %}
 
@@ -32,8 +31,8 @@ hreflang:
       "logo": {
         "@type": "ImageObject",
         "url": "https://www.wowohcool.com/image/wowohcool-logo-optimized.webp",
-        "width": "600",
-        "height": "60"
+        "width": 263,
+        "height": 70
       },
       "publishingPrinciples": "https://www.wowohcool.com/pl/o-nas/",
       "areaServed": [
@@ -84,9 +83,9 @@ hreflang:
       ],
       "contactPoint": {
         "@type": "ContactPoint",
-        "telephone": "+86-186-2078-9739",
+        "telephone": "+86-18620789739",
         "email": "info@wowohcool.com",
-        "contactType": "Sprzedaż",
+        "contactType": "OEM/ODM Sales",
         "availableLanguage": [
           "English",
           "German",
@@ -101,8 +100,8 @@ hreflang:
       "@type": "WebSite",
       "@id": "https://www.wowohcool.com/#website",
       "url": "https://www.wowohcool.com/pl/",
-      "name": "WOWOHCOOL Polska",
-      "inLanguage": "pl",
+      "name": "WOWOHCOOL",
+      "inLanguage": "pl-PL",
       "publisher": {
         "@id": "https://www.wowohcool.com/#organization"
       }
@@ -150,8 +149,9 @@ hreflang:
       ],
       "datePublished": "2026-08-25",
       "dateModified": "2026-08-25",
-      "wordCount": 1522,
-      "inLanguage": "pl",
+      "timeRequired": "PT11M",
+      "wordCount": 1376,
+      "inLanguage": "pl-PL",
       "author": {
         "@id": "https://www.wowohcool.com/#nina-nico"
       },
@@ -176,10 +176,23 @@ hreflang:
         "sameAs": "https://www.wikidata.org/wiki/Q62955"
       },
       "citation": [
-        "https://isztar4.mf.gov.pl",
-        "https://ec.europa.eu/taxation_customs/taric",
-        "https://puesc.gov.pl"
-      ]
+        {
+          "@type": "CreativeWork",
+          "name": "ISZTAR — system informacji taryfowej Ministerstwa Finansów",
+          "url": "https://isztar4.mf.gov.pl"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "TARIC — taryfa celna Komisji Europejskiej",
+          "url": "https://ec.europa.eu/taxation_customs/taric"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "PUESC — Platforma Usług Elektronicznych Skarbowo-Celnych",
+          "url": "https://puesc.gov.pl"
+        }
+      ],
+      "thumbnailUrl": "https://www.wowohcool.com/image/blog/cover-pl/koszty-importu-elektronika-chiny-fob-ddp.webp"
     },
     {
       "@type": "Person",
@@ -190,7 +203,12 @@ hreflang:
       "sameAs": [
         "https://www.linkedin.com/in/nico-power-bank-chargers"
       ],
-      "image": "https://www.wowohcool.com/image/factory/team-nina.webp",
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://www.wowohcool.com/image/factory/team-nina.webp",
+        "width": 400,
+        "height": 400
+      },
       "worksFor": {
         "@id": "https://www.wowohcool.com/#organization"
       },
@@ -212,34 +230,60 @@ hreflang:
           "@type": "HowToStep",
           "position": 1,
           "name": "Oblicz CIF",
-          "text": "CIF = cena FOB + fracht + ubezpieczenie (zazwyczaj 1-2% wartości towaru)."
+          "itemListElement": [
+            {
+              "@type": "HowToDirection",
+              "text": "CIF = cena FOB + fracht + ubezpieczenie (zazwyczaj 1-2% wartości towaru)."
+            }
+          ]
         },
         {
           "@type": "HowToStep",
           "position": 2,
           "name": "Dodaj cło",
-          "text": "Cło = stawka celna × CIF. Dla elektroniki HS 85 wynosi 0-5% (ładowarki ~2,5%), kod CN 8-10 cyfr w TARIC."
+          "itemListElement": [
+            {
+              "@type": "HowToDirection",
+              "text": "Cło = stawka celna × CIF. Dla elektroniki HS 85 wynosi 0-5% (ładowarki ~2,5%), kod CN 8-10 cyfr w TARIC."
+            }
+          ]
         },
         {
           "@type": "HowToStep",
           "position": 3,
           "name": "Nalicz VAT",
-          "text": "VAT = 23% × (CIF + cło). Przy art. 33a VAT rozliczasz samoobliczenie w JPK_V7, bez zamrażania gotówki."
+          "itemListElement": [
+            {
+              "@type": "HowToDirection",
+              "text": "VAT = 23% × (CIF + cło). Przy art. 33a VAT rozliczasz samoobliczenie w JPK_V7, bez zamrażania gotówki."
+            }
+          ]
         },
         {
           "@type": "HowToStep",
           "position": 4,
           "name": "Dodaj ukryte koszty",
-          "text": "THC/ISPS/opłaty portowe, storage $20-50/dzień, agent celny 150-400 €, transport krajowy."
+          "itemListElement": [
+            {
+              "@type": "HowToDirection",
+              "text": "THC/ISPS/opłaty portowe, storage $20-50/dzień, agent celny 150-400 €, transport krajowy."
+            }
+          ]
         },
         {
           "@type": "HowToStep",
           "position": 5,
           "name": "Porównaj FOB vs DDP",
-          "text": "DDP ma narzut 8-15% nad FOB+fracht. Przejdź na FOB po 3+ udanych dostawach."
+          "itemListElement": [
+            {
+              "@type": "HowToDirection",
+              "text": "DDP ma narzut 8-15% nad FOB+fracht. Przejdź na FOB po 3+ udanych dostawach."
+            }
+          ]
         }
       ],
-      "totalTime": "PT2H"
+      "totalTime": "PT2H",
+      "description": "Landed cost importu elektroniki z Chin: CIF = FOB + fracht + ubezpieczenie, cło 0-5%, VAT 23% i art. 33a. Porty Gdańsk/Gdynia, ukryte koszty, 2026 przepisy."
     },
     {
       "@type": "FAQPage",
@@ -281,30 +325,6 @@ hreflang:
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "Art. 33a to samoobliczenie VAT przy imporcie: rozliczasz VAT w deklaracji JPK_V7, zamiast płacić go przy odprawie. Dla importera zarejestrowanego do VAT to czysty przepływ gotówki, nie koszt stały."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Jakie ukryte koszty przy imporcie z Chin?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "THC/ISPS/opłaty portowe (PLN 450-1 100), storage $20-50/dzień po darmowych dniach, agent celny 150-400 € za zgłoszenie, transport krajowy. Łącznie 1-2% wartości zamówienia."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Przez jaki port importować elektronikę do Polski?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "DCT Gdańsk lub Gdynia (BCT/GCT) — bezpośrednio na Bałtyk. Alternatywnie Hamburg/Rotterdam z tranzytem T1 do Polski: koszt T1 + transport 600-1 100 € za kontener, plus 3-5 dni."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Jakie zmiany w imporcie od 2026 roku?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Od lipca 2026 UE znosi zwolnienie celne dla przesyłek poniżej 150 € i wprowadza opłatę 3 €/paczka. Dotyczy to głównie małych paczek B2C, nie dużych przesyłek handlowych."
           }
         },
         {
@@ -540,18 +560,9 @@ hreflang:
           <h3 class="font-black text-brandBlue mb-2">Czym jest art. 33a ustawy o VAT?</h3>
           <p class="text-slate-600 text-sm">Art. 33a to samoobliczenie VAT przy imporcie: rozliczasz VAT w deklaracji JPK_V7, zamiast płacić go przy odprawie. Dla importera zarejestrowanego do VAT to czysty przepływ gotówki, nie koszt stały.</p>
         </div>
-        <div class="bg-white rounded-xl p-6 faq-answer">
-          <h3 class="font-black text-brandBlue mb-2">Jakie ukryte koszty przy imporcie z Chin?</h3>
-          <p class="text-slate-600 text-sm">THC/ISPS/opłaty portowe (PLN 450-1 100), storage $20-50/dzień po darmowych dniach, agent celny 150-400 € za zgłoszenie, transport krajowy. Łącznie 1-2% wartości zamówienia.</p>
-        </div>
-        <div class="bg-white rounded-xl p-6 faq-answer">
-          <h3 class="font-black text-brandBlue mb-2">Przez jaki port importować elektronikę do Polski?</h3>
-          <p class="text-slate-600 text-sm">DCT Gdańsk lub Gdynia (BCT/GCT) — bezpośrednio na Bałtyk. Alternatywnie Hamburg/Rotterdam z tranzytem T1 do Polski: koszt T1 + transport 600-1 100 € za kontener, plus 3-5 dni.</p>
-        </div>
-        <div class="bg-white rounded-xl p-6 faq-answer">
-          <h3 class="font-black text-brandBlue mb-2">Jakie zmiany w imporcie od 2026 roku?</h3>
-          <p class="text-slate-600 text-sm">Od lipca 2026 UE znosi zwolnienie celne dla przesyłek poniżej 150 € i wprowadza opłatę 3 €/paczka. Dotyczy to głównie małych paczek B2C, nie dużych przesyłek handlowych.</p>
-        </div>
+        
+        
+        
         <div class="bg-white rounded-xl p-6 faq-answer">
           <h3 class="font-black text-brandBlue mb-2">Jak WOWOHCOOL pomaga policzyć landed cost?</h3>
           <p class="text-slate-600 text-sm">Podajemy pełny koszt DDP do Twoich drzwi z góry: faktura, packing list, B/L, deklaracja CE i UN38.3. Brak niespodzianek celnych — poproś o wycenę landed cost.</p>

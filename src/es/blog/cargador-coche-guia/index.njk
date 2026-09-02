@@ -20,14 +20,13 @@ hreflang:
  es: "/es/blog/cargador-coche-guia/"
  fr: "/fr/blog/chargeur-voiture-oem-guide/"
  ru: "/ru/blog/avtomobilnye-zaryadki-oem-rukovodstvo/"
-
+ 
 ---
 
 {% extends "layout.njk" %}
 
 {% block head_schema %}
-<script type="application/ld+json">
-{
+<script type="application/ld+json">{
   "@context": "https://schema.org",
   "@graph": [
     {
@@ -42,8 +41,8 @@ hreflang:
       "logo": {
         "@type": "ImageObject",
         "url": "https://www.wowohcool.com/image/wowohcool-logo-optimized.webp",
-        "width": 600,
-        "height": 60
+        "width": 263,
+        "height": 70
       },
       "areaServed": [
         "US",
@@ -135,9 +134,10 @@ hreflang:
           "@type": "ListItem",
           "position": 3,
           "name": "Guía de Cargador de Coche",
-          "item": "https://www.wowohcool.com/es/blog/cargador-coche-guia"
+          "item": "https://www.wowohcool.com/es/blog/cargador-coche-guia/"
         }
-      ]
+      ],
+      "@id": "https://www.wowohcool.com/es/blog/cargador-coche-guia/#breadcrumb"
     },
     {
       "@type": "BlogPosting",
@@ -166,7 +166,7 @@ hreflang:
       },
       "wordCount": 3156,
       "timeRequired": "PT18M",
-      "image": "https://www.wowohcool.com/image/factory/wowohcool-smart-charging-solutions.webp",
+      "image": "https://www.wowohcool.com/image/blog/cover-es/cargador-coche-guia-oem.webp",
       "speakable": {
         "@type": "SpeakableSpecification",
         "cssSelector": [
@@ -208,7 +208,7 @@ hreflang:
       ],
       "inLanguage": "es-ES",
       "articleSection": "Mercados Verticales",
-      "thumbnailUrl": "https://www.wowohcool.com/image/factory/wowohcool-smart-charging-solutions.webp"
+      "thumbnailUrl": "https://www.wowohcool.com/image/blog/cover-es/cargador-coche-guia-oem.webp"
     },
     {
       "@type": "Person",
@@ -230,7 +230,12 @@ hreflang:
         "Custom Power Adapter Production",
         "Factory Audit Standards"
       ],
-      "image": "https://www.wowohcool.com/image/factory/team-nina.webp"
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://www.wowohcool.com/image/factory/team-nina.webp",
+        "width": 400,
+        "height": 400
+      }
     },
     {
       "@type": "FAQPage",
@@ -267,34 +272,10 @@ hreflang:
         },
         {
           "@type": "Question",
-          "name": "¿Funciona un cargador 12V en camiones de 24V?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Solo si está diseñado para entrada 12V-24V (a veces 12V-30V). Muchos modelos de consumo aceptan solo 12V y se queman en sistemas de 24V (camiones, autobuses, autocaravanas, embarcaciones). Para mercados con flota mixta de camiones siempre exija cargador dual 12V/24V."
-          }
-        },
-        {
-          "@type": "Question",
           "name": "¿Cuál es la MOQ y plazo para cargadores de coche OEM?",
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "MOQ desde 500 unidades para OEM (logotipo y embalaje propios), desde 2.000 unidades para ODM (diseño exclusivo). Plazo de entrega: 25-30 días para OEM, 45-60 días para ODM con moldes nuevos. Muestras en 3-7 días. Bosch recibió 10.000 unidades en fast-track de 30 días."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "¿Cuánto cuesta certificar un cargador de coche con E-Mark?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "La certificación E-Mark (ECE R10) cuesta entre $1.500-3.000 USD por modelo. Incluye ensayos de emisiones radiadas (30 MHz - 6 GHz), inmunidad a transitorios (BCI 400 mA) y auditoría de fábrica (COP). Plazo: 3-6 semanas. WOWOHCOOL incluye soporte de certificación E-Mark con pedidos OEM — el coste ya está integrado en el precio."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "¿Qué diferencia real hay entre un cargador de coche GaN V y uno de silicio?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "GaN V (5ª generación): eficiencia 93-95%, 60% más pequeño, 30% mejor disipación térmica, frecuencia de conmutación ~1 MHz. Silicio tradicional: eficiencia ~85%, mayor tamaño y temperatura de operación. En un habitáculo a 55°C en verano, el silicio puede disparar la protección térmica y dejar de cargar; el GaN V mantiene margen para seguir operando. Para flotas y uso profesional en climas cálidos, GaN V es la única opción fiable."
           }
         },
         {
@@ -395,8 +376,7 @@ hreflang:
       "totalTime": "P10W"
     }
   ]
-}
-</script>
+}</script>
 {% endblock %}
 
 {% block content %}
@@ -683,37 +663,28 @@ hreflang:
  <div class="bg-slate-50 rounded-2xl p-8 border border-slate-200 shadow-sm">
  <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-8 text-center">Preguntas frecuentes</h2>
  <div class="space-y-6 max-w-3xl mx-auto">
- <div class="bg-white rounded-xl p-6">
+ <div class="bg-white rounded-xl p-6 faq-answer">
  <h3 class="font-black text-brandBlue mb-2">¿Qué potencia mínima debe tener un cargador de coche para portátiles?</h3>
- <p class="text-slate-600 text-sm leading-relaxed">Para cargar portátiles como MacBook Pro o Dell XPS hace falta como mínimo PD 3.1 a 65W. Los modelos profesionales (MacBook Pro 16, gaming) requieren 100-140W. Los cargadores GaN V de WOWOHCOOL llegan hasta 140W en formato compacto compatible con cabinas y camiones.</p>
+ <p class="text-slate-600 text-sm">Para cargar portátiles como MacBook Pro o Dell XPS hace falta como mínimo PD 3.1 a 65W. Los modelos profesionales (MacBook Pro 16, gaming) requieren 100-140W. Los cargadores GaN V de WOWOHCOOL llegan hasta 140W en formato compacto compatible con cabinas y camiones.</p>
  </div>
- <div class="bg-white rounded-xl p-6">
+ <div class="bg-white rounded-xl p-6 faq-answer">
  <h3 class="font-black text-brandBlue mb-2">¿Qué certificación necesita un cargador de coche para la UE?</h3>
- <p class="text-slate-600 text-sm leading-relaxed">Para España y la UE: marcado CE (UNE-EN 62368-1, CEM), RoHS, y E-Mark (ECE R10) obligatorio para uso vehicular. Sin E-Mark el producto no puede declararse apto para automoción. WOWOHCOOL entrega los tres certificados para todos sus cargadores de coche OEM.</p>
+ <p class="text-slate-600 text-sm">Para España y la UE: marcado CE (UNE-EN 62368-1, CEM), RoHS, y E-Mark (ECE R10) obligatorio para uso vehicular. Sin E-Mark el producto no puede declararse apto para automoción. WOWOHCOOL entrega los tres certificados para todos sus cargadores de coche OEM.</p>
  </div>
- <div class="bg-white rounded-xl p-6">
+ <div class="bg-white rounded-xl p-6 faq-answer">
  <h3 class="font-black text-brandBlue mb-2">¿Cable retráctil o cable suelto: qué conviene a una flota?</h3>
- <p class="text-slate-600 text-sm leading-relaxed">Para flotas de empresa, taxis y VTC el cable retráctil reduce un 60-80% los costes de reposición por pérdida o rotura. El mecanismo retráctil aguanta 10.000 ciclos cuando es de calidad — exija siempre prueba de durabilidad documentada.</p>
+ <p class="text-slate-600 text-sm">Para flotas de empresa, taxis y VTC el cable retráctil reduce un 60-80% los costes de reposición por pérdida o rotura. El mecanismo retráctil aguanta 10.000 ciclos cuando es de calidad — exija siempre prueba de durabilidad documentada.</p>
  </div>
- <div class="bg-white rounded-xl p-6">
- <h3 class="font-black text-brandBlue mb-2">¿Funciona un cargador 12V en camiones de 24V?</h3>
- <p class="text-slate-600 text-sm leading-relaxed">Solo si está diseñado para entrada 12V-24V (a veces 12V-30V). Muchos modelos de consumo aceptan solo 12V y se queman en sistemas de 24V (camiones, autobuses, autocaravanas, embarcaciones). Para mercados con flota mixta de camiones siempre exija cargador dual 12V/24V.</p>
- </div>
- <div class="bg-white rounded-xl p-6">
+ 
+ <div class="bg-white rounded-xl p-6 faq-answer">
  <h3 class="font-black text-brandBlue mb-2">¿Cuál es la MOQ y plazo para cargadores de coche OEM?</h3>
- <p class="text-slate-600 text-sm leading-relaxed">MOQ desde 500 unidades para OEM (logotipo y embalaje propios), desde 2.000 unidades para ODM (diseño exclusivo). Plazo de entrega: 25-30 días para OEM, 45-60 días para ODM con moldes nuevos. Muestras en 3-7 días. Bosch recibió 10.000 unidades en fast-track de 30 días.</p>
+ <p class="text-slate-600 text-sm">MOQ desde 500 unidades para OEM (logotipo y embalaje propios), desde 2.000 unidades para ODM (diseño exclusivo). Plazo de entrega: 25-30 días para OEM, 45-60 días para ODM con moldes nuevos. Muestras en 3-7 días. Bosch recibió 10.000 unidades en fast-track de 30 días.</p>
  </div>
- <div class="bg-white rounded-xl p-6">
- <h3 class="font-black text-brandBlue mb-2">¿Cuánto cuesta certificar un cargador de coche con E-Mark?</h3>
- <p class="text-slate-600 text-sm leading-relaxed">La certificación E-Mark (ECE R10) cuesta entre $1.500-3.000 USD por modelo. Incluye ensayos de emisiones radiadas (30 MHz - 6 GHz), inmunidad a transitorios (BCI 400 mA) y auditoría de fábrica (COP). Plazo: 3-6 semanas. WOWOHCOOL incluye soporte de certificación E-Mark con pedidos OEM — el coste ya está integrado en el precio.</p>
- </div>
- <div class="bg-white rounded-xl p-6">
- <h3 class="font-black text-brandBlue mb-2">¿Qué diferencia real hay entre un cargador de coche GaN V y uno de silicio?</h3>
- <p class="text-slate-600 text-sm leading-relaxed">GaN V (5ª generación): eficiencia 93-95%, 60% más pequeño, 30% mejor disipación térmica, frecuencia de conmutación ~1 MHz. Silicio tradicional: eficiencia ~85%, mayor tamaño y temperatura de operación. En un habitáculo a 55°C en verano, el silicio puede disparar la protección térmica y dejar de cargar; el GaN V mantiene margen para seguir operando. Para flotas y uso profesional en climas cálidos, GaN V es la única opción fiable.</p>
- </div>
- <div class="bg-white rounded-xl p-6">
+ 
+ 
+ <div class="bg-white rounded-xl p-6 faq-answer">
  <h3 class="font-black text-brandBlue mb-2">¿Necesito registro EPR/RAEE para vender cargadores de coche en España?</h3>
- <p class="text-slate-600 text-sm leading-relaxed">Sí. Como importador que introduce cargadores de coche en el mercado español, debe registrarse en el RII-P (RAEE) según el Real Decreto 110/2015 a través de un SCRAP autorizado. Si su empresa no está establecida en España, necesita un Representante Autorizado. El número de registro debe constar en facturas y documentación. Sin él, plataformas como Amazon bloquean los listings.</p>
+ <p class="text-slate-600 text-sm">Sí. Como importador que introduce cargadores de coche en el mercado español, debe registrarse en el RII-P (RAEE) según el Real Decreto 110/2015 a través de un SCRAP autorizado. Si su empresa no está establecida en España, necesita un Representante Autorizado. El número de registro debe constar en facturas y documentación. Sin él, plataformas como Amazon bloquean los listings.</p>
  </div>
  </div>
  </div>

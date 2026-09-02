@@ -28,8 +28,7 @@ hreflang:
 {% extends "layout.njk" %}
 
 {% block head_schema %}
-<script type="application/ld+json">
-{
+<script type="application/ld+json">{
   "@context": "https://schema.org",
   "@graph": [
     {
@@ -44,8 +43,8 @@ hreflang:
       "logo": {
         "@type": "ImageObject",
         "url": "https://www.wowohcool.com/image/wowohcool-logo-optimized.webp",
-        "width": 600,
-        "height": 60
+        "width": 263,
+        "height": 70
       },
       "areaServed": [
         "US",
@@ -112,7 +111,7 @@ hreflang:
       "@type": "WebSite",
       "@id": "https://www.wowohcool.com/#website",
       "url": "https://www.wowohcool.com/es/",
-      "name": "WOWOHCOOL España",
+      "name": "WOWOHCOOL",
       "inLanguage": "es-ES",
       "publisher": {
         "@id": "https://www.wowohcool.com/#organization"
@@ -139,7 +138,8 @@ hreflang:
           "name": "Power Bank Marca Propia",
           "item": "https://www.wowohcool.com/es/blog/powerbank-marca-propia-produccion-oem/"
         }
-      ]
+      ],
+      "@id": "https://www.wowohcool.com/es/blog/powerbank-marca-propia-produccion-oem/#breadcrumb"
     },
     {
       "@type": "BlogPosting",
@@ -155,7 +155,7 @@ hreflang:
         "España"
       ],
       "description": "Guía para importadores: cree su power bank de marca propia con fabricante ISO 9001 en Shenzhen. MOQ desde 500 uds, certificación CE/UN38.3 incluida.",
-      "thumbnailUrl": "https://www.wowohcool.com/image/blog/cover-de/powerbank-eigenmarke-cover.webp",
+      "thumbnailUrl": "https://www.wowohcool.com/image/blog/cover-es/powerbank-marca-propia-producc.webp",
       "author": {
         "@id": "https://www.wowohcool.com/#nina-nico"
       },
@@ -168,10 +168,10 @@ hreflang:
         "@type": "WebPage",
         "@id": "https://www.wowohcool.com/es/blog/powerbank-marca-propia-produccion-oem/"
       },
-      "wordCount": 4665,
+      "wordCount": 4428,
       "inLanguage": "es-ES",
       "timeRequired": "PT12M",
-      "image": "https://www.wowohcool.com/image/blog/cover-de/powerbank-eigenmarke-cover.webp",
+      "image": "https://www.wowohcool.com/image/blog/cover-es/powerbank-marca-propia-producc.webp",
       "speakable": {
         "@type": "SpeakableSpecification",
         "cssSelector": [
@@ -212,7 +212,12 @@ hreflang:
       "sameAs": [
         "https://www.linkedin.com/in/nico-power-bank-chargers"
       ],
-      "image": "https://www.wowohcool.com/image/factory/team-nina.webp",
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://www.wowohcool.com/image/factory/team-nina.webp",
+        "width": 400,
+        "height": 400
+      },
       "worksFor": {
         "@id": "https://www.wowohcool.com/#organization"
       },
@@ -346,26 +351,10 @@ hreflang:
         },
         {
           "@type": "Question",
-          "name": "¿Qué MOQ necesito para crear una power bank con mi logotipo?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "El MOQ estándar para OEM completo (logotipo + color + embalaje personalizado) es de 500 unidades en WOWOHCOOL. Para serigrafía simple de 1 color, desde 100-300 unidades. Para grabado láser, 100-300 unidades. La mayoría de competidores exigen 1.000+ unidades para el mismo nivel de personalización. WOWOHCOOL ofrece MOQ 500 como estándar de entrada para proyectos de marca propia."
-          }
-        },
-        {
-          "@type": "Question",
           "name": "¿Qué diferencia hay entre OEM y ODM para una marca de power banks?",
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "OEM (Original Equipment Manufacturer): personaliza un modelo existente del catálogo del fabricante con su marca, colores y embalaje. MOQ desde 500 uds, plazo 25-30 días. Ideal para primeras marcas. ODM (Original Design Manufacturer): desarrolla un producto completamente nuevo desde cero con diseño exclusivo, moldes propios e I+D. MOQ 1.000-3.000 uds, plazo 45-60 días. Requiere mayor inversión pero ofrece diferenciación total."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "¿Cómo evito problemas de calidad en power banks de marca propia importadas de China?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Exija un proceso QC documentado de 4 etapas (IQC → IPQC → FQC → OQC) con prueba de envejecimiento del 100% de unidades durante mínimo 4 horas. Verifique la trazabilidad del origen de las celdas de batería (Grado A, no recicladas). Solicite informe UN38.3 y MSDS completos antes del envío. Contrate una inspección externa pre-embarque (300-500 EUR). WOWOHCOOL mantiene tasa de defectos inferior al 0,3% frente al 2-5% del sector."
           }
         },
         {
@@ -380,8 +369,7 @@ hreflang:
       "@id": "https://www.wowohcool.com/es/blog/powerbank-marca-propia-produccion-oem/#faq"
     }
   ]
-}
-</script>
+}</script>
 {% endblock %}
 
 {% block content %}
@@ -866,39 +854,33 @@ hreflang:
 
  <div class="space-y-6 max-w-3xl mx-auto">
 
- <div class="bg-white rounded-xl p-6">
+ <div class="bg-white rounded-xl p-6 faq-answer">
  <h3 class="font-black text-brandBlue mb-2">¿Cuánto cuesta crear una power bank con marca propia?</h3>
- <p class="text-slate-600 text-sm faq-answer">El coste FOB de fabricación oscila entre 5,80 y 16,00 USD por unidad para 500 unidades, según capacidad y potencia. Añada 3.000-7.000 USD en certificaciones (CE, RoHS, UN38.3), personalización de logotipo (0,50-1,50 USD/ud) y embalaje (0,80-2,00 USD/ud). Coste total estimado para 500 uds de 10.000 mAh: 8.000-18.000 EUR todo incluido. WOWOHCOOL ofrece presupuesto completo desglosado en 24h.</p>
+ <p class="text-slate-600 text-sm">El coste FOB de fabricación oscila entre 5,80 y 16,00 USD por unidad para 500 unidades, según capacidad y potencia. Añada 3.000-7.000 USD en certificaciones (CE, RoHS, UN38.3), personalización de logotipo (0,50-1,50 USD/ud) y embalaje (0,80-2,00 USD/ud). Coste total estimado para 500 uds de 10.000 mAh: 8.000-18.000 EUR todo incluido. WOWOHCOOL ofrece presupuesto completo desglosado en 24h.</p>
  </div>
 
- <div class="bg-white rounded-xl p-6">
+ <div class="bg-white rounded-xl p-6 faq-answer">
  <h3 class="font-black text-brandBlue mb-2">¿Qué certificaciones necesito para vender power banks en España?</h3>
- <p class="text-slate-600 text-sm faq-answer">Las certificaciones obligatorias son: marcado CE (LVD + EMC), RoHS, REACH, UN38.3 para transporte y MSDS. Como importador debe registrarse en el RII-P (RAEE) según Real Decreto 110/2015 y en el Registro de Productores de Baterías (RD 106/2008). Desde agosto 2025 aplica el Reglamento UE 2023/1542 de Baterías que exige pasaporte digital y declaración de huella de carbono. WOWOHCOOL incluye soporte de certificación con pedidos OEM.</p>
+ <p class="text-slate-600 text-sm">Las certificaciones obligatorias son: marcado CE (LVD + EMC), RoHS, REACH, UN38.3 para transporte y MSDS. Como importador debe registrarse en el RII-P (RAEE) según Real Decreto 110/2015 y en el Registro de Productores de Baterías (RD 106/2008). Desde agosto 2025 aplica el Reglamento UE 2023/1542 de Baterías que exige pasaporte digital y declaración de huella de carbono. WOWOHCOOL incluye soporte de certificación con pedidos OEM.</p>
  </div>
 
- <div class="bg-white rounded-xl p-6">
+ <div class="bg-white rounded-xl p-6 faq-answer">
  <h3 class="font-black text-brandBlue mb-2">¿Cuánto tarda la producción OEM de una power bank con marca propia?</h3>
- <p class="text-slate-600 text-sm faq-answer">Muestras: 3-7 días tras confirmación de diseño. Producción OEM en masa: 25-30 días tras aprobación de muestra. Transporte marítimo a España: 25-35 días. Proceso completo puerta a puerta: 10-12 semanas. Para pedidos urgentes, el transporte aéreo reduce el tránsito a 3-7 días con un coste adicional de aproximadamente 7 USD/kg.</p>
+ <p class="text-slate-600 text-sm">Muestras: 3-7 días tras confirmación de diseño. Producción OEM en masa: 25-30 días tras aprobación de muestra. Transporte marítimo a España: 25-35 días. Proceso completo puerta a puerta: 10-12 semanas. Para pedidos urgentes, el transporte aéreo reduce el tránsito a 3-7 días con un coste adicional de aproximadamente 7 USD/kg.</p>
  </div>
 
- <div class="bg-white rounded-xl p-6">
- <h3 class="font-black text-brandBlue mb-2">¿Qué MOQ necesito para crear una power bank con mi logotipo?</h3>
- <p class="text-slate-600 text-sm faq-answer">El MOQ estándar para OEM completo (logotipo + color + embalaje personalizado) es de 500 unidades en WOWOHCOOL. Para serigrafía simple de 1 color, desde 100-300 unidades. Para grabado láser, 100-300 unidades. La mayoría de competidores exigen 1.000+ unidades para el mismo nivel de personalización. WOWOHCOOL ofrece MOQ 500 como estándar de entrada para proyectos de marca propia.</p>
- </div>
+ 
 
- <div class="bg-white rounded-xl p-6">
+ <div class="bg-white rounded-xl p-6 faq-answer">
  <h3 class="font-black text-brandBlue mb-2">¿Qué diferencia hay entre OEM y ODM para una marca de power banks?</h3>
- <p class="text-slate-600 text-sm faq-answer">OEM (Original Equipment Manufacturer): personaliza un modelo existente del catálogo del fabricante con su marca, colores y embalaje. MOQ desde 500 uds, plazo 25-30 días. Ideal para primeras marcas. ODM (Original Design Manufacturer): desarrolla un producto completamente nuevo desde cero con diseño exclusivo, moldes propios e I+D. MOQ 1.000-3.000 uds, plazo 45-60 días. Requiere mayor inversión pero ofrece diferenciación total.</p>
+ <p class="text-slate-600 text-sm">OEM (Original Equipment Manufacturer): personaliza un modelo existente del catálogo del fabricante con su marca, colores y embalaje. MOQ desde 500 uds, plazo 25-30 días. Ideal para primeras marcas. ODM (Original Design Manufacturer): desarrolla un producto completamente nuevo desde cero con diseño exclusivo, moldes propios e I+D. MOQ 1.000-3.000 uds, plazo 45-60 días. Requiere mayor inversión pero ofrece diferenciación total.</p>
  </div>
 
- <div class="bg-white rounded-xl p-6">
- <h3 class="font-black text-brandBlue mb-2">¿Cómo evito problemas de calidad en power banks de marca propia importadas de China?</h3>
- <p class="text-slate-600 text-sm faq-answer">Exija un proceso QC documentado de 4 etapas (IQC → IPQC → FQC → OQC) con prueba de envejecimiento del 100% de unidades durante mínimo 4 horas. Verifique la trazabilidad del origen de las celdas de batería (Grado A, no recicladas). Solicite informe UN38.3 y MSDS completos antes del envío. Contrate una inspección externa pre-embarque (300-500 EUR). WOWOHCOOL mantiene tasa de defectos inferior al 0,3% frente al 2-5% del sector.</p>
- </div>
+ 
 
- <div class="bg-white rounded-xl p-6">
+ <div class="bg-white rounded-xl p-6 faq-answer">
  <h3 class="font-black text-brandBlue mb-2">¿Puedo vender mi power bank de marca propia en Amazon España?</h3>
- <p class="text-slate-600 text-sm faq-answer">Sí, pero necesita: registro EPR en España (RAEE + Baterías + Envases), certificaciones CE/RoHS/UN38.3, y desde diciembre 2025, verificación por proveedor TIC acreditado según la política de Amazon para dispositivos de alimentación portátil. La fecha límite de cumplimiento fue el 15 de marzo de 2026. También debe designar un Representante Autorizado español si su empresa no está establecida en España.</p>
+ <p class="text-slate-600 text-sm">Sí, pero necesita: registro EPR en España (RAEE + Baterías + Envases), certificaciones CE/RoHS/UN38.3, y desde diciembre 2025, verificación por proveedor TIC acreditado según la política de Amazon para dispositivos de alimentación portátil. La fecha límite de cumplimiento fue el 15 de marzo de 2026. También debe designar un Representante Autorizado español si su empresa no está establecida en España.</p>
  </div>
 
  </div>
