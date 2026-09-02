@@ -69,7 +69,22 @@ def main():
 
     print(f"[{'PASS' if ok2 else 'FAIL'}] metadata audit — CRITICAL={crit}{(' (' + detail + ')') if detail else ''}")
 
-    if not (ok1 and ok2):
+    # Step 3: non-blog Organization check (knowsAbout + areaServed + contactPoint + Wikidata)
+    rc3, out3 = run([sys.executable, os.path.join(SEOMACHINE, "check_org_knows.py")], cwd=SEOMACHINE)
+    ok3 = rc3 == 0
+    tail3 = "\n".join(out3.strip().splitlines()[-3:])
+    print(f"[{'PASS' if ok3 else 'FAIL'}] non-blog Organization check")
+    if not ok3:
+        print("  " + tail3[:300])
+
+    # Step 4: author consistency (name/jobTitle/LinkedIn/avatar vs front-end, cluster exclusivity)
+    rc4, out4 = run([sys.executable, os.path.join(SEOMACHINE, "audit_author_consistency.py")], cwd=SEOMACHINE)
+    ok4 = rc4 == 0 and "Errors found" not in out4
+    print(f"[{'PASS' if ok4 else 'FAIL'}] author consistency")
+    if not ok4:
+        print("  " + "\n".join(out4.strip().splitlines()[:6])[:300])
+
+    if not (ok1 and ok2 and ok3 and ok4):
         print("=== GATE BLOCKED — fix the above before build/deploy ===")
         print(f"    report: {jf if crit is not None else '(audit did not complete)'}")
         sys.exit(1)

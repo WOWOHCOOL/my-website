@@ -1,7 +1,7 @@
 # 全站 Blog 元数据审计（metadata-standard v2.5）— 2026-09-02
 
 - 扫描：174 篇 blog 文章（6 语言，非 blog 页面排除）
-- CRITICAL：**0** / WARN：**90**
+- CRITICAL：**0** / WARN：**437**
 
 ## CRITICAL（按检查类型）
 
@@ -11,10 +11,359 @@
 
 ## WARN
 
+- `C20` × 272
 - `W4` × 90
+- `C22` × 75
 
 ### 明细
 
+- `blog/car-charger-guide/index.njk` [BLOG] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.cpsc.gov/
+- `blog/car-charger-guide/index.njk` [BLOG] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.usb.org/
+- `blog/car-charger-guide/index.njk` [BLOG] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://eur-lex.europa.eu/
+- `blog/charging-accessory-market-trends-2026/index.njk` [BLOG] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.thebusinessresearchcompany.com/
+- `blog/charging-accessory-market-trends-2026/index.njk` [BLOG] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.wirelesspowerconsortium.com/
+- `blog/choose-reliable-china-charger-supplier/index.njk` [BLOG] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.alibaba.com/
+- `blog/choose-reliable-china-charger-supplier/index.njk` [BLOG] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.ibisworld.com/
+- `blog/choose-reliable-china-charger-supplier/index.njk` [BLOG] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://productspec.ul.com
+- `blog/choose-reliable-china-charger-supplier/index.njk` [BLOG] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.wirelesspowerconsortium.com
+- `blog/eu-battery-regulation-2023-1542-guide/index.njk` [BLOG] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://erp-recycling.org/
+- `blog/factory-verification-checklist/index.njk` [BLOG] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.wirelesspowerconsortium.com/
+- `blog/factory-verification-checklist/index.njk` [BLOG] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.fcc.gov/
+- `blog/factory-verification-checklist/index.njk` [BLOG] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: http://www.customs.gov.cn/
+- `blog/factory-verification-checklist/index.njk` [BLOG] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.cnas.org.cn/
+- `blog/gan-chargers-guide/index.njk` [BLOG] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.navitassemi.com/
+- `blog/gan-generations-guide/index.njk` [BLOG] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://navitassemi.com/
+- `blog/gan-generations-guide/index.njk` [BLOG] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.innoscience.com/
+- `blog/gan-v-charger-oem-manufacturing/index.njk` [BLOG] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.navitassemi.com/
+- `blog/gan-vs-silicon-charger-comparison/index.njk` [BLOG] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://epc-co.com/
+- `blog/gan-vs-silicon-charger-comparison/index.njk` [BLOG] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.yolegroup.com/
+- `blog/gan-vs-silicon-charger-comparison/index.njk` [BLOG] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.counterpointresearch.com/
+- `blog/hotel-charging-solutions/index.njk` [BLOG] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.wirelesspowerconsortium.com/
+- `blog/hotel-charging-solutions/index.njk` [BLOG] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.ahla.com/
+- `blog/how-to-choose-factory/index.njk` [BLOG] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.iec.ch/
+- `blog/how-to-choose-power-bank/index.njk` [BLOG] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.wirelesspowerconsortium.com/
+- `blog/how-to-choose-power-bank/index.njk` [BLOG] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.yolegroup.com/
+- `blog/import-costs-guide/index.njk` [BLOG] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://hts.usitc.gov/
+- `blog/lithium-battery-dangerous-goods-packaging-certification/index.njk` [BLOG] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.singlewindow.cn/
+- `blog/lithium-battery-dangerous-goods-packaging-certification/index.njk` [BLOG] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://zwfw.dg.gov.cn/
+- `blog/lithium-battery-dangerous-goods-packaging-certification/index.njk` [BLOG] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.iafcertsearch.org/
+- `blog/power-bank-mah-explained/index.njk` [BLOG] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://batteryuniversity.com/
+- `blog/power-bank-private-label-oem-production/index.njk` [BLOG] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.uspto.gov
+- `blog/power-bank-private-label-oem-production/index.njk` [BLOG] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://euipo.europa.eu
+- `blog/power-bank-private-label-oem-production/index.njk` [BLOG] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.stiftung-ear.de
+- `blog/qi-certification-guide/index.njk` [BLOG] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.wirelesspowerconsortium.com/
+- `blog/qi2-vs-magsafe-guide/index.njk` [BLOG] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.wirelesspowerconsortium.com/
+- `blog/qi2-vs-magsafe-guide/index.njk` [BLOG] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.chargerlab.com/
+- `blog/qi2-vs-magsafe-guide/index.njk` [BLOG] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.counterpointresearch.com/
+- `blog/semi-solid-state-nail-penetration-test-oem-verification/index.njk` [BLOG] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.samr.gov.cn/
+- `blog/top-power-bank-manufacturers-china/index.njk` [BLOG] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.gsxt.gov.cn/
+- `blog/top-power-bank-manufacturers-china/index.njk` [BLOG] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://certsearch.iaf.nu/
+- `blog/verify-fake-charger-certificates-fcc-ce-ul/index.njk` [BLOG] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://productiq.ul.com
+- `blog/what-is-gan-charger/index.njk` [BLOG] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://epc-co.com/
+- `blog/what-is-gan-charger/index.njk` [BLOG] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.yolegroup.com/
+- `blog/what-is-gan-charger/index.njk` [BLOG] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.persistencemarketresearch.com/
+- `blog/what-is-gan-charger/index.njk` [BLOG] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.counterpointresearch.com/
+- `blog/wireless-charging-works/index.njk` [BLOG] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.wirelesspowerconsortium.com/
+- `de/blog/autoladegeraet-ratgeber/index.njk` [DE] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.kba.de/
+- `de/blog/autoladegeraet-ratgeber/index.njk` [DE] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://de.statista.com/
+- `de/blog/eu-batterieverordnung-2023-1542-leitfaden/index.njk` [DE] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.stiftung-ear.de/
+- `de/blog/fabrikauswahl-china-leitfaden/index.njk` [DE] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://certsearch.iaf.ru/
+- `de/blog/fabrikauswahl-china-leitfaden/index.njk` [DE] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.gsxt.gov.cn/
+- `de/blog/fabrikauswahl-china-leitfaden/index.njk` [DE] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://eur-lex.europa.eu/
+- `de/blog/fabrikauswahl-china-leitfaden/index.njk` [DE] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.stiftung-ear.de/
+- `de/blog/fabrikpruefung-checkliste-importeure/index.njk` [DE] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://certsearch.iaf.ru
+- `de/blog/fabrikpruefung-checkliste-importeure/index.njk` [DE] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: http://www.gsxt.gov.cn
+- `de/blog/gan-generationen-uebersicht/index.njk` [DE] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.usb.org/
+- `de/blog/gan-generationen-uebersicht/index.njk` [DE] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.tuv.com/
+- `de/blog/gan-generationen-uebersicht/index.njk` [DE] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.vde.com/
+- `de/blog/gan-generationen-uebersicht/index.njk` [DE] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.stiftung-ear.de/
+- `de/blog/gan-generationen-uebersicht/index.njk` [DE] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://eur-lex.europa.eu/
+- `de/blog/gan-generationen-uebersicht/index.njk` [DE] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.infineon.com/
+- `de/blog/gan-generationen-uebersicht/index.njk` [DE] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://navitassemi.com/
+- `de/blog/gan-generationen-uebersicht/index.njk` [DE] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.innoscience.com/
+- `de/blog/gan-generationen-uebersicht/index.njk` [DE] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://epc-co.com/
+- `de/blog/gan-generationen-uebersicht/index.njk` [DE] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.yolegroup.com/
+- `de/blog/gan-ladegeraet-technologie/index.njk` [DE] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://epc-co.com/
+- `de/blog/gan-ladegeraete-leitfaden/index.njk` [DE] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.infineon.com/
+- `de/blog/gan-ladegeraete-leitfaden/index.njk` [DE] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://navitassemi.com/
+- `de/blog/gan-ladegeraete-leitfaden/index.njk` [DE] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.usb.org/
+- `de/blog/gan-v-oem-fertigung/index.njk` [DE] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://navitassemi.com/
+- `de/blog/gan-v-oem-fertigung/index.njk` [DE] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.innoscience.com/
+- `de/blog/kabelloses-laden/index.njk` [DE] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.wirelesspowerconsortium.com/
+- `de/blog/lieferanten-china-finden/index.njk` [DE] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.1688.com/
+- `de/blog/markt-trends-ladegeraete-2026/index.njk` [DE] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.wirelesspowerconsortium.com/
+- `de/blog/markt-trends-ladegeraete-2026/index.njk` [DE] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.marketsandmarkets.com/
+- `de/blog/oem-vs-odm-leitfaden/index.njk` [DE] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.stiftung-ear.de/
+- `de/blog/oem-vs-odm-leitfaden/index.njk` [DE] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.tuv.com/
+- `de/blog/powerbank-eigenmarke-oem-produktion/index.njk` [DE] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.dpma.de
+- `de/blog/powerbank-eigenmarke-oem-produktion/index.njk` [DE] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://euipo.europa.eu
+- `de/blog/powerbank-spezifikationen/index.njk` [DE] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.imtest.de/
+- `de/blog/qi2-vs-magsafe/index.njk` [DE] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.androidauthority.com
+- `de/blog/qi2-zertifizierung-importeure/index.njk` [DE] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.wirelesspowerconsortium.com/
+- `de/blog/qi2-zertifizierung-importeure/index.njk` [DE] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.bitkom.org/
+- `de/blog/qualitaetskontrolle-china/index.njk` [DE] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.iafcertsearch.org/
+- `de/blog/semi-solid-state-powerbank/index.njk` [DE] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.ces.tech/
+- `de/blog/semi-solid-state-powerbank/index.njk` [DE] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.makezens.com/
+- `de/blog/usb-c-pd-schnellladen/index.njk` [DE] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.usb.org/
+- `de/blog/usb-c-pd-schnellladen/index.njk` [DE] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.iec.ch/
+- `de/blog/zertifizierungen-eu-markt/index.njk` [DE] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.stiftung-ear.de/
+- `es/blog/auditoria-fabrica-in-situ-checklist-cargadores-oem/index.njk` [ES] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.iec.ch/
+- `es/blog/auditoria-fabrica-in-situ-checklist-cargadores-oem/index.njk` [ES] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.ipc.org/
+- `es/blog/carga-inalambrica-qi-qi2-magsafe/index.njk` [ES] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.wirelesspowerconsortium.com/
+- `es/blog/cargador-coche-guia/index.njk` [ES] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.transportes.gob.es/
+- `es/blog/certificacion-qi2-importadores/index.njk` [ES] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.wirelesspowerconsortium.com/
+- `es/blog/como-elegir-fabrica-china/index.njk` [ES] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.gsxt.gov.cn/
+- `es/blog/como-elegir-fabrica-china/index.njk` [ES] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.boe.es/
+- `es/blog/como-elegir-fabrica-china/index.njk` [ES] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.aenor.com/
+- `es/blog/control-calidad-fabricas-chinas/index.njk` [ES] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.tuv.com/
+- `es/blog/control-calidad-fabricas-chinas/index.njk` [ES] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.sgs.com/
+- `es/blog/control-calidad-fabricas-chinas/index.njk` [ES] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.bureauveritas.com/
+- `es/blog/diferimiento-iva-importacion-oem/index.njk` [ES] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://sede.agenciatributaria.gob.es/
+- `es/blog/diferimiento-iva-importacion-oem/index.njk` [ES] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://sede.agenciatributaria.gob.es/
+- `es/blog/directiva-cargador-comun-usb-c-oem/index.njk` [ES] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.iec.ch/
+- `es/blog/directiva-cargador-comun-usb-c-oem/index.njk` [ES] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://sede.agenciatributaria.gob.es/
+- `es/blog/fabricante-power-banks-china-oem/index.njk` [ES] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: http://english.customs.gov.cn/
+- `es/blog/fabricante-power-banks-china-oem/index.njk` [ES] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.iafcertsearch.org/
+- `es/blog/gan-v-fabricacion-oem/index.njk` [ES] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.yolegroup.com/
+- `es/blog/gan-v-fabricacion-oem/index.njk` [ES] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.usb.org/
+- `es/blog/gan-v-fabricacion-oem/index.njk` [ES] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.infineon.com/
+- `es/blog/gan-v-fabricacion-oem/index.njk` [ES] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://navitassemi.com/
+- `es/blog/gan-vs-silicio-comparativa/index.njk` [ES] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://epc-co.com/
+- `es/blog/generaciones-gan-comparativa/index.njk` [ES] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.navitassemi.com/
+- `es/blog/generaciones-gan-comparativa/index.njk` [ES] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.innoscience.com/
+- `es/blog/generaciones-gan-comparativa/index.njk` [ES] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.persistencemarketresearch.com/
+- `es/blog/guia-cargadores-gan-importadores/index.njk` [ES] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.navitassemi.com/
+- `es/blog/guia-certificaciones-cargadores-importadores/index.njk` [ES] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.iec.ch/
+- `es/blog/guia-certificaciones-cargadores-importadores/index.njk` [ES] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://compliance.usb.org/
+- `es/blog/guia-certificaciones-cargadores-importadores/index.njk` [ES] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.ul.com/
+- `es/blog/normas-seguridad-cargadores/index.njk` [ES] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.iec.ch/
+- `es/blog/oem-vs-odm-guia-completa/index.njk` [ES] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.aenor.com/
+- `es/blog/proveedor-cargadores-china-fiable/index.njk` [ES] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.gsxt.gov.cn
+- `es/blog/prueba-penetracion-clavo-baterias-semisolidas-oem/index.njk` [ES] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.gdestl.com/
+- `es/blog/prueba-penetracion-clavo-baterias-semisolidas-oem/index.njk` [ES] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://eur-lex.europa.eu/
+- `es/blog/qi2-vs-magsafe-diferencias/index.njk` [ES] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.wirelesspowerconsortium.com/
+- `es/blog/que-es-cargador-gan/index.njk` [ES] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.persistencemarketresearch.com/
+- `es/blog/reglamento-ue-2023-1542-cumplimiento/index.njk` [ES] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.ecopilas.es/
+- `es/blog/soluciones-carga-hoteles/index.njk` [ES] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.wpcqi.org/
+- `es/blog/soluciones-carga-hoteles/index.njk` [ES] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.iec.ch/
+- `es/blog/soluciones-carga-hoteles/index.njk` [ES] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.ithotelero.com/
+- `es/blog/soluciones-carga-hoteles/index.njk` [ES] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.cehat.com/
+- `es/blog/subvaloracion-errores-codigo-hs-oem/index.njk` [ES] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://sede.agenciatributaria.gob.es/
+- `es/blog/subvaloracion-errores-codigo-hs-oem/index.njk` [ES] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://sede.agenciatributaria.gob.es/
+- `es/blog/tendencias-mercado-cargadores-2026/index.njk` [ES] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.researchandmarkets.com/
+- `es/blog/verificacion-fabricas-checklist/index.njk` [ES] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.gsxt.gov.cn/
+- `es/blog/verificar-certificados-falsos-cargadores-ce-fcc-ul/index.njk` [ES] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://productiq.ul.com/
+- `fr/blog/audit-usine-chine-chargeurs-oem/index.njk` [FR] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.iafcertsearch.org/
+- `fr/blog/audit-usine-chine-chargeurs-oem/index.njk` [FR] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.wpc-qa.com/
+- `fr/blog/batterie-externe-specifications-oem/index.njk` [FR] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.ecologie.gouv.fr/
+- `fr/blog/batterie-semi-solide-oem-guide/index.njk` [FR] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://about.bnef.com/
+- `fr/blog/batterie-semi-solide-oem-guide/index.njk` [FR] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.ecologie.gouv.fr/
+- `fr/blog/certification-emballage-marchandises-dangereuses-batteries-lithium/index.njk` [FR] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.singlewindow.cn/
+- `fr/blog/certification-qi2-importateurs/index.njk` [FR] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.anfr.fr/
+- `fr/blog/certifications-chargeurs-oem-guide/index.njk` [FR] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.cencenelec.eu/
+- `fr/blog/charge-sans-fil-qi2-guide-oem/index.njk` [FR] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.anfr.fr/
+- `fr/blog/chargeur-voiture-oem-guide/index.njk` [FR] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.statistiques.developpement-durable.gouv.fr/
+- `fr/blog/chargeur-voiture-oem-guide/index.njk` [FR] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.ecosystem.eco/
+- `fr/blog/chargeur-voiture-oem-guide/index.njk` [FR] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.ecologic-france.com/
+- `fr/blog/checklist-verification-usine-chine-oem/index.njk` [FR] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.iafcertsearch.org/
+- `fr/blog/controle-qualite-usines-chinoises-oem/index.njk` [FR] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.bureauveritas.fr/
+- `fr/blog/couts-import-chine-droits-douane-oem/index.njk` [FR] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.douane.gouv.fr/
+- `fr/blog/expedition-chine-logistique-oem/index.njk` [FR] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.douane.gouv.fr/
+- `fr/blog/fabrication-oem-gan-v/index.njk` [FR] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://navitassemi.com/
+- `fr/blog/fabrication-oem-gan-v/index.njk` [FR] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.innoscience.com/
+- `fr/blog/fournisseurs-chargeurs-chine-oem/index.njk` [FR] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.iafcertsearch.org/
+- `fr/blog/fournisseurs-chargeurs-chine-oem/index.njk` [FR] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.qima.com/
+- `fr/blog/fournisseurs-chargeurs-chine-oem/index.njk` [FR] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.ecosystem.eco/
+- `fr/blog/fournisseurs-chargeurs-chine-oem/index.njk` [FR] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.ecologic-france.com/
+- `fr/blog/gan-vs-silicium-comparaison-oem/index.njk` [FR] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://community.infineon.com/
+- `fr/blog/mah-batterie-externe-guide-oem/index.njk` [FR] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.douane.gouv.fr/
+- `fr/blog/oem-vs-odm-guide-importateurs/index.njk` [FR] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.iafcertsearch.org/
+- `fr/blog/reglement-ue-2023-1542-conformite-oem/index.njk` [FR] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.ademe.fr/
+- `fr/blog/reglement-ue-2023-1542-conformite-oem/index.njk` [FR] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://afdib.fr/
+- `fr/blog/securite-chargeurs-normes-oem/index.njk` [FR] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.iec.ch/
+- `fr/blog/tendances-marche-chargeurs-2026-oem/index.njk` [FR] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.wirelesspowerconsortium.com/
+- `pl/blog/baterie-polstale-power-bank-oem/index.njk` [PL] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://about.bnef.com/
+- `pl/blog/checklista-weryfikacji-fabryki-chiny-oem/index.njk` [PL] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://uokik.gov.pl
+- `pl/blog/checklista-weryfikacji-fabryki-chiny-oem/index.njk` [PL] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: http://www.gsxt.gov.cn/
+- `pl/blog/checklista-weryfikacji-fabryki-chiny-oem/index.njk` [PL] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.iafcertsearch.org/
+- `pl/blog/import-chiny-polska-clo-vat-certyfikacja/index.njk` [PL] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://puesc.gov.pl
+- `pl/blog/kontrola-jakosci-fabryka-chiny-oem/index.njk` [PL] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.iec.ch/
+- `pl/blog/koszty-importu-elektronika-chiny-fob-ddp/index.njk` [PL] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://isztar4.mf.gov.pl
+- `pl/blog/koszty-importu-elektronika-chiny-fob-ddp/index.njk` [PL] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://puesc.gov.pl
+- `pl/blog/ladowanie-bezprzewodowe-qi2-oem/index.njk` [PL] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://uokik.gov.pl/
+- `pl/blog/oem-vs-odm-polska-marka/index.njk` [PL] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://eur-lex.europa.eu/
+- `pl/blog/oem-vs-odm-polska-marka/index.njk` [PL] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://uokik.gov.pl/
+- `pl/blog/oem-vs-odm-polska-marka/index.njk` [PL] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.iafcertsearch.org/
+- `pl/blog/power-bank-marka-wlasna-oem/index.njk` [PL] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://uokik.gov.pl/
+- `pl/blog/power-bank-oem-wybor-specyfikacja/index.njk` [PL] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://uokik.gov.pl/
+- `pl/blog/technologia-gan-ladowarki-oem/index.njk` [PL] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.infineon.com/
+- `pl/blog/technologia-gan-ladowarki-oem/index.njk` [PL] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://navitassemi.com/
+- `pl/blog/technologia-gan-ladowarki-oem/index.njk` [PL] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.usb.org/
+- `pl/blog/technologia-gan-ladowarki-oem/index.njk` [PL] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://single-market-economy.ec.europa.eu/
+- `pl/blog/weryfikacja-producentow-power-bank-shenzhen/index.njk` [PL] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: http://www.gsxt.gov.cn
+- `pl/blog/wybor-fabryki-chiny-audyt-oem/index.njk` [PL] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.iafcertsearch.org/
+- `pl/blog/wybor-fabryki-chiny-audyt-oem/index.njk` [PL] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://uokik.gov.pl/
+- `pl/blog/wybor-fabryki-chiny-audyt-oem/index.njk` [PL] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.wpc-qa.com/
+- `ru/blog/besprovodnaya-zaryadka-qi2-oem/index.njk` [RU] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://eec.eaeunion.org/
+- `ru/blog/besprovodnaya-zaryadka-qi2-oem/index.njk` [RU] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://rkn.gov.ru/
+- `ru/blog/chek-list-proverki-zavoda-kitay-oem/index.njk` [RU] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://fsa.gov.ru/
+- `ru/blog/chek-list-proverki-zavoda-kitay-oem/index.njk` [RU] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://docs.cntd.ru/
+- `ru/blog/chek-list-proverki-zavoda-kitay-oem/index.njk` [RU] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.iafcertsearch.org/
+- `ru/blog/dostavka-iz-kitaya-logistika-oem/index.njk` [RU] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://customs.gov.ru/
+- `ru/blog/dostavka-iz-kitaya-logistika-oem/index.njk` [RU] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.cu-tr.com.cn/
+- `ru/blog/gan-vs-kremniy-sravneniye-oem/index.njk` [RU] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.cu-tr.org/
+- `ru/blog/gan-zaryadnye-ustroystva-oem-rukovodstvo/index.njk` [RU] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://navitassemi.com/
+- `ru/blog/gan-zaryadnye-ustroystva-oem-rukovodstvo/index.njk` [RU] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.infineon.com/
+- `ru/blog/gan-zaryadnye-ustroystva-oem-rukovodstvo/index.njk` [RU] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.usb.org/
+- `ru/blog/gan-zaryadnye-ustroystva-oem-rukovodstvo/index.njk` [RU] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://docs.cntd.ru/
+- `ru/blog/gan-zaryadnye-ustroystva-oem-rukovodstvo/index.njk` [RU] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://docs.cntd.ru/
+- `ru/blog/ispytanie-prokolom-gvozdem-polutverdotelnye-oem/index.njk` [RU] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.gdestl.com/
+- `ru/blog/mah-power-bank-rukovodstvo-oem/index.njk` [RU] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://eec.eaeunion.org/
+- `ru/blog/mah-power-bank-rukovodstvo-oem/index.njk` [RU] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://fsa.gov.ru/
+- `ru/blog/mah-power-bank-rukovodstvo-oem/index.njk` [RU] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://unece.org/
+- `ru/blog/oem-vs-odm-rukovodstvo-importyor/index.njk` [RU] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://docs.cntd.ru/
+- `ru/blog/oem-vs-odm-rukovodstvo-importyor/index.njk` [RU] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://docs.cntd.ru/
+- `ru/blog/oem-vs-odm-rukovodstvo-importyor/index.njk` [RU] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.iafcertsearch.org/
+- `ru/blog/oem-vs-odm-rukovodstvo-importyor/index.njk` [RU] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://fsa.gov.ru/
+- `ru/blog/poisk-postavshchikov-kitay-oem/index.njk` [RU] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.iafcertsearch.org/
+- `ru/blog/poisk-postavshchikov-kitay-oem/index.njk` [RU] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://fsa.gov.ru/
+- `ru/blog/poisk-postavshchikov-kitay-oem/index.njk` [RU] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://docs.cntd.ru/
+- `ru/blog/poisk-postavshchikov-kitay-oem/index.njk` [RU] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://docs.cntd.ru/
+- `ru/blog/poisk-postavshchikov-kitay-oem/index.njk` [RU] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.qichacha.com/
+- `ru/blog/pokoleniya-gan-sravneniye-oem/index.njk` [RU] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.cu-tr.org/
+- `ru/blog/polutverdotelnye-power-bank-oem/index.njk` [RU] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://docs.cntd.ru/
+- `ru/blog/polutverdotelnye-power-bank-oem/index.njk` [RU] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://docs.cntd.ru/
+- `ru/blog/polutverdotelnye-power-bank-oem/index.njk` [RU] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://unece.org/
+- `ru/blog/polutverdotelnye-power-bank-oem/index.njk` [RU] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://about.bnef.com/
+- `ru/blog/power-bank-stm-oem-proizvodstvo/index.njk` [RU] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://docs.eaeunion.org/
+- `ru/blog/power-bank-stm-oem-proizvodstvo/index.njk` [RU] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://docs.eaeunion.org/
+- `ru/blog/power-bank-vybor-oem-rukovodstvo/index.njk` [RU] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://fsa.gov.ru/
+- `ru/blog/power-bank-vybor-oem-rukovodstvo/index.njk` [RU] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://docs.cntd.ru/
+- `ru/blog/proizvodstvo-oem-gan-v/index.njk` [RU] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.ipc.org/
+- `ru/blog/proizvodstvo-oem-gan-v/index.njk` [RU] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://navitassemi.com/
+- `ru/blog/proizvodstvo-oem-gan-v/index.njk` [RU] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://docs.cntd.ru/
+- `ru/blog/proizvodstvo-oem-gan-v/index.njk` [RU] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://docs.cntd.ru/
+- `ru/blog/proizvodstvo-oem-gan-v/index.njk` [RU] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.iafcertsearch.org/
+- `ru/blog/proverka-podlinnosti-sertifikatov-eac-ce-fcc-oem/index.njk` [RU] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://publication.pravo.gov.ru/
+- `ru/blog/proverka-podlinnosti-sertifikatov-eac-ce-fcc-oem/index.njk` [RU] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://productiq.ul.com/
+- `ru/blog/proverka-podlinnosti-sertifikatov-eac-ce-fcc-oem/index.njk` [RU] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://docs.cntd.ru/
+- `ru/blog/qi2-vs-magsafe-sravneniye-oem/index.njk` [RU] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.counterpointresearch.com/
+- `ru/blog/reglament-es-2023-1542-batarei-oem/index.njk` [RU] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://fsa.gov.ru/
+- `ru/blog/reglament-es-2023-1542-batarei-oem/index.njk` [RU] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://customs.gov.ru/
+- `ru/blog/reglament-es-2023-1542-batarei-oem/index.njk` [RU] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.cu-tr.org.cn/
+- `ru/blog/sertifikaciya-eas-poverbankov-tr-ts-oem/index.njk` [RU] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://docs.cntd.ru/
+- `ru/blog/sertifikaciya-eas-poverbankov-tr-ts-oem/index.njk` [RU] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://docs.cntd.ru/
+- `ru/blog/sertifikaciya-eas-poverbankov-tr-ts-oem/index.njk` [RU] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://docs.cntd.ru/
+- `ru/blog/sertifikaciya-eas-poverbankov-tr-ts-oem/index.njk` [RU] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://fsa.gov.ru/
+- `ru/blog/sertifikaciya-eas-poverbankov-tr-ts-oem/index.njk` [RU] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://publication.pravo.gov.ru/
+- `ru/blog/sertifikaciya-qi2-wpc-oem/index.njk` [RU] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.wirelesspowerconsortium.com/
+- `ru/blog/sertifikaciya-qi2-wpc-oem/index.njk` [RU] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://docs.cntd.ru/
+- `ru/blog/sertifikaciya-qi2-wpc-oem/index.njk` [RU] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://docs.cntd.ru/
+- `ru/blog/sertifikaciya-zaryadnyh-ustroystv-oem/index.njk` [RU] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://docs.cntd.ru/
+- `ru/blog/sertifikaciya-zaryadnyh-ustroystv-oem/index.njk` [RU] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://docs.cntd.ru/
+- `ru/blog/sertifikaciya-zaryadnyh-ustroystv-oem/index.njk` [RU] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.iec.ch/
+- `ru/blog/sertifikaciya-zaryadnyh-ustroystv-oem/index.njk` [RU] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://fsa.gov.ru/
+- `ru/blog/specifikacii-power-bank-oem/index.njk` [RU] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.iata.org/
+- `ru/blog/specifikacii-power-bank-oem/index.njk` [RU] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://unece.org/
+- `ru/blog/specifikacii-power-bank-oem/index.njk` [RU] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.sac.gov.cn/
+- `ru/blog/specifikacii-power-bank-oem/index.njk` [RU] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://docs.cntd.ru/
+- `ru/blog/standarty-bezopasnosti-zaryadnyh-ustroystv-oem/index.njk` [RU] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.iec.ch/
+- `ru/blog/standarty-bezopasnosti-zaryadnyh-ustroystv-oem/index.njk` [RU] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://docs.cntd.ru/
+- `ru/blog/standarty-bezopasnosti-zaryadnyh-ustroystv-oem/index.njk` [RU] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://docs.cntd.ru/
+- `ru/blog/standarty-bezopasnosti-zaryadnyh-ustroystv-oem/index.njk` [RU] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://docs.cntd.ru/
+- `ru/blog/technologiya-gan-zaryadnye-ustroystva-oem/index.njk` [RU] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.infineon.com/
+- `ru/blog/technologiya-gan-zaryadnye-ustroystva-oem/index.njk` [RU] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://navitassemi.com/
+- `ru/blog/technologiya-gan-zaryadnye-ustroystva-oem/index.njk` [RU] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.usb.org/
+- `ru/blog/technologiya-gan-zaryadnye-ustroystva-oem/index.njk` [RU] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://docs.cntd.ru/
+- `ru/blog/tendencii-rynka-zaryadnyh-ustroystv-2026-oem/index.njk` [RU] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.wirelesspowerconsortium.com/
+- `ru/blog/tendencii-rynka-zaryadnyh-ustroystv-2026-oem/index.njk` [RU] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://fsa.gov.ru/
+- `ru/blog/tendencii-rynka-zaryadnyh-ustroystv-2026-oem/index.njk` [RU] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.cu-tr.org.cn/
+- `ru/blog/usb-c-pd-3-1-specifikacii-oem/index.njk` [RU] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://eec.eaeunion.org/
+- `ru/blog/usb-c-pd-bystraya-zaryadka-oem/index.njk` [RU] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.usb.org/
+- `ru/blog/usb-c-pd-bystraya-zaryadka-oem/index.njk` [RU] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.iec.ch/
+- `ru/blog/usb-c-pd-bystraya-zaryadka-oem/index.njk` [RU] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://docs.cntd.ru/
+- `ru/blog/usb-c-pd-bystraya-zaryadka-oem/index.njk` [RU] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://docs.cntd.ru/
+- `ru/blog/vybor-zavoda-kitay-audit-oem/index.njk` [RU] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.iafcertsearch.org/
+- `ru/blog/vybor-zavoda-kitay-audit-oem/index.njk` [RU] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://fsa.gov.ru/
+- `ru/blog/vybor-zavoda-kitay-audit-oem/index.njk` [RU] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://docs.cntd.ru/
+- `ru/blog/vybor-zavoda-kitay-audit-oem/index.njk` [RU] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.wpc-qa.com/
+- `ru/blog/zatraty-import-kitay-poshliny-oem/index.njk` [RU] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://customs.gov.ru/
+- `ru/blog/zatraty-import-kitay-poshliny-oem/index.njk` [RU] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://eec.eaeunion.org/
+- `blog/car-charger-guide/index.njk` [BLOG] `C22` — HowTo.totalTime PT30M 不落在任何 FAQ 周期区间内（需人工核对是否同一流程）
+- `blog/charging-accessory-market-trends-2026/index.njk` [BLOG] `C22` — HowTo.totalTime PT15M 不落在任何 FAQ 周期区间内（需人工核对是否同一流程）
+- `blog/choose-reliable-china-charger-supplier/index.njk` [BLOG] `C22` — HowTo.totalTime PT20M 不落在任何 FAQ 周期区间内（需人工核对是否同一流程）
+- `blog/gan-v-charger-oem-manufacturing/index.njk` [BLOG] `C22` — HowTo.totalTime PT12M 不落在任何 FAQ 周期区间内（需人工核对是否同一流程）
+- `blog/hotel-charging-solutions/index.njk` [BLOG] `C22` — HowTo.totalTime PT15M 不落在任何 FAQ 周期区间内（需人工核对是否同一流程）
+- `blog/how-to-choose-power-bank/index.njk` [BLOG] `C22` — HowTo.totalTime PT12M 不落在任何 FAQ 周期区间内（需人工核对是否同一流程）
+- `blog/import-costs-guide/index.njk` [BLOG] `C22` — HowTo.totalTime PT2H 不落在任何 FAQ 周期区间内（需人工核对是否同一流程）
+- `blog/oem-vs-odm-guide/index.njk` [BLOG] `C22` — HowTo.totalTime PT2H 不落在任何 FAQ 周期区间内（需人工核对是否同一流程）
+- `blog/power-bank-private-label-oem-production/index.njk` [BLOG] `C22` — HowTo.totalTime PT20M 不落在任何 FAQ 周期区间内（需人工核对是否同一流程）
+- `blog/power-bank-specs-guide/index.njk` [BLOG] `C22` — HowTo.totalTime PT30M 不落在任何 FAQ 周期区间内（需人工核对是否同一流程）
+- `blog/qi-certification-guide/index.njk` [BLOG] `C22` — HowTo.totalTime P8W 不落在任何 FAQ 周期区间内（需人工核对是否同一流程）
+- `blog/qi2-vs-magsafe-guide/index.njk` [BLOG] `C22` — HowTo.totalTime PT10M 不落在任何 FAQ 周期区间内（需人工核对是否同一流程）
+- `blog/semi-solid-state-nail-penetration-test-oem-verification/index.njk` [BLOG] `C22` — HowTo.totalTime PT2H 不落在任何 FAQ 周期区间内（需人工核对是否同一流程）
+- `blog/semi-solid-state-power-bank-oem/index.njk` [BLOG] `C22` — HowTo.totalTime PT15M 不落在任何 FAQ 周期区间内（需人工核对是否同一流程）
+- `blog/top-power-bank-manufacturers-china/index.njk` [BLOG] `C22` — HowTo.totalTime P1W 不落在任何 FAQ 周期区间内（需人工核对是否同一流程）
+- `blog/usb-c-pd-3-1-explained/index.njk` [BLOG] `C22` — HowTo.totalTime PT8M 不落在任何 FAQ 周期区间内（需人工核对是否同一流程）
+- `blog/usb-c-pd-fast-charging-guide/index.njk` [BLOG] `C22` — HowTo.totalTime PT8M 不落在任何 FAQ 周期区间内（需人工核对是否同一流程）
+- `blog/verify-fake-charger-certificates-fcc-ce-ul/index.njk` [BLOG] `C22` — HowTo.totalTime PT5M 不落在任何 FAQ 周期区间内（需人工核对是否同一流程）
+- `blog/what-is-gan-charger/index.njk` [BLOG] `C22` — HowTo.totalTime P10W 不落在任何 FAQ 周期区间内（需人工核对是否同一流程）
+- `blog/wireless-charging-works/index.njk` [BLOG] `C22` — HowTo.totalTime PT10M 不落在任何 FAQ 周期区间内（需人工核对是否同一流程）
+- `de/blog/autoladegeraet-ratgeber/index.njk` [DE] `C22` — HowTo.totalTime P10W 不落在任何 FAQ 周期区间内（需人工核对是否同一流程）
+- `de/blog/gan-vs-silizium-ladegeraete-vergleich/index.njk` [DE] `C22` — HowTo.totalTime PT2H 不落在任何 FAQ 周期区间内（需人工核对是否同一流程）
+- `de/blog/hotelladegeraete-oem-loesungen/index.njk` [DE] `C22` — HowTo.totalTime PT2H 不落在任何 FAQ 周期区间内（需人工核对是否同一流程）
+- `de/blog/markt-trends-ladegeraete-2026/index.njk` [DE] `C22` — HowTo.totalTime PT2H 不落在任何 FAQ 周期区间内（需人工核对是否同一流程）
+- `de/blog/oem-versand-aus-china-logistik/index.njk` [DE] `C22` — HowTo.totalTime P6W 不落在任何 FAQ 周期区间内（需人工核对是否同一流程）
+- `de/blog/oem-vs-odm-leitfaden/index.njk` [DE] `C22` — HowTo.totalTime PT2H 不落在任何 FAQ 周期区间内（需人工核对是否同一流程）
+- `de/blog/powerbank-eigenmarke-oem-produktion/index.njk` [DE] `C22` — HowTo.totalTime P10W 不落在任何 FAQ 周期区间内（需人工核对是否同一流程）
+- `de/blog/powerbank-hersteller-china-oem-partner/index.njk` [DE] `C22` — HowTo.totalTime P1W 不落在任何 FAQ 周期区间内（需人工核对是否同一流程）
+- `de/blog/qi2-vs-magsafe/index.njk` [DE] `C22` — HowTo.totalTime P4W 不落在任何 FAQ 周期区间内（需人工核对是否同一流程）
+- `de/blog/qi2-zertifizierung-importeure/index.njk` [DE] `C22` — HowTo.totalTime P8W 不落在任何 FAQ 周期区间内（需人工核对是否同一流程）
+- `de/blog/semi-solid-state-powerbank/index.njk` [DE] `C22` — HowTo.totalTime P10W 不落在任何 FAQ 周期区间内（需人工核对是否同一流程）
+- `de/blog/usb-c-pd-schnellladen/index.njk` [DE] `C22` — HowTo.totalTime PT2H 不落在任何 FAQ 周期区间内（需人工核对是否同一流程）
+- `es/blog/cargador-coche-guia/index.njk` [ES] `C22` — HowTo.totalTime P10W 不落在任何 FAQ 周期区间内（需人工核对是否同一流程）
+- `es/blog/certificacion-qi2-importadores/index.njk` [ES] `C22` — HowTo.totalTime P8W 不落在任何 FAQ 周期区间内（需人工核对是否同一流程）
+- `es/blog/envio-desde-china-logistica/index.njk` [ES] `C22` — HowTo.totalTime P6W 不落在任何 FAQ 周期区间内（需人工核对是否同一流程）
+- `es/blog/generaciones-gan-comparativa/index.njk` [ES] `C22` — HowTo.totalTime PT2H 不落在任何 FAQ 周期区间内（需人工核对是否同一流程）
+- `es/blog/guia-cargadores-gan-importadores/index.njk` [ES] `C22` — HowTo.totalTime PT2H 不落在任何 FAQ 周期区间内（需人工核对是否同一流程）
+- `es/blog/importar-cargadores-china-aduanas/index.njk` [ES] `C22` — HowTo.totalTime P8W 不落在任何 FAQ 周期区间内（需人工核对是否同一流程）
+- `es/blog/oem-vs-odm-guia-completa/index.njk` [ES] `C22` — HowTo.totalTime PT2H 不落在任何 FAQ 周期区间内（需人工核对是否同一流程）
+- `es/blog/soluciones-carga-hoteles/index.njk` [ES] `C22` — HowTo.totalTime PT2H 不落在任何 FAQ 周期区间内（需人工核对是否同一流程）
+- `fr/blog/batterie-externe-marque-blanche-oem/index.njk` [FR] `C22` — HowTo.totalTime PT45M 不落在任何 FAQ 周期区间内（需人工核对是否同一流程）
+- `fr/blog/batterie-externe-specifications-oem/index.njk` [FR] `C22` — HowTo.totalTime PT30M 不落在任何 FAQ 周期区间内（需人工核对是否同一流程）
+- `fr/blog/batterie-semi-solide-oem-guide/index.njk` [FR] `C22` — HowTo.totalTime PT30M 不落在任何 FAQ 周期区间内（需人工核对是否同一流程）
+- `fr/blog/charge-rapide-usb-c-pd-oem/index.njk` [FR] `C22` — HowTo.totalTime PT30M 不落在任何 FAQ 周期区间内（需人工核对是否同一流程）
+- `fr/blog/charge-sans-fil-qi2-guide-oem/index.njk` [FR] `C22` — HowTo.totalTime PT8M 不落在任何 FAQ 周期区间内（需人工核对是否同一流程）
+- `fr/blog/chargeur-voiture-oem-guide/index.njk` [FR] `C22` — HowTo.totalTime P10W 不落在任何 FAQ 周期区间内（需人工核对是否同一流程）
+- `fr/blog/chargeurs-gan-guide-oem/index.njk` [FR] `C22` — HowTo.totalTime PT30M 不落在任何 FAQ 周期区间内（需人工核对是否同一流程）
+- `fr/blog/choisir-batterie-externe-oem-guide/index.njk` [FR] `C22` — HowTo.totalTime PT2H 不落在任何 FAQ 周期区间内（需人工核对是否同一流程）
+- `fr/blog/couts-import-chine-droits-douane-oem/index.njk` [FR] `C22` — HowTo.totalTime PT2H 不落在任何 FAQ 周期区间内（需人工核对是否同一流程）
+- `fr/blog/expedition-chine-logistique-oem/index.njk` [FR] `C22` — HowTo.totalTime PT2H 不落在任何 FAQ 周期区间内（需人工核对是否同一流程）
+- `fr/blog/fabrication-oem-gan-v/index.njk` [FR] `C22` — HowTo.totalTime PT60M 不落在任何 FAQ 周期区间内（需人工核对是否同一流程）
+- `fr/blog/fournisseurs-chargeurs-chine-oem/index.njk` [FR] `C22` — HowTo.totalTime P10W 不落在任何 FAQ 周期区间内（需人工核对是否同一流程）
+- `fr/blog/mah-batterie-externe-guide-oem/index.njk` [FR] `C22` — HowTo.totalTime PT4H 不落在任何 FAQ 周期区间内（需人工核对是否同一流程）
+- `fr/blog/oem-vs-odm-guide-importateurs/index.njk` [FR] `C22` — HowTo.totalTime PT20M 不落在任何 FAQ 周期区间内（需人工核对是否同一流程）
+- `fr/blog/qi2-vs-magsafe-importateurs/index.njk` [FR] `C22` — HowTo.totalTime PT15M 不落在任何 FAQ 周期区间内（需人工核对是否同一流程）
+- `fr/blog/reglement-ue-2023-1542-conformite-oem/index.njk` [FR] `C22` — HowTo.totalTime P4M 不落在任何 FAQ 周期区间内（需人工核对是否同一流程）
+- `fr/blog/securite-chargeurs-normes-oem/index.njk` [FR] `C22` — HowTo.totalTime PT2H 不落在任何 FAQ 周期区间内（需人工核对是否同一流程）
+- `fr/blog/technologie-gan-chargeur-oem/index.njk` [FR] `C22` — HowTo.totalTime PT25M 不落在任何 FAQ 周期区间内（需人工核对是否同一流程）
+- `fr/blog/tendances-marche-chargeurs-2026-oem/index.njk` [FR] `C22` — HowTo.totalTime PT2H 不落在任何 FAQ 周期区间内（需人工核对是否同一流程）
+- `fr/blog/usb-c-pd-3-1-guide-oem/index.njk` [FR] `C22` — HowTo.totalTime PT8M 不落在任何 FAQ 周期区间内（需人工核对是否同一流程）
+- `pl/blog/ladowanie-bezprzewodowe-qi2-oem/index.njk` [PL] `C22` — HowTo.totalTime PT8M 不落在任何 FAQ 周期区间内（需人工核对是否同一流程）
+- `pl/blog/power-bank-marka-wlasna-oem/index.njk` [PL] `C22` — HowTo.totalTime PT40M 不落在任何 FAQ 周期区间内（需人工核对是否同一流程）
+- `ru/blog/avtomobilnye-zaryadki-oem-rukovodstvo/index.njk` [RU] `C22` — HowTo.totalTime PT15M 不落在任何 FAQ 周期区间内（需人工核对是否同一流程）
+- `ru/blog/besprovodnaya-zaryadka-qi2-oem/index.njk` [RU] `C22` — HowTo.totalTime PT8M 不落在任何 FAQ 周期区间内（需人工核对是否同一流程）
+- `ru/blog/mah-power-bank-rukovodstvo-oem/index.njk` [RU] `C22` — HowTo.totalTime PT4H 不落在任何 FAQ 周期区间内（需人工核对是否同一流程）
+- `ru/blog/oem-vs-odm-rukovodstvo-importyor/index.njk` [RU] `C22` — HowTo.totalTime PT2H 不落在任何 FAQ 周期区间内（需人工核对是否同一流程）
+- `ru/blog/poisk-postavshchikov-kitay-oem/index.njk` [RU] `C22` — HowTo.totalTime P1W 不落在任何 FAQ 周期区间内（需人工核对是否同一流程）
+- `ru/blog/polutverdotelnye-power-bank-oem/index.njk` [RU] `C22` — HowTo.totalTime PT30M 不落在任何 FAQ 周期区间内（需人工核对是否同一流程）
+- `ru/blog/power-bank-stm-oem-proizvodstvo/index.njk` [RU] `C22` — HowTo.totalTime PT40M 不落在任何 FAQ 周期区间内（需人工核对是否同一流程）
+- `ru/blog/power-bank-vybor-oem-rukovodstvo/index.njk` [RU] `C22` — HowTo.totalTime PT2H 不落在任何 FAQ 周期区间内（需人工核对是否同一流程）
+- `ru/blog/proverka-podlinnosti-sertifikatov-eac-ce-fcc-oem/index.njk` [RU] `C22` — HowTo.totalTime PT10M 不落在任何 FAQ 周期区间内（需人工核对是否同一流程）
+- `ru/blog/technologiya-gan-zaryadnye-ustroystva-oem/index.njk` [RU] `C22` — HowTo.totalTime PT25M 不落在任何 FAQ 周期区间内（需人工核对是否同一流程）
+- `ru/blog/tendencii-rynka-zaryadnyh-ustroystv-2026-oem/index.njk` [RU] `C22` — HowTo.totalTime PT2H 不落在任何 FAQ 周期区间内（需人工核对是否同一流程）
+- `ru/blog/usb-c-pd-bystraya-zaryadka-oem/index.njk` [RU] `C22` — HowTo.totalTime PT2H 不落在任何 FAQ 周期区间内（需人工核对是否同一流程）
+- `ru/blog/zatraty-import-kitay-poshliny-oem/index.njk` [RU] `C22` — HowTo.totalTime PT2H 不落在任何 FAQ 周期区间内（需人工核对是否同一流程）
 - `blog/car-charger-guide/index.njk` [BLOG] `W4` — hreflang 缺语言: pl
 - `blog/charger-safety-standards/index.njk` [BLOG] `W4` — hreflang 缺语言: pl
 - `blog/charging-accessory-market-trends-2026/index.njk` [BLOG] `W4` — hreflang 缺语言: pl

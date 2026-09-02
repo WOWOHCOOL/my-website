@@ -1,0 +1,233 @@
+# 全站 Blog 元数据审计（metadata-standard v2.4）— 2026-09-01
+
+- 扫描：174 篇 blog 文章（6 语言，非 blog 页面排除）
+- CRITICAL：**0** / WARN：**215**
+
+## CRITICAL（按检查类型）
+
+
+### 明细
+
+
+## WARN
+
+- `C6` × 144
+- `W4` × 71
+
+### 明细
+
+- `blog/car-charger-guide/index.njk` [BLOG] `C6` — FAQ 8 条 > 5（Rule 0 上限，legacy 需精简）
+- `blog/charger-safety-standards/index.njk` [BLOG] `C6` — FAQ 8 条 > 5（Rule 0 上限，legacy 需精简）
+- `blog/charging-accessory-market-trends-2026/index.njk` [BLOG] `C6` — FAQ 8 条 > 5（Rule 0 上限，legacy 需精简）
+- `blog/eu-battery-regulation-2023-1542-guide/index.njk` [BLOG] `C6` — FAQ 8 条 > 5（Rule 0 上限，legacy 需精简）
+- `blog/factory-verification-checklist/index.njk` [BLOG] `C6` — FAQ 6 条 > 5（Rule 0 上限，legacy 需精简）
+- `blog/gan-chargers-guide/index.njk` [BLOG] `C6` — FAQ 8 条 > 5（Rule 0 上限，legacy 需精简）
+- `blog/gan-generations-guide/index.njk` [BLOG] `C6` — FAQ 7 条 > 5（Rule 0 上限，legacy 需精简）
+- `blog/gan-v-charger-oem-manufacturing/index.njk` [BLOG] `C6` — FAQ 7 条 > 5（Rule 0 上限，legacy 需精简）
+- `blog/gan-vs-silicon-charger-comparison/index.njk` [BLOG] `C6` — FAQ 8 条 > 5（Rule 0 上限，legacy 需精简）
+- `blog/hotel-charging-solutions/index.njk` [BLOG] `C6` — FAQ 8 条 > 5（Rule 0 上限，legacy 需精简）
+- `blog/how-to-choose-factory/index.njk` [BLOG] `C6` — FAQ 6 条 > 5（Rule 0 上限，legacy 需精简）
+- `blog/how-to-choose-power-bank/index.njk` [BLOG] `C6` — FAQ 8 条 > 5（Rule 0 上限，legacy 需精简）
+- `blog/lithium-battery-dangerous-goods-packaging-certification/index.njk` [BLOG] `C6` — FAQ 8 条 > 5（Rule 0 上限，legacy 需精简）
+- `blog/oem-vs-odm-guide/index.njk` [BLOG] `C6` — FAQ 8 条 > 5（Rule 0 上限，legacy 需精简）
+- `blog/on-site-factory-audit-checklist-china-charger-oem/index.njk` [BLOG] `C6` — FAQ 8 条 > 5（Rule 0 上限，legacy 需精简）
+- `blog/power-bank-mah-explained/index.njk` [BLOG] `C6` — FAQ 8 条 > 5（Rule 0 上限，legacy 需精简）
+- `blog/power-bank-private-label-oem-production/index.njk` [BLOG] `C6` — FAQ 8 条 > 5（Rule 0 上限，legacy 需精简）
+- `blog/power-bank-specs-guide/index.njk` [BLOG] `C6` — FAQ 8 条 > 5（Rule 0 上限，legacy 需精简）
+- `blog/qi-certification-guide/index.njk` [BLOG] `C6` — FAQ 8 条 > 5（Rule 0 上限，legacy 需精简）
+- `blog/qi2-vs-magsafe-guide/index.njk` [BLOG] `C6` — FAQ 8 条 > 5（Rule 0 上限，legacy 需精简）
+- `blog/quality-control-guide/index.njk` [BLOG] `C6` — FAQ 8 条 > 5（Rule 0 上限，legacy 需精简）
+- `blog/semi-solid-state-nail-penetration-test-oem-verification/index.njk` [BLOG] `C6` — FAQ 8 条 > 5（Rule 0 上限，legacy 需精简）
+- `blog/semi-solid-state-power-bank-oem/index.njk` [BLOG] `C6` — FAQ 8 条 > 5（Rule 0 上限，legacy 需精简）
+- `blog/shipping-from-china-guide/index.njk` [BLOG] `C6` — FAQ 8 条 > 5（Rule 0 上限，legacy 需精简）
+- `blog/usb-c-pd-3-1-explained/index.njk` [BLOG] `C6` — FAQ 8 条 > 5（Rule 0 上限，legacy 需精简）
+- `blog/usb-c-pd-fast-charging-guide/index.njk` [BLOG] `C6` — FAQ 9 条 > 5（Rule 0 上限，legacy 需精简）
+- `blog/verify-fake-charger-certificates-fcc-ce-ul/index.njk` [BLOG] `C6` — FAQ 8 条 > 5（Rule 0 上限，legacy 需精简）
+- `blog/what-is-gan-charger/index.njk` [BLOG] `C6` — FAQ 8 条 > 5（Rule 0 上限，legacy 需精简）
+- `blog/wireless-charging-works/index.njk` [BLOG] `C6` — FAQ 8 条 > 5（Rule 0 上限，legacy 需精简）
+- `de/blog/autoladegeraet-ratgeber/index.njk` [DE] `C6` — FAQ 6 条 > 5（Rule 0 上限，legacy 需精简）
+- `de/blog/eu-batterieverordnung-2023-1542-leitfaden/index.njk` [DE] `C6` — FAQ 8 条 > 5（Rule 0 上限，legacy 需精简）
+- `de/blog/fabrikauswahl-china-leitfaden/index.njk` [DE] `C6` — FAQ 8 条 > 5（Rule 0 上限，legacy 需精简）
+- `de/blog/fabrikpruefung-checkliste-importeure/index.njk` [DE] `C6` — FAQ 8 条 > 5（Rule 0 上限，legacy 需精简）
+- `de/blog/gan-ladegeraete-leitfaden/index.njk` [DE] `C6` — FAQ 6 条 > 5（Rule 0 上限，legacy 需精简）
+- `de/blog/gan-vs-silizium-ladegeraete-vergleich/index.njk` [DE] `C6` — FAQ 7 条 > 5（Rule 0 上限，legacy 需精简）
+- `de/blog/gefahrgutverpackung-lithium-batterien-export-zertifizierung/index.njk` [DE] `C6` — FAQ 8 条 > 5（Rule 0 上限，legacy 需精简）
+- `de/blog/hotelladegeraete-oem-loesungen/index.njk` [DE] `C6` — FAQ 6 条 > 5（Rule 0 上限，legacy 需精简）
+- `de/blog/kabelloses-laden/index.njk` [DE] `C6` — FAQ 6 条 > 5（Rule 0 上限，legacy 需精简）
+- `de/blog/ladegeraet-import-china-zoll-zertifikate/index.njk` [DE] `C6` — FAQ 7 条 > 5（Rule 0 上限，legacy 需精简）
+- `de/blog/markt-trends-ladegeraete-2026/index.njk` [DE] `C6` — FAQ 6 条 > 5（Rule 0 上限，legacy 需精简）
+- `de/blog/oem-vs-odm-leitfaden/index.njk` [DE] `C6` — FAQ 6 条 > 5（Rule 0 上限，legacy 需精简）
+- `de/blog/powerbank-beschaffung-leitfaden/index.njk` [DE] `C6` — FAQ 6 条 > 5（Rule 0 上限，legacy 需精简）
+- `de/blog/powerbank-spezifikationen/index.njk` [DE] `C6` — FAQ 6 条 > 5（Rule 0 上限，legacy 需精简）
+- `de/blog/qi2-vs-magsafe/index.njk` [DE] `C6` — FAQ 7 条 > 5（Rule 0 上限，legacy 需精简）
+- `de/blog/semi-solid-state-powerbank/index.njk` [DE] `C6` — FAQ 6 条 > 5（Rule 0 上限，legacy 需精简）
+- `es/blog/auditoria-fabrica-in-situ-checklist-cargadores-oem/index.njk` [ES] `C6` — FAQ 7 条 > 5（Rule 0 上限，legacy 需精简）
+- `es/blog/baterias-semi-solid-state/index.njk` [ES] `C6` — FAQ 6 条 > 5（Rule 0 上限，legacy 需精简）
+- `es/blog/carga-inalambrica-qi-qi2-magsafe/index.njk` [ES] `C6` — FAQ 7 条 > 5（Rule 0 上限，legacy 需精简）
+- `es/blog/cargador-coche-guia/index.njk` [ES] `C6` — FAQ 8 条 > 5（Rule 0 上限，legacy 需精简）
+- `es/blog/certificacion-embalaje-mercancias-peligrosas-baterias-litio/index.njk` [ES] `C6` — FAQ 7 条 > 5（Rule 0 上限，legacy 需精简）
+- `es/blog/certificacion-qi2-importadores/index.njk` [ES] `C6` — FAQ 8 条 > 5（Rule 0 上限，legacy 需精简）
+- `es/blog/como-elegir-power-bank/index.njk` [ES] `C6` — FAQ 8 条 > 5（Rule 0 上限，legacy 需精简）
+- `es/blog/diferimiento-iva-importacion-oem/index.njk` [ES] `C6` — FAQ 8 条 > 5（Rule 0 上限，legacy 需精简）
+- `es/blog/directiva-cargador-comun-usb-c-oem/index.njk` [ES] `C6` — FAQ 8 条 > 5（Rule 0 上限，legacy 需精简）
+- `es/blog/envio-desde-china-logistica/index.njk` [ES] `C6` — FAQ 6 条 > 5（Rule 0 上限，legacy 需精简）
+- `es/blog/gan-v-fabricacion-oem/index.njk` [ES] `C6` — FAQ 7 条 > 5（Rule 0 上限，legacy 需精简）
+- `es/blog/generaciones-gan-comparativa/index.njk` [ES] `C6` — FAQ 6 条 > 5（Rule 0 上限，legacy 需精简）
+- `es/blog/guia-cargadores-gan-importadores/index.njk` [ES] `C6` — FAQ 8 条 > 5（Rule 0 上限，legacy 需精简）
+- `es/blog/guia-certificaciones-cargadores-importadores/index.njk` [ES] `C6` — FAQ 8 条 > 5（Rule 0 上限，legacy 需精简）
+- `es/blog/importar-cargadores-china-aduanas/index.njk` [ES] `C6` — FAQ 6 条 > 5（Rule 0 上限，legacy 需精简）
+- `es/blog/oem-vs-odm-guia-completa/index.njk` [ES] `C6` — FAQ 8 条 > 5（Rule 0 上限，legacy 需精简）
+- `es/blog/power-bank-mah-explicado/index.njk` [ES] `C6` — FAQ 6 条 > 5（Rule 0 上限，legacy 需精简）
+- `es/blog/powerbank-marca-propia-produccion-oem/index.njk` [ES] `C6` — FAQ 7 条 > 5（Rule 0 上限，legacy 需精简）
+- `es/blog/proveedor-cargadores-china-fiable/index.njk` [ES] `C6` — FAQ 7 条 > 5（Rule 0 上限，legacy 需精简）
+- `es/blog/prueba-penetracion-clavo-baterias-semisolidas-oem/index.njk` [ES] `C6` — FAQ 7 条 > 5（Rule 0 上限，legacy 需精简）
+- `es/blog/qi2-vs-magsafe-diferencias/index.njk` [ES] `C6` — FAQ 6 条 > 5（Rule 0 上限，legacy 需精简）
+- `es/blog/que-es-cargador-gan/index.njk` [ES] `C6` — FAQ 7 条 > 5（Rule 0 上限，legacy 需精简）
+- `es/blog/reglamento-ue-2023-1542-cumplimiento/index.njk` [ES] `C6` — FAQ 8 条 > 5（Rule 0 上限，legacy 需精简）
+- `es/blog/subvaloracion-errores-codigo-hs-oem/index.njk` [ES] `C6` — FAQ 8 条 > 5（Rule 0 上限，legacy 需精简）
+- `es/blog/usb-c-pd-3-1-explicado/index.njk` [ES] `C6` — FAQ 7 条 > 5（Rule 0 上限，legacy 需精简）
+- `es/blog/usb-c-pd-carga-rapida/index.njk` [ES] `C6` — FAQ 6 条 > 5（Rule 0 上限，legacy 需精简）
+- `es/blog/verificar-certificados-falsos-cargadores-ce-fcc-ul/index.njk` [ES] `C6` — FAQ 7 条 > 5（Rule 0 上限，legacy 需精简）
+- `fr/blog/audit-usine-chine-chargeurs-oem/index.njk` [FR] `C6` — FAQ 7 条 > 5（Rule 0 上限，legacy 需精简）
+- `fr/blog/batterie-externe-specifications-oem/index.njk` [FR] `C6` — FAQ 8 条 > 5（Rule 0 上限，legacy 需精简）
+- `fr/blog/batterie-semi-solide-oem-guide/index.njk` [FR] `C6` — FAQ 8 条 > 5（Rule 0 上限，legacy 需精简）
+- `fr/blog/certification-emballage-marchandises-dangereuses-batteries-lithium/index.njk` [FR] `C6` — FAQ 7 条 > 5（Rule 0 上限，legacy 需精简）
+- `fr/blog/certification-qi2-importateurs/index.njk` [FR] `C6` — FAQ 8 条 > 5（Rule 0 上限，legacy 需精简）
+- `fr/blog/certifications-chargeurs-oem-guide/index.njk` [FR] `C6` — FAQ 8 条 > 5（Rule 0 上限，legacy 需精简）
+- `fr/blog/charge-rapide-usb-c-pd-oem/index.njk` [FR] `C6` — FAQ 8 条 > 5（Rule 0 上限，legacy 需精简）
+- `fr/blog/charge-sans-fil-qi2-guide-oem/index.njk` [FR] `C6` — FAQ 8 条 > 5（Rule 0 上限，legacy 需精简）
+- `fr/blog/chargeur-voiture-oem-guide/index.njk` [FR] `C6` — FAQ 8 条 > 5（Rule 0 上限，legacy 需精简）
+- `fr/blog/chargeurs-gan-guide-oem/index.njk` [FR] `C6` — FAQ 8 条 > 5（Rule 0 上限，legacy 需精简）
+- `fr/blog/checklist-verification-usine-chine-oem/index.njk` [FR] `C6` — FAQ 8 条 > 5（Rule 0 上限，legacy 需精简）
+- `fr/blog/choisir-batterie-externe-oem-guide/index.njk` [FR] `C6` — FAQ 7 条 > 5（Rule 0 上限，legacy 需精简）
+- `fr/blog/controle-qualite-usines-chinoises-oem/index.njk` [FR] `C6` — FAQ 8 条 > 5（Rule 0 上限，legacy 需精简）
+- `fr/blog/couts-import-chine-droits-douane-oem/index.njk` [FR] `C6` — FAQ 8 条 > 5（Rule 0 上限，legacy 需精简）
+- `fr/blog/expedition-chine-logistique-oem/index.njk` [FR] `C6` — FAQ 8 条 > 5（Rule 0 上限，legacy 需精简）
+- `fr/blog/fabrication-oem-gan-v/index.njk` [FR] `C6` — FAQ 8 条 > 5（Rule 0 上限，legacy 需精简）
+- `fr/blog/fournisseurs-chargeurs-chine-oem/index.njk` [FR] `C6` — FAQ 8 条 > 5（Rule 0 上限，legacy 需精简）
+- `fr/blog/gan-vs-silicium-comparaison-oem/index.njk` [FR] `C6` — FAQ 8 条 > 5（Rule 0 上限，legacy 需精简）
+- `fr/blog/generations-gan-comparaison-oem/index.njk` [FR] `C6` — FAQ 8 条 > 5（Rule 0 上限，legacy 需精简）
+- `fr/blog/mah-batterie-externe-guide-oem/index.njk` [FR] `C6` — FAQ 8 条 > 5（Rule 0 上限，legacy 需精简）
+- `fr/blog/oem-vs-odm-guide-importateurs/index.njk` [FR] `C6` — FAQ 8 条 > 5（Rule 0 上限，legacy 需精简）
+- `fr/blog/qi2-vs-magsafe-importateurs/index.njk` [FR] `C6` — FAQ 8 条 > 5（Rule 0 上限，legacy 需精简）
+- `fr/blog/reglement-ue-2023-1542-conformite-oem/index.njk` [FR] `C6` — FAQ 8 条 > 5（Rule 0 上限，legacy 需精简）
+- `fr/blog/securite-chargeurs-normes-oem/index.njk` [FR] `C6` — FAQ 8 条 > 5（Rule 0 上限，legacy 需精简）
+- `fr/blog/technologie-gan-chargeur-oem/index.njk` [FR] `C6` — FAQ 8 条 > 5（Rule 0 上限，legacy 需精简）
+- `fr/blog/tendances-marche-chargeurs-2026-oem/index.njk` [FR] `C6` — FAQ 8 条 > 5（Rule 0 上限，legacy 需精简）
+- `fr/blog/usb-c-pd-3-1-guide-oem/index.njk` [FR] `C6` — FAQ 8 条 > 5（Rule 0 上限，legacy 需精简）
+- `pl/blog/baterie-polstale-power-bank-oem/index.njk` [PL] `C6` — FAQ 8 条 > 5（Rule 0 上限，legacy 需精简）
+- `pl/blog/certyfikacja-ce-un38-3-importer-polska/index.njk` [PL] `C6` — FAQ 8 条 > 5（Rule 0 上限，legacy 需精简）
+- `pl/blog/checklista-weryfikacji-fabryki-chiny-oem/index.njk` [PL] `C6` — FAQ 8 条 > 5（Rule 0 上限，legacy 需精简）
+- `pl/blog/gan-vs-krzem-porownanie-oem/index.njk` [PL] `C6` — FAQ 8 条 > 5（Rule 0 上限，legacy 需精简）
+- `pl/blog/generacje-gan-porownanie-oem/index.njk` [PL] `C6` — FAQ 8 条 > 5（Rule 0 上限，legacy 需精简）
+- `pl/blog/import-chiny-polska-clo-vat-certyfikacja/index.njk` [PL] `C6` — FAQ 8 条 > 5（Rule 0 上限，legacy 需精简）
+- `pl/blog/kontrola-jakosci-fabryka-chiny-oem/index.njk` [PL] `C6` — FAQ 8 条 > 5（Rule 0 上限，legacy 需精简）
+- `pl/blog/koszty-importu-elektronika-chiny-fob-ddp/index.njk` [PL] `C6` — FAQ 8 条 > 5（Rule 0 上限，legacy 需精简）
+- `pl/blog/ladowanie-bezprzewodowe-qi2-oem/index.njk` [PL] `C6` — FAQ 8 条 > 5（Rule 0 上限，legacy 需精简）
+- `pl/blog/oem-vs-odm-polska-marka/index.njk` [PL] `C6` — FAQ 8 条 > 5（Rule 0 上限，legacy 需精简）
+- `pl/blog/power-bank-oem-wybor-specyfikacja/index.njk` [PL] `C6` — FAQ 7 条 > 5（Rule 0 上限，legacy 需精简）
+- `pl/blog/technologia-gan-ladowarki-oem/index.njk` [PL] `C6` — FAQ 8 条 > 5（Rule 0 上限，legacy 需精简）
+- `pl/blog/usb-c-pd-3-1-specyfikacja-oem/index.njk` [PL] `C6` — FAQ 8 条 > 5（Rule 0 上限，legacy 需精简）
+- `pl/blog/weryfikacja-producentow-power-bank-shenzhen/index.njk` [PL] `C6` — FAQ 8 条 > 5（Rule 0 上限，legacy 需精简）
+- `pl/blog/wybor-fabryki-chiny-audyt-oem/index.njk` [PL] `C6` — FAQ 7 条 > 5（Rule 0 上限，legacy 需精简）
+- `ru/blog/avtomobilnye-zaryadki-oem-rukovodstvo/index.njk` [RU] `C6` — FAQ 8 条 > 5（Rule 0 上限，legacy 需精简）
+- `ru/blog/besprovodnaya-zaryadka-qi2-oem/index.njk` [RU] `C6` — FAQ 8 条 > 5（Rule 0 上限，legacy 需精简）
+- `ru/blog/chek-list-proverki-zavoda-kitay-oem/index.njk` [RU] `C6` — FAQ 8 条 > 5（Rule 0 上限，legacy 需精简）
+- `ru/blog/dostavka-iz-kitaya-logistika-oem/index.njk` [RU] `C6` — FAQ 8 条 > 5（Rule 0 上限，legacy 需精简）
+- `ru/blog/gan-vs-kremniy-sravneniye-oem/index.njk` [RU] `C6` — FAQ 8 条 > 5（Rule 0 上限，legacy 需精简）
+- `ru/blog/gan-zaryadnye-ustroystva-oem-rukovodstvo/index.njk` [RU] `C6` — FAQ 8 条 > 5（Rule 0 上限，legacy 需精简）
+- `ru/blog/ispytanie-prokolom-gvozdem-polutverdotelnye-oem/index.njk` [RU] `C6` — FAQ 7 条 > 5（Rule 0 上限，legacy 需精简）
+- `ru/blog/kontrol-kachestva-zavody-kitay-oem/index.njk` [RU] `C6` — FAQ 8 条 > 5（Rule 0 上限，legacy 需精简）
+- `ru/blog/mah-power-bank-rukovodstvo-oem/index.njk` [RU] `C6` — FAQ 8 条 > 5（Rule 0 上限，legacy 需精简）
+- `ru/blog/oem-vs-odm-rukovodstvo-importyor/index.njk` [RU] `C6` — FAQ 8 条 > 5（Rule 0 上限，legacy 需精简）
+- `ru/blog/poisk-postavshchikov-kitay-oem/index.njk` [RU] `C6` — FAQ 8 条 > 5（Rule 0 上限，legacy 需精简）
+- `ru/blog/pokoleniya-gan-sravneniye-oem/index.njk` [RU] `C6` — FAQ 8 条 > 5（Rule 0 上限，legacy 需精简）
+- `ru/blog/polutverdotelnye-power-bank-oem/index.njk` [RU] `C6` — FAQ 8 条 > 5（Rule 0 上限，legacy 需精简）
+- `ru/blog/power-bank-vybor-oem-rukovodstvo/index.njk` [RU] `C6` — FAQ 7 条 > 5（Rule 0 上限，legacy 需精简）
+- `ru/blog/proizvodstvo-oem-gan-v/index.njk` [RU] `C6` — FAQ 8 条 > 5（Rule 0 上限，legacy 需精简）
+- `ru/blog/proverka-podlinnosti-sertifikatov-eac-ce-fcc-oem/index.njk` [RU] `C6` — FAQ 8 条 > 5（Rule 0 上限，legacy 需精简）
+- `ru/blog/qi2-vs-magsafe-sravneniye-oem/index.njk` [RU] `C6` — FAQ 8 条 > 5（Rule 0 上限，legacy 需精简）
+- `ru/blog/reglament-es-2023-1542-batarei-oem/index.njk` [RU] `C6` — FAQ 8 条 > 5（Rule 0 上限，legacy 需精简）
+- `ru/blog/sertifikaciya-eas-poverbankov-tr-ts-oem/index.njk` [RU] `C6` — FAQ 8 条 > 5（Rule 0 上限，legacy 需精简）
+- `ru/blog/sertifikaciya-qi2-wpc-oem/index.njk` [RU] `C6` — FAQ 8 条 > 5（Rule 0 上限，legacy 需精简）
+- `ru/blog/sertifikaciya-upakovki-opasnyh-gruzov-litievye-batarei-oem/index.njk` [RU] `C6` — FAQ 8 条 > 5（Rule 0 上限，legacy 需精简）
+- `ru/blog/sertifikaciya-zaryadnyh-ustroystv-oem/index.njk` [RU] `C6` — FAQ 8 条 > 5（Rule 0 上限，legacy 需精简）
+- `ru/blog/specifikacii-power-bank-oem/index.njk` [RU] `C6` — FAQ 8 条 > 5（Rule 0 上限，legacy 需精简）
+- `ru/blog/standarty-bezopasnosti-zaryadnyh-ustroystv-oem/index.njk` [RU] `C6` — FAQ 8 条 > 5（Rule 0 上限，legacy 需精简）
+- `ru/blog/technologiya-gan-zaryadnye-ustroystva-oem/index.njk` [RU] `C6` — FAQ 8 条 > 5（Rule 0 上限，legacy 需精简）
+- `ru/blog/tendencii-rynka-zaryadnyh-ustroystv-2026-oem/index.njk` [RU] `C6` — FAQ 8 条 > 5（Rule 0 上限，legacy 需精简）
+- `ru/blog/usb-c-pd-3-1-specifikacii-oem/index.njk` [RU] `C6` — FAQ 8 条 > 5（Rule 0 上限，legacy 需精简）
+- `ru/blog/usb-c-pd-bystraya-zaryadka-oem/index.njk` [RU] `C6` — FAQ 8 条 > 5（Rule 0 上限，legacy 需精简）
+- `ru/blog/vybor-zavoda-kitay-audit-oem/index.njk` [RU] `C6` — FAQ 7 条 > 5（Rule 0 上限，legacy 需精简）
+- `ru/blog/zatraty-import-kitay-poshliny-oem/index.njk` [RU] `C6` — FAQ 8 条 > 5（Rule 0 上限，legacy 需精简）
+- `de/blog/autoladegeraet-ratgeber/index.njk` [DE] `W4` — hreflang 缺语言: pl
+- `de/blog/eu-batterieverordnung-2023-1542-leitfaden/index.njk` [DE] `W4` — hreflang 缺语言: pl
+- `de/blog/fabrikpruefung-checkliste-importeure/index.njk` [DE] `W4` — hreflang 缺语言: ru,pl
+- `de/blog/gan-ladegeraete-leitfaden/index.njk` [DE] `W4` — hreflang 缺语言: pl
+- `de/blog/gan-v-oem-fertigung/index.njk` [DE] `W4` — hreflang 缺语言: pl
+- `de/blog/gefahrgutverpackung-lithium-batterien-export-zertifizierung/index.njk` [DE] `W4` — hreflang 缺语言: pl
+- `de/blog/hotelladegeraete-oem-loesungen/index.njk` [DE] `W4` — hreflang 缺语言: fr,ru,pl
+- `de/blog/markt-trends-ladegeraete-2026/index.njk` [DE] `W4` — hreflang 缺语言: pl
+- `de/blog/oem-versand-aus-china-logistik/index.njk` [DE] `W4` — hreflang 缺语言: pl
+- `de/blog/powerbank-hersteller-china-oem-partner/index.njk` [DE] `W4` — hreflang 缺语言: fr,ru,pl
+- `de/blog/powerbank-mah-kapazitaet/index.njk` [DE] `W4` — hreflang 缺语言: pl
+- `de/blog/powerbank-spezifikationen/index.njk` [DE] `W4` — hreflang 缺语言: pl
+- `de/blog/qi2-vs-magsafe/index.njk` [DE] `W4` — hreflang 缺语言: pl
+- `de/blog/qi2-zertifizierung-importeure/index.njk` [DE] `W4` — hreflang 缺语言: pl
+- `de/blog/sicherheitsstandards-ladegeraete/index.njk` [DE] `W4` — hreflang 缺语言: pl
+- `de/blog/usb-c-pd-schnellladen/index.njk` [DE] `W4` — hreflang 缺语言: pl
+- `es/blog/auditoria-fabrica-in-situ-checklist-cargadores-oem/index.njk` [ES] `W4` — hreflang 缺语言: de,fr
+- `es/blog/cargador-coche-guia/index.njk` [ES] `W4` — hreflang 缺语言: pl
+- `es/blog/certificacion-embalaje-mercancias-peligrosas-baterias-litio/index.njk` [ES] `W4` — hreflang 缺语言: pl
+- `es/blog/certificacion-qi2-importadores/index.njk` [ES] `W4` — hreflang 缺语言: pl
+- `es/blog/diferimiento-iva-importacion-oem/index.njk` [ES] `W4` — hreflang 缺语言: en,de,fr,ru,pl
+- `es/blog/directiva-cargador-comun-usb-c-oem/index.njk` [ES] `W4` — hreflang 缺语言: en,de,fr,ru,pl
+- `es/blog/envio-desde-china-logistica/index.njk` [ES] `W4` — hreflang 缺语言: pl
+- `es/blog/especificaciones-power-banks-importadores/index.njk` [ES] `W4` — hreflang 缺语言: pl
+- `es/blog/fabricante-power-banks-china-oem/index.njk` [ES] `W4` — hreflang 缺语言: fr,ru,pl
+- `es/blog/gan-v-fabricacion-oem/index.njk` [ES] `W4` — hreflang 缺语言: pl
+- `es/blog/guia-cargadores-gan-importadores/index.njk` [ES] `W4` — hreflang 缺语言: pl
+- `es/blog/normas-seguridad-cargadores/index.njk` [ES] `W4` — hreflang 缺语言: pl
+- `es/blog/power-bank-mah-explicado/index.njk` [ES] `W4` — hreflang 缺语言: pl
+- `es/blog/prueba-penetracion-clavo-baterias-semisolidas-oem/index.njk` [ES] `W4` — hreflang 缺语言: de,fr,pl
+- `es/blog/qi2-vs-magsafe-diferencias/index.njk` [ES] `W4` — hreflang 缺语言: pl
+- `es/blog/reglamento-ue-2023-1542-cumplimiento/index.njk` [ES] `W4` — hreflang 缺语言: pl
+- `es/blog/soluciones-carga-hoteles/index.njk` [ES] `W4` — hreflang 缺语言: fr,ru,pl
+- `es/blog/subvaloracion-errores-codigo-hs-oem/index.njk` [ES] `W4` — hreflang 缺语言: en,de,fr,ru,pl
+- `es/blog/tendencias-mercado-cargadores-2026/index.njk` [ES] `W4` — hreflang 缺语言: pl
+- `es/blog/usb-c-pd-carga-rapida/index.njk` [ES] `W4` — hreflang 缺语言: pl
+- `es/blog/verificacion-fabricas-checklist/index.njk` [ES] `W4` — hreflang 缺语言: ru,pl
+- `es/blog/verificar-certificados-falsos-cargadores-ce-fcc-ul/index.njk` [ES] `W4` — hreflang 缺语言: de,fr,pl
+- `fr/blog/batterie-externe-specifications-oem/index.njk` [FR] `W4` — hreflang 缺语言: pl
+- `fr/blog/certification-emballage-marchandises-dangereuses-batteries-lithium/index.njk` [FR] `W4` — hreflang 缺语言: pl
+- `fr/blog/certification-qi2-importateurs/index.njk` [FR] `W4` — hreflang 缺语言: pl
+- `fr/blog/charge-rapide-usb-c-pd-oem/index.njk` [FR] `W4` — hreflang 缺语言: pl
+- `fr/blog/chargeur-voiture-oem-guide/index.njk` [FR] `W4` — hreflang 缺语言: pl
+- `fr/blog/chargeurs-gan-guide-oem/index.njk` [FR] `W4` — hreflang 缺语言: pl
+- `fr/blog/checklist-verification-usine-chine-oem/index.njk` [FR] `W4` — hreflang 缺语言: ru,pl
+- `fr/blog/expedition-chine-logistique-oem/index.njk` [FR] `W4` — hreflang 缺语言: pl
+- `fr/blog/fabrication-oem-gan-v/index.njk` [FR] `W4` — hreflang 缺语言: pl
+- `fr/blog/mah-batterie-externe-guide-oem/index.njk` [FR] `W4` — hreflang 缺语言: pl
+- `fr/blog/qi2-vs-magsafe-importateurs/index.njk` [FR] `W4` — hreflang 缺语言: pl
+- `fr/blog/reglement-ue-2023-1542-conformite-oem/index.njk` [FR] `W4` — hreflang 缺语言: pl
+- `fr/blog/securite-chargeurs-normes-oem/index.njk` [FR] `W4` — hreflang 缺语言: pl
+- `fr/blog/tendances-marche-chargeurs-2026-oem/index.njk` [FR] `W4` — hreflang 缺语言: pl
+- `pl/blog/checklista-weryfikacji-fabryki-chiny-oem/index.njk` [PL] `W4` — hreflang 缺语言: de,fr
+- `pl/blog/koszty-importu-elektronika-chiny-fob-ddp/index.njk` [PL] `W4` — hreflang 缺语言: en,de,es,fr,ru
+- `ru/blog/avtomobilnye-zaryadki-oem-rukovodstvo/index.njk` [RU] `W4` — hreflang 缺语言: pl
+- `ru/blog/chek-list-proverki-zavoda-kitay-oem/index.njk` [RU] `W4` — hreflang 缺语言: de,fr
+- `ru/blog/dostavka-iz-kitaya-logistika-oem/index.njk` [RU] `W4` — hreflang 缺语言: pl
+- `ru/blog/gan-zaryadnye-ustroystva-oem-rukovodstvo/index.njk` [RU] `W4` — hreflang 缺语言: pl
+- `ru/blog/ispytanie-prokolom-gvozdem-polutverdotelnye-oem/index.njk` [RU] `W4` — hreflang 缺语言: de,fr,pl
+- `ru/blog/mah-power-bank-rukovodstvo-oem/index.njk` [RU] `W4` — hreflang 缺语言: pl
+- `ru/blog/proizvodstvo-oem-gan-v/index.njk` [RU] `W4` — hreflang 缺语言: pl
+- `ru/blog/proverka-podlinnosti-sertifikatov-eac-ce-fcc-oem/index.njk` [RU] `W4` — hreflang 缺语言: de,fr,pl
+- `ru/blog/qi2-vs-magsafe-sravneniye-oem/index.njk` [RU] `W4` — hreflang 缺语言: pl
+- `ru/blog/reglament-es-2023-1542-batarei-oem/index.njk` [RU] `W4` — hreflang 缺语言: pl
+- `ru/blog/sertifikaciya-eas-poverbankov-tr-ts-oem/index.njk` [RU] `W4` — hreflang 缺语言: en,de,es,fr,ru,pl
+- `ru/blog/sertifikaciya-qi2-wpc-oem/index.njk` [RU] `W4` — hreflang 缺语言: pl
+- `ru/blog/sertifikaciya-upakovki-opasnyh-gruzov-litievye-batarei-oem/index.njk` [RU] `W4` — hreflang 缺语言: pl
+- `ru/blog/specifikacii-power-bank-oem/index.njk` [RU] `W4` — hreflang 缺语言: pl
+- `ru/blog/standarty-bezopasnosti-zaryadnyh-ustroystv-oem/index.njk` [RU] `W4` — hreflang 缺语言: pl
+- `ru/blog/tendencii-rynka-zaryadnyh-ustroystv-2026-oem/index.njk` [RU] `W4` — hreflang 缺语言: pl
+- `ru/blog/usb-c-pd-bystraya-zaryadka-oem/index.njk` [RU] `W4` — hreflang 缺语言: pl

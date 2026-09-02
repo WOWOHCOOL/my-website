@@ -224,5 +224,9 @@ if errors:
     print("Errors found:")
     for f, err in errors:
         print(f"  {f}: {err}")
+    import sys
+    sys.exit(1)
 else:
     print(f"All Organization nodes in non-blog pages have exactly the {len(ORG_KNOWS_ABOUT)} knowsAbout values.")
+    import sys
+    sys.exit(0)

@@ -33,6 +33,11 @@ Checks (per metadata standard):
       prefix); WebSite url/inLanguage per language mapping      [CRITICAL]
   C17 image == thumbnailUrl == frontmatter ogImage              [CRITICAL]
   C18 keywords >= 3                                             [CRITICAL]
+  C19 Breadcrumb L1/L2 names+items per language mapping         [CRITICAL]
+  C20 citation present + >=3 (CRITICAL); domain-root = weak     [CRITICAL/WARN]
+  C21 rel rules on Sources links (authority no nofollow;
+      commercial noreferrer nofollow)                           [WARN]
+  C22 HowTo.totalTime within FAQ duration ranges                [WARN]
   W1  wordCount vs actual visible words (±5%)                  [WARN]
   W2  timeRequired minutes vs visible reading-time number       [WARN]
   W3  citation count vs visible Sources external links          [WARN]
@@ -77,6 +82,47 @@ ORG_LANGS = ["English", "German", "Spanish", "French", "Russian", "Polish"]
 SITE_URL_OF_LANG = {"EN": "https://www.wowohcool.com/", "DE": "https://www.wowohcool.com/de/",
                     "ES": "https://www.wowohcool.com/es/", "FR": "https://www.wowohcool.com/fr/",
                     "RU": "https://www.wowohcool.com/ru/", "PL": "https://www.wowohcool.com/pl/"}
+
+HOME_LABEL_OF_LANG = {"EN": "Home", "DE": "Startseite", "ES": "Inicio", "FR": "Accueil",
+                      "RU": "Главная", "PL": "Strona główna"}
+
+# §3.6 authority classes: standards orgs / government / certification bodies / official DBs
+AUTHORITY_DOMAINS = ("gov", "edu", "int", "eur-lex.europa.eu", "europa.eu", "iata.org", "usb.org",
+                     "iec.ch", "iso.org", "wirelesspowerconsortium.com", "unece.org", "iafcertsearch",
+                     "stiftung-ear.de", "kba.de", "destatis.de", "gsxt.gov.cn", "singlewindow.cn",
+                     "pravo.gov.ru", "eaeunion.org", "customs.gov.cn", "faa.gov", "fcc.gov",
+                     "cpsc.gov", "anab.org", "ul.com", "iq.ulprospector.com", "tuv.com", "tuvsud.com",
+                     "sgs.com", "bureauveritas.com", "qima.com", "intertek.com", "nemo", "oect")
+
+def _is_authority(url):
+    u = url.lower()
+    return any(d in u for d in AUTHORITY_DOMAINS)
+
+# ISO 8601 duration -> approximate days (for HowTo↔FAQ cross-check, ported from scan_howto_faq)
+def _iso_days(v):
+    if not v:
+        return None
+    m = re.fullmatch(r'P(?:(?:(\d+)Y)?(?:(\d+)M)?(?:(\d+)W)?(?:(\d+)D)?)?(?:T(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?)?', str(v))
+    if not m:
+        return None
+    y, mo, w, d, h, mi, s = [int(x or 0) for x in m.groups()]
+    return y * 365 + mo * 30 + w * 7 + d + h / 24 + mi / 1440
+
+_UNIT_MULT = (("week", 7), ("wochen", 7), ("semana", 7), ("semaine", 7), ("недел", 7), ("tygodni", 7),
+              ("month", 30), ("monat", 30), ("meses", 30), ("mois", 30), ("месяц", 30), ("miesi", 30))
+
+def _faq_duration_ranges(text):
+    """Extract 'X-Y unit' duration ranges from FAQ answer text (6 languages)."""
+    out = []
+    num, unit = r"\d+", r"(?:weeks?|Wochen|semanas?|semaines?|days?|d[íi]as?|jours?|Tage|дн(?:ей|я|и)?|недел\w*|месяц\w*|months?|Monat\w*|meses?|mois|tygodni|miesięcy)"
+    pats = (rf'({num})\s*[-–—]\s*({num})\s*({unit})',
+            rf'({num})\s+(?:à|bis|hasta|до|do|to)\s+({num})\s+({unit})')
+    for p in pats:
+        for m in re.finditer(p, text, re.IGNORECASE):
+            lo, hi, u = int(m.group(1)), int(m.group(2)), m.group(3).lower()
+            mult = next((mm for kw, mm in _UNIT_MULT if u.startswith(kw)), 1)
+            out.append((lo * mult, hi * mult))
+    return out
 
 AUTHOR_POOL = {
     "snowy-may": {"knowsAbout": ["Qi2 Wireless Charging Standard", "GaN Power Architecture",
@@ -460,6 +506,60 @@ def audit_file(path, lang_key):
         want = "/blog/" if hl == "en" else f"/{hl}/blog/"
         if not path.startswith(want):
             add("CRITICAL", "C12", f"hreflang {hl} 目标语言不匹配: {path}")
+
+    # ── C19 Breadcrumb content per language mapping (§二) ──
+    for bl in T.get("BreadcrumbList", []):
+        items = bl.get("itemListElement", [])
+        if len(items) >= 1:
+            it1 = items[0]
+            if it1.get("name") != HOME_LABEL_OF_LANG.get(lang):
+                add("CRITICAL", "C19", f"Breadcrumb L1 name ≠ {HOME_LABEL_OF_LANG.get(lang)}: {it1.get('name')}")
+            if it1.get("item") != SITE_URL_OF_LANG.get(lang):
+                add("CRITICAL", "C19", f"Breadcrumb L1 item ≠ {SITE_URL_OF_LANG.get(lang)}: {it1.get('item')}")
+        if len(items) >= 2:
+            it2 = items[1]
+            if it2.get("item") != SITE_URL_OF_LANG.get(lang) + "blog/":
+                add("CRITICAL", "C19", f"Breadcrumb L2 item ≠ blog URL: {it2.get('item')}")
+
+    # ── C20 citation required, ≥3, no bare domain-root citations ──
+    if bps:
+        cites = bps[0].get("citation")
+        if cites is None:
+            add("CRITICAL", "C20", "BlogPosting 缺 citation（§3.6 要求 ≥3 条权威引用）")
+        elif isinstance(cites, list):
+            if len(cites) < 3:
+                add("CRITICAL", "C20", f"citation 仅 {len(cites)} 条（§3.6 要求 ≥3）")
+            for c in cites:
+                u = str(c.get("url", "")) if isinstance(c, dict) else ""
+                path = re.sub(r'^https?://[^/]+', '', u)
+                if u and path in ("", "/"):
+                    add("WARN", "C20", f"citation 挂站点首页（弱引用，需指明具体页面/报告）: {u}")
+
+    # ── C21 rel attribute rules on Sources external links (§六) ──
+    src_seg_m = re.search(r'<h2[^>]*>\s*(?:Sources\s*&amp;\s*References|Sources & References|Fuentes|Quellen|Sources|Источники|Źródła)\s*</h2>(.*?)(?:<h2|</section>)', src, re.DOTALL | re.IGNORECASE)
+    if src_seg_m:
+        for am in re.finditer(r'<a\s+[^>]*href="(https?://[^"]+)"[^>]*>', src_seg_m.group(1)):
+            tag, url = am.group(0), am.group(1)
+            rel_m = re.search(r'rel="([^"]*)"', tag)
+            rels = set((rel_m.group(1) if rel_m else "").split())
+            if _is_authority(url):
+                if "nofollow" in rels:
+                    add("WARN", "C21", f"权威来源不应 nofollow: {url[:70]}")
+            else:
+                if not {"noreferrer", "nofollow"} <= rels:
+                    add("WARN", "C21", f"商业来源缺 noreferrer nofollow: {url[:70]}")
+
+    # ── C22 HowTo.totalTime ↔ FAQ duration ranges cross-check (§3.5) ──
+    howto = next((ht for ht in T.get("HowTo", [])), None)
+    faqp = next((fq for fq in T.get("FAQPage", [])), None)
+    if howto and faqp:
+        hd = _iso_days(howto.get("totalTime"))
+        ranges = []
+        for q in faqp.get("mainEntity", []):
+            txt = str((q.get("acceptedAnswer") or {}).get("text", ""))
+            ranges.extend(_faq_duration_ranges(txt))
+        if hd is not None and ranges and not any(lo <= hd <= hi for lo, hi in ranges):
+            add("WARN", "C22", f"HowTo.totalTime {howto.get('totalTime')} 不落在任何 FAQ 周期区间内（需人工核对是否同一流程）")
 
     if orgs:
         oid = orgs[0].get("@id", "")
