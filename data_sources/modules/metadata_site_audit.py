@@ -92,7 +92,7 @@ AUTHORITY_DOMAINS = ("gov", "edu", "int", "eur-lex.europa.eu", "europa.eu", "iat
                      "stiftung-ear.de", "kba.de", "destatis.de", "gsxt.gov.cn", "singlewindow.cn",
                      "pravo.gov.ru", "eaeunion.org", "customs.gov.cn", "faa.gov", "fcc.gov",
                      "cpsc.gov", "anab.org", "ul.com", "iq.ulprospector.com", "tuv.com", "tuvsud.com",
-                     "sgs.com", "bureauveritas.com", "qima.com", "intertek.com", "nemo", "oect")
+                     "sgs.com", "sgs-cqe.de", "bureauveritas.com", "qima.com", "intertek.com", "nemo", "oect")
 
 def _is_authority(url):
     u = url.lower()
@@ -224,6 +224,10 @@ def audit_file(path, lang_key):
     stripped_src = re.sub(r'\{\{.*?\}\}', ' ', stripped_src, flags=re.DOTALL)
     if re.search(r'"\w+"\s*:\s*"(https?://|[^"]{20})"', stripped_src):
         add("CRITICAL", "C1", "游离 JSON 键在 script 块外（页面明文渲染）")
+    # C1c: broken HTML tag fragments rendered as visible text (splicing corruption)
+    stripped_tags = re.sub(r"<[^>]+>", "\n", stripped_src)
+    if re.search(r'(target="_blank"|rel=")', stripped_tags):
+        add("CRITICAL", "C1", "HTML 标签残段渲染为页面明文（拼接损伤）")
     blocks = re.findall(r'<script type="application/ld\+json">\s*(.*?)\s*</script>', src, re.DOTALL)
     if not blocks:
         add("CRITICAL", "C1", "无 JSON-LD schema")
@@ -364,7 +368,9 @@ def audit_file(path, lang_key):
 
     # ── C6 FAQPage ──
     for fq in T.get("FAQPage", []):
-        if fq.get("@id") and not fq["@id"].endswith("#faq"):
+        if not fq.get("@id"):
+            add("CRITICAL", "C6", "FAQPage 缺 @id")
+        elif not fq["@id"].endswith("#faq"):
             add("CRITICAL", "C6", f"FAQPage.@id 非 #faq: {fq.get('@id')}")
         sp = fq.get("speakable", {}).get("cssSelector")
         if sp != [".faq-answer"]:
@@ -381,7 +387,9 @@ def audit_file(path, lang_key):
         dup = sorted({i for i in howto_ids if howto_ids.count(i) > 1})
         add("CRITICAL", "C7", f"多个 HowTo 共享同一 @id（违反单 HowTo 规则）: {dup}")
     for ht in T.get("HowTo", []):
-        if ht.get("@id") and not ht["@id"].endswith("#howto"):
+        if not ht.get("@id"):
+            add("CRITICAL", "C7", "HowTo 缺 @id")
+        elif not ht["@id"].endswith("#howto"):
             add("CRITICAL", "C7", f"HowTo.@id 非 #howto: {ht.get('@id')}")
         tt = str(ht.get("totalTime", ""))
         # NOTE: P#M (months) is legitimate for process-scale HowTos per §3.5.1 B/C
@@ -429,6 +437,8 @@ def audit_file(path, lang_key):
                 add("CRITICAL", "C9", f"about.sameAs 用了黑名单 ID {qid}")
             elif qid not in VERIFIED_Q:
                 add("WARN", "C9", f"about.sameAs {qid} 不在已验证表（需人工核实并回填）")
+        if "/entity/" in str(same):
+            add("WARN", "C9", f"about.sameAs 用 /entity/ 格式（全站统一 /wiki/）: {same}")
 
     # ── C5 Organization @id / url slash ──
     # ── C16 @id exact values (no language prefixes, sitewide-unique) ──
