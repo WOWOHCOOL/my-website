@@ -1,9 +1,9 @@
 # B2B 文章实操指南 — 从研究到发布的完整操作手册
 
-**适用站点**: wowohcool.com (DE/EN/ES/FR)
+**适用站点**: wowohcool.com (EN/DE/ES/FR/RU/PL)
 **适用领域**: B2B 充电设备/电源/储能外贸供应链
-**最后更新**: 2026-08-05
-**基于**: certif-qi2 + charge-pd 两篇 FR 文章完整优化 + /b2b-audit 18-check 扩展
+**最后更新**: 2026-09-02（对齐三份 canonical 标准 + 双门禁发布流程：FAQ Rule 0-9 共 10 条、@id 全站统一、6 语言 hreflang、Organization 字段内容标准）
+**基于**: certif-qi2 + charge-pd 两篇 FR 文章完整优化 + /b2b-audit 19-check 扩展
 
 ---
 
@@ -44,7 +44,7 @@ B2B 质量门的改动是结构性的（H1 信号词、工厂数据密度、FAQ 
 /write-b2b [topic]                   ← 🔴 直接产出 .njk 模板（Schema 7 节点 + 15 板块 + .speakable）
     │
     ▼
-/b2b-audit [file]                  ← 🔴 B2B 质量门 — 结构性检查（18 checks）
+/b2b-audit [file]                  ← 🔴 B2B 质量门 — 结构性检查（19 checks）
     │
     ├─ 修复结构性缺陷:
     │   ├─ H1 加 B2B 信号词（50-65 chars）
@@ -59,7 +59,7 @@ B2B 质量门的改动是结构性的（H1 信号词、工厂数据密度、FAQ 
 /optimize [file]                   ← 通用 SEO 精修（SEO Machine 原版技能）
     │
     ├─ 微调:
-    │   ├─ 关键词密度 1-2%
+    │   ├─ B2B 信号词自然分布（关键词密度 1-2% 已废弃，按 H2 密度分层评估）
     │   ├─ Meta title 50-60, Meta desc 120-155
     │   ├─ 内链 3-5+, 外链 2-3+
     │   └─ 可读性 8-10 年级
@@ -71,7 +71,8 @@ B2B 质量门的改动是结构性的（H1 信号词、工厂数据密度、FAQ 
 /scrub [file]                      ← 清除 AI 水印
     │
     ▼
-手动转 .njk → git push → Cloudflare Pages 部署
+check_new_article.py（5 步写作门禁，0 FAIL）→ git push
+→ npm run build 第一环自动跑 prebuild_gate（i18n + 元数据 22 项 + 非博客 Organization + 作者一致性，CRITICAL>0 构建失败）→ Cloudflare Pages 部署
 ```
 
 ### 优化已有 B2B 文章
@@ -115,7 +116,7 @@ B2B 质量门的改动是结构性的（H1 信号词、工厂数据密度、FAQ 
 | 命令 | 用途 | 产出 |
 |------|------|------|
 | `/write-b2b [topic]` | 🔴 直接创建 B2B .njk 文章（Schema 7 节点 + 15 板块 + .speakable） | `src/{lang}/blog/{slug}/index.njk` |
-| `/b2b-audit [file]` | B2B 18 项质量检查 + 信息增益分析 | `audits/b2b-audit-*.md` |
+| `/b2b-audit [file]` | B2B 19 项质量检查 + 信息增益分析 | `audits/b2b-audit-*.md` |
 | `/research [topic]` | 关键词研究 + 竞品分析 + 写作简报（通用 SEO Machine） | `research/brief-*.md` |
 | `/optimize [file]` | 通用 SEO 精修（关键词密度、meta、内链、可读性） | `drafts/optimization-report-*.md` |
 | `/scrub [file]` | AI 水印清洗 | 原地修改 |
@@ -123,6 +124,8 @@ B2B 质量门的改动是结构性的（H1 信号词、工厂数据密度、FAQ 
 ---
 
 ## 二、`/b2b-audit` 19 项自动检查
+
+> 编号 12-19 与《B2B Blog Quality Audit Standard》§VI 的 Check 编号一一对应。
 
 ### 内容质量 (Check 1-6)
 
@@ -172,12 +175,21 @@ B2B 质量门的改动是结构性的（H1 信号词、工厂数据密度、FAQ 
 | 项目 | 原因 | 检查方法 |
 |------|------|---------|
 | 竞争洞察嵌入 Hook | 自然语言判断 | 朗读 Hook: 是否有 1 句点出信息真空? |
-| 法规本土化 (FR→DGCCRF, DE→Stiftung Warentest) | 需要外部知识库 | 检查法规引用 |
-| FAQ body-schema 逐字一致 | 精确文本对比 | 逐题对比正文 FAQ 与 JSON-LD |
+| 法规本土化 (FR→DGCCRF, DE→Stiftung Warentest, ES→BOE/AEAT, PL→UOKiK, RU→EAC/ТР ТС) | 需要外部知识库 | 检查法规引用 |
+| ~~FAQ body-schema 逐字一致~~ | ✅ 已自动化：元数据审计 C11（问题名/数量一致）+ `faq_consistency_check.py` | 自动 |
+| ~~hreflang 六向映射~~ | ✅ 已自动化：元数据审计 W4（缺语言）+ C12（目标语言匹配） | 自动 |
 | 图片 alt 含 B2B 信号词 | 语义判断 | 检查 alt 属性 |
-| hreflang 四向映射 | cross-file | 检查 4 个文件的 enPath/dePath/esPath/frPath |
 | 15 板块排序 | 语义理解 | 对照下方板块顺序 |
 | 工厂 moat 数据嵌入 | 自然语言 | 搜索 "200+ marques" / "4 etapes" / "0,3 %" / "100 %" |
+
+### 已自动化但指南仍列出的项（2026-09 起以脚本为准）
+
+| 项 | 自动检查 |
+|----|---------|
+| Schema 全字段内容（areaServed 21 项 / availableLanguage 6 语言 / logo 263×70 / @id 精确值） | `metadata_site_audit.py` C3/C16/C19 |
+| FAQ 数量 3-5 + 单 HowTo + @id 必填 | C6/C7 |
+| image == thumbnailUrl == ogImage | C17 |
+| wordCount ±5% | C4/W1（回填用 `wordcount_sync.py`） |
 
 ---
 
@@ -186,13 +198,13 @@ B2B 质量门的改动是结构性的（H1 信号词、工厂数据密度、FAQ 
 ### A. JSON-LD Schema v2（7 节点必检）
 
 ```
-[ ] Organization: legalName + publishingPrinciples + logo + address(6 fields) + sameAs + contactPoint(telephone + email)
-[ ] WebSite: name("WOWOHCOOL", 不带语言后缀) + inLanguage + publisher @id ref
-[ ] BreadcrumbList: 3 levels, 所有 URL 末尾带 /
-[ ] BlogPosting: @id + headline + keywords[8-12] + author @id ref(非 inline Person!) + datePublished + dateModified + wordCount(integer!) + speakable["h1",".speakable"] + citation[3] + about.sameAs(Wikidata)
-[ ] Person: @id + jobTitle + url(author page) + sameAs[LinkedIn] + image + worksFor @id ref + knowsAbout[3-5]
-[ ] HowTo: @id + 3-6 steps(HowToDirection 格式)
-[ ] FAQPage: @id + speakable[".faq-answer"](独立于 BlogPosting) + 8 questions(与正文逐字一致)
+[ ] Organization: legalName + publishingPrinciples + logo(263×70) + address(6 fields) + sameAs + contactPoint(telephone + email + availableLanguage 6 语言 + contactType "OEM/ODM Sales") + areaServed(21 项固定值) + knowsAbout(7 值固定)
+[ ] WebSite: @id("/#website" 全站唯一) + name("WOWOHCOOL") + inLanguage + publisher @id ref
+[ ] BreadcrumbList: 3 levels, L1/L2 名称与 URL 按语言映射表, 所有 URL 末尾带 /
+[ ] BlogPosting: @id + headline + keywords[≥3] + author @id ref(非 inline Person!) + datePublished + dateModified + wordCount(integer! ±5% 实测) + speakable["h1",".speakable"] + citation[3+, 描述名非裸机构名] + about.sameAs(Wikidata /wiki/ 格式, 查 wikidata-entity-map.md)
+[ ] Person: @id(全站唯一, 见 factory-data-canonical.md §15) + jobTitle(英文, 方案 A) + url(英文作者页) + sameAs[LinkedIn] + image + worksFor @id ref + knowsAbout(作者固定 6 值专长池, 逐字复制 §15.2)
+[ ] HowTo: @id(缺省=CRITICAL) + ≥3 steps(HowToDirection 格式)。非步骤类文章移除此节点; totalTime 语义规则见 metadata-standard §3.5.1
+[ ] FAQPage: @id(缺省=CRITICAL) + speakable[".faq-answer"](独立于 BlogPosting) + 3-5 条(Rule 0 上限 5, 与正文逐字一致)
 ```
 
 ### B. 15 板块结构（排序固定）
@@ -207,8 +219,8 @@ B2B 质量门的改动是结构性的（H1 信号词、工厂数据密度、FAQ 
  7. Factory Data   工厂数据卡片(面积/员工/R&D/产能/认证) ⓕ
  8. H2 xN          bg-slate-50 rounded-xl p-6, 表格 bg-brandBlue thead
  9. Conclusion     可选, 总结 + 实操流程, 不含重复链接 ⓕ
-10. FAQ            id="faq", bg-slate-50 rounded-2xl, 8 题, 每答 >=1 数字, body-schema 逐字一致
-11. Author Bio     id="author-bio", + Empreinte Usine(4 格: 5000m2 / Since 2013 / 50+ pays / 50+ R&D)
+10. FAQ            id="faq", bg-slate-50 rounded-2xl, 3-5 题(Rule 0), 每答 >=1 数字, body-schema 逐字一致
+11. Author Bio     id="author-bio", + Factory Footprint(4 格: 5000m2 / Since 2013 / 50+ pays / 50+ R&D)
 12. CTA            gradient from-brandBlue to-slate-800, 2 按钮, h2 标题
 13. Related        <aside>, card 格式, gradient bar, 3 张, 链接用语言前缀, 指向现有页面
 14. Sources        list-disc, 权威 rel="noopener external", 商业 rel="noopener noreferrer nofollow"
@@ -241,20 +253,20 @@ B2B 质量门的改动是结构性的（H1 信号词、工厂数据密度、FAQ 
 
 ## 四、各语言差异
 
-| 元素 | EN | DE | ES | FR |
-|------|----|----|----|-----|
-| `inLanguage` | `en-US` | `de-DE` | `es-ES` | `fr-FR` |
-| Org @id | `/#organization` | `/de/#organization` | `/es/#organization` | `/fr/#organization` |
-| 日期格式 | Mon DD, YYYY | DD.MM.YYYY | DD de Mon de YYYY | DD mois YYYY |
-| KEY TAKEAWAYS | KEY TAKEAWAYS | KERNERKENNTNISSE | PUNTOS CLAVE | POINTS CLES |
-| FAQ 标题 | Frequently Asked Questions | Haufig gestellte Fragen | Preguntas Frecuentes | Foire Aux Questions |
-| Sources 标题 | Sources & References | Quellen & Referenzen | Fuentes & Referencias | Sources & References |
-| 工厂足迹标签 | Factory Footprint | Fabrik-FuBabdruck | Huella de Fabrica | Empreinte Usine |
-| 阅读时间 | min read | Min. Lesezeit | min de lectura | min de lecture |
-| 作者标签 | Author | Autor | Autor | Auteur/Autrice |
-| 引号 | "straight" | "deutsch" | "latin" | "guillemets" |
-| 首页 | Home | Startseite | Inicio | Accueil |
-| 竞争洞察句式 | no English guide | keine deutsche Ressource | ninguna guia en espanol | aucune ressource en francais |
+| 元素 | EN | DE | ES | FR | RU | PL |
+|------|----|----|----|----|----|----|
+| `inLanguage` | `en-US` | `de-DE` | `es-ES` | `fr-FR` | `ru-RU` | `pl-PL` |
+| Org @id | `/#organization`（**全站唯一，六语言相同，不带语言前缀**）；本地化的是 `Organization.url`（指向各语言 about 页，见 metadata §二映射表） |||||||
+| 日期格式 | Mon DD, YYYY | DD.MM.YYYY | DD de Mon de YYYY | DD mois YYYY | DD.MM.YYYY | DD.MM.YYYY |
+| KEY TAKEAWAYS | KEY TAKEAWAYS | KERNERKENNTNISSE | PUNTOS CLAVE | POINTS CLES | ГЛАВНОЕ | KLUCZOWE WNIOSKI |
+| FAQ 标题 | Frequently Asked Questions | Häufig gestellte Fragen | Preguntas Frecuentes | Foire Aux Questions | Частые вопросы | Częste pytania |
+| Sources 标题 | Sources & References | Quellen & Referenzen | Fuentes & Referencias | Sources & References | Источники | Źródła |
+| 工厂足迹标签 | Factory Footprint | Fabrik-Fußabdruck | Huella de Fábrica | Empreinte Usine | Производственные показатели | Ślad fabryki |
+| 阅读时间 | min read | Min. Lesezeit | min de lectura | min de lecture | мин чтения | min czytania |
+| 作者标签 | Author | Autor | Autor | Auteur/Autrice | Автор | Autor |
+| 引号 | "straight" | „deutsch" | "latin" | «guillemets» | «guillemets» | „polskie" |
+| 首页 | Home | Startseite | Inicio | Accueil | Главная | Strona główna |
+| 竞争洞察句式 | no English guide | keine deutsche Ressource | ninguna guía en español | aucune ressource en français | нет руководств на русском | brak poradnika po polsku |
 
 ### 法规本土化 (2026)
 
@@ -264,15 +276,20 @@ B2B 质量门的改动是结构性的（H1 信号词、工厂数据密度、FAQ 
 | DE | Stiftung Warentest, DIN, ProdSG, GS-Zeichen, Stiftung EAR, VerpackG, Batteriegesetz |
 | ES | AENOR, BOE, AEAT, UNE-EN, certificaciones LATAM (IRAM, NOM, ANATEL) |
 | EN | FCC, UL, CPSC, Prop 65, Section 301 tariffs, USMCA |
+| RU | EAC (ТР ТС 004/2011, ТР ТС 020/2011), ФГИС Росаккредитации, Ozon/Wildberries 合规 |
+| PL | UOKiK, BDO, art. 33a ustawy o VAT, Rozporządzenie 2023/1542, Główny Urząd Celny |
 
 ---
 
 ## 五、发布前自检
 
-### 自动验证
+### 自动验证（两道门禁，人工清单已大部分自动化）
 
 ```
-[ ] /b2b-audit >=90
+[ ] check_new_article.py <file>      ← 写作侧 5 步门禁: i18n lint / factory 一致性 / B2B auditor / FAQ 一致性 / accent 扫描, 0 FAIL
+[ ] npm run build                    ← 构建侧第一环自动跑 prebuild_gate（i18n + 元数据 22 项 C1-C22/W1-W4 + 非博客 Organization + 作者一致性）, CRITICAL>0 直接失败
+[ ] wordcount_sync.py（可选, dry-run 查看 wordCount 是否需回填）
+[ ] /b2b-audit >= 90（内容质量层）
 ```
 
 ### 内容质量 (Gate 1-2)
@@ -294,7 +311,7 @@ B2B 质量门的改动是结构性的（H1 信号词、工厂数据密度、FAQ 
 [ ] speakable: BlogPosting["h1",".speakable"], FAQPage[".faq-answer"]
 [ ] BlogPosting.author = @id ref (非 inline Person)
 [ ] Meta title 50-60, Meta desc 120-155
-[ ] dateModified = 当天
+[ ] dateModified = 当天, 且 schema 与 frontmatter 两侧一致 (C15)
 [ ] 阅读时间匹配 Schema timeRequired
 ```
 
@@ -302,7 +319,7 @@ B2B 质量门的改动是结构性的（H1 信号词、工厂数据密度、FAQ 
 
 ```
 [ ] 15 板块顺序正确
-[ ] FAQ id="faq", 8 题, body-schema 逐字一致, 每答 >=1 数字
+[ ] FAQ id="faq", 3-5 题 (Rule 0), body-schema 逐字一致, 每答 >=1 数字
 [ ] Author Bio + Empreinte Usine (4 格)
 [ ] CTA gradient, 2 按钮, h2 标题
 [ ] Related Articles card 格式, 链接可访问
@@ -314,10 +331,10 @@ B2B 质量门的改动是结构性的（H1 信号词、工厂数据密度、FAQ 
 ```
 [ ] 无反模式 (Check 18 = 100)
 [ ] 图片 alt 含 B2B 信号词, 无 stock photo
-[ ] Featured Image <img src> only (NO srcset/sizes) + fetchpriority="high"
-[ ] hreflang 四向正确, 无旧 slug, 无缺 trailing /
+[ ] Featured Image <img src> only (NO srcset/sizes) + loading="eager" + fetchpriority="high"
+[ ] hreflang 六向正确, 目标路径语言匹配 (C12), 无缺 trailing /
 [ ] /scrub = 0 watermark
-[ ] 构建 = 0 errors
+[ ] 构建 = 0 errors (prebuild_gate GATE PASS)
 ```
 
 ---
@@ -429,9 +446,14 @@ B2B 审计结果可反馈给 GEO citability 评分。详见 `.claude/skills/seo-
 ### 9.2 批量审计
 
 ```bash
-# 对某语言全部文章跑 B2B 审计
-for dir in C:\Users\wowoh\wowohcool.com\src\blog\*/; do
-  python data_sources/modules/b2b_content_auditor.py "${dir}index.njk"
+# 全站 6 语言元数据审计（174 篇, 推荐 — 覆盖 C1-C22 全部元数据检查）
+python data_sources/modules/metadata_site_audit.py
+
+# 对某语言全部文章跑 B2B 内容审计
+for lang in blog de/blog es/blog fr/blog ru/blog pl/blog; do
+  for dir in C:\Users\wowoh\wowohcool.com\src\$lang\*/; do
+    python data_sources/modules/b2b_content_auditor.py "${dir}index.njk"
+  done
 done
 ```
 
@@ -498,7 +520,7 @@ python data_sources/modules/indexnow_submitter.py --urls "https://www.wowohcool.
 ```yaml
 ---
 title: "H1 标题 + 含 B2B 信号词 | WOWOHCOOL"
-lang: "fr"                              # de | en | es | fr | ru
+lang: "fr"                              # de | en | es | fr | ru | pl
 description: "Meta 描述 120-155 chars"
 date: YYYY-MM-DD                        # 首次发布日期（不变）
 modified: YYYY-MM-DD                    # 最后修改日期（每次更新）
@@ -509,13 +531,18 @@ canonical: "/fr/blog/slug/"             # 必须与 hreflang 中本语言路径�
 enPath: "blog/en-slug/"                 # EN 版本路径（无前导 /）
 dePath: "blog/de-slug/"                 # DE 版本路径
 esPath: "blog/es-slug/"                 # ES 版本路径
-ogImage: "/image/blog/cover-en/image.webp"
+frPath: "blog/fr-slug/"                 # FR 版本路径
+ruPath: "blog/ru-slug/"                 # RU 版本路径
+plPath: "blog/pl-slug/"                 # PL 版本路径
+ogImage: "/image/blog/cover-en/image.webp"   # Schema image/thumbnailUrl 必须与此一致 (C17)
 navActive: "blog"
-hreflang:                               # 四向映射，路径末尾必须有 /
+hreflang:                               # 六向映射（该语言版本存在才写，禁止假链接 C12），路径末尾必须有 /
  en: "/blog/en-slug/"
  de: "/de/blog/de-slug/"
  es: "/es/blog/es-slug/"
  fr: "/fr/blog/fr-slug/"
+ ru: "/ru/blog/ru-slug/"
+ pl: "/pl/blog/pl-slug/"
 ---
 ```
 
@@ -530,15 +557,16 @@ hreflang:                               # 四向映射，路径末尾必须有 /
    [1] Organization    — legalName + address(6 fields) + sameAs[4] + contactPoint(telephone + email + availableLanguage)
    [2] WebSite         — inLanguage + publisher @id ref
    [3] BreadcrumbList  — 3 levels, 所有 URL 末尾带 /
-   [4] BlogPosting     — @id + headline + keywords[8+] + author @id ref(非 inline! COPY FROM factory-data-canonical.md §15) + speakable["h1",".speakable"] + about.sameAs(Wikidata) + citation[3+]
-   [5] Person          — @id(COPY FROM factory-data-canonical.md §15) + jobTitle + url(author page) + sameAs[LinkedIn] + image + worksFor @id ref + knowsAbout[3-5]
+   [4] BlogPosting     — @id + headline + keywords[≥3] + author @id ref(非 inline! COPY FROM factory-data-canonical.md §15) + speakable["h1",".speakable"] + about.sameAs(Wikidata /wiki/, 查 wikidata-entity-map.md) + citation[3+, 描述名非裸机构名]
+   [5] Person          — @id(COPY FROM factory-data-canonical.md §15) + jobTitle(英文, 方案 A) + url(英文作者页) + sameAs[LinkedIn] + image + worksFor @id ref + knowsAbout(作者固定 6 值专长池, 逐字复制 §15.2)
 
-   **作者 @id 速查（禁止变体，禁止去连字符）：**
-   - Snowy May: `https://www.wowohcool.com/{lang}/#snowy-may`
-   - Nina Nico: `https://www.wowohcool.com/{lang}/#nina-nico`
-   - `{lang}`: EN 为空，DE=`/de`，ES=`/es`，FR=`/fr`，RU=`/ru`
+   **作者 @id 速查（全站唯一、不带语言前缀，六语言相同；权威源 `factory-data-canonical.md` §15）：**
+   - Snowy May: `https://www.wowohcool.com/#snowy-may`
+   - Nina Nico: `https://www.wowohcool.com/#nina-nico`
+   - 作者页 URL（仅英文版）: `/authors/snowy-may/`、`/authors/nina-nico/`，禁止本地化为 `/de/authors/...`
+   - 同簇文章必须同一作者（作者独占规则，§15.2）
    [6] HowTo           — @id + 3-6 steps(HowToDirection 格式)。非步骤类文章移除此节点
-   [7] FAQPage         — @id + speakable[".faq-answer"](独立于 BlogPosting) + 8 questions(与正文逐字一致)
+   [7] FAQPage         — @id(缺省=CRITICAL) + speakable[".faq-answer"](独立于 BlogPosting) + 3-5 条(Rule 0 上限 5, 与正文逐字一致)
  ]
 }
 </script>
@@ -573,7 +601,7 @@ hreflang:                               # 四向映射，路径末尾必须有 /
  [7] Factory Data   — 工厂数据卡片(面积/员工/R&D/产能/认证)
  [8] H2 Sections ×N — bg-slate-50 rounded-xl p-6 border, 表格 thead bg-brandBlue
  [9] Conclusion     — 可选, 总结 + 实操流程, 不含重复链接
-[10] FAQ            — id="faq", bg-slate-50 rounded-2xl, 8 题, 每答 .faq-answer class, body-schema 逐字一致
+[10] FAQ            — id="faq", bg-slate-50 rounded-2xl, 3-5 题(Rule 0), 每答 .faq-answer class, body-schema 逐字一致
 [11] Author Bio     — id="author-bio", 头像(80×80 border-brandOrange) + LinkedIn 链接 + Empreinte Usine(4 格工厂数据)
 [12] CTA            — bg-gradient-to-br from-brandBlue to-slate-800, h2 标题, 2 按钮(B2B 文案), 含产品词+MOQ
 [13] Related        — <aside>, grid md:grid-cols-3, card 格式(gradient bar + 标签 + 标题 + 描述), 链接用语言前缀
@@ -621,7 +649,7 @@ hreflang:                               # 四向映射，路径末尾必须有 /
 [ ] FAQ
     [ ] id="faq"
     [ ] 每个答案 div 有 .faq-answer class
-    [ ] 8 题 B2B 采购语言（MOQ/FOB/认证/交期/验证）
+    [ ] 3-5 题 B2B 采购语言（Rule 0 数量控制）
     [ ] 与 JSON-LD FAQPage 逐字一致
     [ ] 每条答案含 ≥1 个数字
 
@@ -658,7 +686,7 @@ hreflang:                               # 四向映射，路径末尾必须有 /
 /write → drafts/article.md
     │
     ▼
-/b2b-audit drafts/article.md          ← 内容层面 18 checks
+/b2b-audit drafts/article.md          ← 内容层面 19 checks
     │
     ▼
 修复 audit issues
@@ -675,13 +703,12 @@ hreflang:                               # 四向映射，路径末尾必须有 /
 
 ### F. 参考模板文件
 
-新文章从以下参考模板复制骨架（按语言选择最完整的那个）：
+新文章骨架以标准文件为准（HTML 排版 `context/blog-template-standard.md` §二、Schema `context/b2b-schema-template.json`）。站点内可参考一篇近期通过全部门禁的文章作为实例：
 
-| 语言 | 参考文件 | 状态 |
-|------|---------|:--:|
-| FR | `src/fr/blog/batterie-externe-specifications-oem/index.njk` | ✅ 完整 |
-| FR | `src/fr/blog/oem-vs-odm-guide-importateurs/index.njk` | ✅ 完整（v2 Schema 修复版） |
+| 用途 | 文件 |
+|------|------|
+| HTML 15 板块 + Schema 7 节点实例 | `C:\Users\wowoh\wowohcool.com\src\de\blog\gefahrgutverpackung-lithium-batterien-export-zertifizierung\index.njk` |
 
 ---
 
-*SOP 基于 certif-qi2 + charge-pd 两篇 FR 文章完整优化 + /b2b-audit 18-check 扩展实战编写*
+*SOP 基于 certif-qi2 + charge-pd 两篇 FR 文章优化实战编写；2026-09-02 全面修订对齐三份 canonical 标准（b2b-blog-quality-audit-standard / b2b-multilingual-metadata-standard / blog-template-standard）+ 双门禁（check_new_article.py + prebuild_gate.py）+ 元数据审计 C1-C22*
