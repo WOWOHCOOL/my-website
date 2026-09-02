@@ -169,7 +169,7 @@
 | `{AUTHOR_ID}` | 作者 `@id`（Person 节点引用，BlogPosting.author 去重）。两个作者按专长交叉使用：`#snowy-may`（技术/认证类）、`#nina-nico`（采购/供应链类），完整信息见 `factory-data-canonical.md` §15 | `https://www.wowohcool.com/#snowy-may` |
 | `{ACTUAL_WORD_COUNT}` | 实际主体字数（整数，无引号），验证方法见 §四 | `3100` |
 | `{TIME_REQUIRED}` | ISO 8601 duration——**分钟必须 `PT` 前缀**（`PT14M` ✓；`P14M` = 14 个月 ✗），详见 §3.5.1 | `PT14M` |
-| `{KEYWORD_1}` 等 | 文章关键词（≥3） | `GaN-Ladegerät` |
+| `{KEYWORD_1}` 等 | 文章关键词（下限 3；新文章写作时按 §3.2.1 三维度覆盖——核心产品词 + B2B 场景词 + 标准/长尾应用词） | `GaN-Ladegerät` |
 | `{ARTICLE_CATEGORY}` | 文章分类标签 | `GaN & Fast Charging` |
 | `{OG_IMAGE}` | 封面图完整 URL | `https://www.wowohcool.com/image/blog/cover-de/...` |
 | `{AUTHOR_NAME}` | 作者姓名 | `Nina Nico` |
@@ -256,6 +256,22 @@
 | 7 | `UL & CE Safety Compliance` | 安全认证合规 |
 
 **验证脚本**: `python3 check_org_knows.py` — 检查**全站所有页面**（非博客页 + 博客文章页），确认 Organization 节点 `knowsAbout` 包含上述全部 7 值且完全一致。
+
+### 3.2.1 keywords 三维度覆盖规则（Semantic Coverage — 写作侧规范）
+
+> **定位**：本规则面向**新文章撰写**。Google 官方不要求 keywords meta，存量文章**不做回溯补齐**（审计只 WARN advisory）。`{KEYWORD_1}` 等占位符下限 3（C18 兜底）。
+
+keywords 数组是 AI 爬虫（Perplexity / SearchGPT / Gemini）解析 JSON-LD 时的**核心特征实体池**。写新 B2B 文章时，keywords 应同时覆盖三个维度，各 ≥1 个：
+
+| 维度 | 定义 | 示例 |
+|------|------|------|
+| **核心产品词** | 文章主体产品/技术对象 | `Qi2 Wireless Charger`、`Power Bank OEM`、`GaN-Ladegerät` |
+| **B2B 场景/属性词** | 采购/制造/供应链属性 | `OEM Custom PCBA`、`Factory Audit`、`FOB Shenzhen` |
+| **标准/长尾应用词** | 认证标准、协议、技术长尾 | `PD 3.1 EPR`、`UN38.3`、`Thermal Management` |
+
+**豁免**：纯定义类文章（what-is）或目标市场极窄的本地化文章，标准/规格维度可用「长尾应用词」替代，不强塞不相关标准号。
+
+**注意**：不设硬性数量上限——关键词取自文章真实内容（headline/正文/实体），自然覆盖三维度即可；堆砌生僻词凑数反而稀释实体权重，违反信息增益原则。C18 对三维度缺失报 advisory WARN（存量不迁移，豁免类忽略）。
 
 ### 3.2 BlogPosting（核心信息节点）
 

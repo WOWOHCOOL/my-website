@@ -32,7 +32,8 @@ Checks (per metadata standard):
   C16 @id exact standard values (Org/WebSite/Person, no lang
       prefix); WebSite url/inLanguage per language mapping      [CRITICAL]
   C17 image == thumbnailUrl == frontmatter ogImage              [CRITICAL]
-  C18 keywords >= 3                                             [CRITICAL]
+  C18 keywords >= 3 (CRITICAL); three-dimension semantic
+      coverage advisory for NEW articles (WARN, §3.2.1)         [CRITICAL/WARN]
   C19 Breadcrumb L1/L2 names+items per language mapping         [CRITICAL]
   C20 citation present + >=3 (CRITICAL); domain-root = weak     [CRITICAL/WARN]
   C21 rel rules on Sources links (authority no nofollow;
@@ -505,11 +506,33 @@ def audit_file(path, lang_key):
         if og and isinstance(img, str) and img and not img.endswith(og):
             add("CRITICAL", "C17", f"image ≠ frontmatter ogImage: {img} vs {og}")
 
-    # ── C18 keywords ≥ 3 ──
+    # ── C18 keywords: >=3 count floor (writing-side semantic coverage is advisory) ──
+    # Google does not require the keywords meta; the three-dimension rule
+    # (product + B2B scene + standard/long-tail, §3.2.1) guides NEW article
+    # writing only — existing articles are NOT retrofitted (WARN = advisory).
     if bps:
-        kws = bps[0].get("keywords")
-        if isinstance(kws, list) and len(kws) < 3:
-            add("CRITICAL", "C18", f"keywords 仅 {len(kws)} 条（模板要求 ≥3）")
+        kws = [str(k).lower() for k in (bps[0].get("keywords") or [])]
+        if len(kws) < 3:
+            add("CRITICAL", "C18", f"keywords 仅 {len(kws)} 条（下限 3）")
+        dims = {
+            "product": any(p in k for k in kws for p in (
+                "charger", "power bank", "powerbank", "cable", "adapter", "battery",
+                "ladegerät", "ladegeraet", "ladekabel", "cargador", "chargeur",
+                "ładowarka", "ladowarka", "зарядн", "повербанк", "аккумулятор", "batterie externe",
+                "wireless", "car mount")),
+            "b2b": any(p in k for k in kws for p in (
+                "oem", "odm", "manufactur", "factory", "supplier", "import", "export",
+                "sourcing", "moq", "fob", "b2b", "procurement", "wholesale", "bulk",
+                "supply chain", "vendor", "private label", "audit", "beschaffung",
+                "fabricación", "fabricante", "produsent", "производство", "производител")),
+            "standard": any(p in k for k in kws for p in (
+                "pd 3", "usb", "qi2", "qi ", "un38", "ce ", "ul ", "iec", "rohs",
+                "epr", "avs", "spr", "pps", "e-mark", "emark", "eac", "fcc", "gb 47372",
+                "2023/1542", "tid", "wpc", "mps", "iso 9001", "gs ")),
+        }
+        missing = [name for name, ok in dims.items() if not ok]
+        if missing:
+            add("WARN", "C18", f"keywords 缺维度: {', '.join(missing)}（写作侧三维度规范 §3.2.1，存量文章 advisory，豁免类可忽略）")
 
     # ── C12 hreflang targets point to the matching language path ──
     for hl, path in fm_hreflang:

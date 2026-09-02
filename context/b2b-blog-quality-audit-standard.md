@@ -638,6 +638,7 @@ Before publishing, verify all elements:
 | **Content Width** | All blocks from Featured Image through Sources share a single `max-w-4xl mx-auto px-6` wrapper. No double-nested wrappers (inconsistent margins) | Manual |
 | **Schema v2 — Organization** | `address` (PostalAddress: streetAddress + locality + region + postalCode + country), `contactPoint.telephone`, `contactPoint.email` — B2B entity verification signals | 🤖 |
 | **Schema v2 — Citation** | `citation` array count = visible Sources/Fuentes link count. Under-reporting wastes AI citation signals | Manual (count) |
+| **Schema v2 — Keywords Semantic Coverage** | 写作侧规范（新文章）：keywords 同时覆盖核心产品词 + B2B 场景词 + 标准/长尾应用词各 ≥1（见 `b2b-multilingual-metadata-standard.md` §3.2.1，含豁免）。存量文章 advisory 不回溯；审计 WARN 提示 | 🤖 (WARN) |
 | **Schema v2 — timeRequired** | Schema `timeRequired` = visible reading time ("9 min" = PT9M, not PT12M) | Manual |
 | **Schema v2 — Author @id** | `BlogPosting.author` = `{ "@id": ... }` (reference, not inline Person); Person node has matching `@id`; `worksFor` = `{ "@id": ... }` | 🤖 |
 | **Schema v2 — JSON Syntax Gate** | Post-build: `json.load()` on every `<script type="application/ld+json">` block. A single unreplaced placeholder（`{ACTUAL_WORD_COUNT}`）produces invalid JSON, silently disabling ALL schema on that page | 🤖 (build script) |
