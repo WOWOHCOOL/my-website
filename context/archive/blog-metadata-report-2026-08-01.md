@@ -1,7 +1,7 @@
 # wowohcool.com 博客元数据报告
 
-**生成日期**: 2026-08-09 · **更新**: 2026-08-28 (新增 FR/RU/PL 选 PB 3 篇 → 全站对齐 33/30/36/27/30/15)  
-**语言站点**: EN (33篇) · DE (30篇) · ES (36篇) · FR (27篇) · RU (30篇) · **PL (15篇)** · 合计 171 篇 (计划 180 篇)  
+**生成日期**: 2026-08-09 · **更新**: 2026-08-29 (新增 FR/RU/PL 自有品牌 3 篇 → 全站对齐 33/30/36/28/31/16)  
+**语言站点**: EN (33篇) · DE (30篇) · ES (36篇) · FR (28篇) · RU (31篇) · **PL (16篇)** · 合计 174 篇 (计划 180 篇)  
 **数据来源**: 各站点 `src/{lang}/blog/*/index.njk` frontmatter + H1 模板标签
 
 ---
@@ -125,7 +125,7 @@
 
 ---
 
-## 四、Français (FR) — 26 篇已发布 + 4 篇计划
+## 四、Français (FR) — 28 篇已发布 + 2 篇计划
 
 ### 4.1 已发布文章
 
@@ -186,7 +186,7 @@
 | 9 | Contrôle Qualité | `controle-qualite-usines-chinoises-oem` | quality-control-guide | ✅ 已发布 |
 | 10 | mAh Batterie Externe | `mah-batterie-externe-guide-oem` | power-bank-mah-explained | ✅ 已发布 |
 | 11 | Choisir Batterie Externe | `choisir-batterie-externe-oem-guide` | how-to-choose-power-bank | ✅ 已发布 |
-| 12 | Batterie Marque Blanche | `batterie-externe-marque-blanche-oem` | power-bank-private-label-oem-production | Phase 3 |
+| 12 | Batterie Marque Blanche | `batterie-externe-marque-blanche-oem` | power-bank-private-label-oem-production | ✅ 已发布 |
 | 13 | Fabricants Batterie Chine | `fabricants-batterie-externe-chine-oem` | top-power-bank-manufacturers-china | Phase 3 |
 | 14 | Batterie Semi-Solide | `batterie-semi-solide-oem-guide` | semi-solid-state-power-bank-oem | ✅ 已发布 |
 | 15 | Expédition Chine | `expedition-chine-logistique-oem` | shipping-from-china-guide | ✅ 已发布 |
@@ -213,7 +213,7 @@
 
 ---
 
-## 五、Русский (RU) — 29 篇已发布 + 1 篇计划
+## 五、Русский (RU) — 31 篇已发布
 
 ### 5.1 已发布文章
 
@@ -282,7 +282,7 @@
 | 13 | Спецификации Power Bank | `specifikacii-power-bank-oem` | power-bank-specs-guide | ✅ 已发布 |
 | 14 | мАч Power Bank | `mah-power-bank-rukovodstvo-oem` | power-bank-mah-explained | ✅ 已发布 |
 | 15 | Выбор Power Bank OEM | `power-bank-vybor-oem-rukovodstvo` | how-to-choose-power-bank | ✅ 已发布 |
-| 16 | Power Bank СТМ | `power-bank-stm-oem-proizvodstvo` | power-bank-private-label-oem-production | Фаза 3 |
+| 16 | Power Bank СТМ | `power-bank-stm-oem-proizvodstvo` | power-bank-private-label-oem-production | ✅ 已发布 |
 | 17 | Производители Power Bank | `proizvoditeli-power-bank-kitay-oem` | top-power-bank-manufacturers-china | — |
 | 18 | Полу-Твердотельный Power Bank | `polutverdotelnye-power-bank-oem` | semi-solid-state-power-bank-oem | ✅ 已发布 |
 | 19 | Доставка из Китая | `dostavka-iz-kitaya-logistika-oem` | shipping-from-china-guide | ✅ 已发布 |
@@ -315,7 +315,7 @@
 
 ---
 
-## 六、Polski (PL) — 15 篇已发布 + 15 篇计划
+## 六、Polski (PL) — 16 篇已发布 + 14 篇计划
 
 ### 6.1 已发布文章
 
@@ -377,7 +377,7 @@ PL 站作为全新站点，首批 5 篇覆盖采购经理最核心的 5 个问�
 | 20 | Stacje Ładowania 3w1 OEM | `stacje-ladowania-3w1-oem` | (product page) |
 | 21 | Wysyłka z Chin — Logistyka OEM | `wysylka-z-chin-logistyka-oem` | shipping-from-china-guide |
 | 22 | Bezpieczeństwo Baterii Litowych | `bezpieczenstwo-baterii-litowych-oem` | charger-safety-standards |
-| 23 | Marka Własna OEM | `power-bank-marka-wlasna-oem` | power-bank-private-label-oem-production |
+| 23 | Marka Własna OEM | `power-bank-marka-wlasna-oem` | power-bank-private-label-oem-production | ✅ 已发布 |
 
 ### 6.3 PL 本土化质量门
 
@@ -424,7 +424,7 @@ PL 站作为全新站点，首批 5 篇覆盖采购经理最核心的 5 个问�
 | **Power Bank 规格** | power-bank-specs-guide | powerbank-spezifikationen | especificaciones-power-banks-importadores | batterie-externe-specifications-oem ✅ | **specifikacii-power-bank-oem** ✅ | power-bank-oem-wybor-specyfikacja* |
 | **Power Bank mAh** | power-bank-mah-explained | powerbank-mah-kapazitaet | power-bank-mah-explicado | mah-batterie-externe-guide-oem ✅ | mah-power-bank-rukovodstvo-oem ✅ | - |
 | **Power Bank 采购** | how-to-choose-power-bank | powerbank-beschaffung-leitfaden | como-elegir-power-bank | choisir-batterie-externe-oem-guide ✅ | power-bank-vybor-oem-rukovodstvo ✅ | power-bank-oem-wybor-specyfikacja ✅ |
-| **Power Bank 自有品牌** | power-bank-private-label-oem-production | powerbank-eigenmarke-oem-produktion | powerbank-marca-propia-produccion-oem | batterie-externe-marque-blanche-oem* | power-bank-stm-oem-proizvodstvo* | power-bank-marka-wlasna-oem* |
+| **Power Bank 自有品牌** | power-bank-private-label-oem-production | powerbank-eigenmarke-oem-produktion | powerbank-marca-propia-produccion-oem | batterie-externe-marque-blanche-oem ✅ | power-bank-stm-oem-proizvodstvo ✅ | power-bank-marka-wlasna-oem ✅ |
 | **中国 Power Bank 厂家** | top-power-bank-manufacturers-china | powerbank-hersteller-china-oem-partner | fabricante-power-banks-china-oem | fabricants-batterie-externe-chine-oem* | proizvoditeli-power-bank-kitay-oem* | - |
 | **半固态电池** | semi-solid-state-power-bank-oem | semi-solid-state-powerbank | baterias-semi-solid-state | batterie-semi-solide-oem-guide ✅ | polutverdotelnye-power-bank-oem ✅ | baterie-polstale-power-bank-oem ✅ |
 | **中国发货物流** | shipping-from-china-guide | oem-versand-aus-china-logistik | envio-desde-china-logistica | **expedition-chine-logistique-oem** ✅ | **dostavka-iz-kitaya-logistika-oem** ✅ | wysylka-z-chin-logistyka-oem* |
@@ -446,67 +446,23 @@ PL 站作为全新站点，首批 5 篇覆盖采购经理最核心的 5 个问�
 
 | 指标 | EN | DE | ES | FR | RU | PL | 合计 |
 |---|---|---|---|---|---|---|---|
-| 已发布 | 33 | 30 | 36 | 27 | 30 | **15** | **171** |
-| 计划中 | 0 | 0 | 0 | 3 | 0 | **15** | **18** |
+| 已发布 | 33 | 30 | 36 | 28 | 31 | **16** | **174** |
+| 计划中 | 0 | 0 | 0 | 2 | 0 | **14** | **16** |
 | 目标总量 | 30 | 30 | 30 | 30 | 30 | **30** | **180** |
-| Title 均含 B2B 信号词 | 30 | 30 | 30 | 25 | 24 | 12 | **151 (100%)** |
-| Schema v2 + 13-panel | 0 | 0 | 0 | 25 | 24 | 12 | **61** |
+| Title 均含 B2B 信号词 | 30 | 30 | 30 | 26 | 25 | 13 | **154 (100%)** |
+| Schema v2 + 13-panel | 0 | 0 | 0 | 26 | 25 | 13 | **64** |
 
 ### 语言覆盖
 
 - EN/DE/ES: 30 个主题三语完整覆盖（EN/ES 已扩展至 33 篇，超出 30 基线）
-- FR: 26/30 个主题已发布，4 篇计划中
-- RU: 30/30 篇已发布（含 4 篇新角度；基线缺口 3 篇见 §十）
-- **PL: 13/30 个主题已发布（全部为 Schema v2 + 13-panel），17 篇计划中**
+- FR: 27/30 个主题已发布，3 篇计划中
+- RU: 31/30 篇已发布（含 5 篇新角度；基线缺口 2 篇见 §十）
+- **PL: 14/30 个主题已发布（全部为 Schema v2 + 13-panel），16 篇计划中**
 
 > 注：「计划中」= 目标总量 30 − 已发布，是到目标的缺口数；§4.3/§5.3/§6.2 三张计划表是已 scoped 的路线图，未穷尽全部目标主题。
 
 ---
 
-## 九、六站 Hreflang 映射表
-
-### EN↔DE↔ES↔FR↔RU↔PL 全站映射（按 EN slug 排序）
-
-| EN slug | DE slug | ES slug | FR slug | RU slug | PL slug |
-|---------|---------|---------|---------|---------|
-| car-charger-guide | autoladegeraet-ratgeber | cargador-coche-guia | **chargeur-voiture-oem-guide** ✅ | **avtomobilnye-zaryadki-oem-rukovodstvo** ✅ |
-| certifications-us-eu-guide | zertifizierungen-eu-markt | guia-certificaciones-cargadores-importadores | **certifications-chargeurs-oem-guide** ✅ | **sertifikaciya-zaryadnyh-ustroystv-oem** ✅ | **certyfikacja-ce-un38-3-importer-polska** ✅ |
-| charger-safety-standards | sicherheitsstandards-ladegeraete | normas-seguridad-cargadores | **securite-chargeurs-normes-oem** ✅ | **standarty-bezopasnosti-zaryadnyh-ustroystv-oem** ✅ | - |
-| charging-accessory-market-trends-2026 | markt-trends-ladegeraete-2026 | tendencias-mercado-cargadores-2026 | tendances-marche-chargeurs-2026-oem ✅ | tendencii-rynka-zaryadnyh-ustroystv-2026-oem ✅ |
-| choose-reliable-china-charger-supplier | lieferanten-china-finden | proveedor-cargadores-china-fiable | **fournisseurs-chargeurs-chine-oem** ✅ | **poisk-postavshchikov-kitay-oem** ✅ | **weryfikacja-producentow-power-bank-shenzhen** ✅ |
-| eu-battery-regulation-2023-1542-guide | eu-batterieverordnung-2023-1542-leitfaden | reglamento-ue-2023-1542-cumplimiento | reglement-ue-2023-1542-conformite-oem ✅ | reglament-es-2023-1542-batarei-oem ✅ |
-| factory-verification-checklist | fabrikpruefung-checkliste-importeure | verificacion-fabricas-checklist | checklist-verification-usine-chine-oem ✅ | - | - |
-| gan-chargers-guide | gan-ladegeraete-leitfaden | guia-cargadores-gan-importadores | **chargeurs-gan-guide-oem** ✅ | **gan-zaryadnye-ustroystva-oem-rukovodstvo** ✅ |
-| gan-generations-guide | gan-generationen-uebersicht | generaciones-gan-comparativa | generations-gan-comparaison-oem ✅ | pokoleniya-gan-sravneniye-oem ✅ | generacje-gan-porownanie-oem ✅ |
-| gan-v-charger-oem-manufacturing | gan-v-oem-fertigung | gan-v-fabricacion-oem | **fabrication-oem-gan-v** ✅ | **proizvodstvo-oem-gan-v** ✅ |
-| gan-vs-silicon-charger-comparison | gan-vs-silizium-ladegeraete-vergleich | gan-vs-silicio-comparativa | gan-vs-silicium-comparaison-oem ✅ | gan-vs-kremniy-sravneniye-oem ✅ | gan-vs-krzem-porownanie-oem ✅ |
-| hotel-charging-solutions | hotelladegeraete-oem-loesungen | soluciones-carga-hoteles | - | - | - |
-| how-to-choose-factory | fabrikauswahl-china-leitfaden | como-elegir-fabrica-china | **audit-usine-chine-chargeurs-oem** ✅ | **vybor-zavoda-kitay-audit-oem** ✅ | **wybor-fabryki-chiny-audyt-oem** ✅ |
-| how-to-choose-power-bank | powerbank-beschaffung-leitfaden | como-elegir-power-bank | choisir-batterie-externe-oem-guide ✅ | power-bank-vybor-oem-rukovodstvo ✅ | power-bank-oem-wybor-specyfikacja ✅ |
-| import-costs-guide | ladegeraet-import-china-zoll-zertifikate | importar-cargadores-china-aduanas | **couts-import-chine-droits-douane-oem** ✅ | **zatraty-import-kitay-poshliny-oem** ✅ | **import-chiny-polska-clo-vat-certyfikacja** ✅ |
-| oem-vs-odm-guide | oem-vs-odm-leitfaden | oem-vs-odm-guia-completa | **oem-vs-odm-guide-importateurs** ✅ | **oem-vs-odm-rukovodstvo-importyor** ✅ | oem-vs-odm-polska-marka ✅ |
-| power-bank-mah-explained | powerbank-mah-kapazitaet | power-bank-mah-explicado | mah-batterie-externe-guide-oem ✅ | mah-power-bank-rukovodstvo-oem ✅ |
-| power-bank-private-label-oem-production | powerbank-eigenmarke-oem-produktion | powerbank-marca-propia-produccion-oem | - | - | - |
-| power-bank-specs-guide | powerbank-spezifikationen | especificaciones-power-banks-importadores | **batterie-externe-specifications-oem** ✅ | **specifikacii-power-bank-oem** ✅ |
-| qi-certification-guide | qi2-zertifizierung-importeure | certificacion-qi2-importadores | **certification-qi2-importateurs** ✅ | **sertifikaciya-qi2-wpc-oem** ✅ |
-| qi2-vs-magsafe-guide | qi2-vs-magsafe | qi2-vs-magsafe-diferencias | **qi2-vs-magsafe-importateurs** ✅ | **qi2-vs-magsafe-sravneniye-oem** ✅ |
-| quality-control-guide | qualitaetskontrolle-china | control-calidad-fabricas-chinas | **controle-qualite-usines-chinoises-oem** ✅ | **kontrol-kachestva-zavody-kitay-oem** ✅ | kontrola-jakosci-fabryka-chiny-oem ✅ |
-| semi-solid-state-power-bank-oem | semi-solid-state-powerbank | baterias-semi-solid-state | batterie-semi-solide-oem-guide ✅ | polutverdotelnye-power-bank-oem ✅ | baterie-polstale-power-bank-oem ✅ |
-| shipping-from-china-guide | oem-versand-aus-china-logistik | envio-desde-china-logistica | **expedition-chine-logistique-oem** ✅ | **dostavka-iz-kitaya-logistika-oem** ✅ |
-| top-power-bank-manufacturers-china | powerbank-hersteller-china-oem-partner | fabricante-power-banks-china-oem | - | - | - |
-| usb-c-pd-3-1-explained | usb-c-pd-3-1-erklaert | usb-c-pd-3-1-explicado | usb-c-pd-3-1-guide-oem ✅ | usb-c-pd-3-1-specifikacii-oem ✅ | usb-c-pd-3-1-specyfikacja-oem ✅ |
-| usb-c-pd-fast-charging-guide | usb-c-pd-schnellladen | usb-c-pd-carga-rapida | **charge-rapide-usb-c-pd-oem** ✅ | **usb-c-pd-bystraya-zaryadka-oem** ✅ |
-| what-is-gan-charger | gan-ladegeraet-technologie | que-es-cargador-gan | technologie-gan-chargeur-oem ✅ | technologiya-gan-zaryadnye-ustroystva-oem ✅ | technologia-gan-ladowarki-oem ✅ |
-| wireless-charging-works | kabelloses-laden | carga-inalambrica-qi-qi2-magsafe | charge-sans-fil-qi2-guide-oem ✅ | besprovodnaya-zaryadka-qi2-oem ✅ | ladowanie-bezprzewodowe-qi2-oem ✅ |
-| lithium-battery-dangerous-goods-packaging-certification | gefahrgutverpackung-lithium-batterien-export-zertifizierung | certificacion-embalaje-mercancias-peligrosas-baterias-litio | **certification-emballage-marchandises-dangereuses-batteries-lithium** ✅ | **sertifikaciya-upakovki-opasnyh-gruzov-litievye-batarei-oem** ✅ |
-| on-site-factory-audit-checklist-china-charger-oem | - | auditoria-fabrica-in-situ-checklist-cargadores-oem ✅ | - | chek-list-proverki-zavoda-kitay-oem ✅ | checklista-weryfikacji-fabryki-chiny-oem ✅ |
-| semi-solid-state-nail-penetration-test-oem-verification | - | prueba-penetracion-clavo-baterias-semisolidas-oem ✅ | - | ispytanie-prokolom-gvozdem-polutverdotelnye-oem ✅ | - |
-| verify-fake-charger-certificates-fcc-ce-ul | - | verificar-certificados-falsos-cargadores-ce-fcc-ul ✅ | - | proverka-podlinnosti-sertifikatov-eac-ce-fcc-oem ✅ | - |
-
-> ✅ = 已发布  
-> \* = 计划中（slug 已确定，尚未创建）
-
----
 
 ---
 
@@ -518,9 +474,9 @@ PL 站作为全新站点，首批 5 篇覆盖采购经理最核心的 5 个问�
 
 | 站点 | 缺口 | 篇目（按优先级） |
 |---|---|---|
-| RU | 3 | ①PB 厂家 ②СТМ 自有品牌 ③酒店充电 |
-| FR | 3 | ①PB 厂家 ②自有品牌 ③酒店方案 |
-| PL | 11 | ①Qi2 vs MagSafe ②EU 电池法规 ③市场趋势 ④车充 ⑤物流 ⑥电池安全 ⑦自有品牌 ⑧TFT ⑨2合1 ⑩笔记本 ⑪3合1站 |
+| RU | 2 | ①PB 厂家 ②酒店充电 |
+| FR | 2 | ①PB 厂家 ②酒店方案 |
+| PL | 10 | ①Qi2 vs MagSafe ②EU 电池法规 ③市场趋势 ④车充 ⑤物流 ⑥电池安全 ⑦TFT ⑧2合1 ⑨笔记本 ⑩3合1站 |
 
 > PL 另有 6 篇未 scoped（补到 30 目标）：GaN 充电器指南 / 安全标准 IEC / 工厂选择 / 供应商筛选 / Power Bank mAh / Power Bank 采购 —— 待 13 篇 scoped 完成后按 CTR 数据决定去留。
 
@@ -553,9 +509,8 @@ PL 站作为全新站点，首批 5 篇覆盖采购经理最核心的 5 个问�
 
 | 顺序 | 话题 | FR | RU | PL |
 |---|---|---|---|---|
-| 1 | ⑤自有品牌（private label / СТМ / własna marka） | batterie-externe-marque-blanche-oem | power-bank-stm-oem-proizvodstvo | power-bank-marka-wlasna-oem |
-| 2 | ③PB 厂家（top-power-bank-manufacturers） | fabricants-batterie-externe-chine-oem | proizvoditeli-power-bank-kitay-oem | —（PL 未 scoped） |
-| 3 | ⑥酒店充电（hotel-charging） | solutions-recharge-hotellerie-oem | zaryadnye-resheniya-gostinicy-oem | —（PL 未 scoped） |
+| 1 | ③PB 厂家（top-power-bank-manufacturers） | fabricants-batterie-externe-chine-oem | proizvoditeli-power-bank-kitay-oem | —（PL 未 scoped） |
+| 2 | ⑥酒店充电（hotel-charging） | solutions-recharge-hotellerie-oem | zaryadnye-resheniya-gostinicy-oem | —（PL 未 scoped） |
 
 每篇流程沿用 §10.4：本土 SERP 调研 → brief → write-b2b → b2b-audit ≥90 → geo-citability → optimize → 封面 + hreflang 闭环 + 部署。
 
@@ -679,3 +634,32 @@ CTA 禁用语（品牌声音清单）：Contact Us / Submit / Learn More。改�
 ---
 
 *2026-08-27 追加：十一 · High-Intent 询盘内容计划（依据 brand-voice.md + GSC-CTR-OPTIMIZATION-LOG.md 制定）*
+
+---
+
+## 十二、文章新增排期（2026-09-02 制定 · 方案 1：全站软上限 36）
+
+**配额决策（2026-09-03 用户确认）**: 全站软上限 36 篇/站（对齐 RU/ES/EN 已有先例），取代 §11.4「FR/DE/PL 维持 30」的硬约束。§10 缺口与 §11 High-Intent 计划全部执行；黑名单选题仍然禁用。执行完本排期后各站预计总量：EN 36 · DE 33 · ES 38 · FR 33 · RU 35 · PL 27+。
+
+### 12.1 Day 1-10 排期表（每天 ≤3 篇，每站每天 ≤1 篇优先）
+
+| Day | 日期 | 篇目（站 · slug · 来源） | 状态 |
+|---|---|---|---|
+| 1 | 9/2 → 顺延 **9/3** | RU `proizvoditeli-power-bank-kitay-oem` · FR `fabricants-batterie-externe-chine-oem`（§10 缺口 ③PB 厂家）+ EN `b-grade-rebuilt-cells-power-bank-oem-detection`（§11 P0#3） | 🔄 进行中 |
+| 2 | 9/4 | RU `zaryadnye-resheniya-gostinicy-oem` · FR `solutions-recharge-hotellerie-oem`（§10 缺口 ⑥酒店，FR/RU 基线缺口收口）+ ES `deteccion-celdas-grado-b-power-bank-oem`（P0#2） | 📋 |
+| 3 | 9/5 | RU `proverka-yacheek-power-bank-grade-a-oem`（P0#1）+ ES `gpsr-representante-autorizado-importadores-cargadores`（P0#5）+ EN `usb-c-common-charger-eu-2022-2380-oem-checklist`（P0#6）→ **P0 六篇完成** | 📋 |
+| 4 | 9/6 | RU `priemka-partii-power-bank-aql-oem`（P0#4）+ PL `qi2-vs-magsafe-importer-oem`（缺口①）+ PL `regulacje-ue-2023-1542-importer`（缺口②） | 📋 |
+| 5 | 9/7 | PL `trendy-rynku-ladowarek-2026-oem`（缺口③）+ DE `b-grade-zellen-powerbank-erkennen-oem`（P1#7）+ FR `cellules-reconditionnees-grade-b-batterie-externe-oem`（P1#8） | 📋 |
+| 6 | 9/8 | PL `ladowarki-samochodowe-oem`（缺口④）+ EN `eu-gpsr-authorized-representative-charger-importers`（P1#10）+ PL `wysylka-z-chin-logistyka-oem`（缺口⑤） | 📋 |
+| 7 | 9/9 | PL `bezpieczenstwo-baterii-litowych-oem`（缺口⑥）+ DE `gpsr-prodsg-importeur-ladegeraete-2023-988`（P1#11）+ FR `gpsr-responsable-economique-importateur-oem-2023-988`（P1#12） | 📋 |
+| 8 | 9/10 | PL `power-bank-wyswietlacz-tft-oem`（缺口⑦）+ DE `usb-c-pflicht-eu-2022-2380-checkliste-importeure`（P1#13）+ FR `directive-chargeur-universel-usb-c-2022-2380-oem`（P1#14） | 📋 |
+| 9 | 9/11 | PL `power-bank-hybrydowy-2w1-oem`（缺口⑧）+ PL `power-bank-do-laptopa-oem`（缺口⑨）+ PL `stacje-ladowania-3w1-oem`（缺口⑩，PL scoped 缺口收口） | 📋 |
+| 10 | 9/12 | PL `ogniwa-grade-b-power-bank-jak-wykryc-oem`（P1#9）+ 缓冲/返工位 | 📋 |
+
+### 12.2 执行规则
+
+- **每篇流程**（§10.4 铁律不变）: 本土 SERP 调研 + 官方法规原文核实 → brief → `.njk` 正文 → b2b-audit ≥90 → geo-citability → 封面 + hreflang 闭环 + 部署 + IndexNow
+- **先读再写**: 写 brief 前必读同主题已有 brief 与 EN 对应文章源码
+- **P2 门禁**: P0 六篇发布 +14 天（约 9/18）GSC 复查，CTR ≥0.5% 才滚动 §11.4 P2 六篇；不达标先调角度
+- **PL 未 scoped 6 篇**: Day 9 收口后按 CTR 数据决定去留（GaN 充电器指南 / 安全标准 IEC / 工厂选择 / 供应商筛选 / Power Bank mAh / Power Bank 采购）
+- **登记义务**: 每篇发布后在 §七 对照表与 §九 关键词映射登记 slug + 主关键词（§11.5 规则 5）

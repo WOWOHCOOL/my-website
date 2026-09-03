@@ -1,7 +1,7 @@
 # 全站 Blog 元数据审计（metadata-standard v2.5）— 2026-09-02
 
 - 扫描：174 篇 blog 文章（6 语言，非 blog 页面排除）
-- CRITICAL：**0** / WARN：**437**
+- CRITICAL：**0** / WARN：**738**
 
 ## CRITICAL（按检查类型）
 
@@ -12,11 +12,127 @@
 ## WARN
 
 - `C20` × 272
+- `C23` × 152
+- `C18` × 113
 - `W4` × 90
 - `C22` × 75
+- `C21` × 36
 
 ### 明细
 
+- `blog/certifications-us-eu-guide/index.njk` [BLOG] `C18` — keywords 缺维度: product, b2b（写作侧三维度规范 §3.2.1，存量文章 advisory，豁免类可忽略）
+- `blog/charger-safety-standards/index.njk` [BLOG] `C18` — keywords 缺维度: product, b2b（写作侧三维度规范 §3.2.1，存量文章 advisory，豁免类可忽略）
+- `blog/charging-accessory-market-trends-2026/index.njk` [BLOG] `C18` — keywords 缺维度: product（写作侧三维度规范 §3.2.1，存量文章 advisory，豁免类可忽略）
+- `blog/choose-reliable-china-charger-supplier/index.njk` [BLOG] `C18` — keywords 缺维度: product, standard（写作侧三维度规范 §3.2.1，存量文章 advisory，豁免类可忽略）
+- `blog/factory-verification-checklist/index.njk` [BLOG] `C18` — keywords 缺维度: product, standard（写作侧三维度规范 §3.2.1，存量文章 advisory，豁免类可忽略）
+- `blog/gan-chargers-guide/index.njk` [BLOG] `C18` — keywords 缺维度: standard（写作侧三维度规范 §3.2.1，存量文章 advisory，豁免类可忽略）
+- `blog/gan-generations-guide/index.njk` [BLOG] `C18` — keywords 缺维度: product, b2b, standard（写作侧三维度规范 §3.2.1，存量文章 advisory，豁免类可忽略）
+- `blog/gan-vs-silicon-charger-comparison/index.njk` [BLOG] `C18` — keywords 缺维度: standard（写作侧三维度规范 §3.2.1，存量文章 advisory，豁免类可忽略）
+- `blog/hotel-charging-solutions/index.njk` [BLOG] `C18` — keywords 缺维度: standard（写作侧三维度规范 §3.2.1，存量文章 advisory，豁免类可忽略）
+- `blog/how-to-choose-power-bank/index.njk` [BLOG] `C18` — keywords 缺维度: standard（写作侧三维度规范 §3.2.1，存量文章 advisory，豁免类可忽略）
+- `blog/import-costs-guide/index.njk` [BLOG] `C18` — keywords 缺维度: product, standard（写作侧三维度规范 §3.2.1，存量文章 advisory，豁免类可忽略）
+- `blog/oem-vs-odm-guide/index.njk` [BLOG] `C18` — keywords 缺维度: product, standard（写作侧三维度规范 §3.2.1，存量文章 advisory，豁免类可忽略）
+- `blog/on-site-factory-audit-checklist-china-charger-oem/index.njk` [BLOG] `C18` — keywords 缺维度: standard（写作侧三维度规范 §3.2.1，存量文章 advisory，豁免类可忽略）
+- `blog/power-bank-mah-explained/index.njk` [BLOG] `C18` — keywords 缺维度: b2b, standard（写作侧三维度规范 §3.2.1，存量文章 advisory，豁免类可忽略）
+- `blog/power-bank-private-label-oem-production/index.njk` [BLOG] `C18` — keywords 缺维度: standard（写作侧三维度规范 §3.2.1，存量文章 advisory，豁免类可忽略）
+- `blog/qi-certification-guide/index.njk` [BLOG] `C18` — keywords 缺维度: b2b, standard（写作侧三维度规范 §3.2.1，存量文章 advisory，豁免类可忽略）
+- `blog/qi2-vs-magsafe-guide/index.njk` [BLOG] `C18` — keywords 缺维度: b2b（写作侧三维度规范 §3.2.1，存量文章 advisory，豁免类可忽略）
+- `blog/quality-control-guide/index.njk` [BLOG] `C18` — keywords 缺维度: product, standard（写作侧三维度规范 §3.2.1，存量文章 advisory，豁免类可忽略）
+- `blog/semi-solid-state-power-bank-oem/index.njk` [BLOG] `C18` — keywords 缺维度: standard（写作侧三维度规范 §3.2.1，存量文章 advisory，豁免类可忽略）
+- `blog/shipping-from-china-guide/index.njk` [BLOG] `C18` — keywords 缺维度: product, b2b, standard（写作侧三维度规范 §3.2.1，存量文章 advisory，豁免类可忽略）
+- `blog/top-power-bank-manufacturers-china/index.njk` [BLOG] `C18` — keywords 缺维度: standard（写作侧三维度规范 §3.2.1，存量文章 advisory，豁免类可忽略）
+- `blog/usb-c-pd-3-1-explained/index.njk` [BLOG] `C18` — keywords 缺维度: product, b2b（写作侧三维度规范 §3.2.1，存量文章 advisory，豁免类可忽略）
+- `blog/usb-c-pd-fast-charging-guide/index.njk` [BLOG] `C18` — keywords 缺维度: product（写作侧三维度规范 §3.2.1，存量文章 advisory，豁免类可忽略）
+- `blog/what-is-gan-charger/index.njk` [BLOG] `C18` — keywords 缺维度: standard（写作侧三维度规范 §3.2.1，存量文章 advisory，豁免类可忽略）
+- `blog/wireless-charging-works/index.njk` [BLOG] `C18` — keywords 缺维度: b2b（写作侧三维度规范 §3.2.1，存量文章 advisory，豁免类可忽略）
+- `de/blog/fabrikauswahl-china-leitfaden/index.njk` [DE] `C18` — keywords 缺维度: product（写作侧三维度规范 §3.2.1，存量文章 advisory，豁免类可忽略）
+- `de/blog/fabrikpruefung-checkliste-importeure/index.njk` [DE] `C18` — keywords 缺维度: product, standard（写作侧三维度规范 §3.2.1，存量文章 advisory，豁免类可忽略）
+- `de/blog/gan-ladegeraet-technologie/index.njk` [DE] `C18` — keywords 缺维度: b2b, standard（写作侧三维度规范 §3.2.1，存量文章 advisory，豁免类可忽略）
+- `de/blog/gan-v-oem-fertigung/index.njk` [DE] `C18` — keywords 缺维度: standard（写作侧三维度规范 §3.2.1，存量文章 advisory，豁免类可忽略）
+- `de/blog/gan-vs-silizium-ladegeraete-vergleich/index.njk` [DE] `C18` — keywords 缺维度: b2b, standard（写作侧三维度规范 §3.2.1，存量文章 advisory，豁免类可忽略）
+- `de/blog/gefahrgutverpackung-lithium-batterien-export-zertifizierung/index.njk` [DE] `C18` — keywords 缺维度: product（写作侧三维度规范 §3.2.1，存量文章 advisory，豁免类可忽略）
+- `de/blog/kabelloses-laden/index.njk` [DE] `C18` — keywords 缺维度: product（写作侧三维度规范 §3.2.1，存量文章 advisory，豁免类可忽略）
+- `de/blog/ladegeraet-import-china-zoll-zertifikate/index.njk` [DE] `C18` — keywords 缺维度: product, standard（写作侧三维度规范 §3.2.1，存量文章 advisory，豁免类可忽略）
+- `de/blog/lieferanten-china-finden/index.njk` [DE] `C18` — keywords 缺维度: product, standard（写作侧三维度规范 §3.2.1，存量文章 advisory，豁免类可忽略）
+- `de/blog/oem-versand-aus-china-logistik/index.njk` [DE] `C18` — keywords 缺维度: product, standard（写作侧三维度规范 §3.2.1，存量文章 advisory，豁免类可忽略）
+- `de/blog/oem-vs-odm-leitfaden/index.njk` [DE] `C18` — keywords 缺维度: product, standard（写作侧三维度规范 §3.2.1，存量文章 advisory，豁免类可忽略）
+- `de/blog/powerbank-eigenmarke-oem-produktion/index.njk` [DE] `C18` — keywords 缺维度: standard（写作侧三维度规范 §3.2.1，存量文章 advisory，豁免类可忽略）
+- `de/blog/powerbank-hersteller-china-oem-partner/index.njk` [DE] `C18` — keywords 缺维度: standard（写作侧三维度规范 §3.2.1，存量文章 advisory，豁免类可忽略）
+- `de/blog/powerbank-mah-kapazitaet/index.njk` [DE] `C18` — keywords 缺维度: b2b, standard（写作侧三维度规范 §3.2.1，存量文章 advisory，豁免类可忽略）
+- `de/blog/qi2-vs-magsafe/index.njk` [DE] `C18` — keywords 缺维度: product（写作侧三维度规范 §3.2.1，存量文章 advisory，豁免类可忽略）
+- `de/blog/qi2-zertifizierung-importeure/index.njk` [DE] `C18` — keywords 缺维度: product, b2b（写作侧三维度规范 §3.2.1，存量文章 advisory，豁免类可忽略）
+- `de/blog/qualitaetskontrolle-china/index.njk` [DE] `C18` — keywords 缺维度: product, b2b（写作侧三维度规范 §3.2.1，存量文章 advisory，豁免类可忽略）
+- `de/blog/semi-solid-state-powerbank/index.njk` [DE] `C18` — keywords 缺维度: standard（写作侧三维度规范 §3.2.1，存量文章 advisory，豁免类可忽略）
+- `de/blog/sicherheitsstandards-ladegeraete/index.njk` [DE] `C18` — keywords 缺维度: standard（写作侧三维度规范 §3.2.1，存量文章 advisory，豁免类可忽略）
+- `de/blog/usb-c-pd-3-1-erklaert/index.njk` [DE] `C18` — keywords 缺维度: product, b2b（写作侧三维度规范 §3.2.1，存量文章 advisory，豁免类可忽略）
+- `de/blog/usb-c-pd-schnellladen/index.njk` [DE] `C18` — keywords 缺维度: product（写作侧三维度规范 §3.2.1，存量文章 advisory，豁免类可忽略）
+- `de/blog/zertifizierungen-eu-markt/index.njk` [DE] `C18` — keywords 缺维度: product（写作侧三维度规范 §3.2.1，存量文章 advisory，豁免类可忽略）
+- `es/blog/certificacion-embalaje-mercancias-peligrosas-baterias-litio/index.njk` [ES] `C18` — keywords 缺维度: product（写作侧三维度规范 §3.2.1，存量文章 advisory，豁免类可忽略）
+- `es/blog/certificacion-qi2-importadores/index.njk` [ES] `C18` — keywords 缺维度: product, b2b（写作侧三维度规范 §3.2.1，存量文章 advisory，豁免类可忽略）
+- `es/blog/como-elegir-fabrica-china/index.njk` [ES] `C18` — keywords 缺维度: product（写作侧三维度规范 §3.2.1，存量文章 advisory，豁免类可忽略）
+- `es/blog/control-calidad-fabricas-chinas/index.njk` [ES] `C18` — keywords 缺维度: product（写作侧三维度规范 §3.2.1，存量文章 advisory，豁免类可忽略）
+- `es/blog/diferimiento-iva-importacion-oem/index.njk` [ES] `C18` — keywords 缺维度: product, standard（写作侧三维度规范 §3.2.1，存量文章 advisory，豁免类可忽略）
+- `es/blog/envio-desde-china-logistica/index.njk` [ES] `C18` — keywords 缺维度: product, standard（写作侧三维度规范 §3.2.1，存量文章 advisory，豁免类可忽略）
+- `es/blog/fabricante-power-banks-china-oem/index.njk` [ES] `C18` — keywords 缺维度: standard（写作侧三维度规范 §3.2.1，存量文章 advisory，豁免类可忽略）
+- `es/blog/gan-vs-silicio-comparativa/index.njk` [ES] `C18` — keywords 缺维度: standard（写作侧三维度规范 §3.2.1，存量文章 advisory，豁免类可忽略）
+- `es/blog/generaciones-gan-comparativa/index.njk` [ES] `C18` — keywords 缺维度: product, standard（写作侧三维度规范 §3.2.1，存量文章 advisory，豁免类可忽略）
+- `es/blog/guia-certificaciones-cargadores-importadores/index.njk` [ES] `C18` — keywords 缺维度: product（写作侧三维度规范 §3.2.1，存量文章 advisory，豁免类可忽略）
+- `es/blog/importar-cargadores-china-aduanas/index.njk` [ES] `C18` — keywords 缺维度: product, standard（写作侧三维度规范 §3.2.1，存量文章 advisory，豁免类可忽略）
+- `es/blog/normas-seguridad-cargadores/index.njk` [ES] `C18` — keywords 缺维度: product, b2b（写作侧三维度规范 §3.2.1，存量文章 advisory，豁免类可忽略）
+- `es/blog/oem-vs-odm-guia-completa/index.njk` [ES] `C18` — keywords 缺维度: product, standard（写作侧三维度规范 §3.2.1，存量文章 advisory，豁免类可忽略）
+- `es/blog/power-bank-mah-explicado/index.njk` [ES] `C18` — keywords 缺维度: standard（写作侧三维度规范 §3.2.1，存量文章 advisory，豁免类可忽略）
+- `es/blog/powerbank-marca-propia-produccion-oem/index.njk` [ES] `C18` — keywords 缺维度: standard（写作侧三维度规范 §3.2.1，存量文章 advisory，豁免类可忽略）
+- `es/blog/proveedor-cargadores-china-fiable/index.njk` [ES] `C18` — keywords 缺维度: product, standard（写作侧三维度规范 §3.2.1，存量文章 advisory，豁免类可忽略）
+- `es/blog/qi2-vs-magsafe-diferencias/index.njk` [ES] `C18` — keywords 缺维度: product（写作侧三维度规范 §3.2.1，存量文章 advisory，豁免类可忽略）
+- `es/blog/soluciones-carga-hoteles/index.njk` [ES] `C18` — keywords 缺维度: product（写作侧三维度规范 §3.2.1，存量文章 advisory，豁免类可忽略）
+- `es/blog/subvaloracion-errores-codigo-hs-oem/index.njk` [ES] `C18` — keywords 缺维度: product, standard（写作侧三维度规范 §3.2.1，存量文章 advisory，豁免类可忽略）
+- `es/blog/tendencias-mercado-cargadores-2026/index.njk` [ES] `C18` — keywords 缺维度: product（写作侧三维度规范 §3.2.1，存量文章 advisory，豁免类可忽略）
+- `es/blog/usb-c-pd-3-1-explicado/index.njk` [ES] `C18` — keywords 缺维度: product（写作侧三维度规范 §3.2.1，存量文章 advisory，豁免类可忽略）
+- `es/blog/verificacion-fabricas-checklist/index.njk` [ES] `C18` — keywords 缺维度: product（写作侧三维度规范 §3.2.1，存量文章 advisory，豁免类可忽略）
+- `fr/blog/audit-usine-chine-chargeurs-oem/index.njk` [FR] `C18` — keywords 缺维度: product, standard（写作侧三维度规范 §3.2.1，存量文章 advisory，豁免类可忽略）
+- `fr/blog/batterie-externe-marque-blanche-oem/index.njk` [FR] `C18` — keywords 缺维度: standard（写作侧三维度规范 §3.2.1，存量文章 advisory，豁免类可忽略）
+- `fr/blog/certification-emballage-marchandises-dangereuses-batteries-lithium/index.njk` [FR] `C18` — keywords 缺维度: product（写作侧三维度规范 §3.2.1，存量文章 advisory，豁免类可忽略）
+- `fr/blog/certification-qi2-importateurs/index.njk` [FR] `C18` — keywords 缺维度: product（写作侧三维度规范 §3.2.1，存量文章 advisory，豁免类可忽略）
+- `fr/blog/certifications-chargeurs-oem-guide/index.njk` [FR] `C18` — keywords 缺维度: product（写作侧三维度规范 §3.2.1，存量文章 advisory，豁免类可忽略）
+- `fr/blog/charge-sans-fil-qi2-guide-oem/index.njk` [FR] `C18` — keywords 缺维度: product（写作侧三维度规范 §3.2.1，存量文章 advisory，豁免类可忽略）
+- `fr/blog/checklist-verification-usine-chine-oem/index.njk` [FR] `C18` — keywords 缺维度: product, standard（写作侧三维度规范 §3.2.1，存量文章 advisory，豁免类可忽略）
+- `fr/blog/controle-qualite-usines-chinoises-oem/index.njk` [FR] `C18` — keywords 缺维度: product（写作侧三维度规范 §3.2.1，存量文章 advisory，豁免类可忽略）
+- `fr/blog/couts-import-chine-droits-douane-oem/index.njk` [FR] `C18` — keywords 缺维度: product（写作侧三维度规范 §3.2.1，存量文章 advisory，豁免类可忽略）
+- `fr/blog/expedition-chine-logistique-oem/index.njk` [FR] `C18` — keywords 缺维度: product（写作侧三维度规范 §3.2.1，存量文章 advisory，豁免类可忽略）
+- `fr/blog/fournisseurs-chargeurs-chine-oem/index.njk` [FR] `C18` — keywords 缺维度: product（写作侧三维度规范 §3.2.1，存量文章 advisory，豁免类可忽略）
+- `fr/blog/gan-vs-silicium-comparaison-oem/index.njk` [FR] `C18` — keywords 缺维度: standard（写作侧三维度规范 §3.2.1，存量文章 advisory，豁免类可忽略）
+- `fr/blog/generations-gan-comparaison-oem/index.njk` [FR] `C18` — keywords 缺维度: standard（写作侧三维度规范 §3.2.1，存量文章 advisory，豁免类可忽略）
+- `fr/blog/oem-vs-odm-guide-importateurs/index.njk` [FR] `C18` — keywords 缺维度: product, standard（写作侧三维度规范 §3.2.1，存量文章 advisory，豁免类可忽略）
+- `fr/blog/qi2-vs-magsafe-importateurs/index.njk` [FR] `C18` — keywords 缺维度: product（写作侧三维度规范 §3.2.1，存量文章 advisory，豁免类可忽略）
+- `fr/blog/technologie-gan-chargeur-oem/index.njk` [FR] `C18` — keywords 缺维度: standard（写作侧三维度规范 §3.2.1，存量文章 advisory，豁免类可忽略）
+- `fr/blog/tendances-marche-chargeurs-2026-oem/index.njk` [FR] `C18` — keywords 缺维度: product（写作侧三维度规范 §3.2.1，存量文章 advisory，豁免类可忽略）
+- `fr/blog/usb-c-pd-3-1-guide-oem/index.njk` [FR] `C18` — keywords 缺维度: product（写作侧三维度规范 §3.2.1，存量文章 advisory，豁免类可忽略）
+- `pl/blog/checklista-weryfikacji-fabryki-chiny-oem/index.njk` [PL] `C18` — keywords 缺维度: product（写作侧三维度规范 §3.2.1，存量文章 advisory，豁免类可忽略）
+- `pl/blog/generacje-gan-porownanie-oem/index.njk` [PL] `C18` — keywords 缺维度: standard（写作侧三维度规范 §3.2.1，存量文章 advisory，豁免类可忽略）
+- `pl/blog/import-chiny-polska-clo-vat-certyfikacja/index.njk` [PL] `C18` — keywords 缺维度: product, standard（写作侧三维度规范 §3.2.1，存量文章 advisory，豁免类可忽略）
+- `pl/blog/kontrola-jakosci-fabryka-chiny-oem/index.njk` [PL] `C18` — keywords 缺维度: product（写作侧三维度规范 §3.2.1，存量文章 advisory，豁免类可忽略）
+- `pl/blog/koszty-importu-elektronika-chiny-fob-ddp/index.njk` [PL] `C18` — keywords 缺维度: product, standard（写作侧三维度规范 §3.2.1，存量文章 advisory，豁免类可忽略）
+- `pl/blog/ladowanie-bezprzewodowe-qi2-oem/index.njk` [PL] `C18` — keywords 缺维度: product（写作侧三维度规范 §3.2.1，存量文章 advisory，豁免类可忽略）
+- `pl/blog/oem-vs-odm-polska-marka/index.njk` [PL] `C18` — keywords 缺维度: standard（写作侧三维度规范 §3.2.1，存量文章 advisory，豁免类可忽略）
+- `pl/blog/power-bank-marka-wlasna-oem/index.njk` [PL] `C18` — keywords 缺维度: standard（写作侧三维度规范 §3.2.1，存量文章 advisory，豁免类可忽略）
+- `pl/blog/technologia-gan-ladowarki-oem/index.njk` [PL] `C18` — keywords 缺维度: standard（写作侧三维度规范 §3.2.1，存量文章 advisory，豁免类可忽略）
+- `pl/blog/usb-c-pd-3-1-specyfikacja-oem/index.njk` [PL] `C18` — keywords 缺维度: product（写作侧三维度规范 §3.2.1，存量文章 advisory，豁免类可忽略）
+- `pl/blog/wybor-fabryki-chiny-audyt-oem/index.njk` [PL] `C18` — keywords 缺维度: product, standard（写作侧三维度规范 §3.2.1，存量文章 advisory，豁免类可忽略）
+- `ru/blog/avtomobilnye-zaryadki-oem-rukovodstvo/index.njk` [RU] `C18` — keywords 缺维度: product（写作侧三维度规范 §3.2.1，存量文章 advisory，豁免类可忽略）
+- `ru/blog/besprovodnaya-zaryadka-qi2-oem/index.njk` [RU] `C18` — keywords 缺维度: product（写作侧三维度规范 §3.2.1，存量文章 advisory，豁免类可忽略）
+- `ru/blog/chek-list-proverki-zavoda-kitay-oem/index.njk` [RU] `C18` — keywords 缺维度: product（写作侧三维度规范 §3.2.1，存量文章 advisory，豁免类可忽略）
+- `ru/blog/dostavka-iz-kitaya-logistika-oem/index.njk` [RU] `C18` — keywords 缺维度: product（写作侧三维度规范 §3.2.1，存量文章 advisory，豁免类可忽略）
+- `ru/blog/kontrol-kachestva-zavody-kitay-oem/index.njk` [RU] `C18` — keywords 缺维度: product（写作侧三维度规范 §3.2.1，存量文章 advisory，豁免类可忽略）
+- `ru/blog/oem-vs-odm-rukovodstvo-importyor/index.njk` [RU] `C18` — keywords 缺维度: product（写作侧三维度规范 §3.2.1，存量文章 advisory，豁免类可忽略）
+- `ru/blog/poisk-postavshchikov-kitay-oem/index.njk` [RU] `C18` — keywords 缺维度: product（写作侧三维度规范 §3.2.1，存量文章 advisory，豁免类可忽略）
+- `ru/blog/pokoleniya-gan-sravneniye-oem/index.njk` [RU] `C18` — keywords 缺维度: standard（写作侧三维度规范 §3.2.1，存量文章 advisory，豁免类可忽略）
+- `ru/blog/qi2-vs-magsafe-sravneniye-oem/index.njk` [RU] `C18` — keywords 缺维度: product（写作侧三维度规范 §3.2.1，存量文章 advisory，豁免类可忽略）
+- `ru/blog/sertifikaciya-qi2-wpc-oem/index.njk` [RU] `C18` — keywords 缺维度: product（写作侧三维度规范 §3.2.1，存量文章 advisory，豁免类可忽略）
+- `ru/blog/sertifikaciya-upakovki-opasnyh-gruzov-litievye-batarei-oem/index.njk` [RU] `C18` — keywords 缺维度: product, b2b（写作侧三维度规范 §3.2.1，存量文章 advisory，豁免类可忽略）
+- `ru/blog/tendencii-rynka-zaryadnyh-ustroystv-2026-oem/index.njk` [RU] `C18` — keywords 缺维度: product（写作侧三维度规范 §3.2.1，存量文章 advisory，豁免类可忽略）
+- `ru/blog/usb-c-pd-3-1-specifikacii-oem/index.njk` [RU] `C18` — keywords 缺维度: product（写作侧三维度规范 §3.2.1，存量文章 advisory，豁免类可忽略）
+- `ru/blog/usb-c-pd-bystraya-zaryadka-oem/index.njk` [RU] `C18` — keywords 缺维度: product（写作侧三维度规范 §3.2.1，存量文章 advisory，豁免类可忽略）
+- `ru/blog/vybor-zavoda-kitay-audit-oem/index.njk` [RU] `C18` — keywords 缺维度: product（写作侧三维度规范 §3.2.1，存量文章 advisory，豁免类可忽略）
 - `blog/car-charger-guide/index.njk` [BLOG] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.cpsc.gov/
 - `blog/car-charger-guide/index.njk` [BLOG] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.usb.org/
 - `blog/car-charger-guide/index.njk` [BLOG] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://eur-lex.europa.eu/
@@ -289,6 +405,42 @@
 - `ru/blog/vybor-zavoda-kitay-audit-oem/index.njk` [RU] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://www.wpc-qa.com/
 - `ru/blog/zatraty-import-kitay-poshliny-oem/index.njk` [RU] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://customs.gov.ru/
 - `ru/blog/zatraty-import-kitay-poshliny-oem/index.njk` [RU] `C20` — citation 挂站点首页（弱引用，需指明具体页面/报告）: https://eec.eaeunion.org/
+- `blog/eu-battery-regulation-2023-1542-guide/index.njk` [BLOG] `C21` — 商业来源缺 noreferrer nofollow: https://erp-recycling.org/
+- `ru/blog/gan-zaryadnye-ustroystva-oem-rukovodstvo/index.njk` [RU] `C21` — 商业来源缺 noreferrer nofollow: https://navitassemi.com/
+- `ru/blog/gan-zaryadnye-ustroystva-oem-rukovodstvo/index.njk` [RU] `C21` — 商业来源缺 noreferrer nofollow: https://www.infineon.com/
+- `ru/blog/gan-zaryadnye-ustroystva-oem-rukovodstvo/index.njk` [RU] `C21` — 商业来源缺 noreferrer nofollow: https://docs.cntd.ru/
+- `ru/blog/gan-zaryadnye-ustroystva-oem-rukovodstvo/index.njk` [RU] `C21` — 商业来源缺 noreferrer nofollow: https://docs.cntd.ru/
+- `ru/blog/gan-zaryadnye-ustroystva-oem-rukovodstvo/index.njk` [RU] `C21` — 商业来源缺 noreferrer nofollow: https://www.wowohcool.com/ru/o-kompanii/
+- `ru/blog/oem-vs-odm-rukovodstvo-importyor/index.njk` [RU] `C21` — 商业来源缺 noreferrer nofollow: https://docs.cntd.ru/
+- `ru/blog/oem-vs-odm-rukovodstvo-importyor/index.njk` [RU] `C21` — 商业来源缺 noreferrer nofollow: https://docs.cntd.ru/
+- `ru/blog/oem-vs-odm-rukovodstvo-importyor/index.njk` [RU] `C21` — 商业来源缺 noreferrer nofollow: https://www.wowohcool.com/ru/o-kompanii/
+- `ru/blog/poisk-postavshchikov-kitay-oem/index.njk` [RU] `C21` — 商业来源缺 noreferrer nofollow: https://docs.cntd.ru/
+- `ru/blog/poisk-postavshchikov-kitay-oem/index.njk` [RU] `C21` — 商业来源缺 noreferrer nofollow: https://docs.cntd.ru/
+- `ru/blog/poisk-postavshchikov-kitay-oem/index.njk` [RU] `C21` — 商业来源缺 noreferrer nofollow: https://www.qichacha.com/
+- `ru/blog/poisk-postavshchikov-kitay-oem/index.njk` [RU] `C21` — 商业来源缺 noreferrer nofollow: https://www.wowohcool.com/ru/o-kompanii/
+- `ru/blog/polutverdotelnye-power-bank-oem/index.njk` [RU] `C21` — 商业来源缺 noreferrer nofollow: https://docs.cntd.ru/
+- `ru/blog/polutverdotelnye-power-bank-oem/index.njk` [RU] `C21` — 商业来源缺 noreferrer nofollow: https://docs.cntd.ru/
+- `ru/blog/polutverdotelnye-power-bank-oem/index.njk` [RU] `C21` — 商业来源缺 noreferrer nofollow: https://about.bnef.com/
+- `ru/blog/proizvodstvo-oem-gan-v/index.njk` [RU] `C21` — 商业来源缺 noreferrer nofollow: https://www.ipc.org/
+- `ru/blog/proizvodstvo-oem-gan-v/index.njk` [RU] `C21` — 商业来源缺 noreferrer nofollow: https://navitassemi.com/
+- `ru/blog/proizvodstvo-oem-gan-v/index.njk` [RU] `C21` — 商业来源缺 noreferrer nofollow: https://docs.cntd.ru/
+- `ru/blog/proizvodstvo-oem-gan-v/index.njk` [RU] `C21` — 商业来源缺 noreferrer nofollow: https://docs.cntd.ru/
+- `ru/blog/proizvodstvo-oem-gan-v/index.njk` [RU] `C21` — 商业来源缺 noreferrer nofollow: https://www.wowohcool.com/ru/o-kompanii/
+- `ru/blog/sertifikaciya-eas-poverbankov-tr-ts-oem/index.njk` [RU] `C21` — 商业来源缺 noreferrer nofollow: https://docs.cntd.ru/
+- `ru/blog/sertifikaciya-eas-poverbankov-tr-ts-oem/index.njk` [RU] `C21` — 商业来源缺 noreferrer nofollow: https://docs.cntd.ru/
+- `ru/blog/sertifikaciya-eas-poverbankov-tr-ts-oem/index.njk` [RU] `C21` — 商业来源缺 noreferrer nofollow: https://docs.cntd.ru/
+- `ru/blog/sertifikaciya-qi2-wpc-oem/index.njk` [RU] `C21` — 商业来源缺 noreferrer nofollow: https://docs.cntd.ru/
+- `ru/blog/sertifikaciya-qi2-wpc-oem/index.njk` [RU] `C21` — 商业来源缺 noreferrer nofollow: https://docs.cntd.ru/
+- `ru/blog/sertifikaciya-zaryadnyh-ustroystv-oem/index.njk` [RU] `C21` — 商业来源缺 noreferrer nofollow: https://docs.cntd.ru/
+- `ru/blog/sertifikaciya-zaryadnyh-ustroystv-oem/index.njk` [RU] `C21` — 商业来源缺 noreferrer nofollow: https://docs.cntd.ru/
+- `ru/blog/specifikacii-power-bank-oem/index.njk` [RU] `C21` — 商业来源缺 noreferrer nofollow: https://docs.cntd.ru/
+- `ru/blog/standarty-bezopasnosti-zaryadnyh-ustroystv-oem/index.njk` [RU] `C21` — 商业来源缺 noreferrer nofollow: https://docs.cntd.ru/
+- `ru/blog/standarty-bezopasnosti-zaryadnyh-ustroystv-oem/index.njk` [RU] `C21` — 商业来源缺 noreferrer nofollow: https://docs.cntd.ru/
+- `ru/blog/standarty-bezopasnosti-zaryadnyh-ustroystv-oem/index.njk` [RU] `C21` — 商业来源缺 noreferrer nofollow: https://www.economie.gouv.fr/dgccrf
+- `ru/blog/usb-c-pd-bystraya-zaryadka-oem/index.njk` [RU] `C21` — 商业来源缺 noreferrer nofollow: https://docs.cntd.ru/
+- `ru/blog/usb-c-pd-bystraya-zaryadka-oem/index.njk` [RU] `C21` — 商业来源缺 noreferrer nofollow: https://docs.cntd.ru/
+- `ru/blog/usb-c-pd-bystraya-zaryadka-oem/index.njk` [RU] `C21` — 商业来源缺 noreferrer nofollow: https://www.wowohcool.com/ru/o-kompanii/
+- `ru/blog/zatraty-import-kitay-poshliny-oem/index.njk` [RU] `C21` — 商业来源缺 noreferrer nofollow: https://www.imo.org/en/Publications/IMDGCode/
 - `blog/car-charger-guide/index.njk` [BLOG] `C22` — HowTo.totalTime PT30M 不落在任何 FAQ 周期区间内（需人工核对是否同一流程）
 - `blog/charging-accessory-market-trends-2026/index.njk` [BLOG] `C22` — HowTo.totalTime PT15M 不落在任何 FAQ 周期区间内（需人工核对是否同一流程）
 - `blog/choose-reliable-china-charger-supplier/index.njk` [BLOG] `C22` — HowTo.totalTime PT20M 不落在任何 FAQ 周期区间内（需人工核对是否同一流程）
@@ -364,6 +516,158 @@
 - `ru/blog/tendencii-rynka-zaryadnyh-ustroystv-2026-oem/index.njk` [RU] `C22` — HowTo.totalTime PT2H 不落在任何 FAQ 周期区间内（需人工核对是否同一流程）
 - `ru/blog/usb-c-pd-bystraya-zaryadka-oem/index.njk` [RU] `C22` — HowTo.totalTime PT2H 不落在任何 FAQ 周期区间内（需人工核对是否同一流程）
 - `ru/blog/zatraty-import-kitay-poshliny-oem/index.njk` [RU] `C22` — HowTo.totalTime PT2H 不落在任何 FAQ 周期区间内（需人工核对是否同一流程）
+- `blog/car-charger-guide/index.njk` [BLOG] `C23` — citation 裸机构名（缺描述性名称，§3.6）: Grand View Research
+- `blog/charging-accessory-market-trends-2026/index.njk` [BLOG] `C23` — citation 裸机构名（缺描述性名称，§3.6）: BMX SolidSafe Air at CES 2026
+- `blog/choose-reliable-china-charger-supplier/index.njk` [BLOG] `C23` — citation 裸机构名（缺描述性名称，§3.6）: FCC ID Search
+- `blog/factory-verification-checklist/index.njk` [BLOG] `C23` — citation 裸机构名（缺描述性名称，§3.6）: ISO Certificate Validation Portal
+- `blog/gan-chargers-guide/index.njk` [BLOG] `C23` — citation 裸机构名（缺描述性名称，§3.6）: Navitas GaNFast Technology
+- `blog/gan-chargers-guide/index.njk` [BLOG] `C23` — citation 裸机构名（缺描述性名称，§3.6）: Infineon CoolGaN Technology
+- `blog/how-to-choose-factory/index.njk` [BLOG] `C23` — citation 裸机构名（缺描述性名称，§3.6）: Wireless Power Consortium
+- `blog/how-to-choose-factory/index.njk` [BLOG] `C23` — citation 裸机构名（缺描述性名称，§3.6）: Wireless Power Consortium
+- `blog/how-to-choose-factory/index.njk` [BLOG] `C23` — citation 裸机构名（缺描述性名称，§3.6）: ISO
+- `blog/lithium-battery-dangerous-goods-packaging-certification/index.njk` [BLOG] `C23` — citation 裸机构名（缺描述性名称，§3.6）: IATA Dangerous Goods Regulations 67th Edition (202
+- `blog/lithium-battery-dangerous-goods-packaging-certification/index.njk` [BLOG] `C23` — citation 裸机构名（缺描述性名称，§3.6）: China Single Window &mdash; International Trade Pl
+- `blog/lithium-battery-dangerous-goods-packaging-certification/index.njk` [BLOG] `C23` — citation 裸机构名（缺描述性名称，§3.6）: IAF CertSearch &mdash; Verify ISO and Certificatio
+- `blog/on-site-factory-audit-checklist-china-charger-oem/index.njk` [BLOG] `C23` — citation 裸机构名（缺描述性名称，§3.6）: Alibaba OEM Electronics Supplier Verification
+- `blog/on-site-factory-audit-checklist-china-charger-oem/index.njk` [BLOG] `C23` — citation 裸机构名（缺描述性名称，§3.6）: Sinospect China Factory Audit Checklist
+- `blog/on-site-factory-audit-checklist-china-charger-oem/index.njk` [BLOG] `C23` — citation 裸机构名（缺描述性名称，§3.6）: Unit Circuits SMT Factory Audit Checklist
+- `de/blog/autoladegeraet-ratgeber/index.njk` [DE] `C23` — citation 裸机构名（缺描述性名称，§3.6）: KBA
+- `de/blog/autoladegeraet-ratgeber/index.njk` [DE] `C23` — citation 裸机构名（缺描述性名称，§3.6）: Statista
+- `de/blog/autoladegeraet-ratgeber/index.njk` [DE] `C23` — citation 裸机构名（缺描述性名称，§3.6）: GM Insights
+- `de/blog/fabrikauswahl-china-leitfaden/index.njk` [DE] `C23` — citation 裸机构名（缺描述性名称，§3.6）: EU CSDDD 2024/1760
+- `de/blog/fabrikpruefung-checkliste-importeure/index.njk` [DE] `C23` — citation 裸机构名（缺描述性名称，§3.6）: DIHK
+- `de/blog/fabrikpruefung-checkliste-importeure/index.njk` [DE] `C23` — citation 裸机构名（缺描述性名称，§3.6）: IAF Russia
+- `de/blog/fabrikpruefung-checkliste-importeure/index.njk` [DE] `C23` — citation 裸机构名（缺描述性名称，§3.6）: China NMPA
+- `de/blog/gan-v-oem-fertigung/index.njk` [DE] `C23` — citation 裸机构名（缺描述性名称，§3.6）: Persistence Market Research
+- `de/blog/gan-v-oem-fertigung/index.njk` [DE] `C23` — citation 裸机构名（缺描述性名称，§3.6）: Navitas Semiconductor
+- `de/blog/gan-v-oem-fertigung/index.njk` [DE] `C23` — citation 裸机构名（缺描述性名称，§3.6）: Innoscience Technology
+- `de/blog/gan-vs-silizium-ladegeraete-vergleich/index.njk` [DE] `C23` — citation 裸机构名（缺描述性名称，§3.6）: Grand View Research
+- `de/blog/gan-vs-silizium-ladegeraete-vergleich/index.njk` [DE] `C23` — citation 裸机构名（缺描述性名称，§3.6）: ChargerLab
+- `de/blog/gan-vs-silizium-ladegeraete-vergleich/index.njk` [DE] `C23` — citation 裸机构名（缺描述性名称，§3.6）: Eleos Compliance
+- `de/blog/gefahrgutverpackung-lithium-batterien-export-zertifizierung/index.njk` [DE] `C23` — citation 裸机构名（缺描述性名称，§3.6）: IATA Dangerous Goods Regulations 67th Edition (202
+- `de/blog/hotelladegeraete-oem-loesungen/index.njk` [DE] `C23` — citation 裸机构名（缺描述性名称，§3.6）: Statista
+- `de/blog/hotelladegeraete-oem-loesungen/index.njk` [DE] `C23` — citation 裸机构名（缺描述性名称，§3.6）: Destatis
+- `de/blog/hotelladegeraete-oem-loesungen/index.njk` [DE] `C23` — citation 裸机构名（缺描述性名称，§3.6）: BCD Travel
+- `de/blog/kabelloses-laden/index.njk` [DE] `C23` — citation 裸机构名（缺描述性名称，§3.6）: Future Market Insights
+- `de/blog/kabelloses-laden/index.njk` [DE] `C23` — citation 裸机构名（缺描述性名称，§3.6）: Bitkom
+- `de/blog/kabelloses-laden/index.njk` [DE] `C23` — citation 裸机构名（缺描述性名称，§3.6）: Wireless Power Consortium
+- `de/blog/ladegeraet-import-china-zoll-zertifikate/index.njk` [DE] `C23` — citation 裸机构名（缺描述性名称，§3.6）: Destatis
+- `de/blog/ladegeraet-import-china-zoll-zertifikate/index.njk` [DE] `C23` — citation 裸机构名（缺描述性名称，§3.6）: European Commission
+- `de/blog/ladegeraet-import-china-zoll-zertifikate/index.njk` [DE] `C23` — citation 裸机构名（缺描述性名称，§3.6）: European Union
+- `de/blog/lieferanten-china-finden/index.njk` [DE] `C23` — citation 裸机构名（缺描述性名称，§3.6）: European Commission
+- `de/blog/lieferanten-china-finden/index.njk` [DE] `C23` — citation 裸机构名（缺描述性名称，§3.6）: Allianz Trade
+- `de/blog/lieferanten-china-finden/index.njk` [DE] `C23` — citation 裸机构名（缺描述性名称，§3.6）: 1688.com
+- `de/blog/markt-trends-ladegeraete-2026/index.njk` [DE] `C23` — citation 裸机构名（缺描述性名称，§3.6）: Research and Markets
+- `de/blog/markt-trends-ladegeraete-2026/index.njk` [DE] `C23` — citation 裸机构名（缺描述性名称，§3.6）: Wireless Power Consortium
+- `de/blog/markt-trends-ladegeraete-2026/index.njk` [DE] `C23` — citation 裸机构名（缺描述性名称，§3.6）: MarketsandMarkets
+- `de/blog/oem-vs-odm-leitfaden/index.njk` [DE] `C23` — citation 裸机构名（缺描述性名称，§3.6）: IBISWorld
+- `de/blog/oem-vs-odm-leitfaden/index.njk` [DE] `C23` — citation 裸机构名（缺描述性名称，§3.6）: Stiftung Ear.De
+- `de/blog/oem-vs-odm-leitfaden/index.njk` [DE] `C23` — citation 裸机构名（缺描述性名称，§3.6）: TÜV
+- `de/blog/powerbank-beschaffung-leitfaden/index.njk` [DE] `C23` — citation 裸机构名（缺描述性名称，§3.6）: Amazon
+- `de/blog/powerbank-beschaffung-leitfaden/index.njk` [DE] `C23` — citation 裸机构名（缺描述性名称，§3.6）: Chongdiantou
+- `de/blog/powerbank-beschaffung-leitfaden/index.njk` [DE] `C23` — citation 裸机构名（缺描述性名称，§3.6）: European Union
+- `de/blog/powerbank-eigenmarke-oem-produktion/index.njk` [DE] `C23` — citation 裸机构名（缺描述性名称，§3.6）: DPMA
+- `de/blog/powerbank-eigenmarke-oem-produktion/index.njk` [DE] `C23` — citation 裸机构名（缺描述性名称，§3.6）: EUIPO
+- `de/blog/powerbank-eigenmarke-oem-produktion/index.njk` [DE] `C23` — citation 裸机构名（缺描述性名称，§3.6）: European Commission
+- `de/blog/powerbank-hersteller-china-oem-partner/index.njk` [DE] `C23` — citation 裸机构名（缺描述性名称，§3.6）: OEC World
+- `de/blog/powerbank-hersteller-china-oem-partner/index.njk` [DE] `C23` — citation 裸机构名（缺描述性名称，§3.6）: Research and Markets
+- `de/blog/powerbank-hersteller-china-oem-partner/index.njk` [DE] `C23` — citation 裸机构名（缺描述性名称，§3.6）: IHK
+- `de/blog/powerbank-mah-kapazitaet/index.njk` [DE] `C23` — citation 裸机构名（缺描述性名称，§3.6）: FAA
+- `de/blog/powerbank-mah-kapazitaet/index.njk` [DE] `C23` — citation 裸机构名（缺描述性名称，§3.6）: IATA
+- `de/blog/powerbank-spezifikationen/index.njk` [DE] `C23` — citation 裸机构名（缺描述性名称，§3.6）: Fortune Business Insights
+- `de/blog/powerbank-spezifikationen/index.njk` [DE] `C23` — citation 裸机构名（缺描述性名称，§3.6）: IMTEST
+- `de/blog/powerbank-spezifikationen/index.njk` [DE] `C23` — citation 裸机构名（缺描述性名称，§3.6）: IMTEST
+- `de/blog/qi2-vs-magsafe/index.njk` [DE] `C23` — citation 裸机构名（缺描述性名称，§3.6）: Wireless Power Consortium
+- `de/blog/qi2-vs-magsafe/index.njk` [DE] `C23` — citation 裸机构名（缺描述性名称，§3.6）: Android Authority
+- `de/blog/qi2-vs-magsafe/index.njk` [DE] `C23` — citation 裸机构名（缺描述性名称，§3.6）: TechTimes
+- `de/blog/qi2-zertifizierung-importeure/index.njk` [DE] `C23` — citation 裸机构名（缺描述性名称，§3.6）: Wireless Power Consortium
+- `de/blog/qi2-zertifizierung-importeure/index.njk` [DE] `C23` — citation 裸机构名（缺描述性名称，§3.6）: Wireless Power Consortium
+- `de/blog/qi2-zertifizierung-importeure/index.njk` [DE] `C23` — citation 裸机构名（缺描述性名称，§3.6）: Bitkom
+- `de/blog/qualitaetskontrolle-china/index.njk` [DE] `C23` — citation 裸机构名（缺描述性名称，§3.6）: IAF CertSearch
+- `de/blog/qualitaetskontrolle-china/index.njk` [DE] `C23` — citation 裸机构名（缺描述性名称，§3.6）: QC Advisor
+- `de/blog/qualitaetskontrolle-china/index.njk` [DE] `C23` — citation 裸机构名（缺描述性名称，§3.6）: ISO
+- `de/blog/semi-solid-state-powerbank/index.njk` [DE] `C23` — citation 裸机构名（缺描述性名称，§3.6）: CES
+- `de/blog/semi-solid-state-powerbank/index.njk` [DE] `C23` — citation 裸机构名（缺描述性名称，§3.6）: MakeZens
+- `de/blog/sicherheitsstandards-ladegeraete/index.njk` [DE] `C23` — citation 裸机构名（缺描述性名称，§3.6）: EU Safety Gate
+- `de/blog/sicherheitsstandards-ladegeraete/index.njk` [DE] `C23` — citation 裸机构名（缺描述性名称，§3.6）: SGS CQE
+- `de/blog/usb-c-pd-schnellladen/index.njk` [DE] `C23` — citation 裸机构名（缺描述性名称，§3.6）: IEC
+- `de/blog/zertifizierungen-eu-markt/index.njk` [DE] `C23` — citation 裸机构名（缺描述性名称，§3.6）: IEC Webstore
+- `de/blog/zertifizierungen-eu-markt/index.njk` [DE] `C23` — citation 裸机构名（缺描述性名称，§3.6）: Stiftung EAR
+- `de/blog/zertifizierungen-eu-markt/index.njk` [DE] `C23` — citation 裸机构名（缺描述性名称，§3.6）: EU TARIC
+- `es/blog/baterias-semi-solid-state/index.njk` [ES] `C23` — citation 裸机构名（缺描述性名称，§3.6）: IATA Dangerous Goods Regulations 67th Edition (202
+- `es/blog/carga-inalambrica-qi-qi2-magsafe/index.njk` [ES] `C23` — citation 裸机构名（缺描述性名称，§3.6）: Wireless Power Consortium (WPC)
+- `es/blog/cargador-coche-guia/index.njk` [ES] `C23` — citation 裸机构名（缺描述性名称，§3.6）: Ministerio de Transportes de España
+- `es/blog/certificacion-embalaje-mercancias-peligrosas-baterias-litio/index.njk` [ES] `C23` — citation 裸机构名（缺描述性名称，§3.6）: IATA Dangerous Goods Regulations 67th Edition (202
+- `es/blog/certificacion-qi2-importadores/index.njk` [ES] `C23` — citation 裸机构名（缺描述性名称，§3.6）: Wireless Power Consortium
+- `es/blog/certificacion-qi2-importadores/index.njk` [ES] `C23` — citation 裸机构名（缺描述性名称，§3.6）: Wireless Power Consortium
+- `es/blog/certificacion-qi2-importadores/index.njk` [ES] `C23` — citation 裸机构名（缺描述性名称，§3.6）: Grand View Research
+- `es/blog/como-elegir-fabrica-china/index.njk` [ES] `C23` — citation 裸机构名（缺描述性名称，§3.6）: Sistema Nacional de Información Empresarial de Chi
+- `es/blog/como-elegir-fabrica-china/index.njk` [ES] `C23` — citation 裸机构名（缺描述性名称，§3.6）: Directiva RoHS 2011/65/UE
+- `es/blog/como-elegir-power-bank/index.njk` [ES] `C23` — citation 裸机构名（缺描述性名称，§3.6）: IATA
+- `es/blog/como-elegir-power-bank/index.njk` [ES] `C23` — citation 裸机构名（缺描述性名称，§3.6）: FAA
+- `es/blog/control-calidad-fabricas-chinas/index.njk` [ES] `C23` — citation 裸机构名（缺描述性名称，§3.6）: TÜV
+- `es/blog/control-calidad-fabricas-chinas/index.njk` [ES] `C23` — citation 裸机构名（缺描述性名称，§3.6）: SGS
+- `es/blog/control-calidad-fabricas-chinas/index.njk` [ES] `C23` — citation 裸机构名（缺描述性名称，§3.6）: Bureau Veritas
+- `es/blog/envio-desde-china-logistica/index.njk` [ES] `C23` — citation 裸机构名（缺描述性名称，§3.6）: European Unión
+- `es/blog/envio-desde-china-logistica/index.njk` [ES] `C23` — citation 裸机构名（缺描述性名称，§3.6）: IATA
+- `es/blog/especificaciones-power-banks-importadores/index.njk` [ES] `C23` — citation 裸机构名（缺描述性名称，§3.6）: Fortune Business Insights
+- `es/blog/especificaciones-power-banks-importadores/index.njk` [ES] `C23` — citation 裸机构名（缺描述性名称，§3.6）: IATA
+- `es/blog/gan-vs-silicio-comparativa/index.njk` [ES] `C23` — citation 裸机构名（缺描述性名称，§3.6）: European Commission
+- `es/blog/gan-vs-silicio-comparativa/index.njk` [ES] `C23` — citation 裸机构名（缺描述性名称，§3.6）: EPC (Efficient Power Conversión)
+- `es/blog/guia-cargadores-gan-importadores/index.njk` [ES] `C23` — citation 裸机构名（缺描述性名称，§3.6）: Navitas GaNFast Technology
+- `es/blog/guia-cargadores-gan-importadores/index.njk` [ES] `C23` — citation 裸机构名（缺描述性名称，§3.6）: Infineon CoolGaN Technology
+- `es/blog/guia-certificaciones-cargadores-importadores/index.njk` [ES] `C23` — citation 裸机构名（缺描述性名称，§3.6）: UL Standards
+- `es/blog/importar-cargadores-china-aduanas/index.njk` [ES] `C23` — citation 裸机构名（缺描述性名称，§3.6）: Directiva de Baja Tensión 2014/35/UE
+- `es/blog/importar-cargadores-china-aduanas/index.njk` [ES] `C23` — citation 裸机构名（缺描述性名称，§3.6）: Directiva CEM 2014/30/UE
+- `es/blog/normas-seguridad-cargadores/index.njk` [ES] `C23` — citation 裸机构名（缺描述性名称，§3.6）: European Commission
+- `es/blog/normas-seguridad-cargadores/index.njk` [ES] `C23` — citation 裸机构名（缺描述性名称，§3.6）: IEC
+- `es/blog/normas-seguridad-cargadores/index.njk` [ES] `C23` — citation 裸机构名（缺描述性名称，§3.6）: IEC
+- `es/blog/oem-vs-odm-guia-completa/index.njk` [ES] `C23` — citation 裸机构名（缺描述性名称，§3.6）: Harris Sliwoski
+- `es/blog/oem-vs-odm-guia-completa/index.njk` [ES] `C23` — citation 裸机构名（缺描述性名称，§3.6）: IBISWorld
+- `es/blog/oem-vs-odm-guia-completa/index.njk` [ES] `C23` — citation 裸机构名（缺描述性名称，§3.6）: AENOR
+- `es/blog/power-bank-mah-explicado/index.njk` [ES] `C23` — citation 裸机构名（缺描述性名称，§3.6）: Next MSC
+- `es/blog/power-bank-mah-explicado/index.njk` [ES] `C23` — citation 裸机构名（缺描述性名称，§3.6）: IATA
+- `es/blog/power-bank-mah-explicado/index.njk` [ES] `C23` — citation 裸机构名（缺描述性名称，§3.6）: 6W Research
+- `es/blog/powerbank-marca-propia-produccion-oem/index.njk` [ES] `C23` — citation 裸机构名（缺描述性名称，§3.6）: MarketsandMarkets
+- `es/blog/powerbank-marca-propia-produccion-oem/index.njk` [ES] `C23` — citation 裸机构名（缺描述性名称，§3.6）: European Commission
+- `es/blog/que-es-cargador-gan/index.njk` [ES] `C23` — citation 裸机构名（缺描述性名称，§3.6）: Persistence Market Research
+- `es/blog/que-es-cargador-gan/index.njk` [ES] `C23` — citation 裸机构名（缺描述性名称，§3.6）: IndexBox
+- `es/blog/que-es-cargador-gan/index.njk` [ES] `C23` — citation 裸机构名（缺描述性名称，§3.6）: Deep Market Insights
+- `es/blog/reglamento-ue-2023-1542-cumplimiento/index.njk` [ES] `C23` — citation 裸机构名（缺描述性名称，§3.6）: ERP European Recycling Platform
+- `es/blog/tendencias-mercado-cargadores-2026/index.njk` [ES] `C23` — citation 裸机构名（缺描述性名称，§3.6）: Grand View Research
+- `es/blog/tendencias-mercado-cargadores-2026/index.njk` [ES] `C23` — citation 裸机构名（缺描述性名称，§3.6）: Research and Markets
+- `es/blog/tendencias-mercado-cargadores-2026/index.njk` [ES] `C23` — citation 裸机构名（缺描述性名称，§3.6）: MarketsandMarkets
+- `es/blog/usb-c-pd-carga-rapida/index.njk` [ES] `C23` — citation 裸机构名（缺描述性名称，§3.6）: Gobierno de España
+- `es/blog/verificacion-fabricas-checklist/index.njk` [ES] `C23` — citation 裸机构名（缺描述性名称，§3.6）: China NMPA
+- `es/blog/verificacion-fabricas-checklist/index.njk` [ES] `C23` — citation 裸机构名（缺描述性名称，§3.6）: ISO
+- `es/blog/verificacion-fabricas-checklist/index.njk` [ES] `C23` — citation 裸机构名（缺描述性名称，§3.6）: European Commission
+- `es/blog/verificar-certificados-falsos-cargadores-ce-fcc-ul/index.njk` [ES] `C23` — citation 裸机构名（缺描述性名称，§3.6）: FCC OET Equipment Authorization Search
+- `fr/blog/batterie-externe-specifications-oem/index.njk` [FR] `C23` — citation 裸机构名（缺描述性名称，§3.6）: IATA Dangerous Goods Régulations 67th Édition (202
+- `fr/blog/certification-emballage-marchandises-dangereuses-batteries-lithium/index.njk` [FR] `C23` — citation 裸机构名（缺描述性名称，§3.6）: IATA Dangerous Goods Régulations 67e Édition (2026
+- `fr/blog/chargeur-voiture-oem-guide/index.njk` [FR] `C23` — citation 裸机构名（缺描述性名称，§3.6）: SDES &mdash; Données parc automobile France 2025
+- `fr/blog/chargeur-voiture-oem-guide/index.njk` [FR] `C23` — citation 裸机构名（缺描述性名称，§3.6）: Fortune Business Insights &mdash; Automotive GaN P
+- `fr/blog/choisir-batterie-externe-oem-guide/index.njk` [FR] `C23` — citation 裸机构名（缺描述性名称，§3.6）: IATA Dangerous Goods Régulations 67e Édition (2026
+- `fr/blog/couts-import-chine-droits-douane-oem/index.njk` [FR] `C23` — citation 裸机构名（缺描述性名称，§3.6）: Douane Française
+- `fr/blog/couts-import-chine-droits-douane-oem/index.njk` [FR] `C23` — citation 裸机构名（缺描述性名称，§3.6）: TARIC Europa
+- `fr/blog/couts-import-chine-droits-douane-oem/index.njk` [FR] `C23` — citation 裸机构名（缺描述性名称，§3.6）: Article 1695 du Code Général des Impôts
+- `fr/blog/couts-import-chine-droits-douane-oem/index.njk` [FR] `C23` — citation 裸机构名（缺描述性名称，§3.6）: IATA Dangerous Goods Régulations 67th Édition (202
+- `fr/blog/expedition-chine-logistique-oem/index.njk` [FR] `C23` — citation 裸机构名（缺描述性名称，§3.6）: IATA Dangerous Goods Régulations 67th Édition (202
+- `fr/blog/fabrication-oem-gan-v/index.njk` [FR] `C23` — citation 裸机构名（缺描述性名称，§3.6）: Fortune Business Insights &mdash; Automotive GaN P
+- `fr/blog/fabrication-oem-gan-v/index.njk` [FR] `C23` — citation 裸机构名（缺描述性名称，§3.6）: Navitas Semiconductor &mdash; GaNFast Technology
+- `fr/blog/fabrication-oem-gan-v/index.njk` [FR] `C23` — citation 裸机构名（缺描述性名称，§3.6）: Infineon &mdash; CoolGaN Power Solutions
+- `fr/blog/fournisseurs-chargeurs-chine-oem/index.njk` [FR] `C23` — citation 裸机构名（缺描述性名称，§3.6）: IAF CertSearch &mdash; Base de données certificati
+- `pl/blog/baterie-polstale-power-bank-oem/index.njk` [PL] `C23` — citation 裸机构名（缺描述性名称，§3.6）: UN Manual of Tests and Criteria 38.3
+- `pl/blog/baterie-polstale-power-bank-oem/index.njk` [PL] `C23` — citation 裸机构名（缺描述性名称，§3.6）: Dyrektywa LVD 2014/35/UE
+- `pl/blog/certyfikacja-ce-un38-3-importer-polska/index.njk` [PL] `C23` — citation 裸机构名（缺描述性名称，§3.6）: UN Manual of Tests and Criteria 38.3
+- `pl/blog/certyfikacja-ce-un38-3-importer-polska/index.njk` [PL] `C23` — citation 裸机构名（缺描述性名称，§3.6）: Dyrektywa LVD 2014/35/UE
+- `pl/blog/power-bank-marka-wlasna-oem/index.njk` [PL] `C23` — citation 裸机构名（缺描述性名称，§3.6）: Dyrektywa LVD 2014/35/UE
+- `pl/blog/power-bank-marka-wlasna-oem/index.njk` [PL] `C23` — citation 裸机构名（缺描述性名称，§3.6）: Urząd Ochrony Konkurencji i Konsumentów (UOKiK)
+- `ru/blog/dostavka-iz-kitaya-logistika-oem/index.njk` [RU] `C23` — citation 裸机构名（缺描述性名称，§3.6）: IATA Dangerous Goods Regulations 67th Edition (202
+- `ru/blog/ispytanie-prokolom-gvozdem-polutverdotelnye-oem/index.njk` [RU] `C23` — citation 裸机构名（缺描述性名称，§3.6）: ТР ТС 004/2011 О безопасности низковольтного обору
+- `ru/blog/proverka-podlinnosti-sertifikatov-eac-ce-fcc-oem/index.njk` [RU] `C23` — citation 裸机构名（缺描述性名称，§3.6）: Постановление Правительства РФ № 87 от 06.02.2026
+- `ru/blog/sertifikaciya-eas-poverbankov-tr-ts-oem/index.njk` [RU] `C23` — citation 裸机构名（缺描述性名称，§3.6）: Постановление Правительства РФ № 1669 от 27.10.202
+- `ru/blog/sertifikaciya-upakovki-opasnyh-gruzov-litievye-batarei-oem/index.njk` [RU] `C23` — citation 裸机构名（缺描述性名称，§3.6）: IATA Dangerous Goods Regulations 67th Edition (202
+- `ru/blog/zatraty-import-kitay-poshliny-oem/index.njk` [RU] `C23` — citation 裸机构名（缺描述性名称，§3.6）: IATA Dangerous Goods Regulations 67th Edition (202
 - `blog/car-charger-guide/index.njk` [BLOG] `W4` — hreflang 缺语言: pl
 - `blog/charger-safety-standards/index.njk` [BLOG] `W4` — hreflang 缺语言: pl
 - `blog/charging-accessory-market-trends-2026/index.njk` [BLOG] `W4` — hreflang 缺语言: pl
