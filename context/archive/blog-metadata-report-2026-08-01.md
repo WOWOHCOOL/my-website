@@ -1,8 +1,10 @@
 # wowohcool.com 博客元数据报告
 
-**生成日期**: 2026-08-09 · **更新**: 2026-08-29 (新增 FR/RU/PL 自有品牌 3 篇 → 全站对齐 33/30/36/28/31/16)  
-**语言站点**: EN (33篇) · DE (30篇) · ES (36篇) · FR (28篇) · RU (31篇) · **PL (16篇)** · 合计 174 篇 (计划 180 篇)  
+**生成日期**: 2026-08-09 · **更新**: 2026-09-03 (Day 1 四篇上线 → 全站 34/30/36/29/32/17，合计 178 篇；总量规则改为「以最多站点 blog 数量为准」，当前锚定 ES=36)  
+**语言站点**: EN (34篇) · DE (30篇) · ES (36篇) · FR (29篇) · RU (32篇) · **PL (17篇)** · 合计 178 篇 (上限锚点 36×6=216)  
 **数据来源**: 各站点 `src/{lang}/blog/*/index.njk` frontmatter + H1 模板标签
+
+> **总量规则（2026-09-03 用户确认，取代 §11.4/§12 的数字配额）**: 每站文章总量上限 = **当前最多站点（ES）的 blog 数量**，即 36 篇。各站到达 36 后，随最多站点增长同步上浮。§12.1 排期表中超出 36 锚点的篇目（ES +2）须待其它站追平后再排。
 
 ---
 
@@ -446,20 +448,20 @@ PL 站作为全新站点，首批 5 篇覆盖采购经理最核心的 5 个问�
 
 | 指标 | EN | DE | ES | FR | RU | PL | 合计 |
 |---|---|---|---|---|---|---|---|
-| 已发布 | 33 | 30 | 36 | 28 | 31 | **16** | **174** |
-| 计划中 | 0 | 0 | 0 | 2 | 0 | **14** | **16** |
-| 目标总量 | 30 | 30 | 30 | 30 | 30 | **30** | **180** |
+| 已发布（2026-09-03） | 34 | 30 | 36 | 29 | 32 | **17** | **178** |
+| 距上限锚点（36） | 2 | 6 | 0 | 7 | 4 | **19** | **38** |
+| 上限锚点 | 36 | 36 | 36 | 36 | 36 | **36** | **216** |
 | Title 均含 B2B 信号词 | 30 | 30 | 30 | 26 | 25 | 13 | **154 (100%)** |
 | Schema v2 + 13-panel | 0 | 0 | 0 | 26 | 25 | 13 | **64** |
 
 ### 语言覆盖
 
-- EN/DE/ES: 30 个主题三语完整覆盖（EN/ES 已扩展至 33 篇，超出 30 基线）
-- FR: 27/30 个主题已发布，3 篇计划中
-- RU: 31/30 篇已发布（含 5 篇新角度；基线缺口 2 篇见 §十）
-- **PL: 14/30 个主题已发布（全部为 Schema v2 + 13-panel），16 篇计划中**
+- EN/DE/ES: 30 个主题三语完整覆盖（EN 34 篇、ES 36 篇为扩展）
+- FR: 29 篇已发布（基线缺口 2 篇已收口 → 剩 7 篇到锚点）
+- RU: 32 篇已发布（基线缺口 2 篇已收口 → 剩 4 篇到锚点）
+- **PL: 17 篇已发布（Schema v2 + 13-panel），19 篇到锚点（10 篇 scoped + 未 scoped 按 CTR 决定）**
 
-> 注：「计划中」= 目标总量 30 − 已发布，是到目标的缺口数；§4.3/§5.3/§6.2 三张计划表是已 scoped 的路线图，未穷尽全部目标主题。
+> 注（2026-09-03 更新）：总量规则改为「以最多站点（ES=36）为准」，上表「距上限锚点」= 36 − 已发布。§4.3/§5.3/§6.2 计划表是 scoped 路线图；§十二 Day 1-10 排期执行后各站预计：EN 36 · DE 33 · ES 36（暂停超锚篇目）· FR 33 · RU 35 · PL 24。
 
 ---
 
@@ -637,17 +639,17 @@ CTA 禁用语（品牌声音清单）：Contact Us / Submit / Learn More。改�
 
 ---
 
-## 十二、文章新增排期（2026-09-02 制定 · 方案 1：全站软上限 36）
+## 十二、文章新增排期（2026-09-02 制定 · 2026-09-03 修订：以最多站点 blog 数量为准）
 
-**配额决策（2026-09-03 用户确认）**: 全站软上限 36 篇/站（对齐 RU/ES/EN 已有先例），取代 §11.4「FR/DE/PL 维持 30」的硬约束。§10 缺口与 §11 High-Intent 计划全部执行；黑名单选题仍然禁用。执行完本排期后各站预计总量：EN 36 · DE 33 · ES 38 · FR 33 · RU 35 · PL 27+。
+**总量规则（2026-09-03 用户最终确认，取代本节原「方案 1：软上限 36」表述）**: 每站上限 = **最多站点（ES=36）的 blog 数量**。各站到 36 即停，随最多站点增长同步上浮；黑名单选题仍然禁用。对 §12.1 排期的影响：**ES 的 2 篇 P0（#2 电芯核验 / #5 GPSR）暂缓**，待其它站追平 36 后再排，其余篇目不受影响。执行完调整后排期各站预计：EN 36 · DE 33 · FR 33 · RU 35 · PL 24 · ES 36。
 
 ### 12.1 Day 1-10 排期表（每天 ≤3 篇，每站每天 ≤1 篇优先）
 
 | Day | 日期 | 篇目（站 · slug · 来源） | 状态 |
 |---|---|---|---|
-| 1 | 9/2 → 顺延 **9/3** | RU `proizvoditeli-power-bank-kitay-oem` · FR `fabricants-batterie-externe-chine-oem`（§10 缺口 ③PB 厂家）+ EN `b-grade-rebuilt-cells-power-bank-oem-detection`（§11 P0#3） | 🔄 进行中 |
-| 2 | 9/4 | RU `zaryadnye-resheniya-gostinicy-oem` · FR `solutions-recharge-hotellerie-oem`（§10 缺口 ⑥酒店，FR/RU 基线缺口收口）+ ES `deteccion-celdas-grado-b-power-bank-oem`（P0#2） | 📋 |
-| 3 | 9/5 | RU `proverka-yacheek-power-bank-grade-a-oem`（P0#1）+ ES `gpsr-representante-autorizado-importadores-cargadores`（P0#5）+ EN `usb-c-common-charger-eu-2022-2380-oem-checklist`（P0#6）→ **P0 六篇完成** | 📋 |
+| 1 | 9/2 → 顺延 **9/3** | RU `proizvoditeli-power-bank-kitay-oem` · FR `fabricants-batterie-externe-chine-oem`（§10 缺口 ③PB 厂家）+ EN `b-grade-rebuilt-cells-power-bank-oem-detection`（§11 P0#3） | ✅ 已上线（b2b 93.5/95.6/93.9；六站 hreflang 闭环） |
+| 2 | 9/4 | RU `zaryadnye-resheniya-gostinicy-oem` · FR `solutions-recharge-hotellerie-oem`（§10 缺口 ⑥酒店，FR/RU 基线缺口收口）+ ~~ES `deteccion-celdas-grado-b-power-bank-oem`（P0#2）~~（**暂缓**：ES 已达 36 锚点，待其它站追平） | 📋 |
+| 3 | 9/5 | RU `proverka-yacheek-power-bank-grade-a-oem`（P0#1）+ ~~ES `gpsr-representante-autorizado-importadores-cargadores`（P0#5）~~（**暂缓**：ES 锚点）+ EN `usb-c-common-charger-eu-2022-2380-oem-checklist`（P0#6）→ RU/EN 侧 P0 收口 | 📋 |
 | 4 | 9/6 | RU `priemka-partii-power-bank-aql-oem`（P0#4）+ PL `qi2-vs-magsafe-importer-oem`（缺口①）+ PL `regulacje-ue-2023-1542-importer`（缺口②） | 📋 |
 | 5 | 9/7 | PL `trendy-rynku-ladowarek-2026-oem`（缺口③）+ DE `b-grade-zellen-powerbank-erkennen-oem`（P1#7）+ FR `cellules-reconditionnees-grade-b-batterie-externe-oem`（P1#8） | 📋 |
 | 6 | 9/8 | PL `ladowarki-samochodowe-oem`（缺口④）+ EN `eu-gpsr-authorized-representative-charger-importers`（P1#10）+ PL `wysylka-z-chin-logistyka-oem`（缺口⑤） | 📋 |
