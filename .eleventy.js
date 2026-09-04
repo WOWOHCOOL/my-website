@@ -208,6 +208,15 @@ module.exports = function (eleventyConfig) {
     return d;
   });
 
+  // Localize thousands separators in number strings from _data/facts.json
+  // (facts are stored EN-formatted with ","; de/es use ".", fr/ru/pl use space)
+  eleventyConfig.addFilter("numloc", (str, lang) => {
+    if (typeof str !== "string") return str;
+    const sep = { de: ".", es: ".", fr: " ", ru: " ", pl: " " }[lang];
+    if (!sep) return str;
+    return str.replace(/(\d),(\d)/g, `$1${sep}$2`);
+  });
+
   // EN blog collection (exclude listing page), sorted newest first
   eleventyConfig.addCollection("blog_en", function (collectionApi) {
     return collectionApi.getFilteredByGlob("./src/blog/**/*.njk")
