@@ -299,51 +299,16 @@ plPath: "blog/"
  <svg class="icon-chevron-down text-brandOrange transition-transform duration-300" aria-hidden="true" focusable="false" viewBox="0 0 448 512" width="16"><path d="M201.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 338.7 54.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z" fill="currentColor"/></svg>
  </button>
  <div class="hidden divide-y divide-slate-100">
- <div class="p-4 bg-brandBlue/5"><span class="text-[11px] font-black text-brandOrange uppercase tracking-widest">Industry Analysis</span></div>
- <a href="/blog/charging-accessory-market-trends-2026" class="block px-6 py-3 text-sm text-slate-700 hover:bg-brandBlue/5 hover:text-brandOrange transition flex items-center justify-between"><span>2026 Charging Accessory Market Trends</span><span class="text-[11px] text-slate-400">May 20, 2026</span></a>
- <div class="p-4 bg-brandBlue/5"><span class="text-[11px] font-black text-brandOrange uppercase tracking-widest">Sourcing &amp; Manufacturing</span></div>
- <a href="/blog/choose-reliable-china-charger-supplier" class="block px-6 py-3 text-sm text-slate-700 hover:bg-brandBlue/5 hover:text-brandOrange transition flex items-center justify-between"><span>How to Choose a Reliable China Charger Supplier</span><span class="text-[11px] text-slate-400">Apr 28, 2026</span></a>
- <a href="/blog/factory-verification-checklist" class="block px-6 py-3 text-sm text-slate-700 hover:bg-brandBlue/5 hover:text-brandOrange transition flex items-center justify-between"><span>Factory Verification Checklist for Charger OEM</span><span class="text-[11px] text-slate-400">Apr 29, 2026</span></a>
- <a href="/blog/how-to-choose-factory" class="block px-6 py-3 text-sm text-slate-700 hover:bg-brandBlue/5 hover:text-brandOrange transition flex items-center justify-between"><span>How to Choose a Wireless Charger Factory</span><span class="text-[11px] text-slate-400">Apr 27, 2026</span></a>
- <a href="/blog/top-power-bank-manufacturers-china" class="block px-6 py-3 text-sm text-slate-700 hover:bg-brandBlue/5 hover:text-brandOrange transition flex items-center justify-between"><span>Top 10 Power Bank Manufacturers in China</span><span class="text-[11px] text-slate-400">Apr 29, 2026</span></a>
- <a href="/blog/quality-control-guide" class="block px-6 py-3 text-sm text-slate-700 hover:bg-brandBlue/5 hover:text-brandOrange transition flex items-center justify-between"><span>Quality Control Guide for Chargers &amp; Power Banks</span><span class="text-[11px] text-slate-400">Apr 27, 2026</span></a>
- <a href="/blog/oem-vs-odm-guide" class="block px-6 py-3 text-sm text-slate-700 hover:bg-brandBlue/5 hover:text-brandOrange transition flex items-center justify-between"><span>OEM vs ODM Guide 2026</span><span class="text-[11px] text-slate-400">Apr 28, 2026</span></a>
 
- <div class="p-4 bg-brandBlue/5"><span class="text-[11px] font-black text-brandOrange uppercase tracking-widest">Technology Explained</span></div>
- <a href="/blog/what-is-gan-charger" class="block px-6 py-3 text-sm text-slate-700 hover:bg-brandBlue/5 hover:text-brandOrange transition flex items-center justify-between"><span>What Is a GaN Charger? Complete Guide</span><span class="text-[11px] text-slate-400">Jun 25, 2026</span></a>
- <a href="/blog/power-bank-mah-explained" class="block px-6 py-3 text-sm text-slate-700 hover:bg-brandBlue/5 hover:text-brandOrange transition flex items-center justify-between"><span>What Does mAh Mean? Power Bank Capacity Explained</span><span class="text-[11px] text-slate-400">Jun 27, 2026</span></a>
- <a href="/blog/usb-c-pd-3-1-explained" class="block px-6 py-3 text-sm text-slate-700 hover:bg-brandBlue/5 hover:text-brandOrange transition flex items-center justify-between"><span>USB-C PD 3.1 Explained: 240W Power Delivery Guide</span><span class="text-[11px] text-slate-400">Jun 29, 2026</span></a>
+{% set sections = [] %}
+{% for item in collections.blog_en | sort(attribute="data.articleSection") %}
+  {% if item.data.articleSection and item.data.articleSection not in sections %}
+    {% set sections = sections | concat(item.data.articleSection) %}
+    <div class="p-4 bg-brandBlue/5"><span class="text-[11px] font-black text-brandOrange uppercase tracking-widest">{{ item.data.articleSection }}</span></div>
+  {% endif %}
+  <a href="{{ item.url }}" class="block px-6 py-3 text-sm text-slate-700 hover:bg-brandBlue/5 hover:text-brandOrange transition flex items-center justify-between"><span>{{ item.data.title | replace(" | WOWOHCOOL", "") }}</span><span class="text-[11px] text-slate-400">{{ item.date | localeDate("en") }}</span></a>
+{% endfor %}
 
- <div class="p-4 bg-brandBlue/5"><span class="text-[11px] font-black text-brandOrange uppercase tracking-widest">GaN &amp; Fast Charging</span></div>
- <a href="/blog/gan-vs-silicon-charger-comparison" class="block px-6 py-3 text-sm text-slate-700 hover:bg-brandBlue/5 hover:text-brandOrange transition flex items-center justify-between"><span>GaN vs Silicon Charger: Complete Comparison 2026</span><span class="text-[11px] text-slate-400">Jul 1, 2026</span></a>
- <a href="/blog/gan-generations-guide" class="block px-6 py-3 text-sm text-slate-700 hover:bg-brandBlue/5 hover:text-brandOrange transition flex items-center justify-between"><span>GaN I vs III vs V: Generational Guide</span><span class="text-[11px] text-slate-400">May 14, 2026</span></a>
- <a href="/blog/gan-chargers-guide" class="block px-6 py-3 text-sm text-slate-700 hover:bg-brandBlue/5 hover:text-brandOrange transition flex items-center justify-between"><span>GaN Chargers: Complete Guide 2026</span><span class="text-[11px] text-slate-400">Apr 6, 2026</span></a>
- <a href="/blog/gan-v-charger-oem-manufacturing" class="block px-6 py-3 text-sm text-slate-700 hover:bg-brandBlue/5 hover:text-brandOrange transition flex items-center justify-between"><span>GaN V Charger OEM Manufacturing Guide</span><span class="text-[11px] text-slate-400">Apr 28, 2026</span></a>
- <a href="/blog/usb-c-pd-fast-charging-guide" class="block px-6 py-3 text-sm text-slate-700 hover:bg-brandBlue/5 hover:text-brandOrange transition flex items-center justify-between"><span>USB-C PD Fast Charging Guide</span><span class="text-[11px] text-slate-400">Apr 22, 2026</span></a>
- <a href="/blog/power-bank-specs-guide" class="block px-6 py-3 text-sm text-slate-700 hover:bg-brandBlue/5 hover:text-brandOrange transition flex items-center justify-between"><span>Power Bank Specs Guide 2026</span><span class="text-[11px] text-slate-400">Apr 27, 2026</span></a>
-
- <div class="p-4 bg-brandBlue/5"><span class="text-[11px] font-black text-brandOrange uppercase tracking-widest">Wireless Charging &amp; Standards</span></div>
- <a href="/blog/wireless-charging-works" class="block px-6 py-3 text-sm text-slate-700 hover:bg-brandBlue/5 hover:text-brandOrange transition flex items-center justify-between"><span>How Wireless Charging Works</span><span class="text-[11px] text-slate-400">Apr 15, 2026</span></a>
- <a href="/blog/qi2-vs-magsafe-guide" class="block px-6 py-3 text-sm text-slate-700 hover:bg-brandBlue/5 hover:text-brandOrange transition flex items-center justify-between"><span>Qi2 vs MagSafe Guide</span><span class="text-[11px] text-slate-400">Mar 19, 2026</span></a>
- <a href="/blog/qi-certification-guide" class="block px-6 py-3 text-sm text-slate-700 hover:bg-brandBlue/5 hover:text-brandOrange transition flex items-center justify-between"><span>Qi Certification Guide 2026</span><span class="text-[11px] text-slate-400">Apr 26, 2026</span></a>
-
- <div class="p-4 bg-brandBlue/5"><span class="text-[11px] font-black text-brandOrange uppercase tracking-widest">Battery &amp; Energy</span></div>
- <a href="/blog/semi-solid-state-power-bank-oem" class="block px-6 py-3 text-sm text-slate-700 hover:bg-brandBlue/5 hover:text-brandOrange transition flex items-center justify-between"><span>Semi-Solid-State Power Bank OEM Guide</span><span class="text-[11px] text-slate-400">Apr 28, 2026</span></a>
-
-
- <div class="p-4 bg-brandBlue/5"><span class="text-[11px] font-black text-brandOrange uppercase tracking-widest">Buyer's Guides</span></div>
- <a href="/blog/how-to-choose-power-bank" class="block px-6 py-3 text-sm text-slate-700 hover:bg-brandBlue/5 hover:text-brandOrange transition flex items-center justify-between"><span>How to Choose a Power Bank: Complete Buyer's Guide 2026</span><span class="text-[11px] text-slate-400">Jul 1, 2026</span></a>
- <div class="p-4 bg-brandBlue/5"><span class="text-[11px] font-black text-brandOrange uppercase tracking-widest">Compliance &amp; Safety</span></div>
- <a href="/blog/certifications-us-eu-guide" class="block px-6 py-3 text-sm text-slate-700 hover:bg-brandBlue/5 hover:text-brandOrange transition flex items-center justify-between"><span>US &amp; EU Charger Certification Guide 2026</span><span class="text-[11px] text-slate-400">Apr 14, 2026</span></a>
- <a href="/blog/charger-safety-standards" class="block px-6 py-3 text-sm text-slate-700 hover:bg-brandBlue/5 hover:text-brandOrange transition flex items-center justify-between"><span>Charger Safety Standards &amp; Certifications</span><span class="text-[11px] text-slate-400">Apr 22, 2026</span></a>
-
- <div class="p-4 bg-brandBlue/5"><span class="text-[11px] font-black text-brandOrange uppercase tracking-widest">Import &amp; Logistics</span></div>
- <a href="/blog/import-costs-guide" class="block px-6 py-3 text-sm text-slate-700 hover:bg-brandBlue/5 hover:text-brandOrange transition flex items-center justify-between"><span>Import Costs Guide 2026</span><span class="text-[11px] text-slate-400">Apr 30, 2026</span></a>
- <a href="/blog/shipping-from-china-guide" class="block px-6 py-3 text-sm text-slate-700 hover:bg-brandBlue/5 hover:text-brandOrange transition flex items-center justify-between"><span>Shipping from China Guide 2026</span><span class="text-[11px] text-slate-400">Apr 28, 2026</span></a>
-
- <div class="p-4 bg-brandBlue/5"><span class="text-[11px] font-black text-brandOrange uppercase tracking-widest">Vertical Markets</span></div>
- <a href="/blog/car-charger-guide" class="block px-6 py-3 text-sm text-slate-700 hover:bg-brandBlue/5 hover:text-brandOrange transition flex items-center justify-between"><span>Car Charger OEM Guide 2026</span><span class="text-[11px] text-slate-400">Apr 14, 2026</span></a>
- <a href="/blog/hotel-charging-solutions" class="block px-6 py-3 text-sm text-slate-700 hover:bg-brandBlue/5 hover:text-brandOrange transition flex items-center justify-between"><span>Hotel Charging Solutions Guide</span><span class="text-[11px] text-slate-400">Apr 27, 2026</span></a>
  </div>
  </div>
  </section> <!-- RESOURCES -->
