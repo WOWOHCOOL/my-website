@@ -209,68 +209,35 @@ ogType: "profile"
 </div>
 </div>
 
-<!-- Articles -->
+<!-- Articles (dynamic: frontmatter author filter — auto-updates) -->
 <div class="bg-slate-50 rounded-2xl p-8 border border-slate-200 mb-8">
 <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-6">Articles by Snowy May</h2>
-<p class="text-slate-600 text-sm mb-6">44 articles across 3 languages — covering charger certifications, GaN vs silicon comparisons, wireless charging technology, market trends, import logistics, and sourcing strategy.</p>
+{% set enBy = collections.blog_en | byAuthor("Snowy May") %}
+{% set deBy = collections.blog_de | byAuthor("Snowy May") %}
+{% set esBy = collections.blog_es | byAuthor("Snowy May") %}
+{% set frBy = collections.blog_fr | byAuthor("Snowy May") %}
+{% set ruBy = collections.blog_ru | byAuthor("Snowy May") %}
+{% set plBy = collections.blog_pl | byAuthor("Snowy May") %}
+<p class="text-slate-600 text-sm mb-6">{{ enBy.length + deBy.length + esBy.length + frBy.length + ruBy.length + plBy.length }} articles across 6 languages — covering GaN power architecture, Qi2 wireless charging, thermal design, and charging technology for OEM buyers.</p>
 
-<h3 class="font-black text-brandBlue uppercase mb-4">English (12 articles)</h3>
+{% set groups = [
+  { label: "English", suffix: "articles", list: enBy },
+  { label: "Deutsch", suffix: "Artikel", list: deBy },
+  { label: "Español", suffix: "artículos", list: esBy },
+  { label: "Français", suffix: "articles", list: frBy },
+  { label: "Русский", suffix: "статей", list: ruBy },
+  { label: "Polski", suffix: "artykułów", list: plBy }
+] %}
+{% for g in groups %}
+{% if g.list.length > 0 %}
+<h3 class="font-black text-brandBlue uppercase mb-4">{{ g.label }} ({{ g.list.length }} {{ g.suffix }})</h3>
 <div class="grid md:grid-cols-2 gap-2 mb-8">
-<a href="/blog/certifications-us-eu-guide/" class="text-slate-600 text-sm hover:text-brandOrange transition">OEM Charger Certification 2026: UL, CE, FCC &amp; EU Compliance</a>
-<a href="/blog/charger-safety-standards/" class="text-slate-600 text-sm hover:text-brandOrange transition">OEM Charger Safety Standards: IEC 62368-1 &amp; UL Compliance Guide</a>
-<a href="/blog/charging-accessory-market-trends-2026/" class="text-slate-600 text-sm hover:text-brandOrange transition">2026 Market Trends: B2B OEM Sourcing &amp; Technology Forecast</a>
-<a href="/blog/eu-battery-regulation-2023-1542-guide/" class="text-slate-600 text-sm hover:text-brandOrange transition">EU Battery Regulation 2023/1542: OEM Import Compliance Guide</a>
-<a href="/blog/gan-vs-silicon-charger-comparison/" class="text-slate-600 text-sm hover:text-brandOrange transition">GaN vs Silicon Charger: OEM Cost &amp; Performance Comparison</a>
-<a href="/blog/import-costs-guide/" class="text-slate-600 text-sm hover:text-brandOrange transition">OEM Import Costs 2026: China Duty, Tariff &amp; Landed Cost Guide</a>
-<a href="/blog/power-bank-specs-guide/" class="text-slate-600 text-sm hover:text-brandOrange transition">OEM Power Bank Specs: Capacity, PD 3.1 &amp; Safety Compliance</a>
-<a href="/blog/qi-certification-guide/" class="text-slate-600 text-sm hover:text-brandOrange transition">Qi2 Certification for OEM Importers: Cost &amp; Process Guide</a>
-<a href="/blog/qi2-vs-magsafe-guide/" class="text-slate-600 text-sm hover:text-brandOrange transition">Qi2 vs MagSafe: OEM Manufacturer Comparison for B2B Brands</a>
-<a href="/blog/shipping-from-china-guide/" class="text-slate-600 text-sm hover:text-brandOrange transition">OEM Shipping from China 2026: Freight, Customs &amp; Landed Cost Guide</a>
-<a href="/blog/top-power-bank-manufacturers-china/" class="text-slate-600 text-sm hover:text-brandOrange transition">Power Bank OEM Manufacturers: China Factory Sourcing Guide</a>
-<a href="/blog/wireless-charging-works/" class="text-slate-600 text-sm hover:text-brandOrange transition">Qi2 Wireless Charger OEM: Factory Sourcing &amp; Technology Guide</a>
+{% for item in g.list %}
+<a href="{{ item.url }}" class="text-slate-600 text-sm hover:text-brandOrange transition">{{ item.data.title | replace(" | WOWOHCOOL", "") }}</a>
+{% endfor %}
 </div>
-
-<h3 class="font-black text-brandBlue uppercase mb-4">Deutsch (15 Artikel)</h3>
-<div class="grid md:grid-cols-2 gap-2 mb-8">
-<a href="/de/blog/autoladegeraet-ratgeber/" class="text-slate-600 text-sm hover:text-brandOrange transition">Autoladegerät OEM: GaN V, PD 3.1 &amp; Import DACH</a>
-<a href="/de/blog/fabrikpruefung-checkliste-importeure/" class="text-slate-600 text-sm hover:text-brandOrange transition">Fabrikprüfung China: Audit-Checkliste für Unternehmen</a>
-<a href="/de/blog/gan-generationen-uebersicht/" class="text-slate-600 text-sm hover:text-brandOrange transition">GaN Generationen 1–5: Technik, Effizienz &amp; OEM-Kosten</a>
-<a href="/de/blog/gan-v-oem-fertigung/" class="text-slate-600 text-sm hover:text-brandOrange transition">GaN V OEM Fertigung: Kosten, Prozess &amp; EU-Compliance</a>
-<a href="/de/blog/gan-vs-silizium-ladegeraete-vergleich/" class="text-slate-600 text-sm hover:text-brandOrange transition">GaN vs. Silizium Ladegeräte: OEM-Beschaffungsvergleich</a>
-<a href="/de/blog/hotelladegeraete-oem-loesungen/" class="text-slate-600 text-sm hover:text-brandOrange transition">Hotelladegeräte OEM: Qi2, USB-C PD &amp; DGUV V3 Leitfaden</a>
-<a href="/de/blog/kabelloses-laden/" class="text-slate-600 text-sm hover:text-brandOrange transition">Qi2 Kabelloses Laden OEM: MPP-Technologie &amp; Beschaffung</a>
-<a href="/de/blog/ladegeraet-import-china-zoll-zertifikate/" class="text-slate-600 text-sm hover:text-brandOrange transition">Ladegerät-Import China: Zoll &amp; Zertifikate für Unternehmen</a>
-<a href="/de/blog/markt-trends-ladegeraete-2026/" class="text-slate-600 text-sm hover:text-brandOrange transition">Ladegeräte Markttrends 2026: GaN, Qi2, USB-C</a>
-<a href="/de/blog/powerbank-spezifikationen/" class="text-slate-600 text-sm hover:text-brandOrange transition">Powerbank Spezifikationen: Technische Referenz für Importeure</a>
-<a href="/de/blog/qi2-vs-magsafe/" class="text-slate-600 text-sm hover:text-brandOrange transition">Qi2 vs. MagSafe: Kompatibilität &amp; OEM für Importeure</a>
-<a href="/de/blog/qi2-zertifizierung-importeure/" class="text-slate-600 text-sm hover:text-brandOrange transition">Qi2 Zertifizierung: Leitfaden für Unternehmen</a>
-<a href="/de/blog/qualitaetskontrolle-china/" class="text-slate-600 text-sm hover:text-brandOrange transition">Qualitätskontrolle China: 4-Stufen-QC für Importeure</a>
-<a href="/de/blog/semi-solid-state-powerbank/" class="text-slate-600 text-sm hover:text-brandOrange transition">Semi-Solid-State Powerbank OEM: Beschaffung &amp; Zertifizierung</a>
-<a href="/de/blog/usb-c-pd-schnellladen/" class="text-slate-600 text-sm hover:text-brandOrange transition">USB-C PD Schnellladen 2026: PD 3.2, 240W EPR</a>
-</div>
-
-<h3 class="font-black text-brandBlue uppercase mb-4">Español (17 artículos)</h3>
-<div class="grid md:grid-cols-2 gap-2">
-<a href="/es/blog/cargador-coche-guia/" class="text-slate-600 text-sm hover:text-brandOrange transition">Cargador de Coche OEM con GaN V: Guía de Sourcing</a>
-<a href="/es/blog/certificacion-qi2-importadores/" class="text-slate-600 text-sm hover:text-brandOrange transition">Certificación Qi2 para Importadores: Guía WPC</a>
-<a href="/es/blog/como-elegir-fabrica-china/" class="text-slate-600 text-sm hover:text-brandOrange transition">Cómo Elegir Fábrica de Cargadores en China</a>
-<a href="/es/blog/envio-desde-china-logistica/" class="text-slate-600 text-sm hover:text-brandOrange transition">Envío desde China: Logística y Aduanas para Importadores</a>
-<a href="/es/blog/especificaciones-power-banks-importadores/" class="text-slate-600 text-sm hover:text-brandOrange transition">Especificaciones de Power Banks: Guía para Importadores</a>
-<a href="/es/blog/fabricante-power-banks-china-oem/" class="text-slate-600 text-sm hover:text-brandOrange transition">Fabricante de Power Banks en China: Cómo Elegir Socio OEM</a>
-<a href="/es/blog/gan-v-fabricacion-oem/" class="text-slate-600 text-sm hover:text-brandOrange transition">GaN V: Fabricación OEM de Cargadores PD 3.1</a>
-<a href="/es/blog/gan-vs-silicio-comparativa/" class="text-slate-600 text-sm hover:text-brandOrange transition">GaN vs Silicio para Importadores: Comparativa OEM</a>
-<a href="/es/blog/generaciones-gan-comparativa/" class="text-slate-600 text-sm hover:text-brandOrange transition">Generaciones GaN I–V: Guía OEM para Importadores</a>
-<a href="/es/blog/normas-seguridad-cargadores/" class="text-slate-600 text-sm hover:text-brandOrange transition">Certificación de Cargadores 2026: IEC 62368-1, CE y GPSR</a>
-<a href="/es/blog/oem-vs-odm-guia-completa/" class="text-slate-600 text-sm hover:text-brandOrange transition">OEM vs ODM para Importadores: Guía de Fabricación B2B</a>
-<a href="/es/blog/proveedor-cargadores-china-fiable/" class="text-slate-600 text-sm hover:text-brandOrange transition">Proveedor de Cargadores en China Fiable: Guía Sourcing</a>
-<a href="/es/blog/qi2-vs-magsafe-diferencias/" class="text-slate-600 text-sm hover:text-brandOrange transition">Qi2 vs MagSafe para Importadores: Costes y OEM</a>
-<a href="/es/blog/soluciones-carga-hoteles/" class="text-slate-600 text-sm hover:text-brandOrange transition">Soluciones Carga Hoteles OEM: Guía 3-en-1 Qi2</a>
-<a href="/es/blog/tendencias-mercado-cargadores-2026/" class="text-slate-600 text-sm hover:text-brandOrange transition">Mercado de Cargadores 2026: Oportunidades B2B</a>
-<a href="/es/blog/usb-c-pd-carga-rapida/" class="text-slate-600 text-sm hover:text-brandOrange transition">USB-C PD 3.1 para Importadores: Guía Sourcing UE</a>
-<a href="/es/blog/verificacion-fabricas-checklist/" class="text-slate-600 text-sm hover:text-brandOrange transition">Auditoría de Fábricas en China: Checklist 2026</a>
-</div>
-</div>
-
+{% endif %}
+{% endfor %}
 </div>
 
 {% set ctaLabel = "Get Started" %}

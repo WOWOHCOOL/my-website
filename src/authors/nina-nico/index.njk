@@ -222,65 +222,35 @@ ogType: "profile"
 </div>
 </div>
 
-<!-- Articles -->
+<!-- Articles (dynamic: frontmatter author filter — auto-updates) -->
 <div class="bg-slate-50 rounded-2xl p-8 border border-slate-200 mb-8">
 <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-6">Articles by Nina Nico</h2>
-<p class="text-slate-600 text-sm mb-6">43 articles across 3 languages — covering GaN chargers, power bank sourcing, EU certifications, factory auditing, and OEM/ODM procurement strategy.</p>
+{% set enBy = collections.blog_en | byAuthor("Nina Nico") %}
+{% set deBy = collections.blog_de | byAuthor("Nina Nico") %}
+{% set esBy = collections.blog_es | byAuthor("Nina Nico") %}
+{% set frBy = collections.blog_fr | byAuthor("Nina Nico") %}
+{% set ruBy = collections.blog_ru | byAuthor("Nina Nico") %}
+{% set plBy = collections.blog_pl | byAuthor("Nina Nico") %}
+<p class="text-slate-600 text-sm mb-6">{{ enBy.length + deBy.length + esBy.length + frBy.length + ruBy.length + plBy.length }} articles across 6 languages — covering power bank sourcing, EU certifications, factory auditing, import logistics, and OEM/ODM procurement strategy.</p>
 
-<h3 class="font-black text-brandBlue uppercase mb-4">English (17 articles)</h3>
+{% set groups = [
+  { label: "English", suffix: "articles", list: enBy },
+  { label: "Deutsch", suffix: "Artikel", list: deBy },
+  { label: "Español", suffix: "artículos", list: esBy },
+  { label: "Français", suffix: "articles", list: frBy },
+  { label: "Русский", suffix: "статей", list: ruBy },
+  { label: "Polski", suffix: "artykułów", list: plBy }
+] %}
+{% for g in groups %}
+{% if g.list.length > 0 %}
+<h3 class="font-black text-brandBlue uppercase mb-4">{{ g.label }} ({{ g.list.length }} {{ g.suffix }})</h3>
 <div class="grid md:grid-cols-2 gap-2 mb-8">
-<a href="/blog/car-charger-guide/" class="text-slate-600 text-sm hover:text-brandOrange transition">Car Charger OEM Guide: GaN, PD 3.1 &amp; Retractable Sourcing</a>
-<a href="/blog/choose-reliable-china-charger-supplier/" class="text-slate-600 text-sm hover:text-brandOrange transition">China Charger OEM Supplier: Factory Verification &amp; OEM Tips</a>
-<a href="/blog/factory-verification-checklist/" class="text-slate-600 text-sm hover:text-brandOrange transition">Factory Verification Checklist: OEM Audit Guide</a>
-<a href="/blog/gan-chargers-guide/" class="text-slate-600 text-sm hover:text-brandOrange transition">GaN Charger Guide 2026: Benefits, Comparison &amp; OEM Tips</a>
-<a href="/blog/gan-generations-guide/" class="text-slate-600 text-sm hover:text-brandOrange transition">GaN Charger Generations: OEM Factory Technology Roadmap</a>
-<a href="/blog/gan-v-charger-oem-manufacturing/" class="text-slate-600 text-sm hover:text-brandOrange transition">GaN V Charger OEM Manufacturing: How to Source GaN Chargers</a>
-<a href="/blog/hotel-charging-solutions/" class="text-slate-600 text-sm hover:text-brandOrange transition">Hotel Charger OEM: Qi2 &amp; USB-C B2B Solutions for Hospitality</a>
-<a href="/blog/how-to-choose-factory/" class="text-slate-600 text-sm hover:text-brandOrange transition">Charger Factory Selection: OEM Sourcing &amp; Audit Guide</a>
-<a href="/blog/how-to-choose-power-bank/" class="text-slate-600 text-sm hover:text-brandOrange transition">Power Bank OEM Manufacturer: Custom &amp; Wholesale Sourcing Guide</a>
-<a href="/blog/oem-vs-odm-guide/" class="text-slate-600 text-sm hover:text-brandOrange transition">OEM vs ODM: The Ultimate Guide for Power Adapter Brands</a>
-<a href="/blog/power-bank-mah-explained/" class="text-slate-600 text-sm hover:text-brandOrange transition">Power Bank Specs for OEM Buyers: mAh &amp; Capacity Explained</a>
-<a href="/blog/power-bank-private-label-oem-production/" class="text-slate-600 text-sm hover:text-brandOrange transition">Power Bank Private Label: OEM Production for EU &amp; US Brands</a>
-<a href="/blog/quality-control-guide/" class="text-slate-600 text-sm hover:text-brandOrange transition">OEM Charger &amp; Power Bank QC Guide: Factory Quality Standards</a>
-<a href="/blog/semi-solid-state-power-bank-oem/" class="text-slate-600 text-sm hover:text-brandOrange transition">Semi-Solid-State Power Bank OEM Manufacturing Guide</a>
-<a href="/blog/usb-c-pd-3-1-explained/" class="text-slate-600 text-sm hover:text-brandOrange transition">USB-C PD 3.1 Charger OEM: 240W Factory Sourcing Guide</a>
-<a href="/blog/usb-c-pd-fast-charging-guide/" class="text-slate-600 text-sm hover:text-brandOrange transition">USB-C PD Fast Charging: OEM Sourcing &amp; Technology Guide</a>
-<a href="/blog/what-is-gan-charger/" class="text-slate-600 text-sm hover:text-brandOrange transition">GaN Charger Manufacturer: OEM Factory Sourcing Guide</a>
+{% for item in g.list %}
+<a href="{{ item.url }}" class="text-slate-600 text-sm hover:text-brandOrange transition">{{ item.data.title | replace(" | WOWOHCOOL", "") }}</a>
+{% endfor %}
 </div>
-
-<h3 class="font-black text-brandBlue uppercase mb-4">Deutsch (14 Artikel)</h3>
-<div class="grid md:grid-cols-2 gap-2 mb-8">
-<a href="/de/blog/eu-batterieverordnung-2023-1542-leitfaden/" class="text-slate-600 text-sm hover:text-brandOrange transition">EU-Batterieverordnung 2023/1542: Compliance-Leitfaden für OEM-Importeure</a>
-<a href="/de/blog/fabrikauswahl-china-leitfaden/" class="text-slate-600 text-sm hover:text-brandOrange transition">Ladegerät-Fabrik China: Audit-Leitfaden für Importeure</a>
-<a href="/de/blog/gan-ladegeraet-technologie/" class="text-slate-600 text-sm hover:text-brandOrange transition">Was ist ein GaN-Ladegerät? OEM-Beschaffungsguide</a>
-<a href="/de/blog/gan-ladegeraete-leitfaden/" class="text-slate-600 text-sm hover:text-brandOrange transition">GaN Ladegerät OEM Leitfaden 2026: Technologie &amp; Beschaffung</a>
-<a href="/de/blog/lieferanten-china-finden/" class="text-slate-600 text-sm hover:text-brandOrange transition">Lieferanten China finden: Sourcing &amp; Due Diligence</a>
-<a href="/de/blog/oem-versand-aus-china-logistik/" class="text-slate-600 text-sm hover:text-brandOrange transition">Versand aus China 2026: DDP, Logistik &amp; Zoll</a>
-<a href="/de/blog/oem-vs-odm-leitfaden/" class="text-slate-600 text-sm hover:text-brandOrange transition">OEM vs. ODM Fertigung 2026: Leitfaden für DACH-Importeure</a>
-<a href="/de/blog/powerbank-beschaffung-leitfaden/" class="text-slate-600 text-sm hover:text-brandOrange transition">Powerbank OEM-Beschaffung 2026: Leitfaden für DACH-Importeure</a>
-<a href="/de/blog/powerbank-eigenmarke-oem-produktion/" class="text-slate-600 text-sm hover:text-brandOrange transition">Powerbank Eigenmarke OEM: Produktion &amp; Markteinführung</a>
-<a href="/de/blog/powerbank-hersteller-china-oem-partner/" class="text-slate-600 text-sm hover:text-brandOrange transition">Powerbank Hersteller China: OEM-Partner finden &amp; auswählen</a>
-<a href="/de/blog/powerbank-mah-kapazitaet/" class="text-slate-600 text-sm hover:text-brandOrange transition">Powerbank mAh für Einkäufer: Kapazität &amp; Qualität</a>
-<a href="/de/blog/sicherheitsstandards-ladegeraete/" class="text-slate-600 text-sm hover:text-brandOrange transition">Ladegeräte-Sicherheitsnormen 2026: IEC 62368-1</a>
-<a href="/de/blog/usb-c-pd-3-1-erklaert/" class="text-slate-600 text-sm hover:text-brandOrange transition">USB-C PD 3.1 OEM: 240W Beschaffung &amp; EU-USB-C-Pflicht</a>
-<a href="/de/blog/zertifizierungen-eu-markt/" class="text-slate-600 text-sm hover:text-brandOrange transition">OEM-Zertifizierungen EU 2026: CE, RoHS &amp; Batterieverordnung</a>
-</div>
-
-<h3 class="font-black text-brandBlue uppercase mb-4">Español (12 artículos)</h3>
-<div class="grid md:grid-cols-2 gap-2">
-<a href="/es/blog/baterias-semi-solid-state/" class="text-slate-600 text-sm hover:text-brandOrange transition">Power Banks Semi-Sólidas para Importadores: Guía OEM 2026</a>
-<a href="/es/blog/carga-inalambrica-qi-qi2-magsafe/" class="text-slate-600 text-sm hover:text-brandOrange transition">Carga Inalámbrica Qi2 para Importadores: Guía OEM 2026</a>
-<a href="/es/blog/como-elegir-power-bank/" class="text-slate-600 text-sm hover:text-brandOrange transition">Power Bank para Importadores: mAh y Selección OEM</a>
-<a href="/es/blog/control-calidad-fabricas-chinas/" class="text-slate-600 text-sm hover:text-brandOrange transition">Control de Calidad en Fábricas Chinas: Guía QC</a>
-<a href="/es/blog/guia-cargadores-gan-importadores/" class="text-slate-600 text-sm hover:text-brandOrange transition">Cargadores GaN para Importadores: Guía OEM Completa</a>
-<a href="/es/blog/guia-certificaciones-cargadores-importadores/" class="text-slate-600 text-sm hover:text-brandOrange transition">Certificaciones para Cargadores: Guía Completa UL, CE, FCC</a>
-<a href="/es/blog/importar-cargadores-china-aduanas/" class="text-slate-600 text-sm hover:text-brandOrange transition">Importar Cargadores China OEM: Guía de Aduanas</a>
-<a href="/es/blog/power-bank-mah-explicado/" class="text-slate-600 text-sm hover:text-brandOrange transition">Capacidad mAh en Power Banks: Guía Técnica OEM</a>
-<a href="/es/blog/powerbank-marca-propia-produccion-oem/" class="text-slate-600 text-sm hover:text-brandOrange transition">Power Bank Marca Propia: Guía OEM para España</a>
-<a href="/es/blog/que-es-cargador-gan/" class="text-slate-600 text-sm hover:text-brandOrange transition">Tecnología GaN en Cargadores: Ventajas para Importadores</a>
-<a href="/es/blog/reglamento-ue-2023-1542-cumplimiento/" class="text-slate-600 text-sm hover:text-brandOrange transition">Reglamento UE 2023/1542: Guía de Cumplimiento</a>
-<a href="/es/blog/usb-c-pd-3-1-explicado/" class="text-slate-600 text-sm hover:text-brandOrange transition">USB-C PD 3.1 para OEM: Especificaciones 240W</a>
-</div>
+{% endif %}
+{% endfor %}
 </div>
 
 </div>

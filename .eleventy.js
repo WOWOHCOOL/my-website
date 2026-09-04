@@ -217,6 +217,14 @@ module.exports = function (eleventyConfig) {
     return str.replace(/(\d),(\d)/g, `$1${sep}$2`);
   });
 
+  // Filter a blog collection by frontmatter author (author pages)
+  eleventyConfig.addFilter("byAuthor", (items, author) => {
+    if (!Array.isArray(items)) return [];
+    return items.filter(it => it.data && it.data.author === author)
+      .sort((a, b) => b.date - a.date);
+  });
+
+
   // EN blog collection (exclude listing page), sorted newest first
   eleventyConfig.addCollection("blog_en", function (collectionApi) {
     return collectionApi.getFilteredByGlob("./src/blog/**/*.njk")
