@@ -63,10 +63,10 @@
  class="w-full bg-slate-50 p-3 md:p-4 rounded-xl text-sm border-2 border-transparent focus:border-brandOrange focus:bg-white transition-all outline-none font-medium resize-none"></textarea>
 
  <div>
- <label class="flex items-start gap-3">
- <input type="checkbox" required class="mt-0.5 accent-brandOrange shrink-0">
- <span class="text-xs text-slate-500">{{ t.privacyText }} <a href="{{ t.privacyHref }}" class="text-brandOrange hover:underline">{{ t.privacyLinkText }}</a>{{ t.privacySuffix }}</span>
- </label>
+ <div class="flex items-start gap-3">
+ <input type="checkbox" required id="{{ name_prefix }}privacy" class="mt-0.5 accent-brandOrange shrink-0">
+ <span class="text-xs text-slate-500"><label for="{{ name_prefix }}privacy">{{ t.privacyText }} </label><a href="{{ t.privacyHref }}" target="_blank" rel="noopener" class="text-brandOrange hover:underline">{{ t.privacyLinkText }}</a><label for="{{ name_prefix }}privacy"> {{ t.privacySuffix }}</label></span>
+ </div>
  </div>
 
  <button type="submit" class="w-full bg-brandOrange text-white py-3.5 sm:py-4 rounded-xl font-black uppercase tracking-widest text-sm shadow-xl hover:bg-brandOrange/90 transition">

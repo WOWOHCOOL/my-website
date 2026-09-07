@@ -63,10 +63,10 @@
 
  <div class="pt-2 sm:pt-3">
  <div class="mb-3 sm:mb-4">
- <label class="flex items-start gap-2 sm:gap-3">
- <input type="checkbox" required class="mt-0.5 accent-brandOrange shrink-0">
- <span class="text-xs text-slate-500">{{ t.consentText }} <a href="{{ t.consentLinkHref }}" class="text-brandOrange hover:underline">{{ t.consentLinkText }}</a> {{ t.consentSuffix }}</span>
- </label>
+ <div class="flex items-start gap-2 sm:gap-3">
+ <input type="checkbox" required id="modal-privacy" class="mt-0.5 accent-brandOrange shrink-0">
+ <span class="text-xs text-slate-500"><label for="modal-privacy">{{ t.privacyText }} </label><a href="{{ t.privacyHref }}" target="_blank" rel="noopener" class="text-brandOrange hover:underline">{{ t.privacyLinkText }}</a><label for="modal-privacy"> {{ t.privacySuffix }}</label></span>
+ </div>
  </div>
  <button type="submit" class="w-full bg-brandOrange text-white py-3.5 sm:py-4 rounded-xl font-black uppercase tracking-widest text-sm shadow-xl shadow-brandOrange/20 hover:shadow-brandOrange/40 hover:-translate-y-1 active:scale-95 transition-all duration-300">
  {{ t.submitButton }}
