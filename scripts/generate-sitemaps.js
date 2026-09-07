@@ -16,6 +16,35 @@ const TODAY = new Date().toISOString().split('T')[0];
 // Build page map: canonical URL -> { lang: url }
 const pageMap = {};
 
+// Lastmod map: canonical URL -> real modified date from src frontmatter.
+// Falls back to TODAY for non-article pages (layout rarely changes per page).
+const lastmodMap = {};
+function collectLastmods(dir) {
+  let entries;
+  try {
+    entries = fs.readdirSync(dir, { withFileTypes: true });
+  } catch (e) {
+    return;
+  }
+  for (const entry of entries) {
+    const full = path.join(dir, entry.name);
+    if (entry.isDirectory()) {
+      collectLastmods(full);
+    } else if (entry.name === 'index.njk') {
+      const content = fs.readFileSync(full, 'utf-8');
+      const fm = content.match(/^---\r?\n([\s\S]*?)\r?\n---/);
+      if (!fm) continue;
+      const canonicalMatch = fm[1].match(/^canonical:\s*"?([^"\r\n]+)"?/m);
+      const modifiedMatch = fm[1].match(/^modified:\s*"?(\d{4}-\d{2}-\d{2})"?/m);
+      if (canonicalMatch && modifiedMatch) {
+        lastmodMap['https://www.wowohcool.com' + canonicalMatch[1]] = modifiedMatch[1];
+      }
+    }
+  }
+}
+collectLastmods(SRC_DIR);
+console.log(`Collected ${Object.keys(lastmodMap).length} real modified dates from src frontmatter`);
+
 function walkHtml(dir) {
   const entries = fs.readdirSync(dir, { withFileTypes: true });
   for (const entry of entries) {
@@ -115,7 +144,8 @@ function genSitemap(langFilter) {
       urlsXml += `  <xhtml:link rel="alternate" hreflang="x-default" href="${hreflangs['x-default']}"/>\n`;
     }
 
-    urlsXml += `  <lastmod>${TODAY}</lastmod>\n`;
+    const lastmod = lastmodMap[canonical] || TODAY;
+    urlsXml += `  <lastmod>${lastmod}</lastmod>\n`;
     urlsXml += `  <changefreq>${changefreq}</changefreq>\n`;
     urlsXml += `  <priority>${priority}</priority>\n`;
     urlsXml += ` </url>\n`;
