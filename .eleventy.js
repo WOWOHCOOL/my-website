@@ -267,6 +267,13 @@ module.exports = function (eleventyConfig) {
       .sort((a, b) => b.date - a.date);
   });
 
+  // Workaround for eleventy-dev-server issue #22: newly-created article
+  // directories 404 until restart (glob watcher misses dirs created after
+  // server start). A recursive src glob keeps new dirs in the watch set.
+  eleventyConfig.setServerOptions({
+    watch: ["src/**/*.njk", "src/**/*.json", "_site/**/*.html"],
+  });
+
   return {
     dir: {
       input: 'src',
