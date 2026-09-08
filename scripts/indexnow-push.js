@@ -11,6 +11,13 @@
 const https = require('https');
 const fs = require('fs');
 const path = require('path');
+const dns = require('dns');
+
+// IndexNow API resolves to both IPv6 (2603:1061:10::13) and IPv4. In network
+// environments where IPv6 is unreachable (China, some Cloudflare build
+// containers), Node's default IPv6-first ordering causes "read ECONNRESET".
+// Force IPv4-first so the submission succeeds regardless of environment.
+dns.setDefaultResultOrder('ipv4first');
 
 const KEY = 'f00021fe-fa3a-4786-9e7e-9312f9201661';
 const SITE_DIR = path.join(__dirname, '..', '_site');
@@ -82,6 +89,7 @@ async function main() {
     path.join(SITE_DIR, 'es', 'sitemap.xml'),
     path.join(SITE_DIR, 'fr', 'sitemap.xml'),
     path.join(SITE_DIR, 'ru', 'sitemap.xml'),
+    path.join(SITE_DIR, 'pl', 'sitemap.xml'),
   ];
 
   // RSS feeds: all blog articles across languages
@@ -91,6 +99,7 @@ async function main() {
     path.join(SITE_DIR, 'es', 'rss.xml'),
     path.join(SITE_DIR, 'fr', 'rss.xml'),
     path.join(SITE_DIR, 'ru', 'rss.xml'),
+    path.join(SITE_DIR, 'pl', 'rss.xml'),
   ];
 
   let allUrls = [];
