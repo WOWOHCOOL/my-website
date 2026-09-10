@@ -271,7 +271,9 @@ module.exports = function (eleventyConfig) {
   // directories 404 until restart (glob watcher misses dirs created after
   // server start). A recursive src glob keeps new dirs in the watch set.
   eleventyConfig.setServerOptions({
-    watch: ["src/**/*.njk", "src/**/*.json", "_site/**/*.html"],
+    // Do NOT watch _site/ — watching the output dir triggers a rebuild loop
+    // (each write re-triggers watch, causing multi-minute full rebuilds).
+    watch: ["src/**/*.njk", "src/**/*.json"],
   });
 
   return {

@@ -2,7 +2,7 @@
   "name": "wowohcool-web",
   "private": true,
   "scripts": {
-    "dev": "npm run build:css && npm run build:js && npx @11ty/eleventy --serve --quiet",
+    "dev": "node dev.mjs",
     "build:css": "npx tailwindcss -i ./css/src.css -o ./css/styles.css --minify",
     "build:js:en": "npx esbuild main.src.js --bundle --minify --outfile=main.js --define:LANG=\"\\\"en\\\"\"",
     "build:js:de": "npx esbuild main.src.js --bundle --minify --outfile=de/js/de-main.js --define:LANG=\"\\\"de\\\"\"",
