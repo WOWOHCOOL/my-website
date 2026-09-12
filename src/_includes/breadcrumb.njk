@@ -1,7 +1,20 @@
-{% macro breadcrumb(items) %}
-{% set ariaMap = { "en": "Breadcrumb", "de": "Breadcrumb", "es": "Migas de pan" } %}
-<nav aria-label="{{ ariaMap[lang] or 'Breadcrumb' }}" class="pt-20 md:pt-20 pb-2 bg-transparent">
- <div class="max-w-7xl mx-auto px-6">
+{% macro breadcrumb(items, container, spacing) %}
+{# Nunjucks macros are scope-isolated: `lang` is only visible when the caller
+   imports with `with context`. Derive the locale from the first crumb's URL
+   (always the language home) as a fallback so the aria-label stays localized
+   even on templates that import without context. #}
+{% set lc = lang or ((items[0].url or "/") | replace("/", "")) or "en" %}
+{% set ariaMap = {
+  "en": "Breadcrumb",
+  "de": "Breadcrumb",
+  "es": "Migas de pan",
+  "fr": "Fil d'Ariane",
+  "ru": "Хлебные крошки",
+  "pl": "Ścieżka nawigacji"
+} %}
+{% set wrap = container or "container-wide" %}
+<nav aria-label="{{ ariaMap[lc] or 'Breadcrumb' }}" class="{{ spacing or 'pt-20 pb-2' }} bg-transparent">
+ {% if wrap != "none" %}<div class="{{ wrap }}">{% endif %}
  <ol class="flex items-center flex-wrap gap-x-2 gap-y-1 text-[13px] text-slate-400" itemscope itemtype="https://schema.org/BreadcrumbList">
  {% for item in items %}
  {% set pos = loop.index %}
@@ -21,6 +34,6 @@
  </li>
  {% endfor %}
  </ol>
- </div>
+ {% if wrap != "none" %}</div>{% endif %}
 </nav>
 {% endmacro %}

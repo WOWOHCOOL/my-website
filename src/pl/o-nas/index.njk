@@ -162,14 +162,10 @@ ruPath: "o-kompanii/"
  ======================================================================== -->
 <section id="about-hero" class="relative pt-20 md:pt-24 pb-8 lg:pt-28 lg:pb-16 bg-white overflow-hidden">
  <div class="absolute top-0 right-0 w-1/3 h-full bg-slate-50 -skew-x-12 translate-x-1/4 -z-10" aria-hidden="true"></div>
- <div class="max-w-7xl mx-auto px-6 w-full py-6 lg:py-0">
+ <div class="container-wide w-full py-6 lg:py-0">
  <div class="flex flex-col lg:flex-row items-center gap-6 lg:gap-10">
  <div class="flex-1 reveal">
- <nav class="text-sm text-slate-500 mb-6">
- <a href="/pl/" class="hover:text-brandOrange">Strona główna</a>
- <span class="mx-2">/</span>
- <span class="text-slate-900">O nas</span>
- </nav>
+ {{ breadcrumb([{name: "Strona główna", url: "/pl/"}, {name: "O nas"}], "none", "mb-6") }}
  <div class="badge-capsule mb-4 uppercase tracking-widest">ZAŁOŻONA W 2013 · SHENZHEN</div>
  <h1 class="text-3xl md:text-4xl lg:text-6xl font-black text-slate-900 uppercase italic tracking-tighter leading-tight mb-4">
  <span class="whitespace-nowrap"><span class="highlight-line text-brandBlue">WOWOH</span><span class="text-brandOrange">COOL</span></span><br>
@@ -203,7 +199,7 @@ ruPath: "o-kompanii/"
 
 <!-- Company Timeline -->
 <section id="company-timeline" class="sec-lg bg-white overflow-hidden">
- <div class="max-w-6xl mx-auto px-6">
+ <div class="container-content">
  <div class="text-center mb-12 reveal">
  <div class="inline-block px-4 py-1 border border-brandOrange/20 rounded-full text-[11px] font-bold text-brandOrange uppercase tracking-widest mb-4">Nasza historia</div>
  <h2 class="text-3xl lg:text-4xl font-black text-slate-900 uppercase italic tracking-tighter mb-4">Od <span class="text-brandOrange">2013</span> — kalendarium rozwoju</h2>
@@ -240,11 +236,11 @@ ruPath: "o-kompanii/"
  <div class="absolute inset-0 opacity-10">
  <div class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_30%_50%,#f97316_0%,transparent_50%)]"></div>
  </div>
- <div class="max-w-7xl mx-auto px-6 relative z-10">
+ <div class="container-wide relative z-10">
  <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
  <div class="relative group order-2 lg:order-1">
  <div class="aspect-square rounded-[2rem] overflow-hidden border border-white/10 shadow-2xl bg-slate-800">
- <img src="/image/factory/lifestyle-power-720w.webp" alt="WOWOHCOOL Lifestyle — Power Bank w codziennym użyciu" title="Doświadcz nieograniczonej mocy w podróży" width="720" height="720" srcset="/image/factory/lifestyle-power-360w.webp 360w, /image/factory/lifestyle-power-480w.webp 480w, /image/factory/lifestyle-power-720w.webp 720w, /image/factory/lifestyle-power-1080w.webp 1080w, /image/factory/lifestyle-power-1440w.webp 1440w" sizes="(max-width: 1023px) calc(100vw - 48px), 600px" loading="lazy" decoding="async" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500 scale-105 group-hover:scale-100">
+ <img src="/image/factory/lifestyle-power-720w.webp" alt="WOWOHCOOL Lifestyle — Power Bank w codziennym użyciu" title="Doświadcz nieograniczonej mocy w podróży" width="720" height="720" srcset="/image/factory/lifestyle-power-360w.webp 360w, /image/factory/lifestyle-power-480w.webp 480w, /image/factory/lifestyle-power-720w.webp 720w, /image/factory/lifestyle-power-1080w.webp 1080w, /image/factory/lifestyle-power-1440w.webp 1200w" sizes="(max-width: 1023px) calc(100vw - 48px), 600px" loading="lazy" decoding="async" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500 scale-105 group-hover:scale-100">
  <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent"></div>
  </div>
  <div class="absolute -bottom-6 -left-6 md:-left-10 bg-brandOrange p-8 rounded-2xl max-w-[280px] shadow-2xl hidden md:block">
@@ -270,7 +266,7 @@ ruPath: "o-kompanii/"
 
 <!-- Factory Capabilities -->
 <section id="factory-capabilities" class="sec-lg bg-slate-50 overflow-hidden">
- <div class="max-w-7xl mx-auto px-6 space-y-32">
+ <div class="container-wide space-y-32">
  <div class="flex flex-col lg:flex-row items-center gap-16">
  <div class="w-full lg:w-1/2 order-2 lg:order-1 reveal">
  <div class="relative rounded-2xl overflow-hidden shadow-xl bg-white p-3 group">
@@ -295,7 +291,7 @@ ruPath: "o-kompanii/"
 
 <!-- Workshop Gallery -->
 <section class="bg-slate-50 pb-20">
- <div class="max-w-7xl mx-auto px-6">
+ <div class="container-wide">
  <div class="mt-16 reveal">
  <div class="inline-block px-4 py-1 border border-brandBlue/20 rounded-full text-[11px] font-bold text-brandBlue uppercase tracking-widest mb-4">Wnętrze naszej fabryki</div>
  <h3 class="text-2xl lg:text-3xl font-black text-slate-900 uppercase italic tracking-tighter mb-6">8 wyspecjalizowanych <span class="text-brandOrange">działów</span></h3>
@@ -313,7 +309,7 @@ ruPath: "o-kompanii/"
  ] %}
  {% for ws in workshops %}
  <div class="group relative rounded-xl overflow-hidden shadow-md hover:shadow-xl transition">
- <img src="/image/factory/01/{{ ws.img }}.webp" alt="{{ ws.title }} — fabryka WOWOHCOOL" loading="lazy" width="800" height="600" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500">
+ <img src="/image/factory/01/{{ ws.img }}.webp" srcset="/image/factory/01/{{ ws.img }}-350w.webp 350w, /image/factory/01/{{ ws.img }}.webp 1000w" sizes="(min-width: 1440px) 296px, (min-width: 1280px) 296px, (min-width: 1024px) 244px, (min-width: 768px) 244px, (min-width: 430px) 244px, 244px" alt="{{ ws.title }} — fabryka WOWOHCOOL" loading="lazy" width="800" height="600" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500">
  <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-900/80 to-transparent p-4">
  <p class="text-white text-xs font-black uppercase tracking-wider">{{ ws.title }}</p>
  <p class="text-white/70 text-[10px]">{{ ws.desc }}</p>
@@ -327,7 +323,7 @@ ruPath: "o-kompanii/"
 
 <!-- Team Section -->
 <section id="our-team" class="sec-lg bg-white">
- <div class="max-w-7xl mx-auto px-6">
+ <div class="container-wide">
  <div class="reveal text-center mb-10">
  <div class="inline-block px-4 py-1 border border-brandOrange/20 rounded-full text-[11px] font-bold text-brandOrange uppercase tracking-widest mb-4">Nasz zespół</div>
  <h2 class="text-3xl lg:text-4xl font-black text-slate-900 uppercase italic tracking-tighter mb-4">Poznaj naszych <span class="text-brandOrange">ekspertów</span></h2>
@@ -337,7 +333,7 @@ ruPath: "o-kompanii/"
  <!-- Snowy May -->
  <div class="bg-white rounded-2xl p-6 md:p-8 shadow-lg border border-slate-100 hover:shadow-xl hover:border-brandOrange/30 transition-all group">
  <div class="flex flex-col md:flex-row gap-4 md:gap-6 items-center md:items-start">
- <div class="relative flex-shrink-0"><div class="w-24 h-24 rounded-2xl bg-gradient-to-br from-brandBlue to-brandOrange overflow-hidden shadow-lg"><img src="/image/factory/team-snowy.webp" alt="Snowy May — Marketing Manager & Founder WOWOHCOOL, ekspert OEM/ODM ładowarek" loading="lazy" class="w-full h-full object-cover" width="1776" height="1776"></div></div>
+ <div class="relative flex-shrink-0"><div class="w-24 h-24 rounded-2xl bg-gradient-to-br from-brandBlue to-brandOrange overflow-hidden shadow-lg"><img src="/image/factory/team-snowy.webp" srcset="/image/factory/team-snowy-450w.webp 450w, /image/factory/team-snowy.webp 750w" sizes="(min-width: 1440px) 366px, (min-width: 1280px) 366px, (min-width: 1024px) 366px, (min-width: 768px) 342px, (min-width: 430px) 380px, 325px" alt="Snowy May — Marketing Manager & Founder WOWOHCOOL, ekspert OEM/ODM ładowarek" loading="lazy" class="w-full h-full object-cover" width="1776" height="1776"></div></div>
  <div class="flex-1 text-center md:text-left">
  <h3 class="text-xl font-black text-slate-900 uppercase italic mb-1">Snowy May</h3>
  <p class="text-sm font-bold text-brandBlue uppercase tracking-wider mb-3">Kierownik Rynku · Współzałożycielka</p>
@@ -352,7 +348,7 @@ ruPath: "o-kompanii/"
  <!-- Nina Nico -->
  <div class="bg-white rounded-2xl p-6 md:p-8 shadow-lg border border-slate-100 hover:shadow-xl hover:border-brandOrange/30 transition-all group">
  <div class="flex flex-col md:flex-row gap-4 md:gap-6 items-center md:items-start">
- <div class="relative flex-shrink-0"><div class="w-24 h-24 rounded-2xl bg-gradient-to-br from-brandBlue to-brandOrange overflow-hidden shadow-lg"><img src="/image/factory/team-nina.webp" alt="Nina Nico — Global Procurement & Sourcing Manager WOWOHCOOL, specjalistka ds. globalnego sourcingu" loading="lazy" class="w-full h-full object-cover" width="800" height="800"></div></div>
+ <div class="relative flex-shrink-0"><div class="w-24 h-24 rounded-2xl bg-gradient-to-br from-brandBlue to-brandOrange overflow-hidden shadow-lg"><img src="/image/factory/team-nina.webp" srcset="/image/factory/team-nina-450w.webp 450w, /image/factory/team-nina.webp 800w" sizes="(min-width: 1440px) 366px, (min-width: 1280px) 366px, (min-width: 1024px) 366px, (min-width: 768px) 342px, (min-width: 430px) 380px, 325px" alt="Nina Nico — Global Procurement & Sourcing Manager WOWOHCOOL, specjalistka ds. globalnego sourcingu" loading="lazy" class="w-full h-full object-cover" width="800" height="800"></div></div>
  <div class="flex-1 text-center md:text-left">
  <h3 class="text-xl font-black text-slate-900 uppercase italic mb-1">Nina Nico</h3>
  <p class="text-sm font-bold text-brandBlue uppercase tracking-wider mb-3">Kierownik Sprzedaży · Lider Globalnego Sourcingu</p>
@@ -370,7 +366,7 @@ ruPath: "o-kompanii/"
 
 <!-- Visit Us -->
 <section id="visit-us" class="sec-lg bg-slate-50">
- <div class="max-w-7xl mx-auto px-6">
+ <div class="container-wide">
  <div class="grid md:grid-cols-2 gap-8">
  <div class="bg-white rounded-3xl p-8 shadow-sm reveal">
  <div class="inline-block px-4 py-1 border border-brandOrange/20 rounded-full text-[11px] font-bold text-brandOrange uppercase tracking-widest mb-4">Odwiedź naszą fabrykę</div>
@@ -394,7 +390,7 @@ ruPath: "o-kompanii/"
 
 <!-- FAQ -->
 <section class="py-16 bg-slate-50">
- <div class="max-w-3xl mx-auto px-6">
+ <div class="container-narrow">
  <div class="text-center mb-10 reveal"><p class="section-label">FAQ</p><h2 class="section-title">Najczęściej zadawane pytania</h2></div>
  <div class="reveal">
  <details class="faq-item"><summary>Jaka jest zdolność produkcyjna fabryki?</summary><div class="faq-answer">Nasza fabryka w Shenzhen zajmuje <strong>5000 m²</strong> i produkuje <strong>ponad 1M sztuk miesięcznie</strong>. Działamy zgodnie z systemem ISO 9001.</div></details>

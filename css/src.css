@@ -36,15 +36,17 @@ html{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica N
 @media (max-width:768px){html{scroll-behavior:auto!important}#mobile-menu-overlay,header{-webkit-backdrop-filter:none!important;backdrop-filter:none!important}}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}}
 body,html{overflow-x:hidden;max-width:100vw}
-@media (max-width:1023px){.fixed.right-8>span{right:100%!important;margin-right:12px}.absolute.-left-10,.absolute.-left-6{left:0!important}.fixed.left-8{left:1rem!important}#hero>.max-w-7xl{padding-left:1rem!important;padding-right:1rem!important}.fixed.bottom-8.right-8 span{display:none!important}}
+/* Removed (2026-09-12): a mobile overflow patch block used to live here, targeting
+   .fixed.right-8>span / .absolute.-left-10 / .absolute.-left-6 / .fixed.left-8 /
+   .fixed.bottom-8.right-8 span / #hero>.max-w-7xl.
+   None of those utility combinations exist anywhere in the templates or in the
+   built HTML any more, so every rule was dead — except #hero>.max-w-7xl, which
+   forced 1rem side padding on the homepage hero only, making it the one container
+   on the site that disagreed with the rest at mobile widths.
+   Verified after removal: zero horizontal overflow on all 11 EN non-blog pages at
+   375x812 and 414x896 (headless Chrome, documentElement.scrollWidth === innerWidth). */
 .tag-cloud a{transition:all .2s ease}
 .tag-cloud a:hover{transform:translateY(-1px)}
-.tag-accent{background:rgba(255,102,0,.15);color:var(--brand-orange-alt);font-weight:900}
-.tag-blue{background:rgba(0,51,102,.15);color:#036;font-weight:900}
-.tag-green{background:rgba(34,197,94,.15);color:#16a34a;font-weight:900}
-.tag-amber{background:rgba(245,158,11,.15);color:#d97706;font-weight:900}
-.tag-red{background:rgba(239,68,68,.15);color:#dc2626;font-weight:900}
-.tag-slate{background:rgba(100,116,139,.15);color:#64748b;font-weight:900}
 .section-bar{width:4px;height:32px;border-radius:2px;flex-shrink:0}
 .section-bar-orange{background:var(--brand-orange-alt)}
 .section-bar-blue{background:#036}
@@ -96,9 +98,6 @@ svg[class*="icon-"]{display:inline-block;width:1em;height:1em;vertical-align:-0.
 #inquiryModal input:focus-visible,
 #inquiryModal select:focus-visible,
 #inquiryModal textarea:focus-visible { outline: none; }
-@media (max-width:1023px){.desktop-only{display:none!important}}
-@media (min-width:1024px){.mobile-only{display:none!important}}
-
 /* ─── Certification Showcase (shared DE/ES/EN pill style) ──── */
 .cert-showcase {
   display: flex;
@@ -190,38 +189,43 @@ svg[class*="icon-"]{display:inline-block;width:1em;height:1em;vertical-align:-0.
 /* ─── Design System: Section Spacing ───────────────────────── */
 .sec { padding-top: 5rem; padding-bottom: 5rem; }
 .sec-lg { padding-top: 5rem; padding-bottom: 5rem; }
-.sec-hero { padding-top: 6rem; padding-bottom: 3rem; }
 .sec-cta { padding-top: 4rem; padding-bottom: 0; }
 @media (min-width: 768px) {
   .sec { padding-top: 6rem; padding-bottom: 6rem; }
   .sec-lg { padding-top: 7rem; padding-bottom: 7rem; }
-  .sec-hero { padding-top: 8rem; padding-bottom: 4rem; }
   .sec-cta { padding-top: 5rem; padding-bottom: 0; }
+}
+/* Removed 2026-09-12: .sec-hero — 0 occurrences in src/ and _site/. */
+
+/* ─── Design System: Container Widths ──────────────────────────
+   Three tiers only. Replaces ad-hoc `max-w-4xl/5xl/7xl mx-auto px-6`
+   combinations so that breadcrumb, hero, grid and footer share the
+   same left/right edge on every page.
+     wide   1280px — header, footer, hero, product grids
+     content 1024px — long-form prose with imagery
+     narrow   768px — FAQ, forms, legal pages
+   Declared in @layer components so Tailwind utilities can still
+   override a single instance without touching the tier. */
+@layer components {
+  .container-wide,
+  .container-content,
+  .container-narrow {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+  .container-wide { max-width: 80rem; }
+  .container-content { max-width: 64rem; }
+  .container-narrow { max-width: 48rem; }
 }
 
 /* ─── Design System: Typography Scale ──────────────────────── */
-.heading-1 {
-  font-size: clamp(2.25rem, 5vw, 3.75rem);
-  font-weight: 900; line-height: 1.05;
-  letter-spacing: -0.03em;
-}
-.heading-2 {
-  font-size: clamp(1.75rem, 3.5vw, 2.75rem);
-  font-weight: 900; line-height: 1.1;
-  letter-spacing: -0.02em;
-}
-.heading-3 {
-  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
-  font-weight: 700; line-height: 1.2;
-  letter-spacing: -0.01em;
-}
-.body-lg { font-size: 1.05rem; line-height: 1.7; color: #64748b; }
-.body-sm { font-size: 0.875rem; line-height: 1.6; color: #64748b; }
-.label-sm {
-  font-size: 0.75rem; font-weight: 700;
-  letter-spacing: 0.15em; text-transform: uppercase;
-  color: var(--brand-orange);
-}
+/* Note: heading-1/2/3, body-lg/sm, label-sm were defined here but never adopted
+   in templates (verified 0 occurrences in src/ and _site/). Removed 2026-09-12.
+   For the actual hero / section / body typography in use, see the .hero-title,
+   .section-title, .section-desc and Tailwind text-* utilities on each template. */
 .hero-title {
   font-size: clamp(2rem, 5vw, 3.5rem);
   font-weight: 900;
@@ -299,20 +303,9 @@ svg[class*="icon-"]{display:inline-block;width:1em;height:1em;vertical-align:-0.
 }
 
 /* ─── Stats Bar ────────────────────────────────────────────── */
-.stats-bar {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1.5rem;
-  padding: 2rem;
-  background: linear-gradient(135deg, var(--brand-blue) 0%, var(--brand-blue-alt) 50%, var(--brand-blue) 100%);
-  border-radius: 1rem;
-}
-@media (min-width: 768px) {
-  .stats-bar { grid-template-columns: repeat(4, 1fr); }
-}
-.stat-item { text-align: center; }
-.stat-number { font-size: 1.75rem; font-weight: 900; color: var(--brand-orange); line-height: 1; }
-.stat-label { font-size: 0.75rem; color: #94a3b8; margin-top: 0.5rem; font-weight: 500; }
+/* Removed 2026-09-12: .stats-bar / .stat-item / .stat-number / .stat-label have
+   0 occurrences in src/ and _site/ (verified). Kept the section comment for
+   diff readability. */
 
 /* ─── Buttons ──────────────────────────────────────────────── */
 .btn-primary, .btn-secondary, .btn-outline-white {
@@ -476,18 +469,10 @@ table td, table th { overflow-wrap: break-word; word-break: normal; }
 .download-btn.orange:hover { background: var(--brand-orange-hover); border-color: var(--brand-orange-hover); box-shadow: 0 4px 16px rgba(255, 107, 0, 0.3); }
 
 /* ─── Timezone Badge ───────────────────────────────────────── */
-.timezone-badge {
-  display: inline-flex; align-items: center; gap: 0.4rem;
-  padding: 0.35rem 0.75rem; background: rgba(255, 107, 0, 0.08);
-  border: 1px solid rgba(255, 107, 0, 0.15); border-radius: 2rem;
-  font-size: 0.75rem; font-weight: 600; color: var(--brand-orange);
-}
+/* Removed 2026-09-12: .timezone-badge has 0 occurrences in src/ and _site/. */
 
 /* ─── Floating CTA ─────────────────────────────────────────── */
-.floating-cta-group {
-  position: fixed; bottom: 1.5rem; left: 1.5rem; z-index: 40;
-  display: flex; flex-direction: column; gap: 0.75rem;
-}
+/* Removed 2026-09-12: .floating-cta-group has 0 occurrences in src/ and _site/. */
 
 /* ─── Referenz / Referencia Cards ──────────────────────────── */
 .referenz-card, .referencia-card {
@@ -520,18 +505,10 @@ table td, table th { overflow-wrap: break-word; word-break: normal; }
 .hero-split { min-height: 70vh; }
 .hero-split .absolute.-bottom-4.-left-4 { animation: floatStat 3s ease-in-out infinite; }
 @keyframes floatStat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
-.eu-badge {
-  display: inline-flex; align-items: center; gap: 0.5rem;
-  background: rgba(0, 128, 0, 0.1); color: #15803d;
-  font-weight: 700; font-size: 0.75rem; padding: 0.25rem 0.75rem; border-radius: 999px;
-}
+/* Removed 2026-09-12: .eu-badge — 0 occurrences in src/ and _site/. */
 
 /* ─── ES-only: warm gradient accent bar ────────────────────── */
-.es-accent-bar {
-  width: 4px; height: 2rem;
-  background: linear-gradient(180deg, var(--brand-orange), #ff8c38, #ffb347);
-  border-radius: 2px;
-}
+/* Removed 2026-09-12: .es-accent-bar — 0 occurrences in src/ and _site/. */
 
 /* ─── Responsive (shared DE/ES/EN) ─────────────────────────── */
 @media (max-width: 768px) {

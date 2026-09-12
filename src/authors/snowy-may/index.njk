@@ -132,16 +132,12 @@ ogType: "profile"
 <article class="pt-12">
 <div class="relative pt-24 md:pt-28 pb-12 lg:pt-28 lg:pb-16 bg-gradient-to-b from-slate-50 to-white overflow-hidden">
  <div class="absolute top-0 left-1/4 w-64 h-64 bg-brandOrange/10 rounded-full blur-3xl"></div>
- <div class="max-w-4xl mx-auto px-6 relative z-10">
- <nav class="text-sm text-slate-500 mb-6">
- <a href="/" class="hover:text-brandOrange">Home</a> /
- <a href="/authors/" class="hover:text-brandOrange">Authors</a> /
- <span class="text-slate-900">Snowy May</span>
- </nav>
+ <div class="container-narrow relative z-10">
+ {{ breadcrumb([{name: "Home", url: "/"}, {name: "Authors", url: "/authors/"}, {name: "Snowy May"}], "none", "mb-6") }}
 
  <div class="flex flex-col md:flex-row items-start gap-8">
  <div class="w-32 h-32 md:w-40 md:h-40 rounded-2xl overflow-hidden border-4 border-brandOrange bg-white shadow-xl shrink-0">
- <img src="/image/factory/team-snowy.webp" alt="Snowy May, Founder & Marketing Manager at WOWOHCOOL — 10+ years in consumer electronics OEM/ODM, electronics enthusiast and market trend specialist" width="400" height="400" class="w-full h-full object-cover" fetchpriority="high">
+ <img src="/image/factory/team-snowy.webp" srcset="/image/factory/team-snowy-200w.webp 200w, /image/factory/team-snowy.webp 750w" sizes="(min-width: 1440px) 152px, (min-width: 1280px) 152px, (min-width: 1024px) 152px, (min-width: 768px) 152px, (min-width: 430px) 120px, 120px" alt="Snowy May, Founder & Marketing Manager at WOWOHCOOL — 10+ years in consumer electronics OEM/ODM, electronics enthusiast and market trend specialist" width="400" height="400" class="w-full h-full object-cover" fetchpriority="high">
  </div>
  <div class="flex-1">
  <h1 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-2">Snowy May</h1>
@@ -159,7 +155,7 @@ ogType: "profile"
 </div>
 </article>
 
-<div class="max-w-4xl mx-auto px-6 mb-16">
+<div class="container-narrow mb-16">
 
 <!-- Bio -->
 <div class="bg-slate-50 rounded-2xl p-8 border border-slate-200 mb-8">

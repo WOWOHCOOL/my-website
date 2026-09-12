@@ -217,15 +217,9 @@ plPath: "produkty/ladowarka-gan/"
  <div class="absolute bottom-0 right-0 max-w-full w-64 h-64 bg-blue-500 opacity-20 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
  </div>
 
- <div class="max-w-7xl mx-auto px-6 relative z-10 text-center py-12 lg:py-12">
+ <div class="container-wide relative z-10 text-center py-12 lg:py-12">
  <!-- Breadcrumb -->
- <nav class="text-sm text-slate-500 mb-6 text-left">
- <a href="/" class="hover:text-brandOrange">Home</a>
- <span class="mx-2">/</span>
- <a href="/products/" class="hover:text-brandOrange">Products</a>
- <span class="mx-2">/</span>
- <span class="text-slate-900">GaN Charger</span>
- </nav>
+ {{ breadcrumb([{name: "Home", url: "/"}, {name: "Products", url: "/products/"}, {name: "GaN Charger"}], "none", "mb-6") }}
  <!-- Top: badge + H1 -->
  <div>
  <div class="badge-capsule mb-6 mx-auto uppercase tracking-widest">GaN Charger Factory | Since 2013</div>
@@ -267,7 +261,7 @@ plPath: "produkty/ladowarka-gan/"
  <section id="products" class="sec bg-white relative">
  <div class="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-slate-50 to-transparent -z-10"></div>
  
- <div class="max-w-7xl mx-auto px-6"> 
+ <div class="container-wide"> 
  <div class="mb-16 md:mb-24">
  <div class="flex items-end justify-between mb-8 md:mb-12 reveal">
  <div>
@@ -280,7 +274,7 @@ plPath: "produkty/ladowarka-gan/"
  <!-- WOP37 67W with Wireless Charging -->
  <div id="wop37" class="group reveal">
  <div class="relative aspect-square rounded-3xl bg-slate-100 overflow-hidden mb-6">
- <img src="/image/product/gan-charger/wop37-67w-gan-charger-retractable-cable-wireless.webp" alt="WOP37 67W GaN Charger with Built-in Cable and Wireless Charging" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async" width="1920" height="1920">
+ <img src="/image/product/gan-charger/wop37-67w-gan-charger-retractable-cable-wireless.webp" srcset="/image/product/gan-charger/wop37-67w-gan-charger-retractable-cable-wireless-450w.webp 450w, /image/product/gan-charger/wop37-67w-gan-charger-retractable-cable-wireless.webp 1600w" sizes="(min-width: 1440px) 389px, (min-width: 1280px) 389px, (min-width: 1024px) 304px, (min-width: 768px) 344px, (min-width: 430px) 382px, 327px" alt="WOP37 67W GaN Charger with Built-in Cable and Wireless Charging" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async" width="1920" height="1920">
  <div class="absolute top-4 left-4 flex flex-col gap-2">
  <span class="bg-brandOrange text-white text-[11px] font-black px-3 py-1 rounded-full uppercase italic tracking-widest">New</span>
  <span class="bg-slate-900 text-white text-[11px] font-black px-3 py-1 rounded-full uppercase italic tracking-widest text-center">67W+Wireless</span>
@@ -291,9 +285,7 @@ plPath: "produkty/ladowarka-gan/"
 
  <div class="grid grid-cols-2 gap-y-3 gap-x-2 mb-6 border-t border-slate-100 pt-4">
  <div class="flex items-center space-x-2">
- <svg class="icon-link text-brandOrange text-[11px]" aria-hidden="true" focusable="false" viewBox="0 0 576 512">
- <path d="M419.5 96c-16.6 0-32.7 4.5-46.8 12.7-15.8-16-34.2-29.4-54.5-39.5 28.2-24 64.1-37.2 101.3-37.2 86.4 0 156.5 70 156.5 156.5 0 41.5-16.5 81.3-45.8 110.6l-71.1 71.1c-29.3 29.3-69.1 45.8-110.6 45.8-86.4 0-156.5-70-156.5-156.5 0-1.5 0-3.1-4.5.5-17.7 15.2-31.6 32.9-31.1s31.6 15.2 31.1 32.9c0.9 0 1.8 0 2.6 0 51.1 41.4 92.5 92.5 92.5 24.5 0 48-9.7 65.4-27.1l71.1-71.1c17.3-17.3 27.1-40.9 27.1-65.4 0-51.1-41.4-92.5-92.5-92.5zM275.2 173.3c-1.9-.8-3.8-1.9-5.5-3.1-12.6-6.5-27-10.2-42.1-10.2-24.5 0-48 9.7-65.4 27.1L91.1 258.2c-17.3 17.3-27.1 40.9-27.1 65.4 0 51.1 41.4 92.5 92.5 92.5 16.5 0 32.6-4.4 46.7-12.6 15.8 16 34.2 29.4 54.6 39.5-28.2 23.9-64 37.2-101.3 37.2-86.4 0-156.5-70-156.5-156.5 0-41.5 16.5-81.3 45.8-110.6l71.1-71.1c29.3-29.3 69.1-45.8 110.6-45.8 86.6 0 156.5 70.6 156.5 156.9 0 1.3 0 2.6 0 3.9-.4 17.7-15.1 31.6-32.8 31.2s-31.6-15.1-31.2-32.8c0-.8 0-1.5 0-2.3 0-33.7-18-63.3-44.8-79.6z" fill="currentColor"/>
- </svg>
+ <svg class="icon-link text-brandOrange text-[11px]" aria-hidden="true" focusable="false" viewBox="0 0 576 512"><path d="M320.1 56.1c-35.3-35.3-92.7-35.3-128 0L93.7 154.4c-35.3 35.3-35.3 92.7 0 128s92.7 35.3 128 0l34.1-34.1c6.2-6.2 16.4-6.2 22.6 0s6.2 16.4 0 22.6L244.3 305c-47.8 47.8-125.5 47.8-173.3 0S23.2 179.5 71 131.7L169.3 33.4c47.8-47.8 125.5-47.8 173.3 0s47.8 125.5 0 173.3l-27.3 27.3c-6.2 6.2-16.4 6.2-22.6 0s-6.2-16.4 0-22.6l27.3-27.3c35.3-35.3 35.3-92.7 0-128zM186.7 285.5c-6.2-6.2-16.4-6.2-22.6 0l-27.3 27.3c-35.3 35.3-35.3 92.7 0 128s92.7 35.3 128 0l98.4-98.4c35.3-35.3 35.3-92.7 0-128s-92.7-35.3-128 0l-34.1 34.1c-6.2 6.2-16.4 6.2-22.6 0s-6.2-16.4 0-22.6l34.1-34.1c47.8-47.8 125.5-47.8 173.3 0s47.8 125.5 0 173.3L357.3 462.6c-47.8 47.8-125.5 47.8-173.3 0s-47.8-125.5 0-173.3l27.3-27.3c6.2-6.2 16.4-6.2 22.6 0s6.2 16.4 0 22.6z" fill="currentColor"/></svg>
  <span class="text-[11px] font-bold text-slate-500 uppercase">Retractable Cable</span>
  </div>
  <div class="flex items-center space-x-2">
@@ -303,8 +295,8 @@ plPath: "produkty/ladowarka-gan/"
  <span class="text-[11px] font-bold text-slate-500 uppercase">67W PD 3.0</span>
  </div>
  <div class="flex items-center space-x-2">
- <svg class="icon-wifi text-brandOrange text-[11px]" aria-hidden="true" focusable="false" viewBox="0 0 576 512">
- <path d="M288 96c-90.9 0-173.2 36-233.7 94.6-12.7 12.3-33 12-45.2-.7s-12-33.7-45.2C81.7 74.9 179.9 32 288 32S494.3 74.9 566.3 144.7c12.7 12.3 13 32.6.7 45.2s-32.6 13-45.2.7C461.2 132 378.9 96 288 96zM240 432a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zM168 326.2c-11.7 13.3-31.9 14.5-45.2 2.8s-14.5-31.9-2.8-45.2C161 237.4 221.1 208 288 208s127 29.4 168 75.8c11.7 13.3 10.4 33.5-2.8 45.2s-33.5 10.4-45.2-2.8C378.6 292.9 335.8 272 288 272s-90.6 20.9-120 54.2z" fill="currentColor"/>
+ <svg class="icon-wifi text-brandOrange text-[11px]" aria-hidden="true" focusable="false" viewBox="0 0 640 512">
+ <path d="M54.2 202.9C123.2 136.7 216.8 96 320 96s196.8 40.7 265.8 106.9c12.8 12.2 33 11.8 45.2-1s11.8-33-1-45.2C549.7 79.5 440.4 32 320 32S90.3 79.5 9.8 156.7C-2.9 168.8-3.3 189 9 201.2s32.4 13.2 45.2 1zM320 256c56.8 0 108.6 21.1 148.2 56c13.3 11.7 33.5 10.4 45.2-2.8s10.4-33.5-2.8-45.2C462.6 221.8 394.2 192 320 192s-142.6 29.8-190.6 72c-13.3 11.7-14.5 31.9-2.8 45.2s31.9 14.5 45.2 2.8c39.5-34.9 91.3-56 148.2-56zm64 160a64 64 0 1 0 -128 0 64 64 0 1 0 128 0z" fill="currentColor"/>
  </svg>
  <span class="text-[11px] font-bold text-slate-500 uppercase">5W Wireless</span>
  </div>
@@ -371,7 +363,7 @@ plPath: "produkty/ladowarka-gan/"
  <!-- WOP39 67W with Display -->
  <div id="wop39" class="group reveal">
  <div class="relative aspect-square rounded-3xl bg-slate-100 overflow-hidden mb-6">
- <img src="/image/product/gan-charger/wop39-67w-gan-charger-display-retractable-cable.webp" alt="WOP39 67W GaN Charger with Digital Display and Retractable Cable" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async" width="1920" height="1920">
+ <img src="/image/product/gan-charger/wop39-67w-gan-charger-display-retractable-cable.webp" srcset="/image/product/gan-charger/wop39-67w-gan-charger-display-retractable-cable-450w.webp 450w, /image/product/gan-charger/wop39-67w-gan-charger-display-retractable-cable.webp 1920w" sizes="(min-width: 1440px) 389px, (min-width: 1280px) 389px, (min-width: 1024px) 304px, (min-width: 768px) 344px, (min-width: 430px) 382px, 327px" alt="WOP39 67W GaN Charger with Digital Display and Retractable Cable" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async" width="1920" height="1920">
  <div class="absolute top-4 left-4 flex flex-col gap-2">
  <span class="bg-brandOrange text-white text-[11px] font-black px-3 py-1 rounded-full uppercase italic tracking-widest">Popular</span>
  <span class="bg-slate-900 text-white text-[11px] font-black px-3 py-1 rounded-full uppercase italic tracking-widest text-center">67W Display</span>
@@ -382,9 +374,7 @@ plPath: "produkty/ladowarka-gan/"
 
  <div class="grid grid-cols-2 gap-y-3 gap-x-2 mb-6 border-t border-slate-100 pt-4">
  <div class="flex items-center space-x-2">
- <svg class="icon-link text-brandOrange text-[11px]" aria-hidden="true" focusable="false" viewBox="0 0 576 512">
- <path d="M419.5 96c-16.6 0-32.7 4.5-46.8 12.7-15.8-16-34.2-29.4-54.5-39.5 28.2-24 64.1-37.2 101.3-37.2 86.4 0 156.5 70 156.5 156.5 0 41.5-16.5 81.3-45.8 110.6l-71.1 71.1c-29.3 29.3-69.1 45.8-110.6 45.8-86.4 0-156.5-70-156.5-156.5 0-1.5 0-3.1-4.5.5-17.7 15.2-31.6 32.9-31.1s31.6 15.2 31.1 32.9c0.9 0 1.8 0 2.6 0 51.1 41.4 92.5 92.5 92.5 24.5 0 48-9.7 65.4-27.1l71.1-71.1c17.3-17.3 27.1-40.9 27.1-65.4 0-51.1-41.4-92.5-92.5-92.5zM275.2 173.3c-1.9-.8-3.8-1.9-5.5-3.1-12.6-6.5-27-10.2-42.1-10.2-24.5 0-48 9.7-65.4 27.1L91.1 258.2c-17.3 17.3-27.1 40.9-27.1 65.4 0 51.1 41.4 92.5 92.5 92.5 16.5 0 32.6-4.4 46.7-12.6 15.8 16 34.2 29.4 54.6 39.5-28.2 23.9-64 37.2-101.3 37.2-86.4 0-156.5-70-156.5-156.5 0-41.5 16.5-81.3 45.8-110.6l71.1-71.1c29.3-29.3 69.1-45.8 110.6-45.8 86.6 0 156.5 70.6 156.5 156.9 0 1.3 0 2.6 0 3.9-.4 17.7-15.1 31.6-32.8 31.2s-31.6-15.1-31.2-32.8c0-.8 0-1.5 0-2.3 0-33.7-18-63.3-44.8-79.6z" fill="currentColor"/>
- </svg>
+ <svg class="icon-link text-brandOrange text-[11px]" aria-hidden="true" focusable="false" viewBox="0 0 576 512"><path d="M320.1 56.1c-35.3-35.3-92.7-35.3-128 0L93.7 154.4c-35.3 35.3-35.3 92.7 0 128s92.7 35.3 128 0l34.1-34.1c6.2-6.2 16.4-6.2 22.6 0s6.2 16.4 0 22.6L244.3 305c-47.8 47.8-125.5 47.8-173.3 0S23.2 179.5 71 131.7L169.3 33.4c47.8-47.8 125.5-47.8 173.3 0s47.8 125.5 0 173.3l-27.3 27.3c-6.2 6.2-16.4 6.2-22.6 0s-6.2-16.4 0-22.6l27.3-27.3c35.3-35.3 35.3-92.7 0-128zM186.7 285.5c-6.2-6.2-16.4-6.2-22.6 0l-27.3 27.3c-35.3 35.3-35.3 92.7 0 128s92.7 35.3 128 0l98.4-98.4c35.3-35.3 35.3-92.7 0-128s-92.7-35.3-128 0l-34.1 34.1c-6.2 6.2-16.4 6.2-22.6 0s-6.2-16.4 0-22.6l34.1-34.1c47.8-47.8 125.5-47.8 173.3 0s47.8 125.5 0 173.3L357.3 462.6c-47.8 47.8-125.5 47.8-173.3 0s-47.8-125.5 0-173.3l27.3-27.3c6.2-6.2 16.4-6.2 22.6 0s6.2 16.4 0 22.6z" fill="currentColor"/></svg>
  <span class="text-[11px] font-bold text-slate-500 uppercase">Retractable Cable</span>
  </div>
  <div class="flex items-center space-x-2">
@@ -394,8 +384,8 @@ plPath: "produkty/ladowarka-gan/"
  <span class="text-[11px] font-bold text-slate-500 uppercase">67W PD 3.0</span>
  </div>
  <div class="flex items-center space-x-2">
- <svg class="icon-display text-brandOrange text-[11px]" aria-hidden="true" focusable="false" viewBox="0 0 512 512">
- <path d="M448 96l0 256-384 0 0-256 384 0zM64 32C28.7 32 0 60.7 0 96L0 352c0 35.3 28.7 64 64 64l144 0-16 48-72 0c-13.3 0-24 10.7-24 24s10.7 24 24 24l272 0c13.3 0 24-10.7 24-24s-10.7-24-24-24l-72 0-16-48 144 0c35.3 0 64-28.7 64-64l0-256c0-35.3-28.7-64-64-64L64 32z" fill="currentColor"/>
+ <svg class="icon-display text-brandOrange text-[11px]" aria-hidden="true" focusable="false" viewBox="0 0 576 512">
+ <path d="M64 0C28.7 0 0 28.7 0 64L0 352c0 35.3 28.7 64 64 64l176 0-10.7 32L160 448c-17.7 0-32 14.3-32 32s14.3 32 32 32l256 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-69.3 0L336 416l176 0c35.3 0 64-28.7 64-64l0-288c0-35.3-28.7-64-64-64L64 0z" fill="currentColor"/>
  </svg>
  <span class="text-[11px] font-bold text-slate-500 uppercase">Digital Display</span>
  </div>
@@ -462,7 +452,7 @@ plPath: "produkty/ladowarka-gan/"
  <!-- WOP28 35W Mini -->
  <div id="wop28" class="group reveal">
  <div class="relative aspect-square rounded-3xl bg-slate-100 overflow-hidden mb-6">
- <img src="/image/product/gan-charger/wop28-35w-mini-gan-charger-dual-usb-c.webp" alt="WOP28 35W Mini GaN Charger with Dual USB-C" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async" width="1920" height="1920">
+ <img src="/image/product/gan-charger/wop28-35w-mini-gan-charger-dual-usb-c.webp" srcset="/image/product/gan-charger/wop28-35w-mini-gan-charger-dual-usb-c-450w.webp 450w, /image/product/gan-charger/wop28-35w-mini-gan-charger-dual-usb-c.webp 900w" sizes="(min-width: 1440px) 389px, (min-width: 1280px) 389px, (min-width: 1024px) 304px, (min-width: 768px) 344px, (min-width: 430px) 382px, 327px" alt="WOP28 35W Mini GaN Charger with Dual USB-C" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async" width="1920" height="1920">
  <div class="absolute top-4 left-4 flex flex-col gap-2">
  <span class="bg-brandOrange text-white text-[11px] font-black px-3 py-1 rounded-full uppercase italic tracking-widest">Best Seller</span>
  <span class="bg-slate-900 text-white text-[11px] font-black px-3 py-1 rounded-full uppercase italic tracking-widest text-center">35W Mini</span>
@@ -553,7 +543,7 @@ plPath: "produkty/ladowarka-gan/"
  <!-- WOP20 20W Power Strip -->
  <div id="wop20" class="group reveal">
  <div class="relative aspect-square rounded-3xl bg-slate-100 overflow-hidden mb-6">
- <img src="/image/product/gan-charger/wop20-20w-gan-power-strip-extension.webp" alt="WOP20 20W GaN Power Strip Extension with USB Ports" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async" width="1920" height="1920">
+ <img src="/image/product/gan-charger/wop20-20w-gan-power-strip-extension.webp" srcset="/image/product/gan-charger/wop20-20w-gan-power-strip-extension-450w.webp 450w, /image/product/gan-charger/wop20-20w-gan-power-strip-extension.webp 800w" sizes="(min-width: 1440px) 389px, (min-width: 1280px) 389px, (min-width: 1024px) 304px, (min-width: 768px) 344px, (min-width: 430px) 382px, 327px" alt="WOP20 20W GaN Power Strip Extension with USB Ports" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async" width="1920" height="1920">
  <div class="absolute top-4 left-4 flex flex-col gap-2">
  <span class="bg-brandOrange text-white text-[11px] font-black px-3 py-1 rounded-full uppercase italic tracking-widest">Travel Essential</span>
  <span class="bg-slate-900 text-white text-[11px] font-black px-3 py-1 rounded-full uppercase italic tracking-widest text-center">20W Power Strip</span>
@@ -652,7 +642,7 @@ plPath: "produkty/ladowarka-gan/"
  <!-- WOP30 30W Power Strip -->
  <div id="wop30" class="group reveal">
  <div class="relative aspect-square rounded-3xl bg-slate-100 overflow-hidden mb-6">
- <img src="/image/product/gan-charger/wop30-30w-gan-power-strip-extension.webp" alt="WOP30 30W GaN Power Strip with 3-Outlet and USB Ports" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async" width="1920" height="1920">
+ <img src="/image/product/gan-charger/wop30-30w-gan-power-strip-extension.webp" srcset="/image/product/gan-charger/wop30-30w-gan-power-strip-extension-450w.webp 450w, /image/product/gan-charger/wop30-30w-gan-power-strip-extension.webp 800w" sizes="(min-width: 1440px) 389px, (min-width: 1280px) 389px, (min-width: 1024px) 304px, (min-width: 768px) 344px, (min-width: 430px) 382px, 327px" alt="WOP30 30W GaN Power Strip with 3-Outlet and USB Ports" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async" width="1920" height="1920">
  <div class="absolute top-4 left-4 flex flex-col gap-2">
  <span class="bg-brandOrange text-white text-[11px] font-black px-3 py-1 rounded-full uppercase italic tracking-widest">Bestseller</span>
  <span class="bg-slate-900 text-white text-[11px] font-black px-3 py-1 rounded-full uppercase italic tracking-widest text-center">30W Power Strip</span>
@@ -751,7 +741,7 @@ plPath: "produkty/ladowarka-gan/"
  <!-- WOP10 65W Power Strip -->
  <div id="wop10" class="group reveal">
  <div class="relative aspect-square rounded-3xl bg-slate-100 overflow-hidden mb-6">
- <img src="/image/product/gan-charger/wop10-65w-gan-power-strip-4-port.webp" alt="WOP10 65W GaN Power Strip with 4 USB Ports High Power" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async" width="1920" height="1920">
+ <img src="/image/product/gan-charger/wop10-65w-gan-power-strip-4-port.webp" srcset="/image/product/gan-charger/wop10-65w-gan-power-strip-4-port-800w.webp 800w, /image/product/gan-charger/wop10-65w-gan-power-strip-4-port.webp 1920w" sizes="(min-width: 1440px) 590px, (min-width: 1280px) 590px, (min-width: 1024px) 462px, (min-width: 768px) 718px, (min-width: 430px) 382px, 338px" alt="WOP10 65W GaN Power Strip with 4 USB Ports High Power" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async" width="1920" height="1920">
  <div class="absolute top-4 left-4 flex flex-col gap-2">
  <span class="bg-brandOrange text-white text-[11px] font-black px-3 py-1 rounded-full uppercase italic tracking-widest">High Power</span>
  <span class="bg-slate-900 text-white text-[11px] font-black px-3 py-1 rounded-full uppercase italic tracking-widest text-center">65W PD 3.1</span>
@@ -850,7 +840,7 @@ plPath: "produkty/ladowarka-gan/"
  <!-- WOP80 100W Power Strip -->
  <div id="wop80" class="group reveal">
  <div class="relative aspect-square rounded-3xl bg-slate-100 overflow-hidden mb-6">
- <img src="/image/product/gan-charger/wop80-100w-gan-power-strip-high-power.webp" alt="WOP80 100W GaN Power Strip with High Power USB-C PD" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async" width="1920" height="1920">
+ <img src="/image/product/gan-charger/wop80-100w-gan-power-strip-high-power.webp" srcset="/image/product/gan-charger/wop80-100w-gan-power-strip-high-power-450w.webp 450w, /image/product/gan-charger/wop80-100w-gan-power-strip-high-power.webp 1920w" sizes="(min-width: 1440px) 389px, (min-width: 1280px) 389px, (min-width: 1024px) 304px, (min-width: 768px) 344px, (min-width: 430px) 382px, 327px" alt="WOP80 100W GaN Power Strip with High Power USB-C PD" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async" width="1920" height="1920">
  <div class="absolute top-4 left-4 flex flex-col gap-2">
  <span class="bg-brandOrange text-white text-[11px] font-black px-3 py-1 rounded-full uppercase italic tracking-widest">High Power</span>
  <span class="bg-slate-900 text-white text-[11px] font-black px-3 py-1 rounded-full uppercase italic tracking-widest text-center">100W PD</span>
@@ -945,7 +935,7 @@ plPath: "produkty/ladowarka-gan/"
  <!-- WOP140 140W 4-Port GaN Charger -->
  <div id="wop140" class="group reveal">
  <div class="relative aspect-square rounded-3xl bg-slate-100 overflow-hidden mb-6">
- <img src="/image/product/gan-charger/wop140-140w-gan-charger-4-port-pd3.1.webp" alt="WOP140 140W GaN Charger 4-Port USB-C PD 3.1 AI Display Aluminum Window" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async" width="1920" height="1920">
+ <img src="/image/product/gan-charger/wop140-140w-gan-charger-4-port-pd3.1.webp" srcset="/image/product/gan-charger/wop140-140w-gan-charger-4-port-pd3.1-450w.webp 450w, /image/product/gan-charger/wop140-140w-gan-charger-4-port-pd3.1.webp 1920w" sizes="(min-width: 1440px) 389px, (min-width: 1280px) 389px, (min-width: 1024px) 304px, (min-width: 768px) 344px, (min-width: 430px) 382px, 327px" alt="WOP140 140W GaN Charger 4-Port USB-C PD 3.1 AI Display Aluminum Window" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async" width="1920" height="1920">
  <div class="absolute top-4 left-4 flex flex-col gap-2">
  <span class="bg-brandOrange text-white text-[11px] font-black px-3 py-1 rounded-full uppercase italic tracking-widest">New</span>
  <span class="bg-slate-900 text-white text-[11px] font-black px-3 py-1 rounded-full uppercase italic tracking-widest text-center">140W PD 3.1</span>
@@ -975,7 +965,7 @@ plPath: "produkty/ladowarka-gan/"
  </div>
  <div class="flex items-center space-x-2">
  <svg class="icon-display text-brandOrange text-[11px]" aria-hidden="true" focusable="false" viewBox="0 0 576 512">
- <path d="M64 0C28.7 0 0 28.7 0 64L0 352c0 35.3 28.7 64 64 64l176 0-10.7 32L160 448c-17.7 0-32 14.3-32 32s14.3 32 32 32l256 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-69.3 0L336 416l176 0c35.3 0 64-28.7 64-64l0-288c0-35.3-28.7-64-64-64L64 0zM512 64l0 288L64 352 64 64l448 0z" fill="currentColor"/>
+ <path d="M64 0C28.7 0 0 28.7 0 64L0 352c0 35.3 28.7 64 64 64l176 0-10.7 32L160 448c-17.7 0-32 14.3-32 32s14.3 32 32 32l256 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-69.3 0L336 416l176 0c35.3 0 64-28.7 64-64l0-288c0-35.3-28.7-64-64-64L64 0z" fill="currentColor"/>
  </svg>
  <span class="text-[11px] font-bold text-slate-500 uppercase">AI Display</span>
  </div>
@@ -1040,7 +1030,7 @@ plPath: "produkty/ladowarka-gan/"
  <!-- WOP100 100W AI Display GaN Charger -->
  <div id="wop100" class="group reveal">
  <div class="relative aspect-square rounded-3xl bg-slate-100 overflow-hidden mb-6">
- <img src="/image/product/gan-charger/wop100-100w-gan-charger-ai-display-3-port.webp" alt="WOP100 100W GaN Charger 3-Port AI Display Real-Time Charging Visualization" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async" width="1920" height="1920">
+ <img src="/image/product/gan-charger/wop100-100w-gan-charger-ai-display-3-port.webp" srcset="/image/product/gan-charger/wop100-100w-gan-charger-ai-display-3-port-450w.webp 450w, /image/product/gan-charger/wop100-100w-gan-charger-ai-display-3-port.webp 1600w" sizes="(min-width: 1440px) 389px, (min-width: 1280px) 389px, (min-width: 1024px) 304px, (min-width: 768px) 344px, (min-width: 430px) 382px, 327px" alt="WOP100 100W GaN Charger 3-Port AI Display Real-Time Charging Visualization" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async" width="1920" height="1920">
  <div class="absolute top-4 left-4 flex flex-col gap-2">
  <span class="bg-brandOrange text-white text-[11px] font-black px-3 py-1 rounded-full uppercase italic tracking-widest">New</span>
  <span class="bg-slate-900 text-white text-[11px] font-black px-3 py-1 rounded-full uppercase italic tracking-widest text-center">100W Display</span>
@@ -1064,14 +1054,12 @@ plPath: "produkty/ladowarka-gan/"
  </div>
  <div class="flex items-center space-x-2">
  <svg class="icon-display text-brandOrange text-[11px]" aria-hidden="true" focusable="false" viewBox="0 0 576 512">
- <path d="M64 0C28.7 0 0 28.7 0 64L0 352c0 35.3 28.7 64 64 64l176 0-10.7 32L160 448c-17.7 0-32 14.3-32 32s14.3 32 32 32l256 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-69.3 0L336 416l176 0c35.3 0 64-28.7 64-64l0-288c0-35.3-28.7-64-64-64L64 0zM512 64l0 288L64 352 64 64l448 0z" fill="currentColor"/>
+ <path d="M64 0C28.7 0 0 28.7 0 64L0 352c0 35.3 28.7 64 64 64l176 0-10.7 32L160 448c-17.7 0-32 14.3-32 32s14.3 32 32 32l256 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-69.3 0L336 416l176 0c35.3 0 64-28.7 64-64l0-288c0-35.3-28.7-64-64-64L64 0z" fill="currentColor"/>
  </svg>
  <span class="text-[11px] font-bold text-slate-500 uppercase">AI Display</span>
  </div>
  <div class="flex items-center space-x-2">
- <svg class="icon-palette text-brandOrange text-[11px]" aria-hidden="true" focusable="false" viewBox="0 0 512 512">
- <path d="M512 256c0 .9 0 1.8 0 2.7c-.4 36.5-33.6 61.3-70.1 61.3L344 320c-26.5 0-48 21.5-48 48c0 3.4.4 6.7 1.1 9.8c2.1 9.2 3.9 18.7 3.9 28.2c0 39.8-30.8 72-65 72c-15.8 0-32.8-5.1-51.3-17.7c-17.5-11.8-30.1-25.8-38.2-42C127.3 468.2 116 432.1 116 384c0-141.4 114.6-256 256-256c141.4 0 256 114.6 256 256l-116 0zM232 192a32 32 0 1 0 -64 0 32 32 0 1 0 64 0zm120-32a32 32 0 1 0 0-64 32 32 0 1 0 0 64zm72 96a32 32 0 1 0 0-64 32 32 0 1 0 0 64z" fill="currentColor"/>
- </svg>
+ <svg class="icon-palette text-brandOrange text-[11px]" aria-hidden="true" focusable="false" viewBox="0 0 512 512"><path d="M512 256c0 .9 0 1.8 0 2.7c-.4 13.4-9.7 24.4-22.9 26.1c-1.1 .1-2.2 .2-3.4 .2c-14.7 0-28.1-7.1-35.8-18.1c-5-7.1-7.9-15.5-7.9-24.3c0-18.7 15.2-33.9 33.9-33.9c14.1 0 26.2 8.6 31.3 20.9C509.4 237.6 512 246.6 512 256zM342.4 355.3c19 19 19 49.8 0 68.8c-19 19-49.8 19-68.8 0c-19-19-19-49.8 0-68.8c19-19 49.8-19 68.8 0zM191.1 368c0 26.5-21.5 48-48 48s-48-21.5-48-48s21.5-48 48-48s48 21.5 48 48zM104.1 197.3c19 19 19 49.8 0 68.8c-19 19-49.8 19-68.8 0c-19-19-19-49.8 0-68.8c19-19 49.8-19 68.8 0zM256 80c-17.7 0-32-14.3-32-32s14.3-32 32-32s32 14.3 32 32s-14.3 32-32 32z" fill="currentColor"/></svg>
  <span class="text-[11px] font-bold text-slate-500 uppercase">3 Colors</span>
  </div>
  </div>
@@ -1135,7 +1123,7 @@ plPath: "produkty/ladowarka-gan/"
  <!-- WOP45 45W Mini AI Display GaN Charger -->
  <div id="wop45" class="group reveal">
  <div class="relative aspect-square rounded-3xl bg-slate-100 overflow-hidden mb-6">
- <img src="/image/product/gan-charger/wop45-45w-mini-gan-charger-ai-display-single-usb-c.webp" alt="WOP45 45W Mini GaN Charger Single USB-C AI Display PPS AVS" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async" width="1920" height="1920">
+ <img src="/image/product/gan-charger/wop45-45w-mini-gan-charger-ai-display-single-usb-c.webp" srcset="/image/product/gan-charger/wop45-45w-mini-gan-charger-ai-display-single-usb-c-450w.webp 450w, /image/product/gan-charger/wop45-45w-mini-gan-charger-ai-display-single-usb-c.webp 800w" sizes="(min-width: 1440px) 389px, (min-width: 1280px) 389px, (min-width: 1024px) 304px, (min-width: 768px) 344px, (min-width: 430px) 382px, 327px" alt="WOP45 45W Mini GaN Charger Single USB-C AI Display PPS AVS" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async" width="1920" height="1920">
  <div class="absolute top-4 left-4 flex flex-col gap-2">
  <span class="bg-brandOrange text-white text-[11px] font-black px-3 py-1 rounded-full uppercase italic tracking-widest">New</span>
  <span class="bg-slate-900 text-white text-[11px] font-black px-3 py-1 rounded-full uppercase italic tracking-widest text-center">45W Mini</span>
@@ -1159,14 +1147,12 @@ plPath: "produkty/ladowarka-gan/"
  </div>
  <div class="flex items-center space-x-2">
  <svg class="icon-display text-brandOrange text-[11px]" aria-hidden="true" focusable="false" viewBox="0 0 576 512">
- <path d="M64 0C28.7 0 0 28.7 0 64L0 352c0 35.3 28.7 64 64 64l176 0-10.7 32L160 448c-17.7 0-32 14.3-32 32s14.3 32 32 32l256 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-69.3 0L336 416l176 0c35.3 0 64-28.7 64-64l0-288c0-35.3-28.7-64-64-64L64 0zM512 64l0 288L64 352 64 64l448 0z" fill="currentColor"/>
+ <path d="M64 0C28.7 0 0 28.7 0 64L0 352c0 35.3 28.7 64 64 64l176 0-10.7 32L160 448c-17.7 0-32 14.3-32 32s14.3 32 32 32l256 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-69.3 0L336 416l176 0c35.3 0 64-28.7 64-64l0-288c0-35.3-28.7-64-64-64L64 0z" fill="currentColor"/>
  </svg>
  <span class="text-[11px] font-bold text-slate-500 uppercase">AI Display</span>
  </div>
  <div class="flex items-center space-x-2">
- <svg class="icon-palette text-brandOrange text-[11px]" aria-hidden="true" focusable="false" viewBox="0 0 512 512">
- <path d="M512 256c0 .9 0 1.8 0 2.7c-.4 36.5-33.6 61.3-70.1 61.3L344 320c-26.5 0-48 21.5-48 48c0 3.4.4 6.7 1.1 9.8c2.1 9.2 3.9 18.7 3.9 28.2c0 39.8-30.8 72-65 72c-15.8 0-32.8-5.1-51.3-17.7c-17.5-11.8-30.1-25.8-38.2-42C127.3 468.2 116 432.1 116 384c0-141.4 114.6-256 256-256c141.4 0 256 114.6 256 256l-116 0zM232 192a32 32 0 1 0 -64 0 32 32 0 1 0 64 0zm120-32a32 32 0 1 0 0-64 32 32 0 1 0 0 64zm72 96a32 32 0 1 0 0-64 32 32 0 1 0 0 64z" fill="currentColor"/>
- </svg>
+ <svg class="icon-palette text-brandOrange text-[11px]" aria-hidden="true" focusable="false" viewBox="0 0 512 512"><path d="M512 256c0 .9 0 1.8 0 2.7c-.4 13.4-9.7 24.4-22.9 26.1c-1.1 .1-2.2 .2-3.4 .2c-14.7 0-28.1-7.1-35.8-18.1c-5-7.1-7.9-15.5-7.9-24.3c0-18.7 15.2-33.9 33.9-33.9c14.1 0 26.2 8.6 31.3 20.9C509.4 237.6 512 246.6 512 256zM342.4 355.3c19 19 19 49.8 0 68.8c-19 19-49.8 19-68.8 0c-19-19-19-49.8 0-68.8c19-19 49.8-19 68.8 0zM191.1 368c0 26.5-21.5 48-48 48s-48-21.5-48-48s21.5-48 48-48s48 21.5 48 48zM104.1 197.3c19 19 19 49.8 0 68.8c-19 19-49.8 19-68.8 0c-19-19-19-49.8 0-68.8c19-19 49.8-19 68.8 0zM256 80c-17.7 0-32-14.3-32-32s14.3-32 32-32s32 14.3 32 32s-14.3 32-32 32z" fill="currentColor"/></svg>
  <span class="text-[11px] font-bold text-slate-500 uppercase">3 Colors</span>
  </div>
  </div>
@@ -1225,7 +1211,7 @@ plPath: "produkty/ladowarka-gan/"
 
 <!-- ======== POWER OPTIONS ======== -->
  <section class="sec bg-white">
- <div class="max-w-7xl mx-auto px-6">
+ <div class="container-wide">
  <div class="text-center mb-12">
  <div class="inline-block px-4 py-1 bg-brandOrange/10 border border-brandOrange/20 rounded-full text-[11px] font-bold text-brandOrange uppercase tracking-widest mb-6">Power Options</div>
  <h2 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4">Choose Your <span class="text-brandOrange">GaN Charger</span></h2>
@@ -1307,7 +1293,7 @@ plPath: "produkty/ladowarka-gan/"
  </section>
 <!-- ======== WHO IS THIS FOR ======== -->
  <section class="sec bg-white">
- <div class="max-w-7xl mx-auto px-6">
+ <div class="container-wide">
  <div class="text-center mb-14">
  <div class="inline-block px-4 py-1 bg-brandBlue/10 border border-brandBlue/20 rounded-full text-[11px] font-bold text-brandBlue uppercase tracking-widest mb-6">Who Is This For</div>
  <h2 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4">Perfect for Your Business</h2>
@@ -1361,7 +1347,7 @@ plPath: "produkty/ladowarka-gan/"
  </section>
 <!-- ======== TECHNOLOGY COMPARISON ======== -->
 <section class="sec bg-white">
- <div class="max-w-5xl mx-auto px-6">
+ <div class="container-content">
  <div class="text-center mb-12 reveal">
  <p class="section-label">Technology</p>
  <h2 class="section-title">GaN V vs Silicon vs GaN III</h2>
@@ -1393,7 +1379,7 @@ plPath: "produkty/ladowarka-gan/"
  WHY WOWOHCOOL - Competitive Comparison
  ======================================================================== -->
  <section class="sec bg-white">
- <div class="max-w-7xl mx-auto px-6">
+ <div class="container-wide">
  <div class="text-center mb-14">
  <div class="inline-block px-4 py-1 bg-brandOrange/10 border border-brandOrange/20 rounded-full text-[11px] font-bold text-brandOrange uppercase tracking-widest mb-6">Why WOWOHCOOL</div>
  <h2 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4">Not All Factories Are Equal</h2>
@@ -1451,7 +1437,7 @@ plPath: "produkty/ladowarka-gan/"
  CLIENT TESTIMONIALS SECTION - B2B client testimonials
  ======================================================================== -->
  <section class="sec-lg bg-slate-900">
- <div class="max-w-7xl mx-auto px-6">
+ <div class="container-wide">
  <div class="text-center mb-16">
  <div class="inline-block px-4 py-1 bg-brandOrange/10 border border-brandOrange/20 rounded-full text-[11px] font-bold text-brandOrange uppercase tracking-widest mb-6">Client Feedback</div>
  <h2 class="text-3xl lg:text-4xl font-black text-white uppercase italic tracking-tighter mb-4">What Our B2B Partners Say</h2>
@@ -1627,7 +1613,7 @@ plPath: "produkty/ladowarka-gan/"
  
  <!-- ======== PROTOCOL SUPPORT ======== -->
  <section class="sec bg-white border-t border-slate-100">
- <div class="max-w-7xl mx-auto px-6">
+ <div class="container-wide">
  <div class="bg-brandBlue rounded-2xl md:rounded-3xl p-6 md:p-8 text-white">
  <div class="flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-6">
  <div class="w-12 h-12 md:w-16 md:h-16 rounded-xl flex items-center justify-center flex-shrink-0 bg-brandOrange/20">
@@ -1645,7 +1631,7 @@ plPath: "produkty/ladowarka-gan/"
  </section>
 <!-- ======== EU COMPLIANCE ======== -->
 <section class="sec bg-slate-50">
- <div class="max-w-5xl mx-auto px-6">
+ <div class="container-content">
  <div class="text-center mb-12 reveal">
  <p class="section-label">Compliance</p>
  <h2 class="section-title">EU &amp; Global Certification Support</h2>
@@ -1679,7 +1665,7 @@ plPath: "produkty/ladowarka-gan/"
  FAQ SECTION
  ======================================================================== -->
  <section class="sec-lg bg-slate-50 border-t border-slate-100">
- <div class="max-w-4xl mx-auto px-6">
+ <div class="container-narrow">
  <div class="text-center mb-16 reveal">
  <h2 class="text-3xl lg:text-4xl font-black text-slate-900 uppercase italic tracking-tighter mb-4">GaN Charger <span class="text-brandOrange">FAQ</span></h2>
  <p class="text-slate-500 font-bold uppercase tracking-widest text-[11px]">Essential for OEM/ODM partnerships</p>
@@ -1751,7 +1737,7 @@ plPath: "produkty/ladowarka-gan/"
  </section>
  <!-- ======== BLOG ARTICLES ======== -->
  <section class="sec bg-white border-t border-slate-100">
- <div class="max-w-7xl mx-auto px-6">
+ <div class="container-wide">
  <div class="text-center mb-12 reveal">
  <h2 class="text-3xl lg:text-4xl font-black text-slate-900 uppercase italic tracking-tighter mb-4">GaN Charger <span class="text-brandOrange">Insights</span></h2>
  <p class="text-slate-500 font-bold uppercase tracking-widest text-[11px]">Expert guides for OEM/ODM sourcing</p>
@@ -1760,7 +1746,7 @@ plPath: "produkty/ladowarka-gan/"
  <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
  <a href="/blog/gan-chargers-guide" class="group bg-slate-50 rounded-2xl overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
  <div class="h-40 relative overflow-hidden">
- <img loading="lazy" src="/image/blog/cover-en/gan-chargers-guide.webp" alt="GaN Charger Guide 2026" class="w-full h-full object-cover" width="2240" height="1260">
+ <img loading="lazy" src="/image/blog/cover-en/gan-chargers-guide.webp" srcset="/image/blog/cover-en/gan-chargers-guide-450w.webp 450w, /image/blog/cover-en/gan-chargers-guide.webp 1700w" sizes="(min-width: 1440px) 395px, (min-width: 1280px) 395px, (min-width: 1024px) 309px, (min-width: 768px) 348px, (min-width: 430px) 382px, 327px" alt="GaN Charger Guide 2026" class="w-full h-full object-cover" width="2240" height="1260">
  <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
  <div class="absolute bottom-3 left-4">
  <span class="px-2 py-1 bg-brandOrange text-white text-[11px] font-black uppercase rounded">Technology</span>
@@ -1769,13 +1755,13 @@ plPath: "produkty/ladowarka-gan/"
  <div class="p-6">
  <h3 class="font-black text-brandBlue uppercase mb-2 group-hover:text-brandOrange transition text-sm leading-tight">GaN Charger Guide 2026</h3>
  <p class="text-slate-500 text-xs line-clamp-2">Why Gallium Nitride technology is revolutionizing fast charging for B2B brands.</p>
- <span class="inline-block mt-3 text-brandOrange text-[11px] font-bold uppercase">Read More  — span>
+ <span class="inline-block mt-3 text-brandOrange text-[11px] font-bold uppercase">Read More &rarr;</span>
  </div>
  </a>
  
  <a href="/blog/oem-vs-odm-guide" class="group bg-slate-50 rounded-2xl overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
  <div class="h-40 relative overflow-hidden">
- <img loading="lazy" src="/image/blog/cover-en/oem-vs-odm-guide.webp" alt="OEM vs ODM Guide" class="w-full h-full object-cover" width="2240" height="1260">
+ <img loading="lazy" src="/image/blog/cover-en/oem-vs-odm-guide.webp" srcset="/image/blog/cover-en/oem-vs-odm-guide-450w.webp 450w, /image/blog/cover-en/oem-vs-odm-guide.webp 1700w" sizes="(min-width: 1440px) 395px, (min-width: 1280px) 395px, (min-width: 1024px) 309px, (min-width: 768px) 348px, (min-width: 430px) 382px, 327px" alt="OEM vs ODM Guide" class="w-full h-full object-cover" width="2240" height="1260">
  <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
  <div class="absolute bottom-3 left-4">
  <span class="px-2 py-1 bg-brandBlue text-white text-[11px] font-black uppercase rounded">Sourcing</span>
@@ -1784,13 +1770,13 @@ plPath: "produkty/ladowarka-gan/"
  <div class="p-6">
  <h4 class="font-black text-brandBlue uppercase mb-2 group-hover:text-brandOrange transition text-sm leading-tight">OEM vs ODM Guide</h4>
  <p class="text-slate-500 text-xs line-clamp-2">Choose the right manufacturing model for your brand.</p>
- <span class="inline-block mt-3 text-brandOrange text-[11px] font-bold uppercase">Read More  — span>
+ <span class="inline-block mt-3 text-brandOrange text-[11px] font-bold uppercase">Read More &rarr;</span>
  </div>
  </a>
  
  <a href="/blog/charger-safety-standards" class="group bg-slate-50 rounded-2xl overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
  <div class="h-40 relative overflow-hidden">
- <img loading="lazy" src="/image/blog/cover-en/charger-safety-standards-guide.webp" alt="Charger Safety Standards" class="w-full h-full object-cover" width="2240" height="1260">
+ <img loading="lazy" src="/image/blog/cover-en/charger-safety-standards-guide.webp" srcset="/image/blog/cover-en/charger-safety-standards-guide-450w.webp 450w, /image/blog/cover-en/charger-safety-standards-guide.webp 1700w" sizes="(min-width: 1440px) 395px, (min-width: 1280px) 395px, (min-width: 1024px) 309px, (min-width: 768px) 348px, (min-width: 430px) 382px, 327px" alt="Charger Safety Standards" class="w-full h-full object-cover" width="2240" height="1260">
  <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
  <div class="absolute bottom-3 left-4">
  <span class="px-2 py-1 bg-white text-green-600 text-[11px] font-black uppercase rounded">Compliance</span>
@@ -1799,7 +1785,7 @@ plPath: "produkty/ladowarka-gan/"
  <div class="p-6">
  <h4 class="font-black text-brandBlue uppercase mb-2 group-hover:text-brandOrange transition text-sm leading-tight">Charger Safety Standards</h4>
  <p class="text-slate-500 text-xs line-clamp-2">Essential certifications for global markets.</p>
- <span class="inline-block mt-3 text-brandOrange text-[11px] font-bold uppercase">Read More  — span>
+ <span class="inline-block mt-3 text-brandOrange text-[11px] font-bold uppercase">Read More &rarr;</span>
  </div>
  </a>
  </div>
@@ -1815,7 +1801,7 @@ plPath: "produkty/ladowarka-gan/"
  </section>
 <!-- ====== EXPLORE MORE ====== -->
 <section class="sec bg-white relative py-12">
- <div class="max-w-5xl mx-auto px-6">
+ <div class="container-content">
   <p class="text-center text-slate-500 text-sm mb-6">Explore more charging categories from WOWOHCOOL:</p>
   <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
    <a href="/products/power-bank/" class="block bg-slate-50 rounded-xl p-4 border border-slate-200 hover:border-brandOrange hover:shadow-md transition text-center">

@@ -50,7 +50,11 @@
  <meta name="twitter:title" content="{{ ogTitle or title or i18nLayout.defaultTwitterTitle }}">
  <meta name="twitter:description" content="{{ ogDescription or description or i18nLayout.defaultTwitterDescription }}">
  <meta name="twitter:image" content="https://www.wowohcool.com{{ ogImage or "/image/factory/wowohcool-smart-charging-solutions.webp" }}">
- {% if ogImage %}<link rel="preload" as="image" href="{{ ogImage }}" type="image/webp" fetchpriority="high">{% endif %}
+ {# ogImage is a social-share asset (1200x630). Never preload it: it is not
+    rendered on the page, so a high-priority fetch only competes with the real
+    LCP. Pages that genuinely need an LCP hint declare `preloadImage` in
+    frontmatter (the homepage uses its own responsive preload instead). #}
+ {% if preloadImage %}<link rel="preload" as="image" href="{{ preloadImage }}" type="image/webp" fetchpriority="high">{% endif %}
  {% if date %}<meta property="article:published_time" content="{{ date | fmtDate }}">{% endif %}
  {% if modified %}<meta property="article:modified_time" content="{{ modified | fmtDate }}">{% endif %}
  {% if authorUrl %}<meta property="article:author" content="{{ authorUrl }}">{% endif %}
@@ -74,7 +78,7 @@
 
 <body class="bg-white text-slate-900 overflow-x-hidden max-w-full">
 
-{% if lang != "en" %}{% from "breadcrumb.njk" import breadcrumb %}{% endif %}
+{% from "breadcrumb.njk" import breadcrumb with context %}
 
  <!-- ======== HEADER ======== -->
  {% include "header.njk" %}

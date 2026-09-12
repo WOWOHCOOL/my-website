@@ -183,12 +183,8 @@ plPath: "studia-przypadkow/"
  <div class="absolute top-0 left-0 w-64 h-64 bg-brandOrange opacity-20 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
  <div class="absolute bottom-0 right-0 w-64 h-64 bg-blue-500 opacity-20 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
  </div>
- <div class="max-w-7xl mx-auto px-6 relative z-10 text-center py-12 lg:py-12">
- <nav class="text-sm text-slate-500 mb-6 text-left">
- <a href="/" class="hover:text-brandOrange">Home</a>
- <span class="mx-2">/</span>
- <span class="text-slate-900">Case Studies</span>
- </nav>
+ <div class="container-wide relative z-10 text-center py-12 lg:py-12">
+ {{ breadcrumb([{name: "Home", url: "/"}, {name: "Case Studies"}], "none", "mb-6") }}
  <div class="badge-capsule mb-6 mx-auto uppercase tracking-widest">10+ Years of Manufacturing Partnerships</div>
  <h1 class="text-4xl md:text-5xl lg:text-6xl font-black text-brandBlue uppercase italic tracking-tighter leading-tight mb-6">
  OEM/ODM <span class="text-brandOrange">Success Stories</span>
@@ -218,7 +214,7 @@ plPath: "studia-przypadkow/"
 
 {% macro caseSection(id, num, tag, title, quote, author, metrics, text, imgSrc, imgAlt, imgLeft, bg) %}
 <section id="{{ id }}" class="sec {{ bg }}">
- <div class="max-w-7xl mx-auto px-6">
+ <div class="container-wide">
  <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
  {% if imgLeft %}
  <div class="reveal order-1">
@@ -337,7 +333,7 @@ plPath: "studia-przypadkow/"
 
  <!-- CTA SECTION -->
  <section class="sec-lg bg-slate-900 text-white">
- <div class="max-w-3xl mx-auto px-6 text-center">
+ <div class="container-narrow text-center">
   <p class="text-brandOrange text-xs font-black uppercase tracking-[0.3em] mb-4">75,500+ Units Delivered · 100% On-Time · 6 Projects</p>
   <h2 class="text-3xl md:text-4xl font-black uppercase italic tracking-tighter mb-6">Start Your <span class="text-brandOrange">Success Story</span></h2>
   <p class="text-slate-400 leading-relaxed mb-8 max-w-xl mx-auto">From concept to delivery, we partner with brands at every stage. Tell us about your project and we'll respond within 24 hours with a tailored proposal.</p>
