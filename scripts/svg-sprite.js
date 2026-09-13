@@ -16,8 +16,9 @@
 const fs = require('fs');
 const path = require('path');
 
-const SITE = 'C:/Users/wowoh/wowohcool.com/_site';
-const SPRITE_PATH = 'C:/Users/wowoh/wowohcool.com/_site/image/icons.svg';
+const REPO_ROOT = path.join(__dirname, '..');
+const SITE = path.join(REPO_ROOT, '_site');
+const SPRITE_PATH = path.join(SITE, 'image', 'icons.svg');
 const SPRITE_URL = '/image/icons.svg';
 const MARKER = '<!-- svg-sprite -->';
 
