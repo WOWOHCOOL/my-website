@@ -73,11 +73,11 @@ plPath: "produkty/power-bank/magnetyczny-bezprzewodowy/"
 
 {% block content %}
 {% from "breadcrumb.njk" import breadcrumb %}
-{{ breadcrumb([{name:"Startseite",url:"/de/"},{name:"Produkte",url:"/de/produkte/"},{name:"Powerbank",url:"/de/produkte/powerbank/"},{name:"Magnetisch / Kabellos"}]) }}
 
 <!-- HERO -->
-<section class="pb-16 md:pb-20 bg-gradient-to-br from-blue-50 via-white to-orange-50">
+<section class="pt-24 md:pt-28 pb-16 md:pb-20 bg-gradient-to-br from-blue-50 via-white to-orange-50">
  <div class="container-wide">
+  {{ breadcrumb([{name:"Startseite",url:"/de/"},{name:"Produkte",url:"/de/produkte/"},{name:"Powerbank",url:"/de/produkte/powerbank/"},{name:"Magnetisch / Kabellos"}], "none", "mb-6", { variant: "hero" }) }}
   <div class="grid lg:grid-cols-2 gap-12 items-center">
    <div class="reveal order-2 lg:order-1">
     <p class="text-brandOrange text-xs font-bold tracking-widest uppercase mb-3">Qi2 / Qi2.2 &middot; Werks-OEM für Marken</p>
@@ -102,24 +102,13 @@ plPath: "produkty/power-bank/magnetyczny-bezprzewodowy/"
  </div>
 </section>
 
-<!-- STATS BAR -->
-{% from "partials/stats-bar.njk" import statsBar %}
-{{ statsBar(i18n.statsBar[lang].items) }}
-
-<!-- TRUST BAR — Certs + Logos -->
-{% from "partials/cert-showcase.njk" import certShowcase %}
-{{ certShowcase(i18n.certifications[lang].homepage.items, i18n.certifications[lang].homepage.heading, i18n.certifications[lang].homepage.title, "", "py-10 md:py-14 bg-white", true) }}
-{% from "partials/customer-logos.njk" import customerLogos %}
-{{ customerLogos("Vertrauen internationaler Marken", "", standalone=true) }}
+<!-- ======== TRUST BAR ======== -->
+{% include "trust-bar.njk" %}
 
 <!-- MODELLE -->
 <section id="modelle" class="sec bg-white">
  <div class="container-wide">
-  <div class="text-center max-w-3xl mx-auto mb-12 reveal">
-   <p class="section-label">Modellreihe</p>
-   <h2 class="section-title">12 Qi2 magnetische Powerbanks</h2>
-   <p class="section-desc mx-auto">Von kompakt 5.000mAh bis 20.000mAh High-Capacity. Alle Modelle mit magnetischer Qi-Ladung und N52H Neodym-Ausrichtung.</p>
-  </div>
+  {{ sectionHeader('Modellreihe', '12 Qi2 magnetische Powerbanks', 'Von kompakt 5.000mAh bis 20.000mAh High-Capacity. Alle Modelle mit magnetischer Qi-Ladung und N52H Neodym-Ausrichtung.', {mb: 'mb-12'}) }}
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 items-start">
    <div class="product-card reveal bg-white rounded-2xl p-6 border border-slate-200 flex flex-col">
     <div class="aspect-square bg-white rounded-xl mb-5 overflow-hidden flex items-center justify-center p-6"><img src="/image/product/power-bank/wopq11-qi2-magnetic-40w-power-bank.webp" srcset="/image/product/power-bank/wopq11-qi2-magnetic-40w-power-bank-750w.webp 750w, /image/product/power-bank/wopq11-qi2-magnetic-40w-power-bank.webp 1920w" sizes="(min-width: 1440px) 526px, (min-width: 1280px) 526px, (min-width: 1024px) 398px, (min-width: 768px) 654px, (min-width: 430px) 382px, 327px" alt="WOPQ11 Qi2.2 10.000mAh 40W TFT" width="200" height="200" class="w-full h-full object-contain" loading="lazy" decoding="async"></div>
@@ -142,7 +131,7 @@ plPath: "produkty/power-bank/magnetyczny-bezprzewodowy/"
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Kabellos Ausgang</td><td class="py-1.5 font-bold text-slate-700">Qi2.2 25W max. (15W/10W/7.5W/5W kompatibel)</td></tr>
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Gehäuse</td><td class="py-1.5 font-bold text-slate-700">Pearl Matte UV + Vacuum Plated Frame + Zinc Alloy Stand</td></tr></tbody></table></div>
     </details>
-    <button data-action="open-modal" data-product="WOPQ11 Qi2.2 40W" class="mt-auto w-full py-3 bg-brandOrange text-white font-black uppercase text-[11px] tracking-widest rounded-xl hover:bg-brandOrange/90 transition shadow-md cursor-pointer">Werkspreis anfragen</button>
+    <button data-action="open-modal" data-product="WOPQ11 Qi2.2 40W" class="btn-card-sm">Werkspreis anfragen</button>
    </div>
    <div class="product-card reveal bg-white rounded-2xl p-6 border border-slate-200 flex flex-col">
     <div class="aspect-square bg-white rounded-xl mb-5 overflow-hidden flex items-center justify-center p-6"><img src="/image/product/power-bank/wopq10-magnetic-35w-watch-wireless.webp" srcset="/image/product/power-bank/wopq10-magnetic-35w-watch-wireless-450w.webp 450w, /image/product/power-bank/wopq10-magnetic-35w-watch-wireless.webp 800w" sizes="(min-width: 1440px) 389px, (min-width: 1280px) 389px, (min-width: 1024px) 304px, (min-width: 768px) 344px, (min-width: 430px) 382px, 327px" alt="WOPQ10 Qi2 10.000mAh 35W + Watch" width="200" height="200" class="w-full h-full object-contain" loading="lazy" decoding="async"></div>
@@ -166,7 +155,7 @@ plPath: "produkty/power-bank/magnetyczny-bezprzewodowy/"
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Watch kabellos</td><td class="py-1.5 font-bold text-slate-700">2.5W max. (Apple Watch Serie)</td></tr>
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Gehäuse</td><td class="py-1.5 font-bold text-slate-700">Pearl Matte UV + Vacuum Plated Frame + Zinc Alloy Stand</td></tr></tbody></table></div>
     </details>
-    <button data-action="open-modal" data-product="WOPQ10 Magnetisch 35W" class="mt-auto w-full py-3 bg-brandOrange text-white font-black uppercase text-[11px] tracking-widest rounded-xl hover:bg-brandOrange/90 transition shadow-md cursor-pointer">Werkspreis anfragen</button>
+    <button data-action="open-modal" data-product="WOPQ10 Magnetisch 35W" class="btn-card-sm">Werkspreis anfragen</button>
    </div>
    <div class="product-card reveal bg-white rounded-2xl p-6 border border-slate-200 flex flex-col">
     <div class="aspect-square bg-white rounded-xl mb-5 overflow-hidden flex items-center justify-center p-6"><img src="/image/product/power-bank/wopq74-slim-magnetic-wireless-power-bank.webp" srcset="/image/product/power-bank/wopq74-slim-magnetic-wireless-power-bank-450w.webp 450w, /image/product/power-bank/wopq74-slim-magnetic-wireless-power-bank.webp 800w" sizes="(min-width: 1440px) 389px, (min-width: 1280px) 389px, (min-width: 1024px) 304px, (min-width: 768px) 344px, (min-width: 430px) 382px, 327px" alt="WOPQ74 Slim 10.000mAh 15,2mm Alu" width="200" height="200" class="w-full h-full object-contain" loading="lazy" decoding="async"></div>
@@ -192,7 +181,7 @@ plPath: "produkty/power-bank/magnetyczny-bezprzewodowy/"
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Shell Process</td><td class="py-1.5 font-bold text-slate-700">Oxidation + Painting + Silk Print + Laser Engraving</td></tr>
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Farben</td><td class="py-1.5 font-bold text-slate-700">Schwarz / Gun Metal / Blue</td></tr></tbody></table></div>
     </details>
-    <button data-action="open-modal" data-product="WOPQ74 Slim Magnetisch" class="mt-auto w-full py-3 bg-brandOrange text-white font-black uppercase text-[11px] tracking-widest rounded-xl hover:bg-brandOrange/90 transition shadow-md cursor-pointer">Werkspreis anfragen</button>
+    <button data-action="open-modal" data-product="WOPQ74 Slim Magnetisch" class="btn-card-sm">Werkspreis anfragen</button>
    </div>
    <div class="product-card reveal bg-white rounded-2xl p-6 border border-slate-200 flex flex-col">
     <div class="aspect-square bg-white rounded-xl mb-5 overflow-hidden flex items-center justify-center p-6"><img src="/image/product/power-bank/wopx06-magnetic-wireless-22w-slim.webp" srcset="/image/product/power-bank/wopx06-magnetic-wireless-22w-slim-450w.webp 450w, /image/product/power-bank/wopx06-magnetic-wireless-22w-slim.webp 800w" sizes="(min-width: 1440px) 389px, (min-width: 1280px) 389px, (min-width: 1024px) 304px, (min-width: 768px) 344px, (min-width: 430px) 382px, 327px" alt="WOPX06 10.000mAh 22,5W 102mm" width="200" height="200" class="w-full h-full object-contain" loading="lazy" decoding="async"></div>
@@ -214,7 +203,7 @@ plPath: "produkty/power-bank/magnetyczny-bezprzewodowy/"
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Kabellos Ausgang</td><td class="py-1.5 font-bold text-slate-700">Qi2 15W (10W/7.5W/5W kompatibel)</td></tr>
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Display</td><td class="py-1.5 font-bold text-slate-700">4-LED Indicator (Green: fast charge / Blue: wireless)</td></tr></tbody></table></div>
     </details>
-    <button data-action="open-modal" data-product="WOPX06 Magnetisch 22,5W" class="mt-auto w-full py-3 bg-brandOrange text-white font-black uppercase text-[11px] tracking-widest rounded-xl hover:bg-brandOrange/90 transition shadow-md cursor-pointer">Werkspreis anfragen</button>
+    <button data-action="open-modal" data-product="WOPX06 Magnetisch 22,5W" class="btn-card-sm">Werkspreis anfragen</button>
    </div>
    <div class="product-card reveal bg-white rounded-2xl p-6 border border-slate-200 flex flex-col">
     <div class="aspect-square bg-white rounded-xl mb-5 overflow-hidden flex items-center justify-center p-6"><img src="/image/product/power-bank/wopx07-magnetic-wireless-watch-charger.webp" srcset="/image/product/power-bank/wopx07-magnetic-wireless-watch-charger-450w.webp 450w, /image/product/power-bank/wopx07-magnetic-wireless-watch-charger.webp 800w" sizes="(min-width: 1440px) 389px, (min-width: 1280px) 389px, (min-width: 1024px) 304px, (min-width: 768px) 344px, (min-width: 430px) 382px, 327px" alt="WOPX07 Slim 5.000mAh + Watch 7,9mm" width="200" height="200" class="w-full h-full object-contain" loading="lazy" decoding="async"></div>
@@ -237,7 +226,7 @@ plPath: "produkty/power-bank/magnetyczny-bezprzewodowy/"
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Watch kabellos</td><td class="py-1.5 font-bold text-slate-700">2.5W max. (Apple Watch Serie)</td></tr>
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Display</td><td class="py-1.5 font-bold text-slate-700">LED Digital</td></tr></tbody></table></div>
     </details>
-    <button data-action="open-modal" data-product="WOPX07 Magnetisch Slim" class="mt-auto w-full py-3 bg-brandOrange text-white font-black uppercase text-[11px] tracking-widest rounded-xl hover:bg-brandOrange/90 transition shadow-md cursor-pointer">Werkspreis anfragen</button>
+    <button data-action="open-modal" data-product="WOPX07 Magnetisch Slim" class="btn-card-sm">Werkspreis anfragen</button>
    </div>
    <div class="product-card reveal bg-white rounded-2xl p-6 border border-slate-200 flex flex-col">
     <div class="aspect-square bg-white rounded-xl mb-5 overflow-hidden flex items-center justify-center p-6"><img src="/image/product/power-bank/wopx08-magnetic-wireless-cable-watch.webp" srcset="/image/product/power-bank/wopx08-magnetic-wireless-cable-watch-450w.webp 450w, /image/product/power-bank/wopx08-magnetic-wireless-cable-watch.webp 800w" sizes="(min-width: 1440px) 389px, (min-width: 1280px) 389px, (min-width: 1024px) 304px, (min-width: 768px) 344px, (min-width: 430px) 382px, 327px" alt="WOPX08 10.000mAh C+L Kabel + Watch" width="200" height="200" class="w-full h-full object-contain" loading="lazy" decoding="async"></div>
@@ -262,7 +251,7 @@ plPath: "produkty/power-bank/magnetyczny-bezprzewodowy/"
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Watch kabellos</td><td class="py-1.5 font-bold text-slate-700">2.5W max. (Apple Watch Serie)</td></tr>
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Display</td><td class="py-1.5 font-bold text-slate-700">LED Digital</td></tr></tbody></table></div>
     </details>
-    <button data-action="open-modal" data-product="WOPX08 Magnetisch + Kabel" class="mt-auto w-full py-3 bg-brandOrange text-white font-black uppercase text-[11px] tracking-widest rounded-xl hover:bg-brandOrange/90 transition shadow-md cursor-pointer">Werkspreis anfragen</button>
+    <button data-action="open-modal" data-product="WOPX08 Magnetisch + Kabel" class="btn-card-sm">Werkspreis anfragen</button>
    </div>
    <div class="product-card reveal bg-white rounded-2xl p-6 border border-slate-200 flex flex-col">
     <div class="aspect-square bg-white rounded-xl mb-5 overflow-hidden flex items-center justify-center p-6"><img src="/image/product/power-bank/wops31-magnetic-wireless-kickstand.webp" srcset="/image/product/power-bank/wops31-magnetic-wireless-kickstand-450w.webp 450w, /image/product/power-bank/wops31-magnetic-wireless-kickstand.webp 800w" sizes="(min-width: 1440px) 389px, (min-width: 1280px) 389px, (min-width: 1024px) 304px, (min-width: 768px) 344px, (min-width: 430px) 382px, 327px" alt="WOPS31 10.000mAh Kickstand Zink" width="200" height="200" class="w-full h-full object-contain" loading="lazy" decoding="async"></div>
@@ -286,7 +275,7 @@ plPath: "produkty/power-bank/magnetyczny-bezprzewodowy/"
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Kabellos Ausgang</td><td class="py-1.5 font-bold text-slate-700">Qi2 15W (10W/7.5W/5W kompatibel)</td></tr>
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Gehäuse</td><td class="py-1.5 font-bold text-slate-700">Pearl Matte UV + TPE Frame + Zinc Alloy Stand</td></tr></tbody></table></div>
     </details>
-    <button data-action="open-modal" data-product="WOPS31 Kickstand 22,5W" class="mt-auto w-full py-3 bg-brandOrange text-white font-black uppercase text-[11px] tracking-widest rounded-xl hover:bg-brandOrange/90 transition shadow-md cursor-pointer">Werkspreis anfragen</button>
+    <button data-action="open-modal" data-product="WOPS31 Kickstand 22,5W" class="btn-card-sm">Werkspreis anfragen</button>
    </div>
    <div class="product-card reveal bg-white rounded-2xl p-6 border border-slate-200 flex flex-col">
     <div class="aspect-square bg-white rounded-xl mb-5 overflow-hidden flex items-center justify-center p-6"><img src="/image/product/power-bank/wops27-magnetic-cable-wireless-power-bank.webp" srcset="/image/product/power-bank/wops27-magnetic-cable-wireless-power-bank-450w.webp 450w, /image/product/power-bank/wops27-magnetic-cable-wireless-power-bank.webp 800w" sizes="(min-width: 1440px) 389px, (min-width: 1280px) 389px, (min-width: 1024px) 304px, (min-width: 768px) 344px, (min-width: 430px) 382px, 327px" alt="WOPS27 10.000mAh C+L Kabel + Watch LED" width="200" height="200" class="w-full h-full object-contain" loading="lazy" decoding="async"></div>
@@ -315,7 +304,7 @@ plPath: "produkty/power-bank/magnetyczny-bezprzewodowy/"
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Kabel Type</td><td class="py-1.5 font-bold text-slate-700">TPE Dragon Scale C+L Bull Head</td></tr>
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Farben</td><td class="py-1.5 font-bold text-slate-700">Weiß+Orange / Weiß+Grey / Schwarz+Orange / Schwarz+Grey</td></tr></tbody></table></div>
     </details>
-    <button data-action="open-modal" data-product="WOPS27 Magnetisch 22,5W" class="mt-auto w-full py-3 bg-brandOrange text-white font-black uppercase text-[11px] tracking-widest rounded-xl hover:bg-brandOrange/90 transition shadow-md cursor-pointer">Werkspreis anfragen</button>
+    <button data-action="open-modal" data-product="WOPS27 Magnetisch 22,5W" class="btn-card-sm">Werkspreis anfragen</button>
    </div>
    <div class="product-card reveal bg-white rounded-2xl p-6 border border-slate-200 flex flex-col">
     <div class="aspect-square bg-white rounded-xl mb-5 overflow-hidden flex items-center justify-center p-6"><img src="/image/product/power-bank/wops11-magnetic-cable-wireless-20000mah.webp" srcset="/image/product/power-bank/wops11-magnetic-cable-wireless-20000mah-450w.webp 450w, /image/product/power-bank/wops11-magnetic-cable-wireless-20000mah.webp 800w" sizes="(min-width: 1440px) 389px, (min-width: 1280px) 389px, (min-width: 1024px) 304px, (min-width: 768px) 344px, (min-width: 430px) 382px, 327px" alt="WOPS11 20.000mAh C+L + Watch" width="200" height="200" class="w-full h-full object-contain" loading="lazy" decoding="async"></div>
@@ -345,7 +334,7 @@ plPath: "produkty/power-bank/magnetyczny-bezprzewodowy/"
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Activation</td><td class="py-1.5 font-bold text-slate-700">One-Button Start (wireless + watch)</td></tr>
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Farben</td><td class="py-1.5 font-bold text-slate-700">Weiß+Orange / Weiß+Grey / Schwarz+Orange / Schwarz+Schwarz</td></tr></tbody></table></div>
     </details>
-    <button data-action="open-modal" data-product="WOPS11 Magnetisch 20.000mAh" class="mt-auto w-full py-3 bg-brandOrange text-white font-black uppercase text-[11px] tracking-widest rounded-xl hover:bg-brandOrange/90 transition shadow-md cursor-pointer">Werkspreis anfragen</button>
+    <button data-action="open-modal" data-product="WOPS11 Magnetisch 20.000mAh" class="btn-card-sm">Werkspreis anfragen</button>
    </div>   <div class="product-card reveal bg-white rounded-2xl p-6 border border-slate-200 flex flex-col">
     <div class="aspect-square bg-white rounded-xl mb-5 overflow-hidden flex items-center justify-center p-6"><img src="/image/product/power-bank/wopj03-watch-wireless-foldable-plug.webp" srcset="/image/product/power-bank/wopj03-watch-wireless-foldable-plug-450w.webp 450w, /image/product/power-bank/wopj03-watch-wireless-foldable-plug.webp 800w" sizes="(min-width: 1440px) 389px, (min-width: 1280px) 389px, (min-width: 1024px) 304px, (min-width: 768px) 344px, (min-width: 430px) 382px, 327px" alt="WOPJ03 5.000mAh Watch + Stecker" width="200" height="200" class="w-full h-full object-contain" loading="lazy" decoding="async"></div>
     <p class="card-badge mb-2">Watch + Cable</p>
@@ -367,7 +356,7 @@ plPath: "produkty/power-bank/magnetyczny-bezprzewodowy/"
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Watch kabellos</td><td class="py-1.5 font-bold text-slate-700">2.5W max. (Apple Watch Serie)</td></tr>
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Gehäuse</td><td class="py-1.5 font-bold text-slate-700">Raw Body + Metal UV Frame + TPE Cable</td></tr></tbody></table></div>
     </details>
-    <button data-action="open-modal" data-product="WOPJ03 Watch + Cable" class="mt-auto w-full py-3 bg-brandOrange text-white font-black uppercase text-[11px] tracking-widest rounded-xl hover:bg-brandOrange/90 transition shadow-md cursor-pointer">Werkspreis anfragen</button>
+    <button data-action="open-modal" data-product="WOPJ03 Watch + Cable" class="btn-card-sm">Werkspreis anfragen</button>
    </div>
   </div>
   <p class="text-xs text-slate-400 text-center mt-6">Vollständiger Katalog mit Spezifikationen <button data-action="open-modal" class="text-brandOrange font-semibold hover:underline cursor-pointer">hier anfordern &rarr;</button></p>
@@ -387,11 +376,7 @@ plPath: "produkty/power-bank/magnetyczny-bezprzewodowy/"
 <!-- Qi2 vs MagSafe vs Qi -->
 <section class="sec bg-slate-50">
  <div class="container-content">
-  <div class="text-center max-w-3xl mx-auto mb-12 reveal">
-   <p class="section-label">Standard-Vergleich</p>
-   <h2 class="section-title">Qi2 vs. MagSafe vs. Qi</h2>
-   <p class="section-desc mx-auto">Drei kabellose Standards im direkten Vergleich für B2B-Einkäufer.</p>
-  </div>
+  {{ sectionHeader('Standard-Vergleich', 'Qi2 vs. MagSafe vs. Qi', 'Drei kabellose Standards im direkten Vergleich für B2B-Einkäufer.', {mb: 'mb-12'}) }}
   <div class="overflow-x-auto reveal">
    <table class="w-full border-collapse bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-200">
     <thead><tr class="bg-brandBlue text-white">
@@ -433,7 +418,7 @@ plPath: "produkty/power-bank/magnetyczny-bezprzewodowy/"
 <!-- FAQ -->
 <section class="sec bg-white">
  <div class="container-narrow">
-  <div class="text-center mb-12 reveal"><p class="section-label">FAQ</p><h2 class="section-title">Qi2 Magnetisch FAQ</h2></div>
+  {{ sectionHeader('FAQ', 'Qi2 Magnetisch FAQ', '', {max: '', mb: 'mb-12'}) }}
   <div class="space-y-4">
    <details class="reveal bg-slate-50 rounded-2xl p-6 border border-slate-200"><summary class="font-bold text-brandBlue cursor-pointer">Was ist Qi2 magnetisches Laden?</summary><p class="text-sm text-slate-600 mt-3 leading-relaxed faq-answer">Qi2 ist der vom Wireless Power Consortium standardisierte Nachfolger von Qi und integriert das Magnetic Power Profile (MPP) auf Basis von Apples MagSafe-Technologie. Qi2 liefert 15W kabellose Schnellladung mit präziser magnetischer Ausrichtung über N52H Neodym-Magnete.</p></details>
    <details class="reveal bg-slate-50 rounded-2xl p-6 border border-slate-200"><summary class="font-bold text-brandBlue cursor-pointer">Sind Qi2 Powerbanks mit MagSafe kompatibel?</summary><p class="text-sm text-slate-600 mt-3 leading-relaxed faq-answer">Ja. Qi2-Magnetic-Powerbanks sind vollständig MagSafe-kompatibel mit iPhone 12-16 Serien. Sie nutzen denselben N52H Magnetring und liefern 15W vs. 7,5W bei reinem Qi-Laden.</p></details>
@@ -465,10 +450,7 @@ plPath: "produkty/power-bank/magnetyczny-bezprzewodowy/"
  <!-- DACH Marktkontext -->
  <section class="sec bg-white relative py-16">
   <div class="container-content">
-  <div class="text-center mb-10 reveal">
-   <div class="inline-block px-4 py-1 bg-brandOrange/10 border border-brandOrange/20 rounded-full text-[11px] font-bold text-brandOrange uppercase tracking-widest mb-6">Amazon DE Q1 2026 — Chongdiantou Daten</div>
-   <h2 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4">Amazon DE: <span class="text-brandOrange">8 von 10 Top-Platzierungen</span> = chinesische Marken</h2>
-  </div>
+  {{ sectionHeader('Amazon DE Q1 2026 — Chongdiantou Daten', 'Amazon DE: <span class="text-brandOrange">8 von 10 Top-Platzierungen</span> = chinesische Marken', '', { max: '', mb: 'mb-10', titleClass: 'text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4', labelStyle: 'pill', pillClass: 'bg-brandOrange/10', pillMb: 'mb-6' }) }}
   <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto mb-10">
    <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200 text-center">
     <p class="text-3xl font-black text-brandBlue mb-2">55.99 EUR</p>
@@ -527,13 +509,10 @@ plPath: "produkty/power-bank/magnetyczny-bezprzewodowy/"
 <!-- ======== CTA ======== -->
 <section class="sec bg-brandBlue">
  <div class="container-narrow text-center">
-  <div class="reveal">
-   <p class="section-label">Jetzt anfragen</p>
-   <h2 class="text-3xl md:text-5xl font-black text-white leading-tight mb-4 italic uppercase">
+  {% call sectionHeader('Jetzt anfragen', '
     Magnetische Powerbank-Angebot<br><span class="text-brandOrange">in 24 Stunden</span>
-   </h2>
-   <p class="text-slate-300 text-lg max-w-2xl mx-auto mb-8">Fordern Sie Ihr individuelles Angebot an. Wir beraten Sie zu den passenden Modellen, Mengen und Lieferkonditionen.</p>
-  </div>
+   ', '', {align: '', max: '', mb: '', titleClass: 'text-3xl md:text-5xl font-black text-white leading-tight mb-4 italic uppercase'}) %}<p class="text-slate-300 text-lg max-w-2xl mx-auto mb-8">Fordern Sie Ihr individuelles Angebot an. Wir beraten Sie zu den passenden Modellen, Mengen und Lieferkonditionen.</p>
+  {% endcall %}
   <div class="max-w-xl mx-auto reveal">
    <form action="https://api.web3forms.com/submit" method="POST" class="inquiry-form space-y-4">
     <input type="hidden" name="access_key" value="ac5fe4cd-2dd7-4aff-818d-bb36021b4942">
@@ -562,7 +541,7 @@ plPath: "produkty/power-bank/magnetyczny-bezprzewodowy/"
      <input type="checkbox" required class="mt-1 accent-brandOrange">
      <span class="text-xs text-slate-500">Ich habe die <a href="/de/datenschutz/" class="text-brandOrange hover:underline">Datenschutzerklärung</a> zur Kenntnis genommen. *</span>
     </label>
-    <button type="submit" class="w-full bg-brandOrange text-white py-4 rounded-xl font-bold text-base hover:bg-brandBlue transition-all duration-300 shadow-lg shadow-brandOrange/20 flex items-center justify-center gap-3">
+    <button type="submit" class="btn-form">
      Kostenloses Angebot erhalten <svg class="icon-arrow-right" aria-hidden="true" focusable="false" viewBox="0 0 512 512">
       <path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-105.4 105.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" fill="currentColor"/>
      </svg>

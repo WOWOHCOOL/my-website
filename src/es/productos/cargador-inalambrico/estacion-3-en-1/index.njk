@@ -70,10 +70,10 @@ plPath: "produkty/ladowarka-bezprzewodowa/stacja-3-w-1/"
 {% endblock %}
 {% block content %}
 {% from "breadcrumb.njk" import breadcrumb %}
-{{ breadcrumb([{name:"Inicio",url:"/es/"},{name:"Productos",url:"/es/productos/"},{name:"Cargador Inalámbrico",url:"/es/productos/cargador-inalambrico/"},{name:"Estacion 3-en-1"}]) }}
 
-<section class="pb-16 md:pb-20 bg-gradient-to-br from-slate-50 via-white to-orange-50">
+<section class="pt-24 md:pt-28 pb-16 md:pb-20 bg-gradient-to-br from-slate-50 via-white to-orange-50">
  <div class="container-wide">
+  {{ breadcrumb([{name:"Inicio",url:"/es/"},{name:"Productos",url:"/es/productos/"},{name:"Cargador Inalámbrico",url:"/es/productos/cargador-inalambrico/"},{name:"Estacion 3-en-1"}], "none", "mb-6", { variant: "hero" }) }}
   <div class="grid lg:grid-cols-2 gap-12 items-center">
    <div class="reveal order-2 lg:order-1">
     <p class="text-brandOrange text-xs font-bold tracking-widest uppercase mb-3">3-en-1 · Mayor margen del segmento</p>
@@ -91,11 +91,8 @@ plPath: "produkty/ladowarka-bezprzewodowa/stacja-3-w-1/"
 
 <section id="modelos" class="sec bg-white">
  <div class="container-wide">
-  <div class="text-center max-w-3xl mx-auto mb-12 reveal">
-   <p class="section-label">Modelos</p>
-   <h2 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4">13 Modelos Estaciones <span class="text-brandOrange">3-en-1 OEM</span></h2>
-   <p class="text-slate-500">13 modelos | 15W-25W | Qi2 | TEC | Plegable | Luz Nocturna</p>
-  </div>
+  {% call sectionHeader('Modelos', '13 Modelos Estaciones <span class="text-brandOrange">3-en-1 OEM</span>', '', {mb: 'mb-12', titleClass: 'text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4'}) %}<p class="text-slate-500">13 modelos | 15W-25W | Qi2 | TEC | Plegable | Luz Nocturna</p>
+  {% endcall %}
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
 
   {% macro card3in1(model, img, badge, badgeColor, title, desc, badges, specs, dataProduct) %}
@@ -115,7 +112,7 @@ plPath: "produkty/ladowarka-bezprzewodowa/stacja-3-w-1/"
       <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">MOQ / Plazo</td><td class="py-1.5 font-bold text-slate-700">500 uds | 25-30 días</td></tr>
      </tbody></table></div>
     </details>
-    <button data-action="open-modal" data-product="{{ dataProduct }}" class="mt-auto w-full py-3 bg-brandOrange text-white font-black uppercase text-[11px] tracking-widest rounded-xl hover:bg-brandOrange/90 transition shadow-md cursor-pointer">Solicitar precio fábrica</button>
+    <button data-action="open-modal" data-product="{{ dataProduct }}" class="btn-card-sm">Solicitar precio fábrica</button>
    </div>
   {% endmacro %}
 
@@ -179,7 +176,7 @@ plPath: "produkty/ladowarka-bezprzewodowa/stacja-3-w-1/"
  <div class="container-content">
  <blockquote class="bg-brandOrange/5 border-l-4 border-brandOrange rounded-r-xl px-6 py-5 text-sm text-slate-700 italic leading-relaxed">
   <p>"El mercado global de cargadores inalambricos alcanzo 6,78B USD en 2025, proyectado a 19,03B USD en 2030 (CAGR 22,9%, Grand View Research). El 12% de usuarios iPhone poseen los tres dispositivos - unos 170M de usuarios 'Triple Threat' (CIRP/AppleInsider). Las estaciones 3-en-1 capturan el 40-50% del ingreso con solo 18-25% del volumen. El mercado hospitality-tech crece de 129,4B USD a 306,1B USD en 2033 (CAGR 10,2%) - Marriott, Hilton e IHG despliegan carga inalámbrica en 2026."</p>
-  <cite class="block text-xs text-slate-400 mt-2 not-italic">- <a href="https://www.grandviewresearch.com/industry-analysis/wireless-charger-market-report" target="_blank" rel="noopener noreferrer" class="text-brandOrange hover:underline">Grand View Research</a>; <a href="https://appleinsider.com/articles/24/09/18/apple-watch-airpods-play-a-bigger-role-in-apples-ecosystem-than-you-think" target="_blank" rel="noopener noreferrer" class="text-brandOrange hover:underline">CIRP/AppleInsider</a></p>
+  <cite class="block text-xs text-slate-400 mt-2 not-italic">- <a href="https://www.grandviewresearch.com/industry-analysis/wireless-charger-market-report" target="_blank" rel="noopener noreferrer" class="text-brandOrange hover:underline">Grand View Research</a>; <a href="https://appleinsider.com/articles/24/09/18/apple-watch-airpods-play-a-bigger-role-in-apples-ecosystem-than-you-think" target="_blank" rel="noopener noreferrer" class="text-brandOrange hover:underline">CIRP/AppleInsider</a></cite>
  </blockquote>
  </div>
 </section>

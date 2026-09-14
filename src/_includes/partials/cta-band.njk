@@ -1,0 +1,47 @@
+{# Bottom call-to-action band (dark, centred).
+
+   Usage:
+     {% from "partials/cta-band.njk" import ctaBand %}
+     {{ ctaBand(
+          "Still Have <span class='text-brandOrange'>Questions</span>?",
+          "Our team is ready to help.",
+          [{label: "Get Factory Pricing", action: "open-modal", cls: "btn-hero"},
+           {label: "Contact Our Team", href: "/contact", cls: "border-2 border-white/30 text-white px-10 py-4 rounded-xl font-black uppercase tracking-widest text-sm hover:bg-white hover:text-brandBlue transition text-center"}]
+        ) }}
+
+   buttons[] item: { label, href?, action?, cls? }
+     - action -> renders <button data-action="...">
+     - href   -> renders <a href="...">
+     - cls    defaults to "btn-hero"
+
+   opts:
+     bg         default "bg-brandBlue text-white"  (the site's dark, see below)
+     container  default "container-narrow"
+
+   Status 2026-09-13: this macro has NO call sites yet. It is kept as the
+   canonical spec for a closing CTA band, because the site has ~80 dark
+   sections written by hand — but they are NOT all this component (contact
+   forms, two-column checklists, newsletter blocks …), so an earlier audit's
+   "31 hand-written CTA bands / 3.1% complete" was a bad metric and should not
+   be used to drive work. Adopting this macro is a per-section design decision,
+   not a mechanical find-and-replace.
+
+   The default background used to be bg-slate-900, which almost nothing on the
+   site used for sections; it is now bg-brandBlue, matching the 80-section
+   majority. bg-slate-900 now means exactly one thing: the dark pill badge
+   (230 instances). #}
+{% macro ctaBand(title, desc, buttons, opts) %}
+{% set o = opts or {} %}
+<section class="sec-lg {{ o.bg or 'bg-brandBlue text-white' }}">
+<div class="{{ o.container or 'container-narrow' }} text-center">
+<h2 class="text-3xl md:text-4xl font-black uppercase italic tracking-tighter mb-6">{{ title | safe }}</h2>
+{% if desc %}<p class="text-slate-400 leading-relaxed mb-8 max-w-xl mx-auto">{{ desc | safe }}</p>{% endif %}
+<div class="flex flex-col sm:flex-row justify-center gap-4">
+{% for b in buttons %}
+{% if b.action %}<button data-action="{{ b.action }}" class="{{ b.cls or 'btn-hero' }}">{{ b.label }}</button>
+{% else %}<a href="{{ b.href }}" class="{{ b.cls or 'btn-hero' }}">{{ b.label }}</a>{% endif %}
+{% endfor %}
+</div>
+</div>
+</section>
+{% endmacro %}

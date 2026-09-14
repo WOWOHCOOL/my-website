@@ -126,14 +126,14 @@ navActive: "contact"
 
 {% block contactHero %}
 {% from "breadcrumb.njk" import breadcrumb %}
-{{ breadcrumb([{name:"Главная",url:"/ru/"},{name:"Контакты"}]) }}
 
-<section class="relative pt-0 pb-8 lg:pb-16 bg-white overflow-hidden">
+<section class="relative pt-24 md:pt-28 pb-8 lg:pb-16 bg-white overflow-hidden">
  <div class="absolute inset-0 pointer-events-none">
  <div class="absolute top-0 left-0 w-64 h-64 bg-brandOrange opacity-10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
  <div class="absolute bottom-0 right-0 w-64 h-64 bg-brandBlue opacity-10 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
  </div>
- <div class="container-wide relative z-10 text-center py-8">
+ <div class="container-wide relative z-10 text-center pb-8">
+  {{ breadcrumb([{name:"Главная",url:"/ru/"},{name:"Контакты"}], "none", "mb-6", { variant: "hero" }) }}
  <div class="inline-flex items-center gap-2 bg-brandOrange/10 text-brandOrange text-[11px] font-bold px-4 py-2 rounded-full tracking-widest uppercase mb-4">
  <span class="w-2 h-2 rounded-full bg-brandOrange animate-pulse"></span>
  Ответ в течение 24 часов
@@ -236,10 +236,7 @@ navActive: "contact"
 <!-- ======== QUICK ANSWERS ======== -->
 <section class="py-16 bg-white">
  <div class="container-narrow">
- <div class="text-center mb-10 reveal">
- <p class="section-label">Быстрые ответы</p>
- <h2 class="text-2xl md:text-3xl font-black text-brandBlue italic uppercase mb-4">Полезная информация перед обращением</h2>
- </div>
+ {{ sectionHeader('Быстрые ответы', 'Полезная информация перед обращением', '', {max: '', mb: 'mb-10', titleClass: 'text-2xl md:text-3xl font-black text-brandBlue italic uppercase mb-4'}) }}
  <div class="grid md:grid-cols-3 gap-4 reveal">
  <div class="bg-slate-50 rounded-xl p-5 text-center">
  <p class="font-bold text-brandBlue text-sm mb-1">Время ответа</p>

@@ -1,0 +1,22 @@
+{# FAQ accordion item — native <details>/<summary>, no JS.
+   Styling comes from .faq-item in css/src.css (border-bottom + "+"/"−" marker).
+
+   The .faq-item class MUST sit on the <details> element itself, not on a
+   wrapper div: the CSS rule `.faq-item[open] summary::after` flips the "+"
+   to "−" only when the class and the [open] attribute are on the same node.
+   (DE/FR previously wrapped <details> in <div class="faq-item">, so their
+   expand marker never toggled — this macro is the corrected, single-node form.)
+
+   Usage:
+     {% from "partials/faq-item.njk" import faqItem %}
+     {% call faqItem("What is your MOQ?") %}MOQ starts at <strong>500 units</strong>.{% endcall %}
+
+   The body is the answer (HTML, not escaped).
+   The question argument is treated as HTML too, so entities such as
+   "Bestellung &amp; Angebot" pass through unchanged. #}
+{% macro faqItem(question) %}
+<details class="faq-item">
+<summary>{{ question | safe }}</summary>
+<div class="faq-answer">{{ caller() }}</div>
+</details>
+{% endmacro %}

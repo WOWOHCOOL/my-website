@@ -70,15 +70,15 @@ navActive: "products"
 
 {% block content %}
 {% from "breadcrumb.njk" import breadcrumb %}
-{{ breadcrumb([{name:"Главная",url:"/ru/"},{name:"Продукция",url:"/ru/produkty/"},{name:"GaN-зарядки"}]) }}
 
 <!-- ======== HERO ======== -->
-<section class="relative pt-0 pb-8 lg:pb-16 bg-white overflow-hidden">
+<section class="relative pt-24 md:pt-28 pb-8 lg:pb-16 bg-white overflow-hidden">
  <div class="absolute inset-0 pointer-events-none">
  <div class="absolute top-0 left-0 w-64 h-64 bg-brandOrange opacity-10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
  <div class="absolute bottom-0 right-0 w-64 h-64 bg-brandBlue opacity-10 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
  </div>
  <div class="container-wide relative z-10">
+  {{ breadcrumb([{name:"Главная",url:"/ru/"},{name:"Продукция",url:"/ru/produkty/"},{name:"GaN-зарядки"}], "none", "mb-6", { variant: "hero" }) }}
  <div class="grid lg:grid-cols-2 gap-12 items-center">
  <div class="reveal order-2 lg:order-1">
  <div class="inline-flex items-center gap-2 bg-brandOrange/10 text-brandOrange text-[11px] font-bold px-4 py-2 rounded-full tracking-widest uppercase mb-4">
@@ -120,11 +120,7 @@ navActive: "products"
 <!-- ======== PRODUCT MODELS ======== -->
 <section class="py-16 bg-slate-50">
  <div class="container-wide">
- <div class="text-center max-w-3xl mx-auto mb-12 reveal">
- <p class="section-label">Популярные модели</p>
- <h2 class="section-title">Линейка <span class="text-brandOrange">GaN-зарядок</span></h2>
- <p class="section-desc mx-auto">Востребованные модели для OEM/ODM-производства. Каждая кастомизируется: ваш логотип, цвет и упаковка.</p>
- </div>
+ {{ sectionHeader('Популярные модели', 'Линейка <span class="text-brandOrange">GaN-зарядок</span>', 'Востребованные модели для OEM/ODM-производства. Каждая кастомизируется: ваш логотип, цвет и упаковка.', {mb: 'mb-12'}) }}
    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 items-start">
    <div class="product-card reveal bg-white rounded-2xl p-6 border border-slate-200 flex flex-col">
     <div class="aspect-square bg-slate-50 rounded-xl mb-5 overflow-hidden flex items-center justify-center p-6"><img src="/image/product/gan-charger/wop37-67w-gan-charger-retractable-cable-wireless.webp" srcset="/image/product/gan-charger/wop37-67w-gan-charger-retractable-cable-wireless-450w.webp 450w, /image/product/gan-charger/wop37-67w-gan-charger-retractable-cable-wireless.webp 1600w" sizes="(min-width: 1440px) 389px, (min-width: 1280px) 389px, (min-width: 1024px) 304px, (min-width: 768px) 344px, (min-width: 430px) 382px, 327px" alt="WOP37 65W GaN Travel — дорожная GaN-зарядка OEM" width="200" height="200" class="w-full h-full object-contain" loading="lazy" decoding="async"></div>
@@ -148,7 +144,7 @@ navActive: "products"
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">PPS</td><td class="py-1.5 font-bold text-slate-700">5V-21V/3A</td></tr>
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Беспроводной выход</td><td class="py-1.5 font-bold text-slate-700">5W Max</td></tr></tbody></table></div>
     </details>
-    <button data-action="open-modal" data-product="WOP37 65W GaN Travel" class="mt-auto w-full py-3 bg-brandOrange text-white font-black uppercase text-[11px] tracking-widest rounded-xl hover:bg-brandOrange/90 transition shadow-md cursor-pointer">Запросить цену завода</button>
+    <button data-action="open-modal" data-product="WOP37 65W GaN Travel" class="btn-card-sm">Запросить цену завода</button>
    </div>
    <div class="product-card reveal bg-white rounded-2xl p-6 border border-slate-200 flex flex-col">
     <div class="aspect-square bg-slate-50 rounded-xl mb-5 overflow-hidden flex items-center justify-center p-6"><img src="/image/product/gan-charger/wop39-67w-gan-charger-display-retractable-cable.webp" srcset="/image/product/gan-charger/wop39-67w-gan-charger-display-retractable-cable-450w.webp 450w, /image/product/gan-charger/wop39-67w-gan-charger-display-retractable-cable.webp 1920w" sizes="(min-width: 1440px) 389px, (min-width: 1280px) 389px, (min-width: 1024px) 304px, (min-width: 768px) 344px, (min-width: 430px) 382px, 327px" alt="WOP39 100W GaN Pro Hub — настольная GaN-зарядка OEM" width="200" height="200" class="w-full h-full object-contain" loading="lazy" decoding="async"></div>
@@ -172,7 +168,7 @@ navActive: "products"
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">PPS</td><td class="py-1.5 font-bold text-slate-700">5V-21V/3A</td></tr>
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Комбинации</td><td class="py-1.5 font-bold text-slate-700">C1+C2: 45W+20W, C1+A: 45W+18W</td></tr></tbody></table></div>
     </details>
-    <button data-action="open-modal" data-product="WOP39 100W GaN Pro Hub" class="mt-auto w-full py-3 bg-brandOrange text-white font-black uppercase text-[11px] tracking-widest rounded-xl hover:bg-brandOrange/90 transition shadow-md cursor-pointer">Запросить цену завода</button>
+    <button data-action="open-modal" data-product="WOP39 100W GaN Pro Hub" class="btn-card-sm">Запросить цену завода</button>
    </div>
    <div class="product-card reveal bg-white rounded-2xl p-6 border border-slate-200 flex flex-col">
     <div class="aspect-square bg-slate-50 rounded-xl mb-5 overflow-hidden flex items-center justify-center p-6"><img src="/image/product/gan-charger/wop28-35w-mini-gan-charger-dual-usb-c.webp" srcset="/image/product/gan-charger/wop28-35w-mini-gan-charger-dual-usb-c-450w.webp 450w, /image/product/gan-charger/wop28-35w-mini-gan-charger-dual-usb-c.webp 900w" sizes="(min-width: 1440px) 389px, (min-width: 1280px) 389px, (min-width: 1024px) 304px, (min-width: 768px) 344px, (min-width: 430px) 382px, 327px" alt="WOP28 67W GaN со складной вилкой — компактная зарядка OEM" width="200" height="200" class="w-full h-full object-contain" loading="lazy" decoding="async"></div>
@@ -196,7 +192,7 @@ navActive: "products"
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Выход USB-C1/C2</td><td class="py-1.5 font-bold text-slate-700">5V/3A, 9V/3A, 12V/2.92A, 15V/2.33A, 20V/1.75A (35W Max)</td></tr>
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">PPS</td><td class="py-1.5 font-bold text-slate-700">3.3-11V/3A</td></tr></tbody></table></div>
     </details>
-    <button data-action="open-modal" data-product="WOP28 67W GaN Складной" class="mt-auto w-full py-3 bg-brandOrange text-white font-black uppercase text-[11px] tracking-widest rounded-xl hover:bg-brandOrange/90 transition shadow-md cursor-pointer">Запросить цену завода</button>
+    <button data-action="open-modal" data-product="WOP28 67W GaN Складной" class="btn-card-sm">Запросить цену завода</button>
    </div>
    <div class="product-card reveal bg-white rounded-2xl p-6 border border-slate-200 flex flex-col">
     <div class="aspect-square bg-slate-50 rounded-xl mb-5 overflow-hidden flex items-center justify-center p-6"><img src="/image/product/gan-charger/wop20-20w-gan-power-strip-extension.webp" srcset="/image/product/gan-charger/wop20-20w-gan-power-strip-extension-450w.webp 450w, /image/product/gan-charger/wop20-20w-gan-power-strip-extension.webp 800w" sizes="(min-width: 1440px) 389px, (min-width: 1280px) 389px, (min-width: 1024px) 304px, (min-width: 768px) 344px, (min-width: 430px) 382px, 327px" alt="WOP20 140W GaN Pro Workstation — мощная GaN-зарядка OEM" width="200" height="200" class="w-full h-full object-contain" loading="lazy" decoding="async"></div>
@@ -222,7 +218,7 @@ navActive: "products"
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Выход USB-A</td><td class="py-1.5 font-bold text-slate-700">5V/3A, 9V/2.22A, 12V/1.67A</td></tr>
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Длина кабеля</td><td class="py-1.5 font-bold text-slate-700">1.5m</td></tr></tbody></table></div>
     </details>
-    <button data-action="open-modal" data-product="WOP20 140W GaN Pro Workstation" class="mt-auto w-full py-3 bg-brandOrange text-white font-black uppercase text-[11px] tracking-widest rounded-xl hover:bg-brandOrange/90 transition shadow-md cursor-pointer">Запросить цену завода</button>
+    <button data-action="open-modal" data-product="WOP20 140W GaN Pro Workstation" class="btn-card-sm">Запросить цену завода</button>
    </div>
    <div class="product-card reveal bg-white rounded-2xl p-6 border border-slate-200 flex flex-col">
     <div class="aspect-square bg-slate-50 rounded-xl mb-5 overflow-hidden flex items-center justify-center p-6"><img src="/image/product/gan-charger/wop30-30w-gan-power-strip-extension.webp" srcset="/image/product/gan-charger/wop30-30w-gan-power-strip-extension-450w.webp 450w, /image/product/gan-charger/wop30-30w-gan-power-strip-extension.webp 800w" sizes="(min-width: 1440px) 389px, (min-width: 1280px) 389px, (min-width: 1024px) 304px, (min-width: 768px) 344px, (min-width: 430px) 382px, 327px" alt="WOP30 30W GaN Travel — компактная дорожная GaN-зарядка OEM" width="200" height="200" class="w-full h-full object-contain" loading="lazy" decoding="async"></div>
@@ -248,7 +244,7 @@ navActive: "products"
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Выход USB-A</td><td class="py-1.5 font-bold text-slate-700">5V/3A, 9V/3A, 12V/2A, 20V/1.5A</td></tr>
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Длина кабеля</td><td class="py-1.5 font-bold text-slate-700">1.5m</td></tr></tbody></table></div>
     </details>
-    <button data-action="open-modal" data-product="WOP30 30W GaN Travel" class="mt-auto w-full py-3 bg-brandOrange text-white font-black uppercase text-[11px] tracking-widest rounded-xl hover:bg-brandOrange/90 transition shadow-md cursor-pointer">Запросить цену завода</button>
+    <button data-action="open-modal" data-product="WOP30 30W GaN Travel" class="btn-card-sm">Запросить цену завода</button>
    </div>
    <div class="product-card reveal bg-white rounded-2xl p-6 border border-slate-200 flex flex-col">
     <div class="aspect-square bg-slate-50 rounded-xl mb-5 overflow-hidden flex items-center justify-center p-6"><img src="/image/product/gan-charger/wop10-65w-gan-power-strip-4-port.webp" srcset="/image/product/gan-charger/wop10-65w-gan-power-strip-4-port-800w.webp 800w, /image/product/gan-charger/wop10-65w-gan-power-strip-4-port.webp 1920w" sizes="(min-width: 1440px) 590px, (min-width: 1280px) 590px, (min-width: 1024px) 462px, (min-width: 768px) 718px, (min-width: 430px) 382px, 338px" alt="WOP10 65W GaN удлинитель с 4 USB-портами OEM" width="200" height="200" class="w-full h-full object-contain" loading="lazy" decoding="async"></div>
@@ -274,7 +270,7 @@ navActive: "products"
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Выход USB-A</td><td class="py-1.5 font-bold text-slate-700">5V/3A, 9V/3A, 12V/3A, 20V/3A</td></tr>
      <tr><td class="py-1.5 text-slate-500">Длина кабеля</td><td class="py-1.5 font-bold text-slate-700">1,5m</td></tr></tbody></table></div>
     </details>
-    <button data-action="open-modal" data-product="WOP10 65W GaN Power Strip" class="mt-auto w-full py-3 bg-brandOrange text-white font-black uppercase text-[11px] tracking-widest rounded-xl hover:bg-brandOrange/90 transition shadow-md cursor-pointer">Запросить цену завода</button>
+    <button data-action="open-modal" data-product="WOP10 65W GaN Power Strip" class="btn-card-sm">Запросить цену завода</button>
    </div>
    <div class="product-card reveal bg-white rounded-2xl p-6 border border-slate-200 flex flex-col">
     <div class="aspect-square bg-slate-50 rounded-xl mb-5 overflow-hidden flex items-center justify-center p-6"><img src="/image/product/gan-charger/wop80-100w-gan-power-strip-high-power.webp" srcset="/image/product/gan-charger/wop80-100w-gan-power-strip-high-power-450w.webp 450w, /image/product/gan-charger/wop80-100w-gan-power-strip-high-power.webp 1920w" sizes="(min-width: 1440px) 389px, (min-width: 1280px) 389px, (min-width: 1024px) 304px, (min-width: 768px) 344px, (min-width: 430px) 382px, 327px" alt="WOP80 240W GaN Pro Hub — флагманская GaN-зарядка OEM" width="200" height="200" class="w-full h-full object-contain" loading="lazy" decoding="async"></div>
@@ -299,7 +295,7 @@ navActive: "products"
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Выход USB-C1/C2</td><td class="py-1.5 font-bold text-slate-700">5V/3A, 9V/3A, 12V/3A, 15V/3A, 20V/5A</td></tr>
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Длина кабеля</td><td class="py-1.5 font-bold text-slate-700">1.5m</td></tr></tbody></table></div>
     </details>
-    <button data-action="open-modal" data-product="WOP80 240W GaN Pro Hub" class="mt-auto w-full py-3 bg-brandOrange text-white font-black uppercase text-[11px] tracking-widest rounded-xl hover:bg-brandOrange/90 transition shadow-md cursor-pointer">Запросить цену завода</button>
+    <button data-action="open-modal" data-product="WOP80 240W GaN Pro Hub" class="btn-card-sm">Запросить цену завода</button>
    </div>
   </div>
  <div class="text-center mt-8 reveal">
@@ -311,11 +307,7 @@ navActive: "products"
 <!-- ======== SPECS ======== -->
 <section class="py-16 bg-white">
  <div class="container-wide">
- <div class="text-center max-w-3xl mx-auto mb-12 reveal">
- <p class="section-label">Мощность</p>
- <h2 class="section-title">Технические характеристики GaN-зарядок</h2>
- <p class="section-desc mx-auto">Производим GaN-зарядные устройства во всех востребованных для B2B-рынка мощностях.</p>
- </div>
+ {{ sectionHeader('Мощность', 'Технические характеристики GaN-зарядок', 'Производим GaN-зарядные устройства во всех востребованных для B2B-рынка мощностях.', {mb: 'mb-12'}) }}
 	 <div class="overflow-x-auto reveal">
 	  <table class="w-full text-sm">
 	   <thead>
@@ -363,11 +355,7 @@ navActive: "products"
 <!-- ======== COMPARATIVA TECNOLÓGICA ======== -->
 <section class="sec bg-white">
  <div class="container-content">
- <div class="text-center mb-12 reveal">
- <p class="section-label">Сравнение</p>
- <h2 class="section-title">GaN vs кремний: реальные данные 2026</h2>
- <p class="section-desc mx-auto">Нитрид галлия (GaN) занимает 50%+ рынка зарядок от 65 Вт. Рынок GaN: $1.2B (2026) → $6.0B (2033), CAGR 25.7%.</p>
- </div>
+ {{ sectionHeader('Сравнение', 'GaN vs кремний: реальные данные 2026', 'Нитрид галлия (GaN) занимает 50%+ рынка зарядок от 65 Вт. Рынок GaN: $1.2B (2026) → $6.0B (2033), CAGR 25.7%.', {max: '', mb: 'mb-12'}) }}
  <div class="overflow-x-auto reveal">
  <table class="w-full text-sm border-collapse">
  <thead><tr class="bg-brandBlue text-white text-left">
@@ -394,11 +382,7 @@ navActive: "products"
 <!-- ======== СЕРТИФИКАЦИЯ ======== -->
 <section class="sec bg-slate-50">
  <div class="container-content">
- <div class="text-center mb-12 reveal">
- <p class="section-label">Сертификация</p>
- <h2 class="section-title">Сертификация EAC для импортёров и международные стандарты</h2>
- <p class="section-desc mx-auto">Для поставок в РФ, Казахстан и Беларусь готовим комплект документов для сертификации EAC. Международные сертификаты завода — CE, FCC, RoHS, UL — уже в наличии.</p>
- </div>
+ {{ sectionHeader('Сертификация', 'Сертификация EAC для импортёров и международные стандарты', 'Для поставок в РФ, Казахстан и Беларусь готовим комплект документов для сертификации EAC. Международные сертификаты завода — CE, FCC, RoHS, UL — уже в наличии.', {max: '', mb: 'mb-12'}) }}
  <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 reveal">
  <div class="bg-white rounded-xl p-6 shadow-sm border border-slate-100 text-center">
   <div class="w-12 h-12 bg-brandOrange/10 rounded-full flex items-center justify-center mx-auto mb-3"><span class="text-brandOrange font-bold text-lg">EAC</span></div>
@@ -427,17 +411,17 @@ navActive: "products"
 <!-- ======== FAQ ======== -->
 <section class="py-16 bg-white">
  <div class="container-narrow">
- <div class="text-center mb-10 reveal"><p class="section-label">FAQ</p><h2 class="section-title">Частые вопросы</h2></div>
+ {{ sectionHeader('FAQ', 'Частые вопросы', '', {max: '', mb: 'mb-10'}) }}
  <div class="reveal">
- <details class="faq-item"><summary>В чём преимущества технологии GaN?</summary><div class="faq-answer">Нитрид галлия (GaN) позволяет делать зарядные устройства до <strong>40% компактнее</strong> кремниевых, с <strong>более высоким КПД</strong>, меньшим нагревом и поддержкой больших мощностей. Мы используем <strong>GaN V (5-е поколение)</strong> — самую совершенную технологию на рынке.</div></details>
- <details class="faq-item"><summary>Могут ли они заряжать ноутбуки?</summary><div class="faq-answer">Да, модели от <strong>100 Вт</strong> заряжают ноутбуки с USB-C: MacBook Pro, Dell XPS, Lenovo ThinkPad и HP Spectre, а также планшеты, смартфоны и другие устройства. Модели 65 Вт заряжают большинство ультрабуков.</div></details>
- <details class="faq-item"><summary>Какой MOQ?</summary><div class="faq-answer"><strong>500 штук</strong> на модель для OEM-заказов. ODM-проекты с индивидуальным дизайном — <strong>от 1 000 штук</strong>. Образцы — за 7–15 дней.</div></details>
- <details class="faq-item"><summary>Возможна ли полная кастомизация?</summary><div class="faq-answer">Да: <strong>цвет</strong> (Pantone), <strong>логотип</strong> (лазерная гравировка или шелкография), индивидуальная <strong>упаковка</strong>, <strong>инструкция</strong> на русском языке и сменная <strong>вилка</strong> (EU, UK, US, AU).</div></details>
- <details class="faq-item"><summary>Совместимы ли GaN-зарядки с устройствами Apple и Samsung?</summary><div class="faq-answer">Да, универсальная совместимость: iPhone (15/16/17), Samsung Galaxy S/S24/S25, MacBook, iPad, Dell XPS, Lenovo ThinkPad, Nintendo Switch и любые устройства с зарядкой USB-C PD. Поддерживается протокол PPS для оптимальной быстрой зарядки.</div></details>
- <details class="faq-item"><summary>Чем GaN отличается от традиционных кремниевых зарядок?</summary><div class="faq-answer">Нитрид галлия (GaN) позволяет выпускать зарядки до <strong>40% компактнее</strong>, с <strong>на 30% меньшим нагревом</strong> и более высоким КПД. Наша технология <strong>GaN V (5-е поколение)</strong> обеспечивает до 240 Вт в корпусах, которые на кремнии ограничивались 65 Вт.</div></details>
- <details class="faq-item"><summary>Какие ноутбуки заряжает GaN-зарядка на 100 Вт?</summary><div class="faq-answer">Модели от <strong>100 Вт</strong> заряжают любой ноутбук с USB-C: MacBook Pro 16", Dell XPS 15/17, Lenovo ThinkPad X1, HP Spectre x360, ASUS ZenBook и другие. Модели 65 Вт подходят для большинства ультрабуков и MacBook Air. Все поддерживают <strong>одновременную зарядку</strong> ноутбука и смартфона.</div></details>
- <details class="faq-item"><summary>Поставляете ли зарядки с евровилкой для России?</summary><div class="faq-answer"><strong>Да.</strong> Для рынков РФ, Казахстана и Беларуси зарядки комплектуются <strong>евровилкой (тип C/F)</strong> — стандарт EU. Также доступны вилки <strong>UK, US, AU</strong> и версии со сменной вилкой для брендов, продающих в нескольких странах. Партии готовим под требования маркетплейсов: этикетки, штрихкоды и упаковка под карточки Ozon и Wildberries.</div></details>
- <details class="faq-item"><summary>Безопасно ли оставлять GaN-зарядку на ночь?</summary><div class="faq-answer"><strong>Да.</strong> Все модели имеют многоуровневую защиту: от перегрузки по току, перенапряжения, короткого замыкания, перегрева, а также капельную зарядку (trickle charge), которая останавливает процесс при 100%. Сертификаты CE, FCC, RoHS и UL.</div></details>
+ {% call faqItem("В чём преимущества технологии GaN?") %}Нитрид галлия (GaN) позволяет делать зарядные устройства до <strong>40% компактнее</strong> кремниевых, с <strong>более высоким КПД</strong>, меньшим нагревом и поддержкой больших мощностей. Мы используем <strong>GaN V (5-е поколение)</strong> — самую совершенную технологию на рынке.{% endcall %}
+ {% call faqItem("Могут ли они заряжать ноутбуки?") %}Да, модели от <strong>100 Вт</strong> заряжают ноутбуки с USB-C: MacBook Pro, Dell XPS, Lenovo ThinkPad и HP Spectre, а также планшеты, смартфоны и другие устройства. Модели 65 Вт заряжают большинство ультрабуков.{% endcall %}
+ {% call faqItem("Какой MOQ?") %}<strong>500 штук</strong> на модель для OEM-заказов. ODM-проекты с индивидуальным дизайном — <strong>от 1 000 штук</strong>. Образцы — за 7–15 дней.{% endcall %}
+ {% call faqItem("Возможна ли полная кастомизация?") %}Да: <strong>цвет</strong> (Pantone), <strong>логотип</strong> (лазерная гравировка или шелкография), индивидуальная <strong>упаковка</strong>, <strong>инструкция</strong> на русском языке и сменная <strong>вилка</strong> (EU, UK, US, AU).{% endcall %}
+ {% call faqItem("Совместимы ли GaN-зарядки с устройствами Apple и Samsung?") %}Да, универсальная совместимость: iPhone (15/16/17), Samsung Galaxy S/S24/S25, MacBook, iPad, Dell XPS, Lenovo ThinkPad, Nintendo Switch и любые устройства с зарядкой USB-C PD. Поддерживается протокол PPS для оптимальной быстрой зарядки.{% endcall %}
+ {% call faqItem("Чем GaN отличается от традиционных кремниевых зарядок?") %}Нитрид галлия (GaN) позволяет выпускать зарядки до <strong>40% компактнее</strong>, с <strong>на 30% меньшим нагревом</strong> и более высоким КПД. Наша технология <strong>GaN V (5-е поколение)</strong> обеспечивает до 240 Вт в корпусах, которые на кремнии ограничивались 65 Вт.{% endcall %}
+ {% call faqItem("Какие ноутбуки заряжает GaN-зарядка на 100 Вт?") %}Модели от <strong>100 Вт</strong> заряжают любой ноутбук с USB-C: MacBook Pro 16", Dell XPS 15/17, Lenovo ThinkPad X1, HP Spectre x360, ASUS ZenBook и другие. Модели 65 Вт подходят для большинства ультрабуков и MacBook Air. Все поддерживают <strong>одновременную зарядку</strong> ноутбука и смартфона.{% endcall %}
+ {% call faqItem("Поставляете ли зарядки с евровилкой для России?") %}<strong>Да.</strong> Для рынков РФ, Казахстана и Беларуси зарядки комплектуются <strong>евровилкой (тип C/F)</strong> — стандарт EU. Также доступны вилки <strong>UK, US, AU</strong> и версии со сменной вилкой для брендов, продающих в нескольких странах. Партии готовим под требования маркетплейсов: этикетки, штрихкоды и упаковка под карточки Ozon и Wildberries.{% endcall %}
+ {% call faqItem("Безопасно ли оставлять GaN-зарядку на ночь?") %}<strong>Да.</strong> Все модели имеют многоуровневую защиту: от перегрузки по току, перенапряжения, короткого замыкания, перегрева, а также капельную зарядку (trickle charge), которая останавливает процесс при 100%. Сертификаты CE, FCC, RoHS и UL.{% endcall %}
  </div>
  </div>
 </section>
@@ -445,15 +429,12 @@ navActive: "products"
 <!-- ======== CTA ======== -->
 <section class="sec bg-brandBlue relative overflow-hidden">
  <div class="absolute bottom-0 left-0 w-1/2 h-1/2 bg-gradient-to-tr from-brandOrange/5 to-transparent"></div>
- <div class="container-narrow text-center relative z-10 reveal">
- <p class="section-label">Начните сейчас</p>
- <h2 class="text-3xl md:text-5xl font-black text-white leading-tight mb-4 italic uppercase">Запросите <span class="text-brandOrange">расчёт</span></h2>
- <p class="text-slate-300 text-lg mb-8">Ответ в течение 24 часов. Индивидуальное коммерческое предложение под ваш проект.</p>
+ {% call sectionHeader('Начните сейчас', 'Запросите <span class="text-brandOrange">расчёт</span>', '', {max: '', mb: '', extra: 'container-narrow relative z-10', titleClass: 'text-3xl md:text-5xl font-black text-white leading-tight mb-4 italic uppercase'}) %}<p class="text-slate-300 text-lg mb-8">Ответ в течение 24 часов. Индивидуальное коммерческое предложение под ваш проект.</p>
  <div class="flex flex-col sm:flex-row gap-4 justify-center">
  <button data-action="open-modal" class="btn-primary text-base px-8 py-4 shadow-lg shadow-brandOrange/20 cursor-pointer">Запросить расчёт <svg class="icon-arrow-right" viewBox="0 0 512 512"><path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-105.4 105.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" fill="currentColor"/></svg></button>
  <a href="/ru/kontakty/" class="btn-outline-white text-base px-8 py-4">WeChat / Email</a>
  </div>
- </div>
+ {% endcall %}
 </section>
 
 <!-- Cross-Category Links -->

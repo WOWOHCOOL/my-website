@@ -1,0 +1,66 @@
+{# Section header: eyebrow + title + optional description.
+
+   Imported once in layout.njk — pages must NOT import it themselves.
+
+   Two eyebrow styles are supported so pages can migrate without a
+   visual jump — the site currently uses both:
+     labelStyle: "class" (default) -> <p class="section-label">
+     labelStyle: "pill"            -> inline rounded pill
+
+   Two call forms:
+
+     1) self-contained (header is the whole block)
+     {{ sectionHeader("Our Story", "Since <span class='text-brandOrange'>2013</span>", "Short lead-in copy.") }}
+     {{ sectionHeader("FAQ", "Common questions", "", {labelStyle: "pill", mb: "mb-10"}) }}
+
+     2) header + body that shares the same wrapper div
+     {% call sectionHeader("Our DNA", "What <span class='text-brandOrange'>drives us</span>", "", {align: "", max: "", mb: ""}) %}
+       <div class="space-y-6 mt-8">…</div>
+     {% endcall %}
+
+   opts (all optional):
+     align      default "text-center"
+     max        default "max-w-3xl mx-auto"
+     mb         default "mb-16"
+     extra      extra wrapper classes (e.g. "w-full lg:w-1/2", "container-narrow")
+     labelStyle "class" | "pill"
+     labelClass extra classes on the eyebrow <p> (class style only)
+     pillClass  extra classes inserted in the eyebrow pill, e.g. "bg-brandOrange/10"
+     pillMb     bottom margin of the eyebrow pill, default "mb-4" (use "mb-6" for
+                the softer filled pill used on product pages)
+     tag        title element, default "h2" (use "h1" for page headers, "h3" in cards)
+     titleClass default "section-title"
+     descClass  full class for the description <p>, replacing the default
+                ("section-desc mx-auto" when centred, else "section-desc").
+                Use it when the description is not a design-system .section-desc,
+                e.g. the dark CTA band's "text-slate-300 text-lg mb-8".
+   Pass "" for align / max / mb to omit them. The wrapper always ends with
+   "reveal", which matches every pre-existing header on the site. #}
+{% macro sectionHeader(label, title, desc, opts) %}
+{%- set o = opts or {} -%}
+{%- set align = o.align if o.align is defined else "text-center" -%}
+{%- set max = o.max if o.max is defined else "max-w-3xl mx-auto" -%}
+{%- set mb = o.mb if o.mb is defined else "mb-16" -%}
+{%- set extra = o.extra if o.extra is defined else "" -%}
+{%- set labelStyle = o.labelStyle if o.labelStyle is defined else "class" -%}
+{%- set labelClass = o.labelClass if o.labelClass is defined else "" -%}
+{%- set pillClass = o.pillClass if o.pillClass is defined else "" -%}
+{%- set pillMb = o.pillMb if o.pillMb is defined else "mb-4" -%}
+{%- set tag = o.tag if o.tag is defined else "h2" -%}
+{%- set titleClass = o.titleClass if o.titleClass is defined else "section-title" -%}
+{%- set descClass = o.descClass if o.descClass is defined else "" -%}
+{%- set rev = '' if (o.reveal is defined and not o.reveal) else 'reveal' -%}
+{%- set dcls = o.descClass if o.descClass is defined else ('section-desc mx-auto' if align == 'text-center' else 'section-desc') -%}
+<div class="{{ [align, max, mb, extra, rev] | select | join(' ') }}">
+{% if label %}
+{% if labelStyle == "pill" %}
+<div class="inline-block px-4 py-1{% if pillClass %} {{ pillClass }}{% endif %} border border-brandOrange/20 rounded-full text-[11px] font-bold text-brandOrange uppercase tracking-widest {{ pillMb }}">{{ label | safe }}</div>
+{% else %}
+<p class="section-label{% if labelClass %} {{ labelClass }}{% endif %}">{{ label | safe }}</p>
+{% endif %}
+{% endif %}
+<{{ tag }} class="{{ titleClass }}">{{ title | safe }}</{{ tag }}>
+{% if desc %}<p class="{{ dcls }}">{{ desc | safe }}</p>{% endif %}
+{% if caller %}{{ caller() }}{% endif %}
+</div>
+{% endmacro %}

@@ -333,10 +333,7 @@ plPath: ""
  class="w-full h-auto object-cover rounded-2xl shadow-lg"
  loading="lazy">
  </div>
- <div class="reveal">
- <p class="section-label">Unsere DNA</p>
- <h2 class="section-title">Was uns <span class="text-brandOrange">ausmacht</span></h2>
- <div class="space-y-6 mt-8">
+ {% call sectionHeader('Unsere DNA', 'Was uns <span class="text-brandOrange">ausmacht</span>', '', {align: '', max: '', mb: ''}) %}<div class="space-y-6 mt-8">
  <div class="flex gap-4">
  <span class="text-4xl font-black text-brandOrange shrink-0">WOW</span>
  <div><h3 class="font-bold text-brandBlue text-lg">10+ Jahre Fertigungsexpertise</h3><p class="text-sm text-slate-500 leading-relaxed">Seit 2013 entwickeln und fertigen wir ausschließlich Ladelösungen. 5.000m² ISO 9001 zertifizierte Produktion in Shenzhen.</p></div>
@@ -353,29 +350,18 @@ plPath: ""
  <div class="mt-8 pt-6 border-t border-slate-200">
  <a href="/de/ueber-uns/" class="text-sm font-bold text-brandOrange hover:underline">Mehr über WOWOHCOOL →</a>
  </div>
- </div>
+ {% endcall %}
  </div>
  </div>
 </section>
 
-<!-- ======== 3. STATS BAR — Full-Width Factory Numbers ======== -->
-{% from "partials/stats-bar.njk" import statsBar %}
-{{ statsBar(i18n.statsBar[lang].items) }}
-
-<!-- ======== 4. TRUST BAR — Certs + Logos ======== -->
-{% from "partials/cert-showcase.njk" import certShowcase %}
-{{ certShowcase(i18n.certifications[lang].homepage.items, i18n.certifications[lang].homepage.heading, i18n.certifications[lang].homepage.title, "", "py-10 md:py-14 bg-slate-50", true) }}
-{% from "partials/customer-logos.njk" import customerLogos %}
-{{ customerLogos("Vertrauen Sie diesen Marken", "/de/fallbeispiele/", standalone=true) }}
+<!-- ======== TRUST BAR ======== -->
+{% include "trust-bar.njk" %}
 
 <!-- ======== 5. HERSTELLER-VERGLEICH ======== -->
 <section class="sec bg-white">
  <div class="max-w-5xl mx-auto px-6">
- <div class="text-center max-w-3xl mx-auto mb-12 reveal">
- <p class="section-label">Hersteller vs. Händler</p>
- <h2 class="section-title">Hersteller vs. Handelsunternehmen vs. unbekannte Fabrik</h2>
- <p class="section-desc mx-auto">Nicht jeder Lieferant aus China ist gleich. Als direkter Hersteller bieten wir Vorteile, die Handelsunternehmen und unbekannte Fabriken nicht liefern können.</p>
- </div>
+ {{ sectionHeader('Hersteller vs. Händler', 'Hersteller vs. Handelsunternehmen vs. unbekannte Fabrik', 'Nicht jeder Lieferant aus China ist gleich. Als direkter Hersteller bieten wir Vorteile, die Handelsunternehmen und unbekannte Fabriken nicht liefern können.', {mb: 'mb-12'}) }}
  <div class="overflow-x-auto reveal">
  <table class="w-full border-collapse bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-200">
  <thead>
@@ -404,11 +390,7 @@ plPath: ""
 <!-- ======== 6. PRODUCTS OVERVIEW ======== -->
 <section class="sec bg-slate-50">
  <div class="max-w-7xl mx-auto px-6">
- <div class="text-center max-w-3xl mx-auto mb-16 reveal">
- <p class="section-label">Unsere Produkte</p>
- <h2 class="section-title">Vier Produktlinien für Ihren Erfolg</h2>
- <p class="section-desc mx-auto">Alle Produkte mit CE/Qi2/ISO 9001 Zertifizierung. OEM/ODM Anpassung nach Ihren Wünschen.</p>
- </div>
+ {{ sectionHeader('Unsere Produkte', 'Vier Produktlinien für Ihren Erfolg', 'Alle Produkte mit CE/Qi2/ISO 9001 Zertifizierung. OEM/ODM Anpassung nach Ihren Wünschen.', {}) }}
  <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
  {% macro productCard(href, img, alt, badge, title, specs, desc) %}
  <div class="product-card reveal text-center">
@@ -436,11 +418,7 @@ plPath: ""
 <!-- ======== 7. OEM/ODM SERVICE ======== -->
 <section class="sec bg-white">
  <div class="max-w-7xl mx-auto px-6">
- <div class="text-center max-w-3xl mx-auto mb-16 reveal">
- <p class="section-label">OEM / ODM</p>
- <h2 class="section-title">Komplette Betreuung aus einer Hand</h2>
- <p class="section-desc mx-auto">Vom Design bis zur Auslieferung, wir begleiten Sie durch den gesamten Produktionsprozess.</p>
- </div>
+ {{ sectionHeader('OEM / ODM', 'Komplette Betreuung aus einer Hand', 'Vom Design bis zur Auslieferung, wir begleiten Sie durch den gesamten Produktionsprozess.', {}) }}
  <div class="grid md:grid-cols-3 gap-8">
  {% macro serviceCard(iconPath, title, desc) %}
  <div class="text-center reveal p-6">
@@ -467,16 +445,13 @@ plPath: ""
  <div class="absolute top-0 right-0 w-1/3 h-full bg-brandOrange/5 rounded-l-full"></div>
  <div class="max-w-7xl mx-auto px-6 relative z-10">
  <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
- <div class="reveal">
- <p class="section-label">Produktion & Lieferung</p>
- <h2 class="text-3xl md:text-4xl lg:text-5xl font-black text-white leading-tight italic uppercase">Fertigung in Shenzhen<br><span class="text-brandOrange">weltweiter Versand</span></h2>
- <ul class="mt-8 space-y-4">
+ {% call sectionHeader('Produktion &amp; Lieferung', 'Fertigung in Shenzhen<br><span class="text-brandOrange">weltweiter Versand</span>', '', {align: '', max: '', mb: '', titleClass: 'text-3xl md:text-4xl lg:text-5xl font-black text-white leading-tight italic uppercase'}) %}<ul class="mt-8 space-y-4">
  <li class="flex items-start gap-4"><span class="w-6 h-6 rounded-full bg-green-500/20 flex items-center justify-center shrink-0 mt-0.5"><svg class="icon-check text-green-400 text-xs" aria-hidden="true" focusable="false" viewBox="0 0 448 512"><path d="M434.8 70.1c14.3 10.4 17.5 30.4 7.1 44.7l-256 352c-5.5 7.6-14 12.3-23.4 13.1s-18.5-2.7-25.1-9.3l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l101.5 101.5 234-321.7c10.4-14.3 30.4-17.5 44.7-7.1z" fill="currentColor"/></svg></span><div><p class="text-white font-bold">Expressversand 5–7 Tage nach Deutschland</p></div></li>
  <li class="flex items-start gap-4"><span class="w-6 h-6 rounded-full bg-green-500/20 flex items-center justify-center shrink-0 mt-0.5"><svg class="icon-check text-green-400 text-xs" aria-hidden="true" focusable="false" viewBox="0 0 448 512"><path d="M434.8 70.1c14.3 10.4 17.5 30.4 7.1 44.7l-256 352c-5.5 7.6-14 12.3-23.4 13.1s-18.5-2.7-25.1-9.3l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l101.5 101.5 234-321.7c10.4-14.3 30.4-17.5 44.7-7.1z" fill="currentColor"/></svg></span><div><p class="text-white font-bold">DDP-Service inkl. Zoll & Einfuhrumsatzsteuer</p></div></li>
  <li class="flex items-start gap-4"><span class="w-6 h-6 rounded-full bg-green-500/20 flex items-center justify-center shrink-0 mt-0.5"><svg class="icon-check text-green-400 text-xs" aria-hidden="true" focusable="false" viewBox="0 0 448 512"><path d="M434.8 70.1c14.3 10.4 17.5 30.4 7.1 44.7l-256 352c-5.5 7.6-14 12.3-23.4 13.1s-18.5-2.7-25.1-9.3l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l101.5 101.5 234-321.7c10.4-14.3 30.4-17.5 44.7-7.1z" fill="currentColor"/></svg></span><div><p class="text-white font-bold">Amazon FBA-ready — Direktversand zu Amazon-Lagern</p></div></li>
  </ul>
  <div class="mt-8"><a href="/de/kontakt/" class="btn-primary">Lieferkonditionen anfragen <svg class="icon-arrow-right text-sm" aria-hidden="true" focusable="false" viewBox="0 0 512 512"><path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-105.4 105.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" fill="currentColor"/></svg></a></div>
- </div>
+ {% endcall %}
  <div class="reveal">
  <div class="bg-white/5 backdrop-blur-lg rounded-2xl p-8 md:p-10 border border-white/10">
  <div class="text-center mb-8"><p class="text-6xl md:text-7xl font-black text-brandOrange">5–7</p><p class="text-white font-bold text-lg">Tage Expressversand</p></div>
@@ -495,11 +470,7 @@ plPath: ""
 <!-- ======== 9. WARUM WOWOHCOOL ======== -->
 <section class="sec bg-white">
  <div class="max-w-7xl mx-auto px-6">
- <div class="text-center max-w-3xl mx-auto mb-16 reveal">
- <p class="section-label">Warum WOWOHCOOL</p>
- <h2 class="section-title">Der zuverlässige OEM/ODM Partner für deutsche Unternehmen</h2>
- <p class="section-desc mx-auto">Seit über einem Jahrzehnt vertrauen internationale Marken auf unsere Fertigungskompetenz. Wir verbinden deutsche Qualitätsansprüche mit chinesischer Fertigungseffizienz.</p>
- </div>
+ {{ sectionHeader('Warum WOWOHCOOL', 'Der zuverlässige OEM/ODM Partner für deutsche Unternehmen', 'Seit über einem Jahrzehnt vertrauen internationale Marken auf unsere Fertigungskompetenz. Wir verbinden deutsche Qualitätsansprüche mit chinesischer Fertigungseffizienz.', {}) }}
  <div class="grid md:grid-cols-2 gap-8">
  {% macro whyCard(iconPath, title, text, vb="0 0 576 512") %}
  <div class="reveal bg-slate-50 rounded-2xl p-8 border border-slate-200">
@@ -535,11 +506,7 @@ plPath: ""
 <!-- ======== 11. BLOG PREVIEW ======== -->
 <section class="sec bg-white">
  <div class="max-w-7xl mx-auto px-6">
- <div class="text-center max-w-3xl mx-auto mb-16 reveal">
- <p class="section-label">Blog</p>
- <h2 class="section-title">Expertenwissen für deutsche Importeure</h2>
- <p class="section-desc mx-auto">Praktische Leitfäden zu Powerbank OEM, Qi2 Zertifizierung, Import aus China, GaN Technologie und Eigenmarken-Produktion.</p>
- </div>
+ {{ sectionHeader('Blog', 'Expertenwissen für deutsche Importeure', 'Praktische Leitfäden zu Powerbank OEM, Qi2 Zertifizierung, Import aus China, GaN Technologie und Eigenmarken-Produktion.', {}) }}
  <div class="grid md:grid-cols-3 gap-8">
  <a href="/de/blog/powerbank-hersteller-china-oem-partner/" class="blog-card reveal group">
  <div class="aspect-[16/9] bg-slate-100 rounded-xl overflow-hidden mb-4">
@@ -578,11 +545,7 @@ plPath: ""
 <!-- ======== 12. REFERENZEN ======== -->
 <section class="sec bg-slate-50">
  <div class="max-w-7xl mx-auto px-6">
- <div class="text-center max-w-3xl mx-auto mb-16 reveal">
- <p class="section-label">Referenzen</p>
- <h2 class="section-title">Das sagen unsere Kunden</h2>
- <p class="section-desc mx-auto">Seit 2013 vertrauen internationale Marken auf unsere Fertigungskompetenz. Lesen Sie, was unsere Partner über die Zusammenarbeit mit uns sagen.</p>
- </div>
+ {{ sectionHeader('Referenzen', 'Das sagen unsere Kunden', 'Seit 2013 vertrauen internationale Marken auf unsere Fertigungskompetenz. Lesen Sie, was unsere Partner über die Zusammenarbeit mit uns sagen.', {}) }}
  <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
  <div class="referenz-card reveal"><img src="/image/customer-logo/bosch-logo.svg.webp" alt="Bosch" class="client-logo" loading="lazy" width="100" height="75"><div class="flex items-center gap-1 mb-2"><span class="text-brandOrange">&#9733;</span><span class="text-brandOrange">&#9733;</span><span class="text-brandOrange">&#9733;</span><span class="text-brandOrange">&#9733;</span><span class="text-brandOrange">&#9733;</span></div><blockquote>Die Qualitätskontrolle und Dokumentation entsprechen unseren hohen Anforderungen. Ein zuverlässiger Partner für den europäischen Markt.</blockquote><div class="ref-meta"><strong>Bosch</strong>, DAX-Konzern</div></div>
  <div class="referenz-card reveal delay-1"><img src="/image/customer-logo/jacobjensen-clients.webp" alt="Jacob Jensen" class="client-logo" loading="lazy" width="100" height="75"><div class="flex items-center gap-1 mb-2"><span class="text-brandOrange">&#9733;</span><span class="text-brandOrange">&#9733;</span><span class="text-brandOrange">&#9733;</span><span class="text-brandOrange">&#9733;</span><span class="text-brandOrange">&#9733;</span></div><blockquote>Hervorragende Umsetzung unseres Industriedesigns. Die Abstimmung mit dem R&D-Team in Shenzhen lief professionell und effizient.</blockquote><div class="ref-meta"><strong>Jacob Jensen</strong>, Dänisches Designhaus</div></div>
@@ -595,24 +558,20 @@ plPath: ""
 <!-- ======== 13. FAQ ======== -->
 <section class="sec bg-white">
  <div class="max-w-3xl mx-auto px-6">
- <div class="text-center mb-16 reveal">
- <p class="section-label">FAQ</p>
- <h2 class="section-title">Häufig gestellte Fragen</h2>
- <p class="section-desc mx-auto">Antworten auf die wichtigsten Fragen deutscher B2B-Kunden.</p>
- </div>
+ {{ sectionHeader('FAQ', 'Häufig gestellte Fragen', 'Antworten auf die wichtigsten Fragen deutscher B2B-Kunden.', {max: ''}) }}
  <div class="reveal">
- <details class="faq-item"><summary>Wie hoch ist die Mindestbestellmenge (MOQ)?</summary><div class="faq-answer">Unsere Standard-MOQ beträgt 500 Stück pro Modell für ODM auf Lagermodellen (Logo, Standardverpackung). Für ODM-Neuentwicklung liegt die MOQ bei 1.000–2.000 Stück, für OEM mit neuer Werkzeugentwicklung ab 3.000 Stück. Für Erstbestellungen bieten wir flexible Konditionen.</div></details>
- <details class="faq-item"><summary>Welche Zertifizierungen haben Ihre Produkte?</summary><div class="faq-answer">Alle Produkte sind CE, RoHS und UN38.3 zertifiziert. Qi2-zertifizierte kabellose Ladegeräte sind verfügbar. Auf Anfrage unterstützen wir auch bei TÜV/GS, UL, PSE, KC und anderen länderspezifischen Zertifizierungen.</div></details>
- <details class="faq-item"><summary>Können wir vor der Großbestellung Muster erhalten?</summary><div class="faq-answer">Ja, wir empfehlen Musterbestellungen vor der Serienproduktion. Standardmuster werden innerhalb von 3–7 Tagen verschickt. Die Musterkosten werden bei späterer Großbestellung ab einer vereinbarten Menge gutgeschrieben.</div></details>
- <details class="faq-item"><summary>Wie lange dauert die Lieferung nach Deutschland?</summary><div class="faq-answer">Standardproduktion: 25–35 Tage nach Musterfreigabe. Expressproduktion: 15–20 Tage. Versand aus China: 5–7 Tage (Express) oder 15–25 Tage (Standard). Bei Verfügbarkeit im EU-Lager: 3–7 Tage.</div></details>
- <details class="faq-item"><summary>Bieten Sie individuelle Logo- und Verpackungsgestaltung?</summary><div class="faq-answer">Ja, wir bieten vollständigen OEM/ODM-Service: individuelles Logo (Lasergravur, Siebdruck), kundenspezifische Verpackung (nachhaltige Materialien auf Anfrage), individuelle Farben und Markenmaterialien. Ihr Account Manager begleitet Sie durch den gesamten Prozess.</div></details>
- <details class="faq-item"><summary>Welche Zahlungsmethoden akzeptieren Sie?</summary><div class="faq-answer">Wir akzeptieren Überweisung (T/T) mit 30% Anzahlung und 70% vor Versand. Für geprüfte B2B-Partner bieten wir nach Vereinbarung auch Zahlung auf Rechnung (Kauf auf Rechnung) an. Alle Preise in EUR.</div></details>
- <details class="faq-item"><summary>Wie garantieren Sie die Produktqualität?</summary><div class="faq-answer">Unser 4-stufiger QC-Prozess umfasst: IQC (Eingangskontrolle), IPQC (Prozesskontrolle), FQC (Endkontrolle) und OQC (Ausgangskontrolle). 100% der Geräte durchlaufen einen 4-Stunden-Aging-Test vor Versand. Unsere Defektrate liegt unter 0,3%.</div></details>
- <details class="faq-item"><summary>Wie läuft der Versand nach Deutschland ab?</summary><div class="faq-answer">Wir versenden per Express (DHL/FedEx, 5–7 Tage) oder Standard (15–25 Tage) ab Shenzhen. Auf Wunsch bieten wir DDP-Service an, bei dem Zoll und Einfuhrumsatzsteuer komplett abgewickelt werden. Fragen Sie uns nach den aktuellen Versandkonditionen für Ihre Bestellung.</div></details>
- <details class="faq-item"><summary>Wie hoch ist Ihre Produktionskapazität?</summary><div class="faq-answer">Über 1.000.000 Einheiten pro Monat auf 5.000m² ISO 9001 zertifizierter Produktionsfläche. 200+ Mitarbeiter, davon 50+ in R&D. Flexibel skalierbar für Großaufträge.</div></details>
- <details class="faq-item"><summary>Bieten Sie Unterstützung bei PCBA- und ID-Design?</summary><div class="faq-answer">Ja, unser 50-köpfiges R&D-Team bietet vollständigen ID-Design-Service (Gehäuseform, Farben, Materialien), PCBA-Engineering und Werkzeugbau. Von der ersten Skizze bis zur Serienreife, alles unter einem Dach in Shenzhen.</div></details>
- <details class="faq-item"><summary>Wie ist Ihre Garantiepolitik bei Defekten?</summary><div class="faq-answer">12 Monate Garantie auf alle Produkte. Bei Defektrate über 0,3% liefern wir kostenlosen Ersatz. Jede Charge durchläuft einen 4-Stunden-Aging-Test vor Versand. Fotobericht der Qualitätskontrolle auf Anfrage.</div></details>
- <details class="faq-item"><summary>Bieten Sie Dropshipping für E-Commerce-Händler?</summary><div class="faq-answer">Ja, wir unterstützen Amazon FBA Vorbereitung (Labeling, Verpackung, Direktversand an FBA-Lager) sowie Dropshipping für Shopify- und WooCommerce-Händler. Kleine Chargen ab 100 Stück möglich.</div></details>
+ {% call faqItem("Wie hoch ist die Mindestbestellmenge (MOQ)?") %}Unsere Standard-MOQ beträgt 500 Stück pro Modell für ODM auf Lagermodellen (Logo, Standardverpackung). Für ODM-Neuentwicklung liegt die MOQ bei 1.000–2.000 Stück, für OEM mit neuer Werkzeugentwicklung ab 3.000 Stück. Für Erstbestellungen bieten wir flexible Konditionen.{% endcall %}
+ {% call faqItem("Welche Zertifizierungen haben Ihre Produkte?") %}Alle Produkte sind CE, RoHS und UN38.3 zertifiziert. Qi2-zertifizierte kabellose Ladegeräte sind verfügbar. Auf Anfrage unterstützen wir auch bei TÜV/GS, UL, PSE, KC und anderen länderspezifischen Zertifizierungen.{% endcall %}
+ {% call faqItem("Können wir vor der Großbestellung Muster erhalten?") %}Ja, wir empfehlen Musterbestellungen vor der Serienproduktion. Standardmuster werden innerhalb von 3–7 Tagen verschickt. Die Musterkosten werden bei späterer Großbestellung ab einer vereinbarten Menge gutgeschrieben.{% endcall %}
+ {% call faqItem("Wie lange dauert die Lieferung nach Deutschland?") %}Standardproduktion: 25–35 Tage nach Musterfreigabe. Expressproduktion: 15–20 Tage. Versand aus China: 5–7 Tage (Express) oder 15–25 Tage (Standard). Bei Verfügbarkeit im EU-Lager: 3–7 Tage.{% endcall %}
+ {% call faqItem("Bieten Sie individuelle Logo- und Verpackungsgestaltung?") %}Ja, wir bieten vollständigen OEM/ODM-Service: individuelles Logo (Lasergravur, Siebdruck), kundenspezifische Verpackung (nachhaltige Materialien auf Anfrage), individuelle Farben und Markenmaterialien. Ihr Account Manager begleitet Sie durch den gesamten Prozess.{% endcall %}
+ {% call faqItem("Welche Zahlungsmethoden akzeptieren Sie?") %}Wir akzeptieren Überweisung (T/T) mit 30% Anzahlung und 70% vor Versand. Für geprüfte B2B-Partner bieten wir nach Vereinbarung auch Zahlung auf Rechnung (Kauf auf Rechnung) an. Alle Preise in EUR.{% endcall %}
+ {% call faqItem("Wie garantieren Sie die Produktqualität?") %}Unser 4-stufiger QC-Prozess umfasst: IQC (Eingangskontrolle), IPQC (Prozesskontrolle), FQC (Endkontrolle) und OQC (Ausgangskontrolle). 100% der Geräte durchlaufen einen 4-Stunden-Aging-Test vor Versand. Unsere Defektrate liegt unter 0,3%.{% endcall %}
+ {% call faqItem("Wie läuft der Versand nach Deutschland ab?") %}Wir versenden per Express (DHL/FedEx, 5–7 Tage) oder Standard (15–25 Tage) ab Shenzhen. Auf Wunsch bieten wir DDP-Service an, bei dem Zoll und Einfuhrumsatzsteuer komplett abgewickelt werden. Fragen Sie uns nach den aktuellen Versandkonditionen für Ihre Bestellung.{% endcall %}
+ {% call faqItem("Wie hoch ist Ihre Produktionskapazität?") %}Über 1.000.000 Einheiten pro Monat auf 5.000m² ISO 9001 zertifizierter Produktionsfläche. 200+ Mitarbeiter, davon 50+ in R&D. Flexibel skalierbar für Großaufträge.{% endcall %}
+ {% call faqItem("Bieten Sie Unterstützung bei PCBA- und ID-Design?") %}Ja, unser 50-köpfiges R&D-Team bietet vollständigen ID-Design-Service (Gehäuseform, Farben, Materialien), PCBA-Engineering und Werkzeugbau. Von der ersten Skizze bis zur Serienreife, alles unter einem Dach in Shenzhen.{% endcall %}
+ {% call faqItem("Wie ist Ihre Garantiepolitik bei Defekten?") %}12 Monate Garantie auf alle Produkte. Bei Defektrate über 0,3% liefern wir kostenlosen Ersatz. Jede Charge durchläuft einen 4-Stunden-Aging-Test vor Versand. Fotobericht der Qualitätskontrolle auf Anfrage.{% endcall %}
+ {% call faqItem("Bieten Sie Dropshipping für E-Commerce-Händler?") %}Ja, wir unterstützen Amazon FBA Vorbereitung (Labeling, Verpackung, Direktversand an FBA-Lager) sowie Dropshipping für Shopify- und WooCommerce-Händler. Kleine Chargen ab 100 Stück möglich.{% endcall %}
  </div>
  </div>
 </section>
@@ -620,11 +579,7 @@ plPath: ""
 <!-- ======== 14. ZAHLUNGSMETHODEN ======== -->
 <section class="sec bg-slate-50">
  <div class="max-w-7xl mx-auto px-6">
- <div class="text-center max-w-3xl mx-auto mb-10 reveal">
- <p class="section-label">Zahlungsmethoden</p>
- <h2 class="section-title">Flexible Zahlung für Ihr Projekt</h2>
- <p class="section-desc mx-auto">Sichere und bewährte Zahlungswege für Geschäftskunden aus Deutschland, Österreich und der Schweiz.</p>
- </div>
+ {{ sectionHeader('Zahlungsmethoden', 'Flexible Zahlung für Ihr Projekt', 'Sichere und bewährte Zahlungswege für Geschäftskunden aus Deutschland, Österreich und der Schweiz.', {mb: 'mb-10'}) }}
  <div class="payment-grid reveal">
  <div class="payment-item"><svg class="payment-icon" viewBox="0 0 24 24" fill="currentColor" width="28" height="28" aria-hidden="true" focusable="false"><path d="M12 2L2 8v2h1v10H2v2h20v-2h-1V10h1V8l-8-6zM8 10h2v8H8v-8zm6 0h2v8h-2v-8z"/></svg><span class="payment-label">T/T Überweisung</span></div>
  <div class="payment-item"><svg class="payment-icon" viewBox="0 0 24 24" fill="currentColor" width="28" height="28" aria-hidden="true" focusable="false"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm4 18H6V4h7v5h5v11zM9 13h6v2H9v-2zm0 4h6v2H9v-2zm0-8h2v2H9V9z"/></svg><span class="payment-label">L/C Akkreditiv</span></div>

@@ -336,18 +336,12 @@ hreflang:
 {% block content %}
 
 <!-- 1. HERO HEADER -->
-<article class="py-12 blog-content">
+<article class="pb-12 blog-content">
 <div class="relative pt-24 md:pt-28 pb-12 lg:pt-28 lg:pb-16 bg-gradient-to-b from-slate-50 to-white overflow-hidden">
   <div class="absolute top-0 left-1/4 w-64 h-64 bg-brandOrange/10 rounded-full blur-3xl"></div>
   <div class="absolute bottom-0 right-1/4 w-64 h-64 bg-green-500/10 rounded-full blur-3xl"></div>
   <div class="max-w-4xl mx-auto px-6 relative z-10">
-    <nav class="text-sm text-slate-500 mb-6" aria-label="Breadcrumb">
-      <a href="/es/" class="hover:text-brandOrange">Inicio</a>
-      <span class="mx-2">/</span>
-      <a href="/es/blog/" class="hover:text-brandOrange">Blog</a>
-      <span class="mx-2">/</span>
-      <span class="text-slate-900">Qi2 vs MagSafe</span>
-    </nav>
+    {{ breadcrumb([{name: "Inicio", url: "/es/"}, {name: "Blog", url: "/es/blog/"}, {name: "Qi2 vs MagSafe"}], "none", "mb-6", { variant: "hero" }) }}
     <div class="flex flex-wrap gap-2 mb-6">
       <span class="px-3 py-1 bg-brandOrange/10 text-brandOrange text-[11px] font-black rounded-full uppercase">Qi2</span>
       <span class="px-3 py-1 bg-brandBlue/10 text-brandBlue text-[11px] font-black rounded-full uppercase">MagSafe</span>
@@ -677,7 +671,7 @@ hreflang:
     <h2 style="color:#fff" class="text-2xl font-black uppercase italic mb-4">Proyecto Qi2 OEM — presupuesto en 24h</h2>
     <p class="mb-8 max-w-xl mx-auto" style="color:rgba(255,255,255,0.85)">Modelos Qi2 pre-certificados, imanes N52H, chip de autenticación WPC. MOQ desde 500 unidades, 8-12 semanas DDP España. Miembro activo del WPC desde 2013.</p>
     <div class="flex flex-col sm:flex-row gap-4 justify-center">
-      <a href="/es/contacto/" class="w-full sm:flex-1 bg-brandOrange text-white px-8 py-4 rounded-xl font-black uppercase text-sm shadow-lg hover:-translate-y-1 transition">Solicitar Presupuesto Qi2</a>
+      <a href="/es/contacto/" class="btn-wide">Solicitar Presupuesto Qi2</a>
       <a href="/es/productos/cargador-inalambrico/" class="w-full sm:flex-1 text-center border-2 border-white text-white px-8 py-4 rounded-xl font-black uppercase text-sm hover:bg-white hover:text-brandBlue transition">Ver Catálogo</a>
     </div>
   </div>

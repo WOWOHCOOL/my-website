@@ -11,6 +11,8 @@ ruPath: "faq/"
 plPath: "faq/"
 ---
 {% extends "layout.njk" %}
+{% from "partials/faq-item.njk" import faqItem %}
+{% from "partials/category-heading.njk" import categoryHeading %}
 
 {% block head_schema %}
 <script type="application/ld+json">
@@ -114,13 +116,13 @@ plPath: "faq/"
 <!-- ========================================================================
  HERO SECTION
  ======================================================================== -->
- <section class="relative pt-20 md:pt-24 pb-8 lg:pt-28 lg:pb-16 bg-white text-slate-900 overflow-hidden">
+ <section class="relative pt-24 md:pt-28 pb-8 lg:pb-16 bg-white text-slate-900 overflow-hidden">
  <div class="absolute inset-0 z-0 pointer-events-none">
  <div class="absolute top-0 left-0 w-64 h-64 bg-brandOrange opacity-20 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
  <div class="absolute bottom-0 right-0 w-64 h-64 bg-blue-500 opacity-20 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
  </div>
- <div class="container-wide relative z-10 text-center py-12 lg:py-12">
- {{ breadcrumb([{name: "Home", url: "/"}, {name: "FAQ"}], "none", "mb-6") }}
+ <div class="container-wide relative z-10 text-center pb-12 lg:pb-12">
+ {{ breadcrumb([{name: "Home", url: "/"}, {name: "FAQ"}], "none", "mb-6", { variant: "hero" }) }}
  <div class="badge-capsule mb-6 mx-auto uppercase tracking-widest">10+ Years of Manufacturing Partnerships</div>
  <h1 class="text-4xl md:text-5xl lg:text-6xl font-black text-brandBlue uppercase italic tracking-tighter leading-tight mb-6">
  Frequently Asked <span class="text-brandOrange">Questions</span>
@@ -138,319 +140,101 @@ plPath: "faq/"
 <div class="container-narrow">
 
 <!-- Quick-jump category nav -->
-<div class="flex flex-wrap justify-center gap-2 mb-14">
- <a href="#faq-credibility" class="px-4 py-2 rounded-full text-[11px] font-bold bg-slate-100 text-slate-600 hover:bg-brandOrange hover:text-white transition border border-slate-200">Factory & Credibility</a>
- <a href="#faq-oem-odm" class="px-4 py-2 rounded-full text-[11px] font-bold bg-slate-100 text-slate-600 hover:bg-brandOrange hover:text-white transition border border-slate-200">OEM/ODM Process</a>
- <a href="#faq-moq" class="px-4 py-2 rounded-full text-[11px] font-bold bg-slate-100 text-slate-600 hover:bg-brandOrange hover:text-white transition border border-slate-200">MOQ & Pricing</a>
- <a href="#faq-branding" class="px-4 py-2 rounded-full text-[11px] font-bold bg-slate-100 text-slate-600 hover:bg-brandOrange hover:text-white transition border border-slate-200">Branding</a>
- <a href="#faq-quality" class="px-4 py-2 rounded-full text-[11px] font-bold bg-slate-100 text-slate-600 hover:bg-brandOrange hover:text-white transition border border-slate-200">Quality</a>
- <a href="#faq-certifications" class="px-4 py-2 rounded-full text-[11px] font-bold bg-slate-100 text-slate-600 hover:bg-brandOrange hover:text-white transition border border-slate-200">Certifications</a>
- <a href="#faq-shipping" class="px-4 py-2 rounded-full text-[11px] font-bold bg-slate-100 text-slate-600 hover:bg-brandOrange hover:text-white transition border border-slate-200">Shipping</a>
- <a href="#faq-technology" class="px-4 py-2 rounded-full text-[11px] font-bold bg-slate-100 text-slate-600 hover:bg-brandOrange hover:text-white transition border border-slate-200">Technology</a>
- <a href="#faq-operations" class="px-4 py-2 rounded-full text-[11px] font-bold bg-slate-100 text-slate-600 hover:bg-brandOrange hover:text-white transition border border-slate-200">Business</a>
+<div class="flex flex-wrap justify-center gap-2 mb-12 reveal">
+ <a href="#faq-credibility" class="filter-chip">Factory & Credibility</a>
+ <a href="#faq-oem-odm" class="filter-chip">OEM/ODM Process</a>
+ <a href="#faq-moq" class="filter-chip">MOQ & Pricing</a>
+ <a href="#faq-branding" class="filter-chip">Branding</a>
+ <a href="#faq-quality" class="filter-chip">Quality</a>
+ <a href="#faq-certifications" class="filter-chip">Certifications</a>
+ <a href="#faq-shipping" class="filter-chip">Shipping</a>
+ <a href="#faq-technology" class="filter-chip">Technology</a>
+ <a href="#faq-operations" class="filter-chip">Business</a>
 </div>
 
-<a id="faq-credibility" class="block -scroll-mt-24"></a>
-<!-- Category 1: Factory & Credibility -->
-<div class="flex items-center gap-3 mb-6 mt-2">
- <span class="w-8 h-[2px] bg-brandOrange shrink-0"></span>
- <span class="text-[11px] font-black text-slate-400 uppercase tracking-[0.2em]">Factory &amp; Credibility</span>
+<div class="mb-16 reveal">
+{{ categoryHeading("Factory &amp; Credibility", "faq-credibility") }}
+<div class="space-y-1">
+{% call faqItem("Is WOWOHCOOL a real factory?") %}<p>Yes. WOWOHCOOL (Dong Yi Technology Co., Ltd) operates a 5,000m² ISO 9001 certified facility in Shenzhen since 2013. 200-500 staff including 50+ R&D engineers. 1M+ units monthly production capacity. Automated SMT lines and professional testing labs. Factory video tours and on-site visits welcome, <a href="/about" class="text-brandOrange hover:underline font-bold">learn more about our factory</a>.</p>{% endcall %}
+{% call faqItem("How is WOWOHCOOL different from a trading company?") %}<p>We own and operate our manufacturing facility, not a middleman. Real factory credentials: ISO 9001 certified since 2013, 5,000m² facility, 200-500 employees, 50+ R&D engineers, automated SMT production lines, and an in-house testing lab. Trading companies cannot offer the same level of quality control, pricing transparency, or production flexibility. We welcome video calls and on-site factory audits to verify.</p>{% endcall %}
+{% call faqItem("Can I visit your factory or do a video audit?") %}<p>Yes. We welcome on-site factory visits in Shenzhen, schedule in advance and we'll arrange a full tour of production lines, testing labs, and R&D center. For remote verification, we offer live video audits: walk through the facility via video call in real time. No appointment needed for video audits. <a href="/contact" class="text-brandOrange hover:underline font-bold">Contact us to arrange a visit</a>.</p>{% endcall %}
 </div>
-<div class="space-y-4 mb-14">
-
-<div class="bg-white border border-slate-200 rounded-2xl overflow-hidden">
-<button onclick="this.nextElementSibling.classList.toggle('hidden');this.querySelector('svg').classList.toggle('rotate-180')" class="w-full px-6 py-5 flex items-center justify-between text-left hover:bg-slate-50 transition">
-<span class="font-bold text-brandBlue pr-4">Is WOWOHCOOL a real factory?</span>
-<svg class="icon-chevron-down text-brandOrange shrink-0 transition-transform duration-300" viewBox="0 0 448 512" width="16"><path d="M201.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 338.7 54.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z" fill="currentColor"/></svg>
-</button>
-<div class="hidden px-6 pb-5 text-sm text-slate-600 leading-relaxed"><p>Yes. WOWOHCOOL (Dong Yi Technology Co., Ltd) operates a 5,000m² ISO 9001 certified facility in Shenzhen since 2013. 200-500 staff including 50+ R&D engineers. 1M+ units monthly production capacity. Automated SMT lines and professional testing labs. Factory video tours and on-site visits welcome, <a href="/about" class="text-brandOrange hover:underline font-bold">learn more about our factory</a>.</p></div>
 </div>
 
-<div class="bg-white border border-slate-200 rounded-2xl overflow-hidden">
-<button onclick="this.nextElementSibling.classList.toggle('hidden');this.querySelector('svg').classList.toggle('rotate-180')" class="w-full px-6 py-5 flex items-center justify-between text-left hover:bg-slate-50 transition">
-<span class="font-bold text-brandBlue pr-4">How is WOWOHCOOL different from a trading company?</span>
-<svg class="icon-chevron-down text-brandOrange shrink-0 transition-transform duration-300" viewBox="0 0 448 512" width="16"><path d="M201.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 338.7 54.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z" fill="currentColor"/></svg>
-</button>
-<div class="hidden px-6 pb-5 text-sm text-slate-600 leading-relaxed"><p>We own and operate our manufacturing facility, not a middleman. Real factory credentials: ISO 9001 certified since 2013, 5,000m² facility, 200-500 employees, 50+ R&D engineers, automated SMT production lines, and an in-house testing lab. Trading companies cannot offer the same level of quality control, pricing transparency, or production flexibility. We welcome video calls and on-site factory audits to verify.</p></div>
+<div class="mb-16 reveal">
+{{ categoryHeading("OEM/ODM Process", "faq-oem-odm") }}
+<div class="space-y-1">
+{% call faqItem("What is the difference between OEM and ODM?") %}<p>ODM: You select an existing product design from our platform and add your logo, colors, and stock packaging customization. MOQ from 500 units, lead time 25-30 days after sample approval. ODM new development (not in stock): 1,000-2,000 units, lead time 45-60 days — our 50+ R&D engineers handle the full development cycle. OEM: we manufacture your own design with new tooling, MOQ from 3,000 units. <a href="/service" class="text-brandOrange hover:underline font-bold">Explore our OEM/ODM services</a>.</p>{% endcall %}
+{% call faqItem("What is the step-by-step OEM process?") %}<p>1. Inquiry &amp; product selection, choose from 30+ existing SKUs across power banks, GaN chargers, wireless chargers, and car chargers. 2. Quotation within 24 hours, samples in 3-7 days. 3. Customization, your logo, packaging, and any minor modifications. 4. Sample approval, sign off on appearance and function. 5. Mass production, 25-30 days with 4-stage QC throughout. 6. Shipping, FOB Shenzhen, EXW, or DDP to your door.</p>{% endcall %}
+{% call faqItem("What is the typical ODM development timeline?") %}<p>ODM projects require 45-60 days from design approval to first shipment. Breakdown: Design &amp; engineering (7-14 days), prototyping &amp; tooling (14-21 days), certification testing (10-14 days), sample approval (3-7 days), mass production (25-30 days). Complex projects with unique tooling or new certifications may require additional time.</p>{% endcall %}
+</div>
 </div>
 
-<div class="bg-white border border-slate-200 rounded-2xl overflow-hidden">
-<button onclick="this.nextElementSibling.classList.toggle('hidden');this.querySelector('svg').classList.toggle('rotate-180')" class="w-full px-6 py-5 flex items-center justify-between text-left hover:bg-slate-50 transition">
-<span class="font-bold text-brandBlue pr-4">Can I visit your factory or do a video audit?</span>
-<svg class="icon-chevron-down text-brandOrange shrink-0 transition-transform duration-300" viewBox="0 0 448 512" width="16"><path d="M201.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 338.7 54.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z" fill="currentColor"/></svg>
-</button>
-<div class="hidden px-6 pb-5 text-sm text-slate-600 leading-relaxed"><p>Yes. We welcome on-site factory visits in Shenzhen, schedule in advance and we'll arrange a full tour of production lines, testing labs, and R&D center. For remote verification, we offer live video audits: walk through the facility via video call in real time. No appointment needed for video audits. <a href="/contact" class="text-brandOrange hover:underline font-bold">Contact us to arrange a visit</a>.</p></div>
+<div class="mb-16 reveal">
+{{ categoryHeading("MOQ &amp; Pricing", "faq-moq") }}
+<div class="space-y-1">
+{% call faqItem("What is your minimum order quantity?") %}<p>MOQ starts at 500 units for ODM on in-stock models (logo + packaging customization). ODM new development (not in stock): 1,000-2,000 units. OEM with new tooling and custom engineering: 3,000+ units. Sample orders from 1-50 units for evaluation. Volume discounts available at 1,000+, 5,000+, and 10,000+ tiers.</p>{% endcall %}
+{% call faqItem("What are your payment terms?") %}<p>Standard terms: 30% deposit to start production, 70% balance before shipment. We accept T/T (wire transfer), L/C (Letter of Credit), PayPal, and Alibaba Trade Assurance. For established long-term partners, more flexible terms may be available. All payments secured through verified business accounts.</p>{% endcall %}
+{% call faqItem("What is included in your pricing?") %}<p>Unit pricing includes: product manufacturing, 4-stage QC testing, 4-hour aging test on every unit, CE/FCC/RoHS certification documentation, and standard packaging. Additional costs: custom tooling and molds, custom packaging design, regional certifications (UL, PSE, KC, SAA), special labeling, and express shipping. Request a detailed quotation for your specific requirements.</p>{% endcall %}
+</div>
 </div>
 
+<div class="mb-16 reveal">
+{{ categoryHeading("Customization &amp; Branding", "faq-branding") }}
+<div class="space-y-1">
+{% call faqItem("Can I put my logo on the products?") %}<p>Yes. Multiple branding methods available: laser engraving (most durable), silk screen printing, UV printing, or adhesive labels. Custom packaging with your brand design, instruction manuals, and inserts also available. Provide your logo in vector format (AI, EPS, or CDR) for best results. MOQ from 500 units for branded products.</p>{% endcall %}
+{% call faqItem("What packaging options are available?") %}<p>Standard: retail-ready color box or blister pack with your brand design. Premium: magnetic flap box, window display box, or eco-friendly kraft packaging. Bulk: plain brown box for distributors or Amazon FBA prep. Custom inserts, foam padding, and accessory compartments available. We assist with packaging design and provide mockups for approval before mass production.</p>{% endcall %}
+</div>
 </div>
 
-<a id="faq-oem-odm" class="block -scroll-mt-24"></a>
-<!-- Category 2: OEM/ODM Process -->
-<div class="flex items-center gap-3 mb-6">
- <span class="w-8 h-[2px] bg-brandOrange shrink-0"></span>
- <span class="text-[11px] font-black text-slate-400 uppercase tracking-[0.2em]">OEM/ODM Process</span>
+<div class="mb-16 reveal">
+{{ categoryHeading("Quality Control", "faq-quality") }}
+<div class="space-y-1">
+{% call faqItem("How can I check quality before mass production?") %}<p>Order samples first. Sample turnaround: 3-7 days for standard models. Check logo quality, workmanship, charging performance, and compatibility. Only approve samples after thorough testing. During mass production, our 4-stage QC process ensures consistent quality: IQC (incoming component inspection), IPQC (in-process monitoring), FQC (final functional test), OQC (outgoing quality check). 100% of units pass a 4-hour aging test before shipping.</p>{% endcall %}
+{% call faqItem("What is your 4-stage QC process?") %}<p>Stage 1, IQC (Incoming Quality Control): All raw materials and components inspected before entering production. Stage 2, IPQC (In-Process Quality Control): Real-time monitoring during SMT assembly, soldering, and assembly. Stage 3, FQC (Final Quality Control): 100% functional testing of every unit, charging speed, port output, safety protection, and compatibility. Stage 4, OQC (Outgoing Quality Control): Final appearance check, packaging verification, and quantity confirmation before shipping.</p>{% endcall %}
+{% call faqItem("What is your warranty and defect policy?") %}<p>Standard 12-month warranty on all OEM/ODM products, extendable to 24 months for qualified partners. Defect rate target: under 1%. For confirmed manufacturing defects, we provide replacement units or credit on your next order within 15 business days. Our after-sales team responds to quality issues within 24 hours. Long-term partners receive priority RMA processing.</p>{% endcall %}
 </div>
-<div class="space-y-4 mb-14">
-
-<div class="bg-white border border-slate-200 rounded-2xl overflow-hidden">
-<button onclick="this.nextElementSibling.classList.toggle('hidden');this.querySelector('svg').classList.toggle('rotate-180')" class="w-full px-6 py-5 flex items-center justify-between text-left hover:bg-slate-50 transition">
-<span class="font-bold text-brandBlue pr-4">What is the difference between OEM and ODM?</span>
-<svg class="icon-chevron-down text-brandOrange shrink-0 transition-transform duration-300" viewBox="0 0 448 512" width="16"><path d="M201.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 338.7 54.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z" fill="currentColor"/></svg>
-</button>
-<div class="hidden px-6 pb-5 text-sm text-slate-600 leading-relaxed"><p>ODM: You select an existing product design from our platform and add your logo, colors, and stock packaging customization. MOQ from 500 units, lead time 25-30 days after sample approval. ODM new development (not in stock): 1,000-2,000 units, lead time 45-60 days — our 50+ R&D engineers handle the full development cycle. OEM: we manufacture your own design with new tooling, MOQ from 3,000 units. <a href="/service" class="text-brandOrange hover:underline font-bold">Explore our OEM/ODM services</a>.</p></div>
 </div>
 
-<div class="bg-white border border-slate-200 rounded-2xl overflow-hidden">
-<button onclick="this.nextElementSibling.classList.toggle('hidden');this.querySelector('svg').classList.toggle('rotate-180')" class="w-full px-6 py-5 flex items-center justify-between text-left hover:bg-slate-50 transition">
-<span class="font-bold text-brandBlue pr-4">What is the step-by-step OEM process?</span>
-<svg class="icon-chevron-down text-brandOrange shrink-0 transition-transform duration-300" viewBox="0 0 448 512" width="16"><path d="M201.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 338.7 54.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z" fill="currentColor"/></svg>
-</button>
-<div class="hidden px-6 pb-5 text-sm text-slate-600 leading-relaxed"><p>1. Inquiry &amp; product selection, choose from 30+ existing SKUs across power banks, GaN chargers, wireless chargers, and car chargers. 2. Quotation within 24 hours, samples in 3-7 days. 3. Customization, your logo, packaging, and any minor modifications. 4. Sample approval, sign off on appearance and function. 5. Mass production, 25-30 days with 4-stage QC throughout. 6. Shipping, FOB Shenzhen, EXW, or DDP to your door.</p></div>
+<div class="mb-16 reveal">
+{{ categoryHeading("Certifications", "faq-certifications") }}
+<div class="space-y-1">
+{% call faqItem("What certifications do I need for the EU market?") %}<p>Required: CE marking (electrical safety + EMC), RoHS (hazardous substances), WEEE registration. For products with lithium batteries: UN38.3 (transport safety) and battery directive compliance. Our products come with CE and RoHS documentation by default. We assist with obtaining additional certifications for your target EU markets.</p>{% endcall %}
+{% call faqItem("What certifications do I need for the US market?") %}<p>Required: FCC (electromagnetic interference), UL 62368-1 (safety standard for power supplies). Recommended: ETL or cUL for retail distribution. For power banks: UN38.3 for battery transport compliance. We provide FCC testing documentation with every OEM order and can coordinate UL/ETL certification through our partner testing labs. Certification lead time: 2-4 weeks.</p>{% endcall %}
+{% call faqItem("Do you help with the certification process?") %}<p>Yes. We handle certifications as part of our OEM/ODM service. Standard certifications (CE, FCC, RoHS, UN38.3) are included with every order. For market-specific certifications (UL for US, PSE for Japan, KC for Korea, SAA for Australia), we coordinate with accredited third-party labs and manage the application process. Certification costs are quoted separately for project-specific requirements.</p>{% endcall %}
+</div>
 </div>
 
-<div class="bg-white border border-slate-200 rounded-2xl overflow-hidden">
-<button onclick="this.nextElementSibling.classList.toggle('hidden');this.querySelector('svg').classList.toggle('rotate-180')" class="w-full px-6 py-5 flex items-center justify-between text-left hover:bg-slate-50 transition">
-<span class="font-bold text-brandBlue pr-4">What is the typical ODM development timeline?</span>
-<svg class="icon-chevron-down text-brandOrange shrink-0 transition-transform duration-300" viewBox="0 0 448 512" width="16"><path d="M201.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 338.7 54.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z" fill="currentColor"/></svg>
-</button>
-<div class="hidden px-6 pb-5 text-sm text-slate-600 leading-relaxed"><p>ODM projects require 45-60 days from design approval to first shipment. Breakdown: Design &amp; engineering (7-14 days), prototyping &amp; tooling (14-21 days), certification testing (10-14 days), sample approval (3-7 days), mass production (25-30 days). Complex projects with unique tooling or new certifications may require additional time.</p></div>
+<div class="mb-16 reveal">
+{{ categoryHeading("Shipping &amp; Logistics", "faq-shipping") }}
+<div class="space-y-1">
+{% call faqItem("What shipping methods do you offer?") %}<p>Express (DHL, FedEx, UPS): 5-7 business days, best for samples and urgent small orders. Air freight: 7-14 business days, best for mid-sized orders (500-2,000 units). Sea freight: 25-35 business days, most economical for full container loads (5,000+ units). Shipping terms: FOB Shenzhen, EXW, CIF, or DDP door-to-door with all duties included.</p>{% endcall %}
+{% call faqItem("Can you ship to my Amazon FBA warehouse?") %}<p>Yes. We offer Amazon FBA-compliant fulfillment, including barcode labeling (FNSKU), poly bagging, case packing, pallet labeling, and shipping documentation. We work with Amazon-preferred carriers and have experience shipping FBA to US, UK, Germany, France, Italy, Spain, and Japan fulfillment centers. DDP shipping available for clear total landed cost.</p>{% endcall %}
+{% call faqItem("What is DDP shipping and is it right for me?") %}<p>DDP (Delivered Duty Paid) means we handle everything: export customs, freight, import customs, duty payment, and final delivery to your door, one price, no surprises. Recommended for first-time importers who want a hassle-free experience. Price is higher than FOB or EXW, but you avoid unexpected customs fees, delays, and paperwork.</p>{% endcall %}
+</div>
 </div>
 
+<div class="mb-16 reveal">
+{{ categoryHeading("Product Technology", "faq-technology") }}
+<div class="space-y-1">
+{% call faqItem("What is GaN technology and why does it matter?") %}<p>GaN (Gallium Nitride) is a semiconductor material that replaces traditional silicon in chargers. Benefits: 40% smaller size, 30% better heat dissipation, higher efficiency (less energy wasted as heat), and support for higher power output in compact form factors. WOWOHCOOL uses 5th generation GaN (GaN V) in our latest charger lines. <a href="/products/gan-charger" class="text-brandOrange hover:underline font-bold">Browse our GaN charger lineup</a>.</p>{% endcall %}
+{% call faqItem("What is a semi-solid-state battery?") %}<p>Semi-solid-state battery technology replaces the liquid electrolyte in traditional lithium-ion batteries with a gel-like solid electrolyte. Benefits: 50% thinner profile, 30% higher energy density, significantly reduced fire risk, and longer cycle life (500+ cycles). WOWOHCOOL's semi-solid-state power bank line was featured at CES 2026. <a href="/products/power-bank" class="text-brandOrange hover:underline font-bold">Explore semi-solid-state power banks</a>.</p>{% endcall %}
+{% call faqItem("What is Qi2 wireless charging?") %}<p>Qi2 is the latest wireless charging standard from the Wireless Power Consortium. Key feature: MPP (Magnetic Power Profile) uses N52H neodymium magnets for perfect alignment every time, ensuring 15W fast charging without the "searching for the sweet spot" frustration. Fully backwards compatible with existing Qi devices. Supports iPhone MagSafe and Android devices. <a href="/products/wireless-charger" class="text-brandOrange hover:underline font-bold">View Qi2 wireless chargers</a>.</p>{% endcall %}
+</div>
 </div>
 
-<a id="faq-moq" class="block -scroll-mt-24"></a>
-<!-- Category 3: MOQ & Pricing -->
-<div class="flex items-center gap-3 mb-6">
- <span class="w-8 h-[2px] bg-brandOrange shrink-0"></span>
- <span class="text-[11px] font-black text-slate-400 uppercase tracking-[0.2em]">MOQ &amp; Pricing</span>
+<div class="mb-16 reveal">
+{{ categoryHeading("Business Operations", "faq-operations") }}
+<div class="space-y-1">
+{% call faqItem("How do you protect my product design and IP?") %}<p>We take IP protection seriously. We sign NDAs and NNN (Non-Use, Non-Disclosure, Non-Circumvention) agreements. For OEM clients: your design files and specifications remain your property. For ODM: mutually agreed IP ownership terms in the contract. Molds and tooling owned by you remain under your control. We do not share client designs with third parties. For critical IP, we recommend design patent registration in China as additional protection.</p>{% endcall %}
+{% call faqItem("How does Chinese New Year affect production schedules?") %}<p>Chinese New Year (CNY) typically falls in January or February. Production closes for 10-14 days. We recommend placing orders 6-8 weeks before CNY to ensure production completion before the holiday. Post-CNY, production ramps up over 1-2 weeks. Q1 capacity is tight as factories fulfill pre-CNY backlog. We monitor the official CNY schedule annually and advise clients in advance.</p>{% endcall %}
+{% call faqItem("How quickly do you respond to inquiries?") %}<p>We respond to all inquiries within 24 hours during business days, typically within 4 hours. Quotations provided within 24 hours of receiving your requirements. Samples ship within 3-7 days of order confirmation. Our team is available by email, phone, and WhatsApp. <a href="/contact" class="text-brandOrange hover:underline font-bold">Send us your inquiry</a>.</p>{% endcall %}
 </div>
-<div class="space-y-4 mb-14">
-
-<div class="bg-white border border-slate-200 rounded-2xl overflow-hidden">
-<button onclick="this.nextElementSibling.classList.toggle('hidden');this.querySelector('svg').classList.toggle('rotate-180')" class="w-full px-6 py-5 flex items-center justify-between text-left hover:bg-slate-50 transition">
-<span class="font-bold text-brandBlue pr-4">What is your minimum order quantity?</span>
-<svg class="icon-chevron-down text-brandOrange shrink-0 transition-transform duration-300" viewBox="0 0 448 512" width="16"><path d="M201.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 338.7 54.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z" fill="currentColor"/></svg>
-</button>
-<div class="hidden px-6 pb-5 text-sm text-slate-600 leading-relaxed"><p>MOQ starts at 500 units for ODM on in-stock models (logo + packaging customization). ODM new development (not in stock): 1,000-2,000 units. OEM with new tooling and custom engineering: 3,000+ units. Sample orders from 1-50 units for evaluation. Volume discounts available at 1,000+, 5,000+, and 10,000+ tiers.</p></div>
-</div>
-
-<div class="bg-white border border-slate-200 rounded-2xl overflow-hidden">
-<button onclick="this.nextElementSibling.classList.toggle('hidden');this.querySelector('svg').classList.toggle('rotate-180')" class="w-full px-6 py-5 flex items-center justify-between text-left hover:bg-slate-50 transition">
-<span class="font-bold text-brandBlue pr-4">What are your payment terms?</span>
-<svg class="icon-chevron-down text-brandOrange shrink-0 transition-transform duration-300" viewBox="0 0 448 512" width="16"><path d="M201.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 338.7 54.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z" fill="currentColor"/></svg>
-</button>
-<div class="hidden px-6 pb-5 text-sm text-slate-600 leading-relaxed"><p>Standard terms: 30% deposit to start production, 70% balance before shipment. We accept T/T (wire transfer), L/C (Letter of Credit), PayPal, and Alibaba Trade Assurance. For established long-term partners, more flexible terms may be available. All payments secured through verified business accounts.</p></div>
-</div>
-
-<div class="bg-white border border-slate-200 rounded-2xl overflow-hidden">
-<button onclick="this.nextElementSibling.classList.toggle('hidden');this.querySelector('svg').classList.toggle('rotate-180')" class="w-full px-6 py-5 flex items-center justify-between text-left hover:bg-slate-50 transition">
-<span class="font-bold text-brandBlue pr-4">What is included in your pricing?</span>
-<svg class="icon-chevron-down text-brandOrange shrink-0 transition-transform duration-300" viewBox="0 0 448 512" width="16"><path d="M201.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 338.7 54.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z" fill="currentColor"/></svg>
-</button>
-<div class="hidden px-6 pb-5 text-sm text-slate-600 leading-relaxed"><p>Unit pricing includes: product manufacturing, 4-stage QC testing, 4-hour aging test on every unit, CE/FCC/RoHS certification documentation, and standard packaging. Additional costs: custom tooling and molds, custom packaging design, regional certifications (UL, PSE, KC, SAA), special labeling, and express shipping. Request a detailed quotation for your specific requirements.</p></div>
-</div>
-
-</div>
-
-<a id="faq-branding" class="block -scroll-mt-24"></a>
-<!-- Category 4: Customization & Branding -->
-<div class="flex items-center gap-3 mb-6">
- <span class="w-8 h-[2px] bg-brandOrange shrink-0"></span>
- <span class="text-[11px] font-black text-slate-400 uppercase tracking-[0.2em]">Customization &amp; Branding</span>
-</div>
-<div class="space-y-4 mb-14">
-
-<div class="bg-white border border-slate-200 rounded-2xl overflow-hidden">
-<button onclick="this.nextElementSibling.classList.toggle('hidden');this.querySelector('svg').classList.toggle('rotate-180')" class="w-full px-6 py-5 flex items-center justify-between text-left hover:bg-slate-50 transition">
-<span class="font-bold text-brandBlue pr-4">Can I put my logo on the products?</span>
-<svg class="icon-chevron-down text-brandOrange shrink-0 transition-transform duration-300" viewBox="0 0 448 512" width="16"><path d="M201.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 338.7 54.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z" fill="currentColor"/></svg>
-</button>
-<div class="hidden px-6 pb-5 text-sm text-slate-600 leading-relaxed"><p>Yes. Multiple branding methods available: laser engraving (most durable), silk screen printing, UV printing, or adhesive labels. Custom packaging with your brand design, instruction manuals, and inserts also available. Provide your logo in vector format (AI, EPS, or CDR) for best results. MOQ from 500 units for branded products.</p></div>
-</div>
-
-<div class="bg-white border border-slate-200 rounded-2xl overflow-hidden">
-<button onclick="this.nextElementSibling.classList.toggle('hidden');this.querySelector('svg').classList.toggle('rotate-180')" class="w-full px-6 py-5 flex items-center justify-between text-left hover:bg-slate-50 transition">
-<span class="font-bold text-brandBlue pr-4">What packaging options are available?</span>
-<svg class="icon-chevron-down text-brandOrange shrink-0 transition-transform duration-300" viewBox="0 0 448 512" width="16"><path d="M201.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 338.7 54.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z" fill="currentColor"/></svg>
-</button>
-<div class="hidden px-6 pb-5 text-sm text-slate-600 leading-relaxed"><p>Standard: retail-ready color box or blister pack with your brand design. Premium: magnetic flap box, window display box, or eco-friendly kraft packaging. Bulk: plain brown box for distributors or Amazon FBA prep. Custom inserts, foam padding, and accessory compartments available. We assist with packaging design and provide mockups for approval before mass production.</p></div>
-</div>
-
-</div>
-
-<a id="faq-quality" class="block -scroll-mt-24"></a>
-<!-- Category 5: Quality Control -->
-<div class="flex items-center gap-3 mb-6">
- <span class="w-8 h-[2px] bg-brandOrange shrink-0"></span>
- <span class="text-[11px] font-black text-slate-400 uppercase tracking-[0.2em]">Quality Control</span>
-</div>
-<div class="space-y-4 mb-14">
-
-<div class="bg-white border border-slate-200 rounded-2xl overflow-hidden">
-<button onclick="this.nextElementSibling.classList.toggle('hidden');this.querySelector('svg').classList.toggle('rotate-180')" class="w-full px-6 py-5 flex items-center justify-between text-left hover:bg-slate-50 transition">
-<span class="font-bold text-brandBlue pr-4">How can I check quality before mass production?</span>
-<svg class="icon-chevron-down text-brandOrange shrink-0 transition-transform duration-300" viewBox="0 0 448 512" width="16"><path d="M201.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 338.7 54.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z" fill="currentColor"/></svg>
-</button>
-<div class="hidden px-6 pb-5 text-sm text-slate-600 leading-relaxed"><p>Order samples first. Sample turnaround: 3-7 days for standard models. Check logo quality, workmanship, charging performance, and compatibility. Only approve samples after thorough testing. During mass production, our 4-stage QC process ensures consistent quality: IQC (incoming component inspection), IPQC (in-process monitoring), FQC (final functional test), OQC (outgoing quality check). 100% of units pass a 4-hour aging test before shipping.</p></div>
-</div>
-
-<div class="bg-white border border-slate-200 rounded-2xl overflow-hidden">
-<button onclick="this.nextElementSibling.classList.toggle('hidden');this.querySelector('svg').classList.toggle('rotate-180')" class="w-full px-6 py-5 flex items-center justify-between text-left hover:bg-slate-50 transition">
-<span class="font-bold text-brandBlue pr-4">What is your 4-stage QC process?</span>
-<svg class="icon-chevron-down text-brandOrange shrink-0 transition-transform duration-300" viewBox="0 0 448 512" width="16"><path d="M201.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 338.7 54.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z" fill="currentColor"/></svg>
-</button>
-<div class="hidden px-6 pb-5 text-sm text-slate-600 leading-relaxed"><p>Stage 1, IQC (Incoming Quality Control): All raw materials and components inspected before entering production. Stage 2, IPQC (In-Process Quality Control): Real-time monitoring during SMT assembly, soldering, and assembly. Stage 3, FQC (Final Quality Control): 100% functional testing of every unit, charging speed, port output, safety protection, and compatibility. Stage 4, OQC (Outgoing Quality Control): Final appearance check, packaging verification, and quantity confirmation before shipping.</p></div>
-</div>
-
-<div class="bg-white border border-slate-200 rounded-2xl overflow-hidden">
-<button onclick="this.nextElementSibling.classList.toggle('hidden');this.querySelector('svg').classList.toggle('rotate-180')" class="w-full px-6 py-5 flex items-center justify-between text-left hover:bg-slate-50 transition">
-<span class="font-bold text-brandBlue pr-4">What is your warranty and defect policy?</span>
-<svg class="icon-chevron-down text-brandOrange shrink-0 transition-transform duration-300" viewBox="0 0 448 512" width="16"><path d="M201.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 338.7 54.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z" fill="currentColor"/></svg>
-</button>
-<div class="hidden px-6 pb-5 text-sm text-slate-600 leading-relaxed"><p>Standard 12-month warranty on all OEM/ODM products, extendable to 24 months for qualified partners. Defect rate target: under 1%. For confirmed manufacturing defects, we provide replacement units or credit on your next order within 15 business days. Our after-sales team responds to quality issues within 24 hours. Long-term partners receive priority RMA processing.</p></div>
-</div>
-
-</div>
-
-<a id="faq-certifications" class="block -scroll-mt-24"></a>
-<!-- Category 6: Certifications -->
-<div class="flex items-center gap-3 mb-6">
- <span class="w-8 h-[2px] bg-brandOrange shrink-0"></span>
- <span class="text-[11px] font-black text-slate-400 uppercase tracking-[0.2em]">Certifications</span>
-</div>
-<div class="space-y-4 mb-14">
-
-<div class="bg-white border border-slate-200 rounded-2xl overflow-hidden">
-<button onclick="this.nextElementSibling.classList.toggle('hidden');this.querySelector('svg').classList.toggle('rotate-180')" class="w-full px-6 py-5 flex items-center justify-between text-left hover:bg-slate-50 transition">
-<span class="font-bold text-brandBlue pr-4">What certifications do I need for the EU market?</span>
-<svg class="icon-chevron-down text-brandOrange shrink-0 transition-transform duration-300" viewBox="0 0 448 512" width="16"><path d="M201.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 338.7 54.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z" fill="currentColor"/></svg>
-</button>
-<div class="hidden px-6 pb-5 text-sm text-slate-600 leading-relaxed"><p>Required: CE marking (electrical safety + EMC), RoHS (hazardous substances), WEEE registration. For products with lithium batteries: UN38.3 (transport safety) and battery directive compliance. Our products come with CE and RoHS documentation by default. We assist with obtaining additional certifications for your target EU markets.</p></div>
-</div>
-
-<div class="bg-white border border-slate-200 rounded-2xl overflow-hidden">
-<button onclick="this.nextElementSibling.classList.toggle('hidden');this.querySelector('svg').classList.toggle('rotate-180')" class="w-full px-6 py-5 flex items-center justify-between text-left hover:bg-slate-50 transition">
-<span class="font-bold text-brandBlue pr-4">What certifications do I need for the US market?</span>
-<svg class="icon-chevron-down text-brandOrange shrink-0 transition-transform duration-300" viewBox="0 0 448 512" width="16"><path d="M201.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 338.7 54.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z" fill="currentColor"/></svg>
-</button>
-<div class="hidden px-6 pb-5 text-sm text-slate-600 leading-relaxed"><p>Required: FCC (electromagnetic interference), UL 62368-1 (safety standard for power supplies). Recommended: ETL or cUL for retail distribution. For power banks: UN38.3 for battery transport compliance. We provide FCC testing documentation with every OEM order and can coordinate UL/ETL certification through our partner testing labs. Certification lead time: 2-4 weeks.</p></div>
-</div>
-
-<div class="bg-white border border-slate-200 rounded-2xl overflow-hidden">
-<button onclick="this.nextElementSibling.classList.toggle('hidden');this.querySelector('svg').classList.toggle('rotate-180')" class="w-full px-6 py-5 flex items-center justify-between text-left hover:bg-slate-50 transition">
-<span class="font-bold text-brandBlue pr-4">Do you help with the certification process?</span>
-<svg class="icon-chevron-down text-brandOrange shrink-0 transition-transform duration-300" viewBox="0 0 448 512" width="16"><path d="M201.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 338.7 54.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z" fill="currentColor"/></svg>
-</button>
-<div class="hidden px-6 pb-5 text-sm text-slate-600 leading-relaxed"><p>Yes. We handle certifications as part of our OEM/ODM service. Standard certifications (CE, FCC, RoHS, UN38.3) are included with every order. For market-specific certifications (UL for US, PSE for Japan, KC for Korea, SAA for Australia), we coordinate with accredited third-party labs and manage the application process. Certification costs are quoted separately for project-specific requirements.</p></div>
-</div>
-
-</div>
-
-<a id="faq-shipping" class="block -scroll-mt-24"></a>
-<!-- Category 7: Shipping & Logistics -->
-<div class="flex items-center gap-3 mb-6">
- <span class="w-8 h-[2px] bg-brandOrange shrink-0"></span>
- <span class="text-[11px] font-black text-slate-400 uppercase tracking-[0.2em]">Shipping &amp; Logistics</span>
-</div>
-<div class="space-y-4 mb-14">
-
-<div class="bg-white border border-slate-200 rounded-2xl overflow-hidden">
-<button onclick="this.nextElementSibling.classList.toggle('hidden');this.querySelector('svg').classList.toggle('rotate-180')" class="w-full px-6 py-5 flex items-center justify-between text-left hover:bg-slate-50 transition">
-<span class="font-bold text-brandBlue pr-4">What shipping methods do you offer?</span>
-<svg class="icon-chevron-down text-brandOrange shrink-0 transition-transform duration-300" viewBox="0 0 448 512" width="16"><path d="M201.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 338.7 54.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z" fill="currentColor"/></svg>
-</button>
-<div class="hidden px-6 pb-5 text-sm text-slate-600 leading-relaxed"><p>Express (DHL, FedEx, UPS): 5-7 business days, best for samples and urgent small orders. Air freight: 7-14 business days, best for mid-sized orders (500-2,000 units). Sea freight: 25-35 business days, most economical for full container loads (5,000+ units). Shipping terms: FOB Shenzhen, EXW, CIF, or DDP door-to-door with all duties included.</p></div>
-</div>
-
-<div class="bg-white border border-slate-200 rounded-2xl overflow-hidden">
-<button onclick="this.nextElementSibling.classList.toggle('hidden');this.querySelector('svg').classList.toggle('rotate-180')" class="w-full px-6 py-5 flex items-center justify-between text-left hover:bg-slate-50 transition">
-<span class="font-bold text-brandBlue pr-4">Can you ship to my Amazon FBA warehouse?</span>
-<svg class="icon-chevron-down text-brandOrange shrink-0 transition-transform duration-300" viewBox="0 0 448 512" width="16"><path d="M201.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 338.7 54.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z" fill="currentColor"/></svg>
-</button>
-<div class="hidden px-6 pb-5 text-sm text-slate-600 leading-relaxed"><p>Yes. We offer Amazon FBA-compliant fulfillment, including barcode labeling (FNSKU), poly bagging, case packing, pallet labeling, and shipping documentation. We work with Amazon-preferred carriers and have experience shipping FBA to US, UK, Germany, France, Italy, Spain, and Japan fulfillment centers. DDP shipping available for clear total landed cost.</p></div>
-</div>
-
-<div class="bg-white border border-slate-200 rounded-2xl overflow-hidden">
-<button onclick="this.nextElementSibling.classList.toggle('hidden');this.querySelector('svg').classList.toggle('rotate-180')" class="w-full px-6 py-5 flex items-center justify-between text-left hover:bg-slate-50 transition">
-<span class="font-bold text-brandBlue pr-4">What is DDP shipping and is it right for me?</span>
-<svg class="icon-chevron-down text-brandOrange shrink-0 transition-transform duration-300" viewBox="0 0 448 512" width="16"><path d="M201.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 338.7 54.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z" fill="currentColor"/></svg>
-</button>
-<div class="hidden px-6 pb-5 text-sm text-slate-600 leading-relaxed"><p>DDP (Delivered Duty Paid) means we handle everything: export customs, freight, import customs, duty payment, and final delivery to your door, one price, no surprises. Recommended for first-time importers who want a hassle-free experience. Price is higher than FOB or EXW, but you avoid unexpected customs fees, delays, and paperwork.</p></div>
-</div>
-
-</div>
-
-<a id="faq-technology" class="block -scroll-mt-24"></a>
-<!-- Category 8: Product Technology -->
-<div class="flex items-center gap-3 mb-6">
- <span class="w-8 h-[2px] bg-brandOrange shrink-0"></span>
- <span class="text-[11px] font-black text-slate-400 uppercase tracking-[0.2em]">Product Technology</span>
-</div>
-<div class="space-y-4 mb-14">
-
-<div class="bg-white border border-slate-200 rounded-2xl overflow-hidden">
-<button onclick="this.nextElementSibling.classList.toggle('hidden');this.querySelector('svg').classList.toggle('rotate-180')" class="w-full px-6 py-5 flex items-center justify-between text-left hover:bg-slate-50 transition">
-<span class="font-bold text-brandBlue pr-4">What is GaN technology and why does it matter?</span>
-<svg class="icon-chevron-down text-brandOrange shrink-0 transition-transform duration-300" viewBox="0 0 448 512" width="16"><path d="M201.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 338.7 54.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z" fill="currentColor"/></svg>
-</button>
-<div class="hidden px-6 pb-5 text-sm text-slate-600 leading-relaxed"><p>GaN (Gallium Nitride) is a semiconductor material that replaces traditional silicon in chargers. Benefits: 40% smaller size, 30% better heat dissipation, higher efficiency (less energy wasted as heat), and support for higher power output in compact form factors. WOWOHCOOL uses 5th generation GaN (GaN V) in our latest charger lines. <a href="/products/gan-charger" class="text-brandOrange hover:underline font-bold">Browse our GaN charger lineup</a>.</p></div>
-</div>
-
-<div class="bg-white border border-slate-200 rounded-2xl overflow-hidden">
-<button onclick="this.nextElementSibling.classList.toggle('hidden');this.querySelector('svg').classList.toggle('rotate-180')" class="w-full px-6 py-5 flex items-center justify-between text-left hover:bg-slate-50 transition">
-<span class="font-bold text-brandBlue pr-4">What is a semi-solid-state battery?</span>
-<svg class="icon-chevron-down text-brandOrange shrink-0 transition-transform duration-300" viewBox="0 0 448 512" width="16"><path d="M201.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 338.7 54.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z" fill="currentColor"/></svg>
-</button>
-<div class="hidden px-6 pb-5 text-sm text-slate-600 leading-relaxed"><p>Semi-solid-state battery technology replaces the liquid electrolyte in traditional lithium-ion batteries with a gel-like solid electrolyte. Benefits: 50% thinner profile, 30% higher energy density, significantly reduced fire risk, and longer cycle life (500+ cycles). WOWOHCOOL's semi-solid-state power bank line was featured at CES 2026. <a href="/products/power-bank" class="text-brandOrange hover:underline font-bold">Explore semi-solid-state power banks</a>.</p></div>
-</div>
-
-<div class="bg-white border border-slate-200 rounded-2xl overflow-hidden">
-<button onclick="this.nextElementSibling.classList.toggle('hidden');this.querySelector('svg').classList.toggle('rotate-180')" class="w-full px-6 py-5 flex items-center justify-between text-left hover:bg-slate-50 transition">
-<span class="font-bold text-brandBlue pr-4">What is Qi2 wireless charging?</span>
-<svg class="icon-chevron-down text-brandOrange shrink-0 transition-transform duration-300" viewBox="0 0 448 512" width="16"><path d="M201.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 338.7 54.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z" fill="currentColor"/></svg>
-</button>
-<div class="hidden px-6 pb-5 text-sm text-slate-600 leading-relaxed"><p>Qi2 is the latest wireless charging standard from the Wireless Power Consortium. Key feature: MPP (Magnetic Power Profile) uses N52H neodymium magnets for perfect alignment every time, ensuring 15W fast charging without the "searching for the sweet spot" frustration. Fully backwards compatible with existing Qi devices. Supports iPhone MagSafe and Android devices. <a href="/products/wireless-charger" class="text-brandOrange hover:underline font-bold">View Qi2 wireless chargers</a>.</p></div>
-</div>
-
-</div>
-
-<a id="faq-operations" class="block -scroll-mt-24"></a>
-<!-- Category 9: Business Operations -->
-<div class="flex items-center gap-3 mb-6">
- <span class="w-8 h-[2px] bg-brandOrange shrink-0"></span>
- <span class="text-[11px] font-black text-slate-400 uppercase tracking-[0.2em]">Business Operations</span>
-</div>
-<div class="space-y-4 mb-14">
-
-<div class="bg-white border border-slate-200 rounded-2xl overflow-hidden">
-<button onclick="this.nextElementSibling.classList.toggle('hidden');this.querySelector('svg').classList.toggle('rotate-180')" class="w-full px-6 py-5 flex items-center justify-between text-left hover:bg-slate-50 transition">
-<span class="font-bold text-brandBlue pr-4">How do you protect my product design and IP?</span>
-<svg class="icon-chevron-down text-brandOrange shrink-0 transition-transform duration-300" viewBox="0 0 448 512" width="16"><path d="M201.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 338.7 54.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z" fill="currentColor"/></svg>
-</button>
-<div class="hidden px-6 pb-5 text-sm text-slate-600 leading-relaxed"><p>We take IP protection seriously. We sign NDAs and NNN (Non-Use, Non-Disclosure, Non-Circumvention) agreements. For OEM clients: your design files and specifications remain your property. For ODM: mutually agreed IP ownership terms in the contract. Molds and tooling owned by you remain under your control. We do not share client designs with third parties. For critical IP, we recommend design patent registration in China as additional protection.</p></div>
-</div>
-
-<div class="bg-white border border-slate-200 rounded-2xl overflow-hidden">
-<button onclick="this.nextElementSibling.classList.toggle('hidden');this.querySelector('svg').classList.toggle('rotate-180')" class="w-full px-6 py-5 flex items-center justify-between text-left hover:bg-slate-50 transition">
-<span class="font-bold text-brandBlue pr-4">How does Chinese New Year affect production schedules?</span>
-<svg class="icon-chevron-down text-brandOrange shrink-0 transition-transform duration-300" viewBox="0 0 448 512" width="16"><path d="M201.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 338.7 54.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z" fill="currentColor"/></svg>
-</button>
-<div class="hidden px-6 pb-5 text-sm text-slate-600 leading-relaxed"><p>Chinese New Year (CNY) typically falls in January or February. Production closes for 10-14 days. We recommend placing orders 6-8 weeks before CNY to ensure production completion before the holiday. Post-CNY, production ramps up over 1-2 weeks. Q1 capacity is tight as factories fulfill pre-CNY backlog. We monitor the official CNY schedule annually and advise clients in advance.</p></div>
-</div>
-
-<div class="bg-white border border-slate-200 rounded-2xl overflow-hidden">
-<button onclick="this.nextElementSibling.classList.toggle('hidden');this.querySelector('svg').classList.toggle('rotate-180')" class="w-full px-6 py-5 flex items-center justify-between text-left hover:bg-slate-50 transition">
-<span class="font-bold text-brandBlue pr-4">How quickly do you respond to inquiries?</span>
-<svg class="icon-chevron-down text-brandOrange shrink-0 transition-transform duration-300" viewBox="0 0 448 512" width="16"><path d="M201.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 338.7 54.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z" fill="currentColor"/></svg>
-</button>
-<div class="hidden px-6 pb-5 text-sm text-slate-600 leading-relaxed"><p>We respond to all inquiries within 24 hours during business days, typically within 4 hours. Quotations provided within 24 hours of receiving your requirements. Samples ship within 3-7 days of order confirmation. Our team is available by email, phone, and WhatsApp. <a href="/contact" class="text-brandOrange hover:underline font-bold">Send us your inquiry</a>.</p></div>
-</div>
-
 </div>
 
 </div>
 </section><!-- CTA SECTION -->
- <section class="sec-lg bg-slate-900 text-white">
+ <section class="sec-lg bg-brandBlue text-white">
  <div class="container-narrow text-center">
  <h2 class="text-3xl md:text-4xl font-black uppercase italic tracking-tighter mb-6">Still Have <span class="text-brandOrange">Questions</span>?</h2>
  <p class="text-slate-400 leading-relaxed mb-8 max-w-xl mx-auto">Our team is ready to help. Reach out and we'll respond within 24 hours with the answers you need.</p>

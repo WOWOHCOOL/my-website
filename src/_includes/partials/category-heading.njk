@@ -1,0 +1,22 @@
+{# FAQ category heading: left-aligned h3 with an orange rule accent.
+
+   This is the single category-heading component for all FAQ pages. The optional
+   `id` is the quick-jump scroll target; `scroll-mt-24` compensates for the
+   sticky header so the heading is not hidden under it after a jump.
+
+   The standard FAQ category block is:
+     <div class="mb-16 reveal">
+       {{ categoryHeading("Category name", "category-anchor") }}
+       <div class="space-y-1">
+         {% call faqItem("Question") %}Answer{% endcall %}
+       </div>
+     </div>
+
+   Usage:
+     {% from "partials/category-heading.njk" import categoryHeading %}
+     {{ categoryHeading("Bestellung &amp; Angebot", "bestellung") }} #}
+{% macro categoryHeading(text, id) %}
+<h3{% if id %} id="{{ id }}"{% endif %} class="text-xl font-black text-brandBlue uppercase italic mb-6 flex items-center gap-3 scroll-mt-24">
+<span class="w-8 h-1 bg-brandOrange rounded-full"></span> {{ text | safe }}
+</h3>
+{% endmacro %}

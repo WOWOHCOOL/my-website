@@ -44,11 +44,11 @@ plPath: "produkty/ladowarka-gan/"
 {% endblock %}
 
 {% block content %}
-	{{ breadcrumb([{name: "Accueil", url: "/fr/"}, {name: "Produits", url: "/fr/produits/"}, {name: "Chargeur GaN"}]) }}
 
  <!-- HERO -->
- <section class="pb-16 md:pb-20 bg-gradient-to-br from-slate-50 via-white to-orange-50">
+ <section class="pt-24 md:pt-28 pb-16 md:pb-20 bg-gradient-to-br from-slate-50 via-white to-orange-50">
  <div class="container-wide">
+  {{ breadcrumb([{name: "Accueil", url: "/fr/"}, {name: "Produits", url: "/fr/produits/"}, {name: "Chargeur GaN"}], "none", "mb-6", { variant: "hero" }) }}
  <div class="grid lg:grid-cols-2 gap-12 items-center">
  <div class="reveal order-2 lg:order-1">
  <p class="text-brandOrange text-xs font-bold tracking-widest uppercase mb-3">Chargeur GaN</p>
@@ -82,20 +82,13 @@ plPath: "produkty/ladowarka-gan/"
  </div>
  </section>
 
- <!-- ======== TRUST BAND ======== -->
- {% from "partials/customer-logos.njk" import customerLogos %}
- {{ customerLogos("La confiance des marques internationales") }}
-
- {% from "partials/stats-bar.njk" import statsBar %}
- {{ statsBar(i18n.statsBar[lang].items) }}
-
-{% from "partials/cert-showcase.njk" import certShowcase %}
-{{ certShowcase(i18n.certifications[lang].homepage.items, i18n.certifications[lang].homepage.heading, i18n.certifications[lang].homepage.title, "", "", true) }}
+ <!-- ======== TRUST BAR ======== -->
+ {% include "trust-bar.njk" %}
 
  <!-- PRODUCTS -->
  <section class="sec bg-white">
  <div class="container-wide">
- <div class="text-center max-w-3xl mx-auto mb-16 reveal"><p class="section-label">Nos chargeurs GaN</p><h2 class="section-title">Compacts, puissants, efficaces</h2><p class="section-desc mx-auto">Du chargeur de voyage compact 35W à la station de travail multi-port 100W.</p></div>
+ {{ sectionHeader('Nos chargeurs GaN', 'Compacts, puissants, efficaces', 'Du chargeur de voyage compact 35W à la station de travail multi-port 100W.', {}) }}
    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 items-start">
    <div class="product-card reveal bg-white rounded-2xl p-6 border border-slate-200 flex flex-col">
     <div class="aspect-square bg-slate-50 rounded-xl mb-5 overflow-hidden flex items-center justify-center p-6"><img src="/image/product/gan-charger/wop37-67w-gan-charger-retractable-cable-wireless.webp" srcset="/image/product/gan-charger/wop37-67w-gan-charger-retractable-cable-wireless-450w.webp 450w, /image/product/gan-charger/wop37-67w-gan-charger-retractable-cable-wireless.webp 1600w" sizes="(min-width: 1440px) 389px, (min-width: 1280px) 389px, (min-width: 1024px) 304px, (min-width: 768px) 344px, (min-width: 430px) 382px, 327px" alt="WOP37 65W GaN Travel" width="200" height="200" class="w-full h-full object-contain" loading="lazy" decoding="async"></div>
@@ -119,7 +112,7 @@ plPath: "produkty/ladowarka-gan/"
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">PPS</td><td class="py-1.5 font-bold text-slate-700">5V-21V/3A</td></tr>
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Sortie sans fil</td><td class="py-1.5 font-bold text-slate-700">5W max.</td></tr></tbody></table></div>
     </details>
-    <button data-action="open-modal" data-product="WOP37 65W GaN Travel" class="mt-auto w-full py-3 bg-brandOrange text-white font-black uppercase text-[11px] tracking-widest rounded-xl hover:bg-brandOrange/90 transition shadow-md cursor-pointer">Demander le prix usine</button>
+    <button data-action="open-modal" data-product="WOP37 65W GaN Travel" class="btn-card-sm">Demander le prix usine</button>
    </div>
    <div class="product-card reveal bg-white rounded-2xl p-6 border border-slate-200 flex flex-col">
     <div class="aspect-square bg-slate-50 rounded-xl mb-5 overflow-hidden flex items-center justify-center p-6"><img src="/image/product/gan-charger/wop39-67w-gan-charger-display-retractable-cable.webp" srcset="/image/product/gan-charger/wop39-67w-gan-charger-display-retractable-cable-450w.webp 450w, /image/product/gan-charger/wop39-67w-gan-charger-display-retractable-cable.webp 1920w" sizes="(min-width: 1440px) 389px, (min-width: 1280px) 389px, (min-width: 1024px) 304px, (min-width: 768px) 344px, (min-width: 430px) 382px, 327px" alt="WOP39 100W GaN Pro Hub" width="200" height="200" class="w-full h-full object-contain" loading="lazy" decoding="async"></div>
@@ -143,7 +136,7 @@ plPath: "produkty/ladowarka-gan/"
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">PPS</td><td class="py-1.5 font-bold text-slate-700">5V-21V/3A</td></tr>
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Combination</td><td class="py-1.5 font-bold text-slate-700">C1+C2: 45W+20W, C1+A: 45W+18W</td></tr></tbody></table></div>
     </details>
-    <button data-action="open-modal" data-product="WOP39 100W GaN Pro Hub" class="mt-auto w-full py-3 bg-brandOrange text-white font-black uppercase text-[11px] tracking-widest rounded-xl hover:bg-brandOrange/90 transition shadow-md cursor-pointer">Demander le prix usine</button>
+    <button data-action="open-modal" data-product="WOP39 100W GaN Pro Hub" class="btn-card-sm">Demander le prix usine</button>
    </div>
    <div class="product-card reveal bg-white rounded-2xl p-6 border border-slate-200 flex flex-col">
     <div class="aspect-square bg-slate-50 rounded-xl mb-5 overflow-hidden flex items-center justify-center p-6"><img src="/image/product/gan-charger/wop28-35w-mini-gan-charger-dual-usb-c.webp" srcset="/image/product/gan-charger/wop28-35w-mini-gan-charger-dual-usb-c-450w.webp 450w, /image/product/gan-charger/wop28-35w-mini-gan-charger-dual-usb-c.webp 900w" sizes="(min-width: 1440px) 389px, (min-width: 1280px) 389px, (min-width: 1024px) 304px, (min-width: 768px) 344px, (min-width: 430px) 382px, 327px" alt="WOP28 35W Mini GaN chargeur USB-C double port pliable voyage" width="200" height="200" class="w-full h-full object-contain" loading="lazy" decoding="async"></div>
@@ -167,7 +160,7 @@ plPath: "produkty/ladowarka-gan/"
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Sortie USB-C1/C2</td><td class="py-1.5 font-bold text-slate-700">5V/3A, 9V/3A, 12V/2.92A, 15V/2.33A, 20V/1.75A (35W max.)</td></tr>
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">PPS</td><td class="py-1.5 font-bold text-slate-700">3.3-11V/3A</td></tr></tbody></table></div>
     </details>
-    <button data-action="open-modal" data-product="WOP28 67W GaN Prise pliable" class="mt-auto w-full py-3 bg-brandOrange text-white font-black uppercase text-[11px] tracking-widest rounded-xl hover:bg-brandOrange/90 transition shadow-md cursor-pointer">Demander le prix usine</button>
+    <button data-action="open-modal" data-product="WOP28 67W GaN Prise pliable" class="btn-card-sm">Demander le prix usine</button>
    </div>
    <div class="product-card reveal bg-white rounded-2xl p-6 border border-slate-200 flex flex-col">
     <div class="aspect-square bg-slate-50 rounded-xl mb-5 overflow-hidden flex items-center justify-center p-6"><img src="/image/product/gan-charger/wop20-20w-gan-power-strip-extension.webp" srcset="/image/product/gan-charger/wop20-20w-gan-power-strip-extension-450w.webp 450w, /image/product/gan-charger/wop20-20w-gan-power-strip-extension.webp 800w" sizes="(min-width: 1440px) 389px, (min-width: 1280px) 389px, (min-width: 1024px) 304px, (min-width: 768px) 344px, (min-width: 430px) 382px, 327px" alt="WOP20 20W GaN Power Strip multiprise USB-C extension bureau" width="200" height="200" class="w-full h-full object-contain" loading="lazy" decoding="async"></div>
@@ -193,7 +186,7 @@ plPath: "produkty/ladowarka-gan/"
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Sortie USB-A</td><td class="py-1.5 font-bold text-slate-700">5V/3A, 9V/2.22A, 12V/1.67A</td></tr>
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Longueur du câble</td><td class="py-1.5 font-bold text-slate-700">1.5m</td></tr></tbody></table></div>
     </details>
-    <button data-action="open-modal" data-product="WOP20 140W GaN Pro Workstation" class="mt-auto w-full py-3 bg-brandOrange text-white font-black uppercase text-[11px] tracking-widest rounded-xl hover:bg-brandOrange/90 transition shadow-md cursor-pointer">Demander le prix usine</button>
+    <button data-action="open-modal" data-product="WOP20 140W GaN Pro Workstation" class="btn-card-sm">Demander le prix usine</button>
    </div>
    <div class="product-card reveal bg-white rounded-2xl p-6 border border-slate-200 flex flex-col">
     <div class="aspect-square bg-slate-50 rounded-xl mb-5 overflow-hidden flex items-center justify-center p-6"><img src="/image/product/gan-charger/wop30-30w-gan-power-strip-extension.webp" srcset="/image/product/gan-charger/wop30-30w-gan-power-strip-extension-450w.webp 450w, /image/product/gan-charger/wop30-30w-gan-power-strip-extension.webp 800w" sizes="(min-width: 1440px) 389px, (min-width: 1280px) 389px, (min-width: 1024px) 304px, (min-width: 768px) 344px, (min-width: 430px) 382px, 327px" alt="WOP30 30W GaN Travel" width="200" height="200" class="w-full h-full object-contain" loading="lazy" decoding="async"></div>
@@ -219,7 +212,7 @@ plPath: "produkty/ladowarka-gan/"
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Sortie USB-A</td><td class="py-1.5 font-bold text-slate-700">5V/3A, 9V/3A, 12V/2A, 20V/1.5A</td></tr>
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Longueur du câble</td><td class="py-1.5 font-bold text-slate-700">1.5m</td></tr></tbody></table></div>
     </details>
-    <button data-action="open-modal" data-product="WOP30 30W GaN Travel" class="mt-auto w-full py-3 bg-brandOrange text-white font-black uppercase text-[11px] tracking-widest rounded-xl hover:bg-brandOrange/90 transition shadow-md cursor-pointer">Demander le prix usine</button>
+    <button data-action="open-modal" data-product="WOP30 30W GaN Travel" class="btn-card-sm">Demander le prix usine</button>
    </div>
    <div class="product-card reveal bg-white rounded-2xl p-6 border border-slate-200 flex flex-col">
     <div class="aspect-square bg-slate-50 rounded-xl mb-5 overflow-hidden flex items-center justify-center p-6"><img src="/image/product/gan-charger/wop10-65w-gan-power-strip-4-port.webp" srcset="/image/product/gan-charger/wop10-65w-gan-power-strip-4-port-800w.webp 800w, /image/product/gan-charger/wop10-65w-gan-power-strip-4-port.webp 1920w" sizes="(min-width: 1440px) 590px, (min-width: 1280px) 590px, (min-width: 1024px) 462px, (min-width: 768px) 718px, (min-width: 430px) 382px, 338px" alt="WOP10 65W GaN Multiprise 4 ports USB-C + USB-A PD" width="200" height="200" class="w-full h-full object-contain" loading="lazy" decoding="async"></div>
@@ -245,7 +238,7 @@ plPath: "produkty/ladowarka-gan/"
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Sortie USB-A</td><td class="py-1.5 font-bold text-slate-700">5V/3A, 9V/3A, 12V/3A, 20V/3A</td></tr>
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Longueur du câble</td><td class="py-1.5 font-bold text-slate-700">1.5m</td></tr></tbody></table></div>
     </details>
-    <button data-action="open-modal" data-product="WOP10 65W GaN Multiprise" class="mt-auto w-full py-3 bg-brandOrange text-white font-black uppercase text-[11px] tracking-widest rounded-xl hover:bg-brandOrange/90 transition shadow-md cursor-pointer">Demander le prix usine</button>
+    <button data-action="open-modal" data-product="WOP10 65W GaN Multiprise" class="btn-card-sm">Demander le prix usine</button>
    </div>
    <div class="product-card reveal bg-white rounded-2xl p-6 border border-slate-200 flex flex-col">
     <div class="aspect-square bg-slate-50 rounded-xl mb-5 overflow-hidden flex items-center justify-center p-6"><img src="/image/product/gan-charger/wop80-100w-gan-power-strip-high-power.webp" srcset="/image/product/gan-charger/wop80-100w-gan-power-strip-high-power-450w.webp 450w, /image/product/gan-charger/wop80-100w-gan-power-strip-high-power.webp 1920w" sizes="(min-width: 1440px) 389px, (min-width: 1280px) 389px, (min-width: 1024px) 304px, (min-width: 768px) 344px, (min-width: 430px) 382px, 327px" alt="WOP80 100W GaN Power Strip multiprise haute puissance 4 ports" width="200" height="200" class="w-full h-full object-contain" loading="lazy" decoding="async"></div>
@@ -270,7 +263,7 @@ plPath: "produkty/ladowarka-gan/"
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Sortie USB-C1/C2</td><td class="py-1.5 font-bold text-slate-700">5V/3A, 9V/3A, 12V/3A, 15V/3A, 20V/5A</td></tr>
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Longueur du câble</td><td class="py-1.5 font-bold text-slate-700">1.5m</td></tr></tbody></table></div>
     </details>
-    <button data-action="open-modal" data-product="WOP80 240W GaN Pro Hub" class="mt-auto w-full py-3 bg-brandOrange text-white font-black uppercase text-[11px] tracking-widest rounded-xl hover:bg-brandOrange/90 transition shadow-md cursor-pointer">Demander le prix usine</button>
+    <button data-action="open-modal" data-product="WOP80 240W GaN Pro Hub" class="btn-card-sm">Demander le prix usine</button>
    </div>
   </div>
  </div>
@@ -280,11 +273,7 @@ plPath: "produkty/ladowarka-gan/"
  <!-- ======== PRODUKTVERGLEICH ======== -->
  <section class="sec-cta bg-white pb-10">
  <div class="container-wide">
- <div class="text-center max-w-3xl mx-auto mb-10 reveal">
- <p class="section-label">Comparaison de produits</p>
- <h2 class="section-title">Comparatif des Chargeurs GaN</h2>
- <p class="section-desc mx-auto">Tous les modèles en comparaison, du GaN 35W compact à la station multi-port 100W.</p>
- </div>
+ {{ sectionHeader('Comparaison de produits', 'Comparatif des Chargeurs GaN', 'Tous les modèles en comparaison, du GaN 35W compact à la station multi-port 100W.', {mb: 'mb-10'}) }}
  <div class="overflow-x-auto reveal">
  <table class="w-full min-w-[600px] bg-white rounded-2xl shadow-sm border border-slate-200">
  <thead>
@@ -357,7 +346,7 @@ plPath: "produkty/ladowarka-gan/"
  <!-- SPECS -->
  <section id="specs" class="sec bg-slate-50">
  <div class="container-content">
- <div class="text-center max-w-3xl mx-auto mb-16 reveal"><p class="section-label">Spécifications techniques</p><h2 class="section-title">Aperçu des spécifications</h2></div>
+ {{ sectionHeader('Spécifications techniques', 'Aperçu des spécifications', '', {}) }}
  <div class="overflow-x-auto reveal">
  <table class="w-full border-collapse bg-white rounded-2xl overflow-hidden shadow-sm">
  <thead><tr class="bg-brandBlue text-white"><th class="text-left px-5 py-4 font-bold text-sm">Spécification</th><th class="text-left px-5 py-4 font-bold text-sm">WOP80</th><th class="text-left px-5 py-4 font-bold text-sm">WOP10</th><th class="text-left px-5 py-4 font-bold text-sm">WOP37</th><th class="text-left px-5 py-4 font-bold text-sm">WOP28</th></tr></thead>
@@ -376,11 +365,7 @@ plPath: "produkty/ladowarka-gan/"
  <!-- ======== Conformité UE ======== -->
  <section class="sec bg-slate-50">
  <div class="container-content">
- <div class="text-center max-w-3xl mx-auto mb-12 reveal">
- <p class="section-label">Certifications & Normes</p>
- <h2 class="section-title">Conformité UE — Prêt pour le marché français</h2>
- <p class="section-desc mx-auto">Tous nos chargeurs GaN sont certifiés pour une importation et distribution sans obstacle dans l'Union Européenne.</p>
- </div>
+ {{ sectionHeader('Certifications &amp; Normes', 'Conformité UE — Prêt pour le marché français', 'Tous nos chargeurs GaN sont certifiés pour une importation et distribution sans obstacle dans l\'Union Européenne.', {mb: 'mb-12'}) }}
  <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5 reveal">
  <div class="bg-white rounded-xl p-6 border border-slate-100 shadow-sm">
  <div class="w-10 h-10 rounded-lg bg-brandOrange/10 flex items-center justify-center mb-3"><svg class="icon-check text-brandOrange text-lg" aria-hidden="true" focusable="false" viewBox="0 0 448 512">
@@ -423,11 +408,7 @@ plPath: "produkty/ladowarka-gan/"
  <!-- ======== VORTEILE ======== -->
  <section class="sec bg-white">
  <div class="container-wide">
- <div class="text-center max-w-3xl mx-auto mb-16 reveal">
- <p class="section-label">Avantages</p>
- <h2 class="section-title">Pourquoi nos chargeurs GaN sont le meilleur choix</h2>
- <p class="section-desc mx-auto">Compacts, puissants, efficaces, l'avenir de la charge.</p>
- </div>
+ {{ sectionHeader('Avantages', 'Pourquoi nos chargeurs GaN sont le meilleur choix', 'Compacts, puissants, efficaces, l\'avenir de la charge.', {}) }}
  <div class="grid md:grid-cols-2 gap-8">
  <div class="reveal bg-slate-50 rounded-2xl p-8 border border-slate-200">
  <div class="flex items-center gap-4 mb-4"><div class="w-12 h-12 rounded-xl bg-brandOrange/10 flex items-center justify-center shrink-0"><svg class="icon-microchip text-xl text-brandOrange" aria-hidden="true" focusable="false" viewBox="0 0 512 512">
@@ -479,9 +460,7 @@ plPath: "produkty/ladowarka-gan/"
  <section class="sec bg-white">
  <div class="container-wide">
  <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
- <div class="reveal">
- <p class="section-label">OEM / ODM</p><h2 class="section-title">Votre chargeur GaN<br>sur mesure</h2><p class="section-desc mb-8">Profitez de notre expertise GaN pour le développement de vos produits.</p>
- <ul class="space-y-4">
+ {% call sectionHeader('OEM / ODM', 'Votre chargeur GaN<br>sur mesure', 'Profitez de notre expertise GaN pour le développement de vos produits.', {align: '', max: '', mb: '', descClass: 'section-desc mb-8'}) %}<ul class="space-y-4">
  <li class="flex items-start gap-3"><svg class="icon-circle-check text-brandOrange mt-0.5" aria-hidden="true" focusable="false" viewBox="0 0 512 512">
  <path d="M256 512a256 256 0 1 1 0-512 256 256 0 1 1 0 512zM374 145.7c-10.7-7.8-25.7-5.4-33.5 5.3L221.1 315.2 169 263.1c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l72 72c5 5 11.8 7.5 18.8 7s13.4-4.1 17.5-9.8L379.3 179.2c7.8-10.7 5.4-25.7-5.3-33.5z" fill="currentColor"/>
  </svg><span class="text-slate-600 text-sm"><strong class="text-brandBlue">Design personnalisé :</strong> Boîtier, couleurs, configuration des ports</span></li>
@@ -498,7 +477,7 @@ plPath: "produkty/ladowarka-gan/"
  <button data-action="open-modal" class="btn-primary mt-8 cursor-pointer">Demande OEM/ODM <svg class="icon-arrow-right text-sm" aria-hidden="true" focusable="false" viewBox="0 0 512 512">
  <path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-105.4 105.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" fill="currentColor"/>
  </svg></button>
- </div>
+ {% endcall %}
  <div class="reveal">
  <div class="bg-white rounded-2xl p-8 md:p-10 border border-orange-100 shadow-lg relative overflow-hidden">
  <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-brandOrange to-brandOrange/30"></div>
@@ -523,14 +502,11 @@ plPath: "produkty/ladowarka-gan/"
  </div>
  </div>
  </div>
+</section>
  <!-- ======== GaN GENERATIONEN ======== -->
  <section class="sec bg-white">
  <div class="container-content">
- <div class="text-center max-w-3xl mx-auto mb-12 reveal">
- <p class="section-label">Technologie</p>
- <h2 class="section-title">GaN V — La 5ème génération de nitrure de gallium</h2>
- <p class="section-desc mx-auto">Nos chargeurs GaN utilisent la dernière technologie GaN V. Chaque génération apporte plus de puissance dans moins d'espace — avec une meilleure efficacité et dissipation thermique.</p>
- </div>
+ {{ sectionHeader('Technologie', 'GaN V — La 5ème génération de nitrure de gallium', 'Nos chargeurs GaN utilisent la dernière technologie GaN V. Chaque génération apporte plus de puissance dans moins d\'espace — avec une meilleure efficacité et dissipation thermique.', {mb: 'mb-12'}) }}
  <div class="grid md:grid-cols-3 gap-6 mb-12 reveal">
  <div class="text-center p-6 bg-slate-50 rounded-2xl border border-slate-200">
  <p class="text-3xl font-black text-brandOrange mb-2">40%</p>
@@ -574,11 +550,7 @@ plPath: "produkty/ladowarka-gan/"
  <!-- ======== PROZESS OEM ======== -->
  <section class="sec bg-white">
  <div class="container-content">
- <div class="text-center max-w-3xl mx-auto mb-12 reveal">
- <p class="section-label">Processus OEM</p>
- <h2 class="section-title">Votre chargeur GaN personnalisé — de l'idée à la livraison</h2>
- <p class="section-desc mx-auto">Un processus structuré en 4 étapes. De la demande initiale à la production en série, nous vous accompagnons à chaque phase.</p>
- </div>
+ {{ sectionHeader('Processus OEM', 'Votre chargeur GaN personnalisé — de l\'idée à la livraison', 'Un processus structuré en 4 étapes. De la demande initiale à la production en série, nous vous accompagnons à chaque phase.', {mb: 'mb-12'}) }}
  <div class="grid md:grid-cols-4 gap-0 reveal">
  <div class="relative bg-white rounded-2xl border border-slate-200 p-6 text-center">
  <div class="w-12 h-12 rounded-full bg-brandOrange text-white font-black text-lg flex items-center justify-center mx-auto mb-4">1</div>
@@ -607,18 +579,18 @@ plPath: "produkty/ladowarka-gan/"
  <!-- FAQ -->
  <section class="sec bg-slate-50">
  <div class="container-narrow">
- <div class="text-center mb-16 reveal"><p class="section-label">FAQ</p><h2 class="section-title">Questions fréquentes sur les chargeurs GaN</h2></div>
+ {{ sectionHeader('FAQ', 'Questions fréquentes sur les chargeurs GaN', '', {max: ''}) }}
  <div class="reveal">
- <details class="faq-item"><summary>Qu'est-ce que la technologie GaN ?</summary><div class="faq-answer">Le GaN (nitrure de gallium) est un matériau semi-conducteur plus efficace et plus résistant à la chaleur que le silicium traditionnel. Les chargeurs GaN sont jusqu'à 50% plus petits et plus légers à puissance égale ou supérieure, idéaux pour les voyages et l'usage quotidien.</div></details>
- <details class="faq-item"><summary>Puis-je charger mon MacBook avec un chargeur GaN ?</summary><div class="faq-answer">Oui, nos chargeurs GaN de 67W+ sont idéaux pour MacBooks, ultrabooks et même PC portables gaming. Le WOP80 avec 100W charge même le MacBook Pro 16" à pleine vitesse.</div></details>
- <details class="faq-item"><summary>Les chargeurs GaN sont-ils sûrs ?</summary><div class="faq-answer">Oui, les chargeurs GaN sont plus sûrs que les adaptateurs traditionnels. Ils génèrent moins de chaleur et disposent de mécanismes de protection multi-niveaux (surtension, surintensité, surchauffe). Tous les modèles sont certifiés CE et TÜV GS.</div></details>
- <details class="faq-item"><summary>Quels types de ports ont vos chargeurs GaN ?</summary><div class="faq-answer">Nos modèles offrent 2–4 ports, combinant USB-C (PD 3.0/3.1) et USB-A (QC). Pour l'Europe, nous proposons des modèles avec prise EU ou adaptateurs de prise interchangeables.</div></details>
- <details class="faq-item"><summary>Quels sont les délais de livraison ?</summary><div class="faq-answer">Production standard 25–35 jours. Livraison express 5–7 jours. Service DDP disponible.</div></details>
- <details class="faq-item"><summary>Quelle est la différence entre GaN III, IV et V ?</summary><div class="faq-answer">Le GaN V est la dernière génération : 40% plus petit que le GaN III, 95% d'efficacité (vs. 90% pour le GaN III) et 30% de meilleure dissipation thermique. Nos chargeurs utilisent le GaN V pour une compacité maximale à la plus haute puissance.</div></details>
- <details class="faq-item"><summary>Quelles certifications sont nécessaires pour l'importation dans l'UE ?</summary><div class="faq-answer">Pour les chargeurs GaN dans l'UE, vous avez besoin du marquage CE (CEM + basse tension), de la conformité RoHS et d'une déclaration de conformité UE. TÜV GS est optionnel mais renforce la confiance dans le commerce français. Nous fournissons tous les documents.</div></details>
- <details class="faq-item"><summary>Pouvez-vous fabriquer des chargeurs GaN avec prise EU ?</summary><div class="faq-answer">Oui, tous les chargeurs GaN avec prise EU (Type F/Schuko). Sur demande également UK (Type G), US (Type A), AU (Type I) et prise universelle. Longueurs de câble personnalisées possibles.</div></details>
- <details class="faq-item"><summary>Qu'est-ce que PD 3.1 et pourquoi est-ce important ?</summary><div class="faq-answer">PD 3.1 (Power Delivery 3.1) permet jusqu'à 240W via USB-C. Ainsi, PC portables, tablettes et smartphones peuvent être chargés avec un seul câble. Nos chargeurs GaN supportent PD 3.1 pour une compatibilité universelle.</div></details>
- <details class="faq-item"><summary>Quelle puissance de chargeur GaN me faut-il pour mon activité ?</summary><div class="faq-answer">Pour les revendeurs e-commerce, 35W–67W (WOP28, WOP39) couvrent 80% des besoins clients. Pour l'IT d'entreprise, 100W+ (WOP80) avec multiprise. Pour les voyageurs d'affaires, 35W mini avec prise pliable. Pour les accessoiristes auto, nos <a href="/fr/produits/chargeur-voiture/" class="text-brandOrange hover:underline">chargeurs voiture GaN</a>. Notre équipe vous conseille selon votre marché cible.</div></details>
+ {% call faqItem("Qu'est-ce que la technologie GaN ?") %}Le GaN (nitrure de gallium) est un matériau semi-conducteur plus efficace et plus résistant à la chaleur que le silicium traditionnel. Les chargeurs GaN sont jusqu'à 50% plus petits et plus légers à puissance égale ou supérieure, idéaux pour les voyages et l'usage quotidien.{% endcall %}
+ {% call faqItem("Puis-je charger mon MacBook avec un chargeur GaN ?") %}Oui, nos chargeurs GaN de 67W+ sont idéaux pour MacBooks, ultrabooks et même PC portables gaming. Le WOP80 avec 100W charge même le MacBook Pro 16" à pleine vitesse.{% endcall %}
+ {% call faqItem("Les chargeurs GaN sont-ils sûrs ?") %}Oui, les chargeurs GaN sont plus sûrs que les adaptateurs traditionnels. Ils génèrent moins de chaleur et disposent de mécanismes de protection multi-niveaux (surtension, surintensité, surchauffe). Tous les modèles sont certifiés CE et TÜV GS.{% endcall %}
+ {% call faqItem("Quels types de ports ont vos chargeurs GaN ?") %}Nos modèles offrent 2–4 ports, combinant USB-C (PD 3.0/3.1) et USB-A (QC). Pour l'Europe, nous proposons des modèles avec prise EU ou adaptateurs de prise interchangeables.{% endcall %}
+ {% call faqItem("Quels sont les délais de livraison ?") %}Production standard 25–35 jours. Livraison express 5–7 jours. Service DDP disponible.{% endcall %}
+ {% call faqItem("Quelle est la différence entre GaN III, IV et V ?") %}Le GaN V est la dernière génération : 40% plus petit que le GaN III, 95% d'efficacité (vs. 90% pour le GaN III) et 30% de meilleure dissipation thermique. Nos chargeurs utilisent le GaN V pour une compacité maximale à la plus haute puissance.{% endcall %}
+ {% call faqItem("Quelles certifications sont nécessaires pour l'importation dans l'UE ?") %}Pour les chargeurs GaN dans l'UE, vous avez besoin du marquage CE (CEM + basse tension), de la conformité RoHS et d'une déclaration de conformité UE. TÜV GS est optionnel mais renforce la confiance dans le commerce français. Nous fournissons tous les documents.{% endcall %}
+ {% call faqItem("Pouvez-vous fabriquer des chargeurs GaN avec prise EU ?") %}Oui, tous les chargeurs GaN avec prise EU (Type F/Schuko). Sur demande également UK (Type G), US (Type A), AU (Type I) et prise universelle. Longueurs de câble personnalisées possibles.{% endcall %}
+ {% call faqItem("Qu'est-ce que PD 3.1 et pourquoi est-ce important ?") %}PD 3.1 (Power Delivery 3.1) permet jusqu'à 240W via USB-C. Ainsi, PC portables, tablettes et smartphones peuvent être chargés avec un seul câble. Nos chargeurs GaN supportent PD 3.1 pour une compatibilité universelle.{% endcall %}
+ {% call faqItem("Quelle puissance de chargeur GaN me faut-il pour mon activité ?") %}Pour les revendeurs e-commerce, 35W–67W (WOP28, WOP39) couvrent 80% des besoins clients. Pour l'IT d'entreprise, 100W+ (WOP80) avec multiprise. Pour les voyageurs d'affaires, 35W mini avec prise pliable. Pour les accessoiristes auto, nos <a href="/fr/produits/chargeur-voiture/" class="text-brandOrange hover:underline">chargeurs voiture GaN</a>. Notre équipe vous conseille selon votre marché cible.{% endcall %}
  </div>
  </div>
  </section>
@@ -679,7 +651,7 @@ plPath: "produkty/ladowarka-gan/"
 <!-- CTA -->
  <section class="sec bg-brandBlue">
  <div class="container-narrow text-center">
- <div class="reveal"><p class="section-label">Demander maintenant</p><h2 class="text-3xl md:text-5xl font-black text-white leading-tight mb-4 italic uppercase">Chargeur GaN<br><span class="text-brandOrange">Devis en 24 heures</span></h2><p class="text-slate-300 text-lg max-w-2xl mx-auto mb-8">Demandez votre devis personnalisé.</p></div>
+ {% call sectionHeader('Demander maintenant', 'Chargeur GaN<br><span class="text-brandOrange">Devis en 24 heures</span>', '', {align: '', max: '', mb: '', titleClass: 'text-3xl md:text-5xl font-black text-white leading-tight mb-4 italic uppercase'}) %}<p class="text-slate-300 text-lg max-w-2xl mx-auto mb-8">Demandez votre devis personnalisé.</p>{% endcall %}
  <div class="max-w-xl mx-auto reveal">
  <form action="https://api.web3forms.com/submit" method="POST" class="inquiry-form space-y-4">
  <input type="hidden" name="access_key" value="ac5fe4cd-2dd7-4aff-818d-bb36021b4942">
@@ -694,7 +666,7 @@ plPath: "produkty/ladowarka-gan/"
  <select name="product" class="w-full px-4 py-3.5 rounded-xl border border-white/20 bg-white/10 text-white focus:outline-none focus:border-brandOrange text-sm"><option value="" disabled selected>Intérêt produit (optionnel)</option><option value="unsure">Encore indécis</option><option value="powerbank">Powerbank</option><option value="wireless">Chargeur sans fil</option><option value="car">Chargeur de voiture</option><option value="gan">Chargeur GaN</option><option value="other">Autre</option></select>
  <textarea required minlength="10" name="message" rows="3" placeholder="Votre message (quantité, spécifications, souhaits)" class="w-full px-4 py-3.5 rounded-xl border border-white/20 bg-white/10 text-white placeholder:text-white/50 focus:outline-none focus:border-brandOrange text-sm resize-none"></textarea>
  <label class="flex items-start gap-3 text-left"><input type="checkbox" required class="mt-1 accent-brandOrange"><span class="text-xs text-slate-500">J'ai pris connaissance de la <a href="/fr/confidentialite/" class="text-brandOrange hover:underline">politique de confidentialité</a>. *</span></label>
- <button type="submit" class="w-full bg-brandOrange text-white py-4 rounded-xl font-bold text-base hover:bg-brandBlue transition-all duration-300 shadow-lg shadow-brandOrange/20 flex items-center justify-center gap-3">Recevoir un devis GaN <svg class="icon-arrow-right" aria-hidden="true" focusable="false" viewBox="0 0 512 512">
+ <button type="submit" class="btn-form">Recevoir un devis GaN <svg class="icon-arrow-right" aria-hidden="true" focusable="false" viewBox="0 0 512 512">
  <path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-105.4 105.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" fill="currentColor"/>
  </svg></button>
  </form>
@@ -702,4 +674,5 @@ plPath: "produkty/ladowarka-gan/"
  </div>
  </div>
 
+</section>
 {% endblock %}

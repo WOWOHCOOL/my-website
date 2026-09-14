@@ -932,6 +932,21 @@ const SRC_ROOT = path.resolve(__dirname, "..", "src");
 function findViolations(filePath, content, lang) {
   const violations = [];
 
+  // Nunjucks macro calls carry slugs/ids as string arguments, e.g.
+  //   {{ categoryHeading("Envío y logística", "cat-envio") }}
+  // The id is a slug and is ASCII on purpose, but the accent/translit checks
+  // below would read it as prose and flag "envio". HTML attributes are already
+  // blanked for the same reason (id="…", href="…"), so blank the slug-shaped
+  // string literals inside {{ … }} too.
+  //
+  // Only literals matching ^[a-z0-9]+(-[a-z0-9]+)*$ are blanked — a slug is
+  // never prose. Real prose arguments (spaces, capitals, accents, e.g.
+  // "Envío y logística") keep being checked. Length is preserved so that
+  // lineNumberOf() still reports correct line numbers.
+  content = content.replace(/\{\{[^}]*\}\}/g, (expr) =>
+    expr.replace(/"[a-z0-9]+(?:-[a-z0-9]+)*"/g, (lit) => " ".repeat(lit.length))
+  );
+
   for (const re of PATH_PATTERNS) {
     // Reset regex state
     re.lastIndex = 0;

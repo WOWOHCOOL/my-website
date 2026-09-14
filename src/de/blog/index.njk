@@ -26,11 +26,7 @@ plPath: "blog/"
 
 {% block blogHero %}
 <!-- Breadcrumb -->
-<nav class="text-sm text-slate-500 mb-6 max-w-4xl mx-auto px-6 pt-20 md:pt-24">
-<a href="/de/" class="hover:text-brandOrange">Startseite</a>
-<span class="mx-2">/</span>
-<span class="text-slate-900">Blog</span>
-</nav>
+{{ breadcrumb([{name: "Startseite", url: "/de/"}, {name: "Blog"}], "none", "mb-6 max-w-4xl mx-auto px-6 pt-24 md:pt-28", { variant: "hero" }) }}
 <!-- BLOG HEADER -->
 <section class="pb-16 md:pb-20 bg-gradient-to-br from-slate-50 via-white to-orange-50">
 <div class="max-w-4xl mx-auto px-6 text-center">
@@ -40,15 +36,8 @@ plPath: "blog/"
 </div>
 </section>
 
-<!-- ======== STATS BAR ======== -->
-{% from "partials/stats-bar.njk" import statsBar %}
-{{ statsBar(i18n.statsBar[lang].items) }}
-
 <!-- ======== TRUST BAR ======== -->
-{% from "partials/cert-showcase.njk" import certShowcase %}
-{{ certShowcase(i18n.certifications[lang].homepage.items, i18n.certifications[lang].homepage.heading, i18n.certifications[lang].homepage.title, "", "py-10 md:py-14 bg-white", true) }}
-{% from "partials/customer-logos.njk" import customerLogos %}
-{{ customerLogos("Vertrauen internationaler Marken", "", standalone=true) }}
+{% include "trust-bar.njk" %}
 {% endblock %}
 
 {% block blogArticles %}

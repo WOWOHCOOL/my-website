@@ -318,18 +318,14 @@ hreflang:
 
 {% block content %}
 
-<article class="py-12">
+<article class="pb-12">
 
 <!-- ===== [1] Hero ===== -->
 <div class="relative pt-24 md:pt-28 pb-12 lg:pt-28 lg:pb-16 bg-gradient-to-b from-slate-50 to-white overflow-hidden">
  <div class="absolute top-0 left-1/4 w-64 h-64 bg-brandOrange/10 rounded-full blur-3xl"></div>
  <div class="absolute bottom-0 right-1/4 w-64 h-64 bg-green-500/10 rounded-full blur-3xl"></div>
  <div class="max-w-4xl mx-auto px-6 relative z-10">
-  <nav class="text-sm text-slate-500 mb-6">
-   <a href="/ru/" class="hover:text-brandOrange">Главная</a> /
-   <a href="/ru/blog/" class="hover:text-brandOrange">Блог</a> /
-   <span class="text-slate-900">Qi2 vs MagSafe</span>
-  </nav>
+  {{ breadcrumb([{name: "Главная", url: "/ru/"}, {name: "Блог", url: "/ru/blog/"}, {name: "Qi2 vs MagSafe"}], "none", "mb-6", { variant: "hero" }) }}
   <div class="flex flex-wrap gap-2 mb-6">
    <span class="px-3 py-1 bg-brandOrange/10 text-brandOrange text-[11px] font-black rounded-full uppercase">#Qi2</span>
    <span class="px-3 py-1 bg-brandOrange/10 text-brandOrange text-[11px] font-black rounded-full uppercase">#MagSafe</span>
@@ -1028,7 +1024,7 @@ hreflang:
    <h2 class="text-2xl font-black text-white uppercase italic mb-4">Запустите Свой Бренд Qi2-Зарядок с MOQ 500</h2>
    <p class="text-slate-300 mb-8 max-w-xl mx-auto">Официальная Qi2 WPC-сертификация включена. Цены FOB Shenzhen от $6.50/ед. Кастомный логотип, упаковка на русском, поддержка EAC-сертификации. Расчёт OEM-проекта в течение 24 часов.</p>
    <div class="flex flex-col sm:flex-row gap-4 justify-center">
-    <a href="/ru/kontakty/" class="w-full sm:flex-1 bg-brandOrange text-white px-8 py-4 rounded-xl font-black uppercase text-sm shadow-lg hover:-translate-y-1 transition">Запросить Прайс</a>
+    <a href="/ru/kontakty/" class="btn-wide">Запросить Прайс</a>
     <a href="/products/wireless-charger/" class="w-full sm:flex-1 text-center border-2 border-white text-white px-8 py-4 rounded-xl font-black uppercase text-sm hover:bg-white hover:text-brandBlue transition">Смотреть Каталог</a>
    </div>
   </div>

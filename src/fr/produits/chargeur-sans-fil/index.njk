@@ -40,11 +40,11 @@ plPath: "produkty/ladowarka-bezprzewodowa/"
 {% endblock %}
 
 {% block content %}
-{{ breadcrumb([{name: "Accueil", url: "/fr/"}, {name: "Produits", url: "/fr/produits/"}, {name: "Chargeur sans fil"}]) }}
 
 <!-- HERO -->
-<section class="pb-16 md:pb-20 bg-gradient-to-br from-slate-50 via-white to-orange-50">
+<section class="pt-24 md:pt-28 pb-16 md:pb-20 bg-gradient-to-br from-slate-50 via-white to-orange-50">
  <div class="container-wide">
+  {{ breadcrumb([{name: "Accueil", url: "/fr/"}, {name: "Produits", url: "/fr/produits/"}, {name: "Chargeur sans fil"}], "none", "mb-6", { variant: "hero" }) }}
   <div class="grid lg:grid-cols-2 gap-12 items-center">
    <div class="reveal order-2 lg:order-1">
     <p class="text-brandOrange text-xs font-bold tracking-widest uppercase mb-3">Chargeur sans fil &middot; OEM Usine</p>
@@ -70,24 +70,13 @@ plPath: "produkty/ladowarka-bezprzewodowa/"
  </div>
 </section>
 
-<!-- TRUST BAND -->
-{% from "partials/customer-logos.njk" import customerLogos %}
-{{ customerLogos("La confiance des marques internationales") }}
-
-{% from "partials/stats-bar.njk" import statsBar %}
-{{ statsBar(i18n.statsBar[lang].items) }}
-
-{% from "partials/cert-showcase.njk" import certShowcase %}
-{{ certShowcase(i18n.certifications[lang].homepage.items, i18n.certifications[lang].homepage.heading, i18n.certifications[lang].homepage.title, "", "", true) }}
+<!-- ======== TRUST BAR ======== -->
+{% include "trust-bar.njk" %}
 
 <!-- KATEGORIE-HUB -->
 <section class="sec bg-white">
  <div class="container-wide">
-  <div class="text-center max-w-3xl mx-auto mb-12 reveal">
-   <p class="section-label">Catégories de produits</p>
-   <h2 class="section-title">3 gammes spécialisées</h2>
-   <p class="section-desc mx-auto">Chaque gamme optimisée pour des groupes d'acheteurs B2B et canaux de distribution spécifiques.</p>
-  </div>
+  {{ sectionHeader('Catégories de produits', '3 gammes spécialisées', 'Chaque gamme optimisée pour des groupes d\'acheteurs B2B et canaux de distribution spécifiques.', {mb: 'mb-12'}) }}
   <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
 
    <!-- Desktop -->
@@ -138,17 +127,13 @@ plPath: "produkty/ladowarka-bezprzewodowa/"
 <!-- WARUM WOWOHCOOL -->
 <section class="sec bg-white">
  <div class="container-wide">
-  <div class="text-center mb-14">
-   <div class="inline-block px-4 py-1 bg-brandOrange/10 border border-brandOrange/20 rounded-full text-[11px] font-bold text-brandOrange uppercase tracking-widest mb-6">Pourquoi WOWOHCOOL</div>
-   <h2 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4">Toutes les usines ne se valent pas</h2>
-   <p class="text-slate-500 max-w-2xl mx-auto text-sm">Comparez WOWOHCOOL aux OEM de chargeurs typiques en Chine.</p>
-  </div>
+  {{ sectionHeader('Pourquoi WOWOHCOOL', 'Toutes les usines ne se valent pas', 'Comparez WOWOHCOOL aux OEM de chargeurs typiques en Chine.', { max: '', mb: 'mb-14', reveal: false, titleClass: 'text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4', descClass: 'text-slate-500 max-w-2xl mx-auto text-sm', labelStyle: 'pill', pillClass: 'bg-brandOrange/10', pillMb: 'mb-6' }) }}
   <div class="max-w-4xl mx-auto overflow-hidden rounded-2xl border border-slate-200">
    <table class="w-full text-sm">
     <thead><tr class="bg-slate-50 border-b border-slate-200">
      <th class="text-left p-4 md:p-5 font-black text-slate-500 uppercase tracking-wider text-[11px]"></th>
      <th class="p-4 md:p-5 font-black text-brandBlue uppercase tracking-wider text-[11px] text-center">WOWOHCOOL</th>
-     <th class="p-4 md:p-5 font-black text-slate-300 uppercase tracking-wider text-[11px] text-center">Usine typique</th>
+     <th class="p-4 md:p-5 font-black text-slate-500 uppercase tracking-wider text-[11px] text-center">Usine typique</th>
     </tr></thead>
     <tbody class="divide-y divide-slate-100">
      <tr><td class="p-4 md:p-5 text-slate-600 font-semibold">Certifications Qi2 WPC</td><td class="p-4 md:p-5 text-center text-brandOrange font-black">47 produits, 99,2% ATL</td><td class="p-4 md:p-5 text-center text-slate-300">Peu ou auto-déclarées</td></tr>
@@ -161,7 +146,7 @@ plPath: "produkty/ladowarka-bezprzewodowa/"
   </div>
   <div class="text-center mt-10">
    <p class="text-slate-500 text-sm mb-4">Travaillez directement avec l'usine à laquelle les entreprises Fortune 500 font confiance.</p>
-   <button data-action="open-modal" class="bg-brandOrange text-white px-8 py-4 rounded-xl font-black uppercase tracking-widest text-sm shadow-xl hover:-translate-y-1 transition">Lancer un projet OEM &rarr;</button>
+   <button data-action="open-modal" class="btn-solid">Lancer un projet OEM &rarr;</button>
   </div>
  </div>
 </section>
@@ -204,11 +189,7 @@ plPath: "produkty/ladowarka-bezprzewodowa/"
 <!-- KATEGORIEN-VERGLEICH -->
 <section id="kategorien" class="sec bg-slate-50">
  <div class="container-wide">
-  <div class="text-center max-w-3xl mx-auto mb-12 reveal">
-   <p class="section-label">Comparaison des catégories</p>
-   <h2 class="section-title">3 catégories de chargeurs sans fil en aperçu</h2>
-   <p class="section-desc mx-auto">Quelle catégorie correspond à votre marché ? Comparez le format, la puissance et le domaine d'application.</p>
-  </div>
+  {{ sectionHeader('Comparaison des catégories', '3 catégories de chargeurs sans fil en aperçu', 'Quelle catégorie correspond à votre marché ? Comparez le format, la puissance et le domaine d\'application.', {mb: 'mb-12'}) }}
   <div class="overflow-x-auto reveal">
    <table class="w-full min-w-[720px] bg-white rounded-2xl shadow-sm border border-slate-200">
     <thead><tr class="bg-brandBlue text-white">
@@ -223,13 +204,13 @@ plPath: "produkty/ladowarka-bezprzewodowa/"
     <tbody>
      <tr class="border-b border-slate-200 hover:bg-slate-50">
       <td class="py-3 px-3 text-sm font-bold text-brandBlue">Bureau</td><td class="py-3 px-3 text-sm text-slate-600">Pad et support</td><td class="py-3 px-3 text-sm text-slate-600">10-15W Qi2</td><td class="py-3 px-3 text-sm text-slate-600">3 (+2 T3 2026)</td><td class="py-3 px-3 text-sm text-slate-600 hidden md:table-cell">55-60% du volume</td><td class="py-3 px-3 text-sm text-slate-600">500</td>
-      <td class="py-3 px-3 text-sm"><a href="/fr/produits/chargeur-sans-fil/bureau/" class="inline-block px-3 py-1 rounded-full text-[11px] font-black bg-brandOrange text-white uppercase tracking-widest hover:bg-brandOrange/90 transition">Voir la gamme &rarr;</a></td></tr>
+      <td class="py-3 px-3 text-sm"><a href="/fr/produits/chargeur-sans-fil/bureau/" class="btn-tag">Voir la gamme &rarr;</a></td></tr>
      <tr class="border-b border-slate-200 hover:bg-slate-50">
       <td class="py-3 px-3 text-sm font-bold text-brandBlue">Station 3-en-1</td><td class="py-3 px-3 text-sm text-slate-600">Pliable / TEC / Zinc</td><td class="py-3 px-3 text-sm text-slate-600">15-25W Qi2.2</td><td class="py-3 px-3 text-sm text-slate-600">13</td><td class="py-3 px-3 text-sm text-slate-600 hidden md:table-cell">40-50% du CA</td><td class="py-3 px-3 text-sm text-slate-600">500</td>
-      <td class="py-3 px-3 text-sm"><a href="/fr/produits/chargeur-sans-fil/station-3-en-1/" class="inline-block px-3 py-1 rounded-full text-[11px] font-black bg-brandOrange text-white uppercase tracking-widest hover:bg-brandOrange/90 transition">Voir la gamme &rarr;</a></td></tr>
+      <td class="py-3 px-3 text-sm"><a href="/fr/produits/chargeur-sans-fil/station-3-en-1/" class="btn-tag">Voir la gamme &rarr;</a></td></tr>
      <tr class="hover:bg-slate-50">
       <td class="py-3 px-3 text-sm font-bold text-brandBlue">Support voiture</td><td class="py-3 px-3 text-sm text-slate-600">Magnétique / Pince / Pad</td><td class="py-3 px-3 text-sm text-slate-600">15-25W Qi2.2</td><td class="py-3 px-3 text-sm text-slate-600">5</td><td class="py-3 px-3 text-sm text-slate-600 hidden md:table-cell">19,4% CAGR, E-Mark</td><td class="py-3 px-3 text-sm text-slate-600">500</td>
-      <td class="py-3 px-3 text-sm"><a href="/fr/produits/chargeur-sans-fil/support-voiture/" class="inline-block px-3 py-1 rounded-full text-[11px] font-black bg-brandOrange text-white uppercase tracking-widest hover:bg-brandOrange/90 transition">Voir la gamme &rarr;</a></td></tr>
+      <td class="py-3 px-3 text-sm"><a href="/fr/produits/chargeur-sans-fil/support-voiture/" class="btn-tag">Voir la gamme &rarr;</a></td></tr>
     </tbody>
    </table>
   </div>
@@ -241,18 +222,14 @@ plPath: "produkty/ladowarka-bezprzewodowa/"
  <div class="container-content">
  <blockquote class="bg-brandOrange/5 border-l-4 border-brandOrange rounded-r-xl px-6 py-5 text-sm text-slate-700 italic leading-relaxed">
   <p>"Le marché européen des chargeurs sans fil passe de 1,6 Mrd $ (2024) à 8,7 Mrd $ d'ici 2033 — un CAGR de 20,75% (Market Data Forecast). <strong>L'Allemagne détient 18,7%, la France est le deuxième marché.</strong> Les pads et supports de bureau représentent 55-60% du volume (QYResearch), les stations 3-en-1 génèrent 40-50% du CA de la catégorie (Grand View Research), et le secteur automobile croît le plus rapidement avec 19,4% CAGR (LP Information). Selon le standard industriel Belkin/Anker/Mophie, ce sont les trois catégories de format établies — WOWOHCOOL couvre les trois en tant qu'usine directe."</p>
-  <cite class="block text-xs text-slate-400 mt-2 not-italic">— <a href="https://www.marketdataforecast.com/market-reports/europe-wireless-charger-market" target="_blank" rel="noopener noreferrer" class="text-brandOrange hover:underline">Market Data Forecast</a>, Europe Wireless Charger 2024-2033; <a href="https://dataintelo.com/report/desktop-wireless-charging-stand-market" target="_blank" rel="noopener noreferrer" class="text-brandOrange hover:underline">DataIntelo</a>; <a href="https://www.grandviewresearch.com/industry-analysis/wireless-charger-market-report" target="_blank" rel="noopener noreferrer" class="text-brandOrange hover:underline">Grand View Research</a>; <a href="https://www.marketresearch.com/LP-Information-Inc-v4134/Global-Vehicle-mounted-Wireless-Charger-44850256/" target="_blank" rel="noopener noreferrer" class="text-brandOrange hover:underline">LP Information</a></p>
+  <cite class="block text-xs text-slate-400 mt-2 not-italic">— <a href="https://www.marketdataforecast.com/market-reports/europe-wireless-charger-market" target="_blank" rel="noopener noreferrer" class="text-brandOrange hover:underline">Market Data Forecast</a>, Europe Wireless Charger 2024-2033; <a href="https://dataintelo.com/report/desktop-wireless-charging-stand-market" target="_blank" rel="noopener noreferrer" class="text-brandOrange hover:underline">DataIntelo</a>; <a href="https://www.grandviewresearch.com/industry-analysis/wireless-charger-market-report" target="_blank" rel="noopener noreferrer" class="text-brandOrange hover:underline">Grand View Research</a>; <a href="https://www.marketresearch.com/LP-Information-Inc-v4134/Global-Vehicle-mounted-Wireless-Charger-44850256/" target="_blank" rel="noopener noreferrer" class="text-brandOrange hover:underline">LP Information</a></cite>
  </blockquote>
  </div>
 </section>
 <!-- ======== AVANTAGES ======== -->
 <section class="sec bg-white">
 <div class="container-wide">
-<div class="text-center max-w-3xl mx-auto mb-16 reveal">
-<p class="section-label">Avantages</p>
-<h2 class="section-title">Pourquoi nos chargeurs sans fil sont le premier choix</h2>
-<p class="section-desc mx-auto">Technologie Qi2 de pointe, 3 gammes spécialisées et 47 produits certifiés pour le marché français.</p>
-</div>
+{{ sectionHeader('Avantages', 'Pourquoi nos chargeurs sans fil sont le premier choix', 'Technologie Qi2 de pointe, 3 gammes spécialisées et 47 produits certifiés pour le marché français.', {}) }}
 <div class="grid md:grid-cols-2 gap-8">
 <div class="reveal bg-slate-50 rounded-2xl p-8 border border-slate-200">
 <div class="flex items-center gap-4 mb-4"><div class="w-12 h-12 rounded-xl bg-brandOrange/10 flex items-center justify-center shrink-0"><svg class="icon-wifi text-xl text-brandOrange" aria-hidden="true" focusable="false" viewBox="0 0 640 512">
@@ -302,18 +279,14 @@ plPath: "produkty/ladowarka-bezprzewodowa/"
 <section class="sec bg-white">
 <div class="container-wide">
 <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-<div class="reveal">
-<p class="section-label">OEM / ODM</p>
-<h2 class="section-title">Votre chargeur sans fil,<br>votre marque</h2>
-<p class="section-desc mb-8">Personnalisation complète pour votre marque, du design à la certification.</p>
-<ul class="space-y-4">
+{% call sectionHeader('OEM / ODM', 'Votre chargeur sans fil,<br>votre marque', 'Personnalisation complète pour votre marque, du design à la certification.', {align: '', max: '', mb: '', descClass: 'section-desc mb-8'}) %}<ul class="space-y-4">
 <li class="flex items-start gap-3"><svg class="icon-circle-check text-brandOrange mt-0.5" aria-hidden="true" focusable="false" viewBox="0 0 512 512"><path d="M256 512a256 256 0 1 1 0-512 256 256 0 1 1 0 512zM374 145.7c-10.7-7.8-25.7-5.4-33.5 5.3L221.1 315.2 169 263.1c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l72 72c5 5 11.8 7.5 18.8 7s13.4-4.1 17.5-9.8L379.3 179.2c7.8-10.7 5.4-25.7-5.3-33.5z" fill="currentColor"/></svg><span class="text-slate-600 text-sm"><strong class="text-brandBlue">Branding personnalisé :</strong> Logo (sérigraphie/laser/UV), couleurs Pantone, packaging</span></li>
 <li class="flex items-start gap-3"><svg class="icon-circle-check text-brandOrange mt-0.5" aria-hidden="true" focusable="false" viewBox="0 0 512 512"><path d="M256 512a256 256 0 1 1 0-512 256 256 0 1 1 0 512zM374 145.7c-10.7-7.8-25.7-5.4-33.5 5.3L221.1 315.2 169 263.1c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l72 72c5 5 11.8 7.5 18.8 7s13.4-4.1 17.5-9.8L379.3 179.2c7.8-10.7 5.4-25.7-5.3-33.5z" fill="currentColor"/></svg><span class="text-slate-600 text-sm"><strong class="text-brandBlue">Design sur mesure :</strong> Forme, matériaux (plastique/aluminium/zinc), finitions</span></li>
 <li class="flex items-start gap-3"><svg class="icon-circle-check text-brandOrange mt-0.5" aria-hidden="true" focusable="false" viewBox="0 0 512 512"><path d="M256 512a256 256 0 1 1 0-512 256 256 0 1 1 0 512zM374 145.7c-10.7-7.8-25.7-5.4-33.5 5.3L221.1 315.2 169 263.1c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l72 72c5 5 11.8 7.5 18.8 7s13.4-4.1 17.5-9.8L379.3 179.2c7.8-10.7 5.4-25.7-5.3-33.5z" fill="currentColor"/></svg><span class="text-slate-600 text-sm"><strong class="text-brandBlue">Puissance et protocoles :</strong> Qi2 15W/25W, TEC actif, ports USB-C additionnels</span></li>
 <li class="flex items-start gap-3"><svg class="icon-circle-check text-brandOrange mt-0.5" aria-hidden="true" focusable="false" viewBox="0 0 512 512"><path d="M256 512a256 256 0 1 1 0-512 256 256 0 1 1 0 512zM374 145.7c-10.7-7.8-25.7-5.4-33.5 5.3L221.1 315.2 169 263.1c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l72 72c5 5 11.8 7.5 18.8 7s13.4-4.1 17.5-9.8L379.3 179.2c7.8-10.7 5.4-25.7-5.3-33.5z" fill="currentColor"/></svg><span class="text-slate-600 text-sm"><strong class="text-brandBlue">Certification :</strong> Qi2 WPC, CE, TÜV GS + support UL, PSE, KC</span></li>
 </ul>
 <button data-action="open-modal" class="btn-primary mt-8 cursor-pointer">Demande OEM/ODM <svg class="icon-arrow-right text-sm" aria-hidden="true" focusable="false" viewBox="0 0 512 512"><path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-105.4 105.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" fill="currentColor"/></svg></button>
-</div>
+{% endcall %}
 <div class="reveal">
 <div class="bg-white rounded-2xl p-8 md:p-10 border border-orange-100 shadow-lg relative overflow-hidden">
 <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-brandOrange to-brandOrange/30"></div>
@@ -392,11 +365,7 @@ plPath: "produkty/ladowarka-bezprzewodowa/"
 <!-- ======== PROCESSUS OEM ======== -->
 <section class="sec bg-white">
 <div class="container-content">
-<div class="text-center max-w-3xl mx-auto mb-12 reveal">
-<p class="section-label">Processus OEM</p>
-<h2 class="section-title">Votre chargeur sans fil personnalisé — de l'idée à la livraison</h2>
-<p class="section-desc mx-auto">Un processus structuré en 4 étapes. De la demande initiale à la production en série.</p>
-</div>
+{{ sectionHeader('Processus OEM', 'Votre chargeur sans fil personnalisé — de l\'idée à la livraison', 'Un processus structuré en 4 étapes. De la demande initiale à la production en série.', {mb: 'mb-12'}) }}
 <div class="grid md:grid-cols-4 gap-0 reveal">
 <div class="relative bg-white rounded-2xl border border-slate-200 p-6 text-center">
 <div class="w-12 h-12 rounded-full bg-brandOrange text-white font-black text-lg flex items-center justify-center mx-auto mb-4">1</div>
@@ -425,7 +394,7 @@ plPath: "produkty/ladowarka-bezprzewodowa/"
 <!-- FAQ -->
 <section class="sec bg-white">
  <div class="container-narrow">
-  <div class="text-center mb-12 reveal"><p class="section-label">FAQ</p><h2 class="section-title">Questions fréquentes</h2></div>
+  {{ sectionHeader('FAQ', 'Questions fréquentes', '', {max: '', mb: 'mb-12'}) }}
   <div class="space-y-4">
    <details class="reveal bg-slate-50 rounded-2xl p-6 border border-slate-200"><summary class="font-bold text-brandBlue cursor-pointer">Qu'est-ce que le Qi2 et pourquoi est-il important ?</summary><p class="text-sm text-slate-600 mt-3 leading-relaxed faq-answer">Le Qi2 est la dernière norme WPC avec profil d'alimentation magnétique (MPP). Charge rapide universelle 15W-25W avec alignement magnétique N52H pour iPhone et Android. Le Qi2.2 étend à 25W avec refroidissement actif.</p></details>
    <details class="reveal bg-slate-50 rounded-2xl p-6 border border-slate-200"><summary class="font-bold text-brandBlue cursor-pointer">Quelle est la MOQ pour les chargeurs sans fil ?</summary><p class="text-sm text-slate-600 mt-3 leading-relaxed faq-answer">MOQ <strong>500 pièces</strong> pour ODM avec logo. Full OEM : <strong>2 000 pièces</strong>. Échantillons en 3-7 jours.</p></details>
@@ -440,13 +409,10 @@ plPath: "produkty/ladowarka-bezprzewodowa/"
 <!-- ======== CTA ======== -->
 <section class="sec bg-brandBlue">
  <div class="container-narrow text-center">
-  <div class="reveal">
-   <p class="section-label">Demander un devis</p>
-   <h2 class="text-3xl md:text-5xl font-black text-white leading-tight mb-4 italic uppercase">
+  {% call sectionHeader('Demander un devis', '
     Devis chargeur sans fil<br><span class="text-brandOrange">en 24 heures</span>
-   </h2>
-   <p class="text-slate-300 text-lg max-w-2xl mx-auto mb-8">Demandez votre devis personnalisé. Nous vous conseillons sur les modèles, quantités et conditions de livraison adaptés.</p>
-  </div>
+   ', '', {align: '', max: '', mb: '', titleClass: 'text-3xl md:text-5xl font-black text-white leading-tight mb-4 italic uppercase'}) %}<p class="text-slate-300 text-lg max-w-2xl mx-auto mb-8">Demandez votre devis personnalisé. Nous vous conseillons sur les modèles, quantités et conditions de livraison adaptés.</p>
+  {% endcall %}
   <div class="max-w-xl mx-auto reveal">
    <form action="https://api.web3forms.com/submit" method="POST" class="inquiry-form space-y-4">
     <input type="hidden" name="access_key" value="ac5fe4cd-2dd7-4aff-818d-bb36021b4942">
@@ -475,7 +441,7 @@ plPath: "produkty/ladowarka-bezprzewodowa/"
      <input type="checkbox" required class="mt-1 accent-brandOrange">
      <span class="text-xs text-slate-500">J'ai pris connaissance de la <a href="/fr/confidentialite/" class="text-brandOrange hover:underline">politique de confidentialité</a>. *</span>
     </label>
-    <button type="submit" class="w-full bg-brandOrange text-white py-4 rounded-xl font-bold text-base hover:bg-brandBlue transition-all duration-300 shadow-lg shadow-brandOrange/20 flex items-center justify-center gap-3">
+    <button type="submit" class="btn-form">
      Recevoir un devis gratuit <svg class="icon-arrow-right" aria-hidden="true" focusable="false" viewBox="0 0 512 512">
       <path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-105.4 105.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" fill="currentColor"/>
      </svg>

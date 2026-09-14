@@ -308,7 +308,7 @@ hreflang:
 {% endblock %}
 
 {% block content %}
-<article class="py-12">
+<article class="pb-12">
 <!-- Hero -->
 <div class="relative pt-24 md:pt-28 pb-12 lg:pt-28 lg:pb-16 bg-gradient-to-b from-slate-50 to-white overflow-hidden">
  <div class="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
@@ -317,11 +317,7 @@ hreflang:
  </div>
 
  <div class="max-w-4xl mx-auto px-6 relative">
- <nav class="text-sm text-slate-500 mb-6" aria-label="Breadcrumb">
- <a href="/es/" class="hover:text-brandOrange">Inicio</a> /
- <a href="/es/blog/" class="hover:text-brandOrange">Blog</a> /
- <span class="text-slate-900">Generaciones de GaN</span>
- </nav>
+ {{ breadcrumb([{name: "Inicio", url: "/es/"}, {name: "Blog", url: "/es/blog/"}, {name: "Generaciones de GaN"}], "none", "mb-6", { variant: "hero" }) }}
 
  <div class="flex flex-wrap gap-2 mb-6">
  <span class="px-3 py-1 bg-brandBlue/10 text-brandBlue text-[11px] font-bold rounded-full uppercase tracking-wider">GaN</span>
@@ -588,7 +584,7 @@ hreflang:
  <h2 class="text-2xl font-black text-white uppercase italic mb-4">¿Qué generación GaN necesita su proyecto OEM?</h2>
  <p class="text-slate-300 mb-8 max-w-xl mx-auto">Seleccionamos la generación GaN óptima para su potencia, mercado y presupuesto. MOQ 500, FOB Shenzhen, certificación incluida. Cotización en 24h.</p>
  <div class="flex flex-col sm:flex-row gap-4 justify-center">
- <a href="/es/contacto/" class="w-full sm:flex-1 bg-brandOrange text-white px-8 py-4 rounded-xl font-black uppercase text-sm shadow-lg hover:-translate-y-1 transition">Solicitar Cotización OEM</a>
+ <a href="/es/contacto/" class="btn-wide">Solicitar Cotización OEM</a>
  <a href="/es/productos/cargador-gan/" class="w-full sm:flex-1 text-center border-2 border-white text-white px-8 py-4 rounded-xl font-black uppercase text-sm hover:bg-white hover:text-brandBlue transition">Ver Catálogo GaN</a>
  </div>
  </div>
@@ -624,6 +620,8 @@ hreflang:
  <h3 class="font-black text-brandBlue uppercase mb-2 group-hover:text-brandOrange transition text-sm">¿Qué es un cargador GaN?</h3>
  <p class="text-slate-600 text-sm">Guía básica de tecnología GaN para importadores.</p>
  </div>
+ </a>
+ </div>
 </aside>
 
 <!-- ============================================================ -->
@@ -653,7 +651,7 @@ hreflang:
 {% set ctaShowProduct = false %}
 {% set ctaShowArrow = false %}
 {% set ctaShowPhone = false %}
-</div>
+
 
 {% include "partials/blog-cta.njk" %}
 {% endblock %}

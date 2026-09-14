@@ -71,11 +71,11 @@ ogImage: "/image/product/wireless-charger/wow68-vertical-magnetic-3in1-desktop-1
 
 {% block content %}
 {% from "breadcrumb.njk" import breadcrumb %}
-{{ breadcrumb([{name:"Главная",url:"/ru/"},{name:"Продукция",url:"/ru/produkty/"},{name:"Беспроводные зарядки",url:"/ru/produkty/besprovodnye-zaryadki/"},{name:"Настольная"}]) }}
 
 <!-- Hero -->
-<section class="pb-16 md:pb-20 bg-gradient-to-br from-slate-50 via-white to-orange-50">
+<section class="pt-24 md:pt-28 pb-16 md:pb-20 bg-gradient-to-br from-slate-50 via-white to-orange-50">
  <div class="container-wide">
+  {{ breadcrumb([{name:"Главная",url:"/ru/"},{name:"Продукция",url:"/ru/produkty/"},{name:"Беспроводные зарядки",url:"/ru/produkty/besprovodnye-zaryadki/"},{name:"Настольная"}], "none", "mb-6", { variant: "hero" }) }}
   <div class="grid lg:grid-cols-2 gap-12 items-center">
    <div class="reveal order-2 lg:order-1">
     <p class="text-brandOrange text-xs font-bold tracking-widest uppercase mb-3">Настольная · Завод OEM для объёмных заказов</p>
@@ -107,11 +107,8 @@ ogImage: "/image/product/wireless-charger/wow68-vertical-magnetic-3in1-desktop-1
 <!-- Product Cards -->
 <section id="modelos" class="sec bg-white">
  <div class="container-wide">
-  <div class="text-center max-w-3xl mx-auto mb-12 reveal">
-   <p class="section-label">Модели</p>
-   <h2 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4">3 модели настольных зарядок <span class="text-brandOrange">OEM</span></h2>
-   <p class="text-slate-500">3 модели | Pad + Stand | Ультратонкие 11 мм | Эксклюзивные патенты</p>
-  </div>
+  {% call sectionHeader('Модели', '3 модели настольных зарядок <span class="text-brandOrange">OEM</span>', '', {mb: 'mb-12', titleClass: 'text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4'}) %}<p class="text-slate-500">3 модели | Pad + Stand | Ультратонкие 11 мм | Эксклюзивные патенты</p>
+  {% endcall %}
   <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
 
   <!-- WOW68 -->
@@ -131,7 +128,7 @@ ogImage: "/image/product/wireless-charger/wow68-vertical-magnetic-3in1-desktop-1
 	   <details class="mb-4 group/spec text-left"><summary class="p-3 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-[11px] font-black text-slate-700 uppercase">Характеристики</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
 	    <div class="p-3 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-[11px]"><tbody><tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Выход</td><td class="py-1.5 font-bold text-slate-700">15W Qi2 MPP + 5W Watch + 5W AirPods</td></tr><tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Материал</td><td class="py-1.5 font-bold text-slate-700">Шлифованный алюминий + ABS</td></tr><tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Габариты</td><td class="py-1.5 font-bold text-slate-700">140x100x65mm | Вес: 320g</td></tr><tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Магниты</td><td class="py-1.5 font-bold text-slate-700">N52H — удержание 1 200 г</td></tr><tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">MOQ / Срок</td><td class="py-1.5 font-bold text-slate-700">500 шт | 25-30 дней</td></tr></tbody></table></div>
 	   </details>
-	   <button data-action="open-modal" data-product="WOW68 Vertical Desktop MagStation 15W" class="mt-auto w-full py-3 bg-brandOrange text-white font-black uppercase text-[11px] tracking-widest rounded-xl hover:bg-brandOrange/90 transition shadow-md cursor-pointer">Запросить цену завода</button>
+	   <button data-action="open-modal" data-product="WOW68 Vertical Desktop MagStation 15W" class="btn-card-sm">Запросить цену завода</button>
 	  </div>
 
 <!-- WOW33 -->
@@ -151,7 +148,7 @@ ogImage: "/image/product/wireless-charger/wow68-vertical-magnetic-3in1-desktop-1
 	   <details class="mb-4 group/spec text-left"><summary class="p-3 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-[11px] font-black text-slate-700 uppercase">Характеристики</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
 	    <div class="p-3 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-[11px]"><tbody><tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Выход</td><td class="py-1.5 font-bold text-slate-700">15W Qi2 MPP магнитный</td></tr><tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Толщина</td><td class="py-1.5 font-bold text-slate-700">11mm ультратонкий</td></tr><tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Материал</td><td class="py-1.5 font-bold text-slate-700">ABS + PC + силикон</td></tr><tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Катушки</td><td class="py-1.5 font-bold text-slate-700">Двойные — телефон + наушники</td></tr><tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">MOQ / Срок</td><td class="py-1.5 font-bold text-slate-700">500 шт | 25-30 дней</td></tr></tbody></table></div>
 	   </details>
-	   <button data-action="open-modal" data-product="WOW33 Ultra-Slim MagPad 15W" class="mt-auto w-full py-3 bg-brandOrange text-white font-black uppercase text-[11px] tracking-widest rounded-xl hover:bg-brandOrange/90 transition shadow-md cursor-pointer">Запросить цену завода</button>
+	   <button data-action="open-modal" data-product="WOW33 Ultra-Slim MagPad 15W" class="btn-card-sm">Запросить цену завода</button>
 	  </div>
 
 <!-- WOW40 -->
@@ -171,7 +168,7 @@ ogImage: "/image/product/wireless-charger/wow68-vertical-magnetic-3in1-desktop-1
 	   <details class="mb-4 group/spec text-left"><summary class="p-3 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-[11px] font-black text-slate-700 uppercase">Характеристики</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
 	    <div class="p-3 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-[11px]"><tbody><tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Выход</td><td class="py-1.5 font-bold text-slate-700">15W Qi2 MPP магнитный</td></tr><tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Дизайн</td><td class="py-1.5 font-bold text-slate-700">Минималистичный патентованный</td></tr><tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Материал</td><td class="py-1.5 font-bold text-slate-700">ABS+PC премиум мат</td></tr><tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Поверхность</td><td class="py-1.5 font-bold text-slate-700">Противоскользящий силикон</td></tr><tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">MOQ / Срок</td><td class="py-1.5 font-bold text-slate-700">500 шт | 25-30 дней</td></tr></tbody></table></div>
 	   </details>
-	   <button data-action="open-modal" data-product="WOW40 Minimalist MagPad 15W" class="mt-auto w-full py-3 bg-brandOrange text-white font-black uppercase text-[11px] tracking-widest rounded-xl hover:bg-brandOrange/90 transition shadow-md cursor-pointer">Запросить цену завода</button>
+	   <button data-action="open-modal" data-product="WOW40 Minimalist MagPad 15W" class="btn-card-sm">Запросить цену завода</button>
 	  </div>
 	  </div>
 	 </div>
@@ -181,7 +178,7 @@ ogImage: "/image/product/wireless-charger/wow68-vertical-magnetic-3in1-desktop-1
  <div class="container-content">
  <blockquote class="bg-brandOrange/5 border-l-4 border-brandOrange rounded-r-xl px-6 py-5 text-sm text-slate-700 italic leading-relaxed">
   <p>«Мировой рынок настольных станций беспроводной зарядки оценивался в 1,45–2,41 млрд USD в 2024 году и достигнет 5,72–7,54 млрд USD к 2033 (CAGR 16,5–17,2%). В 2025 году продано 140 млн одиночных падов (QYResearch). В сегменте зарядок для iPhone соотношение спроса к предложению — 19,8: острый дефицит предложения (Alibaba 2026). Для ввоза в ЕАЭС зарядные устройства подлежат обязательной сертификации EAC по ТР ТС 004/2011 и ТР ТС 020/2011».</p>
-  <cite class="block text-xs text-slate-400 mt-2 not-italic">- <a href="https://dataintelo.com/report/desktop-wireless-charging-stand-market" target="_blank" rel="noopener noreferrer" class="text-brandOrange hover:underline">DataIntelo</a>; <a href="https://www.qyresearch.com/" target="_blank" rel="noopener noreferrer" class="text-brandOrange hover:underline">QYResearch</a>, Single-PAD 2025; <a href="https://seller.alibaba.com/blogs/2026/southeast-asia/wireless-charging/qi2-revolution-declining-market" target="_blank" rel="noopener noreferrer" class="text-brandOrange hover:underline">Alibaba 2026</a></p>
+  <cite class="block text-xs text-slate-400 mt-2 not-italic">- <a href="https://dataintelo.com/report/desktop-wireless-charging-stand-market" target="_blank" rel="noopener noreferrer" class="text-brandOrange hover:underline">DataIntelo</a>; <a href="https://www.qyresearch.com/" target="_blank" rel="noopener noreferrer" class="text-brandOrange hover:underline">QYResearch</a>, Single-PAD 2025; <a href="https://seller.alibaba.com/blogs/2026/southeast-asia/wireless-charging/qi2-revolution-declining-market" target="_blank" rel="noopener noreferrer" class="text-brandOrange hover:underline">Alibaba 2026</a></cite>
  </blockquote>
  </div>
 </section>

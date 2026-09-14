@@ -349,17 +349,13 @@ hreflang:
 
 {% block content %}
 <!-- ===== Hero ===== -->
-<article class="py-12">
+<article class="pb-12">
 <div class="relative pt-24 md:pt-28 pb-12 lg:pt-28 lg:pb-16 bg-gradient-to-b from-slate-50 to-white overflow-hidden">
  <div class="absolute top-0 left-1/4 w-64 h-64 bg-brandOrange/10 rounded-full blur-3xl"></div>
  <div class="absolute bottom-0 right-1/4 w-64 h-64 bg-green-500/10 rounded-full blur-3xl"></div>
  <div class="max-w-4xl mx-auto px-6 relative z-10">
 
- <nav class="text-sm text-slate-500 mb-6">
- <a href="/fr/" class="hover:text-brandOrange">Accueil</a> /
- <a href="/fr/blog/" class="hover:text-brandOrange">Blog</a> /
- <span class="text-slate-900">Certification Qi2</span>
- </nav>
+ {{ breadcrumb([{name: "Accueil", url: "/fr/"}, {name: "Blog", url: "/fr/blog/"}, {name: "Certification Qi2"}], "none", "mb-6", { variant: "hero" }) }}
 
  <div class="flex flex-wrap gap-2 mb-6">
  <span class="px-3 py-1 bg-brandOrange/10 text-brandOrange text-[11px] font-black rounded-full uppercase">Qi2</span>
@@ -529,9 +525,9 @@ hreflang:
  <div class="bg-slate-50 rounded-xl p-6 border border-slate-200 shadow-sm">
  <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-6">3. Processus de certification Qi2: étapes, coûts réels et délais 2026</h2>
  <p class="text-slate-600 leading-relaxed mb-4">La certification Qi2 est gérée par le Wireless Power Consortium (WPC). Le processus comporte plusieurs étapes et nécessite à la fois l'adhésion et des tests produits dans des laboratoires agréés (ATL, Authorized Test Labs). En Europe, le CETECOM est un ATL reconnu.</p>
- <p class="text-slate-600 leading-relaxed mb-4">
  <h3 class="font-black text-brandBlue uppercase mb-3">Combien coûte et combien de temps prend la certification Qi2 ?</h3>
- <p class="text-slate-600 leading-relaxed mb-4">Adhésion WPC Adopter dès $18 000/an, tests ATL et documentation inclus : comptez 3 à 6 mois du design à l’homologation complète.</p>Le processus de certification en détail:</p>
+ <p class="text-slate-600 leading-relaxed mb-4">Adhésion WPC Adopter dès $18 000/an, tests ATL et documentation inclus : comptez 3 à 6 mois du design à l’homologation complète.</p>
+ <p class="text-slate-600 leading-relaxed mb-4">Le processus de certification en détail:</p>
  <ul class="mb-4 space-y-2 text-slate-600">
  <li><strong>Adhésion au WPC:</strong> Adopter Member à partir de <strong>$18 000/an</strong> (prorata mensuel, $6 000 en septembre), Regular Member <strong>$30 000/an</strong> (inclut $10 000 d'Ecosystem Fée). L'Adopter suffit pour la plupart des importateurs (≤10 produits/an). Sans adhésion, aucune certification n'est possible.</li>
  <li><strong>Design et développement:</strong> Le chargeur doit être développé selon les spécifications WPC. Les fabricants expérimentés utilisent des designs de référence pré-testés.</li>
@@ -781,6 +777,7 @@ hreflang:
  <p class="text-slate-600 text-sm">Contactez WOWOHCOOL pour un devis gratuit. Nous vous guidons en 4 étapes: (1) sélection du modèle Qi2.2 adapté à votre marché (pad, station 3-en-1, support voiture), (2) personnalisation (logo, couleur, packaging français), (3) certification clé en main (WPC + CE/RED/DEEE), nous sommes membres WPC depuis 2013, (4) production et livraison DDP France. MOQ 500 pièces, délai total 8-12 semaines. Demandez votre devis sur <a href="/fr/contact/" class="text-brandOrange hover:underline">wowohcool.com/fr/contact/</a>.</p>
  </div>
  </div>
+</div>
  </section>
 
 </div>
@@ -826,7 +823,7 @@ hreflang:
  <h2 class="text-2xl font-black text-white uppercase italic mb-4">Votre Projet Qi2.2 Certifié, MOQ 500, Certification WPC Incluse</h2>
  <p class="text-slate-300 mb-8 max-w-xl mx-auto">Chargeurs sans fil Qi2.2 avec puce d'authentification WPC et aimants N52H. Devis gratuit sous 24h, échantillons en 3-7 jours.</p>
  <div class="flex flex-col sm:flex-row gap-4 justify-center">
- <a href="/fr/contact/" class="w-full sm:flex-1 bg-brandOrange text-white px-8 py-4 rounded-xl font-black uppercase text-sm shadow-lg hover:-translate-y-1 transition">Demander un Devis OEM</a>
+ <a href="/fr/contact/" class="btn-wide">Demander un Devis OEM</a>
  <a href="/fr/produits/chargeur-sans-fil/" class="w-full sm:flex-1 text-center border-2 border-white text-white px-8 py-4 rounded-xl font-black uppercase text-sm hover:bg-white hover:text-brandBlue transition">Voir les Produits Qi2</a>
  </div>
  </div>
@@ -885,7 +882,6 @@ hreflang:
 {%- set ctaSubject = "Demande blog: Certification Qi2" %}
 {%- set ctaButton = "Recevoir un devis Qi2.2" %}
 {%- set ctaPlaceholder = "Votre message (quantité, spécifications, souhaits)" %}
-</div>
 </article>
 
 {% include "partials/blog-cta.njk" %}

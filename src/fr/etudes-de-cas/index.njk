@@ -88,24 +88,17 @@ plPath: "studia-przypadkow/"
 {% endblock %}
 
 {% block content %}
-{{ breadcrumb([{name: "Accueil", url: "/fr/"}, {name: "Études de cas"}], "container-narrow") }}
-<section class="pb-16 md:pb-20 bg-gradient-to-br from-slate-50 via-white to-orange-50">
+<section class="pt-24 md:pt-28 pb-16 md:pb-20 bg-gradient-to-br from-slate-50 via-white to-orange-50">
 <div class="container-narrow text-center">
+ {{ breadcrumb([{name: "Accueil", url: "/fr/"}, {name: "Études de cas"}], "none", "mb-6", { variant: "hero" }) }}
 <p class="text-brandOrange text-xs font-bold tracking-widest uppercase mb-3">References</p>
 <h1 class="text-3xl md:text-5xl font-black text-brandBlue leading-tight mb-4 italic uppercase">Projets OEM/ODM réussis<br><span class="text-brandOrange">pour nos clients</span></h1>
 <p class="text-slate-600 text-lg max-w-2xl mx-auto">Depuis 2013, nous fabriquons pour <strong>200+ marques dans le monde</strong>. Le marche français des chargeurs pese <strong>380-420 MEUR</strong> avec <strong>90% importes de Chine</strong> (<a href="https://www.indexbox.io/store/france-kw-fast-usb-c-charger-840-market-analysis-forecast-size-trends-and-insights/" target="_blank" rel="noopener noreferrer" class="text-brandOrange hover:underline">IndexBox 2026</a>). La DGCCRF constate que <strong>75% des imports électroniques ne sont pas conformes</strong> (<a href="https://www.economie.gouv.fr/dgccrf" target="_blank" rel="noopener external" class="text-brandOrange hover:underline">DGCCRF 2025</a>). Nos clients évitent ces risques — découvrez leurs projets.</p>
 </div>
 </section>
 
-<!-- ======== TRUST BAND ======== -->
-{% from "partials/customer-logos.njk" import customerLogos %}
-{{ customerLogos("La confiance des marques internationales") }}
-
-{% from "partials/stats-bar.njk" import statsBar %}
-{{ statsBar(i18n.statsBar[lang].items) }}
-
-{% from "partials/cert-showcase.njk" import certShowcase %}
-{{ certShowcase(i18n.certifications[lang].homepage.items, i18n.certifications[lang].homepage.heading, i18n.certifications[lang].homepage.title, "", "", true) }}
+<!-- ======== TRUST BAR ======== -->
+{% include "trust-bar.njk" %}
 
 <!-- BLOG LIST -->
 <section class="sec">
@@ -135,7 +128,7 @@ plPath: "studia-przypadkow/"
 <div class="p-6">
 <p class="text-brandOrange text-xs font-bold tracking-widest uppercase mb-2">Jacob Jensen · 6.000 pièces</p>
 <h2 class="text-xl font-bold text-brandBlue mb-3">Projet ODM complexe : station de charge sans fil avec capteurs</h2>
-<div class="bg-brandBlue/5 rounded-xl p-4 mb-4"><div class="flex items-center gap-1 mb-2"><span class="text-brandOrange">&#9733;</span><span class="text-brandOrange">&#9733;</span><span class="text-brandOrange">&#9733;</span><span class="text-brandOrange">&#9733;</span><span class="text-brandOrange">&#9733;</span></div><p class="text-sm text-slate-600 italic">"WOWOHCOOL a résolu notre défi ODM complexe, l'intégration de capteurs infrarouges et tactiles dans un support voiture sans fil compact, là où d'autres fournisseurs avaient échoué. 6.000 unités livrées avec zéro défaut."<footer class="text-xs text-slate-500 mt-2 not-italic font-bold">— Jacob Jensen</footer></p></div>
+<div class="bg-brandBlue/5 rounded-xl p-4 mb-4"><div class="flex items-center gap-1 mb-2"><span class="text-brandOrange">&#9733;</span><span class="text-brandOrange">&#9733;</span><span class="text-brandOrange">&#9733;</span><span class="text-brandOrange">&#9733;</span><span class="text-brandOrange">&#9733;</span></div><p class="text-sm text-slate-600 italic">"WOWOHCOOL a résolu notre défi ODM complexe, l'intégration de capteurs infrarouges et tactiles dans un support voiture sans fil compact, là où d'autres fournisseurs avaient échoué. 6.000 unités livrées avec zéro défaut."</p><footer class="text-xs text-slate-500 mt-2 not-italic font-bold">— Jacob Jensen</footer></div>
 <div class="space-y-2 text-sm text-slate-600">
 <p><strong>Produit :</strong> Station de charge sans fil avec double capteur (infrarouge + tactile)</p>
 <p><strong>Quantité :</strong> 6.000 pièces, taux de défaut 0%</p>
@@ -151,7 +144,7 @@ plPath: "studia-przypadkow/"
 <div class="p-6">
 <p class="text-brandOrange text-xs font-bold tracking-widest uppercase mb-2">Merlin Digital · 1.000 pièces</p>
 <h2 class="text-xl font-bold text-brandBlue mb-3">Commande express avant le Nouvel An chinois</h2>
-<div class="bg-brandBlue/5 rounded-xl p-4 mb-4"><div class="flex items-center gap-1 mb-2"><span class="text-brandOrange">&#9733;</span><span class="text-brandOrange">&#9733;</span><span class="text-brandOrange">&#9733;</span><span class="text-brandOrange">&#9733;</span><span class="text-brandOrange">&#9733;</span></div><p class="text-sm text-slate-600 italic">"WOWOHCOOL a traité notre commande urgente de 1.000 chargeurs sans fil juste avant le Nouvel An chinois, malgré les complications de paiement depuis Dubaï et un délai comprimé de 15 jours. Échantillons en 5 jours, expédition avant la fermeture des vacances."<footer class="text-xs text-slate-500 mt-2 not-italic font-bold">— Merlin Digital</footer></p></div>
+<div class="bg-brandBlue/5 rounded-xl p-4 mb-4"><div class="flex items-center gap-1 mb-2"><span class="text-brandOrange">&#9733;</span><span class="text-brandOrange">&#9733;</span><span class="text-brandOrange">&#9733;</span><span class="text-brandOrange">&#9733;</span><span class="text-brandOrange">&#9733;</span></div><p class="text-sm text-slate-600 italic">"WOWOHCOOL a traité notre commande urgente de 1.000 chargeurs sans fil juste avant le Nouvel An chinois, malgré les complications de paiement depuis Dubaï et un délai comprimé de 15 jours. Échantillons en 5 jours, expédition avant la fermeture des vacances."</p><footer class="text-xs text-slate-500 mt-2 not-italic font-bold">— Merlin Digital</footer></div>
 <div class="space-y-2 text-sm text-slate-600">
 <p><strong>Produit :</strong> Chargeur sans fil 15W (norme Qi)</p>
 <p><strong>Quantité :</strong> 1.000 pièces, DDP Dubai</p>
@@ -167,7 +160,7 @@ plPath: "studia-przypadkow/"
 <div class="p-6">
 <p class="text-brandOrange text-xs font-bold tracking-widest uppercase mb-2">Techmade · 5.000 pièces</p>
 <h2 class="text-xl font-bold text-brandBlue mb-3">5.000 batteries externes personnalisées pour clubs de football italiens</h2>
-<div class="bg-brandBlue/5 rounded-xl p-4 mb-4"><div class="flex items-center gap-1 mb-2"><span class="text-brandOrange">&#9733;</span><span class="text-brandOrange">&#9733;</span><span class="text-brandOrange">&#9733;</span><span class="text-brandOrange">&#9733;</span><span class="text-brandOrange">&#9733;</span></div><p class="text-sm text-slate-600 italic">"WOWOHCOOL a coordonné 4 designs différents de logos d'équipe en une seule commande avec des quantités à partir de 500 pièces par modèle, ce que d'autres usines refusaient. Aucun supplément de prix malgré la complexité supplémentaire."<footer class="text-xs text-slate-500 mt-2 not-italic font-bold">— Techmade</footer></p></div>
+<div class="bg-brandBlue/5 rounded-xl p-4 mb-4"><div class="flex items-center gap-1 mb-2"><span class="text-brandOrange">&#9733;</span><span class="text-brandOrange">&#9733;</span><span class="text-brandOrange">&#9733;</span><span class="text-brandOrange">&#9733;</span><span class="text-brandOrange">&#9733;</span></div><p class="text-sm text-slate-600 italic">"WOWOHCOOL a coordonné 4 designs différents de logos d'équipe en une seule commande avec des quantités à partir de 500 pièces par modèle, ce que d'autres usines refusaient. Aucun supplément de prix malgré la complexité supplémentaire."</p><footer class="text-xs text-slate-500 mt-2 not-italic font-bold">— Techmade</footer></div>
 <div class="space-y-2 text-sm text-slate-600">
 <p><strong>Produit :</strong> Batteries externes personnalisées (5.000mAh + 10.000mAh) avec logos de clubs</p>
 <p><strong>Quantité :</strong> 5.000 pièces, 4 designs différents (à partir de 500 pièces/modele)</p>
@@ -183,7 +176,7 @@ plPath: "studia-przypadkow/"
 <div class="p-6">
 <p class="text-brandOrange text-xs font-bold tracking-widest uppercase mb-2">Tempel Group · 3.000 pièces</p>
 <h2 class="text-xl font-bold text-brandBlue mb-3">Sourcing a distance depuis l'Espagne — sans voyage en Chine</h2>
-<div class="bg-brandBlue/5 rounded-xl p-4 mb-4"><div class="flex items-center gap-1 mb-2"><span class="text-brandOrange">&#9733;</span><span class="text-brandOrange">&#9733;</span><span class="text-brandOrange">&#9733;</span><span class="text-brandOrange">&#9733;</span><span class="text-brandOrange">&#9733;</span></div><p class="text-sm text-slate-600 italic">"Depuis l'Espagne, sans jamais visiter l'usine en Chine, WOWOHCOOL a géré l'ensemble du processus de sourcing, d'échantillonnage, de production et d'inspection pour nos compresseurs d'air portables. Nous avons économisé des mois de temps et de frais de déplacement."<footer class="text-xs text-slate-500 mt-2 not-italic font-bold">— Tempel Group</footer></p></div>
+<div class="bg-brandBlue/5 rounded-xl p-4 mb-4"><div class="flex items-center gap-1 mb-2"><span class="text-brandOrange">&#9733;</span><span class="text-brandOrange">&#9733;</span><span class="text-brandOrange">&#9733;</span><span class="text-brandOrange">&#9733;</span><span class="text-brandOrange">&#9733;</span></div><p class="text-sm text-slate-600 italic">"Depuis l'Espagne, sans jamais visiter l'usine en Chine, WOWOHCOOL a géré l'ensemble du processus de sourcing, d'échantillonnage, de production et d'inspection pour nos compresseurs d'air portables. Nous avons économisé des mois de temps et de frais de déplacement."</p><footer class="text-xs text-slate-500 mt-2 not-italic font-bold">— Tempel Group</footer></div>
 <div class="space-y-2 text-sm text-slate-600">
 <p><strong>Produit :</strong> Compresseurs d'air portables (projet de sourcing)</p>
 <p><strong>Quantité :</strong> 3.000 pièces, entièrement gerees a distance</p>
@@ -202,16 +195,13 @@ plPath: "studia-przypadkow/"
 <section class="sec bg-brandBlue relative overflow-hidden">
  <div class="absolute bottom-0 left-0 w-1/2 h-1/2 bg-gradient-to-tr from-brandOrange/5 to-transparent"></div>
  <div class="container-narrow text-center relative z-10">
- <div class="reveal">
- <p class="section-label">Lancez-vous</p>
- <h2 class="text-3xl md:text-5xl font-black text-white leading-tight italic uppercase">
+ {% call sectionHeader('Lancez-vous', '
  Demandez votre<br>
  <span class="text-brandOrange">devis gratuit</span> des maintenant
- </h2>
- <p class="text-slate-300 mt-4 text-lg max-w-2xl mx-auto">
+ ', '', {align: '', max: '', mb: '', titleClass: 'text-3xl md:text-5xl font-black text-white leading-tight italic uppercase'}) %}<p class="text-slate-300 mt-4 text-lg max-w-2xl mx-auto">
  Réponse dans les 24 heures. Conseil personnalise par votre gestionnaire de compte francophone.
  </p>
- </div>
+ {% endcall %}
 
  <div class="mt-10 max-w-xl mx-auto reveal">
  <form action="https://api.web3forms.com/submit" method="POST" class="inquiry-form space-y-4">

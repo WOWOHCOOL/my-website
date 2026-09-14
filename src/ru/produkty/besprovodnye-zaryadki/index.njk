@@ -70,15 +70,15 @@ navActive: "products"
 
 {% block content %}
 {% from "breadcrumb.njk" import breadcrumb %}
-{{ breadcrumb([{name:"Главная",url:"/ru/"},{name:"Продукция",url:"/ru/produkty/"},{name:"Беспроводные зарядки"}]) }}
 
 <!-- ======== HERO ======== -->
-<section class="relative pt-0 pb-8 lg:pb-16 bg-white overflow-hidden">
+<section class="relative pt-24 md:pt-28 pb-8 lg:pb-16 bg-white overflow-hidden">
  <div class="absolute inset-0 pointer-events-none">
  <div class="absolute top-0 left-0 w-64 h-64 bg-brandOrange opacity-10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
  <div class="absolute bottom-0 right-0 w-64 h-64 bg-brandBlue opacity-10 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
  </div>
  <div class="container-wide relative z-10">
+  {{ breadcrumb([{name:"Главная",url:"/ru/"},{name:"Продукция",url:"/ru/produkty/"},{name:"Беспроводные зарядки"}], "none", "mb-6", { variant: "hero" }) }}
  <div class="grid lg:grid-cols-2 gap-12 items-center">
  <div class="reveal order-2 lg:order-1">
  <div class="inline-flex items-center gap-2 bg-brandOrange/10 text-brandOrange text-[11px] font-bold px-4 py-2 rounded-full tracking-widest uppercase mb-4">
@@ -120,11 +120,7 @@ navActive: "products"
 <!-- ======== 3 ЛИНЕЙКИ БЕСПРОВОДНОЙ ЗАРЯДКИ ======== -->
 <section class="sec bg-white">
  <div class="container-wide">
- <div class="text-center mb-12 reveal">
- <div class="inline-block px-4 py-1 bg-brandOrange/10 border border-brandOrange/20 rounded-full text-[11px] font-bold text-brandOrange uppercase tracking-widest mb-6">Матрица продукции</div>
- <h2 class="section-title">3 линейки <span class="text-brandOrange">беспроводных зарядок OEM</span></h2>
- <p class="section-desc mx-auto">Стандартная классификация по форм-фактору и сценарию использования. Каждая линейка нацелена на свой B2B-сегмент.</p>
- </div>
+ {{ sectionHeader('Матрица продукции', '3 линейки <span class="text-brandOrange">беспроводных зарядок OEM</span>', 'Стандартная классификация по форм-фактору и сценарию использования. Каждая линейка нацелена на свой B2B-сегмент.', { max: '', mb: 'mb-12', labelStyle: 'pill', pillClass: 'bg-brandOrange/10', pillMb: 'mb-6' }) }}
 
  <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
  <!-- Настольная -->
@@ -173,11 +169,7 @@ navActive: "products"
 <!-- ======== COMPARATIVA TECNOLÓGICA ======== -->
 <section class="sec bg-white">
  <div class="container-content">
- <div class="text-center mb-12 reveal">
- <p class="section-label">Сравнение</p>
- <h2 class="section-title">Qi2 vs MagSafe vs Qi (v1)</h2>
- <p class="section-desc mx-auto">Qi2 с MPP (Magnetic Power Profile) — универсальный стандарт, сочетающий магнитное выравнивание MagSafe с открытой совместимостью. Данные актуальны на 2026 год.</p>
- </div>
+ {{ sectionHeader('Сравнение', 'Qi2 vs MagSafe vs Qi (v1)', 'Qi2 с MPP (Magnetic Power Profile) — универсальный стандарт, сочетающий магнитное выравнивание MagSafe с открытой совместимостью. Данные актуальны на 2026 год.', {max: '', mb: 'mb-12'}) }}
  <div class="overflow-x-auto reveal">
  <table class="w-full text-sm border-collapse">
  <thead><tr class="bg-brandBlue text-white text-left">
@@ -204,11 +196,7 @@ navActive: "products"
 <!-- ======== СЕРТИФИКАЦИЯ ======== -->
 <section class="sec bg-slate-50">
  <div class="container-content">
- <div class="text-center mb-12 reveal">
- <p class="section-label">Сертификация</p>
- <h2 class="section-title">Сертификация WPC Qi2 + поддержка EAC для импортёров ЕАЭС</h2>
- <p class="section-desc mx-auto">Беспроводные зарядки требуют отдельных сертификатов. WOWOHCOOL сопровождает весь процесс: 47 Qi2-продуктов уже сертифицированы, для ЕАЭС готовим документы под EAC.</p>
- </div>
+ {{ sectionHeader('Сертификация', 'Сертификация WPC Qi2 + поддержка EAC для импортёров ЕАЭС', 'Беспроводные зарядки требуют отдельных сертификатов. WOWOHCOOL сопровождает весь процесс: 47 Qi2-продуктов уже сертифицированы, для ЕАЭС готовим документы под EAC.', {max: '', mb: 'mb-12'}) }}
  <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 reveal">
  <div class="bg-white rounded-xl p-6 shadow-sm border border-slate-100 text-center">
   <div class="w-12 h-12 bg-brandOrange/10 rounded-full flex items-center justify-center mx-auto mb-3"><span class="text-brandOrange font-bold text-lg">EAC</span></div>
@@ -237,18 +225,18 @@ navActive: "products"
 <!-- ======== FAQ ======== -->
 <section class="py-16 bg-white">
  <div class="container-narrow">
- <div class="text-center mb-10 reveal"><p class="section-label">FAQ</p><h2 class="section-title">Частые вопросы</h2></div>
+ {{ sectionHeader('FAQ', 'Частые вопросы', '', {max: '', mb: 'mb-10'}) }}
  <div class="reveal">
- <details class="faq-item"><summary>Что такое сертификация Qi2?</summary><div class="faq-answer">Qi2 — новый стандарт беспроводной зарядки от WPC (Wireless Power Consortium) с <strong>магнитным выравниванием MPP</strong> (Magnetic Power Profile), аналогичным MagSafe. Он гарантирует эффективную и безопасную зарядку без поиска точного положения смартфона.</div></details>
- <details class="faq-item"><summary>Есть ли у вас сертификация WPC?</summary><div class="faq-answer">Да, мы проводим <strong>сертификацию WPC</strong> для всех наших беспроводных зарядок Qi2, гарантируя полную совместимость со всеми Qi2-устройствами на рынке. У завода 47 сертифицированных Qi2-продуктов.</div></details>
- <details class="faq-item"><summary>Совместимы ли они с iPhone и Android?</summary><div class="faq-answer">Да, все наши зарядки Qi2 работают с <strong>iPhone 12+</strong> (MagSafe), <strong>Samsung Galaxy S24/S25</strong>, Google Pixel и любыми устройствами с поддержкой Qi/Qi2. Модели 3-в-1 также заряжают Apple Watch и AirPods.</div></details>
- <details class="faq-item"><summary>Какой MOQ?</summary><div class="faq-answer"><strong>500 штук</strong> на модель для OEM-заказов. ODM-проекты с индивидуальным дизайном — <strong>от 1 000 штук</strong>. Образцы — за 7–15 дней.</div></details>
- <details class="faq-item"><summary>Возможна ли кастомизация цвета и логотипа?</summary><div class="faq-answer">Да, полная кастомизация: <strong>логотип</strong> (лазерная гравировка, шелкография), <strong>цвет</strong> (Pantone), индивидуальная <strong>упаковка</strong> и инструкция на русском языке. Для ODM-проектов доступен сервис CMF (Color, Material, Finish).</div></details>
- <details class="faq-item"><summary>Какие документы нужны для ввоза беспроводных зарядок в РФ и ЕАЭС?</summary><div class="faq-answer">Для таможенного оформления в ЕАЭС требуется сертификация <strong>EAC</strong>: ТР ТС 020/2011 (электромагнитная совместимость) и ТР ТС 004/2011 (низковольтное оборудование). Мы готовим комплект технической документации и протоколы испытаний, чтобы ваш орган по сертификации оформил EAC без задержек.</div></details>
- <details class="faq-item"><summary>Работают ли зарядки Qi2 через защитные чехлы?</summary><div class="faq-answer">Да, они совместимы с большинством чехлов толщиной до <strong>3 мм</strong>. Чехлы с магнитами, металлическими держателями, банковскими картами или другими магнитными элементами могут мешать выравниванию MPP и снижать эффективность зарядки.</div></details>
- <details class="faq-item"><summary>Есть ли официальная сертификация WPC?</summary><div class="faq-answer">Да, наши модели Qi2 имеют <strong>официальную сертификацию WPC</strong> (Wireless Power Consortium). Это гарантирует полную совместимость со всеми Qi2-устройствами на рынке, включая iPhone 12+ и Samsung Galaxy S24/S25.</div></details>
- <details class="faq-item"><summary>В чём разница между Qi2 и MagSafe?</summary><div class="faq-answer">Qi2 MPP (Magnetic Power Profile) — универсальный стандарт WPC на базе технологии Apple MagSafe. MagSafe работает только с Apple, а <strong>Qi2 совместим и с iPhone, и с Android</strong>. Оба используют магнитное выравнивание для эффективной зарядки.</div></details>
- <details class="faq-item"><summary>Подходят ли беспроводные зарядки для корпоративных подарков с логотипом?</summary><div class="faq-answer"><strong>Да</strong>, это один из самых востребованных корпоративных подарков. Нанесение логотипа (лазерная гравировка, UV-печать, шелкография) — от <strong>100–300 шт.</strong>, полный OEM с фирменной упаковкой — от <strong>500 шт.</strong> В отличие от noname-подарков, наши зарядки имеют <strong>сертификацию Qi2 WPC</strong> и магниты N52H — они держат смартфон и заряжают на полных 15 Вт. Производство 25–30 дней плюс ж/д доставка 18–25 дней: под новогодний корпоративный сезон заказывайте в сентябре. Также готовим партии под карточки Ozon и Wildberries.</div></details>
+ {% call faqItem("Что такое сертификация Qi2?") %}Qi2 — новый стандарт беспроводной зарядки от WPC (Wireless Power Consortium) с <strong>магнитным выравниванием MPP</strong> (Magnetic Power Profile), аналогичным MagSafe. Он гарантирует эффективную и безопасную зарядку без поиска точного положения смартфона.{% endcall %}
+ {% call faqItem("Есть ли у вас сертификация WPC?") %}Да, мы проводим <strong>сертификацию WPC</strong> для всех наших беспроводных зарядок Qi2, гарантируя полную совместимость со всеми Qi2-устройствами на рынке. У завода 47 сертифицированных Qi2-продуктов.{% endcall %}
+ {% call faqItem("Совместимы ли они с iPhone и Android?") %}Да, все наши зарядки Qi2 работают с <strong>iPhone 12+</strong> (MagSafe), <strong>Samsung Galaxy S24/S25</strong>, Google Pixel и любыми устройствами с поддержкой Qi/Qi2. Модели 3-в-1 также заряжают Apple Watch и AirPods.{% endcall %}
+ {% call faqItem("Какой MOQ?") %}<strong>500 штук</strong> на модель для OEM-заказов. ODM-проекты с индивидуальным дизайном — <strong>от 1 000 штук</strong>. Образцы — за 7–15 дней.{% endcall %}
+ {% call faqItem("Возможна ли кастомизация цвета и логотипа?") %}Да, полная кастомизация: <strong>логотип</strong> (лазерная гравировка, шелкография), <strong>цвет</strong> (Pantone), индивидуальная <strong>упаковка</strong> и инструкция на русском языке. Для ODM-проектов доступен сервис CMF (Color, Material, Finish).{% endcall %}
+ {% call faqItem("Какие документы нужны для ввоза беспроводных зарядок в РФ и ЕАЭС?") %}Для таможенного оформления в ЕАЭС требуется сертификация <strong>EAC</strong>: ТР ТС 020/2011 (электромагнитная совместимость) и ТР ТС 004/2011 (низковольтное оборудование). Мы готовим комплект технической документации и протоколы испытаний, чтобы ваш орган по сертификации оформил EAC без задержек.{% endcall %}
+ {% call faqItem("Работают ли зарядки Qi2 через защитные чехлы?") %}Да, они совместимы с большинством чехлов толщиной до <strong>3 мм</strong>. Чехлы с магнитами, металлическими держателями, банковскими картами или другими магнитными элементами могут мешать выравниванию MPP и снижать эффективность зарядки.{% endcall %}
+ {% call faqItem("Есть ли официальная сертификация WPC?") %}Да, наши модели Qi2 имеют <strong>официальную сертификацию WPC</strong> (Wireless Power Consortium). Это гарантирует полную совместимость со всеми Qi2-устройствами на рынке, включая iPhone 12+ и Samsung Galaxy S24/S25.{% endcall %}
+ {% call faqItem("В чём разница между Qi2 и MagSafe?") %}Qi2 MPP (Magnetic Power Profile) — универсальный стандарт WPC на базе технологии Apple MagSafe. MagSafe работает только с Apple, а <strong>Qi2 совместим и с iPhone, и с Android</strong>. Оба используют магнитное выравнивание для эффективной зарядки.{% endcall %}
+ {% call faqItem("Подходят ли беспроводные зарядки для корпоративных подарков с логотипом?") %}<strong>Да</strong>, это один из самых востребованных корпоративных подарков. Нанесение логотипа (лазерная гравировка, UV-печать, шелкография) — от <strong>100–300 шт.</strong>, полный OEM с фирменной упаковкой — от <strong>500 шт.</strong> В отличие от noname-подарков, наши зарядки имеют <strong>сертификацию Qi2 WPC</strong> и магниты N52H — они держат смартфон и заряжают на полных 15 Вт. Производство 25–30 дней плюс ж/д доставка 18–25 дней: под новогодний корпоративный сезон заказывайте в сентябре. Также готовим партии под карточки Ozon и Wildberries.{% endcall %}
  </div>
  </div>
 </section>
@@ -256,14 +244,11 @@ navActive: "products"
 <!-- ======== CTA ======== -->
 <section class="sec bg-brandBlue relative overflow-hidden">
  <div class="absolute bottom-0 left-0 w-1/2 h-1/2 bg-gradient-to-tr from-brandOrange/5 to-transparent"></div>
- <div class="container-narrow text-center relative z-10 reveal">
- <p class="section-label">Начните сейчас</p>
- <h2 class="text-3xl md:text-5xl font-black text-white leading-tight mb-4 italic uppercase">Запросите <span class="text-brandOrange">расчёт</span></h2>
- <p class="text-slate-300 text-lg mb-8">Ответ в течение 24 часов. Индивидуальное предложение под ваш проект беспроводной зарядки.</p>
+ {% call sectionHeader('Начните сейчас', 'Запросите <span class="text-brandOrange">расчёт</span>', '', {max: '', mb: '', extra: 'container-narrow relative z-10', titleClass: 'text-3xl md:text-5xl font-black text-white leading-tight mb-4 italic uppercase'}) %}<p class="text-slate-300 text-lg mb-8">Ответ в течение 24 часов. Индивидуальное предложение под ваш проект беспроводной зарядки.</p>
  <div class="flex flex-col sm:flex-row gap-4 justify-center">
  <button data-action="open-modal" class="btn-primary text-base px-8 py-4 shadow-lg shadow-brandOrange/20 cursor-pointer">Запросить расчёт <svg class="icon-arrow-right" viewBox="0 0 512 512"><path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-105.4 105.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" fill="currentColor"/></svg></button>
  <a href="/ru/kontakty/" class="btn-outline-white text-base px-8 py-4">WeChat / Email</a>
  </div>
- </div>
+ {% endcall %}
 </section>
 {% endblock %}

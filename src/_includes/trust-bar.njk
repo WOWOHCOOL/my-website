@@ -1,11 +1,15 @@
 <!-- ========================================================================
  TRUST BAR — Certifications + Numbers + Customer Logos (unified, i18n-aware)
- Requires frontmatter `lang` to be set (en/es/de)
+ `lang` comes from the directory data file (src.json / de.json / …).
+ Imported macros run in THIS template's frame, so a partial that calls
+ another macro must import it itself.
  ======================================================================== -->
+{% from "partials/section-header.njk" import sectionHeader with context %}
 <section class="relative bg-slate-50 border-y border-slate-200 overflow-hidden">
  <div class="max-w-7xl mx-auto px-6 py-12 md:py-16">
 
   <!-- Row 1: Cert badges (from i18n) -->
+  {{ sectionHeader(i18n.certifications[lang].homepage.heading, i18n.certifications[lang].homepage.title, "", {max: "", mb: "mb-8", titleClass: "section-title text-2xl md:text-3xl"}) }}
   <div class="cert-showcase reveal mb-10">
    {% for cert in i18n.certifications[lang].homepage.items %}
    <div class="cert-item">
@@ -21,7 +25,7 @@
     {% set colors = ['text-brandBlue', 'text-brandOrange', 'text-brandBlue', 'text-brandOrange', 'text-brandBlue', 'text-brandOrange'] %}
     {% for item in i18n.statsBar[lang].items %}
     <div class="flex flex-col items-center">
-     <div class="text-2xl md:text-3xl lg:text-4xl font-black {{ colors[loop.index0 % 6] }}">{{ item.value }}</div>
+     <div class="text-2xl md:text-3xl lg:text-4xl font-black whitespace-nowrap {{ colors[loop.index0 % 6] }}">{{ item.value }}</div>
      <p class="text-[11px] font-bold text-slate-400 uppercase mt-2">{{ item.label }}</p>
     </div>
     {% endfor %}
@@ -38,8 +42,12 @@
     Confianza de más de 200 marcas globales
     {% elif lang == "de" %}
     Vertrauen von über 200 globalen Marken
+    {% elif lang == "fr" %}
+    La confiance de plus de 200 marques mondiales
     {% elif lang == "ru" %}
     Нам доверяют более 200 мировых брендов
+    {% elif lang == "pl" %}
+    Zaufanie ponad 200 marek na świecie
     {% else %}
     Trusted by 200+ Global Brands
     {% endif %}

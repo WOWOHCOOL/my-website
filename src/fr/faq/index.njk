@@ -13,6 +13,9 @@ plPath: "faq/"
 ---
 
 {% extends "layouts/faq-page.njk" %}
+{% from "partials/faq-item.njk" import faqItem %}
+{% from "partials/category-heading.njk" import categoryHeading %}
+{% from "partials/section-header.njk" import sectionHeader %}
 
 {% block faqSchema %}
 <script type="application/ld+json">
@@ -43,9 +46,9 @@ plPath: "faq/"
 {% endblock %}
 
 {% block faqHero %}
-{{ breadcrumb([{name: "Accueil", url: "/fr/"}, {name: "FAQ"}], "container-narrow") }}
-<section class="relative overflow-hidden bg-gradient-to-br from-slate-50 via-white to-orange-50">
- <div class="container-narrow text-center sec reveal">
+<section class="pt-24 md:pt-28 pb-16 md:pb-20 relative overflow-hidden bg-gradient-to-br from-slate-50 via-white to-orange-50">
+ <div class="container-narrow text-center reveal">
+  {{ breadcrumb([{name: "Accueil", url: "/fr/"}, {name: "FAQ"}], "none", "mb-6", { variant: "hero" }) }}
  <p class="text-brandOrange text-xs font-bold tracking-widest uppercase mb-3">FAQ</p>
  <h1 class="text-3xl md:text-5xl font-black text-brandBlue leading-tight mb-6 italic uppercase">Questions fréquentes</h1>
  <p class="text-slate-600 text-lg max-w-2xl mx-auto">Réponses aux questions les plus importantes sur l'OEM/ODM, la production, la livraison et la collaboration avec WOWOHCOOL. <strong>90% des chargeurs en France sont importes de Chine</strong> (<a href="https://www.indexbox.io/store/france-kw-fast-usb-c-charger-840-market-analysis-forecast-size-trends-and-insights/" target="_blank" rel="noopener noreferrer" class="text-brandOrange hover:underline">IndexBox 2026</a>). La certification CE coûte <strong>1.500-5.200 EUR</strong> par produit — en OEM, nous la prenons en charge.</p>
@@ -54,174 +57,72 @@ plPath: "faq/"
 {% endblock %}
 
 {% block faqTrustBand %}
-<!-- ======== TRUST BAND ======== -->
-{% from "partials/customer-logos.njk" import customerLogos %}
-{{ customerLogos("La confiance des marques internationales") }}
-
-{% from "partials/stats-bar.njk" import statsBar %}
-{{ statsBar(i18n.statsBar[lang].items) }}
-
-{% from "partials/cert-showcase.njk" import certShowcase %}
-{{ certShowcase(i18n.certifications[lang].homepage.items, i18n.certifications[lang].homepage.heading, i18n.certifications[lang].homepage.title, "", "", true) }}
+<!-- ======== TRUST BAR ======== -->
+{% include "trust-bar.njk" %}
 {% endblock %}
 
 {% block faqContent %}
 <section class="sec bg-white">
  <div class="container-narrow">
-
- <div class="text-center max-w-3xl mx-auto mb-16 reveal">
- <p class="section-label">Catégories FAQ</p>
- <h2 class="section-title">Tout ce que vous devez savoir</h2>
- <p class="section-desc mx-auto">Des réponses rapides a vos questions. Notre équipe est a votre disposition.</p>
- </div>
+ {{ sectionHeader("Catégories FAQ", "Tout ce que vous devez savoir", "Des réponses rapides a vos questions. Notre équipe est a votre disposition.") }}
 
  <!-- Quick-jump Navigation -->
  <div class="flex flex-wrap justify-center gap-2 mb-12 reveal">
-  <a href="#faq-commande" class="inline-block px-4 py-2 bg-brandBlue/5 border border-brandBlue/10 rounded-full text-xs font-bold text-brandBlue hover:bg-brandOrange hover:text-white hover:border-brandOrange transition-all">Commande &amp; Devis</a>
-  <a href="#faq-production" class="inline-block px-4 py-2 bg-brandBlue/5 border border-brandBlue/10 rounded-full text-xs font-bold text-brandBlue hover:bg-brandOrange hover:text-white hover:border-brandOrange transition-all">Production &amp; Qualité</a>
-  <a href="#faq-livraison" class="inline-block px-4 py-2 bg-brandBlue/5 border border-brandBlue/10 rounded-full text-xs font-bold text-brandBlue hover:bg-brandOrange hover:text-white hover:border-brandOrange transition-all">Livraison &amp; Logistique</a>
-  <a href="#faq-personnalisation" class="inline-block px-4 py-2 bg-brandBlue/5 border border-brandBlue/10 rounded-full text-xs font-bold text-brandBlue hover:bg-brandOrange hover:text-white hover:border-brandOrange transition-all">Personnalisation</a>
-  <a href="#faq-marche" class="inline-block px-4 py-2 bg-brandBlue/5 border border-brandBlue/10 rounded-full text-xs font-bold text-brandBlue hover:bg-brandOrange hover:text-white hover:border-brandOrange transition-all">Marche &amp; Tendances</a>
+  <a href="#faq-commande" class="filter-chip">Commande &amp; Devis</a>
+  <a href="#faq-production" class="filter-chip">Production &amp; Qualité</a>
+  <a href="#faq-livraison" class="filter-chip">Livraison &amp; Logistique</a>
+  <a href="#faq-personnalisation" class="filter-chip">Personnalisation</a>
+  <a href="#faq-marche" class="filter-chip">Marche &amp; Tendances</a>
  </div>
 
  <!-- Catégorie: Commande & Devis -->
  <div class="mb-16 reveal">
- <h3 id="faq-commande" class="text-xl font-black text-brandBlue uppercase italic mb-6 flex items-center gap-3">
- <span class="w-8 h-1 bg-brandOrange rounded-full"></span> Commande &amp; Devis
- </h3>
+ {{ categoryHeading("Commande &amp; Devis", "faq-commande") }}
  <div class="space-y-1">
- <div class="faq-item">
- <details>
- <summary>Comment demander un devis ?</summary>
- <div class="faq-answer">Utilisez simplement le formulaire de contact sur notre site web ou envoyez-nous directement un e-mail a <a href="mailto:info@wowohcool.com" class="text-brandOrange font-semibold hover:underline">info@wowohcool.com</a>. Nous avons besoin de votre quantité, des spécifications souhaitées et d'éventuelles demandes spéciales. Vous recevrez un devis personnalise sous 24 heures.</div>
- </details>
- </div>
- <div class="faq-item">
- <details>
- <summary>Quelle est la quantité minimum de commande (MOQ) ?</summary>
- <div class="faq-answer">Pour les produits OEM (designs existants avec votre marque), le MOQ est de 500 unités par SKU. Pour les projets ODM sur mesure avec développement d'outillage spécifique, le MOQ est de 2 000 unités. Nous proposons des solutions flexibles pour les start-ups, n'hésitez pas a nous contacter.</div>
- </details>
- </div>
- <div class="faq-item">
- <details>
- <summary>Quelles sont vos conditions de paiement ?</summary>
- <div class="faq-answer">En standard, nous travaillons avec 30% d'acompte à la confirmation de commande et 70% avant expédition. Nous acceptons le virement T/T, la lettre de crédit L/C et, pour les petits montants, la carte de crédit. Pour les clients réguliers, des accords individuels sont possibles. Nous prenons également en charge Alibaba Trade Assurance.</div>
- </details>
- </div>
- <div class="faq-item">
- <details>
- <summary>Puis-je recevoir des échantillons avant de commander ?</summary>
- <div class="faq-answer">Oui, nous fabriquons volontiers des échantillons pour votre évaluation. Le délai de livraison des échantillons est de 3 à 7 jours. Les frais d'échantillons sont déduits de la commande finale. Contactez-nous pour les conditions précises.</div>
- </details>
- </div>
+ {% call faqItem("Comment demander un devis ?") %}Utilisez simplement le formulaire de contact sur notre site web ou envoyez-nous directement un e-mail a <a href="mailto:info@wowohcool.com" class="text-brandOrange font-semibold hover:underline">info@wowohcool.com</a>. Nous avons besoin de votre quantité, des spécifications souhaitées et d'éventuelles demandes spéciales. Vous recevrez un devis personnalise sous 24 heures.{% endcall %}
+ {% call faqItem("Quelle est la quantité minimum de commande (MOQ) ?") %}Pour les produits OEM (designs existants avec votre marque), le MOQ est de 500 unités par SKU. Pour les projets ODM sur mesure avec développement d'outillage spécifique, le MOQ est de 2 000 unités. Nous proposons des solutions flexibles pour les start-ups, n'hésitez pas a nous contacter.{% endcall %}
+ {% call faqItem("Quelles sont vos conditions de paiement ?") %}En standard, nous travaillons avec 30% d'acompte à la confirmation de commande et 70% avant expédition. Nous acceptons le virement T/T, la lettre de crédit L/C et, pour les petits montants, la carte de crédit. Pour les clients réguliers, des accords individuels sont possibles. Nous prenons également en charge Alibaba Trade Assurance.{% endcall %}
+ {% call faqItem("Puis-je recevoir des échantillons avant de commander ?") %}Oui, nous fabriquons volontiers des échantillons pour votre évaluation. Le délai de livraison des échantillons est de 3 à 7 jours. Les frais d'échantillons sont déduits de la commande finale. Contactez-nous pour les conditions précises.{% endcall %}
  </div>
  </div>
 
  <!-- Catégorie: Production & Qualité -->
  <div class="mb-16 reveal">
- <h3 id="faq-production" class="text-xl font-black text-brandBlue uppercase italic mb-6 flex items-center gap-3">
- <span class="w-8 h-1 bg-brandOrange rounded-full"></span> Production &amp; Qualité
- </h3>
+ {{ categoryHeading("Production &amp; Qualité", "faq-production") }}
  <div class="space-y-1">
- <div class="faq-item">
- <details>
- <summary>Quel est le délai de production ?</summary>
- <div class="faq-answer">Les commandes OEM standard sont livrées en 25 à 35 jours apres validation des échantillons. Les projets ODM sur mesure nécessitent generalement 45 à 60 jours, y compris le développement de l'outillage et le prototypage. Une production express est possible sur demande.</div>
- </details>
- </div>
- <div class="faq-item">
- <details>
- <summary>Quelle assurance qualité proposez-vous ?</summary>
- <div class="faq-answer">Nous disposons d'un processus QC en 4 étapes : IQC (contrôle à la réception), IPQC (contrôle en cours de production), FQC (contrôle final) et OQC (contrôle avant expédition). Chaque produit est soumis a un test de vieillissement de 4 heures. Notre taux de défaut est inférieur a 0,3%. La production est certifiée ISO 9001:2024.</div>
- </details>
- </div>
- <div class="faq-item">
- <details>
- <summary>Puis-je visiter la production sur place ?</summary>
- <div class="faq-answer">Bien sur ! Nous accueillons des clients du monde entier dans notre usine de Shenzhen. Prenez simplement rendez-vous avec notre équipe. Nous proposons également des audits vidéo en direct de nos lignes de production.</div>
- </details>
- </div>
- <div class="faq-item">
- <details>
- <summary>Quelles certifications ont vos produits ?</summary>
- <div class="faq-answer">Tous nos produits sont certifies CE, FCC et RoHS. Nous disposons également des certifications TUV GS, Qi2, ISO 9001, UN38.3 (transport), PD 3.1 et E-Mark. Pour des marches spécifiques, nous proposons sur demande des certifications supplémentaires (UL, PSE, KC).</div>
- </details>
- </div>
+ {% call faqItem("Quel est le délai de production ?") %}Les commandes OEM standard sont livrées en 25 à 35 jours apres validation des échantillons. Les projets ODM sur mesure nécessitent generalement 45 à 60 jours, y compris le développement de l'outillage et le prototypage. Une production express est possible sur demande.{% endcall %}
+ {% call faqItem("Quelle assurance qualité proposez-vous ?") %}Nous disposons d'un processus QC en 4 étapes : IQC (contrôle à la réception), IPQC (contrôle en cours de production), FQC (contrôle final) et OQC (contrôle avant expédition). Chaque produit est soumis a un test de vieillissement de 4 heures. Notre taux de défaut est inférieur a 0,3%. La production est certifiée ISO 9001:2024.{% endcall %}
+ {% call faqItem("Puis-je visiter la production sur place ?") %}Bien sur ! Nous accueillons des clients du monde entier dans notre usine de Shenzhen. Prenez simplement rendez-vous avec notre équipe. Nous proposons également des audits vidéo en direct de nos lignes de production.{% endcall %}
+ {% call faqItem("Quelles certifications ont vos produits ?") %}Tous nos produits sont certifies CE, FCC et RoHS. Nous disposons également des certifications TUV GS, Qi2, ISO 9001, UN38.3 (transport), PD 3.1 et E-Mark. Pour des marches spécifiques, nous proposons sur demande des certifications supplémentaires (UL, PSE, KC).{% endcall %}
  </div>
  </div>
 
  <!-- Catégorie: Livraison & Logistique -->
  <div class="mb-16 reveal">
- <h3 id="faq-livraison" class="text-xl font-black text-brandBlue uppercase italic mb-6 flex items-center gap-3">
- <span class="w-8 h-1 bg-brandOrange rounded-full"></span> Livraison &amp; Logistique
- </h3>
+ {{ categoryHeading("Livraison &amp; Logistique", "faq-livraison") }}
  <div class="space-y-1">
- <div class="faq-item">
- <details>
- <summary>Comment se fait la livraison vers la France ?</summary>
- <div class="faq-answer">Nous expédions par express (DHL/FedEx, 5 à 7 jours) ou standard (fret maritime, 25 à 35 jours). Sur demande, nous proposons un service DDP (Delivered Duty Paid) ou nous prenons en charge les droits de douane et la TVA à l'importation, vous recevez la marchandise franco a domicile.</div>
- </details>
- </div>
- <div class="faq-item">
- <details>
- <summary>Proposez-vous un service Amazon FBA ?</summary>
- <div class="faq-answer">Oui, nous proposons l'expédition directe vers les entrepôts Amazon en France et dans toute l'Europe. Nous nous chargeons de l'étiquetage correct, de l'emballage et de tous les documents requis pour l'acceptation Amazon FBA.</div>
- </details>
- </div>
- <div class="faq-item">
- <details>
- <summary>Qui prend en charge les frais de douane ?</summary>
- <div class="faq-answer">En EXW (départ usine) et FOB Shenzhen, le client est responsable des droits de douane et de l'importation. En DDP (franco a domicile), nous prenons en charge l'integralite des frais de douane et de transport, vous beneficiez d'un prix fixe sans surprises. Nous recommandons le DDP pour les nouveaux clients.</div>
- </details>
- </div>
+ {% call faqItem("Comment se fait la livraison vers la France ?") %}Nous expédions par express (DHL/FedEx, 5 à 7 jours) ou standard (fret maritime, 25 à 35 jours). Sur demande, nous proposons un service DDP (Delivered Duty Paid) ou nous prenons en charge les droits de douane et la TVA à l'importation, vous recevez la marchandise franco a domicile.{% endcall %}
+ {% call faqItem("Proposez-vous un service Amazon FBA ?") %}Oui, nous proposons l'expédition directe vers les entrepôts Amazon en France et dans toute l'Europe. Nous nous chargeons de l'étiquetage correct, de l'emballage et de tous les documents requis pour l'acceptation Amazon FBA.{% endcall %}
+ {% call faqItem("Qui prend en charge les frais de douane ?") %}En EXW (départ usine) et FOB Shenzhen, le client est responsable des droits de douane et de l'importation. En DDP (franco a domicile), nous prenons en charge l'integralite des frais de douane et de transport, vous beneficiez d'un prix fixe sans surprises. Nous recommandons le DDP pour les nouveaux clients.{% endcall %}
  </div>
  </div>
 
  <!-- Catégorie: Personnalisation produit -->
  <div class="mb-16 reveal">
- <h3 id="faq-personnalisation" class="text-xl font-black text-brandBlue uppercase italic mb-6 flex items-center gap-3">
- <span class="w-8 h-1 bg-brandOrange rounded-full"></span> Personnalisation produit (OEM/ODM)
- </h3>
+ {{ categoryHeading("Personnalisation produit (OEM/ODM)", "faq-personnalisation") }}
  <div class="space-y-1">
- <div class="faq-item">
- <details>
- <summary>Quelle est la différence entre OEM et ODM ?</summary>
- <div class="faq-answer">En OEM (Original Equipment Manufacturing), vous choisissez parmi nos produits existants et nous les personnalisons avec votre logo, votre emballage et votre identité de marque. En ODM (Original Design Manufacturing), nous développons un produit entièrement nouveau selon vos spécifications individuelles, de l'électronique au design du boîtier.</div>
- </details>
- </div>
- <div class="faq-item">
- <details>
- <summary>Quelles personnalisations sont possibles ?</summary>
- <div class="faq-answer">Nous offrons un large éventail : impression/gravure laser du logo, couleurs personnalisées (CMF), emballage sur mesure, manuel d'utilisation dans votre langue, PCBA personnalise avec les protocoles de charge souhaites, câbles et connecteurs spécifiques, contenu d'affichage TFT et bien plus.</div>
- </details>
- </div>
- <div class="faq-item">
- <details>
- <summary>Puis-je apporter mon propre design et mes spécifications ?</summary>
- <div class="faq-answer">Oui, c'est precisement le rôle de l'ODM. Vous fournissez vos idées, croquis ou produits de reference. Notre équipe R&D de 50 ingénieurs évalue la faisabilité, établit un devis détaille et réalise votre projet dans les délais. La propriete intellectuelle vous appartient évidemment.</div>
- </details>
- </div>
+ {% call faqItem("Quelle est la différence entre OEM et ODM ?") %}En OEM (Original Equipment Manufacturing), vous choisissez parmi nos produits existants et nous les personnalisons avec votre logo, votre emballage et votre identité de marque. En ODM (Original Design Manufacturing), nous développons un produit entièrement nouveau selon vos spécifications individuelles, de l'électronique au design du boîtier.{% endcall %}
+ {% call faqItem("Quelles personnalisations sont possibles ?") %}Nous offrons un large éventail : impression/gravure laser du logo, couleurs personnalisées (CMF), emballage sur mesure, manuel d'utilisation dans votre langue, PCBA personnalise avec les protocoles de charge souhaites, câbles et connecteurs spécifiques, contenu d'affichage TFT et bien plus.{% endcall %}
+ {% call faqItem("Puis-je apporter mon propre design et mes spécifications ?") %}Oui, c'est precisement le rôle de l'ODM. Vous fournissez vos idées, croquis ou produits de reference. Notre équipe R&D de 50 ingénieurs évalue la faisabilité, établit un devis détaille et réalise votre projet dans les délais. La propriete intellectuelle vous appartient évidemment.{% endcall %}
  </div>
  </div>
 
  <!-- Catégorie: Marche & Tendances -->
  <div class="mb-16 reveal">
- <h3 id="faq-marche" class="text-xl font-black text-brandBlue uppercase italic mb-6 flex items-center gap-3">
- <span class="w-8 h-1 bg-brandOrange rounded-full"></span> Marche &amp; Tendances
- </h3>
+ {{ categoryHeading("Marche &amp; Tendances", "faq-marche") }}
  <div class="space-y-1">
- <div class="faq-item">
- <details>
- <summary>Pourquoi plus de 90% des chargeurs viennent-ils de Chine ?</summary>
- <div class="faq-answer">L'Europe n'a pratiquement plus de production propre pour les powerbanks et les chargeurs, plus de 90% sont importes <sup><a href="https://www.indexbox.io/store/germany-kw-portable-battery-charger-840-market-analysis-forecast-size-trends-and-insights/" target="_blank" rel="noopener noreferrer" class="text-[10px] text-brandOrange no-underline hover:underline">[1]</a></sup>, la grande majorité venant de Chine. Les raisons sont le cluster industriel de Shenzhen (composants, outillage, logistique), la structure de coûts et des décennies d'expérience. En tant que fabricant certifie ISO 9001 avec notre propre usine de 5 000 m2, nous garantissons une qualité et une conformité UE au niveau des exigences françaises.</div>
- </details>
- </div>
- <div class="faq-item">
- <details>
- <summary>A quelle vitesse croit le marche des chargeurs GaN ?</summary>
- <div class="faq-answer">Le marche allemand des chargeurs bases sur GaN croit de plus de 17% par an (CAGR 2025-2035), passant de 39,9 M USD (2024) a un montant estime de 234 M USD (2035) <sup><a href="https://www.marketresearchfuture.com/reports/germany-gan-powered-chargers-market-57523" target="_blank" rel="noopener noreferrer" class="text-[10px] text-brandOrange no-underline hover:underline">[2]</a></sup>. Les classes de puissance 65W et 100W connaissent la plus forte croissance. Le GaN V permet des chargeurs 40% plus petits et plus efficaces que la technologie silicium traditionnelle. Pour les marques qui se lancent maintenant dans les produits GaN, une fenêtre de marche précoce s'ouvre.</div>
- </details>
- </div>
+ {% call faqItem("Pourquoi plus de 90% des chargeurs viennent-ils de Chine ?") %}L'Europe n'a pratiquement plus de production propre pour les powerbanks et les chargeurs, plus de 90% sont importes <sup><a href="https://www.indexbox.io/store/germany-kw-portable-battery-charger-840-market-analysis-forecast-size-trends-and-insights/" target="_blank" rel="noopener noreferrer" class="text-[10px] text-brandOrange no-underline hover:underline">[1]</a></sup>, la grande majorité venant de Chine. Les raisons sont le cluster industriel de Shenzhen (composants, outillage, logistique), la structure de coûts et des décennies d'expérience. En tant que fabricant certifie ISO 9001 avec notre propre usine de 5 000 m2, nous garantissons une qualité et une conformité UE au niveau des exigences françaises.{% endcall %}
+ {% call faqItem("A quelle vitesse croit le marche des chargeurs GaN ?") %}Le marche allemand des chargeurs bases sur GaN croit de plus de 17% par an (CAGR 2025-2035), passant de 39,9 M USD (2024) a un montant estime de 234 M USD (2035) <sup><a href="https://www.marketresearchfuture.com/reports/germany-gan-powered-chargers-market-57523" target="_blank" rel="noopener noreferrer" class="text-[10px] text-brandOrange no-underline hover:underline">[2]</a></sup>. Les classes de puissance 65W et 100W connaissent la plus forte croissance. Le GaN V permet des chargeurs 40% plus petits et plus efficaces que la technologie silicium traditionnelle. Pour les marques qui se lancent maintenant dans les produits GaN, une fenêtre de marche précoce s'ouvre.{% endcall %}
  </div>
  </div>
 

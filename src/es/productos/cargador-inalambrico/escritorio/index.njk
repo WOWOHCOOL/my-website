@@ -70,11 +70,11 @@ plPath: "produkty/ladowarka-bezprzewodowa/biurkowa/"
 
 {% block content %}
 {% from "breadcrumb.njk" import breadcrumb %}
-{{ breadcrumb([{name:"Inicio",url:"/es/"},{name:"Productos",url:"/es/productos/"},{name:"Cargador Inalámbrico",url:"/es/productos/cargador-inalambrico/"},{name:"Escritorio"}]) }}
 
 <!-- Hero -->
-<section class="pb-16 md:pb-20 bg-gradient-to-br from-slate-50 via-white to-orange-50">
+<section class="pt-24 md:pt-28 pb-16 md:pb-20 bg-gradient-to-br from-slate-50 via-white to-orange-50">
  <div class="container-wide">
+  {{ breadcrumb([{name:"Inicio",url:"/es/"},{name:"Productos",url:"/es/productos/"},{name:"Cargador Inalámbrico",url:"/es/productos/cargador-inalambrico/"},{name:"Escritorio"}], "none", "mb-6", { variant: "hero" }) }}
   <div class="grid lg:grid-cols-2 gap-12 items-center">
    <div class="reveal order-2 lg:order-1">
     <p class="text-brandOrange text-xs font-bold tracking-widest uppercase mb-3">Escritorio · Fábrica OEM para volumen</p>
@@ -106,11 +106,8 @@ plPath: "produkty/ladowarka-bezprzewodowa/biurkowa/"
 <!-- Product Cards -->
 <section id="modelos" class="sec bg-white">
  <div class="container-wide">
-  <div class="text-center max-w-3xl mx-auto mb-12 reveal">
-   <p class="section-label">Modelos</p>
-   <h2 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4">3 Modelos Cargadores <span class="text-brandOrange">Escritorio OEM</span></h2>
-   <p class="text-slate-500">3 modelos | Pad + Stand | 11mm Ultra-Slim | Patentes exclusivas</p>
-  </div>
+  {% call sectionHeader('Modelos', '3 Modelos Cargadores <span class="text-brandOrange">Escritorio OEM</span>', '', {mb: 'mb-12', titleClass: 'text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4'}) %}<p class="text-slate-500">3 modelos | Pad + Stand | 11mm Ultra-Slim | Patentes exclusivas</p>
+  {% endcall %}
   <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
 
   <!-- WOW68 -->
@@ -130,7 +127,7 @@ plPath: "produkty/ladowarka-bezprzewodowa/biurkowa/"
 	   <details class="mb-4 group/spec text-left"><summary class="p-3 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-[11px] font-black text-slate-700 uppercase">Especificaciones</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
 	    <div class="p-3 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-[11px]"><tbody><tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Salida</td><td class="py-1.5 font-bold text-slate-700">15W Qi2 MPP + 5W Watch + 5W AirPods</td></tr><tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Material</td><td class="py-1.5 font-bold text-slate-700">Aluminio cepillado + ABS</td></tr><tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Dimensiones</td><td class="py-1.5 font-bold text-slate-700">140x100x65mm | Peso: 320g</td></tr><tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Imanes</td><td class="py-1.5 font-bold text-slate-700">N52H - 1.200g de agarre</td></tr><tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">MOQ / Plazo</td><td class="py-1.5 font-bold text-slate-700">500 uds | 25-30 días</td></tr></tbody></table></div>
 	   </details>
-	   <button data-action="open-modal" data-product="WOW68 Vertical Desktop MagStation 15W" class="mt-auto w-full py-3 bg-brandOrange text-white font-black uppercase text-[11px] tracking-widest rounded-xl hover:bg-brandOrange/90 transition shadow-md cursor-pointer">Solicitar precio fábrica</button>
+	   <button data-action="open-modal" data-product="WOW68 Vertical Desktop MagStation 15W" class="btn-card-sm">Solicitar precio fábrica</button>
 	  </div>
 
 <!-- WOW33 -->
@@ -150,7 +147,7 @@ plPath: "produkty/ladowarka-bezprzewodowa/biurkowa/"
 	   <details class="mb-4 group/spec text-left"><summary class="p-3 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-[11px] font-black text-slate-700 uppercase">Especificaciones</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
 	    <div class="p-3 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-[11px]"><tbody><tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Salida</td><td class="py-1.5 font-bold text-slate-700">15W Qi2 MPP magnetico</td></tr><tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Grosor</td><td class="py-1.5 font-bold text-slate-700">11mm ultra-slim</td></tr><tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Material</td><td class="py-1.5 font-bold text-slate-700">ABS + PC + Silicona</td></tr><tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Bobinas</td><td class="py-1.5 font-bold text-slate-700">Dobles - carga telefono + auriculares</td></tr><tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">MOQ / Plazo</td><td class="py-1.5 font-bold text-slate-700">500 uds | 25-30 días</td></tr></tbody></table></div>
 	   </details>
-	   <button data-action="open-modal" data-product="WOW33 Ultra-Slim MagPad 15W" class="mt-auto w-full py-3 bg-brandOrange text-white font-black uppercase text-[11px] tracking-widest rounded-xl hover:bg-brandOrange/90 transition shadow-md cursor-pointer">Solicitar precio fábrica</button>
+	   <button data-action="open-modal" data-product="WOW33 Ultra-Slim MagPad 15W" class="btn-card-sm">Solicitar precio fábrica</button>
 	  </div>
 
 <!-- WOW40 -->
@@ -170,7 +167,7 @@ plPath: "produkty/ladowarka-bezprzewodowa/biurkowa/"
 	   <details class="mb-4 group/spec text-left"><summary class="p-3 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-[11px] font-black text-slate-700 uppercase">Especificaciones</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
 	    <div class="p-3 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-[11px]"><tbody><tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Salida</td><td class="py-1.5 font-bold text-slate-700">15W Qi2 MPP magnetico</td></tr><tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Diseño</td><td class="py-1.5 font-bold text-slate-700">Minimalista patentado</td></tr><tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Material</td><td class="py-1.5 font-bold text-slate-700">ABS+PC premium mate</td></tr><tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Superficie</td><td class="py-1.5 font-bold text-slate-700">Antideslizante silicona</td></tr><tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">MOQ / Plazo</td><td class="py-1.5 font-bold text-slate-700">500 uds | 25-30 días</td></tr></tbody></table></div>
 	   </details>
-	   <button data-action="open-modal" data-product="WOW40 Minimalist MagPad 15W" class="mt-auto w-full py-3 bg-brandOrange text-white font-black uppercase text-[11px] tracking-widest rounded-xl hover:bg-brandOrange/90 transition shadow-md cursor-pointer">Solicitar precio fábrica</button>
+	   <button data-action="open-modal" data-product="WOW40 Minimalist MagPad 15W" class="btn-card-sm">Solicitar precio fábrica</button>
 	  </div>
 	  </div>
 	 </div>
@@ -180,7 +177,7 @@ plPath: "produkty/ladowarka-bezprzewodowa/biurkowa/"
  <div class="container-content">
  <blockquote class="bg-brandOrange/5 border-l-4 border-brandOrange rounded-r-xl px-6 py-5 text-sm text-slate-700 italic leading-relaxed">
   <p>"El mercado global de estaciones de carga de escritorio se valoro en 1,45-2,41B USD en 2024 y alcanzara 5,72-7,54B USD en 2033 (CAGR 16,5-17,2%). Se vendieron 140M de cargadores single-PAD en 2025 (QYResearch). El segmento de cargadores para iPhone muestra una ratio oferta-demanda de 19,8 - grave escasez de oferta (Alibaba 2026). Para España: el RD 208/2025 sobre RAEE y la Ley 7/2022 de residuos aplican a cargadores importados."</p>
-  <cite class="block text-xs text-slate-400 mt-2 not-italic">- <a href="https://dataintelo.com/report/desktop-wireless-charging-stand-market" target="_blank" rel="noopener noreferrer" class="text-brandOrange hover:underline">DataIntelo</a>; <a href="https://www.qyresearch.com/" target="_blank" rel="noopener noreferrer" class="text-brandOrange hover:underline">QYResearch</a>, Single-PAD 2025; <a href="https://seller.alibaba.com/blogs/2026/southeast-asia/wireless-charging/qi2-revolution-declining-market" target="_blank" rel="noopener noreferrer" class="text-brandOrange hover:underline">Alibaba 2026</a></p>
+  <cite class="block text-xs text-slate-400 mt-2 not-italic">- <a href="https://dataintelo.com/report/desktop-wireless-charging-stand-market" target="_blank" rel="noopener noreferrer" class="text-brandOrange hover:underline">DataIntelo</a>; <a href="https://www.qyresearch.com/" target="_blank" rel="noopener noreferrer" class="text-brandOrange hover:underline">QYResearch</a>, Single-PAD 2025; <a href="https://seller.alibaba.com/blogs/2026/southeast-asia/wireless-charging/qi2-revolution-declining-market" target="_blank" rel="noopener noreferrer" class="text-brandOrange hover:underline">Alibaba 2026</a></cite>
  </blockquote>
  </div>
 </section>

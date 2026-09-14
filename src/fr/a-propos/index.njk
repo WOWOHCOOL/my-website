@@ -85,9 +85,9 @@ plPath: "o-nas/"
 {% endblock %}
 
 {% block content %}
-{{ breadcrumb([{name: "Accueil", url: "/fr/"}, {name: "A propos"}]) }}
-<section class="relative overflow-hidden bg-gradient-to-br from-slate-50 via-white to-orange-50">
+<section class="pt-24 md:pt-28 relative overflow-hidden bg-gradient-to-br from-slate-50 via-white to-orange-50">
  <div class="container-wide">
+  {{ breadcrumb([{name: "Accueil", url: "/fr/"}, {name: "A propos"}], "none", "mb-6", { variant: "hero" }) }}
  <div class="hero-split grid lg:grid-cols-2 gap-10 lg:gap-16 items-center py-20 md:py-0">
  <!-- Left: Text -->
  <div class="reveal py-12 lg:py-20">
@@ -134,25 +134,16 @@ plPath: "o-nas/"
  </div>
 </section>
 
-<!-- ======== TRUST BAND ======== -->
-{% from "partials/customer-logos.njk" import customerLogos %}
-{{ customerLogos("La confiance des marques internationales", "/fr/études-de-cas/") }}
-
-{% from "partials/stats-bar.njk" import statsBar %}
-{{ statsBar(i18n.statsBar[lang].items) }}
-
-{% from "partials/cert-showcase.njk" import certShowcase %}
-{{ certShowcase(i18n.certifications[lang].homepage.items, i18n.certifications[lang].homepage.heading, i18n.certifications[lang].homepage.title, "", "", true) }}
+<!-- ======== TRUST BAR ======== -->
+{% include "trust-bar.njk" %}
 
 <section id="story" class="sec bg-white">
  <div class="container-wide">
  <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
- <div class="reveal">
- <p class="section-label">Notre histoire</p><h2 class="section-title">De Shenzhen au monde entier</h2>
- <p class="text-slate-600 leading-relaxed mb-4">Fondée en 2013 a Shenzhen, WOWOHCOOL est passée d'un atelier spécialise a un partenaire OEM/ODM pour <strong>200+ marques dans plus de 30 pays</strong>. La France importe plus de <strong>90% de ses chargeurs de Chine</strong> (<a href="https://www.indexbox.io/store/france-kw-portable-battery-charger-840-market-analysis-forecast-size-trends-and-insights/" target="_blank" rel="noopener noreferrer" class="text-brandOrange hover:underline">IndexBox 2026</a>) — nous comblons cet écart en tant que fabricant direct certifie ISO 9001, rompu aux normes du marche européen.</p>
+ {% call sectionHeader('Notre histoire', 'De Shenzhen au monde entier', '', {align: '', max: '', mb: ''}) %}<p class="text-slate-600 leading-relaxed mb-4">Fondée en 2013 a Shenzhen, WOWOHCOOL est passée d'un atelier spécialise a un partenaire OEM/ODM pour <strong>200+ marques dans plus de 30 pays</strong>. La France importe plus de <strong>90% de ses chargeurs de Chine</strong> (<a href="https://www.indexbox.io/store/france-kw-portable-battery-charger-840-market-analysis-forecast-size-trends-and-insights/" target="_blank" rel="noopener noreferrer" class="text-brandOrange hover:underline">IndexBox 2026</a>) — nous comblons cet écart en tant que fabricant direct certifie ISO 9001, rompu aux normes du marche européen.</p>
  <p class="text-slate-600 leading-relaxed mb-4">En 2026, nous avons présente nos dernières innovations au <strong>CES de Las Vegas</strong> : powerbanks semi-solides (50% plus fines, 30% de densité energetique supérieure) et chargeurs GaN V de 5e generation — des references en matière d'efficacité et de compacité. Chaque année, nos <strong>50+ ingénieurs R&D</strong> développent des dizaines de nouveaux produits, de l'esquisse à la production en série.</p>
  <p class="text-slate-600 leading-relaxed">Notre usine de <strong>5 000 m2 certifiée ISO 9001</strong> produit plus d'<strong>1 million d'unités par mois</strong>. L'integralite du processus, de la conception PCB à l'assemblage final, est realisee sous un même toit a Shenzhen — le <strong>"Silicon Valley du hardware"</strong> avec 23.000+ entreprises high-tech, un ecosysteme ou <strong>90% des composants sont disponibles en moins d'une heure</strong> (<a href="https://cngreentime.com/shenzhen-electronics-manufacturing-for-importers/" target="_blank" rel="noopener noreferrer" class="text-brandOrange hover:underline">Greentime 2025</a>), et des délais de prototypage de <strong>3 à 7 jours</strong>. Cette concentration unique au monde permet des cycles d'innovation qu'aucune autre région ne peut égaler.</p>
- </div>
+ {% endcall %}
  <div class="reveal">
  <div class="bg-slate-50 rounded-2xl p-6 overflow-hidden">
  <img src="/image/factory/factory-smt-line.webp" alt="Usine WOWOHCOOL - ligne SMT" width="600" height="400" class="w-full h-auto rounded-xl object-cover" loading="lazy" decoding="async">
@@ -164,7 +155,7 @@ plPath: "o-nas/"
 
 <section class="sec bg-slate-50">
  <div class="container-wide">
- <div class="text-center max-w-3xl mx-auto mb-16 reveal"><p class="section-label">Qualité</p><h2 class="section-title">Notre engagement qualité</h2><p class="section-desc mx-auto">Chaque produit est soumis a des contrôles qualité rigoureux avant de quitter notre usine certifiée <strong>ISO 9001:2015</strong> (<a href="https://www.iso.org/standard/62085.html" target="_blank" rel="noopener external" class="text-brandOrange hover:underline">ISO</a>). En France, la <strong>DGCCRF</strong> a constate que <strong>75% des produits électroniques importes ne sont pas conformes</strong> aux normes UE, et 46% présentent un danger immédiat — des amendes allant jusqu'à <strong>100.000 EUR</strong> (<a href="https://www.economie.gouv.fr/dgccrf" target="_blank" rel="noopener external" class="text-brandOrange hover:underline">DGCCRF 2025</a>). Nos productions évitent ce risque grâce a des audits tiers réguliers par <a href="https://www.sgs.com/" target="_blank" rel="noopener external" class="text-brandOrange hover:underline">SGS</a> et <a href="https://www.tuv.com/" target="_blank" rel="noopener external" class="text-brandOrange hover:underline">TUV</a>, avec un <strong>taux de défaut sous 0,3%</strong>.</p></div>
+ {{ sectionHeader('Qualité', 'Notre engagement qualité', 'Chaque produit est soumis a des contrôles qualité rigoureux avant de quitter notre usine certifiée <strong>ISO 9001:2015</strong> (<a href="https://www.iso.org/standard/62085.html" target="_blank" rel="noopener external" class="text-brandOrange hover:underline">ISO</a>). En France, la <strong>DGCCRF</strong> a constate que <strong>75% des produits électroniques importes ne sont pas conformes</strong> aux normes UE, et 46% présentent un danger immédiat — des amendes allant jusqu\'à <strong>100.000 EUR</strong> (<a href="https://www.economie.gouv.fr/dgccrf" target="_blank" rel="noopener external" class="text-brandOrange hover:underline">DGCCRF 2025</a>). Nos productions évitent ce risque grâce a des audits tiers réguliers par <a href="https://www.sgs.com/" target="_blank" rel="noopener external" class="text-brandOrange hover:underline">SGS</a> et <a href="https://www.tuv.com/" target="_blank" rel="noopener external" class="text-brandOrange hover:underline">TUV</a>, avec un <strong>taux de défaut sous 0,3%</strong>.', {}) }}
  <div class="grid md:grid-cols-3 gap-8">
  <div class="text-center reveal p-6"><div class="w-14 h-14 rounded-2xl bg-brandOrange/10 flex items-center justify-center mx-auto mb-5"><svg class="icon-magnifying-glass text-2xl text-brandOrange" aria-hidden="true" focusable="false" viewBox="0 0 512 512">
  <path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376C296.3 401.1 253.9 416 208 416 93.1 416 0 322.9 0 208S93.1 0 208 0 416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z" fill="currentColor"/>
@@ -185,11 +176,7 @@ plPath: "o-nas/"
 <!-- ======== COMPANY TIMELINE ======== -->
 <section class="sec bg-white">
  <div class="container-wide">
- <div class="text-center mb-12 reveal">
- <p class="section-label">Notre histoire</p>
- <h2 class="section-title">Depuis 2013 : une histoire de croissance</h2>
- <p class="section-desc mx-auto">D'un atelier de démarrage a un fabricant présente au CES pour plus de 200 marques mondiales. Chaque jalon reflète notre engagement envers la technologie de charge et l'excellence de fabrication.</p>
- </div>
+ {{ sectionHeader('Notre histoire', 'Depuis 2013 : une histoire de croissance', 'D\'un atelier de démarrage a un fabricant présente au CES pour plus de 200 marques mondiales. Chaque jalon reflète notre engagement envers la technologie de charge et l\'excellence de fabrication.', {max: '', mb: 'mb-12'}) }}
  <div class="space-y-6 max-w-4xl mx-auto">
  <div class="flex flex-col md:flex-row gap-4 md:gap-8 items-start reveal">
  <div class="w-full md:w-24 shrink-0 bg-brandBlue text-white rounded-xl p-3 text-center shadow-lg">
@@ -268,11 +255,7 @@ plPath: "o-nas/"
 <!-- ======== WORKSHOP GALLERY ======== -->
 <section class="sec bg-slate-50">
  <div class="container-wide">
- <div class="text-center max-w-3xl mx-auto mb-12 reveal">
- <p class="section-label">Visite de l'usine</p>
- <h2 class="section-title">8 ateliers spécialises</h2>
- <p class="section-desc mx-auto">De la machine de placement SMT au test de vieillissement final, chaque atelier est conçu pour une phase spécifique de la fabrication des chargeurs. Tous les secteurs fonctionnent selon notre système de gestion de la qualité ISO 9001 avec des procédures documentées et des enregistrements tracables.</p>
- </div>
+ {{ sectionHeader('Visite de l\'usine', '8 ateliers spécialises', 'De la machine de placement SMT au test de vieillissement final, chaque atelier est conçu pour une phase spécifique de la fabrication des chargeurs. Tous les secteurs fonctionnent selon notre système de gestion de la qualité ISO 9001 avec des procédures documentées et des enregistrements tracables.', {mb: 'mb-12'}) }}
  <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
  <div class="group relative rounded-xl overflow-hidden shadow-md hover:shadow-xl transition">
  <img src="/image/factory/01/workshop-smt-line.webp" srcset="/image/factory/01/workshop-smt-line-350w.webp 350w, /image/factory/01/workshop-smt-line.webp 1000w" sizes="(min-width: 1440px) 296px, (min-width: 1280px) 296px, (min-width: 1024px) 244px, (min-width: 768px) 244px, (min-width: 430px) 244px, 244px" alt="Atelier SMT - machines de placement automatiques pour le montage PCB" loading="lazy" width="800" height="600" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500">
@@ -337,14 +320,12 @@ plPath: "o-nas/"
 <section class="sec bg-white">
  <div class="container-wide">
  <div class="grid lg:grid-cols-2 gap-12 items-center">
- <div class="reveal order-2 lg:order-1">
- <p class="section-label">Équipe</p><h2 class="section-title">Notre équipe dirigeante</h2>
- <div class="space-y-6 mt-8">
+ {% call sectionHeader('Équipe', 'Notre équipe dirigeante', '', {align: '', max: '', mb: '', extra: 'order-2 lg:order-1'}) %}<div class="space-y-6 mt-8">
  <div class="flex items-start gap-4"><div class="w-16 h-16 rounded-xl bg-slate-100 overflow-hidden shrink-0"><img src="/image/factory/team-nina.webp" srcset="/image/factory/team-nina-450w.webp 450w, /image/factory/team-nina.webp 800w" sizes="(min-width: 1440px) 366px, (min-width: 1280px) 366px, (min-width: 1024px) 366px, (min-width: 768px) 342px, (min-width: 430px) 380px, 325px" alt="Nina" width="64" height="64" class="w-full h-full object-cover" loading="lazy" decoding="async"></div><div><h3 class="font-bold text-brandBlue">Nina Nico</h3><p class="text-sm text-brandOrange font-medium">Responsable Commerciale</p><p class="text-xs text-slate-500 mt-1">Plus de 10 ans d'expérience dans l'approvisionnement en accessoires mobiles 3C. Dirige l'approvisionnement mondial pour plus de 50 marques de confiance avec des délais de livraison réduits de 30%.</p><a href="https://www.linkedin.com/in/nico-power-bank-chargers" target="_blank" rel="noopener noreferrer" class="text-xs text-brandOrange hover:underline mt-1 inline-block"><svg class="icon-linkedin mr-1" aria-hidden="true" focusable="false" viewBox="0 0 448 512"><path d="M416 32L31.9 32C14.3 32 0 46.5 0 64.3L0 447.7C0 465.5 14.3 480 31.9 480L416 480c17.6 0 32-14.5 32-32.3l0-383.4C448 46.5 433.6 32 416 32zM135.4 416l-66.4 0 0-213.8 66.5 0 0 213.8-.1 0zM102.2 96a38.5 38.5 0 1 1 0 77 38.5 38.5 0 1 1 0-77zM384.3 416l-66.4 0 0-104c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9l0 105.8-66.4 0 0-213.8 63.7 0 0 29.2.9 0c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9l0 117.2z" fill="currentColor"/></svg>LinkedIn</a></div></div>
  <div class="flex items-start gap-4"><div class="w-16 h-16 rounded-xl bg-slate-100 overflow-hidden shrink-0"><img src="/image/factory/team-snowy.webp" srcset="/image/factory/team-snowy-450w.webp 450w, /image/factory/team-snowy.webp 750w" sizes="(min-width: 1440px) 366px, (min-width: 1280px) 366px, (min-width: 1024px) 366px, (min-width: 768px) 342px, (min-width: 430px) 380px, 325px" alt="Snowy" width="64" height="64" class="w-full h-full object-cover" loading="lazy" decoding="async"></div><div><h3 class="font-bold text-brandBlue">Snowy May</h3><p class="text-sm text-brandOrange font-medium">Responsable Marche</p><p class="text-xs text-slate-500 mt-1">Plus de 10 ans d'expérience. Experte en powerbanks, chargeurs, chargeurs sans fil et accessoires 3C dans le domaine OEM/ODM.</p><a href="https://www.linkedin.com/in/snowy-wireless-charger" target="_blank" rel="noopener noreferrer" class="text-xs text-brandOrange hover:underline mt-1 inline-block"><svg class="icon-linkedin mr-1" aria-hidden="true" focusable="false" viewBox="0 0 448 512"><path d="M416 32L31.9 32C14.3 32 0 46.5 0 64.3L0 447.7C0 465.5 14.3 480 31.9 480L416 480c17.6 0 32-14.5 32-32.3l0-383.4C448 46.5 433.6 32 416 32zM135.4 416l-66.4 0 0-213.8 66.5 0 0 213.8-.1 0zM102.2 96a38.5 38.5 0 1 1 0 77 38.5 38.5 0 1 1 0-77zM384.3 416l-66.4 0 0-104c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9l0 105.8-66.4 0 0-213.8 63.7 0 0 29.2.9 0c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9l0 117.2z" fill="currentColor"/></svg>LinkedIn</a></div></div>
  <div class="flex items-start gap-4"><div class="w-16 h-16 rounded-xl bg-brandOrange/10 flex items-center justify-center shrink-0"><svg class="icon-microchip text-2xl text-brandOrange" aria-hidden="true" focusable="false" viewBox="0 0 512 512" width="24" height="24"><path d="M176 24c0-13.3-10.7-24-24-24s-24 10.7-24 24l0 40c-35.3 0-64 28.7-64 64l-40 0c-13.3 0-24 10.7-24 24s10.7 24 24 24l40 0 0 56-40 0c-13.3 0-24 10.7-24 24s10.7 24 24 24l40 0 0 56-40 0c-13.3 0-24 10.7-24 24s10.7 24 24 24l40 0c0 35.3 28.7 64 64 64l0 40c0 13.3 10.7 24 24 24s24-10.7 24-24l0-40 56 0 0 40c0 13.3 10.7 24 24 24s24-10.7 24-24l0-40 56 0 0 40c0 13.3 10.7 24 24 24s24-10.7 24-24l0-40c35.3 0 64-28.7 64-64l40 0c13.3 0 24-10.7 24-24s-10.7-24-24-24l-40 0 0-56 40 0c13.3 0 24-10.7 24-24s-10.7-24-24-24l-40 0 0-56 40 0c13.3 0 24-10.7 24-24s-10.7-24-24-24l-40 0c0-35.3-28.7-64-64-64l0-40c0-13.3-10.7-24-24-24s-24 10.7-24 24l0 40-56 0 0-40c0-13.3-10.7-24-24-24s-24 10.7-24 24l0 40-56 0 0-40zM160 128l192 0c17.7 0 32 14.3 32 32l0 192c0 17.7-14.3 32-32 32l-192 0c-17.7 0-32-14.3-32-32l0-192c0-17.7 14.3-32 32-32zm16 48l0 160 160 0 0-160-160 0z" fill="currentColor"/></svg></div><div><h3 class="font-bold text-brandBlue">Équipe R&D</h3><p class="text-sm text-brandOrange font-medium">Plus de 50 ingénieurs</p><p class="text-xs text-slate-500 mt-1">Spécialises dans la technologie GaN, le Power Delivery et les standards de charge sans fil.</p></div></div>
  </div>
- </div>
+ {% endcall %}
  <div class="reveal order-1 lg:order-2">
  <div class="bg-slate-50 rounded-2xl p-6"><img src="/image/factory/team-working.webp" alt="Équipe WOWOHCOOL" width="600" height="400" class="w-full h-auto rounded-xl object-cover" loading="lazy" decoding="async"></div>
  </div>
@@ -355,11 +336,7 @@ plPath: "o-nas/"
 <!-- ======== HOW WE WORK ======== -->
 <section class="sec bg-slate-50">
  <div class="container-wide">
- <div class="text-center mb-12 reveal">
- <p class="section-label">Processus de bout en bout</p>
- <h2 class="section-title">Comment nous travaillons : du concept au conteneur</h2>
- <p class="section-desc mx-auto">Chaque projet OEM/ODM suit notre processus de fabrication éprouve en 6 étapes. De votre première esquisse au conteneur d'expédition, chaque étape dispose de procédures documentées, d'ingénieurs désignes et de portails qualité.</p>
- </div>
+ {{ sectionHeader('Processus de bout en bout', 'Comment nous travaillons : du concept au conteneur', 'Chaque projet OEM/ODM suit notre processus de fabrication éprouve en 6 étapes. De votre première esquisse au conteneur d\'expédition, chaque étape dispose de procédures documentées, d\'ingénieurs désignes et de portails qualité.', {max: '', mb: 'mb-12'}) }}
  <div class="grid md:grid-cols-3 gap-6">
  <div class="bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition group reveal">
  <img src="/image/factory/02/process-01-industrial-design.webp" srcset="/image/factory/02/process-01-industrial-design-400w.webp 400w, /image/factory/02/process-01-industrial-design.webp 700w" sizes="(min-width: 1440px) 347px, (min-width: 1280px) 347px, (min-width: 1024px) 261px, (min-width: 768px) 176px, (min-width: 430px) 334px, 279px" alt="Phase de design industriel - esquisses de concept produit et modélisation 3D pour le développement OEM de chargeurs" loading="lazy" width="600" height="400" class="w-full h-auto rounded-xl mb-4">
@@ -415,11 +392,7 @@ plPath: "o-nas/"
 
 <section class="sec bg-white">
  <div class="container-content">
- <div class="text-center max-w-3xl mx-auto mb-16 reveal">
- <p class="section-label">Histoires de réussite</p>
- <h2 class="section-title">Des partenaires qui nous font confiance</h2>
- <p class="section-desc mx-auto">Plus de 500 clients B2B satisfaits dans le monde entier, dont des marques leaders en France, Belgique, Suisse et dans toute l'Europe, qui font confiance a notre expertise OEM/ODM. <a href="/fr/etudes-de-cas/" class="text-brandOrange hover:underline font-semibold">Voir toutes les references clients →</a></p>
- </div>
+ {{ sectionHeader('Histoires de réussite', 'Des partenaires qui nous font confiance', 'Plus de 500 clients B2B satisfaits dans le monde entier, dont des marques leaders en France, Belgique, Suisse et dans toute l\'Europe, qui font confiance a notre expertise OEM/ODM. <a href="/fr/etudes-de-cas/" class="text-brandOrange hover:underline font-semibold">Voir toutes les references clients →</a>', {}) }}
  <div class="grid md:grid-cols-2 gap-6 reveal">
  <div class="bg-white p-8 rounded-2xl shadow-lg border-l-8 border-brandOrange flex items-start gap-6">
  <div class="w-16 h-16 rounded-2xl bg-brandOrange/10 flex items-center justify-center shrink-0"><svg class="icon-bolt text-2xl text-brandOrange" aria-hidden="true" focusable="false" viewBox="0 0 448 512">
@@ -440,10 +413,7 @@ plPath: "o-nas/"
 <!-- ======== POURQUOI WOWOHCOOL ======== -->
 <section class="sec bg-white">
  <div class="container-content">
- <div class="text-center max-w-3xl mx-auto mb-12 reveal">
- <p class="section-label">Avantages</p>
- <h2 class="section-title">Pourquoi WOWOHCOOL comme partenaire OEM/ODM ?</h2>
- </div>
+ {{ sectionHeader('Avantages', 'Pourquoi WOWOHCOOL comme partenaire OEM/ODM ?', '', {mb: 'mb-12'}) }}
  <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 reveal">
  <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200 text-center">
  <p class="text-3xl font-black text-brandOrange mb-2">10+</p>
@@ -473,10 +443,7 @@ plPath: "o-nas/"
 <section class="sec bg-white">
  <div class="container-wide">
  <div class="grid md:grid-cols-2 gap-8">
- <div class="bg-slate-50 rounded-3xl p-8 reveal">
- <p class="section-label">Visite d'usine</p>
- <h3 class="text-2xl lg:text-3xl font-black text-slate-900 uppercase italic tracking-tighter mb-4">Visitez <span class="text-brandOrange">notre usine</span></h3>
- <p class="text-sm text-slate-600 leading-relaxed mb-6">Nous accueillons les visites d'usine de partenaires potentiels. Parcourez notre surface de production, rencontrez l'équipe d'ingénierie et voyez notre processus CQ en action. Une visite d'usine est le moyen le plus rapide de vérifier nos capacités.</p>
+ {% call sectionHeader('Visite d\'usine', 'Visitez <span class="text-brandOrange">notre usine</span>', '', {align: '', max: '', mb: '', extra: 'bg-slate-50 rounded-3xl p-8', titleClass: 'text-2xl lg:text-3xl font-black text-slate-900 uppercase italic tracking-tighter mb-4', tag: 'h3'}) %}<p class="text-sm text-slate-600 leading-relaxed mb-6">Nous accueillons les visites d'usine de partenaires potentiels. Parcourez notre surface de production, rencontrez l'équipe d'ingénierie et voyez notre processus CQ en action. Une visite d'usine est le moyen le plus rapide de vérifier nos capacités.</p>
  <ul class="text-sm text-slate-600 space-y-3 mb-6">
  <li><strong>Adresse :</strong> 925, Yichuang International Center, Longhua District, Shenzhen, Guangdong 518111, Chine</li>
  <li><strong>Heures de visite :</strong> Lundi-Vendredi, 9h00-17h00 (UTC+8). Veuillez vous annoncer au moins une semaine à l'avance.</li>
@@ -484,7 +451,7 @@ plPath: "o-nas/"
  <li><strong>Hôtels :</strong> Plusieurs hôtels internationaux a 15 min en voiture. Nous vous aidons pour la réservation.</li>
  </ul>
  <button data-action="open-modal" class="inline-flex items-center gap-2 bg-brandOrange text-white px-6 py-3.5 rounded-xl font-black uppercase tracking-widest text-[11px] shadow-xl hover:-translate-y-1 transition">Inscrire une visite d'usine</button>
- </div>
+ {% endcall %}
  <div class="bg-gradient-to-br from-brandBlue to-slate-800 rounded-3xl p-8 text-white reveal flex flex-col justify-center">
  <h3 class="text-2xl font-black text-white uppercase italic mb-4">Telecharger le profil d'entreprise</h3>
  <p class="text-slate-300 text-sm leading-relaxed mb-6">Recevez notre dossier de capacités complet : spécifications de l'usine, documents de certification, catalogue produits, détails du processus OEM/ODM et études de cas clients. Tout ce dont un responsable achats a besoin en un seul PDF.</p>
@@ -499,25 +466,22 @@ plPath: "o-nas/"
 <!-- ======== FAQ ======== -->
 <section class="sec bg-slate-50">
  <div class="container-narrow">
- <div class="text-center mb-12 reveal">
- <p class="section-label">FAQ</p>
- <h2 class="section-title">Questions fréquentes sur WOWOHCOOL</h2>
- </div>
+ {{ sectionHeader('FAQ', 'Questions fréquentes sur WOWOHCOOL', '', {max: '', mb: 'mb-12'}) }}
  <div class="reveal">
- <details class="faq-item"><summary>Ou se trouve votre usine ?</summary><div class="faq-answer">Notre usine se trouve a Shenzhen, Guangdong, Chine. 5 000 m2 de surface de production certifiée ISO 9001 dans le district de Longhua. Des visites sont possibles sur rendez-vous.</div></details>
- <details class="faq-item"><summary>Combien d'employés compte WOWOHCOOL ?</summary><div class="faq-answer">Plus de 200 employés, dont plus de 50 en recherche et développement. Notre équipe R&D est specialisee dans la technologie GaN, la charge sans fil Qi2 et les batteries semi-solides.</div></details>
- <details class="faq-item"><summary>Depuis quand WOWOHCOOL produit-elle ?</summary><div class="faq-answer">Depuis 2013, nous fabriquons des chargeurs et des powerbanks. Plus de 200 marques dans le monde font confiance a notre expertise OEM/ODM, dont Bosch, Jacob Jensen et Techmade.</div></details>
- <details class="faq-item"><summary>Quels produits fabriquez-vous ?</summary><div class="faq-answer">Quatre lignes de produits : powerbanks (semi-solides, PD 3.1), chargeurs sans fil (Qi2, MagSafe), chargeurs auto (GaN, E-Mark) et chargeurs muraux GaN (67W-100W+).</div></details>
- <details class="faq-item"><summary>Puis-je visiter l'usine ?</summary><div class="faq-answer">Oui, les visites d'usine sont possibles sur rendez-vous. Nous proposons également des visites vidéo par WeChat ou Zoom. Contactez-nous pour prendre rendez-vous.</div></details>
- <details class="faq-item"><summary>Avez-vous un interlocuteur francophone ?</summary><div class="faq-answer">Oui, notre équipe communique en français et en anglais. Votre gestionnaire de compte dédie vous répond sous 24 heures.</div></details>
- <details class="faq-item"><summary>Comment vérifier que WOWOHCOOL est une vraie usine ?</summary><div class="faq-answer">Notre licence commerciale est vérifiable dans le <strong>Registre National des Entreprises de Chine</strong> (gsxt.gov.cn) sous Dong Yi Technology Co., Ltd, enregistrée en 2013. Nous encourageons les visites vidéo en direct, les visites sur site et les audits tiers par Bureau Veritas, SGS ou TUV. La certification ISO 9001 est vérifiable via SGS. Consultez notre <a href="/fr/blog/" class="text-brandOrange hover:underline">checklist de vérification d'usine (EN)</a>.</div></details>
- <details class="faq-item"><summary>Qu'est-ce qui distingue WOWOHCOOL des autres usines de Shenzhen ?</summary><div class="faq-answer">Nous nous spécialisons <strong>exclusivement dans les accessoires de charge</strong> - powerbanks, chargeurs sans fil, chargeurs GaN et chargeurs auto - pas une societe de négoce avec des catégories de produits sans rapport. Nos plus de 13 ans de R&D ciblée incluent la technologie de batterie semi-solide presentee au CES 2026 et l'expertise Qi2 MPP depuis les premiers jours du standard.</div></details>
+ {% call faqItem("Ou se trouve votre usine ?") %}Notre usine se trouve a Shenzhen, Guangdong, Chine. 5 000 m2 de surface de production certifiée ISO 9001 dans le district de Longhua. Des visites sont possibles sur rendez-vous.{% endcall %}
+ {% call faqItem("Combien d'employés compte WOWOHCOOL ?") %}Plus de 200 employés, dont plus de 50 en recherche et développement. Notre équipe R&D est specialisee dans la technologie GaN, la charge sans fil Qi2 et les batteries semi-solides.{% endcall %}
+ {% call faqItem("Depuis quand WOWOHCOOL produit-elle ?") %}Depuis 2013, nous fabriquons des chargeurs et des powerbanks. Plus de 200 marques dans le monde font confiance a notre expertise OEM/ODM, dont Bosch, Jacob Jensen et Techmade.{% endcall %}
+ {% call faqItem("Quels produits fabriquez-vous ?") %}Quatre lignes de produits : powerbanks (semi-solides, PD 3.1), chargeurs sans fil (Qi2, MagSafe), chargeurs auto (GaN, E-Mark) et chargeurs muraux GaN (67W-100W+).{% endcall %}
+ {% call faqItem("Puis-je visiter l'usine ?") %}Oui, les visites d'usine sont possibles sur rendez-vous. Nous proposons également des visites vidéo par WeChat ou Zoom. Contactez-nous pour prendre rendez-vous.{% endcall %}
+ {% call faqItem("Avez-vous un interlocuteur francophone ?") %}Oui, notre équipe communique en français et en anglais. Votre gestionnaire de compte dédie vous répond sous 24 heures.{% endcall %}
+ {% call faqItem("Comment vérifier que WOWOHCOOL est une vraie usine ?") %}Notre licence commerciale est vérifiable dans le <strong>Registre National des Entreprises de Chine</strong> (gsxt.gov.cn) sous Dong Yi Technology Co., Ltd, enregistrée en 2013. Nous encourageons les visites vidéo en direct, les visites sur site et les audits tiers par Bureau Veritas, SGS ou TUV. La certification ISO 9001 est vérifiable via SGS. Consultez notre <a href="/fr/blog/" class="text-brandOrange hover:underline">checklist de vérification d'usine (EN)</a>.{% endcall %}
+ {% call faqItem("Qu'est-ce qui distingue WOWOHCOOL des autres usines de Shenzhen ?") %}Nous nous spécialisons <strong>exclusivement dans les accessoires de charge</strong> - powerbanks, chargeurs sans fil, chargeurs GaN et chargeurs auto - pas une societe de négoce avec des catégories de produits sans rapport. Nos plus de 13 ans de R&D ciblée incluent la technologie de batterie semi-solide presentee au CES 2026 et l'expertise Qi2 MPP depuis les premiers jours du standard.{% endcall %}
  </div>
  </div>
 </section>
 
 <section class="sec bg-brandBlue"><div class="container-narrow text-center">
- <div class="reveal"><p class="section-label">Contact</p><h2 class="text-3xl md:text-5xl font-black text-white leading-tight mb-4 italic uppercase">Prêt pour le partenariat ?<br><span class="text-brandOrange">Contactez-nous maintenant</span></h2><p class="text-slate-300 text-lg max-w-2xl mx-auto mb-8">Réponse personnalisée sous 24 heures.</p></div>
+ {% call sectionHeader('Contact', 'Prêt pour le partenariat ?<br><span class="text-brandOrange">Contactez-nous maintenant</span>', '', {align: '', max: '', mb: '', titleClass: 'text-3xl md:text-5xl font-black text-white leading-tight mb-4 italic uppercase'}) %}<p class="text-slate-300 text-lg max-w-2xl mx-auto mb-8">Réponse personnalisée sous 24 heures.</p>{% endcall %}
  <div class="max-w-xl mx-auto reveal">
  <form action="https://api.web3forms.com/submit" method="POST" class="inquiry-form space-y-4">
  <input type="hidden" name="access_key" value="ac5fe4cd-2dd7-4aff-818d-bb36021b4942">
@@ -531,7 +495,7 @@ plPath: "o-nas/"
  <label class="block text-sm font-semibold text-white mb-1">E-mail *</label><input type="email" name="email" required placeholder="entreprise@exemple.com" autocomplete="email" class="w-full px-4 py-3.5 rounded-xl border border-white/20 bg-white/10 text-white placeholder:text-white/50 focus:outline-none focus:border-brandOrange text-sm">
  <textarea required minlength="10" name="message" rows="3" placeholder="Votre message (quantité, spécifications)" class="w-full px-4 py-3.5 rounded-xl border border-white/20 bg-white/10 text-white placeholder:text-white/50 focus:outline-none focus:border-brandOrange text-sm resize-none"></textarea>
  <label class="flex items-start gap-3 text-left"><input type="checkbox" required class="mt-1 accent-brandOrange"><span class="text-xs text-slate-500">J'ai pris connaissance de la <a href="/fr/confidentialite/" class="text-brandOrange hover:underline">politique de confidentialité</a>. *</span></label>
- <button type="submit" class="w-full bg-brandOrange text-white py-4 rounded-xl font-bold text-base hover:bg-brandBlue transition-all duration-300 shadow-lg shadow-brandOrange/20 flex items-center justify-center gap-3">Obtenir un devis gratuit <svg class="icon-arrow-right" aria-hidden="true" focusable="false" viewBox="0 0 512 512">
+ <button type="submit" class="btn-form">Obtenir un devis gratuit <svg class="icon-arrow-right" aria-hidden="true" focusable="false" viewBox="0 0 512 512">
  <path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-105.4 105.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" fill="currentColor"/>
  </svg></button>
  </form>

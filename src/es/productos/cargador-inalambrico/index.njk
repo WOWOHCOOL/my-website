@@ -69,15 +69,15 @@ plPath: "produkty/ladowarka-bezprzewodowa/"
 
 {% block content %}
 {% from "breadcrumb.njk" import breadcrumb %}
-{{ breadcrumb([{name:"Inicio",url:"/es/"},{name:"Productos",url:"/es/productos/"},{name:"Cargador Inalámbrico"}]) }}
 
 <!-- ======== HERO ======== -->
-<section class="relative pt-0 pb-8 lg:pb-16 bg-white overflow-hidden">
+<section class="relative pt-24 md:pt-28 pb-8 lg:pb-16 bg-white overflow-hidden">
  <div class="absolute inset-0 pointer-events-none">
  <div class="absolute top-0 left-0 w-64 h-64 bg-brandOrange opacity-10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
  <div class="absolute bottom-0 right-0 w-64 h-64 bg-brandBlue opacity-10 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
  </div>
  <div class="container-wide relative z-10">
+  {{ breadcrumb([{name:"Inicio",url:"/es/"},{name:"Productos",url:"/es/productos/"},{name:"Cargador Inalámbrico"}], "none", "mb-6", { variant: "hero" }) }}
  <div class="grid lg:grid-cols-2 gap-12 items-center">
  <div class="reveal order-2 lg:order-1">
  <div class="inline-flex items-center gap-2 bg-brandOrange/10 text-brandOrange text-[11px] font-bold px-4 py-2 rounded-full tracking-widest uppercase mb-4">
@@ -119,11 +119,7 @@ plPath: "produkty/ladowarka-bezprzewodowa/"
 <!-- ======== 3 CATEGORÍAS DE CARGA INALÁMBRICA ======== -->
 <section class="sec bg-white">
  <div class="container-wide">
- <div class="text-center mb-12 reveal">
- <div class="inline-block px-4 py-1 bg-brandOrange/10 border border-brandOrange/20 rounded-full text-[11px] font-bold text-brandOrange uppercase tracking-widest mb-6">Matriz de producto</div>
- <h2 class="section-title">3 Líneas de <span class="text-brandOrange">Cargadores Inalámbricos OEM</span></h2>
- <p class="section-desc mx-auto">Clasificación estándar por formato y caso de uso. Cada línea orientada a un segmento B2B específico.</p>
- </div>
+ {{ sectionHeader('Matriz de producto', '3 Líneas de <span class="text-brandOrange">Cargadores Inalámbricos OEM</span>', 'Clasificación estándar por formato y caso de uso. Cada línea orientada a un segmento B2B específico.', { max: '', mb: 'mb-12', labelStyle: 'pill', pillClass: 'bg-brandOrange/10', pillMb: 'mb-6' }) }}
 
  <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
  <!-- Escritorio -->
@@ -172,11 +168,7 @@ plPath: "produkty/ladowarka-bezprzewodowa/"
 <!-- ======== COMPARATIVA TECNOLÓGICA ======== -->
 <section class="sec bg-white">
  <div class="container-content">
- <div class="text-center mb-12 reveal">
- <p class="section-label">Comparativa</p>
- <h2 class="section-title">qi2 vs MagSafe vs Qi (v1)</h2>
- <p class="section-desc mx-auto">Qi2 con MPP (Magnetic Power Profile) es el estándar universal que combina la alineación magnética de MagSafe con compatibilidad abierta. Datos actualizados a 2026.</p>
- </div>
+ {{ sectionHeader('Comparativa', 'qi2 vs MagSafe vs Qi (v1)', 'Qi2 con MPP (Magnetic Power Profile) es el estándar universal que combina la alineación magnética de MagSafe con compatibilidad abierta. Datos actualizados a 2026.', {max: '', mb: 'mb-12'}) }}
  <div class="overflow-x-auto reveal">
  <table class="w-full text-sm border-collapse">
  <thead><tr class="bg-brandBlue text-white text-left">
@@ -203,11 +195,7 @@ plPath: "produkty/ladowarka-bezprzewodowa/"
 <!-- ======== CERTIFICACIONES ======== -->
 <section class="sec bg-slate-50">
  <div class="container-content">
- <div class="text-center mb-12 reveal">
- <p class="section-label">Certificaciones</p>
- <h2 class="section-title">Certificación WPC + CE RED para el mercado europeo</h2>
- <p class="section-desc mx-auto">Los cargadores inalámbricos requieren certificaciones específicas para la UE. WOWOHCOOL gestiona todo el proceso con 47 productos Qi2 certificados.</p>
- </div>
+ {{ sectionHeader('Certificaciones', 'Certificación WPC + CE RED para el mercado europeo', 'Los cargadores inalámbricos requieren certificaciones específicas para la UE. WOWOHCOOL gestiona todo el proceso con 47 productos Qi2 certificados.', {max: '', mb: 'mb-12'}) }}
  <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 reveal">
  <div class="bg-white rounded-xl p-6 shadow-sm border border-slate-100 text-center">
   <div class="w-12 h-12 bg-brandOrange/10 rounded-full flex items-center justify-center mx-auto mb-3"><span class="text-brandOrange font-bold text-lg">WPC</span></div>
@@ -236,17 +224,17 @@ plPath: "produkty/ladowarka-bezprzewodowa/"
 <!-- ======== FAQ ======== -->
 <section class="py-16 bg-white">
  <div class="container-narrow">
- <div class="text-center mb-10 reveal"><p class="section-label">FAQ</p><h2 class="section-title">Preguntas frecuentes</h2></div>
+ {{ sectionHeader('FAQ', 'Preguntas frecuentes', '', {max: '', mb: 'mb-10'}) }}
  <div class="reveal">
- <details class="faq-item"><summary>¿Qué es la certificación Qi2?</summary><div class="faq-answer">Qi2 es el nuevo estándar de carga inalámbrica del WPC (Wireless Power Consortium) que incluye <strong>alineación magnética MPP</strong> (Magnetic Power Profile), similar a MagSafe, garantizando carga eficiente y segura sin necesidad de buscar la posición exacta.</div></details>
- <details class="faq-item"><summary>¿Ofrecen certificación WPC?</summary><div class="faq-answer">Sí, gestionamos la <strong>certificación WPC</strong> para todos nuestros cargadores inalámbricos Qi2, garantizando compatibilidad total con todos los dispositivos Qi2 del mercado. Nuestra fábrica cuenta con 47 productos certificados Qi2.</div></details>
- <details class="faq-item"><summary>¿Son compatibles con iPhone y Android?</summary><div class="faq-answer">Sí, todos nuestros cargadores Qi2 funcionan con <strong>iPhone 12+</strong> (MagSafe), <strong>Samsung Galaxy S24/S25</strong>, Google Pixel y cualquier dispositivo compatible con Qi/Qi2. Los modelos 3-en-1 también cargan Apple Watch y AirPods.</div></details>
- <details class="faq-item"><summary>¿Cuál es el MOQ?</summary><div class="faq-answer"><strong>500 unidades</strong> por modelo para pedidos OEM. Proyectos ODM con diseño personalizado: <strong>1.000 unidades</strong>. Muestras en 7-15 días.</div></details>
- <details class="faq-item"><summary>¿Ofrecen personalización de color y logotipo?</summary><div class="faq-answer">Sí, personalización completa: <strong>logotipo</strong> (grabado láser, serigrafía), <strong>color</strong> (Pantone), <strong>embalaje</strong> a medida y manual de usuario en español. Nuestro servicio CMF (Color, Material, Acabado) está disponible para proyectos ODM.</div></details>
- <details class="faq-item"><summary>¿Necesito certificación RED para cargadores inalámbricos?</summary><div class="faq-answer">Sí, los cargadores inalámbricos con comunicación inalámbrica (Qi/Qi2) están sujetos a la <strong>Directiva de Equipos Radioeléctricos (RED 2014/53/UE)</strong>. Todos nuestros modelos la cumplen. Gestionamos la documentación completa y la Declaración de Conformidad.</div></details>
- <details class="faq-item"><summary>¿Son compatibles los cargadores Qi2 con fundas protectoras?</summary><div class="faq-answer">Sí, son compatibles con la mayoría de fundas de hasta <strong>3mm de grosor</strong>. Las fundas que contengan imanes, soportes metálicos, tarjetas de crédito o elementos magnéticos pueden interferir con la alineación MPP y reducir la eficiencia de carga.</div></details>
- <details class="faq-item"><summary>¿Ofrecen certificación WPC oficial?</summary><div class="faq-answer">Sí, nuestros modelos Qi2 cuentan con <strong>certificación oficial del WPC</strong> (Wireless Power Consortium). Esto garantiza compatibilidad total con todos los dispositivos Qi2 del mercado, incluyendo iPhone 12+ y Samsung Galaxy S24/S25.</div></details>
- <details class="faq-item"><summary>¿Cuál es la diferencia entre Qi2 y MagSafe?</summary><div class="faq-answer">Qi2 MPP (Magnetic Power Profile) es el estándar universal del WPC basado en la tecnología MagSafe de Apple. Mientras MagSafe solo funciona con Apple, <strong>Qi2 es compatible con iPhone y Android</strong>. Ambos utilizan alineación magnética para garantizar carga eficiente.</div></details>
+ {% call faqItem("¿Qué es la certificación Qi2?") %}Qi2 es el nuevo estándar de carga inalámbrica del WPC (Wireless Power Consortium) que incluye <strong>alineación magnética MPP</strong> (Magnetic Power Profile), similar a MagSafe, garantizando carga eficiente y segura sin necesidad de buscar la posición exacta.{% endcall %}
+ {% call faqItem("¿Ofrecen certificación WPC?") %}Sí, gestionamos la <strong>certificación WPC</strong> para todos nuestros cargadores inalámbricos Qi2, garantizando compatibilidad total con todos los dispositivos Qi2 del mercado. Nuestra fábrica cuenta con 47 productos certificados Qi2.{% endcall %}
+ {% call faqItem("¿Son compatibles con iPhone y Android?") %}Sí, todos nuestros cargadores Qi2 funcionan con <strong>iPhone 12+</strong> (MagSafe), <strong>Samsung Galaxy S24/S25</strong>, Google Pixel y cualquier dispositivo compatible con Qi/Qi2. Los modelos 3-en-1 también cargan Apple Watch y AirPods.{% endcall %}
+ {% call faqItem("¿Cuál es el MOQ?") %}<strong>500 unidades</strong> por modelo para pedidos OEM. Proyectos ODM con diseño personalizado: <strong>1.000 unidades</strong>. Muestras en 7-15 días.{% endcall %}
+ {% call faqItem("¿Ofrecen personalización de color y logotipo?") %}Sí, personalización completa: <strong>logotipo</strong> (grabado láser, serigrafía), <strong>color</strong> (Pantone), <strong>embalaje</strong> a medida y manual de usuario en español. Nuestro servicio CMF (Color, Material, Acabado) está disponible para proyectos ODM.{% endcall %}
+ {% call faqItem("¿Necesito certificación RED para cargadores inalámbricos?") %}Sí, los cargadores inalámbricos con comunicación inalámbrica (Qi/Qi2) están sujetos a la <strong>Directiva de Equipos Radioeléctricos (RED 2014/53/UE)</strong>. Todos nuestros modelos la cumplen. Gestionamos la documentación completa y la Declaración de Conformidad.{% endcall %}
+ {% call faqItem("¿Son compatibles los cargadores Qi2 con fundas protectoras?") %}Sí, son compatibles con la mayoría de fundas de hasta <strong>3mm de grosor</strong>. Las fundas que contengan imanes, soportes metálicos, tarjetas de crédito o elementos magnéticos pueden interferir con la alineación MPP y reducir la eficiencia de carga.{% endcall %}
+ {% call faqItem("¿Ofrecen certificación WPC oficial?") %}Sí, nuestros modelos Qi2 cuentan con <strong>certificación oficial del WPC</strong> (Wireless Power Consortium). Esto garantiza compatibilidad total con todos los dispositivos Qi2 del mercado, incluyendo iPhone 12+ y Samsung Galaxy S24/S25.{% endcall %}
+ {% call faqItem("¿Cuál es la diferencia entre Qi2 y MagSafe?") %}Qi2 MPP (Magnetic Power Profile) es el estándar universal del WPC basado en la tecnología MagSafe de Apple. Mientras MagSafe solo funciona con Apple, <strong>Qi2 es compatible con iPhone y Android</strong>. Ambos utilizan alineación magnética para garantizar carga eficiente.{% endcall %}
  </div>
  </div>
 </section>
@@ -254,14 +242,11 @@ plPath: "produkty/ladowarka-bezprzewodowa/"
 <!-- ======== CTA ======== -->
 <section class="sec bg-brandBlue relative overflow-hidden">
  <div class="absolute bottom-0 left-0 w-1/2 h-1/2 bg-gradient-to-tr from-brandOrange/5 to-transparent"></div>
- <div class="container-narrow text-center relative z-10 reveal">
- <p class="section-label">Comience ahora</p>
- <h2 class="text-3xl md:text-5xl font-black text-white leading-tight mb-4 italic uppercase">Solicite su <span class="text-brandOrange">presupuesto</span></h2>
- <p class="text-slate-300 text-lg mb-8">Respuesta en 24 horas. Presupuesto personalizado para su proyecto de carga inalámbrica.</p>
+ {% call sectionHeader('Comience ahora', 'Solicite su <span class="text-brandOrange">presupuesto</span>', '', {max: '', mb: '', extra: 'container-narrow relative z-10', titleClass: 'text-3xl md:text-5xl font-black text-white leading-tight mb-4 italic uppercase'}) %}<p class="text-slate-300 text-lg mb-8">Respuesta en 24 horas. Presupuesto personalizado para su proyecto de carga inalámbrica.</p>
  <div class="flex flex-col sm:flex-row gap-4 justify-center">
  <button data-action="open-modal" class="btn-primary text-base px-8 py-4 shadow-lg shadow-brandOrange/20 cursor-pointer">Solicitar presupuesto <svg class="icon-arrow-right" viewBox="0 0 512 512"><path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-105.4 105.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" fill="currentColor"/></svg></button>
  <a href="https://wa.me/8618620789739" target="_blank" rel="noopener noreferrer" class="btn-outline-white text-base px-8 py-4">WhatsApp <svg class="icon-whatsapp" viewBox="0 0 448 512"><path d="M380.9 97.1c-41.9-42-97.7-65.1-157-65.1-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480 117.7 449.1c32.4 17.7 68.9 27 106.1 27l.1 0c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3 18.6-68.1-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1s56.2 81.2 56.1 130.5c0 101.8-84.9 184.6-186.6 184.6zM325.1 300.5c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8s-14.3 18-17.6 21.8c-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7s-12.5-30.1-17.1-41.2c-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2s-9.7 1.4-14.8 6.9c-5.1 5.6-19.4 19-19.4 46.3s19.9 53.7 22.6 57.4c2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4s4.6-24.1 3.2-26.4c-1.3-2.5-5-3.9-10.5-6.6z" fill="currentColor"/></svg></a>
  </div>
- </div>
+ {% endcall %}
 </section>
 {% endblock %}

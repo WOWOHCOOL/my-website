@@ -193,11 +193,7 @@ plPath: "blog/"
 {% block content %}
 <div class="max-w-7xl mx-auto px-6 pt-24 md:pt-28 blog-content">
  <!-- Breadcrumb -->
- <nav class="text-sm text-slate-500 mb-6">
- <a href="/" class="hover:text-brandOrange">Home</a>
- <span class="mx-2">/</span>
- <span class="text-slate-900">Blog</span>
- </nav>
+ {{ breadcrumb([{name: "Home", url: "/"}, {name: "Blog"}], "none", "mb-6", { variant: "hero" }) }}
  <!-- HERO -->
  <div class="text-center mb-12 relative">
  <div class="absolute inset-0 z-0 pointer-events-none">
@@ -352,50 +348,50 @@ plPath: "blog/"
  <a href="/products/gan-charger" class="inline-block px-2.5 py-1 bg-brandOrange/20 text-brandOrange border border-brandOrange/20 text-[11px] font-bold rounded-lg hover:bg-brandOrange hover:text-white hover:border-brandOrange transition-all">GaN Charger</a>
  <a href="/products/power-bank" class="inline-block px-2.5 py-1 bg-brandOrange/20 text-brandOrange border border-brandOrange/20 text-[11px] font-bold rounded-lg hover:bg-brandOrange hover:text-white hover:border-brandOrange transition-all">Power Bank</a>
  <a href="/products/car-charger" class="inline-block px-2.5 py-1 bg-brandOrange/20 text-brandOrange border border-brandOrange/20 text-[11px] font-bold rounded-lg hover:bg-brandOrange hover:text-white hover:border-brandOrange transition-all">Car Charger</a>
- <a href="/blog/qi2-vs-magsafe-guide" class="inline-block px-2.5 py-1 bg-white/10 text-slate-300 text-[11px] font-bold rounded-lg hover:bg-brandOrange hover:text-white hover:border-brandOrange transition-all">Qi2</a>
- <a href="/blog/wireless-charging-works" class="inline-block px-2.5 py-1 bg-white/10 text-slate-300 text-[11px] font-bold rounded-lg hover:bg-brandOrange hover:text-white hover:border-brandOrange transition-all">MagSafe</a>
- <a href="/blog/gan-chargers-guide" class="inline-block px-2.5 py-1 bg-white/10 text-slate-300 text-[11px] font-bold rounded-lg hover:bg-brandOrange hover:text-white hover:border-brandOrange transition-all">GaN Technology</a>
- <a href="/blog/usb-c-pd-fast-charging-guide" class="inline-block px-2.5 py-1 bg-white/10 text-slate-300 text-[11px] font-bold rounded-lg hover:bg-brandOrange hover:text-white hover:border-brandOrange transition-all">Power Delivery</a>
- <a href="/blog/factory-verification-checklist" class="inline-block px-2.5 py-1 bg-white/10 text-slate-300 text-[11px] font-bold rounded-lg hover:bg-brandOrange hover:text-white hover:border-brandOrange transition-all">Factory Audit</a>
+ <a href="/blog/qi2-vs-magsafe-guide" class="chip-glass">Qi2</a>
+ <a href="/blog/wireless-charging-works" class="chip-glass">MagSafe</a>
+ <a href="/blog/gan-chargers-guide" class="chip-glass">GaN Technology</a>
+ <a href="/blog/usb-c-pd-fast-charging-guide" class="chip-glass">Power Delivery</a>
+ <a href="/blog/factory-verification-checklist" class="chip-glass">Factory Audit</a>
  <a href="/blog/oem-vs-odm-guide" class="inline-block px-2.5 py-1 bg-white/15 text-white border border-white/10 text-[11px] font-bold rounded-lg hover:bg-brandOrange hover:text-white hover:border-brandOrange transition-all">OEM/ODM</a>
- <a href="/blog/top-power-bank-manufacturers-china" class="inline-block px-2.5 py-1 bg-white/10 text-slate-300 text-[11px] font-bold rounded-lg hover:bg-brandOrange hover:text-white hover:border-brandOrange transition-all">Manufacturers</a>
- <a href="/blog/choose-reliable-china-charger-supplier" class="inline-block px-2.5 py-1 bg-white/10 text-slate-300 text-[11px] font-bold rounded-lg hover:bg-brandOrange hover:text-white hover:border-brandOrange transition-all">Sourcing Guide</a>
- <a href="/blog/quality-control-guide" class="inline-block px-2.5 py-1 bg-white/10 text-slate-300 text-[11px] font-bold rounded-lg hover:bg-brandOrange hover:text-white hover:border-brandOrange transition-all">Quality Control</a>
- <a href="/blog/import-costs-guide" class="inline-block px-2.5 py-1 bg-white/10 text-slate-300 text-[11px] font-bold rounded-lg hover:bg-brandOrange hover:text-white hover:border-brandOrange transition-all">Import Costs</a>
- <a href="/blog/shipping-from-china-guide" class="inline-block px-2.5 py-1 bg-white/10 text-slate-300 text-[11px] font-bold rounded-lg hover:bg-brandOrange hover:text-white hover:border-brandOrange transition-all">Shipping</a>
- <a href="/blog/certifications-us-eu-guide" class="inline-block px-2.5 py-1 bg-white/10 text-slate-300 text-[11px] font-bold rounded-lg hover:bg-brandOrange hover:text-white hover:border-brandOrange transition-all">CE/FCC</a>
- <a href="/blog/charger-safety-standards" class="inline-block px-2.5 py-1 bg-white/10 text-slate-300 text-[11px] font-bold rounded-lg hover:bg-brandOrange hover:text-white hover:border-brandOrange transition-all">Safety Standards</a>
- <a href="/blog/qi-certification-guide" class="inline-block px-2.5 py-1 bg-white/10 text-slate-300 text-[11px] font-bold rounded-lg hover:bg-brandOrange hover:text-white hover:border-brandOrange transition-all">Qi Certification</a>
- <a href="/blog/semi-solid-state-power-bank-oem" class="inline-block px-2.5 py-1 bg-white/10 text-slate-300 text-[11px] font-bold rounded-lg hover:bg-brandOrange hover:text-white hover:border-brandOrange transition-all">Semi-Solid-State</a>
- <a href="/blog/gan-v-charger-oem-manufacturing" class="inline-block px-2.5 py-1 bg-white/10 text-slate-300 text-[11px] font-bold rounded-lg hover:bg-brandOrange hover:text-white hover:border-brandOrange transition-all">GaN V OEM</a>
- <a href="/blog/hotel-charging-solutions" class="inline-block px-2.5 py-1 bg-white/10 text-slate-300 text-[11px] font-bold rounded-lg hover:bg-brandOrange hover:text-white hover:border-brandOrange transition-all">Hotel Charging</a>
- <a href="/blog/power-bank-specs-guide" class="inline-block px-2.5 py-1 bg-white/10 text-slate-300 text-[11px] font-bold rounded-lg hover:bg-brandOrange hover:text-white hover:border-brandOrange transition-all">Power Bank Specs</a>
- <a href="/blog/car-charger-guide" class="inline-block px-2.5 py-1 bg-white/10 text-slate-300 text-[11px] font-bold rounded-lg hover:bg-brandOrange hover:text-white hover:border-brandOrange transition-all">Car Charger Guide</a>
- <a href="/blog/usb-c-pd-fast-charging-guide" class="inline-block px-2.5 py-1 bg-white/10 text-slate-300 text-[11px] font-bold rounded-lg hover:bg-brandOrange hover:text-white hover:border-brandOrange transition-all">USB-C PD</a>
- <a href="/blog/how-to-choose-factory" class="inline-block px-2.5 py-1 bg-white/10 text-slate-300 text-[11px] font-bold rounded-lg hover:bg-brandOrange hover:text-white hover:border-brandOrange transition-all">China Factory</a>
- <a href="/blog/semi-solid-state-power-bank-oem" class="inline-block px-2.5 py-1 bg-white/10 text-slate-300 text-[11px] font-bold rounded-lg hover:bg-brandOrange hover:text-white hover:border-brandOrange transition-all">Battery Tech</a>
- <a href="/blog/import-costs-guide" class="inline-block px-2.5 py-1 bg-white/10 text-slate-300 text-[11px] font-bold rounded-lg hover:bg-brandOrange hover:text-white hover:border-brandOrange transition-all">Duty & Tax</a>
+ <a href="/blog/top-power-bank-manufacturers-china" class="chip-glass">Manufacturers</a>
+ <a href="/blog/choose-reliable-china-charger-supplier" class="chip-glass">Sourcing Guide</a>
+ <a href="/blog/quality-control-guide" class="chip-glass">Quality Control</a>
+ <a href="/blog/import-costs-guide" class="chip-glass">Import Costs</a>
+ <a href="/blog/shipping-from-china-guide" class="chip-glass">Shipping</a>
+ <a href="/blog/certifications-us-eu-guide" class="chip-glass">CE/FCC</a>
+ <a href="/blog/charger-safety-standards" class="chip-glass">Safety Standards</a>
+ <a href="/blog/qi-certification-guide" class="chip-glass">Qi Certification</a>
+ <a href="/blog/semi-solid-state-power-bank-oem" class="chip-glass">Semi-Solid-State</a>
+ <a href="/blog/gan-v-charger-oem-manufacturing" class="chip-glass">GaN V OEM</a>
+ <a href="/blog/hotel-charging-solutions" class="chip-glass">Hotel Charging</a>
+ <a href="/blog/power-bank-specs-guide" class="chip-glass">Power Bank Specs</a>
+ <a href="/blog/car-charger-guide" class="chip-glass">Car Charger Guide</a>
+ <a href="/blog/usb-c-pd-fast-charging-guide" class="chip-glass">USB-C PD</a>
+ <a href="/blog/how-to-choose-factory" class="chip-glass">China Factory</a>
+ <a href="/blog/semi-solid-state-power-bank-oem" class="chip-glass">Battery Tech</a>
+ <a href="/blog/import-costs-guide" class="chip-glass">Duty & Tax</a>
  <a href="/blog/what-is-gan-charger" class="inline-block px-2.5 py-1 bg-white/15 text-white border border-white/10 text-[11px] font-bold rounded-lg hover:bg-brandOrange hover:text-white hover:border-brandOrange transition-all">What Is GaN</a>
  <a href="/blog/gan-vs-silicon-charger-comparison" class="inline-block px-2.5 py-1 bg-white/15 text-white border border-white/10 text-[11px] font-bold rounded-lg hover:bg-brandOrange hover:text-white hover:border-brandOrange transition-all">GaN vs Silicon</a>
  <a href="/blog/how-to-choose-power-bank" class="inline-block px-2.5 py-1 bg-white/15 text-white border border-white/10 text-[11px] font-bold rounded-lg hover:bg-brandOrange hover:text-white hover:border-brandOrange transition-all">Power Bank Guide</a>
  <a href="/blog/power-bank-mah-explained" class="inline-block px-2.5 py-1 bg-white/15 text-white border border-white/10 text-[11px] font-bold rounded-lg hover:bg-brandOrange hover:text-white hover:border-brandOrange transition-all">mAh Explained</a>
  <a href="/blog/usb-c-pd-3-1-explained" class="inline-block px-2.5 py-1 bg-white/15 text-white border border-white/10 text-[11px] font-bold rounded-lg hover:bg-brandOrange hover:text-white hover:border-brandOrange transition-all">PD 3.1 Explained</a>
- <a href="/products/power-bank" class="inline-block px-2.5 py-1 bg-white/10 text-slate-300 text-[11px] font-bold rounded-lg hover:bg-brandOrange hover:text-white hover:border-brandOrange transition-all">Wholesale Power Bank</a>
- <a href="/service" class="inline-block px-2.5 py-1 bg-white/10 text-slate-300 text-[11px] font-bold rounded-lg hover:bg-brandOrange hover:text-white hover:border-brandOrange transition-all">Custom Charger Manufacturing</a>
- <a href="/blog/qi2-vs-magsafe-guide" class="inline-block px-2.5 py-1 bg-white/10 text-slate-300 text-[11px] font-bold rounded-lg hover:bg-brandOrange hover:text-white hover:border-brandOrange transition-all">Qi2 Wireless Charger</a>
- <a href="/blog/oem-vs-odm-guide" class="inline-block px-2.5 py-1 bg-white/10 text-slate-300 text-[11px] font-bold rounded-lg hover:bg-brandOrange hover:text-white hover:border-brandOrange transition-all">Private Label Charger</a>
- <a href="/products/gan-charger" class="inline-block px-2.5 py-1 bg-white/10 text-slate-300 text-[11px] font-bold rounded-lg hover:bg-brandOrange hover:text-white hover:border-brandOrange transition-all">Fast Charger OEM</a>
- <a href="/blog/qi-certification-guide" class="inline-block px-2.5 py-1 bg-white/10 text-slate-300 text-[11px] font-bold rounded-lg hover:bg-brandOrange hover:text-white hover:border-brandOrange transition-all">WPC Certification</a>
- <a href="/about" class="inline-block px-2.5 py-1 bg-white/10 text-slate-300 text-[11px] font-bold rounded-lg hover:bg-brandOrange hover:text-white hover:border-brandOrange transition-all">Shenzhen Factory</a>
- <a href="/blog/top-power-bank-manufacturers-china" class="inline-block px-2.5 py-1 bg-white/10 text-slate-300 text-[11px] font-bold rounded-lg hover:bg-brandOrange hover:text-white hover:border-brandOrange transition-all">OEM Supplier China</a>
- <a href="/products/wireless-charger" class="inline-block px-2.5 py-1 bg-white/10 text-slate-300 text-[11px] font-bold rounded-lg hover:bg-brandOrange hover:text-white hover:border-brandOrange transition-all">Wireless Charger Factory</a>
- <a href="/blog/charger-safety-standards" class="inline-block px-2.5 py-1 bg-white/10 text-slate-300 text-[11px] font-bold rounded-lg hover:bg-brandOrange hover:text-white hover:border-brandOrange transition-all">UL ETL Certification</a>
- <a href="/blog/shipping-from-china-guide" class="inline-block px-2.5 py-1 bg-white/10 text-slate-300 text-[11px] font-bold rounded-lg hover:bg-brandOrange hover:text-white hover:border-brandOrange transition-all">DDP Shipping</a>
- <a href="/blog/import-costs-guide" class="inline-block px-2.5 py-1 bg-white/10 text-slate-300 text-[11px] font-bold rounded-lg hover:bg-brandOrange hover:text-white hover:border-brandOrange transition-all">Landed Cost</a>
- <a href="/products/power-bank" class="inline-block px-2.5 py-1 bg-white/10 text-slate-300 text-[11px] font-bold rounded-lg hover:bg-brandOrange hover:text-white hover:border-brandOrange transition-all">PD 3.1 Power Bank</a>
- <a href="/service" class="inline-block px-2.5 py-1 bg-white/10 text-slate-300 text-[11px] font-bold rounded-lg hover:bg-brandOrange hover:text-white hover:border-brandOrange transition-all">OEM Manufacturing China</a>
- <a href="/blog/choose-reliable-china-charger-supplier" class="inline-block px-2.5 py-1 bg-white/10 text-slate-300 text-[11px] font-bold rounded-lg hover:bg-brandOrange hover:text-white hover:border-brandOrange transition-all">Supplier Verification</a>
- <a href="/blog/factory-verification-checklist" class="inline-block px-2.5 py-1 bg-white/10 text-slate-300 text-[11px] font-bold rounded-lg hover:bg-brandOrange hover:text-white hover:border-brandOrange transition-all">Factory Inspection</a>
+ <a href="/products/power-bank" class="chip-glass">Wholesale Power Bank</a>
+ <a href="/service" class="chip-glass">Custom Charger Manufacturing</a>
+ <a href="/blog/qi2-vs-magsafe-guide" class="chip-glass">Qi2 Wireless Charger</a>
+ <a href="/blog/oem-vs-odm-guide" class="chip-glass">Private Label Charger</a>
+ <a href="/products/gan-charger" class="chip-glass">Fast Charger OEM</a>
+ <a href="/blog/qi-certification-guide" class="chip-glass">WPC Certification</a>
+ <a href="/about" class="chip-glass">Shenzhen Factory</a>
+ <a href="/blog/top-power-bank-manufacturers-china" class="chip-glass">OEM Supplier China</a>
+ <a href="/products/wireless-charger" class="chip-glass">Wireless Charger Factory</a>
+ <a href="/blog/charger-safety-standards" class="chip-glass">UL ETL Certification</a>
+ <a href="/blog/shipping-from-china-guide" class="chip-glass">DDP Shipping</a>
+ <a href="/blog/import-costs-guide" class="chip-glass">Landed Cost</a>
+ <a href="/products/power-bank" class="chip-glass">PD 3.1 Power Bank</a>
+ <a href="/service" class="chip-glass">OEM Manufacturing China</a>
+ <a href="/blog/choose-reliable-china-charger-supplier" class="chip-glass">Supplier Verification</a>
+ <a href="/blog/factory-verification-checklist" class="chip-glass">Factory Inspection</a>
  </div>
  </div>
  </div>

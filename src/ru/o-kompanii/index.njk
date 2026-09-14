@@ -101,14 +101,15 @@ navActive: "about"
 
 {% block content %}
 {% from "breadcrumb.njk" import breadcrumb %}
-{{ breadcrumb([{name:"Главная",url:"/ru/"},{name:"О компании"}]) }}
 
 <!-- ======== 1. HERO ======== -->
-<section class="relative pt-0 pb-8 lg:pb-16 bg-white overflow-hidden">
+<section class="relative pt-24 md:pt-28 pb-8 lg:pb-16 bg-white overflow-hidden">
  <div class="absolute top-0 right-0 w-1/3 h-full bg-slate-50 -skew-x-12 translate-x-1/4 -z-10" aria-hidden="true"></div>
- <div class="container-wide w-full py-6 lg:py-0">
+ <div class="container-wide w-full pb-6 lg:pb-0">
  <div class="flex flex-col lg:flex-row items-center gap-6 lg:gap-10">
  <div class="flex-1 reveal">
+ <!-- Breadcrumb -->
+ {{ breadcrumb([{name:"Главная",url:"/ru/"},{name:"О компании"}], "none", "mb-6", { variant: "hero" }) }}
  <div class="inline-flex items-center gap-2 bg-brandOrange/10 text-brandOrange text-[11px] font-bold px-4 py-2 rounded-full tracking-widest uppercase mb-4">
  <span class="w-2 h-2 rounded-full bg-brandOrange animate-pulse"></span>
  С 2013 года · Шэньчжэнь
@@ -144,11 +145,7 @@ navActive: "about"
 <!-- ======== 3. TIMELINE — Since 2013 ======== -->
 <section class="sec bg-slate-50">
  <div class="container-wide">
- <div class="text-center mb-12 reveal">
- <p class="section-label">Наша история</p>
- <h2 class="section-title">С 2013 года: история <span class="text-brandOrange">роста</span></h2>
- <p class="section-desc mx-auto">От небольшой мастерской до производителя, представленного на CES и обслуживающего 200+ мировых брендов. Каждая веха отражает нашу ставку на технологии зарядки и производственное качество.</p>
- </div>
+ {{ sectionHeader('Наша история', 'С 2013 года: история <span class="text-brandOrange">роста</span>', 'От небольшой мастерской до производителя, представленного на CES и обслуживающего 200+ мировых брендов. Каждая веха отражает нашу ставку на технологии зарядки и производственное качество.', {max: '', mb: 'mb-12'}) }}
  <div class="space-y-6 max-w-4xl mx-auto">
  <div class="flex flex-col md:flex-row gap-4 md:gap-8 items-start reveal">
  <div class="w-full md:w-24 shrink-0 bg-brandBlue text-white rounded-xl p-3 text-center shadow-lg">
@@ -263,11 +260,8 @@ navActive: "about"
 <!-- ======== 4b. VERIFY US YOURSELF ======== -->
 <section class="sec bg-white">
  <div class="container-content">
- <div class="text-center mb-12 reveal">
- <p class="section-label">Прозрачность вместо обещаний</p>
- <h2 class="text-3xl md:text-4xl font-black text-brandBlue uppercase italic tracking-tighter">Проверьте нас сами — <span class="text-brandOrange">за 15 минут</span></h2>
- <p class="text-slate-600 mt-4 max-w-2xl mx-auto">По оценкам отраслевых аудиторов, 15–25% сертификатов ISO у поставщиков из Китая не проходят проверку подлинности, а каждый пятый «завод» на деле оказывается торговой компанией. Поэтому мы не просим верить на слово — вот всё, что нужно для самостоятельной проверки.</p>
- </div>
+ {% call sectionHeader('Прозрачность вместо обещаний', 'Проверьте нас сами — <span class="text-brandOrange">за 15 минут</span>', '', {max: '', mb: 'mb-12', titleClass: 'text-3xl md:text-4xl font-black text-brandBlue uppercase italic tracking-tighter'}) %}<p class="text-slate-600 mt-4 max-w-2xl mx-auto">По оценкам отраслевых аудиторов, 15–25% сертификатов ISO у поставщиков из Китая не проходят проверку подлинности, а каждый пятый «завод» на деле оказывается торговой компанией. Поэтому мы не просим верить на слово — вот всё, что нужно для самостоятельной проверки.</p>
+ {% endcall %}
  <ol class="space-y-4 reveal">
  <li class="flex gap-4 items-start bg-slate-50 rounded-2xl p-6 border border-slate-100">
  <span class="w-8 h-8 rounded-full bg-brandOrange text-white font-black flex items-center justify-center shrink-0">1</span>
@@ -299,18 +293,17 @@ navActive: "about"
  <div class="container-wide">
  <div class="flex flex-col lg:flex-row items-center gap-12 mb-16">
  <div class="w-full lg:w-1/2 reveal order-2 lg:order-1">
- <div class="relative rounded-2xl overflow-hidden shadow-xl bg-white p-3 group">
+ <div class="relative rounded-2xl shadow-xl bg-white p-3 group">
+ <div class="overflow-hidden rounded-xl">
  <img src="/image/factory/factory-smt-line.webp" alt="Автоматизированная SMT-линия на заводе WOWOHCOOL в Шэньчжэне" class="w-full h-[350px] object-cover rounded-xl transition-transform duration-700 group-hover:scale-105" loading="lazy" width="2000" height="1335">
+ </div>
  <div class="absolute -bottom-6 -right-6 bg-brandBlue text-white p-6 rounded-2xl shadow-2xl max-w-[180px]">
  <p class="text-3xl font-black text-brandOrange">5 000 м²</p>
  <p class="text-xs text-slate-300 font-medium leading-tight mt-1">Площадка, сертифицированная по ISO 9001</p>
  </div>
  </div>
  </div>
- <div class="w-full lg:w-1/2 reveal order-1 lg:order-2">
- <p class="section-label">Наш завод</p>
- <h2 class="text-3xl md:text-4xl font-black text-brandBlue leading-tight mb-6 italic uppercase">Производственные мощности<span class="text-brandOrange"> мирового уровня</span></h2>
- <div class="space-y-6">
+ {% call sectionHeader('Наш завод', 'Производственные мощности<span class="text-brandOrange"> мирового уровня</span>', '', {align: '', max: '', mb: '', extra: 'w-full lg:w-1/2 order-1 lg:order-2', titleClass: 'text-3xl md:text-4xl font-black text-brandBlue leading-tight mb-6 italic uppercase'}) %}<div class="space-y-6">
  <div class="flex items-start gap-4"><span class="w-8 h-8 rounded-full bg-brandOrange/10 flex items-center justify-center shrink-0 mt-0.5"><svg class="icon-industry text-brandOrange text-sm" viewBox="0 0 512 512"><path d="M32 32C14.3 32 0 46.3 0 64L0 432c0 26.5 21.5 48 48 48l416 0c26.5 0 48-21.5 48-48l0-279.8c0-18.2-19.4-29.7-35.4-21.1l-156.6 84.3 0-63.2c0-18.2-19.4-29.7-35.4-21.1L128 215.4 128 64c0-17.7-14.3-32-32-32L32 32z" fill="currentColor"/></svg></span><div><p class="font-bold text-brandBlue">5 000 м² интегрированного производства</p><p class="text-sm text-slate-500">Автоматизированные SMT-линии Yamaha/Panasonic, сборка, литьё пластика, тестирование и упаковка под одной крышей. Без зависимости от подрядчиков.</p></div></div>
  <div class="flex items-start gap-4"><span class="w-8 h-8 rounded-full bg-brandOrange/10 flex items-center justify-center shrink-0 mt-0.5"><svg class="icon-box text-brandOrange text-sm" viewBox="0 0 448 512">
  <path d="M369.4 128l-34.3-48-222.1 0-34.3 48 290.7 0zM0 148.5c0-13.3 4.2-26.3 11.9-37.2L60.9 42.8C72.9 26 92.3 16 112.9 16l222.1 0c20.7 0 40.1 10 52.1 26.8l48.9 68.5c7.8 10.9 11.9 23.9 11.9 37.2L448 416c0 35.3-28.7 64-64 64L64 480c-35.3 0-64-28.7-64-64L0 148.5z" fill="currentColor"/>
@@ -319,15 +312,11 @@ navActive: "about"
  <path d="M176 24c0-13.3-10.7-24-24-24s-24 10.7-24 24l0 40c-35.3 0-64 28.7-64 64l-40 0c-13.3 0-24 10.7-24 24s10.7 24 24 24l40 0 0 56-40 0c-13.3 0-24 10.7-24 24s10.7 24 24 24l40 0 0 56-40 0c-13.3 0-24 10.7-24 24s10.7 24 24 24l40 0c0 35.3 28.7 64 64 64l0 40c0 13.3 10.7 24 24 24s24-10.7 24-24l0-40 56 0 0 40c0 13.3 10.7 24 24 24s24-10.7 24-24l0-40 56 0 0 40c0 13.3 10.7 24 24 24s24-10.7 24-24l0-40c35.3 0 64-28.7 64-64l40 0c13.3 0 24-10.7 24-24s-10.7-24-24-24l-40 0 0-56 40 0c13.3 0 24-10.7 24-24s-10.7-24-24-24l-40 0 0-56 40 0c13.3 0 24-10.7 24-24s-10.7-24-24-24l-40 0c0-35.3-28.7-64-64-64l0-40c0-13.3-10.7-24-24-24s-24 10.7-24 24l0 40-56 0 0-40c0-13.3-10.7-24-24-24s-24 10.7-24 24l0 40-56 0 0-40zM160 128l192 0c17.7 0 32 14.3 32 32l0 192c0 17.7-14.3 32-32 32l-192 0c-17.7 0-32-14.3-32-32l0-192c0-17.7 14.3-32 32-32zm16 48l0 160 160 0 0-160-160 0z" fill="currentColor"/>
  </svg></span><div><p class="font-bold text-brandBlue">4 автоматизированные SMT-линии + AOI/SPI</p><p class="text-sm text-slate-500">Поверхностный монтаж с автоматической оптической инспекцией для высокоточной сборки PCBA. Контроль качества на каждом этапе.</p></div></div>
  </div>
- </div>
+ {% endcall %}
  </div>
 
  <!-- Workshop Gallery -->
- <div class="text-center max-w-3xl mx-auto mb-12 reveal">
- <p class="section-label">Экскурсия по заводу</p>
- <h2 class="section-title">8 специализированных цехов</h2>
- <p class="section-desc mx-auto">От автоматизированного SMT-монтажа до финальных тестов старения — каждый цех работает в рамках системы менеджмента качества ISO 9001 с документированными процедурами и прослеживаемыми записями.</p>
- </div>
+ {{ sectionHeader('Экскурсия по заводу', '8 специализированных цехов', 'От автоматизированного SMT-монтажа до финальных тестов старения — каждый цех работает в рамках системы менеджмента качества ISO 9001 с документированными процедурами и прослеживаемыми записями.', {mb: 'mb-12'}) }}
  <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
  <div class="group relative rounded-xl overflow-hidden shadow-md hover:shadow-xl transition">
  <img src="/image/factory/01/workshop-smt-line.webp" srcset="/image/factory/01/workshop-smt-line-350w.webp 350w, /image/factory/01/workshop-smt-line.webp 1000w" sizes="(min-width: 1440px) 296px, (min-width: 1280px) 296px, (min-width: 1024px) 244px, (min-width: 768px) 244px, (min-width: 430px) 244px, 244px" alt="Цех SMT — автоматизированный монтаж печатных плат зарядных устройств" loading="lazy" width="800" height="600" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500">
@@ -368,11 +357,7 @@ navActive: "about"
 <!-- ======== 6. MEET OUR TEAM ======== -->
 <section class="sec bg-white">
  <div class="container-wide">
- <div class="text-center max-w-3xl mx-auto mb-16 reveal">
- <p class="section-label">Наша команда</p>
- <h2 class="section-title">Команда, которая ведёт <span class="text-brandOrange">ваш проект</span></h2>
- <p class="section-desc mx-auto">Познакомьтесь с людьми, которые реализуют ваш OEM/ODM-проект. Персональное сопровождение на русском и английском языках.</p>
- </div>
+ {{ sectionHeader('Наша команда', 'Команда, которая ведёт <span class="text-brandOrange">ваш проект</span>', 'Познакомьтесь с людьми, которые реализуют ваш OEM/ODM-проект. Персональное сопровождение на русском и английском языках.', {}) }}
  <div class="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
  <div class="team-card reveal">
  <img src="/image/factory/team-snowy.webp" srcset="/image/factory/team-snowy-450w.webp 450w, /image/factory/team-snowy.webp 750w" sizes="(min-width: 1440px) 366px, (min-width: 1280px) 366px, (min-width: 1024px) 366px, (min-width: 768px) 342px, (min-width: 430px) 380px, 325px" alt="Snowy May — Marketing Manager & Founder WOWOHCOOL, эксперт по беспроводной зарядке и OEM-производству" class="w-full aspect-square object-cover" loading="lazy" width="400" height="400">
@@ -392,11 +377,7 @@ navActive: "about"
 <!-- ======== 7. HOW WE WORK ======== -->
 <section class="sec bg-slate-50">
  <div class="container-wide">
- <div class="text-center mb-12 reveal">
- <p class="section-label">Сквозной процесс</p>
- <h2 class="section-title">OEM/ODM-процесс: от концепта до контейнера</h2>
- <p class="section-desc mx-auto">Каждый OEM/ODM-проект проходит наш отработанный процесс из 6 этапов. От первого эскиза до отгрузочного контейнера — на каждом этапе есть документированные процедуры, ответственные инженеры и точки контроля качества.</p>
- </div>
+ {{ sectionHeader('Сквозной процесс', 'OEM/ODM-процесс: от концепта до контейнера', 'Каждый OEM/ODM-проект проходит наш отработанный процесс из 6 этапов. От первого эскиза до отгрузочного контейнера — на каждом этапе есть документированные процедуры, ответственные инженеры и точки контроля качества.', {max: '', mb: 'mb-12'}) }}
  <div class="grid md:grid-cols-3 gap-6">
  <div class="bg-slate-50 rounded-2xl p-6 shadow-md hover:shadow-xl transition group reveal">
  <img src="/image/factory/02/process-01-industrial-design.webp" srcset="/image/factory/02/process-01-industrial-design-400w.webp 400w, /image/factory/02/process-01-industrial-design.webp 700w" sizes="(min-width: 1440px) 347px, (min-width: 1280px) 347px, (min-width: 1024px) 261px, (min-width: 768px) 176px, (min-width: 430px) 334px, 279px" alt="Этап промышленного дизайна — эскизы концепта и 3D-моделирование для OEM-разработки" loading="lazy" width="600" height="400" class="w-full h-auto rounded-xl mb-4">
@@ -443,11 +424,7 @@ navActive: "about"
 	<!-- ======== 8. WHY PARTNER WITH WOWOHCOOL ======== -->
 <section class="sec bg-white">
  <div class="container-wide">
- <div class="text-center max-w-3xl mx-auto mb-16 reveal">
- <p class="section-label">Почему WOWOHCOOL</p>
- <h2 class="section-title">Ваш OEM-партнёр и производитель <span class="text-brandOrange">в Китае</span></h2>
- <p class="section-desc mx-auto">Нам доверяют более 200 брендов в 40 странах. Вот почему.</p>
- </div>
+ {{ sectionHeader('Почему WOWOHCOOL', 'Ваш OEM-партнёр и производитель <span class="text-brandOrange">в Китае</span>', 'Нам доверяют более 200 брендов в 40 странах. Вот почему.', {}) }}
  <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
  <div class="reveal bg-slate-50 rounded-2xl p-8 border border-slate-200 text-center">
  <div class="w-14 h-14 rounded-2xl bg-brandOrange/10 flex items-center justify-center mx-auto mb-5"><svg class="icon-user-tie text-2xl text-brandOrange" viewBox="0 0 448 512" width="28" height="28"><path d="M96 128a128 128 0 1 0 256 0A128 128 0 1 0 96 128zm94.5 200c-1.7 0-3.4.1-5.1.3C122.5 342.6 64 412.4 64 496c0 8.8 7.2 16 16 16l288 0c8.8 0 16-7.2 16-16 0-83.6-58.5-153.4-121.4-167.7-1.7-.2-3.4-.3-5.1-.3l-87 0z" fill="currentColor"/></svg></div>
@@ -481,16 +458,13 @@ navActive: "about"
 <section class="sec bg-slate-50">
  <div class="container-wide">
  <div class="flex flex-col lg:flex-row items-center gap-12">
- <div class="w-full lg:w-1/2 reveal">
- <p class="section-label">Контроль качества</p>
- <h2 class="text-3xl md:text-4xl font-black text-brandBlue leading-tight mb-6 italic uppercase">4 ступени контроля<span class="text-brandOrange"> + документы для ЕАЭС</span></h2>
- <div class="space-y-4">
+ {% call sectionHeader('Контроль качества', '4 ступени контроля<span class="text-brandOrange"> + документы для ЕАЭС</span>', '', {align: '', max: '', mb: '', extra: 'w-full lg:w-1/2', titleClass: 'text-3xl md:text-4xl font-black text-brandBlue leading-tight mb-6 italic uppercase'}) %}<div class="space-y-4">
  <div class="bg-white rounded-xl p-5 border border-slate-200 flex items-start gap-4"><div class="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center shrink-0"><span class="text-green-600 font-black text-sm">IQC</span></div><div><p class="font-bold text-brandBlue text-sm">Входной контроль материалов</p><p class="text-xs text-slate-500">Проверка всех компонентов до запуска производства</p></div></div>
  <div class="bg-white rounded-xl p-5 border border-slate-200 flex items-start gap-4"><div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center shrink-0"><span class="text-blue-600 font-black text-sm">IPQC</span></div><div><p class="font-bold text-brandBlue text-sm">Контроль в процессе производства</p><p class="text-xs text-slate-500">Мониторинг каждого этапа сборки в реальном времени</p></div></div>
  <div class="bg-white rounded-xl p-5 border border-slate-200 flex items-start gap-4"><div class="w-10 h-10 rounded-full bg-amber-100 flex items-center justify-center shrink-0"><span class="text-amber-600 font-black text-sm">FQC</span></div><div><p class="font-bold text-brandBlue text-sm">Финальный контроль</p><p class="text-xs text-slate-500">4-часовой тест старения для 100% изделий</p></div></div>
  <div class="bg-white rounded-xl p-5 border border-slate-200 flex items-start gap-4"><div class="w-10 h-10 rounded-full bg-purple-100 flex items-center justify-center shrink-0"><span class="text-purple-600 font-black text-sm">OQC</span></div><div><p class="font-bold text-brandBlue text-sm">Контроль перед отгрузкой</p><p class="text-xs text-slate-500">Финальная инспекция перед упаковкой и отправкой</p></div></div>
  </div>
- </div>
+ {% endcall %}
  <div class="w-full lg:w-1/2 reveal">
  <div class="bg-brandBlue rounded-2xl p-8 md:p-10 text-white">
  <p class="text-brandOrange text-xs font-bold tracking-widest uppercase mb-2">Соответствие требованиям</p>
@@ -513,10 +487,7 @@ navActive: "about"
 <section class="sec bg-slate-50">
  <div class="container-wide">
  <div class="grid md:grid-cols-2 gap-8">
- <div class="bg-white rounded-3xl p-8 reveal">
- <p class="section-label">Посетите завод</p>
- <h3 class="text-2xl lg:text-3xl font-black text-slate-900 uppercase italic tracking-tighter mb-4">Познакомьтесь <span class="text-brandOrange">с нашей площадкой</span></h3>
- <p class="text-sm text-slate-600 leading-relaxed mb-6">Мы принимаем потенциальных партнёров на производстве. Пройдите по цехам, познакомьтесь с инженерной командой и посмотрите наш QC-процесс в действии. Визит на завод — самый быстрый способ убедиться в наших возможностях.</p>
+ {% call sectionHeader('Посетите завод', 'Познакомьтесь <span class="text-brandOrange">с нашей площадкой</span>', '', {align: '', max: '', mb: '', extra: 'bg-white rounded-3xl p-8', titleClass: 'text-2xl lg:text-3xl font-black text-slate-900 uppercase italic tracking-tighter mb-4', tag: 'h3'}) %}<p class="text-sm text-slate-600 leading-relaxed mb-6">Мы принимаем потенциальных партнёров на производстве. Пройдите по цехам, познакомьтесь с инженерной командой и посмотрите наш QC-процесс в действии. Визит на завод — самый быстрый способ убедиться в наших возможностях.</p>
  <ul class="text-sm text-slate-600 space-y-3 mb-6">
  <li><strong>Адрес:</strong> 925, Yichuang International Center, Longhua District, Shenzhen, Guangdong 518111, China</li>
  <li><strong>Часы визитов:</strong> понедельник–пятница, 9:00–17:00 (UTC+8). Бронируйте минимум за неделю.</li>
@@ -524,7 +495,7 @@ navActive: "about"
  <li><strong>Отели:</strong> несколько международных отелей в 15 минутах. Поможем с бронированием.</li>
  </ul>
  <button data-action="open-modal" class="inline-flex items-center gap-2 bg-brandOrange text-white px-6 py-3.5 rounded-xl font-black uppercase tracking-widest text-[11px] shadow-xl hover:-translate-y-1 transition cursor-pointer">Согласовать визит на завод</button>
- </div>
+ {% endcall %}
  <div class="bg-gradient-to-br from-brandBlue to-slate-800 rounded-3xl p-8 text-white reveal flex flex-col justify-center">
  <h3 class="text-2xl font-black text-white uppercase italic mb-4">Скачать профиль компании</h3>
  <p class="text-slate-300 text-sm leading-relaxed mb-6">Получите полное досье: характеристики завода, сертификаты, каталог продукции, детали OEM/ODM-процесса и кейсы клиентов. Всё, что нужно менеджеру по закупкам, в одном PDF.</p>
@@ -539,19 +510,16 @@ navActive: "about"
 <!-- ======== 11. FAQ ======== -->
 <section class="sec bg-white">
  <div class="container-narrow">
- <div class="text-center mb-12 reveal">
- <p class="section-label">FAQ</p>
- <h2 class="section-title">Частые вопросы о WOWOHCOOL</h2>
- </div>
+ {{ sectionHeader('FAQ', 'Частые вопросы о WOWOHCOOL', '', {max: '', mb: 'mb-12'}) }}
  <div class="reveal">
- <details class="faq-item"><summary>Какая производственная мощность у вашего завода?</summary><div class="faq-answer">Наш завод в Шэньчжэне занимает 5 000 м², производственная мощность — более 1 млн единиц в месяц. Система менеджмента качества сертифицирована по ISO 9001.</div></details>
- <details class="faq-item"><summary>Сколько у вас инженеров R&D?</summary><div class="faq-answer">Более 50 инженеров R&D занимаются разработкой новых продуктов и технологий: GaN, PD 3.1, Qi2 и полутвердотельные аккумуляторы.</div></details>
- <details class="faq-item"><summary>На каком языке вы общаетесь с клиентами из ЕАЭС?</summary><div class="faq-answer">Переписка ведётся на русском или английском языке — по email, в WeChat (+86-186-2078-9739) или Telegram. Персональный менеджер отвечает в течение 24 часов.</div></details>
- <details class="faq-item"><summary>Можно ли посетить завод?</summary><div class="faq-answer">Да, мы принимаем клиентов на заводе в Шэньчжэне. Также проводим видеотуры по WeChat, Zoom или Telegram. Свяжитесь с нами, чтобы согласовать дату.</div></details>
- <details class="faq-item"><summary>Какие у вас сертификаты?</summary><div class="faq-answer">ISO 9001, CE, RoHS, UN38.3, Qi2. Для рынка ЕАЭС готовим комплект технической документации под оформление EAC (ТР ТС 004/2011, ТР ТС 020/2011) — саму декларацию или сертификат оформляет аккредитованный орган на территории ЕАЭС.</div></details>
- <details class="faq-item"><summary>Какую продукцию вы выпускаете?</summary><div class="faq-answer">Четыре продуктовые линейки: <a href="/ru/produkty/poverbanki/" class="text-brandOrange hover:underline">повербанки</a> (полутвердотельные, PD 3.1), <a href="/ru/produkty/besprovodnye-zaryadki/" class="text-brandOrange hover:underline">беспроводные зарядки</a> (Qi2, MagSafe), <a href="/ru/produkty/avtomobilnye-zaryadki/" class="text-brandOrange hover:underline">автомобильные зарядки</a> (GaN, E-Mark) и <a href="/ru/produkty/gan-zaryadnye-ustroystva/" class="text-brandOrange hover:underline">сетевые GaN-зарядки</a> (67W–100W+).</div></details>
- <details class="faq-item"><summary>Как проверить, что WOWOHCOOL — реальный завод?</summary><div class="faq-answer">Проверьте нас за 15 минут: юрлицо в КНР Dong Yi Technology Co., Ltd (USCC <strong>91441900MA558A2N27</strong>) — в <a href="https://www.gsxt.gov.cn/" target="_blank" rel="noopener external"><strong>Национальной системе кредитной информации Китая</strong></a>; гонконгскую компанию для экспортных расчётов (Business Registration № <strong>71568299-000-01-26-6</strong>) — в <a href="https://www.e-services.cr.gov.hk/" target="_blank" rel="noopener external">реестре компаний Гонконга</a>, сверив реквизиты с инвойсом. Принимаем видеоинспекции в реальном времени, очные визиты и аудиты третьих сторон (Bureau Veritas, <a href="https://www.sgs.com/" target="_blank" rel="noopener external">SGS</a>, TÜV); сертификат ISO 9001 проверяется через IAF CertSearch. Скан бизнес-лицензии со сферой деятельности «производство» высылаем по запросу.</div></details>
- <details class="faq-item"><summary>Чем WOWOHCOOL отличается от других заводов в Шэньчжэне?</summary><div class="faq-answer">Мы специализируемся <strong>исключительно на зарядных аксессуарах</strong>: повербанки, беспроводные зарядки, GaN-зарядки и автомобильные зарядки. Мы не торговая компания с несвязанными категориями товаров. За 13+ лет профильного R&D мы представили полутвердотельные аккумуляторы на CES 2026 и работаем с Qi2 MPP с первых дней стандарта.</div></details>
+ {% call faqItem("Какая производственная мощность у вашего завода?") %}Наш завод в Шэньчжэне занимает 5 000 м², производственная мощность — более 1 млн единиц в месяц. Система менеджмента качества сертифицирована по ISO 9001.{% endcall %}
+ {% call faqItem("Сколько у вас инженеров R&D?") %}Более 50 инженеров R&D занимаются разработкой новых продуктов и технологий: GaN, PD 3.1, Qi2 и полутвердотельные аккумуляторы.{% endcall %}
+ {% call faqItem("На каком языке вы общаетесь с клиентами из ЕАЭС?") %}Переписка ведётся на русском или английском языке — по email, в WeChat (+86-186-2078-9739) или Telegram. Персональный менеджер отвечает в течение 24 часов.{% endcall %}
+ {% call faqItem("Можно ли посетить завод?") %}Да, мы принимаем клиентов на заводе в Шэньчжэне. Также проводим видеотуры по WeChat, Zoom или Telegram. Свяжитесь с нами, чтобы согласовать дату.{% endcall %}
+ {% call faqItem("Какие у вас сертификаты?") %}ISO 9001, CE, RoHS, UN38.3, Qi2. Для рынка ЕАЭС готовим комплект технической документации под оформление EAC (ТР ТС 004/2011, ТР ТС 020/2011) — саму декларацию или сертификат оформляет аккредитованный орган на территории ЕАЭС.{% endcall %}
+ {% call faqItem("Какую продукцию вы выпускаете?") %}Четыре продуктовые линейки: <a href="/ru/produkty/poverbanki/" class="text-brandOrange hover:underline">повербанки</a> (полутвердотельные, PD 3.1), <a href="/ru/produkty/besprovodnye-zaryadki/" class="text-brandOrange hover:underline">беспроводные зарядки</a> (Qi2, MagSafe), <a href="/ru/produkty/avtomobilnye-zaryadki/" class="text-brandOrange hover:underline">автомобильные зарядки</a> (GaN, E-Mark) и <a href="/ru/produkty/gan-zaryadnye-ustroystva/" class="text-brandOrange hover:underline">сетевые GaN-зарядки</a> (67W–100W+).{% endcall %}
+ {% call faqItem("Как проверить, что WOWOHCOOL — реальный завод?") %}Проверьте нас за 15 минут: юрлицо в КНР Dong Yi Technology Co., Ltd (USCC <strong>91441900MA558A2N27</strong>) — в <a href="https://www.gsxt.gov.cn/" target="_blank" rel="noopener external"><strong>Национальной системе кредитной информации Китая</strong></a>; гонконгскую компанию для экспортных расчётов (Business Registration № <strong>71568299-000-01-26-6</strong>) — в <a href="https://www.e-services.cr.gov.hk/" target="_blank" rel="noopener external">реестре компаний Гонконга</a>, сверив реквизиты с инвойсом. Принимаем видеоинспекции в реальном времени, очные визиты и аудиты третьих сторон (Bureau Veritas, <a href="https://www.sgs.com/" target="_blank" rel="noopener external">SGS</a>, TÜV); сертификат ISO 9001 проверяется через IAF CertSearch. Скан бизнес-лицензии со сферой деятельности «производство» высылаем по запросу.{% endcall %}
+ {% call faqItem("Чем WOWOHCOOL отличается от других заводов в Шэньчжэне?") %}Мы специализируемся <strong>исключительно на зарядных аксессуарах</strong>: повербанки, беспроводные зарядки, GaN-зарядки и автомобильные зарядки. Мы не торговая компания с несвязанными категориями товаров. За 13+ лет профильного R&D мы представили полутвердотельные аккумуляторы на CES 2026 и работаем с Qi2 MPP с первых дней стандарта.{% endcall %}
  </div>
  </div>
 </section>
@@ -560,15 +528,12 @@ navActive: "about"
 <section class="sec bg-brandBlue relative overflow-hidden">
  <div class="absolute bottom-0 left-0 w-1/2 h-1/2 bg-gradient-to-tr from-brandOrange/5 to-transparent"></div>
  <div class="container-narrow text-center relative z-10">
- <div class="reveal">
- <p class="section-label">Начните сейчас</p>
- <h2 class="text-3xl md:text-5xl font-black text-white leading-tight mb-4 italic uppercase">Обсудим <span class="text-brandOrange">ваш проект</span></h2>
- <p class="text-slate-300 text-lg max-w-2xl mx-auto mb-8">Ответ в течение 24 часов. Индивидуальный расчёт без обязательств.</p>
+ {% call sectionHeader('Начните сейчас', 'Обсудим <span class="text-brandOrange">ваш проект</span>', '', {align: '', max: '', mb: '', titleClass: 'text-3xl md:text-5xl font-black text-white leading-tight mb-4 italic uppercase'}) %}<p class="text-slate-300 text-lg max-w-2xl mx-auto mb-8">Ответ в течение 24 часов. Индивидуальный расчёт без обязательств.</p>
  <div class="flex flex-col sm:flex-row gap-4 justify-center">
  <button data-action="open-modal" class="btn-primary text-base px-8 py-4 shadow-lg shadow-brandOrange/20 cursor-pointer">Запросить расчёт <svg class="icon-arrow-right" aria-hidden="true" focusable="false" viewBox="0 0 512 512"><path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-105.4 105.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" fill="currentColor"/></svg></button>
  <a href="/ru/kontakty/" class="btn-outline-white text-base px-8 py-4">WeChat / Email</a>
  </div>
- </div>
+ {% endcall %}
  </div>
 </section>
 {% endblock %}

@@ -7,7 +7,32 @@
    ======================================================================== */
 
 @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(1.1)}}
-:root{--brand-orange:#FF6B00;--brand-orange-alt:#FF6600;--brand-orange-hover:#e06000;--brand-blue:#0A192F;--brand-blue-alt:#0f2a4a}
+/* Design tokens (expanded 2026-09-13).
+   Single source of truth for colour / radius / shadow / type scale /
+   section spacing. Existing component rules below are progressively
+   re-pointed at these vars so a one-line change here propagates
+   site-wide. Values mirror the Tailwind scale already in use. */
+:root{
+  /* brand */
+  --brand-orange:#FF6B00;--brand-orange-alt:#FF6600;--brand-orange-hover:#e06000;
+  --brand-blue:#0A192F;--brand-blue-alt:#0f2a4a;
+  /* text */
+  --text-primary:#0A192F;--text-body:#475569;--text-secondary:#64748b;--text-muted:#94a3b8;
+  /* surface */
+  --surface:#fff;--surface-alt:#f8fafc;--surface-muted:#f1f5f9;
+  /* border */
+  --border:#e2e8f0;--border-strong:#cbd5e1;
+  /* radius */
+  --radius-sm:.5rem;--radius-md:.75rem;--radius-lg:1rem;--radius-xl:1.25rem;--radius-pill:999px;
+  /* shadow */
+  --shadow-card:0 1px 3px rgba(0,0,0,.04),0 1px 2px rgba(0,0,0,.02);
+  --shadow-brand:0 12px 40px rgba(255,107,0,.12);
+  /* font-size scale */
+  --fs-xs:.6875rem;--fs-sm:.8rem;--fs-base:1rem;--fs-lg:1.05rem;
+  /* section spacing */
+  --sec-pad:5rem;--sec-lg-pad:5rem;--sec-cta-pad:4rem;
+}
+@media (min-width:768px){:root{--sec-pad:6rem;--sec-lg-pad:7rem;--sec-cta-pad:5rem}}
 
 .font-black{font-weight:900;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
 @media not all and (min-resolution:.001dpcm){@supports (-webkit-appearance:none){.font-black{text-shadow:0 0 .1px rgba(255,255,255,.1)}}}
@@ -186,14 +211,28 @@ svg[class*="icon-"]{display:inline-block;width:1em;height:1em;vertical-align:-0.
 }
 .cookie-btn-decline:hover { border-color: #64748b; color: #fff; }
 
-/* ─── Design System: Section Spacing ───────────────────────── */
+/* ─── Design System: Section Spacing ─────────────────────────
+   `.sec` / `.sec-lg` are deliberately left OUTSIDE any @layer, so they win
+   over Tailwind padding utilities. That is the historical behaviour and 311
+   sections rely on it (e.g. `class="sec py-16"` renders at 5rem, not 4rem).
+   Do not move them without reviewing those sections.
+
+   `.sec-cta` is the exception and MUST stay in @layer components: the six
+   language hero sections are written `class="pt-20 md:pt-24 … sec-cta"` and
+   the intent is the utility wins. Unlayered, `.sec-cta`'s `padding-top: 4rem`
+   (64px) beat `pt-20` (80px), so the breadcrumb landed 16px *under* the 80px
+   fixed header. Layered, utilities win and the hero keeps its own padding. */
 .sec { padding-top: 5rem; padding-bottom: 5rem; }
 .sec-lg { padding-top: 5rem; padding-bottom: 5rem; }
-.sec-cta { padding-top: 4rem; padding-bottom: 0; }
 @media (min-width: 768px) {
   .sec { padding-top: 6rem; padding-bottom: 6rem; }
   .sec-lg { padding-top: 7rem; padding-bottom: 7rem; }
-  .sec-cta { padding-top: 5rem; padding-bottom: 0; }
+}
+@layer components {
+  .sec-cta { padding-top: 4rem; padding-bottom: 0; }
+  @media (min-width: 768px) {
+    .sec-cta { padding-top: 5rem; padding-bottom: 0; }
+  }
 }
 /* Removed 2026-09-12: .sec-hero — 0 occurrences in src/ and _site/. */
 
@@ -337,6 +376,106 @@ svg[class*="icon-"]{display:inline-block;width:1em;height:1em;vertical-align:-0.
 }
 .btn-outline-white:hover { border-color: #fff; background: rgba(255, 255, 255, 0.1); }
 
+/* ─── Buttons: in-use variants (2026-09-13) ──────────────────
+   Two survivors of the first draft of the extended button set.
+   The rest of that draft (.btn-cta / .btn-cta-sm / .btn-submit / .btn-pill /
+   .btn-icon) had 0 references and was superseded by the exact extractions in
+   the "Buttons: extracted inline patterns" block below — two competing
+   vocabularies for the same roles is worse than one, so the drafts were
+   deleted on 2026-09-13. They were already purged from css/styles.css, so
+   removing them changes nothing in the built output. */
+@layer components {
+  /* Hero / primary marketing CTA (default button of the cta-band macro). */
+  .btn-hero {
+    display: inline-flex; align-items: center; justify-content: center; gap: .5rem;
+    background: var(--brand-orange); color: #fff;
+    font-weight: 900; text-transform: uppercase; font-size: .875rem;
+    letter-spacing: .1em; padding: 1rem 2.5rem;
+    border: 0; border-radius: var(--radius-md);
+    box-shadow: 0 20px 25px -5px rgba(255,107,0,.2);
+    cursor: pointer; transition: all .3s ease;
+  }
+  .btn-hero:hover { transform: translateY(-4px); box-shadow: 0 25px 35px -5px rgba(255,107,0,.3); }
+  /* Filter / category chip — neutral by default, orange on hover/active.
+     Named .filter-chip (not .chip) because blog prose contains the bare
+     word "chip", which would make Tailwind keep a .chip rule forever. */
+  .filter-chip {
+    display: inline-flex; align-items: center; gap: .375rem;
+    padding: .5rem 1rem; border-radius: var(--radius-pill);
+    background: var(--surface-muted); color: var(--text-body);
+    font-size: var(--fs-xs); font-weight: 700;
+    text-transform: uppercase; letter-spacing: .05em;
+    border: 1px solid var(--border);
+    cursor: pointer; transition: all .25s ease;
+  }
+  .filter-chip:hover, .filter-chip.is-active { background: var(--brand-orange); color: #fff; border-color: var(--brand-orange); }
+}
+
+/* ─── Buttons: extracted inline patterns (2026-09-13, P4 batch 1) ─────────
+   These 11 classes are extractions of the most repeated inline button / chip
+   class strings across the 6 languages. Each rule was generated with @apply
+   over the EXACT token set of its source pattern, so its computed
+   declarations are identical to the inline version — the template migration
+   is a pure refactor with zero visual change.
+
+   Order note: two source patterns contain a pair of utilities that write the
+   same custom property (shadow-xl + shadow-brandOrange/20 both set
+   --tw-shadow; transition-all + duration-300 both set transition-duration).
+   That was already harmless inline, because Tailwind emits utilities in a
+   fixed order regardless of the order they appear in a class attribute, and
+   @apply resolves them in that same fixed order. Do not hand-reorder these
+   tokens without re-running the verification.
+
+   Coverage: 868 of the 1072 inline button-ish tags (81.0%).
+   Deliberately NOT extracted: .search-hint — it is a JS hook
+   (main.src.js:575 document.querySelectorAll('.search-hint')). */
+@layer components {
+  /* Full-width CTA inside a card or section. */
+  .btn-card {
+    @apply w-full py-4 bg-brandOrange text-white font-black uppercase text-[11px] tracking-widest rounded-2xl shadow-lg transition-all hover:bg-brandOrange/90;
+  }
+  /* Small full-width CTA pinned to the bottom of a product card. */
+  .btn-card-sm {
+    @apply mt-auto w-full py-3 bg-brandOrange text-white font-black uppercase text-[11px] tracking-widest rounded-xl shadow-md transition cursor-pointer hover:bg-brandOrange/90;
+  }
+  /* Wide marketing CTA that shares a row and grows from the sm breakpoint up. */
+  .btn-wide {
+    @apply w-full sm:flex-1 px-8 py-4 bg-brandOrange text-white font-black uppercase text-sm rounded-xl shadow-lg transition hover:-translate-y-1;
+  }
+  /* Same as .btn-wide but wider gutters, natural width from sm up. */
+  .btn-wide-lg {
+    @apply w-full sm:w-auto px-10 py-4 bg-brandOrange text-white font-black uppercase text-sm tracking-widest rounded-xl shadow-xl transition hover:-translate-y-1;
+  }
+  /* The canonical inline solid-orange button. */
+  .btn-solid {
+    @apply px-8 py-4 bg-brandOrange text-white font-black uppercase text-sm tracking-widest rounded-xl shadow-xl transition hover:-translate-y-1;
+  }
+  /* Full-width form submit; hovers to brand blue (unlike the other CTAs). */
+  .btn-form {
+    @apply w-full py-4 bg-brandOrange text-white font-bold text-base rounded-xl shadow-lg shadow-brandOrange/20 transition-all duration-300 flex items-center justify-center gap-3 hover:bg-brandBlue;
+  }
+  /* Full-width outline (secondary) CTA, natural width from sm up. */
+  .btn-ghost-lg {
+    @apply w-full sm:w-auto px-10 py-4 border-2 border-brandBlue text-brandBlue text-center font-black uppercase text-sm tracking-widest rounded-xl transition-all hover:bg-brandBlue hover:text-white;
+  }
+  /* Small orange pill used as a category / tag badge on a solid background. */
+  .btn-tag {
+    @apply inline-block px-3 py-1 bg-brandOrange text-white font-black uppercase text-[11px] tracking-widest rounded-full transition hover:bg-brandOrange/90;
+  }
+  /* Neutral chip on a light background (blog tag cloud). */
+  .chip-light {
+    @apply px-4 py-2 bg-slate-100 text-slate-600 font-bold uppercase text-[11px] tracking-wider rounded-full transition hover:bg-brandOrange hover:text-white;
+  }
+  /* Neutral chip on a dark background. */
+  .chip-dark {
+    @apply px-4 py-2 bg-white/5 text-slate-400 font-bold uppercase text-[11px] tracking-wider rounded-full transition hover:bg-brandOrange hover:text-white;
+  }
+  /* Miniature glass chip on a dark background (blog index tag cloud). */
+  .chip-glass {
+    @apply inline-block px-2.5 py-1 bg-white/10 text-slate-300 font-bold text-[11px] rounded-lg transition-all hover:bg-brandOrange hover:text-white hover:border-brandOrange;
+  }
+}
+
 /* ─── Trust Badges ─────────────────────────────────────────── */
 .trust-badge {
   display: inline-flex;
@@ -428,7 +567,34 @@ label.flex.items-start.gap-3 span { flex: 1; min-width: 0; overflow-wrap: break-
 #mobile-menu a { word-break: break-word; }
 @media (max-width:767px){input,select,textarea{font-size:16px !important}}
 table td, table th { overflow-wrap: break-word; word-break: normal; }
-@media (max-width:767px){table:not(.no-scroll){display:block;overflow-x:auto;-webkit-overflow-scrolling:touch;max-width:100%}}
+
+/* Mobile tables become their own horizontal scroll container (94 pages / 305 tables
+   overflow at 390px - the widest needs 816px).  A right-edge shadow signals that
+   there is more table to the right, and a scroll-driven animation shrinks it to
+   zero once you reach the end, so the cue is never shown when it is untrue.
+   Browsers without `animation-timeline` (Firefox/Safari, as of 2026-09) fall back to
+   the base `background-size: 0` - i.e. no shadow at all, which degrades cleanly. */
+@media (max-width:767px){
+  table:not(.no-scroll){
+    display:block;
+    overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
+    max-width:100%;
+    background-image: linear-gradient(to left, rgba(15,23,42,.16), rgba(15,23,42,0));
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: 0 100%;
+    animation-name: table-scroll-cue;
+    animation-duration: auto;
+    animation-timing-function: linear;
+    animation-fill-mode: both;
+    animation-timeline: scroll(self inline);
+  }
+  @keyframes table-scroll-cue{
+    from { background-size: 32px 100%; }
+    to   { background-size: 0 100%; }
+  }
+}
 
 /* ─── Payment Grid ─────────────────────────────────────────── */
 .payment-grid {

@@ -101,9 +101,9 @@ plPath: "produkty/"
 {% block content %}
 
  <!-- Hero -->
- <section class="relative pt-20 md:pt-24 pb-8 lg:pt-28 lg:pb-16 bg-gradient-to-b from-slate-50/50 to-white overflow-hidden">
+ <section class="relative pt-24 md:pt-28 pb-8 lg:pb-16 bg-gradient-to-br from-slate-50 via-white to-orange-50 overflow-hidden">
  <div class="container-wide text-center">
- {{ breadcrumb([{name: "Accueil", url: "/fr/"}, {name: "Produits"}], "none", "mb-6") }}
+ {{ breadcrumb([{name: "Accueil", url: "/fr/"}, {name: "Produits"}], "none", "mb-6", { variant: "hero" }) }}
  <div class="badge-capsule mb-6 mx-auto uppercase">OEM/ODM DEPUIS 2013</div>
  <h1 class="text-4xl md:text-5xl lg:text-6xl font-black uppercase italic tracking-tighter mb-6 leading-tight">
  <span class="text-brandBlue">Nos</span>
@@ -132,15 +132,8 @@ plPath: "produkty/"
  </div>
  </section>
 
- <!-- Trust Bar -->
- {% from "partials/customer-logos.njk" import customerLogos %}
- {{ customerLogos() }}
-
-{% from "partials/stats-bar.njk" import statsBar %}
-{{ statsBar(i18n.statsBar[lang].items) }}
-
-{% from "partials/cert-showcase.njk" import certShowcase %}
-{{ certShowcase(i18n.certifications[lang].homepage.items, i18n.certifications[lang].homepage.heading, i18n.certifications[lang].homepage.title, "", "", true) }}
+ <!-- ======== TRUST BAR ======== -->
+ {% include "trust-bar.njk" %}
 
  <!-- Product Grid -->
  <section class="sec container-wide">
@@ -266,7 +259,7 @@ plPath: "produkty/"
   </div>
  </div>
 
- </div>
+ 
 
  <!-- No results -->
  <div id="noResults" class="hidden text-center py-20">

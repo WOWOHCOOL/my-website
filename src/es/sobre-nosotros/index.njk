@@ -100,14 +100,15 @@ plPath: "o-nas/"
 
 {% block content %}
 {% from "breadcrumb.njk" import breadcrumb %}
-{{ breadcrumb([{name:"Inicio",url:"/es/"},{name:"Sobre Nosotros"}]) }}
 
 <!-- ======== 1. HERO ======== -->
-<section class="relative pt-0 pb-8 lg:pb-16 bg-white overflow-hidden">
+<section class="relative pt-24 md:pt-28 pb-8 lg:pb-16 bg-white overflow-hidden">
  <div class="absolute top-0 right-0 w-1/3 h-full bg-slate-50 -skew-x-12 translate-x-1/4 -z-10" aria-hidden="true"></div>
- <div class="container-wide w-full py-6 lg:py-0">
+ <div class="container-wide w-full pb-6 lg:pb-0">
  <div class="flex flex-col lg:flex-row items-center gap-6 lg:gap-10">
  <div class="flex-1 reveal">
+ <!-- Breadcrumb -->
+ {{ breadcrumb([{name:"Inicio",url:"/es/"},{name:"Sobre Nosotros"}], "none", "mb-6", { variant: "hero" }) }}
  <div class="inline-flex items-center gap-2 bg-brandOrange/10 text-brandOrange text-[11px] font-bold px-4 py-2 rounded-full tracking-widest uppercase mb-4">
  <span class="w-2 h-2 rounded-full bg-brandOrange animate-pulse"></span>
  Desde 2013 · Shenzhen
@@ -143,11 +144,7 @@ plPath: "o-nas/"
 <!-- ======== 3. TIMELINE — Desde 2013 ======== -->
 <section class="sec bg-slate-50">
  <div class="container-wide">
- <div class="text-center mb-12 reveal">
- <p class="section-label">Nuestra historia</p>
- <h2 class="section-title">Desde 2013: Una historia de <span class="text-brandOrange">crecimiento</span></h2>
- <p class="section-desc mx-auto">De un taller startup a un fabricante presentado en CES que sirve a 200+ marcas globales. Cada hito refleja nuestro compromiso con la tecnología de carga y la excelencia en fabricación.</p>
- </div>
+ {{ sectionHeader('Nuestra historia', 'Desde 2013: Una historia de <span class="text-brandOrange">crecimiento</span>', 'De un taller startup a un fabricante presentado en CES que sirve a 200+ marcas globales. Cada hito refleja nuestro compromiso con la tecnología de carga y la excelencia en fabricación.', {max: '', mb: 'mb-12'}) }}
  <div class="space-y-6 max-w-4xl mx-auto">
  <div class="flex flex-col md:flex-row gap-4 md:gap-8 items-start reveal">
  <div class="w-full md:w-24 shrink-0 bg-brandBlue text-white rounded-xl p-3 text-center shadow-lg">
@@ -226,10 +223,7 @@ plPath: "o-nas/"
 <!-- ======== 3.5 CLIENT TESTIMONIALS ======== -->
 <section class="sec bg-white">
  <div class="container-wide">
- <div class="text-center mb-10 reveal">
- <p class="section-label">Quién confía en nosotros</p>
- <h2 class="section-title">Lo que dicen <span class="text-brandOrange">nuestros clientes</span></h2>
- </div>
+ {{ sectionHeader('Quién confía en nosotros', 'Lo que dicen <span class="text-brandOrange">nuestros clientes</span>', '', {max: '', mb: 'mb-10'}) }}
  <div class="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
  <div class="bg-slate-50 rounded-2xl p-6 border border-slate-100 reveal">
  <div class="flex items-center gap-3 mb-4">
@@ -295,18 +289,17 @@ plPath: "o-nas/"
  <div class="container-wide">
  <div class="flex flex-col lg:flex-row items-center gap-12 mb-16">
  <div class="w-full lg:w-1/2 reveal order-2 lg:order-1">
- <div class="relative rounded-2xl overflow-hidden shadow-xl bg-white p-3 group">
+ <div class="relative rounded-2xl shadow-xl bg-white p-3 group">
+ <div class="overflow-hidden rounded-xl">
  <img src="/image/factory/factory-smt-line.webp" alt="Línea de producción SMT automatizada en fábrica WOWOHCOOL Shenzhen" class="w-full h-[350px] object-cover rounded-xl transition-transform duration-700 group-hover:scale-105" loading="lazy" width="2000" height="1335">
+ </div>
  <div class="absolute -bottom-6 -right-6 bg-brandBlue text-white p-6 rounded-2xl shadow-2xl max-w-[180px]">
  <p class="text-3xl font-black text-brandOrange">5.000m²</p>
  <p class="text-xs text-slate-300 font-medium leading-tight mt-1">Instalación certificada ISO 9001</p>
  </div>
  </div>
  </div>
- <div class="w-full lg:w-1/2 reveal order-1 lg:order-2">
- <p class="section-label">Nuestra fábrica</p>
- <h2 class="text-3xl md:text-4xl font-black text-brandBlue leading-tight mb-6 italic uppercase">Capacidad de producción<span class="text-brandOrange"> de clase mundial</span></h2>
- <div class="space-y-6">
+ {% call sectionHeader('Nuestra fábrica', 'Capacidad de producción<span class="text-brandOrange"> de clase mundial</span>', '', {align: '', max: '', mb: '', extra: 'w-full lg:w-1/2 order-1 lg:order-2', titleClass: 'text-3xl md:text-4xl font-black text-brandBlue leading-tight mb-6 italic uppercase'}) %}<div class="space-y-6">
  <div class="flex items-start gap-4"><span class="w-8 h-8 rounded-full bg-brandOrange/10 flex items-center justify-center shrink-0 mt-0.5"><svg class="icon-industry text-brandOrange text-sm" viewBox="0 0 512 512"><path d="M32 32C14.3 32 0 46.3 0 64L0 432c0 26.5 21.5 48 48 48l416 0c26.5 0 48-21.5 48-48l0-279.8c0-18.2-19.4-29.7-35.4-21.1l-156.6 84.3 0-63.2c0-18.2-19.4-29.7-35.4-21.1L128 215.4 128 64c0-17.7-14.3-32-32-32L32 32z" fill="currentColor"/></svg></span><div><p class="font-bold text-brandBlue">5.000m² de producción integrada</p><p class="text-sm text-slate-500">Líneas SMT automatizadas Yamaha/Panasonic, ensamblaje, inyección de plástico, pruebas y embalaje bajo un mismo techo. Sin dependencia de terceros.</p></div></div>
  <div class="flex items-start gap-4"><span class="w-8 h-8 rounded-full bg-brandOrange/10 flex items-center justify-center shrink-0 mt-0.5"><svg class="icon-box text-brandOrange text-sm" viewBox="0 0 448 512">
  <path d="M369.4 128l-34.3-48-222.1 0-34.3 48 290.7 0zM0 148.5c0-13.3 4.2-26.3 11.9-37.2L60.9 42.8C72.9 26 92.3 16 112.9 16l222.1 0c20.7 0 40.1 10 52.1 26.8l48.9 68.5c7.8 10.9 11.9 23.9 11.9 37.2L448 416c0 35.3-28.7 64-64 64L64 480c-35.3 0-64-28.7-64-64L0 148.5z" fill="currentColor"/>
@@ -315,15 +308,11 @@ plPath: "o-nas/"
  <path d="M176 24c0-13.3-10.7-24-24-24s-24 10.7-24 24l0 40c-35.3 0-64 28.7-64 64l-40 0c-13.3 0-24 10.7-24 24s10.7 24 24 24l40 0 0 56-40 0c-13.3 0-24 10.7-24 24s10.7 24 24 24l40 0 0 56-40 0c-13.3 0-24 10.7-24 24s10.7 24 24 24l40 0c0 35.3 28.7 64 64 64l0 40c0 13.3 10.7 24 24 24s24-10.7 24-24l0-40 56 0 0 40c0 13.3 10.7 24 24 24s24-10.7 24-24l0-40 56 0 0 40c0 13.3 10.7 24 24 24s24-10.7 24-24l0-40c35.3 0 64-28.7 64-64l40 0c13.3 0 24-10.7 24-24s-10.7-24-24-24l-40 0 0-56 40 0c13.3 0 24-10.7 24-24s-10.7-24-24-24l-40 0 0-56 40 0c13.3 0 24-10.7 24-24s-10.7-24-24-24l-40 0c0-35.3-28.7-64-64-64l0-40c0-13.3-10.7-24-24-24s-24 10.7-24 24l0 40-56 0 0-40c0-13.3-10.7-24-24-24s-24 10.7-24 24l0 40-56 0 0-40zM160 128l192 0c17.7 0 32 14.3 32 32l0 192c0 17.7-14.3 32-32 32l-192 0c-17.7 0-32-14.3-32-32l0-192c0-17.7 14.3-32 32-32zm16 48l0 160 160 0 0-160-160 0z" fill="currentColor"/>
  </svg></span><div><p class="font-bold text-brandBlue">4 líneas SMT automatizadas + AOI/SPI</p><p class="text-sm text-slate-500">Tecnología de montaje superficial con inspección óptica automática para PCBA de alta precisión. Control de calidad en cada etapa.</p></div></div>
  </div>
- </div>
+ {% endcall %}
  </div>
 
  <!-- Workshop Gallery -->
- <div class="text-center max-w-3xl mx-auto mb-12 reveal">
- <p class="section-label">Recorrido por la fábrica</p>
- <h2 class="section-title">8 talleres especializados</h2>
- <p class="section-desc mx-auto">Desde el montaje SMT automatizado hasta las pruebas finales de envejecimiento, cada taller opera bajo nuestro sistema de gestión de calidad ISO 9001 con procedimientos documentados y registros trazables.</p>
- </div>
+ {{ sectionHeader('Recorrido por la fábrica', '8 talleres especializados', 'Desde el montaje SMT automatizado hasta las pruebas finales de envejecimiento, cada taller opera bajo nuestro sistema de gestión de calidad ISO 9001 con procedimientos documentados y registros trazables.', {mb: 'mb-12'}) }}
  <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
  <div class="group relative rounded-xl overflow-hidden shadow-md hover:shadow-xl transition">
  <img src="/image/factory/01/workshop-smt-line.webp" srcset="/image/factory/01/workshop-smt-line-350w.webp 350w, /image/factory/01/workshop-smt-line.webp 1000w" sizes="(min-width: 1440px) 296px, (min-width: 1280px) 296px, (min-width: 1024px) 244px, (min-width: 768px) 244px, (min-width: 430px) 244px, 244px" alt="Taller SMT — máquinas automatizadas para montaje de PCB de cargadores" loading="lazy" width="800" height="600" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500">
@@ -364,11 +353,7 @@ plPath: "o-nas/"
 <!-- ======== 6. MEET OUR TEAM ======== -->
 <section class="sec bg-white">
  <div class="container-wide">
- <div class="text-center max-w-3xl mx-auto mb-16 reveal">
- <p class="section-label">Nuestro equipo</p>
- <h2 class="section-title">Equipo hispanohablante <span class="text-brandOrange">para su proyecto</span></h2>
- <p class="section-desc mx-auto">Conozca al equipo que hará realidad su proyecto OEM/ODM. Atención personalizada en español.</p>
- </div>
+ {{ sectionHeader('Nuestro equipo', 'Equipo hispanohablante <span class="text-brandOrange">para su proyecto</span>', 'Conozca al equipo que hará realidad su proyecto OEM/ODM. Atención personalizada en español.', {}) }}
  <div class="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
  <div class="team-card reveal">
  <img src="/image/factory/team-snowy.webp" srcset="/image/factory/team-snowy-450w.webp 450w, /image/factory/team-snowy.webp 750w" sizes="(min-width: 1440px) 366px, (min-width: 1280px) 366px, (min-width: 1024px) 366px, (min-width: 768px) 342px, (min-width: 430px) 380px, 325px" alt="Snowy May — Marketing Manager & Founder WOWOHCOOL" class="w-full aspect-square object-cover" loading="lazy" width="400" height="400">
@@ -402,11 +387,7 @@ plPath: "o-nas/"
 <!-- ======== 7. HOW WE WORK ======== -->
 <section class="sec bg-slate-50">
  <div class="container-wide">
- <div class="text-center mb-12 reveal">
- <p class="section-label">Proceso end-to-end</p>
- <h2 class="section-title">Proceso OEM/ODM: del concepto al contenedor</h2>
- <p class="section-desc mx-auto">Cada proyecto OEM/ODM sigue nuestro proceso probado de 6 etapas. Desde su primer boceto hasta el contenedor de envío, cada etapa tiene procedimientos documentados, ingenieros designados y puntos de control de calidad.</p>
- </div>
+ {{ sectionHeader('Proceso end-to-end', 'Proceso OEM/ODM: del concepto al contenedor', 'Cada proyecto OEM/ODM sigue nuestro proceso probado de 6 etapas. Desde su primer boceto hasta el contenedor de envío, cada etapa tiene procedimientos documentados, ingenieros designados y puntos de control de calidad.', {max: '', mb: 'mb-12'}) }}
  <div class="grid md:grid-cols-3 gap-6">
  <div class="bg-slate-50 rounded-2xl p-6 shadow-md hover:shadow-xl transition group reveal">
  <img src="/image/factory/02/process-01-industrial-design.webp" srcset="/image/factory/02/process-01-industrial-design-400w.webp 400w, /image/factory/02/process-01-industrial-design.webp 700w" sizes="(min-width: 1440px) 347px, (min-width: 1280px) 347px, (min-width: 1024px) 261px, (min-width: 768px) 176px, (min-width: 430px) 334px, 279px" alt="Fase de diseño industrial — bocetos de concepto y modelado 3D para desarrollo OEM" loading="lazy" width="600" height="400" class="w-full h-auto rounded-xl mb-4">
@@ -453,11 +434,7 @@ plPath: "o-nas/"
 	<!-- ======== 8. WHY PARTNER WITH WOWOHCOOL ======== -->
 <section class="sec bg-white">
  <div class="container-wide">
- <div class="text-center max-w-3xl mx-auto mb-16 reveal">
- <p class="section-label">Por qué WOWOHCOOL</p>
- <h2 class="section-title">Su socio fabricante OEM <span class="text-brandOrange">en China</span></h2>
- <p class="section-desc mx-auto">Más de 200 marcas en 40 países confían en nosotros. Estas son las razones.</p>
- </div>
+ {{ sectionHeader('Por qué WOWOHCOOL', 'Su socio fabricante OEM <span class="text-brandOrange">en China</span>', 'Más de 200 marcas en 40 países confían en nosotros. Estas son las razones.', {}) }}
  <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
  <div class="reveal bg-slate-50 rounded-2xl p-8 border border-slate-200 text-center">
  <div class="w-14 h-14 rounded-2xl bg-brandOrange/10 flex items-center justify-center mx-auto mb-5"><svg class="icon-user-tie text-2xl text-brandOrange" viewBox="0 0 448 512" width="28" height="28"><path d="M96 128a128 128 0 1 0 256 0A128 128 0 1 0 96 128zm94.5 200c-1.7 0-3.4.1-5.1.3C122.5 342.6 64 412.4 64 496c0 8.8 7.2 16 16 16l288 0c8.8 0 16-7.2 16-16 0-83.6-58.5-153.4-121.4-167.7-1.7-.2-3.4-.3-5.1-.3l-87 0z" fill="currentColor"/></svg></div>
@@ -491,16 +468,13 @@ plPath: "o-nas/"
 <section class="sec bg-slate-50">
  <div class="container-wide">
  <div class="flex flex-col lg:flex-row items-center gap-12">
- <div class="w-full lg:w-1/2 reveal">
- <p class="section-label">Control de calidad</p>
- <h2 class="text-3xl md:text-4xl font-black text-brandBlue leading-tight mb-6 italic uppercase">4 etapas de control<span class="text-brandOrange"> + cumplimiento UE</span></h2>
- <div class="space-y-4">
+ {% call sectionHeader('Control de calidad', '4 etapas de control<span class="text-brandOrange"> + cumplimiento UE</span>', '', {align: '', max: '', mb: '', extra: 'w-full lg:w-1/2', titleClass: 'text-3xl md:text-4xl font-black text-brandBlue leading-tight mb-6 italic uppercase'}) %}<div class="space-y-4">
  <div class="bg-white rounded-xl p-5 border border-slate-200 flex items-start gap-4"><div class="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center shrink-0"><span class="text-green-600 font-black text-sm">IQC</span></div><div><p class="font-bold text-brandBlue text-sm">Control de materiales entrantes</p><p class="text-xs text-slate-500">Verificación de todos los componentes antes de producción</p></div></div>
  <div class="bg-white rounded-xl p-5 border border-slate-200 flex items-start gap-4"><div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center shrink-0"><span class="text-blue-600 font-black text-sm">IPQC</span></div><div><p class="font-bold text-brandBlue text-sm">Control durante producción</p><p class="text-xs text-slate-500">Monitoreo en tiempo real de cada etapa del ensamblaje</p></div></div>
  <div class="bg-white rounded-xl p-5 border border-slate-200 flex items-start gap-4"><div class="w-10 h-10 rounded-full bg-amber-100 flex items-center justify-center shrink-0"><span class="text-amber-600 font-black text-sm">FQC</span></div><div><p class="font-bold text-brandBlue text-sm">Control final</p><p class="text-xs text-slate-500">Prueba de envejecimiento de 4 horas en el 100% de unidades</p></div></div>
  <div class="bg-white rounded-xl p-5 border border-slate-200 flex items-start gap-4"><div class="w-10 h-10 rounded-full bg-purple-100 flex items-center justify-center shrink-0"><span class="text-purple-600 font-black text-sm">OQC</span></div><div><p class="font-bold text-brandBlue text-sm">Control de salida</p><p class="text-xs text-slate-500">Inspección final antes del embalaje y envío</p></div></div>
  </div>
- </div>
+ {% endcall %}
  <div class="w-full lg:w-1/2 reveal">
  <div class="bg-brandBlue rounded-2xl p-8 md:p-10 text-white">
  <p class="text-brandOrange text-xs font-bold tracking-widest uppercase mb-2">Cumplimiento normativo</p>
@@ -523,10 +497,7 @@ plPath: "o-nas/"
 <section class="sec bg-slate-50">
  <div class="container-wide">
  <div class="grid md:grid-cols-2 gap-8">
- <div class="bg-white rounded-3xl p-8 reveal">
- <p class="section-label">Visite la fábrica</p>
- <h3 class="text-2xl lg:text-3xl font-black text-slate-900 uppercase italic tracking-tighter mb-4">Conozca <span class="text-brandOrange">nuestras instalaciones</span></h3>
- <p class="text-sm text-slate-600 leading-relaxed mb-6">Recibimos visitas de potenciales socios. Recorra nuestra planta de producción, conozca al equipo de ingeniería y vea nuestro proceso QC en acción. Una visita a la fábrica es la forma más rápida de verificar nuestras capacidades.</p>
+ {% call sectionHeader('Visite la fábrica', 'Conozca <span class="text-brandOrange">nuestras instalaciones</span>', '', {align: '', max: '', mb: '', extra: 'bg-white rounded-3xl p-8', titleClass: 'text-2xl lg:text-3xl font-black text-slate-900 uppercase italic tracking-tighter mb-4', tag: 'h3'}) %}<p class="text-sm text-slate-600 leading-relaxed mb-6">Recibimos visitas de potenciales socios. Recorra nuestra planta de producción, conozca al equipo de ingeniería y vea nuestro proceso QC en acción. Una visita a la fábrica es la forma más rápida de verificar nuestras capacidades.</p>
  <ul class="text-sm text-slate-600 space-y-3 mb-6">
  <li><strong>Dirección:</strong> 925, Yichuang International Center, Longhua District, Shenzhen, Guangdong 518111, China</li>
  <li><strong>Horario de visitas:</strong> Lunes a viernes, 9:00-17:00 (UTC+8). Reserve con al menos una semana de antelación.</li>
@@ -534,7 +505,7 @@ plPath: "o-nas/"
  <li><strong>Hoteles:</strong> Múltiples hoteles internacionales a 15 minutos. Le ayudamos con la reserva.</li>
  </ul>
  <button data-action="open-modal" class="inline-flex items-center gap-2 bg-brandOrange text-white px-6 py-3.5 rounded-xl font-black uppercase tracking-widest text-[11px] shadow-xl hover:-translate-y-1 transition cursor-pointer">Agendar visita a la fábrica</button>
- </div>
+ {% endcall %}
  <div class="bg-gradient-to-br from-brandBlue to-slate-800 rounded-3xl p-8 text-white reveal flex flex-col justify-center">
  <h3 class="text-2xl font-black text-white uppercase italic mb-4">Descargar perfil de empresa</h3>
  <p class="text-slate-300 text-sm leading-relaxed mb-6">Obtenga nuestro dossier completo: especificaciones de fábrica, documentos de certificación, catálogo de productos, detalles del proceso OEM/ODM y casos de éxito de clientes. Todo lo que necesita un responsable de compras en un PDF.</p>
@@ -549,19 +520,16 @@ plPath: "o-nas/"
 <!-- ======== 11. FAQ ======== -->
 <section class="sec bg-white">
  <div class="container-narrow">
- <div class="text-center mb-12 reveal">
- <p class="section-label">FAQ</p>
- <h2 class="section-title">Preguntas frecuentes sobre WOWOHCOOL</h2>
- </div>
+ {{ sectionHeader('FAQ', 'Preguntas frecuentes sobre WOWOHCOOL', '', {max: '', mb: 'mb-12'}) }}
  <div class="reveal">
- <details class="faq-item"><summary>¿Cuál es la capacidad de producción de su fábrica?</summary><div class="faq-answer">Nuestra fábrica en Shenzhen tiene 5.000m² con capacidad de producción mensual de 1M+ unidades. Operamos con sistema de gestión de calidad ISO 9001.</div></details>
- <details class="faq-item"><summary>¿Cuántos ingenieros de I+D tienen?</summary><div class="faq-answer">Contamos con más de 50 ingenieros de I+D dedicados al desarrollo de nuevos productos e innovación tecnológica en GaN, PD 3.1 y Qi2.</div></details>
- <details class="faq-item"><summary>¿Ofrecen atención en español?</summary><div class="faq-answer">Sí, tenemos personal que habla español para atender a clientes de España y Latinoamérica. Puede contactarnos por email, WhatsApp o llamada telefónica.</div></details>
- <details class="faq-item"><summary>¿Puedo visitar la fábrica?</summary><div class="faq-answer">Sí, recibimos clientes en nuestra fábrica en Shenzhen. También ofrecemos recorridos virtuales por WeChat o Zoom. Contáctenos para agendar.</div></details>
- <details class="faq-item"><summary>¿Qué certificaciones tienen?</summary><div class="faq-answer">ISO 9001, CE, RoHS, UN38.3, Qi2. Cumplimos el Reglamento UE 2023/1542 y normativa GPSR con representante autorizado en la UE. Asistencia para certificación AENOR en España.</div></details>
- <details class="faq-item"><summary>¿Qué productos fabrican?</summary><div class="faq-answer">Cuatro líneas de producto: Power Banks (Semi-Solid-State, PD 3.1), cargadores inalámbricos (Qi2, MagSafe), cargadores de coche (GaN, E-Mark) y cargadores GaN de pared (67W–100W+).</div></details>
- <details class="faq-item"><summary>¿Cómo verifico que WOWOHCOOL es una fábrica real?</summary><div class="faq-answer">Nuestra licencia comercial es verificable en el <a href="https://www.gsxt.gov.cn/" target="_blank" rel="noopener external"><strong>Sistema Nacional de Información Crediticia de China</strong></a> como Dong Yi Technology Co., Ltd, registrada en 2013. Aceptamos visitas por video en vivo, visitas presenciales y auditorías por terceros (Bureau Veritas, <a href="https://www.sgs.com/" target="_blank" rel="noopener external">SGS</a>, TÜV). Certificación ISO 9001 verificable a través de SGS. Consulte nuestra <a href="/es/blog/proveedor-cargadores-china-fiable" class="text-brandOrange hover:underline">guía completa de verificación de fábricas</a>.</div></details>
- <details class="faq-item"><summary>¿Qué diferencia a WOWOHCOOL de otras fábricas en Shenzhen?</summary><div class="faq-answer">Nos especializamos <strong>exclusivamente en accesorios de carga</strong>: power banks, cargadores inalámbricos, cargadores GaN y cargadores de coche. No somos una empresa comercial con categorías no relacionadas. Nuestros 13+ años de I+D enfocada incluyen tecnología de batería semi-sólida presentada en CES 2026 y experiencia Qi2 MPP desde los primeros días del estándar.</div></details>
+ {% call faqItem("¿Cuál es la capacidad de producción de su fábrica?") %}Nuestra fábrica en Shenzhen tiene 5.000m² con capacidad de producción mensual de 1M+ unidades. Operamos con sistema de gestión de calidad ISO 9001.{% endcall %}
+ {% call faqItem("¿Cuántos ingenieros de I+D tienen?") %}Contamos con más de 50 ingenieros de I+D dedicados al desarrollo de nuevos productos e innovación tecnológica en GaN, PD 3.1 y Qi2.{% endcall %}
+ {% call faqItem("¿Ofrecen atención en español?") %}Sí, tenemos personal que habla español para atender a clientes de España y Latinoamérica. Puede contactarnos por email, WhatsApp o llamada telefónica.{% endcall %}
+ {% call faqItem("¿Puedo visitar la fábrica?") %}Sí, recibimos clientes en nuestra fábrica en Shenzhen. También ofrecemos recorridos virtuales por WeChat o Zoom. Contáctenos para agendar.{% endcall %}
+ {% call faqItem("¿Qué certificaciones tienen?") %}ISO 9001, CE, RoHS, UN38.3, Qi2. Cumplimos el Reglamento UE 2023/1542 y normativa GPSR con representante autorizado en la UE. Asistencia para certificación AENOR en España.{% endcall %}
+ {% call faqItem("¿Qué productos fabrican?") %}Cuatro líneas de producto: Power Banks (Semi-Solid-State, PD 3.1), cargadores inalámbricos (Qi2, MagSafe), cargadores de coche (GaN, E-Mark) y cargadores GaN de pared (67W–100W+).{% endcall %}
+ {% call faqItem("¿Cómo verifico que WOWOHCOOL es una fábrica real?") %}Nuestra licencia comercial es verificable en el <a href="https://www.gsxt.gov.cn/" target="_blank" rel="noopener external"><strong>Sistema Nacional de Información Crediticia de China</strong></a> como Dong Yi Technology Co., Ltd, registrada en 2013. Aceptamos visitas por video en vivo, visitas presenciales y auditorías por terceros (Bureau Veritas, <a href="https://www.sgs.com/" target="_blank" rel="noopener external">SGS</a>, TÜV). Certificación ISO 9001 verificable a través de SGS. Consulte nuestra <a href="/es/blog/proveedor-cargadores-china-fiable" class="text-brandOrange hover:underline">guía completa de verificación de fábricas</a>.{% endcall %}
+ {% call faqItem("¿Qué diferencia a WOWOHCOOL de otras fábricas en Shenzhen?") %}Nos especializamos <strong>exclusivamente en accesorios de carga</strong>: power banks, cargadores inalámbricos, cargadores GaN y cargadores de coche. No somos una empresa comercial con categorías no relacionadas. Nuestros 13+ años de I+D enfocada incluyen tecnología de batería semi-sólida presentada en CES 2026 y experiencia Qi2 MPP desde los primeros días del estándar.{% endcall %}
  </div>
  </div>
 </section>
@@ -570,15 +538,12 @@ plPath: "o-nas/"
 <section class="sec bg-brandBlue relative overflow-hidden">
  <div class="absolute bottom-0 left-0 w-1/2 h-1/2 bg-gradient-to-tr from-brandOrange/5 to-transparent"></div>
  <div class="container-narrow text-center relative z-10">
- <div class="reveal">
- <p class="section-label">Comience ahora</p>
- <h2 class="text-3xl md:text-5xl font-black text-white leading-tight mb-4 italic uppercase">Hablemos de <span class="text-brandOrange">su proyecto</span></h2>
- <p class="text-slate-300 text-lg max-w-2xl mx-auto mb-8">Respuesta en 24 horas. Presupuesto personalizado sin compromiso.</p>
+ {% call sectionHeader('Comience ahora', 'Hablemos de <span class="text-brandOrange">su proyecto</span>', '', {align: '', max: '', mb: '', titleClass: 'text-3xl md:text-5xl font-black text-white leading-tight mb-4 italic uppercase'}) %}<p class="text-slate-300 text-lg max-w-2xl mx-auto mb-8">Respuesta en 24 horas. Presupuesto personalizado sin compromiso.</p>
  <div class="flex flex-col sm:flex-row gap-4 justify-center">
  <button data-action="open-modal" class="btn-primary text-base px-8 py-4 shadow-lg shadow-brandOrange/20 cursor-pointer">Solicitar presupuesto <svg class="icon-arrow-right" aria-hidden="true" focusable="false" viewBox="0 0 512 512"><path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-105.4 105.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" fill="currentColor"/></svg></button>
  <a href="https://wa.me/8618620789739" target="_blank" rel="noopener noreferrer" class="btn-outline-white text-base px-8 py-4">WhatsApp <svg class="icon-whatsapp" aria-hidden="true" focusable="false" viewBox="0 0 448 512"><path d="M380.9 97.1c-41.9-42-97.7-65.1-157-65.1-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480 117.7 449.1c32.4 17.7 68.9 27 106.1 27l.1 0c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3 18.6-68.1-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1s56.2 81.2 56.1 130.5c0 101.8-84.9 184.6-186.6 184.6zM325.1 300.5c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8s-14.3 18-17.6 21.8c-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7s-12.5-30.1-17.1-41.2c-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2s-9.7 1.4-14.8 6.9c-5.1 5.6-19.4 19-19.4 46.3s19.9 53.7 22.6 57.4c2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4s4.6-24.1 3.2-26.4c-1.3-2.5-5-3.9-10.5-6.6z" fill="currentColor"/></svg></a>
  </div>
- </div>
+ {% endcall %}
  </div>
 </section>
 {% endblock %}

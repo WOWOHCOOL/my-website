@@ -77,8 +77,16 @@
 </head>
 
 <body class="bg-white text-slate-900 overflow-x-hidden max-w-full">
-
+{# Shared page vocabulary. Imported here (once) so every page template that
+   extends layout.njk can call these macros without importing them again.
+   Do NOT re-declare them per page — that is how the site drifted apart.
+   The trailing `-` on lines 2-5 keeps the rendered whitespace identical to
+   the single-import version that came before, so page output stays byte-stable. #}
 {% from "breadcrumb.njk" import breadcrumb with context %}
+{%- from "partials/section-header.njk" import sectionHeader with context %}
+{%- from "partials/category-heading.njk" import categoryHeading with context %}
+{%- from "partials/faq-item.njk" import faqItem with context %}
+{%- from "partials/cta-band.njk" import ctaBand with context %}
 
  <!-- ======== HEADER ======== -->
  {% include "header.njk" %}

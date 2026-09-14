@@ -73,11 +73,11 @@ plPath: "produkty/power-bank/bateria-grzejaca/"
 
 {% block content %}
 {% from "breadcrumb.njk" import breadcrumb %}
-{{ breadcrumb([{name:"Inicio",url:"/es/"},{name:"Productos",url:"/es/productos/"},{name:"Power Bank",url:"/es/productos/powerbank/"},{name:"Batería Calefactora"}]) }}
 
 <!-- HERO -->
-<section class="pb-16 md:pb-20 bg-gradient-to-br from-red-50 via-white to-orange-50">
+<section class="pt-24 md:pt-28 pb-16 md:pb-20 bg-gradient-to-br from-red-50 via-white to-orange-50">
  <div class="container-wide">
+  {{ breadcrumb([{name:"Inicio",url:"/es/"},{name:"Productos",url:"/es/productos/"},{name:"Power Bank",url:"/es/productos/powerbank/"},{name:"Batería Calefactora"}], "none", "mb-6", { variant: "hero" }) }}
   <div class="grid lg:grid-cols-2 gap-12 items-center">
    <div class="reveal order-2 lg:order-1">
     <p class="text-brandOrange text-xs font-bold tracking-widest uppercase mb-3">Ropa Calefactora &middot; Fábrica OEM &middot; Q4 2026</p>
@@ -108,11 +108,7 @@ plPath: "produkty/power-bank/bateria-grzejaca/"
 <!-- MODELOS -->
 <section id="modelos" class="py-16 bg-white">
  <div class="container-wide">
-  <div class="text-center max-w-3xl mx-auto mb-12 reveal">
-   <p class="section-label">Gama</p>
-   <h2 class="section-title">8 Baterías Calefactoras <span class="text-brandOrange">OEM</span> para cada tipo de prenda</h2>
-   <p class="section-desc mx-auto">Desde módulos compactos de 1.800mAh para cojines de masaje hasta 14.400mAh de alta capacidad para uso intensivo en chaquetas calefactoras.</p>
-  </div>
+  {{ sectionHeader('Gama', '8 Baterías Calefactoras <span class="text-brandOrange">OEM</span> para cada tipo de prenda', 'Desde módulos compactos de 1.800mAh para cojines de masaje hasta 14.400mAh de alta capacidad para uso intensivo en chaquetas calefactoras.', {mb: 'mb-12'}) }}
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 items-start">
    <div class="product-card reveal bg-white rounded-2xl p-6 border border-slate-200 flex flex-col">
     <div class="aspect-square bg-slate-50 rounded-xl mb-5 overflow-hidden flex items-center justify-center p-6"><img src="/image/product/power-bank/wop55-heating-battery.webp" srcset="/image/product/power-bank/wop55-heating-battery-750w.webp 750w, /image/product/power-bank/wop55-heating-battery.webp 1100w" sizes="(min-width: 1440px) 526px, (min-width: 1280px) 526px, (min-width: 1024px) 398px, (min-width: 768px) 654px, (min-width: 430px) 382px, 327px" alt="WOP55 Batería Calefactora 14.400mAh" width="200" height="200" class="w-full h-full object-contain" loading="lazy" decoding="async"></div>
@@ -134,7 +130,7 @@ plPath: "produkty/power-bank/bateria-grzejaca/"
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Salida USB-A</td><td class="py-1.5 font-bold text-slate-700">5V/3A, 9V/2A, 12V/1.5A</td></tr>
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Salida Type-C</td><td class="py-1.5 font-bold text-slate-700">5V/3A, 9V/2.22A, 12V/1.5A</td></tr></tbody></table></div>
     </details>
-    <button data-action="open-modal" data-product="WOP55 Batería Calefactora 14.400mAh" class="mt-auto w-full py-3 bg-brandOrange text-white font-black uppercase text-[11px] tracking-widest rounded-xl hover:bg-brandOrange/90 transition shadow-md cursor-pointer">Solicitar precio fábrica</button>
+    <button data-action="open-modal" data-product="WOP55 Batería Calefactora 14.400mAh" class="btn-card-sm">Solicitar precio fábrica</button>
    </div>
    <div class="product-card reveal bg-white rounded-2xl p-6 border border-slate-200 flex flex-col">
     <div class="aspect-square bg-slate-50 rounded-xl mb-5 overflow-hidden flex items-center justify-center p-6"><img src="/image/product/power-bank/wop50-heating-socks-battery.webp" srcset="/image/product/power-bank/wop50-heating-socks-battery-450w.webp 450w, /image/product/power-bank/wop50-heating-socks-battery.webp 800w" sizes="(min-width: 1440px) 389px, (min-width: 1280px) 389px, (min-width: 1024px) 304px, (min-width: 768px) 344px, (min-width: 430px) 382px, 327px" alt="WOP50 Batería Calcetines" width="200" height="200" class="w-full h-full object-contain" loading="lazy" decoding="async"></div>
@@ -159,7 +155,7 @@ plPath: "produkty/power-bank/bateria-grzejaca/"
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Salida Type-C</td><td class="py-1.5 font-bold text-slate-700">5V / 2A Max</td></tr>
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">DC Salida</td><td class="py-1.5 font-bold text-slate-700">3.7V / 1.5A Max</td></tr></tbody></table></div>
     </details>
-    <button data-action="open-modal" data-product="WOP50 Batería Calcetines" class="mt-auto w-full py-3 bg-brandOrange text-white font-black uppercase text-[11px] tracking-widest rounded-xl hover:bg-brandOrange/90 transition shadow-md cursor-pointer">Solicitar precio fábrica</button>
+    <button data-action="open-modal" data-product="WOP50 Batería Calcetines" class="btn-card-sm">Solicitar precio fábrica</button>
    </div>
    <div class="product-card reveal bg-white rounded-2xl p-6 border border-slate-200 flex flex-col">
     <div class="aspect-square bg-slate-50 rounded-xl mb-5 overflow-hidden flex items-center justify-center p-6"><img src="/image/product/power-bank/wop49-heating-scarf-battery.webp" srcset="/image/product/power-bank/wop49-heating-scarf-battery-450w.webp 450w, /image/product/power-bank/wop49-heating-scarf-battery.webp 800w" sizes="(min-width: 1440px) 389px, (min-width: 1280px) 389px, (min-width: 1024px) 304px, (min-width: 768px) 344px, (min-width: 430px) 382px, 327px" alt="WOP49 Batería Bufanda" width="200" height="200" class="w-full h-full object-contain" loading="lazy" decoding="async"></div>
@@ -183,7 +179,7 @@ plPath: "produkty/power-bank/bateria-grzejaca/"
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Micro Entrada</td><td class="py-1.5 font-bold text-slate-700">5V / 2A Max</td></tr>
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">USB Salida</td><td class="py-1.5 font-bold text-slate-700">5V / 2A Max</td></tr></tbody></table></div>
     </details>
-    <button data-action="open-modal" data-product="WOP49 Batería Bufanda" class="mt-auto w-full py-3 bg-brandOrange text-white font-black uppercase text-[11px] tracking-widest rounded-xl hover:bg-brandOrange/90 transition shadow-md cursor-pointer">Solicitar precio fábrica</button>
+    <button data-action="open-modal" data-product="WOP49 Batería Bufanda" class="btn-card-sm">Solicitar precio fábrica</button>
    </div>
    <div class="product-card reveal bg-white rounded-2xl p-6 border border-slate-200 flex flex-col">
     <div class="aspect-square bg-slate-50 rounded-xl mb-5 overflow-hidden flex items-center justify-center p-6"><img src="/image/product/power-bank/wop61-heating-gloves-battery.webp" srcset="/image/product/power-bank/wop61-heating-gloves-battery-450w.webp 450w, /image/product/power-bank/wop61-heating-gloves-battery.webp 800w" sizes="(min-width: 1440px) 389px, (min-width: 1280px) 389px, (min-width: 1024px) 304px, (min-width: 768px) 344px, (min-width: 430px) 382px, 327px" alt="WOP61 Batería Guantes" width="200" height="200" class="w-full h-full object-contain" loading="lazy" decoding="async"></div>
@@ -205,7 +201,7 @@ plPath: "produkty/power-bank/bateria-grzejaca/"
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Charge Limit Voltaje</td><td class="py-1.5 font-bold text-slate-700">8.4V</td></tr>
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Capacidad nominal</td><td class="py-1.5 font-bold text-slate-700">2500mAh / 18.5Wh</td></tr></tbody></table></div>
     </details>
-    <button data-action="open-modal" data-product="WOP61 Batería Guantes" class="mt-auto w-full py-3 bg-brandOrange text-white font-black uppercase text-[11px] tracking-widest rounded-xl hover:bg-brandOrange/90 transition shadow-md cursor-pointer">Solicitar precio fábrica</button>
+    <button data-action="open-modal" data-product="WOP61 Batería Guantes" class="btn-card-sm">Solicitar precio fábrica</button>
    </div>
    <div class="product-card reveal bg-white rounded-2xl p-6 border border-slate-200 flex flex-col">
     <div class="aspect-square bg-slate-50 rounded-xl mb-5 overflow-hidden flex items-center justify-center p-6"><img src="/image/product/power-bank/wop53-heating-pillow-battery.webp" srcset="/image/product/power-bank/wop53-heating-pillow-battery-450w.webp 450w, /image/product/power-bank/wop53-heating-pillow-battery.webp 800w" sizes="(min-width: 1440px) 389px, (min-width: 1280px) 389px, (min-width: 1024px) 304px, (min-width: 768px) 344px, (min-width: 430px) 382px, 327px" alt="WOP53 Batería Cojin" width="200" height="200" class="w-full h-full object-contain" loading="lazy" decoding="async"></div>
@@ -226,7 +222,7 @@ plPath: "produkty/power-bank/bateria-grzejaca/"
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Capacidad nominal</td><td class="py-1.5 font-bold text-slate-700">1800mAh</td></tr>
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">DC Entrada/Output</td><td class="py-1.5 font-bold text-slate-700">12.6V / 2A</td></tr></tbody></table></div>
     </details>
-    <button data-action="open-modal" data-product="WOP53 Batería Cojin" class="mt-auto w-full py-3 bg-brandOrange text-white font-black uppercase text-[11px] tracking-widest rounded-xl hover:bg-brandOrange/90 transition shadow-md cursor-pointer">Solicitar precio fábrica</button>
+    <button data-action="open-modal" data-product="WOP53 Batería Cojin" class="btn-card-sm">Solicitar precio fábrica</button>
    </div>
    <div class="product-card reveal bg-white rounded-2xl p-6 border border-slate-200 flex flex-col">
     <div class="aspect-square bg-slate-50 rounded-xl mb-5 overflow-hidden flex items-center justify-center p-6"><img src="/image/product/power-bank/wop57-heating-battery-4000mah.webp" srcset="/image/product/power-bank/wop57-heating-battery-4000mah-450w.webp 450w, /image/product/power-bank/wop57-heating-battery-4000mah.webp 800w" sizes="(min-width: 1440px) 389px, (min-width: 1280px) 389px, (min-width: 1024px) 304px, (min-width: 768px) 344px, (min-width: 430px) 382px, 327px" alt="WOP57 Batería 4.000mAh" width="200" height="200" class="w-full h-full object-contain" loading="lazy" decoding="async"></div>
@@ -249,7 +245,7 @@ plPath: "produkty/power-bank/bateria-grzejaca/"
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">USB Salida</td><td class="py-1.5 font-bold text-slate-700">5V/1.5A Max</td></tr>
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Eficiencia</td><td class="py-1.5 font-bold text-slate-700">&ge;72%</td></tr></tbody></table></div>
     </details>
-    <button data-action="open-modal" data-product="WOP57 Batería 4.000mAh" class="mt-auto w-full py-3 bg-brandOrange text-white font-black uppercase text-[11px] tracking-widest rounded-xl hover:bg-brandOrange/90 transition shadow-md cursor-pointer">Solicitar precio fábrica</button>
+    <button data-action="open-modal" data-product="WOP57 Batería 4.000mAh" class="btn-card-sm">Solicitar precio fábrica</button>
    </div>
    <div class="product-card reveal bg-white rounded-2xl p-6 border border-slate-200 flex flex-col">
     <div class="aspect-square bg-slate-50 rounded-xl mb-5 overflow-hidden flex items-center justify-center p-6"><img src="/image/product/power-bank/wop54-heating-battery-9600mah.webp" srcset="/image/product/power-bank/wop54-heating-battery-9600mah-450w.webp 450w, /image/product/power-bank/wop54-heating-battery-9600mah.webp 800w" sizes="(min-width: 1440px) 389px, (min-width: 1280px) 389px, (min-width: 1024px) 304px, (min-width: 768px) 344px, (min-width: 430px) 382px, 327px" alt="WOP54 Batería 9.600mAh" width="200" height="200" class="w-full h-full object-contain" loading="lazy" decoding="async"></div>
@@ -273,7 +269,7 @@ plPath: "produkty/power-bank/bateria-grzejaca/"
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Heating Port Salida</td><td class="py-1.5 font-bold text-slate-700">5V/2A Max</td></tr>
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Eficiencia</td><td class="py-1.5 font-bold text-slate-700">&ge;72%</td></tr></tbody></table></div>
     </details>
-    <button data-action="open-modal" data-product="WOP54 Batería 9.600mAh" class="mt-auto w-full py-3 bg-brandOrange text-white font-black uppercase text-[11px] tracking-widest rounded-xl hover:bg-brandOrange/90 transition shadow-md cursor-pointer">Solicitar precio fábrica</button>
+    <button data-action="open-modal" data-product="WOP54 Batería 9.600mAh" class="btn-card-sm">Solicitar precio fábrica</button>
    </div>
    <div class="product-card reveal bg-white rounded-2xl p-6 border border-slate-200 flex flex-col">
     <div class="aspect-square bg-slate-50 rounded-xl mb-5 overflow-hidden flex items-center justify-center p-6"><img src="/image/product/power-bank/wop63-heating-battery-10000mah.webp" srcset="/image/product/power-bank/wop63-heating-battery-10000mah-450w.webp 450w, /image/product/power-bank/wop63-heating-battery-10000mah.webp 800w" sizes="(min-width: 1440px) 389px, (min-width: 1280px) 389px, (min-width: 1024px) 304px, (min-width: 768px) 344px, (min-width: 430px) 382px, 327px" alt="WOP63 Batería 10.000mAh" width="200" height="200" class="w-full h-full object-contain" loading="lazy" decoding="async"></div>
@@ -297,7 +293,7 @@ plPath: "produkty/power-bank/bateria-grzejaca/"
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Total Salida</td><td class="py-1.5 font-bold text-slate-700">5V/2.1A Max</td></tr>
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Eficiencia</td><td class="py-1.5 font-bold text-slate-700">&ge;75%</td></tr></tbody></table></div>
     </details>
-    <button data-action="open-modal" data-product="WOP63 Batería 10.000mAh" class="mt-auto w-full py-3 bg-brandOrange text-white font-black uppercase text-[11px] tracking-widest rounded-xl hover:bg-brandOrange/90 transition shadow-md cursor-pointer">Solicitar precio fábrica</button>
+    <button data-action="open-modal" data-product="WOP63 Batería 10.000mAh" class="btn-card-sm">Solicitar precio fábrica</button>
    </div>
   </div>
  </div>
@@ -316,11 +312,7 @@ plPath: "produkty/power-bank/bateria-grzejaca/"
 <!-- GUÍA DE VOLTAJE -->
 <section class="py-16 bg-slate-50">
  <div class="container-content">
-  <div class="text-center max-w-3xl mx-auto mb-12 reveal">
-   <p class="section-label">Guía de voltaje</p>
-   <h2 class="section-title">5V USB vs. 7,4V DC</h2>
-   <p class="section-desc mx-auto">¿Qué voltaje se ajusta a su elemento calefactor? Resumen para fabricantes de ropa térmica.</p>
-  </div>
+  {{ sectionHeader('Guía de voltaje', '5V USB vs. 7,4V DC', '¿Qué voltaje se ajusta a su elemento calefactor? Resumen para fabricantes de ropa térmica.', {mb: 'mb-12'}) }}
   <div class="grid md:grid-cols-2 gap-6 reveal">
    <div class="bg-white rounded-2xl p-6 border border-slate-200"><p class="text-2xl font-black text-brandOrange mb-2">5V USB</p><p class="text-sm font-bold text-brandBlue mb-2">Calefactores USB</p><p class="text-xs text-slate-500">Chaquetas/chalecos con paneles calefactores USB, cojines de masaje, mantas, calientamanos. Salida USB-A estándar. Potencia 5-15W. Capacidad 1.800-10.000mAh. Modelos: WOP53, WOP57, WOP54, WOP63.</p></div>
    <div class="bg-white rounded-2xl p-6 border border-brandOrange/30 ring-2 ring-brandOrange/20"><p class="text-2xl font-black text-brandOrange mb-2">7,4V DC</p><p class="text-sm font-bold text-brandBlue mb-2">Ropa premium</p><p class="text-xs text-slate-500">Chaquetas, chalecos, guantes, calcetines, bufandas con elementos DC. Mayor potencia 15-45W. Capacidad 2.000-14.400mAh. Modelos: WOP49, WOP50, WOP55, WOP61. <strong>Estándar para marcas premium.</strong></p></div>
@@ -331,11 +323,7 @@ plPath: "produkty/power-bank/bateria-grzejaca/"
 <!-- CALENDARIO Q4 -->
 <section class="py-16 bg-white">
  <div class="container-content">
-  <div class="text-center max-w-3xl mx-auto mb-12 reveal">
-   <p class="section-label">Planificación Q4</p>
-   <h2 class="section-title">Preparar la temporada de chaquetas calefactoras 2026</h2>
-   <p class="section-desc mx-auto">El mercado de ropa calefactora en España y Europa tiene su pico de <strong>octubre a febrero</strong>. Con 25-35 días de plazo de fábrica + flete marítimo, los pedidos para Q4 2026 deben colocarse como muy tarde en agosto. Este es el calendario que usan nuestros clientes españoles y portugueses.</p>
-  </div>
+  {{ sectionHeader('Planificación Q4', 'Preparar la temporada de chaquetas calefactoras 2026', 'El mercado de ropa calefactora en España y Europa tiene su pico de <strong>octubre a febrero</strong>. Con 25-35 días de plazo de fábrica + flete marítimo, los pedidos para Q4 2026 deben colocarse como muy tarde en agosto. Este es el calendario que usan nuestros clientes españoles y portugueses.', {mb: 'mb-12'}) }}
   <div class="grid md:grid-cols-4 gap-4 reveal">
    <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200">
     <p class="text-2xl font-black text-brandOrange mb-2">May-Jun</p>
@@ -364,10 +352,7 @@ plPath: "produkty/power-bank/bateria-grzejaca/"
 <!-- CERTIFICACIONES -->
 <section class="py-16 bg-white">
  <div class="container-content">
-  <div class="text-center max-w-3xl mx-auto mb-12 reveal">
-   <p class="section-label">Cumplimiento</p>
-   <h2 class="section-title">Certificaciones para dispositivos calefactores portátiles</h2>
-  </div>
+  {{ sectionHeader('Cumplimiento', 'Certificaciones para dispositivos calefactores portátiles', '', {mb: 'mb-12'}) }}
   <div class="grid md:grid-cols-2 gap-6 reveal">
    <div class="bg-white rounded-2xl p-6 border border-slate-200">
     <p class="text-sm text-slate-600 leading-relaxed">Para baterías calefactoras portátiles aplica el Reglamento UE 2023/1542 — gestionamos el registro RAEE/EPR en España y los equivalentes EPR para distribución textil en Francia, Italia y Portugal. Desde febrero 2027, preparación del pasaporte digital de batería incluida.</p>
@@ -383,21 +368,18 @@ plPath: "produkty/power-bank/bateria-grzejaca/"
 
 <!-- OEM/ODM CTA -->
 <section class="py-16 bg-brandBlue text-white">
- <div class="container-content text-center">
-  <p class="section-label text-brandOrange">OEM / ODM</p>
-  <h2 class="text-3xl lg:text-4xl font-black uppercase italic tracking-tighter mb-4">Batería calefactora<br><span class="text-brandOrange">según sus especificaciones</span></h2>
-  <p class="text-slate-300 max-w-2xl mx-auto mb-8">MOQ desde 500 unidades. Voltaje, conector, longitud de cable, logo y embalaje propios. Para marcas establecidas ofrecemos asesoría de ingeniería para combinaciones elemento calefactor + batería.</p>
+ {% call sectionHeader('OEM / ODM', 'Batería calefactora<br><span class="text-brandOrange">según sus especificaciones</span>', '', {max: '', mb: '', extra: 'container-content', reveal: false, labelClass: 'text-brandOrange', titleClass: 'text-3xl lg:text-4xl font-black uppercase italic tracking-tighter mb-4'}) %}<p class="text-slate-300 max-w-2xl mx-auto mb-8">MOQ desde 500 unidades. Voltaje, conector, longitud de cable, logo y embalaje propios. Para marcas establecidas ofrecemos asesoría de ingeniería para combinaciones elemento calefactor + batería.</p>
   <div class="flex flex-wrap gap-4 justify-center">
    <button data-action="open-modal" class="btn-primary cursor-pointer">Enviar especificación &rarr;</button>
    <a href="/es/contacto/" class="inline-flex items-center justify-center px-6 py-3 border-2 border-white text-white font-black uppercase italic tracking-widest text-sm rounded-full hover:bg-white hover:text-brandBlue transition-all">Contactar</a>
   </div>
- </div>
+ {% endcall %}
 </section>
 
 <!-- FAQ -->
 <section class="py-16 bg-white">
  <div class="container-narrow">
-  <div class="text-center mb-12 reveal"><p class="section-label">FAQ</p><h2 class="section-title">Preguntas frecuentes batería calefactora</h2></div>
+  {{ sectionHeader('FAQ', 'Preguntas frecuentes batería calefactora', '', {max: '', mb: 'mb-12'}) }}
   <div class="space-y-4">
    <details class="reveal bg-slate-50 rounded-2xl p-6 border border-slate-200"><summary class="font-bold text-brandBlue cursor-pointer">¿Qué voltajes ofrecen para baterías calefactoras?</summary><p class="text-sm text-slate-600 mt-3 leading-relaxed faq-answer">5V USB (chaquetas/chalecos con paneles calefactores USB, cojines de masaje, calientamanos) y 7,4V DC (chaquetas, chalecos, guantes, calcetines, bufandas calefactoras con elementos DC). Fabricamos configuraciones de voltaje a medida para sus elementos calefactores.</p></details>
    <details class="reveal bg-slate-50 rounded-2xl p-6 border border-slate-200"><summary class="font-bold text-brandBlue cursor-pointer">¿Qué conectores hay disponibles?</summary><p class="text-sm text-slate-600 mt-3 leading-relaxed faq-answer">DC 5,5×2,1mm, DC 3,5×1,35mm, JST-PH, JST-XH, USB-A, USB-C, configuraciones de pines a medida. Longitudes de cable 30-150cm. Suministramos combinaciones completas elemento calefactor + conector si lo solicita.</p></details>

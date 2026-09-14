@@ -73,11 +73,11 @@ plPath: "produkty/power-bank/hybryda-2-w-1/"
 
 {% block content %}
 {% from "breadcrumb.njk" import breadcrumb %}
-{{ breadcrumb([{name:"Startseite",url:"/de/"},{name:"Produkte",url:"/de/produkte/"},{name:"Powerbank",url:"/de/produkte/powerbank/"},{name:"2-in-1 Hybrid"}]) }}
 
 <!-- HERO -->
-<section class="pb-16 md:pb-20 bg-gradient-to-br from-purple-50 via-white to-orange-50">
+<section class="pt-24 md:pt-28 pb-16 md:pb-20 bg-gradient-to-br from-purple-50 via-white to-orange-50">
  <div class="container-wide">
+  {{ breadcrumb([{name:"Startseite",url:"/de/"},{name:"Produkte",url:"/de/produkte/"},{name:"Powerbank",url:"/de/produkte/powerbank/"},{name:"2-in-1 Hybrid"}], "none", "mb-6", { variant: "hero" }) }}
   <div class="grid lg:grid-cols-2 gap-12 items-center">
    <div class="reveal order-2 lg:order-1">
     <p class="text-brandOrange text-xs font-bold tracking-widest uppercase mb-3">Wandladegerät + Powerbank</p>
@@ -102,24 +102,13 @@ plPath: "produkty/power-bank/hybryda-2-w-1/"
  </div>
 </section>
 
-<!-- STATS BAR -->
-{% from "partials/stats-bar.njk" import statsBar %}
-{{ statsBar(i18n.statsBar[lang].items) }}
-
-<!-- TRUST BAR — Certs + Logos -->
-{% from "partials/cert-showcase.njk" import certShowcase %}
-{{ certShowcase(i18n.certifications[lang].homepage.items, i18n.certifications[lang].homepage.heading, i18n.certifications[lang].homepage.title, "", "py-10 md:py-14 bg-white", true) }}
-{% from "partials/customer-logos.njk" import customerLogos %}
-{{ customerLogos("Vertrauen internationaler Marken", "", standalone=true) }}
+<!-- ======== TRUST BAR ======== -->
+{% include "trust-bar.njk" %}
 
 <!-- MODELLE -->
 <section id="modelle" class="sec bg-white">
  <div class="container-wide">
-  <div class="text-center max-w-3xl mx-auto mb-12 reveal">
-   <p class="section-label">Modellreihe</p>
-   <h2 class="section-title">9 Hybrid-Modelle für jede Reise</h2>
-   <p class="section-desc mx-auto">Von kompakten 5.000mAh-Reisemodellen bis 20.000mAh High-Capacity-Hybriden mit Multi-Port-Output.</p>
-  </div>
+  {{ sectionHeader('Modellreihe', '9 Hybrid-Modelle für jede Reise', 'Von kompakten 5.000mAh-Reisemodellen bis 20.000mAh High-Capacity-Hybriden mit Multi-Port-Output.', {mb: 'mb-12'}) }}
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 items-start">
    <div class="product-card reveal bg-white rounded-2xl p-6 border border-slate-200 flex flex-col">
     <div class="aspect-square bg-white rounded-xl mb-5 overflow-hidden flex items-center justify-center p-6"><img src="/image/product/power-bank/wop69-2in1-charger.webp" srcset="/image/product/power-bank/wop69-2in1-charger-750w.webp 750w, /image/product/power-bank/wop69-2in1-charger.webp 1920w" sizes="(min-width: 1440px) 526px, (min-width: 1280px) 526px, (min-width: 1024px) 398px, (min-width: 768px) 654px, (min-width: 430px) 382px, 327px" alt="WOP69 GaN 2-in-1 Hybrid 67W 15.000mAh mit einziehbarem Kabel" width="200" height="200" class="w-full h-full object-contain" loading="lazy" decoding="async"></div>
@@ -143,7 +132,7 @@ plPath: "produkty/power-bank/hybryda-2-w-1/"
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">PPS</td><td class="py-1.5 font-bold text-slate-700">3.3-11V/4.5A</td></tr>
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Wirkungsgrad</td><td class="py-1.5 font-bold text-slate-700">≥0%</td></tr></tbody></table></div>
     </details>
-    <button data-action="open-modal" data-product="WOP69 GaN Hybrid 67W" class="mt-auto w-full py-3 bg-brandOrange text-white font-black uppercase text-[11px] tracking-widest rounded-xl hover:bg-brandOrange/90 transition shadow-md cursor-pointer">Werkspreis anfragen</button>
+    <button data-action="open-modal" data-product="WOP69 GaN Hybrid 67W" class="btn-card-sm">Werkspreis anfragen</button>
    </div>
    <div class="product-card reveal bg-white rounded-2xl p-6 border border-slate-200 flex flex-col">
     <div class="aspect-square bg-white rounded-xl mb-5 overflow-hidden flex items-center justify-center p-6"><img src="/image/product/power-bank/wop67-2in1-cable-charger.webp" srcset="/image/product/power-bank/wop67-2in1-cable-charger-450w.webp 450w, /image/product/power-bank/wop67-2in1-cable-charger.webp 1050w" sizes="(min-width: 1440px) 389px, (min-width: 1280px) 389px, (min-width: 1024px) 304px, (min-width: 768px) 344px, (min-width: 430px) 382px, 327px" alt="WOP67 2-in-1 Hybrid 45W 10.000mAh mit eingebautem Kabel" width="200" height="200" class="w-full h-full object-contain" loading="lazy" decoding="async"></div>
@@ -167,7 +156,7 @@ plPath: "produkty/power-bank/hybryda-2-w-1/"
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Mehrfach-Ausgang</td><td class="py-1.5 font-bold text-slate-700">33W max.</td></tr>
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Wirkungsgrad</td><td class="py-1.5 font-bold text-slate-700">≥0%</td></tr></tbody></table></div>
     </details>
-    <button data-action="open-modal" data-product="WOP67 2-in-1 45W" class="mt-auto w-full py-3 bg-brandOrange text-white font-black uppercase text-[11px] tracking-widest rounded-xl hover:bg-brandOrange/90 transition shadow-md cursor-pointer">Werkspreis anfragen</button>
+    <button data-action="open-modal" data-product="WOP67 2-in-1 45W" class="btn-card-sm">Werkspreis anfragen</button>
    </div>
    <div class="product-card reveal bg-white rounded-2xl p-6 border border-slate-200 flex flex-col">
     <div class="aspect-square bg-white rounded-xl mb-5 overflow-hidden flex items-center justify-center p-6"><img src="/image/product/power-bank/wopj73-2in1-hybrid-45w-charger-20000mah.webp" srcset="/image/product/power-bank/wopj73-2in1-hybrid-45w-charger-20000mah-450w.webp 450w, /image/product/power-bank/wopj73-2in1-hybrid-45w-charger-20000mah.webp 800w" sizes="(min-width: 1440px) 389px, (min-width: 1280px) 389px, (min-width: 1024px) 304px, (min-width: 768px) 344px, (min-width: 430px) 382px, 327px" alt="WOPJ73 2-in-1 Hybrid 45W 20.000mAh High-Capacity" width="200" height="200" class="w-full h-full object-contain" loading="lazy" decoding="async"></div>
@@ -194,7 +183,7 @@ plPath: "produkty/power-bank/hybryda-2-w-1/"
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Mehrfach-Ausgang</td><td class="py-1.5 font-bold text-slate-700">5V/3A max.</td></tr>
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Wirkungsgrad</td><td class="py-1.5 font-bold text-slate-700">≥70%</td></tr></tbody></table></div>
     </details>
-    <button data-action="open-modal" data-product="WOPJ73 Hybrid 45W" class="mt-auto w-full py-3 bg-brandOrange text-white font-black uppercase text-[11px] tracking-widest rounded-xl hover:bg-brandOrange/90 transition shadow-md cursor-pointer">Werkspreis anfragen</button>
+    <button data-action="open-modal" data-product="WOPJ73 Hybrid 45W" class="btn-card-sm">Werkspreis anfragen</button>
    </div>
    <div class="product-card reveal bg-white rounded-2xl p-6 border border-slate-200 flex flex-col">
     <div class="aspect-square bg-white rounded-xl mb-5 overflow-hidden flex items-center justify-center p-6"><img src="/image/product/power-bank/wopy73-2in1-hybrid-22w-charger-10000mah.webp" srcset="/image/product/power-bank/wopy73-2in1-hybrid-22w-charger-10000mah-450w.webp 450w, /image/product/power-bank/wopy73-2in1-hybrid-22w-charger-10000mah.webp 800w" sizes="(min-width: 1440px) 389px, (min-width: 1280px) 389px, (min-width: 1024px) 304px, (min-width: 768px) 344px, (min-width: 430px) 382px, 327px" alt="WOPY73 2-in-1 Hybrid 22,5W 10.000mAh Mid-Range" width="200" height="200" class="w-full h-full object-contain" loading="lazy" decoding="async"></div>
@@ -222,7 +211,7 @@ plPath: "produkty/power-bank/hybryda-2-w-1/"
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Mehrfach-Ausgang</td><td class="py-1.5 font-bold text-slate-700">5V/3A max.</td></tr>
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Wirkungsgrad</td><td class="py-1.5 font-bold text-slate-700">≥70%</td></tr></tbody></table></div>
     </details>
-    <button data-action="open-modal" data-product="WOPY73 Hybrid 22,5W" class="mt-auto w-full py-3 bg-brandOrange text-white font-black uppercase text-[11px] tracking-widest rounded-xl hover:bg-brandOrange/90 transition shadow-md cursor-pointer">Werkspreis anfragen</button>
+    <button data-action="open-modal" data-product="WOPY73 Hybrid 22,5W" class="btn-card-sm">Werkspreis anfragen</button>
    </div>
    <div class="product-card reveal bg-white rounded-2xl p-6 border border-slate-200 flex flex-col">
     <div class="aspect-square bg-white rounded-xl mb-5 overflow-hidden flex items-center justify-center p-6"><img src="/image/product/power-bank/wopj69-2in1-hybrid-20w-charger-5000mah.webp" srcset="/image/product/power-bank/wopj69-2in1-hybrid-20w-charger-5000mah-450w.webp 450w, /image/product/power-bank/wopj69-2in1-hybrid-20w-charger-5000mah.webp 800w" sizes="(min-width: 1440px) 389px, (min-width: 1280px) 389px, (min-width: 1024px) 304px, (min-width: 768px) 344px, (min-width: 430px) 382px, 327px" alt="WOPJ69 2-in-1 Hybrid 20W 5.000mAh kompakt" width="200" height="200" class="w-full h-full object-contain" loading="lazy" decoding="async"></div>
@@ -248,7 +237,7 @@ plPath: "produkty/power-bank/hybryda-2-w-1/"
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Mehrfach-Ausgang</td><td class="py-1.5 font-bold text-slate-700">5V/2A max.</td></tr>
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Wirkungsgrad</td><td class="py-1.5 font-bold text-slate-700">≥70%</td></tr></tbody></table></div>
     </details>
-    <button data-action="open-modal" data-product="WOPJ69 Hybrid 20W" class="mt-auto w-full py-3 bg-brandOrange text-white font-black uppercase text-[11px] tracking-widest rounded-xl hover:bg-brandOrange/90 transition shadow-md cursor-pointer">Werkspreis anfragen</button>
+    <button data-action="open-modal" data-product="WOPJ69 Hybrid 20W" class="btn-card-sm">Werkspreis anfragen</button>
    </div>
    <div class="product-card reveal bg-white rounded-2xl p-6 border border-slate-200 flex flex-col">
     <div class="aspect-square bg-white rounded-xl mb-5 overflow-hidden flex items-center justify-center p-6"><img src="/image/product/power-bank/wopj54-2in1-hybrid-22w-charger-9600mah.webp" srcset="/image/product/power-bank/wopj54-2in1-hybrid-22w-charger-9600mah-450w.webp 450w, /image/product/power-bank/wopj54-2in1-hybrid-22w-charger-9600mah.webp 800w" sizes="(min-width: 1440px) 389px, (min-width: 1280px) 389px, (min-width: 1024px) 304px, (min-width: 768px) 344px, (min-width: 430px) 382px, 327px" alt="WOPJ54 2-in-1 Hybrid 22,5W 9.600mAh Klapp-AC" width="200" height="200" class="w-full h-full object-contain" loading="lazy" decoding="async"></div>
@@ -276,7 +265,7 @@ plPath: "produkty/power-bank/hybryda-2-w-1/"
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Mehrfach-Ausgang</td><td class="py-1.5 font-bold text-slate-700">5V/3A max.</td></tr>
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Wirkungsgrad</td><td class="py-1.5 font-bold text-slate-700">≥72%</td></tr></tbody></table></div>
     </details>
-    <button data-action="open-modal" data-product="WOPJ54 Hybrid 22,5W" class="mt-auto w-full py-3 bg-brandOrange text-white font-black uppercase text-[11px] tracking-widest rounded-xl hover:bg-brandOrange/90 transition shadow-md cursor-pointer">Werkspreis anfragen</button>
+    <button data-action="open-modal" data-product="WOPJ54 Hybrid 22,5W" class="btn-card-sm">Werkspreis anfragen</button>
    </div>
    <div class="product-card reveal bg-white rounded-2xl p-6 border border-slate-200 flex flex-col">
     <div class="aspect-square bg-white rounded-xl mb-5 overflow-hidden flex items-center justify-center p-6"><img src="/image/product/power-bank/wopa09-2in1-hybrid-ac-22w-charger-10000mah.webp" srcset="/image/product/power-bank/wopa09-2in1-hybrid-ac-22w-charger-10000mah-450w.webp 450w, /image/product/power-bank/wopa09-2in1-hybrid-ac-22w-charger-10000mah.webp 800w" sizes="(min-width: 1440px) 389px, (min-width: 1280px) 389px, (min-width: 1024px) 304px, (min-width: 768px) 344px, (min-width: 430px) 382px, 327px" alt="WOPA09 2-in-1 Hybrid AC 22,5W 10.000mAh" width="200" height="200" class="w-full h-full object-contain" loading="lazy" decoding="async"></div>
@@ -303,7 +292,7 @@ plPath: "produkty/power-bank/hybryda-2-w-1/"
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Type-C Kabel Ausgang</td><td class="py-1.5 font-bold text-slate-700">5V/3A, 9V/2.22A, 10V/2.25A, 12V/1.67A (22.5W)</td></tr>
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Farben</td><td class="py-1.5 font-bold text-slate-700">Weiß+Silber / Gunmetal+Silber / Silber+Silber / Beige+Gold</td></tr></tbody></table></div>
     </details>
-    <button data-action="open-modal" data-product="WOPA09 Hybrid AC" class="mt-auto w-full py-3 bg-brandOrange text-white font-black uppercase text-[11px] tracking-widest rounded-xl hover:bg-brandOrange/90 transition shadow-md cursor-pointer">Werkspreis anfragen</button>
+    <button data-action="open-modal" data-product="WOPA09 Hybrid AC" class="btn-card-sm">Werkspreis anfragen</button>
    </div>
    <div class="product-card reveal bg-white rounded-2xl p-6 border border-slate-200 flex flex-col">
     <div class="aspect-square bg-white rounded-xl mb-5 overflow-hidden flex items-center justify-center p-6"><img src="/image/product/power-bank/wopa01-2in1-hybrid-ac-magnetic-22w-charger-10000mah.webp" srcset="/image/product/power-bank/wopa01-2in1-hybrid-ac-magnetic-22w-charger-10000mah-450w.webp 450w, /image/product/power-bank/wopa01-2in1-hybrid-ac-magnetic-22w-charger-10000mah.webp 800w" sizes="(min-width: 1440px) 389px, (min-width: 1280px) 389px, (min-width: 1024px) 304px, (min-width: 768px) 344px, (min-width: 430px) 382px, 327px" alt="WOPA01 2-in-1 Hybrid AC 22,5W 10.000mAh Qi2 + Kickstand" width="200" height="200" class="w-full h-full object-contain" loading="lazy" decoding="async"></div>
@@ -333,7 +322,7 @@ plPath: "produkty/power-bank/hybryda-2-w-1/"
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Special Feature</td><td class="py-1.5 font-bold text-slate-700">N52 Magnet + Kickstand + Lightning Reverse Output</td></tr>
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Farben</td><td class="py-1.5 font-bold text-slate-700">Schwarz/Green / Cream/Brown / Weiß/Orange</td></tr></tbody></table></div>
     </details>
-    <button data-action="open-modal" data-product="WOPA01 Hybrid Qi2" class="mt-auto w-full py-3 bg-brandOrange text-white font-black uppercase text-[11px] tracking-widest rounded-xl hover:bg-brandOrange/90 transition shadow-md cursor-pointer">Werkspreis anfragen</button>
+    <button data-action="open-modal" data-product="WOPA01 Hybrid Qi2" class="btn-card-sm">Werkspreis anfragen</button>
    </div>
    <div class="product-card reveal bg-white rounded-2xl p-6 border border-slate-200 flex flex-col">
     <div class="aspect-square bg-white rounded-xl mb-5 overflow-hidden flex items-center justify-center p-6"><img src="/image/product/power-bank/wopa03-2in1-hybrid-ac-edgeless-22w-charger-20000mah.webp" srcset="/image/product/power-bank/wopa03-2in1-hybrid-ac-edgeless-22w-charger-20000mah-450w.webp 450w, /image/product/power-bank/wopa03-2in1-hybrid-ac-edgeless-22w-charger-20000mah.webp 800w" sizes="(min-width: 1440px) 389px, (min-width: 1280px) 389px, (min-width: 1024px) 304px, (min-width: 768px) 344px, (min-width: 430px) 382px, 327px" alt="WOPA03 2-in-1 Hybrid AC 22,5W 20.000mAh randloses Display" width="200" height="200" class="w-full h-full object-contain" loading="lazy" decoding="async"></div>
@@ -360,7 +349,7 @@ plPath: "produkty/power-bank/hybryda-2-w-1/"
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Type-C Kabel Ausgang</td><td class="py-1.5 font-bold text-slate-700">5V/3A, 9V/2.22A, 10V/2.25A, 12V/1.67A (22.5W)</td></tr>
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Farben</td><td class="py-1.5 font-bold text-slate-700">Silber+Weiß/Grey / Gunmetal+Schwarz / Purple+Deep Purple / Blue+Deep Blue</td></tr></tbody></table></div>
     </details>
-    <button data-action="open-modal" data-product="WOPA03 Hybrid Edgeless" class="mt-auto w-full py-3 bg-brandOrange text-white font-black uppercase text-[11px] tracking-widest rounded-xl hover:bg-brandOrange/90 transition shadow-md cursor-pointer">Werkspreis anfragen</button>
+    <button data-action="open-modal" data-product="WOPA03 Hybrid Edgeless" class="btn-card-sm">Werkspreis anfragen</button>
    </div>
 <div class="product-card reveal bg-white rounded-2xl p-6 border border-slate-200 flex flex-col">
     <div class="aspect-square bg-white rounded-xl mb-5 overflow-hidden flex items-center justify-center p-6"><img src="/image/product/power-bank/wopa05-wireless-charger-power-bank.webp" srcset="/image/product/power-bank/wopa05-wireless-charger-power-bank-450w.webp 450w, /image/product/power-bank/wopa05-wireless-charger-power-bank.webp 800w" sizes="(min-width: 1440px) 389px, (min-width: 1280px) 389px, (min-width: 1024px) 304px, (min-width: 768px) 344px, (min-width: 430px) 382px, 327px" alt="WOPA05 3-in-1 Hybrid Reise-Ladegerät 10.000mAh mit klappbarem AC-Stecker, 15W Qi2 kabellos, 2,5W Apple Watch, 22,5W USB-C - All-in-One" width="200" height="200" class="w-full h-full object-contain" loading="lazy" decoding="async"></div>
@@ -385,7 +374,7 @@ plPath: "produkty/power-bank/hybryda-2-w-1/"
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Watch kabellos</td><td class="py-1.5 font-bold text-slate-700">2.5W max. (Apple Watch Serie)</td></tr>
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Stecker-Kompatibilität</td><td class="py-1.5 font-bold text-slate-700">UK / US / AU / EU / KR / IN (austauschbar)</td></tr></tbody></table></div>
     </details>
-    <button data-action="open-modal" data-product="WOPA05 Hybrid 3-in-1 AC + Kabellos" class="mt-auto w-full py-3 bg-brandOrange text-white font-black uppercase text-[11px] tracking-widest rounded-xl hover:bg-brandOrange/90 transition shadow-md cursor-pointer">Werkspreis anfragen</button>
+    <button data-action="open-modal" data-product="WOPA05 Hybrid 3-in-1 AC + Kabellos" class="btn-card-sm">Werkspreis anfragen</button>
    </div>
   </div>
  </div>
@@ -404,11 +393,7 @@ plPath: "produkty/power-bank/hybryda-2-w-1/"
 <!-- 2-in-1 vs SEPARAT -->
 <section class="sec bg-slate-50">
  <div class="container-content">
-  <div class="text-center max-w-3xl mx-auto mb-12 reveal">
-   <p class="section-label">Vergleich</p>
-   <h2 class="section-title">2-in-1 Hybrid vs. separates Ladegerät + Powerbank</h2>
-   <p class="section-desc mx-auto">Warum sich Geschäftsreisende und Marken zunehmend für die Hybrid-Variante entscheiden.</p>
-  </div>
+  {{ sectionHeader('Vergleich', '2-in-1 Hybrid vs. separates Ladegerät + Powerbank', 'Warum sich Geschäftsreisende und Marken zunehmend für die Hybrid-Variante entscheiden.', {mb: 'mb-12'}) }}
   <div class="overflow-x-auto reveal">
    <table class="w-full border-collapse bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-200">
     <thead><tr class="bg-brandBlue text-white">
@@ -449,7 +434,7 @@ plPath: "produkty/power-bank/hybryda-2-w-1/"
 <!-- FAQ -->
 <section class="sec bg-white">
  <div class="container-narrow">
-  <div class="text-center mb-12 reveal"><p class="section-label">FAQ</p><h2 class="section-title">2-in-1 Hybrid FAQ</h2></div>
+  {{ sectionHeader('FAQ', '2-in-1 Hybrid FAQ', '', {max: '', mb: 'mb-12'}) }}
   <div class="space-y-4">
    <details class="reveal bg-slate-50 rounded-2xl p-6 border border-slate-200"><summary class="font-bold text-brandBlue cursor-pointer">Was ist eine 2-in-1 Hybrid-Powerbank?</summary><p class="text-sm text-slate-600 mt-3 leading-relaxed faq-answer">Eine 2-in-1 Hybrid-Powerbank kombiniert Wandladegerät und Powerbank in einem Gehäuse. Der AC-Stecker klappt aus zur Steckdose und lädt entweder direkt das angeschlossene Gerät oder den eingebauten Akku zur späteren Verwendung. Spart Reisetasche-Platz und ein zweites Ladegerät.</p></details>
    <details class="reveal bg-slate-50 rounded-2xl p-6 border border-slate-200"><summary class="font-bold text-brandBlue cursor-pointer">Welche Stecker-Standards bieten Sie an?</summary><p class="text-sm text-slate-600 mt-3 leading-relaxed faq-answer">EU (Schuko/CEE 7/16), UK (BS 1363), US (NEMA 1-15P), AU (AS/NZS 3112). Auf Wunsch fertigen wir multinationale Sets mit austauschbaren Steckern. Standard ist EU für deutsche und EU-Märkte.</p></details>
@@ -487,13 +472,10 @@ plPath: "produkty/power-bank/hybryda-2-w-1/"
 <!-- ======== CTA ======== -->
 <section class="sec bg-brandBlue">
  <div class="container-narrow text-center">
-  <div class="reveal">
-   <p class="section-label">Jetzt anfragen</p>
-   <h2 class="text-3xl md:text-5xl font-black text-white leading-tight mb-4 italic uppercase">
+  {% call sectionHeader('Jetzt anfragen', '
     2-in-1 Hybrid Powerbank-Angebot<br><span class="text-brandOrange">in 24 Stunden</span>
-   </h2>
-   <p class="text-slate-300 text-lg max-w-2xl mx-auto mb-8">Fordern Sie Ihr individuelles Angebot an. Wir beraten Sie zu den passenden Modellen, Mengen und Lieferkonditionen.</p>
-  </div>
+   ', '', {align: '', max: '', mb: '', titleClass: 'text-3xl md:text-5xl font-black text-white leading-tight mb-4 italic uppercase'}) %}<p class="text-slate-300 text-lg max-w-2xl mx-auto mb-8">Fordern Sie Ihr individuelles Angebot an. Wir beraten Sie zu den passenden Modellen, Mengen und Lieferkonditionen.</p>
+  {% endcall %}
   <div class="max-w-xl mx-auto reveal">
    <form action="https://api.web3forms.com/submit" method="POST" class="inquiry-form space-y-4">
     <input type="hidden" name="access_key" value="ac5fe4cd-2dd7-4aff-818d-bb36021b4942">
@@ -522,7 +504,7 @@ plPath: "produkty/power-bank/hybryda-2-w-1/"
      <input type="checkbox" required class="mt-1 accent-brandOrange">
      <span class="text-xs text-slate-500">Ich habe die <a href="/de/datenschutz/" class="text-brandOrange hover:underline">Datenschutzerklärung</a> zur Kenntnis genommen. *</span>
     </label>
-    <button type="submit" class="w-full bg-brandOrange text-white py-4 rounded-xl font-bold text-base hover:bg-brandBlue transition-all duration-300 shadow-lg shadow-brandOrange/20 flex items-center justify-center gap-3">
+    <button type="submit" class="btn-form">
      Kostenloses Angebot erhalten <svg class="icon-arrow-right" aria-hidden="true" focusable="false" viewBox="0 0 512 512">
       <path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-105.4 105.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" fill="currentColor"/>
      </svg>

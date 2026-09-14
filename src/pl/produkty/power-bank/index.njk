@@ -257,15 +257,15 @@ ruPath: "produkty/poverbanki/"
  <!-- ========================================================================
  HERO SECTION
  ======================================================================== -->
- <section class="relative pt-20 md:pt-24 pb-8 lg:pt-28 lg:pb-16 bg-white text-slate-900 overflow-hidden">
+ <section class="relative pt-24 md:pt-28 pb-8 lg:pb-16 bg-white text-slate-900 overflow-hidden">
  <div class="absolute inset-0 z-0 pointer-events-none overflow-hidden">
  <div class="absolute top-0 left-0 max-w-full w-64 h-64 bg-brandOrange opacity-20 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
  <div class="absolute bottom-0 right-0 max-w-full w-64 h-64 bg-blue-500 opacity-20 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
  </div>
 
- <div class="container-wide relative z-10 text-center py-12 lg:py-12">
+ <div class="container-wide relative z-10 text-center pb-12 lg:pb-12">
  <!-- Breadcrumb -->
- {{ breadcrumb([{name: "Strona Główna", url: "/pl/"}, {name: "Produkty", url: "/pl/produkty/"}, {name: "Power Bank"}], "none", "mb-6") }}
+ {{ breadcrumb([{name: "Strona Główna", url: "/pl/"}, {name: "Produkty", url: "/pl/produkty/"}, {name: "Power Bank"}], "none", "mb-6", { variant: "hero" }) }}
  <!-- Top: badge + H1 -->
  <div>
  <div class="badge-capsule mb-6 mx-auto uppercase tracking-widest">Fabryka Power Banków | Od 2013</div>
@@ -287,10 +287,10 @@ ruPath: "produkty/poverbanki/"
 
  <!-- CTA -->
  <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
- <button data-action="open-modal" data-product="Power Bank" class="w-full sm:w-auto bg-brandOrange text-white px-10 py-4 rounded-xl font-black uppercase tracking-widest text-sm shadow-xl hover:-translate-y-1 transition">
+ <button data-action="open-modal" data-product="Power Bank" class="btn-wide-lg">
  Pobierz Darmowy Katalog Hurtowy
  </button>
- <a href="#produkty" class="w-full sm:w-auto border-2 border-brandBlue text-brandBlue px-10 py-4 rounded-xl font-black uppercase tracking-widest text-sm hover:bg-brandBlue hover:text-white transition-all text-center">
+ <a href="#produkty" class="btn-ghost-lg">
  Zobacz Produkty
  </a>
  </div>
@@ -313,11 +313,7 @@ ruPath: "produkty/poverbanki/"
  <div class="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-slate-50 to-transparent -z-10"></div>
 
  <div class="container-wide">
- <div class="text-center mb-12 reveal">
- <p class="section-label">Gama Produktów</p>
- <h2 class="section-title">Kategorie Power Banków</h2>
- <p class="section-desc mx-auto">Jako fabryka power banków OEM z 12-letnim doświadczeniem w produkcji, WOWOHCOOL oferuje 6 specjalistycznych linii produktowych obejmujących każdy przypadek użycia B2B — od baterii półstałych nowej generacji po zasilanie odzieży grzewczej. Każda strona kategorii zawiera pełną specyfikację, certyfikaty i ceny fabryczne. Kliknij dowolną kategorię poniżej, aby poprosić o wycenę.</p>
- </div>
+ {{ sectionHeader('Gama Produktów', 'Kategorie Power Banków', 'Jako fabryka power banków OEM z 12-letnim doświadczeniem w produkcji, WOWOHCOOL oferuje 6 specjalistycznych linii produktowych obejmujących każdy przypadek użycia B2B — od baterii półstałych nowej generacji po zasilanie odzieży grzewczej. Każda strona kategorii zawiera pełną specyfikację, certyfikaty i ceny fabryczne. Kliknij dowolną kategorię poniżej, aby poprosić o wycenę.', {max: '', mb: 'mb-12'}) }}
 
  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
@@ -486,11 +482,7 @@ ruPath: "produkty/poverbanki/"
 <!-- ======== BATERIE GRZEJĄCE - SPECJALISTYCZNE ZASILANIE ======== -->
 <section class="sec bg-white">
  <div class="container-content">
- <div class="text-center mb-12 reveal">
- <p class="section-label">Nisza Bez Konkurencji</p>
- <h2 class="section-title">Baterie Grzejące — Specjalistyczne Zasilanie Odzieży</h2>
- <p class="section-desc mx-auto">WOWOHCOOL jest <strong>jedynym producentem OEM w Shenzhen</strong> oferującym dedykowane baterie grzejące do odzieży. Żaden z 8 analizowanych konkurentów (Oneken, STW, Wanshuntong, Reachinno, Ant Power i inni) nie produkuje baterii do tego zastosowania. Dla polskich marek outdoorowych i odzieżowych to unikalna przewaga sourcingowa.</p>
- </div>
+ {{ sectionHeader('Nisza Bez Konkurencji', 'Baterie Grzejące — Specjalistyczne Zasilanie Odzieży', 'WOWOHCOOL jest <strong>jedynym producentem OEM w Shenzhen</strong> oferującym dedykowane baterie grzejące do odzieży. Żaden z 8 analizowanych konkurentów (Oneken, STW, Wanshuntong, Reachinno, Ant Power i inni) nie produkuje baterii do tego zastosowania. Dla polskich marek outdoorowych i odzieżowych to unikalna przewaga sourcingowa.', {max: '', mb: 'mb-12'}) }}
  <div class="grid lg:grid-cols-2 gap-12 mb-12 reveal">
  <div>
  <h3 class="text-xl font-black text-brandBlue uppercase italic mb-4">Kompatybilne Typy Odzieży</h3>
@@ -538,11 +530,7 @@ ruPath: "produkty/poverbanki/"
 <!-- ======== PORÓWNANIE TECHNOLOGII ======== -->
 <section class="sec bg-white">
  <div class="container-content">
- <div class="text-center mb-12 reveal">
- <p class="section-label">Technologia</p>
- <h2 class="section-title">Półstała vs Li-Polymer vs LiFePO4 — Dane Techniczne</h2>
- <p class="section-desc mx-auto">Bateria półstała zastępuje ciekły elektrolit żelem stałym, zapewniając wyższą gęstość energii i bezpieczniejszą chemię. Poniżej pełne porównanie ilościowe dla nabywców B2B oceniających, w którą technologię zainwestować. Globalny rynek power banków: 22,1 mld USD do 2030 (NextMSC).</p>
- </div>
+ {{ sectionHeader('Technologia', 'Półstała vs Li-Polymer vs LiFePO4 — Dane Techniczne', 'Bateria półstała zastępuje ciekły elektrolit żelem stałym, zapewniając wyższą gęstość energii i bezpieczniejszą chemię. Poniżej pełne porównanie ilościowe dla nabywców B2B oceniających, w którą technologię zainwestować. Globalny rynek power banków: 22,1 mld USD do 2030 (NextMSC).', {max: '', mb: 'mb-12'}) }}
  <div class="overflow-x-auto reveal">
  <table class="w-full text-sm border-collapse">
  <thead><tr class="bg-brandBlue text-white text-left">
@@ -573,45 +561,41 @@ ruPath: "produkty/poverbanki/"
  ======================================================================== -->
  <section class="sec bg-white">
  <div class="container-wide">
- <div class="text-center mb-14">
- <div class="inline-block px-4 py-1 bg-brandOrange/10 border border-brandOrange/20 rounded-full text-[11px] font-bold text-brandOrange uppercase tracking-widest mb-6">Dlaczego WOWOHCOOL</div>
- <h2 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4">Nie Wszystkie Fabryki Są Równe</h2>
- <p class="text-slate-500 max-w-2xl mx-auto text-sm">Zobacz, jak WOWOHCOOL wypada na tle typowych producentów power banków OEM w Chinach.</p>
- </div>
+ {{ sectionHeader('Dlaczego WOWOHCOOL', 'Nie Wszystkie Fabryki Są Równe', 'Zobacz, jak WOWOHCOOL wypada na tle typowych producentów power banków OEM w Chinach.', { max: '', mb: 'mb-14', reveal: false, titleClass: 'text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4', descClass: 'text-slate-500 max-w-2xl mx-auto text-sm', labelStyle: 'pill', pillClass: 'bg-brandOrange/10', pillMb: 'mb-6' }) }}
  <div class="max-w-4xl mx-auto overflow-hidden rounded-2xl border border-slate-200">
  <table class="w-full text-sm">
  <thead>
  <tr class="bg-slate-50 border-b border-slate-200">
  <th class="text-left p-4 md:p-5 font-black text-slate-500 uppercase tracking-wider text-[11px]"></th>
  <th class="p-4 md:p-5 font-black text-brandBlue uppercase tracking-wider text-[11px] text-center">WOWOHCOOL</th>
- <th class="p-4 md:p-5 font-black text-slate-300 uppercase tracking-wider text-[11px] text-center">Typowa Fabryka</th>
+ <th class="p-4 md:p-5 font-black text-slate-500 uppercase tracking-wider text-[11px] text-center">Typowa Fabryka</th>
  </tr>
  </thead>
  <tbody class="divide-y divide-slate-100">
  <tr class="hover:bg-slate-50/50 transition">
  <td class="p-4 md:p-5 text-slate-600 font-semibold">Bateria Półstała</td>
  <td class="p-4 md:p-5 text-center text-brandOrange font-black">&#10003; Wdrożona</td>
- <td class="p-4 md:p-5 text-center text-slate-300">&#10007; Niedostępna</td>
+ <td class="p-4 md:p-5 text-center text-slate-500">&#10007; Niedostępna</td>
  </tr>
  <tr class="hover:bg-slate-50/50 transition">
  <td class="p-4 md:p-5 text-slate-600 font-semibold">Standard Szybkiego Ładowania</td>
  <td class="p-4 md:p-5 text-center text-brandOrange font-black">PD 3.1 do 240W</td>
- <td class="p-4 md:p-5 text-center text-slate-300">PD 3.0 do 100W</td>
+ <td class="p-4 md:p-5 text-center text-slate-500">PD 3.0 do 100W</td>
  </tr>
  <tr class="hover:bg-slate-50/50 transition">
  <td class="p-4 md:p-5 text-slate-600 font-semibold">Klienci Korporacyjni</td>
  <td class="p-4 md:p-5 text-center text-brandOrange font-black">Bosch, Jacob Jensen</td>
- <td class="p-4 md:p-5 text-center text-slate-300">Referencje ogólne</td>
+ <td class="p-4 md:p-5 text-center text-slate-500">Referencje ogólne</td>
  </tr>
  <tr class="hover:bg-slate-50/50 transition">
  <td class="p-4 md:p-5 text-slate-600 font-semibold">Zakres Pojemności</td>
  <td class="p-4 md:p-5 text-center text-brandOrange font-black">5000 - 40000mAh</td>
- <td class="p-4 md:p-5 text-center text-slate-300">5000 - 20000mAh</td>
+ <td class="p-4 md:p-5 text-center text-slate-500">5000 - 20000mAh</td>
  </tr>
  <tr class="hover:bg-slate-50/50 transition">
  <td class="p-4 md:p-5 text-slate-600 font-semibold">Inżynierowie R&D</td>
  <td class="p-4 md:p-5 text-center text-brandOrange font-black">50+</td>
- <td class="p-4 md:p-5 text-center text-slate-300">10-20 typowo</td>
+ <td class="p-4 md:p-5 text-center text-slate-500">10-20 typowo</td>
  </tr>
  </tbody>
  </table>
@@ -632,11 +616,7 @@ ruPath: "produkty/poverbanki/"
  ======================================================================== -->
  <section class="sec bg-white">
  <div class="container-wide">
- <div class="text-center mb-12">
- <div class="inline-block px-4 py-1 bg-brandOrange/10 border border-brandOrange/20 rounded-full text-[11px] font-bold text-brandOrange uppercase tracking-widest mb-6">Opcje Pojemności</div>
- <h2 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4">Wybierz Odpowiednią <span class="text-brandOrange">Pojemność</span> dla Swojego Rynku</h2>
- <p class="text-slate-500 max-w-2xl mx-auto">Różne rynki potrzebują różnych pojemności. Znajdź idealną równowagę między rozmiarem, mocą i ceną dla swoich klientów docelowych.</p>
- </div>
+ {{ sectionHeader('Opcje Pojemności', 'Wybierz Odpowiednią <span class="text-brandOrange">Pojemność</span> dla Swojego Rynku', 'Różne rynki potrzebują różnych pojemności. Znajdź idealną równowagę między rozmiarem, mocą i ceną dla swoich klientów docelowych.', { max: '', mb: 'mb-12', reveal: false, titleClass: 'text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4', descClass: 'text-slate-500 max-w-2xl mx-auto', labelStyle: 'pill', pillClass: 'bg-brandOrange/10', pillMb: 'mb-6' }) }}
 
  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
  <!-- Slim -->
@@ -694,11 +674,7 @@ ruPath: "produkty/poverbanki/"
 <!-- ======== ZGODNOŚĆ Z UE ======== -->
 <section class="sec bg-slate-50">
  <div class="container-content">
- <div class="text-center mb-12 reveal">
- <p class="section-label">Zgodność</p>
- <h2 class="section-title">Zgodność z Rozporządzeniem UE 2023/1542 w Sprawie Baterii</h2>
- <p class="section-desc mx-auto">Wszystkie power banki litowe sprzedawane w UE muszą być zgodne z rozporządzeniem 2023/1542. WOWOHCOOL zapewnia pełną dokumentację zgodności i wsparcie rejestracyjne dla polskich importerów.</p>
- </div>
+ {{ sectionHeader('Zgodność', 'Zgodność z Rozporządzeniem UE 2023/1542 w Sprawie Baterii', 'Wszystkie power banki litowe sprzedawane w UE muszą być zgodne z rozporządzeniem 2023/1542. WOWOHCOOL zapewnia pełną dokumentację zgodności i wsparcie rejestracyjne dla polskich importerów.', {max: '', mb: 'mb-12'}) }}
  <div class="grid grid-cols-1 md:grid-cols-3 gap-8 reveal">
  <div class="bg-white rounded-2xl p-8 border border-slate-100">
   <div class="w-16 h-16 bg-brandOrange/10 rounded-2xl flex items-center justify-center mb-6">

@@ -70,10 +70,10 @@ ogImage: "/image/product/wireless-charger/wow41-qi22-25w-car-magnetic-wireless-c
 {% endblock %}
 {% block content %}
 {% from "breadcrumb.njk" import breadcrumb %}
-{{ breadcrumb([{name:"Главная",url:"/ru/"},{name:"Продукция",url:"/ru/produkty/"},{name:"Беспроводные зарядки",url:"/ru/produkty/besprovodnye-zaryadki/"},{name:"Автодержатель"}]) }}
 
-<section class="pb-16 md:pb-20 bg-gradient-to-br from-blue-50 via-white to-orange-50">
+<section class="pt-24 md:pt-28 pb-16 md:pb-20 bg-gradient-to-br from-blue-50 via-white to-orange-50">
  <div class="container-wide">
+  {{ breadcrumb([{name:"Главная",url:"/ru/"},{name:"Продукция",url:"/ru/produkty/"},{name:"Беспроводные зарядки",url:"/ru/produkty/besprovodnye-zaryadki/"},{name:"Автодержатель"}], "none", "mb-6", { variant: "hero" }) }}
   <div class="grid lg:grid-cols-2 gap-12 items-center">
    <div class="reveal order-2 lg:order-1">
     <p class="text-brandOrange text-xs font-bold tracking-widest uppercase mb-3">Автомобильные · TEC · E-Mark Ready</p>
@@ -91,11 +91,8 @@ ogImage: "/image/product/wireless-charger/wow41-qi22-25w-car-magnetic-wireless-c
 
 <section id="modelos" class="sec bg-white">
  <div class="container-wide">
-  <div class="text-center max-w-3xl mx-auto mb-12 reveal">
-   <p class="section-label">Модели</p>
-   <h2 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4">5 моделей автодержателей <span class="text-brandOrange">Qi2 OEM</span></h2>
-   <p class="text-slate-500">5 моделей | 15W-25W | TEC | Суперконденсатор | N52H</p>
-  </div>
+  {% call sectionHeader('Модели', '5 моделей автодержателей <span class="text-brandOrange">Qi2 OEM</span>', '', {mb: 'mb-12', titleClass: 'text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4'}) %}<p class="text-slate-500">5 моделей | 15W-25W | TEC | Суперконденсатор | N52H</p>
+  {% endcall %}
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
 
   <!-- WOW41 -->
@@ -242,7 +239,7 @@ ogImage: "/image/product/wireless-charger/wow41-qi22-25w-car-magnetic-wireless-c
  <div class="container-content">
  <blockquote class="bg-brandOrange/5 border-l-4 border-brandOrange rounded-r-xl px-6 py-5 text-sm text-slate-700 italic leading-relaxed">
   <p>«Мировой рынок автомобильных беспроводных зарядок достиг 1,47 млрд USD в 2025 году и растёт с CAGR 19,4% до 14,2 млрд USD к 2035 (LP Information). 50% новых автомобилей 2024 года имеют встроенную зарядку — но более 1 млрд машин в эксплуатации её лишены. Aftermarket доминирует с 71,8% продаж (Fact.MR). В России ПДД запрещают пользоваться телефоном за рулём без hands-free — это поддерживает устойчивый спрос на магнитные держатели. Водители такси и каршеринга — растущий коммерческий сегмент».</p>
-  <cite class="block text-xs text-slate-400 mt-2 not-italic">- <a href="https://www.marketresearch.com/LP-Information-Inc-v4134/Global-Vehicle-mounted-Wireless-Charger-44850256/" target="_blank" rel="noopener noreferrer" class="text-brandOrange hover:underline">LP Information</a>; <a href="https://www.factmr.com/report/6/automotive-mobile-accessories-market" target="_blank" rel="noopener noreferrer" class="text-brandOrange hover:underline">Fact.MR</a></p>
+  <cite class="block text-xs text-slate-400 mt-2 not-italic">- <a href="https://www.marketresearch.com/LP-Information-Inc-v4134/Global-Vehicle-mounted-Wireless-Charger-44850256/" target="_blank" rel="noopener noreferrer" class="text-brandOrange hover:underline">LP Information</a>; <a href="https://www.factmr.com/report/6/automotive-mobile-accessories-market" target="_blank" rel="noopener noreferrer" class="text-brandOrange hover:underline">Fact.MR</a></cite>
  </blockquote>
  </div>
 </section>

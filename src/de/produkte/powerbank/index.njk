@@ -80,11 +80,11 @@ plPath: "produkty/power-bank/"
 {% endblock %}
 
 {% block content %}
-	{{ breadcrumb([{name: "Startseite", url: "/de/"}, {name: "Produkte", url: "/de/produkte/"}, {name: "Powerbank"}]) }}
 
  <!-- ======== PRODUCT HERO ======== -->
- <section class="pb-16 md:pb-20 bg-gradient-to-br from-slate-50 via-white to-orange-50">
+ <section class="pt-24 md:pt-28 pb-16 md:pb-20 bg-gradient-to-br from-slate-50 via-white to-orange-50">
  <div class="container-wide">
+  {{ breadcrumb([{name: "Startseite", url: "/de/"}, {name: "Produkte", url: "/de/produkte/"}, {name: "Powerbank"}], "none", "mb-6", { variant: "hero" }) }}
  <div class="grid lg:grid-cols-2 gap-12 items-center">
  <div class="reveal order-2 lg:order-1">
  <p class="text-brandOrange text-xs font-bold tracking-widest uppercase mb-3">Powerbank Hersteller &middot; EU-Compliance</p>
@@ -127,24 +127,13 @@ plPath: "produkty/power-bank/"
  </div>
  </section>
 
- <!-- ======== STATS BAR ======== -->
- {% from "partials/stats-bar.njk" import statsBar %}
- {{ statsBar(i18n.statsBar[lang].items) }}
-
- <!-- ======== TRUST BAR — Certs + Logos ======== -->
- {% from "partials/cert-showcase.njk" import certShowcase %}
- {{ certShowcase(i18n.certifications[lang].homepage.items, i18n.certifications[lang].homepage.heading, i18n.certifications[lang].homepage.title, "", "py-10 md:py-14 bg-white", true) }}
- {% from "partials/customer-logos.njk" import customerLogos %}
- {{ customerLogos("Vertrauen internationaler Marken", "", standalone=true) }}
+ <!-- ======== TRUST BAR ======== -->
+ {% include "trust-bar.njk" %}
 
  <!-- ======== POWERBANK KATEGORIEN ======== -->
  <section id="kategorien" class="sec bg-white">
  <div class="container-wide">
- <div class="text-center max-w-3xl mx-auto mb-12 reveal">
- <p class="section-label">Produktreihen</p>
- <h2 class="section-title">Powerbank-Kategorien</h2>
- <p class="section-desc mx-auto">Sechs spezialisierte Produktreihen für jeden B2B-Anwendungsfall, von der Semi-Solid-State-Technologie bis zu Heizakkus für Bekleidung. Jede Kategorie mit vollständigen Spezifikationen, Zertifizierungen und Werkspreisen.</p>
- </div>
+ {{ sectionHeader('Produktreihen', 'Powerbank-Kategorien', 'Sechs spezialisierte Produktreihen für jeden B2B-Anwendungsfall, von der Semi-Solid-State-Technologie bis zu Heizakkus für Bekleidung. Jede Kategorie mit vollständigen Spezifikationen, Zertifizierungen und Werkspreisen.', {mb: 'mb-12'}) }}
 
  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
@@ -251,21 +240,13 @@ plPath: "produkty/power-bank/"
  </div>
  </div>
  </section>
- </div>
- </div>
- </div>
- </section>
 
 
 
  <!-- ======== VORTEILE ======== -->
  <section class="sec bg-white">
  <div class="container-wide">
- <div class="text-center max-w-3xl mx-auto mb-16 reveal">
- <p class="section-label">Vorteile</p>
- <h2 class="section-title">Warum unsere Powerbanks die richtige Wahl sind</h2>
- <p class="section-desc mx-auto">Deutsche Unternehmen vertrauen auf unsere Powerbank-Fertigung. Hier sind die Gründe.</p>
- </div>
+ {{ sectionHeader('Vorteile', 'Warum unsere Powerbanks die richtige Wahl sind', 'Deutsche Unternehmen vertrauen auf unsere Powerbank-Fertigung. Hier sind die Gründe.', {}) }}
  <div class="grid md:grid-cols-2 gap-8">
  <div class="reveal bg-slate-50 rounded-2xl p-8 border border-slate-200">
  <div class="flex items-center gap-4 mb-4"><div class="w-12 h-12 rounded-xl bg-brandOrange/10 flex items-center justify-center shrink-0"><svg class="icon-shield-halved text-xl text-brandOrange" aria-hidden="true" focusable="false" viewBox="0 0 512 512">
@@ -316,11 +297,7 @@ plPath: "produkty/power-bank/"
  <!-- ======== SEMI-SOLID-STATE TECHNOLOGIE ======== -->
  <section class="sec bg-white">
  <div class="container-content">
- <div class="text-center max-w-3xl mx-auto mb-12 reveal">
- <p class="section-label">Technologie</p>
- <h2 class="section-title">Semi-Solid-State — Die Zukunft der Powerbank</h2>
- <p class="section-desc mx-auto">Unsere Semi-Solid-State-Powerbanks wurden auf der CES 2026 vorgestellt. Die Technologie setzt neue Maßstäbe bei Sicherheit, Lebensdauer und Energiedichte.</p>
- </div>
+ {{ sectionHeader('Technologie', 'Semi-Solid-State — Die Zukunft der Powerbank', 'Unsere Semi-Solid-State-Powerbanks wurden auf der CES 2026 vorgestellt. Die Technologie setzt neue Maßstäbe bei Sicherheit, Lebensdauer und Energiedichte.', {mb: 'mb-12'}) }}
  <div class="grid md:grid-cols-3 gap-6 mb-12 reveal">
  <div class="text-center p-6 bg-slate-50 rounded-2xl border border-slate-200">
  <p class="text-3xl font-black text-brandOrange mb-2">50%</p>
@@ -363,11 +340,7 @@ plPath: "produkty/power-bank/"
  <!-- ======== EU-BATTERIEVERORDNUNG 2023/1542 ======== -->
  <section class="sec bg-white">
  <div class="container-content">
- <div class="text-center max-w-3xl mx-auto mb-12 reveal">
- <p class="section-label">EU-Batterieverordnung 2023/1542</p>
- <h2 class="section-title">Vollständige EU-Compliance — als Service inklusive</h2>
- <p class="section-desc mx-auto">Seit dem <strong>18.08.2024</strong> sind die ersten Erzeugerpflichten in Kraft. Ab <strong>18.02.2027</strong> wird der digitale Batteriepass für Industriebatterien Pflicht. Wir übernehmen die Compliance — Sie konzentrieren sich auf Ihren Markt.</p>
- </div>
+ {{ sectionHeader('EU-Batterieverordnung 2023/1542', 'Vollständige EU-Compliance — als Service inklusive', 'Seit dem <strong>18.08.2024</strong> sind die ersten Erzeugerpflichten in Kraft. Ab <strong>18.02.2027</strong> wird der digitale Batteriepass für Industriebatterien Pflicht. Wir übernehmen die Compliance — Sie konzentrieren sich auf Ihren Markt.', {mb: 'mb-12'}) }}
  <div class="grid md:grid-cols-2 gap-6 reveal">
  <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200">
  <div class="flex items-center gap-3 mb-3"><span class="bg-brandOrange/10 text-brandOrange text-[11px] font-black px-3 py-1 rounded-full uppercase tracking-widest">Aktiv seit 2024</span></div>
@@ -398,11 +371,7 @@ plPath: "produkty/power-bank/"
  <!-- ======== ZERTIFIZIERUNGEN ======== -->
  <section class="sec bg-slate-50">
  <div class="container-content">
- <div class="text-center max-w-3xl mx-auto mb-12 reveal">
- <p class="section-label">Zertifizierungen & Normen</p>
- <h2 class="section-title">EU-Konformität — Bereit für den deutschen Markt</h2>
- <p class="section-desc mx-auto">Alle unsere Powerbanks sind für den Import und Vertrieb in der Europäischen Union zertifiziert.</p>
- </div>
+ {{ sectionHeader('Zertifizierungen &amp; Normen', 'EU-Konformität — Bereit für den deutschen Markt', 'Alle unsere Powerbanks sind für den Import und Vertrieb in der Europäischen Union zertifiziert.', {mb: 'mb-12'}) }}
  <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5 reveal">
  <div class="bg-white rounded-xl p-6 border border-slate-100 shadow-sm">
  <div class="w-10 h-10 rounded-lg bg-brandOrange/10 flex items-center justify-center mb-3"><svg class="icon-certificate text-brandOrange text-lg" aria-hidden="true" focusable="false" viewBox="0 0 576 512"><path d="M239.2-8c-6.1-6.2-15-8.7-23.4-6.4S200.9-5.6 198.8 2.8L183.5 63c-1.1 4.4-5.6 7-9.9 5.7L113.8 51.9c-8.4-2.4-17.4 0-23.5 6.1s-8.5 15.1-6.1 23.5l16.9 59.8c1.2 4.3-1.4 8.8-5.7 9.9L35.1 166.5c-8.4 2.1-15 8.7-17.3 17.1s.2 17.3 6.4 23.4l44.5 43.3c3.2 3.1 3.2 8.3 0 11.5L24.3 305.1c-6.2 6.1-8.7 15-6.4 23.4s8.9 14.9 17.3 17.1l60.2 15.3c4.4 1.1 7 5.6 5.7 9.9L84.2 430.5c-2.4 8.4 0 17.4 6.1 23.5s15.1 8.5 23.5 6.1l59.8-16.9c4.3-1.2 8.8 1.4 9.9 5.7l15.3 60.2c2.1 8.4 8.7 15 17.1 17.3s17.3-.2 23.4-6.4l43.3-44.5c3.1-3.2 8.3-3.2 11.5 0L337.3 520c6.1 6.2 15 8.7 23.4 6.4s14.9-8.9 17.1-17.3L393.1 449c1.1-4.4 5.6-7 9.9-5.7l59.8 16.9c8.4 2.4 17.4 0 23.5-6.1s8.5-15.1 6.1-23.5l-16.9-59.8c-1.2-4.3 1.4-8.8 5.7-9.9l60.2-15.3c8.4-2.1 15-8.7 17.3-17.1s-.2-17.4-6.4-23.4l-44.5-43.3c-3.2-3.1-3.2-8.3 0-11.5l44.5-43.3c6.2-6.1 8.7-15 6.4-23.4s-8.9-14.9-17.3-17.1l-60.2-15.3c-4.4-1.1-7-5.6-5.7-9.9l16.9-59.8c2.4-8.4 0-17.4-6.1-23.5s-15.1-8.5-23.5-6.1L403 68.8c-4.3 1.2-8.8-1.4-9.9-5.7L377.8 2.8c-2.1-8.4-8.7-15-17.1-17.3s-17.3.2-23.4 6.4L294 36.5c-3.1 3.2-8.3 3.2-11.5 0L239.2-8z" fill="currentColor"/></svg></div>
@@ -443,11 +412,7 @@ plPath: "produkty/power-bank/"
  <!-- ======== KATEGORIEN-VERGLEICH ======== -->
  <section class="sec bg-slate-50">
  <div class="container-wide">
- <div class="text-center max-w-3xl mx-auto mb-12 reveal">
- <p class="section-label">Kategorien-Vergleich</p>
- <h2 class="section-title">6 Powerbank-Reihen im Überblick</h2>
- <p class="section-desc mx-auto">Welche Reihe passt zu Ihrem Markt? Vergleichen Sie Technologie, Leistung, Kapazität und Einsatzgebiet — direkt verlinkt zur passenden Produktseite.</p>
- </div>
+ {{ sectionHeader('Kategorien-Vergleich', '6 Powerbank-Reihen im Überblick', 'Welche Reihe passt zu Ihrem Markt? Vergleichen Sie Technologie, Leistung, Kapazität und Einsatzgebiet — direkt verlinkt zur passenden Produktseite.', {mb: 'mb-12'}) }}
  <div class="overflow-x-auto reveal">
  <table class="w-full min-w-[720px] bg-white rounded-2xl shadow-sm border border-slate-200">
  <thead>
@@ -469,7 +434,7 @@ plPath: "produkty/power-bank/"
  <td class="py-3 px-3 text-sm text-slate-600 whitespace-nowrap">10.000-20.000mAh</td>
  <td class="py-3 px-3 text-sm text-slate-600 hidden md:table-cell">Premium / CES 2026</td>
  <td class="py-3 px-3 text-sm text-slate-600 whitespace-nowrap">500</td>
- <td class="py-3 px-3 text-sm"><a href="/de/produkte/powerbank/halbfest-akku/" class="inline-block px-3 py-1 rounded-full text-[11px] font-black bg-brandOrange text-white uppercase tracking-widest hover:bg-brandOrange/90 transition">Reihe ansehen &rarr;</a></td>
+ <td class="py-3 px-3 text-sm"><a href="/de/produkte/powerbank/halbfest-akku/" class="btn-tag">Reihe ansehen &rarr;</a></td>
  </tr>
  <tr class="border-b border-slate-200 hover:bg-slate-50 transition-colors">
  <td class="py-3 px-3 text-sm font-bold text-brandBlue">Magnetisch / Kabellos</td>
@@ -478,7 +443,7 @@ plPath: "produkty/power-bank/"
  <td class="py-3 px-3 text-sm text-slate-600 whitespace-nowrap">5.000-20.000mAh</td>
  <td class="py-3 px-3 text-sm text-slate-600 hidden md:table-cell">iPhone / MagSafe</td>
  <td class="py-3 px-3 text-sm text-slate-600 whitespace-nowrap">500</td>
- <td class="py-3 px-3 text-sm"><a href="/de/produkte/powerbank/magnetisch-kabellos/" class="inline-block px-3 py-1 rounded-full text-[11px] font-black bg-brandOrange text-white uppercase tracking-widest hover:bg-brandOrange/90 transition">Reihe ansehen &rarr;</a></td>
+ <td class="py-3 px-3 text-sm"><a href="/de/produkte/powerbank/magnetisch-kabellos/" class="btn-tag">Reihe ansehen &rarr;</a></td>
  </tr>
  <tr class="border-b border-slate-200 hover:bg-slate-50 transition-colors">
  <td class="py-3 px-3 text-sm font-bold text-brandBlue">Heizakku</td>
@@ -487,7 +452,7 @@ plPath: "produkty/power-bank/"
  <td class="py-3 px-3 text-sm text-slate-600 whitespace-nowrap">1.800-14.400mAh</td>
  <td class="py-3 px-3 text-sm text-slate-600 hidden md:table-cell">Beheizte Bekleidung</td>
  <td class="py-3 px-3 text-sm text-slate-600 whitespace-nowrap">500</td>
- <td class="py-3 px-3 text-sm"><a href="/de/produkte/powerbank/heizakku/" class="inline-block px-3 py-1 rounded-full text-[11px] font-black bg-brandOrange text-white uppercase tracking-widest hover:bg-brandOrange/90 transition">Reihe ansehen &rarr;</a></td>
+ <td class="py-3 px-3 text-sm"><a href="/de/produkte/powerbank/heizakku/" class="btn-tag">Reihe ansehen &rarr;</a></td>
  </tr>
  <tr class="border-b border-slate-200 hover:bg-slate-50 transition-colors">
  <td class="py-3 px-3 text-sm font-bold text-brandBlue">2-in-1 Hybrid</td>
@@ -496,7 +461,7 @@ plPath: "produkty/power-bank/"
  <td class="py-3 px-3 text-sm text-slate-600 whitespace-nowrap">5.000-20.000mAh</td>
  <td class="py-3 px-3 text-sm text-slate-600 hidden md:table-cell">Reise / Geschäft</td>
  <td class="py-3 px-3 text-sm text-slate-600 whitespace-nowrap">500</td>
- <td class="py-3 px-3 text-sm"><a href="/de/produkte/powerbank/2-in-1-hybrid/" class="inline-block px-3 py-1 rounded-full text-[11px] font-black bg-brandOrange text-white uppercase tracking-widest hover:bg-brandOrange/90 transition">Reihe ansehen &rarr;</a></td>
+ <td class="py-3 px-3 text-sm"><a href="/de/produkte/powerbank/2-in-1-hybrid/" class="btn-tag">Reihe ansehen &rarr;</a></td>
  </tr>
  <tr class="border-b border-slate-200 hover:bg-slate-50 transition-colors">
  <td class="py-3 px-3 text-sm font-bold text-brandBlue">Laptop-Powerbank</td>
@@ -505,7 +470,7 @@ plPath: "produkty/power-bank/"
  <td class="py-3 px-3 text-sm text-slate-600 whitespace-nowrap">20.000-27.000mAh</td>
  <td class="py-3 px-3 text-sm text-slate-600 hidden md:table-cell">MacBook / Gaming</td>
  <td class="py-3 px-3 text-sm text-slate-600 whitespace-nowrap">500</td>
- <td class="py-3 px-3 text-sm"><a href="/de/produkte/powerbank/laptop-powerbank/" class="inline-block px-3 py-1 rounded-full text-[11px] font-black bg-brandOrange text-white uppercase tracking-widest hover:bg-brandOrange/90 transition">Reihe ansehen &rarr;</a></td>
+ <td class="py-3 px-3 text-sm"><a href="/de/produkte/powerbank/laptop-powerbank/" class="btn-tag">Reihe ansehen &rarr;</a></td>
  </tr>
  <tr class="hover:bg-slate-50 transition-colors">
  <td class="py-3 px-3 text-sm font-bold text-brandBlue">Smart Display</td>
@@ -514,7 +479,7 @@ plPath: "produkty/power-bank/"
  <td class="py-3 px-3 text-sm text-slate-600 whitespace-nowrap">5.000-10.000mAh</td>
  <td class="py-3 px-3 text-sm text-slate-600 hidden md:table-cell">Premium-Retail</td>
  <td class="py-3 px-3 text-sm text-slate-600 whitespace-nowrap">500</td>
- <td class="py-3 px-3 text-sm"><a href="/de/produkte/powerbank/smart-display/" class="inline-block px-3 py-1 rounded-full text-[11px] font-black bg-brandOrange text-white uppercase tracking-widest hover:bg-brandOrange/90 transition">Reihe ansehen &rarr;</a></td>
+ <td class="py-3 px-3 text-sm"><a href="/de/produkte/powerbank/smart-display/" class="btn-tag">Reihe ansehen &rarr;</a></td>
  </tr>
  </tbody>
  </table>
@@ -527,11 +492,7 @@ plPath: "produkty/power-bank/"
  <section class="sec bg-slate-50">
  <div class="container-wide">
  <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
- <div class="reveal">
- <p class="section-label">OEM / ODM</p>
- <h2 class="section-title">Ihre Powerbank,<br>Ihr Branding</h2>
- <p class="section-desc mb-8">Von der Idee bis zur fertigen Powerbank mit Ihrem Logo. Wir begleiten Sie durch den gesamten Prozess.</p>
- <ul class="space-y-4">
+ {% call sectionHeader('OEM / ODM', 'Ihre Powerbank,<br>Ihr Branding', 'Von der Idee bis zur fertigen Powerbank mit Ihrem Logo. Wir begleiten Sie durch den gesamten Prozess.', {align: '', max: '', mb: '', descClass: 'section-desc mb-8'}) %}<ul class="space-y-4">
  <li class="flex items-start gap-3">
  <svg class="icon-circle-check text-brandOrange mt-0.5" aria-hidden="true" focusable="false" viewBox="0 0 512 512">
  <path d="M256 512a256 256 0 1 1 0-512 256 256 0 1 1 0 512zM374 145.7c-10.7-7.8-25.7-5.4-33.5 5.3L221.1 315.2 169 263.1c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l72 72c5 5 11.8 7.5 18.8 7s13.4-4.1 17.5-9.8L379.3 179.2c7.8-10.7 5.4-25.7-5.3-33.5z" fill="currentColor"/>
@@ -566,7 +527,7 @@ plPath: "produkty/power-bank/"
  <button data-action="open-modal" class="btn-primary mt-8 cursor-pointer">OEM/ODM Anfrage <svg class="icon-arrow-right text-sm" aria-hidden="true" focusable="false" viewBox="0 0 512 512">
  <path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-105.4 105.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" fill="currentColor"/>
  </svg></button>
- </div>
+ {% endcall %}
  <div class="reveal">
  <div class="bg-slate-50 rounded-2xl p-8 md:p-10 border border-slate-200">
  <h3 class="text-lg font-bold text-brandBlue mb-6">Warum deutsche Unternehmen uns wählen</h3>
@@ -605,11 +566,7 @@ plPath: "produkty/power-bank/"
  <!-- ======== PROZESS OEM ======== -->
  <section class="sec bg-white">
  <div class="container-content">
- <div class="text-center max-w-3xl mx-auto mb-12 reveal">
- <p class="section-label">Prozess OEM</p>
- <h2 class="section-title">Ihre maßgeschneiderte Powerbank — von der Idee zur Lieferung</h2>
- <p class="section-desc mx-auto">Ein strukturierter 4-Schritte-Prozess. Von der ersten Anfrage bis zur Serienproduktion begleiten wir Sie in jeder Phase.</p>
- </div>
+ {{ sectionHeader('Prozess OEM', 'Ihre maßgeschneiderte Powerbank — von der Idee zur Lieferung', 'Ein strukturierter 4-Schritte-Prozess. Von der ersten Anfrage bis zur Serienproduktion begleiten wir Sie in jeder Phase.', {mb: 'mb-12'}) }}
  <div class="grid md:grid-cols-4 gap-0 reveal">
  <div class="relative bg-white rounded-2xl border border-slate-200 p-6 text-center">
  <div class="w-12 h-12 rounded-full bg-brandOrange text-white font-black text-lg flex items-center justify-center mx-auto mb-4">1</div>
@@ -638,21 +595,18 @@ plPath: "produkty/power-bank/"
  <!-- ======== FAQ ======== -->
  <section class="sec bg-slate-50">
  <div class="container-narrow">
- <div class="text-center mb-16 reveal">
- <p class="section-label">FAQ</p>
- <h2 class="section-title">Häufige Fragen zu Powerbanks</h2>
- </div>
+ {{ sectionHeader('FAQ', 'Häufige Fragen zu Powerbanks', '', {max: ''}) }}
  <div class="reveal">
- <details class="faq-item"><summary>Welche Kapazitäten bietet WOWOHCOOL an?</summary><div class="faq-answer">Wir bieten Powerbanks von 5.000 mAh bis 20.000 mAh. Für kundenspezifische Anforderungen entwickeln wir auch Lösungen außerhalb dieses Bereichs. Die Semi-Solid-State-Modelle sind besonders sicher und langlebig.</div></details>
- <details class="faq-item"><summary>Was ist Semi-Solid-State-Technologie?</summary><div class="faq-answer">Semi-Solid-State-Akkus verwenden einen halbfesten Elektrolyten statt flüssiger Elektrolyte. Dies erhöht die Sicherheit erheblich, reduziert das Risiko von Überhitzung und verlängert die Lebensdauer. Ideal für den deutschen Markt mit hohen Sicherheitsanforderungen.</div></details>
- <details class="faq-item"><summary>Welche Zertifizierungen haben Ihre Powerbanks?</summary><div class="faq-answer">Alle Powerbanks sind CE, TÜV GS, RoHS und UN38.3 zertifiziert. Auf Anfrage unterstützen wir bei zusätzlichen Zertifizierungen wie UL, PSE oder KC für spezifische Märkte.</div></details>
- <details class="faq-item"><summary>Kann ich mein eigenes Logo auf die Powerbank drucken?</summary><div class="faq-answer">Ja, wir bieten OEM-Service mit individuellem Logo per Lasergravur (ab 500 Stück) oder Siebdruck (ab 1.000 Stück). Auch individuelle Verpackungen (ab 2.000 Stück) und Farben sind möglich. MOQ ab 500 Stück.</div></details>
- <details class="faq-item"><summary>Wie lange dauert die Lieferung nach Deutschland?</summary><div class="faq-answer">Standardproduktion 25–35 Tage nach Musterfreigabe. Expressversand per DHL/FedEx 5–7 Tage. DDP-Service inklusive Zollabwicklung verfügbar.</div></details>
- <details class="faq-item"><summary>Gibt es eine Garantie auf Ihre Powerbanks?</summary><div class="faq-answer">Ja, wir bieten 12–24 Monate Garantie, abhängig vom Modell. Bei Herstellungsfehlern erhalten Sie Ersatz oder Gutschrift.</div></details>
- <details class="faq-item"><summary>Welche Zertifizierungen brauche ich für den Import nach Deutschland?</summary><div class="faq-answer">Für den EU-Import benötigen Sie CE-Kennzeichnung (EMV + Niederspannung), UN38.3 für den Transport und eine EU-Konformitätserklärung. RoHS-Compliance ist ebenfalls Pflicht. Wir liefern alle Dokumente mit und unterstützen bei der TÜV GS-Zertifizierung.</div></details>
- <details class="faq-item"><summary>Was unterscheidet Semi-Solid-State von normalen Lithium-Polymer-Akkus?</summary><div class="faq-answer">Semi-Solid-State-Akkus verwenden einen halbfesten Elektrolyten, der das Brandrisiko nahezu eliminiert. Sie bieten 30% höhere Energiedichte, 2.000+ Ladezyklen (vs. 500–800 bei Li-Polymer) und funktionieren bei -20°C bis +60°C. Ideal für sicherheitsbewusste Märkte wie Deutschland.</div></details>
- <details class="faq-item"><summary>Sind Ihre Powerbanks flugtauglich?</summary><div class="faq-answer">Ja, alle Modelle bis 27.000mAh (99,9Wh) sind gemäß IATA-Vorschriften als Handgepäck zugelassen. Die UN38.3-Zertifizierung bestätigt die Transportsicherheit. Wir liefern MSDS-Dokumentation für den internationalen Versand.</div></details>
- <details class="faq-item"><summary>Können Sie Powerbanks für Heizkleidung fertigen?</summary><div class="faq-answer">Ja, wir fertigen spezialisierte Heizakkus (3,7V–12,6V) für Jacken, Socken, Handschuhe und Schals. Individuelle Steckverbinder, Kabellängen und Spannungskonfigurationen sind möglich. CE, FCC, RoHS und PSE zertifiziert.</div></details>
+ {% call faqItem("Welche Kapazitäten bietet WOWOHCOOL an?") %}Wir bieten Powerbanks von 5.000 mAh bis 20.000 mAh. Für kundenspezifische Anforderungen entwickeln wir auch Lösungen außerhalb dieses Bereichs. Die Semi-Solid-State-Modelle sind besonders sicher und langlebig.{% endcall %}
+ {% call faqItem("Was ist Semi-Solid-State-Technologie?") %}Semi-Solid-State-Akkus verwenden einen halbfesten Elektrolyten statt flüssiger Elektrolyte. Dies erhöht die Sicherheit erheblich, reduziert das Risiko von Überhitzung und verlängert die Lebensdauer. Ideal für den deutschen Markt mit hohen Sicherheitsanforderungen.{% endcall %}
+ {% call faqItem("Welche Zertifizierungen haben Ihre Powerbanks?") %}Alle Powerbanks sind CE, TÜV GS, RoHS und UN38.3 zertifiziert. Auf Anfrage unterstützen wir bei zusätzlichen Zertifizierungen wie UL, PSE oder KC für spezifische Märkte.{% endcall %}
+ {% call faqItem("Kann ich mein eigenes Logo auf die Powerbank drucken?") %}Ja, wir bieten OEM-Service mit individuellem Logo per Lasergravur (ab 500 Stück) oder Siebdruck (ab 1.000 Stück). Auch individuelle Verpackungen (ab 2.000 Stück) und Farben sind möglich. MOQ ab 500 Stück.{% endcall %}
+ {% call faqItem("Wie lange dauert die Lieferung nach Deutschland?") %}Standardproduktion 25–35 Tage nach Musterfreigabe. Expressversand per DHL/FedEx 5–7 Tage. DDP-Service inklusive Zollabwicklung verfügbar.{% endcall %}
+ {% call faqItem("Gibt es eine Garantie auf Ihre Powerbanks?") %}Ja, wir bieten 12–24 Monate Garantie, abhängig vom Modell. Bei Herstellungsfehlern erhalten Sie Ersatz oder Gutschrift.{% endcall %}
+ {% call faqItem("Welche Zertifizierungen brauche ich für den Import nach Deutschland?") %}Für den EU-Import benötigen Sie CE-Kennzeichnung (EMV + Niederspannung), UN38.3 für den Transport und eine EU-Konformitätserklärung. RoHS-Compliance ist ebenfalls Pflicht. Wir liefern alle Dokumente mit und unterstützen bei der TÜV GS-Zertifizierung.{% endcall %}
+ {% call faqItem("Was unterscheidet Semi-Solid-State von normalen Lithium-Polymer-Akkus?") %}Semi-Solid-State-Akkus verwenden einen halbfesten Elektrolyten, der das Brandrisiko nahezu eliminiert. Sie bieten 30% höhere Energiedichte, 2.000+ Ladezyklen (vs. 500–800 bei Li-Polymer) und funktionieren bei -20°C bis +60°C. Ideal für sicherheitsbewusste Märkte wie Deutschland.{% endcall %}
+ {% call faqItem("Sind Ihre Powerbanks flugtauglich?") %}Ja, alle Modelle bis 27.000mAh (99,9Wh) sind gemäß IATA-Vorschriften als Handgepäck zugelassen. Die UN38.3-Zertifizierung bestätigt die Transportsicherheit. Wir liefern MSDS-Dokumentation für den internationalen Versand.{% endcall %}
+ {% call faqItem("Können Sie Powerbanks für Heizkleidung fertigen?") %}Ja, wir fertigen spezialisierte Heizakkus (3,7V–12,6V) für Jacken, Socken, Handschuhe und Schals. Individuelle Steckverbinder, Kabellängen und Spannungskonfigurationen sind möglich. CE, FCC, RoHS und PSE zertifiziert.{% endcall %}
  </div>
  </div>
  </section>
@@ -738,13 +692,10 @@ plPath: "produkty/power-bank/"
 <!-- ======== CTA ======== -->
  <section class="sec bg-brandBlue">
  <div class="container-narrow text-center">
- <div class="reveal">
- <p class="section-label">Jetzt anfragen</p>
- <h2 class="text-3xl md:text-5xl font-black text-white leading-tight mb-4 italic uppercase">
+ {% call sectionHeader('Jetzt anfragen', '
  Powerbank-Angebot<br><span class="text-brandOrange">in 24 Stunden</span>
- </h2>
- <p class="text-slate-300 text-lg max-w-2xl mx-auto mb-8">Fordern Sie Ihr individuelles Angebot an. Wir beraten Sie zu den passenden Modellen, Mengen und Lieferkonditionen.</p>
- </div>
+ ', '', {align: '', max: '', mb: '', titleClass: 'text-3xl md:text-5xl font-black text-white leading-tight mb-4 italic uppercase'}) %}<p class="text-slate-300 text-lg max-w-2xl mx-auto mb-8">Fordern Sie Ihr individuelles Angebot an. Wir beraten Sie zu den passenden Modellen, Mengen und Lieferkonditionen.</p>
+ {% endcall %}
  <div class="max-w-xl mx-auto reveal">
  <form action="https://api.web3forms.com/submit" method="POST" class="inquiry-form space-y-4">
  <input type="hidden" name="access_key" value="ac5fe4cd-2dd7-4aff-818d-bb36021b4942">
@@ -773,7 +724,7 @@ plPath: "produkty/power-bank/"
  <input type="checkbox" required class="mt-1 accent-brandOrange">
  <span class="text-xs text-slate-500">Ich habe die <a href="/de/datenschutz/" class="text-brandOrange hover:underline">Datenschutzerklärung</a> zur Kenntnis genommen. *</span>
  </label>
- <button type="submit" class="w-full bg-brandOrange text-white py-4 rounded-xl font-bold text-base hover:bg-brandBlue transition-all duration-300 shadow-lg shadow-brandOrange/20 flex items-center justify-center gap-3">
+ <button type="submit" class="btn-form">
  Kostenloses Angebot erhalten <svg class="icon-arrow-right" aria-hidden="true" focusable="false" viewBox="0 0 512 512">
  <path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-105.4 105.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" fill="currentColor"/>
  </svg>

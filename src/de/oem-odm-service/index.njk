@@ -52,11 +52,11 @@ plPath: "uslugi-oem-odm/"
 {% endblock %}
 
 {% block content %}
-{{ breadcrumb([{name: "Startseite", url: "/de/"}, {name: "OEM/ODM Service"}]) }}
 
  <!-- HERO -->
- <section class="relative overflow-hidden bg-gradient-to-br from-slate-50 via-white to-orange-50">
+ <section class="pt-24 md:pt-28 relative overflow-hidden bg-gradient-to-br from-slate-50 via-white to-orange-50">
  <div class="container-wide">
+  {{ breadcrumb([{name: "Startseite", url: "/de/"}, {name: "OEM/ODM Service"}], "none", "mb-6", { variant: "hero" }) }}
  <div class="hero-split grid lg:grid-cols-2 gap-10 lg:gap-16 items-center py-20 md:py-0">
  <!-- Left: Text -->
  <div class="reveal py-12 lg:py-20">
@@ -100,22 +100,13 @@ plPath: "uslugi-oem-odm/"
  </div>
  </section>
 
- <!-- ======== STATS BAR ======== -->
- {% from "partials/stats-bar.njk" import statsBar %}
- {{ statsBar(i18n.statsBar[lang].items) }}
-
- <!-- ======== TRUST BAR — Certs + Logos ======== -->
- {% from "partials/cert-showcase.njk" import certShowcase %}
- {{ certShowcase(i18n.certifications[lang].homepage.items, i18n.certifications[lang].homepage.heading, i18n.certifications[lang].homepage.title, "", "py-10 md:py-14 bg-white", true) }}
- {% from "partials/customer-logos.njk" import customerLogos %}
- {{ customerLogos("Vertrauen internationaler Marken", "/de/fallbeispiele/", standalone=true) }}
+ <!-- ======== TRUST BAR ======== -->
+ {% include "trust-bar.njk" %}
 
  <!-- PROCESS -->
  <section id="prozess" class="sec bg-white">
  <div class="container-wide">
- <div class="text-center max-w-3xl mx-auto mb-16 reveal">
- <p class="section-label">Unser Prozess</p><h2 class="section-title">Vom Konzept zur Serie</h2><p class="section-desc mx-auto">In 6 transparenten Schritten von Ihrer Idee zu Ihrem fertigen Produkt, schnell, professionell und zuverlässig.</p>
- </div>
+ {{ sectionHeader('Unser Prozess', 'Vom Konzept zur Serie', 'In 6 transparenten Schritten von Ihrer Idee zu Ihrem fertigen Produkt, schnell, professionell und zuverlässig.', {}) }}
  <div class="grid md:grid-cols-3 gap-8">
  <div class="text-center reveal p-6"><div class="w-16 h-16 rounded-2xl bg-brandOrange/10 flex items-center justify-center mx-auto mb-5"><span class="text-2xl font-black text-brandOrange">01</span></div><h3 class="text-lg font-bold text-brandBlue mb-3">Anfrage & Beratung</h3><p class="text-sm text-slate-500">Sie teilen uns Ihre Produktanforderungen und Zielvorstellungen mit, wir beraten Sie fachkundig zu technischer Machbarkeit, realistischen Kosten und optimalem Zeitplan.</p></div>
  <div class="text-center reveal p-6"><div class="w-16 h-16 rounded-2xl bg-brandOrange/10 flex items-center justify-center mx-auto mb-5"><span class="text-2xl font-black text-brandOrange">02</span></div><h3 class="text-lg font-bold text-brandBlue mb-3">Design & Entwicklung</h3><p class="text-sm text-slate-500">Unser erfahrenes R&D-Team mit 50+ Ingenieuren erstellt ID-Design, PCBA-Layout und 3D-Zeichnungen präzise nach Ihren individuellen Vorgaben und Wünschen.</p></div>
@@ -131,9 +122,7 @@ plPath: "uslugi-oem-odm/"
  <section class="sec bg-slate-50">
  <div class="container-wide">
  <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
- <div class="reveal">
- <p class="section-label">OEM vs ODM</p><h2 class="section-title">Welcher Ansatz passt am besten zu Ihrem Projekt und Ihren Zielen?</h2>
- <div class="space-y-6 mt-8">
+ {% call sectionHeader('OEM vs ODM', 'Welcher Ansatz passt am besten zu Ihrem Projekt und Ihren Zielen?', '', {align: '', max: '', mb: ''}) %}<div class="space-y-6 mt-8">
  <div class="bg-white rounded-xl p-6 border border-slate-200"><h3 class="font-bold text-brandBlue text-lg mb-2">ODM, Eigenes Branding auf Lagermodellen</h3><p class="text-sm text-slate-500 mb-3">Als ODM-Kunde wählen Sie aus unseren bestehenden, erprobten Produkten und Referenzdesigns und wir versehen sie mit Ihrem Logo, Ihren Farben und Ihrer Markenidentität, schnell, kosteneffizient und unkompliziert.</p><p class="text-xs font-bold text-brandOrange">MOQ: 500 Stück | Lieferzeit: 25–30 Tage</p></div>
  <div class="bg-white rounded-xl p-6 border border-slate-200"><h3 class="font-bold text-brandBlue text-lg mb-2">ODM, Individuelle Entwicklung</h3><p class="text-sm text-slate-500 mb-3">Als ODM-Kunde lassen Sie ein individuelles Produkt auf unserer bestehenden Plattform nach Ihren technischen Anforderungen entwickeln — von der Elektronik über das Gehäusedesign bis zur vollständigen Zertifizierung. OEM mit vollständig neuem Werkzeug: MOQ ab 3.000 Stück.</p><p class="text-xs font-bold text-brandOrange">MOQ: 1.000–2.000 Stück | Lieferzeit: 45–60 Tage</p></div>
  </div>
@@ -148,7 +137,7 @@ plPath: "uslugi-oem-odm/"
  <button data-action="open-modal" class="btn-primary mt-6 cursor-pointer">Beratung anfragen <svg class="icon-arrow-right text-sm" aria-hidden="true" focusable="false" viewBox="0 0 512 512">
  <path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-105.4 105.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" fill="currentColor"/>
  </svg></button>
- </div>
+ {% endcall %}
  <div class="reveal">
  <div class="bg-white rounded-2xl p-8 border border-slate-200"><h3 class="text-lg font-bold text-brandBlue mb-6">Was wir bieten</h3>
  <ul class="space-y-4">
@@ -177,11 +166,8 @@ plPath: "uslugi-oem-odm/"
  <!-- CASE STUDIES -->
  <section class="sec bg-white">
  <div class="container-content">
- <div class="text-center max-w-3xl mx-auto mb-16 reveal">
- <p class="section-label">Erfolgsgeschichten</p>
- <h2 class="section-title">Das sagen unsere Partner und Kunden über uns</h2><p class="section-desc mx-auto">Lesen Sie, was unsere Kunden aus Deutschland und Europa über die Zusammenarbeit mit uns sagen.</p>
- <p class="section-desc mx-auto">Über 500+ zufriedene B2B-Kunden in mehr als 30 Ländern, darunter führende Marken aus Deutschland, Österreich und der Schweiz. <a href="/de/fallbeispiele/" class="text-brandOrange hover:underline font-semibold">Alle Kundenreferenzen ansehen →</a></p>
- </div>
+ {% call sectionHeader('Erfolgsgeschichten', 'Das sagen unsere Partner und Kunden über uns', 'Lesen Sie, was unsere Kunden aus Deutschland und Europa über die Zusammenarbeit mit uns sagen.', {}) %}<p class="section-desc mx-auto">Über 500+ zufriedene B2B-Kunden in mehr als 30 Ländern, darunter führende Marken aus Deutschland, Österreich und der Schweiz. <a href="/de/fallbeispiele/" class="text-brandOrange hover:underline font-semibold">Alle Kundenreferenzen ansehen →</a></p>
+ {% endcall %}
  <div class="grid md:grid-cols-2 gap-6 reveal">
  <div class="bg-white p-8 rounded-2xl shadow-lg border-l-8 border-brandOrange flex items-start gap-6">
  <div class="w-16 h-16 rounded-2xl bg-brandOrange/10 flex items-center justify-center shrink-0"><svg class="icon-bolt text-2xl text-brandOrange" aria-hidden="true" focusable="false" viewBox="0 0 448 512">
@@ -209,10 +195,7 @@ plPath: "uslugi-oem-odm/"
  <section class="sec bg-white">
  <div class="container-wide">
  <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
- <div class="reveal">
- <p class="section-label">Technische Unterlagen</p>
- <h2 class="section-title">Datenblätter &amp; Zertifikate</h2>
- <p class="text-slate-600 leading-relaxed mb-6">Fordern Sie unsere aktuellen Produktspezifikationen und Zertifikate an. Wir stellen Ihnen auf Wunsch alle relevanten Unterlagen für Ihre Produktentwicklung und Importabwicklung zur Verfügung.</p>
+ {% call sectionHeader('Technische Unterlagen', 'Datenblätter &amp; Zertifikate', '', {align: '', max: '', mb: ''}) %}<p class="text-slate-600 leading-relaxed mb-6">Fordern Sie unsere aktuellen Produktspezifikationen und Zertifikate an. Wir stellen Ihnen auf Wunsch alle relevanten Unterlagen für Ihre Produktentwicklung und Importabwicklung zur Verfügung.</p>
  <div class="flex flex-wrap gap-3">
  <a href="mailto:info@wowohcool.com?subject=Produktdatenblatt%20anfordern" class="download-btn orange">
  <svg class="icon-file-pdf" width="16" height="16" viewBox="0 0 576 512">
@@ -225,7 +208,7 @@ plPath: "uslugi-oem-odm/"
  Angebot anfordern
  </button>
  </div>
- </div>
+ {% endcall %}
  <div class="reveal delay-2">
  <div class="bg-slate-50 rounded-2xl p-8 border border-slate-200">
  <p class="text-sm font-bold text-brandBlue mb-4">Verfügbare Unterlagen</p>
@@ -245,11 +228,7 @@ plPath: "uslugi-oem-odm/"
  <!-- ======== Qualitätssicherung ======== -->
  <section class="sec bg-white">
  <div class="container-wide">
- <div class="text-center max-w-3xl mx-auto mb-16 reveal">
- <p class="section-label">Qualitätssicherung</p>
- <h2 class="section-title">4-stufiger QC-Prozess für höchste Qualität</h2>
- <p class="section-desc mx-auto">Jedes Produkt durchläuft strenge Qualitätskontrollen. Unsere Defektrate liegt unter 0,3%.</p>
- </div>
+ {{ sectionHeader('Qualitätssicherung', '4-stufiger QC-Prozess für höchste Qualität', 'Jedes Produkt durchläuft strenge Qualitätskontrollen. Unsere Defektrate liegt unter 0,3%.', {}) }}
 
  <div class="grid md:grid-cols-4 gap-4 mb-16 reveal">
  <div class="bg-slate-50 rounded-xl p-6 border border-slate-200 text-center">
@@ -346,11 +325,7 @@ plPath: "uslugi-oem-odm/"
  <!-- ======== VERSAND & LIEFERUNG ======== -->
  <section class="sec bg-slate-50">
  <div class="container-wide">
- <div class="text-center max-w-3xl mx-auto mb-16 reveal">
- <p class="section-label">Versand & Lieferung</p>
- <h2 class="section-title">Schnell und zuverlässig nach Deutschland</h2>
- <p class="section-desc mx-auto">Flexible Versandoptionen für jeden Bedarf, mit oder ohne Zollabwicklung.</p>
- </div>
+ {{ sectionHeader('Versand &amp; Lieferung', 'Schnell und zuverlässig nach Deutschland', 'Flexible Versandoptionen für jeden Bedarf, mit oder ohne Zollabwicklung.', {}) }}
  <div class="grid md:grid-cols-3 gap-6 reveal">
  <div class="bg-white rounded-xl p-6 border border-slate-200 text-center hover:border-brandOrange transition-all">
  <div class="w-16 h-16 rounded-full bg-brandOrange/10 flex items-center justify-center mx-auto mb-4">
@@ -421,11 +396,7 @@ plPath: "uslugi-oem-odm/"
  <!-- ======== PRICING GUIDE ======== -->
  <section class="sec bg-slate-50">
  <div class="container-content">
- <div class="text-center max-w-3xl mx-auto mb-12 reveal">
- <p class="section-label">Preisübersicht</p>
- <h2 class="section-title">Transparente Preisorientierung für Ihr Projekt</h2>
- <p class="section-desc mx-auto">Richtpreise ab Werk Shenzhen. Individuelle Angebote basierend auf Ihren genauen Spezifikationen.</p>
- </div>
+ {{ sectionHeader('Preisübersicht', 'Transparente Preisorientierung für Ihr Projekt', 'Richtpreise ab Werk Shenzhen. Individuelle Angebote basierend auf Ihren genauen Spezifikationen.', {mb: 'mb-12'}) }}
  <div class="grid md:grid-cols-3 gap-6 reveal">
  <div class="bg-white rounded-2xl p-8 border border-slate-200 text-center hover:border-brandOrange transition-all">
  <p class="text-xs font-bold tracking-widest uppercase text-slate-400 mb-3">Kleine Charge</p>
@@ -494,17 +465,17 @@ plPath: "uslugi-oem-odm/"
  <!-- FAQ -->
  <section class="sec bg-slate-50">
  <div class="container-narrow">
- <div class="text-center mb-16 reveal"><p class="section-label">FAQ</p><h2 class="section-title">Häufige Fragen zu OEM/ODM</h2></div>
+ {{ sectionHeader('FAQ', 'Häufige Fragen zu OEM/ODM', '', {max: ''}) }}
  <div class="reveal">
- <details class="faq-item"><summary>Was ist der Unterschied zwischen OEM und ODM?</summary><div class="faq-answer">OEM (Original Equipment Manufacturing) bedeutet, dass wir Ihr eigenes Design mit neuer Werkzeugentwicklung fertigen. MOQ ab 3.000 Stück. ODM (Original Design Manufacturing) bedeutet, dass wir das Produkt auf unserer bestehenden Plattform entwickeln: Lagermodelle mit Ihrem Logo ab 500 Stück, ein neues Design, das nicht lagernd ist, 1.000–2.000 Stück (Lieferzeit 35–50 Tage).</div></details>
- <details class="faq-item"><summary>Wie hoch ist die Mindestbestellmenge (MOQ)?</summary><div class="faq-answer">Für ODM auf Lagermodellen (Logo, Farbe, Standardverpackung) beträgt die MOQ 500 Stück pro Modell. Für ODM-Neuentwicklung liegt die MOQ bei 1.000–2.000 Stück, für OEM mit neuer Werkzeugentwicklung ab 3.000 Stück. Für Erstbestellungen bieten wir flexible Konditionen.</div></details>
- <details class="faq-item"><summary>Kann ich vor der Großbestellung Muster erhalten?</summary><div class="faq-answer">Ja, wir empfehlen Muster vor der Serienproduktion. Standardmuster innerhalb von 3–7 Tagen. Die Musterkosten werden bei späterer Großbestellung gutgeschrieben.</div></details>
- <details class="faq-item"><summary>Welche Zertifizierungen können Sie übernehmen?</summary><div class="faq-answer">Wir unterstützen bei CE, TÜV GS, RoHS, Qi2, UL, PSE, KC, UN38.3 und weiteren länderspezifischen Zertifizierungen. Unser Team begleitet Sie durch den gesamten Prozess.</div></details>
- <details class="faq-item"><summary>Wie lange dauert ein typischer OEM-Auftrag?</summary><div class="faq-answer">Standard-OEM: 25–35 Tage nach Musterfreigabe. ODM-Projekte mit neuem Werkzeug: 45–60 Tage. Expressproduktion auf Anfrage möglich.</div></details>
- <details class="faq-item"><summary>Bieten Sie Unterstützung bei der Verpackungsgestaltung?</summary><div class="faq-answer">Ja, unser Designteam erstellt individuelle Verpackungen, von nachhaltigen Materialien bis zur Premium-Geschenkbox. Inklusive Produktdokumentation und Bedienungsanleitung.</div></details>
- <details class="faq-item"><summary>Bieten Sie IP-Schutz für ODM-Designs?</summary><div class="faq-answer">Ja, wir unterzeichnen NDA-Vereinbarungen vor Projektstart. Ihre Designs, Werkzeuge und Spezifikationen bleiben Ihr geistiges Eigentum. Wir fertigen nicht für Ihre Wettbewerber.</div></details>
- <details class="faq-item"><summary>Wie ist Ihre Garantiepolitik?</summary><div class="faq-answer">12 Monate Garantie auf alle Produkte. Bei Defektrate über 0,3% liefern wir kostenlosen Ersatz. Jede Charge durchläuft einen 4-Stunden-Aging-Test vor Versand.</div></details>
- <details class="faq-item"><summary>Welche Versandoptionen bieten Sie an?</summary><div class="faq-answer">Express (DHL/FedEx, 5–7 Tage), Seefracht (15–25 Tage) und Amazon FBA Direktversand. DDP-Service inklusive Zollabwicklung verfügbar.</div></details>
+ {% call faqItem("Was ist der Unterschied zwischen OEM und ODM?") %}OEM (Original Equipment Manufacturing) bedeutet, dass wir Ihr eigenes Design mit neuer Werkzeugentwicklung fertigen. MOQ ab 3.000 Stück. ODM (Original Design Manufacturing) bedeutet, dass wir das Produkt auf unserer bestehenden Plattform entwickeln: Lagermodelle mit Ihrem Logo ab 500 Stück, ein neues Design, das nicht lagernd ist, 1.000–2.000 Stück (Lieferzeit 35–50 Tage).{% endcall %}
+ {% call faqItem("Wie hoch ist die Mindestbestellmenge (MOQ)?") %}Für ODM auf Lagermodellen (Logo, Farbe, Standardverpackung) beträgt die MOQ 500 Stück pro Modell. Für ODM-Neuentwicklung liegt die MOQ bei 1.000–2.000 Stück, für OEM mit neuer Werkzeugentwicklung ab 3.000 Stück. Für Erstbestellungen bieten wir flexible Konditionen.{% endcall %}
+ {% call faqItem("Kann ich vor der Großbestellung Muster erhalten?") %}Ja, wir empfehlen Muster vor der Serienproduktion. Standardmuster innerhalb von 3–7 Tagen. Die Musterkosten werden bei späterer Großbestellung gutgeschrieben.{% endcall %}
+ {% call faqItem("Welche Zertifizierungen können Sie übernehmen?") %}Wir unterstützen bei CE, TÜV GS, RoHS, Qi2, UL, PSE, KC, UN38.3 und weiteren länderspezifischen Zertifizierungen. Unser Team begleitet Sie durch den gesamten Prozess.{% endcall %}
+ {% call faqItem("Wie lange dauert ein typischer OEM-Auftrag?") %}Standard-OEM: 25–35 Tage nach Musterfreigabe. ODM-Projekte mit neuem Werkzeug: 45–60 Tage. Expressproduktion auf Anfrage möglich.{% endcall %}
+ {% call faqItem("Bieten Sie Unterstützung bei der Verpackungsgestaltung?") %}Ja, unser Designteam erstellt individuelle Verpackungen, von nachhaltigen Materialien bis zur Premium-Geschenkbox. Inklusive Produktdokumentation und Bedienungsanleitung.{% endcall %}
+ {% call faqItem("Bieten Sie IP-Schutz für ODM-Designs?") %}Ja, wir unterzeichnen NDA-Vereinbarungen vor Projektstart. Ihre Designs, Werkzeuge und Spezifikationen bleiben Ihr geistiges Eigentum. Wir fertigen nicht für Ihre Wettbewerber.{% endcall %}
+ {% call faqItem("Wie ist Ihre Garantiepolitik?") %}12 Monate Garantie auf alle Produkte. Bei Defektrate über 0,3% liefern wir kostenlosen Ersatz. Jede Charge durchläuft einen 4-Stunden-Aging-Test vor Versand.{% endcall %}
+ {% call faqItem("Welche Versandoptionen bieten Sie an?") %}Express (DHL/FedEx, 5–7 Tage), Seefracht (15–25 Tage) und Amazon FBA Direktversand. DDP-Service inklusive Zollabwicklung verfügbar.{% endcall %}
  </div>
  </div>
  </section>
@@ -512,12 +483,8 @@ plPath: "uslugi-oem-odm/"
  <!-- ======== ZAHLUNGSMETHODEN ======== -->
  <section class="sec bg-white">
  <div class="container-wide">
- <div class="text-center max-w-3xl mx-auto mb-10 reveal">
- <p class="section-label">Zahlungsbedingungen</p>
- <h2 class="section-title">Flexible Zahlung für Ihr Projekt</h2>
- <p class="section-desc mx-auto">Bewährte Zahlungswege für Geschäftskunden. Wir arbeiten mit namhaften Versicherungen und Banken zusammen.</p>
- <p class="text-xs text-slate-400 mt-4 text-center max-w-2xl mx-auto">Der deutsche Markt für GaN-Ladegeräte wächst mit über 17% jährlich <sup><a href="https://www.marketresearchfuture.com/reports/germany-gan-powered-chargers-market-57523" target="_blank" rel="noopener noreferrer" class="text-[10px] text-brandOrange no-underline hover:underline">[1]</a></sup>, der Einstieg jetzt sichert Ihnen frühe Marktpositionen.</p>
- </div>
+ {% call sectionHeader('Zahlungsbedingungen', 'Flexible Zahlung für Ihr Projekt', 'Bewährte Zahlungswege für Geschäftskunden. Wir arbeiten mit namhaften Versicherungen und Banken zusammen.', {mb: 'mb-10'}) %}<p class="text-xs text-slate-400 mt-4 text-center max-w-2xl mx-auto">Der deutsche Markt für GaN-Ladegeräte wächst mit über 17% jährlich <sup><a href="https://www.marketresearchfuture.com/reports/germany-gan-powered-chargers-market-57523" target="_blank" rel="noopener noreferrer" class="text-[10px] text-brandOrange no-underline hover:underline">[1]</a></sup>, der Einstieg jetzt sichert Ihnen frühe Marktpositionen.</p>
+ {% endcall %}
  <div class="payment-grid reveal">
  <div class="payment-item"><svg class="payment-icon" viewBox="0 0 24 24" fill="currentColor" width="28" height="28" aria-hidden="true" focusable="false"><path d="M12 2L2 8v2h1v10H2v2h20v-2h-1V10h1V8l-8-6zM8 10h2v8H8v-8zm6 0h2v8h-2v-8z"/></svg><span class="payment-label">T/T Überweisung</span></div>
  <div class="payment-item"><svg class="payment-icon" viewBox="0 0 24 24" fill="currentColor" width="28" height="28" aria-hidden="true" focusable="false"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm4 18H6V4h7v5h5v11zM9 13h6v2H9v-2zm0 4h6v2H9v-2zm0-8h2v2H9V9z"/></svg><span class="payment-label">L/C Akkreditiv</span></div>
@@ -531,7 +498,7 @@ plPath: "uslugi-oem-odm/"
  <!-- CTA -->
  <section class="sec bg-brandBlue">
  <div class="container-narrow text-center">
- <div class="reveal"><p class="section-label">Jetzt starten</p><h2 class="text-3xl md:text-5xl font-black text-white leading-tight mb-4 italic uppercase">OEM/ODM Projekt<br><span class="text-brandOrange">in 24 Stunden starten</span></h2><p class="text-slate-300 text-lg max-w-2xl mx-auto mb-8">Fordern Sie Ihr individuelles Angebot an.</p></div>
+ {% call sectionHeader('Jetzt starten', 'OEM/ODM Projekt<br><span class="text-brandOrange">in 24 Stunden starten</span>', '', {align: '', max: '', mb: '', titleClass: 'text-3xl md:text-5xl font-black text-white leading-tight mb-4 italic uppercase'}) %}<p class="text-slate-300 text-lg max-w-2xl mx-auto mb-8">Fordern Sie Ihr individuelles Angebot an.</p>{% endcall %}
  <div class="max-w-xl mx-auto reveal">
  <form action="https://api.web3forms.com/submit" method="POST" class="inquiry-form space-y-4">
  <input type="hidden" name="access_key" value="ac5fe4cd-2dd7-4aff-818d-bb36021b4942">
@@ -546,7 +513,7 @@ plPath: "uslugi-oem-odm/"
  <select name="product" class="w-full px-4 py-3.5 rounded-xl border border-white/20 bg-white/10 text-white focus:outline-none focus:border-brandOrange text-sm"><option value="" disabled selected>Produktinteresse (optional)</option><option value="unsure">Noch unentschlossen</option><option value="powerbank">Powerbank</option><option value="wireless">Kabelloses Ladegerät</option><option value="car">Autoladegerät</option><option value="gan">GaN-Ladegerät</option><option value="other">Sonstiges</option></select>
  <textarea required minlength="10" name="message" rows="3" placeholder="Ihre Nachricht (Menge, Spezifikationen, Wünsche)" class="w-full px-4 py-3.5 rounded-xl border border-white/20 bg-white/10 text-white placeholder:text-white/50 focus:outline-none focus:border-brandOrange text-sm resize-none"></textarea>
  <label class="flex items-start gap-3 text-left"><input type="checkbox" required class="mt-1 accent-brandOrange"><span class="text-xs text-slate-500">Ich habe die <a href="/de/datenschutz/" class="text-brandOrange hover:underline">Datenschutzerklärung</a> zur Kenntnis genommen. *</span></label>
- <button type="submit" class="w-full bg-brandOrange text-white py-4 rounded-xl font-bold text-base hover:bg-brandBlue transition-all duration-300 shadow-lg shadow-brandOrange/20 flex items-center justify-center gap-3">Kostenloses Angebot erhalten <svg class="icon-arrow-right" aria-hidden="true" focusable="false" viewBox="0 0 512 512">
+ <button type="submit" class="btn-form">Kostenloses Angebot erhalten <svg class="icon-arrow-right" aria-hidden="true" focusable="false" viewBox="0 0 512 512">
  <path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-105.4 105.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" fill="currentColor"/>
  </svg></button>
  </form>

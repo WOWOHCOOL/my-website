@@ -13,6 +13,9 @@ plPath: "faq/"
 ---
 
 {% extends "layouts/faq-page.njk" %}
+{% from "partials/faq-item.njk" import faqItem %}
+{% from "partials/category-heading.njk" import categoryHeading %}
+{% from "partials/section-header.njk" import sectionHeader %}
 
 {% block faqSchema %}
 <script type="application/ld+json">
@@ -43,9 +46,9 @@ plPath: "faq/"
 {% endblock %}
 
 {% block faqHero %}
-{{ breadcrumb([{name: "Startseite", url: "/de/"}, {name: "FAQ"}], "container-narrow") }}
-<section class="relative overflow-hidden bg-gradient-to-br from-slate-50 via-white to-orange-50">
- <div class="container-narrow text-center sec reveal">
+<section class="pt-24 md:pt-28 pb-16 md:pb-20 relative overflow-hidden bg-gradient-to-br from-slate-50 via-white to-orange-50">
+ <div class="container-narrow text-center reveal">
+  {{ breadcrumb([{name: "Startseite", url: "/de/"}, {name: "FAQ"}], "none", "mb-6", { variant: "hero" }) }}
  <p class="text-brandOrange text-xs font-bold tracking-widest uppercase mb-3">FAQ</p>
  <h1 class="text-3xl md:text-5xl font-black text-brandBlue leading-tight mb-6 italic uppercase">Häufig gestellte Fragen</h1>
  <p class="text-slate-600 text-lg max-w-2xl mx-auto">Antworten auf die wichtigsten Fragen rund um OEM/ODM, Produktion, Versand und Zusammenarbeit mit WOWOHCOOL.</p>
@@ -54,174 +57,72 @@ plPath: "faq/"
 {% endblock %}
 
 {% block faqTrustBand %}
-<!-- ======== STATS BAR ======== -->
-{% from "partials/stats-bar.njk" import statsBar %}
-{{ statsBar(i18n.statsBar[lang].items) }}
-
-<!-- ======== TRUST BAR — Certs + Logos ======== -->
-{% from "partials/cert-showcase.njk" import certShowcase %}
-{{ certShowcase(i18n.certifications[lang].homepage.items, i18n.certifications[lang].homepage.heading, i18n.certifications[lang].homepage.title, "", "py-10 md:py-14 bg-white", true) }}
-{% from "partials/customer-logos.njk" import customerLogos %}
-{{ customerLogos("Vertrauen internationaler Marken", "", standalone=true) }}
+<!-- ======== TRUST BAR ======== -->
+{% include "trust-bar.njk" %}
 {% endblock %}
 
 {% block faqContent %}
 <section class="sec bg-white">
  <div class="container-narrow">
-
- <div class="text-center max-w-3xl mx-auto mb-16 reveal">
- <p class="section-label">FAQ Kategorien</p>
- <h2 class="section-title">Alles, was Sie wissen müssen</h2>
- <p class="section-desc mx-auto">Schnelle Antworten auf Ihre Fragen. Unser Team steht Ihnen jederzeit zur Verfügung.</p>
- </div>
+ {{ sectionHeader("FAQ Kategorien", "Alles, was Sie wissen müssen", "Schnelle Antworten auf Ihre Fragen. Unser Team steht Ihnen jederzeit zur Verfügung.") }}
 
  <!-- Quick-Jump Navigation -->
- <div class="flex flex-wrap justify-center gap-2 mb-16 reveal">
- <a href="#bestellung" class="px-4 py-2 bg-slate-100 hover:bg-brandOrange hover:text-white rounded-full text-xs font-bold text-slate-600 transition-all">Bestellung & Angebot</a>
- <a href="#produktion" class="px-4 py-2 bg-slate-100 hover:bg-brandOrange hover:text-white rounded-full text-xs font-bold text-slate-600 transition-all">Produktion & Qualität</a>
- <a href="#versand" class="px-4 py-2 bg-slate-100 hover:bg-brandOrange hover:text-white rounded-full text-xs font-bold text-slate-600 transition-all">Versand & Logistik</a>
- <a href="#anpassung" class="px-4 py-2 bg-slate-100 hover:bg-brandOrange hover:text-white rounded-full text-xs font-bold text-slate-600 transition-all">Produktanpassung</a>
- <a href="#markt" class="px-4 py-2 bg-slate-100 hover:bg-brandOrange hover:text-white rounded-full text-xs font-bold text-slate-600 transition-all">Markt & Trends</a>
+ <div class="flex flex-wrap justify-center gap-2 mb-12 reveal">
+ <a href="#bestellung" class="filter-chip">Bestellung & Angebot</a>
+ <a href="#produktion" class="filter-chip">Produktion & Qualität</a>
+ <a href="#versand" class="filter-chip">Versand & Logistik</a>
+ <a href="#anpassung" class="filter-chip">Produktanpassung</a>
+ <a href="#markt" class="filter-chip">Markt & Trends</a>
  </div>
 
  <!-- Kategorie: Bestellung & Angebot -->
- <div id="bestellung" class="mb-16 reveal">
- <h3 class="text-xl font-black text-brandBlue uppercase italic mb-6 flex items-center gap-3">
- <span class="w-8 h-1 bg-brandOrange rounded-full"></span> Bestellung &amp; Angebot
- </h3>
+ <div class="mb-16 reveal">
+ {{ categoryHeading("Bestellung &amp; Angebot", "bestellung") }}
  <div class="space-y-1">
- <div class="faq-item">
- <details>
- <summary>Wie kann ich ein Angebot anfordern?</summary>
- <div class="faq-answer">Nutzen Sie einfach das Kontaktformular auf unserer Website oder schreiben Sie uns direkt eine E-Mail an <a href="mailto:info@wowohcool.com" class="text-brandOrange font-semibold hover:underline">info@wowohcool.com</a>. Wir benötigen Ihre Stückzahl, gewünschte Spezifikationen und eventuelle Sonderwünsche. Innerhalb von 24 Stunden erhalten Sie ein individuelles Angebot.</div>
- </details>
- </div>
- <div class="faq-item">
- <details>
- <summary>Wie hoch ist die Mindestbestellmenge (MOQ)?</summary>
- <div class="faq-answer">Für ODM auf Lagermodellen (bestehende Designs mit Ihrem Branding) beträgt die MOQ 500 Stück pro SKU. Für ODM-Neuentwicklung liegt die MOQ bei 1.000–2.000 Stück, für OEM mit eigener Werkzeugentwicklung ab 3.000 Stück. Für Start-ups bieten wir flexible Lösungen an, sprechen Sie uns einfach an.</div>
- </details>
- </div>
- <div class="faq-item">
- <details>
- <summary>Welche Zahlungsbedingungen bieten Sie an?</summary>
- <div class="faq-answer">Standardmäßig arbeiten wir mit 30% Anzahlung bei Auftragsbestätigung und 70% vor Versand. Wir akzeptieren T/T Überweisung, L/C Akkreditiv und für kleinere Beträge Kreditkarte. Für Stammkunden sind individuelle Vereinbarungen möglich. Zudem unterstützen wir Alibaba Trade Assurance.</div>
- </details>
- </div>
- <div class="faq-item">
- <details>
- <summary>Kann ich Muster vor der Bestellung erhalten?</summary>
- <div class="faq-answer">Ja, wir fertigen gerne Muster für Ihre Prüfung. Die Musterlieferzeit beträgt 3–7 Tage. Die Musterkosten werden bei späterer Großbestellung verrechnet. Sprechen Sie uns für die genauen Konditionen an.</div>
- </details>
- </div>
+ {% call faqItem("Wie kann ich ein Angebot anfordern?") %}Nutzen Sie einfach das Kontaktformular auf unserer Website oder schreiben Sie uns direkt eine E-Mail an <a href="mailto:info@wowohcool.com" class="text-brandOrange font-semibold hover:underline">info@wowohcool.com</a>. Wir benötigen Ihre Stückzahl, gewünschte Spezifikationen und eventuelle Sonderwünsche. Innerhalb von 24 Stunden erhalten Sie ein individuelles Angebot.{% endcall %}
+ {% call faqItem("Wie hoch ist die Mindestbestellmenge (MOQ)?") %}Für ODM auf Lagermodellen (bestehende Designs mit Ihrem Branding) beträgt die MOQ 500 Stück pro SKU. Für ODM-Neuentwicklung liegt die MOQ bei 1.000–2.000 Stück, für OEM mit eigener Werkzeugentwicklung ab 3.000 Stück. Für Start-ups bieten wir flexible Lösungen an, sprechen Sie uns einfach an.{% endcall %}
+ {% call faqItem("Welche Zahlungsbedingungen bieten Sie an?") %}Standardmäßig arbeiten wir mit 30% Anzahlung bei Auftragsbestätigung und 70% vor Versand. Wir akzeptieren T/T Überweisung, L/C Akkreditiv und für kleinere Beträge Kreditkarte. Für Stammkunden sind individuelle Vereinbarungen möglich. Zudem unterstützen wir Alibaba Trade Assurance.{% endcall %}
+ {% call faqItem("Kann ich Muster vor der Bestellung erhalten?") %}Ja, wir fertigen gerne Muster für Ihre Prüfung. Die Musterlieferzeit beträgt 3–7 Tage. Die Musterkosten werden bei späterer Großbestellung verrechnet. Sprechen Sie uns für die genauen Konditionen an.{% endcall %}
  </div>
  </div>
 
  <!-- Kategorie: Produktion & Qualität -->
- <div id="produktion" class="mb-16 reveal">
- <h3 class="text-xl font-black text-brandBlue uppercase italic mb-6 flex items-center gap-3">
- <span class="w-8 h-1 bg-brandOrange rounded-full"></span> Produktion &amp; Qualität
- </h3>
+ <div class="mb-16 reveal">
+ {{ categoryHeading("Produktion &amp; Qualität", "produktion") }}
  <div class="space-y-1">
- <div class="faq-item">
- <details>
- <summary>Wie lange dauert die Produktion?</summary>
- <div class="faq-answer">Standard OEM-Aufträge werden innerhalb von 25–35 Tagen nach Musterfreigabe geliefert. Individuelle ODM-Projekte benötigen in der Regel 45–60 Tage inklusive Werkzeugentwicklung und Prototyping. Express-Produktion ist auf Anfrage möglich.</div>
- </details>
- </div>
- <div class="faq-item">
- <details>
- <summary>Welche Qualitätssicherung haben Sie?</summary>
- <div class="faq-answer">Wir verfügen über einen 4-stufigen QC-Prozess: IQC (Eingangskontrolle), IPQC (Prozesskontrolle), FQC (Endkontrolle) und OQC (Ausgangskontrolle). Jedes Produkt durchläuft einen 4-stündigen Aging-Test. Unsere Defektrate liegt unter 0,3%. Die Fertigung ist ISO 9001:2015 zertifiziert.</div>
- </details>
- </div>
- <div class="faq-item">
- <details>
- <summary>Kann ich die Produktion vor Ort besuchen?</summary>
- <div class="faq-answer">Selbstverständlich! Wir heißen Kunden aus aller Welt in unserer Fabrik in Shenzhen willkommen. Vereinbaren Sie einfach einen Termin mit unserem Team. Alternativ bieten wir Video-Audits an, bei denen wir Ihnen live unsere Produktionslinien zeigen.</div>
- </details>
- </div>
- <div class="faq-item">
- <details>
- <summary>Welche Zertifizierungen haben Ihre Produkte?</summary>
- <div class="faq-answer">Alle unsere Produkte sind CE, FCC und RoHS zertifiziert. Zusätzlich verfügen wir über TÜV GS, Qi2, ISO 9001, UN38.3 (Transport), PD 3.1 und E-Mark Zertifizierungen. Für spezifische Märkte bieten wir auf Wunsch weitere Zertifizierungen an (UL, PSE, KC).</div>
- </details>
- </div>
+ {% call faqItem("Wie lange dauert die Produktion?") %}Standard OEM-Aufträge werden innerhalb von 25–35 Tagen nach Musterfreigabe geliefert. Individuelle ODM-Projekte benötigen in der Regel 45–60 Tage inklusive Werkzeugentwicklung und Prototyping. Express-Produktion ist auf Anfrage möglich.{% endcall %}
+ {% call faqItem("Welche Qualitätssicherung haben Sie?") %}Wir verfügen über einen 4-stufigen QC-Prozess: IQC (Eingangskontrolle), IPQC (Prozesskontrolle), FQC (Endkontrolle) und OQC (Ausgangskontrolle). Jedes Produkt durchläuft einen 4-stündigen Aging-Test. Unsere Defektrate liegt unter 0,3%. Die Fertigung ist ISO 9001:2015 zertifiziert.{% endcall %}
+ {% call faqItem("Kann ich die Produktion vor Ort besuchen?") %}Selbstverständlich! Wir heißen Kunden aus aller Welt in unserer Fabrik in Shenzhen willkommen. Vereinbaren Sie einfach einen Termin mit unserem Team. Alternativ bieten wir Video-Audits an, bei denen wir Ihnen live unsere Produktionslinien zeigen.{% endcall %}
+ {% call faqItem("Welche Zertifizierungen haben Ihre Produkte?") %}Alle unsere Produkte sind CE, FCC und RoHS zertifiziert. Zusätzlich verfügen wir über TÜV GS, Qi2, ISO 9001, UN38.3 (Transport), PD 3.1 und E-Mark Zertifizierungen. Für spezifische Märkte bieten wir auf Wunsch weitere Zertifizierungen an (UL, PSE, KC).{% endcall %}
  </div>
  </div>
 
  <!-- Kategorie: Versand & Logistik -->
- <div id="versand" class="mb-16 reveal">
- <h3 class="text-xl font-black text-brandBlue uppercase italic mb-6 flex items-center gap-3">
- <span class="w-8 h-1 bg-brandOrange rounded-full"></span> Versand &amp; Logistik
- </h3>
+ <div class="mb-16 reveal">
+ {{ categoryHeading("Versand &amp; Logistik", "versand") }}
  <div class="space-y-1">
- <div class="faq-item">
- <details>
- <summary>Wie erfolgt der Versand nach Deutschland?</summary>
- <div class="faq-answer">Wir versenden per Express (DHL/FedEx, 5–7 Tage) oder Standard (Seefracht, 25–35 Tage). Auf Wunsch bieten wir DDP-Service (Delivered Duty Paid) an, bei dem Zoll und Einfuhrumsatzsteuer komplett von uns abgewickelt werden, Sie erhalten die Ware frei Haus.</div>
- </details>
- </div>
- <div class="faq-item">
- <details>
- <summary>Bieten Sie Amazon FBA-Service an?</summary>
- <div class="faq-answer">Ja, wir bieten Direktversand zu Amazon-Lagern in Deutschland und ganz Europa an. Wir kümmern uns um die korrekte Etikettierung, Verpackung und alle erforderlichen Dokumente für die Amazon FBA-Annahme.</div>
- </details>
- </div>
- <div class="faq-item">
- <details>
- <summary>Wer trägt die Zollkosten?</summary>
- <div class="faq-answer">Bei EXW (ab Werk) und FOB Shenzhen ist der Kunde für Zoll und Einfuhr zuständig. Bei DDP (frei Haus) übernehmen wir sämtliche Zoll- und Versandkosten, Sie erhalten einen Festpreis ohne Überraschungen. Wir empfehlen DDP für Erstkunden.</div>
- </details>
- </div>
+ {% call faqItem("Wie erfolgt der Versand nach Deutschland?") %}Wir versenden per Express (DHL/FedEx, 5–7 Tage) oder Standard (Seefracht, 25–35 Tage). Auf Wunsch bieten wir DDP-Service (Delivered Duty Paid) an, bei dem Zoll und Einfuhrumsatzsteuer komplett von uns abgewickelt werden, Sie erhalten die Ware frei Haus.{% endcall %}
+ {% call faqItem("Bieten Sie Amazon FBA-Service an?") %}Ja, wir bieten Direktversand zu Amazon-Lagern in Deutschland und ganz Europa an. Wir kümmern uns um die korrekte Etikettierung, Verpackung und alle erforderlichen Dokumente für die Amazon FBA-Annahme.{% endcall %}
+ {% call faqItem("Wer trägt die Zollkosten?") %}Bei EXW (ab Werk) und FOB Shenzhen ist der Kunde für Zoll und Einfuhr zuständig. Bei DDP (frei Haus) übernehmen wir sämtliche Zoll- und Versandkosten, Sie erhalten einen Festpreis ohne Überraschungen. Wir empfehlen DDP für Erstkunden.{% endcall %}
  </div>
  </div>
 
  <!-- Kategorie: Produktanpassung -->
- <div id="anpassung" class="mb-16 reveal">
- <h3 class="text-xl font-black text-brandBlue uppercase italic mb-6 flex items-center gap-3">
- <span class="w-8 h-1 bg-brandOrange rounded-full"></span> Produktanpassung (OEM/ODM)
- </h3>
+ <div class="mb-16 reveal">
+ {{ categoryHeading("Produktanpassung (OEM/ODM)", "anpassung") }}
  <div class="space-y-1">
- <div class="faq-item">
- <details>
- <summary>Was ist der Unterschied zwischen OEM und ODM?</summary>
- <div class="faq-answer">Beim OEM (Original Equipment Manufacturing) wählen Sie aus unseren bestehenden Produkten aus und wir versehen diese mit Ihrem Logo, Ihrer Verpackung und Markenidentität. Beim ODM (Original Design Manufacturing) entwickeln wir ein vollständig neues Produkt nach Ihren individuellen Spezifikationen, von der Elektronik bis zum Gehäusedesign.</div>
- </details>
- </div>
- <div class="faq-item">
- <details>
- <summary>Welche Individualisierungen sind möglich?</summary>
- <div class="faq-answer">Wir bieten ein breites Spektrum: Logo-Druck/-Lasergravur, individuelle Farben (CMF), kundenspezifische Verpackung, Bedienungsanleitung in Ihrer Sprache, kundenspezifische PCBA mit gewünschten Ladeprotokollen, spezifische Kabel und Anschlüsse, TFT-Display-Inhalte und vieles mehr.</div>
- </details>
- </div>
- <div class="faq-item">
- <details>
- <summary>Kann ich mein eigenes Design und meine Spezifikationen einbringen?</summary>
- <div class="faq-answer">Ja, genau dafür ist ODM gedacht. Sie liefern Ihre Ideen, Skizzen oder Referenzprodukte, unser 50-köpfiges R&D-Team bewertet die Machbarkeit, erstellt ein detailliertes Angebot und setzt Ihr Projekt termingerecht um. Geistiges Eigentum bleibt selbstverständlich bei Ihnen.</div>
- </details>
- </div>
+ {% call faqItem("Was ist der Unterschied zwischen OEM und ODM?") %}Beim OEM (Original Equipment Manufacturing) wählen Sie aus unseren bestehenden Produkten aus und wir versehen diese mit Ihrem Logo, Ihrer Verpackung und Markenidentität. Beim ODM (Original Design Manufacturing) entwickeln wir ein vollständig neues Produkt nach Ihren individuellen Spezifikationen, von der Elektronik bis zum Gehäusedesign.{% endcall %}
+ {% call faqItem("Welche Individualisierungen sind möglich?") %}Wir bieten ein breites Spektrum: Logo-Druck/-Lasergravur, individuelle Farben (CMF), kundenspezifische Verpackung, Bedienungsanleitung in Ihrer Sprache, kundenspezifische PCBA mit gewünschten Ladeprotokollen, spezifische Kabel und Anschlüsse, TFT-Display-Inhalte und vieles mehr.{% endcall %}
+ {% call faqItem("Kann ich mein eigenes Design und meine Spezifikationen einbringen?") %}Ja, genau dafür ist ODM gedacht. Sie liefern Ihre Ideen, Skizzen oder Referenzprodukte, unser 50-köpfiges R&D-Team bewertet die Machbarkeit, erstellt ein detailliertes Angebot und setzt Ihr Projekt termingerecht um. Geistiges Eigentum bleibt selbstverständlich bei Ihnen.{% endcall %}
  </div>
  </div>
 
  <!-- Kategorie: Markt & Trends -->
- <div id="markt" class="mb-16 reveal">
- <h3 class="text-xl font-black text-brandBlue uppercase italic mb-6 flex items-center gap-3">
- <span class="w-8 h-1 bg-brandOrange rounded-full"></span> Markt &amp; Trends
- </h3>
+ <div class="mb-16 reveal">
+ {{ categoryHeading("Markt &amp; Trends", "markt") }}
  <div class="space-y-1">
- <div class="faq-item">
- <details>
- <summary>Warum kommen über 90% der Ladegeräte aus China?</summary>
- <div class="faq-answer">Deutschland hat praktisch keine eigene Produktion für Powerbanks und Ladegeräte mehr, über 90% werden importiert <sup><a href="https://www.indexbox.io/store/germany-kw-portable-battery-charger-840-market-analysis-forecast-size-trends-and-insights/" target="_blank" rel="noopener noreferrer" class="text-[10px] text-brandOrange no-underline hover:underline">[1]</a></sup>, der überwiegende Teil aus China. Gründe sind das fertigungstechnische Cluster in Shenzhen (Komponenten, Werkzeugbau, Logistik), die Kostenstruktur und die jahrzehntelange Erfahrung. Als ISO 9001 zertifizierter Hersteller mit eigener 5.000m² Fabrik garantieren wir Qualität und EU-Konformität auf Augenhöhe mit deutschen Ansprüchen.</div>
- </details>
- </div>
- <div class="faq-item">
- <details>
- <summary>Wie schnell wächst der Markt für GaN-Ladegeräte?</summary>
- <div class="faq-answer">Der deutsche Markt für GaN-basierte Ladegeräte wächst mit über 17% jährlich (CAGR 2025–2035), von 39,9 Mio. USD (2024) auf prognostizierte 234 Mio. USD (2035) <sup><a href="https://www.marketresearchfuture.com/reports/germany-gan-powered-chargers-market-57523" target="_blank" rel="noopener noreferrer" class="text-[10px] text-brandOrange no-underline hover:underline">[2]</a></sup>. Besonders die Leistungsklassen 65W und 100W verzeichnen das stärkste Wachstum. GaN V ermöglicht 40% kleinere und effizientere Ladegeräte als herkömmliche Silizium-Technologie. Für Marken, die jetzt in GaN-Produkte einsteigen, bietet sich ein frühes Marktfenster.</div>
- </details>
- </div>
+ {% call faqItem("Warum kommen über 90% der Ladegeräte aus China?") %}Deutschland hat praktisch keine eigene Produktion für Powerbanks und Ladegeräte mehr, über 90% werden importiert <sup><a href="https://www.indexbox.io/store/germany-kw-portable-battery-charger-840-market-analysis-forecast-size-trends-and-insights/" target="_blank" rel="noopener noreferrer" class="text-[10px] text-brandOrange no-underline hover:underline">[1]</a></sup>, der überwiegende Teil aus China. Gründe sind das fertigungstechnische Cluster in Shenzhen (Komponenten, Werkzeugbau, Logistik), die Kostenstruktur und die jahrzehntelange Erfahrung. Als ISO 9001 zertifizierter Hersteller mit eigener 5.000m² Fabrik garantieren wir Qualität und EU-Konformität auf Augenhöhe mit deutschen Ansprüchen.{% endcall %}
+ {% call faqItem("Wie schnell wächst der Markt für GaN-Ladegeräte?") %}Der deutsche Markt für GaN-basierte Ladegeräte wächst mit über 17% jährlich (CAGR 2025–2035), von 39,9 Mio. USD (2024) auf prognostizierte 234 Mio. USD (2035) <sup><a href="https://www.marketresearchfuture.com/reports/germany-gan-powered-chargers-market-57523" target="_blank" rel="noopener noreferrer" class="text-[10px] text-brandOrange no-underline hover:underline">[2]</a></sup>. Besonders die Leistungsklassen 65W und 100W verzeichnen das stärkste Wachstum. GaN V ermöglicht 40% kleinere und effizientere Ladegeräte als herkömmliche Silizium-Technologie. Für Marken, die jetzt in GaN-Produkte einsteigen, bietet sich ein frühes Marktfenster.{% endcall %}
  </div>
  </div>
 

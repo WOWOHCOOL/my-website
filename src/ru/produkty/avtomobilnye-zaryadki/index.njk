@@ -70,15 +70,15 @@ navActive: "products"
 
 {% block content %}
 {% from "breadcrumb.njk" import breadcrumb %}
-{{ breadcrumb([{name:"Главная",url:"/ru/"},{name:"Продукция",url:"/ru/produkty/"},{name:"Автомобильные зарядки"}]) }}
 
 <!-- ======== HERO ======== -->
-<section class="relative pt-0 pb-8 lg:pb-16 bg-white overflow-hidden">
+<section class="relative pt-24 md:pt-28 pb-8 lg:pb-16 bg-white overflow-hidden">
  <div class="absolute inset-0 pointer-events-none">
  <div class="absolute top-0 left-0 w-64 h-64 bg-brandOrange opacity-10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
  <div class="absolute bottom-0 right-0 w-64 h-64 bg-brandBlue opacity-10 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
  </div>
  <div class="container-wide relative z-10">
+  {{ breadcrumb([{name:"Главная",url:"/ru/"},{name:"Продукция",url:"/ru/produkty/"},{name:"Автомобильные зарядки"}], "none", "mb-6", { variant: "hero" }) }}
  <div class="grid lg:grid-cols-2 gap-12 items-center">
  <div class="reveal order-2 lg:order-1">
  <div class="inline-flex items-center gap-2 bg-brandOrange/10 text-brandOrange text-[11px] font-bold px-4 py-2 rounded-full tracking-widest uppercase mb-4">
@@ -120,11 +120,7 @@ navActive: "products"
 <!-- ======== PRODUCT MODELS ======== -->
 <section class="py-16 bg-slate-50">
  <div class="container-wide">
- <div class="text-center max-w-3xl mx-auto mb-12 reveal">
- <p class="section-label">Популярные модели</p>
- <h2 class="section-title">Линейка <span class="text-brandOrange">автомобильной зарядки</span></h2>
- <p class="section-desc mx-auto">Востребованные модели для OEM/ODM-производства. Каждая кастомизируется: ваш логотип, цвет и упаковка.</p>
- </div>
+ {{ sectionHeader('Популярные модели', 'Линейка <span class="text-brandOrange">автомобильной зарядки</span>', 'Востребованные модели для OEM/ODM-производства. Каждая кастомизируется: ваш логотип, цвет и упаковка.', {mb: 'mb-12'}) }}
    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 items-start">
    <div class="product-card reveal bg-white rounded-2xl p-6 border border-slate-200 flex flex-col">
     <div class="aspect-square bg-slate-50 rounded-xl mb-5 overflow-hidden flex items-center justify-center p-6"><img src="/image/product/car-charger/woc42-retractable-car-charger.webp" srcset="/image/product/car-charger/woc42-retractable-car-charger-450w.webp 450w, /image/product/car-charger/woc42-retractable-car-charger.webp 1920w" sizes="(min-width: 1440px) 389px, (min-width: 1280px) 389px, (min-width: 1024px) 304px, (min-width: 768px) 344px, (min-width: 430px) 382px, 327px" alt="WOC42 автозарядка с выдвижным кабелем 105 Вт OEM" width="200" height="200" class="w-full h-full object-contain" loading="lazy" decoding="async"></div>
@@ -151,7 +147,7 @@ navActive: "products"
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Lightning кабель (30W)</td><td class="py-1.5 font-bold text-slate-700">5V/2.4A, 9V/3A, 12V/2.5A</td></tr>
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Суммарный выход</td><td class="py-1.5 font-bold text-slate-700">35W + 45W + 30W = 110W (3 выхода)</td></tr></tbody></table></div>
     </details>
-    <button data-action="open-modal" data-product="WOC42 Retractable 105W Hub" class="mt-auto w-full py-3 bg-brandOrange text-white font-black uppercase text-[11px] tracking-widest rounded-xl hover:bg-brandOrange/90 transition shadow-md cursor-pointer">Запросить цену завода</button>
+    <button data-action="open-modal" data-product="WOC42 Retractable 105W Hub" class="btn-card-sm">Запросить цену завода</button>
    </div>
    <div class="product-card reveal bg-white rounded-2xl p-6 border border-slate-200 flex flex-col">
     <div class="aspect-square bg-slate-50 rounded-xl mb-5 overflow-hidden flex items-center justify-center p-6"><img src="/image/product/car-charger/woc45-retractable-charger.webp" srcset="/image/product/car-charger/woc45-retractable-charger-450w.webp 450w, /image/product/car-charger/woc45-retractable-charger.webp 800w" sizes="(min-width: 1440px) 389px, (min-width: 1280px) 389px, (min-width: 1024px) 304px, (min-width: 768px) 344px, (min-width: 430px) 382px, 327px" alt="WOC45 компактная автозарядка 3-в-1 Hub OEM" width="200" height="200" class="w-full h-full object-contain" loading="lazy" decoding="async"></div>
@@ -177,7 +173,7 @@ navActive: "products"
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Режим 2: 66W</td><td class="py-1.5 font-bold text-slate-700">USB-A: 5V/3A, 9V/3A, 12V/2.5A (36W) | USB-C: 5V/3A, 9V/3A, 12V/2.5A (36W, PPS) | USB-A+USB-C: 5V/3.4A</td></tr>
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Кабель 30W</td><td class="py-1.5 font-bold text-slate-700">5V/3A, 9V/3A, 12V/2.5A (PPS 3.3-11V/3A)</td></tr></tbody></table></div>
     </details>
-    <button data-action="open-modal" data-product="WOC45 Компактный 3-в-1 Hub" class="mt-auto w-full py-3 bg-brandOrange text-white font-black uppercase text-[11px] tracking-widest rounded-xl hover:bg-brandOrange/90 transition shadow-md cursor-pointer">Запросить цену завода</button>
+    <button data-action="open-modal" data-product="WOC45 Компактный 3-в-1 Hub" class="btn-card-sm">Запросить цену завода</button>
    </div>
    <div class="product-card reveal bg-white rounded-2xl p-6 border border-slate-200 flex flex-col">
     <div class="aspect-square bg-slate-50 rounded-xl mb-5 overflow-hidden flex items-center justify-center p-6"><img src="/image/product/car-charger/woc91-backseat-hub.webp" srcset="/image/product/car-charger/woc91-backseat-hub-450w.webp 450w, /image/product/car-charger/woc91-backseat-hub.webp 1920w" sizes="(min-width: 1440px) 389px, (min-width: 1280px) 389px, (min-width: 1024px) 304px, (min-width: 768px) 344px, (min-width: 430px) 382px, 327px" alt="WOC91 пассажирский hub 120 Вт для задних сидений OEM" width="200" height="200" class="w-full h-full object-contain" loading="lazy" decoding="async"></div>
@@ -202,7 +198,7 @@ navActive: "products"
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">USB-A2 (30W)</td><td class="py-1.5 font-bold text-slate-700">5V/3A, 9V/3A, 12V/2.5A</td></tr>
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Type-C2 (30W)</td><td class="py-1.5 font-bold text-slate-700">5V/3A, 9V/3A, 12V/2.5A</td></tr></tbody></table></div>
     </details>
-    <button data-action="open-modal" data-product="WOC91 Пассажирский Hub 120W" class="mt-auto w-full py-3 bg-brandOrange text-white font-black uppercase text-[11px] tracking-widest rounded-xl hover:bg-brandOrange/90 transition shadow-md cursor-pointer">Запросить цену завода</button>
+    <button data-action="open-modal" data-product="WOC91 Пассажирский Hub 120W" class="btn-card-sm">Запросить цену завода</button>
    </div>
    <div class="product-card reveal bg-white rounded-2xl p-6 border border-slate-200 flex flex-col">
     <div class="aspect-square bg-slate-50 rounded-xl mb-5 overflow-hidden flex items-center justify-center p-6"><img src="/image/product/car-charger/woc92-retractable-car-charger-hub.webp" srcset="/image/product/car-charger/woc92-retractable-car-charger-hub-450w.webp 450w, /image/product/car-charger/woc92-retractable-car-charger-hub.webp 800w" sizes="(min-width: 1440px) 389px, (min-width: 1280px) 389px, (min-width: 1024px) 304px, (min-width: 768px) 344px, (min-width: 430px) 382px, 327px" alt="WOC92 автозарядка с выдвижным кабелем 120 Вт OEM" width="200" height="200" class="w-full h-full object-contain" loading="lazy" decoding="async"></div>
@@ -230,7 +226,7 @@ navActive: "products"
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Длина кабеля</td><td class="py-1.5 font-bold text-slate-700">80cm (Retractable)</td></tr>
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Удлинительный кабель</td><td class="py-1.5 font-bold text-slate-700">1.5M</td></tr></tbody></table></div>
     </details>
-    <button data-action="open-modal" data-product="WOC92 Retractable Hub 120W" class="mt-auto w-full py-3 bg-brandOrange text-white font-black uppercase text-[11px] tracking-widest rounded-xl hover:bg-brandOrange/90 transition shadow-md cursor-pointer">Запросить цену завода</button>
+    <button data-action="open-modal" data-product="WOC92 Retractable Hub 120W" class="btn-card-sm">Запросить цену завода</button>
    </div>
    <div class="product-card reveal bg-white rounded-2xl p-6 border border-slate-200 flex flex-col">
     <div class="aspect-square bg-slate-50 rounded-xl mb-5 overflow-hidden flex items-center justify-center p-6"><img src="/image/product/car-charger/woc38-4port-charger.webp" srcset="/image/product/car-charger/woc38-4port-charger-450w.webp 450w, /image/product/car-charger/woc38-4port-charger.webp 800w" sizes="(min-width: 1440px) 389px, (min-width: 1280px) 389px, (min-width: 1024px) 304px, (min-width: 768px) 344px, (min-width: 430px) 382px, 327px" alt="WOC38 автозарядка с 4 портами быстрой зарядки OEM" width="200" height="200" class="w-full h-full object-contain" loading="lazy" decoding="async"></div>
@@ -256,7 +252,7 @@ navActive: "products"
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">USB-C2 (35W PD)</td><td class="py-1.5 font-bold text-slate-700">5V/3A, 9V/3A, 12V/2.92A</td></tr>
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Суммарный выход</td><td class="py-1.5 font-bold text-slate-700">70W Max</td></tr></tbody></table></div>
     </details>
-    <button data-action="open-modal" data-product="WOC38 Quad-Port быстрая зарядка" class="mt-auto w-full py-3 bg-brandOrange text-white font-black uppercase text-[11px] tracking-widest rounded-xl hover:bg-brandOrange/90 transition shadow-md cursor-pointer">Запросить цену завода</button>
+    <button data-action="open-modal" data-product="WOC38 Quad-Port быстрая зарядка" class="btn-card-sm">Запросить цену завода</button>
    </div>
    <div class="product-card reveal bg-white rounded-2xl p-6 border border-slate-200 flex flex-col">
     <div class="aspect-square bg-slate-50 rounded-xl mb-5 overflow-hidden flex items-center justify-center p-6"><img src="/image/product/car-charger/woc24-140w-digital-charger.webp" srcset="/image/product/car-charger/woc24-140w-digital-charger-800w.webp 800w, /image/product/car-charger/woc24-140w-digital-charger.webp 1920w" sizes="(min-width: 1440px) 590px, (min-width: 1280px) 590px, (min-width: 1024px) 462px, (min-width: 768px) 718px, (min-width: 430px) 382px, 359px" alt="WOC24 140 Вт Pro Digital Hub с дисплеем OEM" width="200" height="200" class="w-full h-full object-contain" loading="lazy" decoding="async"></div>
@@ -279,7 +275,7 @@ navActive: "products"
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Габариты</td><td class="py-1.5 font-bold text-slate-700">73 × 45 × 29mm</td></tr>
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Вес</td><td class="py-1.5 font-bold text-slate-700">≥8g</td></tr></tbody></table></div>
     </details>
-    <button data-action="open-modal" data-product="WOC24 140W Pro Digital Hub" class="mt-auto w-full py-3 bg-brandOrange text-white font-black uppercase text-[11px] tracking-widest rounded-xl hover:bg-brandOrange/90 transition shadow-md cursor-pointer">Запросить цену завода</button>
+    <button data-action="open-modal" data-product="WOC24 140W Pro Digital Hub" class="btn-card-sm">Запросить цену завода</button>
    </div>
    <div class="product-card reveal bg-white rounded-2xl p-6 border border-slate-200 flex flex-col">
     <div class="aspect-square bg-slate-50 rounded-xl mb-5 overflow-hidden flex items-center justify-center p-6"><img src="/image/product/car-charger/woc39-100w-charger.webp" srcset="/image/product/car-charger/woc39-100w-charger-450w.webp 450w, /image/product/car-charger/woc39-100w-charger.webp 900w" sizes="(min-width: 1440px) 389px, (min-width: 1280px) 389px, (min-width: 1024px) 304px, (min-width: 768px) 344px, (min-width: 430px) 382px, 327px" alt="WOC39 Pro Outdoor автозарядка 100 Вт OEM" width="200" height="200" class="w-full h-full object-contain" loading="lazy" decoding="async"></div>
@@ -305,7 +301,7 @@ navActive: "products"
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">USB-C2 + USB-A</td><td class="py-1.5 font-bold text-slate-700">5V/3A</td></tr>
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Суммарный выход</td><td class="py-1.5 font-bold text-slate-700">130W Max</td></tr></tbody></table></div>
     </details>
-    <button data-action="open-modal" data-product="WOC39 Pro Outdoor 100W Hub" class="mt-auto w-full py-3 bg-brandOrange text-white font-black uppercase text-[11px] tracking-widest rounded-xl hover:bg-brandOrange/90 transition shadow-md cursor-pointer">Запросить цену завода</button>
+    <button data-action="open-modal" data-product="WOC39 Pro Outdoor 100W Hub" class="btn-card-sm">Запросить цену завода</button>
    </div>
    <div class="product-card reveal bg-white rounded-2xl p-6 border border-slate-200 flex flex-col">
     <div class="aspect-square bg-slate-50 rounded-xl mb-5 overflow-hidden flex items-center justify-center p-6"><img src="/image/product/car-charger/woc05-mini-hidden-car-charger.webp" srcset="/image/product/car-charger/woc05-mini-hidden-car-charger-450w.webp 450w, /image/product/car-charger/woc05-mini-hidden-car-charger.webp 800w" sizes="(min-width: 1440px) 389px, (min-width: 1280px) 389px, (min-width: 1024px) 304px, (min-width: 768px) 344px, (min-width: 430px) 382px, 327px" alt="WOC05 мини-автозарядка скрытого монтажа OEM" width="200" height="200" class="w-full h-full object-contain" loading="lazy" decoding="async"></div>
@@ -327,7 +323,7 @@ navActive: "products"
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">USB-C (65W)</td><td class="py-1.5 font-bold text-slate-700">5V/3A, 9V/3A, 12V/3A, 15V/3A, 20V/3.25A (PPS 3.3-20V/3.25A)</td></tr>
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Суммарный выход</td><td class="py-1.5 font-bold text-slate-700">65W Max (Shared)</td></tr></tbody></table></div>
     </details>
-    <button data-action="open-modal" data-product="WOC05 Mini Hidden Hub" class="mt-auto w-full py-3 bg-brandOrange text-white font-black uppercase text-[11px] tracking-widest rounded-xl hover:bg-brandOrange/90 transition shadow-md cursor-pointer">Запросить цену завода</button>
+    <button data-action="open-modal" data-product="WOC05 Mini Hidden Hub" class="btn-card-sm">Запросить цену завода</button>
    </div>
    <div class="product-card reveal bg-white rounded-2xl p-6 border border-slate-200 flex flex-col">
     <div class="aspect-square bg-slate-50 rounded-xl mb-5 overflow-hidden flex items-center justify-center p-6"><img src="/image/product/car-charger/woc04-mini-pd45w-car-charger.webp" srcset="/image/product/car-charger/woc04-mini-pd45w-car-charger-450w.webp 450w, /image/product/car-charger/woc04-mini-pd45w-car-charger.webp 800w" sizes="(min-width: 1440px) 389px, (min-width: 1280px) 389px, (min-width: 1024px) 304px, (min-width: 768px) 344px, (min-width: 430px) 382px, 327px" alt="WOC04 мини-автозарядка PD 45 Вт OEM" width="200" height="200" class="w-full h-full object-contain" loading="lazy" decoding="async"></div>
@@ -348,7 +344,7 @@ navActive: "products"
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Выход</td><td class="py-1.5 font-bold text-slate-700">5V/3A, 9V/3A, 12V/3A, 15V/3A, 20V/2.25A</td></tr>
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Протоколы</td><td class="py-1.5 font-bold text-slate-700">PPS/PD3.0/QC4.0, Qi2.2</td></tr></tbody></table></div>
     </details>
-    <button data-action="open-modal" data-product="WOC04 Mini PD 45W Hub" class="mt-auto w-full py-3 bg-brandOrange text-white font-black uppercase text-[11px] tracking-widest rounded-xl hover:bg-brandOrange/90 transition shadow-md cursor-pointer">Запросить цену завода</button>
+    <button data-action="open-modal" data-product="WOC04 Mini PD 45W Hub" class="btn-card-sm">Запросить цену завода</button>
    </div>
    <div class="product-card reveal bg-white rounded-2xl p-6 border border-slate-200 flex flex-col">
     <div class="aspect-square bg-slate-50 rounded-xl mb-5 overflow-hidden flex items-center justify-center p-6"><img src="/image/product/car-charger/woc10-dual-port-car-charger.webp" srcset="/image/product/car-charger/woc10-dual-port-car-charger-450w.webp 450w, /image/product/car-charger/woc10-dual-port-car-charger.webp 1920w" sizes="(min-width: 1440px) 389px, (min-width: 1280px) 389px, (min-width: 1024px) 304px, (min-width: 768px) 344px, (min-width: 430px) 382px, 327px" alt="WOC10 GaN автозарядка 65 Вт с двумя портами OEM" width="200" height="200" class="w-full h-full object-contain" loading="lazy" decoding="async"></div>
@@ -372,7 +368,7 @@ navActive: "products"
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">USB-A (18W)</td><td class="py-1.5 font-bold text-slate-700">5V/3.1A, 9V/2A, 12V/1.5A</td></tr>
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Суммарный выход</td><td class="py-1.5 font-bold text-slate-700">38W Max</td></tr></tbody></table></div>
     </details>
-    <button data-action="open-modal" data-product="WOC10 65W GaN Dual-Port" class="mt-auto w-full py-3 bg-brandOrange text-white font-black uppercase text-[11px] tracking-widest rounded-xl hover:bg-brandOrange/90 transition shadow-md cursor-pointer">Запросить цену завода</button>
+    <button data-action="open-modal" data-product="WOC10 65W GaN Dual-Port" class="btn-card-sm">Запросить цену завода</button>
    </div>
   </div>
  <div class="text-center mt-8 reveal">
@@ -384,11 +380,7 @@ navActive: "products"
 <!-- ======== SPECS ======== -->
 <section class="py-16 bg-white">
  <div class="container-wide">
- <div class="text-center max-w-3xl mx-auto mb-12 reveal">
- <p class="section-label">Мощность</p>
- <h2 class="section-title">Технические характеристики автомобильных зарядок</h2>
- <p class="section-desc mx-auto">Производим автомобильные зарядные устройства во всех востребованных для B2B-рынка мощностях.</p>
- </div>
+ {{ sectionHeader('Мощность', 'Технические характеристики автомобильных зарядок', 'Производим автомобильные зарядные устройства во всех востребованных для B2B-рынка мощностях.', {mb: 'mb-12'}) }}
 	 <div class="overflow-x-auto reveal">
 	  <table class="w-full text-sm">
 	   <thead>
@@ -436,11 +428,7 @@ navActive: "products"
 <!-- ======== COMPARATIVA TECNOLÓGICA ======== -->
 <section class="sec bg-white">
  <div class="container-content">
- <div class="text-center mb-12 reveal">
- <p class="section-label">Сравнение</p>
- <h2 class="section-title">GaN PD 3.1 vs традиционный кремний</h2>
- <p class="section-desc mx-auto">Технология GaN делает автомобильные зарядки мощнее, компактнее и эффективнее. Рынок GaN: $1.2B (2026) → $6.0B (2033), CAGR 25.7%.</p>
- </div>
+ {{ sectionHeader('Сравнение', 'GaN PD 3.1 vs традиционный кремний', 'Технология GaN делает автомобильные зарядки мощнее, компактнее и эффективнее. Рынок GaN: $1.2B (2026) → $6.0B (2033), CAGR 25.7%.', {max: '', mb: 'mb-12'}) }}
  <div class="overflow-x-auto reveal">
  <table class="w-full text-sm border-collapse">
  <thead><tr class="bg-brandBlue text-white text-left">
@@ -467,11 +455,7 @@ navActive: "products"
 <!-- ======== СЕРТИФИКАЦИЯ ======== -->
 <section class="sec bg-slate-50">
  <div class="container-content">
- <div class="text-center mb-12 reveal">
- <p class="section-label">Сертификация</p>
- <h2 class="section-title">E-Mark ECE R10 и поддержка EAC для импортёров</h2>
- <p class="section-desc mx-auto">Автомобильная электроника требует сертификации E-Mark (Правила ЕЭК ООН R10) — она есть у всех наших моделей. Для поставок в РФ, Казахстан и Беларусь готовим комплект документов для EAC.</p>
- </div>
+ {{ sectionHeader('Сертификация', 'E-Mark ECE R10 и поддержка EAC для импортёров', 'Автомобильная электроника требует сертификации E-Mark (Правила ЕЭК ООН R10) — она есть у всех наших моделей. Для поставок в РФ, Казахстан и Беларусь готовим комплект документов для EAC.', {max: '', mb: 'mb-12'}) }}
  <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 reveal">
  <div class="bg-white rounded-xl p-6 shadow-sm border border-slate-100 text-center">
   <div class="w-12 h-12 bg-brandOrange/10 rounded-full flex items-center justify-center mx-auto mb-3"><span class="text-brandOrange font-bold text-lg">EM</span></div>
@@ -500,17 +484,17 @@ navActive: "products"
 <!-- ======== FAQ ======== -->
 <section class="py-16 bg-white">
  <div class="container-narrow">
- <div class="text-center mb-10 reveal"><p class="section-label">FAQ</p><h2 class="section-title">Частые вопросы</h2></div>
+ {{ sectionHeader('FAQ', 'Частые вопросы', '', {max: '', mb: 'mb-10'}) }}
  <div class="reveal">
- <details class="faq-item"><summary>Что такое сертификация E-Mark?</summary><div class="faq-answer">Это <strong>обязательная</strong> сертификация электроники, устанавливаемой в автомобили, по Правилам ЕЭК ООН R10 (E-Mark). Все наши автомобильные зарядки ей соответствуют — это гарантирует безопасность и электромагнитную совместимость. Для рынка ЕАЭС дополнительно готовим документы EAC.</div></details>
- <details class="faq-item"><summary>Есть ли зарядки с выдвижным кабелем?</summary><div class="faq-answer">Да, доступны модели со встроенным <strong>выдвижным кабелем USB-C</strong> (0,8 м). Также выпускаем версии с двойным выдвижным кабелем (USB-C + Lightning). Отличный вариант для автомобильных брендов и продавцов автоаксессуаров.</div></details>
- <details class="faq-item"><summary>Подходит ли зарядка для гнезда прикуривателя 12 В и 24 В?</summary><div class="faq-answer">Да, все модели устанавливаются в стандартное гнездо прикуривателя и работают с бортовой сетью <strong>12 В</strong> (легковые автомобили) и <strong>24 В</strong> (грузовики, фургоны, коммерческий транспорт). Универсальный диапазон входа DC 12–24 В. Это делает одну SKU пригодной и для розницы на Ozon и Wildberries, и для корпоративных заказов автопарков — таксопарков, каршеринга и транспортных компаний.</div></details>
- <details class="faq-item"><summary>Какой MOQ?</summary><div class="faq-answer"><strong>500 штук</strong> на модель для OEM-заказов. ODM-проекты — <strong>от 1 000 штук</strong>. Образцы — за 7–15 дней.</div></details>
- <details class="faq-item"><summary>Возможна ли кастомизация LED и цветов?</summary><div class="faq-answer">Да. Полная кастомизация: цвет корпуса, цвет LED-подсветки, логотип (лазерная гравировка или шелкография), индивидуальная упаковка и инструкция на русском языке.</div></details>
- <details class="faq-item"><summary>Работают ли они в грузовиках и фургонах с сетью 24 В?</summary><div class="faq-answer"><strong>Да.</strong> Все модели работают с сетями <strong>12 В</strong> (легковые) и <strong>24 В</strong> (грузовики, фургоны, коммерческий транспорт). Универсальный вход DC 12–24 В. Оптимально для смешанных автопарков.</div></details>
- <details class="faq-item"><summary>Как решается вопрос теплоотвода летом?</summary><div class="faq-answer">GaN-зарядки выделяют <strong>меньше тепла</strong>, чем традиционные кремниевые. Все модели имеют <strong>термозащиту</strong> и автоматическое отключение при перегреве, что гарантирует безопасность даже при высоких температурах в салоне.</div></details>
- <details class="faq-item"><summary>Долговечны ли зарядки с выдвижным кабелем?</summary><div class="faq-answer">Да. Выдвижные кабели рассчитаны более чем на <strong>10 000 циклов</strong> вытягивания/сматывания. Механизм — пружина из нержавеющей стали, кабель — в нейлоновой оплётке для максимальной долговечности.</div></details>
- <details class="faq-item"><summary>Совместимы ли они с электромобилями?</summary><div class="faq-answer">Да. Они заряжают электронику в любом электромобиле или гибриде с розеткой 12/24 В и не влияют на тяговую батарею автомобиля.</div></details>
+ {% call faqItem("Что такое сертификация E-Mark?") %}Это <strong>обязательная</strong> сертификация электроники, устанавливаемой в автомобили, по Правилам ЕЭК ООН R10 (E-Mark). Все наши автомобильные зарядки ей соответствуют — это гарантирует безопасность и электромагнитную совместимость. Для рынка ЕАЭС дополнительно готовим документы EAC.{% endcall %}
+ {% call faqItem("Есть ли зарядки с выдвижным кабелем?") %}Да, доступны модели со встроенным <strong>выдвижным кабелем USB-C</strong> (0,8 м). Также выпускаем версии с двойным выдвижным кабелем (USB-C + Lightning). Отличный вариант для автомобильных брендов и продавцов автоаксессуаров.{% endcall %}
+ {% call faqItem("Подходит ли зарядка для гнезда прикуривателя 12 В и 24 В?") %}Да, все модели устанавливаются в стандартное гнездо прикуривателя и работают с бортовой сетью <strong>12 В</strong> (легковые автомобили) и <strong>24 В</strong> (грузовики, фургоны, коммерческий транспорт). Универсальный диапазон входа DC 12–24 В. Это делает одну SKU пригодной и для розницы на Ozon и Wildberries, и для корпоративных заказов автопарков — таксопарков, каршеринга и транспортных компаний.{% endcall %}
+ {% call faqItem("Какой MOQ?") %}<strong>500 штук</strong> на модель для OEM-заказов. ODM-проекты — <strong>от 1 000 штук</strong>. Образцы — за 7–15 дней.{% endcall %}
+ {% call faqItem("Возможна ли кастомизация LED и цветов?") %}Да. Полная кастомизация: цвет корпуса, цвет LED-подсветки, логотип (лазерная гравировка или шелкография), индивидуальная упаковка и инструкция на русском языке.{% endcall %}
+ {% call faqItem("Работают ли они в грузовиках и фургонах с сетью 24 В?") %}<strong>Да.</strong> Все модели работают с сетями <strong>12 В</strong> (легковые) и <strong>24 В</strong> (грузовики, фургоны, коммерческий транспорт). Универсальный вход DC 12–24 В. Оптимально для смешанных автопарков.{% endcall %}
+ {% call faqItem("Как решается вопрос теплоотвода летом?") %}GaN-зарядки выделяют <strong>меньше тепла</strong>, чем традиционные кремниевые. Все модели имеют <strong>термозащиту</strong> и автоматическое отключение при перегреве, что гарантирует безопасность даже при высоких температурах в салоне.{% endcall %}
+ {% call faqItem("Долговечны ли зарядки с выдвижным кабелем?") %}Да. Выдвижные кабели рассчитаны более чем на <strong>10 000 циклов</strong> вытягивания/сматывания. Механизм — пружина из нержавеющей стали, кабель — в нейлоновой оплётке для максимальной долговечности.{% endcall %}
+ {% call faqItem("Совместимы ли они с электромобилями?") %}Да. Они заряжают электронику в любом электромобиле или гибриде с розеткой 12/24 В и не влияют на тяговую батарею автомобиля.{% endcall %}
  </div>
  </div>
 </section>
@@ -518,15 +502,12 @@ navActive: "products"
 <!-- ======== CTA ======== -->
 <section class="sec bg-brandBlue relative overflow-hidden">
  <div class="absolute bottom-0 left-0 w-1/2 h-1/2 bg-gradient-to-tr from-brandOrange/5 to-transparent"></div>
- <div class="container-narrow text-center relative z-10 reveal">
- <p class="section-label">Начните сейчас</p>
- <h2 class="text-3xl md:text-5xl font-black text-white leading-tight mb-4 italic uppercase">Запросите <span class="text-brandOrange">расчёт</span></h2>
- <p class="text-slate-300 text-lg mb-8">Ответ в течение 24 часов. Индивидуальное коммерческое предложение под ваш проект.</p>
+ {% call sectionHeader('Начните сейчас', 'Запросите <span class="text-brandOrange">расчёт</span>', '', {max: '', mb: '', extra: 'container-narrow relative z-10', titleClass: 'text-3xl md:text-5xl font-black text-white leading-tight mb-4 italic uppercase'}) %}<p class="text-slate-300 text-lg mb-8">Ответ в течение 24 часов. Индивидуальное коммерческое предложение под ваш проект.</p>
  <div class="flex flex-col sm:flex-row gap-4 justify-center">
  <button data-action="open-modal" class="btn-primary text-base px-8 py-4 shadow-lg shadow-brandOrange/20 cursor-pointer">Запросить расчёт <svg class="icon-arrow-right" viewBox="0 0 512 512"><path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-105.4 105.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" fill="currentColor"/></svg></button>
  <a href="/ru/kontakty/" class="btn-outline-white text-base px-8 py-4">WeChat / Email</a>
  </div>
- </div>
+ {% endcall %}
 </section>
 
 <!-- Cross-Category Links -->

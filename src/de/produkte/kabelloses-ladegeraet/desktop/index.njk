@@ -73,11 +73,11 @@ plPath: "produkty/ladowarka-bezprzewodowa/biurkowa/"
 
 {% block content %}
 {% from "breadcrumb.njk" import breadcrumb %}
-{{ breadcrumb([{name:"Startseite",url:"/de/"},{name:"Produkte",url:"/de/produkte/"},{name:"Kabelloses Ladegerät",url:"/de/produkte/kabelloses-ladegerät/"},{name:"Desktop"}]) }}
 
 <!-- HERO -->
-<section class="pb-16 md:pb-20 bg-gradient-to-br from-slate-50 via-white to-orange-50">
+<section class="pt-24 md:pt-28 pb-16 md:pb-20 bg-gradient-to-br from-slate-50 via-white to-orange-50">
  <div class="container-wide">
+  {{ breadcrumb([{name:"Startseite",url:"/de/"},{name:"Produkte",url:"/de/produkte/"},{name:"Kabelloses Ladegerät",url:"/de/produkte/kabelloses-ladegerät/"},{name:"Desktop"}], "none", "mb-6", { variant: "hero" }) }}
   <div class="grid lg:grid-cols-2 gap-12 items-center">
    <div class="reveal order-2 lg:order-1">
     <p class="text-brandOrange text-xs font-bold tracking-widest uppercase mb-3">Desktop &middot; Werks-OEM für Volumen</p>
@@ -102,24 +102,13 @@ plPath: "produkty/ladowarka-bezprzewodowa/biurkowa/"
  </div>
 </section>
 
-<!-- STATS BAR -->
-{% from "partials/stats-bar.njk" import statsBar %}
-{{ statsBar(i18n.statsBar[lang].items) }}
-
-<!-- TRUST BAR -->
-{% from "partials/cert-showcase.njk" import certShowcase %}
-{{ certShowcase(i18n.certifications[lang].homepage.items, i18n.certifications[lang].homepage.heading, i18n.certifications[lang].homepage.title, "", "py-10 md:py-14 bg-white", true) }}
-{% from "partials/customer-logos.njk" import customerLogos %}
-{{ customerLogos("Vertrauen internationaler Marken", "", standalone=true) }}
+<!-- ======== TRUST BAR ======== -->
+{% include "trust-bar.njk" %}
 
 <!-- MODELLE -->
 <section id="modelle" class="sec bg-white">
  <div class="container-wide">
-  <div class="text-center max-w-3xl mx-auto mb-12 reveal">
-   <p class="section-label">Modelle</p>
-   <h2 class="section-title">3 Desktop-Ladegeräte</h2>
-   <p class="section-desc mx-auto">Vom Vertikal-Stand mit Face-ID-Support bis zum 11mm Ultra-Slim-Pad mit patentierter Technik. Alle Modelle Qi2 WPC zertifiziert, CE + TÜV GS.</p>
-  </div>
+  {{ sectionHeader('Modelle', '3 Desktop-Ladegeräte', 'Vom Vertikal-Stand mit Face-ID-Support bis zum 11mm Ultra-Slim-Pad mit patentierter Technik. Alle Modelle Qi2 WPC zertifiziert, CE + TÜV GS.', {mb: 'mb-12'}) }}
   <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 items-start">
 
    
@@ -147,7 +136,7 @@ plPath: "produkty/ladowarka-bezprzewodowa/biurkowa/"
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Gehäuse</td><td class="py-1.5 font-bold text-slate-700">ABS + PC</td></tr>
      <tr><td class="py-1.5 text-slate-500">VE</td><td class="py-1.5 font-bold text-slate-700">36 Stk./Karton (≈17 KG)</td></tr></tbody></table></div>
     </details>
-    <button data-action="open-modal" data-product="WOW68 Vertikal Desktop MagStation" class="mt-auto w-full py-3 bg-brandOrange text-white font-black uppercase text-[11px] tracking-widest rounded-xl hover:bg-brandOrange/90 transition shadow-md cursor-pointer">Werkspreis anfragen</button>
+    <button data-action="open-modal" data-product="WOW68 Vertikal Desktop MagStation" class="btn-card-sm">Werkspreis anfragen</button>
    </div>
 
    <!-- WOW33 -->
@@ -172,7 +161,7 @@ plPath: "produkty/ladowarka-bezprzewodowa/biurkowa/"
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Gehäuse</td><td class="py-1.5 font-bold text-slate-700">ABS + PC</td></tr>
      <tr><td class="py-1.5 text-slate-500">Farbe</td><td class="py-1.5 font-bold text-slate-700">Weiß / Schwarz</td></tr></tbody></table></div>
     </details>
-    <button data-action="open-modal" data-product="WOW33 Minimalistisch 3-in-1" class="mt-auto w-full py-3 bg-brandOrange text-white font-black uppercase text-[11px] tracking-widest rounded-xl hover:bg-brandOrange/90 transition shadow-md cursor-pointer">Werkspreis anfragen</button>
+    <button data-action="open-modal" data-product="WOW33 Minimalistisch 3-in-1" class="btn-card-sm">Werkspreis anfragen</button>
    </div>
 
    <!-- WOW40 -->
@@ -198,7 +187,7 @@ plPath: "produkty/ladowarka-bezprzewodowa/biurkowa/"
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Gehäuse</td><td class="py-1.5 font-bold text-slate-700">ABS + PC</td></tr>
      <tr><td class="py-1.5 text-slate-500">Farbe</td><td class="py-1.5 font-bold text-slate-700">Weiß</td></tr></tbody></table></div>
     </details>
-    <button data-action="open-modal" data-product="WOW40 LED Ultra-Slim 3-in-1" class="mt-auto w-full py-3 bg-brandOrange text-white font-black uppercase text-[11px] tracking-widest rounded-xl hover:bg-brandOrange/90 transition shadow-md cursor-pointer">Werkspreis anfragen</button>
+    <button data-action="open-modal" data-product="WOW40 LED Ultra-Slim 3-in-1" class="btn-card-sm">Werkspreis anfragen</button>
    </div>
 
   </div>
@@ -209,7 +198,7 @@ plPath: "produkty/ladowarka-bezprzewodowa/biurkowa/"
  <div class="container-content">
  <blockquote class="bg-brandOrange/5 border-l-4 border-brandOrange rounded-r-xl px-6 py-5 text-sm text-slate-700 italic leading-relaxed">
   <p>"Der europäische Markt für kabellose Ladegeräte wächst von 1,6 Mrd. USD (2024) auf 8,7 Mrd. USD bis 2033 — eine CAGR von 20,75% (Market Data Forecast). <strong>Deutschland hält mit 18,7% den größten Einzelmarkt-Anteil</strong> in der EU. Der globale Desktop-Ladestation-Markt wird bis 2033 auf 5,72-7,54 Mrd. USD wachsen (DataIntelo), mit 140 Mio. Single-PAD-Verkäufen weltweit 2025 (QYResearch). Für B2B-Importeure in der DACH-Region: Der iPhone-spezifische Ladegerätemarkt zeigt ein Angebots-Nachfrage-Verhältnis von 19,8 — starke Unterversorgung mit 89,2% Blue-Ocean-Score (Alibaba 2026). Desktop-Pads und -Ständer machen 55-60% des gesamten Absatzvolumens aus — das volumenstärkste Segment für OEM/ODM-Importeure."</p>
-  <cite class="block text-xs text-slate-400 mt-2 not-italic">— <a href="https://www.marketdataforecast.com/market-reports/europe-wireless-charger-market" target="_blank" rel="noopener noreferrer" class="text-brandOrange hover:underline">Market Data Forecast</a>, Europe Wireless Charger Market 2024-2033; <a href="https://dataintelo.com/report/desktop-wireless-charging-stand-market" target="_blank" rel="noopener noreferrer" class="text-brandOrange hover:underline">DataIntelo</a>, Desktop Stand Market; <a href="https://www.qyresearch.com/" target="_blank" rel="noopener noreferrer" class="text-brandOrange hover:underline">QYResearch</a>, Single-PAD 2025; <a href="https://seller.alibaba.com/blogs/2026/southeast-asia/wireless-charging/qi2-revolution-declining-market" target="_blank" rel="noopener noreferrer" class="text-brandOrange hover:underline">Alibaba</a>, Wireless Charging Export Strategy 2026</p>
+  <cite class="block text-xs text-slate-400 mt-2 not-italic">— <a href="https://www.marketdataforecast.com/market-reports/europe-wireless-charger-market" target="_blank" rel="noopener noreferrer" class="text-brandOrange hover:underline">Market Data Forecast</a>, Europe Wireless Charger Market 2024-2033; <a href="https://dataintelo.com/report/desktop-wireless-charging-stand-market" target="_blank" rel="noopener noreferrer" class="text-brandOrange hover:underline">DataIntelo</a>, Desktop Stand Market; <a href="https://www.qyresearch.com/" target="_blank" rel="noopener noreferrer" class="text-brandOrange hover:underline">QYResearch</a>, Single-PAD 2025; <a href="https://seller.alibaba.com/blogs/2026/southeast-asia/wireless-charging/qi2-revolution-declining-market" target="_blank" rel="noopener noreferrer" class="text-brandOrange hover:underline">Alibaba</a>, Wireless Charging Export Strategy 2026</cite>
  </blockquote>
  </div>
 </section>
@@ -229,11 +218,7 @@ plPath: "produkty/ladowarka-bezprzewodowa/biurkowa/"
 <!-- PAD VS STAND VERGLEICH -->
 <section class="sec bg-slate-50">
  <div class="container-content">
-  <div class="text-center max-w-3xl mx-auto mb-12 reveal">
-   <p class="section-label">Formfaktor-Vergleich</p>
-   <h2 class="section-title">Pad vs. Stand vs. Vertikal-Dock</h2>
-   <p class="section-desc mx-auto">Jeder Formfaktor bedient eine andere Käufergruppe und Preislage. Wählen Sie die richtige Kategorie für Ihren Vertriebskanal.</p>
-  </div>
+  {{ sectionHeader('Formfaktor-Vergleich', 'Pad vs. Stand vs. Vertikal-Dock', 'Jeder Formfaktor bedient eine andere Käufergruppe und Preislage. Wählen Sie die richtige Kategorie für Ihren Vertriebskanal.', {mb: 'mb-12'}) }}
   <div class="overflow-x-auto reveal">
    <table class="w-full border-collapse bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-200">
     <thead><tr class="bg-brandBlue text-white">
@@ -257,11 +242,7 @@ plPath: "produkty/ladowarka-bezprzewodowa/biurkowa/"
 <!-- DACH MARKT -->
 <section class="sec bg-white">
  <div class="container-content">
-  <div class="text-center max-w-3xl mx-auto mb-12 reveal">
-   <p class="section-label">DACH-Markt 2026</p>
-   <h2 class="section-title">Desktop-Ladegeräte im Retail vs. Werks-OEM</h2>
-   <p class="section-desc mx-auto">Marken wie <strong>Anker, Belkin und ESR</strong> dominieren den DACH-Retail mit Qi2-Desktop-Ladegeräten. Hinter ihren Produkten stehen OEM-Werke in China. Wir sind eines davon — und arbeiten direkt mit deutschen Marken zusammen.</p>
-  </div>
+  {{ sectionHeader('DACH-Markt 2026', 'Desktop-Ladegeräte im Retail vs. Werks-OEM', 'Marken wie <strong>Anker, Belkin und ESR</strong> dominieren den DACH-Retail mit Qi2-Desktop-Ladegeräten. Hinter ihren Produkten stehen OEM-Werke in China. Wir sind eines davon — und arbeiten direkt mit deutschen Marken zusammen.', {mb: 'mb-12'}) }}
   <div class="overflow-x-auto reveal">
    <table class="w-full border-collapse bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-200">
     <thead><tr class="bg-brandBlue text-white">
@@ -285,7 +266,7 @@ plPath: "produkty/ladowarka-bezprzewodowa/biurkowa/"
 <!-- FAQ -->
 <section class="sec bg-white">
  <div class="container-narrow">
-  <div class="text-center mb-12 reveal"><p class="section-label">FAQ</p><h2 class="section-title">Häufige Fragen zu Desktop-Ladegeräten</h2></div>
+  {{ sectionHeader('FAQ', 'Häufige Fragen zu Desktop-Ladegeräten', '', {max: '', mb: 'mb-12'}) }}
   <div class="space-y-4">
    <details class="reveal bg-slate-50 rounded-2xl p-6 border border-slate-200"><summary class="font-bold text-brandBlue cursor-pointer">Was ist der Unterschied zwischen Lade-Pad und Lade-Stand?</summary><p class="text-sm text-slate-600 mt-3 leading-relaxed faq-answer">Ein flaches Pad (WOW33, WOW40) liegt horizontal auf dem Schreibtisch. Ein vertikaler Stand (WOW68) hält das Handy aufrecht für Face ID und Videocalls. Pads machen 55-60% des Volumens aus — das volumenstärkste Segment für B2B-Importeure.</p></details>
    <details class="reveal bg-slate-50 rounded-2xl p-6 border border-slate-200"><summary class="font-bold text-brandBlue cursor-pointer">Wie hoch ist die MOQ für Desktop-Ladegeräte?</summary><p class="text-sm text-slate-600 mt-3 leading-relaxed faq-answer">MOQ <strong>500 Stück</strong> für ODM mit Logo. Full OEM: <strong>2.000 Stück</strong>. Muster in 3-7 Tagen. Flexible Stückzahlen für Start-ups.</p></details>
@@ -318,10 +299,7 @@ plPath: "produkty/ladowarka-bezprzewodowa/biurkowa/"
  <!-- DACH Marktkontext -->
  <section class="sec bg-white relative py-16">
   <div class="container-content">
-  <div class="text-center mb-10 reveal">
-   <div class="inline-block px-4 py-1 bg-brandOrange/10 border border-brandOrange/20 rounded-full text-[11px] font-bold text-brandOrange uppercase tracking-widest mb-6">Home-Office DACH — 42% Hybrid-Arbeit</div>
-   <h2 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4">Desktop = <span class="text-brandOrange">55-60% des Absatzvolumens</span>, 17,2% CAGR</h2>
-  </div>
+  {{ sectionHeader('Home-Office DACH — 42% Hybrid-Arbeit', 'Desktop = <span class="text-brandOrange">55-60% des Absatzvolumens</span>, 17,2% CAGR', '', { max: '', mb: 'mb-10', titleClass: 'text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4', labelStyle: 'pill', pillClass: 'bg-brandOrange/10', pillMb: 'mb-6' }) }}
   <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto mb-10">
    <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200 text-center">
     <p class="text-3xl font-black text-brandBlue mb-2">17,2%</p>
@@ -380,13 +358,10 @@ plPath: "produkty/ladowarka-bezprzewodowa/biurkowa/"
 <!-- ======== CTA ======== -->
 <section class="sec bg-brandBlue">
  <div class="container-narrow text-center">
-  <div class="reveal">
-   <p class="section-label">Jetzt anfragen</p>
-   <h2 class="text-3xl md:text-5xl font-black text-white leading-tight mb-4 italic uppercase">
+  {% call sectionHeader('Jetzt anfragen', '
     Desktop-Ladegerät-Angebot<br><span class="text-brandOrange">in 24 Stunden</span>
-   </h2>
-   <p class="text-slate-300 text-lg max-w-2xl mx-auto mb-8">Fordern Sie Ihr individuelles Angebot an. Wir beraten Sie zu den passenden Modellen, Mengen und Lieferkonditionen.</p>
-  </div>
+   ', '', {align: '', max: '', mb: '', titleClass: 'text-3xl md:text-5xl font-black text-white leading-tight mb-4 italic uppercase'}) %}<p class="text-slate-300 text-lg max-w-2xl mx-auto mb-8">Fordern Sie Ihr individuelles Angebot an. Wir beraten Sie zu den passenden Modellen, Mengen und Lieferkonditionen.</p>
+  {% endcall %}
   <div class="max-w-xl mx-auto reveal">
    <form action="https://api.web3forms.com/submit" method="POST" class="inquiry-form space-y-4">
     <input type="hidden" name="access_key" value="ac5fe4cd-2dd7-4aff-818d-bb36021b4942">
@@ -415,7 +390,7 @@ plPath: "produkty/ladowarka-bezprzewodowa/biurkowa/"
      <input type="checkbox" required class="mt-1 accent-brandOrange">
      <span class="text-xs text-slate-500">Ich habe die <a href="/de/datenschutz/" class="text-brandOrange hover:underline">Datenschutzerklärung</a> zur Kenntnis genommen. *</span>
     </label>
-    <button type="submit" class="w-full bg-brandOrange text-white py-4 rounded-xl font-bold text-base hover:bg-brandBlue transition-all duration-300 shadow-lg shadow-brandOrange/20 flex items-center justify-center gap-3">
+    <button type="submit" class="btn-form">
      Kostenloses Angebot erhalten <svg class="icon-arrow-right" aria-hidden="true" focusable="false" viewBox="0 0 512 512">
       <path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-105.4 105.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" fill="currentColor"/>
      </svg>

@@ -81,11 +81,11 @@ plPath: "produkty/power-bank/"
 {% endblock %}
 
 {% block content %}
-	{{ breadcrumb([{name: "Accueil", url: "/fr/"}, {name: "Produits", url: "/fr/produits/"}, {name: "Batterie externe"}]) }}
 
  <!-- ======== PRODUCT HERO ======== -->
- <section class="pb-16 md:pb-20 bg-gradient-to-br from-slate-50 via-white to-orange-50">
+ <section class="pt-24 md:pt-28 pb-16 md:pb-20 bg-gradient-to-br from-slate-50 via-white to-orange-50">
  <div class="container-wide">
+  {{ breadcrumb([{name: "Accueil", url: "/fr/"}, {name: "Produits", url: "/fr/produits/"}, {name: "Batterie externe"}], "none", "mb-6", { variant: "hero" }) }}
  <div class="grid lg:grid-cols-2 gap-12 items-center">
  <div class="reveal order-2 lg:order-1">
  <p class="text-brandOrange text-xs font-bold tracking-widest uppercase mb-3">Fabricant de batteries externes &middot; Conformité UE</p>
@@ -128,24 +128,13 @@ plPath: "produkty/power-bank/"
  </div>
  </section>
 
- <!-- ======== TRUST BAND ======== -->
- {% from "partials/customer-logos.njk" import customerLogos %}
- {{ customerLogos("La confiance des marques internationales") }}
-
- {% from "partials/stats-bar.njk" import statsBar %}
- {{ statsBar(i18n.statsBar[lang].items) }}
-
-{% from "partials/cert-showcase.njk" import certShowcase %}
-{{ certShowcase(i18n.certifications[lang].homepage.items, i18n.certifications[lang].homepage.heading, i18n.certifications[lang].homepage.title, "", "", true) }}
+ <!-- ======== TRUST BAR ======== -->
+ {% include "trust-bar.njk" %}
 
  <!-- ======== GAMMES PRODUITS ======== -->
  <section id="kategorien" class="sec bg-white">
  <div class="container-wide">
- <div class="text-center max-w-3xl mx-auto mb-12 reveal">
- <p class="section-label">Gammes de produits</p>
- <h2 class="section-title">Catégories de batteries externes</h2>
- <p class="section-desc mx-auto">Six gammes de produits spécialisées pour chaque cas d'usage B2B, de la technologie semi-solide aux batteries chauffantes pour vêtements. Chaque catégorie avec spécifications complètes, certifications et prix usine.</p>
- </div>
+ {{ sectionHeader('Gammes de produits', 'Catégories de batteries externes', 'Six gammes de produits spécialisées pour chaque cas d\'usage B2B, de la technologie semi-solide aux batteries chauffantes pour vêtements. Chaque catégorie avec spécifications complètes, certifications et prix usine.', {mb: 'mb-12'}) }}
 
  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
@@ -257,11 +246,7 @@ plPath: "produkty/power-bank/"
  <!-- ======== COMPARATIF GAMMES ======== -->
  <section class="sec bg-slate-50">
  <div class="container-wide">
- <div class="text-center max-w-3xl mx-auto mb-12 reveal">
- <p class="section-label">Comparatif des gammes</p>
- <h2 class="section-title">6 gammes de batteries externes en un coup d'œil</h2>
- <p class="section-desc mx-auto">Quelle gamme correspond à votre marché ? Comparez la technologie, la puissance, la capacité et le domaine d'application — avec lien direct vers la page produit correspondante.</p>
- </div>
+ {{ sectionHeader('Comparatif des gammes', '6 gammes de batteries externes en un coup d\'œil', 'Quelle gamme correspond à votre marché ? Comparez la technologie, la puissance, la capacité et le domaine d\'application — avec lien direct vers la page produit correspondante.', {mb: 'mb-12'}) }}
  <div class="overflow-x-auto reveal">
  <table class="w-full min-w-[720px] bg-white rounded-2xl shadow-sm border border-slate-200">
  <thead>
@@ -283,7 +268,7 @@ plPath: "produkty/power-bank/"
  <td class="py-3 px-3 text-sm text-slate-600 whitespace-nowrap">10.000-20.000mAh</td>
  <td class="py-3 px-3 text-sm text-slate-600 hidden md:table-cell">Premium / CES 2026</td>
  <td class="py-3 px-3 text-sm text-slate-600 whitespace-nowrap">500</td>
- <td class="py-3 px-3 text-sm"><a href="/fr/produits/batterie-externe/semi-solide/" class="inline-block px-3 py-1 rounded-full text-[11px] font-black bg-brandOrange text-white uppercase tracking-widest hover:bg-brandOrange/90 transition">Voir la gamme &rarr;</a></td>
+ <td class="py-3 px-3 text-sm"><a href="/fr/produits/batterie-externe/semi-solide/" class="btn-tag">Voir la gamme &rarr;</a></td>
  </tr>
  <tr class="border-b border-slate-200 hover:bg-slate-50 transition-colors">
  <td class="py-3 px-3 text-sm font-bold text-brandBlue">Magnétique sans fil</td>
@@ -292,7 +277,7 @@ plPath: "produkty/power-bank/"
  <td class="py-3 px-3 text-sm text-slate-600 whitespace-nowrap">5.000-20.000mAh</td>
  <td class="py-3 px-3 text-sm text-slate-600 hidden md:table-cell">iPhone / MagSafe</td>
  <td class="py-3 px-3 text-sm text-slate-600 whitespace-nowrap">500</td>
- <td class="py-3 px-3 text-sm"><a href="/fr/produits/batterie-externe/magnetique-sans-fil/" class="inline-block px-3 py-1 rounded-full text-[11px] font-black bg-brandOrange text-white uppercase tracking-widest hover:bg-brandOrange/90 transition">Voir la gamme &rarr;</a></td>
+ <td class="py-3 px-3 text-sm"><a href="/fr/produits/batterie-externe/magnetique-sans-fil/" class="btn-tag">Voir la gamme &rarr;</a></td>
  </tr>
  <tr class="border-b border-slate-200 hover:bg-slate-50 transition-colors">
  <td class="py-3 px-3 text-sm font-bold text-brandBlue">Batterie chauffante</td>
@@ -301,7 +286,7 @@ plPath: "produkty/power-bank/"
  <td class="py-3 px-3 text-sm text-slate-600 whitespace-nowrap">1.800-14.400mAh</td>
  <td class="py-3 px-3 text-sm text-slate-600 hidden md:table-cell">Vêtements chauffants</td>
  <td class="py-3 px-3 text-sm text-slate-600 whitespace-nowrap">500</td>
- <td class="py-3 px-3 text-sm"><a href="/fr/produits/batterie-externe/batterie-chauffante/" class="inline-block px-3 py-1 rounded-full text-[11px] font-black bg-brandOrange text-white uppercase tracking-widest hover:bg-brandOrange/90 transition">Voir la gamme &rarr;</a></td>
+ <td class="py-3 px-3 text-sm"><a href="/fr/produits/batterie-externe/batterie-chauffante/" class="btn-tag">Voir la gamme &rarr;</a></td>
  </tr>
  <tr class="border-b border-slate-200 hover:bg-slate-50 transition-colors">
  <td class="py-3 px-3 text-sm font-bold text-brandBlue">Hybride 2-en-1</td>
@@ -310,7 +295,7 @@ plPath: "produkty/power-bank/"
  <td class="py-3 px-3 text-sm text-slate-600 whitespace-nowrap">5.000-20.000mAh</td>
  <td class="py-3 px-3 text-sm text-slate-600 hidden md:table-cell">Voyage / Affaires</td>
  <td class="py-3 px-3 text-sm text-slate-600 whitespace-nowrap">500</td>
- <td class="py-3 px-3 text-sm"><a href="/fr/produits/batterie-externe/hybride-2-en-1/" class="inline-block px-3 py-1 rounded-full text-[11px] font-black bg-brandOrange text-white uppercase tracking-widest hover:bg-brandOrange/90 transition">Voir la gamme &rarr;</a></td>
+ <td class="py-3 px-3 text-sm"><a href="/fr/produits/batterie-externe/hybride-2-en-1/" class="btn-tag">Voir la gamme &rarr;</a></td>
  </tr>
  <tr class="border-b border-slate-200 hover:bg-slate-50 transition-colors">
  <td class="py-3 px-3 text-sm font-bold text-brandBlue">Batterie externe pour PC portable</td>
@@ -319,7 +304,7 @@ plPath: "produkty/power-bank/"
  <td class="py-3 px-3 text-sm text-slate-600 whitespace-nowrap">20.000-27.000mAh</td>
  <td class="py-3 px-3 text-sm text-slate-600 hidden md:table-cell">MacBook / Gaming</td>
  <td class="py-3 px-3 text-sm text-slate-600 whitespace-nowrap">500</td>
- <td class="py-3 px-3 text-sm"><a href="/fr/produits/batterie-externe/batterie-externe-ordinateur-portable/" class="inline-block px-3 py-1 rounded-full text-[11px] font-black bg-brandOrange text-white uppercase tracking-widest hover:bg-brandOrange/90 transition">Voir la gamme &rarr;</a></td>
+ <td class="py-3 px-3 text-sm"><a href="/fr/produits/batterie-externe/batterie-externe-ordinateur-portable/" class="btn-tag">Voir la gamme &rarr;</a></td>
  </tr>
  <tr class="hover:bg-slate-50 transition-colors">
  <td class="py-3 px-3 text-sm font-bold text-brandBlue">Affichage intelligent</td>
@@ -328,7 +313,7 @@ plPath: "produkty/power-bank/"
  <td class="py-3 px-3 text-sm text-slate-600 whitespace-nowrap">5.000-10.000mAh</td>
  <td class="py-3 px-3 text-sm text-slate-600 hidden md:table-cell">Retail premium</td>
  <td class="py-3 px-3 text-sm text-slate-600 whitespace-nowrap">500</td>
- <td class="py-3 px-3 text-sm"><a href="/fr/produits/batterie-externe/affichage-intelligent/" class="inline-block px-3 py-1 rounded-full text-[11px] font-black bg-brandOrange text-white uppercase tracking-widest hover:bg-brandOrange/90 transition">Voir la gamme &rarr;</a></td>
+ <td class="py-3 px-3 text-sm"><a href="/fr/produits/batterie-externe/affichage-intelligent/" class="btn-tag">Voir la gamme &rarr;</a></td>
  </tr>
  </tbody>
  </table>
@@ -341,11 +326,7 @@ plPath: "produkty/power-bank/"
  <!-- ======== VORTEILE ======== -->
  <section class="sec bg-white">
  <div class="container-wide">
- <div class="text-center max-w-3xl mx-auto mb-16 reveal">
- <p class="section-label">Avantages</p>
- <h2 class="section-title">Pourquoi nos batteries externes sont le bon choix</h2>
- <p class="section-desc mx-auto">Les entreprises françaises font confiance à notre fabrication de batteries externes. Voici les raisons.</p>
- </div>
+ {{ sectionHeader('Avantages', 'Pourquoi nos batteries externes sont le bon choix', 'Les entreprises françaises font confiance à notre fabrication de batteries externes. Voici les raisons.', {}) }}
  <div class="grid md:grid-cols-2 gap-8">
  <div class="reveal bg-slate-50 rounded-2xl p-8 border border-slate-200">
  <div class="flex items-center gap-4 mb-4"><div class="w-12 h-12 rounded-xl bg-brandOrange/10 flex items-center justify-center shrink-0"><svg class="icon-shield-halved text-xl text-brandOrange" aria-hidden="true" focusable="false" viewBox="0 0 512 512">
@@ -396,11 +377,7 @@ plPath: "produkty/power-bank/"
  <!-- ======== SEMI-SOLID-STATE TECHNOLOGIE ======== -->
  <section class="sec bg-white">
  <div class="container-content">
- <div class="text-center max-w-3xl mx-auto mb-12 reveal">
- <p class="section-label">Technologie</p>
- <h2 class="section-title">Semi-Solid-State — L'avenir de la batterie externe</h2>
- <p class="section-desc mx-auto">Nos batteries externes semi-solides ont été présentées au CES 2026. Cette technologie établit de nouveaux standards en matière de sécurité, de durée de vie et de densité énergétique.</p>
- </div>
+ {{ sectionHeader('Technologie', 'Semi-Solid-State — L\'avenir de la batterie externe', 'Nos batteries externes semi-solides ont été présentées au CES 2026. Cette technologie établit de nouveaux standards en matière de sécurité, de durée de vie et de densité énergétique.', {mb: 'mb-12'}) }}
  <div class="grid md:grid-cols-3 gap-6 mb-12 reveal">
  <div class="text-center p-6 bg-slate-50 rounded-2xl border border-slate-200">
  <p class="text-3xl font-black text-brandOrange mb-2">50%</p>
@@ -443,11 +420,7 @@ plPath: "produkty/power-bank/"
  <!-- ======== RÈGLEMENT UE 2023/1542 ======== -->
  <section class="sec bg-white">
  <div class="container-content">
- <div class="text-center max-w-3xl mx-auto mb-12 reveal">
- <p class="section-label">Règlement européen 2023/1542</p>
- <h2 class="section-title">Conformité UE complète — incluse en tant que service</h2>
- <p class="section-desc mx-auto">Depuis le <strong>18.08.2024</strong>, les premières obligations du producteur sont en vigueur. À partir du <strong>18.02.2027</strong>, le passeport numérique pour les batteries industrielles devient obligatoire. Nous prenons en charge la conformité — vous vous concentrez sur votre marché.</p>
- </div>
+ {{ sectionHeader('Règlement européen 2023/1542', 'Conformité UE complète — incluse en tant que service', 'Depuis le <strong>18.08.2024</strong>, les premières obligations du producteur sont en vigueur. À partir du <strong>18.02.2027</strong>, le passeport numérique pour les batteries industrielles devient obligatoire. Nous prenons en charge la conformité — vous vous concentrez sur votre marché.', {mb: 'mb-12'}) }}
  <div class="grid md:grid-cols-2 gap-6 reveal">
  <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200">
  <div class="flex items-center gap-3 mb-3"><span class="bg-brandOrange/10 text-brandOrange text-[11px] font-black px-3 py-1 rounded-full uppercase tracking-widest">Actif depuis 2024</span></div>
@@ -477,11 +450,7 @@ plPath: "produkty/power-bank/"
  <!-- ======== CERTIFICATIONS & NORMES ======== -->
  <section class="sec bg-white">
  <div class="container-content">
- <div class="text-center max-w-3xl mx-auto mb-12 reveal">
- <p class="section-label">Certifications & Normes</p>
- <h2 class="section-title">Conformité UE — Prêt pour le marché français</h2>
- <p class="section-desc mx-auto">Toutes nos batteries externes sont certifiées pour une importation et distribution sans obstacle dans l'Union Européenne.</p>
- </div>
+ {{ sectionHeader('Certifications &amp; Normes', 'Conformité UE — Prêt pour le marché français', 'Toutes nos batteries externes sont certifiées pour une importation et distribution sans obstacle dans l\'Union Européenne.', {mb: 'mb-12'}) }}
  <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5 reveal">
  <div class="bg-white rounded-xl p-6 border border-slate-100 shadow-sm">
  <div class="w-10 h-10 rounded-lg bg-brandOrange/10 flex items-center justify-center mb-3"><svg class="icon-certificate text-brandOrange text-lg" aria-hidden="true" focusable="false" viewBox="0 0 576 512"><path d="M239.2-8c-6.1-6.2-15-8.7-23.4-6.4S200.9-5.6 198.8 2.8L183.5 63c-1.1 4.4-5.6 7-9.9 5.7L113.8 51.9c-8.4-2.4-17.4 0-23.5 6.1s-8.5 15.1-6.1 23.5l16.9 59.8c1.2 4.3-1.4 8.8-5.7 9.9L35.1 166.5c-8.4 2.1-15 8.7-17.3 17.1s.2 17.3 6.4 23.4l44.5 43.3c3.2 3.1 3.2 8.3 0 11.5L24.3 305.1c-6.2 6.1-8.7 15-6.4 23.4s8.9 14.9 17.3 17.1l60.2 15.3c4.4 1.1 7 5.6 5.7 9.9L84.2 430.5c-2.4 8.4 0 17.4 6.1 23.5s15.1 8.5 23.5 6.1l59.8-16.9c4.3-1.2 8.8 1.4 9.9 5.7l15.3 60.2c2.1 8.4 8.7 15 17.1 17.3s17.3-.2 23.4-6.4l43.3-44.5c3.1-3.2 8.3-3.2 11.5 0L337.3 520c6.1 6.2 15 8.7 23.4 6.4s14.9-8.9 17.1-17.3L393.1 449c1.1-4.4 5.6-7 9.9-5.7l59.8 16.9c8.4 2.4 17.4 0 23.5-6.1s8.5-15.1 6.1-23.5l-16.9-59.8c-1.2-4.3 1.4-8.8 5.7-9.9l60.2-15.3c8.4-2.1 15-8.7 17.3-17.1s-.2-17.4-6.4-23.4l-44.5-43.3c-3.2-3.1-3.2-8.3 0-11.5l44.5-43.3c6.2-6.1 8.7-15 6.4-23.4s-8.9-14.9-17.3-17.1l-60.2-15.3c-4.4-1.1-7-5.6-5.7-9.9l16.9-59.8c2.4-8.4 0-17.4-6.1-23.5s-15.1-8.5-23.5-6.1L403 68.8c-4.3 1.2-8.8-1.4-9.9-5.7L377.8 2.8c-2.1-8.4-8.7-15-17.1-17.3s-17.3.2-23.4 6.4L294 36.5c-3.1 3.2-8.3 3.2-11.5 0L239.2-8z" fill="currentColor"/></svg></div>
@@ -523,11 +492,7 @@ plPath: "produkty/power-bank/"
  <section class="sec bg-slate-50">
  <div class="container-wide">
  <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
- <div class="reveal">
- <p class="section-label">OEM / ODM</p>
- <h2 class="section-title">Votre batterie externe,<br>votre marque</h2>
- <p class="section-desc mb-8">De l'idée à la batterie externe finie avec votre logo. Nous vous accompagnons tout au long du processus.</p>
- <ul class="space-y-4">
+ {% call sectionHeader('OEM / ODM', 'Votre batterie externe,<br>votre marque', 'De l\'idée à la batterie externe finie avec votre logo. Nous vous accompagnons tout au long du processus.', {align: '', max: '', mb: '', descClass: 'section-desc mb-8'}) %}<ul class="space-y-4">
  <li class="flex items-start gap-3">
  <svg class="icon-circle-check text-brandOrange mt-0.5" aria-hidden="true" focusable="false" viewBox="0 0 512 512">
  <path d="M256 512a256 256 0 1 1 0-512 256 256 0 1 1 0 512zM374 145.7c-10.7-7.8-25.7-5.4-33.5 5.3L221.1 315.2 169 263.1c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l72 72c5 5 11.8 7.5 18.8 7s13.4-4.1 17.5-9.8L379.3 179.2c7.8-10.7 5.4-25.7-5.3-33.5z" fill="currentColor"/>
@@ -562,7 +527,7 @@ plPath: "produkty/power-bank/"
  <button data-action="open-modal" class="btn-primary mt-8 cursor-pointer">Demande OEM/ODM <svg class="icon-arrow-right text-sm" aria-hidden="true" focusable="false" viewBox="0 0 512 512">
  <path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-105.4 105.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" fill="currentColor"/>
  </svg></button>
- </div>
+ {% endcall %}
  <div class="reveal">
  <div class="bg-slate-50 rounded-2xl p-8 md:p-10 border border-slate-200">
  <h3 class="text-lg font-bold text-brandBlue mb-6">Pourquoi les entreprises françaises nous choisissent</h3>
@@ -601,11 +566,7 @@ plPath: "produkty/power-bank/"
  <!-- ======== PROCESSUS OEM ======== -->
  <section class="sec bg-white">
  <div class="container-content">
- <div class="text-center max-w-3xl mx-auto mb-12 reveal">
- <p class="section-label">Processus OEM</p>
- <h2 class="section-title">Votre batterie externe personnalisée — de l'idée à la livraison</h2>
- <p class="section-desc mx-auto">Un processus structuré en 4 étapes. De la demande initiale à la production en série, nous vous accompagnons à chaque phase.</p>
- </div>
+ {{ sectionHeader('Processus OEM', 'Votre batterie externe personnalisée — de l\'idée à la livraison', 'Un processus structuré en 4 étapes. De la demande initiale à la production en série, nous vous accompagnons à chaque phase.', {mb: 'mb-12'}) }}
  <div class="grid md:grid-cols-4 gap-0 reveal">
  <div class="relative bg-white rounded-2xl border border-slate-200 p-6 text-center">
  <div class="w-12 h-12 rounded-full bg-brandOrange text-white font-black text-lg flex items-center justify-center mx-auto mb-4">1</div>
@@ -634,22 +595,19 @@ plPath: "produkty/power-bank/"
  <!-- ======== FAQ ======== -->
  <section class="sec bg-slate-50">
  <div class="container-narrow">
- <div class="text-center mb-16 reveal">
- <p class="section-label">FAQ</p>
- <h2 class="section-title">Questions fréquentes sur les batteries externes</h2>
- </div>
+ {{ sectionHeader('FAQ', 'Questions fréquentes sur les batteries externes', '', {max: ''}) }}
  <div class="reveal">
- <details class="faq-item"><summary>Quelles capacités WOWOHCOOL propose-t-il ?</summary><div class="faq-answer">Nous proposons des batteries externes de 5.000 mAh à 20.000 mAh. Pour des exigences spécifiques, nous développons également des solutions en dehors de cette plage. Les modèles semi-solides sont particulièrement sûrs et durables.</div></details>
- <details class="faq-item"><summary>Qu'est-ce que la technologie semi-solide ?</summary><div class="faq-answer">Les batteries semi-solides utilisent un électrolyte semi-solide au lieu d'électrolytes liquides. Cela augmente considérablement la sécurité, réduit le risque de surchauffe et prolonge la durée de vie. Idéal pour le marché français avec ses exigences de sécurité élevées.</div></details>
- <details class="faq-item"><summary>Quelles certifications vos batteries externes possèdent-elles ?</summary><div class="faq-answer">Toutes les batteries externes sont certifiées CE, TÜV GS, RoHS et UN38.3. Sur demande, nous assistons pour des certifications supplémentaires comme UL, PSE ou KC pour des marchés spécifiques.</div></details>
- <details class="faq-item"><summary>Puis-je imprimer mon propre logo sur la batterie externe ?</summary><div class="faq-answer">Oui, nous proposons un service OEM avec logo personnalisé par gravure laser ou sérigraphie. Des emballages et couleurs personnalisés sont également possibles. MOQ à partir de 500 pièces.</div></details>
- <details class="faq-item"><summary>Quels sont les délais de livraison en France ?</summary><div class="faq-answer">Production standard : 25–35 jours après approbation de l'échantillon. Expédition express par DHL/FedEx : 5–7 jours. Service DDP avec dédouanement inclus disponible.</div></details>
- <details class="faq-item"><summary>Y a-t-il une garantie sur vos batteries externes ?</summary><div class="faq-answer">Oui, nous offrons une garantie de 12 à 24 mois selon le modèle. En cas de défaut de fabrication, vous recevez un remplacement ou un avoir.</div></details>
- <details class="faq-item"><summary>Quelles certifications sont nécessaires pour importer en France ?</summary><div class="faq-answer">Pour l'importation dans l'UE, vous avez besoin du marquage CE (CEM + basse tension), UN38.3 pour le transport et une déclaration de conformité UE. La conformité RoHS est également obligatoire. Nous fournissons tous les documents et assistons pour la certification TÜV GS.</div></details>
- <details class="faq-item"><summary>Qu'est-ce qui distingue les batteries semi-solides des batteries lithium-polymère classiques ?</summary><div class="faq-answer">Les batteries semi-solides utilisent un électrolyte semi-solide qui élimine quasiment le risque d'incendie. Elles offrent une densité énergétique 30% supérieure, 2.000+ cycles de charge (vs 500–800 pour Li-Polymère) et fonctionnent de -20°C à +60°C. Idéal pour les marchés soucieux de sécurité comme la France.</div></details>
- <details class="faq-item"><summary>Vos batteries externes sont-elles autorisées en avion ?</summary><div class="faq-answer">Oui, tous les modèles jusqu'à 27.000mAh (99,9Wh) sont autorisés en bagage cabine selon les règlements IATA. La certification UN38.3 confirme la sécurité de transport. Nous fournissons la documentation MSDS pour l'expédition internationale.</div></details>
- <details class="faq-item"><summary>Pouvez-vous fabriquer des batteries pour vêtements chauffants ?</summary><div class="faq-answer">Oui, nous fabriquons des batteries chauffantes spécialisées (3,7V–12,6V) pour vestes, chaussettes, gants et écharpes. Des connecteurs, longueurs de câble et configurations de tension personnalisés sont possibles. Certifiées CE, FCC, RoHS et PSE.</div></details>
- <details class="faq-item"><summary>Quelle batterie externe convient le mieux à mon activité ?</summary><div class="faq-answer">Pour les revendeurs e-commerce, les modèles 10.000–20.000mAh avec câbles intégrés (WOP21) sont les plus populaires. Pour l'IT d'entreprise, nos batteries semi-solides PD 3.1 140W (WOP26) offrent sécurité et longévité. Pour les accessoiristes outdoor, les modèles étendus en température (-20°C à +60°C). Pour une solution complète, associez batterie externe + <a href="/fr/produits/chargeur-gan/" class="text-brandOrange hover:underline">chargeur GaN</a>. Notre équipe vous conseille selon votre marché cible.</div></details>
+ {% call faqItem("Quelles capacités WOWOHCOOL propose-t-il ?") %}Nous proposons des batteries externes de 5.000 mAh à 20.000 mAh. Pour des exigences spécifiques, nous développons également des solutions en dehors de cette plage. Les modèles semi-solides sont particulièrement sûrs et durables.{% endcall %}
+ {% call faqItem("Qu'est-ce que la technologie semi-solide ?") %}Les batteries semi-solides utilisent un électrolyte semi-solide au lieu d'électrolytes liquides. Cela augmente considérablement la sécurité, réduit le risque de surchauffe et prolonge la durée de vie. Idéal pour le marché français avec ses exigences de sécurité élevées.{% endcall %}
+ {% call faqItem("Quelles certifications vos batteries externes possèdent-elles ?") %}Toutes les batteries externes sont certifiées CE, TÜV GS, RoHS et UN38.3. Sur demande, nous assistons pour des certifications supplémentaires comme UL, PSE ou KC pour des marchés spécifiques.{% endcall %}
+ {% call faqItem("Puis-je imprimer mon propre logo sur la batterie externe ?") %}Oui, nous proposons un service OEM avec logo personnalisé par gravure laser ou sérigraphie. Des emballages et couleurs personnalisés sont également possibles. MOQ à partir de 500 pièces.{% endcall %}
+ {% call faqItem("Quels sont les délais de livraison en France ?") %}Production standard : 25–35 jours après approbation de l'échantillon. Expédition express par DHL/FedEx : 5–7 jours. Service DDP avec dédouanement inclus disponible.{% endcall %}
+ {% call faqItem("Y a-t-il une garantie sur vos batteries externes ?") %}Oui, nous offrons une garantie de 12 à 24 mois selon le modèle. En cas de défaut de fabrication, vous recevez un remplacement ou un avoir.{% endcall %}
+ {% call faqItem("Quelles certifications sont nécessaires pour importer en France ?") %}Pour l'importation dans l'UE, vous avez besoin du marquage CE (CEM + basse tension), UN38.3 pour le transport et une déclaration de conformité UE. La conformité RoHS est également obligatoire. Nous fournissons tous les documents et assistons pour la certification TÜV GS.{% endcall %}
+ {% call faqItem("Qu'est-ce qui distingue les batteries semi-solides des batteries lithium-polymère classiques ?") %}Les batteries semi-solides utilisent un électrolyte semi-solide qui élimine quasiment le risque d'incendie. Elles offrent une densité énergétique 30% supérieure, 2.000+ cycles de charge (vs 500–800 pour Li-Polymère) et fonctionnent de -20°C à +60°C. Idéal pour les marchés soucieux de sécurité comme la France.{% endcall %}
+ {% call faqItem("Vos batteries externes sont-elles autorisées en avion ?") %}Oui, tous les modèles jusqu'à 27.000mAh (99,9Wh) sont autorisés en bagage cabine selon les règlements IATA. La certification UN38.3 confirme la sécurité de transport. Nous fournissons la documentation MSDS pour l'expédition internationale.{% endcall %}
+ {% call faqItem("Pouvez-vous fabriquer des batteries pour vêtements chauffants ?") %}Oui, nous fabriquons des batteries chauffantes spécialisées (3,7V–12,6V) pour vestes, chaussettes, gants et écharpes. Des connecteurs, longueurs de câble et configurations de tension personnalisés sont possibles. Certifiées CE, FCC, RoHS et PSE.{% endcall %}
+ {% call faqItem("Quelle batterie externe convient le mieux à mon activité ?") %}Pour les revendeurs e-commerce, les modèles 10.000–20.000mAh avec câbles intégrés (WOP21) sont les plus populaires. Pour l'IT d'entreprise, nos batteries semi-solides PD 3.1 140W (WOP26) offrent sécurité et longévité. Pour les accessoiristes outdoor, les modèles étendus en température (-20°C à +60°C). Pour une solution complète, associez batterie externe + <a href="/fr/produits/chargeur-gan/" class="text-brandOrange hover:underline">chargeur GaN</a>. Notre équipe vous conseille selon votre marché cible.{% endcall %}
  </div>
  </div>
  </section>
@@ -735,13 +693,10 @@ plPath: "produkty/power-bank/"
 <!-- ======== CTA ======== -->
  <section class="sec bg-brandBlue">
  <div class="container-narrow text-center">
- <div class="reveal">
- <p class="section-label">Demander un devis</p>
- <h2 class="text-3xl md:text-5xl font-black text-white leading-tight mb-4 italic uppercase">
+ {% call sectionHeader('Demander un devis', '
  Devis batterie externe<br><span class="text-brandOrange">en 24 heures</span>
- </h2>
- <p class="text-slate-300 text-lg max-w-2xl mx-auto mb-8">Demandez votre devis personnalisé. Nous vous conseillons sur les modèles, les quantités et les conditions de livraison adaptés.</p>
- </div>
+ ', '', {align: '', max: '', mb: '', titleClass: 'text-3xl md:text-5xl font-black text-white leading-tight mb-4 italic uppercase'}) %}<p class="text-slate-300 text-lg max-w-2xl mx-auto mb-8">Demandez votre devis personnalisé. Nous vous conseillons sur les modèles, les quantités et les conditions de livraison adaptés.</p>
+ {% endcall %}
  <div class="max-w-xl mx-auto reveal">
  <form action="https://api.web3forms.com/submit" method="POST" class="inquiry-form space-y-4">
  <input type="hidden" name="access_key" value="ac5fe4cd-2dd7-4aff-818d-bb36021b4942">
@@ -770,7 +725,7 @@ plPath: "produkty/power-bank/"
  <input type="checkbox" required class="mt-1 accent-brandOrange">
  <span class="text-xs text-slate-500">J'ai pris connaissance de la <a href="/fr/confidentialite/" class="text-brandOrange hover:underline">Politique de confidentialité</a>. *</span>
  </label>
- <button type="submit" class="w-full bg-brandOrange text-white py-4 rounded-xl font-bold text-base hover:bg-brandBlue transition-all duration-300 shadow-lg shadow-brandOrange/20 flex items-center justify-center gap-3">
+ <button type="submit" class="btn-form">
  Recevoir un devis gratuit <svg class="icon-arrow-right" aria-hidden="true" focusable="false" viewBox="0 0 512 512">
  <path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-105.4 105.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" fill="currentColor"/>
  </svg>

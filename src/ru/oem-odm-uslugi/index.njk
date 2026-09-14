@@ -82,15 +82,15 @@ navActive: "service"
 
 {% block content %}
 {% from "breadcrumb.njk" import breadcrumb %}
-{{ breadcrumb([{name:"Главная",url:"/ru/"},{name:"OEM/ODM-услуги"}]) }}
 
 <!-- ======== 1. HERO ======== -->
-<section class="relative pt-0 pb-8 lg:pb-16 bg-white overflow-hidden">
+<section class="relative pt-24 md:pt-28 pb-8 lg:pb-16 bg-white overflow-hidden">
  <div class="absolute inset-0 pointer-events-none">
  <div class="absolute top-0 left-0 w-64 h-64 bg-brandOrange opacity-10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
  <div class="absolute bottom-0 right-0 w-64 h-64 bg-brandBlue opacity-10 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
  </div>
- <div class="container-wide relative z-10 text-center py-8">
+ <div class="container-wide relative z-10 text-center pb-8">
+  {{ breadcrumb([{name:"Главная",url:"/ru/"},{name:"OEM/ODM-услуги"}], "none", "mb-6", { variant: "hero" }) }}
  <div class="inline-flex items-center gap-2 bg-brandOrange/10 text-brandOrange text-[11px] font-bold px-4 py-2 rounded-full tracking-widest uppercase mb-4">
  <span class="w-2 h-2 rounded-full bg-brandOrange animate-pulse"></span>
  Комплексное решение из Шэньчжэня
@@ -121,18 +121,14 @@ navActive: "service"
 <!-- ======== 3. OEM VS ODM ======== -->
 <section class="sec bg-slate-50">
  <div class="container-wide">
- <div class="text-center max-w-3xl mx-auto mb-16 reveal">
- <p class="section-label">OEM vs ODM</p>
- <h2 class="section-title">Какая модель <span class="text-brandOrange">подходит вам</span>?</h2>
- <p class="section-desc mx-auto">Выбирайте OEM, если у вас есть собственный дизайн — мы изготовим его с новой оснасткой (от 3 000 шт.). Выбирайте ODM, если нужен продукт на базе нашей платформы: складские модели с вашим брендом — от 500 шт., новая разработка — 1 000–2 000 шт. В обоих случаях — гибкий MOQ и цены напрямую от завода.</p>
- </div>
+ {{ sectionHeader('OEM vs ODM', 'Какая модель <span class="text-brandOrange">подходит вам</span>?', 'Выбирайте OEM, если у вас есть собственный дизайн — мы изготовим его с новой оснасткой (от 3 000 шт.). Выбирайте ODM, если нужен продукт на базе нашей платформы: складские модели с вашим брендом — от 500 шт., новая разработка — 1 000–2 000 шт. В обоих случаях — гибкий MOQ и цены напрямую от завода.', {}) }}
  <div class="grid lg:grid-cols-2 gap-8">
  <div class="group p-8 bg-white rounded-[2rem] border-2 border-transparent hover:border-brandOrange/20 hover:shadow-2xl transition-all duration-500 reveal">
  <div class="flex items-center justify-between mb-6">
  <div class="w-14 h-14 bg-brandBlue text-white rounded-2xl flex items-center justify-center shadow-lg"><svg class="icon-industry text-xl" viewBox="0 0 512 512">
  <path d="M32 32C14.3 32 0 46.3 0 64L0 432c0 26.5 21.5 48 48 48l416 0c26.5 0 48-21.5 48-48l0-279.8c0-18.2-19.4-29.7-35.4-21.1l-156.6 84.3 0-63.2c0-18.2-19.4-29.7-35.4-21.1L128 215.4 128 64c0-17.7-14.3-32-32-32L32 32z" fill="currentColor"/>
  </svg></div>
- <span class="text-[11px] font-black text-slate-300 uppercase tracking-[0.3em]">Модель A</span>
+ <span class="text-[11px] font-black text-slate-500 uppercase tracking-[0.3em]">Модель A</span>
  </div>
  <h3 class="text-2xl md:text-3xl font-black text-brandBlue uppercase italic mb-2">OEM-производство</h3>
  <p class="text-brandOrange font-bold text-xs uppercase tracking-widest mb-6">Производство по вашим спецификациям</p>
@@ -154,7 +150,7 @@ navActive: "service"
  <div class="w-14 h-14 bg-brandOrange text-white rounded-2xl flex items-center justify-center shadow-lg"><svg class="icon-microchip text-xl" viewBox="0 0 512 512">
  <path d="M176 24c0-13.3-10.7-24-24-24s-24 10.7-24 24l0 40c-35.3 0-64 28.7-64 64l-40 0c-13.3 0-24 10.7-24 24s10.7 24 24 24l40 0 0 56-40 0c-13.3 0-24 10.7-24 24s10.7 24 24 24l40 0 0 56-40 0c-13.3 0-24 10.7-24 24s10.7 24 24 24l40 0c0 35.3 28.7 64 64 64l0 40c0 13.3 10.7 24 24 24s24-10.7 24-24l0-40 56 0 0 40c0 13.3 10.7 24 24 24s24-10.7 24-24l0-40 56 0 0 40c0 13.3 10.7 24 24 24s24-10.7 24-24l0-40c35.3 0 64-28.7 64-64l40 0c13.3 0 24-10.7 24-24s-10.7-24-24-24l-40 0 0-56 40 0c13.3 0 24-10.7 24-24s-10.7-24-24-24l-40 0 0-56 40 0c13.3 0 24-10.7 24-24s-10.7-24-24-24l-40 0c0-35.3-28.7-64-64-64l0-40c0-13.3-10.7-24-24-24s-24 10.7-24 24l0 40-56 0 0-40c0-13.3-10.7-24-24-24s-24 10.7-24 24l0 40-56 0 0-40zM160 128l192 0c17.7 0 32 14.3 32 32l0 192c0 17.7-14.3 32-32 32l-192 0c-17.7 0-32-14.3-32-32l0-192c0-17.7 14.3-32 32-32zm16 48l0 160 160 0 0-160-160 0z" fill="currentColor"/>
  </svg></div>
- <span class="text-[11px] font-black text-slate-300 uppercase tracking-[0.3em]">Модель B</span>
+ <span class="text-[11px] font-black text-slate-500 uppercase tracking-[0.3em]">Модель B</span>
  </div>
  <h3 class="text-2xl md:text-3xl font-black text-brandBlue uppercase italic mb-2">ODM-разработка</h3>
  <p class="text-brandOrange font-bold text-xs uppercase tracking-widest mb-6">Полный цикл создания продукта</p>
@@ -178,11 +174,7 @@ navActive: "service"
 <!-- ======== 4. WORKFLOW ======== -->
 <section id="process" class="sec bg-white">
  <div class="container-wide">
- <div class="text-center max-w-3xl mx-auto mb-16 reveal">
- <p class="section-label">Процесс</p>
- <h2 class="section-title">Наш прозрачный <span class="text-brandOrange">процесс</span></h2>
- <p class="section-desc mx-auto">Производство под ключ: чёткие вехи и предсказуемые сроки — мы держим вас в курсе на каждом этапе, от первого концепта и DFM-анализа до международной логистики.</p>
- </div>
+ {{ sectionHeader('Процесс', 'Наш прозрачный <span class="text-brandOrange">процесс</span>', 'Производство под ключ: чёткие вехи и предсказуемые сроки — мы держим вас в курсе на каждом этапе, от первого концепта и DFM-анализа до международной логистики.', {}) }}
  <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-y-10 gap-x-8">
  <div class="reveal flex items-start gap-4"><div class="shrink-0 w-12 h-12 bg-white border-2 border-brandBlue text-brandBlue rounded-xl flex items-center justify-center font-black">01</div><div><h3 class="font-black text-brandBlue uppercase text-sm mb-2">Запрос и требования</h3><p class="text-sm text-slate-500">Анализ технических спецификаций, требований к сертификации, бюджета и сроков. Ответ за 24 часа.</p></div></div>
  <div class="reveal flex items-start gap-4" style="transition-delay:100ms"><div class="shrink-0 w-12 h-12 bg-white border-2 border-brandBlue text-brandBlue rounded-xl flex items-center justify-center font-black">02</div><div><h3 class="font-black text-brandBlue uppercase text-sm mb-2">Дизайн и расчёт</h3><p class="text-sm text-slate-500">Команда R&D готовит промышленный дизайн и схемы PCBA. Детальное предложение со стоимостью и сроками.</p></div></div>
@@ -201,11 +193,7 @@ navActive: "service"
 <!-- ======== 5. FULL-STACK CUSTOMIZATION ======== -->
 <section class="sec bg-slate-50">
  <div class="container-wide">
- <div class="text-center max-w-3xl mx-auto mb-16 reveal">
- <p class="section-label">Комплексная кастомизация</p>
- <h2 class="section-title">Гораздо больше, чем <span class="text-brandOrange">логотип</span></h2>
- <p class="section-desc mx-auto">OEM/ODM-сервис WOWOHCOOL закрывает каждый аспект вашего продукта: от инженерии до розничной упаковки, готовой к полке магазина и маркетплейсу.</p>
- </div>
+ {{ sectionHeader('Комплексная кастомизация', 'Гораздо больше, чем <span class="text-brandOrange">логотип</span>', 'OEM/ODM-сервис WOWOHCOOL закрывает каждый аспект вашего продукта: от инженерии до розничной упаковки, готовой к полке магазина и маркетплейсу.', {}) }}
  <div class="grid md:grid-cols-3 gap-6">
  <div class="bg-white rounded-2xl p-8 shadow-md hover:shadow-xl transition reveal">
  <div class="w-12 h-12 bg-brandOrange/10 rounded-xl flex items-center justify-center mb-5"><svg class="icon-paintbrush text-brandOrange text-xl" viewBox="0 0 576 512" width="24" height="24"><path d="M339.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L568.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S517.7-4.4 499.1 9.6L262.4 187.2c-24 18-38.2 46.1-38.4 76.1L339.3 367.1zm-19.6 25.4l-116-104.4C143.9 290.3 96 339.6 96 400c0 3.9 .2 7.8 .6 11.6C98.4 429.1 86.4 448 68.8 448L64 448c-17.7 0-32 14.3-32 32s14.3 32 32 32l144 0c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z" fill="currentColor"/></svg></div>
@@ -248,11 +236,7 @@ navActive: "service"
 <!-- ======== 6. PRICING GUIDE ======== -->
 <section class="sec bg-white">
  <div class="container-wide">
- <div class="text-center max-w-3xl mx-auto mb-16 reveal">
- <p class="section-label">Ориентиры по инвестициям</p>
- <h2 class="section-title">Прозрачность <span class="text-brandOrange">затрат</span></h2>
- <p class="section-desc mx-auto">Ориентировочные диапазоны в зависимости от объёма заказа. Точные цены — после анализа ваших спецификаций. Без сюрпризов.</p>
- </div>
+ {{ sectionHeader('Ориентиры по инвестициям', 'Прозрачность <span class="text-brandOrange">затрат</span>', 'Ориентировочные диапазоны в зависимости от объёма заказа. Точные цены — после анализа ваших спецификаций. Без сюрпризов.', {}) }}
  <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
  <div class="bg-slate-50 rounded-2xl p-8 border border-slate-200 reveal text-center">
  <p class="text-[11px] font-black text-brandOrange uppercase tracking-widest mb-2">Стартовый заказ</p>
@@ -304,11 +288,7 @@ navActive: "service"
 <!-- ======== 7. CASE STUDIES ======== -->
 <section class="sec bg-slate-50">
  <div class="container-wide">
- <div class="text-center max-w-3xl mx-auto mb-16 reveal">
- <p class="section-label">Кейсы</p>
- <h2 class="section-title">Кейсы <span class="text-brandOrange">OEM/ODM</span></h2>
- <p class="section-desc mx-auto">Мы не раздаём пустых обещаний. Вот реальные результаты наших клиентов.</p>
- </div>
+ {{ sectionHeader('Кейсы', 'Кейсы <span class="text-brandOrange">OEM/ODM</span>', 'Мы не раздаём пустых обещаний. Вот реальные результаты наших клиентов.', {}) }}
  <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
  <div class="bg-white rounded-2xl p-8 shadow-md reveal">
  <div class="flex items-center gap-4 mb-4">
@@ -350,21 +330,17 @@ navActive: "service"
 <!-- ======== 8. FAQ ======== -->
 <section class="sec bg-white">
  <div class="container-narrow">
- <div class="text-center mb-16 reveal">
- <p class="section-label">FAQ</p>
- <h2 class="section-title">Частые вопросы</h2>
- <p class="section-desc mx-auto">Ответы на самые распространённые вопросы о наших OEM/ODM-услугах.</p>
- </div>
+ {{ sectionHeader('FAQ', 'Частые вопросы', 'Ответы на самые распространённые вопросы о наших OEM/ODM-услугах.', {max: ''}) }}
  <div class="reveal">
- <details class="faq-item"><summary>Какой MOQ для OEM/ODM-заказов?</summary><div class="faq-answer">MOQ — 500 шт. на SKU для ODM на складских моделях. Новая разработка ODM (не со склада): 1 000–2 000 шт. OEM с новой оснасткой: от 3 000 шт. Оптовые скидки при больших объёмах.</div></details>
- <details class="faq-item"><summary>В чём разница между OEM и ODM?</summary><div class="faq-answer">OEM: мы производим ваш собственный дизайн с новой оснасткой. MOQ от 3 000 шт. ODM: мы развиваем продукт на нашей существующей платформе — складские модели с вашим брендом от 500 шт.; новый дизайн без складского запаса — 1 000–2 000 шт., срок 45–60 дней.</div></details>
- <details class="faq-item"><summary>Сколько занимает весь процесс?</summary><div class="faq-answer">Стандартный OEM: 25–35 дней после утверждения образца. Индивидуальный ODM: 45–60 дней, включая изготовление оснастки. Для срочных заказов доступен экспресс-режим.</div></details>
- <details class="faq-item"><summary>Какие сертификаты входят в услугу?</summary><div class="faq-answer">CE, RoHS, UN38.3 и Qi2 — заводской стандарт. Завод сертифицирован по ISO 9001. Для рынка ЕАЭС готовим комплект технической документации под оформление EAC (ТР ТС 004/2011, ТР ТС 020/2011). Помогаем с UL, PSE, KC в зависимости от рынка сбыта.</div></details>
- <details class="faq-item"><summary>Защищаете ли вы интеллектуальную собственность?</summary><div class="faq-answer">Да. Все ODM-проекты включают эксклюзивную защиту IP. Подписываем юридически обязывающие NDA. Ваши пресс-формы и разработки никогда не продаются и не демонстрируются другим клиентам.</div></details>
- <details class="faq-item"><summary>Можно ли получить образцы до заказа?</summary><div class="faq-answer">Да. Стандартные образцы за 7–15 дней. Индивидуальные ODM-прототипы за 25–35 дней. Стоимость образцов возмещается при подтверждении производственного заказа.</div></details>
- <details class="faq-item"><summary>Какие варианты доставки вы предлагаете?</summary><div class="faq-answer">FOB Шэньчжэнь, EXW и DDP до склада. Авиа (7–14 дней) для образцов и срочных партий, ж/д через Забайкальск/Наушки (18–25 дней), море через Владивосток или Новороссийск. Предоставляем полный комплект документов для таможенного оформления в РФ и странах ЕАЭС.</div></details>
- <details class="faq-item"><summary>На каком языке вы работаете с клиентами из ЕАЭС?</summary><div class="faq-answer">На русском и английском. Персональный менеджер отвечает в течение 24 часов. Прямая коммуникация с заводом — без языковых барьеров и посредников.</div></details>
- <details class="faq-item"><summary>Какая у вас гарантия?</summary><div class="faq-answer">12 месяцев стандартно, до 24 месяцев для проверенных партнёров. Доля брака ниже 0,3%. Единицы с производственными дефектами заменяем без дополнительной оплаты.</div></details>
+ {% call faqItem("Какой MOQ для OEM/ODM-заказов?") %}MOQ — 500 шт. на SKU для ODM на складских моделях. Новая разработка ODM (не со склада): 1 000–2 000 шт. OEM с новой оснасткой: от 3 000 шт. Оптовые скидки при больших объёмах.{% endcall %}
+ {% call faqItem("В чём разница между OEM и ODM?") %}OEM: мы производим ваш собственный дизайн с новой оснасткой. MOQ от 3 000 шт. ODM: мы развиваем продукт на нашей существующей платформе — складские модели с вашим брендом от 500 шт.; новый дизайн без складского запаса — 1 000–2 000 шт., срок 45–60 дней.{% endcall %}
+ {% call faqItem("Сколько занимает весь процесс?") %}Стандартный OEM: 25–35 дней после утверждения образца. Индивидуальный ODM: 45–60 дней, включая изготовление оснастки. Для срочных заказов доступен экспресс-режим.{% endcall %}
+ {% call faqItem("Какие сертификаты входят в услугу?") %}CE, RoHS, UN38.3 и Qi2 — заводской стандарт. Завод сертифицирован по ISO 9001. Для рынка ЕАЭС готовим комплект технической документации под оформление EAC (ТР ТС 004/2011, ТР ТС 020/2011). Помогаем с UL, PSE, KC в зависимости от рынка сбыта.{% endcall %}
+ {% call faqItem("Защищаете ли вы интеллектуальную собственность?") %}Да. Все ODM-проекты включают эксклюзивную защиту IP. Подписываем юридически обязывающие NDA. Ваши пресс-формы и разработки никогда не продаются и не демонстрируются другим клиентам.{% endcall %}
+ {% call faqItem("Можно ли получить образцы до заказа?") %}Да. Стандартные образцы за 7–15 дней. Индивидуальные ODM-прототипы за 25–35 дней. Стоимость образцов возмещается при подтверждении производственного заказа.{% endcall %}
+ {% call faqItem("Какие варианты доставки вы предлагаете?") %}FOB Шэньчжэнь, EXW и DDP до склада. Авиа (7–14 дней) для образцов и срочных партий, ж/д через Забайкальск/Наушки (18–25 дней), море через Владивосток или Новороссийск. Предоставляем полный комплект документов для таможенного оформления в РФ и странах ЕАЭС.{% endcall %}
+ {% call faqItem("На каком языке вы работаете с клиентами из ЕАЭС?") %}На русском и английском. Персональный менеджер отвечает в течение 24 часов. Прямая коммуникация с заводом — без языковых барьеров и посредников.{% endcall %}
+ {% call faqItem("Какая у вас гарантия?") %}12 месяцев стандартно, до 24 месяцев для проверенных партнёров. Доля брака ниже 0,3%. Единицы с производственными дефектами заменяем без дополнительной оплаты.{% endcall %}
  </div>
  </div>
 </section>
@@ -373,15 +349,12 @@ navActive: "service"
 <section class="sec bg-brandBlue relative overflow-hidden">
  <div class="absolute bottom-0 left-0 w-1/2 h-1/2 bg-gradient-to-tr from-brandOrange/5 to-transparent"></div>
  <div class="container-narrow text-center relative z-10">
- <div class="reveal">
- <p class="section-label">Начните сейчас</p>
- <h2 class="text-3xl md:text-5xl font-black text-white leading-tight mb-4 italic uppercase">Готовы запустить <span class="text-brandOrange">свой продукт</span>?</h2>
- <p class="text-slate-300 text-lg max-w-2xl mx-auto mb-8">От концепта до отгрузки мы берём на себя инженерию, сертификацию и производство — а вы сосредотачиваетесь на развитии своего бренда.</p>
+ {% call sectionHeader('Начните сейчас', 'Готовы запустить <span class="text-brandOrange">свой продукт</span>?', '', {align: '', max: '', mb: '', titleClass: 'text-3xl md:text-5xl font-black text-white leading-tight mb-4 italic uppercase'}) %}<p class="text-slate-300 text-lg max-w-2xl mx-auto mb-8">От концепта до отгрузки мы берём на себя инженерию, сертификацию и производство — а вы сосредотачиваетесь на развитии своего бренда.</p>
  <div class="flex flex-col sm:flex-row gap-4 justify-center">
  <button data-action="open-modal" class="btn-primary text-base px-8 py-4 shadow-lg shadow-brandOrange/20 cursor-pointer">Запросить расчёт <svg class="icon-arrow-right" viewBox="0 0 512 512"><path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-105.4 105.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" fill="currentColor"/></svg></button>
  <a href="/ru/kontakty/" class="btn-outline-white text-base px-8 py-4">WeChat / Email</a>
  </div>
- </div>
+ {% endcall %}
  </div>
 </section>
 {% endblock %}

@@ -73,11 +73,11 @@ plPath: "produkty/power-bank/do-laptopa/"
 
 {% block content %}
 {% from "breadcrumb.njk" import breadcrumb %}
-{{ breadcrumb([{name:"Startseite",url:"/de/"},{name:"Produkte",url:"/de/produkte/"},{name:"Powerbank",url:"/de/produkte/powerbank/"},{name:"Laptop-Powerbank"}]) }}
 
 <!-- HERO -->
-<section class="pb-16 md:pb-20 bg-gradient-to-br from-slate-100 via-white to-orange-50">
+<section class="pt-24 md:pt-28 pb-16 md:pb-20 bg-gradient-to-br from-slate-50 via-white to-orange-50">
  <div class="container-wide">
+  {{ breadcrumb([{name:"Startseite",url:"/de/"},{name:"Produkte",url:"/de/produkte/"},{name:"Powerbank",url:"/de/produkte/powerbank/"},{name:"Laptop-Powerbank"}], "none", "mb-6", { variant: "hero" }) }}
   <div class="grid lg:grid-cols-2 gap-12 items-center">
    <div class="reveal order-2 lg:order-1">
     <p class="text-brandOrange text-xs font-bold tracking-widest uppercase mb-3">PD 3.1 &middot; 240W</p>
@@ -102,24 +102,13 @@ plPath: "produkty/power-bank/do-laptopa/"
  </div>
 </section>
 
-<!-- STATS BAR -->
-{% from "partials/stats-bar.njk" import statsBar %}
-{{ statsBar(i18n.statsBar[lang].items) }}
-
-<!-- TRUST BAR -->
-{% from "partials/cert-showcase.njk" import certShowcase %}
-{{ certShowcase(i18n.certifications[lang].homepage.items, i18n.certifications[lang].homepage.heading, i18n.certifications[lang].homepage.title, "", "py-10 md:py-14 bg-white", true) }}
-{% from "partials/customer-logos.njk" import customerLogos %}
-{{ customerLogos("Vertrauen internationaler Marken", "", standalone=true) }}
+<!-- ======== TRUST BAR ======== -->
+{% include "trust-bar.njk" %}
 
 <!-- MODELLE -->
 <section id="modelle" class="sec bg-white">
  <div class="container-wide">
-  <div class="text-center max-w-3xl mx-auto mb-12 reveal">
-   <p class="section-label">Modellreihe</p>
-   <h2 class="section-title">4 Hochleistungs-Laptop-Powerbanks</h2>
-   <p class="section-desc mx-auto">Von 65W für Ultrabooks bis 240W für Profi-Workstations und Gaming-Laptops.</p>
-  </div>
+  {{ sectionHeader('Modellreihe', '4 Hochleistungs-Laptop-Powerbanks', 'Von 65W für Ultrabooks bis 240W für Profi-Workstations und Gaming-Laptops.', {mb: 'mb-12'}) }}
 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 items-start">
    <div class="product-card reveal bg-white rounded-2xl p-6 border border-slate-200 flex flex-col">
     <div class="aspect-square bg-white rounded-xl mb-5 overflow-hidden flex items-center justify-center p-6"><img src="/image/product/power-bank/wop23-240w-power-bank.webp" srcset="/image/product/power-bank/wop23-240w-power-bank-750w.webp 750w, /image/product/power-bank/wop23-240w-power-bank.webp 1100w" sizes="(min-width: 1440px) 526px, (min-width: 1280px) 526px, (min-width: 1024px) 398px, (min-width: 768px) 654px, (min-width: 430px) 382px, 327px" alt="WOP23 240W Laptop-Powerbank 27.000mAh PD 3.1, Aluminiumgehäuse, digitales Display" width="200" height="200" class="w-full h-full object-contain" loading="lazy" decoding="async"></div>
@@ -142,7 +131,7 @@ plPath: "produkty/power-bank/do-laptopa/"
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">USB-A Ausgang</td><td class="py-1.5 font-bold text-slate-700">5V/3A, 9V/2A, 10V/2.25A, 12V/1.5A (22.5W)</td></tr>
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Dual Port Max</td><td class="py-1.5 font-bold text-slate-700">100W+140W (240W max.)</td></tr>
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Wirkungsgrad</td><td class="py-1.5 font-bold text-slate-700">≥5%</td></tr></tbody></table></div></details>
-    <button data-action="open-modal" data-product="WOP23 240W Pro" class="mt-auto w-full py-3 bg-brandOrange text-white font-black uppercase text-[11px] tracking-widest rounded-xl hover:bg-brandOrange/90 transition shadow-md cursor-pointer">Werkspreis anfragen</button>
+    <button data-action="open-modal" data-product="WOP23 240W Pro" class="btn-card-sm">Werkspreis anfragen</button>
    </div>
    <div class="product-card reveal bg-white rounded-2xl p-6 border border-slate-200 flex flex-col">
     <div class="aspect-square bg-white rounded-xl mb-5 overflow-hidden flex items-center justify-center p-6"><img src="/image/product/power-bank/wop22-130w-power-bank.webp" srcset="/image/product/power-bank/wop22-130w-power-bank-450w.webp 450w, /image/product/power-bank/wop22-130w-power-bank.webp 800w" sizes="(min-width: 1440px) 389px, (min-width: 1280px) 389px, (min-width: 1024px) 304px, (min-width: 768px) 344px, (min-width: 430px) 382px, 327px" alt="WOP22 130W Laptop-Powerbank 27.000mAh, digitales Display, Aluminium+PC" width="200" height="200" class="w-full h-full object-contain" loading="lazy" decoding="async"></div>
@@ -165,7 +154,7 @@ plPath: "produkty/power-bank/do-laptopa/"
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Dual Port Ausgang</td><td class="py-1.5 font-bold text-slate-700">65W+65W (130W max.)</td></tr>
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Eingang</td><td class="py-1.5 font-bold text-slate-700">5V/3A, 9V/3A, 12V/3A, 15V/3A, 20V/3.25A</td></tr>
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Wirkungsgrad</td><td class="py-1.5 font-bold text-slate-700">≥5%</td></tr></tbody></table></div></details>
-    <button data-action="open-modal" data-product="WOP22 130W Pro" class="mt-auto w-full py-3 bg-brandOrange text-white font-black uppercase text-[11px] tracking-widest rounded-xl hover:bg-brandOrange/90 transition shadow-md cursor-pointer">Werkspreis anfragen</button>
+    <button data-action="open-modal" data-product="WOP22 130W Pro" class="btn-card-sm">Werkspreis anfragen</button>
    </div>
    <div class="product-card reveal bg-white rounded-2xl p-6 border border-slate-200 flex flex-col">
     <div class="aspect-square bg-white rounded-xl mb-5 overflow-hidden flex items-center justify-center p-6"><img src="/image/product/power-bank/wopb20-65w-dual-cable-laptop-power-bank-20000mah.webp" srcset="/image/product/power-bank/wopb20-65w-dual-cable-laptop-power-bank-20000mah-450w.webp 450w, /image/product/power-bank/wopb20-65w-dual-cable-laptop-power-bank-20000mah.webp 800w" sizes="(min-width: 1440px) 389px, (min-width: 1280px) 389px, (min-width: 1024px) 304px, (min-width: 768px) 344px, (min-width: 430px) 382px, 327px" alt="WOPB20 65W Dual-Cable Laptop-Powerbank 20.000mAh mit eingebauten Type-C und Lightning Kabeln" width="200" height="200" class="w-full h-full object-contain" loading="lazy" decoding="async"></div>
@@ -192,7 +181,7 @@ plPath: "produkty/power-bank/do-laptopa/"
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">USB-A Ausgang</td><td class="py-1.5 font-bold text-slate-700">5V/3A, 9V/2A, 10V/2.25A, 12V/1.5A (22.5W)</td></tr>
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Low Current Mode</td><td class="py-1.5 font-bold text-slate-700">Long Press 3s → 2hr Continuous (Wearables)</td></tr>
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Farben</td><td class="py-1.5 font-bold text-slate-700">Gunmetal / Weiß / Pink / Purple / Titanium / Silber / Blue (7)</td></tr></tbody></table></div></details>
-    <button data-action="open-modal" data-product="WOPB20 Dual-Cable 65W" class="mt-auto w-full py-3 bg-brandOrange text-white font-black uppercase text-[11px] tracking-widest rounded-xl hover:bg-brandOrange/90 transition shadow-md cursor-pointer">Werkspreis anfragen</button>
+    <button data-action="open-modal" data-product="WOPB20 Dual-Cable 65W" class="btn-card-sm">Werkspreis anfragen</button>
    </div>
    <div class="product-card reveal bg-white rounded-2xl p-6 border border-slate-200 flex flex-col">
     <div class="aspect-square bg-white rounded-xl mb-5 overflow-hidden flex items-center justify-center p-6"><img src="/image/product/power-bank/wop21-67w-power-bank.webp" srcset="/image/product/power-bank/wop21-67w-power-bank-800w.webp 800w, /image/product/power-bank/wop21-67w-power-bank.webp 1920w" sizes="(min-width: 1440px) 590px, (min-width: 1280px) 590px, (min-width: 1024px) 462px, (min-width: 768px) 718px, (min-width: 430px) 382px, 338px" alt="WOP21 67W Powerbank 20.000mAh mit 2× USB-C + 1× USB-A, ABS+PC" width="200" height="200" class="w-full h-full object-contain" loading="lazy" decoding="async"></div>
@@ -214,7 +203,7 @@ plPath: "produkty/power-bank/do-laptopa/"
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Type-C/Kabel Ausgang</td><td class="py-1.5 font-bold text-slate-700">5V/3A, 9V/3A, 12V/3A, 15V/3A, 20V/3.35A (67W max.)</td></tr>
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">USB-A Ausgang</td><td class="py-1.5 font-bold text-slate-700">5V/3A, 9V/2A, 10V/2.25A, 12V/1.5A (22.5W)</td></tr>
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Wirkungsgrad</td><td class="py-1.5 font-bold text-slate-700">≥5%</td></tr></tbody></table></div></details>
-    <button data-action="open-modal" data-product="WOP21 67W" class="mt-auto w-full py-3 bg-brandOrange text-white font-black uppercase text-[11px] tracking-widest rounded-xl hover:bg-brandOrange/90 transition shadow-md cursor-pointer">Werkspreis anfragen</button>
+    <button data-action="open-modal" data-product="WOP21 67W" class="btn-card-sm">Werkspreis anfragen</button>
    </div>
   </div>
  </div>
@@ -233,11 +222,7 @@ plPath: "produkty/power-bank/do-laptopa/"
 <!-- LAPTOP-KOMPATIBILITÄT -->
 <section class="sec bg-slate-50">
  <div class="container-content">
-  <div class="text-center max-w-3xl mx-auto mb-12 reveal">
-   <p class="section-label">Grundlagen</p>
-   <h2 class="section-title">Was macht eine <span class="text-brandOrange">Laptop-Powerbank</span> aus?</h2>
-   <p class="section-desc mx-auto">Nicht jede Powerbank kann einen Laptop laden. PD 3.1 mit 65–240W ist der entscheidende Unterschied.</p>
-  </div>
+  {{ sectionHeader('Grundlagen', 'Was macht eine <span class="text-brandOrange">Laptop-Powerbank</span> aus?', 'Nicht jede Powerbank kann einen Laptop laden. PD 3.1 mit 65–240W ist der entscheidende Unterschied.', {mb: 'mb-12'}) }}
   <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
    <div class="bg-slate-50 rounded-2xl p-8 text-center">
     <p class="text-3xl font-black text-brandOrange mb-2">65–240W</p>
@@ -261,11 +246,7 @@ plPath: "produkty/power-bank/do-laptopa/"
 <!-- Laptop-Powerbank vs Standard -->
 <section class="sec bg-slate-50">
  <div class="container-content">
-  <div class="text-center mb-12 reveal">
-   <p class="section-label">Vergleich</p>
-   <h2 class="section-title">Laptop-Powerbank vs. <span class="text-brandOrange">Standard-Powerbank</span></h2>
-   <p class="section-desc mx-auto">Wenn 5V USB nicht ausreicht — warum Laptop-Nutzer PD 3.1 mit mindestens 65W benötigen.</p>
-  </div>
+  {{ sectionHeader('Vergleich', 'Laptop-Powerbank vs. <span class="text-brandOrange">Standard-Powerbank</span>', 'Wenn 5V USB nicht ausreicht — warum Laptop-Nutzer PD 3.1 mit mindestens 65W benötigen.', {max: '', mb: 'mb-12'}) }}
   <div class="overflow-x-auto reveal">
    <table class="w-full border-collapse bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-200">
     <thead><tr class="bg-brandBlue text-white"><th class="text-left px-5 py-3 font-bold text-sm">Merkmal</th><th class="text-left px-5 py-3 font-bold text-sm bg-brandOrange/20">Laptop-Powerbank (65–240W)</th><th class="text-left px-5 py-3 font-bold text-sm">Standard-Powerbank (18–30W)</th></tr></thead>
@@ -301,11 +282,7 @@ plPath: "produkty/power-bank/do-laptopa/"
 <!-- Kompatibilität -->
 <section class="pt-16 md:pt-20 pb-4 bg-white">
  <div class="container-content">
-  <div class="text-center max-w-3xl mx-auto mb-12 reveal">
-   <p class="section-label">Kompatibilität</p>
-   <h2 class="section-title">Laptop-Wattzahl-Leitfaden</h2>
-   <p class="section-desc mx-auto">Welche Powerbank-Leistung passt zu welchem Laptop? Übersicht der Hersteller-Anforderungen.</p>
-  </div>
+  {{ sectionHeader('Kompatibilität', 'Laptop-Wattzahl-Leitfaden', 'Welche Powerbank-Leistung passt zu welchem Laptop? Übersicht der Hersteller-Anforderungen.', {mb: 'mb-12'}) }}
   <div class="overflow-x-auto reveal">
    <table class="w-full border-collapse bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-200">
     <thead><tr class="bg-brandBlue text-white">
@@ -335,7 +312,7 @@ plPath: "produkty/power-bank/do-laptopa/"
 <!-- FAQ -->
 <section class="pb-16 md:pb-20 pt-8 md:pt-12 bg-white">
  <div class="container-narrow">
-  <div class="text-center mb-12 reveal"><p class="section-label">FAQ</p><h2 class="section-title">Laptop-Powerbank FAQ</h2></div>
+  {{ sectionHeader('FAQ', 'Laptop-Powerbank FAQ', '', {max: '', mb: 'mb-12'}) }}
   <div class="space-y-4">
    <details class="reveal bg-slate-50 rounded-2xl p-6 border border-slate-200"><summary class="font-bold text-brandBlue cursor-pointer">Welche Laptops kann eine 240W Powerbank laden?</summary><p class="text-sm text-slate-600 mt-3 leading-relaxed faq-answer">PD 3.1 240W lädt MacBook Pro 16" (140W), Dell XPS 15/17 (130W), ThinkPad P-Serie (170W) und Gaming-Laptops wie Razer Blade 16 (230W). Auch Steam Deck, Nintendo Switch und alle USB-C Tablets.</p></details>
    <details class="reveal bg-slate-50 rounded-2xl p-6 border border-slate-200"><summary class="font-bold text-brandBlue cursor-pointer">Sind 27.000mAh Powerbanks flugtauglich?</summary><p class="text-sm text-slate-600 mt-3 leading-relaxed faq-answer">Ja. 27.000mAh × 3,7V = 99,9Wh, knapp unter dem IATA-Limit von 100Wh für Handgepäck ohne Genehmigung. Wir liefern UN38.3-Zertifizierung und MSDS-Dokumentation für jede Bestellung.</p></details>
@@ -424,13 +401,10 @@ plPath: "produkty/power-bank/do-laptopa/"
 <!-- ======== CTA ======== -->
 <section class="sec bg-brandBlue">
  <div class="container-narrow text-center">
-  <div class="reveal">
-   <p class="section-label">Jetzt anfragen</p>
-   <h2 class="text-3xl md:text-5xl font-black text-white leading-tight mb-4 italic uppercase">
+  {% call sectionHeader('Jetzt anfragen', '
     Laptop-Powerbank-Angebot<br><span class="text-brandOrange">in 24 Stunden</span>
-   </h2>
-   <p class="text-slate-300 text-lg max-w-2xl mx-auto mb-8">Fordern Sie Ihr individuelles Angebot an. Wir beraten Sie zu den passenden Modellen, Mengen und Lieferkonditionen.</p>
-  </div>
+   ', '', {align: '', max: '', mb: '', titleClass: 'text-3xl md:text-5xl font-black text-white leading-tight mb-4 italic uppercase'}) %}<p class="text-slate-300 text-lg max-w-2xl mx-auto mb-8">Fordern Sie Ihr individuelles Angebot an. Wir beraten Sie zu den passenden Modellen, Mengen und Lieferkonditionen.</p>
+  {% endcall %}
   <div class="max-w-xl mx-auto reveal">
    <form action="https://api.web3forms.com/submit" method="POST" class="inquiry-form space-y-4">
     <input type="hidden" name="access_key" value="ac5fe4cd-2dd7-4aff-818d-bb36021b4942">
@@ -459,7 +433,7 @@ plPath: "produkty/power-bank/do-laptopa/"
      <input type="checkbox" required class="mt-1 accent-brandOrange">
      <span class="text-xs text-slate-500">Ich habe die <a href="/de/datenschutz/" class="text-brandOrange hover:underline">Datenschutzerklärung</a> zur Kenntnis genommen. *</span>
     </label>
-    <button type="submit" class="w-full bg-brandOrange text-white py-4 rounded-xl font-bold text-base hover:bg-brandBlue transition-all duration-300 shadow-lg shadow-brandOrange/20 flex items-center justify-center gap-3">
+    <button type="submit" class="btn-form">
      Kostenloses Angebot erhalten <svg class="icon-arrow-right" aria-hidden="true" focusable="false" viewBox="0 0 512 512">
       <path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-105.4 105.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" fill="currentColor"/>
      </svg>

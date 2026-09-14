@@ -348,18 +348,14 @@ hreflang:
 {% endblock %}
 
 {% block content %}
-<article class="py-12">
+<article class="pb-12">
 
 <!-- ===== [1] Hero ===== -->
 <div class="relative pt-24 md:pt-28 pb-12 lg:pt-28 lg:pb-16 bg-gradient-to-b from-slate-50 to-white overflow-hidden">
   <div class="absolute top-0 left-1/4 w-64 h-64 bg-brandOrange/10 rounded-full blur-3xl"></div>
   <div class="absolute bottom-0 right-1/4 w-64 h-64 bg-green-500/10 rounded-full blur-3xl"></div>
   <div class="max-w-4xl mx-auto px-6 relative z-10">
-    <nav class="text-sm text-slate-500 mb-6">
-      <a href="/fr/" class="hover:text-brandOrange">Accueil</a> /
-      <a href="/fr/blog/" class="hover:text-brandOrange">Blog</a> /
-      <span class="text-slate-900">Audit Usine Chine</span>
-    </nav>
+    {{ breadcrumb([{name: "Accueil", url: "/fr/"}, {name: "Blog", url: "/fr/blog/"}, {name: "Audit Usine Chine"}], "none", "mb-6", { variant: "hero" }) }}
     <div class="flex flex-wrap gap-2 mb-6">
       <span class="px-3 py-1 bg-brandOrange/10 text-brandOrange text-[11px] font-black rounded-full uppercase">Audit Usine</span>
       <span class="px-3 py-1 bg-brandOrange/10 text-brandOrange text-[11px] font-black rounded-full uppercase">Vérification</span>
@@ -621,7 +617,7 @@ hreflang:
       <h2 class="text-2xl font-black text-white uppercase italic mb-4">Auditez notre usine en 48 heures — MOQ dès 500</h2>
       <p class="text-slate-300 mb-8 max-w-xl mx-auto">Demandez la visite vidéo de notre atelier à Shenzhen : 4 lignes SMT, parc de test et portefeuille de 200+ marques. Nous montrons tout ce que vous devez vérifier.</p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="/fr/contact/" class="w-full sm:flex-1 bg-brandOrange text-white px-8 py-4 rounded-xl font-black uppercase text-sm shadow-lg hover:-translate-y-1 transition">Demander un Devis OEM</a>
+        <a href="/fr/contact/" class="btn-wide">Demander un Devis OEM</a>
         <a href="/fr/produits/" class="w-full sm:flex-1 text-center border-2 border-white text-white px-8 py-4 rounded-xl font-black uppercase text-sm hover:bg-white hover:text-brandBlue transition">Voir le Catalogue</a>
       </div>
     </div>

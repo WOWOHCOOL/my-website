@@ -338,18 +338,12 @@ hreflang:
 {% block content %}
 
 <!-- 1. HERO HEADER -->
-<article class="py-12 blog-content card-ganoem">
+<article class="pb-12 blog-content card-ganoem">
 <div class="relative pt-24 md:pt-28 pb-12 lg:pt-28 lg:pb-16 bg-gradient-to-b from-slate-50 to-white overflow-hidden">
   <div class="absolute top-0 left-1/4 w-64 h-64 bg-brandOrange/10 rounded-full blur-3xl"></div>
   <div class="absolute bottom-0 right-1/4 w-64 h-64 bg-green-500/10 rounded-full blur-3xl"></div>
   <div class="max-w-4xl mx-auto px-6 relative z-10">
-    <nav class="text-sm text-slate-500 mb-6" aria-label="Breadcrumb">
-      <a href="/es/" class="hover:text-brandOrange">Inicio</a>
-      <span class="mx-2">/</span>
-      <a href="/es/blog/" class="hover:text-brandOrange">Blog</a>
-      <span class="mx-2">/</span>
-      <span class="text-slate-900">GaN V Fabricación OEM</span>
-    </nav>
+    {{ breadcrumb([{name: "Inicio", url: "/es/"}, {name: "Blog", url: "/es/blog/"}, {name: "GaN V Fabricación OEM"}], "none", "mb-6", { variant: "hero" }) }}
     <div class="flex flex-wrap gap-2 mb-6">
       <span class="px-3 py-1 bg-brandOrange/10 text-brandOrange text-[11px] font-black rounded-full uppercase">GaN & Carga Rápida</span>
       <span class="px-3 py-1 bg-brandBlue/10 text-brandBlue text-[11px] font-black rounded-full uppercase">OEM</span>
@@ -678,6 +672,7 @@ hreflang:
         <p class="text-slate-600 text-sm">Sí, en la mayoría de los casos. El sobrecoste BOM de $2,10 por unidad se amortiza con: (1) precio retail 40-60% superior — 39,99-59,99 € vs 19,99-29,99 € del silicio, (2) 30-50% menos devoluciones por sobrecalentamiento, y (3) ahorro logístico de $0,50-2,00 por unidad en flete gracias al 40% menos de peso y volumen. Para pedidos de 5.000+ unidades, el retorno de inversión se alcanza en el primer lote. <a href="/es/contacto/" class="text-brandOrange hover:underline font-semibold">Solicita un presupuesto para tu proyecto →</a></p>
       </div>
     </div>
+</div>
 </section>
 
 <!-- 10. AUTHOR BIO + Factory Footprint -->
@@ -706,6 +701,7 @@ hreflang:
         </div>
       </div>
     </div>
+</div>
 </section>
 
 <!-- 11. CTA -->
@@ -717,7 +713,7 @@ hreflang:
     <h2 class="text-2xl font-black uppercase italic mb-4" style="color:#fff">Tu cargador GaN V OEM — 20W a 240W PD 3.1</h2>
     <p class="mb-8 max-w-xl mx-auto" style="color:rgba(255,255,255,0.85)">FET GaN V de Infineon/Navitas. CE + FCC + RoHS incluidos. MOQ desde 500 uds. Muestras en 5 días. Precio FOB desde $9,90/ud.</p>
     <div class="flex flex-col sm:flex-row gap-4 justify-center">
-      <a href="/es/contacto/" class="w-full sm:flex-1 bg-brandOrange text-white px-8 py-4 rounded-xl font-black uppercase text-sm shadow-lg hover:-translate-y-1 transition">Solicitar Presupuesto OEM</a>
+      <a href="/es/contacto/" class="btn-wide">Solicitar Presupuesto OEM</a>
       <a href="/es/productos/cargador-gan/" class="w-full sm:flex-1 text-center border-2 border-white text-white px-8 py-4 rounded-xl font-black uppercase text-sm hover:bg-white hover:text-brandBlue transition">Ver Catálogo GaN</a>
     </div>
   </div>
@@ -780,8 +776,6 @@ hreflang:
 {% set ctaShowProduct = false %}
 {% set ctaShowArrow = false %}
 {% set ctaShowPhone = false %}
-</div>
-</div>
 
 {% include "partials/blog-cta.njk" %}
 {% endblock %}

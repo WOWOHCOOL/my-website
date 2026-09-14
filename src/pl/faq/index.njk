@@ -12,6 +12,8 @@ frPath: "faq/"
 ruPath: "faq/"
 ---
 {% extends "layout.njk" %}
+{% from "partials/faq-item.njk" import faqItem %}
+{% from "partials/category-heading.njk" import categoryHeading %}
 
 {% block head_schema %}
 <script type="application/ld+json">
@@ -74,13 +76,13 @@ ruPath: "faq/"
 
 {% block content %}
 <!-- HERO -->
-<section class="relative pt-20 md:pt-24 pb-8 lg:pt-28 lg:pb-16 bg-white text-slate-900 overflow-hidden">
+<section class="relative pt-24 md:pt-28 pb-8 lg:pb-16 bg-white text-slate-900 overflow-hidden">
  <div class="absolute inset-0 z-0 pointer-events-none">
  <div class="absolute top-0 left-0 w-64 h-64 bg-brandOrange opacity-20 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
  <div class="absolute bottom-0 right-0 w-64 h-64 bg-blue-500 opacity-20 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
  </div>
- <div class="container-wide relative z-10 text-center py-12 lg:py-12">
- {{ breadcrumb([{name: "Strona główna", url: "/pl/"}, {name: "FAQ"}], "none", "mb-6") }}
+ <div class="container-wide relative z-10 text-center pb-12 lg:pb-12">
+ {{ breadcrumb([{name: "Strona główna", url: "/pl/"}, {name: "FAQ"}], "none", "mb-6", { variant: "hero" }) }}
  <div class="badge-capsule mb-6 mx-auto uppercase tracking-widest">10+ lat partnerstwa produkcyjnego</div>
  <h1 class="text-4xl md:text-5xl lg:text-6xl font-black text-brandBlue uppercase italic tracking-tighter leading-tight mb-6">FAQ — <span class="text-brandOrange">Produkcja OEM</span></h1>
  <p class="text-slate-600 max-w-2xl mx-auto text-lg mb-12">Odpowiedzi na najczęstsze pytania o produkcję OEM/ODM, certyfikację, wysyłkę i współpracę z WOWOHCOOL.</p>
@@ -93,89 +95,82 @@ ruPath: "faq/"
  <div class="container-narrow">
 
  <!-- Quick-jump nav -->
- <div class="flex flex-wrap justify-center gap-2 mb-14">
- <a href="#faq-credibility" class="px-4 py-2 rounded-full text-[11px] font-bold bg-slate-100 text-slate-600 hover:bg-brandOrange hover:text-white transition border border-slate-200">Fabryka i wiarygodność</a>
- <a href="#faq-oem-odm" class="px-4 py-2 rounded-full text-[11px] font-bold bg-slate-100 text-slate-600 hover:bg-brandOrange hover:text-white transition border border-slate-200">Proces OEM/ODM</a>
- <a href="#faq-moq" class="px-4 py-2 rounded-full text-[11px] font-bold bg-slate-100 text-slate-600 hover:bg-brandOrange hover:text-white transition border border-slate-200">MOQ i ceny</a>
- <a href="#faq-quality" class="px-4 py-2 rounded-full text-[11px] font-bold bg-slate-100 text-slate-600 hover:bg-brandOrange hover:text-white transition border border-slate-200">Kontrola jakości</a>
- <a href="#faq-certifications" class="px-4 py-2 rounded-full text-[11px] font-bold bg-slate-100 text-slate-600 hover:bg-brandOrange hover:text-white transition border border-slate-200">Certyfikacja</a>
- <a href="#faq-shipping" class="px-4 py-2 rounded-full text-[11px] font-bold bg-slate-100 text-slate-600 hover:bg-brandOrange hover:text-white transition border border-slate-200">Wysyłka</a>
- <a href="#faq-operations" class="px-4 py-2 rounded-full text-[11px] font-bold bg-slate-100 text-slate-600 hover:bg-brandOrange hover:text-white transition border border-slate-200">Biznes</a>
+ <div class="flex flex-wrap justify-center gap-2 mb-12 reveal">
+ <a href="#faq-credibility" class="filter-chip">Fabryka i wiarygodność</a>
+ <a href="#faq-oem-odm" class="filter-chip">Proces OEM/ODM</a>
+ <a href="#faq-moq" class="filter-chip">MOQ i ceny</a>
+ <a href="#faq-quality" class="filter-chip">Kontrola jakości</a>
+ <a href="#faq-certifications" class="filter-chip">Certyfikacja</a>
+ <a href="#faq-shipping" class="filter-chip">Wysyłka</a>
+ <a href="#faq-operations" class="filter-chip">Biznes</a>
  </div>
 
- <a id="faq-credibility" class="block -scroll-mt-24"></a>
- <div class="flex items-center gap-3 mb-6"><span class="w-8 h-[2px] bg-brandOrange shrink-0"></span><span class="text-[11px] font-black text-slate-400 uppercase tracking-[0.2em]">Fabryka i wiarygodność</span></div>
- <div class="space-y-4 mb-14">
- {% macro faqItem(id, q, a) %}
- <div class="bg-white border border-slate-200 rounded-2xl overflow-hidden">
- <button onclick="this.nextElementSibling.classList.toggle('hidden');this.querySelector('svg').classList.toggle('rotate-180')" class="w-full px-6 py-5 flex items-center justify-between text-left hover:bg-slate-50 transition">
- <span class="font-bold text-brandBlue pr-4">{{ q }}</span>
- <svg class="icon-chevron-down text-brandOrange shrink-0 transition-transform duration-300" viewBox="0 0 448 512" width="16"><path d="M201.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 338.7 54.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z" fill="currentColor"/></svg>
- </button>
- <div class="hidden px-6 pb-5 text-sm text-slate-600 leading-relaxed">{{ a }}</div>
- </div>
- {% endmacro %}
+ <div class="mb-16 reveal">
+{{ categoryHeading("Fabryka i wiarygodność", "faq-credibility") }}
+<div class="space-y-1">
+{% call faqItem("Czy WOWOHCOOL to prawdziwa fabryka?") %}<p>Tak. WOWOHCOOL (Dong Yi Technology Co., Ltd) prowadzi zakład o powierzchni <strong>5000 m²</strong> z certyfikatem <strong>ISO 9001</strong> w Shenzhen od 2013 roku. 200-500 pracowników, w tym 50+ inżynierów R&D. Wydajność 1M+ sztuk miesięcznie. Zautomatyzowane linie SMT i profesjonalne laboratoria testowe. Zapraszamy na transmisje wideo na żywo i wizyty w fabryce. <a href='/pl/o-nas' class='text-brandOrange hover:underline font-bold'>Dowiedz się więcej o naszej fabryce</a>.</p>{% endcall %}
+{% call faqItem("Czym WOWOHCOOL różni się od firmy handlowej?") %}<p>Posiadamy i prowadzimy własny zakład produkcyjny — nie jesteśmy pośrednikiem. Prawdziwe referencje: certyfikat ISO 9001 od 2013, zakład 5000 m², 200-500 pracowników, 50+ inżynierów R&D, zautomatyzowane linie SMT i własne laboratorium testowe. Firmy handlowe nie mogą zaoferować tego samego poziomu kontroli jakości, przejrzystości cenowej ani elastyczności produkcji.</p>{% endcall %}
+{% call faqItem("Czy mogę odwiedzić fabrykę lub przeprowadzić audyt wideo?") %}<p>Tak. Zapraszamy na wizyty w fabryce w Shenzhen — prosimy o wcześniejsze umówienie, a zorganizujemy pełne zwiedzanie linii produkcyjnych, laboratoriów i centrum R&D. Dla zdalnej weryfikacji oferujemy audyty wideo na żywo. <a href='/pl/kontakt' class='text-brandOrange hover:underline font-bold'>Skontaktuj się, aby umówić wizytę</a>.</p>{% endcall %}
+</div>
+</div>
 
- {{ faqItem("f1", "Czy WOWOHCOOL to prawdziwa fabryka?", "<p>Tak. WOWOHCOOL (Dong Yi Technology Co., Ltd) prowadzi zakład o powierzchni <strong>5000 m²</strong> z certyfikatem <strong>ISO 9001</strong> w Shenzhen od 2013 roku. 200-500 pracowników, w tym 50+ inżynierów R&D. Wydajność 1M+ sztuk miesięcznie. Zautomatyzowane linie SMT i profesjonalne laboratoria testowe. Zapraszamy na transmisje wideo na żywo i wizyty w fabryce. <a href='/pl/o-nas' class='text-brandOrange hover:underline font-bold'>Dowiedz się więcej o naszej fabryce</a>.</p>") }}
+<div class="mb-16 reveal">
+{{ categoryHeading("Proces OEM/ODM", "faq-oem-odm") }}
+<div class="space-y-1">
+{% call faqItem("Jaka jest różnica między OEM a ODM?") %}<p><strong>ODM:</strong> wybierasz istniejący projekt z naszej platformy i dodajesz swoje logo, niestandardowe opakowanie. MOQ od 500 szt., czas realizacji 25-30 dni. Nowa realizacja ODM poza magazynem: 1 000–2 000 szt., 45-60 dni. <strong>OEM:</strong> produkcja Twojego własnego projektu z nowym oprzyrządowaniem — projekt ID, PCBA, oprzyrządowanie, firmware, certyfikaty. MOQ od 3 000 szt. <a href='/pl/uslugi-oem-odm' class='text-brandOrange hover:underline font-bold'>Poznaj nasze usługi OEM/ODM</a>.</p>{% endcall %}
+{% call faqItem("Jak wygląda proces OEM krok po kroku?") %}<p>1. Zapytanie i wybór produktu z 30+ istniejących SKU. 2. Wycena w ciągu 24h, próbki w 3-7 dni. 3. Personalizacja logo i opakowania. 4. Zatwierdzenie próbki. 5. Produkcja seryjna 25-30 dni z 4-etapową kontrolą jakości. 6. Wysyłka FOB, EXW lub DDP.</p>{% endcall %}
+</div>
+</div>
 
- {{ faqItem("f2", "Czym WOWOHCOOL różni się od firmy handlowej?", "<p>Posiadamy i prowadzimy własny zakład produkcyjny — nie jesteśmy pośrednikiem. Prawdziwe referencje: certyfikat ISO 9001 od 2013, zakład 5000 m², 200-500 pracowników, 50+ inżynierów R&D, zautomatyzowane linie SMT i własne laboratorium testowe. Firmy handlowe nie mogą zaoferować tego samego poziomu kontroli jakości, przejrzystości cenowej ani elastyczności produkcji.</p>") }}
+<div class="mb-16 reveal">
+{{ categoryHeading("MOQ i ceny", "faq-moq") }}
+<div class="space-y-1">
+{% call faqItem("Jakie jest minimalne zamówienie (MOQ)?") %}<p>MOQ zaczyna się od <strong>500 sztuk</strong> dla standardowego OEM. Projekty ODM wymagają 2000 sztuk. Próbki od 1-50 sztuk. Rabaty ilościowe dostępne od 1000+, 5000+ i 10000+. <a href='/pl/produkty/' class='text-brandOrange hover:underline font-bold'>Przeglądaj nasz katalog produktów OEM</a> — 40+ modeli power banków, 11 ładowarek GaN, 21+ ładowarek bezprzewodowych.</p>{% endcall %}
+{% call faqItem("Jakie są warunki płatności?") %}<p>Standardowe warunki: <strong>30% zaliczki</strong> na rozpoczęcie produkcji, <strong>70% przed wysyłką</strong>. Akceptujemy T/T, L/C, PayPal i Alibaba Trade Assurance. Dla stałych partnerów dostępne są bardziej elastyczne warunki.</p>{% endcall %}
+</div>
+</div>
 
- {{ faqItem("f3", "Czy mogę odwiedzić fabrykę lub przeprowadzić audyt wideo?", "<p>Tak. Zapraszamy na wizyty w fabryce w Shenzhen — prosimy o wcześniejsze umówienie, a zorganizujemy pełne zwiedzanie linii produkcyjnych, laboratoriów i centrum R&D. Dla zdalnej weryfikacji oferujemy audyty wideo na żywo. <a href='/pl/kontakt' class='text-brandOrange hover:underline font-bold'>Skontaktuj się, aby umówić wizytę</a>.</p>") }}
- </div>
+<div class="mb-16 reveal">
+{{ categoryHeading("Kontrola jakości", "faq-quality") }}
+<div class="space-y-1">
+{% call faqItem("Jak mogę sprawdzić jakość przed produkcją seryjną?") %}<p>Zamów próbki najpierw (3-7 dni). Sprawdź logo, wykonanie, wydajność ładowania i kompatybilność. Podczas produkcji seryjnej nasza 4-etapowa kontrola jakości zapewnia spójność: IQC, IPQC, FQC, OQC. <strong>100% sztuk</strong> przechodzi 4-godzinny test starzeniowy przed wysyłką. <a href='/pl/studia-przypadkow/' class='text-brandOrange hover:underline font-bold'>Zobacz nasze realizacje</a> — Bosch, Jacob Jensen, Mous i inni klienci.</p>{% endcall %}
+{% call faqItem("Jaka jest gwarancja i polityka wadliwości?") %}<p>Standardowa <strong>12-miesięczna gwarancja</strong>, rozszerzalna do 24 miesięcy dla kwalifikowanych partnerów. Docelowy poziom wadliwości: poniżej 1%. Wymiana lub kredyt na kolejne zamówienie w ciągu 15 dni roboczych na potwierdzone wady produkcyjne.</p>{% endcall %}
+</div>
+</div>
 
- <a id="faq-oem-odm" class="block -scroll-mt-24"></a>
- <div class="flex items-center gap-3 mb-6"><span class="w-8 h-[2px] bg-brandOrange shrink-0"></span><span class="text-[11px] font-black text-slate-400 uppercase tracking-[0.2em]">Proces OEM/ODM</span></div>
- <div class="space-y-4 mb-14">
- {{ faqItem("f4", "Jaka jest różnica między OEM a ODM?", "<p><strong>ODM:</strong> wybierasz istniejący projekt z naszej platformy i dodajesz swoje logo, niestandardowe opakowanie. MOQ od 500 szt., czas realizacji 25-30 dni. Nowa realizacja ODM poza magazynem: 1 000–2 000 szt., 45-60 dni. <strong>OEM:</strong> produkcja Twojego własnego projektu z nowym oprzyrządowaniem — projekt ID, PCBA, oprzyrządowanie, firmware, certyfikaty. MOQ od 3 000 szt. <a href='/pl/uslugi-oem-odm' class='text-brandOrange hover:underline font-bold'>Poznaj nasze usługi OEM/ODM</a>.</p>") }}
+<div class="mb-16 reveal">
+{{ categoryHeading("Certyfikacja", "faq-certifications") }}
+<div class="space-y-1">
+{% call faqItem("Jakich certyfikatów potrzebuję na rynek UE/Polski?") %}<p>Wymagane: <strong>oznakowanie CE</strong> (bezpieczeństwo elektryczne + EMC), <strong>RoHS</strong>, rejestracja <strong>WEEE</strong>. Dla baterii litowych: <strong>UN38.3</strong>. Nasze produkty są standardowo dostarczane z dokumentacją CE i RoHS. Pomagamy w uzyskaniu dodatkowych certyfikatów dla polskiego rynku. <strong>Deklaracja zgodności UE musi być sporządzona w języku polskim</strong> — to obowiązek importera. Inspekcja Handlowa i <strong>UOKiK</strong> mogą zażądać dokumentacji technicznej w ciągu 10 dni.</p>{% endcall %}
+{% call faqItem("Czy pomagacie w procesie certyfikacji?") %}<p>Tak. Zajmujemy się certyfikacją w ramach naszej usługi OEM/ODM. Standardowe certyfikaty (CE, FCC, RoHS, UN38.3) są zawarte w każdym zamówieniu. Dla certyfikatów specyficznych dla rynku koordynujemy proces z akredytowanymi laboratoriami zewnętrznymi.</p>{% endcall %}
+</div>
+</div>
 
- {{ faqItem("f5", "Jak wygląda proces OEM krok po kroku?", "<p>1. Zapytanie i wybór produktu z 30+ istniejących SKU. 2. Wycena w ciągu 24h, próbki w 3-7 dni. 3. Personalizacja logo i opakowania. 4. Zatwierdzenie próbki. 5. Produkcja seryjna 25-30 dni z 4-etapową kontrolą jakości. 6. Wysyłka FOB, EXW lub DDP.</p>") }}
- </div>
+<div class="mb-16 reveal">
+{{ categoryHeading("Wysyłka i logistyka", "faq-shipping") }}
+<div class="space-y-1">
+{% call faqItem("Jakie metody wysyłki oferujecie?") %}<p><strong>Express</strong> (DHL, FedEx, UPS): 5-7 dni roboczych, najlepszy dla próbek i pilnych małych zamówień. <strong>Fracht lotniczy:</strong> 7-14 dni, dla średnich zamówień. <strong>Fracht morski:</strong> 25-35 dni, najbardziej ekonomiczny dla pełnych kontenerów. Warunki: FOB Shenzhen, EXW, CIF lub DDP door-to-door.</p>{% endcall %}
+{% call faqItem("Czym jest wysyłka DDP i czy jest dla mnie odpowiednia?") %}<p>DDP (Delivered Duty Paid) oznacza, że obsługujemy wszystko: odprawę celną eksportową, fracht, odprawę importową, opłacenie cła i dostawę do Twoich drzwi — jedna cena, bez niespodzianek. Polecane dla początkujących importerów. Dla Polski: odprawa przez porty Gdańsk/Gdynia, VAT 23% wliczony w cenę DDP.</p>{% endcall %}
+{% call faqItem("Jak wygląda odprawa celna przy imporcie do Polski?") %}<p>Towar dociera przez porty Gdańsk/Gdynia. Przy imporcie obowiązuje kod HS towaru, stawka celna (zwykle 0% dla elektroniki) oraz VAT 23%. Dla firm z numerem EORI PL oferujemy mechanizm autoliquidation VAT (art. 33a). Dokumenty celne: ISZTAR, PUESC. Współpracujemy z polskimi agencjami celnymi. Dla rozliczenia VAT 23% firma składa deklarację <strong>JPK_V7</strong> (Jednolity Plik Kontrolny) — przy autoliquidation VAT (art. 33a) import jest neutralny podatkowo.</p>{% endcall %}
+</div>
+</div>
 
- <a id="faq-moq" class="block -scroll-mt-24"></a>
- <div class="flex items-center gap-3 mb-6"><span class="w-8 h-[2px] bg-brandOrange shrink-0"></span><span class="text-[11px] font-black text-slate-400 uppercase tracking-[0.2em]">MOQ i ceny</span></div>
- <div class="space-y-4 mb-14">
- {{ faqItem("f6", "Jakie jest minimalne zamówienie (MOQ)?", "<p>MOQ zaczyna się od <strong>500 sztuk</strong> dla standardowego OEM. Projekty ODM wymagają 2000 sztuk. Próbki od 1-50 sztuk. Rabaty ilościowe dostępne od 1000+, 5000+ i 10000+. <a href='/pl/produkty/' class='text-brandOrange hover:underline font-bold'>Przeglądaj nasz katalog produktów OEM</a> — 40+ modeli power banków, 11 ładowarek GaN, 21+ ładowarek bezprzewodowych.</p>") }}
- {{ faqItem("f7", "Jakie są warunki płatności?", "<p>Standardowe warunki: <strong>30% zaliczki</strong> na rozpoczęcie produkcji, <strong>70% przed wysyłką</strong>. Akceptujemy T/T, L/C, PayPal i Alibaba Trade Assurance. Dla stałych partnerów dostępne są bardziej elastyczne warunki.</p>") }}
- </div>
+<div class="mb-16 reveal">
+{{ categoryHeading("Biznes", "faq-operations") }}
+<div class="space-y-1">
+{% call faqItem("Jak chroniona jest moja własność intelektualna?") %}<p>Podpisujemy umowy NDA i NNN. Pliki projektowe pozostają Twoją własnością. Formy i oprzyrządowanie, które są Twoją własnością, pozostają pod Twoją kontrolą. Nie udostępniamy projektów klientów osobom trzecim. Dla krytycznego IP zalecamy rejestrację patentu wzorniczego w Chinach.</p>{% endcall %}
+{% call faqItem("Jak szybko odpowiadacie na zapytania?") %}<p>Odpowiadamy na wszystkie zapytania w ciągu <strong>24 godzin</strong> w dni robocze, zazwyczaj w ciągu 4 godzin. Wyceny w ciągu 24 godzin od otrzymania wymagań. Próbki wysyłane w ciągu 3-7 dni. <a href='/pl/kontakt' class='text-brandOrange hover:underline font-bold'>Wyślij zapytanie</a>.</p>{% endcall %}
+{% call faqItem("Czym jest technologia GaN V i dlaczego ma znaczenie dla mojego produktu?") %}<p><strong>GaN (azotek galu)</strong> to półprzewodnik nowej generacji, który zastępuje krzem w ładowarkach. <strong>GaN V</strong> (5. generacja) oferuje trzy kluczowe przewagi nad tradycyjnymi ładowarkami krzemowymi: <strong>40% mniejszy rozmiar</strong>, <strong>30% lepsze odprowadzanie ciepła</strong> i wyższą sprawność konwersji energii. Dla Twojego produktu oznacza to mniejszą, lżejszą ładowarkę, która mniej się nagrzewa — idealne do sprzedaży detalicznej i e-commerce. WOWOHCOOL stosuje wyłącznie komponenty GaN V od certyfikowanych dostawców (Infineon, Navitas). <a href='/pl/produkty/ładowarka-gan/' class='text-brandOrange hover:underline font-bold'>Zobacz nasze ładowarki GaN V OEM</a>.</p>{% endcall %}
+{% call faqItem("Jak chiński Nowy Rok wpływa na harmonogramy produkcji?") %}<p>Chiński Nowy Rok (CNY) zazwyczaj przypada na styczeń lub luty. Produkcja jest wstrzymana na 10-14 dni. Zalecamy składanie zamówień 6-8 tygodni przed CNY. Po CNY produkcja wznawia się stopniowo przez 1-2 tygodnie.</p>{% endcall %}
+{% call faqItem("Czy wysyłacie do magazynów Amazon FBA w Europie?") %}<p>Tak. Obsługujemy etykietowanie zgodne z FBA (FNSKU), pakowanie w folię, pakowanie kartonowe, etykietowanie palet i dokumentację wysyłkową. Doświadczenie w wysyłkach do centrów dystrybucji w USA, UK, Niemczech, Francji, Włoszech, Hiszpanii i Polsce.</p>{% endcall %}
+</div>
+</div>
 
- <a id="faq-quality" class="block -scroll-mt-24"></a>
- <div class="flex items-center gap-3 mb-6"><span class="w-8 h-[2px] bg-brandOrange shrink-0"></span><span class="text-[11px] font-black text-slate-400 uppercase tracking-[0.2em]">Kontrola jakości</span></div>
- <div class="space-y-4 mb-14">
- {{ faqItem("f8", "Jak mogę sprawdzić jakość przed produkcją seryjną?", "<p>Zamów próbki najpierw (3-7 dni). Sprawdź logo, wykonanie, wydajność ładowania i kompatybilność. Podczas produkcji seryjnej nasza 4-etapowa kontrola jakości zapewnia spójność: IQC, IPQC, FQC, OQC. <strong>100% sztuk</strong> przechodzi 4-godzinny test starzeniowy przed wysyłką. <a href='/pl/studia-przypadkow/' class='text-brandOrange hover:underline font-bold'>Zobacz nasze realizacje</a> — Bosch, Jacob Jensen, Mous i inni klienci.</p>") }}
- {{ faqItem("f9", "Jaka jest gwarancja i polityka wadliwości?", "<p>Standardowa <strong>12-miesięczna gwarancja</strong>, rozszerzalna do 24 miesięcy dla kwalifikowanych partnerów. Docelowy poziom wadliwości: poniżej 1%. Wymiana lub kredyt na kolejne zamówienie w ciągu 15 dni roboczych na potwierdzone wady produkcyjne.</p>") }}
- </div>
-
- <a id="faq-certifications" class="block -scroll-mt-24"></a>
- <div class="flex items-center gap-3 mb-6"><span class="w-8 h-[2px] bg-brandOrange shrink-0"></span><span class="text-[11px] font-black text-slate-400 uppercase tracking-[0.2em]">Certyfikacja</span></div>
- <div class="space-y-4 mb-14">
- {{ faqItem("f10", "Jakich certyfikatów potrzebuję na rynek UE/Polski?", "<p>Wymagane: <strong>oznakowanie CE</strong> (bezpieczeństwo elektryczne + EMC), <strong>RoHS</strong>, rejestracja <strong>WEEE</strong>. Dla baterii litowych: <strong>UN38.3</strong>. Nasze produkty są standardowo dostarczane z dokumentacją CE i RoHS. Pomagamy w uzyskaniu dodatkowych certyfikatów dla polskiego rynku. <strong>Deklaracja zgodności UE musi być sporządzona w języku polskim</strong> — to obowiązek importera. Inspekcja Handlowa i <strong>UOKiK</strong> mogą zażądać dokumentacji technicznej w ciągu 10 dni.</p>") }}
- {{ faqItem("f11", "Czy pomagacie w procesie certyfikacji?", "<p>Tak. Zajmujemy się certyfikacją w ramach naszej usługi OEM/ODM. Standardowe certyfikaty (CE, FCC, RoHS, UN38.3) są zawarte w każdym zamówieniu. Dla certyfikatów specyficznych dla rynku koordynujemy proces z akredytowanymi laboratoriami zewnętrznymi.</p>") }}
-
- </div>
-
- <a id="faq-shipping" class="block -scroll-mt-24"></a>
- <div class="flex items-center gap-3 mb-6"><span class="w-8 h-[2px] bg-brandOrange shrink-0"></span><span class="text-[11px] font-black text-slate-400 uppercase tracking-[0.2em]">Wysyłka i logistyka</span></div>
- <div class="space-y-4 mb-14">
- {{ faqItem("f12", "Jakie metody wysyłki oferujecie?", "<p><strong>Express</strong> (DHL, FedEx, UPS): 5-7 dni roboczych, najlepszy dla próbek i pilnych małych zamówień. <strong>Fracht lotniczy:</strong> 7-14 dni, dla średnich zamówień. <strong>Fracht morski:</strong> 25-35 dni, najbardziej ekonomiczny dla pełnych kontenerów. Warunki: FOB Shenzhen, EXW, CIF lub DDP door-to-door.</p>") }}
- {{ faqItem("f13", "Czym jest wysyłka DDP i czy jest dla mnie odpowiednia?", "<p>DDP (Delivered Duty Paid) oznacza, że obsługujemy wszystko: odprawę celną eksportową, fracht, odprawę importową, opłacenie cła i dostawę do Twoich drzwi — jedna cena, bez niespodzianek. Polecane dla początkujących importerów. Dla Polski: odprawa przez porty Gdańsk/Gdynia, VAT 23% wliczony w cenę DDP.</p>") }}
- {{ faqItem("f14", "Jak wygląda odprawa celna przy imporcie do Polski?", "<p>Towar dociera przez porty Gdańsk/Gdynia. Przy imporcie obowiązuje kod HS towaru, stawka celna (zwykle 0% dla elektroniki) oraz VAT 23%. Dla firm z numerem EORI PL oferujemy mechanizm autoliquidation VAT (art. 33a). Dokumenty celne: ISZTAR, PUESC. Współpracujemy z polskimi agencjami celnymi. Dla rozliczenia VAT 23% firma składa deklarację <strong>JPK_V7</strong> (Jednolity Plik Kontrolny) — przy autoliquidation VAT (art. 33a) import jest neutralny podatkowo.</p>") }}
- </div>
-
- <a id="faq-operations" class="block -scroll-mt-24"></a>
- <div class="flex items-center gap-3 mb-6"><span class="w-8 h-[2px] bg-brandOrange shrink-0"></span><span class="text-[11px] font-black text-slate-400 uppercase tracking-[0.2em]">Biznes</span></div>
- <div class="space-y-4 mb-14">
- {{ faqItem("f15", "Jak chroniona jest moja własność intelektualna?", "<p>Podpisujemy umowy NDA i NNN. Pliki projektowe pozostają Twoją własnością. Formy i oprzyrządowanie, które są Twoją własnością, pozostają pod Twoją kontrolą. Nie udostępniamy projektów klientów osobom trzecim. Dla krytycznego IP zalecamy rejestrację patentu wzorniczego w Chinach.</p>") }}
- {{ faqItem("f16", "Jak szybko odpowiadacie na zapytania?", "<p>Odpowiadamy na wszystkie zapytania w ciągu <strong>24 godzin</strong> w dni robocze, zazwyczaj w ciągu 4 godzin. Wyceny w ciągu 24 godzin od otrzymania wymagań. Próbki wysyłane w ciągu 3-7 dni. <a href='/pl/kontakt' class='text-brandOrange hover:underline font-bold'>Wyślij zapytanie</a>.</p>") }}
- {{ faqItem("f17", "Czym jest technologia GaN V i dlaczego ma znaczenie dla mojego produktu?", "<p><strong>GaN (azotek galu)</strong> to półprzewodnik nowej generacji, który zastępuje krzem w ładowarkach. <strong>GaN V</strong> (5. generacja) oferuje trzy kluczowe przewagi nad tradycyjnymi ładowarkami krzemowymi: <strong>40% mniejszy rozmiar</strong>, <strong>30% lepsze odprowadzanie ciepła</strong> i wyższą sprawność konwersji energii. Dla Twojego produktu oznacza to mniejszą, lżejszą ładowarkę, która mniej się nagrzewa — idealne do sprzedaży detalicznej i e-commerce. WOWOHCOOL stosuje wyłącznie komponenty GaN V od certyfikowanych dostawców (Infineon, Navitas). <a href='/pl/produkty/ładowarka-gan/' class='text-brandOrange hover:underline font-bold'>Zobacz nasze ładowarki GaN V OEM</a>.</p>") }}
- {{ faqItem("f18", "Jak chiński Nowy Rok wpływa na harmonogramy produkcji?", "<p>Chiński Nowy Rok (CNY) zazwyczaj przypada na styczeń lub luty. Produkcja jest wstrzymana na 10-14 dni. Zalecamy składanie zamówień 6-8 tygodni przed CNY. Po CNY produkcja wznawia się stopniowo przez 1-2 tygodnie.</p>") }}
- {{ faqItem("f19", "Czy wysyłacie do magazynów Amazon FBA w Europie?", "<p>Tak. Obsługujemy etykietowanie zgodne z FBA (FNSKU), pakowanie w folię, pakowanie kartonowe, etykietowanie palet i dokumentację wysyłkową. Doświadczenie w wysyłkach do centrów dystrybucji w USA, UK, Niemczech, Francji, Włoszech, Hiszpanii i Polsce.</p>") }}
- </div>
-
- </div>
+</div>
 </section>
 
 <!-- CTA -->
-<section class="sec-lg bg-slate-900 text-white">
+<section class="sec-lg bg-brandBlue text-white">
  <div class="container-narrow text-center">
  <h2 class="text-3xl md:text-4xl font-black uppercase italic tracking-tighter mb-6">Masz <span class="text-brandOrange">pytania</span>?</h2>
  <p class="text-slate-400 leading-relaxed mb-8 max-w-xl mx-auto">Nasz zespół jest gotowy do pomocy. Odpowiemy w ciągu 24 godzin.</p>

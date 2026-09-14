@@ -82,15 +82,15 @@ plPath: "uslugi-oem-odm/"
 
 {% block content %}
 {% from "breadcrumb.njk" import breadcrumb %}
-{{ breadcrumb([{name:"Inicio",url:"/es/"},{name:"Servicio OEM/ODM"}]) }}
 
 <!-- ======== 1. HERO ======== -->
-<section class="relative pt-0 pb-8 lg:pb-16 bg-white overflow-hidden">
+<section class="relative pt-24 md:pt-28 pb-8 lg:pb-16 bg-white overflow-hidden">
  <div class="absolute inset-0 pointer-events-none">
  <div class="absolute top-0 left-0 w-64 h-64 bg-brandOrange opacity-10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
  <div class="absolute bottom-0 right-0 w-64 h-64 bg-brandBlue opacity-10 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
  </div>
- <div class="container-wide relative z-10 text-center py-8">
+ <div class="container-wide relative z-10 text-center pb-8">
+  {{ breadcrumb([{name:"Inicio",url:"/es/"},{name:"Servicio OEM/ODM"}], "none", "mb-6", { variant: "hero" }) }}
  <div class="inline-flex items-center gap-2 bg-brandOrange/10 text-brandOrange text-[11px] font-bold px-4 py-2 rounded-full tracking-widest uppercase mb-4">
  <span class="w-2 h-2 rounded-full bg-brandOrange animate-pulse"></span>
  Solución integral desde Shenzhen
@@ -121,18 +121,14 @@ plPath: "uslugi-oem-odm/"
 <!-- ======== 3. OEM VS ODM ======== -->
 <section class="sec bg-slate-50">
  <div class="container-wide">
- <div class="text-center max-w-3xl mx-auto mb-16 reveal">
- <p class="section-label">OEM vs ODM</p>
- <h2 class="section-title">¿Qué modelo <span class="text-brandOrange">le conviene más</span>?</h2>
- <p class="section-desc mx-auto">Elija OEM si ya tiene un diseño propio. Elija ODM si necesita que desarrollemos el producto desde cero. Ambos con MOQ flexible y precio directo de fábrica.</p>
- </div>
+ {{ sectionHeader('OEM vs ODM', '¿Qué modelo <span class="text-brandOrange">le conviene más</span>?', 'Elija OEM si ya tiene un diseño propio. Elija ODM si necesita que desarrollemos el producto desde cero. Ambos con MOQ flexible y precio directo de fábrica.', {}) }}
  <div class="grid lg:grid-cols-2 gap-8">
  <div class="group p-8 bg-white rounded-[2rem] border-2 border-transparent hover:border-brandOrange/20 hover:shadow-2xl transition-all duration-500 reveal">
  <div class="flex items-center justify-between mb-6">
  <div class="w-14 h-14 bg-brandBlue text-white rounded-2xl flex items-center justify-center shadow-lg"><svg class="icon-industry text-xl" viewBox="0 0 512 512">
  <path d="M32 32C14.3 32 0 46.3 0 64L0 432c0 26.5 21.5 48 48 48l416 0c26.5 0 48-21.5 48-48l0-279.8c0-18.2-19.4-29.7-35.4-21.1l-156.6 84.3 0-63.2c0-18.2-19.4-29.7-35.4-21.1L128 215.4 128 64c0-17.7-14.3-32-32-32L32 32z" fill="currentColor"/>
  </svg></div>
- <span class="text-[11px] font-black text-slate-300 uppercase tracking-[0.3em]">Modelo A</span>
+ <span class="text-[11px] font-black text-slate-500 uppercase tracking-[0.3em]">Modelo A</span>
  </div>
  <h3 class="text-2xl md:text-3xl font-black text-brandBlue uppercase italic mb-2">Servicio OEM</h3>
  <p class="text-brandOrange font-bold text-xs uppercase tracking-widest mb-6">Fabricación según sus especificaciones</p>
@@ -154,7 +150,7 @@ plPath: "uslugi-oem-odm/"
  <div class="w-14 h-14 bg-brandOrange text-white rounded-2xl flex items-center justify-center shadow-lg"><svg class="icon-microchip text-xl" viewBox="0 0 512 512">
  <path d="M176 24c0-13.3-10.7-24-24-24s-24 10.7-24 24l0 40c-35.3 0-64 28.7-64 64l-40 0c-13.3 0-24 10.7-24 24s10.7 24 24 24l40 0 0 56-40 0c-13.3 0-24 10.7-24 24s10.7 24 24 24l40 0 0 56-40 0c-13.3 0-24 10.7-24 24s10.7 24 24 24l40 0c0 35.3 28.7 64 64 64l0 40c0 13.3 10.7 24 24 24s24-10.7 24-24l0-40 56 0 0 40c0 13.3 10.7 24 24 24s24-10.7 24-24l0-40 56 0 0 40c0 13.3 10.7 24 24 24s24-10.7 24-24l0-40c35.3 0 64-28.7 64-64l40 0c13.3 0 24-10.7 24-24s-10.7-24-24-24l-40 0 0-56 40 0c13.3 0 24-10.7 24-24s-10.7-24-24-24l-40 0 0-56 40 0c13.3 0 24-10.7 24-24s-10.7-24-24-24l-40 0c0-35.3-28.7-64-64-64l0-40c0-13.3-10.7-24-24-24s-24 10.7-24 24l0 40-56 0 0-40c0-13.3-10.7-24-24-24s-24 10.7-24 24l0 40-56 0 0-40zM160 128l192 0c17.7 0 32 14.3 32 32l0 192c0 17.7-14.3 32-32 32l-192 0c-17.7 0-32-14.3-32-32l0-192c0-17.7 14.3-32 32-32zm16 48l0 160 160 0 0-160-160 0z" fill="currentColor"/>
  </svg></div>
- <span class="text-[11px] font-black text-slate-300 uppercase tracking-[0.3em]">Modelo B</span>
+ <span class="text-[11px] font-black text-slate-500 uppercase tracking-[0.3em]">Modelo B</span>
  </div>
  <h3 class="text-2xl md:text-3xl font-black text-brandBlue uppercase italic mb-2">Servicio ODM</h3>
  <p class="text-brandOrange font-bold text-xs uppercase tracking-widest mb-6">Desarrollo completo de producto</p>
@@ -178,11 +174,7 @@ plPath: "uslugi-oem-odm/"
 <!-- ======== 4. WORKFLOW ======== -->
 <section id="proceso" class="sec bg-white">
  <div class="container-wide">
- <div class="text-center max-w-3xl mx-auto mb-16 reveal">
- <p class="section-label">Proceso</p>
- <h2 class="section-title">Nuestro proceso <span class="text-brandOrange">transparente</span></h2>
- <p class="section-desc mx-auto">Hitos claros y plazos predecibles, le mantenemos informado en cada etapa, desde el concepto inicial hasta la logística global.</p>
- </div>
+ {{ sectionHeader('Proceso', 'Nuestro proceso <span class="text-brandOrange">transparente</span>', 'Hitos claros y plazos predecibles, le mantenemos informado en cada etapa, desde el concepto inicial hasta la logística global.', {}) }}
  <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-y-10 gap-x-8">
  <div class="reveal flex items-start gap-4"><div class="shrink-0 w-12 h-12 bg-white border-2 border-brandBlue text-brandBlue rounded-xl flex items-center justify-center font-black">01</div><div><h3 class="font-black text-brandBlue uppercase text-sm mb-2">Consulta y requisitos</h3><p class="text-sm text-slate-500">Análisis de especificaciones técnicas, necesidades de certificación, presupuesto y plazo. Respuesta en 24h.</p></div></div>
  <div class="reveal flex items-start gap-4" style="transition-delay:100ms"><div class="shrink-0 w-12 h-12 bg-white border-2 border-brandBlue text-brandBlue rounded-xl flex items-center justify-center font-black">02</div><div><h3 class="font-black text-brandBlue uppercase text-sm mb-2">Diseño y presupuesto</h3><p class="text-sm text-slate-500">Nuestro equipo I+D crea diseños industriales y esquemas PCBA. Presupuesto detallado con costes y plazos.</p></div></div>
@@ -201,11 +193,7 @@ plPath: "uslugi-oem-odm/"
 <!-- ======== 5. FULL-STACK CUSTOMIZATION ======== -->
 <section class="sec bg-slate-50">
  <div class="container-wide">
- <div class="text-center max-w-3xl mx-auto mb-16 reveal">
- <p class="section-label">Personalización integral</p>
- <h2 class="section-title">Mucho más que <span class="text-brandOrange">un logotipo</span></h2>
- <p class="section-desc mx-auto">El servicio OEM/ODM de WOWOHCOOL cubre cada aspecto de su producto. Desde la ingeniería hasta el embalaje minorista listo para Amazon.</p>
- </div>
+ {{ sectionHeader('Personalización integral', 'Mucho más que <span class="text-brandOrange">un logotipo</span>', 'El servicio OEM/ODM de WOWOHCOOL cubre cada aspecto de su producto. Desde la ingeniería hasta el embalaje minorista listo para Amazon.', {}) }}
  <div class="grid md:grid-cols-3 gap-6">
  <div class="bg-white rounded-2xl p-8 shadow-md hover:shadow-xl transition reveal">
  <div class="w-12 h-12 bg-brandOrange/10 rounded-xl flex items-center justify-center mb-5"><svg class="icon-paintbrush text-brandOrange text-xl" viewBox="0 0 576 512" width="24" height="24"><path d="M339.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L568.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S517.7-4.4 499.1 9.6L262.4 187.2c-24 18-38.2 46.1-38.4 76.1L339.3 367.1zm-19.6 25.4l-116-104.4C143.9 290.3 96 339.6 96 400c0 3.9 .2 7.8 .6 11.6C98.4 429.1 86.4 448 68.8 448L64 448c-17.7 0-32 14.3-32 32s14.3 32 32 32l144 0c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z" fill="currentColor"/></svg></div>
@@ -249,11 +237,7 @@ plPath: "uslugi-oem-odm/"
 <!-- ======== 6. PRICING GUIDE ======== -->
 <section class="sec bg-white">
  <div class="container-wide">
- <div class="text-center max-w-3xl mx-auto mb-16 reveal">
- <p class="section-label">Guía de inversión</p>
- <h2 class="section-title">Transparencia <span class="text-brandOrange">en costes</span></h2>
- <p class="section-desc mx-auto">Rangos orientativos según volumen de pedido. Precios exactos tras analizar sus especificaciones. Sin sorpresas.</p>
- </div>
+ {{ sectionHeader('Guía de inversión', 'Transparencia <span class="text-brandOrange">en costes</span>', 'Rangos orientativos según volumen de pedido. Precios exactos tras analizar sus especificaciones. Sin sorpresas.', {}) }}
  <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
  <div class="bg-slate-50 rounded-2xl p-8 border border-slate-200 reveal text-center">
  <p class="text-[11px] font-black text-brandOrange uppercase tracking-widest mb-2">Pedido inicial</p>
@@ -305,11 +289,7 @@ plPath: "uslugi-oem-odm/"
 <!-- ======== 7. CASE STUDIES ======== -->
 <section class="sec bg-slate-50">
  <div class="container-wide">
- <div class="text-center max-w-3xl mx-auto mb-16 reveal">
- <p class="section-label">Casos de éxito</p>
- <h2 class="section-title">Casos de éxito <span class="text-brandOrange">OEM/ODM</span></h2>
- <p class="section-desc mx-auto">No hacemos promesas vacías. Estos son resultados reales de nuestros clientes.</p>
- </div>
+ {{ sectionHeader('Casos de éxito', 'Casos de éxito <span class="text-brandOrange">OEM/ODM</span>', 'No hacemos promesas vacías. Estos son resultados reales de nuestros clientes.', {}) }}
  <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
  <div class="bg-white rounded-2xl p-8 shadow-md reveal">
  <div class="flex items-center gap-4 mb-4">
@@ -351,21 +331,17 @@ plPath: "uslugi-oem-odm/"
 <!-- ======== 8. FAQ ======== -->
 <section class="sec bg-white">
  <div class="container-narrow">
- <div class="text-center mb-16 reveal">
- <p class="section-label">FAQ</p>
- <h2 class="section-title">Preguntas frecuentes</h2>
- <p class="section-desc mx-auto">Respuestas a las dudas más comunes sobre nuestros servicios OEM/ODM.</p>
- </div>
+ {{ sectionHeader('FAQ', 'Preguntas frecuentes', 'Respuestas a las dudas más comunes sobre nuestros servicios OEM/ODM.', {max: ''}) }}
  <div class="reveal">
- <details class="faq-item"><summary>¿Cuál es el MOQ para pedidos OEM/ODM?</summary><div class="faq-answer">MOQ de 500 unidades por SKU para ODM sobre modelos en stock. Desarrollo ODM nuevo (sin stock): 1.000–2.000 unidades. OEM con utillaje nuevo: 3.000+ unidades. Descuentos por volumen en pedidos superiores.</div></details>
- <details class="faq-item"><summary>¿Cuál es la diferencia entre OEM y ODM?</summary><div class="faq-answer">OEM: fabricamos su propio diseño con utillaje nuevo. MOQ 3.000+. ODM: desarrollamos el producto sobre nuestra plataforma existente — modelos en stock con su marca desde MOQ 500; un diseño nuevo sin stock, 1.000–2.000 unidades, plazo 45–60 días.</div></details>
- <details class="faq-item"><summary>¿Cuánto tarda el proceso completo?</summary><div class="faq-answer">OEM estándar: 25–35 días tras aprobación de muestra. ODM personalizado: 45–60 días incluyendo utillaje. Servicio exprés disponible para urgencias.</div></details>
- <details class="faq-item"><summary>¿Qué certificaciones incluyen?</summary><div class="faq-answer">CE, RoHS, UN38.3, Qi2 y AENOR de serie. ISO 9001 en fábrica. Cumplimiento Reglamento UE 2023/1542 con representante UE. Ayudamos con UL, PSE, KC según mercado.</div></details>
- <details class="faq-item"><summary>¿Ofrecen protección de propiedad intelectual?</summary><div class="faq-answer">Sí. Todos los proyectos ODM incluyen protección IP exclusiva. Firmamos acuerdos NDA vinculantes. Sus moldes y diseños nunca se venden ni muestran a otros clientes.</div></details>
- <details class="faq-item"><summary>¿Puedo recibir muestras antes del pedido?</summary><div class="faq-answer">Sí. Muestras estándar en 7–15 días. Prototipos ODM personalizados en 25–35 días. Coste de muestras reembolsable al confirmar el pedido de producción.</div></details>
- <details class="faq-item"><summary>¿Qué opciones de envío tienen?</summary><div class="faq-answer">FOB Shenzhen, EXW y DDP puerta a puerta. Exprés (5–7 días DHL/FedEx), aéreo (7–14 días) o marítimo (25–35 días). Gestionamos aduanas e IVA para España y Latinoamérica.</div></details>
- <details class="faq-item"><summary>¿Tienen atención en español?</summary><div class="faq-answer">Sí. Gestor de cuenta que habla español nativo. Respuesta en 24h. Comunicación directa sin barreras de idioma ni intermediarios.</div></details>
- <details class="faq-item"><summary>¿Cuál es su garantía?</summary><div class="faq-answer">12 meses estándar, ampliable a 24 meses para socios verificados. Tasa de defectos inferior al 0,3%. Reposición de unidades con defectos de fabricación sin coste adicional.</div></details>
+ {% call faqItem("¿Cuál es el MOQ para pedidos OEM/ODM?") %}MOQ de 500 unidades por SKU para ODM sobre modelos en stock. Desarrollo ODM nuevo (sin stock): 1.000–2.000 unidades. OEM con utillaje nuevo: 3.000+ unidades. Descuentos por volumen en pedidos superiores.{% endcall %}
+ {% call faqItem("¿Cuál es la diferencia entre OEM y ODM?") %}OEM: fabricamos su propio diseño con utillaje nuevo. MOQ 3.000+. ODM: desarrollamos el producto sobre nuestra plataforma existente — modelos en stock con su marca desde MOQ 500; un diseño nuevo sin stock, 1.000–2.000 unidades, plazo 45–60 días.{% endcall %}
+ {% call faqItem("¿Cuánto tarda el proceso completo?") %}OEM estándar: 25–35 días tras aprobación de muestra. ODM personalizado: 45–60 días incluyendo utillaje. Servicio exprés disponible para urgencias.{% endcall %}
+ {% call faqItem("¿Qué certificaciones incluyen?") %}CE, RoHS, UN38.3, Qi2 y AENOR de serie. ISO 9001 en fábrica. Cumplimiento Reglamento UE 2023/1542 con representante UE. Ayudamos con UL, PSE, KC según mercado.{% endcall %}
+ {% call faqItem("¿Ofrecen protección de propiedad intelectual?") %}Sí. Todos los proyectos ODM incluyen protección IP exclusiva. Firmamos acuerdos NDA vinculantes. Sus moldes y diseños nunca se venden ni muestran a otros clientes.{% endcall %}
+ {% call faqItem("¿Puedo recibir muestras antes del pedido?") %}Sí. Muestras estándar en 7–15 días. Prototipos ODM personalizados en 25–35 días. Coste de muestras reembolsable al confirmar el pedido de producción.{% endcall %}
+ {% call faqItem("¿Qué opciones de envío tienen?") %}FOB Shenzhen, EXW y DDP puerta a puerta. Exprés (5–7 días DHL/FedEx), aéreo (7–14 días) o marítimo (25–35 días). Gestionamos aduanas e IVA para España y Latinoamérica.{% endcall %}
+ {% call faqItem("¿Tienen atención en español?") %}Sí. Gestor de cuenta que habla español nativo. Respuesta en 24h. Comunicación directa sin barreras de idioma ni intermediarios.{% endcall %}
+ {% call faqItem("¿Cuál es su garantía?") %}12 meses estándar, ampliable a 24 meses para socios verificados. Tasa de defectos inferior al 0,3%. Reposición de unidades con defectos de fabricación sin coste adicional.{% endcall %}
  </div>
  </div>
 </section>
@@ -374,15 +350,12 @@ plPath: "uslugi-oem-odm/"
 <section class="sec bg-brandBlue relative overflow-hidden">
  <div class="absolute bottom-0 left-0 w-1/2 h-1/2 bg-gradient-to-tr from-brandOrange/5 to-transparent"></div>
  <div class="container-narrow text-center relative z-10">
- <div class="reveal">
- <p class="section-label">Comience ahora</p>
- <h2 class="text-3xl md:text-5xl font-black text-white leading-tight mb-4 italic uppercase">¿Listo para lanzar su <span class="text-brandOrange">próximo producto</span>?</h2>
- <p class="text-slate-300 text-lg max-w-2xl mx-auto mb-8">Del concepto al envío, nos encargamos de la ingeniería, certificación y fabricación para que usted se concentre en hacer crecer su marca.</p>
+ {% call sectionHeader('Comience ahora', '¿Listo para lanzar su <span class="text-brandOrange">próximo producto</span>?', '', {align: '', max: '', mb: '', titleClass: 'text-3xl md:text-5xl font-black text-white leading-tight mb-4 italic uppercase'}) %}<p class="text-slate-300 text-lg max-w-2xl mx-auto mb-8">Del concepto al envío, nos encargamos de la ingeniería, certificación y fabricación para que usted se concentre en hacer crecer su marca.</p>
  <div class="flex flex-col sm:flex-row gap-4 justify-center">
  <button data-action="open-modal" class="btn-primary text-base px-8 py-4 shadow-lg shadow-brandOrange/20 cursor-pointer">Solicitar presupuesto <svg class="icon-arrow-right" viewBox="0 0 512 512"><path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-105.4 105.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" fill="currentColor"/></svg></button>
  <a href="https://wa.me/8618620789739" target="_blank" rel="noopener noreferrer" class="btn-outline-white text-base px-8 py-4">WhatsApp <svg class="icon-whatsapp" viewBox="0 0 448 512"><path d="M380.9 97.1c-41.9-42-97.7-65.1-157-65.1-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480 117.7 449.1c32.4 17.7 68.9 27 106.1 27l.1 0c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3 18.6-68.1-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1s56.2 81.2 56.1 130.5c0 101.8-84.9 184.6-186.6 184.6zM325.1 300.5c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8s-14.3 18-17.6 21.8c-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7s-12.5-30.1-17.1-41.2c-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2s-9.7 1.4-14.8 6.9c-5.1 5.6-19.4 19-19.4 46.3s19.9 53.7 22.6 57.4c2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4s4.6-24.1 3.2-26.4c-1.3-2.5-5-3.9-10.5-6.6z" fill="currentColor"/></svg></a>
  </div>
- </div>
+ {% endcall %}
  </div>
 </section>
 {% endblock %}

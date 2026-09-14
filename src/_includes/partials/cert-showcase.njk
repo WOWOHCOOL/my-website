@@ -10,16 +10,15 @@
     reveal    - Add "reveal" class to cert-showcase (default: false)
     id        - Section id attribute (optional)
 #}
+{# Imported macros run in THIS template's frame, not the caller's, so a partial
+   that calls another macro must import it itself. #}
+{% from "partials/section-header.njk" import sectionHeader with context %}
 {% macro certShowcase(certs, heading, title, desc, sectionCls, reveal, id) %}
 {% set cls = sectionCls if sectionCls else "py-12 md:py-16 bg-white border-y border-slate-100" %}
 <section{% if id %} id="{{ id }}"{% endif %} class="{{ cls }}">
  <div class="max-w-7xl mx-auto px-6">
   {% if heading or title %}
-  <div class="text-center mb-8{% if reveal %} reveal{% endif %}">
-   {% if heading %}<p class="section-label">{{ heading }}</p>{% endif %}
-   {% if title %}<h2 class="section-title text-2xl md:text-3xl">{{ title }}</h2>{% endif %}
-   {% if desc %}<p class="section-desc mx-auto">{{ desc }}</p>{% endif %}
-  </div>
+  {{ sectionHeader(heading, title, desc, {max: "", mb: "mb-8", titleClass: "section-title text-2xl md:text-3xl", reveal: true if reveal else false}) }}
   {% endif %}
   <div class="cert-showcase{% if reveal %} reveal{% endif %}">
    {% for cert in certs %}

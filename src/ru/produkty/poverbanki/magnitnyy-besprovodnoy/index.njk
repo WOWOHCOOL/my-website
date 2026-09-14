@@ -73,11 +73,11 @@ ogImage: "/image/product/power-bank/wopq11-qi2-magnetic-40w-power-bank.webp"
 
 {% block content %}
 {% from "breadcrumb.njk" import breadcrumb %}
-{{ breadcrumb([{name:"Главная",url:"/ru/"},{name:"Продукция",url:"/ru/produkty/"},{name:"Повербанки",url:"/ru/produkty/poverbanki/"},{name:"Магнитный / беспроводной"}]) }}
 
 <!-- HERO -->
-<section class="pb-16 md:pb-20 bg-gradient-to-br from-blue-50 via-white to-orange-50">
+<section class="pt-24 md:pt-28 pb-16 md:pb-20 bg-gradient-to-br from-blue-50 via-white to-orange-50">
  <div class="container-wide">
+  {{ breadcrumb([{name:"Главная",url:"/ru/"},{name:"Продукция",url:"/ru/produkty/"},{name:"Повербанки",url:"/ru/produkty/poverbanki/"},{name:"Магнитный / беспроводной"}], "none", "mb-6", { variant: "hero" }) }}
   <div class="grid lg:grid-cols-2 gap-12 items-center">
    <div class="reveal order-2 lg:order-1">
     <p class="text-brandOrange text-xs font-bold tracking-widest uppercase mb-3">Qi2 / Qi2.2 &middot; Прямой завод для брендов</p>
@@ -108,11 +108,7 @@ ogImage: "/image/product/power-bank/wopq11-qi2-magnetic-40w-power-bank.webp"
 <!-- MODELOS -->
 <section id="modelos" class="py-16 bg-white">
  <div class="container-wide">
-  <div class="text-center max-w-3xl mx-auto mb-12 reveal">
-   <p class="section-label">Линейка</p>
-   <h2 class="section-title">12 магнитных повербанков <span class="text-brandOrange">Qi2 OEM</span></h2>
-   <p class="section-desc mx-auto">От компактных 5000 мА·ч до вместительных 20 000 мА·ч. Все с магнитной зарядкой Qi и выравниванием на магнитах N52H.</p>
-  </div>
+  {{ sectionHeader('Линейка', '12 магнитных повербанков <span class="text-brandOrange">Qi2 OEM</span>', 'От компактных 5000 мА·ч до вместительных 20 000 мА·ч. Все с магнитной зарядкой Qi и выравниванием на магнитах N52H.', {mb: 'mb-12'}) }}
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 items-start">
    <div class="product-card reveal bg-white rounded-2xl p-6 border border-slate-200 flex flex-col">
     <div class="aspect-square bg-slate-50 rounded-xl mb-5 overflow-hidden flex items-center justify-center p-6"><img src="/image/product/power-bank/wopq11-qi2-magnetic-40w-power-bank.webp" srcset="/image/product/power-bank/wopq11-qi2-magnetic-40w-power-bank-750w.webp 750w, /image/product/power-bank/wopq11-qi2-magnetic-40w-power-bank.webp 1920w" sizes="(min-width: 1440px) 526px, (min-width: 1280px) 526px, (min-width: 1024px) 398px, (min-width: 768px) 654px, (min-width: 430px) 382px, 327px" alt="WOPQ11 магнитный повербанк Qi2.2 40 Вт с TFT-дисплеем" width="200" height="200" class="w-full h-full object-contain" loading="lazy" decoding="async"></div>
@@ -135,7 +131,7 @@ ogImage: "/image/product/power-bank/wopq11-qi2-magnetic-40w-power-bank.webp"
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Беспроводной выход</td><td class="py-1.5 font-bold text-slate-700">Qi2.2 25W Max (15W/10W/7.5W/5W compatible)</td></tr>
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Корпус</td><td class="py-1.5 font-bold text-slate-700">Pearl Matte UV + Vacuum Plated Frame + Zinc Alloy Stand</td></tr></tbody></table></div>
     </details>
-    <button data-action="open-modal" data-product="WOPQ11 Qi2.2 40W TFT" class="mt-auto w-full py-3 bg-brandOrange text-white font-black uppercase text-[11px] tracking-widest rounded-xl hover:bg-brandOrange/90 transition shadow-md cursor-pointer">Запросить цену с фабрики</button>
+    <button data-action="open-modal" data-product="WOPQ11 Qi2.2 40W TFT" class="btn-card-sm">Запросить цену с фабрики</button>
    </div>
    <div class="product-card reveal bg-white rounded-2xl p-6 border border-slate-200 flex flex-col">
     <div class="aspect-square bg-slate-50 rounded-xl mb-5 overflow-hidden flex items-center justify-center p-6"><img src="/image/product/power-bank/wopq10-magnetic-35w-watch-wireless.webp" srcset="/image/product/power-bank/wopq10-magnetic-35w-watch-wireless-450w.webp 450w, /image/product/power-bank/wopq10-magnetic-35w-watch-wireless.webp 800w" sizes="(min-width: 1440px) 389px, (min-width: 1280px) 389px, (min-width: 1024px) 304px, (min-width: 768px) 344px, (min-width: 430px) 382px, 327px" alt="WOPQ10 магнитный повербанк 35 Вт с зарядкой Apple Watch" width="200" height="200" class="w-full h-full object-contain" loading="lazy" decoding="async"></div>
@@ -159,7 +155,7 @@ ogImage: "/image/product/power-bank/wopq11-qi2-magnetic-40w-power-bank.webp"
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Беспроводная зарядка часов</td><td class="py-1.5 font-bold text-slate-700">2.5W Max (Apple Watch серия)</td></tr>
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Корпус</td><td class="py-1.5 font-bold text-slate-700">Pearl Matte UV + Vacuum Plated Frame + Zinc Alloy Stand</td></tr></tbody></table></div>
     </details>
-    <button data-action="open-modal" data-product="WOPQ10 Magnetic 35W + Watch" class="mt-auto w-full py-3 bg-brandOrange text-white font-black uppercase text-[11px] tracking-widest rounded-xl hover:bg-brandOrange/90 transition shadow-md cursor-pointer">Запросить цену с фабрики</button>
+    <button data-action="open-modal" data-product="WOPQ10 Magnetic 35W + Watch" class="btn-card-sm">Запросить цену с фабрики</button>
    </div>
    <div class="product-card reveal bg-white rounded-2xl p-6 border border-slate-200 flex flex-col">
     <div class="aspect-square bg-slate-50 rounded-xl mb-5 overflow-hidden flex items-center justify-center p-6"><img src="/image/product/power-bank/wopq74-slim-magnetic-wireless-power-bank.webp" srcset="/image/product/power-bank/wopq74-slim-magnetic-wireless-power-bank-450w.webp 450w, /image/product/power-bank/wopq74-slim-magnetic-wireless-power-bank.webp 800w" sizes="(min-width: 1440px) 389px, (min-width: 1280px) 389px, (min-width: 1024px) 304px, (min-width: 768px) 344px, (min-width: 430px) 382px, 327px" alt="WOPQ74 тонкий магнитный повербанк в алюминиевом корпусе" width="200" height="200" class="w-full h-full object-contain" loading="lazy" decoding="async"></div>
@@ -185,7 +181,7 @@ ogImage: "/image/product/power-bank/wopq11-qi2-magnetic-40w-power-bank.webp"
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Обработка корпуса</td><td class="py-1.5 font-bold text-slate-700">Oxidation + Painting + Silk Print + Laser Engraving</td></tr>
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Цвета</td><td class="py-1.5 font-bold text-slate-700">Чёрный / Gun Metal / Blue</td></tr></tbody></table></div>
     </details>
-    <button data-action="open-modal" data-product="WOPQ74 Slim Magnetic" class="mt-auto w-full py-3 bg-brandOrange text-white font-black uppercase text-[11px] tracking-widest rounded-xl hover:bg-brandOrange/90 transition shadow-md cursor-pointer">Запросить цену с фабрики</button>
+    <button data-action="open-modal" data-product="WOPQ74 Slim Magnetic" class="btn-card-sm">Запросить цену с фабрики</button>
    </div>
    <div class="product-card reveal bg-white rounded-2xl p-6 border border-slate-200 flex flex-col">
     <div class="aspect-square bg-slate-50 rounded-xl mb-5 overflow-hidden flex items-center justify-center p-6"><img src="/image/product/power-bank/wopx06-magnetic-wireless-22w-slim.webp" srcset="/image/product/power-bank/wopx06-magnetic-wireless-22w-slim-450w.webp 450w, /image/product/power-bank/wopx06-magnetic-wireless-22w-slim.webp 800w" sizes="(min-width: 1440px) 389px, (min-width: 1280px) 389px, (min-width: 1024px) 304px, (min-width: 768px) 344px, (min-width: 430px) 382px, 327px" alt="WOPX06 компактный магнитный повербанк 22,5 Вт" width="200" height="200" class="w-full h-full object-contain" loading="lazy" decoding="async"></div>
@@ -207,7 +203,7 @@ ogImage: "/image/product/power-bank/wopq11-qi2-magnetic-40w-power-bank.webp"
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Беспроводной выход</td><td class="py-1.5 font-bold text-slate-700">Qi2 15W (10W/7.5W/5W compatible)</td></tr>
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Дисплей</td><td class="py-1.5 font-bold text-slate-700">4-LED Indicator (Green: fast charge / Blue: wireless)</td></tr></tbody></table></div>
     </details>
-    <button data-action="open-modal" data-product="WOPX06 Magnetic 22.5W" class="mt-auto w-full py-3 bg-brandOrange text-white font-black uppercase text-[11px] tracking-widest rounded-xl hover:bg-brandOrange/90 transition shadow-md cursor-pointer">Запросить цену с фабрики</button>
+    <button data-action="open-modal" data-product="WOPX06 Magnetic 22.5W" class="btn-card-sm">Запросить цену с фабрики</button>
    </div>
    <div class="product-card reveal bg-white rounded-2xl p-6 border border-slate-200 flex flex-col">
     <div class="aspect-square bg-slate-50 rounded-xl mb-5 overflow-hidden flex items-center justify-center p-6"><img src="/image/product/power-bank/wopx07-magnetic-wireless-watch-charger.webp" srcset="/image/product/power-bank/wopx07-magnetic-wireless-watch-charger-450w.webp 450w, /image/product/power-bank/wopx07-magnetic-wireless-watch-charger.webp 800w" sizes="(min-width: 1440px) 389px, (min-width: 1280px) 389px, (min-width: 1024px) 304px, (min-width: 768px) 344px, (min-width: 430px) 382px, 327px" alt="WOPX07 тонкий магнитный повербанк с зарядкой Apple Watch" width="200" height="200" class="w-full h-full object-contain" loading="lazy" decoding="async"></div>
@@ -230,7 +226,7 @@ ogImage: "/image/product/power-bank/wopq11-qi2-magnetic-40w-power-bank.webp"
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Беспроводная зарядка (часы)</td><td class="py-1.5 font-bold text-slate-700">2.5W Max (Apple Watch серия)</td></tr>
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Дисплей</td><td class="py-1.5 font-bold text-slate-700">LED Digital</td></tr></tbody></table></div>
     </details>
-    <button data-action="open-modal" data-product="WOPX07 Magnetic Slim" class="mt-auto w-full py-3 bg-brandOrange text-white font-black uppercase text-[11px] tracking-widest rounded-xl hover:bg-brandOrange/90 transition shadow-md cursor-pointer">Запросить цену с фабрики</button>
+    <button data-action="open-modal" data-product="WOPX07 Magnetic Slim" class="btn-card-sm">Запросить цену с фабрики</button>
    </div>
    <div class="product-card reveal bg-white rounded-2xl p-6 border border-slate-200 flex flex-col">
     <div class="aspect-square bg-slate-50 rounded-xl mb-5 overflow-hidden flex items-center justify-center p-6"><img src="/image/product/power-bank/wopx08-magnetic-wireless-cable-watch.webp" srcset="/image/product/power-bank/wopx08-magnetic-wireless-cable-watch-450w.webp 450w, /image/product/power-bank/wopx08-magnetic-wireless-cable-watch.webp 800w" sizes="(min-width: 1440px) 389px, (min-width: 1280px) 389px, (min-width: 1024px) 304px, (min-width: 768px) 344px, (min-width: 430px) 382px, 327px" alt="WOPX08 магнитный повербанк 3-в-1 с кабелями и зарядкой часов" width="200" height="200" class="w-full h-full object-contain" loading="lazy" decoding="async"></div>
@@ -255,7 +251,7 @@ ogImage: "/image/product/power-bank/wopq11-qi2-magnetic-40w-power-bank.webp"
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Беспроводная зарядка (часы)</td><td class="py-1.5 font-bold text-slate-700">2.5W Max (Apple Watch серия)</td></tr>
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Дисплей</td><td class="py-1.5 font-bold text-slate-700">LED Digital</td></tr></tbody></table></div>
     </details>
-    <button data-action="open-modal" data-product="WOPX08 Magnetic + Cable" class="mt-auto w-full py-3 bg-brandOrange text-white font-black uppercase text-[11px] tracking-widest rounded-xl hover:bg-brandOrange/90 transition shadow-md cursor-pointer">Запросить цену с фабрики</button>
+    <button data-action="open-modal" data-product="WOPX08 Magnetic + Cable" class="btn-card-sm">Запросить цену с фабрики</button>
    </div>
    <div class="product-card reveal bg-white rounded-2xl p-6 border border-slate-200 flex flex-col">
     <div class="aspect-square bg-slate-50 rounded-xl mb-5 overflow-hidden flex items-center justify-center p-6"><img src="/image/product/power-bank/wops31-magnetic-wireless-kickstand.webp" srcset="/image/product/power-bank/wops31-magnetic-wireless-kickstand-450w.webp 450w, /image/product/power-bank/wops31-magnetic-wireless-kickstand.webp 800w" sizes="(min-width: 1440px) 389px, (min-width: 1280px) 389px, (min-width: 1024px) 304px, (min-width: 768px) 344px, (min-width: 430px) 382px, 327px" alt="WOPS31 магнитный повербанк с подставкой-kickstand 22,5 Вт" width="200" height="200" class="w-full h-full object-contain" loading="lazy" decoding="async"></div>
@@ -279,7 +275,7 @@ ogImage: "/image/product/power-bank/wopq11-qi2-magnetic-40w-power-bank.webp"
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Беспроводной выход</td><td class="py-1.5 font-bold text-slate-700">Qi2 15W (10W/7.5W/5W compatible)</td></tr>
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Корпус</td><td class="py-1.5 font-bold text-slate-700">Pearl Matte UV + TPE Frame + Zinc Alloy Stand</td></tr></tbody></table></div>
     </details>
-    <button data-action="open-modal" data-product="WOPS31 Kickstand 22.5W" class="mt-auto w-full py-3 bg-brandOrange text-white font-black uppercase text-[11px] tracking-widest rounded-xl hover:bg-brandOrange/90 transition shadow-md cursor-pointer">Запросить цену с фабрики</button>
+    <button data-action="open-modal" data-product="WOPS31 Kickstand 22.5W" class="btn-card-sm">Запросить цену с фабрики</button>
    </div>
    <div class="product-card reveal bg-white rounded-2xl p-6 border border-slate-200 flex flex-col">
     <div class="aspect-square bg-slate-50 rounded-xl mb-5 overflow-hidden flex items-center justify-center p-6"><img src="/image/product/power-bank/wops27-magnetic-cable-wireless-power-bank.webp" srcset="/image/product/power-bank/wops27-magnetic-cable-wireless-power-bank-450w.webp 450w, /image/product/power-bank/wops27-magnetic-cable-wireless-power-bank.webp 800w" sizes="(min-width: 1440px) 389px, (min-width: 1280px) 389px, (min-width: 1024px) 304px, (min-width: 768px) 344px, (min-width: 430px) 382px, 327px" alt="WOPS27 магнитный повербанк 22,5 Вт с двумя кабелями" width="200" height="200" class="w-full h-full object-contain" loading="lazy" decoding="async"></div>
@@ -308,7 +304,7 @@ ogImage: "/image/product/power-bank/wopq11-qi2-magnetic-40w-power-bank.webp"
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Тип кабеля</td><td class="py-1.5 font-bold text-slate-700">TPE Dragon Scale C+L Bull Head</td></tr>
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Цвета</td><td class="py-1.5 font-bold text-slate-700">Белый+Orange / Белый+Grey / Чёрный+Orange / Чёрный+Grey</td></tr></tbody></table></div>
     </details>
-    <button data-action="open-modal" data-product="WOPS27 Magnetic 22.5W" class="mt-auto w-full py-3 bg-brandOrange text-white font-black uppercase text-[11px] tracking-widest rounded-xl hover:bg-brandOrange/90 transition shadow-md cursor-pointer">Запросить цену с фабрики</button>
+    <button data-action="open-modal" data-product="WOPS27 Magnetic 22.5W" class="btn-card-sm">Запросить цену с фабрики</button>
    </div>
    <div class="product-card reveal bg-white rounded-2xl p-6 border border-slate-200 flex flex-col">
     <div class="aspect-square bg-slate-50 rounded-xl mb-5 overflow-hidden flex items-center justify-center p-6"><img src="/image/product/power-bank/wops11-magnetic-cable-wireless-20000mah.webp" srcset="/image/product/power-bank/wops11-magnetic-cable-wireless-20000mah-450w.webp 450w, /image/product/power-bank/wops11-magnetic-cable-wireless-20000mah.webp 800w" sizes="(min-width: 1440px) 389px, (min-width: 1280px) 389px, (min-width: 1024px) 304px, (min-width: 768px) 344px, (min-width: 430px) 382px, 327px" alt="WOPS11 магнитный повербанк высокой ёмкости 20000 мА·ч" width="200" height="200" class="w-full h-full object-contain" loading="lazy" decoding="async"></div>
@@ -338,7 +334,7 @@ ogImage: "/image/product/power-bank/wopq11-qi2-magnetic-40w-power-bank.webp"
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Активация</td><td class="py-1.5 font-bold text-slate-700">One-Button Start (wireless + watch)</td></tr>
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Цвета</td><td class="py-1.5 font-bold text-slate-700">Белый+Orange / Белый+Grey / Чёрный+Orange / Чёрный+Чёрный</td></tr></tbody></table></div>
     </details>
-    <button data-action="open-modal" data-product="WOPS11 Magnetic 20000mAh" class="mt-auto w-full py-3 bg-brandOrange text-white font-black uppercase text-[11px] tracking-widest rounded-xl hover:bg-brandOrange/90 transition shadow-md cursor-pointer">Запросить цену с фабрики</button>
+    <button data-action="open-modal" data-product="WOPS11 Magnetic 20000mAh" class="btn-card-sm">Запросить цену с фабрики</button>
    </div>   <div class="product-card reveal bg-white rounded-2xl p-6 border border-slate-200 flex flex-col">
     <div class="aspect-square bg-slate-50 rounded-xl mb-5 overflow-hidden flex items-center justify-center p-6"><img src="/image/product/power-bank/wopj03-watch-wireless-foldable-plug.webp" srcset="/image/product/power-bank/wopj03-watch-wireless-foldable-plug-450w.webp 450w, /image/product/power-bank/wopj03-watch-wireless-foldable-plug.webp 800w" sizes="(min-width: 1440px) 389px, (min-width: 1280px) 389px, (min-width: 1024px) 304px, (min-width: 768px) 344px, (min-width: 430px) 382px, 327px" alt="WOPJ03 повербанк с зарядкой Apple Watch и складным штекером" width="200" height="200" class="w-full h-full object-contain" loading="lazy" decoding="async"></div>
     <p class="card-badge mb-2">Watch + Cable</p>
@@ -360,7 +356,7 @@ ogImage: "/image/product/power-bank/wopq11-qi2-magnetic-40w-power-bank.webp"
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Беспроводная зарядка (часы)</td><td class="py-1.5 font-bold text-slate-700">2.5W Max (Apple Watch серия)</td></tr>
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Корпус</td><td class="py-1.5 font-bold text-slate-700">Raw Body + Metal UV Frame + TPE Cable</td></tr></tbody></table></div>
     </details>
-    <button data-action="open-modal" data-product="WOPJ03 Watch + Cable" class="mt-auto w-full py-3 bg-brandOrange text-white font-black uppercase text-[11px] tracking-widest rounded-xl hover:bg-brandOrange/90 transition shadow-md cursor-pointer">Запросить цену с фабрики</button>
+    <button data-action="open-modal" data-product="WOPJ03 Watch + Cable" class="btn-card-sm">Запросить цену с фабрики</button>
    </div>
   </div>
  </div>
@@ -379,11 +375,7 @@ ogImage: "/image/product/power-bank/wopq11-qi2-magnetic-40w-power-bank.webp"
 <!-- Qi2 vs MagSafe vs Qi -->
 <section class="py-16 bg-slate-50">
  <div class="container-content">
-  <div class="text-center max-w-3xl mx-auto mb-12 reveal">
-   <p class="section-label">Сравнение</p>
-   <h2 class="section-title">Qi2 vs MagSafe vs Qi</h2>
-   <p class="section-desc mx-auto">Три стандарта беспроводной зарядки в прямом сравнении для B2B-закупщиков.</p>
-  </div>
+  {{ sectionHeader('Сравнение', 'Qi2 vs MagSafe vs Qi', 'Три стандарта беспроводной зарядки в прямом сравнении для B2B-закупщиков.', {mb: 'mb-12'}) }}
   <div class="overflow-x-auto reveal">
    <table class="w-full border-collapse bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-200">
     <thead><tr class="bg-brandBlue text-white">
@@ -407,10 +399,7 @@ ogImage: "/image/product/power-bank/wopq11-qi2-magnetic-40w-power-bank.webp"
 <!-- СЕРТИФИКАЦИЯ -->
 <section class="py-16 bg-white">
  <div class="container-content">
-  <div class="text-center max-w-3xl mx-auto mb-12 reveal">
-   <p class="section-label">Соответствие требованиям</p>
-   <h2 class="section-title">Документы для импортёров магнитных повербанков</h2>
-  <div class="grid md:grid-cols-2 gap-6 reveal">
+  {% call sectionHeader('Соответствие требованиям', 'Документы для импортёров магнитных повербанков', '', {mb: 'mb-12'}) %}<div class="grid md:grid-cols-2 gap-6 reveal">
    <div class="bg-white rounded-2xl p-6 border border-slate-200">
     <h3 class="text-base font-bold text-brandBlue mb-2">Поддержка при сертификации EAC</h3>
     <p class="text-sm text-slate-600 leading-relaxed">Для повербанков с 2026 года оформляется <strong>сертификат соответствия EAC</strong> (декларация не применяется) по ТР ТС 004/2011 и ТР ТС 020/2011, с обязательными испытаниями UN38.3 и IEC 62133. Готовим протоколы испытаний, техническое описание и инструкцию на русском языке. Сертификат оформляет аккредитованный орган в РФ, Казахстане или Беларуси — мы передаём ему всё необходимое от производителя.</p>
@@ -421,26 +410,24 @@ ogImage: "/image/product/power-bank/wopq11-qi2-magnetic-40w-power-bank.webp"
    </div>
   </div>
   <p class="text-xs text-slate-500 text-center mt-6 reveal">Справочно: <a href="https://www.wirelesspowerconsortium.com/" target="_blank" rel="noopener external" class="text-brandOrange hover:underline">Wireless Power Consortium — стандарт Qi2</a> &middot; <a href="https://www.iata.org/en/programs/cargo/dgr/lithium-batteries/" target="_blank" rel="noopener external" class="text-brandOrange hover:underline">IATA — Lithium Batteries Guidance</a></p>
+ {% endcall %}
  </div>
 </section>
 
 <!-- OEM/ODM CTA -->
 <section class="py-16 bg-brandBlue text-white">
- <div class="container-content text-center">
-  <p class="section-label text-brandOrange">OEM / ODM</p>
-  <h2 class="text-3xl lg:text-4xl font-black uppercase italic tracking-tighter mb-4">Магнитный повербанк Qi2<br><span class="text-brandOrange">под вашей маркой</span></h2>
-  <p class="text-slate-300 max-w-2xl mx-auto mb-8">MOQ от 500 штук. Собственная позиция магнитного кольца, лазерная гравировка, фирменная упаковка. Образец за 3–7 дней, производство за 25–30 дней. Партии готовим под карточки Ozon и Wildberries: этикетки, штрихкоды и комплект документов EAC.</p>
+ {% call sectionHeader('OEM / ODM', 'Магнитный повербанк Qi2<br><span class="text-brandOrange">под вашей маркой</span>', '', {max: '', mb: '', extra: 'container-content', reveal: false, labelClass: 'text-brandOrange', titleClass: 'text-3xl lg:text-4xl font-black uppercase italic tracking-tighter mb-4'}) %}<p class="text-slate-300 max-w-2xl mx-auto mb-8">MOQ от 500 штук. Собственная позиция магнитного кольца, лазерная гравировка, фирменная упаковка. Образец за 3–7 дней, производство за 25–30 дней. Партии готовим под карточки Ozon и Wildberries: этикетки, штрихкоды и комплект документов EAC.</p>
   <div class="flex flex-wrap gap-4 justify-center">
    <button data-action="open-modal" class="btn-primary cursor-pointer">Запросить расчёт OEM &rarr;</button>
    <a href="/ru/kontakty/" class="inline-flex items-center justify-center px-6 py-3 border-2 border-white text-white font-black uppercase italic tracking-widest text-sm rounded-full hover:bg-white hover:text-brandBlue transition-all">Связаться с нами</a>
   </div>
- </div>
+ {% endcall %}
 </section>
 
 <!-- FAQ -->
 <section class="py-16 bg-white">
  <div class="container-narrow">
-  <div class="text-center mb-12 reveal"><p class="section-label">FAQ</p><h2 class="section-title">Частые вопросы о Qi2</h2></div>
+  {{ sectionHeader('FAQ', 'Частые вопросы о Qi2', '', {max: '', mb: 'mb-12'}) }}
   <div class="space-y-4">
    <details class="reveal bg-slate-50 rounded-2xl p-6 border border-slate-200"><summary class="font-bold text-brandBlue cursor-pointer">Что такое магнитная зарядка Qi2?</summary><p class="text-sm text-slate-600 mt-3 leading-relaxed faq-answer">Qi2 — стандартизированный преемник Qi от Wireless Power Consortium с профилем Magnetic Power Profile (MPP) на базе технологии Apple MagSafe. Qi2 обеспечивает беспроводную быструю зарядку 15 Вт с точным магнитным выравниванием на неодимовых магнитах N52H.</p></details>
    <details class="reveal bg-slate-50 rounded-2xl p-6 border border-slate-200"><summary class="font-bold text-brandBlue cursor-pointer">Совместимы ли повербанки Qi2 с MagSafe?</summary><p class="text-sm text-slate-600 mt-3 leading-relaxed faq-answer">Да. Магнитные повербанки Qi2 полностью совместимы с MagSafe на iPhone 12–16. Используется то же магнитное кольцо N52H, мощность 15 Вт против 7,5 Вт у классической Qi-зарядки.</p></details>

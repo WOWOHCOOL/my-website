@@ -56,11 +56,11 @@ navActive: ""
 
 {% block content %}
 {% from "breadcrumb.njk" import breadcrumb %}
-{{ breadcrumb([{name:"Главная",url:"/ru/"},{name:"Условия использования"}], "container-narrow") }}
 
-<section class="py-16 bg-white">
+<section class="pt-24 md:pt-28 pb-16 bg-white">
  <div class="container-narrow">
- <h1 class="text-3xl md:text-4xl font-black text-brandBlue mb-8 italic uppercase">Условия использования</h1>
+  {{ breadcrumb([{name:"Главная",url:"/ru/"},{name:"Условия использования"}], "none", "mb-6", { variant: "hero" }) }}
+ <h1 class="text-3xl md:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-8">Условия использования</h1>
 
  <div class="space-y-6 text-sm text-slate-600 leading-relaxed">
 
@@ -158,9 +158,9 @@ navActive: ""
 
  <div class="mt-8 pt-6 border-t border-slate-200 text-center">
  <a href="/ru/pravovaya-informaciya/" class="text-brandOrange hover:underline font-semibold text-sm">Правовая информация</a>
- <span class="text-slate-300 mx-3">|</span>
+ <span class="text-slate-500 mx-3">|</span>
  <a href="/ru/politika-konfidencialnosti/" class="text-brandOrange hover:underline font-semibold text-sm">Политика конфиденциальности</a>
- <span class="text-slate-300 mx-3">|</span>
+ <span class="text-slate-500 mx-3">|</span>
  <a href="/ru/kontakty/" class="text-brandOrange hover:underline font-semibold text-sm">Контакты</a>
  </div>
  </div>
@@ -169,11 +169,8 @@ navActive: ""
 <!-- CTA -->
 <section class="sec bg-brandBlue">
 <div class="container-narrow text-center">
-<div class="reveal">
-<p class="section-label">Начните сейчас</p>
-<h2 class="text-3xl md:text-5xl font-black text-white leading-tight mb-4 italic uppercase">Остались вопросы?<br><span class="text-brandOrange">Бесплатный расчёт OEM</span></h2>
-<p class="text-slate-300 text-lg max-w-2xl mx-auto mb-8">Напишите нам — получите персональную консультацию по вашему OEM/ODM-проекту в течение 24 часов.</p>
-</div>
+{% call sectionHeader('Начните сейчас', 'Остались вопросы?<br><span class="text-brandOrange">Бесплатный расчёт OEM</span>', '', {align: '', max: '', mb: '', titleClass: 'text-3xl md:text-5xl font-black text-white leading-tight mb-4 italic uppercase'}) %}<p class="text-slate-300 text-lg max-w-2xl mx-auto mb-8">Напишите нам — получите персональную консультацию по вашему OEM/ODM-проекту в течение 24 часов.</p>
+{% endcall %}
 <div class="max-w-xl mx-auto reveal">
 <form action="https://api.web3forms.com/submit" method="POST" class="inquiry-form space-y-4">
  <input type="hidden" name="access_key" value="ac5fe4cd-2dd7-4aff-818d-bb36021b4942">
@@ -187,7 +184,7 @@ navActive: ""
 <label class="block text-sm font-semibold text-white mb-1">Email *</label><input type="email" name="email" required placeholder="email@example.com" autocomplete="email" class="w-full px-4 py-3.5 rounded-xl border border-white/20 bg-white/10 text-white placeholder:text-white/50 focus:outline-none focus:border-brandOrange text-sm">
 <textarea required minlength="10" name="message" rows="3" placeholder="Ваш запрос (количество, характеристики, требования)" class="w-full px-4 py-3.5 rounded-xl border border-white/20 bg-white/10 text-white placeholder:text-white/50 focus:outline-none focus:border-brandOrange text-sm resize-none"></textarea>
 <label class="flex items-start gap-3 text-left"><input type="checkbox" required class="mt-1 accent-brandOrange"><span class="text-xs text-slate-500">Я ознакомлен(а) и принимаю <a href="/ru/politika-konfidencialnosti/" class="text-brandOrange hover:underline">Политику конфиденциальности</a>. *</span></label>
-<button type="submit" class="w-full bg-brandOrange text-white py-4 rounded-xl font-bold text-base hover:bg-brandBlue transition-all duration-300 shadow-lg shadow-brandOrange/20 flex items-center justify-center gap-3">Получить расчёт <svg class="icon-arrow-right" aria-hidden="true" focusable="false" viewBox="0 0 512 512">
+<button type="submit" class="btn-form">Получить расчёт <svg class="icon-arrow-right" aria-hidden="true" focusable="false" viewBox="0 0 512 512">
  <path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-105.4 105.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" fill="currentColor"/>
  </svg></button>
 </form>

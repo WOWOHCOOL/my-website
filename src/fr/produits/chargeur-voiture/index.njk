@@ -44,11 +44,11 @@ plPath: "produkty/ladowarka-samochodowa/"
 {% endblock %}
 
 {% block content %}
-	{{ breadcrumb([{name: "Accueil", url: "/fr/"}, {name: "Produits", url: "/fr/produits/"}, {name: "Chargeur voiture"}]) }}
 
  <!-- HERO -->
- <section class="pb-16 md:pb-20 bg-gradient-to-br from-slate-50 via-white to-orange-50">
+ <section class="pt-24 md:pt-28 pb-16 md:pb-20 bg-gradient-to-br from-slate-50 via-white to-orange-50">
  <div class="container-wide">
+  {{ breadcrumb([{name: "Accueil", url: "/fr/"}, {name: "Produits", url: "/fr/produits/"}, {name: "Chargeur voiture"}], "none", "mb-6", { variant: "hero" }) }}
  <div class="grid lg:grid-cols-2 gap-12 items-center">
  <div class="reveal order-2 lg:order-1">
  <p class="text-brandOrange text-xs font-bold tracking-widest uppercase mb-3">Chargeur voiture</p>
@@ -82,19 +82,12 @@ plPath: "produkty/ladowarka-samochodowa/"
  </div>
  </section>
 
- <!-- ======== TRUST BAND ======== -->
- {% from "partials/customer-logos.njk" import customerLogos %}
- {{ customerLogos("La confiance des marques internationales") }}
-
- {% from "partials/stats-bar.njk" import statsBar %}
- {{ statsBar(i18n.statsBar[lang].items) }}
-
-{% from "partials/cert-showcase.njk" import certShowcase %}
-{{ certShowcase(i18n.certifications[lang].homepage.items, i18n.certifications[lang].homepage.heading, i18n.certifications[lang].homepage.title, "", "", true) }}
+ <!-- ======== TRUST BAR ======== -->
+ {% include "trust-bar.njk" %}
 
  <section class="sec bg-white">
  <div class="container-wide">
- <div class="text-center max-w-3xl mx-auto mb-16 reveal"><p class="section-label">Nos chargeurs voiture</p><h2 class="section-title">Puissants pour chaque trajet</h2><p class="section-desc mx-auto">Du chargeur compact 45W au modèle haute performance 140W avec câble rétractable.</p></div>
+ {{ sectionHeader('Nos chargeurs voiture', 'Puissants pour chaque trajet', 'Du chargeur compact 45W au modèle haute performance 140W avec câble rétractable.', {}) }}
    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 items-start">
    <div class="product-card reveal bg-white rounded-2xl p-6 border border-slate-200 flex flex-col">
     <div class="aspect-square bg-slate-50 rounded-xl mb-5 overflow-hidden flex items-center justify-center p-6"><img src="/image/product/car-charger/woc42-retractable-car-charger.webp" srcset="/image/product/car-charger/woc42-retractable-car-charger-450w.webp 450w, /image/product/car-charger/woc42-retractable-car-charger.webp 1920w" sizes="(min-width: 1440px) 389px, (min-width: 1280px) 389px, (min-width: 1024px) 304px, (min-width: 768px) 344px, (min-width: 430px) 382px, 327px" alt="WOC42 Hub rétractable 105W" width="200" height="200" class="w-full h-full object-contain" loading="lazy" decoding="async"></div>
@@ -121,7 +114,7 @@ plPath: "produkty/ladowarka-samochodowa/"
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Câble Lightning (30W)</td><td class="py-1.5 font-bold text-slate-700">5V/2.4A, 9V/3A, 12V/2.5A</td></tr>
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Sortie totale</td><td class="py-1.5 font-bold text-slate-700">35W + 45W + 30W = 110W (3 Ausgaenge)</td></tr></tbody></table></div>
     </details>
-    <button data-action="open-modal" data-product="WOC42 Hub rétractable 105W" class="mt-auto w-full py-3 bg-brandOrange text-white font-black uppercase text-[11px] tracking-widest rounded-xl hover:bg-brandOrange/90 transition shadow-md cursor-pointer">Demander le prix usine</button>
+    <button data-action="open-modal" data-product="WOC42 Hub rétractable 105W" class="btn-card-sm">Demander le prix usine</button>
    </div>
    <div class="product-card reveal bg-white rounded-2xl p-6 border border-slate-200 flex flex-col">
     <div class="aspect-square bg-slate-50 rounded-xl mb-5 overflow-hidden flex items-center justify-center p-6"><img src="/image/product/car-charger/woc45-retractable-charger.webp" srcset="/image/product/car-charger/woc45-retractable-charger-450w.webp 450w, /image/product/car-charger/woc45-retractable-charger.webp 800w" sizes="(min-width: 1440px) 389px, (min-width: 1280px) 389px, (min-width: 1024px) 304px, (min-width: 768px) 344px, (min-width: 430px) 382px, 327px" alt="WOC45 Hub compact 3-en-1" width="200" height="200" class="w-full h-full object-contain" loading="lazy" decoding="async"></div>
@@ -147,7 +140,7 @@ plPath: "produkty/ladowarka-samochodowa/"
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Mode 2 : 66W</td><td class="py-1.5 font-bold text-slate-700">USB-A: 5V/3A, 9V/3A, 12V/2.5A (36W) | USB-C: 5V/3A, 9V/3A, 12V/2.5A (36W, PPS) | USB-A+USB-C: 5V/3.4A</td></tr>
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Câble 30W</td><td class="py-1.5 font-bold text-slate-700">5V/3A, 9V/3A, 12V/2.5A (PPS 3.3-11V/3A)</td></tr></tbody></table></div>
     </details>
-    <button data-action="open-modal" data-product="WOC45 Hub compact 3-en-1" class="mt-auto w-full py-3 bg-brandOrange text-white font-black uppercase text-[11px] tracking-widest rounded-xl hover:bg-brandOrange/90 transition shadow-md cursor-pointer">Demander le prix usine</button>
+    <button data-action="open-modal" data-product="WOC45 Hub compact 3-en-1" class="btn-card-sm">Demander le prix usine</button>
    </div>
    <div class="product-card reveal bg-white rounded-2xl p-6 border border-slate-200 flex flex-col">
     <div class="aspect-square bg-slate-50 rounded-xl mb-5 overflow-hidden flex items-center justify-center p-6"><img src="/image/product/car-charger/woc91-backseat-hub.webp" srcset="/image/product/car-charger/woc91-backseat-hub-450w.webp 450w, /image/product/car-charger/woc91-backseat-hub.webp 1920w" sizes="(min-width: 1440px) 389px, (min-width: 1280px) 389px, (min-width: 1024px) 304px, (min-width: 768px) 344px, (min-width: 430px) 382px, 327px" alt="WOC91 Hub banquette arrière 120W" width="200" height="200" class="w-full h-full object-contain" loading="lazy" decoding="async"></div>
@@ -172,7 +165,7 @@ plPath: "produkty/ladowarka-samochodowa/"
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">USB-A2 (30W)</td><td class="py-1.5 font-bold text-slate-700">5V/3A, 9V/3A, 12V/2.5A</td></tr>
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Type-C2 (30W)</td><td class="py-1.5 font-bold text-slate-700">5V/3A, 9V/3A, 12V/2.5A</td></tr></tbody></table></div>
     </details>
-    <button data-action="open-modal" data-product="WOC91 Hub banquette arrière 120W" class="mt-auto w-full py-3 bg-brandOrange text-white font-black uppercase text-[11px] tracking-widest rounded-xl hover:bg-brandOrange/90 transition shadow-md cursor-pointer">Demander le prix usine</button>
+    <button data-action="open-modal" data-product="WOC91 Hub banquette arrière 120W" class="btn-card-sm">Demander le prix usine</button>
    </div>
    <div class="product-card reveal bg-white rounded-2xl p-6 border border-slate-200 flex flex-col">
     <div class="aspect-square bg-slate-50 rounded-xl mb-5 overflow-hidden flex items-center justify-center p-6"><img src="/image/product/car-charger/woc92-retractable-car-charger-hub.webp" srcset="/image/product/car-charger/woc92-retractable-car-charger-hub-450w.webp 450w, /image/product/car-charger/woc92-retractable-car-charger-hub.webp 800w" sizes="(min-width: 1440px) 389px, (min-width: 1280px) 389px, (min-width: 1024px) 304px, (min-width: 768px) 344px, (min-width: 430px) 382px, 327px" alt="WOC92 Hub rétractable 120W" width="200" height="200" class="w-full h-full object-contain" loading="lazy" decoding="async"></div>
@@ -200,7 +193,7 @@ plPath: "produkty/ladowarka-samochodowa/"
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Longueur de câble</td><td class="py-1.5 font-bold text-slate-700">80cm (rétractable)</td></tr>
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Câble d'extension</td><td class="py-1.5 font-bold text-slate-700">1.5M</td></tr></tbody></table></div>
     </details>
-    <button data-action="open-modal" data-product="WOC92 Hub rétractable 120W" class="mt-auto w-full py-3 bg-brandOrange text-white font-black uppercase text-[11px] tracking-widest rounded-xl hover:bg-brandOrange/90 transition shadow-md cursor-pointer">Demander le prix usine</button>
+    <button data-action="open-modal" data-product="WOC92 Hub rétractable 120W" class="btn-card-sm">Demander le prix usine</button>
    </div>
    <div class="product-card reveal bg-white rounded-2xl p-6 border border-slate-200 flex flex-col">
     <div class="aspect-square bg-slate-50 rounded-xl mb-5 overflow-hidden flex items-center justify-center p-6"><img src="/image/product/car-charger/woc38-4port-charger.webp" srcset="/image/product/car-charger/woc38-4port-charger-450w.webp 450w, /image/product/car-charger/woc38-4port-charger.webp 800w" sizes="(min-width: 1440px) 389px, (min-width: 1280px) 389px, (min-width: 1024px) 304px, (min-width: 768px) 344px, (min-width: 430px) 382px, 327px" alt="WOC38 Chargeur rapide Quad-Port" width="200" height="200" class="w-full h-full object-contain" loading="lazy" decoding="async"></div>
@@ -226,7 +219,7 @@ plPath: "produkty/ladowarka-samochodowa/"
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">USB-C2 (35W PD)</td><td class="py-1.5 font-bold text-slate-700">5V/3A, 9V/3A, 12V/2.92A</td></tr>
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Sortie totale</td><td class="py-1.5 font-bold text-slate-700">70W max.</td></tr></tbody></table></div>
     </details>
-    <button data-action="open-modal" data-product="WOC38 Chargeur rapide Quad-Port" class="mt-auto w-full py-3 bg-brandOrange text-white font-black uppercase text-[11px] tracking-widest rounded-xl hover:bg-brandOrange/90 transition shadow-md cursor-pointer">Demander le prix usine</button>
+    <button data-action="open-modal" data-product="WOC38 Chargeur rapide Quad-Port" class="btn-card-sm">Demander le prix usine</button>
    </div>
    <div class="product-card reveal bg-white rounded-2xl p-6 border border-slate-200 flex flex-col">
     <div class="aspect-square bg-slate-50 rounded-xl mb-5 overflow-hidden flex items-center justify-center p-6"><img src="/image/product/car-charger/woc24-140w-digital-charger.webp" srcset="/image/product/car-charger/woc24-140w-digital-charger-800w.webp 800w, /image/product/car-charger/woc24-140w-digital-charger.webp 1920w" sizes="(min-width: 1440px) 590px, (min-width: 1280px) 590px, (min-width: 1024px) 462px, (min-width: 768px) 718px, (min-width: 430px) 382px, 359px" alt="WOC24 140W Pro Hub numérique" width="200" height="200" class="w-full h-full object-contain" loading="lazy" decoding="async"></div>
@@ -249,7 +242,7 @@ plPath: "produkty/ladowarka-samochodowa/"
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Dimensions</td><td class="py-1.5 font-bold text-slate-700">73  x  45  x  29mm</td></tr>
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Poids</td><td class="py-1.5 font-bold text-slate-700">≥8g</td></tr></tbody></table></div>
     </details>
-    <button data-action="open-modal" data-product="WOC24 140W Pro Hub numérique" class="mt-auto w-full py-3 bg-brandOrange text-white font-black uppercase text-[11px] tracking-widest rounded-xl hover:bg-brandOrange/90 transition shadow-md cursor-pointer">Demander le prix usine</button>
+    <button data-action="open-modal" data-product="WOC24 140W Pro Hub numérique" class="btn-card-sm">Demander le prix usine</button>
    </div>
    <div class="product-card reveal bg-white rounded-2xl p-6 border border-slate-200 flex flex-col">
     <div class="aspect-square bg-slate-50 rounded-xl mb-5 overflow-hidden flex items-center justify-center p-6"><img src="/image/product/car-charger/woc39-100w-charger.webp" srcset="/image/product/car-charger/woc39-100w-charger-450w.webp 450w, /image/product/car-charger/woc39-100w-charger.webp 900w" sizes="(min-width: 1440px) 389px, (min-width: 1280px) 389px, (min-width: 1024px) 304px, (min-width: 768px) 344px, (min-width: 430px) 382px, 327px" alt="WOC39 Pro Hub Outdoor 100W" width="200" height="200" class="w-full h-full object-contain" loading="lazy" decoding="async"></div>
@@ -275,7 +268,7 @@ plPath: "produkty/ladowarka-samochodowa/"
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">USB-C2 + USB-A</td><td class="py-1.5 font-bold text-slate-700">5V/3A</td></tr>
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Sortie totale</td><td class="py-1.5 font-bold text-slate-700">130W max.</td></tr></tbody></table></div>
     </details>
-    <button data-action="open-modal" data-product="WOC39 Pro Hub Outdoor 100W" class="mt-auto w-full py-3 bg-brandOrange text-white font-black uppercase text-[11px] tracking-widest rounded-xl hover:bg-brandOrange/90 transition shadow-md cursor-pointer">Demander le prix usine</button>
+    <button data-action="open-modal" data-product="WOC39 Pro Hub Outdoor 100W" class="btn-card-sm">Demander le prix usine</button>
    </div>
    <div class="product-card reveal bg-white rounded-2xl p-6 border border-slate-200 flex flex-col">
     <div class="aspect-square bg-slate-50 rounded-xl mb-5 overflow-hidden flex items-center justify-center p-6"><img src="/image/product/car-charger/woc05-mini-hidden-car-charger.webp" srcset="/image/product/car-charger/woc05-mini-hidden-car-charger-450w.webp 450w, /image/product/car-charger/woc05-mini-hidden-car-charger.webp 800w" sizes="(min-width: 1440px) 389px, (min-width: 1280px) 389px, (min-width: 1024px) 304px, (min-width: 768px) 344px, (min-width: 430px) 382px, 327px" alt="WOC05 Mini chargeur dissimulé" width="200" height="200" class="w-full h-full object-contain" loading="lazy" decoding="async"></div>
@@ -297,7 +290,7 @@ plPath: "produkty/ladowarka-samochodowa/"
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">USB-C (65W)</td><td class="py-1.5 font-bold text-slate-700">5V/3A, 9V/3A, 12V/3A, 15V/3A, 20V/3.25A (PPS 3.3-20V/3.25A)</td></tr>
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Sortie totale</td><td class="py-1.5 font-bold text-slate-700">65W max. (Shared)</td></tr></tbody></table></div>
     </details>
-    <button data-action="open-modal" data-product="WOC05 Mini chargeur dissimulé" class="mt-auto w-full py-3 bg-brandOrange text-white font-black uppercase text-[11px] tracking-widest rounded-xl hover:bg-brandOrange/90 transition shadow-md cursor-pointer">Demander le prix usine</button>
+    <button data-action="open-modal" data-product="WOC05 Mini chargeur dissimulé" class="btn-card-sm">Demander le prix usine</button>
    </div>
    <div class="product-card reveal bg-white rounded-2xl p-6 border border-slate-200 flex flex-col">
     <div class="aspect-square bg-slate-50 rounded-xl mb-5 overflow-hidden flex items-center justify-center p-6"><img src="/image/product/car-charger/woc04-mini-pd45w-car-charger.webp" srcset="/image/product/car-charger/woc04-mini-pd45w-car-charger-450w.webp 450w, /image/product/car-charger/woc04-mini-pd45w-car-charger.webp 800w" sizes="(min-width: 1440px) 389px, (min-width: 1280px) 389px, (min-width: 1024px) 304px, (min-width: 768px) 344px, (min-width: 430px) 382px, 327px" alt="WOC04 Mini Hub PD 45W" width="200" height="200" class="w-full h-full object-contain" loading="lazy" decoding="async"></div>
@@ -318,7 +311,7 @@ plPath: "produkty/ladowarka-samochodowa/"
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Sortie</td><td class="py-1.5 font-bold text-slate-700">5V/3A, 9V/3A, 12V/3A, 15V/3A, 20V/2.25A</td></tr>
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Protocoles</td><td class="py-1.5 font-bold text-slate-700">PPS/PD3.0/QC4.0, Qi2.2</td></tr></tbody></table></div>
     </details>
-    <button data-action="open-modal" data-product="WOC04 Mini Hub PD 45W" class="mt-auto w-full py-3 bg-brandOrange text-white font-black uppercase text-[11px] tracking-widest rounded-xl hover:bg-brandOrange/90 transition shadow-md cursor-pointer">Demander le prix usine</button>
+    <button data-action="open-modal" data-product="WOC04 Mini Hub PD 45W" class="btn-card-sm">Demander le prix usine</button>
    </div>
    <div class="product-card reveal bg-white rounded-2xl p-6 border border-slate-200 flex flex-col">
     <div class="aspect-square bg-slate-50 rounded-xl mb-5 overflow-hidden flex items-center justify-center p-6"><img src="/image/product/car-charger/woc10-dual-port-car-charger.webp" srcset="/image/product/car-charger/woc10-dual-port-car-charger-450w.webp 450w, /image/product/car-charger/woc10-dual-port-car-charger.webp 1920w" sizes="(min-width: 1440px) 389px, (min-width: 1280px) 389px, (min-width: 1024px) 304px, (min-width: 768px) 344px, (min-width: 430px) 382px, 327px" alt="WOC10 65W GaN Dual-Port" width="200" height="200" class="w-full h-full object-contain" loading="lazy" decoding="async"></div>
@@ -342,21 +335,17 @@ plPath: "produkty/ladowarka-samochodowa/"
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">USB-A (18W)</td><td class="py-1.5 font-bold text-slate-700">5V/3.1A, 9V/2A, 12V/1.5A</td></tr>
      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">Sortie totale</td><td class="py-1.5 font-bold text-slate-700">38W max.</td></tr></tbody></table></div>
     </details>
-    <button data-action="open-modal" data-product="WOC10 65W GaN Dual-Port" class="mt-auto w-full py-3 bg-brandOrange text-white font-black uppercase text-[11px] tracking-widest rounded-xl hover:bg-brandOrange/90 transition shadow-md cursor-pointer">Demander le prix usine</button>
+    <button data-action="open-modal" data-product="WOC10 65W GaN Dual-Port" class="btn-card-sm">Demander le prix usine</button>
    </div>
   </div>
  </div>
- </div>
+ 
  </section>
 
  <!-- ======== PRODUKTVERGLEICH ======== -->
  <section class="sec-cta bg-slate-50 pb-10">
  <div class="container-wide">
- <div class="text-center max-w-3xl mx-auto mb-10 reveal">
- <p class="section-label">Comparaison de produits</p>
- <h2 class="section-title">Comparaison des chargeurs voiture</h2>
- <p class="section-desc mx-auto">Tous les modèles en comparaison, du mini chargeur à la station haute puissance 140W.</p>
- </div>
+ {{ sectionHeader('Comparaison de produits', 'Comparaison des chargeurs voiture', 'Tous les modèles en comparaison, du mini chargeur à la station haute puissance 140W.', {mb: 'mb-10'}) }}
  </div>
  <div class="max-w-5xl mx-auto overflow-x-auto reveal">
  <table class="w-full min-w-[600px] bg-white rounded-2xl shadow-sm border border-slate-200">
@@ -424,18 +413,14 @@ plPath: "produkty/ladowarka-samochodowa/"
  </table>
  </div>
  <p class="text-xs text-slate-400 text-center mt-4 mb-8">Tous les prix sur demande. MOQ selon le modèle et l'étendue de la personnalisation.</p>
- </div>
+ 
  </section>
 
  <!-- PRODUCTS -->
  <!-- ======== VORTEILE ======== -->
  <section class="sec bg-white">
  <div class="container-wide">
- <div class="text-center max-w-3xl mx-auto mb-16 reveal">
- <p class="section-label">Avantages</p>
- <h2 class="section-title">Pourquoi nos chargeurs voiture sont le premier choix</h2>
- <p class="section-desc mx-auto">Puissance et sécurité maximales pour une utilisation en véhicule.</p>
- </div>
+ {{ sectionHeader('Avantages', 'Pourquoi nos chargeurs voiture sont le premier choix', 'Puissance et sécurité maximales pour une utilisation en véhicule.', {}) }}
  <div class="grid md:grid-cols-2 gap-8">
  <div class="reveal bg-slate-50 rounded-2xl p-8 border border-slate-200">
  <div class="flex items-center gap-4 mb-4"><div class="w-12 h-12 rounded-xl bg-brandOrange/10 flex items-center justify-center shrink-0"><svg class="icon-car text-xl text-brandOrange" aria-hidden="true" focusable="false" viewBox="0 0 512 512">
@@ -465,12 +450,9 @@ plPath: "produkty/ladowarka-samochodowa/"
  </div>
  </section>
 
- <!-- OEM/ODM -->
  <section class="sec bg-white">
  <div class="container-wide">
- <section class="sec bg-white">
- <div class="container-wide">
- <div class="text-center max-w-3xl mx-auto mb-16 reveal"><p class="section-label">Spécifications techniques</p><h2 class="section-title">Aperçu des spécifications</h2></div>
+ {{ sectionHeader('Spécifications techniques', 'Aperçu des spécifications', '', {}) }}
  <div class="overflow-x-auto reveal">
  <table class="w-full border-collapse bg-white rounded-2xl overflow-hidden shadow-sm">
  <thead><tr class="bg-brandBlue text-white"><th class="text-left px-5 py-4 font-bold text-sm">Spécification</th><th class="text-left px-5 py-4 font-bold text-sm">WOC24</th><th class="text-left px-5 py-4 font-bold text-sm">WOC42</th><th class="text-left px-5 py-4 font-bold text-sm">WOC38</th><th class="text-left px-5 py-4 font-bold text-sm">WOC04</th></tr></thead>
@@ -484,16 +466,13 @@ plPath: "produkty/ladowarka-samochodowa/"
  </tbody>
  </table>
  </div>
+ </div>
  </section>
 
  <!-- ======== CERTIFICATIONS & NORMES ======== -->
  <section class="sec bg-slate-50">
  <div class="container-content">
- <div class="text-center max-w-3xl mx-auto mb-12 reveal">
- <p class="section-label">Certifications & Normes</p>
- <h2 class="section-title">Conformité automobile — Prêt pour le marché français</h2>
- <p class="section-desc mx-auto">Tous nos chargeurs voiture sont certifiés pour une utilisation légale et sécurisée dans l'Union Européenne.</p>
- </div>
+ {{ sectionHeader('Certifications &amp; Normes', 'Conformité automobile — Prêt pour le marché français', 'Tous nos chargeurs voiture sont certifiés pour une utilisation légale et sécurisée dans l\'Union Européenne.', {mb: 'mb-12'}) }}
  <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5 reveal">
  <div class="bg-white rounded-xl p-6 border border-slate-100 shadow-sm">
  <div class="w-10 h-10 rounded-lg bg-brandOrange/10 flex items-center justify-center mb-3"><svg class="icon-car text-brandOrange text-lg" aria-hidden="true" focusable="false" viewBox="0 0 512 512"><path d="M135.2 117.4l-26.1 74.6 293.8 0-26.1-74.6C372.3 104.6 360.2 96 346.6 96L165.4 96c-13.6 0-25.7 8.6-30.2 21.4zM39.6 196.8L74.8 96.3C88.3 57.8 124.6 32 165.4 32l181.2 0c40.8 0 77.1 25.8 90.6 64.3l35.2 100.5c23.2 9.6 39.6 32.5 39.6 59.2l0 192c0 17.7-14.3 32-32 32l-32 0c-17.7 0-32-14.3-32-32l0-32-320 0 0 32c0 17.7-14.3 32-32 32l-32 0c-17.7 0-32-14.3-32-32L0 256c0-26.7 16.4-49.6 39.6-59.2zM128 304a32 32 0 1 0 -64 0 32 32 0 1 0 64 0zm288 32a32 32 0 1 0 0-64 32 32 0 1 0 0 64z" fill="currentColor"/></svg></div>
@@ -534,9 +513,7 @@ plPath: "produkty/ladowarka-samochodowa/"
  <section class="sec bg-white">
  <div class="container-wide">
  <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
- <div class="reveal">
- <p class="section-label">OEM / ODM</p><h2 class="section-title">Votre chargeur voiture,<br>vos spécifications</h2><p class="section-desc mb-8">Adaptations individuelles pour votre marque, de la puissance au design.</p>
- <ul class="space-y-4">
+ {% call sectionHeader('OEM / ODM', 'Votre chargeur voiture,<br>vos spécifications', 'Adaptations individuelles pour votre marque, de la puissance au design.', {align: '', max: '', mb: '', descClass: 'section-desc mb-8'}) %}<ul class="space-y-4">
  <li class="flex items-start gap-3"><svg class="icon-circle-check text-brandOrange mt-0.5" aria-hidden="true" focusable="false" viewBox="0 0 512 512">
  <path d="M256 512a256 256 0 1 1 0-512 256 256 0 1 1 0 512zM374 145.7c-10.7-7.8-25.7-5.4-33.5 5.3L221.1 315.2 169 263.1c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l72 72c5 5 11.8 7.5 18.8 7s13.4-4.1 17.5-9.8L379.3 179.2c7.8-10.7 5.4-25.7-5.3-33.5z" fill="currentColor"/>
  </svg><span class="text-slate-600 text-sm"><strong class="text-brandBlue">Branding personnalisé :</strong> Logo, couleur du boîtier, emballage</span></li>
@@ -553,7 +530,7 @@ plPath: "produkty/ladowarka-samochodowa/"
  <button data-action="open-modal" class="btn-primary mt-8 cursor-pointer">Demande OEM/ODM <svg class="icon-arrow-right text-sm" aria-hidden="true" focusable="false" viewBox="0 0 512 512">
  <path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-105.4 105.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" fill="currentColor"/>
  </svg></button>
- </div>
+ {% endcall %}
  <div class="reveal">
  <div class="bg-white rounded-2xl p-8 md:p-10 border border-orange-100 shadow-lg relative overflow-hidden">
  <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-brandOrange to-brandOrange/30"></div>
@@ -578,17 +555,12 @@ plPath: "produkty/ladowarka-samochodowa/"
  </div>
  </div>
  </div>
- </div>
  </section>
 
  <!-- ======== GaN V TECHNOLOGIE ======== -->
  <section class="sec bg-white">
  <div class="container-content">
- <div class="text-center max-w-3xl mx-auto mb-12 reveal">
- <p class="section-label">Technologie</p>
- <h2 class="section-title">GaN V — Compact et puissant</h2>
- <p class="section-desc mx-auto">Nos chargeurs voiture utilisent le GaN V (nitrure de gallium de 5e génération). Le résultat : plus de puissance dans moins d'espace, idéal pour l'espace limité de l'allume-cigare.</p>
- </div>
+ {{ sectionHeader('Technologie', 'GaN V — Compact et puissant', 'Nos chargeurs voiture utilisent le GaN V (nitrure de gallium de 5e génération). Le résultat : plus de puissance dans moins d\'espace, idéal pour l\'espace limité de l\'allume-cigare.', {mb: 'mb-12'}) }}
  <div class="grid md:grid-cols-3 gap-6 mb-12 reveal">
  <div class="text-center p-6 bg-slate-50 rounded-2xl border border-slate-200">
  <p class="text-3xl font-black text-brandOrange mb-2">40%</p>
@@ -627,17 +599,11 @@ plPath: "produkty/ladowarka-samochodowa/"
  </div>
  </div>
  </section>
- </div>
- </section>
 
  <!-- ======== PROCESSUS OEM ======== -->
  <section class="sec bg-white">
  <div class="container-content">
- <div class="text-center max-w-3xl mx-auto mb-12 reveal">
- <p class="section-label">Processus OEM</p>
- <h2 class="section-title">Votre chargeur voiture personnalisé — de l'idée à la livraison</h2>
- <p class="section-desc mx-auto">Un processus structuré en 4 étapes. De la demande initiale à la production en série, nous vous accompagnons à chaque phase.</p>
- </div>
+ {{ sectionHeader('Processus OEM', 'Votre chargeur voiture personnalisé — de l\'idée à la livraison', 'Un processus structuré en 4 étapes. De la demande initiale à la production en série, nous vous accompagnons à chaque phase.', {mb: 'mb-12'}) }}
  <div class="grid md:grid-cols-4 gap-0 reveal">
  <div class="relative bg-white rounded-2xl border border-slate-200 p-6 text-center">
  <div class="w-12 h-12 rounded-full bg-brandOrange text-white font-black text-lg flex items-center justify-center mx-auto mb-4">1</div>
@@ -666,18 +632,18 @@ plPath: "produkty/ladowarka-samochodowa/"
  <!-- FAQ -->
  <section class="sec bg-slate-50 w-full">
  <div class="container-wide">
- <div class="text-center max-w-3xl mx-auto mb-16 reveal"><p class="section-label">FAQ</p><h2 class="section-title">Questions fréquentes sur les chargeurs voiture</h2></div>
+ {{ sectionHeader('FAQ', 'Questions fréquentes sur les chargeurs voiture', '', {}) }}
  <div class="max-w-3xl mx-auto reveal">
- <details class="faq-item"><summary>Que signifie la certification E-Mark ?</summary><div class="faq-answer">La certification E-Mark (marque de conformité CEE) confirme que notre chargeur voiture respecte les normes automobiles européennes. Cela est requis pour une utilisation légale en France et dans l'UE. Tous nos chargeurs voiture sont certifiés E-Mark.</div></details>
- <details class="faq-item"><summary>Quelle puissance me faut-il pour mon ordinateur portable ?</summary><div class="faq-answer">Pour MacBook Pro, nous recommandons 100W+, pour MacBook Air 45W–67W suffisent. Notre WOC24 avec 140W recharge même l'ordinateur portable le plus puissant dans le véhicule.</div></details>
- <details class="faq-item"><summary>Qu'est-ce que la technologie GaN pour les chargeurs voiture ?</summary><div class="faq-answer">Le GaN (nitrure de gallium) permet des chargeurs plus petits et plus efficaces avec moins de dégagement de chaleur. Idéal pour l'utilisation en véhicule, surtout par forte température extérieure en été.</div></details>
- <details class="faq-item"><summary>Puis-je imprimer mon propre logo sur le chargeur ?</summary><div class="faq-answer">Oui, service OEM avec logo personnalisé par gravure laser (à partir de 500 pièces) ou sérigraphie (à partir de 1 000 pièces). MOQ à partir de 500 pièces.</div></details>
- <details class="faq-item"><summary>Quel est le délai de livraison ?</summary><div class="faq-answer">Production standard 25–35 jours. Expédition express 5–7 jours. Service DDP disponible.</div></details>
- <details class="faq-item"><summary>Vos chargeurs voiture sont-ils compatibles avec les camions (24V) ?</summary><div class="faq-answer">Oui. Tous les modèles prennent en charge une tension d'entrée 12V–24V et conviennent donc aux voitures, camions, SUVs, fourgonnettes et véhicules utilitaires. Testé de -20°C à +80°C.</div></details>
- <details class="faq-item"><summary>Quel est l'avantage du GaN par rapport au silicium ?</summary><div class="faq-answer">Les chargeurs GaN V sont 40% plus petits, 30% plus froids et plus efficaces que les chargeurs à base de silicium. Le format compact est idéal pour l'allume-cigare où l'espace est limité. Une efficacité supérieure (93–95%) signifie moins de perte d'énergie.</div></details>
- <details class="faq-item"><summary>De quelles certifications ai-je besoin pour l'importation dans l'UE ?</summary><div class="faq-answer">Pour les chargeurs voiture dans l'UE, vous avez besoin du marquage CE, E-Mark (ECE R10) pour la conformité automobile et de la conformité RoHS. Nous fournissons tous les documents et vous accompagnons pour la certification.</div></details>
- <details class="faq-item"><summary>Pouvez-vous fabriquer des chargeurs voiture avec câble rétractable ?</summary><div class="faq-answer">Oui. Notre WOC42 dispose d'un câble USB-C rétractable avec 105W PD. Pas de câbles emmêlés, installation propre. Des longueurs de câble et types de connecteurs personnalisés (USB-C, Lightning, Micro-USB) sont également possibles.</div></details>
- <details class="faq-item"><summary>Quel chargeur voiture convient le mieux à mon activité ?</summary><div class="faq-answer">Pour les revendeurs e-commerce, le WOC04 45W ou WOC38 Quad-Port couvrent 80% des besoins. Pour les flottes d'entreprise, le WOC24 140W avec écran numérique. Pour les accessoiristes auto, le WOC42 avec câble rétractable se démarque en rayon. Pour une solution complète, associez chargeur voiture + <a href="/fr/produits/chargeur-gan/" class="text-brandOrange hover:underline">chargeur GaN secteur</a>. Notre équipe vous conseille selon votre marché cible.</div></details>
+ {% call faqItem("Que signifie la certification E-Mark ?") %}La certification E-Mark (marque de conformité CEE) confirme que notre chargeur voiture respecte les normes automobiles européennes. Cela est requis pour une utilisation légale en France et dans l'UE. Tous nos chargeurs voiture sont certifiés E-Mark.{% endcall %}
+ {% call faqItem("Quelle puissance me faut-il pour mon ordinateur portable ?") %}Pour MacBook Pro, nous recommandons 100W+, pour MacBook Air 45W–67W suffisent. Notre WOC24 avec 140W recharge même l'ordinateur portable le plus puissant dans le véhicule.{% endcall %}
+ {% call faqItem("Qu'est-ce que la technologie GaN pour les chargeurs voiture ?") %}Le GaN (nitrure de gallium) permet des chargeurs plus petits et plus efficaces avec moins de dégagement de chaleur. Idéal pour l'utilisation en véhicule, surtout par forte température extérieure en été.{% endcall %}
+ {% call faqItem("Puis-je imprimer mon propre logo sur le chargeur ?") %}Oui, service OEM avec logo personnalisé par gravure laser (à partir de 500 pièces) ou sérigraphie (à partir de 1 000 pièces). MOQ à partir de 500 pièces.{% endcall %}
+ {% call faqItem("Quel est le délai de livraison ?") %}Production standard 25–35 jours. Expédition express 5–7 jours. Service DDP disponible.{% endcall %}
+ {% call faqItem("Vos chargeurs voiture sont-ils compatibles avec les camions (24V) ?") %}Oui. Tous les modèles prennent en charge une tension d'entrée 12V–24V et conviennent donc aux voitures, camions, SUVs, fourgonnettes et véhicules utilitaires. Testé de -20°C à +80°C.{% endcall %}
+ {% call faqItem("Quel est l'avantage du GaN par rapport au silicium ?") %}Les chargeurs GaN V sont 40% plus petits, 30% plus froids et plus efficaces que les chargeurs à base de silicium. Le format compact est idéal pour l'allume-cigare où l'espace est limité. Une efficacité supérieure (93–95%) signifie moins de perte d'énergie.{% endcall %}
+ {% call faqItem("De quelles certifications ai-je besoin pour l'importation dans l'UE ?") %}Pour les chargeurs voiture dans l'UE, vous avez besoin du marquage CE, E-Mark (ECE R10) pour la conformité automobile et de la conformité RoHS. Nous fournissons tous les documents et vous accompagnons pour la certification.{% endcall %}
+ {% call faqItem("Pouvez-vous fabriquer des chargeurs voiture avec câble rétractable ?") %}Oui. Notre WOC42 dispose d'un câble USB-C rétractable avec 105W PD. Pas de câbles emmêlés, installation propre. Des longueurs de câble et types de connecteurs personnalisés (USB-C, Lightning, Micro-USB) sont également possibles.{% endcall %}
+ {% call faqItem("Quel chargeur voiture convient le mieux à mon activité ?") %}Pour les revendeurs e-commerce, le WOC04 45W ou WOC38 Quad-Port couvrent 80% des besoins. Pour les flottes d'entreprise, le WOC24 140W avec écran numérique. Pour les accessoiristes auto, le WOC42 avec câble rétractable se démarque en rayon. Pour une solution complète, associez chargeur voiture + <a href="/fr/produits/chargeur-gan/" class="text-brandOrange hover:underline">chargeur GaN secteur</a>. Notre équipe vous conseille selon votre marché cible.{% endcall %}
  </div>
  </div>
  </section>
@@ -739,13 +705,10 @@ plPath: "produkty/ladowarka-samochodowa/"
 
  <section class="sec bg-brandBlue">
  <div class="container-narrow text-center">
- <div class="reveal">
- <p class="section-label">Demander maintenant</p>
- <h2 class="text-3xl md:text-5xl font-black text-white leading-tight mb-4 italic uppercase">
+ {% call sectionHeader('Demander maintenant', '
  Devis chargeur voiture<br><span class="text-brandOrange">en 24 heures</span>
- </h2>
- <p class="text-slate-300 text-lg max-w-2xl mx-auto mb-8">Demandez votre devis personnalisé. Nous vous conseillons sur les modèles, quantités et conditions de livraison adaptés.</p>
- </div>
+ ', '', {align: '', max: '', mb: '', titleClass: 'text-3xl md:text-5xl font-black text-white leading-tight mb-4 italic uppercase'}) %}<p class="text-slate-300 text-lg max-w-2xl mx-auto mb-8">Demandez votre devis personnalisé. Nous vous conseillons sur les modèles, quantités et conditions de livraison adaptés.</p>
+ {% endcall %}
  <div class="max-w-xl mx-auto reveal">
  <form action="https://api.web3forms.com/submit" method="POST" class="inquiry-form space-y-4">
  <input type="hidden" name="access_key" value="ac5fe4cd-2dd7-4aff-818d-bb36021b4942">
@@ -774,7 +737,7 @@ plPath: "produkty/ladowarka-samochodowa/"
  <input type="checkbox" required class="mt-1 accent-brandOrange">
  <span class="text-xs text-slate-500">J'ai pris connaissance de la <a href="/fr/confidentialite/" class="text-brandOrange hover:underline">politique de confidentialité</a>. *</span>
  </label>
- <button type="submit" class="w-full bg-brandOrange text-white py-4 rounded-xl font-bold text-base hover:bg-brandBlue transition-all duration-300 shadow-lg shadow-brandOrange/20 flex items-center justify-center gap-3">
+ <button type="submit" class="btn-form">
  Recevoir un devis gratuit <svg class="icon-arrow-right" aria-hidden="true" focusable="false" viewBox="0 0 512 512">
  <path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-105.4 105.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" fill="currentColor"/>
  </svg>
@@ -785,6 +748,5 @@ plPath: "produkty/ladowarka-samochodowa/"
  </p>
  </div>
  </div>
- </section>
  </section>
 {% endblock %}
