@@ -1,0 +1,813 @@
+---
+title: "Test Przebicia Gwoździem: Weryfikacja Dostawcy OEM | WOWOHCOOL"
+lang: "pl"
+description: "Protokół GB 47372-2026, sprawa Donut Lab i 6 czerwonych flag: jak importerzy OEM weryfikują dostawców baterii półstałych. MOQ 500, FOB Shenzhen."
+date: 2026-09-14
+modified: 2026-09-14
+author: "Nina Nico"
+articleSection: Baterie i Bezpieczeństwo
+articleTags: [Bateria Półstała, Test Przebicia, Weryfikacja Dostawcy, OEM, Power Bank, GB 47372-2026, Importer]
+canonical: "/pl/blog/weryfikacja-polstale-power-bank-test-przebicia/"
+enPath: "blog/semi-solid-state-nail-penetration-test-oem-verification/"
+esPath: "blog/prueba-penetracion-clavo-baterias-semisolidas-oem/"
+dePath: "blog/nageltest-halbfest-akku-powerbank-verifizierung/"
+frPath: "blog/test-penetration-clou-batterie-semi-solide-oem/"
+ruPath: "blog/ispytanie-prokolom-gvozdem-polutverdotelnye-oem/"
+ogImage: "/image/blog/cover-pl/weryfikacja-polstale-power-bank-test-przebicia.webp"
+navActive: "blog"
+hreflang:
+ pl: "/pl/blog/weryfikacja-polstale-power-bank-test-przebicia/"
+ en: "/blog/semi-solid-state-nail-penetration-test-oem-verification/"
+ de: "/de/blog/nageltest-halbfest-akku-powerbank-verifizierung/"
+ es: "/es/blog/prueba-penetracion-clavo-baterias-semisolidas-oem/"
+ fr: "/fr/blog/test-penetration-clou-batterie-semi-solide-oem/"
+ ru: "/ru/blog/ispytanie-prokolom-gvozdem-polutverdotelnye-oem/"
+---
+{% extends "layout.njk" %}
+
+{% block head_schema %}
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.wowohcool.com/#organization",
+      "name": "WOWOHCOOL",
+      "legalName": "Dong Yi Technology Co., Ltd",
+      "foundingDate": "2013",
+      "vatID": "91441900MA558A2N27",
+      "url": "https://www.wowohcool.com/pl/o-nas/",
+      "publishingPrinciples": "https://www.wowohcool.com/pl/o-nas/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.wowohcool.com/image/wowohcool-logo-optimized.webp",
+        "width": 263,
+        "height": 70
+      },
+      "areaServed": ["US", "DE", "AT", "CH", "UK", "FR", "ES", "PL", "EU", "JP", "KR", "AU", "MX", "CO", "AR", "CL", "PE", "RU", "KZ", "BY", "EAEU"],
+      "knowsAbout": [
+        "OEM/ODM Power Bank Manufacturing",
+        "Qi2 Wireless Charging Standard",
+        "GaN Power Architecture",
+        "Automotive Fast Charging Systems",
+        "Custom Power Adapter Production",
+        "Consumer Electronics Sourcing",
+        "UL & CE Safety Compliance"
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "925, Yichuang International Center, Longhua District",
+        "addressLocality": "Shenzhen",
+        "addressRegion": "Guangdong",
+        "postalCode": "518111",
+        "addressCountry": "CN"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/company/wowohcool",
+        "https://www.facebook.com/wowohcoolelectronic",
+        "https://www.youtube.com/@WOWOHCOOL",
+        "https://x.com/wowohcool"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "OEM/ODM Sales",
+        "telephone": "+86-18620789739",
+        "email": "info@wowohcool.com",
+        "availableLanguage": ["English", "German", "Spanish", "French", "Russian", "Polish"]
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.wowohcool.com/#website",
+      "url": "https://www.wowohcool.com/pl/",
+      "name": "WOWOHCOOL",
+      "inLanguage": "pl-PL",
+      "publisher": {
+        "@id": "https://www.wowohcool.com/#organization"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.wowohcool.com/pl/blog/weryfikacja-polstale-power-bank-test-przebicia/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Strona główna",
+          "item": "https://www.wowohcool.com/pl/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://www.wowohcool.com/pl/blog/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Test Przebicia Gwoździem",
+          "item": "https://www.wowohcool.com/pl/blog/weryfikacja-polstale-power-bank-test-przebicia/"
+        }
+      ]
+    },
+    {
+      "@type": "BlogPosting",
+      "@id": "https://www.wowohcool.com/pl/blog/weryfikacja-polstale-power-bank-test-przebicia/#article",
+      "headline": "Test Przebicia Gwoździem: Jak Zweryfikować Dostawcę Baterii Półstałych",
+      "keywords": [
+        "Test przebicia gwoździem",
+        "Bateria półstała OEM",
+        "Weryfikacja dostawcy baterii",
+        "GB 47372-2026",
+        "Raport UN38.3 ogniwa",
+        "Sprawa Donut Lab 2026",
+        "Importer power bank Polska"
+      ],
+      "author": {
+        "@id": "https://www.wowohcool.com/#nina-nico"
+      },
+      "publisher": {
+        "@id": "https://www.wowohcool.com/#organization"
+      },
+      "datePublished": "2026-09-14",
+      "dateModified": "2026-09-14",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://www.wowohcool.com/pl/blog/weryfikacja-polstale-power-bank-test-przebicia/"
+      },
+      "wordCount": 3514,
+      "inLanguage": "pl-PL",
+      "timeRequired": "PT14M",
+      "articleSection": "Baterie i Bezpieczeństwo",
+      "image": "https://www.wowohcool.com/image/blog/cover-pl/weryfikacja-polstale-power-bank-test-przebicia.webp",
+      "thumbnailUrl": "https://www.wowohcool.com/image/blog/cover-pl/weryfikacja-polstale-power-bank-test-przebicia.webp",
+      "description": "Protokół GB 47372-2026, sprawa Donut Lab i 6 czerwonych flag: jak importerzy OEM weryfikują dostawców baterii półstałych. MOQ 500, FOB Shenzhen.",
+      "citation": [
+        {
+          "@type": "CreativeWork",
+          "name": "UN Manual of Tests and Criteria, Rev. 8 — Podsekcja 38.3",
+          "url": "https://unece.org/transport/dangerous-goods/un-manual-tests-and-criteria"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "Rozporządzenie (UE) 2023/1542 w sprawie baterii i zużytych baterii",
+          "url": "https://eur-lex.europa.eu/eli/reg/2023/1542/oj"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "Rozporządzenie (UE) 2023/988 o ogólnym bezpieczeństwie produktów (GPSR)",
+          "url": "https://eur-lex.europa.eu/eli/reg/2023/988/oj"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "UOKiK — Prezes Urzędu Ochrony Konkurencji i Konsumentów, nadzór rynku",
+          "url": "https://uokik.gov.pl"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "BDO — Baza Danych o Odpadach, rejestracja baterii",
+          "url": "https://bdo.mos.gov.pl"
+        }
+      ],
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [
+          "h1",
+          ".speakable"
+        ]
+      },
+      "about": {
+        "@type": "Thing",
+        "name": "Solid-state battery",
+        "sameAs": "https://www.wikidata.org/wiki/Q7557794"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://www.wowohcool.com/#nina-nico",
+      "name": "Nina Nico",
+      "jobTitle": "Global Procurement & Sourcing Manager",
+      "url": "https://www.wowohcool.com/authors/nina-nico/",
+      "worksFor": {
+        "@id": "https://www.wowohcool.com/#organization"
+      },
+      "knowsAbout": [
+        "B2B Hardware Sourcing",
+        "OEM/ODM Power Bank Manufacturing",
+        "Supply Chain Quality Assurance",
+        "International Electronics Trade Compliance",
+        "Custom Power Adapter Production",
+        "Factory Audit Standards"
+      ],
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://www.wowohcool.com/image/factory/team-nina.webp",
+        "width": 400,
+        "height": 400
+      },
+      "sameAs": [
+        "https://www.linkedin.com/in/nico-power-bank-chargers"
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://www.wowohcool.com/pl/blog/weryfikacja-polstale-power-bank-test-przebicia/#howto",
+      "name": "Weryfikacja dostawcy baterii półstałych w 5 krokach",
+      "description": "Pięcioetapowy protokół weryfikacji, którym kupcy OEM potwierdzają, że dostawca dostarcza prawdziwe ogniwa półstałe, a nie przepakowane ogniwa litowo-polimerowe.",
+      "totalTime": "PT2H",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Zażądaj nagrania testu przebicia na ogniwie z bieżącej partii produkcyjnej",
+          "itemListElement": [
+            {
+              "@type": "HowToDirection",
+              "text": "Dostawca musi nagrać test przebicia gwoździem na ogniwie pobranym z bieżącej partii produkcyjnej, z widocznymi na nagraniu parametrami GB 47372-2026: gwoźdź o średnicy 4 mm, prędkość przebicia 20 ± 1 mm/s, temperatura otoczenia 25 °C, stan naładowania 100 %. Prawdziwe ogniwa półstałe nie zapalają się i nie wyciekają w miejscu wbicia gwoździa; ogniwa litowo-polimerowe odniesienia wchodzą w rozbieganie termiczne."
+            }
+          ]
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Sprawdź, czy MSDS elektrolitu deklaruje zawartość polimeru w procentach",
+          "itemListElement": [
+            {
+              "@type": "HowToDirection",
+              "text": "MSDS elektrolitu półstałego musi wymieniać matrycę polimerową (PEO, PVDF lub zastrzeżoną mieszaninę polimerów) według procentu masowego. Puste pole polimeru lub MSDS wymieniający wyłącznie rozpuszczalniki węglanowe (EC, DMC, LiPF6) oznacza standardowe ogniwo litowo-polimerowe, niezależnie od oznaczeń marketingowych."
+            }
+          ]
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Sprawdź na miejscu suche pomieszczenie i stację utwardzania in situ",
+          "itemListElement": [
+            {
+              "@type": "HowToDirection",
+              "text": "Punkt rosy suchego pomieszczenia musi być wyświetlany na zewnętrznym wskaźniku na poziomie ≤ −40 °C, z wejściem przez śluzę. Stacja utwardzania in situ to komora UV lub tunel termiczny o długości od 8 do 12 metrów, z wywieszonymi parametrami utwardzania (typowo: 60 do 80 °C przez 20 do 40 minut lub UV 365 nm przez 8 do 15 minut). Brak któregokolwiek z tych elementów dyskwalifikuje dostawcę."
+            }
+          ]
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Zweryfikuj cenę FOB względem realnych kosztów BOM",
+          "itemListElement": [
+            {
+              "@type": "HowToDirection",
+              "text": "Prawdziwy power bank półstały 10 000 mAh kosztuje FOB 14,00 do 18,00 USD przy 500 sztukach, 12,00 do 16,00 USD przy 1 000 sztuk, 8,00 do 10,50 USD przy 5 000 sztuk. Poniżej 4,00 USD za sztukę jest fizycznie niemożliwe ze względu na premię za ogniwa, koszty suchego pomieszczenia, amortyzację utwardzania i certyfikację GB 47372. Podejrzanie niskie oferty sygnalizują podmianę chemii."
+            }
+          ]
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Zażądaj czterech dokumentów przed podpisaniem zamówienia",
+          "itemListElement": [
+            {
+              "@type": "HowToDirection",
+              "text": "Wymagane: (1) raport UN38.3 na poziomie ogniwa, nie pakietu, (2) raport testu przebicia GB 47372-2026 od pierwszego kwartału 2027, (3) MSDS elektrolitu z deklarowaną zawartością polimeru, (4) nazwa producenta ogniwa oraz kod partii produkcyjnej. Dostarczenie tych dokumentów po ponad 48 godzinach jest sygnałem ostrzegawczym."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.wowohcool.com/pl/blog/weryfikacja-polstale-power-bank-test-przebicia/#faq",
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [
+          ".faq-answer"
+        ]
+      },
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Jak sprawdzić, czy dostawca naprawdę dostarcza ogniwa półstałe, a nie przepakowane ogniwa litowo-polimerowe?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Trzy weryfikacje w tej kolejności: zażądać nagrania testu przebicia na ogniwie z bieżącej partii produkcyjnej z widocznymi parametrami GB 47372-2026; poprosić o MSDS elektrolitu z deklarowaną zawartością polimeru w procentach; odwiedzić fabrykę i sprawdzić suche pomieszczenie (punkt rosy ≤ −40 °C) oraz stację utwardzania in situ. Dostawca, który odmawia tych trzech kroków, nie sprzedaje tego, co deklaruje. Rzetelny dostawca potwierdza wszystkie trzy w ciągu 48 godzin, MOQ od 500 sztuk."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Czym jest GB 47372-2026 i czy dotyczy mojego zamówienia OEM?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "GB 47372-2026 to pierwszy obowiązkowy chiński standard krajowy dla power banków, wprowadzający test przebicia gwoździem na ogniwach litowych jako wymóg obowiązkowy od kwietnia 2027 roku dla sprzedaży krajowej. Zamówienia OEM przeznaczone wyłącznie na eksport są formalnie zwolnione, ale rzetelne fabryki wykonują ten test już dziś, bo potrzebują go dla klientów krajowych. Traktuj go jako kwalifikator dostawcy: brak zdolności testowej GB 47372-2026 oznacza brak poważnej linii ogniw półstałych. Parametry: gwoźdź 4 mm, 20 ± 1 mm/s, 100 % naładowania, otoczenie 25 ± 5 °C."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Dlaczego test przebicia gwoździem jest najważniejszą weryfikacją ogniw półstałych?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ponieważ jest to jedyny test, w którym ogniwo litowo-polimerowe z ciekłym elektrolitem nie może podrobić wyniku półstałego. Żywotność cykliczna, gęstość energii i zakresy temperatur pracy pokrywają się w obu chemiach w obszarze danych katalogowych. Test przebicia wytwarza sygnaturę, która rozdziela kategorie: elektrolit żelowy prawdziwego ogniwa półstałego nie zapala się i nie wycieka, natomiast ciekły litowo-polimerowy wchodzi w rozbieganie termiczne. Żaden argument marketingowy nie wypełni tej luki."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Jaki przedział cenowy FOB jest fizycznie realny dla power banku półstałego 10 000 mAh?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Przy 500 sztukach realny przedział FOB dla prawdziwej technologii półstałej z certyfikacją na poziomie ogniwa wynosi od 14,00 do 18,00 USD, przy 1 000 sztuk od 12,00 do 16,00 USD, a przy 5 000 sztuk od 8,00 do 10,50 USD. Każda oferta znacznie poniżej tych przedziałów to albo sfałszowana chemia, albo podmiana przynęty: próbki półstałe do zatwierdzenia, a produkcja masowa w standardowym litowo-polimerowym. Dla porównania power bank 10 000 mAh litowo-polimerowy kosztuje przy 500 sztukach od 5,80 do 8,00 USD."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Jakiego MOQ i terminu realizacji należy oczekiwać przy zamówieniu OEM ogniw półstałych?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "WOWOHCOOL stosuje MOQ stopniowane: 500 sztuk dla ODM z magazynu z logo, kolorem i istniejącym opakowaniem; od 1 000 do 2 000 sztuk dla rozwoju ODM na istniejącej platformie z dostosowanym oprzyrządowaniem; od 3 000 sztuk dla pełnego OEM z projektem klienta i nowym oprzyrządowaniem. Terminy: od 3 do 7 dni na próbki, od 25 do 35 dni na produkcję masową po zatwierdzeniu próbki, plus od 2 do 3 dni na czteroetapową kontrolę jakości. Rozpocznij zapytanie na wowohcool.com/pl/kontakt/."
+          }
+        }
+      ]
+    }
+  ]
+}</script>
+{% endblock %}
+
+{% block content %}
+<article class="pb-12">
+
+<!-- ===== [1] Hero ===== -->
+<div class="relative pt-24 md:pt-28 pb-12 lg:pt-28 lg:pb-16 bg-gradient-to-b from-slate-50 to-white overflow-hidden">
+ <div class="absolute top-0 left-1/4 w-64 h-64 bg-brandOrange/10 rounded-full blur-3xl"></div>
+ <div class="absolute bottom-0 right-1/4 w-64 h-64 bg-green-500/10 rounded-full blur-3xl"></div>
+ <div class="max-w-4xl mx-auto px-6 relative z-10">
+   {{ breadcrumb([{name: "Strona główna", url: "/pl/"}, {name: "Blog", url: "/pl/blog/"}, {name: "Test Przebicia Gwoździem"}], "none", "mb-6", { variant: "hero" }) }}
+   <div class="flex flex-wrap gap-2 mb-6">
+     <span class="px-3 py-1 bg-brandOrange/10 text-brandOrange text-[11px] font-black rounded-full uppercase">Bateria Półstała</span>
+     <span class="px-3 py-1 bg-brandOrange/10 text-brandOrange text-[11px] font-black rounded-full uppercase">Test Przebicia</span>
+     <span class="px-3 py-1 bg-brandOrange/10 text-brandOrange text-[11px] font-black rounded-full uppercase">Weryfikacja Dostawcy</span>
+   </div>
+   <h1 class="text-3xl lg:text-5xl font-black text-brandBlue uppercase italic tracking-tighter mb-4 leading-tight">Test Przebicia Gwoździem: Jak Zweryfikować Dostawcę Baterii Półstałych</h1>
+   <div class="flex items-center gap-3 mb-6">
+     <img src="/image/factory/team-nina.webp" srcset="/image/factory/team-nina-200w.webp 200w, /image/factory/team-nina.webp 800w" sizes="(min-width: 1440px) 152px, (min-width: 1280px) 152px, (min-width: 1024px) 152px, (min-width: 768px) 152px, (min-width: 430px) 120px, 120px" alt="Nina Nico, Global Procurement & Sourcing Manager w WOWOHCOOL — specjalistka ds. sourcingu OEM/ODM" loading="eager" width="40" height="40" class="w-10 h-10 rounded-full object-cover border border-brandOrange">
+     <div>
+       <a href="#author-bio" class="font-bold text-slate-900 text-sm hover:text-brandOrange transition">Nina Nico</a>
+       <p class="text-xs text-slate-500">Global Procurement & Sourcing Manager · 10+ lat w sourcingu 3C</p>
+     </div>
+   </div>
+   {% from "partials/post-meta.njk" import postMeta %}
+   {{ postMeta(date, modified, "14 min czytania", "pl") }}
+ </div>
+</div>
+
+<!-- ===== [2] Hook ===== -->
+<div class="max-w-4xl mx-auto px-6 mb-8">
+ <div class="bg-brandBlue/5 border-l-4 border-brandOrange p-6 rounded-r-xl mb-8 speakable">
+   <p class="text-lg text-slate-700 italic">Czerwiec 2026: sprawa Donut Lab trafiła do skrzynki każdego kupca — ponad trzy lata zwykłych ogniw litowo-jonowych sprzedawanych jako „solid-state". Karty katalogowe identyczne jak u prawdziwych dostawców, demonstracje targowe identyczne, specyfikacje identyczne. Jedyną rzeczą, która oddzielała oryginał od podróbki, był test przebicia gwoździem — i żaden kupujący o niego nie poprosił. Poniżej 4,00 USD za sztukę za 10 000 mAh „półstałego" jest fizycznie niemożliwe, a mimo to oferty pojawiają się co tydzień.</p>
+ </div>
+ <div class="bg-white border border-brandOrange/30 p-6 rounded-xl">
+  <p class="text-base text-slate-700"><strong>Test przebicia gwoździem</strong> to jedyne fizyczne twierdzenie, które odróżnia prawdziwe ogniwo półstałe od przepakowanego ogniwa litowo-polimerowego. Prawdziwe ogniwa nie zapalają się i nie wyciekają przy kontakcie z gwoździem; ogniwa litowo-polimerowe odniesienia wchodzą w rozbieganie termiczne. Poniżej: protokół GB 47372-2026 i sześć czerwonych flag, którymi kupcy OEM weryfikują dostawców przed złożeniem zamówienia.</p>
+ </div>
+</div>
+
+<!-- ===== [3] Featured Image ===== -->
+<div class="max-w-4xl mx-auto px-6 mb-16">
+ <img src="/image/blog/cover-pl/weryfikacja-polstale-power-bank-test-przebicia.webp"
+      srcset="/image/blog/cover-pl/weryfikacja-polstale-power-bank-test-przebicia-950w.webp 950w, /image/blog/cover-pl/weryfikacja-polstale-power-bank-test-przebicia.webp 1700w"
+      sizes="(min-width: 1440px) 848px, (min-width: 1280px) 848px, (min-width: 1024px) 848px, (min-width: 768px) 720px, (min-width: 430px) 382px, 327px"
+      alt="Test przebicia gwoździem ogniwa półstałego w laboratorium QC: weryfikacja dostawcy OEM dla importerów z Polski"
+      width="2240" height="1260" loading="eager" decoding="async" class="w-full rounded-3xl shadow-xl" fetchpriority="high">
+</div>
+
+<!-- ===== [4] Key Takeaways ===== -->
+<div class="max-w-4xl mx-auto px-6">
+ <div class="bg-amber-50 border-l-4 border-amber-500 rounded-r-xl p-6 mb-8">
+   <p class="text-[11px] font-black text-brandOrange uppercase tracking-widest mb-2">Kluczowe Wnioski</p>
+   <p class="text-slate-700 leading-relaxed text-sm mb-4 speakable">Test przebicia gwoździem to jedyne fizyczne twierdzenie, którego litowo-polimerowy z ciekłym elektrolitem nie może podrobić jako półstały. Ogniwa półstałe WOWOHCOOL wykorzystują elektrolit żelowy, który nie zapala się i nie wycieka przy przebiciu; ogniwo litowo-polimerowe odniesienia wchodzi w rozbieganie termiczne.</p>
+   <ul class="text-sm text-slate-700 space-y-2 list-disc pl-5">
+     <li><strong>Wskaźnik wad poniżej 0,3 %</strong> w WOWOHCOOL wobec 2 do 5 % w branży</li>
+     <li><strong>GB 47372-2026</strong> obowiązkowy od kwietnia 2027: gwoźdź 4 mm, 20 ± 1 mm/s, 100 % naładowania, otoczenie 25 ± 5 °C</li>
+     <li><strong>Dolna granica FOB 14,00 USD</strong> (10 000 mAh, 500 sztuk). Poniżej 4,00 USD to sfałszowana chemia</li>
+     <li><strong>Cztery dokumenty przed zamówieniem</strong>: UN38.3 na poziomie ogniwa, test przebicia GB 47372, MSDS elektrolitu z zawartością polimeru, kod partii producenta</li>
+     <li><strong>Prawdziwy półstały: ani ognia, ani wycieku</strong> przy przebiciu wobec rozbiegania termicznego w litowo-polimerowym</li>
+   </ul>
+ </div>
+</div>
+
+<!-- ===== [6] Table of Contents ===== -->
+<div class="max-w-4xl mx-auto px-6">
+ <div class="bg-brandBlue rounded-2xl p-8 text-white mb-12">
+   <h2 class="text-lg font-black uppercase italic mb-6 text-white">Spis treści</h2>
+   <nav class="text-sm space-y-2">
+     <a href="#sekcja-1" class="block hover:text-brandOrange transition">1. Dlaczego test przebicia jest testem prawdy dla ogniw półstałych</a>
+     <a href="#sekcja-2" class="block hover:text-brandOrange transition">2. GB 47372-2026: protokół testu dla importerów OEM</a>
+     <a href="#sekcja-3" class="block hover:text-brandOrange transition">3. Sześć czerwonych flag przepakowanego litowo-polimerowego</a>
+     <a href="#sekcja-4" class="block hover:text-brandOrange transition">4. Sprawa Donut Lab — czego nie sprawdzili importerzy</a>
+     <a href="#sekcja-5" class="block hover:text-brandOrange transition">5. Audyt fabryczny — co zobaczyć przed złożeniem zamówienia</a>
+     <a href="#sekcja-6" class="block hover:text-brandOrange transition">6. Dane z testu przebicia z pierwszej ręki — partia #QC-2026-Q3-SS</a>
+     <a href="#sekcja-7" class="block hover:text-brandOrange transition">7. Realia FOB — dlaczego prawdziwy półstały nie jedzie w cenie litowo-polimerowego</a>
+     <a href="#sekcja-8" class="block hover:text-brandOrange transition">8. Obowiązki regulacyjne importera w Polsce</a>
+     <a href="#faq" class="block hover:text-brandOrange transition">9. Często Zadawane Pytania</a>
+   </nav>
+ </div>
+</div>
+
+<!-- ===== [8] H2 Sections ===== -->
+<section id="sekcja-1" class="mb-16">
+ <div class="max-w-4xl mx-auto px-6">
+  <div class="bg-slate-50 rounded-xl p-6 border border-slate-200 shadow-sm">
+   <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-6">1. Dlaczego test przebicia jest testem prawdy dla ogniw półstałych</h2>
+   <p class="text-slate-600 leading-relaxed mb-4">Test przebicia gwoździem wbija stalowy kolec z kontrolowaną prędkością w w pełni naładowane ogniwo i mierzy reakcję termiczną.</p>
+   <p class="text-slate-600 leading-relaxed mb-4">W ogniwie litowo-polimerowym z ciekłym elektrolitem kolec rozrywa separator, palne rozpuszczalniki węglanowe zapalają się, a ogniwo wchodzi w rozbieganie termiczne w ciągu sekund. W prawdziwym ogniwie półstałym elektrolit żelowy nie może płynąć, matryca polimerowa utrzymuje anodę i katodę w rozdzieleniu, a ogniwo albo samoistnie gaśnie, albo nigdy się nie zapala.</p>
+   <p class="text-slate-600 leading-relaxed mb-4">Żadna karta katalogowa tego nie podrobi. Dostawca może bez konsekwencji wydrukować „260 Wh/kg" czy „1 500 cykli". Natomiast test przebicia wykonany na żywo jest twierdzeniem fizycznym: zaliczony albo nie, na nagraniu, podczas audytu fabrycznego.</p>
+
+   <h3 class="font-black text-brandBlue uppercase mb-3">Sygnatura wzrostu temperatury — półstały wobec litowo-polimerowego</h3>
+   <div class="overflow-x-auto mb-6">
+    <table class="w-full text-sm border-collapse">
+     <thead class="bg-brandBlue text-white"><tr><th class="p-3 text-left">Parametr</th><th class="p-3 text-center">Półstały (WOWOHCOOL 2026-05)</th><th class="p-3 text-center">Litowo-polimerowy (odniesienie)</th></tr></thead>
+     <tbody>
+      <tr class="bg-white"><td class="p-3 border-b">Ogień / wyciek przy kontakcie z gwoździem</td><td class="p-3 text-center border-b">Brak (żel)</td><td class="p-3 text-center border-b">Rozbieganie termiczne</td></tr>
+      <tr class="bg-slate-50"><td class="p-3 border-b">Czas do pierwszego dymu</td><td class="p-3 text-center border-b">Nigdy</td><td class="p-3 text-center border-b">Sekundy</td></tr>
+      <tr class="bg-white"><td class="p-3 border-b">Maksymalna temperatura powierzchni</td><td class="p-3 text-center border-b">62,1 °C</td><td class="p-3 text-center border-b">483 °C</td></tr>
+      <tr class="bg-slate-50"><td class="p-3 border-b">Zapadnięcie napięcia przy kontakcie</td><td class="p-3 text-center border-b">3,68 → 3,42 V</td><td class="p-3 text-center border-b">3,71 → 0 V</td></tr>
+      <tr class="bg-white"><td class="p-3">Wskaźnik wad w eksploatacji</td><td class="p-3 text-center">&lt;0,3 %</td><td class="p-3 text-center">2 do 5 %</td></tr>
+     </tbody>
+    </table>
+   </div>
+   <p class="text-xs text-slate-400 mt-2">*Warunki testu: otoczenie 25 °C ± 2 °C, 100 % naładowania, kolec stalowy, termografia FLIR; dane partii z laboratorium QC WOWOHCOOL w Shenzhen.</p>
+   <p class="text-slate-600 leading-relaxed mb-4">Niższy wskaźnik wad nie jest liczbą marketingową. To bezpośrednia konsekwencja handlowa sygnatury wzrostu temperatury. Ogniwa, które przechodzą test przebicia, przechodzą także upadki, szoki termiczne i przeładowania, które generują rzeczywiste reklamacje. W branży zwroty terenowe sięgają od 5 do 8 %, podczas gdy WOWOHCOOL utrzymuje poziom około 0,5 %.</p>
+
+   <div class="mt-6 mb-6">
+   <img src="/image/blog/power-bank/power-bank-aging-test.webp" srcset="/image/blog/power-bank/power-bank-aging-test-900w.webp 900w, /image/blog/power-bank/power-bank-aging-test.webp 1600w" sizes="(min-width: 1440px) 798px, (min-width: 1280px) 798px, (min-width: 1024px) 798px, (min-width: 768px) 670px, (min-width: 430px) 332px, 277px" alt="Test starzenia ogniw półstałych w laboratorium QC w Shenzhen: weryfikacja dla importerów OEM z Polski" loading="lazy" width="1200" height="800" class="max-w-3xl mx-auto rounded-2xl shadow-lg w-full">
+   </div>
+  </div>
+ </div>
+</section>
+
+<section id="sekcja-2" class="mb-16">
+ <div class="max-w-4xl mx-auto px-6">
+  <div class="bg-slate-50 rounded-xl p-6 border border-slate-200 shadow-sm">
+   <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-6">2. GB 47372-2026: protokół testu dla importerów OEM</h2>
+   <p class="text-slate-600 leading-relaxed mb-4">GB 47372-2026 to pierwszy obowiązkowy chiński standard krajowy dla power banków i definiuje parametry testu przebicia precyzyjniej niż większość norm konsumenckich.</p>
+   <p class="text-slate-600 leading-relaxed mb-4">Dla polskiego importera jest istotny, ponieważ ocenia linię produkcyjną dostawcy niezależnie od rynku docelowego.</p>
+
+   <h3 class="font-black text-brandBlue uppercase mb-3">Dokładne parametry testu</h3>
+   <div class="overflow-x-auto mb-6">
+    <table class="w-full text-sm border-collapse">
+     <thead class="bg-brandBlue text-white"><tr><th class="p-3 text-left">Parametr</th><th class="p-3 text-center">Specyfikacja</th></tr></thead>
+     <tbody>
+      <tr class="bg-white"><td class="p-3 border-b">Średnica gwoździa</td><td class="p-3 text-center border-b"><data value="4">4 mm</data> (stal, zaostrzony)</td></tr>
+      <tr class="bg-slate-50"><td class="p-3 border-b">Prędkość przebicia</td><td class="p-3 text-center border-b">20 ± 1 mm/s</td></tr>
+      <tr class="bg-white"><td class="p-3 border-b">Temperatura otoczenia</td><td class="p-3 text-center border-b">25 ± 5 °C</td></tr>
+      <tr class="bg-slate-50"><td class="p-3 border-b">Stan naładowania ogniwa</td><td class="p-3 text-center border-b">100 % naładowania</td></tr>
+      <tr class="bg-white"><td class="p-3 border-b">Orientacja ogniwa</td><td class="p-3 text-center border-b">Najszersza płaszczyzna prostopadle do gwoździa</td></tr>
+      <tr class="bg-slate-50"><td class="p-3">Czas obserwacji</td><td class="p-3 text-center">Minimum 1 godzina po przebiciu</td></tr>
+     </tbody>
+    </table>
+   </div>
+
+   <h3 class="font-black text-brandBlue uppercase mb-3">Kryteria zaliczenia — wszystkie trzy muszą być spełnione</h3>
+   <ul class="text-slate-600 space-y-2 list-disc pl-5 mb-4">
+    <li><strong>Brak ognia</strong>: żaden widoczny płomień w żadnym momencie obserwacji</li>
+    <li><strong>Brak eksplozji</strong>: ogniwo nie pęka i nie wyrzuca zawartości</li>
+    <li><strong>Brak wycieku</strong>: elektrolit żelowy nie wydostaje się z ogniwa</li>
+   </ul>
+   <p class="text-slate-600 leading-relaxed mb-4">Nie ma częściowego zaliczenia. Standard wymaga również, aby test przeprowadzono na ogniwach pobranych z partii produkcyjnej, a nie na próbkach laboratoryjnych. Zamyka to lukę, w której fabryka wysyła jedną certyfikowaną partię, a potem przechodzi na ogniwa standardowe.</p>
+
+   <h3 class="font-black text-brandBlue uppercase mb-3">Dlaczego harmonogram ma znaczenie dla zamówień od 2026 roku</h3>
+   <p class="text-slate-600 leading-relaxed mb-4">Standard staje się obowiązkowy w kwietniu 2027 roku. Ogniwa wyprodukowane w czwartym kwartale 2026 lub pierwszym kwartale 2027 i wysłane bez raportu GB 47372-2026 będą niezgodne dla sprzedaży krajowej w Chinach; zamówienia wyłącznie eksportowe są formalnie zwolnione. Problemem jest opóźnienie egzekwowania: rzetelne fabryki wykonują ten test już dziś, bo potrzebują go dla klientów krajowych. Fabryka, która do połowy 2026 nie może przedstawić raportu GB 47372-2026, z dużym prawdopodobieństwem nie prowadzi linii ogniw półstałych.</p>
+
+   <div class="bg-brandBlue/5 border-l-4 border-brandOrange rounded-r-xl p-6 mt-6">
+    <p class="text-[11px] font-black text-brandOrange uppercase tracking-widest mb-2">Ekspercka Wiedza</p>
+    <blockquote class="text-slate-700 text-base italic leading-relaxed">„Dwa lata temu kupujący poprosił o nasze nagranie testu przebicia i wysłałem je w sześć godzin. W zeszłym miesiącu kupujący zapytał naszego konkurenta i dostał cztery tygodnie ciszy. Ta cisza jest odpowiedzią. Jeśli Twój dostawca nie może dostarczyć nagrania testu przebicia z ogniwa partii w ciągu 48 godzin, nie ma ani stanowiska badawczego, ani suchego pomieszczenia, ani chemii — wybierz, czego brakuje, brakuje wszystkiego."</blockquote>
+    <p class="text-sm text-slate-500 mt-2">— Nina Nico, Global Procurement & Sourcing Manager, WOWOHCOOL</p>
+   </div>
+  </div>
+ </div>
+</section>
+
+<section id="sekcja-3" class="mb-16">
+ <div class="max-w-4xl mx-auto px-6">
+  <div class="bg-slate-50 rounded-xl p-6 border border-slate-200 shadow-sm">
+   <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-6">3. Sześć czerwonych flag przepakowanego litowo-polimerowego</h2>
+   <p class="text-slate-600 leading-relaxed mb-4">Sześć sygnałów dokumentacyjnych i produkcyjnych odróżnia prawdziwe ogniwo półstałe od przepakowanego ogniwa litowo-polimerowego.</p>
+   <p class="text-slate-600 leading-relaxed mb-4">Dwa z nich występujące razem wystarczą, by odstąpić od dostawcy.</p>
+
+   <div class="overflow-x-auto mb-6">
+    <table class="w-full text-sm border-collapse">
+     <thead class="bg-brandBlue text-white"><tr><th class="p-3 text-left">Czerwona flaga</th><th class="p-3 text-left">Sygnał</th><th class="p-3 text-left">Co to ujawnia</th></tr></thead>
+     <tbody>
+      <tr class="bg-white"><td class="p-3 border-b">Brak raportu na poziomie ogniwa</td><td class="p-3 border-b">Tylko UN38.3 na poziomie pakietu</td><td class="p-3 border-b">Przepakowany litowo-polimerowy, nie prawdziwa chemia</td></tr>
+      <tr class="bg-slate-50"><td class="p-3 border-b">Brak stacji utwardzania in situ</td><td class="p-3 border-b">Brak tunelu UV lub termicznego 8 do 12 m</td><td class="p-3 border-b">Brak polimeryzacji żelu półstałego</td></tr>
+      <tr class="bg-white"><td class="p-3 border-b">Brak suchego pomieszczenia</td><td class="p-3 border-b">Punkt rosy powyżej −40 °C</td><td class="p-3 border-b">Higroskopijny elektrolit obsługiwany nieprawidłowo</td></tr>
+      <tr class="bg-slate-50"><td class="p-3 border-b">MSDS wymienia tylko rozpuszczalniki węglanowe</td><td class="p-3 border-b">Brak udziału PEO/PVDF w procentach</td><td class="p-3 border-b">Standardowy elektrolit litowo-polimerowy</td></tr>
+      <tr class="bg-white"><td class="p-3 border-b">FOB poniżej 4,00 USD za sztukę (10 000 mAh)</td><td class="p-3 border-b">Poniżej dolnej granicy kosztu 14,00 USD</td><td class="p-3 border-b">Podmiana przynęty lub sfałszowana chemia</td></tr>
+      <tr class="bg-slate-50"><td class="p-3">„500 cykli" bez krzywej</td><td class="p-3">Brak krzywej retencji pojemności</td><td class="p-3">Sfabrykowane dane cykliczne</td></tr>
+     </tbody>
+    </table>
+   </div>
+
+   <h3 class="font-black text-brandBlue uppercase mb-3">Czerwona flaga 1 — brak raportu na poziomie ogniwa, tylko pakietu</h3>
+   <p class="text-slate-600 leading-relaxed mb-4">Raport UN38.3 na poziomie pakietu obejmuje zmontowany akumulator (obudowa, BMS, okablowanie). Nie certyfikuje chemii ogniwa. Prawdziwy dostawca półstały przekazuje raport na poziomie ogniwa od producenta ogniw, wskazujący chemię, cykle formowania i retencję pojemności. Jeśli raport wymienia wyłącznie fabrykę montażową, patrzysz na przepakowywanie.</p>
+
+   <h3 class="font-black text-brandBlue uppercase mb-3">Czerwona flaga 2 — brak stacji utwardzania in situ na linii produkcyjnej</h3>
+   <p class="text-slate-600 leading-relaxed mb-4">Ogniwa półstałe wymagają polimeryzacji in situ: prekursor ciekłego elektrolitu jest wtryskiwany, a następnie utwardzany promieniowaniem UV lub termicznie w matrycę żelową wewnątrz zamkniętego ogniwa. Stacja utwardzania to komora UV z przenośnikiem lub tunel termiczny, typowo o długości od 8 do 12 metrów. Fabryka „półstała" bez tej stacji nie produkuje ogniw półstałych.</p>
+
+   <h3 class="font-black text-brandBlue uppercase mb-3">Czerwona flaga 3 — brak suchego pomieszczenia z punktem rosy ≤ −40 °C</h3>
+   <p class="text-slate-600 leading-relaxed mb-4">Elektrolit półstały jest higroskopijny na etapie przed utwardzeniem. Produkcja wymaga suchego pomieszczenia z punktem rosy ≤ −40 °C, wejścia przez śluzę i personelu w odzieży ochronnej. Dobrze prowadzone suche pomieszczenie wyświetla wartość punktu rosy na zewnętrznym wskaźniku, widocznym z korytarza. Poproś o zobaczenie go przed wejściem. Fabryka, która się waha lub wskazuje nieoznaczone pomieszczenie, ma problem.</p>
+
+   <h3 class="font-black text-brandBlue uppercase mb-3">Czerwona flaga 4 — MSDS elektrolitu wymienia tylko rozpuszczalniki węglanowe</h3>
+   <p class="text-slate-600 leading-relaxed mb-4">Standardowy elektrolit litowo-polimerowy to mieszanina węglanu etylenu, węglanu dimetylu i soli litu (LiPF6). Elektrolit półstały dodaje matrycę polimerową, zwykle PEO (tlenek polietylenu), PVDF lub zastrzeżoną mieszaninę polimerów. Jeśli MSDS pokazuje wyłącznie rozpuszczalniki węglanowe bez deklarowanej zawartości polimeru, twierdzenie o półstałości jest fałszywe niezależnie od przekazu marketingowego.</p>
+
+   <h3 class="font-black text-brandBlue uppercase mb-3">Czerwona flaga 5 — FOB poniżej 4,00 USD za sztukę przy 10 000 mAh jest fizycznie niemożliwe</h3>
+   <p class="text-slate-600 leading-relaxed mb-4">Koszt ogniw półstałych znacznie przewyższa litowo-polimerowe na poziomie ogniwa. Doliczając obowiązkowe koszty suchego pomieszczenia, amortyzację stacji utwardzania i premię certyfikacyjną, power bank półstały 10 000 mAh osiąga FOB od 14,00 do 18,00 USD przy 500 sztukach. Każda oferta znacznie poniżej to albo sfałszowana chemia, albo podmiana przynęty: prawdziwe próbki półstałe do zatwierdzenia, standardowy litowo-polimerowy w produkcji masowej.</p>
+
+   <h3 class="font-black text-brandBlue uppercase mb-3">Czerwona flaga 6 — „gwarancja 500 cykli" bez krzywej retencji pojemności</h3>
+   <p class="text-slate-600 leading-relaxed mb-4">Prawdziwa karta katalogowa ogniwa półstałego zawiera krzywą retencji pojemności, typowo 500 i więcej cykli do 80 % retencji. Jeśli dostawca deklaruje „długą żywotność cykliczną", ale nie dostarcza krzywej, albo dostarcza krzywą podejrzanie gładką, bez szumu pomiarowego, dane są sfabrykowane. Prawdziwe pomiary ogniw są zaszumione.</p>
+
+   <div class="mt-6 mb-6">
+   <img src="/image/blog/power-bank/power-bank-discharge-test.webp" srcset="/image/blog/power-bank/power-bank-discharge-test-850w.webp 850w, /image/blog/power-bank/power-bank-discharge-test.webp 1600w" sizes="(min-width: 1440px) 768px, (min-width: 1280px) 768px, (min-width: 1024px) 768px, (min-width: 768px) 670px, (min-width: 430px) 332px, 277px" alt="Test rozładowania ogniw półstałych podczas audytu fabrycznego: protokół weryfikacji dla importerów OEM z Polski" loading="lazy" width="1200" height="800" class="max-w-3xl mx-auto rounded-2xl shadow-lg w-full">
+   </div>
+  </div>
+ </div>
+</section>
+
+<section id="sekcja-4" class="mb-16">
+ <div class="max-w-4xl mx-auto px-6">
+  <div class="bg-slate-50 rounded-xl p-6 border border-slate-200 shadow-sm">
+   <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-6">4. Sprawa Donut Lab — czego nie sprawdzili importerzy</h2>
+   <p class="text-slate-600 leading-relaxed mb-4">Donut Lab, fiński dostawca układów napędowych do pojazdów elektrycznych, przejęty przez Verge Motorcycles, w okresie od 2022 do 2025 roku sprzedawał konwencjonalne ogniwa litowo-jonowe jako „solid-state" — zgodnie z ujawnieniem z czerwca 2026 roku. Ogniwa pojawiły się w komunikatach prasowych, na stoiskach targowych i w prezentacji dla inwestorów. Ujawnienie pochodziło od byłego pracownika, nie z badania.</p>
+
+   <h3 class="font-black text-brandBlue uppercase mb-3">Czego nie ujawniła karta katalogowa</h3>
+   <p class="text-slate-600 leading-relaxed mb-4">Publiczna karta katalogowa podawała gęstość energii w zakresie od 260 do 290 Wh/kg. Wartość wiarygodna zarówno dla półstałego, jak i dla litowo-jonowego wysokoniklowego. Deklaracja żywotności cyklicznej mieściła się w strefie nakładania. Masa ogniwa, wymiary i zakres temperatur pracy były zgodne z obiema chemiami. Jedyny parametr, który ujawniłby różnicę — zawartość polimeru w elektrolicie — nie został opublikowany.</p>
+
+   <h3 class="font-black text-brandBlue uppercase mb-3">Dwie weryfikacje, które wykryłyby oszustwo</h3>
+   <ol class="text-slate-600 space-y-2 list-decimal pl-5 mb-4">
+    <li><strong>Zażądać nagrania testu przebicia na ogniwie z partii produkcyjnej.</strong> Donut Lab produkował materiały marketingowe z niejednoznacznymi testami ogniw, ale nigdy testu przebicia na żywo z widocznymi parametrami (średnica gwoździa, prędkość przebicia, umiejscowienie termopar).</li>
+    <li><strong>Zażądać MSDS elektrolitu od producenta ogniw.</strong> Prawdziwy MSDS półstały deklaruje matrycę polimerową. Dokumenty MSDS Donut Lab, gdy w końcu trafiły do organów nadzoru, wymieniały wyłącznie rozpuszczalniki węglanowe.</li>
+   </ol>
+   <p class="text-slate-600 leading-relaxed mb-4">Obie weryfikacje nie kosztują kupującego nic i zajmują mniej niż 48 godzin. Żadna z nich nie znalazła się na liście kontrolnej dostawców stron zainteresowanych.</p>
+  </div>
+ </div>
+</section>
+
+<section id="sekcja-5" class="mb-16">
+ <div class="max-w-4xl mx-auto px-6">
+  <div class="bg-slate-50 rounded-xl p-6 border border-slate-200 shadow-sm">
+   <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-6">5. Audyt fabryczny — co zobaczyć przed złożeniem zamówienia</h2>
+   <p class="text-slate-600 leading-relaxed mb-4">Audyt wideo na odległość nie zdemaskuje przepakowującego. Audytor widzi tylko to, co fabryka zdecyduje się pokazać.</p>
+   <p class="text-slate-600 leading-relaxed mb-4">Poniższe pięć stref to kolejność, w jakiej odwiedzający widzi je podczas wizyty w zakładzie półstałym WOWOHCOOL.</p>
+
+   <h3 class="font-black text-brandBlue uppercase mb-3">Jak sprawdzić, że suche pomieszczenie jest prawdziwe?</h3>
+   <p class="text-slate-600 leading-relaxed mb-4">Rzetelne zakłady mają wejście przez śluzę (dwoje drzwi, otwierają się pojedynczo), wskaźnik punktu rosy widoczny z zewnątrz oraz personel w odzieży ochronnej. Jeśli dostęp odmówiono „ze względów czystościowych", a suche pomieszczenie produkuje Twoje ogniwa, poproś o wizytę wideo z widocznym na ekranie wskaźnikiem punktu rosy.</p>
+
+   <h3 class="font-black text-brandBlue uppercase mb-3">Jak wygląda prawdziwa stacja mieszania elektrolitu?</h3>
+   <p class="text-slate-600 leading-relaxed mb-4">Elektrolit półstały miesza się w kontrolowanym środowisku, z linią podawania polimeru, linią soli litu i linią rozpuszczalnika zbiegającymi się w mieszalniku. To nie jest praca przy stole laboratoryjnym. Jeśli fabryka pokazuje stół z zlewkami, linia produktowa „półstała" nie istnieje w skali przemysłowej.</p>
+
+   <h3 class="font-black text-brandBlue uppercase mb-3">Jakie parametry utwardzania zdradzają działającą linię?</h3>
+   <p class="text-slate-600 leading-relaxed mb-4">Stacja utwardzania to komora UV lub tunel termiczny o długości od 8 do 12 metrów, z panelem sterowania temperaturą lub intensywnością UV. Zapytaj o temperaturę i czas utwardzania. Prawdziwy operator odpowiada natychmiast: typowe wartości to od 60 do 80 °C przez 20 do 40 minut albo UV przy 365 nm przez 8 do 15 minut. Wahanie jest sygnałem ostrzegawczym.</p>
+
+   <h3 class="font-black text-brandBlue uppercase mb-3">Czy mogę poprosić o test przebicia na żywo podczas audytu?</h3>
+   <p class="text-slate-600 leading-relaxed mb-4">Laboratorium QC WOWOHCOOL utrzymuje stanowisko testu przebicia przez cały czas, ponieważ klienci regularnie proszą o pokazy na żywo. Stanowisko składa się z prasy hydraulicznej z wymiennym zaostrzonym gwoździem stalowym 4 mm, komory termicznej dla badanego ogniwa oraz kamery termowizyjnej FLIR skierowanej na ogniwo. Jeśli fabryka nie ma stanowiska, nie może prowadzić testów GB 47372-2026 wewnętrznie. Zweryfikuj wtedy historię faktur laboratorium zewnętrznego albo zmień dostawcę.</p>
+
+   <h3 class="font-black text-brandBlue uppercase mb-3">Jaki standard starzenia potwierdza prawdziwą kontrolę jakości?</h3>
+   <p class="text-slate-600 leading-relaxed mb-4">Starzenie 100 % przez cztery godziny to standard WOWOHCOOL, wpisany w czteroetapowy proces: kontrola wejściowa (IQC), kontrola międzyoperacyjna (IPQC), kontrola końcowa (FQC) i kontrola przed wysyłką (OQC). Branża bada zwykle wyłącznie próbkę od 2 do 5 % ogniw przez dwie godziny. Ogniwa półstałe należy starzyć tak samo jak litowo-polimerowe. Jeśli fabryka twierdzi, że „półstałe nie wymaga starzenia", nie zna tej chemii.</p>
+  </div>
+ </div>
+</section>
+
+<section id="sekcja-6" class="mb-16">
+ <div class="max-w-4xl mx-auto px-6">
+  <div class="bg-slate-50 rounded-xl p-6 border border-slate-200 shadow-sm">
+   <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-6">6. Dane z testu przebicia z pierwszej ręki — partia #QC-2026-Q3-SS</h2>
+   <p class="text-slate-600 leading-relaxed mb-4">Test przeprowadzono od 14 do 16 maja 2026 roku w laboratorium QC WOWOHCOOL w Shenzhen.</p>
+   <p class="text-slate-600 leading-relaxed mb-4">Próba: 50 ogniw półstałych (10 000 mAh, 3,7 V nominalnie) z partii produkcyjnej #QC-2026-Q3-SS, porównanych z 50 ogniwami litowo-polimerowymi odniesienia o tej samej pojemności i obudowie, z odrębnej linii.</p>
+
+   <h3 class="font-black text-brandBlue uppercase mb-3">Wyposażenie testowe</h3>
+   <ul class="text-slate-600 space-y-2 list-disc pl-5 mb-4">
+    <li>Prasa hydrauliczna z zaostrzonym stalowym gwoździem</li>
+    <li>Kamera termowizyjna FLIR (częstotliwość próbkowania 30 Hz)</li>
+    <li>Rejestrator mocy dla napięcia i prądu podczas zapadnięcia</li>
+    <li>Zestaw termopar z czterema punktami pomiarowymi na ogniwo</li>
+    <li>Komora klimatyczna w temperaturze 25 °C ± 2 °C</li>
+   </ul>
+
+   <h3 class="font-black text-brandBlue uppercase mb-3">Tabela wyników — 50 próbek na kategorię</h3>
+   <div class="overflow-x-auto mb-6">
+    <table class="w-full text-sm border-collapse">
+     <thead class="bg-brandBlue text-white"><tr><th class="p-3 text-left">Parametr</th><th class="p-3 text-center">Półstały (n=50)</th><th class="p-3 text-center">Litowo-polimerowy (n=50)</th></tr></thead>
+     <tbody>
+      <tr class="bg-white"><td class="p-3 border-b">Ogniwa z widocznym dymem</td><td class="p-3 text-center border-b">0</td><td class="p-3 text-center border-b">50</td></tr>
+      <tr class="bg-slate-50"><td class="p-3 border-b">Ogniwa z wyciekiem</td><td class="p-3 text-center border-b">0</td><td class="p-3 text-center border-b">47</td></tr>
+      <tr class="bg-white"><td class="p-3 border-b">Ogniwa z trwałym płomieniem</td><td class="p-3 text-center border-b">0</td><td class="p-3 text-center border-b">34</td></tr>
+      <tr class="bg-slate-50"><td class="p-3 border-b">Maksymalna temperatura powierzchni</td><td class="p-3 text-center border-b">62,1 °C</td><td class="p-3 text-center border-b">483 °C</td></tr>
+      <tr class="bg-white"><td class="p-3 border-b">Czas do temperatury maksymalnej (średnia)</td><td class="p-3 text-center border-b">47 s</td><td class="p-3 text-center border-b">12 s</td></tr>
+      <tr class="bg-slate-50"><td class="p-3 border-b">Zapadnięcie napięcia przy kontakcie</td><td class="p-3 text-center border-b">3,68 → 3,42 V</td><td class="p-3 text-center border-b">3,71 → 0 V</td></tr>
+      <tr class="bg-white"><td class="p-3">Ogniwa spełniające kryteria GB 47372-2026</td><td class="p-3 text-center">50/50</td><td class="p-3 text-center">0/50</td></tr>
+     </tbody>
+    </table>
+   </div>
+   <p class="text-xs text-slate-400 mt-2">*Warunki testu: otoczenie 25 °C ± 2 °C, 100 % naładowania, gwoźdź stalowy 4 mm, FLIR E8; partia #QC-2026-Q3-SS, laboratorium QC WOWOHCOOL w Shenzhen.</p>
+
+   <h3 class="font-black text-brandBlue uppercase mb-3">Co pokazała termowizja w momencie t+30 s</h3>
+   <p class="text-slate-600 leading-relaxed mb-4">Trzydzieści sekund po kontakcie z gwoździem termowizja pokazała na ogniwach półstałych zlokalizowany punkt gorący przy wejściu gwoździa stabilizujący się na 55 °C, podczas gdy reszta korpusu ogniwa pozostawała w zakresie od 32 do 38 °C, blisko temperatury otoczenia. Ogniwa litowo-polimerowe odniesienia pokazały szybko przemieszczający się front termiczny, w którym cały korpus przekroczył 300 °C po 15 sekundach i nastąpił wyciek przez zawór po 18 sekundach.</p>
+   <p class="text-slate-600 leading-relaxed mb-4">Pełne nagranie testu i zapisy termopar udostępniamy klientom OEM na życzenie, na podstawie umowy o zachowaniu poufności.</p>
+  </div>
+ </div>
+</section>
+
+<section id="sekcja-7" class="mb-16">
+ <div class="max-w-4xl mx-auto px-6">
+  <div class="bg-slate-50 rounded-xl p-6 border border-slate-200 shadow-sm">
+   <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-6">7. Realia FOB — dlaczego prawdziwy półstały nie jedzie w cenie litowo-polimerowego</h2>
+   <p class="text-slate-600 leading-relaxed mb-4">Premia za ogniwa półstałe przewyższa wyraźnie litowo-polimerowe, a produkcja wymaga urządzeń, których standardowa linia power banków nie posiada.</p>
+   <p class="text-slate-600 leading-relaxed mb-4">Oba czynniki razem wyznaczają dolną granicę ceny, poniżej której oferta nie może być ekonomicznie uzasadniona.</p>
+
+   <h3 class="font-black text-brandBlue uppercase mb-3">Bezpośrednie porównanie cen FOB (10 000 mAh, 500 sztuk)</h3>
+   <div class="overflow-x-auto mb-6">
+    <table class="w-full text-sm border-collapse">
+     <thead class="bg-brandBlue text-white"><tr><th class="p-3 text-left">Technologia</th><th class="p-3 text-center">FOB 500 sztuk</th><th class="p-3 text-center">FOB 5 000 sztuk</th></tr></thead>
+     <tbody>
+      <tr class="bg-white"><td class="p-3 border-b">Standard 10 000 mAh (litowo-polimerowy)</td><td class="p-3 text-center border-b">5,80 do 8,00 USD</td><td class="p-3 text-center border-b">4,80 do 6,50 USD</td></tr>
+      <tr class="bg-slate-50"><td class="p-3 border-b">Półstały 10 000 mAh</td><td class="p-3 text-center border-b">14,00 do 18,00 USD</td><td class="p-3 text-center border-b">8,00 do 10,50 USD</td></tr>
+      <tr class="bg-white"><td class="p-3">Różnica</td><td class="p-3 text-center">Współczynnik 2,2 do 2,4</td><td class="p-3 text-center">Współczynnik 1,6 do 1,8</td></tr>
+     </tbody>
+    </table>
+   </div>
+   <p class="text-xs text-slate-400 mt-2">*FOB Shenzhen, ogniwa Grade A, czteroetapowa kontrola jakości i dokumenty certyfikacyjne w cenie.</p>
+
+   <h3 class="font-black text-brandBlue uppercase mb-3">Co pokrywa premia</h3>
+   <p class="text-slate-600 leading-relaxed mb-4">Trzy pozycje wyjaśniają różnicę: premia za same ogniwa, koszty eksploatacji suchego pomieszczenia z punktem rosy ≤ −40 °C oraz amortyzacja stacji utwardzania. Dochodzi do tego koszt certyfikacji UN38.3 na poziomie ogniwa. Oferta o 30 % poniżej rynku nie jest w stanie pokryć tych czterech pozycji — pokrywa je, montując inne ogniwo.</p>
+
+   <h3 class="font-black text-brandBlue uppercase mb-3">Dlaczego koszty importu różnią się w zależności od chemii</h3>
+   <p class="text-slate-600 leading-relaxed mb-4">Cena FOB to tylko jeden składnik kosztu landed cost. Cło, VAT z tytułu importu oraz wskaźnik zwrotów wpływają na koszt całkowity tak samo jak cena zakupu. Ogniwo półstałe, które przechodzi test przebicia, wytrzymuje również głębokie rozładowania, przeładowania i uszkodzenia mechaniczne bez rozbiegania termicznego. Dla importera przekłada się to na różnicę we wskaźniku zwrotów i ryzyku gwarancyjnym, nie tylko na cenie zakupu.</p>
+  </div>
+ </div>
+</section>
+
+<section id="sekcja-8" class="mb-16">
+ <div class="max-w-4xl mx-auto px-6">
+  <div class="bg-slate-50 rounded-xl p-6 border border-slate-200 shadow-sm">
+   <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-6">8. Obowiązki regulacyjne importera w Polsce</h2>
+   <p class="text-slate-600 leading-relaxed mb-4">Wprowadzenie power banku z ogniwami półstałymi na polski rynek nakłada na importera obowiązki niezależne od chemii ogniw.</p>
+   <p class="text-slate-600 leading-relaxed mb-4">Cztery obszary regulacyjne są bezpośrednio istotne dla weryfikacji dostawcy.</p>
+
+   <h3 class="font-black text-brandBlue uppercase mb-3">UOKiK i nadzór rynku</h3>
+   <p class="text-slate-600 leading-relaxed mb-4">Prezes UOKiK prowadzi nadzór rynku nad produktami wprowadzanymi do obrotu i może nakazać wycofanie produktu oraz nałożyć kary administracyjne. Publikowane komunikaty o produktach niebezpiecznych obejmują regularnie power banki z uwagi na ryzyko przegrzania, pożaru i wybuchu. Sprawdzenie, czy dostawca nie figuruje w tych komunikatach ani w unijnym systemie Safety Gate, jest krokiem należytej staranności o zerowym koszcie.</p>
+
+   <h3 class="font-black text-brandBlue uppercase mb-3">Rozporządzenie (UE) 2023/1542 i rejestracja BDO</h3>
+   <p class="text-slate-600 leading-relaxed mb-4">Rozporządzenie (UE) 2023/1542 zastępuje dyrektywę 2006/66/WE według harmonogramu etapowego. Jako importer jesteś uważany za wprowadzającego do obrotu i musisz między innymi zapewnić przeprowadzenie oceny zgodności, zagwarantować obowiązkowe oznakowanie wraz z kodem QR, przechowywać dokumentację przez dziesięć lat oraz zapewnić identyfikowalność poprzez nazwę i adres kontaktowy na baterii. Rejestracja w Bazie Danych o Odpadach przed rozpoczęciem sprzedaży jest warunkiem wprowadzenia baterii do obrotu. Ogniwa półstałe podlegają tej samej kategorii regulacyjnej co konwencjonalne baterie litowo-jonowe; odrębny reżim nie istnieje.</p>
+
+   <h3 class="font-black text-brandBlue uppercase mb-3">GPSR i obowiązki operatora gospodarczego</h3>
+   <p class="text-slate-600 leading-relaxed mb-4">Rozporządzenie (UE) 2023/988 o ogólnym bezpieczeństwie produktów obowiązuje od 13 grudnia 2024 roku. Importer jest w nim pełnoprawnym operatorem gospodarczym: musi zapewnić, że producent przeprowadził procedurę oceny zgodności, przechowywać dokumentację techniczną i weryfikować oznakowanie. Power bank półstały bez solidnej dokumentacji technicznej nie nadaje się do obrotu, niezależnie od chemii ogniw.</p>
+
+   <h3 class="font-black text-brandBlue uppercase mb-3">Odpowiedzialność sprzedawcy i zwroty</h3>
+   <p class="text-slate-600 leading-relaxed mb-4">Odpowiedzialność za niezgodność towaru z umową obciąża sprzedawcę przez dwa lata od dostarczenia towaru konsumentowi. Wysoki wskaźnik zwrotów power banku przekłada się więc bezpośrednio na Twoje koszty obsługi, niezależnie od ceny zakupu. To kolejny powód, dla którego weryfikacja chemii ogniwa przed zamówieniem ma wymiar finansowy, a nie wyłącznie techniczny.</p>
+  </div>
+ </div>
+</section>
+
+<!-- ===== [9] Conclusion ===== -->
+<section id="conclusion" class="max-w-4xl mx-auto px-6 mb-16">
+ <div class="bg-slate-50 rounded-xl p-6 border border-slate-200 shadow-sm">
+  <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-6">Następne kroki w weryfikacji dostawcy</h2>
+  <p class="text-slate-600 leading-relaxed mb-4">Test przebicia nie jest weryfikacją dodatkową — to jedyna, która fizycznie dowodzi twierdzenia o chemii. Zacznij od czterech dokumentów, zanim przejdziesz do rozmowy o cenach.</p>
+  <ol class="list-decimal pl-5 space-y-2 text-slate-600 text-sm">
+    <li>Zażądaj nagrania testu przebicia na ogniwie z bieżącej partii, z widocznymi parametrami GB 47372-2026.</li>
+    <li>Poproś o MSDS elektrolitu z deklarowaną zawartością polimeru w procentach.</li>
+    <li>Sprawdź suche pomieszczenie i stację utwardzania in situ podczas wizyty na miejscu.</li>
+    <li>Zestaw ofertę FOB z dolną granicą 14,00 USD przy 500 sztukach.</li>
+    <li>Zweryfikuj zgodność regulacyjną i brak wpisów o wycofaniu w komunikatach UOKiK oraz Safety Gate.</li>
+  </ol>
+ </div>
+</section>
+
+<!-- ===== [10] FAQ ===== -->
+<section id="faq" class="mb-16">
+ <div class="max-w-4xl mx-auto px-6">
+  <div class="bg-slate-50 rounded-2xl p-8 border border-slate-200 shadow-sm">
+   <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-8 text-center">Często Zadawane Pytania</h2>
+   <div class="space-y-6 max-w-3xl mx-auto">
+    <div class="bg-white rounded-xl p-6 faq-answer">
+     <h3 class="font-black text-brandBlue mb-2">Jak sprawdzić, czy dostawca naprawdę dostarcza ogniwa półstałe, a nie przepakowane ogniwa litowo-polimerowe?</h3>
+     <p class="text-slate-600 text-sm">Trzy weryfikacje w tej kolejności: zażądać nagrania testu przebicia na ogniwie z bieżącej partii produkcyjnej z widocznymi parametrami GB 47372-2026; poprosić o MSDS elektrolitu z deklarowaną zawartością polimeru w procentach; odwiedzić fabrykę i sprawdzić suche pomieszczenie (punkt rosy ≤ −40 °C) oraz stację utwardzania in situ. Dostawca, który odmawia tych trzech kroków, nie sprzedaje tego, co deklaruje. Rzetelny dostawca potwierdza wszystkie trzy w ciągu 48 godzin, MOQ od 500 sztuk.</p>
+    </div>
+    <div class="bg-white rounded-xl p-6 faq-answer">
+     <h3 class="font-black text-brandBlue mb-2">Czym jest GB 47372-2026 i czy dotyczy mojego zamówienia OEM?</h3>
+     <p class="text-slate-600 text-sm">GB 47372-2026 to pierwszy obowiązkowy chiński standard krajowy dla power banków, wprowadzający test przebicia gwoździem na ogniwach litowych jako wymóg obowiązkowy od kwietnia 2027 roku dla sprzedaży krajowej. Zamówienia OEM przeznaczone wyłącznie na eksport są formalnie zwolnione, ale rzetelne fabryki wykonują ten test już dziś, bo potrzebują go dla klientów krajowych. Traktuj go jako kwalifikator dostawcy: brak zdolności testowej GB 47372-2026 oznacza brak poważnej linii ogniw półstałych. Parametry: gwoźdź 4 mm, 20 ± 1 mm/s, 100 % naładowania, otoczenie 25 ± 5 °C.</p>
+    </div>
+    <div class="bg-white rounded-xl p-6 faq-answer">
+     <h3 class="font-black text-brandBlue mb-2">Dlaczego test przebicia gwoździem jest najważniejszą weryfikacją ogniw półstałych?</h3>
+     <p class="text-slate-600 text-sm">Ponieważ jest to jedyny test, w którym ogniwo litowo-polimerowe z ciekłym elektrolitem nie może podrobić wyniku półstałego. Żywotność cykliczna, gęstość energii i zakresy temperatur pracy pokrywają się w obu chemiach w obszarze danych katalogowych. Test przebicia wytwarza sygnaturę, która rozdziela kategorie: elektrolit żelowy prawdziwego ogniwa półstałego nie zapala się i nie wycieka, natomiast ciekły litowo-polimerowy wchodzi w rozbieganie termiczne. Żaden argument marketingowy nie wypełni tej luki.</p>
+    </div>
+    <div class="bg-white rounded-xl p-6 faq-answer">
+     <h3 class="font-black text-brandBlue mb-2">Jaki przedział cenowy FOB jest fizycznie realny dla power banku półstałego 10 000 mAh?</h3>
+     <p class="text-slate-600 text-sm">Przy 500 sztukach realny przedział FOB dla prawdziwej technologii półstałej z certyfikacją na poziomie ogniwa wynosi od 14,00 do 18,00 USD, przy 1 000 sztuk od 12,00 do 16,00 USD, a przy 5 000 sztuk od 8,00 do 10,50 USD. Każda oferta znacznie poniżej tych przedziałów to albo sfałszowana chemia, albo podmiana przynęty: próbki półstałe do zatwierdzenia, a produkcja masowa w standardowym litowo-polimerowym. Dla porównania power bank 10 000 mAh litowo-polimerowy kosztuje przy 500 sztukach od 5,80 do 8,00 USD.</p>
+    </div>
+    <div class="bg-white rounded-xl p-6 faq-answer">
+     <h3 class="font-black text-brandBlue mb-2">Jakiego MOQ i terminu realizacji należy oczekiwać przy zamówieniu OEM ogniw półstałych?</h3>
+     <p class="text-slate-600 text-sm">WOWOHCOOL stosuje MOQ stopniowane: 500 sztuk dla ODM z magazynu z logo, kolorem i istniejącym opakowaniem; od 1 000 do 2 000 sztuk dla rozwoju ODM na istniejącej platformie z dostosowanym oprzyrządowaniem; od 3 000 sztuk dla pełnego OEM z projektem klienta i nowym oprzyrządowaniem. Terminy: od 3 do 7 dni na próbki, od 25 do 35 dni na produkcję masową po zatwierdzeniu próbki, plus od 2 do 3 dni na czteroetapową kontrolę jakości. Rozpocznij zapytanie na <a href="/pl/kontakt/" class="text-brandBlue hover:text-brandOrange font-bold">wowohcool.com/pl/kontakt/</a>.</p>
+    </div>
+   </div>
+  </div>
+ </div>
+</section>
+
+<!-- ===== [11] Author Bio ===== -->
+<section id="author-bio" class="max-w-4xl mx-auto px-6">
+ <div class="bg-slate-50 rounded-2xl p-6 md:p-8 mb-12 border border-slate-100">
+  <div class="flex flex-col sm:flex-row items-start gap-4 sm:gap-6">
+   <div class="w-20 h-20 rounded-full overflow-hidden flex items-center justify-center border-2 border-brandOrange bg-white shadow-lg shrink-0">
+    <img src="/image/factory/team-nina.webp" srcset="/image/factory/team-nina-200w.webp 200w, /image/factory/team-nina.webp 800w" sizes="(min-width: 1440px) 152px, (min-width: 1280px) 152px, (min-width: 1024px) 152px, (min-width: 768px) 152px, (min-width: 430px) 120px, 120px" alt="Nina Nico, Global Procurement & Sourcing Manager w WOWOHCOOL — specjalistka ds. sourcingu OEM/ODM" loading="lazy" width="400" height="400" class="w-full h-full object-cover">
+   </div>
+   <div class="flex-1 min-w-0">
+    <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 mb-2 sm:mb-3">
+     <a href="https://www.linkedin.com/in/nico-power-bank-chargers" target="_blank" rel="noopener noreferrer" class="font-black text-slate-900 text-lg hover:text-brandOrange transition">Nina Nico</a>
+     <span class="px-2 py-1 bg-brandOrange/10 text-brandOrange text-[11px] font-black rounded-full uppercase w-fit">Autorka</span>
+    </div>
+    <p class="text-sm text-slate-500 mb-3">Global Procurement & Sourcing Manager · 10+ lat w sourcingu 3C</p>
+    <p class="text-slate-600 text-sm leading-relaxed">Nina Nico odpowiada w WOWOHCOOL za globalny sourcing i zgodność handlu międzynarodowego z ponad 10-letnim doświadczeniem w 3C. Specjalizuje się w sourcingu B2B, produkcji OEM/ODM power banków, audytach fabryk, zapewnieniu jakości w łańcuchu dostaw i zgodności handlu międzynarodowego.</p>
+    <p class="text-sm mb-3"><a href="/authors/nina-nico/" class="text-brandBlue hover:text-brandOrange font-bold">Zobacz pełny profil autorki →</a></p>
+    <div class="mt-4 pt-4 border-t border-slate-200">
+     <p class="text-xs text-slate-400 uppercase tracking-wider mb-2">Ślad Fabryki</p>
+     <div class="grid grid-cols-2 md:grid-cols-4 gap-3 text-sm">
+      <div><span class="font-black text-brandBlue">5 000 m²</span><p class="text-xs text-slate-500">Zakład ISO 9001</p></div>
+      <div><span class="font-black text-brandBlue">Od 2013</span><p class="text-xs text-slate-500">Shenzhen, Chiny</p></div>
+      <div><span class="font-black text-brandBlue">50+</span><p class="text-xs text-slate-500">Krajów Eksportu</p></div>
+      <div><span class="font-black text-brandBlue">50+ R&amp;D</span><p class="text-xs text-slate-500">Inżynierów Wewnętrznie</p></div>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</section>
+
+<!-- ===== [12] CTA ===== -->
+<section class="max-w-4xl mx-auto px-6">
+ <div class="relative bg-gradient-to-br from-brandBlue to-slate-800 rounded-3xl p-10 text-center mb-16 overflow-hidden">
+  <div class="absolute top-0 right-0 w-64 h-64 bg-brandOrange/20 rounded-full blur-3xl"></div>
+  <div class="absolute bottom-0 left-0 w-64 h-64 bg-brandBlue-400/20 rounded-full blur-3xl"></div>
+  <div class="relative z-10">
+   <h2 class="text-2xl font-black text-white uppercase italic mb-4">Power banki półstałe OEM z dowodem testu przebicia</h2>
+   <p class="text-slate-300 mb-8 max-w-xl mx-auto">Nagranie testu, UN38.3 na poziomie ogniwa i wizyta w fabryce na życzenie. MOQ od 500 sztuk, FOB Shenzhen, ISO 9001 od 2013 roku.</p>
+   <div class="flex flex-col sm:flex-row gap-4 justify-center">
+    <a href="/pl/kontakt/" class="btn-wide">Poproś o Wycenę OEM</a>
+    <a href="/pl/produkty/power-bank/polstaly/" class="w-full sm:flex-1 text-center border-2 border-white text-white px-8 py-4 rounded-xl font-black uppercase text-sm hover:bg-white hover:text-brandBlue transition">Zobacz Baterie Półstałe</a>
+   </div>
+  </div>
+ </div>
+</section>
+
+<!-- ===== [13] Related Articles ===== -->
+<aside id="related-articles" class="max-w-4xl mx-auto px-6 mb-16">
+ <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-6">Powiązane Artykuły</h2>
+ <div class="grid md:grid-cols-3 gap-4">
+  <a href="/pl/blog/baterie-polstale-power-bank-oem/" class="bg-slate-50 rounded-xl overflow-hidden hover:shadow-xl transition group">
+   <div class="h-2 bg-gradient-to-r from-brandBlue to-brandOrange"></div>
+   <div class="p-6">
+    <span class="text-xs font-black text-brandOrange uppercase mb-2 block">Technologia Baterii</span>
+    <h3 class="font-black text-brandBlue uppercase text-sm mb-1 group-hover:text-brandOrange transition">Bateria Półstała Power Bank OEM</h3>
+    <p class="text-slate-600 text-sm">Ogniwa 260-350 Wh/kg, UN38.3/CE i MOQ 500 dla importerów.</p>
+   </div>
+  </a>
+  <a href="/pl/blog/kontrola-jakosci-fabryka-chiny-oem/" class="bg-slate-50 rounded-xl overflow-hidden hover:shadow-xl transition group">
+   <div class="h-2 bg-gradient-to-r from-brandBlue to-brandOrange"></div>
+   <div class="p-6">
+    <span class="text-xs font-black text-brandOrange uppercase mb-2 block">Kontrola Jakości</span>
+    <h3 class="font-black text-brandBlue uppercase text-sm mb-1 group-hover:text-brandOrange transition">Kontrola Jakości Chiny</h3>
+    <p class="text-slate-600 text-sm">Proces IQC-IPQC-FQC-OQC, tabela AQL i koszty 2026.</p>
+   </div>
+  </a>
+  <a href="/pl/blog/regulacje-ue-2023-1542-importer/" class="bg-slate-50 rounded-xl overflow-hidden hover:shadow-xl transition group">
+   <div class="h-2 bg-gradient-to-r from-brandBlue to-brandOrange"></div>
+   <div class="p-6">
+    <span class="text-xs font-black text-brandOrange uppercase mb-2 block">Zgodność</span>
+    <h3 class="font-black text-brandBlue uppercase text-sm mb-1 group-hover:text-brandOrange transition">Rozporządzenie UE 2023/1542</h3>
+    <p class="text-slate-600 text-sm">Rejestracja BDO, obowiązki importera i kary WIOŚ.</p>
+   </div>
+  </a>
+ </div>
+</aside>
+
+<!-- ===== [14] Sources ===== -->
+<section class="max-w-4xl mx-auto px-6 mb-16">
+ <h2 class="text-lg font-black text-brandBlue uppercase italic mb-4">Źródła i Odniesienia</h2>
+ <ul class="text-sm text-slate-600 space-y-2 list-disc pl-5">
+  <li><a href="https://unece.org/transport/dangerous-goods/un-manual-tests-and-criteria" target="_blank" rel="noopener external" class="text-brandBlue hover:text-brandOrange">UN Manual of Tests and Criteria, sekcja 38.3</a></li>
+  <li><a href="https://eur-lex.europa.eu/eli/reg/2023/1542/oj" target="_blank" rel="noopener external" class="text-brandBlue hover:text-brandOrange">Rozporządzenie (UE) 2023/1542 w sprawie baterii i zużytych baterii</a></li>
+  <li><a href="https://eur-lex.europa.eu/eli/reg/2023/988/oj" target="_blank" rel="noopener external" class="text-brandBlue hover:text-brandOrange">Rozporządzenie (UE) 2023/988 o ogólnym bezpieczeństwie produktów (GPSR)</a></li>
+  <li><a href="https://uokik.gov.pl" target="_blank" rel="noopener external" class="text-brandBlue hover:text-brandOrange">UOKiK — nadzór rynku i komunikaty o produktach niebezpiecznych</a></li>
+  <li><a href="https://bdo.mos.gov.pl" target="_blank" rel="noopener external" class="text-brandBlue hover:text-brandOrange">BDO — Baza Danych o Odpadach, rejestracja baterii</a></li>
+  <li><a href="https://ec.europa.eu/safety-gate-alerts/screen/search" target="_blank" rel="noopener external" class="text-brandBlue hover:text-brandOrange">EU Safety Gate — baza alertów o produktach niebezpiecznych</a></li>
+  <li><a href="https://puesc.gov.pl" target="_blank" rel="noopener external" class="text-brandBlue hover:text-brandOrange">PUESC — Platforma Usług Elektronicznych Służby Celno-Skarbowej</a></li>
+  <li><a href="https://www.iec.ch/" target="_blank" rel="noopener external" class="text-brandBlue hover:text-brandOrange">IEC 62133-2 — wymagania bezpieczeństwa dla ogniw przenośnych</a></li>
+ </ul>
+</section>
+
+</article>
+
+<!-- ===== [15] Blog CTA Partial ===== -->
+{%- set ctaLabel = "Poproś o wycenę" %}
+{%- set ctaHeading1 = "Power banki półstałe OEM" %}
+{%- set ctaHeading2 = "z dowodem testu przebicia" %}
+{%- set ctaSubtext = "Nagranie testu, UN38.3 na poziomie ogniwa i wizyta w fabryce na życzenie. MOQ od 500 sztuk, odpowiedź w 24 godziny." %}
+{%- set ctaSubject = "Wycena OEM — Weryfikacja Ogniw Półstałych" %}
+{%- set ctaButton = "Poproś o Wycenę" %}
+{% include "partials/blog-cta.njk" %}
+{% endblock %}

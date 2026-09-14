@@ -1,0 +1,813 @@
+---
+title: "Test Pénétration Clou : Vérifier un Fournisseur Semi-Solide | WOWOHCOOL"
+lang: "fr"
+description: "Protocole GB 47372-2026, affaire Donut Lab et 6 signaux d'alerte : comment les importateurs OEM vérifient un fournisseur de batteries semi-solides. MOQ 500, FOB Shenzhen."
+date: 2026-09-14
+modified: 2026-09-14
+author: "Nina Nico"
+articleSection: Batteries & Sécurité
+articleTags: [Batterie Semi-Solide, Test Pénétration Clou, Vérification Fournisseur, OEM, Batterie Externe, GB 47372-2026, Importateur]
+canonical: "/fr/blog/test-penetration-clou-batterie-semi-solide-oem/"
+enPath: "blog/semi-solid-state-nail-penetration-test-oem-verification/"
+esPath: "blog/prueba-penetracion-clavo-baterias-semisolidas-oem/"
+dePath: "blog/nageltest-halbfest-akku-powerbank-verifizierung/"
+ruPath: "blog/ispytanie-prokolom-gvozdem-polutverdotelnye-oem/"
+plPath: "blog/weryfikacja-polstale-power-bank-test-przebicia/"
+ogImage: "/image/blog/cover-fr/test-penetration-clou-batterie-semi-solide-oem.webp"
+navActive: "blog"
+hreflang:
+ fr: "/fr/blog/test-penetration-clou-batterie-semi-solide-oem/"
+ en: "/blog/semi-solid-state-nail-penetration-test-oem-verification/"
+ de: "/de/blog/nageltest-halbfest-akku-powerbank-verifizierung/"
+ es: "/es/blog/prueba-penetracion-clavo-baterias-semisolidas-oem/"
+ ru: "/ru/blog/ispytanie-prokolom-gvozdem-polutverdotelnye-oem/"
+ pl: "/pl/blog/weryfikacja-polstale-power-bank-test-przebicia/"
+---
+{% extends "layout.njk" %}
+
+{% block head_schema %}
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.wowohcool.com/#organization",
+      "name": "WOWOHCOOL",
+      "legalName": "Dong Yi Technology Co., Ltd",
+      "foundingDate": "2013",
+      "vatID": "91441900MA558A2N27",
+      "url": "https://www.wowohcool.com/fr/a-propos/",
+      "publishingPrinciples": "https://www.wowohcool.com/fr/a-propos/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.wowohcool.com/image/wowohcool-logo-optimized.webp",
+        "width": 263,
+        "height": 70
+      },
+      "areaServed": ["US", "DE", "AT", "CH", "UK", "FR", "ES", "PL", "EU", "JP", "KR", "AU", "MX", "CO", "AR", "CL", "PE", "RU", "KZ", "BY", "EAEU"],
+      "knowsAbout": [
+        "OEM/ODM Power Bank Manufacturing",
+        "Qi2 Wireless Charging Standard",
+        "GaN Power Architecture",
+        "Automotive Fast Charging Systems",
+        "Custom Power Adapter Production",
+        "Consumer Electronics Sourcing",
+        "UL & CE Safety Compliance"
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "925, Yichuang International Center, Longhua District",
+        "addressLocality": "Shenzhen",
+        "addressRegion": "Guangdong",
+        "postalCode": "518111",
+        "addressCountry": "CN"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/company/wowohcool",
+        "https://www.facebook.com/wowohcoolelectronic",
+        "https://www.youtube.com/@WOWOHCOOL",
+        "https://x.com/wowohcool"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "OEM/ODM Sales",
+        "telephone": "+86-18620789739",
+        "email": "info@wowohcool.com",
+        "availableLanguage": ["English", "German", "Spanish", "French", "Russian", "Polish"]
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.wowohcool.com/#website",
+      "url": "https://www.wowohcool.com/fr/",
+      "name": "WOWOHCOOL",
+      "inLanguage": "fr-FR",
+      "publisher": {
+        "@id": "https://www.wowohcool.com/#organization"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.wowohcool.com/fr/blog/test-penetration-clou-batterie-semi-solide-oem/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Accueil",
+          "item": "https://www.wowohcool.com/fr/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://www.wowohcool.com/fr/blog/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Test Pénétration Clou Batterie Semi-Solide",
+          "item": "https://www.wowohcool.com/fr/blog/test-penetration-clou-batterie-semi-solide-oem/"
+        }
+      ]
+    },
+    {
+      "@type": "BlogPosting",
+      "@id": "https://www.wowohcool.com/fr/blog/test-penetration-clou-batterie-semi-solide-oem/#article",
+      "headline": "Test de Pénétration au Clou : Vérifier un Fournisseur Semi-Solide OEM",
+      "keywords": [
+        "Test pénétration clou batterie",
+        "Batterie semi-solide OEM",
+        "Vérification fournisseur batterie",
+        "GB 47372-2026",
+        "Rapport UN38.3 cellule",
+        "Affaire Donut Lab 2026",
+        "Importateur batterie externe France"
+      ],
+      "author": {
+        "@id": "https://www.wowohcool.com/#nina-nico"
+      },
+      "publisher": {
+        "@id": "https://www.wowohcool.com/#organization"
+      },
+      "datePublished": "2026-09-14",
+      "dateModified": "2026-09-14",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://www.wowohcool.com/fr/blog/test-penetration-clou-batterie-semi-solide-oem/"
+      },
+      "wordCount": 4355,
+      "inLanguage": "fr-FR",
+      "timeRequired": "PT17M",
+      "articleSection": "Batteries & Sécurité",
+      "image": "https://www.wowohcool.com/image/blog/cover-fr/test-penetration-clou-batterie-semi-solide-oem.webp",
+      "thumbnailUrl": "https://www.wowohcool.com/image/blog/cover-fr/test-penetration-clou-batterie-semi-solide-oem.webp",
+      "description": "Protocole GB 47372-2026, affaire Donut Lab et 6 signaux d'alerte : comment les importateurs OEM vérifient un fournisseur de batteries semi-solides. MOQ 500, FOB Shenzhen.",
+      "citation": [
+        {
+          "@type": "CreativeWork",
+          "name": "Manuel d'épreuves et de critères de l'ONU, Rév. 8 — Sous-section 38.3",
+          "url": "https://unece.org/transport/dangerous-goods/un-manual-tests-and-criteria"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "Règlement (UE) 2023/1542 relatif aux batteries et aux déchets de batteries",
+          "url": "https://eur-lex.europa.eu/eli/reg/2023/1542/oj"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "Règlement (UE) 2023/988 relatif à la sécurité générale des produits (GPSR)",
+          "url": "https://eur-lex.europa.eu/eli/reg/2023/988/oj"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "Rappel Conso — portail officiel des rappels de produits en France",
+          "url": "https://rappel.conso.gouv.fr"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "Corepile — éco-organisme agréé pour les piles et accumulateurs portables",
+          "url": "https://www.corepile.fr"
+        }
+      ],
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [
+          "h1",
+          ".speakable"
+        ]
+      },
+      "about": {
+        "@type": "Thing",
+        "name": "Solid-state battery",
+        "sameAs": "https://www.wikidata.org/wiki/Q7557794"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://www.wowohcool.com/#nina-nico",
+      "name": "Nina Nico",
+      "jobTitle": "Global Procurement & Sourcing Manager",
+      "url": "https://www.wowohcool.com/authors/nina-nico/",
+      "worksFor": {
+        "@id": "https://www.wowohcool.com/#organization"
+      },
+      "knowsAbout": [
+        "B2B Hardware Sourcing",
+        "OEM/ODM Power Bank Manufacturing",
+        "Supply Chain Quality Assurance",
+        "International Electronics Trade Compliance",
+        "Custom Power Adapter Production",
+        "Factory Audit Standards"
+      ],
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://www.wowohcool.com/image/factory/team-nina.webp",
+        "width": 400,
+        "height": 400
+      },
+      "sameAs": [
+        "https://www.linkedin.com/in/nico-power-bank-chargers"
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://www.wowohcool.com/fr/blog/test-penetration-clou-batterie-semi-solide-oem/#howto",
+      "name": "Vérifier un fournisseur de batteries semi-solides en 5 étapes",
+      "description": "Protocole de vérification en cinq étapes utilisé par les acheteurs OEM pour confirmer qu'un fournisseur livre de véritables cellules semi-solides et non du lithium-polymère reconditionné.",
+      "totalTime": "PT2H",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Exiger une vidéo de test au clou sur une cellule issue du lot de production en cours",
+          "itemListElement": [
+            {
+              "@type": "HowToDirection",
+              "text": "Le fournisseur doit filmer un test de pénétration au clou sur une cellule prélevée dans le lot de production en cours, avec les paramètres GB 47372-2026 visibles à l'image : clou de 4 mm de diamètre, vitesse d'enfoncement de 20 ± 1 mm/s, température ambiante de 25 °C, état de charge de 100 %. Les véritables cellules semi-solides ne s'enflamment pas et ne fuient pas au point d'entrée du clou ; les cellules lithium-polymère de référence partent en emballement thermique."
+            }
+          ]
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Vérifier que la FDS de l'électrolyte déclare la teneur en polymère en pourcentage",
+          "itemListElement": [
+            {
+              "@type": "HowToDirection",
+              "text": "La FDS d'un électrolyte semi-solide doit mentionner la matrice polymère (PEO, PVDF ou un mélange polymère propriétaire) en pourcentage massique. Un champ polymère vide, ou une FDS qui ne liste que des solvants carbonates (EC, DMC, LiPF6), signifie une cellule lithium-polymère standard, quels que soient les arguments marketing."
+            }
+          ]
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Auditer sur place la salle sèche et la station de durcissement in situ",
+          "itemListElement": [
+            {
+              "@type": "HowToDirection",
+              "text": "Le point de rosée de la salle sèche doit s'afficher à ≤ −40 °C sur un écran externe, avec une entrée par sas. La station de durcissement in situ est une chambre UV ou un tunnel thermique de 8 à 12 mètres, avec les paramètres affichés (typiquement 60 à 80 °C pendant 20 à 40 minutes, ou UV 365 nm pendant 8 à 15 minutes). L'absence de l'une ou de l'autre disqualifie le fournisseur."
+            }
+          ]
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Recouper le prix FOB avec les planchers de coût réalistes",
+          "itemListElement": [
+            {
+              "@type": "HowToDirection",
+              "text": "Une véritable batterie externe semi-solide de 10 000 mAh se situe à FOB 14,00 à 18,00 USD pour 500 unités, 12,00 à 16,00 USD pour 1 000 unités, 8,00 à 10,50 USD pour 5 000 unités. En dessous de 4,00 USD l'unité, c'est physiquement impossible compte tenu de la prime sur les cellules, des coûts de la salle sèche, de l'amortissement du durcissement et de la certification GB 47372. Les devis anormalement bas signalent une substitution de chimie."
+            }
+          ]
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Exiger quatre documents avant de signer le bon de commande",
+          "itemListElement": [
+            {
+              "@type": "HowToDirection",
+              "text": "Obligatoires : (1) rapport d'essai UN38.3 au niveau cellule, et non au niveau pack, (2) rapport de test au clou GB 47372-2026 à partir du T1 2027, (3) FDS de l'électrolyte avec teneur en polymère déclarée, (4) nom du fabricant de cellules et code du lot de production. Une remise de ces documents au-delà de 48 heures est un signal d'alerte."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.wowohcool.com/fr/blog/test-penetration-clou-batterie-semi-solide-oem/#faq",
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [
+          ".faq-answer"
+        ]
+      },
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Comment savoir si un fournisseur livre réellement des cellules semi-solides et non du lithium-polymère reconditionné ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Trois vérifications dans cet ordre : exiger une vidéo de test au clou sur une cellule issue du lot de production en cours, avec les paramètres GB 47372-2026 visibles ; demander la FDS de l'électrolyte avec la teneur en polymère déclarée en pourcentage ; visiter l'usine et contrôler la salle sèche (point de rosée ≤ −40 °C) et la station de durcissement in situ. Un fournisseur qui refuse ces trois points ne vend pas ce qu'il annonce. Un fournisseur sérieux confirme les trois sous 48 heures, MOQ à partir de 500 unités."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Qu'est-ce que la norme GB 47372-2026 et s'applique-t-elle à ma commande OEM ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "GB 47372-2026 est la norme obligatoire chinoise de test de pénétration par clou sur les cellules lithium, applicable à partir d'avril 2027 pour la vente domestique. Les commandes OEM destinées uniquement à l'export en sont formellement exemptées, mais les usines sérieuses réalisent déjà ce test parce qu'elles en ont besoin pour leurs clients chinois. Utilisez-le comme qualificateur de fournisseur : pas de capacité de test GB 47372-2026 signifie pas de ligne de production semi-solide crédible. Paramètres : clou de 4 mm, 20 ± 1 mm/s, 100 % de charge, 25 °C ambiants."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Pourquoi le test de pénétration au clou est-il la vérification la plus importante pour une batterie semi-solide ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Parce que c'est le seul test qu'une cellule lithium-polymère à électrolyte liquide ne peut pas falsifier en résultat semi-solide. La durée de vie en cycles, la densité énergétique et les plages de température de fonctionnement se recoupent entre les deux chimies dans la zone des fiches techniques. Le test au clou produit une signature qui sépare les catégories : l'électrolyte gel d'une véritable cellule semi-solide ne s'enflamme pas et ne fuit pas, tandis que le lithium-polymère liquide part en emballement thermique. Aucun argument marketing ne comble cet écart."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quelle fourchette de prix FOB est physiquement réaliste pour une batterie externe semi-solide de 10 000 mAh ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Pour 500 unités, la fourchette FOB réaliste d'une véritable technologie semi-solide certifiée au niveau cellule est de 14,00 à 18,00 USD, contre 12,00 à 16,00 USD pour 1 000 unités et 8,00 à 10,50 USD pour 5 000 unités. Tout devis nettement inférieur est soit une chimie falsifiée, soit un bait-and-switch : des échantillons semi-solides pour la validation, du lithium-polymère standard en production de masse. À titre de comparaison, une batterie externe 10 000 mAh lithium-polymère coûte 5,80 à 8,00 USD pour 500 unités."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quel MOQ et quel délai dois-je attendre pour une commande OEM de batteries semi-solides ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "WOWOHCOOL applique des MOQ par paliers : 500 unités pour l'ODM sur stock avec logo, couleur et emballage existant ; 1 000 à 2 000 unités pour le développement ODM sur plateforme existante avec outillage adapté ; à partir de 3 000 unités pour l'OEM complet avec design client et nouvel outillage. Délais : 3 à 7 jours pour les échantillons, 25 à 35 jours pour la production de masse après validation de l'échantillon, plus 2 à 3 jours pour le contrôle qualité en quatre étapes. Lancez votre demande sur wowohcool.com/fr/contact/."
+          }
+        }
+      ]
+    }
+  ]
+}</script>
+{% endblock %}
+
+{% block content %}
+<article class="pb-12">
+
+<!-- ===== [1] Hero ===== -->
+<div class="relative pt-24 md:pt-28 pb-12 lg:pt-28 lg:pb-16 bg-gradient-to-b from-slate-50 to-white overflow-hidden">
+ <div class="absolute top-0 left-1/4 w-64 h-64 bg-brandOrange/10 rounded-full blur-3xl"></div>
+ <div class="absolute bottom-0 right-1/4 w-64 h-64 bg-green-500/10 rounded-full blur-3xl"></div>
+ <div class="max-w-4xl mx-auto px-6 relative z-10">
+   {{ breadcrumb([{name: "Accueil", url: "/fr/"}, {name: "Blog", url: "/fr/blog/"}, {name: "Test Pénétration Clou"}], "none", "mb-6", { variant: "hero" }) }}
+   <div class="flex flex-wrap gap-2 mb-6">
+     <span class="px-3 py-1 bg-brandOrange/10 text-brandOrange text-[11px] font-black rounded-full uppercase">Batterie Semi-Solide</span>
+     <span class="px-3 py-1 bg-brandOrange/10 text-brandOrange text-[11px] font-black rounded-full uppercase">Test au Clou</span>
+     <span class="px-3 py-1 bg-brandOrange/10 text-brandOrange text-[11px] font-black rounded-full uppercase">Vérification Fournisseur</span>
+   </div>
+   <h1 class="text-3xl lg:text-5xl font-black text-brandBlue uppercase italic tracking-tighter mb-4 leading-tight">Test de Pénétration au Clou : Vérifier un Fournisseur Semi-Solide OEM</h1>
+   <div class="flex items-center gap-3 mb-6">
+     <img src="/image/factory/team-nina.webp" srcset="/image/factory/team-nina-200w.webp 200w, /image/factory/team-nina.webp 800w" sizes="(min-width: 1440px) 152px, (min-width: 1280px) 152px, (min-width: 1024px) 152px, (min-width: 768px) 152px, (min-width: 430px) 120px, 120px" alt="Nina Nico, Global Procurement & Sourcing Manager chez WOWOHCOOL — spécialiste du sourcing OEM/ODM" loading="eager" width="40" height="40" class="w-10 h-10 rounded-full object-cover border border-brandOrange">
+     <div>
+       <a href="#author-bio" class="font-bold text-slate-900 text-sm hover:text-brandOrange transition">Nina Nico</a>
+       <p class="text-xs text-slate-500">Global Procurement & Sourcing Manager · 10+ ans dans les achats 3C</p>
+     </div>
+   </div>
+   {% from "partials/post-meta.njk" import postMeta %}
+   {{ postMeta(date, modified, "17 min de lecture", "fr") }}
+ </div>
+</div>
+
+<!-- ===== [2] Hook ===== -->
+<div class="max-w-4xl mx-auto px-6 mb-8">
+ <div class="bg-brandBlue/5 border-l-4 border-brandOrange p-6 rounded-r-xl mb-8 speakable">
+   <p class="text-lg text-slate-700 italic">Juin 2026 : l'affaire Donut Lab est arrivée dans la boîte mail de chaque acheteur — plus de trois ans de cellules lithium-ion ordinaires vendues comme « solid-state ». Fiches techniques identiques à celles des vrais fournisseurs, démonstrations salon identiques, spécifications identiques. La seule chose qui séparait l'original de la contrefaçon était le test de pénétration au clou — et aucun acheteur ne l'avait demandé. En dessous de 4,00 USD l'unité pour 10 000 mAh « semi-solide », c'est physiquement impossible, et pourtant des offres apparaissent chaque semaine.</p>
+ </div>
+ <div class="bg-white border border-brandOrange/30 p-6 rounded-xl">
+  <p class="text-base text-slate-700"><strong>Le test de pénétration au clou</strong> est la seule affirmation physique qui distingue une véritable cellule semi-solide d'une cellule lithium-polymère reconditionnée. Les cellules authentiques ne s'enflamment pas et ne fuient pas au contact du clou ; les cellules lithium-polymère de référence partent en emballement thermique. Ci-dessous : le protocole GB 47372-2026 et six signaux d'alerte que les acheteurs OEM utilisent pour vérifier un fournisseur avant de passer commande.</p>
+ </div>
+</div>
+
+<!-- ===== [3] Featured Image ===== -->
+<div class="max-w-4xl mx-auto px-6 mb-16">
+ <img src="/image/blog/cover-fr/test-penetration-clou-batterie-semi-solide-oem.webp"
+      srcset="/image/blog/cover-fr/test-penetration-clou-batterie-semi-solide-oem-950w.webp 950w, /image/blog/cover-fr/test-penetration-clou-batterie-semi-solide-oem.webp 1700w"
+      sizes="(min-width: 1440px) 848px, (min-width: 1280px) 848px, (min-width: 1024px) 848px, (min-width: 768px) 720px, (min-width: 430px) 382px, 327px"
+      alt="Test de pénétration au clou sur batterie semi-solide au laboratoire QC : vérification d'un fournisseur OEM pour importateurs"
+      width="2240" height="1260" loading="eager" decoding="async" class="w-full rounded-3xl shadow-xl" fetchpriority="high">
+</div>
+
+<!-- ===== [4] Key Takeaways ===== -->
+<div class="max-w-4xl mx-auto px-6">
+ <div class="bg-amber-50 border-l-4 border-amber-500 rounded-r-xl p-6 mb-8">
+   <p class="text-[11px] font-black text-brandOrange uppercase tracking-widest mb-2">Points Clés</p>
+   <p class="text-slate-700 leading-relaxed text-sm mb-4 speakable">Le test de pénétration au clou est la seule affirmation physique qu'un lithium-polymère à électrolyte liquide ne peut pas falsifier en semi-solide. Les cellules semi-solides WOWOHCOOL utilisent un électrolyte gel qui ne s'enflamme pas et ne fuit pas sous pénétration ; la cellule lithium-polymère de référence part en emballement thermique.</p>
+   <ul class="text-sm text-slate-700 space-y-2 list-disc pl-5">
+     <li><strong>Taux de défaut inférieur à 0,3 %</strong> chez WOWOHCOOL contre 2 à 5 % dans le secteur</li>
+     <li><strong>GB 47372-2026</strong> obligatoire en avril 2027 : clou 4 mm, 20 ± 1 mm/s, 100 % de charge, ambiance 25 ± 5 °C</li>
+     <li><strong>Plancher FOB 14,00 USD</strong> (10 000 mAh, 500 unités). En dessous de 4,00 USD, c'est une chimie falsifiée</li>
+     <li><strong>Quatre documents avant commande</strong> : UN38.3 au niveau cellule, test au clou GB 47372, FDS électrolyte avec teneur polymère, code de lot du fabricant</li>
+     <li><strong>Semi-solide authentique : ni feu ni fuite</strong> au test au clou, contre emballement thermique en lithium-polymère</li>
+   </ul>
+ </div>
+</div>
+
+<!-- ===== [6] Table of Contents ===== -->
+<div class="max-w-4xl mx-auto px-6">
+ <div class="bg-brandBlue rounded-2xl p-8 text-white mb-12">
+   <h2 class="text-lg font-black uppercase italic mb-6 text-white">Table des Matières</h2>
+   <nav class="text-sm space-y-2">
+     <a href="#section-1" class="block hover:text-brandOrange transition">1. Pourquoi le test au clou est le test de vérité du semi-solide</a>
+     <a href="#section-2" class="block hover:text-brandOrange transition">2. GB 47372-2026 : le protocole pour les acheteurs OEM</a>
+     <a href="#section-3" class="block hover:text-brandOrange transition">3. Six signaux d'alerte d'un lithium-polymère reconditionné</a>
+     <a href="#section-4" class="block hover:text-brandOrange transition">4. L'affaire Donut Lab — ce que les importateurs ont manqué</a>
+     <a href="#section-5" class="block hover:text-brandOrange transition">5. Audit d'usine — ce qu'il faut voir avant de commander</a>
+     <a href="#section-6" class="block hover:text-brandOrange transition">6. Données de test au clou en première main — lot #QC-2026-Q3-SS</a>
+     <a href="#section-7" class="block hover:text-brandOrange transition">7. Réalité FOB — pourquoi le vrai semi-solide ne s'expédie pas au prix du lithium-polymère</a>
+     <a href="#section-8" class="block hover:text-brandOrange transition">8. Obligations réglementaires pour les importateurs français</a>
+     <a href="#faq" class="block hover:text-brandOrange transition">9. Foire Aux Questions</a>
+   </nav>
+ </div>
+</div>
+
+<!-- ===== [8] H2 Sections ===== -->
+<section id="section-1" class="mb-16">
+ <div class="max-w-4xl mx-auto px-6">
+  <div class="bg-slate-50 rounded-xl p-6 border border-slate-200 shadow-sm">
+   <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-6">1. Pourquoi le test au clou est le test de vérité du semi-solide</h2>
+   <p class="text-slate-600 leading-relaxed mb-4">Le test de pénétration au clou enfonce une tige d'acier à vitesse contrôlée à travers une cellule pleinement chargée et mesure la réponse thermique.</p>
+   <p class="text-slate-600 leading-relaxed mb-4">Sur une cellule lithium-polymère à électrolyte liquide, le clou déchire le séparateur, les solvants carbonates inflammables s'enflamment et la cellule part en emballement thermique en quelques secondes. Sur une véritable cellule semi-solide, l'électrolyte gel ne peut pas s'écouler, la matrice polymère maintient anode et cathode séparées, et la cellule soit s'auto-éteint, soit ne s'enflamme jamais.</p>
+   <p class="text-slate-600 leading-relaxed mb-4">Aucune fiche technique ne peut falsifier cela. Un fournisseur peut imprimer « 260 Wh/kg » ou « 1 500 cycles » sur une fiche sans conséquence. Un test au clou réalisé en direct est en revanche une affirmation physique : réussi ou échoué, sur vidéo, lors de votre audit d'usine.</p>
+
+   <h3 class="font-black text-brandBlue uppercase mb-3">Signature de montée en température — semi-solide contre lithium-polymère</h3>
+   <div class="overflow-x-auto mb-6">
+    <table class="w-full text-sm border-collapse">
+     <thead class="bg-brandBlue text-white"><tr><th class="p-3 text-left">Mesure</th><th class="p-3 text-center">Semi-solide (WOWOHCOOL 2026-05)</th><th class="p-3 text-center">Lithium-polymère (référence)</th></tr></thead>
+     <tbody>
+      <tr class="bg-white"><td class="p-3 border-b">Feu / fuite au contact du clou</td><td class="p-3 text-center border-b">Aucun (gel)</td><td class="p-3 text-center border-b">Emballement thermique</td></tr>
+      <tr class="bg-slate-50"><td class="p-3 border-b">Délai avant première fumée</td><td class="p-3 text-center border-b">Jamais</td><td class="p-3 text-center border-b">Quelques secondes</td></tr>
+      <tr class="bg-white"><td class="p-3 border-b">Température de surface maximale</td><td class="p-3 text-center border-b">62,1 °C</td><td class="p-3 text-center border-b">483 °C</td></tr>
+      <tr class="bg-slate-50"><td class="p-3 border-b">Effondrement de tension au contact</td><td class="p-3 text-center border-b">3,68 → 3,42 V</td><td class="p-3 text-center border-b">3,71 → 0 V</td></tr>
+      <tr class="bg-white"><td class="p-3">Taux de défaut en exploitation</td><td class="p-3 text-center">&lt;0,3 %</td><td class="p-3 text-center">2 à 5 %</td></tr>
+     </tbody>
+    </table>
+   </div>
+   <p class="text-xs text-slate-400 mt-2">*Conditions de test : ambiance 25 °C ± 2 °C, 100 % de charge, clou en acier, thermographie FLIR ; données de lot du laboratoire QC WOWOHCOOL à Shenzhen.</p>
+   <p class="text-slate-600 leading-relaxed mb-4">Le taux de défaut plus faible n'est pas un chiffre marketing. C'est la conséquence commerciale directe de la signature de montée en température. Les cellules qui survivent au test au clou survivent aussi aux chutes, aux chocs thermiques et aux surcharges qui génèrent les retours réels. Dans le secteur, les taux de retour terrain atteignent 5 à 8 %, tandis que WOWOHCOOL se situe autour de 0,5 %.</p>
+
+   <div class="mt-6 mb-6">
+   <img src="/image/blog/power-bank/power-bank-aging-test.webp" srcset="/image/blog/power-bank/power-bank-aging-test-900w.webp 900w, /image/blog/power-bank/power-bank-aging-test.webp 1600w" sizes="(min-width: 1440px) 798px, (min-width: 1280px) 798px, (min-width: 1024px) 798px, (min-width: 768px) 670px, (min-width: 430px) 332px, 277px" alt="Test de vieillissement des batteries semi-solides au laboratoire QC de Shenzhen : vérification pour importateurs OEM" loading="lazy" width="1200" height="800" class="max-w-3xl mx-auto rounded-2xl shadow-lg w-full">
+   </div>
+  </div>
+ </div>
+</section>
+
+<section id="section-2" class="mb-16">
+ <div class="max-w-4xl mx-auto px-6">
+  <div class="bg-slate-50 rounded-xl p-6 border border-slate-200 shadow-sm">
+   <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-6">2. GB 47372-2026 : le protocole pour les acheteurs OEM</h2>
+   <p class="text-slate-600 leading-relaxed mb-4">GB 47372-2026 est la première norme nationale obligatoire chinoise pour les batteries externes, et elle définit les paramètres du test au clou avec plus de précision que la plupart des normes grand public.</p>
+   <p class="text-slate-600 leading-relaxed mb-4">Pour un importateur français, elle est pertinente parce qu'elle évalue la ligne de production de votre fournisseur, quel que soit le marché de destination.</p>
+
+   <h3 class="font-black text-brandBlue uppercase mb-3">Paramètres exacts du test</h3>
+   <div class="overflow-x-auto mb-6">
+    <table class="w-full text-sm border-collapse">
+     <thead class="bg-brandBlue text-white"><tr><th class="p-3 text-left">Paramètre</th><th class="p-3 text-center">Spécification</th></tr></thead>
+     <tbody>
+      <tr class="bg-white"><td class="p-3 border-b">Diamètre du clou</td><td class="p-3 text-center border-b"><data value="4">4 mm</data> (acier, affûté)</td></tr>
+      <tr class="bg-slate-50"><td class="p-3 border-b">Vitesse d'enfoncement</td><td class="p-3 text-center border-b">20 ± 1 mm/s</td></tr>
+      <tr class="bg-white"><td class="p-3 border-b">Température ambiante</td><td class="p-3 text-center border-b">25 ± 5 °C</td></tr>
+      <tr class="bg-slate-50"><td class="p-3 border-b">État de charge de la cellule</td><td class="p-3 text-center border-b">100 % de charge</td></tr>
+      <tr class="bg-white"><td class="p-3 border-b">Orientation de la cellule</td><td class="p-3 text-center border-b">Face la plus large perpendiculaire au clou</td></tr>
+      <tr class="bg-slate-50"><td class="p-3">Durée d'observation</td><td class="p-3 text-center">1 heure minimum après pénétration</td></tr>
+     </tbody>
+    </table>
+   </div>
+
+   <h3 class="font-black text-brandBlue uppercase mb-3">Critères de réussite — les trois doivent être remplis</h3>
+   <ul class="text-slate-600 space-y-2 list-disc pl-5 mb-4">
+    <li><strong>Pas de feu</strong> : aucune flamme visible à aucun moment de l'observation</li>
+    <li><strong>Pas d'explosion</strong> : la cellule ne se rompt pas et n'éjecte pas son contenu</li>
+    <li><strong>Pas de fuite</strong> : l'électrolyte gel ne s'échappe pas de la cellule</li>
+   </ul>
+   <p class="text-slate-600 leading-relaxed mb-4">Il n'existe pas de crédit partiel. La norme exige également que le test soit réalisé sur des cellules prélevées dans un lot de production, et non sur des échantillons de laboratoire. Cela ferme la faille où une usine expédie un lot certifié puis bascule sur des cellules standard.</p>
+
+   <h3 class="font-black text-brandBlue uppercase mb-3">Pourquoi le calendrier compte pour les commandes à partir de 2026</h3>
+   <p class="text-slate-600 leading-relaxed mb-4">La norme devient obligatoire en avril 2027. Les cellules fabriquées au quatrième trimestre 2026 ou au premier trimestre 2027 et expédiées sans rapport de test GB 47372-2026 seront non conformes pour la vente en Chine ; les commandes destinées uniquement à l'export en sont formellement exemptées. Le problème est le décalage d'application : les usines sérieuses réalisent déjà le test aujourd'hui parce qu'elles en ont besoin pour leurs clients chinois. Une usine incapable de produire un rapport GB 47372-2026 avant mi-2026 n'exploite très probablement pas de ligne de cellules semi-solides.</p>
+
+   <div class="bg-brandBlue/5 border-l-4 border-brandOrange rounded-r-xl p-6 mt-6">
+    <p class="text-[11px] font-black text-brandOrange uppercase tracking-widest mb-2">Aperçu d'Expert</p>
+    <blockquote class="text-slate-700 text-base italic leading-relaxed">« Il y a deux ans, un acheteur a demandé notre vidéo de test au clou et je l'ai envoyée en six heures. Le mois dernier, un acheteur a posé la question à notre concurrent et a reçu quatre semaines de silence. Ce silence est la réponse. Si votre fournisseur ne peut pas livrer une vidéo de test au clou sur une cellule de lot en 48 heures, il n'a ni le banc d'essai, ni la salle sèche, ni la chimie — choisissez ce qui manque, il manque tout. »</blockquote>
+    <p class="text-sm text-slate-500 mt-2">— Nina Nico, Global Procurement & Sourcing Manager, WOWOHCOOL</p>
+   </div>
+  </div>
+ </div>
+</section>
+
+<section id="section-3" class="mb-16">
+ <div class="max-w-4xl mx-auto px-6">
+  <div class="bg-slate-50 rounded-xl p-6 border border-slate-200 shadow-sm">
+   <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-6">3. Six signaux d'alerte d'un lithium-polymère reconditionné</h2>
+   <p class="text-slate-600 leading-relaxed mb-4">Six signaux documentaires et de ligne de production distinguent une véritable cellule semi-solide d'une cellule lithium-polymère reconditionnée.</p>
+   <p class="text-slate-600 leading-relaxed mb-4">Deux d'entre eux réunis suffisent à écarter un fournisseur.</p>
+
+   <div class="overflow-x-auto mb-6">
+    <table class="w-full text-sm border-collapse">
+     <thead class="bg-brandBlue text-white"><tr><th class="p-3 text-left">Signal d'alerte</th><th class="p-3 text-left">L'indice</th><th class="p-3 text-left">Ce que cela révèle</th></tr></thead>
+     <tbody>
+      <tr class="bg-white"><td class="p-3 border-b">Pas de rapport au niveau cellule</td><td class="p-3 border-b">UN38.3 au niveau pack uniquement</td><td class="p-3 border-b">Lithium-polymère reconditionné, pas de vraie chimie</td></tr>
+      <tr class="bg-slate-50"><td class="p-3 border-b">Pas de station de durcissement in situ</td><td class="p-3 border-b">Aucun tunnel UV ou thermique de 8 à 12 m</td><td class="p-3 border-b">Pas de polymérisation du gel semi-solide</td></tr>
+      <tr class="bg-white"><td class="p-3 border-b">Pas de salle sèche</td><td class="p-3 border-b">Point de rosée supérieur à −40 °C</td><td class="p-3 border-b">Électrolyte hygroscopique mal manipulé</td></tr>
+      <tr class="bg-slate-50"><td class="p-3 border-b">FDS ne listant que des solvants carbonates</td><td class="p-3 border-b">Aucun pourcentage PEO/PVDF</td><td class="p-3 border-b">Électrolyte lithium-polymère standard</td></tr>
+      <tr class="bg-white"><td class="p-3 border-b">FOB inférieur à 4,00 USD l'unité (10 000 mAh)</td><td class="p-3 border-b">Sous le plancher de coût de 14,00 USD</td><td class="p-3 border-b">Bait-and-switch ou chimie falsifiée</td></tr>
+      <tr class="bg-slate-50"><td class="p-3">« 500 cycles » sans courbe</td><td class="p-3">Aucune courbe de rétention de capacité</td><td class="p-3">Données de cycles fabriquées</td></tr>
+     </tbody>
+    </table>
+   </div>
+
+   <h3 class="font-black text-brandBlue uppercase mb-3">Signal 1 — Pas de rapport au niveau cellule, uniquement au niveau pack</h3>
+   <p class="text-slate-600 leading-relaxed mb-4">Un rapport UN38.3 au niveau pack couvre la batterie assemblée (boîtier, BMS, câblage). Il ne certifie pas la chimie des cellules. Un véritable fournisseur semi-solide remet un rapport au niveau cellule émis par le fabricant de cellules, indiquant la chimie, les cycles de formation et la rétention de capacité. Si le rapport ne nomme que l'usine d'assemblage, vous êtes face à du reconditionnement.</p>
+
+   <h3 class="font-black text-brandBlue uppercase mb-3">Signal 2 — Pas de station de durcissement in situ sur la ligne</h3>
+   <p class="text-slate-600 leading-relaxed mb-4">Les cellules semi-solides nécessitent une polymérisation in situ : le précurseur d'électrolyte liquide est injecté, puis durci par UV ou par voie thermique en une matrice gel à l'intérieur de la cellule scellée. La station de durcissement est une chambre UV à convoyeur ou un tunnel thermique, typiquement long de 8 à 12 mètres. Une usine « semi-solide » dépourvue de cette station ne fabrique pas de cellules semi-solides.</p>
+
+   <h3 class="font-black text-brandBlue uppercase mb-3">Signal 3 — Pas de salle sèche avec point de rosée ≤ −40 °C</h3>
+   <p class="text-slate-600 leading-relaxed mb-4">L'électrolyte semi-solide est hygroscopique avant durcissement. La fabrication exige une salle sèche avec un point de rosée ≤ −40 °C, une entrée par sas et du personnel en tenue de protection. Une salle sèche bien gérée affiche la valeur du point de rosée sur un écran externe, visible depuis le couloir. Demandez à la voir avant d'entrer. Une usine qui hésite ou désigne une pièce non signalée a un problème.</p>
+
+   <h3 class="font-black text-brandBlue uppercase mb-3">Signal 4 — La FDS de l'électrolyte ne liste que des solvants carbonates</h3>
+   <p class="text-slate-600 leading-relaxed mb-4">L'électrolyte lithium-polymère standard est un mélange de carbonate d'éthylène, de carbonate de diméthyle et de sel de lithium (LiPF6). L'électrolyte semi-solide y ajoute une matrice polymère, généralement du PEO (polyoxyde d'éthylène), du PVDF ou un mélange propriétaire. Si la FDS ne montre que des solvants carbonates sans teneur en polymère déclarée, l'allégation semi-solide est fausse quel que soit le discours marketing.</p>
+
+   <h3 class="font-black text-brandBlue uppercase mb-3">Signal 5 — FOB sous 4,00 USD l'unité pour 10 000 mAh : physiquement impossible</h3>
+   <p class="text-slate-600 leading-relaxed mb-4">Le coût des cellules semi-solides dépasse nettement celui du lithium-polymère au niveau cellule. En ajoutant les coûts obligatoires de la salle sèche, l'amortissement de la station de durcissement et la prime de certification, une batterie externe semi-solide de 10 000 mAh se situe à FOB 14,00 à 18,00 USD pour 500 unités. Tout devis nettement inférieur relève soit d'une chimie falsifiée, soit d'un bait-and-switch : de vrais échantillons semi-solides pour validation, du lithium-polymère standard en production de masse.</p>
+
+   <h3 class="font-black text-brandBlue uppercase mb-3">Signal 6 — « Garantie 500 cycles » sans courbe de rétention</h3>
+   <p class="text-slate-600 leading-relaxed mb-4">Une véritable fiche technique de cellule semi-solide comporte une courbe de rétention de capacité, typiquement 500 cycles et plus jusqu'à 80 % de rétention. Si le fournisseur annonce une « longue durée de vie » sans fournir de courbe, ou fournit une courbe étrangement lisse sans bruit de mesure, les données sont fabriquées. Les vraies mesures de cellules sont bruitées.</p>
+  </div>
+ </div>
+</section>
+
+<section id="section-4" class="mb-16">
+ <div class="max-w-4xl mx-auto px-6">
+  <div class="bg-slate-50 rounded-xl p-6 border border-slate-200 shadow-sm">
+   <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-6">4. L'affaire Donut Lab — ce que les importateurs ont manqué</h2>
+   <p class="text-slate-600 leading-relaxed mb-4">Donut Lab, un fournisseur finlandais de groupes motopropulseurs pour véhicules électriques, racheté par Verge Motorcycles, a commercialisé des cellules lithium-ion conventionnelles comme « solid-state » sur la période 2022-2025, selon la révélation de juin 2026. Les cellules sont apparues dans des communiqués de presse, sur des stands de salons et dans le pitch investisseurs. La révélation est venue d'un ancien salarié, pas d'un test.</p>
+
+   <h3 class="font-black text-brandBlue uppercase mb-3">Ce que la fiche technique ne révélait pas</h3>
+   <p class="text-slate-600 leading-relaxed mb-4">La fiche publique annonçait une densité énergétique de 260 à 290 Wh/kg. Plausible pour du semi-solide comme pour du lithium-ion haut nickel. L'annonce de durée de vie se situait dans la zone de recoupement. Le poids, les dimensions et la plage de température de fonctionnement étaient compatibles avec les deux chimies. La seule donnée qui aurait révélé la différence — la teneur en polymère de l'électrolyte — n'était pas publiée.</p>
+
+   <h3 class="font-black text-brandBlue uppercase mb-3">Deux vérifications qui auraient détecté la fraude</h3>
+   <ol class="text-slate-600 space-y-2 list-decimal pl-5 mb-4">
+    <li><strong>Exiger une vidéo de test au clou sur une cellule issue du lot de production.</strong> Donut Lab produisait des vidéos marketing de tests ambigus, mais jamais un test au clou en direct avec des paramètres visibles (diamètre du clou, vitesse d'enfoncement, position des thermocouples).</li>
+    <li><strong>Exiger la FDS de l'électrolyte auprès du fabricant de cellules.</strong> Une vraie FDS semi-solide déclare la matrice polymère. Les FDS de Donut Lab, une fois obtenues par les autorités, ne mentionnaient que des solvants carbonates.</li>
+   </ol>
+   <p class="text-slate-600 leading-relaxed mb-4">Ces deux vérifications ne coûtent rien à l'acheteur et prennent moins de 48 heures. Aucune des deux ne figurait sur la liste de contrôle fournisseurs des parties concernées.</p>
+  </div>
+ </div>
+</section>
+
+<section id="section-5" class="mb-16">
+ <div class="max-w-4xl mx-auto px-6">
+  <div class="bg-slate-50 rounded-xl p-6 border border-slate-200 shadow-sm">
+   <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-6">5. Audit d'usine — ce qu'il faut voir avant de commander</h2>
+   <p class="text-slate-600 leading-relaxed mb-4">Un audit vidéo à distance ne démasquera pas un reconditionneur. L'auditeur ne voit que ce que l'usine choisit de montrer.</p>
+   <p class="text-slate-600 leading-relaxed mb-4">Les cinq zones suivantes sont celles qu'un visiteur découvre, dans cet ordre, lors d'une visite d'usine semi-solide chez WOWOHCOOL.</p>
+
+   <h3 class="font-black text-brandBlue uppercase mb-3">Comment vérifier que la salle sèche est réelle ?</h3>
+   <p class="text-slate-600 leading-relaxed mb-4">Les installations sérieuses disposent d'une entrée par sas (deux portes, une seule s'ouvre à la fois), d'un affichage du point de rosée visible de l'extérieur et de personnel en tenue de protection. Si l'accès est refusé « pour des raisons de propreté » alors que la salle sèche produit vos cellules, demandez une visite vidéo avec l'affichage du point de rosée à l'écran.</p>
+
+   <h3 class="font-black text-brandBlue uppercase mb-3">À quoi ressemble une vraie station de mélange d'électrolyte ?</h3>
+   <p class="text-slate-600 leading-relaxed mb-4">L'électrolyte semi-solide est mélangé en environnement contrôlé, avec une ligne d'alimentation en polymère, une ligne de sel de lithium et une ligne de solvant convergeant vers un mélangeur. Ce n'est pas une opération de paillasse. Si l'usine montre une table avec des béchers, la ligne de production « semi-solide » n'existe pas à l'échelle industrielle.</p>
+
+   <div class="mt-6 mb-6">
+   <img src="/image/blog/power-bank/power-bank-discharge-test.webp" srcset="/image/blog/power-bank/power-bank-discharge-test-850w.webp 850w, /image/blog/power-bank/power-bank-discharge-test.webp 1600w" sizes="(min-width: 1440px) 768px, (min-width: 1280px) 768px, (min-width: 1024px) 768px, (min-width: 768px) 670px, (min-width: 430px) 332px, 277px" alt="Test de décharge des cellules semi-solides lors de l'audit d'usine : protocole de vérification pour importateurs français" loading="lazy" width="1200" height="800" class="max-w-3xl mx-auto rounded-2xl shadow-lg w-full">
+   </div>
+
+   <h3 class="font-black text-brandBlue uppercase mb-3">Quels paramètres de durcissement révèlent une ligne fonctionnelle ?</h3>
+   <p class="text-slate-600 leading-relaxed mb-4">La station de durcissement est une chambre UV ou un tunnel thermique de 8 à 12 mètres, doté d'un pupitre de contrôle de température ou d'intensité UV. Demandez la température et la durée de durcissement. Un opérateur réel répond immédiatement : les valeurs habituelles sont 60 à 80 °C pendant 20 à 40 minutes, ou UV à 365 nm pendant 8 à 15 minutes. Une hésitation est un signal d'alerte.</p>
+
+   <h3 class="font-black text-brandBlue uppercase mb-3">Puis-je demander un test au clou en direct pendant l'audit ?</h3>
+   <p class="text-slate-600 leading-relaxed mb-4">Le laboratoire QC de WOWOHCOOL maintient en permanence un banc de test au clou, car les clients demandent régulièrement des démonstrations en direct. Le banc se compose d'une presse hydraulique avec un clou en acier affûté de 4 mm interchangeable, d'une chambre thermique pour la cellule testée et d'une caméra thermique FLIR pointée sur la cellule. Si l'usine n'a pas de banc, elle ne peut pas réaliser les tests GB 47372-2026 en interne. Vérifiez alors l'historique de facturation d'un laboratoire tiers, ou changez de fournisseur.</p>
+
+   <h3 class="font-black text-brandBlue uppercase mb-3">Quel standard de vieillissement confirme un vrai contrôle qualité ?</h3>
+   <p class="text-slate-600 leading-relaxed mb-4">Le vieillissement à 100 % pendant quatre heures est le standard WOWOHCOOL, intégré à un processus en quatre étapes : contrôle à réception (IQC), contrôle en cours de fabrication (IPQC), contrôle final (FQC) et contrôle avant expédition (OQC). Le secteur ne teste habituellement qu'un échantillon de 2 à 5 % des cellules pendant deux heures. Les cellules semi-solides doivent être vieillies comme les cellules lithium-polymère. Si une usine affirme que « le semi-solide n'a pas besoin de vieillissement », elle ne connaît pas la chimie.</p>
+  </div>
+ </div>
+</section>
+
+<section id="section-6" class="mb-16">
+ <div class="max-w-4xl mx-auto px-6">
+  <div class="bg-slate-50 rounded-xl p-6 border border-slate-200 shadow-sm">
+   <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-6">6. Données de test au clou en première main — lot #QC-2026-Q3-SS</h2>
+   <p class="text-slate-600 leading-relaxed mb-4">Test réalisé du 14 au 16 mai 2026 au laboratoire QC de WOWOHCOOL à Shenzhen.</p>
+   <p class="text-slate-600 leading-relaxed mb-4">Échantillon : 50 cellules semi-solides (10 000 mAh, 3,7 V nominal) issues du lot de production #QC-2026-Q3-SS, comparées à 50 cellules lithium-polymère de référence de même capacité et même boîtier, issues d'une ligne distincte.</p>
+
+   <h3 class="font-black text-brandBlue uppercase mb-3">Équipement de test</h3>
+   <ul class="text-slate-600 space-y-2 list-disc pl-5 mb-4">
+    <li>Presse hydraulique à clou avec tige d'acier affûtée</li>
+    <li>Caméra thermique FLIR (fréquence d'échantillonnage 30 Hz)</li>
+    <li>Enregistreur de puissance pour la tension et le courant pendant l'effondrement</li>
+    <li>Réseau de thermocouples à quatre points de mesure par cellule</li>
+    <li>Enceinte climatique à 25 °C ± 2 °C</li>
+   </ul>
+
+   <h3 class="font-black text-brandBlue uppercase mb-3">Tableau de résultats — 50 échantillons par catégorie</h3>
+   <div class="overflow-x-auto mb-6">
+    <table class="w-full text-sm border-collapse">
+     <thead class="bg-brandBlue text-white"><tr><th class="p-3 text-left">Mesure</th><th class="p-3 text-center">Semi-solide (n=50)</th><th class="p-3 text-center">Lithium-polymère (n=50)</th></tr></thead>
+     <tbody>
+      <tr class="bg-white"><td class="p-3 border-b">Cellules avec fumée visible</td><td class="p-3 text-center border-b">0</td><td class="p-3 text-center border-b">50</td></tr>
+      <tr class="bg-slate-50"><td class="p-3 border-b">Cellules avec événement de fuite</td><td class="p-3 text-center border-b">0</td><td class="p-3 text-center border-b">47</td></tr>
+      <tr class="bg-white"><td class="p-3 border-b">Cellules avec flamme persistante</td><td class="p-3 text-center border-b">0</td><td class="p-3 text-center border-b">34</td></tr>
+      <tr class="bg-slate-50"><td class="p-3 border-b">Température de surface maximale</td><td class="p-3 text-center border-b">62,1 °C</td><td class="p-3 text-center border-b">483 °C</td></tr>
+      <tr class="bg-white"><td class="p-3 border-b">Délai jusqu'à la température maximale (moyenne)</td><td class="p-3 text-center border-b">47 s</td><td class="p-3 text-center border-b">12 s</td></tr>
+      <tr class="bg-slate-50"><td class="p-3 border-b">Effondrement de tension au contact du clou</td><td class="p-3 text-center border-b">3,68 → 3,42 V</td><td class="p-3 text-center border-b">3,71 → 0 V</td></tr>
+      <tr class="bg-white"><td class="p-3">Cellules conformes aux critères GB 47372-2026</td><td class="p-3 text-center">50/50</td><td class="p-3 text-center">0/50</td></tr>
+     </tbody>
+    </table>
+   </div>
+   <p class="text-xs text-slate-400 mt-2">*Conditions de test : ambiance 25 °C ± 2 °C, 100 % de charge, clou en acier de 4 mm, FLIR E8 ; lot #QC-2026-Q3-SS, laboratoire QC WOWOHCOOL Shenzhen.</p>
+
+   <h3 class="font-black text-brandBlue uppercase mb-3">Ce que l'imagerie thermique a montré à t+30 s</h3>
+   <p class="text-slate-600 leading-relaxed mb-4">Trente secondes après le contact du clou, l'imagerie thermique montrait sur les cellules semi-solides un point chaud localisé à l'entrée du clou se stabilisant à 55 °C, le reste du corps de cellule restant entre 32 et 38 °C, proche de l'ambiance. Les cellules lithium-polymère de référence montraient un front thermique se propageant rapidement, l'ensemble du corps dépassant 300 °C après 15 secondes et évacuant par la soupape après 18 secondes.</p>
+   <p class="text-slate-600 leading-relaxed mb-4">La vidéo complète du test et les relevés de thermocouples sont disponibles pour les clients OEM sur demande, sous accord de confidentialité.</p>
+  </div>
+ </div>
+</section>
+
+<section id="section-7" class="mb-16">
+ <div class="max-w-4xl mx-auto px-6">
+  <div class="bg-slate-50 rounded-xl p-6 border border-slate-200 shadow-sm">
+   <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-6">7. Réalité FOB — pourquoi le vrai semi-solide ne s'expédie pas au prix du lithium-polymère</h2>
+   <p class="text-slate-600 leading-relaxed mb-4">La prime sur les cellules semi-solides dépasse nettement celle du lithium-polymère, et la fabrication exige des équipements qu'une ligne de batteries externes standard n'a pas.</p>
+   <p class="text-slate-600 leading-relaxed mb-4">Les deux facteurs combinés fixent un plancher de prix en dessous duquel une offre ne peut pas être économiquement viable.</p>
+
+   <h3 class="font-black text-brandBlue uppercase mb-3">Comparaison directe des prix FOB (10 000 mAh, 500 unités)</h3>
+   <div class="overflow-x-auto mb-6">
+    <table class="w-full text-sm border-collapse">
+     <thead class="bg-brandBlue text-white"><tr><th class="p-3 text-left">Technologie</th><th class="p-3 text-center">FOB 500 unités</th><th class="p-3 text-center">FOB 5 000 unités</th></tr></thead>
+     <tbody>
+      <tr class="bg-white"><td class="p-3 border-b">10 000 mAh standard (lithium-polymère)</td><td class="p-3 text-center border-b">5,80 à 8,00 USD</td><td class="p-3 text-center border-b">4,80 à 6,50 USD</td></tr>
+      <tr class="bg-slate-50"><td class="p-3 border-b">10 000 mAh semi-solide</td><td class="p-3 text-center border-b">14,00 à 18,00 USD</td><td class="p-3 text-center border-b">8,00 à 10,50 USD</td></tr>
+      <tr class="bg-white"><td class="p-3">Écart</td><td class="p-3 text-center">Facteur 2,2 à 2,4</td><td class="p-3 text-center">Facteur 1,6 à 1,8</td></tr>
+     </tbody>
+    </table>
+   </div>
+   <p class="text-xs text-slate-400 mt-2">*FOB Shenzhen, cellules Grade A, contrôle qualité en quatre étapes et documents de certification inclus.</p>
+
+   <h3 class="font-black text-brandBlue uppercase mb-3">Ce que couvre la prime</h3>
+   <p class="text-slate-600 leading-relaxed mb-4">Trois postes expliquent l'écart : la prime sur les cellules elles-mêmes, les coûts d'exploitation de la salle sèche à point de rosée ≤ −40 °C, et l'amortissement de la station de durcissement. S'y ajoute le coût de certification UN38.3 au niveau cellule. Une offre située 30 % sous le marché ne peut pas couvrir ces quatre postes — elle les couvre en intégrant une autre cellule.</p>
+
+   <h3 class="font-black text-brandBlue uppercase mb-3">Pourquoi les coûts à l'import s'écartent selon la chimie</h3>
+   <p class="text-slate-600 leading-relaxed mb-4">Le prix FOB n'est qu'une composante du coût atterri. Les droits de douane, la TVA à l'importation et le taux de retour influencent le coût total au même titre que le prix d'achat. Une cellule semi-solide qui passe le test au clou résiste aussi aux décharges profondes, aux surcharges et aux dommages mécaniques sans emballement thermique. Pour un importateur, cela se traduit par un écart sur le taux de retour et le risque de garantie, pas seulement sur le prix d'achat.</p>
+  </div>
+ </div>
+</section>
+
+<section id="section-8" class="mb-16">
+ <div class="max-w-4xl mx-auto px-6">
+  <div class="bg-slate-50 rounded-xl p-6 border border-slate-200 shadow-sm">
+   <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-6">8. Obligations réglementaires pour les importateurs français</h2>
+   <p class="text-slate-600 leading-relaxed mb-4">Mettre sur le marché français une batterie externe semi-solide implique des obligations propres à l'importateur, indépendamment de la chimie des cellules.</p>
+   <p class="text-slate-600 leading-relaxed mb-4">Quatre domaines réglementaires sont directement pertinents pour la vérification fournisseur.</p>
+
+   <h3 class="font-black text-brandBlue uppercase mb-3">GPSR et responsabilité de l'opérateur économique</h3>
+   <p class="text-slate-600 leading-relaxed mb-4">Le règlement (UE) 2023/988 relatif à la sécurité générale des produits est applicable depuis le 13 décembre 2024. L'importateur y est un opérateur économique à part entière : il doit s'assurer que le fabricant a mené la procédure d'évaluation de la conformité, tenir à disposition la documentation technique et vérifier le marquage. Une batterie externe semi-solide sans dossier technique solide n'est pas commercialisable, quelle que soit la chimie des cellules.</p>
+
+   <h3 class="font-black text-brandBlue uppercase mb-3">Règlement (UE) 2023/1542 et responsabilité élargie du producteur</h3>
+   <p class="text-slate-600 leading-relaxed mb-4">Le règlement (UE) 2023/1542 remplace la directive 2006/66/CE selon un calendrier échelonné. En tant qu'importateur, vous êtes considéré comme metteur sur le marché et devez notamment faire procéder à l'évaluation de la conformité, assurer le marquage obligatoire y compris le code QR, conserver la documentation pendant dix ans et garantir la traçabilité par le nom et l'adresse de contact sur la batterie. L'enregistrement auprès d'un éco-organisme agréé de la filière piles et accumulateurs, comme Corepile ou Screlec, conditionne la mise sur le marché. Les batteries semi-solides relèvent de la même catégorie réglementaire que les batteries lithium-ion conventionnelles ; il n'existe pas de régime distinct.</p>
+
+   <h3 class="font-black text-brandBlue uppercase mb-3">DGCCRF et surveillance du marché</h3>
+   <p class="text-slate-600 leading-relaxed mb-4">La DGCCRF contrôle la conformité des produits mis sur le marché et peut prononcer des mesures de retrait ou d'interdiction de vente. La plateforme SignalConso permet de signaler les pratiques commerciales trompeuses, notamment les fausses allégations de certification. Le portail Rappel Conso publie les rappels de produits, et le Safety Gate européen recense les alertes de danger. Vérifier qu'un fournisseur n'apparaît pas dans ces bases constitue une étape de due diligence à coût nul.</p>
+
+   <h3 class="font-black text-brandBlue uppercase mb-3">Garantie légale de conformité</h3>
+   <p class="text-slate-600 leading-relaxed mb-4">La garantie légale de conformité du Code de la consommation protège l'acheteur final pendant deux ans à compter de la délivrance, avec une présomption d'antériorité du défaut pendant les douze premiers mois. Un taux de retour élevé sur une batterie externe se répercute donc directement sur votre charge de service, indépendamment de toute considération de prix d'achat.</p>
+  </div>
+ </div>
+</section>
+
+<!-- ===== [9] Conclusion ===== -->
+<section id="conclusion" class="max-w-4xl mx-auto px-6 mb-16">
+ <div class="bg-slate-50 rounded-xl p-6 border border-slate-200 shadow-sm">
+  <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-6">Prochaines étapes pour votre vérification fournisseur</h2>
+  <p class="text-slate-600 leading-relaxed mb-4">Le test au clou n'est pas une vérification accessoire, c'est la seule qui prouve physiquement une affirmation sur la chimie. Commencez par les quatre documents avant de parler prix.</p>
+  <ol class="list-decimal pl-5 space-y-2 text-slate-600 text-sm">
+    <li>Exigez une vidéo de test au clou sur une cellule du lot de production, avec les paramètres GB 47372-2026 visibles.</li>
+    <li>Demandez la FDS de l'électrolyte avec la teneur en polymère déclarée en pourcentage.</li>
+    <li>Contrôlez la salle sèche et la station de durcissement in situ lors d'une visite sur place.</li>
+    <li>Recoupez l'offre FOB avec le plancher de 14,00 USD pour 500 unités.</li>
+    <li>Vérifiez la conformité réglementaire et l'absence de rappel dans les bases Rappel Conso et Safety Gate.</li>
+  </ol>
+ </div>
+</section>
+
+<!-- ===== [10] FAQ ===== -->
+<section id="faq" class="mb-16">
+ <div class="max-w-4xl mx-auto px-6">
+  <div class="bg-slate-50 rounded-2xl p-8 border border-slate-200 shadow-sm">
+   <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-8 text-center">Foire Aux Questions</h2>
+   <div class="space-y-6 max-w-3xl mx-auto">
+    <div class="bg-white rounded-xl p-6 faq-answer">
+     <h3 class="font-black text-brandBlue mb-2">Comment savoir si un fournisseur livre réellement des cellules semi-solides et non du lithium-polymère reconditionné ?</h3>
+     <p class="text-slate-600 text-sm">Trois vérifications dans cet ordre : exiger une vidéo de test au clou sur une cellule issue du lot de production en cours, avec les paramètres GB 47372-2026 visibles ; demander la FDS de l'électrolyte avec la teneur en polymère déclarée en pourcentage ; visiter l'usine et contrôler la salle sèche (point de rosée ≤ −40 °C) et la station de durcissement in situ. Un fournisseur qui refuse ces trois points ne vend pas ce qu'il annonce. Un fournisseur sérieux confirme les trois sous 48 heures, MOQ à partir de 500 unités.</p>
+    </div>
+    <div class="bg-white rounded-xl p-6 faq-answer">
+     <h3 class="font-black text-brandBlue mb-2">Qu'est-ce que la norme GB 47372-2026 et s'applique-t-elle à ma commande OEM ?</h3>
+     <p class="text-slate-600 text-sm">GB 47372-2026 est la norme obligatoire chinoise de test de pénétration par clou sur les cellules lithium, applicable à partir d'avril 2027 pour la vente domestique. Les commandes OEM destinées uniquement à l'export en sont formellement exemptées, mais les usines sérieuses réalisent déjà ce test parce qu'elles en ont besoin pour leurs clients chinois. Utilisez-le comme qualificateur de fournisseur : pas de capacité de test GB 47372-2026 signifie pas de ligne de production semi-solide crédible. Paramètres : clou de 4 mm, 20 ± 1 mm/s, 100 % de charge, 25 °C ambiants.</p>
+    </div>
+    <div class="bg-white rounded-xl p-6 faq-answer">
+     <h3 class="font-black text-brandBlue mb-2">Pourquoi le test de pénétration au clou est-il la vérification la plus importante pour une batterie semi-solide ?</h3>
+     <p class="text-slate-600 text-sm">Parce que c'est le seul test qu'une cellule lithium-polymère à électrolyte liquide ne peut pas falsifier en résultat semi-solide. La durée de vie en cycles, la densité énergétique et les plages de température de fonctionnement se recoupent entre les deux chimies dans la zone des fiches techniques. Le test au clou produit une signature qui sépare les catégories : l'électrolyte gel d'une véritable cellule semi-solide ne s'enflamme pas et ne fuit pas, tandis que le lithium-polymère liquide part en emballement thermique. Aucun argument marketing ne comble cet écart.</p>
+    </div>
+    <div class="bg-white rounded-xl p-6 faq-answer">
+     <h3 class="font-black text-brandBlue mb-2">Quelle fourchette de prix FOB est physiquement réaliste pour une batterie externe semi-solide de 10 000 mAh ?</h3>
+     <p class="text-slate-600 text-sm">Pour 500 unités, la fourchette FOB réaliste d'une véritable technologie semi-solide certifiée au niveau cellule est de 14,00 à 18,00 USD, contre 12,00 à 16,00 USD pour 1 000 unités et 8,00 à 10,50 USD pour 5 000 unités. Tout devis nettement inférieur est soit une chimie falsifiée, soit un bait-and-switch : des échantillons semi-solides pour la validation, du lithium-polymère standard en production de masse. À titre de comparaison, une batterie externe 10 000 mAh lithium-polymère coûte 5,80 à 8,00 USD pour 500 unités.</p>
+    </div>
+    <div class="bg-white rounded-xl p-6 faq-answer">
+     <h3 class="font-black text-brandBlue mb-2">Quel MOQ et quel délai dois-je attendre pour une commande OEM de batteries semi-solides ?</h3>
+     <p class="text-slate-600 text-sm">WOWOHCOOL applique des MOQ par paliers : 500 unités pour l'ODM sur stock avec logo, couleur et emballage existant ; 1 000 à 2 000 unités pour le développement ODM sur plateforme existante avec outillage adapté ; à partir de 3 000 unités pour l'OEM complet avec design client et nouvel outillage. Délais : 3 à 7 jours pour les échantillons, 25 à 35 jours pour la production de masse après validation de l'échantillon, plus 2 à 3 jours pour le contrôle qualité en quatre étapes. Lancez votre demande sur <a href="/fr/contact/" class="text-brandBlue hover:text-brandOrange font-bold">wowohcool.com/fr/contact/</a>.</p>
+    </div>
+   </div>
+  </div>
+ </div>
+</section>
+
+<!-- ===== [11] Author Bio ===== -->
+<section id="author-bio" class="max-w-4xl mx-auto px-6">
+ <div class="bg-slate-50 rounded-2xl p-6 md:p-8 mb-12 border border-slate-100">
+  <div class="flex flex-col sm:flex-row items-start gap-4 sm:gap-6">
+   <div class="w-20 h-20 rounded-full overflow-hidden flex items-center justify-center border-2 border-brandOrange bg-white shadow-lg shrink-0">
+    <img src="/image/factory/team-nina.webp" srcset="/image/factory/team-nina-200w.webp 200w, /image/factory/team-nina.webp 800w" sizes="(min-width: 1440px) 152px, (min-width: 1280px) 152px, (min-width: 1024px) 152px, (min-width: 768px) 152px, (min-width: 430px) 120px, 120px" alt="Nina Nico, Global Procurement & Sourcing Manager chez WOWOHCOOL — spécialiste du sourcing OEM/ODM" loading="lazy" width="400" height="400" class="w-full h-full object-cover">
+   </div>
+   <div class="flex-1 min-w-0">
+    <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 mb-2 sm:mb-3">
+     <a href="https://www.linkedin.com/in/nico-power-bank-chargers" target="_blank" rel="noopener noreferrer" class="font-black text-slate-900 text-lg hover:text-brandOrange transition">Nina Nico</a>
+     <span class="px-2 py-1 bg-brandOrange/10 text-brandOrange text-[11px] font-black rounded-full uppercase w-fit">Auteur</span>
+    </div>
+    <p class="text-sm text-slate-500 mb-3">Global Procurement & Sourcing Manager · 10+ ans dans les achats 3C</p>
+    <p class="text-slate-600 text-sm leading-relaxed">Nina Nico est Global Procurement & Sourcing Manager chez WOWOHCOOL avec plus de 10 ans d'expérience dans les achats 3C. Elle se spécialise dans le sourcing B2B de matériel, la fabrication OEM/ODM de batteries externes, les audits d'usine, l'assurance qualité de la chaîne d'approvisionnement et la conformité du commerce international.</p>
+    <p class="text-sm mb-3"><a href="/authors/nina-nico/" class="text-brandBlue hover:text-brandOrange font-bold">Voir le profil complet de l'auteure →</a></p>
+    <div class="mt-4 pt-4 border-t border-slate-200">
+     <p class="text-xs text-slate-400 uppercase tracking-wider mb-2">Empreinte Usine</p>
+     <div class="grid grid-cols-2 md:grid-cols-4 gap-3 text-sm">
+      <div><span class="font-black text-brandBlue">5 000 m²</span><p class="text-xs text-slate-500">Installation ISO 9001</p></div>
+      <div><span class="font-black text-brandBlue">Depuis 2013</span><p class="text-xs text-slate-500">Shenzhen, Chine</p></div>
+      <div><span class="font-black text-brandBlue">50+</span><p class="text-xs text-slate-500">Pays d'Exportation</p></div>
+      <div><span class="font-black text-brandBlue">50+ R&amp;D</span><p class="text-xs text-slate-500">Ingénieurs Internes</p></div>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</section>
+
+<!-- ===== [12] CTA ===== -->
+<section class="max-w-4xl mx-auto px-6">
+ <div class="relative bg-gradient-to-br from-brandBlue to-slate-800 rounded-3xl p-10 text-center mb-16 overflow-hidden">
+  <div class="absolute top-0 right-0 w-64 h-64 bg-brandOrange/20 rounded-full blur-3xl"></div>
+  <div class="absolute bottom-0 left-0 w-64 h-64 bg-brandBlue-400/20 rounded-full blur-3xl"></div>
+  <div class="relative z-10">
+   <h2 class="text-2xl font-black text-white uppercase italic mb-4">Batteries externes semi-solides OEM avec preuve de test au clou</h2>
+   <p class="text-slate-300 mb-8 max-w-xl mx-auto">Vidéo de test, UN38.3 au niveau cellule et visite d'usine sur demande. MOQ à partir de 500 unités, FOB Shenzhen, ISO 9001 depuis 2013.</p>
+   <div class="flex flex-col sm:flex-row gap-4 justify-center">
+    <a href="/fr/contact/" class="btn-wide">Demander un Devis OEM</a>
+    <a href="/fr/produits/batterie-externe/semi-solide/" class="w-full sm:flex-1 text-center border-2 border-white text-white px-8 py-4 rounded-xl font-black uppercase text-sm hover:bg-white hover:text-brandBlue transition">Voir les Batteries Semi-Solides</a>
+   </div>
+  </div>
+ </div>
+</section>
+
+<!-- ===== [13] Related Articles ===== -->
+<aside id="related-articles" class="max-w-4xl mx-auto px-6 mb-16">
+ <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-6">Articles Connexes</h2>
+ <div class="grid md:grid-cols-3 gap-4">
+  <a href="/fr/blog/batterie-semi-solide-oem-guide/" class="bg-slate-50 rounded-xl overflow-hidden hover:shadow-xl transition group">
+   <div class="h-2 bg-gradient-to-r from-brandBlue to-brandOrange"></div>
+   <div class="p-6">
+    <span class="text-xs font-black text-brandOrange uppercase mb-2 block">Technologie Batterie</span>
+    <h3 class="font-black text-brandBlue uppercase text-sm mb-1 group-hover:text-brandOrange transition">Batterie Semi-Solide OEM</h3>
+    <p class="text-slate-600 text-sm">Cellules 260-350 Wh/kg, UN38.3/CE et MOQ 500 pour importateurs.</p>
+   </div>
+  </a>
+  <a href="/fr/blog/controle-qualite-usines-chinoises-oem/" class="bg-slate-50 rounded-xl overflow-hidden hover:shadow-xl transition group">
+   <div class="h-2 bg-gradient-to-r from-brandBlue to-brandOrange"></div>
+   <div class="p-6">
+    <span class="text-xs font-black text-brandOrange uppercase mb-2 block">Contrôle Qualité</span>
+    <h3 class="font-black text-brandBlue uppercase text-sm mb-1 group-hover:text-brandOrange transition">Contrôle Qualité Chine</h3>
+    <p class="text-slate-600 text-sm">Processus IQC-IPQC-FQC-OQC, table AQL et coûts 2026.</p>
+   </div>
+  </a>
+  <a href="/fr/blog/reglement-ue-2023-1542-conformite-oem/" class="bg-slate-50 rounded-xl overflow-hidden hover:shadow-xl transition group">
+   <div class="h-2 bg-gradient-to-r from-brandBlue to-brandOrange"></div>
+   <div class="p-6">
+    <span class="text-xs font-black text-brandOrange uppercase mb-2 block">Conformité</span>
+    <h3 class="font-black text-brandBlue uppercase text-sm mb-1 group-hover:text-brandOrange transition">Règlement UE 2023/1542</h3>
+    <p class="text-slate-600 text-sm">Enregistrement SYDEREP, éco-organisme et mandataire REP.</p>
+   </div>
+  </a>
+ </div>
+</aside>
+
+<!-- ===== [14] Sources ===== -->
+<section class="max-w-4xl mx-auto px-6 mb-16">
+ <h2 class="text-lg font-black text-brandBlue uppercase italic mb-4">Sources &amp; Références</h2>
+ <ul class="text-sm text-slate-600 space-y-2 list-disc pl-5">
+  <li><a href="https://unece.org/transport/dangerous-goods/un-manual-tests-and-criteria" target="_blank" rel="noopener external" class="text-brandBlue hover:text-brandOrange">Manuel d'épreuves et de critères de l'ONU, section 38.3</a></li>
+  <li><a href="https://eur-lex.europa.eu/eli/reg/2023/1542/oj" target="_blank" rel="noopener external" class="text-brandBlue hover:text-brandOrange">Règlement (UE) 2023/1542 relatif aux batteries et aux déchets de batteries</a></li>
+  <li><a href="https://eur-lex.europa.eu/eli/reg/2023/988/oj" target="_blank" rel="noopener external" class="text-brandBlue hover:text-brandOrange">Règlement (UE) 2023/988 relatif à la sécurité générale des produits (GPSR)</a></li>
+  <li><a href="https://rappel.conso.gouv.fr" target="_blank" rel="noopener external" class="text-brandBlue hover:text-brandOrange">Rappel Conso, portail officiel des rappels de produits</a></li>
+  <li><a href="https://ec.europa.eu/safety-gate-alerts/screen/search" target="_blank" rel="noopener external" class="text-brandBlue hover:text-brandOrange">EU Safety Gate, base d'alertes des produits dangereux</a></li>
+  <li><a href="https://www.corepile.fr" target="_blank" rel="noopener external" class="text-brandBlue hover:text-brandOrange">Corepile, éco-organisme de la filière piles et accumulateurs</a></li>
+  <li><a href="https://signal.conso.gouv.fr" target="_blank" rel="noopener external" class="text-brandBlue hover:text-brandOrange">SignalConso, signalement des pratiques commerciales trompeuses</a></li>
+  <li><a href="https://www.iec.ch/" target="_blank" rel="noopener external" class="text-brandBlue hover:text-brandOrange">IEC 62133-2, exigences de sécurité pour les accumulateurs portables</a></li>
+ </ul>
+</section>
+
+</article>
+
+<!-- ===== [15] Blog CTA Partial ===== -->
+{%- set ctaLabel = "Demander un devis" %}
+{%- set ctaHeading1 = "Batteries semi-solides OEM" %}
+{%- set ctaHeading2 = "avec preuve de test au clou" %}
+{%- set ctaSubtext = "Vidéo de test, UN38.3 au niveau cellule et visite d'usine sur demande. MOQ à partir de 500 unités, réponse sous 24h." %}
+{%- set ctaSubject = "Demande Blog : Vérification Semi-Solide OEM" %}
+{%- set ctaButton = "Demander un Devis" %}
+{% include "partials/blog-cta.njk" %}
+{% endblock %}
