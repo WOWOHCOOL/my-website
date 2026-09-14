@@ -64,6 +64,10 @@ function walk(dir, acc) {
 }
 
 const root = process.argv[2] || "_site";
+if (!fs.existsSync(root)) {
+  console.error('[validate-html] build dir not found: ' + root + ' — run the build first');
+  process.exit(1);
+}
 const files = walk(root, []);
 const bad = [];
 
@@ -114,3 +118,8 @@ for (const b of bad) {
   console.log('\n' + b.f.replace(/\\/g, '/'));
   for (const e of b.errs) console.log('   ' + e);
 }
+if (bad.length) {
+  console.error('\n[validate-html] FAIL — ' + bad.length + ' page(s) with conformance errors');
+  process.exit(1);
+}
+console.log('[validate-html] PASS');
