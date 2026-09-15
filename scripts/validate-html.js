@@ -7,12 +7,17 @@
 //   - end tags that implicitly close a NON-optional-end-tag element
 //     (e.g. </aside> while <a> is still open -> non-conforming)
 //   - elements left unclosed at EOF
+//   - heading outline problems: no/multiple <h1>, first heading not <h1>,
+//     skipped levels (h1 -> h3), empty headings
 // Quoted attribute values are honoured so ">" inside attributes can't break parsing.
 //
 // WHY THE "implicitly closes" CHECK MATTERS: a plain stack walker that does
 // `stack.length = k` silently DISCARDS unclosed elements, so perfectly balanced
 // tag counts can still hide a mis-nested document. Only elements whose end tag
 // is optional (see OPTIONAL_END) may be closed implicitly by an ancestor.
+//
+// WHY THE HEADING CHECK MATTERS: footer.njk contributes 3 <h3> and modal.njk
+// 1 <h3> to EVERY page, so any page whose body has no <h2> jumps H1 -> H3.
 // See .workbuddy-ai/memory/RULES-AUDIT.md for the full playbook.
 const fs = require('fs');
 const path = require('path');
@@ -109,6 +114,33 @@ for (const f of files) {
     stack.length = k;
   }
   if (stack.length) errs.push('unclosed at EOF: ' + stack.slice(-8).join(' > '));
+
+  // --- heading outline -------------------------------------------------
+  // WHY: footer.njk contributes 3 <h3> and modal.njk 1 <h3> to EVERY page.
+  // Any page whose body has no <h2> therefore jumps straight from H1 to H3.
+  // See .workbuddy-ai/memory/RULES-AUDIT.md 「标题层级」.
+  const hs = [];
+  const hre = /<h([1-6])\b[^>]*>([\s\S]*?)<\/h\1>/gi;
+  let hm;
+  while ((hm = hre.exec(h)) !== null) {
+    hs.push({
+      lvl: +hm[1],
+      txt: hm[2].replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim(),
+    });
+  }
+  const h1count = hs.filter((x) => x.lvl === 1).length;
+  if (h1count === 0) errs.push('heading outline: no <h1>');
+  else if (h1count > 1) errs.push('heading outline: ' + h1count + ' <h1> elements');
+  if (hs.length && hs[0].lvl !== 1) errs.push('heading outline: first heading is <h' + hs[0].lvl + '>');
+  let prevLvl = null;
+  for (const x of hs) {
+    if (prevLvl !== null && x.lvl > prevLvl + 1) {
+      errs.push('heading outline: <h' + prevLvl + '> -> <h' + x.lvl + '> skips a level at "' + x.txt.slice(0, 50) + '"');
+    }
+    if (!x.txt) errs.push('heading outline: empty <h' + x.lvl + '>');
+    prevLvl = x.lvl;
+  }
+
   if (errs.length) bad.push({ f, errs });
 }
 
