@@ -93,31 +93,29 @@ plPath: "produkty/ladowarka-bezprzewodowa/stacja-3-w-1/"
  <div class="container-wide">
   {% call sectionHeader('Modelos', '13 Modelos Estaciones <span class="text-brandOrange">3-en-1 OEM</span>', '', {mb: 'mb-12', titleClass: 'text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4'}) %}<p class="text-slate-500">13 modelos | 15W-25W | Qi2 | TEC | Plegable | Luz Nocturna</p>
   {% endcall %}
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
   {% macro card3in1(model, img, badge, badgeColor, title, desc, badges, specs, dataProduct) %}
-   <div class="product-card reveal bg-white rounded-2xl p-6 border border-slate-200 flex flex-col">
-    <div class="aspect-square bg-slate-50 rounded-xl mb-5 overflow-hidden flex items-center justify-center p-6">
-     <img src="/image/product/wireless-charger/{{ img }}" alt="{{ title }}" class="w-full h-full object-contain" loading="lazy" width="1920" height="1920">
+   <div class="group reveal">
+    <div class="relative aspect-square rounded-3xl bg-slate-100 overflow-hidden mb-6">
+     <img src="/image/product/wireless-charger/{{ img }}" alt="{{ title }}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" width="1920" height="1920"><div class="absolute top-4 left-4 flex flex-col gap-2"><span class="bg-brandOrange text-white text-[11px] font-black px-3 py-1 rounded-full uppercase italic tracking-widest">{{ badge }}</span></div></div>
+    <h3 class="text-xl font-black text-slate-900 uppercase italic mb-3">{{ title }}</h3>
+    <div class="grid grid-cols-2 gap-y-3 gap-x-2 mb-6 border-t border-slate-100 pt-4">
+     {% for b in badges %}<div class="flex items-center space-x-2"><svg class="icon-feature text-brandOrange text-[11px]" aria-hidden="true" focusable="false" viewBox="0 0 448 512"><path d="M338.8-9.9c11.9 8.6 16.3 24.2 10.9 37.8L271.3 224 416 224c13.5 0 25.5 8.4 30.1 21.1s.7 26.9-9.6 35.5l-288 240c-11.3 9.4-27.4 9.9-39.3 1.3s-16.3-24.2-10.9-37.8L176.7 288 32 288c-13.5 0-25.5-8.4-30.1-21.1s-.7-26.9 9.6-35.5l288-240c11.3-9.4 27.4-9.9 39.3-1.3z" fill="currentColor"/></svg><span class="text-[11px] font-bold text-slate-500 uppercase">{{ b }}</span></div>{% endfor %}
     </div>
-    <p class="card-badge mb-2">{{ badge }}</p>
-    <h3 class="text-base font-bold text-brandBlue mb-3">{{ title }}</h3>
-    <div class="grid grid-cols-2 gap-y-2 gap-x-2 mb-4 border-t border-slate-100 pt-3 text-left">
-     {% for b in badges %}<div class="flex items-start space-x-2"><svg class="text-brandOrange shrink-0" style="width:0.85em;height:0.85em" aria-hidden="true" focusable="false" viewBox="0 0 448 512"><path d="M338.8-9.9c11.9 8.6 16.3 24.2 10.9 37.8L271.3 224 416 224c13.5 0 25.5 8.4 30.1 21.1s.7 26.9-9.6 35.5l-288 240c-11.3 9.4-27.4 9.9-39.3 1.3s-16.3-24.2-10.9-37.8L176.7 288 32 288c-13.5 0-25.5-8.4-30.1-21.1s-.7-26.9 9.6-35.5l288-240c11.3-9.4 27.4-9.9 39.3-1.3z" fill="currentColor"/></svg><div class="text-[11px] font-bold text-slate-500 uppercase leading-tight">{{ b }}</div></div>{% endfor %}
-    </div>
-    <p class="text-[12px] text-slate-600 mb-4 leading-relaxed text-left">{{ desc }}</p>
-    <details class="mb-4 group/spec text-left"><summary class="p-3 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-[11px] font-black text-slate-700 uppercase">Especificaciones</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
-     <div class="p-3 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-[11px]"><tbody>
-      {% for s in specs %}<tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500" colspan="2">{{ s | safe }}</td></tr>{% endfor %}
-      <tr class="border-b border-slate-200"><td class="py-1.5 text-slate-500">MOQ / Plazo</td><td class="py-1.5 font-bold text-slate-700">500 uds | 25-30 días</td></tr>
+    <p class="text-[11px] text-slate-500 mb-6 italic leading-relaxed">{{ desc }}</p>
+    <details class="mb-6 group/spec"><summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Especificaciones</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
+     <div class="p-4 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-[11px]"><tbody>
+      {% for s in specs %}{% set sp = s.split('</strong>') %}<tr class="border-b border-slate-200"><td class="py-2 text-slate-500">{{ sp[0] | replace('<strong>', '') | safe }}</td><td class="py-2 font-bold text-slate-700">{{ sp[1] | trim | safe }}</td></tr>{% endfor %}
+      <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">MOQ / Plazo</td><td class="py-2 font-bold text-slate-700">500 uds | 25-30 días</td></tr>
      </tbody></table></div>
     </details>
-    <button data-action="open-modal" data-product="{{ dataProduct }}" class="btn-card-sm">Solicitar precio fábrica</button>
+    <button data-action="open-modal" data-product="{{ dataProduct }}" class="btn-card">Solicitar precio fábrica</button>
    </div>
   {% endmacro %}
 
   {{ card3in1("WOW93","wow93-folding-charger.webp","Travel Essential","bg-brandOrange","WOW93 Alpha Plegable MagStation","Estacion 3-en-1 plegable de solo 24mm de grosor. Carga Qi2 15W con alineacion magnetica perfecta. Cuerpo de aluminio premium. Diseño ultraportatil ideal para viajes de negocios, hoteles y regalos corporativos de alta gama.",["15W Qi2","24mm Slim","Aluminio","Plegable"],[
-   "<strong>Salida:</strong> 15W Qi2 MPP + 5W Watch + 5W AirPods","<strong>Entrada:</strong> USB-C 20W PD","<strong>Material:</strong> Aluminio + ABS premium","<strong>Dimensiones:</strong> 24mm plegado | <strong>Peso:</strong> 220g","<strong>Certificaciones:</strong> Qi2 WPC, CE, FCC, RoHS"
+   "<strong>Salida:</strong> 15W Qi2 MPP + 5W Watch + 5W AirPods","<strong>Entrada:</strong> USB-C 20W PD","<strong>Material:</strong> Aluminio + ABS premium","<strong>Dimensiones:</strong> 24mm plegado", "<strong>Peso:</strong> 220g","<strong>Certificaciones:</strong> Qi2 WPC, CE, FCC, RoHS"
    ],"WOW93 Alpha Plegable MagStation 15W") }}
 
   {{ card3in1("WOW133","wow133-tec-3in1-zinc-alloy-25w.webp","TEC 25W","bg-blue-600","WOW133 TEC 3-en-1 MagStation","Estacion premium con refrigeracion TEC semiconductora y pantalla de temperatura en tiempo real. Cuerpo de aleacion de zinc con acabado cepillado. 25W de potencia maxima con ventilador activo. El modelo mas avanzado de la gama.",["25W Qi2","TEC","Zinc","Display Temp."],[
@@ -141,15 +139,15 @@ plPath: "produkty/ladowarka-bezprzewodowa/stacja-3-w-1/"
    ],"WOW18 Qi2 Luz Nocturna 25W") }}
 
   {{ card3in1("WOW10","wow10-qi2-charger.webp","25W + Alu","bg-brandOrange","WOW10 Qi2 25W Cooling MagStation","Carga rápida 25W con refrigeracion activa por ventilador. Cuerpo en aluminio+cristal+ABS con acabado premium. 67x30x127mm - formato compacto para escritorio. Para marcas que buscan maxima velocidad de carga en un diseño elegante.",["25W Qi2","Ventilador","Alu+Cristal","67x30x127mm"],[
-   "<strong>Salida:</strong> 25W Qi2 + 2,5W Watch + 5W AirPods","<strong>Refrigeracion:</strong> Ventilador activo","<strong>Material:</strong> Aluminio + Cristal + ABS","<strong>Dimensiones:</strong> 67x30x127mm | <strong>Peso:</strong> 500g","<strong>Certificaciones:</strong> Qi2 WPC, CE, FCC, RoHS"
+   "<strong>Salida:</strong> 25W Qi2 + 2,5W Watch + 5W AirPods","<strong>Refrigeracion:</strong> Ventilador activo","<strong>Material:</strong> Aluminio + Cristal + ABS","<strong>Dimensiones:</strong> 67x30x127mm", "<strong>Peso:</strong> 500g","<strong>Certificaciones:</strong> Qi2 WPC, CE, FCC, RoHS"
    ],"WOW10 Qi2 25W Cooling MagStation") }}
 
   {{ card3in1("WOW82","wow82-fold-charger.webp","Fold-Expert","bg-brandOrange","WOW82 Foldable-Phone Hub","Superficie de carga ampliada especialmente disenada para telefonos plegables (Galaxy Fold, Xiaomi Mix). Carga Qi2 15W estable en toda la superficie. Construcción robusta en ABS+PC con bisagra reforzada.",["15W Qi2","Foldable Ready","146x121mm","ABS+PC"],[
-   "<strong>Salida:</strong> 15W Qi2 + 3W Watch + 5W AirPods","<strong>Superficie:</strong> 146x121mm (ampliada)","<strong>Peso:</strong> 227,5g | <strong>Material:</strong> ABS+PC","<strong>Compatibilidad:</strong> Galaxy Fold, Xiaomi Mix","<strong>Certificaciones:</strong> Qi2 WPC, CE, FCC, RoHS"
+   "<strong>Salida:</strong> 15W Qi2 + 3W Watch + 5W AirPods","<strong>Superficie:</strong> 146x121mm (ampliada)","<strong>Peso:</strong> 227,5g", "<strong>Material:</strong> ABS+PC","<strong>Compatibilidad:</strong> Galaxy Fold, Xiaomi Mix","<strong>Certificaciones:</strong> Qi2 WPC, CE, FCC, RoHS"
    ],"WOW82 Foldable-Phone Hub 15W") }}
 
   {{ card3in1("WOW98","wow98-cooler-charger.webp","Ice-Cooling","bg-brandOrange","WOW98 Qi2 Ice-Cooling Station","Refrigeracion TEC semiconductora con superficie de cristal templado. 15W Qi2 con enfriamiento activo que mantiene la temperatura optima de carga. Diseño premium de 100x100x152mm con iluminacion ambiental.",["TEC","Cristal Templado","100x100mm","15W Qi2"],[
-   "<strong>Salida:</strong> 15W Qi2 + 2,5W Watch + 5W AirPods","<strong>Refrigeracion:</strong> TEC semiconductor","<strong>Superficie:</strong> Cristal templado","<strong>Dimensiones:</strong> 100x100x152mm | <strong>Peso:</strong> 320g","<strong>Certificaciones:</strong> Qi2 WPC, CE, FCC, RoHS"
+   "<strong>Salida:</strong> 15W Qi2 + 2,5W Watch + 5W AirPods","<strong>Refrigeracion:</strong> TEC semiconductor","<strong>Superficie:</strong> Cristal templado","<strong>Dimensiones:</strong> 100x100x152mm", "<strong>Peso:</strong> 320g","<strong>Certificaciones:</strong> Qi2 WPC, CE, FCC, RoHS"
    ],"WOW98 Qi2 Ice-Cooling Station 15W") }}
 
   {{ card3in1("WOW125","wow125-tec-foldable-3in1-25w.webp","TEC+Plegable","bg-brandOrange","WOW125 TEC Foldable MagStation","Combina refrigeracion TEC con formato plegable compacto. 25W de potencia con sistema de refrigeracion dual TEC+aire. Carcasa ABS+silicona para protección antideslizante. Lo mejor de dos mundos: portabilidad y refrigeracion activa.",["25W Qi2","TEC+Aire","Plegable","68x30x118mm"],[
@@ -161,11 +159,11 @@ plPath: "produkty/ladowarka-bezprzewodowa/stacja-3-w-1/"
    ],"WOW115 Qi2.2 Foldable MagStation 25W") }}
 
   {{ card3in1("WOW91","wow91-qi2-nightlight-foldable-15w.webp","Luz Nocturna","bg-brandOrange","WOW91 Qi2 Night-Light Foldable","Estacion plegable con luz nocturna ambiental y carga Qi2 15W. Tamano compacto de 96x65x30mm - cabe en cualquier mesita. Construcción ABS+PC ligera de solo 175g. Perfecta para hoteles que buscan funcionalidad y ambiente.",["15W Qi2","Luz Nocturna","96x65mm","175g"],[
-   "<strong>Salida:</strong> 15W Qi2 + 2,5W Watch + 5W AirPods","<strong>Iluminacion:</strong> Luz nocturna ambiental","<strong>Dimensiones:</strong> 96x65x30mm | <strong>Peso:</strong> 175g","<strong>Material:</strong> ABS+PC","<strong>Certificaciones:</strong> Qi2 WPC, CE, FCC, RoHS"
+   "<strong>Salida:</strong> 15W Qi2 + 2,5W Watch + 5W AirPods","<strong>Iluminacion:</strong> Luz nocturna ambiental","<strong>Dimensiones:</strong> 96x65x30mm", "<strong>Peso:</strong> 175g","<strong>Material:</strong> ABS+PC","<strong>Certificaciones:</strong> Qi2 WPC, CE, FCC, RoHS"
    ],"WOW91 Qi2 Night-Light Foldable 15W") }}
 
   {{ card3in1("WOW83","wow83-nightlight-detachable-watch-15w.webp","Watch Desmontable","bg-brandOrange","WOW83 Night Light Detachable","Módulo Apple Watch magnetico desmontable - el cliente puede cargar el watch junto a la cama o llevarselo. Luz acrilica difusa integrada. 15W Qi2 con construcción robusta de 270g. La solucion mas versatil para hoteles premium.",["15W Qi2","Watch Desmontable","Luz Acrilica","270g"],[
-   "<strong>Salida:</strong> 15W Qi2 + 5W Watch + 5W AirPods","<strong>Funcion:</strong> Módulo Watch desmontable","<strong>Iluminacion:</strong> Luz acrilica difusa","<strong>Dimensiones:</strong> 118x104x78mm | <strong>Peso:</strong> 270g","<strong>Certificaciones:</strong> Qi2 WPC, CE, FCC, RoHS"
+   "<strong>Salida:</strong> 15W Qi2 + 5W Watch + 5W AirPods","<strong>Funcion:</strong> Módulo Watch desmontable","<strong>Iluminacion:</strong> Luz acrilica difusa","<strong>Dimensiones:</strong> 118x104x78mm", "<strong>Peso:</strong> 270g","<strong>Certificaciones:</strong> Qi2 WPC, CE, FCC, RoHS"
    ],"WOW83 Night Light Detachable 15W") }}
 
   </div>
