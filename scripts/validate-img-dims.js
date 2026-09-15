@@ -68,7 +68,10 @@ for (const f of walk(imgDir)) {
   if (s && s.w && s.h) dim[rel] = s;
 }
 
-const IMG_RE = /<img\b[^>]*>/g;
+// Quoted attribute values are honoured, so a ">" INSIDE an attribute (e.g.
+// alt="... >5 MHz ...") cannot truncate the tag. A naive /<img\b[^>]*>/ would
+// cut such a tag short and then silently skip it as "no width/height".
+const IMG_RE = /<img\b(?:[^>"']|"[^"]*"|'[^']*')*>/gi;
 const attr = (t, n) => (t.match(new RegExp('\\b' + n + '="([^"]*)"')) || [])[1];
 
 const njk = walk(path.join(ROOT, 'src')).filter((f) => f.endsWith('.njk'));
