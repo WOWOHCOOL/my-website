@@ -441,17 +441,13 @@ plPath: ""
 <section class="sec bg-white">
  <div class="max-w-7xl mx-auto px-6">
  {{ sectionHeader('Nuestros productos', 'Fabricación OEM: power bank, cargador inalámbrico, de coche y GaN', 'Cuatro líneas de producto con certificación CE/Qi2/ISO 9001. Personalización completa OEM/ODM para su marca.', {}) }}
- <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+ <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
  {% macro productCard(href, img, alt, badge, title, specs, desc) %}
- <div class="product-card reveal text-center">
- <div class="aspect-square bg-slate-100 rounded-xl mb-5 overflow-hidden flex items-center justify-center p-6">
- <img src="{{ img }}" alt="{{ alt }}" width="300" height="300" class="w-full h-full object-contain" loading="lazy" decoding="async">
- </div>
- <p class="card-badge mb-3">{{ badge }}</p>
- <h3 class="text-lg font-bold text-brandBlue mb-2">{{ title }}</h3>
- <p class="text-sm text-slate-500 mb-4 line-clamp-2">{{ desc }}</p>
- <a href="{{ href }}" class="text-sm font-bold text-brandOrange hover:underline">Detalles y presupuesto →</a>
- </div>
+  <a href="{{ href }}" class="group relative bg-slate-50 rounded-2xl p-6 hover:shadow-xl transition-all duration-300 overflow-hidden">
+  <img src="{{ img }}" alt="{{ alt }}" width="300" height="300" loading="lazy" class="w-full aspect-square object-contain mb-4 group-hover:scale-105 transition-transform duration-300">
+  <h3 class="font-black text-brandBlue text-sm uppercase text-center">{{ badge }}</h3>
+  <p class="text-[11px] text-slate-400 text-center mt-1">{{ title }} · {{ specs }}</p>
+ </a>
  {% endmacro %}
 
  {{ productCard("/es/productos/powerbank", "/image/product/power-bank/wop21-67w-power-bank.webp", "Power Bank OEM", "Power Bank", "10W – 140W", "PD 3.1, Semi-Solid-State, 10000–20000mAh") }}
