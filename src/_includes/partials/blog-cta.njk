@@ -8,12 +8,13 @@
 {%- from "partials/section-header.njk" import sectionHeader with context -%}
 {%- set lang = lang if lang else "en" -%}
 {%- set t = i18n.blogCta[lang] -%}
+{%- set m = i18n.modal[lang] -%}
 {%- set ctaProducts = products_de if lang == "de" else (products_es if lang == "es" else (products_fr if lang == "fr" else (products_ru if lang == "ru" else products))) -%}
 <section class="sec bg-brandBlue"><div class="max-w-4xl mx-auto px-6 text-center">
 {{ sectionHeader(ctaLabel, (ctaHeading1 or '') + '<br><span class="text-brandOrange">' + (ctaHeading2 or '') + '</span>', ctaSubtext, {align: "", max: "", mb: "", titleClass: "text-3xl md:text-5xl font-black text-white uppercase italic leading-tight mb-4", descClass: "text-slate-300 text-lg max-w-2xl mx-auto mb-8"}) }}
 <div class="max-w-xl mx-auto reveal">
 <form action="https://api.web3forms.com/submit" method="POST" class="inquiry-form space-y-4">
-<input type="hidden" name="access_key" value="ac5fe4cd-2dd7-4aff-818d-bb36021b4942">
+<input type="hidden" name="access_key" value="{{ m.accessKey or '7f077cf3-642b-4aba-9be2-cb99c0c65b19' }}">
 <input type="hidden" name="subject" value="{{ ctaSubject }}">
 <input type="hidden" name="redirect" value="{{ t.redirectUrl }}">
 <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;opacity:0;height:0;width:0">

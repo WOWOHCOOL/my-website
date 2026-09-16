@@ -1106,23 +1106,10 @@ plPath: ""
  </div>
 </section>
 
-<!-- ========================================================================
- CONTACT CTA SECTION
- ======================================================================== -->
-<section id="contact-section" class="sec-lg bg-brandBlue text-white reveal">
- <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-20 items-center">
- <div>
- <h2 class="text-5xl font-black mb-10 uppercase italic leading-tight">Ready to Start <br> Your <span class="text-brandOrange">Project?</span></h2>
- <p class="text-slate-300 text-lg mb-10">Get factory-direct pricing and professional support today. Our engineers reply within 24 hours.</p>
- <div class="space-y-6 text-xs font-bold uppercase tracking-widest">
- <div class="flex items-center gap-4"><span class="text-brandOrange font-bold">&#10003;</span> ISO 9001 Certified Factory</div>
- <div class="flex items-center gap-4"><span class="text-brandOrange font-bold">&#10003;</span> Fast Sample Production</div>
- </div>
- </div>
- <div class="bg-white p-10 md:p-14 rounded-[3.5rem] text-slate-900 shadow-2xl">
- {% from "contact-form.njk" import contactForm %}
- {{ contactForm("home", "Request A Quote", "New Inquiry from Website", "home-contact-", false, lang, i18n) }}
- </div>
- </div>
-</section>
+
+{%- set formProduct = "OEM/ODM Charger Project — Homepage Inquiry" %}
+{%- set formHeading = "Ready to Start Your Project?" %}
+{%- set formSubtext = "ISO 9001 certified · 5,000m² Shenzhen facility · 50+ R&D engineers · 1M+ units/month. OEM/ODM chargers and power banks with custom branding and factory-direct pricing. MOQ from 500 units." %}
+{%- set formSubject = "New Inquiry from Website — Homepage" %}
+{% include "partials/product-inquiry-form.njk" %}
 {% endblock %}

@@ -153,6 +153,45 @@ window.addEventListener('scroll', () => {
 let lastFocusedElement = null;
 let modalKeydownHandler = null;
 
+// Map the current page URL to a product-category option value.
+// Card buttons pass a concrete model (e.g. "WOP09 Semi-Solid 10000mAh"), which
+// the modal's category dropdown cannot match by name. The page the user is on
+// already tells us the category, so we resolve it from the path instead.
+// Order matters: the most specific paths come first (car mounts that live under
+// the wireless-charger tree are sold as Car Charger).
+const CATEGORY_BY_PATH = [
+  // wireless-charger car mounts: physically under wireless, sold as Car Charger
+  [['/wireless-charger/car-mount', '/kabelloses-ladegeraet/auto-ladehalterung',
+    '/cargador-inalambrico/soporte-coche', '/chargeur-sans-fil/support-voiture',
+    '/ladowarka-bezprzewodowa/uchwyt-samochodowy', '/besprovodnye-zaryadki/avtoderzhatel'],
+   'Car Charger OEM/ODM'],
+  [['/products/car-charger', '/produkte/autoladegeraet', '/productos/cargador-coche',
+    '/produits/chargeur-voiture', '/produkty/ladowarka-samochodowa',
+    '/produkty/avtomobilnye-zaryadki'],
+   'Car Charger OEM/ODM'],
+  [['/products/gan-charger', '/produkte/gan-ladegeraet', '/productos/cargador-gan',
+    '/produits/chargeur-gan', '/produkty/ladowarka-gan', '/produkty/gan-zaryadnye-ustroystva'],
+   'GaN Charger OEM/ODM'],
+  [['/products/power-bank', '/produkte/powerbank', '/productos/powerbank',
+    '/produits/batterie-externe', '/produkty/power-bank', '/produkty/poverbanki'],
+   'Power Bank OEM/ODM'],
+  [['/products/wireless-charger', '/produkte/kabelloses-ladegeraet',
+    '/productos/cargador-inalambrico', '/produits/chargeur-sans-fil',
+    '/produkty/ladowarka-bezprzewodowa', '/produkty/besprovodnye-zaryadki'],
+   'Wireless Charger OEM/ODM'],
+];
+
+function categoryFromPath(pathname) {
+  const p = pathname || window.location.pathname;
+  for (let i = 0; i < CATEGORY_BY_PATH.length; i++) {
+    const paths = CATEGORY_BY_PATH[i][0];
+    for (let j = 0; j < paths.length; j++) {
+      if (p.indexOf(paths[j]) !== -1) return CATEGORY_BY_PATH[i][1];
+    }
+  }
+  return null;
+}
+
 function closeModal() {
   const modal = getInquiryModal();
   const content = getMainContent();
@@ -201,16 +240,48 @@ function openModal(product = '') {
 
   if (productSelect && product) {
     const search = product.trim().toLowerCase();
+    let matched = false;
     for (let i = 0; i < productSelect.options.length; i++) {
       const opt = productSelect.options[i];
       if (opt.value.toLowerCase().includes(search) || opt.text.toLowerCase().includes(search)) {
         productSelect.selectedIndex = i;
+        matched = true;
         break;
+      }
+    }
+    // Model names ("WOP09 Semi-Solid 10000mAh") never match a category option,
+    // so fall back to the category implied by the current page URL.
+    if (!matched) {
+      const cat = categoryFromPath();
+      if (cat) {
+        for (let i = 0; i < productSelect.options.length; i++) {
+          if (productSelect.options[i].value === cat) {
+            productSelect.selectedIndex = i;
+            break;
+          }
+        }
+      } else {
+        productSelect.selectedIndex = 0;
       }
     }
     if (subjectInput) subjectInput.value = `${_.newInquiryPrefix}${product}`;
   } else {
-    if (productSelect) productSelect.selectedIndex = 0;
+    // No data-product (category hub pages, CTA buttons): preselect the category
+    // the visitor is already looking at, so they never face an empty dropdown.
+    if (productSelect) {
+      const cat = categoryFromPath();
+      let picked = false;
+      if (cat) {
+        for (let i = 0; i < productSelect.options.length; i++) {
+          if (productSelect.options[i].value === cat) {
+            productSelect.selectedIndex = i;
+            picked = true;
+            break;
+          }
+        }
+      }
+      if (!picked) productSelect.selectedIndex = 0;
+    }
     if (subjectInput) subjectInput.value = _.generalInquiryText;
   }
   lastFocusedElement = document.activeElement;
