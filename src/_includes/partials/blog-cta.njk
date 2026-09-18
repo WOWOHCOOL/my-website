@@ -1,7 +1,8 @@
-{# Unified Blog CTA Form Partial (EN + DE + ES)
+{# Unified Blog CTA Form Partial (EN + DE + ES + FR + RU + PL)
    Required vars: ctaLabel, ctaHeading1, ctaHeading2, ctaSubtext, ctaSubject, ctaButton
    Optional vars: ctaPlaceholder, ctaShowProduct (default true), ctaShowArrow (default true), ctaShowPhone (default true)
-   Reads from: i18n.blogCta[lang], products / products_de / products_es, lang
+   Reads from: i18n.blogCta[lang], products / products_de / products_es / products_fr / products_ru / products_pl, lang
+   ⚠️ 产品下拉的本地化链必须与 modal.njk 保持一致（六语全列，别漏 pl —— 漏了会静默回退英文）
 #}
 {# Imported macros run in THIS template's frame, not the caller's, so a partial
    that calls another macro must import it itself (don't rely on the includer). #}
@@ -9,7 +10,7 @@
 {%- set lang = lang if lang else "en" -%}
 {%- set t = i18n.blogCta[lang] -%}
 {%- set m = i18n.modal[lang] -%}
-{%- set ctaProducts = products_de if lang == "de" else (products_es if lang == "es" else (products_fr if lang == "fr" else (products_ru if lang == "ru" else products))) -%}
+{%- set ctaProducts = products_pl if lang == "pl" else (products_de if lang == "de" else (products_es if lang == "es" else (products_fr if lang == "fr" else (products_ru if lang == "ru" else products)))) -%}
 <section class="sec bg-brandBlue"><div class="max-w-4xl mx-auto px-6 text-center">
 {{ sectionHeader(ctaLabel, (ctaHeading1 or '') + '<br><span class="text-brandOrange">' + (ctaHeading2 or '') + '</span>', ctaSubtext, {align: "", max: "", mb: "", titleClass: "text-3xl md:text-5xl font-black text-white uppercase italic leading-tight mb-4", descClass: "text-slate-300 text-lg max-w-2xl mx-auto mb-8"}) }}
 <div class="max-w-xl mx-auto reveal">

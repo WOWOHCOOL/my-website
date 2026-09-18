@@ -574,9 +574,19 @@ svg[class*="icon-"]{display:inline-block;width:1em;height:1em;vertical-align:-0.
   .btn-form {
     @apply w-full py-4 bg-brandOrange text-white font-bold text-base rounded-xl shadow-lg shadow-brandOrange/20 transition-all duration-300 flex items-center justify-center gap-3 hover:bg-brandBlue;
   }
-  /* Full-width outline (secondary) CTA, natural width from sm up. */
+  /* Outline (secondary) CTA. Natural width (the `.btn-pair` context supplies
+     `w-full`), vertically centered like `.btn-solid`.
+     ⚠️ 必须与 `.btn-solid` 一样带 `inline-flex + items-center + justify-center`。
+        `.btn-pair` 是 grid（`align-items: stretch`），兄弟按钮文案折成 3 行时
+        会把本按钮**拉伸到同高**（76px）；此时 `display:block` 的 `py-4` 无法把
+        单行文字垂直居中 → 文字贴顶、下方空 37px。
+        2026-09-18 全站扫描实测 22 处（ES 产品页 10 · RU 产品页 8 · FR 首页+service 2
+        · PL 首页 2），其余 7 个按钮类 0 处。
+     ⚠️ 基类**不再声明 `w-full sm:w-auto`**：`.btn-pair > .btn-ghost-lg`(0,2,0) 已给 `w-full`；
+        基类保留会让 11 处「完全独立」的实例（原 `display:inline` → `w-full` 失效 = 自然宽）
+        在移动端突然变满宽 —— 那不是本次要的变更。改后全站宽度逐项零变化（已实测）。 */
   .btn-ghost-lg {
-    @apply w-full sm:w-auto px-10 py-4 border-2 border-brandBlue text-brandBlue text-center font-black uppercase text-sm tracking-widest rounded-xl transition-all hover:bg-brandBlue hover:text-white;
+    @apply inline-flex items-center justify-center px-10 py-4 border-2 border-brandBlue text-brandBlue text-center font-black uppercase text-sm tracking-widest rounded-xl transition-all hover:bg-brandBlue hover:text-white;
   }
 
   /* ─── 成对 CTA：桌面左右一排 + 等宽；移动端上下堆叠 + 等宽 (2026-09-18) ───
