@@ -72,7 +72,7 @@ navActive: "products"
 },
 {
  "@context":"https://schema.org","@type":"FAQPage",
- "speakable":{"@type":"SpeakableSpecification","cssSelector":[".faq-answer"]},
+ "speakable":{"@type":"SpeakableSpecification","cssSelector":[".faq-answer",".faq-question"]},
  "mainEntity":[
  {"@type":"Question","name":"Какой MOQ для заказов OEM/ODM?","acceptedAnswer":{"@type":"Answer","text":"От 500 шт. на SKU для стандартного OEM-брендирования и от 1 000 шт. для ODM-проектов с новой пресс-формой. Для растущих брендов возможны гибкие условия."}},
  {"@type":"Question","name":"Можно ли получить образцы до размещения крупного заказа?","acceptedAnswer":{"@type":"Answer","text":"Да. Стандартные образцы изготавливаются за 3–7 дней и отправляются экспресс-доставкой за 3–5 дней. Стоимость образцов зачитывается при размещении серийного заказа."}},
@@ -98,7 +98,7 @@ navActive: "products"
 {% block content %}
 
 <!-- Hero -->
-<section class="relative pt-24 md:pt-28 pb-8 lg:pb-16 bg-gradient-to-br from-slate-50 via-white to-orange-50 overflow-hidden">
+<section id="hero" class="relative pt-24 md:pt-28 lg:pt-20 pb-8 lg:pb-20 bg-gradient-to-br from-slate-50 via-white to-orange-50 overflow-hidden lg:min-h-[100dvh] lg:flex lg:flex-col lg:justify-center" data-section="hero">
  <div class="absolute top-0 right-0 w-64 h-64 bg-brandOrange/8 rounded-full blur-3xl -translate-y-1/2 translate-x-1/4 pointer-events-none"></div>
  <div class="absolute bottom-0 left-0 w-64 h-64 bg-blue-500/6 rounded-full blur-3xl translate-y-1/3 -translate-x-1/4 pointer-events-none"></div>
  <div class="container-wide text-center relative z-10">
@@ -124,7 +124,7 @@ navActive: "products"
 {% include "trust-bar.njk" %}
 
 <!-- Product Grid -->
-<section class="sec container-wide">
+<section id="product-grid" class="sec container-wide" data-section="products">
  <div id="productGrid">
 
  <!-- ====== Повербанки ====== -->
@@ -132,35 +132,35 @@ navActive: "products"
   <div class="flex items-center gap-3 mb-6">
    <div class="w-1 h-6 bg-brandOrange rounded-full"></div>
    <h2 class="text-xl font-black text-brandBlue uppercase italic">Повербанки <span class="text-brandOrange text-sm font-medium">Semi-Solid · PD 3.1 · Qi2</span></h2>
-   <a href="/ru/produkty/poverbanki/" class="ml-auto text-[11px] font-black text-brandOrange hover:underline uppercase">29+ моделей &rarr;</a>
+   <a href="/ru/produkty/poverbanki/" class="btn-more ml-auto">29+ моделей &rarr;</a>
   </div>
   <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
-   <a href="/ru/produkty/poverbanki/polutverdotelnyy/" class="group bg-white rounded-xl border border-slate-200 hover:border-brandOrange hover:shadow-md transition-all duration-200 p-3 text-center" data-keywords="полутвердотельный повербанк аккумулятор на 50% тоньше CES 2026 OEM завод Шэньчжэнь">
+   <a href="/ru/produkty/poverbanki/polutverdotelnyy/" class="card group hover:border-brandOrange hover:shadow-md transition-all duration-200 p-3 text-center" data-keywords="полутвердотельный повербанк аккумулятор на 50% тоньше CES 2026 OEM завод Шэньчжэнь">
     <div class="aspect-square bg-brandBlue/5 rounded-lg mb-2 flex items-center justify-center overflow-hidden"><img src="/image/product/power-bank/wop09-semi-solid-power-bank.webp" srcset="/image/product/power-bank/wop09-semi-solid-power-bank-750w.webp 750w, /image/product/power-bank/wop09-semi-solid-power-bank.webp 1600w" sizes="(min-width: 1440px) 526px, (min-width: 1280px) 526px, (min-width: 1024px) 398px, (min-width: 768px) 654px, (min-width: 430px) 382px, 327px" alt="Полутвердотельный повербанк на 50% тоньше OEM-производство Шэньчжэнь" class="w-full h-full object-contain p-2 group-hover:scale-105 transition-transform duration-300" loading="lazy" width="1600" height="1600"></div>
     <p class="text-[11px] font-black text-brandBlue uppercase leading-tight">Полутвердотельный</p>
     <p class="text-[10px] text-slate-500">На 50% тоньше, +30% плотность энергии</p>
    </a>
-   <a href="/ru/produkty/poverbanki/gibrid-2-v-1/" class="group bg-white rounded-xl border border-slate-200 hover:border-brandOrange hover:shadow-md transition-all duration-200 p-3 text-center" data-keywords="гибрид 2-в-1 повербанк сетевая зарядка GaN складная вилка EU US OEM">
+   <a href="/ru/produkty/poverbanki/gibrid-2-v-1/" class="card group hover:border-brandOrange hover:shadow-md transition-all duration-200 p-3 text-center" data-keywords="гибрид 2-в-1 повербанк сетевая зарядка GaN складная вилка EU US OEM">
     <div class="aspect-square bg-brandBlue/5 rounded-lg mb-2 flex items-center justify-center overflow-hidden"><img src="/image/product/power-bank/wop67-2in1-cable-charger.webp" srcset="/image/product/power-bank/wop67-2in1-cable-charger-450w.webp 450w, /image/product/power-bank/wop67-2in1-cable-charger.webp 1050w" sizes="(min-width: 1440px) 389px, (min-width: 1280px) 389px, (min-width: 1024px) 304px, (min-width: 768px) 344px, (min-width: 430px) 382px, 327px" alt="Гибридный повербанк 2-в-1 с сетевой GaN-зарядкой OEM" class="w-full h-full object-contain p-2 group-hover:scale-105 transition-transform duration-300" loading="lazy" width="1050" height="1050"></div>
     <p class="text-[11px] font-black text-brandBlue uppercase leading-tight">Гибрид 2-в-1</p>
     <p class="text-[10px] text-slate-500">Зарядка + повербанк в одном корпусе</p>
    </a>
-   <a href="/ru/produkty/poverbanki/dlya-noutbukov/" class="group bg-white rounded-xl border border-slate-200 hover:border-brandOrange hover:shadow-md transition-all duration-200 p-3 text-center" data-keywords="повербанк для ноутбуков PD 3.1 240W MacBook Dell 99.9Wh разрешён в самолёт OEM">
+   <a href="/ru/produkty/poverbanki/dlya-noutbukov/" class="card group hover:border-brandOrange hover:shadow-md transition-all duration-200 p-3 text-center" data-keywords="повербанк для ноутбуков PD 3.1 240W MacBook Dell 99.9Wh разрешён в самолёт OEM">
     <div class="aspect-square bg-brandBlue/5 rounded-lg mb-2 flex items-center justify-center overflow-hidden"><img src="/image/product/power-bank/wop23-240w-power-bank.webp" srcset="/image/product/power-bank/wop23-240w-power-bank-750w.webp 750w, /image/product/power-bank/wop23-240w-power-bank.webp 1100w" sizes="(min-width: 1440px) 526px, (min-width: 1280px) 526px, (min-width: 1024px) 398px, (min-width: 768px) 654px, (min-width: 430px) 382px, 327px" alt="Повербанк для ноутбуков PD 3.1 240 Вт разрешён к провозу в самолёте OEM" class="w-full h-full object-contain p-2 group-hover:scale-105 transition-transform duration-300" loading="lazy" width="1100" height="1100"></div>
     <p class="text-[11px] font-black text-brandBlue uppercase leading-tight">Для ноутбуков</p>
     <p class="text-[10px] text-slate-500">65–240 Вт PD 3.1, допуск в самолёт</p>
    </a>
-   <a href="/ru/produkty/poverbanki/magnitnyy-besprovodnoy/" class="group bg-white rounded-xl border border-slate-200 hover:border-brandOrange hover:shadow-md transition-all duration-200 p-3 text-center" data-keywords="магнитный беспроводной повербанк Qi2 MagSafe N52H iPhone Android OEM">
+   <a href="/ru/produkty/poverbanki/magnitnyy-besprovodnoy/" class="card group hover:border-brandOrange hover:shadow-md transition-all duration-200 p-3 text-center" data-keywords="магнитный беспроводной повербанк Qi2 MagSafe N52H iPhone Android OEM">
     <div class="aspect-square bg-brandBlue/5 rounded-lg mb-2 flex items-center justify-center overflow-hidden"><img src="/image/product/power-bank/wopq11-qi2-magnetic-40w-power-bank.webp" srcset="/image/product/power-bank/wopq11-qi2-magnetic-40w-power-bank-750w.webp 750w, /image/product/power-bank/wopq11-qi2-magnetic-40w-power-bank.webp 1920w" sizes="(min-width: 1440px) 526px, (min-width: 1280px) 526px, (min-width: 1024px) 398px, (min-width: 768px) 654px, (min-width: 430px) 382px, 327px" alt="Магнитный повербанк Qi2 MagSafe с магнитами N52H OEM" class="w-full h-full object-contain p-2 group-hover:scale-105 transition-transform duration-300" loading="lazy" width="1920" height="1920"></div>
     <p class="text-[11px] font-black text-brandBlue uppercase leading-tight">Магнитная зарядка</p>
     <p class="text-[10px] text-slate-500">Qi2 MPP 15 Вт, магниты N52H</p>
    </a>
-   <a href="/ru/produkty/poverbanki/smart-displey/" class="group bg-white rounded-xl border border-slate-200 hover:border-brandOrange hover:shadow-md transition-all duration-200 p-3 text-center" data-keywords="повербанк смарт-дисплей TFT алюминий мощность в реальном времени премиум OEM">
+   <a href="/ru/produkty/poverbanki/smart-displey/" class="card group hover:border-brandOrange hover:shadow-md transition-all duration-200 p-3 text-center" data-keywords="повербанк смарт-дисплей TFT алюминий мощность в реальном времени премиум OEM">
     <div class="aspect-square bg-brandBlue/5 rounded-lg mb-2 flex items-center justify-center overflow-hidden"><img src="/image/product/power-bank/wop25-tft-power-bank.webp" srcset="/image/product/power-bank/wop25-tft-power-bank-750w.webp 750w, /image/product/power-bank/wop25-tft-power-bank.webp 1920w" sizes="(min-width: 1440px) 526px, (min-width: 1280px) 526px, (min-width: 1024px) 398px, (min-width: 768px) 654px, (min-width: 430px) 382px, 327px" alt="Повербанк со смарт-дисплеем TFT в алюминиевом корпусе OEM" class="w-full h-full object-contain p-2 group-hover:scale-105 transition-transform duration-300" loading="lazy" width="1920" height="1920"></div>
     <p class="text-[11px] font-black text-brandBlue uppercase leading-tight">Смарт-дисплей</p>
     <p class="text-[10px] text-slate-500">TFT-экран, алюминиевый корпус</p>
    </a>
-   <a href="/ru/produkty/poverbanki/greyushchaya-batareya/" class="group bg-white rounded-xl border border-slate-200 hover:border-brandOrange hover:shadow-md transition-all duration-200 p-3 text-center" data-keywords="греющая батарея куртка перчатки жилет 7.4V DC термоодежда outdoor OEM">
+   <a href="/ru/produkty/poverbanki/greyushchaya-batareya/" class="card group hover:border-brandOrange hover:shadow-md transition-all duration-200 p-3 text-center" data-keywords="греющая батарея куртка перчатки жилет 7.4V DC термоодежда outdoor OEM">
     <div class="aspect-square bg-brandBlue/5 rounded-lg mb-2 flex items-center justify-center overflow-hidden"><img src="/image/product/power-bank/wop55-heating-battery.webp" srcset="/image/product/power-bank/wop55-heating-battery-750w.webp 750w, /image/product/power-bank/wop55-heating-battery.webp 1100w" sizes="(min-width: 1440px) 526px, (min-width: 1280px) 526px, (min-width: 1024px) 398px, (min-width: 768px) 654px, (min-width: 430px) 382px, 327px" alt="Греющая батарея для курток и термоодежды 7,4 В OEM" class="w-full h-full object-contain p-2 group-hover:scale-105 transition-transform duration-300" loading="lazy" width="1100" height="1100"></div>
     <p class="text-[11px] font-black text-brandBlue uppercase leading-tight">Греющая батарея</p>
     <p class="text-[10px] text-slate-500">Термоодежда, 5 В / 7,4 В DC</p>
@@ -173,20 +173,20 @@ navActive: "products"
   <div class="flex items-center gap-3 mb-6">
    <div class="w-1 h-6 bg-brandOrange rounded-full"></div>
    <h2 class="text-xl font-black text-brandBlue uppercase italic">Беспроводные зарядки <span class="text-brandOrange text-sm font-medium">Qi2 · 3-в-1 · Авто</span></h2>
-   <a href="/ru/produkty/besprovodnye-zaryadki/" class="ml-auto text-[11px] font-black text-brandOrange hover:underline uppercase">21+ моделей &rarr;</a>
+   <a href="/ru/produkty/besprovodnye-zaryadki/" class="btn-more ml-auto">21+ моделей &rarr;</a>
   </div>
   <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
-   <a href="/ru/produkty/besprovodnye-zaryadki/nastolnaya/" class="group bg-white rounded-xl border border-slate-200 hover:border-brandOrange hover:shadow-md transition-all duration-200 p-3 text-center" data-keywords="настольная беспроводная зарядка Qi2 пад подставка вертикальная 11mm ультратонкая OEM">
+   <a href="/ru/produkty/besprovodnye-zaryadki/nastolnaya/" class="card group hover:border-brandOrange hover:shadow-md transition-all duration-200 p-3 text-center" data-keywords="настольная беспроводная зарядка Qi2 пад подставка вертикальная 11mm ультратонкая OEM">
     <div class="aspect-square bg-blue-50 rounded-lg mb-2 flex items-center justify-center overflow-hidden"><img src="/image/product/wireless-charger/wow68-vertical-magnetic-3in1-desktop-15w.webp" srcset="/image/product/wireless-charger/wow68-vertical-magnetic-3in1-desktop-15w-750w.webp 750w, /image/product/wireless-charger/wow68-vertical-magnetic-3in1-desktop-15w.webp 1100w" sizes="(min-width: 1440px) 526px, (min-width: 1280px) 526px, (min-width: 1024px) 398px, (min-width: 768px) 654px, (min-width: 430px) 382px, 327px" alt="Настольная беспроводная зарядка Qi2 вертикальная подставка OEM" class="w-full h-full object-contain p-2 group-hover:scale-105 transition-transform duration-300" loading="lazy" width="1100" height="1100"></div>
     <p class="text-[11px] font-black text-brandBlue uppercase leading-tight">Настольная</p>
     <p class="text-[10px] text-slate-500">Пады и подставки, 15 Вт Qi2</p>
    </a>
-   <a href="/ru/produkty/besprovodnye-zaryadki/stanciya-3-v-1/" class="group bg-white rounded-xl border border-slate-200 hover:border-brandOrange hover:shadow-md transition-all duration-200 p-3 text-center" data-keywords="станция зарядки 3-в-1 Qi2 iPhone Watch AirPods складная цинк OEM">
+   <a href="/ru/produkty/besprovodnye-zaryadki/stanciya-3-v-1/" class="card group hover:border-brandOrange hover:shadow-md transition-all duration-200 p-3 text-center" data-keywords="станция зарядки 3-в-1 Qi2 iPhone Watch AirPods складная цинк OEM">
     <div class="aspect-square bg-blue-50 rounded-lg mb-2 flex items-center justify-center overflow-hidden"><img src="/image/product/wireless-charger/wow93-folding-charger.webp" srcset="/image/product/wireless-charger/wow93-folding-charger-800w.webp 800w, /image/product/wireless-charger/wow93-folding-charger.webp 1600w" sizes="(min-width: 1440px) 590px, (min-width: 1280px) 590px, (min-width: 1024px) 462px, (min-width: 768px) 718px, (min-width: 430px) 382px, 338px" alt="Складная станция зарядки 3-в-1 Qi2 для iPhone Watch AirPods OEM" class="w-full h-full object-contain p-2 group-hover:scale-105 transition-transform duration-300" loading="lazy" width="1600" height="1600"></div>
     <p class="text-[11px] font-black text-brandBlue uppercase leading-tight">Станция 3-в-1</p>
     <p class="text-[10px] text-slate-500">iPhone + Watch + AirPods</p>
    </a>
-   <a href="/ru/produkty/besprovodnye-zaryadki/avtoderzhatel/" class="group bg-white rounded-xl border border-slate-200 hover:border-brandOrange hover:shadow-md transition-all duration-200 p-3 text-center" data-keywords="автодержатель беспроводная зарядка Qi2 магнитный TEC охлаждение E-Mark N52H авто OEM">
+   <a href="/ru/produkty/besprovodnye-zaryadki/avtoderzhatel/" class="card group hover:border-brandOrange hover:shadow-md transition-all duration-200 p-3 text-center" data-keywords="автодержатель беспроводная зарядка Qi2 магнитный TEC охлаждение E-Mark N52H авто OEM">
     <div class="aspect-square bg-blue-50 rounded-lg mb-2 flex items-center justify-center overflow-hidden"><img src="/image/product/wireless-charger/wow41-qi22-25w-car-magnetic-wireless-charger.webp" srcset="/image/product/wireless-charger/wow41-qi22-25w-car-magnetic-wireless-charger-750w.webp 750w, /image/product/wireless-charger/wow41-qi22-25w-car-magnetic-wireless-charger.webp 1100w" sizes="(min-width: 1440px) 526px, (min-width: 1280px) 526px, (min-width: 1024px) 398px, (min-width: 768px) 654px, (min-width: 430px) 382px, 327px" alt="Магнитный автодержатель с зарядкой Qi2 и охлаждением TEC E-Mark OEM" class="w-full h-full object-contain p-2 group-hover:scale-105 transition-transform duration-300" loading="lazy" width="1100" height="1100"></div>
     <p class="text-[11px] font-black text-brandBlue uppercase leading-tight">Автодержатель</p>
     <p class="text-[10px] text-slate-500">Qi2 + TEC, E-Mark</p>
@@ -199,10 +199,10 @@ navActive: "products"
   <div class="flex items-center gap-3 mb-6">
    <div class="w-1 h-6 bg-brandOrange rounded-full"></div>
    <h2 class="text-xl font-black text-brandBlue uppercase italic">GaN-зарядки <span class="text-brandOrange text-sm font-medium">GaN V · PD 3.1 · Мультипорт</span></h2>
-   <a href="/ru/produkty/gan-zaryadnye-ustroystva/" class="ml-auto text-[11px] font-black text-brandOrange hover:underline uppercase">11+ моделей &rarr;</a>
+   <a href="/ru/produkty/gan-zaryadnye-ustroystva/" class="btn-more ml-auto">11+ моделей &rarr;</a>
   </div>
   <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
-   <a href="/ru/produkty/gan-zaryadnye-ustroystva/" class="group bg-white rounded-xl border border-slate-200 hover:border-brandOrange hover:shadow-md transition-all duration-200 p-3 text-center" data-keywords="GaN-зарядка нитрид галлия GaN V PD 3.1 240W мультипорт удлинитель выдвижной кабель OEM">
+   <a href="/ru/produkty/gan-zaryadnye-ustroystva/" class="card group hover:border-brandOrange hover:shadow-md transition-all duration-200 p-3 text-center" data-keywords="GaN-зарядка нитрид галлия GaN V PD 3.1 240W мультипорт удлинитель выдвижной кабель OEM">
     <div class="aspect-square bg-brandOrange/5 rounded-lg mb-2 flex items-center justify-center overflow-hidden"><img src="/image/product/gan-charger/wop37-67w-gan-charger-retractable-cable-wireless.webp" srcset="/image/product/gan-charger/wop37-67w-gan-charger-retractable-cable-wireless-450w.webp 450w, /image/product/gan-charger/wop37-67w-gan-charger-retractable-cable-wireless.webp 1600w" sizes="(min-width: 1440px) 389px, (min-width: 1280px) 389px, (min-width: 1024px) 304px, (min-width: 768px) 344px, (min-width: 430px) 382px, 327px" alt="GaN-зарядка GaN V PD 3.1 мультипорт с выдвижным кабелем OEM" class="w-full h-full object-contain p-2 group-hover:scale-105 transition-transform duration-300" loading="lazy" width="1600" height="1600"></div>
     <p class="text-[11px] font-black text-brandBlue uppercase leading-tight">GaN V &amp; PD 3.1</p>
     <p class="text-[10px] text-slate-500">20–240 Вт, на 40% компактнее</p>
@@ -215,10 +215,10 @@ navActive: "products"
   <div class="flex items-center gap-3 mb-6">
    <div class="w-1 h-6 bg-brandOrange rounded-full"></div>
    <h2 class="text-xl font-black text-brandBlue uppercase italic">Автомобильные зарядки <span class="text-brandOrange text-sm font-medium">PD 3.1 · E-Mark · 12/24 В</span></h2>
-   <a href="/ru/produkty/avtomobilnye-zaryadki/" class="ml-auto text-[11px] font-black text-brandOrange hover:underline uppercase">10+ моделей &rarr;</a>
+   <a href="/ru/produkty/avtomobilnye-zaryadki/" class="btn-more ml-auto">10+ моделей &rarr;</a>
   </div>
   <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
-   <a href="/ru/produkty/avtomobilnye-zaryadki/" class="group bg-white rounded-xl border border-slate-200 hover:border-brandOrange hover:shadow-md transition-all duration-200 p-3 text-center" data-keywords="автомобильная зарядка авто GaN PD 3.1 140W E-Mark 12V 24V грузовик выдвижной кабель OEM">
+   <a href="/ru/produkty/avtomobilnye-zaryadki/" class="card group hover:border-brandOrange hover:shadow-md transition-all duration-200 p-3 text-center" data-keywords="автомобильная зарядка авто GaN PD 3.1 140W E-Mark 12V 24V грузовик выдвижной кабель OEM">
     <div class="aspect-square bg-slate-100 rounded-lg mb-2 flex items-center justify-center overflow-hidden"><img src="/image/product/car-charger/woc24-140w-digital-charger.webp" srcset="/image/product/car-charger/woc24-140w-digital-charger-800w.webp 800w, /image/product/car-charger/woc24-140w-digital-charger.webp 1920w" sizes="(min-width: 1440px) 590px, (min-width: 1280px) 590px, (min-width: 1024px) 462px, (min-width: 768px) 718px, (min-width: 430px) 382px, 359px" alt="Автомобильная GaN-зарядка PD 3.1 140 Вт E-Mark 12/24 В OEM" class="w-full h-full object-contain p-2 group-hover:scale-105 transition-transform duration-300" loading="lazy" width="1920" height="1920"></div>
     <p class="text-[11px] font-black text-brandBlue uppercase leading-tight">GaN PD 3.1</p>
     <p class="text-[10px] text-slate-500">140 Вт, E-Mark, 12/24 В</p>
@@ -233,14 +233,14 @@ navActive: "products"
 </section>
 
 <!-- FAQ -->
-<section class="sec bg-slate-50">
+<section id="faq" class="sec bg-slate-50" data-section="faq">
  <div class="container-narrow">
  <div class="flex items-center gap-3 mb-10"><div class="w-1 h-8 bg-brandOrange rounded-full"></div><h2 class="text-2xl md:text-3xl font-black text-brandBlue uppercase italic">Частые вопросы</h2></div>
  <div class="space-y-4">
- <details class="group bg-white rounded-2xl p-6 border border-slate-100 open:shadow-md transition-all cursor-pointer"><summary class="flex items-center justify-between font-black text-brandBlue text-sm uppercase tracking-wider">Какой MOQ для заказов OEM/ODM?<svg class="icon-plus text-brandOrange text-xs group-open:rotate-45 transition-transform" aria-hidden="true" focusable="false" viewBox="0 0 448 512"><path d="M256 64c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 160-160 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l160 0 0 160c0 17.7 14.3 32 32 32s32-14.3 32-32l0-160 160 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-160 0 0-160z" fill="currentColor"/></svg></summary><p class="mt-4 text-slate-600 text-sm leading-relaxed">От 500 шт. на SKU для стандартного OEM-брендирования и от 1 000 шт. для ODM-проектов с новой пресс-формой. Для растущих брендов возможны гибкие условия.</p></details>
- <details class="group bg-white rounded-2xl p-6 border border-slate-100 open:shadow-md transition-all cursor-pointer"><summary class="flex items-center justify-between font-black text-brandBlue text-sm uppercase tracking-wider">Можно ли получить образцы до размещения крупного заказа?<svg class="icon-plus text-brandOrange text-xs group-open:rotate-45 transition-transform" aria-hidden="true" focusable="false" viewBox="0 0 448 512"><path d="M256 64c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 160-160 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l160 0 0 160c0 17.7 14.3 32 32 32s32-14.3 32-32l0-160 160 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-160 0 0-160z" fill="currentColor"/></svg></summary><p class="mt-4 text-slate-600 text-sm leading-relaxed">Да. Стандартные образцы изготавливаются за 3–7 дней и отправляются экспресс-доставкой за 3–5 дней. Стоимость образцов зачитывается при размещении серийного заказа.</p></details>
- <details class="group bg-white rounded-2xl p-6 border border-slate-100 open:shadow-md transition-all cursor-pointer"><summary class="flex items-center justify-between font-black text-brandBlue text-sm uppercase tracking-wider">Какие сертификаты есть у продукции?<svg class="icon-plus text-brandOrange text-xs group-open:rotate-45 transition-transform" aria-hidden="true" focusable="false" viewBox="0 0 448 512"><path d="M256 64c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 160-160 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l160 0 0 160c0 17.7 14.3 32 32 32s32-14.3 32-32l0-160 160 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-160 0 0-160z" fill="currentColor"/></svg></summary><p class="mt-4 text-slate-600 text-sm leading-relaxed">Продукция соответствует международным стандартам: CE, FCC, RoHS, Qi/Qi2; повербанки — UN38.3. Для рынка ЕАЭС готовим комплект документов для сертификации EAC (ТР ТС 004/2011 и ТР ТС 020/2011) и сопровождаем испытания.</p></details>
- <details class="group bg-white rounded-2xl p-6 border border-slate-100 open:shadow-md transition-all cursor-pointer"><summary class="flex items-center justify-between font-black text-brandBlue text-sm uppercase tracking-wider">Каковы сроки производства и доставки?<svg class="icon-plus text-brandOrange text-xs group-open:rotate-45 transition-transform" aria-hidden="true" focusable="false" viewBox="0 0 448 512"><path d="M256 64c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 160-160 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l160 0 0 160c0 17.7 14.3 32 32 32s32-14.3 32-32l0-160 160 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-160 0 0-160z" fill="currentColor"/></svg></summary><p class="mt-4 text-slate-600 text-sm leading-relaxed">Серийное ODM-производство — 25–35 дней после утверждения образца; ODM с новой разработкой на платформе — 35–50 дней, OEM с новой оснасткой — 30–60 дней. Доставка в РФ: ж/д — 18–25 дней, морем через Владивосток или Новороссийск, авиа — для образцов. Условия FOB Шэньчжэнь, EXW или DDP.</p></details>
+ <details class="card-lg group p-6 open:shadow-md transition-all cursor-pointer"><summary class="faq-question flex items-center justify-between font-black text-brandBlue text-sm uppercase tracking-wider">Какой MOQ для заказов OEM/ODM?<svg class="icon-plus text-brandOrange text-xs group-open:rotate-45 transition-transform" aria-hidden="true" focusable="false" viewBox="0 0 448 512"><path d="M256 64c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 160-160 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l160 0 0 160c0 17.7 14.3 32 32 32s32-14.3 32-32l0-160 160 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-160 0 0-160z" fill="currentColor"/></svg></summary><p class="faq-answer mt-4 text-slate-600 text-sm leading-relaxed">От 500 шт. на SKU для стандартного OEM-брендирования и от 1 000 шт. для ODM-проектов с новой пресс-формой. Для растущих брендов возможны гибкие условия.</p></details>
+ <details class="card-lg group p-6 open:shadow-md transition-all cursor-pointer"><summary class="faq-question flex items-center justify-between font-black text-brandBlue text-sm uppercase tracking-wider">Можно ли получить образцы до размещения крупного заказа?<svg class="icon-plus text-brandOrange text-xs group-open:rotate-45 transition-transform" aria-hidden="true" focusable="false" viewBox="0 0 448 512"><path d="M256 64c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 160-160 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l160 0 0 160c0 17.7 14.3 32 32 32s32-14.3 32-32l0-160 160 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-160 0 0-160z" fill="currentColor"/></svg></summary><p class="faq-answer mt-4 text-slate-600 text-sm leading-relaxed">Да. Стандартные образцы изготавливаются за 3–7 дней и отправляются экспресс-доставкой за 3–5 дней. Стоимость образцов зачитывается при размещении серийного заказа.</p></details>
+ <details class="card-lg group p-6 open:shadow-md transition-all cursor-pointer"><summary class="faq-question flex items-center justify-between font-black text-brandBlue text-sm uppercase tracking-wider">Какие сертификаты есть у продукции?<svg class="icon-plus text-brandOrange text-xs group-open:rotate-45 transition-transform" aria-hidden="true" focusable="false" viewBox="0 0 448 512"><path d="M256 64c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 160-160 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l160 0 0 160c0 17.7 14.3 32 32 32s32-14.3 32-32l0-160 160 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-160 0 0-160z" fill="currentColor"/></svg></summary><p class="faq-answer mt-4 text-slate-600 text-sm leading-relaxed">Продукция соответствует международным стандартам: CE, FCC, RoHS, Qi/Qi2; повербанки — UN38.3. Для рынка ЕАЭС готовим комплект документов для сертификации EAC (ТР ТС 004/2011 и ТР ТС 020/2011) и сопровождаем испытания.</p></details>
+ <details class="card-lg group p-6 open:shadow-md transition-all cursor-pointer"><summary class="faq-question flex items-center justify-between font-black text-brandBlue text-sm uppercase tracking-wider">Каковы сроки производства и доставки?<svg class="icon-plus text-brandOrange text-xs group-open:rotate-45 transition-transform" aria-hidden="true" focusable="false" viewBox="0 0 448 512"><path d="M256 64c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 160-160 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l160 0 0 160c0 17.7 14.3 32 32 32s32-14.3 32-32l0-160 160 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-160 0 0-160z" fill="currentColor"/></svg></summary><p class="faq-answer mt-4 text-slate-600 text-sm leading-relaxed">Серийное ODM-производство — 25–35 дней после утверждения образца; ODM с новой разработкой на платформе — 35–50 дней, OEM с новой оснасткой — 30–60 дней. Доставка в РФ: ж/д — 18–25 дней, морем через Владивосток или Новороссийск, авиа — для образцов. Условия FOB Шэньчжэнь, EXW или DDP.</p></details>
  </div>
  </div>
 </section>

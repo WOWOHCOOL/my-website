@@ -26,12 +26,14 @@ plPath: "blog/"
 
 {% block blogHero %}
 <!-- Breadcrumb -->
-<section class="pt-24 md:pt-28 pb-16 md:pb-20 bg-gradient-to-br from-slate-50 via-white to-orange-50">
-<div class="max-w-4xl mx-auto px-6">
-{{ breadcrumb([{name: "Startseite", url: "/de/"}, {name: "Blog"}], "none", "mb-6", { variant: "hero" }) }}
+<section class="relative pt-24 md:pt-28 pb-8 lg:pb-16 bg-gradient-to-br from-slate-50 via-white to-orange-50 overflow-hidden" data-section="hero">
+<div class="absolute inset-0 z-0 pointer-events-none">
+<div class="absolute top-0 left-0 w-64 h-64 bg-brandOrange opacity-20 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
+<div class="absolute bottom-0 right-0 w-64 h-64 bg-blue-500 opacity-20 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
 </div>
-<div class="max-w-4xl mx-auto px-6 text-center">
-<p class="text-brandOrange text-xs font-bold tracking-widest uppercase mb-3">Blog</p>
+<div class="container-content relative z-10 text-center pb-12 lg:pb-12">
+{{ breadcrumb([{name: "Startseite", url: "/de/"}, {name: "Blog"}], "none", "mb-6", { variant: "hero" }) }}
+<div class="badge-capsule mb-6 mx-auto uppercase tracking-widest">Blog</div>
 <h1 class="text-3xl md:text-5xl font-black text-brandBlue leading-tight mb-4 italic uppercase">Expertenwissen für<br><span class="text-brandOrange">deutsche Importeure</span></h1>
 <p class="text-slate-600 text-lg max-w-2xl mx-auto">Praktische Leitfäden zu Powerbank OEM, Qi2 Zertifizierung, Import aus China, GaN Technologie und Eigenmarken-Produktion.</p>
 </div>
@@ -44,11 +46,11 @@ plPath: "blog/"
 {% block blogArticles %}
 <!-- BLOG LIST -->
 <section class="sec">
-<div class="max-w-5xl mx-auto px-6">
+<div class="container-content">
 
 <div class="grid md:grid-cols-2 gap-8">
 
-{% for item in collections.blog_de | sort(attribute="date") | reverse | list | first(6) %}
+{% for item in collections.blog_de | sort(attribute="date") | reverse %}{% if item.url != "/de/blog/" and loop.index0 < 6 %}
 <a href="{{ item.url }}" class="group bg-white rounded-2xl border border-slate-200 overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
 <img src="{{ item.data.ogImage or '/image/blog/cover-de/default.webp' }}" alt="{{ item.data.articleSection or 'Blog' }}" width="800" height="384" class="w-full h-48 object-cover bg-slate-50" loading="{{ 'eager' if loop.first else 'lazy' }}"{% if not loop.first %} decoding="async"{% endif %}>
 <div class="p-6"><p class="text-brandOrange text-xs font-bold tracking-widest uppercase mb-2">{{ item.data.articleSection or 'Blog' }}</p>
@@ -58,7 +60,7 @@ plPath: "blog/"
  <path d="M128 0C110.3 0 96 14.3 96 32l0 32-32 0C28.7 64 0 92.7 0 128l0 48 448 0 0-48c0-35.3-28.7-64-64-64l-32 0 0-32c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 32-128 0 0-32c0-17.7-14.3-32-32-32zM0 224L0 416c0 35.3 28.7 64 64 64l320 0c35.3 0 64-28.7 64-64l0-192-448 0z" fill="currentColor"/>
  </svg>{{ item.date | localeDate("de") }}</span></div></div>
 </a>
-{% endfor %}
+{% endif %}{% endfor %}
 
 </div>
 </div>
@@ -72,8 +74,8 @@ plPath: "blog/"
 
 {% block blogAllArticles %}
 <!-- ALLE ARTIKEL -->
-<section id="alle-artikel" class="py-16 bg-white">
-<div class="max-w-4xl mx-auto px-6">
+<section id="alle-artikel" class="sec bg-white">
+<div class="container-content">
 <div class="flex items-center gap-3 mb-6">
 <div class="w-1 h-8 bg-brandBlue rounded-full"></div>
 <h2 class="text-xl md:text-2xl font-black text-brandBlue uppercase italic">Alle Artikel</h2>
@@ -103,8 +105,8 @@ plPath: "blog/"
 
 {% block blogQuickAccess %}
 <!-- SCHNELLRESSOURCEN -->
-<section class="py-16 bg-slate-50">
-<div class="max-w-4xl mx-auto px-6">
+<section class="sec bg-slate-50">
+<div class="container-content">
 <div class="flex items-center gap-3 mb-6">
 <div class="section-bar section-bar-slate"></div>
 <h2 class="text-xl md:text-2xl font-black text-brandBlue uppercase italic">Schnellzugriff</h2>

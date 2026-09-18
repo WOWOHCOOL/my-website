@@ -75,26 +75,26 @@ plPath: "produkty/power-bank/hybryda-2-w-1/"
 {% from "breadcrumb.njk" import breadcrumb %}
 
 <!-- HERO -->
-<section class="pt-24 md:pt-28 pb-16 md:pb-20 bg-gradient-to-br from-purple-50 via-white to-orange-50">
+<section id="hero" class="pt-24 md:pt-28 lg:pt-20 pb-16 md:pb-20 bg-gradient-to-br from-purple-50 via-white to-orange-50 lg:min-h-[100dvh] lg:flex lg:flex-col lg:justify-center" data-section="hero">
  <div class="container-wide">
   {{ breadcrumb([{name:"Startseite",url:"/de/"},{name:"Produkte",url:"/de/produkte/"},{name:"Powerbank",url:"/de/produkte/powerbank/"},{name:"2-in-1 Hybrid"}], "none", "mb-6", { variant: "hero" }) }}
   <div class="grid lg:grid-cols-2 gap-12 items-center">
    <div class="reveal order-2 lg:order-1">
-    <p class="text-brandOrange text-xs font-bold tracking-widest uppercase mb-3">Wandladegerät + Powerbank</p>
-    <h1 class="text-3xl md:text-5xl font-black text-brandBlue leading-tight mb-6 italic uppercase">2-in-1 Hybrid<br><span class="text-brandOrange">Reise-Powerbank</span></h1>
+    <div class="badge-capsule mb-6 uppercase tracking-widest">Wandladegerät + Powerbank</div>
+    <h1 class="text-3xl md:text-4xl xl:text-5xl font-black text-brandBlue leading-tight mb-6 italic uppercase tracking-tighter">2-in-1 Hybrid<br><span class="text-brandOrange">Reise-Powerbank</span></h1>
     <p class="text-slate-600 text-lg leading-relaxed mb-6">9 Modelle mit klappbarem AC-Stecker und integriertem Akku. <strong>20W bis 67W PD</strong> mit GaN-Technologie. Kapazitäten 5.000-20.000mAh. Ein Gerät für Wandsteckdose und unterwegs. <strong>Reisetauglich</strong>, TSA-konform.</p>
     <div class="flex flex-wrap gap-2 mb-8">
      <span class="trust-badge">PD 20-67W</span>
      <span class="trust-badge">GaN-Technologie</span>
      <span class="trust-badge">Klappbarer AC-Stecker</span>
     </div>
-    <div class="flex flex-wrap gap-4">
-     <button data-action="open-modal" class="btn-primary cursor-pointer">Werkspreis anfragen &rarr;</button>
-     <a href="#modelle" class="btn-secondary">Modelle ansehen</a>
+    <div class="btn-pair">
+     <button data-action="open-modal" class="btn-solid cursor-pointer">Werkspreis anfragen &rarr;</button>
+     <a href="#modelle" class="btn-ghost-lg">Modelle ansehen</a>
     </div>
    </div>
    <div class="reveal order-1 lg:order-2">
-    <div class="bg-white rounded-2xl shadow-xl p-6 md:p-8 border border-slate-100">
+    <div class="card-lg shadow-xl p-6 md:p-8 max-w-[480px] mx-auto">
      <img src="/image/product/power-bank/wop67-2in1-cable-charger.webp" srcset="/image/product/power-bank/wop67-2in1-cable-charger-450w.webp 450w, /image/product/power-bank/wop67-2in1-cable-charger.webp 1050w" sizes="(min-width: 1440px) 526px, (min-width: 1280px) 526px, (min-width: 1024px) 398px, (min-width: 768px) 654px, (min-width: 430px) 382px, 327px" alt="2-in-1 Hybrid Powerbank WOP69 GaN 67W mit klappbarem AC-Stecker" width="1050" height="1050" class="w-full h-auto object-contain" loading="eager">
     </div>
    </div>
@@ -106,7 +106,7 @@ plPath: "produkty/power-bank/hybryda-2-w-1/"
 {% include "trust-bar.njk" %}
 
 <!-- MODELLE -->
-<section id="modelle" class="sec bg-white">
+<section id="modelle" class="sec bg-white" data-section="products">
  <div class="container-wide">
   {{ sectionHeader('Modellreihe', '9 Hybrid-Modelle für jede Reise', 'Von kompakten 5.000mAh-Reisemodellen bis 20.000mAh High-Capacity-Hybriden mit Multi-Port-Output.', {mb: 'mb-12'}) }}
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -118,7 +118,7 @@ plPath: "produkty/power-bank/hybryda-2-w-1/"
      <div class="flex items-center space-x-2"><svg class="icon-feature text-brandOrange text-[11px]" aria-hidden="true" focusable="false" viewBox="0 0 448 512"><path d="M338.8-9.9c11.9 8.6 16.3 24.2 10.9 37.8L271.3 224 416 224c13.5 0 25.5 8.4 30.1 21.1s.7 26.9-9.6 35.5l-288 240c-11.3 9.4-27.4 9.9-39.3 1.3s-16.3-24.2-10.9-37.8L176.7 288 32 288c-13.5 0-25.5-8.4-30.1-21.1s-.7-26.9 9.6-35.5l288-240c11.3-9.4 27.4-9.9 39.3-1.3z" fill="currentColor"/></svg><span class="text-[11px] font-bold text-slate-500 uppercase">GaN PD 67W + PPS</span></div></div>
     <p class="text-[11px] text-slate-500 mb-6 italic leading-relaxed">GaN 2-in-1 Hybrid mit 67W PD-Ausgang. 15.000mAh, einziehbares Type-C-Kabel, klappbarer AC-Stecker. Lädt Laptops und mehrere Geräte. PPS 3,3-11V/4,5A.</p>
     <details class="mb-6 group/spec">
-     <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Spezifikationen</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
+     <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Spezifikationen</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
      <div class="p-4 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-[11px]"><tbody>
      <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Akkuenergie</td><td class="py-2 font-bold text-slate-700">58Wh (5.000mAh  x  11.6V)</td></tr>
      <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Nennkapazität</td><td class="py-2 font-bold text-slate-700">8.600mAh (5V/2A)</td></tr>
@@ -141,7 +141,7 @@ plPath: "produkty/power-bank/hybryda-2-w-1/"
      <div class="flex items-center space-x-2"><svg class="icon-feature text-brandOrange text-[11px]" aria-hidden="true" focusable="false" viewBox="0 0 448 512"><path d="M338.8-9.9c11.9 8.6 16.3 24.2 10.9 37.8L271.3 224 416 224c13.5 0 25.5 8.4 30.1 21.1s.7 26.9-9.6 35.5l-288 240c-11.3 9.4-27.4 9.9-39.3 1.3s-16.3-24.2-10.9-37.8L176.7 288 32 288c-13.5 0-25.5-8.4-30.1-21.1s-.7-26.9 9.6-35.5l288-240c11.3-9.4 27.4-9.9 39.3-1.3z" fill="currentColor"/></svg><span class="text-[11px] font-bold text-slate-500 uppercase">PD 45W Hybrid</span></div></div>
     <p class="text-[11px] text-slate-500 mb-6 italic leading-relaxed">Kompakte 2-in-1 Hybrid-Powerbank mit eingebautem Type-C-Kabel und klappbarem AC-Stecker. PD 45W, 10.000mAh. Perfekt für Reise und Pendler.</p>
     <details class="mb-6 group/spec">
-     <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Spezifikationen</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
+     <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Spezifikationen</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
      <div class="p-4 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-[11px]"><tbody>
      <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Akkukapazität</td><td class="py-2 font-bold text-slate-700">10.000mAh / 38,7Wh</td></tr>
      <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Nennkapazität</td><td class="py-2 font-bold text-slate-700">5.600mAh (5V/2A)</td></tr>
@@ -164,7 +164,7 @@ plPath: "produkty/power-bank/hybryda-2-w-1/"
      <div class="flex items-center space-x-2"><svg class="icon-feature text-brandOrange text-[11px]" aria-hidden="true" focusable="false" viewBox="0 0 448 512"><path d="M338.8-9.9c11.9 8.6 16.3 24.2 10.9 37.8L271.3 224 416 224c13.5 0 25.5 8.4 30.1 21.1s.7 26.9-9.6 35.5l-288 240c-11.3 9.4-27.4 9.9-39.3 1.3s-16.3-24.2-10.9-37.8L176.7 288 32 288c-13.5 0-25.5-8.4-30.1-21.1s-.7-26.9 9.6-35.5l288-240c11.3-9.4 27.4-9.9 39.3-1.3z" fill="currentColor"/></svg><span class="text-[11px] font-bold text-slate-500 uppercase">PD 45W + Lightning 27W</span></div></div>
     <p class="text-[11px] text-slate-500 mb-6 italic leading-relaxed">20.000mAh High-Capacity 2-in-1 Hybrid. PD 45W, Type-C- und Lightning-Kabel. Klappbarer AC-Stecker.</p>
     <details class="mb-6 group/spec">
-     <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Spezifikationen</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
+     <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Spezifikationen</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
      <div class="p-4 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-[11px]"><tbody>
      <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Akkuenergie</td><td class="py-2 font-bold text-slate-700">10.000mAh x 2 / 7.74V / 77,4Wh</td></tr>
      <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Nennkapazität</td><td class="py-2 font-bold text-slate-700">12.000mAh (5V/2A)</td></tr>
@@ -190,7 +190,7 @@ plPath: "produkty/power-bank/hybryda-2-w-1/"
      <div class="flex items-center space-x-2"><svg class="icon-feature text-brandOrange text-[11px]" aria-hidden="true" focusable="false" viewBox="0 0 448 512"><path d="M338.8-9.9c11.9 8.6 16.3 24.2 10.9 37.8L271.3 224 416 224c13.5 0 25.5 8.4 30.1 21.1s.7 26.9-9.6 35.5l-288 240c-11.3 9.4-27.4 9.9-39.3 1.3s-16.3-24.2-10.9-37.8L176.7 288 32 288c-13.5 0-25.5-8.4-30.1-21.1s-.7-26.9 9.6-35.5l288-240c11.3-9.4 27.4-9.9 39.3-1.3z" fill="currentColor"/></svg><span class="text-[11px] font-bold text-slate-500 uppercase">22,5W + Lightning 20W</span></div></div>
     <p class="text-[11px] text-slate-500 mb-6 italic leading-relaxed">10.000mAh 2-in-1 Hybrid mit 22,5W. Eingebautes Type-C- und Lightning-Kabel, klappbarer AC-Stecker.</p>
     <details class="mb-6 group/spec">
-     <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Spezifikationen</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
+     <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Spezifikationen</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
      <div class="p-4 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-[11px]"><tbody>
      <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Akkuenergie</td><td class="py-2 font-bold text-slate-700">5.000mAh x 2 / 3.85V / 38,5Wh</td></tr>
      <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Nennkapazität</td><td class="py-2 font-bold text-slate-700">5.800mAh (5V/2A)</td></tr>
@@ -217,7 +217,7 @@ plPath: "produkty/power-bank/hybryda-2-w-1/"
      <div class="flex items-center space-x-2"><svg class="icon-feature text-brandOrange text-[11px]" aria-hidden="true" focusable="false" viewBox="0 0 448 512"><path d="M338.8-9.9c11.9 8.6 16.3 24.2 10.9 37.8L271.3 224 416 224c13.5 0 25.5 8.4 30.1 21.1s.7 26.9-9.6 35.5l-288 240c-11.3 9.4-27.4 9.9-39.3 1.3s-16.3-24.2-10.9-37.8L176.7 288 32 288c-13.5 0-25.5-8.4-30.1-21.1s-.7-26.9 9.6-35.5l288-240c11.3-9.4 27.4-9.9 39.3-1.3z" fill="currentColor"/></svg><span class="text-[11px] font-bold text-slate-500 uppercase">PD 20W ultraleicht</span></div></div>
     <p class="text-[11px] text-slate-500 mb-6 italic leading-relaxed">Ultraleichte 5.000mAh 2-in-1 Hybrid mit PD 20W. Klappbarer AC-Stecker, eingebautes Type-C/Lightning-Kabel.</p>
     <details class="mb-6 group/spec">
-     <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Spezifikationen</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
+     <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Spezifikationen</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
      <div class="p-4 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-[11px]"><tbody>
      <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Akkuenergie</td><td class="py-2 font-bold text-slate-700">5.000mAh / 3.6V / 18Wh</td></tr>
      <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Nennkapazität</td><td class="py-2 font-bold text-slate-700">2.500mAh (5V/2A)</td></tr>
@@ -242,7 +242,7 @@ plPath: "produkty/power-bank/hybryda-2-w-1/"
      <div class="flex items-center space-x-2"><svg class="icon-feature text-brandOrange text-[11px]" aria-hidden="true" focusable="false" viewBox="0 0 448 512"><path d="M338.8-9.9c11.9 8.6 16.3 24.2 10.9 37.8L271.3 224 416 224c13.5 0 25.5 8.4 30.1 21.1s.7 26.9-9.6 35.5l-288 240c-11.3 9.4-27.4 9.9-39.3 1.3s-16.3-24.2-10.9-37.8L176.7 288 32 288c-13.5 0-25.5-8.4-30.1-21.1s-.7-26.9 9.6-35.5l288-240c11.3-9.4 27.4-9.9 39.3-1.3z" fill="currentColor"/></svg><span class="text-[11px] font-bold text-slate-500 uppercase">22,5W Type-C + USB-A</span></div></div>
     <p class="text-[11px] text-slate-500 mb-6 italic leading-relaxed">9.600mAh 2-in-1 Hybrid mit klappbarem AC-Stecker. 22,5W, Type-C und USB-A. Kompaktes Format.</p>
     <details class="mb-6 group/spec">
-     <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Spezifikationen</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
+     <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Spezifikationen</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
      <div class="p-4 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-[11px]"><tbody>
      <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Akkuenergie</td><td class="py-2 font-bold text-slate-700">9.600mAh / 3.63V / 34,85Wh</td></tr>
      <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Nennkapazität</td><td class="py-2 font-bold text-slate-700">5.700mAh (5V/2A)</td></tr>
@@ -269,7 +269,7 @@ plPath: "produkty/power-bank/hybryda-2-w-1/"
      <div class="flex items-center space-x-2"><svg class="icon-feature text-brandOrange text-[11px]" aria-hidden="true" focusable="false" viewBox="0 0 448 512"><path d="M338.8-9.9c11.9 8.6 16.3 24.2 10.9 37.8L271.3 224 416 224c13.5 0 25.5 8.4 30.1 21.1s.7 26.9-9.6 35.5l-288 240c-11.3 9.4-27.4 9.9-39.3 1.3s-16.3-24.2-10.9-37.8L176.7 288 32 288c-13.5 0-25.5-8.4-30.1-21.1s-.7-26.9 9.6-35.5l288-240c11.3-9.4 27.4-9.9 39.3-1.3z" fill="currentColor"/></svg><span class="text-[11px] font-bold text-slate-500 uppercase">22,5W Hybrid + Kabel</span></div></div>
     <p class="text-[11px] text-slate-500 mb-6 italic leading-relaxed">10.000mAh 2-in-1 Hybrid mit klappbarem AC-Stecker und eingebautem Kabel.</p>
     <details class="mb-6 group/spec">
-     <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Spezifikationen</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
+     <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Spezifikationen</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
      <div class="p-4 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-[11px]"><tbody>
      <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Akkuenergie</td><td class="py-2 font-bold text-slate-700">5.000mAh x 2 / 3.85V / 38,5Wh</td></tr>
      <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Zelltyp</td><td class="py-2 font-bold text-slate-700">Li-Polymer (115252)</td></tr>
@@ -295,7 +295,7 @@ plPath: "produkty/power-bank/hybryda-2-w-1/"
      <div class="flex items-center space-x-2"><svg class="icon-feature text-brandOrange text-[11px]" aria-hidden="true" focusable="false" viewBox="0 0 448 512"><path d="M338.8-9.9c11.9 8.6 16.3 24.2 10.9 37.8L271.3 224 416 224c13.5 0 25.5 8.4 30.1 21.1s.7 26.9-9.6 35.5l-288 240c-11.3 9.4-27.4 9.9-39.3 1.3s-16.3-24.2-10.9-37.8L176.7 288 32 288c-13.5 0-25.5-8.4-30.1-21.1s-.7-26.9 9.6-35.5l288-240c11.3-9.4 27.4-9.9 39.3-1.3z" fill="currentColor"/></svg><span class="text-[11px] font-bold text-slate-500 uppercase">15W Qi2 + 22,5W PD</span></div></div>
     <p class="text-[11px] text-slate-500 mb-6 italic leading-relaxed">Premium 2-in-1 Hybrid mit AC-Stecker, Qi2-Magnetladung 15W und integriertem Kickstand.</p>
     <details class="mb-6 group/spec">
-     <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Spezifikationen</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
+     <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Spezifikationen</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
      <div class="p-4 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-[11px]"><tbody>
      <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Akkuenergie</td><td class="py-2 font-bold text-slate-700">5.000mAh x 2 / 3.85V / 38,5Wh</td></tr>
      <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Zelltyp</td><td class="py-2 font-bold text-slate-700">Li-Polymer (105555)</td></tr>
@@ -324,7 +324,7 @@ plPath: "produkty/power-bank/hybryda-2-w-1/"
      <div class="flex items-center space-x-2"><svg class="icon-feature text-brandOrange text-[11px]" aria-hidden="true" focusable="false" viewBox="0 0 384 512"><path d="M173.8 5.5c11-7.3 25.4-7.3 36.4 0l79.2 52.8 92.7 4.7c13.2 0.7 24.7 9.1 29.4 21.5l32 84.4 53.7 75.4c7.8 11 7.8 25.7 0 36.7l-53.7 75.4-32 84.4c-4.7 12.4-16.2 20.8-29.4 21.5l-92.7 4.7-79.2 52.8c-11 7.3-25.4 7.3-36.4 0l-79.2-52.8-92.7-4.7c-13.2-0.7-24.7-9.1-29.4-21.5l-32-84.4L0 280.6c-7.8-11-7.8-25.7 0-36.7l53.7-75.4 32-84.4c4.7-12.4 16.2-20.8 29.4-21.5l92.7-4.7L173.8 5.5z" fill="currentColor"/></svg><span class="text-[11px] font-bold text-slate-500 uppercase">Randloses Vollbild-Display<br><span class="text-[10px] font-normal text-slate-400">22,5W Hybrid</span></span></div></div>
     <p class="text-[11px] text-slate-500 mb-6 italic leading-relaxed">20.000mAh High-Capacity 2-in-1 Hybrid mit randlosem Vollbild-Display. Premium-Retail-Design.</p>
     <details class="mb-6 group/spec">
-     <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Spezifikationen</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
+     <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Spezifikationen</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
      <div class="p-4 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-[11px]"><tbody>
      <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Akkuenergie</td><td class="py-2 font-bold text-slate-700">10.000mAh x 2 / 3.85V / 77Wh</td></tr>
      <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Zelltyp</td><td class="py-2 font-bold text-slate-700">Li-Polymer (145675)</td></tr>
@@ -350,7 +350,7 @@ plPath: "produkty/power-bank/hybryda-2-w-1/"
      <div class="flex items-center space-x-2"><svg class="icon-feature text-brandOrange text-[11px]" aria-hidden="true" focusable="false" viewBox="0 0 448 512"><path d="M338.8-9.9c11.9 8.6 16.3 24.2 10.9 37.8L271.3 224 416 224c13.5 0 25.5 8.4 30.1 21.1s.7 26.9-9.6 35.5l-288 240c-11.3 9.4-27.4 9.9-39.3 1.3s-16.3-24.2-10.9-37.8L176.7 288 32 288c-13.5 0-25.5-8.4-30.1-21.1s-.7-26.9 9.6-35.5l288-240c11.3-9.4 27.4-9.9 39.3-1.3z" fill="currentColor"/></svg><span class="text-[11px] font-bold text-slate-500 uppercase">AC + Qi2 + Watch</span></div></div>
     <p class="text-[11px] text-slate-500 mb-6 italic leading-relaxed">All-in-One Reise-Hybrid: Wandladegeraet + 10.000mAh Powerbank + 15W kabellos in einem Gerät. Klappbarer AC-Stecker erspart separates Netzteil. Eingebaute C+Lightning-Kabel, 22,5W USB-C, plus 2,5W Apple-Watch-Pad. 188 Matrix LED-Display, Zinklegierungs-Kickstand.</p>
     <details class="mb-6 group/spec">
-     <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Spezifikationen</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
+     <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Spezifikationen</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
      <div class="p-4 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-[11px]"><tbody>
      <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Akkukapazität</td><td class="py-2 font-bold text-slate-700">10.000mAh (5.000mAh x 2) / 3.85V</td></tr>
      <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Zelltyp</td><td class="py-2 font-bold text-slate-700">Li-Polymer 2C Rate</td></tr>
@@ -371,7 +371,7 @@ plPath: "produkty/power-bank/hybryda-2-w-1/"
 </section>
 
 <!-- MARKET-DATA -->
-<section class="sec bg-white py-8">
+<section id="market-data" class="sec bg-white py-8" data-section="content">
  <div class="container-content">
  <blockquote class="bg-brandOrange/5 border-l-4 border-brandOrange rounded-r-xl px-6 py-5 text-sm text-slate-700 italic leading-relaxed">
   <p>"Der globale GaN-Ladegerät-Markt wächst laut Exactitude Consultancy von 1,2 Mrd. USD (2024) auf 5,4 Mrd. USD bis 2034 bei einer CAGR von 16,5%. Portable Ladegeräte machen etwa 30% der Nachfrage aus — und das 2-in-1-Hybrid-Segment ist die am schnellsten wachsende Unterkategorie, getrieben durch Post-Pandemie-Reisen und USB-C-Gerätekonsolidierung. Ein Gerät, das an der Steckdose lädt und unterwegs als Powerbank dient, ist keine Neuheit mehr — es wird zur Verbrauchererwartung."</p>
@@ -381,7 +381,7 @@ plPath: "produkty/power-bank/hybryda-2-w-1/"
 </section>
 
 <!-- 2-in-1 vs SEPARAT -->
-<section class="sec bg-slate-50">
+<section id="hybrid-2-in-1-vs-separat" class="sec bg-slate-50" data-section="comparison">
  <div class="container-content">
   {{ sectionHeader('Vergleich', '2-in-1 Hybrid vs. separates Ladegerät + Powerbank', 'Warum sich Geschäftsreisende und Marken zunehmend für die Hybrid-Variante entscheiden.', {mb: 'mb-12'}) }}
   <div class="overflow-x-auto reveal">
@@ -404,13 +404,13 @@ plPath: "produkty/power-bank/hybryda-2-w-1/"
 </section>
 
 <!-- EU Compliance -->
-<section class="sec bg-white">
- <div class="container-content"><div class="mt-10 grid md:grid-cols-2 gap-6 reveal">
-   <div class="bg-white rounded-2xl p-6 border border-slate-200">
+<section id="eu-compliance" class="sec bg-white" data-section="content">
+ <div class="container-wide"><div class="mt-10 grid md:grid-cols-2 gap-6 reveal">
+   <div class="card-lg p-6">
     <h3 class="text-base font-bold text-brandBlue mb-2">EU-Batterieverordnung 2023/1542</h3>
     <p class="text-sm text-slate-600 leading-relaxed">Seit 18.08.2024 sind Erzeugerpflichten in Kraft, ab 18.02.2027 wird der digitale Batteriepass Pflicht. Wir liefern technische Dokumentation, EU-Konformitätserklärung und unterstützen die EAR-Stiftung-Registrierung in Deutschland sowie EPR-Pendants in AT, CH, FR, IT, ES.</p>
    </div>
-   <div class="bg-white rounded-2xl p-6 border border-slate-200">
+   <div class="card-lg p-6">
     <h3 class="text-base font-bold text-brandBlue mb-2">Digitaler Batteriepass-Bereitschaft</h3>
     <p class="text-sm text-slate-600 leading-relaxed">Unsere Hybrid-Powerbanks ab 2026 mit QR-Code-fähigen Etiketten und durchgehender Lebenszyklus-Datenerfassung — bereit für die ab Februar 2027 verpflichtende digitale Batteriepass-Anforderung der EU-Verordnung 2023/1542.</p>
    </div>
@@ -422,36 +422,36 @@ plPath: "produkty/power-bank/hybryda-2-w-1/"
 
 
 <!-- FAQ -->
-<section class="sec bg-white">
+<section id="faq" class="sec bg-white" data-section="faq">
  <div class="container-narrow">
   {{ sectionHeader('FAQ', '2-in-1 Hybrid FAQ', '', {max: '', mb: 'mb-12'}) }}
   <div class="space-y-4">
-   <details class="reveal bg-slate-50 rounded-2xl p-6 border border-slate-200"><summary class="font-bold text-brandBlue cursor-pointer">Was ist eine 2-in-1 Hybrid-Powerbank?</summary><p class="text-sm text-slate-600 mt-3 leading-relaxed faq-answer">Eine 2-in-1 Hybrid-Powerbank kombiniert Wandladegerät und Powerbank in einem Gehäuse. Der AC-Stecker klappt aus zur Steckdose und lädt entweder direkt das angeschlossene Gerät oder den eingebauten Akku zur späteren Verwendung. Spart Reisetasche-Platz und ein zweites Ladegerät.</p></details>
-   <details class="reveal bg-slate-50 rounded-2xl p-6 border border-slate-200"><summary class="font-bold text-brandBlue cursor-pointer">Welche Stecker-Standards bieten Sie an?</summary><p class="text-sm text-slate-600 mt-3 leading-relaxed faq-answer">EU (Schuko/CEE 7/16), UK (BS 1363), US (NEMA 1-15P), AU (AS/NZS 3112). Auf Wunsch fertigen wir multinationale Sets mit austauschbaren Steckern. Standard ist EU für deutsche und EU-Märkte.</p></details>
-   <details class="reveal bg-slate-50 rounded-2xl p-6 border border-slate-200"><summary class="font-bold text-brandBlue cursor-pointer">Sind 2-in-1 Hybrid-Powerbanks flugtauglich?</summary><p class="text-sm text-slate-600 mt-3 leading-relaxed faq-answer">Ja. Alle Modelle haben unter 99,9Wh Akkukapazität (5.000-10.000mAh) und sind UN38.3 zertifiziert. Sie dürfen im Handgepäck mitgeführt werden.</p></details>
-   <details class="reveal bg-slate-50 rounded-2xl p-6 border border-slate-200"><summary class="font-bold text-brandBlue cursor-pointer">Wie hoch ist die MOQ für 2-in-1 Hybrid OEM?</summary><p class="text-sm text-slate-600 mt-3 leading-relaxed faq-answer">MOQ ab 500 Stück für Standardmodelle. Custom OEM mit eigenem Werkzeug oder neuem Stecker-Standard: 2.000 Stück. Muster in 5-7 Tagen.</p></details>
-   <details class="reveal bg-slate-50 rounded-2xl p-6 border border-slate-200"><summary class="font-bold text-brandBlue cursor-pointer">Welche Leistungsstufen sind verfügbar?</summary><p class="text-sm text-slate-600 mt-3 leading-relaxed faq-answer">PD 45W (Standard für Smartphones, Tablets), PD 65W (MacBook Air, Ultrabook), PD 67W (Multi-Port mit gleichzeitiger Schnellladung). Alle Modelle unterstützen PPS für Samsung Super Fast Charging und kompatibles MacBook-Laden.</p></details>
+   <details class="card-lg-soft reveal p-6"><summary class="font-bold text-brandBlue cursor-pointer">Was ist eine 2-in-1 Hybrid-Powerbank?</summary><p class="text-sm text-slate-600 mt-3 leading-relaxed faq-answer">Eine 2-in-1 Hybrid-Powerbank kombiniert Wandladegerät und Powerbank in einem Gehäuse. Der AC-Stecker klappt aus zur Steckdose und lädt entweder direkt das angeschlossene Gerät oder den eingebauten Akku zur späteren Verwendung. Spart Reisetasche-Platz und ein zweites Ladegerät.</p></details>
+   <details class="card-lg-soft reveal p-6"><summary class="font-bold text-brandBlue cursor-pointer">Welche Stecker-Standards bieten Sie an?</summary><p class="text-sm text-slate-600 mt-3 leading-relaxed faq-answer">EU (Schuko/CEE 7/16), UK (BS 1363), US (NEMA 1-15P), AU (AS/NZS 3112). Auf Wunsch fertigen wir multinationale Sets mit austauschbaren Steckern. Standard ist EU für deutsche und EU-Märkte.</p></details>
+   <details class="card-lg-soft reveal p-6"><summary class="font-bold text-brandBlue cursor-pointer">Sind 2-in-1 Hybrid-Powerbanks flugtauglich?</summary><p class="text-sm text-slate-600 mt-3 leading-relaxed faq-answer">Ja. Alle Modelle haben unter 99,9Wh Akkukapazität (5.000-10.000mAh) und sind UN38.3 zertifiziert. Sie dürfen im Handgepäck mitgeführt werden.</p></details>
+   <details class="card-lg-soft reveal p-6"><summary class="font-bold text-brandBlue cursor-pointer">Wie hoch ist die MOQ für 2-in-1 Hybrid OEM?</summary><p class="text-sm text-slate-600 mt-3 leading-relaxed faq-answer">MOQ ab 500 Stück für Standardmodelle. Custom OEM mit eigenem Werkzeug oder neuem Stecker-Standard: 2.000 Stück. Muster in 5-7 Tagen.</p></details>
+   <details class="card-lg-soft reveal p-6"><summary class="font-bold text-brandBlue cursor-pointer">Welche Leistungsstufen sind verfügbar?</summary><p class="text-sm text-slate-600 mt-3 leading-relaxed faq-answer">PD 45W (Standard für Smartphones, Tablets), PD 65W (MacBook Air, Ultrabook), PD 67W (Multi-Port mit gleichzeitiger Schnellladung). Alle Modelle unterstützen PPS für Samsung Super Fast Charging und kompatibles MacBook-Laden.</p></details>
   </div>
  </div>
 </section>
 <!-- Cross-Link: Explore More Categories -->
-<section class="sec bg-white">
+<section id="cross-link-explore-more-categories" class="sec bg-white" data-section="related">
  <div class="container-wide">
  <p class="text-center text-slate-500 text-sm mb-6">Weitere Powerbank-Kategorien von WOWOHCOOL:</p>
  <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-  <a href="/de/produkte/powerbank/halbfest-akku/" class="block bg-slate-50 rounded-xl p-4 border border-slate-200 hover:border-brandOrange hover:shadow-md transition text-center">
+  <a href="/de/produkte/powerbank/halbfest-akku/" class="card-soft block p-4 hover:border-brandOrange hover:shadow-md transition text-center">
    <p class="font-black text-brandBlue text-sm uppercase mb-1">Halbfest-Akku</p>
    <p class="text-[10px] text-slate-500">CES 2026, 50% dünner</p>
   </a>
-  <a href="/de/produkte/powerbank/laptop-powerbank/" class="block bg-slate-50 rounded-xl p-4 border border-slate-200 hover:border-brandOrange hover:shadow-md transition text-center">
+  <a href="/de/produkte/powerbank/laptop-powerbank/" class="card-soft block p-4 hover:border-brandOrange hover:shadow-md transition text-center">
    <p class="font-black text-brandBlue text-sm uppercase mb-1">Laptop Powerbank</p>
    <p class="text-[10px] text-slate-500">65W-240W PD 3.1</p>
   </a>
-  <a href="/de/produkte/powerbank/magnetisch-kabellos/" class="block bg-slate-50 rounded-xl p-4 border border-slate-200 hover:border-brandOrange hover:shadow-md transition text-center">
+  <a href="/de/produkte/powerbank/magnetisch-kabellos/" class="card-soft block p-4 hover:border-brandOrange hover:shadow-md transition text-center">
    <p class="font-black text-brandBlue text-sm uppercase mb-1">Magnetisch Kabellos</p>
    <p class="text-[10px] text-slate-500">Qi2 / MagSafe</p>
   </a>
-  <a href="/de/produkte/powerbank/" class="block bg-slate-50 rounded-xl p-4 border border-slate-200 hover:border-brandOrange hover:shadow-md transition text-center">
+  <a href="/de/produkte/powerbank/" class="card-soft block p-4 hover:border-brandOrange hover:shadow-md transition text-center">
    <p class="font-black text-brandBlue text-sm uppercase mb-1">Alle Powerbanks</p>
    <p class="text-[10px] text-slate-500">6 Kategorien, 29+ Modelle</p>
   </a>

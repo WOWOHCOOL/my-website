@@ -75,26 +75,26 @@ plPath: "produkty/power-bank/bateria-grzejaca/"
 {% from "breadcrumb.njk" import breadcrumb %}
 
 <!-- HERO -->
-<section class="pt-24 md:pt-28 pb-16 md:pb-20 bg-gradient-to-br from-red-50 via-white to-orange-50">
+<section id="hero" class="pt-24 md:pt-28 lg:pt-20 pb-16 md:pb-20 bg-gradient-to-br from-red-50 via-white to-orange-50 lg:min-h-[100dvh] lg:flex lg:flex-col lg:justify-center" data-section="hero">
  <div class="container-wide">
   {{ breadcrumb([{name:"Inicio",url:"/es/"},{name:"Productos",url:"/es/productos/"},{name:"Power Bank",url:"/es/productos/powerbank/"},{name:"Batería Calefactora"}], "none", "mb-6", { variant: "hero" }) }}
   <div class="grid lg:grid-cols-2 gap-12 items-center">
    <div class="reveal order-2 lg:order-1">
-    <p class="text-brandOrange text-xs font-bold tracking-widest uppercase mb-3">Ropa Calefactora &middot; Fábrica OEM &middot; Q4 2026</p>
-    <h1 class="text-3xl md:text-5xl font-black text-brandBlue leading-tight mb-6 italic uppercase">Baterías Calefactoras<br><span class="text-brandOrange">Fábrica directa para marcas</span></h1>
+    <div class="badge-capsule mb-6 uppercase tracking-widest">Ropa Calefactora &middot; Fábrica OEM &middot; Q4 2026</div>
+    <h1 class="text-3xl md:text-4xl xl:text-5xl font-black text-brandBlue leading-tight mb-6 italic uppercase tracking-tighter">Baterías Calefactoras<br><span class="text-brandOrange">Fábrica directa para marcas</span></h1>
     <p class="text-slate-600 text-lg leading-relaxed mb-6">8 modelos especializados de batería calefactora para chaquetas, guantes, calcetines, bufandas y cojines de masaje. <strong>5V USB y 7,4V DC</strong>. Conectores, longitudes y voltajes a medida. <strong>CE, PSE, UN38.3</strong> certificados.</p>
     <div class="flex flex-wrap gap-2 mb-8">
      <span class="trust-badge">CE + PSE + UN38.3</span>
      <span class="trust-badge">5V USB + 7,4V DC</span>
      <span class="trust-badge">Conectores a medida</span>
     </div>
-    <div class="flex flex-wrap gap-4">
-     <button data-action="open-modal" class="btn-primary cursor-pointer">Solicitar precio fábrica &rarr;</button>
-     <a href="#modelos" class="btn-secondary">Ver modelos</a>
+    <div class="btn-pair">
+     <button data-action="open-modal" class="btn-solid cursor-pointer">Solicitar precio fábrica &rarr;</button>
+     <a href="#modelos" class="btn-ghost-lg">Ver modelos</a>
     </div>
    </div>
    <div class="reveal order-1 lg:order-2">
-    <div class="bg-white rounded-2xl shadow-xl p-6 md:p-8 border border-slate-100">
+    <div class="card-lg shadow-xl p-6 md:p-8 max-w-[480px] mx-auto">
      <img src="/image/product/power-bank/wop55-heating-battery.webp" srcset="/image/product/power-bank/wop55-heating-battery-750w.webp 750w, /image/product/power-bank/wop55-heating-battery.webp 1100w" sizes="(min-width: 1440px) 526px, (min-width: 1280px) 526px, (min-width: 1024px) 398px, (min-width: 768px) 654px, (min-width: 430px) 382px, 327px" alt="Batería calefactora WOP55 para chaqueta 14.400mAh 7,4V" width="1100" height="1100" class="w-full h-auto object-contain" loading="eager">
     </div>
    </div>
@@ -106,7 +106,7 @@ plPath: "produkty/power-bank/bateria-grzejaca/"
 
 
 <!-- MODELOS -->
-<section id="modelos" class="py-16 bg-white">
+<section id="modelos" class="sec bg-white" data-section="products">
  <div class="container-wide">
   {{ sectionHeader('Gama', '8 Baterías Calefactoras <span class="text-brandOrange">OEM</span> para cada tipo de prenda', 'Desde módulos compactos de 1.800mAh para cojines de masaje hasta 14.400mAh de alta capacidad para uso intensivo en chaquetas calefactoras.', {mb: 'mb-12'}) }}
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -118,7 +118,7 @@ plPath: "produkty/power-bank/bateria-grzejaca/"
      <div class="flex items-center space-x-2"><svg class="icon-feature text-brandOrange text-[11px]" aria-hidden="true" focusable="false" viewBox="0 0 384 512"><path d="M173.8 5.5c11-7.3 25.4-7.3 36.4 0l79.2 52.8 92.7 4.7c13.2 0.7 24.7 9.1 29.4 21.5l32 84.4 53.7 75.4c7.8 11 7.8 25.7 0 36.7l-53.7 75.4-32 84.4c-4.7 12.4-16.2 20.8-29.4 21.5l-92.7 4.7-79.2 52.8c-11 7.3-25.4 7.3-36.4 0l-79.2-52.8-92.7-4.7c-13.2-0.7-24.7-9.1-29.4-21.5l-32-84.4L0 280.6c-7.8-11-7.8-25.7 0-36.7l53.7-75.4 32-84.4c4.7-12.4 16.2-20.8 29.4-21.5l92.7-4.7L173.8 5.5z" fill="currentColor"/></svg><span class="text-[11px] font-bold text-slate-500 uppercase">Chaqueta/chaleco<br><span class="text-[10px] font-normal text-slate-400">8-10h</span></span></div></div>
     <p class="text-[11px] text-slate-500 mb-6 italic leading-relaxed">Batería especial para ropa térmica. 14.400mAh con salida 7,4V DC, autonomia 8-10h.</p>
     <details class="mb-6 group/spec">
-     <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Especificaciones</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
+     <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Especificaciones</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
      <div class="p-4 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-[11px]"><tbody>
      <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Dimensiones</td><td class="py-2 font-bold text-slate-700">10 × 7.1 × 2.2cm</td></tr>
      <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Carcasa</td><td class="py-2 font-bold text-slate-700">ABS + PC</td></tr>
@@ -139,7 +139,7 @@ plPath: "produkty/power-bank/bateria-grzejaca/"
      <div class="flex items-center space-x-2"><svg class="icon-feature text-brandOrange text-[11px]" aria-hidden="true" focusable="false" viewBox="0 0 384 512"><path d="M173.8 5.5c11-7.3 25.4-7.3 36.4 0l79.2 52.8 92.7 4.7c13.2 0.7 24.7 9.1 29.4 21.5l32 84.4 53.7 75.4c7.8 11 7.8 25.7 0 36.7l-53.7 75.4-32 84.4c-4.7 12.4-16.2 20.8-29.4 21.5l-92.7 4.7-79.2 52.8c-11 7.3-25.4 7.3-36.4 0l-79.2-52.8-92.7-4.7c-13.2-0.7-24.7-9.1-29.4-21.5l-32-84.4L0 280.6c-7.8-11-7.8-25.7 0-36.7l53.7-75.4 32-84.4c4.7-12.4 16.2-20.8 29.4-21.5l92.7-4.7L173.8 5.5z" fill="currentColor"/></svg><span class="text-[11px] font-bold text-slate-500 uppercase">Calcetines termicos<br><span class="text-[10px] font-normal text-slate-400">Ultraligero</span></span></div></div>
     <p class="text-[11px] text-slate-500 mb-6 italic leading-relaxed">Batería compacta 2.000mAh 7,4V DC para calcetines termicos. Diseño ultraligero.</p>
     <details class="mb-6 group/spec">
-     <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Especificaciones</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
+     <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Especificaciones</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
      <div class="p-4 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-[11px]"><tbody>
      <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Dimensiones</td><td class="py-2 font-bold text-slate-700">8.1 × 4.9 × 1.6cm</td></tr>
      <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Peso</td><td class="py-2 font-bold text-slate-700">54g</td></tr>
@@ -163,7 +163,7 @@ plPath: "produkty/power-bank/bateria-grzejaca/"
      <div class="flex items-center space-x-2"><svg class="icon-feature text-brandOrange text-[11px]" aria-hidden="true" focusable="false" viewBox="0 0 384 512"><path d="M173.8 5.5c11-7.3 25.4-7.3 36.4 0l79.2 52.8 92.7 4.7c13.2 0.7 24.7 9.1 29.4 21.5l32 84.4 53.7 75.4c7.8 11 7.8 25.7 0 36.7l-53.7 75.4-32 84.4c-4.7 12.4-16.2 20.8-29.4 21.5l-92.7 4.7-79.2 52.8c-11 7.3-25.4 7.3-36.4 0l-79.2-52.8-92.7-4.7c-13.2-0.7-24.7-9.1-29.4-21.5l-32-84.4L0 280.6c-7.8-11-7.8-25.7 0-36.7l53.7-75.4 32-84.4c4.7-12.4 16.2-20.8 29.4-21.5l92.7-4.7L173.8 5.5z" fill="currentColor"/></svg><span class="text-[11px] font-bold text-slate-500 uppercase">Bufanda térmica<br><span class="text-[10px] font-normal text-slate-400">Mini-módulo</span></span></div></div>
     <p class="text-[11px] text-slate-500 mb-6 italic leading-relaxed">Batería mini 2.000mAh 7,4V DC para bufandas y accesorios termicos.</p>
     <details class="mb-6 group/spec">
-     <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Especificaciones</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
+     <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Especificaciones</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
      <div class="p-4 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-[11px]"><tbody>
      <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Dimensiones</td><td class="py-2 font-bold text-slate-700">7.2 × 4.1 × 1.3cm</td></tr>
      <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Peso</td><td class="py-2 font-bold text-slate-700">47g</td></tr>
@@ -186,7 +186,7 @@ plPath: "produkty/power-bank/bateria-grzejaca/"
      <div class="flex items-center space-x-2"><svg class="icon-feature text-brandOrange text-[11px]" aria-hidden="true" focusable="false" viewBox="0 0 384 512"><path d="M173.8 5.5c11-7.3 25.4-7.3 36.4 0l79.2 52.8 92.7 4.7c13.2 0.7 24.7 9.1 29.4 21.5l32 84.4 53.7 75.4c7.8 11 7.8 25.7 0 36.7l-53.7 75.4-32 84.4c-4.7 12.4-16.2 20.8-29.4 21.5l-92.7 4.7-79.2 52.8c-11 7.3-25.4 7.3-36.4 0l-79.2-52.8-92.7-4.7c-13.2-0.7-24.7-9.1-29.4-21.5l-32-84.4L0 280.6c-7.8-11-7.8-25.7 0-36.7l53.7-75.4 32-84.4c4.7-12.4 16.2-20.8 29.4-21.5l92.7-4.7L173.8 5.5z" fill="currentColor"/></svg><span class="text-[11px] font-bold text-slate-500 uppercase">Guantes termicos<br><span class="text-[10px] font-normal text-slate-400">Par 2 unidades</span></span></div></div>
     <p class="text-[11px] text-slate-500 mb-6 italic leading-relaxed">Pack de baterías 2.500mAh (par) 7,4V DC para guantes calefactables. Izquierdo + derecho.</p>
     <details class="mb-6 group/spec">
-     <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Especificaciones</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
+     <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Especificaciones</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
      <div class="p-4 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-[11px]"><tbody>
      <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Dimensiones</td><td class="py-2 font-bold text-slate-700">5.2 × 4.8 × 2.1cm</td></tr>
      <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Peso</td><td class="py-2 font-bold text-slate-700">83g</td></tr>
@@ -207,7 +207,7 @@ plPath: "produkty/power-bank/bateria-grzejaca/"
      <div class="flex items-center space-x-2"><svg class="icon-feature text-brandOrange text-[11px]" aria-hidden="true" focusable="false" viewBox="0 0 384 512"><path d="M173.8 5.5c11-7.3 25.4-7.3 36.4 0l79.2 52.8 92.7 4.7c13.2 0.7 24.7 9.1 29.4 21.5l32 84.4 53.7 75.4c7.8 11 7.8 25.7 0 36.7l-53.7 75.4-32 84.4c-4.7 12.4-16.2 20.8-29.4 21.5l-92.7 4.7-79.2 52.8c-11 7.3-25.4 7.3-36.4 0l-79.2-52.8-92.7-4.7c-13.2-0.7-24.7-9.1-29.4-21.5l-32-84.4L0 280.6c-7.8-11-7.8-25.7 0-36.7l53.7-75.4 32-84.4c4.7-12.4 16.2-20.8 29.4-21.5l92.7-4.7L173.8 5.5z" fill="currentColor"/></svg><span class="text-[11px] font-bold text-slate-500 uppercase">Cojin/calentador<br><span class="text-[10px] font-normal text-slate-400">USB térmico</span></span></div></div>
     <p class="text-[11px] text-slate-500 mb-6 italic leading-relaxed">Batería compacta 1.800mAh 5V USB para cojin masaje y calentadores manos.</p>
     <details class="mb-6 group/spec">
-     <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Especificaciones</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
+     <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Especificaciones</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
      <div class="p-4 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-[11px]"><tbody>
      <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Dimensiones</td><td class="py-2 font-bold text-slate-700">8.5 × 6.3 × 2.2cm</td></tr>
      <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Carcasa</td><td class="py-2 font-bold text-slate-700">ABS + PC</td></tr>
@@ -227,7 +227,7 @@ plPath: "produkty/power-bank/bateria-grzejaca/"
      <div class="flex items-center space-x-2"><svg class="icon-feature text-brandOrange text-[11px]" aria-hidden="true" focusable="false" viewBox="0 0 384 512"><path d="M173.8 5.5c11-7.3 25.4-7.3 36.4 0l79.2 52.8 92.7 4.7c13.2 0.7 24.7 9.1 29.4 21.5l32 84.4 53.7 75.4c7.8 11 7.8 25.7 0 36.7l-53.7 75.4-32 84.4c-4.7 12.4-16.2 20.8-29.4 21.5l-92.7 4.7-79.2 52.8c-11 7.3-25.4 7.3-36.4 0l-79.2-52.8-92.7-4.7c-13.2-0.7-24.7-9.1-29.4-21.5l-32-84.4L0 280.6c-7.8-11-7.8-25.7 0-36.7l53.7-75.4 32-84.4c4.7-12.4 16.2-20.8 29.4-21.5l92.7-4.7L173.8 5.5z" fill="currentColor"/></svg><span class="text-[11px] font-bold text-slate-500 uppercase">Dispositivos USB<br><span class="text-[10px] font-normal text-slate-400">ABS+PC</span></span></div></div>
     <p class="text-[11px] text-slate-500 mb-6 italic leading-relaxed">Batería 4.000mAh 5V USB para dispositivos termicos USB. Carcasa ABS+PC.</p>
     <details class="mb-6 group/spec">
-     <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Especificaciones</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
+     <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Especificaciones</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
      <div class="p-4 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-[11px]"><tbody>
      <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Capacidad</td><td class="py-2 font-bold text-slate-700">4000mAh / 3.7V / 14.8Wh</td></tr>
      <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Tipo de celda</td><td class="py-2 font-bold text-slate-700">Li-Polymer</td></tr>
@@ -249,7 +249,7 @@ plPath: "produkty/power-bank/bateria-grzejaca/"
      <div class="flex items-center space-x-2"><svg class="icon-feature text-brandOrange text-[11px]" aria-hidden="true" focusable="false" viewBox="0 0 576 512"><path d="M320.1 56.1c-35.3-35.3-92.7-35.3-128 0L93.7 154.4c-35.3 35.3-35.3 92.7 0 128s92.7 35.3 128 0l34.1-34.1c6.2-6.2 16.4-6.2 22.6 0s6.2 16.4 0 22.6L244.3 305c-47.8 47.8-125.5 47.8-173.3 0S23.2 179.5 71 131.7L169.3 33.4c47.8-47.8 125.5-47.8 173.3 0s47.8 125.5 0 173.3l-27.3 27.3c-6.2 6.2-16.4 6.2-22.6 0s-6.2-16.4 0-22.6l27.3-27.3c35.3-35.3 35.3-92.7 0-128zM186.7 285.5c-6.2-6.2-16.4-6.2-22.6 0l-27.3 27.3c-35.3 35.3-35.3 92.7 0 128s92.7 35.3 128 0l98.4-98.4c35.3-35.3 35.3-92.7 0-128s-92.7-35.3-128 0l-34.1 34.1c-6.2 6.2-16.4 6.2-22.6 0s-6.2-16.4 0-22.6l34.1-34.1c47.8-47.8 125.5-47.8 173.3 0s47.8 125.5 0 173.3L357.3 462.6c-47.8 47.8-125.5 47.8-173.3 0s-47.8-125.5 0-173.3l27.3-27.3c6.2-6.2 16.4-6.2 22.6 0s6.2 16.4 0 22.6z" fill="currentColor"/></svg><span class="text-[11px] font-bold text-slate-500 uppercase">2 puertos termicos<br><span class="text-[10px] font-normal text-slate-400">Simultaneo</span></span></div></div>
     <p class="text-[11px] text-slate-500 mb-6 italic leading-relaxed">Batería 9.600mAh con doble puerto USB. Alimenta dos elementos termicos simultaneamente.</p>
     <details class="mb-6 group/spec">
-     <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Especificaciones</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
+     <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Especificaciones</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
      <div class="p-4 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-[11px]"><tbody>
      <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Capacidad</td><td class="py-2 font-bold text-slate-700">9600mAh / 3.63V / 34.85Wh</td></tr>
      <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Tipo de celda</td><td class="py-2 font-bold text-slate-700">Lithium-Ion</td></tr>
@@ -272,7 +272,7 @@ plPath: "produkty/power-bank/bateria-grzejaca/"
      <div class="flex items-center space-x-2"><svg class="icon-feature text-brandOrange text-[11px]" aria-hidden="true" focusable="false" viewBox="0 0 576 512"><path d="M320.1 56.1c-35.3-35.3-92.7-35.3-128 0L93.7 154.4c-35.3 35.3-35.3 92.7 0 128s92.7 35.3 128 0l34.1-34.1c6.2-6.2 16.4-6.2 22.6 0s6.2 16.4 0 22.6L244.3 305c-47.8 47.8-125.5 47.8-173.3 0S23.2 179.5 71 131.7L169.3 33.4c47.8-47.8 125.5-47.8 173.3 0s47.8 125.5 0 173.3l-27.3 27.3c-6.2 6.2-16.4 6.2-22.6 0s-6.2-16.4 0-22.6l27.3-27.3c35.3-35.3 35.3-92.7 0-128zM186.7 285.5c-6.2-6.2-16.4-6.2-22.6 0l-27.3 27.3c-35.3 35.3-35.3 92.7 0 128s92.7 35.3 128 0l98.4-98.4c35.3-35.3 35.3-92.7 0-128s-92.7-35.3-128 0l-34.1 34.1c-6.2 6.2-16.4 6.2-22.6 0s-6.2-16.4 0-22.6l34.1-34.1c47.8-47.8 125.5-47.8 173.3 0s47.8 125.5 0 173.3L357.3 462.6c-47.8 47.8-125.5 47.8-173.3 0s-47.8-125.5 0-173.3l27.3-27.3c6.2-6.2 16.4-6.2 22.6 0s6.2 16.4 0 22.6z" fill="currentColor"/></svg><span class="text-[11px] font-bold text-slate-500 uppercase">2 puertos termicos<br><span class="text-[10px] font-normal text-slate-400">Uso día completo</span></span></div></div>
     <p class="text-[11px] text-slate-500 mb-6 italic leading-relaxed">Batería alta capacidad 10.000mAh 5V dual-USB. La más grande del programa térmico USB.</p>
     <details class="mb-6 group/spec">
-     <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Especificaciones</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
+     <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Especificaciones</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
      <div class="p-4 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-[11px]"><tbody>
      <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Capacidad</td><td class="py-2 font-bold text-slate-700">10000mAh / 3.7V / 37Wh</td></tr>
      <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Tipo de celda</td><td class="py-2 font-bold text-slate-700">Li-Polymer</td></tr>
@@ -292,7 +292,7 @@ plPath: "produkty/power-bank/bateria-grzejaca/"
 </section>
 
 <!-- MARKET-DATA -->
-<section class="sec bg-white py-8">
+<section id="market-data" class="sec bg-white py-8" data-section="content">
  <div class="container-content">
  <blockquote class="bg-brandOrange/5 border-l-4 border-brandOrange rounded-r-xl px-6 py-5 text-sm text-slate-700 italic leading-relaxed">
   <p>"El mercado global de ropa calefactora crece de 480 M USD (2025) a 830 M USD en 2031, con un CAGR del 9,56% (TechSci Research). El segmento de chaquetas con batería alcanzará 451 M USD en 2031 al 12% CAGR (QY Research). Solo la industria del esquí en EE.UU. registró 60,4 millones de visitas en 2023/24, con más de 30 millones de participantes en deportes de invierno. El factor diferenciador para las marcas es la batería: autonomía bajo cero, fiabilidad del conector tras 500+ ciclos y certificaciones globales — PSE (Japón), UL (EE.UU.), UN38.3 (transporte aéreo) y CE (UE) — separan la ropa calefactora premium de las importaciones básicas."</p>
@@ -302,27 +302,27 @@ plPath: "produkty/power-bank/bateria-grzejaca/"
 </section>
 
 <!-- GUÍA DE VOLTAJE -->
-<section class="py-16 bg-slate-50">
- <div class="container-content">
+<section id="guia-de-voltaje" class="sec bg-slate-50" data-section="content">
+ <div class="container-wide">
   {{ sectionHeader('Guía de voltaje', '5V USB vs. 7,4V DC', '¿Qué voltaje se ajusta a su elemento calefactor? Resumen para fabricantes de ropa térmica.', {mb: 'mb-12'}) }}
   <div class="grid md:grid-cols-2 gap-6 reveal">
-   <div class="bg-white rounded-2xl p-6 border border-slate-200"><p class="text-2xl font-black text-brandOrange mb-2">5V USB</p><p class="text-sm font-bold text-brandBlue mb-2">Calefactores USB</p><p class="text-xs text-slate-500">Chaquetas/chalecos con paneles calefactores USB, cojines de masaje, mantas, calientamanos. Salida USB-A estándar. Potencia 5-15W. Capacidad 1.800-10.000mAh. Modelos: WOP53, WOP57, WOP54, WOP63.</p></div>
+   <div class="card-lg p-6"><p class="text-2xl font-black text-brandOrange mb-2">5V USB</p><p class="text-sm font-bold text-brandBlue mb-2">Calefactores USB</p><p class="text-xs text-slate-500">Chaquetas/chalecos con paneles calefactores USB, cojines de masaje, mantas, calientamanos. Salida USB-A estándar. Potencia 5-15W. Capacidad 1.800-10.000mAh. Modelos: WOP53, WOP57, WOP54, WOP63.</p></div>
    <div class="bg-white rounded-2xl p-6 border border-brandOrange/30 ring-2 ring-brandOrange/20"><p class="text-2xl font-black text-brandOrange mb-2">7,4V DC</p><p class="text-sm font-bold text-brandBlue mb-2">Ropa premium</p><p class="text-xs text-slate-500">Chaquetas, chalecos, guantes, calcetines, bufandas con elementos DC. Mayor potencia 15-45W. Capacidad 2.000-14.400mAh. Modelos: WOP49, WOP50, WOP55, WOP61. <strong>Estándar para marcas premium.</strong></p></div>
   </div>
  </div>
 </section>
 
 <!-- CALENDARIO Q4 -->
-<section class="py-16 bg-white">
- <div class="container-content">
+<section id="calendario-q4" class="sec bg-white" data-section="content">
+ <div class="container-wide">
   {{ sectionHeader('Planificación Q4', 'Preparar la temporada de chaquetas calefactoras 2026', 'El mercado de ropa calefactora en España y Europa tiene su pico de <strong>octubre a febrero</strong>. Con 25-35 días de plazo de fábrica + flete marítimo, los pedidos para Q4 2026 deben colocarse como muy tarde en agosto. Este es el calendario que usan nuestros clientes españoles y portugueses.', {mb: 'mb-12'}) }}
   <div class="grid md:grid-cols-4 gap-4 reveal">
-   <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200">
+   <div class="card-lg-soft p-6">
     <p class="text-2xl font-black text-brandOrange mb-2">May-Jun</p>
     <p class="text-sm font-bold text-brandBlue mb-2">Concepto y muestras</p>
     <p class="text-xs text-slate-500">Definir especificaciones, conector y cable a medida. Envío de muestra en 5-10 días.</p>
    </div>
-   <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200">
+   <div class="card-lg-soft p-6">
     <p class="text-2xl font-black text-brandOrange mb-2">Julio</p>
     <p class="text-sm font-bold text-brandBlue mb-2">Aprobación de muestra</p>
     <p class="text-xs text-slate-500">Probar muestra PP, confirmar compatibilidad EN 60335-2-17 con su elemento calefactor, lanzar pedido final.</p>
@@ -332,7 +332,7 @@ plPath: "produkty/power-bank/bateria-grzejaca/"
     <p class="text-sm font-bold text-brandBlue mb-2">Producción y envío</p>
     <p class="text-xs text-slate-500"><strong>Critical-Path</strong>: 25-35 días producción + 25 días flete marítimo, o 5-7 días aéreo express.</p>
    </div>
-   <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200">
+   <div class="card-lg-soft p-6">
     <p class="text-2xl font-black text-brandOrange mb-2">Oct-Feb</p>
     <p class="text-sm font-bold text-brandBlue mb-2">Ventana de venta</p>
     <p class="text-xs text-slate-500">Temporada de chaquetas en retail español. Reposiciones desde noviembre — producción express 15-20 días.</p>
@@ -342,14 +342,14 @@ plPath: "produkty/power-bank/bateria-grzejaca/"
 </section>
 
 <!-- CERTIFICACIONES -->
-<section class="py-16 bg-white">
- <div class="container-content">
+<section id="certificaciones" class="sec bg-white" data-section="trust">
+ <div class="container-wide">
   {{ sectionHeader('Cumplimiento', 'Certificaciones para dispositivos calefactores portátiles', '', {mb: 'mb-12'}) }}
   <div class="grid md:grid-cols-2 gap-6 reveal">
-   <div class="bg-white rounded-2xl p-6 border border-slate-200">
+   <div class="card-lg p-6">
     <p class="text-sm text-slate-600 leading-relaxed">Para baterías calefactoras portátiles aplica el Reglamento UE 2023/1542 — gestionamos el registro RAEE/EPR en España y los equivalentes EPR para distribución textil en Francia, Italia y Portugal. Desde febrero 2027, preparación del pasaporte digital de batería incluida.</p>
    </div>
-   <div class="bg-white rounded-2xl p-6 border border-slate-200">
+   <div class="card-lg p-6">
     <h3 class="text-base font-bold text-brandBlue mb-2">Conformidad EN 60335-2-17 detallada</h3>
     <p class="text-sm text-slate-600 leading-relaxed">Esta norma regula la seguridad de mantas, cojines y dispositivos calefactores flexibles. Nuestro control de batería integra protección contra sobretemperatura, marcha en vacío y desconexión automática según el Anexo AA. Suministramos el protocolo de prueba completo con cada pedido.</p>
    </div>
@@ -359,37 +359,37 @@ plPath: "produkty/power-bank/bateria-grzejaca/"
 </section>
 
 <!-- OEM/ODM CTA -->
-<section class="py-16 bg-brandBlue text-white">
+<section id="oem-odm-cta" class="sec bg-brandBlue text-white" data-section="cta">
  {% call sectionHeader('OEM / ODM', 'Batería calefactora<br><span class="text-brandOrange">según sus especificaciones</span>', '', {max: '', mb: '', extra: 'container-content', reveal: false, labelClass: 'text-brandOrange', titleClass: 'text-3xl lg:text-4xl font-black uppercase italic tracking-tighter mb-4'}) %}<p class="text-slate-300 max-w-2xl mx-auto mb-8">MOQ desde 500 unidades. Voltaje, conector, longitud de cable, logo y embalaje propios. Para marcas establecidas ofrecemos asesoría de ingeniería para combinaciones elemento calefactor + batería.</p>
-  <div class="flex flex-wrap gap-4 justify-center">
-   <button data-action="open-modal" class="btn-primary cursor-pointer">Enviar especificación &rarr;</button>
-   <a href="/es/contacto/" class="inline-flex items-center justify-center px-6 py-3 border-2 border-white text-white font-black uppercase italic tracking-widest text-sm rounded-full hover:bg-white hover:text-brandBlue transition-all">Contactar</a>
+  <div class="btn-pair">
+   <button data-action="open-modal" class="btn-solid cursor-pointer">Enviar especificación &rarr;</button>
+   <a href="/es/contacto/" class="inline-flex items-center justify-center px-6 py-4 border-2 border-white text-white font-black uppercase italic tracking-widest text-sm rounded-xl hover:bg-white hover:text-brandBlue transition-all w-full">Contactar</a>
   </div>
  {% endcall %}
 </section>
 
 <!-- FAQ -->
-<section class="py-16 bg-white">
+<section id="faq" class="sec bg-white" data-section="faq">
  <div class="container-narrow">
   {{ sectionHeader('FAQ', 'Preguntas frecuentes batería calefactora', '', {max: '', mb: 'mb-12'}) }}
   <div class="space-y-4">
-   <details class="reveal bg-slate-50 rounded-2xl p-6 border border-slate-200"><summary class="font-bold text-brandBlue cursor-pointer">¿Qué voltajes ofrecen para baterías calefactoras?</summary><p class="text-sm text-slate-600 mt-3 leading-relaxed faq-answer">5V USB (chaquetas/chalecos con paneles calefactores USB, cojines de masaje, calientamanos) y 7,4V DC (chaquetas, chalecos, guantes, calcetines, bufandas calefactoras con elementos DC). Fabricamos configuraciones de voltaje a medida para sus elementos calefactores.</p></details>
-   <details class="reveal bg-slate-50 rounded-2xl p-6 border border-slate-200"><summary class="font-bold text-brandBlue cursor-pointer">¿Qué conectores hay disponibles?</summary><p class="text-sm text-slate-600 mt-3 leading-relaxed faq-answer">DC 5,5×2,1mm, DC 3,5×1,35mm, JST-PH, JST-XH, USB-A, USB-C, configuraciones de pines a medida. Longitudes de cable 30-150cm. Suministramos combinaciones completas elemento calefactor + conector si lo solicita.</p></details>
-   <details class="reveal bg-slate-50 rounded-2xl p-6 border border-slate-200"><summary class="font-bold text-brandBlue cursor-pointer">¿Cuánto dura una batería calefactora en uso?</summary><p class="text-sm text-slate-600 mt-3 leading-relaxed faq-answer">Para chaqueta calefactora 14.400mAh / 7,4V: 8-10h en nivel bajo, 5-6h en medio, 3-4h en alto. Para guantes 2.500mAh / 7,4V: 4-6h bajo, 2-3h alto.</p></details>
-   <details class="reveal bg-slate-50 rounded-2xl p-6 border border-slate-200"><summary class="font-bold text-brandBlue cursor-pointer">¿Qué certificaciones necesito para baterías calefactoras en la UE?</summary><p class="text-sm text-slate-600 mt-3 leading-relaxed faq-answer">Obligatorio: CE (EMC + Baja Tensión), UN38.3, RoHS. Recomendado para mercado español/europeo: TÜV. Para dispositivos calefactores portátiles aplica además EN 60335-2-17 (seguridad de mantas/cojines calefactores). Suministramos toda la documentación de conformidad.</p></details>
-   <details class="reveal bg-slate-50 rounded-2xl p-6 border border-slate-200"><summary class="font-bold text-brandBlue cursor-pointer">¿Cuál es el MOQ para baterías calefactoras OEM?</summary><p class="text-sm text-slate-600 mt-3 leading-relaxed faq-answer">MOQ desde 500 unidades para modelos estándar. Con voltajes o conectores a medida: 1.000-2.000 unidades. Muestras en 5-10 días por la necesidad de aprovisionar componentes especiales.</p></details>
+   <details class="card-lg-soft reveal p-6"><summary class="font-bold text-brandBlue cursor-pointer">¿Qué voltajes ofrecen para baterías calefactoras?</summary><p class="text-sm text-slate-600 mt-3 leading-relaxed faq-answer">5V USB (chaquetas/chalecos con paneles calefactores USB, cojines de masaje, calientamanos) y 7,4V DC (chaquetas, chalecos, guantes, calcetines, bufandas calefactoras con elementos DC). Fabricamos configuraciones de voltaje a medida para sus elementos calefactores.</p></details>
+   <details class="card-lg-soft reveal p-6"><summary class="font-bold text-brandBlue cursor-pointer">¿Qué conectores hay disponibles?</summary><p class="text-sm text-slate-600 mt-3 leading-relaxed faq-answer">DC 5,5×2,1mm, DC 3,5×1,35mm, JST-PH, JST-XH, USB-A, USB-C, configuraciones de pines a medida. Longitudes de cable 30-150cm. Suministramos combinaciones completas elemento calefactor + conector si lo solicita.</p></details>
+   <details class="card-lg-soft reveal p-6"><summary class="font-bold text-brandBlue cursor-pointer">¿Cuánto dura una batería calefactora en uso?</summary><p class="text-sm text-slate-600 mt-3 leading-relaxed faq-answer">Para chaqueta calefactora 14.400mAh / 7,4V: 8-10h en nivel bajo, 5-6h en medio, 3-4h en alto. Para guantes 2.500mAh / 7,4V: 4-6h bajo, 2-3h alto.</p></details>
+   <details class="card-lg-soft reveal p-6"><summary class="font-bold text-brandBlue cursor-pointer">¿Qué certificaciones necesito para baterías calefactoras en la UE?</summary><p class="text-sm text-slate-600 mt-3 leading-relaxed faq-answer">Obligatorio: CE (EMC + Baja Tensión), UN38.3, RoHS. Recomendado para mercado español/europeo: TÜV. Para dispositivos calefactores portátiles aplica además EN 60335-2-17 (seguridad de mantas/cojines calefactores). Suministramos toda la documentación de conformidad.</p></details>
+   <details class="card-lg-soft reveal p-6"><summary class="font-bold text-brandBlue cursor-pointer">¿Cuál es el MOQ para baterías calefactoras OEM?</summary><p class="text-sm text-slate-600 mt-3 leading-relaxed faq-answer">MOQ desde 500 unidades para modelos estándar. Con voltajes o conectores a medida: 1.000-2.000 unidades. Muestras en 5-10 días por la necesidad de aprovisionar componentes especiales.</p></details>
   </div>
  </div>
 </section>
 
 <!-- Cross-Category Links -->
-	<section class="sec bg-white py-12">
-	 <div class="container-narrow text-center"><p class="text-center text-slate-500 text-sm mb-6">Más categorias de WOWOHCOOL:</p>
+	<section id="cross-category-links" class="sec bg-white py-12" data-section="related">
+	 <div class="container-wide text-center"><p class="text-center text-slate-500 text-sm mb-6">Más categorias de WOWOHCOOL:</p>
 	 <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-	  <a href="/es/productos/powerbank/semi-solido/" class="block bg-white rounded-xl p-4 border border-slate-200 hover:border-brandOrange hover:shadow-md transition text-center"><p class="font-black text-brandBlue text-sm uppercase mb-1">Semi-Solido</p><p class="text-[10px] text-slate-500">CES 2026 Tech</p></a>
-	  <a href="/es/productos/powerbank/pantalla-inteligente/" class="block bg-white rounded-xl p-4 border border-slate-200 hover:border-brandOrange hover:shadow-md transition text-center"><p class="font-black text-brandBlue text-sm uppercase mb-1">Pantalla TFT</p><p class="text-[10px] text-slate-500">Aluminio + Qi2</p></a>
-	  <a href="/es/productos/powerbank/2-en-1-hibrido/" class="block bg-white rounded-xl p-4 border border-slate-200 hover:border-brandOrange hover:shadow-md transition text-center"><p class="font-black text-brandBlue text-sm uppercase mb-1">2-en-1 Hibrido</p><p class="text-[10px] text-slate-500">GaN AC + Batería</p></a>
-	  <a href="/es/productos/powerbank/" class="block bg-white rounded-xl p-4 border border-slate-200 hover:border-brandOrange hover:shadow-md transition text-center"><p class="font-black text-brandBlue text-sm uppercase mb-1">Todos Power Banks</p><p class="text-[10px] text-slate-500">6 Categorias, 35+ Modelos</p></a>
+	  <a href="/es/productos/powerbank/semi-solido/" class="card block p-4 hover:border-brandOrange hover:shadow-md transition text-center"><p class="font-black text-brandBlue text-sm uppercase mb-1">Semi-Solido</p><p class="text-[10px] text-slate-500">CES 2026 Tech</p></a>
+	  <a href="/es/productos/powerbank/pantalla-inteligente/" class="card block p-4 hover:border-brandOrange hover:shadow-md transition text-center"><p class="font-black text-brandBlue text-sm uppercase mb-1">Pantalla TFT</p><p class="text-[10px] text-slate-500">Aluminio + Qi2</p></a>
+	  <a href="/es/productos/powerbank/2-en-1-hibrido/" class="card block p-4 hover:border-brandOrange hover:shadow-md transition text-center"><p class="font-black text-brandBlue text-sm uppercase mb-1">2-en-1 Hibrido</p><p class="text-[10px] text-slate-500">GaN AC + Batería</p></a>
+	  <a href="/es/productos/powerbank/" class="card block p-4 hover:border-brandOrange hover:shadow-md transition text-center"><p class="font-black text-brandBlue text-sm uppercase mb-1">Todos Power Banks</p><p class="text-[10px] text-slate-500">6 Categorias, 35+ Modelos</p></a>
 	 </div>
 	 </div>
 	</section>

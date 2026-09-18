@@ -54,28 +54,26 @@ plPath: "uslugi-oem-odm/"
 {% block content %}
 
  <!-- HERO -->
- <section class="pt-24 md:pt-28 relative overflow-hidden bg-gradient-to-br from-slate-50 via-white to-orange-50">
+ <section id="hero" class="pt-24 md:pt-28 pb-20 relative overflow-hidden bg-gradient-to-br from-slate-50 via-white to-orange-50 lg:min-h-[100dvh] lg:flex lg:flex-col lg:justify-center" data-section="hero">
  <div class="container-wide">
   {{ breadcrumb([{name: "Startseite", url: "/de/"}, {name: "OEM/ODM Service"}], "none", "mb-6", { variant: "hero" }) }}
- <div class="hero-split grid lg:grid-cols-2 gap-10 lg:gap-16 items-center py-20 md:py-0">
+ <div class="hero-split grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
  <!-- Left: Text -->
- <div class="reveal py-12 lg:py-20">
- <p class="text-brandOrange text-xs font-bold tracking-widest uppercase mb-4 flex items-center gap-2">
- <span class="w-6 h-px bg-brandOrange"></span> OEM / ODM
- </p>
- <h1 class="text-3xl md:text-5xl lg:text-6xl font-black text-brandBlue leading-tight mb-6 italic uppercase">
+ <div class="reveal">
+ <div class="badge-capsule mb-6 uppercase tracking-widest">OEM / ODM</div>
+ <h1 class="text-3xl md:text-5xl lg:text-[2.5rem] xl:text-[2.875rem] 2xl:text-6xl font-black text-brandBlue leading-tight mb-6 italic uppercase tracking-tighter">
  Ihr Partner für<br>
  <span class="text-brandOrange">maßgeschneiderte Ladelösungen</span>
  </h1>
  <p class="text-slate-600 text-lg max-w-xl leading-relaxed mb-8">
  Komplette Betreuung aus einer Hand, von der ersten Idee über das Design und die Zertifizierung bis zur Auslieferung an Ihre Kunden.
  </p>
- <div class="flex flex-wrap gap-3">
- <button data-action="open-modal" class="btn-primary cursor-pointer">
+<div class="btn-pair">
+<button data-action="open-modal" class="btn-solid border-2 border-transparent w-full sm:w-auto cursor-pointer">
  Beratung anfragen
  <svg class="icon-arrow-right text-sm" aria-hidden="true" focusable="false" viewBox="0 0 512 512"><path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-105.4 105.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" fill="currentColor"/></svg>
  </button>
- <a href="#prozess" class="btn-secondary">Unser Prozess</a>
+ <a href="#prozess" class="btn-ghost-lg">Unser Prozess</a>
  </div>
  <div class="flex flex-wrap gap-3 mt-8">
  <span class="trust-badge"><svg class="icon-certificate text-brandOrange" aria-hidden="true" focusable="false" viewBox="0 0 576 512" width="14"><path d="M239.2-8c-6.1-6.2-15-8.7-23.4-6.4S200.9-5.6 198.8 2.8L183.5 63c-1.1 4.4-5.6 7-9.9 5.7L113.8 51.9c-8.4-2.4-17.4 0-23.5 6.1s-8.5 15.1-6.1 23.5l16.9 59.8c1.2 4.3-1.4 8.8-5.7 9.9L35.1 166.5c-8.4 2.1-15 8.7-17.3 17.1s.2 17.3 6.4 23.4l44.5 43.3c3.2 3.1 3.2 8.3 0 11.5L24.3 305.1c-6.2 6.1-8.7 15-6.4 23.4s8.9 14.9 17.3 17.1l60.2 15.3c4.4 1.1 7 5.6 5.7 9.9L84.2 430.5c-2.4 8.4 0 17.4 6.1 23.5s15.1 8.5 23.5 6.1l59.8-16.9c4.3-1.2 8.8 1.4 9.9 5.7l15.3 60.2c2.1 8.4 8.7 15 17.1 17.3s17.3-.2 23.4-6.4l43.3-44.5c3.1-3.2 8.3-3.2 11.5 0L337.3 520c6.1 6.2 15 8.7 23.4 6.4s14.9-8.9 17.1-17.3L393.1 449c1.1-4.4 5.6-7 9.9-5.7l59.8 16.9c8.4 2.4 17.4 0 23.5-6.1s8.5-15.1 6.1-23.5l-16.9-59.8c-1.2-4.3 1.4-8.8 5.7-9.9l60.2-15.3c8.4-2.1 15-8.7 17.3-17.1s-.2-17.4-6.4-23.4l-44.5-43.3c-3.2-3.1-3.2-8.3 0-11.5l44.5-43.3c6.2-6.1 8.7-15 6.4-23.4s-8.9-14.9-17.3-17.1l-60.2-15.3c-4.4-1.1-7-5.6-5.7-9.9l16.9-59.8c2.4-8.4 0-17.4-6.1-23.5s-15.1-8.5-23.5-6.1L403 68.8c-4.3 1.2-8.8-1.4-9.9-5.7L377.8 2.8c-2.1-8.4-8.7-15-17.1-17.3s-17.3.2-23.4 6.4L294 36.5c-3.1 3.2-8.3 3.2-11.5 0L239.2-8z" fill="currentColor"/></svg> CE + TÜV GS + Qi2</span>
@@ -83,7 +81,7 @@ plPath: "uslugi-oem-odm/"
  </div>
  </div>
  <!-- Right: Image -->
- <div class="reveal delay-2 relative lg:py-20">
+ <div class="reveal delay-2 relative lg:py-0">
  <div class="relative rounded-2xl overflow-hidden shadow-2xl">
  <img src="/image/factory/factory-smt-line.webp"
  alt="SMT Produktionslinie in der WOWOHCOOL Fabrik"
@@ -91,55 +89,46 @@ plPath: "uslugi-oem-odm/"
  class="w-full h-auto object-cover"
  loading="eager">
  </div>
- <div class="absolute -bottom-4 -left-4 bg-white rounded-xl shadow-xl p-4 border border-slate-100 max-w-[180px]">
+ <div class="card absolute -bottom-4 -left-4 shadow-xl p-4 max-w-[180px]">
  <p class="text-2xl font-black text-brandOrange">6</p>
  <p class="text-xs text-slate-500 font-medium">Schritte zur Serie</p>
  </div>
  </div>
  </div>
  </div>
- </section>
+
+
+</section>
 
  <!-- ======== TRUST BAR ======== -->
  {% include "trust-bar.njk" %}
 
  <!-- PROCESS -->
- <section id="prozess" class="sec bg-white">
+ <section id="prozess" class="sec bg-darkBg text-white dark-section" data-section="process">
  <div class="container-wide">
  {{ sectionHeader('Unser Prozess', 'Vom Konzept zur Serie', 'In 6 transparenten Schritten von Ihrer Idee zu Ihrem fertigen Produkt, schnell, professionell und zuverlässig.', {}) }}
  <div class="grid md:grid-cols-3 gap-8">
- <div class="text-center reveal p-6"><div class="w-16 h-16 rounded-2xl bg-brandOrange/10 flex items-center justify-center mx-auto mb-5"><span class="text-2xl font-black text-brandOrange">01</span></div><h3 class="text-lg font-bold text-brandBlue mb-3">Anfrage & Beratung</h3><p class="text-sm text-slate-500">Sie teilen uns Ihre Produktanforderungen und Zielvorstellungen mit, wir beraten Sie fachkundig zu technischer Machbarkeit, realistischen Kosten und optimalem Zeitplan.</p></div>
- <div class="text-center reveal p-6"><div class="w-16 h-16 rounded-2xl bg-brandOrange/10 flex items-center justify-center mx-auto mb-5"><span class="text-2xl font-black text-brandOrange">02</span></div><h3 class="text-lg font-bold text-brandBlue mb-3">Design & Entwicklung</h3><p class="text-sm text-slate-500">Unser erfahrenes R&D-Team mit 50+ Ingenieuren erstellt ID-Design, PCBA-Layout und 3D-Zeichnungen präzise nach Ihren individuellen Vorgaben und Wünschen.</p></div>
- <div class="text-center reveal p-6"><div class="w-16 h-16 rounded-2xl bg-brandOrange/10 flex items-center justify-center mx-auto mb-5"><span class="text-2xl font-black text-brandOrange">03</span></div><h3 class="text-lg font-bold text-brandBlue mb-3">Muster & Freigabe</h3><p class="text-sm text-slate-500">Wir fertigen maßstabsgetreue Prototypen für Ihre eingehende Prüfung und Tests. Nach Ihrer Freigabe startet umgehend die Serienproduktion.</p></div>
- <div class="text-center reveal p-6"><div class="w-16 h-16 rounded-2xl bg-brandOrange/10 flex items-center justify-center mx-auto mb-5"><span class="text-2xl font-black text-brandOrange">04</span></div><h3 class="text-lg font-bold text-brandBlue mb-3">Serienfertigung</h3><p class="text-sm text-slate-500">ISO 9001 zertifizierte Serienproduktion mit strengem 4-stufigem QC-Prozess und 100% Aging-Test.</p></div>
- <div class="text-center reveal p-6"><div class="w-16 h-16 rounded-2xl bg-brandOrange/10 flex items-center justify-center mx-auto mb-5"><span class="text-2xl font-black text-brandOrange">05</span></div><h3 class="text-lg font-bold text-brandBlue mb-3">Branding & Verpackung</h3><p class="text-sm text-slate-500">Ihr Logo, Ihre individuelle Verpackung, Ihre starke Marke, wir kümmern uns um die komplette Umsetzung und Abstimmung.</p></div>
- <div class="text-center reveal p-6"><div class="w-16 h-16 rounded-2xl bg-brandOrange/10 flex items-center justify-center mx-auto mb-5"><span class="text-2xl font-black text-brandOrange">06</span></div><h3 class="text-lg font-bold text-brandBlue mb-3">Logistik & Versand</h3><p class="text-sm text-slate-500">Express 5-7 Tage oder Standard 25-35 Tage, EXW oder DDP inklusive Zollabwicklung. Amazon FBA-ready auf Wunsch.</p></div>
+ <div class="group text-center reveal p-8 rounded-[2.5rem] bg-white/5 border border-white/10 hover:bg-white/10 hover:shadow-2xl hover:-translate-y-2 transition-all duration-500"><div class="w-16 h-16 rounded-2xl bg-brandOrange/20 flex items-center justify-center mx-auto mb-5"><span class="text-2xl font-black text-brandOrange">01</span></div><h3 class="text-lg font-bold text-brandBlue mb-3">Anfrage & Beratung</h3><p class="text-sm text-slate-500">Sie teilen uns Ihre Produktanforderungen und Zielvorstellungen mit, wir beraten Sie fachkundig zu technischer Machbarkeit, realistischen Kosten und optimalem Zeitplan.</p></div>
+ <div class="group text-center reveal p-8 rounded-[2.5rem] bg-white/5 border border-white/10 hover:bg-white/10 hover:shadow-2xl hover:-translate-y-2 transition-all duration-500"><div class="w-16 h-16 rounded-2xl bg-brandOrange/20 flex items-center justify-center mx-auto mb-5"><span class="text-2xl font-black text-brandOrange">02</span></div><h3 class="text-lg font-bold text-brandBlue mb-3">Design & Entwicklung</h3><p class="text-sm text-slate-500">Unser erfahrenes R&D-Team mit 50+ Ingenieuren erstellt ID-Design, PCBA-Layout und 3D-Zeichnungen präzise nach Ihren individuellen Vorgaben und Wünschen.</p></div>
+ <div class="group text-center reveal p-8 rounded-[2.5rem] bg-white/5 border border-white/10 hover:bg-white/10 hover:shadow-2xl hover:-translate-y-2 transition-all duration-500"><div class="w-16 h-16 rounded-2xl bg-brandOrange/20 flex items-center justify-center mx-auto mb-5"><span class="text-2xl font-black text-brandOrange">03</span></div><h3 class="text-lg font-bold text-brandBlue mb-3">Muster & Freigabe</h3><p class="text-sm text-slate-500">Wir fertigen maßstabsgetreue Prototypen für Ihre eingehende Prüfung und Tests. Nach Ihrer Freigabe startet umgehend die Serienproduktion.</p></div>
+ <div class="group text-center reveal p-8 rounded-[2.5rem] bg-white/5 border border-white/10 hover:bg-white/10 hover:shadow-2xl hover:-translate-y-2 transition-all duration-500"><div class="w-16 h-16 rounded-2xl bg-brandOrange/20 flex items-center justify-center mx-auto mb-5"><span class="text-2xl font-black text-brandOrange">04</span></div><h3 class="text-lg font-bold text-brandBlue mb-3">Serienfertigung</h3><p class="text-sm text-slate-500">ISO 9001 zertifizierte Serienproduktion mit strengem 4-stufigem QC-Prozess und 100% Aging-Test.</p></div>
+ <div class="group text-center reveal p-8 rounded-[2.5rem] bg-white/5 border border-white/10 hover:bg-white/10 hover:shadow-2xl hover:-translate-y-2 transition-all duration-500"><div class="w-16 h-16 rounded-2xl bg-brandOrange/20 flex items-center justify-center mx-auto mb-5"><span class="text-2xl font-black text-brandOrange">05</span></div><h3 class="text-lg font-bold text-brandBlue mb-3">Branding & Verpackung</h3><p class="text-sm text-slate-500">Ihr Logo, Ihre individuelle Verpackung, Ihre starke Marke, wir kümmern uns um die komplette Umsetzung und Abstimmung.</p></div>
+ <div class="group text-center reveal p-8 rounded-[2.5rem] bg-white/5 border border-white/10 hover:bg-white/10 hover:shadow-2xl hover:-translate-y-2 transition-all duration-500"><div class="w-16 h-16 rounded-2xl bg-brandOrange/20 flex items-center justify-center mx-auto mb-5"><span class="text-2xl font-black text-brandOrange">06</span></div><h3 class="text-lg font-bold text-brandBlue mb-3">Logistik & Versand</h3><p class="text-sm text-slate-500">Express 5-7 Tage oder Standard 25-35 Tage, EXW oder DDP inklusive Zollabwicklung. Amazon FBA-ready auf Wunsch.</p></div>
  </div>
  </div>
  </section>
 
  <!-- SERVICE DETAILS -->
- <section class="sec bg-slate-50">
+ <section id="service-details" class="sec bg-slate-50" data-section="content">
  <div class="container-wide">
- <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
- {% call sectionHeader('OEM vs ODM', 'Welcher Ansatz passt am besten zu Ihrem Projekt und Ihren Zielen?', '', {align: '', max: '', mb: ''}) %}<div class="space-y-6 mt-8">
- <div class="bg-white rounded-xl p-6 border border-slate-200"><h3 class="font-bold text-brandBlue text-lg mb-2">ODM, Eigenes Branding auf Lagermodellen</h3><p class="text-sm text-slate-500 mb-3">Als ODM-Kunde wählen Sie aus unseren bestehenden, erprobten Produkten und Referenzdesigns und wir versehen sie mit Ihrem Logo, Ihren Farben und Ihrer Markenidentität, schnell, kosteneffizient und unkompliziert.</p><p class="text-xs font-bold text-brandOrange">MOQ: 500 Stück | Lieferzeit: 25–30 Tage</p></div>
- <div class="bg-white rounded-xl p-6 border border-slate-200"><h3 class="font-bold text-brandBlue text-lg mb-2">ODM, Individuelle Entwicklung</h3><p class="text-sm text-slate-500 mb-3">Als ODM-Kunde lassen Sie ein individuelles Produkt auf unserer bestehenden Plattform nach Ihren technischen Anforderungen entwickeln — von der Elektronik über das Gehäusedesign bis zur vollständigen Zertifizierung. OEM mit vollständig neuem Werkzeug: MOQ ab 3.000 Stück.</p><p class="text-xs font-bold text-brandOrange">MOQ: 1.000–2.000 Stück | Lieferzeit: 45–60 Tage</p></div>
+ {{ sectionHeader('OEM vs ODM', 'Welcher Ansatz passt am besten zu Ihrem Projekt und Ihren Zielen?', '', {}) }}
+ <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-stretch">
+ <div class="space-y-6 flex flex-col h-full">
+ <div class="card p-6 flex-1"><h3 class="font-bold text-brandBlue text-lg mb-2">ODM, Eigenes Branding auf Lagermodellen</h3><p class="text-sm text-slate-500 mb-3">Als ODM-Kunde wählen Sie aus unseren bestehenden, erprobten Produkten und Referenzdesigns und wir versehen sie mit Ihrem Logo, Ihren Farben und Ihrer Markenidentität, schnell, kosteneffizient und unkompliziert.</p><p class="text-xs font-bold text-brandOrange">MOQ: 500 Stück | Lieferzeit: 25–30 Tage</p></div>
+ <div class="card p-6 flex-1"><h3 class="font-bold text-brandBlue text-lg mb-2">ODM, Individuelle Entwicklung</h3><p class="text-sm text-slate-500 mb-3">Als ODM-Kunde lassen Sie ein individuelles Produkt auf unserer bestehenden Plattform nach Ihren technischen Anforderungen entwickeln — von der Elektronik über das Gehäusedesign bis zur vollständigen Zertifizierung. OEM mit vollständig neuem Werkzeug: MOQ ab 3.000 Stück.</p><p class="text-xs font-bold text-brandOrange">MOQ: 1.000–2.000 Stück | Lieferzeit: 45–60 Tage</p></div>
  </div>
- <div class="flex flex-wrap gap-6 mt-6 p-5 bg-brandOrange/5 rounded-xl border border-brandOrange/10">
- <div class="text-center"><p class="text-2xl font-black text-brandOrange">200+</p><p class="text-xs text-slate-500">globale Marken</p></div>
- <div class="text-center"><p class="text-2xl font-black text-brandOrange">10+</p><p class="text-xs text-slate-500">Jahre Erfahrung</p></div>
- <div class="text-center"><p class="text-2xl font-black text-brandOrange">&lt;0,3%</p><p class="text-xs text-slate-500">Defektrate</p></div>
- <div class="text-center"><p class="text-2xl font-black text-brandOrange">500+</p><p class="text-xs text-slate-500">B2B-Kunden</p></div>
- </div>
- <p class="text-xs text-slate-400 mt-4">Über 90% der in Deutschland verkauften Ladegeräte stammen aus China, als Direkthersteller mit ISO 9001 und EU-Konformität sind wir der Partner, der Qualität und Compliance garantiert.</p>
- <p class="text-xs text-slate-400 mt-4">Mehr erfahren: <a href="/de/blog/oem-vs-odm-leitfaden/" class="text-brandOrange hover:underline">Detaillierter OEM vs ODM Leitfaden →</a></p>
- <button data-action="open-modal" class="btn-primary mt-6 cursor-pointer">Beratung anfragen <svg class="icon-arrow-right text-sm" aria-hidden="true" focusable="false" viewBox="0 0 512 512">
- <path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-105.4 105.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" fill="currentColor"/>
- </svg></button>
- {% endcall %}
- <div class="reveal">
- <div class="bg-white rounded-2xl p-8 border border-slate-200"><h3 class="text-lg font-bold text-brandBlue mb-6">Was wir bieten</h3>
+ <div class="reveal h-full flex items-center">
+ <div class="card-lg p-8 w-full h-full flex flex-col justify-center"><h3 class="text-lg font-bold text-brandBlue mb-6">Was wir bieten</h3>
  <ul class="space-y-4">
  <li class="flex items-start gap-3"><svg class="icon-circle-check text-brandOrange mt-0.5" aria-hidden="true" focusable="false" viewBox="0 0 512 512">
  <path d="M256 512a256 256 0 1 1 0-512 256 256 0 1 1 0 512zM374 145.7c-10.7-7.8-25.7-5.4-33.5 5.3L221.1 315.2 169 263.1c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l72 72c5 5 11.8 7.5 18.8 7s13.4-4.1 17.5-9.8L379.3 179.2c7.8-10.7 5.4-25.7-5.3-33.5z" fill="currentColor"/>
@@ -161,11 +150,20 @@ plPath: "uslugi-oem-odm/"
  </div>
  </div>
  </div>
- </section>
+ <!-- full-width trust + CTA band -->
+<div class="mt-12 lg:mt-16 reveal text-center">
+<p class="text-xs text-slate-400 mt-4 max-w-2xl mx-auto">Über 90% der in Deutschland verkauften Ladegeräte stammen aus China, als Direkthersteller mit ISO 9001 und EU-Konformität sind wir der Partner, der Qualität und Compliance garantiert.</p>
+<p class="text-xs text-slate-400 mt-2">Mehr erfahren: <a href="/de/blog/oem-vs-odm-leitfaden/" class="text-brandOrange hover:underline">Detaillierter OEM vs ODM Leitfaden →</a></p>
+<div class="mt-6"><button data-action="open-modal" class="btn-solid cursor-pointer">Beratung anfragen <svg class="icon-arrow-right text-sm" aria-hidden="true" focusable="false" viewBox="0 0 512 512">
+<path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-105.4 105.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" fill="currentColor"/>
+</svg></button></div>
+</div>
+</section>
 
- <!-- CASE STUDIES -->
- <section class="sec bg-white">
- <div class="container-content">
+ 
+<!-- CASE STUDIES -->
+ <section id="case-studies" class="sec bg-white" data-section="content">
+ <div class="container-wide">
  {% call sectionHeader('Erfolgsgeschichten', 'Das sagen unsere Partner und Kunden über uns', 'Lesen Sie, was unsere Kunden aus Deutschland und Europa über die Zusammenarbeit mit uns sagen.', {}) %}<p class="section-desc mx-auto">Über 500+ zufriedene B2B-Kunden in mehr als 30 Ländern, darunter führende Marken aus Deutschland, Österreich und der Schweiz. <a href="/de/fallbeispiele/" class="text-brandOrange hover:underline font-semibold">Alle Kundenreferenzen ansehen →</a></p>
  {% endcall %}
  <div class="grid md:grid-cols-2 gap-6 reveal">
@@ -192,7 +190,7 @@ plPath: "uslugi-oem-odm/"
  </section>
 
  <!-- ======== DOWNLOADS ======== -->
- <section class="sec bg-white">
+ <section id="downloads" class="sec bg-slate-50" data-section="content">
  <div class="container-wide">
  <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
  {% call sectionHeader('Technische Unterlagen', 'Datenblätter &amp; Zertifikate', '', {align: '', max: '', mb: ''}) %}<p class="text-slate-600 leading-relaxed mb-6">Fordern Sie unsere aktuellen Produktspezifikationen und Zertifikate an. Wir stellen Ihnen auf Wunsch alle relevanten Unterlagen für Ihre Produktentwicklung und Importabwicklung zur Verfügung.</p>
@@ -210,7 +208,7 @@ plPath: "uslugi-oem-odm/"
  </div>
  {% endcall %}
  <div class="reveal delay-2">
- <div class="bg-slate-50 rounded-2xl p-8 border border-slate-200">
+ <div class="card-lg-soft p-8">
  <p class="text-sm font-bold text-brandBlue mb-4">Verfügbare Unterlagen</p>
  <ul class="space-y-3">
  <li class="flex items-center gap-3 text-sm text-slate-600"><svg class="icon-check-circle text-green-500" width="16" height="16" viewBox="0 0 512 512"><path d="M256 512a256 256 0 1 1 0-512 256 256 0 1 1 0 512zM369 145L241 273 177 209c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l80 80c9.4 9.4 24.6 9.4 33.9 0L403 179c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0z"/></svg> Produktdatenblätter (PDF)</li>
@@ -226,37 +224,37 @@ plPath: "uslugi-oem-odm/"
  </section>
 
  <!-- ======== Qualitätssicherung ======== -->
- <section class="sec bg-white">
+ <section id="qualitaetssicherung" class="sec bg-darkBg text-white dark-section" data-section="content">
  <div class="container-wide">
  {{ sectionHeader('Qualitätssicherung', '4-stufiger QC-Prozess für höchste Qualität', 'Jedes Produkt durchläuft strenge Qualitätskontrollen. Unsere Defektrate liegt unter 0,3%.', {}) }}
 
  <div class="grid md:grid-cols-4 gap-4 mb-16 reveal">
- <div class="bg-slate-50 rounded-xl p-6 border border-slate-200 text-center">
- <div class="w-14 h-14 rounded-full bg-brandOrange/10 flex items-center justify-center mx-auto mb-4">
+ <div class="card-soft p-6 text-center">
+ <div class="w-14 h-14 rounded-full bg-brandOrange/20 flex items-center justify-center mx-auto mb-4">
  <span class="text-2xl font-black text-brandOrange">1</span>
  </div>
  <h3 class="font-bold text-brandBlue mb-2 text-sm">IQC</h3>
  <p class="text-xs text-slate-500">Eingangskontrolle</p>
  <p class="text-xs text-slate-400 mt-2">Prüfung aller Rohmaterialien und Komponenten bei Wareneingang.</p>
  </div>
- <div class="bg-slate-50 rounded-xl p-6 border border-slate-200 text-center">
- <div class="w-14 h-14 rounded-full bg-brandOrange/10 flex items-center justify-center mx-auto mb-4">
+ <div class="card-soft p-6 text-center">
+ <div class="w-14 h-14 rounded-full bg-brandOrange/20 flex items-center justify-center mx-auto mb-4">
  <span class="text-2xl font-black text-brandOrange">2</span>
  </div>
  <h3 class="font-bold text-brandBlue mb-2 text-sm">IPQC</h3>
  <p class="text-xs text-slate-500">Prozesskontrolle</p>
  <p class="text-xs text-slate-400 mt-2">Laufende Überwachung während der Fertigung und Montage.</p>
  </div>
- <div class="bg-slate-50 rounded-xl p-6 border border-slate-200 text-center">
- <div class="w-14 h-14 rounded-full bg-brandOrange/10 flex items-center justify-center mx-auto mb-4">
+ <div class="card-soft p-6 text-center">
+ <div class="w-14 h-14 rounded-full bg-brandOrange/20 flex items-center justify-center mx-auto mb-4">
  <span class="text-2xl font-black text-brandOrange">3</span>
  </div>
  <h3 class="font-bold text-brandBlue mb-2 text-sm">FQC</h3>
  <p class="text-xs text-slate-500">Endkontrolle</p>
  <p class="text-xs text-slate-400 mt-2">100% Funktionsprüfung aller fertigen Produkte.</p>
  </div>
- <div class="bg-slate-50 rounded-xl p-6 border border-slate-200 text-center">
- <div class="w-14 h-14 rounded-full bg-brandOrange/10 flex items-center justify-center mx-auto mb-4">
+ <div class="card-soft p-6 text-center">
+ <div class="w-14 h-14 rounded-full bg-brandOrange/20 flex items-center justify-center mx-auto mb-4">
  <span class="text-2xl font-black text-brandOrange">4</span>
  </div>
  <h3 class="font-bold text-brandBlue mb-2 text-sm">OQC</h3>
@@ -266,7 +264,7 @@ plPath: "uslugi-oem-odm/"
  </div>
 
  <div class="grid lg:grid-cols-2 gap-8 reveal">
- <div class="bg-slate-50 rounded-2xl p-8 border border-slate-200">
+ <div class="card-lg-soft p-8">
  <div class="flex items-center gap-3 mb-4">
  <svg class="icon-flask text-brandOrange" width="24" height="24" viewBox="0 0 448 512">
  <path d="M288 0L128 0C110.3 0 96 14.3 96 32s14.3 32 32 32L128 215.5 7.5 426.3C2.6 435 0 444.7 0 454.7 0 486.4 25.6 512 57.3 512l333.4 0c31.6 0 57.3-25.6 57.3-57.3 0-10-2.6-19.8-7.5-28.4L320 215.5 320 64c17.7 0 32-14.3 32-32S337.7 0 320 0L288 0zM192 215.5l0-151.5 64 0 0 151.5c0 11.1 2.9 22.1 8.4 31.8l41.6 72.7-164 0 41.6-72.7c5.5-9.7 8.4-20.6 8.4-31.8z" fill="currentColor"/>
@@ -291,25 +289,25 @@ plPath: "uslugi-oem-odm/"
  </svg> CE/FCC/VDE konforme EMV-Prüfung</li>
  </ul>
  </div>
- <div class="bg-slate-50 rounded-2xl p-8 border border-slate-200">
+ <div class="card-lg-soft p-8">
  <div class="flex items-center gap-3 mb-4">
  <svg class="icon-file-certificate text-brandOrange" width="24" height="24" viewBox="0 0 576 512"><path d="M239.2-8c-6.1-6.2-15-8.7-23.4-6.4S200.9-5.6 198.8 2.8L183.5 63c-1.1 4.4-5.6 7-9.9 5.7L113.8 51.9c-8.4-2.4-17.4 0-23.5 6.1s-8.5 15.1-6.1 23.5l16.9 59.8c1.2 4.3-1.4 8.8-5.7 9.9L35.1 166.5c-8.4 2.1-15 8.7-17.3 17.1s.2 17.3 6.4 23.4l44.5 43.3c3.2 3.1 3.2 8.3 0 11.5L24.3 305.1c-6.2 6.1-8.7 15-6.4 23.4s8.9 14.9 17.3 17.1l60.2 15.3c4.4 1.1 7 5.6 5.7 9.9L84.2 430.5c-2.4 8.4 0 17.4 6.1 23.5s15.1 8.5 23.5 6.1l59.8-16.9c4.3-1.2 8.8 1.4 9.9 5.7l15.3 60.2c2.1 8.4 8.7 15 17.1 17.3s17.3-.2 23.4-6.4l43.3-44.5c3.1-3.2 8.3-3.2 11.5 0L337.3 520c6.1 6.2 15 8.7 23.4 6.4s14.9-8.9 17.1-17.3L393.1 449c1.1-4.4 5.6-7 9.9-5.7l59.8 16.9c8.4 2.4 17.4 0 23.5-6.1s8.5-15.1 6.1-23.5l-16.9-59.8c-1.2-4.3 1.4-8.8 5.7-9.9l60.2-15.3c8.4-2.1 15-8.7 17.3-17.1s-.2-17.4-6.4-23.4l-44.5-43.3c-3.2-3.1-3.2-8.3 0-11.5l44.5-43.3c6.2-6.1 8.7-15 6.4-23.4s-8.9-14.9-17.3-17.1l-60.2-15.3c-4.4-1.1-7-5.6-5.7-9.9l16.9-59.8c2.4-8.4 0-17.4-6.1-23.5s-15.1-8.5-23.5-6.1L403 68.8c-4.3 1.2-8.8-1.4-9.9-5.7L377.8 2.8c-2.1-8.4-8.7-15-17.1-17.3s-17.3.2-23.4 6.4L294 36.5c-3.1 3.2-8.3 3.2-11.5 0L239.2-8z" fill="currentColor"/></svg>
  <h3 class="font-bold text-brandBlue">Qualitätskennzahlen</h3>
  </div>
  <div class="grid grid-cols-2 gap-4">
- <div class="text-center p-4 bg-white rounded-xl border border-slate-200">
+ <div class="card text-center p-4">
  <p class="text-2xl font-black text-brandOrange">&lt;0,3%</p>
  <p class="text-xs text-slate-500">Defektrate</p>
  </div>
- <div class="text-center p-4 bg-white rounded-xl border border-slate-200">
+ <div class="card text-center p-4">
  <p class="text-2xl font-black text-brandOrange">100%</p>
  <p class="text-xs text-slate-500">Aging-Test</p>
  </div>
- <div class="text-center p-4 bg-white rounded-xl border border-slate-200">
+ <div class="card text-center p-4">
  <p class="text-2xl font-black text-brandOrange">4h</p>
  <p class="text-xs text-slate-500">Dauer Prüfung</p>
  </div>
- <div class="text-center p-4 bg-white rounded-xl border border-slate-200">
+ <div class="card text-center p-4">
  <p class="text-2xl font-black text-brandOrange">ISO</p>
  <p class="text-xs text-slate-500">9001:2015</p>
  </div>
@@ -323,12 +321,12 @@ plPath: "uslugi-oem-odm/"
  </section>
 
  <!-- ======== VERSAND & LIEFERUNG ======== -->
- <section class="sec bg-slate-50">
+ <section id="versand-lieferung" class="sec bg-slate-50" data-section="content">
  <div class="container-wide">
  {{ sectionHeader('Versand &amp; Lieferung', 'Schnell und zuverlässig nach Deutschland', 'Flexible Versandoptionen für jeden Bedarf, mit oder ohne Zollabwicklung.', {}) }}
  <div class="grid md:grid-cols-3 gap-6 reveal">
- <div class="bg-white rounded-xl p-6 border border-slate-200 text-center hover:border-brandOrange transition-all">
- <div class="w-16 h-16 rounded-full bg-brandOrange/10 flex items-center justify-center mx-auto mb-4">
+ <div class="card p-6 text-center hover:border-brandOrange transition-all">
+ <div class="w-16 h-16 rounded-full bg-brandOrange/20 flex items-center justify-center mx-auto mb-4">
  <svg class="icon-plane text-brandOrange" width="24" height="24" viewBox="0 0 576 512">
  <path d="M520 200c30.9 0 56 25.1 56 56s-25.1 56-56 56l-127.3 0-159.2 173.6c-6.1 6.6-14.6 10.4-23.6 10.4l-43.7 0c-10.9 0-18.6-10.7-15.2-21.1l54.3-162.9-99.7 0-52.8 66c-3 3.8-7.6 6-12.5 6l-19.8 0c-10.4 0-18-9.8-15.5-19.9L32 256 5 147.9C2.4 137.8 10.1 128 20.5 128l19.8 0c4.9 0 9.5 2.2 12.5 6l52.8 66 99.7 0-54.3-162.9C147.6 26.7 155.3 16 166.2 16l43.7 0c9 0 17.5 3.8 23.6 10.4L392.7 200 520 200z" fill="currentColor"/>
  </svg>
@@ -347,7 +345,7 @@ plPath: "uslugi-oem-odm/"
  </svg> Zollabfertigung inklusive</li>
  </ul>
  </div>
- <div class="bg-white rounded-xl p-6 border border-slate-200 text-center hover:border-brandOrange transition-all">
+ <div class="card p-6 text-center hover:border-brandOrange transition-all">
  <div class="w-16 h-16 rounded-full bg-brandBlue/10 flex items-center justify-center mx-auto mb-4">
  <svg class="icon-ship text-brandBlue" width="24" height="24" viewBox="0 0 640 512"><path d="M48 408C48 385.9 59.4 365.4 77.6 353.7L231.3 248.7C249.8 236.8 273.1 234 294.1 241.2L381.1 270.5C393.1 274.5 406.2 272.1 416.8 264.1L553.1 156.8C569.6 143.9 594.1 151.1 602.5 169.6C610.1 186.1 602.8 204.9 586.1 212.9L472 261.6V408C472 426.1 429.5 440 376 440C322.5 440 280 426.1 280 408C280 398.1 310.1 390 341.8 385.5L320 376L248 341.6V408C248 426.1 205.5 440 152 440C98.5 440 56 426.1 56 408L48 408zM0 192C0 174.3 14.3 160 32 160L192 160L192 128L250.5 128C277.5 128 303.5 139.5 322.5 158.5L384 220L384 160L608 160C625.7 160 640 174.3 640 192L640 256C640 273.7 625.7 288 608 288L384 288L384 278.9L316.2 211.1C308.5 203.4 298.2 199.1 287.4 197.7L189.6 175.1C171.1 171.3 151.1 178.7 139.5 192.9L86.4 256H32C14.3 256 0 241.7 0 224V192z"/></svg>
  </div>
@@ -365,7 +363,7 @@ plPath: "uslugi-oem-odm/"
  </svg> Kostengünstig bei Großmengen</li>
  </ul>
  </div>
- <div class="bg-white rounded-xl p-6 border border-slate-200 text-center hover:border-brandOrange transition-all">
+ <div class="card p-6 text-center hover:border-brandOrange transition-all">
  <div class="w-16 h-16 rounded-full bg-green-500/10 flex items-center justify-center mx-auto mb-4">
  <svg class="icon-box text-green-600" width="24" height="24" viewBox="0 0 448 512">
  <path d="M369.4 128l-34.3-48-222.1 0-34.3 48 290.7 0zM0 148.5c0-13.3 4.2-26.3 11.9-37.2L60.9 42.8C72.9 26 92.3 16 112.9 16l222.1 0c20.7 0 40.1 10 52.1 26.8l48.9 68.5c7.8 10.9 11.9 23.9 11.9 37.2L448 416c0 35.3-28.7 64-64 64L64 480c-35.3 0-64-28.7-64-64L0 148.5z" fill="currentColor"/>
@@ -388,17 +386,17 @@ plPath: "uslugi-oem-odm/"
  </div>
  <div class="text-center mt-10 reveal">
  <p class="text-sm text-slate-500 mb-4">Individuelle Versandkonditionen? Fragen Sie uns nach einem maßgeschneiderten Angebot.</p>
- <button data-action="open-modal" class="btn-primary cursor-pointer">Versandanfrage stellen <svg class="icon-arrow-right text-sm" aria-hidden="true" focusable="false" viewBox="0 0 512 512"><path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-105.4 105.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" fill="currentColor"/></svg></button>
+ <button data-action="open-modal" class="btn-solid cursor-pointer">Versandanfrage stellen <svg class="icon-arrow-right text-sm" aria-hidden="true" focusable="false" viewBox="0 0 512 512"><path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-105.4 105.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" fill="currentColor"/></svg></button>
  </div>
  </div>
  </section>
 
  <!-- ======== PRICING GUIDE ======== -->
- <section class="sec bg-slate-50">
- <div class="container-content">
+ <section id="pricing-guide" class="sec bg-white" data-section="pricing">
+ <div class="container-wide">
  {{ sectionHeader('Preisübersicht', 'Transparente Preisorientierung für Ihr Projekt', 'Richtpreise ab Werk Shenzhen. Individuelle Angebote basierend auf Ihren genauen Spezifikationen.', {mb: 'mb-12'}) }}
  <div class="grid md:grid-cols-3 gap-6 reveal">
- <div class="bg-white rounded-2xl p-8 border border-slate-200 text-center hover:border-brandOrange transition-all">
+ <div class="card-lg p-8 text-center hover:border-brandOrange transition-all">
  <p class="text-xs font-bold tracking-widest uppercase text-slate-400 mb-3">Kleine Charge</p>
  <p class="text-4xl font-black text-brandBlue mb-2">500</p>
  <p class="text-sm text-slate-500 mb-4">Stück</p>
@@ -437,7 +435,7 @@ plPath: "uslugi-oem-odm/"
  </svg> Musterkosten-Anrechnung</li>
  </ul>
  </div>
- <div class="bg-white rounded-2xl p-8 border border-slate-200 text-center hover:border-brandOrange transition-all">
+ <div class="card-lg p-8 text-center hover:border-brandOrange transition-all">
  <p class="text-xs font-bold tracking-widest uppercase text-slate-400 mb-3">Großserie</p>
  <p class="text-4xl font-black text-brandBlue mb-2">5.000+</p>
  <p class="text-sm text-slate-500 mb-4">Stück</p>
@@ -463,7 +461,7 @@ plPath: "uslugi-oem-odm/"
 
 
  <!-- FAQ -->
- <section class="sec bg-slate-50">
+ <section id="faq" class="sec bg-slate-50" data-section="faq">
  <div class="container-narrow">
  {{ sectionHeader('FAQ', 'Häufige Fragen zu OEM/ODM', '', {max: ''}) }}
  <div class="reveal">
@@ -481,7 +479,7 @@ plPath: "uslugi-oem-odm/"
  </section>
 
  <!-- ======== ZAHLUNGSMETHODEN ======== -->
- <section class="sec bg-white">
+ <section id="zahlungsmethoden" class="sec bg-white" data-section="content">
  <div class="container-wide">
  {% call sectionHeader('Zahlungsbedingungen', 'Flexible Zahlung für Ihr Projekt', 'Bewährte Zahlungswege für Geschäftskunden. Wir arbeiten mit namhaften Versicherungen und Banken zusammen.', {mb: 'mb-10'}) %}<p class="text-xs text-slate-400 mt-4 text-center max-w-2xl mx-auto">Der deutsche Markt für GaN-Ladegeräte wächst mit über 17% jährlich <sup><a href="https://www.marketresearchfuture.com/reports/germany-gan-powered-chargers-market-57523" target="_blank" rel="noopener noreferrer" class="text-[10px] text-brandOrange no-underline hover:underline">[1]</a></sup>, der Einstieg jetzt sichert Ihnen frühe Marktpositionen.</p>
  {% endcall %}

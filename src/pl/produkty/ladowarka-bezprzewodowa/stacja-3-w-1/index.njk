@@ -114,13 +114,13 @@ ruPath: "produkty/besprovodnye-zaryadki/stanciya-3-v-1/"
 {% block content %}
 
 <!-- Hero -->
-<section class="relative pt-24 md:pt-28 pb-8 lg:pb-16 bg-white text-slate-900 overflow-hidden">
+<section id="hero" class="relative pt-24 md:pt-28 lg:pt-20 pb-8 lg:pb-20 bg-white text-slate-900 overflow-hidden lg:min-h-[100dvh] lg:flex lg:flex-col lg:justify-center" data-section="hero">
  <div class="absolute inset-0 z-0 pointer-events-none overflow-hidden">
  <div class="absolute top-0 left-0 max-w-full w-64 h-64 bg-brandOrange opacity-20 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
  <div class="absolute bottom-0 right-0 max-w-full w-64 h-64 bg-blue-500 opacity-20 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
  </div>
 
- <div class="container-wide relative z-10 text-center pb-12 lg:pb-12">
+ <div class="container-wide relative z-10 text-center pb-12 lg:pb-0">
  {{ breadcrumb([{name: "Strona Główna", url: "/pl/"}, {name: "Produkty", url: "/pl/produkty/"}, {name: "Ładowarki Bezprzewodowe", url: "/pl/produkty/ladowarka-bezprzewodowa/"}, {name: "Stacja 3-w-1"}], "none", "mb-6", { variant: "hero" }) }}
 
  <div>
@@ -132,18 +132,18 @@ ruPath: "produkty/besprovodnye-zaryadki/stanciya-3-v-1/"
 
  <p class="max-w-2xl mx-auto text-slate-600 text-sm leading-relaxed mt-6 mb-8">Stacje ładowania 3-w-1 z certyfikatem Qi2 dla iPhone + Apple Watch + AirPods. <strong>13 modeli</strong> — od smukłych składanych stacji podróżnych po ciężkie stacje hotelowe ze stopu cynku — dostępne w <strong>OEM/ODM, private label i hurcie</strong>. MOQ 500.</p>
 
- <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-2xl mx-auto mb-10">
- <div class="bg-slate-50 rounded-xl p-4 border border-slate-100"><p class="text-2xl font-black text-brandBlue">25W</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Moc Maks.</p></div>
- <div class="bg-slate-50 rounded-xl p-4 border border-slate-100"><p class="text-2xl font-black text-brandOrange">13</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Modeli</p></div>
- <div class="bg-slate-50 rounded-xl p-4 border border-slate-100"><p class="text-2xl font-black text-brandBlue">Qi2</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Certyfikacja</p></div>
- <div class="bg-slate-50 rounded-xl p-4 border border-slate-100"><p class="text-2xl font-black text-brandOrange">500</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">MOQ</p></div>
+ <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
+ <div class="card-soft p-4"><p class="text-2xl font-black text-brandBlue">25W</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Moc Maks.</p></div>
+ <div class="card-soft p-4"><p class="text-2xl font-black text-brandOrange">13</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Modeli</p></div>
+ <div class="card-soft p-4"><p class="text-2xl font-black text-brandBlue">Qi2</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Certyfikacja</p></div>
+ <div class="card-soft p-4"><p class="text-2xl font-black text-brandOrange">500</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">MOQ</p></div>
  </div>
 
- <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
+ <div class="btn-pair">
  <button data-action="open-modal" data-product="Stacja 3-w-1 OEM/ODM" class="btn-wide-lg">
   Poproś o Wycenę Fabryczną
  </button>
- <a href="#produkty" class="w-full sm:w-auto border-2 border-brandBlue text-brandBlue px-10 py-4 rounded-xl font-bold uppercase tracking-widest text-sm hover:bg-brandBlue hover:text-white transition-all text-center">
+ <a href="#produkty" class="w-full border-2 border-brandBlue text-brandBlue px-10 py-4 rounded-xl font-bold uppercase tracking-widest text-sm hover:bg-brandBlue hover:text-white transition-all text-center">
   Zobacz 13 Modeli
  </a>
  </div>
@@ -154,7 +154,7 @@ ruPath: "produkty/besprovodnye-zaryadki/stanciya-3-v-1/"
 {% include "trust-bar.njk" %}
 
 <!-- Products -->
-<section id="produkty" class="sec bg-white relative py-16">
+<section id="produkty" class="sec bg-white relative" data-section="products">
  <div class="container-wide">
  <h2 class="text-2xl font-black text-brandBlue uppercase italic tracking-tighter mb-2">Stacje Ładowania 3-w-1</h2>
  <p class="text-slate-500 text-sm mb-10">13 modeli | 15W-25W | Qi2 | Chłodzenie TEC | Składane | Stop Cynku</p>
@@ -185,7 +185,7 @@ ruPath: "produkty/besprovodnye-zaryadki/stanciya-3-v-1/"
  <p class="text-[11px] text-slate-500 mb-6 italic leading-relaxed">25W szybkie ładowanie bezprzewodowe z aktywnym chłodzeniem powietrznym utrzymuje iPhone w kontrolowanej temperaturze. Wyposażona w cichy inteligentny wentylator, wyświetlacz mocy w czasie rzeczywistym i tylne światło ambient. Oryginalny moduł magnetyczny inteligentnie dopasowuje moc wyjściową.</p>
 
  <details class="mb-6 group/spec">
- <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Specyfikacja</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
+ <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Specyfikacja</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
  <div class="p-4 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-[11px]"><tbody>
  <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Wejście</td><td class="py-2 font-bold text-slate-700">12V/3,5A, 15V/2,8A</td></tr>
  <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Wyjście (Telefon)</td><td class="py-2 font-bold text-slate-700">25W (MAX)</td></tr>
@@ -219,7 +219,7 @@ ruPath: "produkty/besprovodnye-zaryadki/stanciya-3-v-1/"
  </div>
  <p class="text-[11px] text-slate-500 mb-6 italic leading-relaxed">25W szybkie ładowanie z chłodzeniem półprzewodnikowym TEC i inteligentnym cichym wentylatorem. Wyświetlacz mocy i temperatury w czasie rzeczywistym. Niezależne kontrolki dla telefonu/zegarka/słuchawek. Konstrukcja ze stopu cynku premium z natywnym modułem magnetycznym MagSafe.</p>
  <details class="mb-6 group/spec">
- <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Specyfikacja</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
+ <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Specyfikacja</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
  <div class="p-4 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-[11px]"><tbody>
  <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Chłodzenie</td><td class="py-2 font-bold text-slate-700">TEC Półprzewodnikowe + Cichy Wentylator</td></tr>
  <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Wejście</td><td class="py-2 font-bold text-slate-700">15V/3A, 20V/2,25~3,25A</td></tr>
@@ -251,7 +251,7 @@ ruPath: "produkty/besprovodnye-zaryadki/stanciya-3-v-1/"
  </div>
  <p class="text-[11px] text-slate-500 mb-6 italic leading-relaxed">25W szybkie ładowanie z podwójnym systemem chłodzenia TEC + powietrze. Składana konstrukcja 3-w-1 skutecznie redukuje ciepło. Precyzyjny czujnik temperatury z niestandardową technologią chłodzenia. Kompatybilna z natywnym modułem magnetycznym MagSafe iPhone.</p>
  <details class="mb-6 group/spec">
- <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Specyfikacja</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
+ <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Specyfikacja</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
  <div class="p-4 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-[11px]"><tbody>
  <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Chłodzenie</td><td class="py-2 font-bold text-slate-700">TEC Półprzewodnikowe + Powietrze</td></tr>
  <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Wejście</td><td class="py-2 font-bold text-slate-700">15V/3A, 20V/2,25~3,25A</td></tr>
@@ -283,7 +283,7 @@ ruPath: "produkty/besprovodnye-zaryadki/stanciya-3-v-1/"
  </div>
  <p class="text-[11px] text-slate-500 mb-6 italic leading-relaxed">Układ Qi2.2 podnosi ładowanie bezprzewodowe 25W z inteligentnym wyjściem adaptacyjnym. Składana obudowa wielkości dłoni z magnesem pierścieniowym ładującym przez etui. Otwory chłodzące zapobiegają przegrzewaniu. Automatycznie przełącza w tryb podtrzymania.</p>
  <details class="mb-6 group/spec">
- <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Specyfikacja</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
+ <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Specyfikacja</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
  <div class="p-4 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-[11px]"><tbody>
  <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Standard</td><td class="py-2 font-bold text-slate-700">Qi2.2 Certyfikowany</td></tr>
  <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Wejście</td><td class="py-2 font-bold text-slate-700">12V/3,5A, 15V/2,8A</td></tr>
@@ -315,7 +315,7 @@ ruPath: "produkty/besprovodnye-zaryadki/stanciya-3-v-1/"
  </div>
  <p class="text-[11px] text-slate-500 mb-6 italic leading-relaxed">Flagowa składana stacja 3-w-1 dla nowoczesnego profesjonalisty i częstego podróżnika. Kompaktowa składana konstrukcja 24mm z premium obudową aluminiową. 15W Qi2 dla iPhone, dedykowane miejsca na Watch i AirPods. Idealna jako hotelowe amenity i upominek korporacyjny.</p>
  <details class="mb-6 group/spec">
- <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Specyfikacja</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
+ <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Specyfikacja</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
  <div class="p-4 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-[11px]"><tbody>
  <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Wymiary</td><td class="py-2 font-bold text-slate-700">105mm x 66mm x 24mm</td></tr>
  <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Waga Netto/Brutto</td><td class="py-2 font-bold text-slate-700">190g / 250g</td></tr>
@@ -346,7 +346,7 @@ ruPath: "produkty/besprovodnye-zaryadki/stanciya-3-v-1/"
  </div>
  <p class="text-[11px] text-slate-500 mb-6 italic leading-relaxed">WOW90 łączy korpus ze stopu cynku ze składanym mechanizmem i zintegrowanym nocnym światłem LED. Idealna do ładowania przy łóżku w hotelach i biurach domowych. Popularny wybór dla programów amenity hotelowych i upominków korporacyjnych.</p>
  <details class="mb-6 group/spec">
- <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Specyfikacja</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
+ <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Specyfikacja</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
  <div class="p-4 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-[11px]"><tbody>
  <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Wymiary</td><td class="py-2 font-bold text-slate-700">75mm x 75mm x 36,5mm</td></tr>
  <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Waga</td><td class="py-2 font-bold text-slate-700">260g / 410g</td></tr>
@@ -377,7 +377,7 @@ ruPath: "produkty/besprovodnye-zaryadki/stanciya-3-v-1/"
  </div>
  <p class="text-[11px] text-slate-500 mb-6 italic leading-relaxed">Definitywne rozwiązanie do ładowania składanych urządzeń z dużym ekranem. Specjalnie zaprojektowana z rozszerzoną powierzchnią ładowania dla Samsung Fold i Xiaomi MIX, zapewniając stabilne 15W dla smartfona, zegarka i słuchawek jednocześnie.</p>
  <details class="mb-6 group/spec">
- <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Specyfikacja</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
+ <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Specyfikacja</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
  <div class="p-4 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-[11px]"><tbody>
  <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Wymiary</td><td class="py-2 font-bold text-slate-700">146mm x 121mm x 26mm</td></tr>
  <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Waga</td><td class="py-2 font-bold text-slate-700">227,5g / 306g</td></tr>
@@ -405,7 +405,7 @@ ruPath: "produkty/besprovodnye-zaryadki/stanciya-3-v-1/"
  </div>
  <p class="text-[11px] text-slate-500 mb-6 italic leading-relaxed">Rozwiązanie Qi2 nowej generacji ze zintegrowanym systemem chłodzenia. Obsługa 25W (Max) dla smartfona, 2,5W dla Watch i 5W dla TWS. Idealna na rynki hurtowe premium.</p>
  <details class="mb-6 group/spec">
- <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Specyfikacja</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
+ <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Specyfikacja</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
  <div class="p-4 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-[11px]"><tbody>
  <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Wymiary</td><td class="py-2 font-bold text-slate-700">67mm x 30mm x 127mm</td></tr>
  <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Waga</td><td class="py-2 font-bold text-slate-700">500g</td></tr>
@@ -436,7 +436,7 @@ ruPath: "produkty/besprovodnye-zaryadki/stanciya-3-v-1/"
  </div>
  <p class="text-[11px] text-slate-500 mb-6 italic leading-relaxed">Łączy szybkie ładowanie Qi2 25W z nocnym światłem ambient. Kompaktowa konstrukcja 70x70x73mm pasuje na szafkę nocną lub biurko. Popularna w pokojach hotelowych i do użytku domowego.</p>
  <details class="mb-6 group/spec">
- <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Specyfikacja</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
+ <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Specyfikacja</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
  <div class="p-4 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-[11px]"><tbody>
  <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Wymiary</td><td class="py-2 font-bold text-slate-700">70mm x 70mm x 73mm</td></tr>
  <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Waga</td><td class="py-2 font-bold text-slate-700">184g / 245g</td></tr>
@@ -467,7 +467,7 @@ ruPath: "produkty/besprovodnye-zaryadki/stanciya-3-v-1/"
  </div>
  <p class="text-[11px] text-slate-500 mb-6 italic leading-relaxed">Design inspirowany kieliszkiem do wina — rozłóż dla potrójnego szybkiego ładowania, złóż w elegancką ozdobę biurka. Ekosystem Apple pełna prędkość ładowania. 360° płynny obrót ze stabilną podstawą.</p>
  <details class="mb-6 group/spec">
- <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Specyfikacja</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
+ <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Specyfikacja</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
  <div class="p-4 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-[11px]"><tbody>
  <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Wymiary</td><td class="py-2 font-bold text-slate-700">75mm x 75mm x 93mm</td></tr>
  <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Waga</td><td class="py-2 font-bold text-slate-700">313g / 383g</td></tr>
@@ -500,7 +500,7 @@ ruPath: "produkty/besprovodnye-zaryadki/stanciya-3-v-1/"
  </div>
  <p class="text-[11px] text-slate-500 mb-6 italic leading-relaxed">Zaprojektowana dla wymagających użytkowników. Wbudowana płytka chłodzenia półstałego i premium powierzchnia szklana utrzymują optymalną temperaturę podczas szybkiego ładowania 15W. Profesjonalne rozwiązanie biurkowe 3-w-1.</p>
  <details class="mb-6 group/spec">
- <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Specyfikacja</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
+ <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Specyfikacja</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
  <div class="p-4 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-[11px]"><tbody>
  <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Wymiary</td><td class="py-2 font-bold text-slate-700">100mm x 100mm x 152mm</td></tr>
  <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Waga</td><td class="py-2 font-bold text-slate-700">320g / 420g</td></tr>
@@ -531,7 +531,7 @@ ruPath: "produkty/besprovodnye-zaryadki/stanciya-3-v-1/"
  </div>
  <p class="text-[11px] text-slate-500 mb-6 italic leading-relaxed">Certyfikowana Qi2 magnetyczna stacja 3-w-1 15W z nocnym światłem ambient przy strefie ładowania słuchawek. Składana konstrukcja wielkości dłoni z magnesem pierścieniowym. Otwory cyrkulacyjne zapobiegają przegrzewaniu. Automatycznie przełącza w tryb podtrzymania po pełnym naładowaniu.</p>
  <details class="mb-6 group/spec">
- <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Specyfikacja</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
+ <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Specyfikacja</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
  <div class="p-4 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-[11px]"><tbody>
  <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Standard</td><td class="py-2 font-bold text-slate-700">Qi2 Certyfikowany</td></tr>
  <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Wejście</td><td class="py-2 font-bold text-slate-700">5V/3A, 9V/3A</td></tr>
@@ -562,7 +562,7 @@ ruPath: "produkty/besprovodnye-zaryadki/stanciya-3-v-1/"
  </div>
  <p class="text-[11px] text-slate-500 mb-6 italic leading-relaxed">Innowacyjna konstrukcja z odpinanym modułem zegarka — ładuj Apple Watch osobno lub jako część stacji. Akrylowe światło atmosferyczne tworzy ciepłą atmosferę przy łóżku. ABS+PC z 15W Qi2 dla iPhone, 2,5W dla Watch, 5W dla TWS. Idealna do zastosowań hotelowych i domowych.</p>
  <details class="mb-6 group/spec">
- <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Specyfikacja</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
+ <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Specyfikacja</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
  <div class="p-4 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-[11px]"><tbody>
  <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Wyjście (Telefon)</td><td class="py-2 font-bold text-slate-700">15W (MAX)</td></tr>
  <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Wyjście (Zegarek)</td><td class="py-2 font-bold text-slate-700">2,5W</td></tr>
@@ -580,12 +580,12 @@ ruPath: "produkty/besprovodnye-zaryadki/stanciya-3-v-1/"
 </section>
 
 <!-- OEM/ODM -->
-<section class="sec bg-slate-50 relative py-16">
+<section id="oem-odm" class="sec bg-slate-50 relative" data-section="content">
  <div class="container-wide">
  <h2 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4 text-center">Personalizacja OEM/ODM dla <span class="text-brandOrange">Stacji 3-w-1</span></h2>
- <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
- <div class="bg-white rounded-xl p-6 border border-slate-200"><h3 class="font-black text-brandBlue uppercase mb-4 text-sm">OEM (MOQ 500)</h3><ul class="space-y-2 text-sm text-slate-600"><li>Nadruk logo (sitodruk, laser, UV)</li><li>Personalizacja kolorów (Pantone)</li><li>Opakowanie własne z grafiką marki</li><li>Kabel USB-C i zasilacz PD w zestawie</li><li>Czas realizacji: 25-30 dni</li></ul></div>
- <div class="bg-white rounded-xl p-6 border border-slate-200"><h3 class="font-black text-brandBlue uppercase mb-4 text-sm">ODM (MOQ 2 000)</h3><ul class="space-y-2 text-sm text-slate-600"><li>Indywidualny design przemysłowy (CMF)</li><li>Wybór mechanizmu: składany, stacjonarny, TEC</li><li>Konfiguracja mocy (15W / 25W)</li><li>Wsparcie certyfikacji Qi2</li><li>Czas realizacji: 45-60 dni</li></ul></div>
+ <div class="grid md:grid-cols-2 gap-8">
+ <div class="card p-6"><h3 class="font-black text-brandBlue uppercase mb-4 text-sm">OEM (MOQ 500)</h3><ul class="space-y-2 text-sm text-slate-600"><li>Nadruk logo (sitodruk, laser, UV)</li><li>Personalizacja kolorów (Pantone)</li><li>Opakowanie własne z grafiką marki</li><li>Kabel USB-C i zasilacz PD w zestawie</li><li>Czas realizacji: 25-30 dni</li></ul></div>
+ <div class="card p-6"><h3 class="font-black text-brandBlue uppercase mb-4 text-sm">ODM (MOQ 2 000)</h3><ul class="space-y-2 text-sm text-slate-600"><li>Indywidualny design przemysłowy (CMF)</li><li>Wybór mechanizmu: składany, stacjonarny, TEC</li><li>Konfiguracja mocy (15W / 25W)</li><li>Wsparcie certyfikacji Qi2</li><li>Czas realizacji: 45-60 dni</li></ul></div>
  </div>
  <div class="text-center mt-10">
  <button data-action="open-modal" data-product="Stacja 3-w-1 OEM/ODM" class="btn-solid">Poproś o Wycenę Fabryczną</button>
@@ -594,13 +594,13 @@ ruPath: "produkty/besprovodnye-zaryadki/stanciya-3-v-1/"
 </section>
 
 <!-- FAQ -->
-<section class="sec bg-white relative py-16">
+<section id="faq" class="sec bg-white relative" data-section="faq">
  <div class="container-narrow">
  <h2 class="text-3xl lg:text-4xl font-black text-slate-900 uppercase italic tracking-tighter mb-10 text-center">Stacje 3-w-1 <span class="text-brandOrange">FAQ</span></h2>
  <div class="space-y-4">
- <details class="bg-slate-50 rounded-xl p-5 border border-slate-200 group"><summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">Czy stacja 3-w-1 ładuje wszystkie 3 urządzenia jednocześnie?<span class="text-brandOrange group-open:rotate-180 transition">&#9660;</span></summary><p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">Tak. Wszystkie stacje 3-w-1 posiadają 3 niezależne cewki z dedykowanymi układami sterowania mocą. Telefon 15W-25W, zegarek 2,5-5W, słuchawki 5W — wszystko jednocześnie.</p></details>
- <details class="bg-slate-50 rounded-xl p-5 border border-slate-200 group"><summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">Jakie jest MOQ dla stacji 3-w-1 OEM?<span class="text-brandOrange group-open:rotate-180 transition">&#9660;</span></summary><p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">Standardowe modele OEM z własnym logo: MOQ 500 sztuk. Pełne ODM z prywatnym oprzyrządowaniem: 2 000 sztuk. Czas realizacji próbek: 3-7 dni.</p></details>
- <details class="bg-slate-50 rounded-xl p-5 border border-slate-200 group"><summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">Jakie certyfikaty posiadają stacje 3-w-1?<span class="text-brandOrange group-open:rotate-180 transition">&#9660;</span></summary><p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">Wszystkie modele posiadają certyfikat Qi2 WPC, deklarację CE, FCC Part 15, RoHS i REACH. Pełna dokumentacja do rejestracji UOKiK.</p></details>
+ <details class="card-soft p-5 group"><summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">Czy stacja 3-w-1 ładuje wszystkie 3 urządzenia jednocześnie?<span class="text-brandOrange group-open:rotate-180 transition">&#9660;</span></summary><p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">Tak. Wszystkie stacje 3-w-1 posiadają 3 niezależne cewki z dedykowanymi układami sterowania mocą. Telefon 15W-25W, zegarek 2,5-5W, słuchawki 5W — wszystko jednocześnie.</p></details>
+ <details class="card-soft p-5 group"><summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">Jakie jest MOQ dla stacji 3-w-1 OEM?<span class="text-brandOrange group-open:rotate-180 transition">&#9660;</span></summary><p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">Standardowe modele OEM z własnym logo: MOQ 500 sztuk. Pełne ODM z prywatnym oprzyrządowaniem: 2 000 sztuk. Czas realizacji próbek: 3-7 dni.</p></details>
+ <details class="card-soft p-5 group"><summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">Jakie certyfikaty posiadają stacje 3-w-1?<span class="text-brandOrange group-open:rotate-180 transition">&#9660;</span></summary><p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">Wszystkie modele posiadają certyfikat Qi2 WPC, deklarację CE, FCC Part 15, RoHS i REACH. Pełna dokumentacja do rejestracji UOKiK.</p></details>
  </div>
  </div>
 </section>

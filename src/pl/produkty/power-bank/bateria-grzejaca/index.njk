@@ -138,13 +138,13 @@ ruPath: "produkty/poverbanki/greyushchaya-batareya/"
 {% block content %}
 
 <!-- Hero -->
-<section class="relative pt-24 md:pt-28 pb-8 lg:pb-16 bg-white text-slate-900 overflow-hidden">
+<section id="hero" class="relative pt-24 md:pt-28 lg:pt-20 pb-8 lg:pb-20 bg-white text-slate-900 overflow-hidden lg:min-h-[100dvh] lg:flex lg:flex-col lg:justify-center" data-section="hero">
  <div class="absolute inset-0 z-0 pointer-events-none overflow-hidden">
  <div class="absolute top-0 left-0 max-w-full w-64 h-64 bg-brandOrange opacity-20 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
  <div class="absolute bottom-0 right-0 max-w-full w-64 h-64 bg-blue-500 opacity-20 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
  </div>
 
- <div class="container-wide relative z-10 text-center pb-12 lg:pb-12">
+ <div class="container-wide relative z-10 text-center pb-12 lg:pb-0">
  {{ breadcrumb([{name: "Strona Główna", url: "/pl/"}, {name: "Produkty", url: "/pl/produkty/"}, {name: "Power Bank", url: "/pl/produkty/power-bank/"}, {name: "Bateria Grzejąca"}], "none", "mb-6", { variant: "hero" }) }}
 
  <div>
@@ -156,14 +156,14 @@ ruPath: "produkty/poverbanki/greyushchaya-batareya/"
 
  <p class="max-w-2xl mx-auto text-slate-600 text-sm leading-relaxed mt-6 mb-8">Specjalistyczne baterie 7,4V do kurtek, kamizelek, rękawic, skarpet i szalików grzewczych. Kompaktowy format do noszenia, certyfikat CE/PSE, zaprojektowane do zastosowań w odzieży podgrzewanej.</p>
 
- <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-2xl mx-auto mb-10">
- <div class="bg-slate-50 rounded-xl p-4 border border-slate-100"><p class="text-2xl font-black text-brandBlue">7,4V</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Wyjście DC</p></div>
- <div class="bg-slate-50 rounded-xl p-4 border border-slate-100"><p class="text-2xl font-black text-brandOrange">8</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Modeli</p></div>
- <div class="bg-slate-50 rounded-xl p-4 border border-slate-100"><p class="text-2xl font-black text-brandBlue">14400mAh</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Maks. Pojemność</p></div>
- <div class="bg-slate-50 rounded-xl p-4 border border-slate-100"><p class="text-2xl font-black text-brandOrange">500</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">MOQ</p></div>
+ <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
+ <div class="card-soft p-4"><p class="text-2xl font-black text-brandBlue">7,4V</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Wyjście DC</p></div>
+ <div class="card-soft p-4"><p class="text-2xl font-black text-brandOrange">8</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Modeli</p></div>
+ <div class="card-soft p-4"><p class="text-2xl font-black text-brandBlue">14400mAh</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Maks. Pojemność</p></div>
+ <div class="card-soft p-4"><p class="text-2xl font-black text-brandOrange">500</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">MOQ</p></div>
  </div>
 
- <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
+ <div class="btn-pair">
  <button data-action="open-modal" data-product="Bateria Grzejąca" class="btn-wide-lg">
  Poproś o Wycenę Fabryczną
  </button>
@@ -178,7 +178,7 @@ ruPath: "produkty/poverbanki/greyushchaya-batareya/"
 {% include "trust-bar.njk" %}
 
 <!-- Produkty -->
-<section id="produkty" class="sec bg-white relative py-16">
+<section id="produkty" class="sec bg-white relative" data-section="products">
  <div class="container-wide">
  <h2 class="text-2xl font-black text-brandBlue uppercase italic tracking-tighter mb-2">Baterie Grzejące do Odzieży Podgrzewanej</h2>
  <p class="text-slate-500 text-sm mb-10">8 modeli | 1800-14400mAh | Wyjście 5V i 7,4V DC</p>
@@ -209,7 +209,7 @@ ruPath: "produkty/poverbanki/greyushchaya-batareya/"
  </p>
 
  <details class="mb-6 group/spec">
- <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Specyfikacja</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
+ <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Specyfikacja</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
  <div class="p-4 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-[11px]"><tbody>
  <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Rozmiar</td><td class="py-2 font-bold text-slate-700">10 × 7,1 × 2,2cm</td></tr>
  <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Materiał</td><td class="py-2 font-bold text-slate-700">ABS + PC</td></tr>
@@ -249,7 +249,7 @@ ruPath: "produkty/poverbanki/greyushchaya-batareya/"
  </p>
 
  <details class="mb-6 group/spec">
- <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Specyfikacja</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
+ <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Specyfikacja</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
  <div class="p-4 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-[11px]"><tbody>
  <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Rozmiar</td><td class="py-2 font-bold text-slate-700">8,1 × 4,9 × 1,6cm</td></tr>
  <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Waga</td><td class="py-2 font-bold text-slate-700">54g</td></tr>
@@ -292,7 +292,7 @@ ruPath: "produkty/poverbanki/greyushchaya-batareya/"
  </p>
 
  <details class="mb-6 group/spec">
- <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Specyfikacja</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
+ <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Specyfikacja</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
  <div class="p-4 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-[11px]"><tbody>
  <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Rozmiar</td><td class="py-2 font-bold text-slate-700">7,2 × 4,1 × 1,3cm</td></tr>
  <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Waga</td><td class="py-2 font-bold text-slate-700">47g</td></tr>
@@ -334,7 +334,7 @@ ruPath: "produkty/poverbanki/greyushchaya-batareya/"
  </p>
 
  <details class="mb-6 group/spec">
- <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Specyfikacja</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
+ <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Specyfikacja</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
  <div class="p-4 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-[11px]"><tbody>
  <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Rozmiar</td><td class="py-2 font-bold text-slate-700">5,2 × 4,8 × 2,1cm</td></tr>
  <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Waga</td><td class="py-2 font-bold text-slate-700">83g</td></tr>
@@ -374,7 +374,7 @@ ruPath: "produkty/poverbanki/greyushchaya-batareya/"
  </p>
 
  <details class="mb-6 group/spec">
- <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Specyfikacja</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
+ <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Specyfikacja</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
  <div class="p-4 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-[11px]"><tbody>
  <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Rozmiar</td><td class="py-2 font-bold text-slate-700">8,5 × 6,3 × 2,2cm</td></tr>
  <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Materiał</td><td class="py-2 font-bold text-slate-700">ABS + PC</td></tr>
@@ -413,7 +413,7 @@ ruPath: "produkty/poverbanki/greyushchaya-batareya/"
  </p>
 
  <details class="mb-6 group/spec">
- <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Specyfikacja</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
+ <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Specyfikacja</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
  <div class="p-4 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-[11px]"><tbody>
  <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Pojemność Baterii</td><td class="py-2 font-bold text-slate-700">4000mAh / 3,7V / 14,8Wh</td></tr>
  <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Typ Ogniwa</td><td class="py-2 font-bold text-slate-700">Li-Polymer</td></tr>
@@ -454,7 +454,7 @@ ruPath: "produkty/poverbanki/greyushchaya-batareya/"
  </p>
 
  <details class="mb-6 group/spec">
- <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Specyfikacja</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
+ <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Specyfikacja</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
  <div class="p-4 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-[11px]"><tbody>
  <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Pojemność Baterii</td><td class="py-2 font-bold text-slate-700">9600mAh / 3,63V / 34,85Wh</td></tr>
  <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Typ Ogniwa</td><td class="py-2 font-bold text-slate-700">Litowo-Jonowe</td></tr>
@@ -496,7 +496,7 @@ ruPath: "produkty/poverbanki/greyushchaya-batareya/"
  </p>
 
  <details class="mb-6 group/spec">
- <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Specyfikacja</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
+ <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Specyfikacja</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
  <div class="p-4 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-[11px]"><tbody>
  <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Pojemność Baterii</td><td class="py-2 font-bold text-slate-700">10000mAh / 3,7V / 37Wh</td></tr>
  <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Typ Ogniwa</td><td class="py-2 font-bold text-slate-700">Li-Polymer</td></tr>
@@ -525,7 +525,7 @@ ruPath: "produkty/poverbanki/greyushchaya-batareya/"
 </div>
 
 <!-- Jak Działają Baterie Grzejące -->
-<section class="sec bg-white relative py-16">
+<section id="jak-dzialaja-baterie-grzejace" class="sec bg-white relative" data-section="content">
  <div class="container-wide">
  <h2 class="section-title text-center">Jak Działają Baterie Grzejące</h2>
  <p class="text-center text-slate-500 text-sm max-w-3xl mx-auto mb-8">Baterie grzejące dostarczają stałe napięcie DC do rezystancyjnych elementów grzewczych wtopionych w tkaninę odzieży. W przeciwieństwie do standardowych power banków USB, są zoptymalizowane pod kątem ciągłego rozładowania wysokoprądowego w niskich temperaturach.</p>
@@ -535,16 +535,16 @@ ruPath: "produkty/poverbanki/greyushchaya-batareya/"
   <cite class="block text-xs text-slate-400 mt-2 not-italic">— <a href="https://www.techsciresearch.com/report/heated-clothing-market/14740.html" target="_blank" rel="noopener noreferrer" class="text-brandOrange hover:underline">TechSci Research</a>, Heated Clothing Market 2026-2031; <a href="https://qyang.livedoor.blog/archives/10959428.html" target="_blank" rel="noopener noreferrer" class="text-brandOrange hover:underline">QY Research</a>, Battery Heated Warm Jackets Market 2025-2031</cite>
  </blockquote>
 
- <div class="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
- <div class="bg-slate-50 rounded-xl p-6 border border-slate-100 text-center"><p class="text-3xl font-black text-brandBlue mb-2">7,4V DC</p><p class="text-sm font-bold text-slate-700 mb-2">Stałe Napięcie</p><p class="text-xs text-slate-500">Konfiguracja szeregowa dwóch ogniw zapewnia stabilne wyjście 7,4V dla równomiernej wydajności grzewczej na wszystkich poziomach temperatury.</p></div>
- <div class="bg-slate-50 rounded-xl p-6 border border-slate-100 text-center"><p class="text-3xl font-black text-brandOrange mb-2">-20°C do 60°C</p><p class="text-sm font-bold text-slate-700 mb-2">Zakres Pracy</p><p class="text-xs text-slate-500">Zaprojektowane do rozładowania w niskich temperaturach. Utrzymują pojemność w temperaturach poniżej zera, gdzie standardowe ogniwa Li-Ion tracą 30-50% wydajności.</p></div>
- <div class="bg-slate-50 rounded-xl p-6 border border-slate-100 text-center"><p class="text-3xl font-black text-brandBlue mb-2">500+</p><p class="text-sm font-bold text-slate-700 mb-2">Cykli</p><p class="text-xs text-slate-500">Ogniwa premium 18650 o żywotności 500+ pełnych cykli ładowania-rozładowania. Zbudowane z myślą o niezawodności sezon po sezonie w odzieży grzewczej.</p></div>
+ <div class="grid md:grid-cols-3 gap-8">
+ <div class="card-soft p-6 text-center"><p class="text-3xl font-black text-brandBlue mb-2">7,4V DC</p><p class="text-sm font-bold text-slate-700 mb-2">Stałe Napięcie</p><p class="text-xs text-slate-500">Konfiguracja szeregowa dwóch ogniw zapewnia stabilne wyjście 7,4V dla równomiernej wydajności grzewczej na wszystkich poziomach temperatury.</p></div>
+ <div class="card-soft p-6 text-center"><p class="text-3xl font-black text-brandOrange mb-2">-20°C do 60°C</p><p class="text-sm font-bold text-slate-700 mb-2">Zakres Pracy</p><p class="text-xs text-slate-500">Zaprojektowane do rozładowania w niskich temperaturach. Utrzymują pojemność w temperaturach poniżej zera, gdzie standardowe ogniwa Li-Ion tracą 30-50% wydajności.</p></div>
+ <div class="card-soft p-6 text-center"><p class="text-3xl font-black text-brandBlue mb-2">500+</p><p class="text-sm font-bold text-slate-700 mb-2">Cykli</p><p class="text-xs text-slate-500">Ogniwa premium 18650 o żywotności 500+ pełnych cykli ładowania-rozładowania. Zbudowane z myślą o niezawodności sezon po sezonie w odzieży grzewczej.</p></div>
  </div>
  </div>
 </section>
 
 <!-- Bateria Grzejąca vs Standardowy Power Bank -->
-<section class="sec bg-slate-50 relative py-16">
+<section id="bateria-grzejaca-vs-standardowy-power-bank" class="sec bg-slate-50 relative" data-section="comparison">
  <div class="container-content">
   <div class="text-center mb-12 reveal"><h2 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4">Bateria Grzejąca vs. <span class="text-brandOrange">Standardowy Power Bank</span></h2><p class="text-slate-500 max-w-2xl mx-auto">Dlaczego odzież grzewcza potrzebuje specjalistycznych baterii — nie każdy power bank USB się nada.</p></div>
   <div class="overflow-x-auto reveal"><table class="w-full border-collapse bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-200">
@@ -562,30 +562,30 @@ ruPath: "produkty/poverbanki/greyushchaya-batareya/"
 </section>
 
 <!-- Dlaczego WOWOHCOOL -->
-<section class="sec bg-slate-50 relative py-16">
+<section id="dlaczego-wowohcool" class="sec bg-slate-50 relative" data-section="content">
  <div class="container-wide">
  <h2 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4 text-center">Dlaczego <span class="highlight-line text-brandBlue">WOWOH</span><span class="text-brandOrange">COOL</span> do <span class="text-brandOrange">Baterii Odzieży Grzewczej</span></h2>
  <p class="text-center text-slate-500 text-sm max-w-2xl mx-auto mb-12">Specjalistyczna wiedza w projektowaniu baterii noszonych. Od kompaktowych rękawic po kurtki o dużej pojemności — każdy format zaprojektowany z myślą o bezpiecznym i niezawodnym dostarczaniu ciepła.</p>
 
- <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
- <div class="bg-white rounded-xl p-6 border border-slate-200 shadow-sm"><h3 class="font-black text-brandBlue uppercase mb-3 text-sm">Ekspertyza Formatów Noszonych</h3><p class="text-sm text-slate-600 leading-relaxed">Mini baterie do rękawic i skarpet, smukłe pakiety do kurtek, ultra-kompaktowe do szalików. Projektujemy układ ogniw dokładnie dopasowany do wymiarów kieszeni Twojej odzieży.</p></div>
- <div class="bg-white rounded-xl p-6 border border-slate-200 shadow-sm"><h3 class="font-black text-brandBlue uppercase mb-3 text-sm">Integracja z Kontrolerem Temperatury</h3><p class="text-sm text-slate-600 leading-relaxed">Kompatybilne z 3- i 5-poziomowymi kontrolerami ciepła. Dostarczamy dopasowane pary bateria + kontroler, testowane razem pod kątem stabilnego wyjścia na wszystkich poziomach grzania.</p></div>
- <div class="bg-white rounded-xl p-6 border border-slate-200 shadow-sm"><h3 class="font-black text-brandBlue uppercase mb-3 text-sm">Certyfikat CE/PSE</h3><p class="text-sm text-slate-600 leading-relaxed">Pełna dokumentacja certyfikacyjna dla UE (CE), Japonii (PSE) i globalnego transportu lotniczego (UN38.3). Wymagana przez główne kanały handlu detalicznego i e-commerce na całym świecie.</p></div>
- <div class="bg-white rounded-xl p-6 border border-slate-200 shadow-sm"><h3 class="font-black text-brandBlue uppercase mb-3 text-sm">Elastyczność Popytu Sezonowego</h3><p class="text-sm text-slate-600 leading-relaxed">Odzież grzewcza jest sezonowa. Oferujemy elastyczne MOQ (500 sztuk) i szybką realizację, aby pomóc markom zwiększyć produkcję przed zimą bez nadmiernego angażowania kapitału.</p></div>
- <div class="bg-white rounded-xl p-6 border border-slate-200 shadow-sm"><h3 class="font-black text-brandBlue uppercase mb-3 text-sm">Bezpieczeństwo Klasy Noszonej</h3><p class="text-sm text-slate-600 leading-relaxed">Zabezpieczenia OTP (nadmierna temperatura), OCP (nadmierny prąd), SCP (zwarcie) w standardzie. Krytyczne dla baterii noszonych bezpośrednio przy ciele.</p></div>
- <div class="bg-white rounded-xl p-6 border border-slate-200 shadow-sm"><h3 class="font-black text-brandBlue uppercase mb-3 text-sm">Niestandardowe Opcje Złączy</h3><p class="text-sm text-slate-600 leading-relaxed">DC baryłkowe (3,5mm, 5,5mm), magnetyczne piny pogo i złącza własne. Wyślij nam próbkę swojej istniejącej odzieży, a my dopasujemy złącze dokładnie.</p></div>
+ <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+ <div class="card p-6 shadow-sm"><h3 class="font-black text-brandBlue uppercase mb-3 text-sm">Ekspertyza Formatów Noszonych</h3><p class="text-sm text-slate-600 leading-relaxed">Mini baterie do rękawic i skarpet, smukłe pakiety do kurtek, ultra-kompaktowe do szalików. Projektujemy układ ogniw dokładnie dopasowany do wymiarów kieszeni Twojej odzieży.</p></div>
+ <div class="card p-6 shadow-sm"><h3 class="font-black text-brandBlue uppercase mb-3 text-sm">Integracja z Kontrolerem Temperatury</h3><p class="text-sm text-slate-600 leading-relaxed">Kompatybilne z 3- i 5-poziomowymi kontrolerami ciepła. Dostarczamy dopasowane pary bateria + kontroler, testowane razem pod kątem stabilnego wyjścia na wszystkich poziomach grzania.</p></div>
+ <div class="card p-6 shadow-sm"><h3 class="font-black text-brandBlue uppercase mb-3 text-sm">Certyfikat CE/PSE</h3><p class="text-sm text-slate-600 leading-relaxed">Pełna dokumentacja certyfikacyjna dla UE (CE), Japonii (PSE) i globalnego transportu lotniczego (UN38.3). Wymagana przez główne kanały handlu detalicznego i e-commerce na całym świecie.</p></div>
+ <div class="card p-6 shadow-sm"><h3 class="font-black text-brandBlue uppercase mb-3 text-sm">Elastyczność Popytu Sezonowego</h3><p class="text-sm text-slate-600 leading-relaxed">Odzież grzewcza jest sezonowa. Oferujemy elastyczne MOQ (500 sztuk) i szybką realizację, aby pomóc markom zwiększyć produkcję przed zimą bez nadmiernego angażowania kapitału.</p></div>
+ <div class="card p-6 shadow-sm"><h3 class="font-black text-brandBlue uppercase mb-3 text-sm">Bezpieczeństwo Klasy Noszonej</h3><p class="text-sm text-slate-600 leading-relaxed">Zabezpieczenia OTP (nadmierna temperatura), OCP (nadmierny prąd), SCP (zwarcie) w standardzie. Krytyczne dla baterii noszonych bezpośrednio przy ciele.</p></div>
+ <div class="card p-6 shadow-sm"><h3 class="font-black text-brandBlue uppercase mb-3 text-sm">Niestandardowe Opcje Złączy</h3><p class="text-sm text-slate-600 leading-relaxed">DC baryłkowe (3,5mm, 5,5mm), magnetyczne piny pogo i złącza własne. Wyślij nam próbkę swojej istniejącej odzieży, a my dopasujemy złącze dokładnie.</p></div>
  </div>
  </div>
 </section>
 
 <!-- Personalizacja OEM/ODM -->
-<section class="sec bg-white relative py-16">
+<section id="personalizacja-oem-odm" class="sec bg-white relative" data-section="content">
  <div class="container-wide">
  <h2 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4 text-center">Personalizacja OEM/ODM</h2>
  <p class="text-center text-slate-500 text-sm max-w-2xl mx-auto mb-12">Pełna personalizacja od dopasowania złączy po dedykowane dostosowanie pojemności.</p>
- <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
- <div class="bg-slate-50 rounded-xl p-6 border border-slate-200"><h3 class="font-black text-brandBlue uppercase mb-4 text-sm">OEM (MOQ 500)</h3><ul class="space-y-2 text-sm text-slate-600"><li>Nadruk logo (sitodruk, laser, UV)</li><li>Personalizacja kolorów (Pantone)</li><li>Opakowanie niestandardowe</li><li>Wybór typu złącza</li><li>Wielojęzyczne instrukcje</li><li>Czas: 25-30 dni</li></ul></div>
- <div class="bg-slate-50 rounded-xl p-6 border border-slate-200"><h3 class="font-black text-brandBlue uppercase mb-4 text-sm">ODM (MOQ 1000-2000)</h3><ul class="space-y-2 text-sm text-slate-600"><li>Niestandardowe typy złączy</li><li>Dostosowanie pojemności</li><li>Parowanie z kontrolerem temperatury</li><li>Niestandardowe wymiary obudowy</li><li>Wsparcie wielostrefowych obwodów</li><li>Czas: 45-60 dni</li></ul></div>
+ <div class="grid md:grid-cols-2 gap-8">
+ <div class="card-soft p-6"><h3 class="font-black text-brandBlue uppercase mb-4 text-sm">OEM (MOQ 500)</h3><ul class="space-y-2 text-sm text-slate-600"><li>Nadruk logo (sitodruk, laser, UV)</li><li>Personalizacja kolorów (Pantone)</li><li>Opakowanie niestandardowe</li><li>Wybór typu złącza</li><li>Wielojęzyczne instrukcje</li><li>Czas: 25-30 dni</li></ul></div>
+ <div class="card-soft p-6"><h3 class="font-black text-brandBlue uppercase mb-4 text-sm">ODM (MOQ 1000-2000)</h3><ul class="space-y-2 text-sm text-slate-600"><li>Niestandardowe typy złączy</li><li>Dostosowanie pojemności</li><li>Parowanie z kontrolerem temperatury</li><li>Niestandardowe wymiary obudowy</li><li>Wsparcie wielostrefowych obwodów</li><li>Czas: 45-60 dni</li></ul></div>
  </div>
  <div class="text-center mt-10">
   <p class="text-slate-500 text-sm mb-4">Gotowy, aby rozpocząć projekt OEM?</p>
@@ -595,27 +595,27 @@ ruPath: "produkty/poverbanki/greyushchaya-batareya/"
 </section>
 
 <!-- Cross-Category Internal Links -->
-<section class="sec bg-slate-50 relative py-12">
- <div class="container-content">
+<section id="cross-category-internal-links" class="sec bg-slate-50 relative py-12" data-section="related">
+ <div class="container-wide">
  <p class="text-center text-slate-500 text-sm mb-6">Poznaj pozostałe kategorie power banków WOWOHCOOL:</p>
  <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
- <a href="/pl/produkty/power-bank/polstaly/" class="block bg-white rounded-xl p-4 border border-slate-200 hover:border-brandOrange hover:shadow-md transition text-center"><p class="font-black text-brandBlue text-sm uppercase mb-1">Półstały</p><p class="text-[10px] text-slate-500">Bateria Nowej Gen.</p></a>
- <a href="/pl/produkty/power-bank/hybryda-2-w-1/" class="block bg-white rounded-xl p-4 border border-slate-200 hover:border-brandOrange hover:shadow-md transition text-center"><p class="font-black text-brandBlue text-sm uppercase mb-1">Hybryda 2-w-1</p><p class="text-[10px] text-slate-500">Ładowarka + Power Bank</p></a>
- <a href="/pl/produkty/power-bank/do-laptopa/" class="block bg-white rounded-xl p-4 border border-slate-200 hover:border-brandOrange hover:shadow-md transition text-center"><p class="font-black text-brandBlue text-sm uppercase mb-1">Do Laptopa</p><p class="text-[10px] text-slate-500">65W–240W PD 3.1</p></a>
- <a href="/pl/produkty/power-bank/" class="block bg-white rounded-xl p-4 border border-slate-200 hover:border-brandOrange hover:shadow-md transition text-center"><p class="font-black text-brandBlue text-sm uppercase mb-1">Wszystkie Power Banki</p><p class="text-[10px] text-slate-500">6 kategorii, 40 modeli</p></a>
+ <a href="/pl/produkty/power-bank/polstaly/" class="card block p-4 hover:border-brandOrange hover:shadow-md transition text-center"><p class="font-black text-brandBlue text-sm uppercase mb-1">Półstały</p><p class="text-[10px] text-slate-500">Bateria Nowej Gen.</p></a>
+ <a href="/pl/produkty/power-bank/hybryda-2-w-1/" class="card block p-4 hover:border-brandOrange hover:shadow-md transition text-center"><p class="font-black text-brandBlue text-sm uppercase mb-1">Hybryda 2-w-1</p><p class="text-[10px] text-slate-500">Ładowarka + Power Bank</p></a>
+ <a href="/pl/produkty/power-bank/do-laptopa/" class="card block p-4 hover:border-brandOrange hover:shadow-md transition text-center"><p class="font-black text-brandBlue text-sm uppercase mb-1">Do Laptopa</p><p class="text-[10px] text-slate-500">65W–240W PD 3.1</p></a>
+ <a href="/pl/produkty/power-bank/" class="card block p-4 hover:border-brandOrange hover:shadow-md transition text-center"><p class="font-black text-brandBlue text-sm uppercase mb-1">Wszystkie Power Banki</p><p class="text-[10px] text-slate-500">6 kategorii, 40 modeli</p></a>
  </div>
  </div>
 </section>
 
 <!-- FAQ -->
-<section class="sec bg-white relative py-16">
+<section id="faq" class="sec bg-white relative" data-section="faq">
  <div class="container-narrow">
  <h2 class="text-3xl lg:text-4xl font-black text-slate-900 uppercase italic tracking-tighter mb-10 text-center">Bateria Grzejąca <span class="text-brandOrange">FAQ</span></h2>
  <div class="space-y-4">
- <details class="bg-slate-50 rounded-xl p-5 border border-slate-200 group"><summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">Jakiego napięcia baterii używają kurtki grzewcze?<span class="text-brandOrange group-open:rotate-180 transition">▼</span></summary><p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">Większość kurtek i kamizelek grzewczych używa baterii 7,4V DC. Zapewnia to optymalną moc grzewczą przy zachowaniu kompaktowych rozmiarów i bezpieczeństwa w zastosowaniach noszonych. Niektóre akcesoria grzewcze o niższej mocy, takie jak poduszki, używają zamiast tego wyjścia USB 5V.</p></details>
- <details class="bg-slate-50 rounded-xl p-5 border border-slate-200 group"><summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">Jakie jest MOQ dla baterii grzejących OEM?<span class="text-brandOrange group-open:rotate-180 transition">▼</span></summary><p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">MOQ zaczyna się od 500 sztuk dla standardowych modeli OEM z nadrukiem logo. Niestandardowe ODM z nowymi typami złączy lub dostosowaniem pojemności: 1000–2000 sztuk. Czas realizacji próbki: 3-7 dni.</p></details>
- <details class="bg-slate-50 rounded-xl p-5 border border-slate-200 group"><summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">Czy baterie do kurtek grzewczych można przewozić samolotem?<span class="text-brandOrange group-open:rotate-180 transition">▼</span></summary><p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">Tak. Baterie poniżej 100Wh są dozwolone w bagażu podręcznym bez uprzedniej zgody linii lotniczych. Wszystkie modele posiadają certyfikat UN38.3 z dokumentacją MSDS.</p></details>
- <details class="bg-slate-50 rounded-xl p-5 border border-slate-200 group"><summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">Jakich certyfikatów potrzebują baterie do odzieży grzewczej na Amazon?<span class="text-brandOrange group-open:rotate-180 transition">▼</span></summary><p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">Amazon US wymaga certyfikacji UL (UL 2054 lub UL 1642). Dodatkowo UN38.3 do transportu, FCC do listingu. WOWOHCOOL dostarcza CE/FCC/RoHS jako standard i pomaga w aplikacji o certyfikat UL.</p></details>
+ <details class="card-soft p-5 group"><summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">Jakiego napięcia baterii używają kurtki grzewcze?<span class="text-brandOrange group-open:rotate-180 transition">▼</span></summary><p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">Większość kurtek i kamizelek grzewczych używa baterii 7,4V DC. Zapewnia to optymalną moc grzewczą przy zachowaniu kompaktowych rozmiarów i bezpieczeństwa w zastosowaniach noszonych. Niektóre akcesoria grzewcze o niższej mocy, takie jak poduszki, używają zamiast tego wyjścia USB 5V.</p></details>
+ <details class="card-soft p-5 group"><summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">Jakie jest MOQ dla baterii grzejących OEM?<span class="text-brandOrange group-open:rotate-180 transition">▼</span></summary><p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">MOQ zaczyna się od 500 sztuk dla standardowych modeli OEM z nadrukiem logo. Niestandardowe ODM z nowymi typami złączy lub dostosowaniem pojemności: 1000–2000 sztuk. Czas realizacji próbki: 3-7 dni.</p></details>
+ <details class="card-soft p-5 group"><summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">Czy baterie do kurtek grzewczych można przewozić samolotem?<span class="text-brandOrange group-open:rotate-180 transition">▼</span></summary><p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">Tak. Baterie poniżej 100Wh są dozwolone w bagażu podręcznym bez uprzedniej zgody linii lotniczych. Wszystkie modele posiadają certyfikat UN38.3 z dokumentacją MSDS.</p></details>
+ <details class="card-soft p-5 group"><summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">Jakich certyfikatów potrzebują baterie do odzieży grzewczej na Amazon?<span class="text-brandOrange group-open:rotate-180 transition">▼</span></summary><p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">Amazon US wymaga certyfikacji UL (UL 2054 lub UL 1642). Dodatkowo UN38.3 do transportu, FCC do listingu. WOWOHCOOL dostarcza CE/FCC/RoHS jako standard i pomaga w aplikacji o certyfikat UL.</p></details>
  </div>
  </div>
 </section>

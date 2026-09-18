@@ -75,26 +75,26 @@ plPath: "produkty/power-bank/do-laptopa/"
 {% from "breadcrumb.njk" import breadcrumb %}
 
 <!-- HERO -->
-<section class="pt-24 md:pt-28 pb-16 md:pb-20 bg-gradient-to-br from-slate-50 via-white to-orange-50">
+<section id="hero" class="pt-24 md:pt-28 lg:pt-20 pb-16 md:pb-20 bg-gradient-to-br from-slate-50 via-white to-orange-50 lg:min-h-[100dvh] lg:flex lg:flex-col lg:justify-center" data-section="hero">
  <div class="container-wide">
   {{ breadcrumb([{name:"Inicio",url:"/es/"},{name:"Productos",url:"/es/productos/"},{name:"Power Bank",url:"/es/productos/powerbank/"},{name:"Power bank portátil"}], "none", "mb-6", { variant: "hero" }) }}
   <div class="grid lg:grid-cols-2 gap-12 items-center">
    <div class="reveal order-2 lg:order-1">
-    <p class="text-brandOrange text-xs font-bold tracking-widest uppercase mb-3">PD 3.1 &middot; 240W</p>
-    <h1 class="text-3xl md:text-5xl font-black text-brandBlue leading-tight mb-6 italic uppercase">Power bank<br><span class="text-brandOrange">portátil PD 3.1 240W</span></h1>
+    <div class="badge-capsule mb-6 uppercase tracking-widest">PD 3.1 &middot; 240W</div>
+    <h1 class="text-3xl md:text-5xl font-black text-brandBlue leading-tight mb-6 italic uppercase tracking-tighter">Power bank<br><span class="text-brandOrange">portátil PD 3.1 240W</span></h1>
     <p class="text-slate-600 text-lg leading-relaxed mb-6">4 modelos de alta potencia para MacBook Pro, Dell XPS, ThinkPad y portátiles gaming. <strong>65W a 240W PD 3.1</strong>, 20.000-27.000mAh. <strong>Límite 99,9Wh</strong>, totalmente apta para vuelo en equipaje de mano.</p>
     <div class="flex flex-wrap gap-2 mb-8">
      <span class="trust-badge">PD 3.1 240W</span>
      <span class="trust-badge">99,9Wh apta vuelo</span>
      <span class="trust-badge">UN38.3 + MSDS</span>
     </div>
-    <div class="flex flex-wrap gap-4">
-     <button data-action="open-modal" class="btn-primary cursor-pointer">Solicitar precio fábrica &rarr;</button>
-     <a href="#modelos" class="btn-secondary">Ver modelos</a>
+    <div class="btn-pair">
+     <button data-action="open-modal" class="btn-solid cursor-pointer">Solicitar precio fábrica &rarr;</button>
+     <a href="#modelos" class="btn-ghost-lg">Ver modelos</a>
     </div>
    </div>
    <div class="reveal order-1 lg:order-2">
-    <div class="bg-white rounded-2xl shadow-xl p-6 md:p-8 border border-slate-100">
+    <div class="card-lg shadow-xl p-6 md:p-8 max-w-[480px] mx-auto">
      <img src="/image/product/power-bank/wop23-240w-power-bank.webp" srcset="/image/product/power-bank/wop23-240w-power-bank-750w.webp 750w, /image/product/power-bank/wop23-240w-power-bank.webp 1100w" sizes="(min-width: 1440px) 526px, (min-width: 1280px) 526px, (min-width: 1024px) 398px, (min-width: 768px) 654px, (min-width: 430px) 382px, 327px" alt="Power bank portátil WOP23 240W PD 3.1 para MacBook Pro" width="1100" height="1100" class="w-full h-auto object-contain" loading="eager">
     </div>
    </div>
@@ -106,7 +106,7 @@ plPath: "produkty/power-bank/do-laptopa/"
 
 
 <!-- MODELOS -->
-<section id="modelos" class="py-16 bg-white">
+<section id="modelos" class="sec bg-white" data-section="products">
  <div class="container-wide">
   {{ sectionHeader('Gama', '4 Power Banks Portátiles <span class="text-brandOrange">OEM</span> de alta potencia', 'Desde 65W para ultrabooks hasta 240W para workstations profesionales y portátiles gaming.', {mb: 'mb-12'}) }}
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -120,7 +120,7 @@ plPath: "produkty/power-bank/do-laptopa/"
      <div class="flex items-center space-x-2"><svg class="icon-feature text-brandOrange text-[11px]" aria-hidden="true" focusable="false" viewBox="0 0 576 512"><path d="M482.3 192c34.2 0 93.7 29 93.7 64 0 36-59.5 64-93.7 64H395.5l-58.4 144H280l32.5-144H136.6L96 432H32l32-144L0 192h64l40.6 80h208.5L280 128h57.1l58.4 144H482.3z" fill="currentColor"/></svg><span class="text-[11px] font-bold text-slate-500 uppercase">IATA equipaje mano<br><span class="text-[10px] font-normal text-slate-400">MacBook Pro 16/Gaming</span></span></div></div>
     <p class="text-[11px] text-slate-500 mb-6 italic leading-relaxed">Power bank profesional con PD 3.1 240W. Carga MacBook Pro 16, Dell XPS 17 y portatiles gaming.</p>
     <details class="mb-6 group/spec">
-     <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Especificaciones</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
+     <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Especificaciones</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
      <div class="p-4 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-[11px]"><tbody>
      <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Capacidad</td><td class="py-2 font-bold text-slate-700">27000mAh / 97.2Wh</td></tr>
      <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Capacidad nominal</td><td class="py-2 font-bold text-slate-700">16000mAh (5V/2A)</td></tr>
@@ -145,7 +145,7 @@ plPath: "produkty/power-bank/do-laptopa/"
      <div class="flex items-center space-x-2"><svg class="icon-feature text-brandOrange text-[11px]" aria-hidden="true" focusable="false" viewBox="0 0 576 512"><path d="M482.3 192c34.2 0 93.7 29 93.7 64 0 36-59.5 64-93.7 64H395.5l-58.4 144H280l32.5-144H136.6L96 432H32l32-144L0 192h64l40.6 80h208.5L280 128h57.1l58.4 144H482.3z" fill="currentColor"/></svg><span class="text-[11px] font-bold text-slate-500 uppercase">IATA equipaje mano<br><span class="text-[10px] font-normal text-slate-400">Workstation</span></span></div></div>
     <p class="text-[11px] text-slate-500 mb-6 italic leading-relaxed">Power bank 27.000mAh PD 130W con pantalla digital. Perfecta para MacBook Pro y workstations.</p>
     <details class="mb-6 group/spec">
-     <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Especificaciones</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
+     <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Especificaciones</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
      <div class="p-4 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-[11px]"><tbody>
      <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Capacidad</td><td class="py-2 font-bold text-slate-700">20000mAh / 72Wh</td></tr>
      <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Capacidad nominal</td><td class="py-2 font-bold text-slate-700">12000mAh (5V/2A)</td></tr>
@@ -170,7 +170,7 @@ plPath: "produkty/power-bank/do-laptopa/"
      <div class="flex items-center space-x-2"><svg class="icon-feature text-brandOrange text-[11px]" aria-hidden="true" focusable="false" viewBox="0 0 576 512"><path d="M482.3 192c34.2 0 93.7 29 93.7 64 0 36-59.5 64-93.7 64H395.5l-58.4 144H280l32.5-144H136.6L96 432H32l32-144L0 192h64l40.6 80h208.5L280 128h57.1l58.4 144H482.3z" fill="currentColor"/></svg><span class="text-[11px] font-bold text-slate-500 uppercase">IATA equipaje mano<br><span class="text-[10px] font-normal text-slate-400">MacBook Air/Ultrabook</span></span></div></div>
     <p class="text-[11px] text-slate-500 mb-6 italic leading-relaxed">Power bank 20.000mAh para portatil con cables Type-C + Lightning integrados. PD 65W.</p>
     <details class="mb-6 group/spec">
-     <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Especificaciones</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
+     <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Especificaciones</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
      <div class="p-4 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-[11px]"><tbody>
      <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Capacidad</td><td class="py-2 font-bold text-slate-700">20000mAh (5000mAh×4S) / 15.4V / 1.5C</td></tr>
      <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Tipo de celda</td><td class="py-2 font-bold text-slate-700">Li-Polymer (686074)</td></tr>
@@ -199,7 +199,7 @@ plPath: "produkty/power-bank/do-laptopa/"
      <div class="flex items-center space-x-2"><svg class="icon-feature text-brandOrange text-[11px]" aria-hidden="true" focusable="false" viewBox="0 0 576 512"><path d="M482.3 192c34.2 0 93.7 29 93.7 64 0 36-59.5 64-93.7 64H395.5l-58.4 144H280l32.5-144H136.6L96 432H32l32-144L0 192h64l40.6 80h208.5L280 128h57.1l58.4 144H482.3z" fill="currentColor"/></svg><span class="text-[11px] font-bold text-slate-500 uppercase">IATA equipaje mano<br><span class="text-[10px] font-normal text-slate-400">Multi-Port</span></span></div></div>
     <p class="text-[11px] text-slate-500 mb-6 italic leading-relaxed">Power bank alto rendimiento 67W PD + PPS. 20.000mAh, 2x Type-C + USB-A.</p>
     <details class="mb-6 group/spec">
-     <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Especificaciones</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
+     <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Especificaciones</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
      <div class="p-4 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-[11px]"><tbody>
      <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Capacidad</td><td class="py-2 font-bold text-slate-700">20000mAh (4×5000mAh cells)</td></tr>
      <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Energia batería</td><td class="py-2 font-bold text-slate-700">74Wh (5000mAh × 14.8V)</td></tr>
@@ -218,7 +218,7 @@ plPath: "produkty/power-bank/do-laptopa/"
 </section>
 
 <!-- MARKET-DATA -->
-<section class="sec bg-white py-8">
+<section id="market-data" class="sec bg-white py-8" data-section="content">
  <div class="container-content">
  <blockquote class="bg-brandOrange/5 border-l-4 border-brandOrange rounded-r-xl px-6 py-5 text-sm text-slate-700 italic leading-relaxed">
   <p>"Los power banks de alta capacidad (>20.000mAh) diseñados específicamente para carga de portátiles representan el segmento premium de mayor crecimiento, con un CAGR proyectado del 9,86% hasta 2031 (TechSci Research). El estándar USB-C PD 3.1 — que permite hasta 240W de potencia bidireccional — es un punto de inflexión estructural. Con 53 millones de portátiles enviados anualmente al mercado estadounidense, los power banks para portátiles están pasando de accesorio de nicho a infraestructura esencial para el trabajo remoto."</p>
@@ -228,7 +228,7 @@ plPath: "produkty/power-bank/do-laptopa/"
 </section>
 
 <!-- COMPATIBILIDAD -->
-<section class="py-16 bg-slate-50">
+<section id="compatibilidad" class="sec bg-slate-50" data-section="comparison">
  <div class="container-content">
   {{ sectionHeader('Compatibilidad', 'Guía de vatios por portátil', '¿Qué potencia de power bank se ajusta a cada portátil? Resumen de los requisitos del fabricante.', {mb: 'mb-12'}) }}
   <div class="overflow-x-auto reveal">
@@ -250,14 +250,14 @@ plPath: "produkty/power-bank/do-laptopa/"
 </section>
 
 <!-- CERTIFICACIONES -->
-<section class="py-16 bg-white">
- <div class="container-content">
+<section id="certificaciones" class="sec bg-white" data-section="trust">
+ <div class="container-wide">
   {{ sectionHeader('Cumplimiento', 'Certificaciones para power banks de portátil', '', {mb: 'mb-12'}) }}
   <div class="grid md:grid-cols-2 gap-6 reveal">
-   <div class="bg-white rounded-2xl p-6 border border-slate-200">
+   <div class="card-lg p-6">
     <p class="text-sm text-slate-600 leading-relaxed">Desde el 18.08.2024 las obligaciones de productor están en vigor; desde el 18.02.2027 el pasaporte digital de batería será obligatorio. Suministramos documentación técnica, Declaración CE de Conformidad y gestionamos el registro RAEE/EPR en España, Francia, Italia y Portugal.</p>
    </div>
-   <div class="bg-white rounded-2xl p-6 border border-slate-200">
+   <div class="card-lg p-6">
     <h3 class="text-base font-bold text-brandBlue mb-2">Pasaporte digital de batería 2027</h3>
     <p class="text-sm text-slate-600 leading-relaxed">Nuestros power banks para portátil PD 3.1 desde 2026 con etiquetas QR y captura continua de datos de ciclo de vida — preparados para el pasaporte digital de batería obligatorio desde febrero 2027 según el Reglamento UE 2023/1542.</p>
    </div>
@@ -267,37 +267,37 @@ plPath: "produkty/power-bank/do-laptopa/"
 </section>
 
 <!-- OEM/ODM CTA -->
-<section class="py-16 bg-brandBlue text-white">
+<section id="oem-odm-cta" class="sec bg-brandBlue text-white" data-section="cta">
  {% call sectionHeader('OEM / ODM', 'Power Bank Portátil<br><span class="text-brandOrange">con su marca</span>', '', {max: '', mb: '', extra: 'container-content', reveal: false, labelClass: 'text-brandOrange', titleClass: 'text-3xl lg:text-4xl font-black uppercase italic tracking-tighter mb-4'}) %}<p class="text-slate-300 max-w-2xl mx-auto mb-8">MOQ desde 500 unidades. Color, logo y embalaje propios. Para marcas premium suministramos carcasa de aluminio con grabado láser. Muestra en 5-7 días, producción en 25-30 días.</p>
-  <div class="flex flex-wrap gap-4 justify-center">
-   <button data-action="open-modal" class="btn-primary cursor-pointer">Solicitar presupuesto &rarr;</button>
-   <a href="/es/contacto/" class="inline-flex items-center justify-center px-6 py-3 border-2 border-white text-white font-black uppercase italic tracking-widest text-sm rounded-full hover:bg-white hover:text-brandBlue transition-all">Contactar</a>
+  <div class="btn-pair">
+   <button data-action="open-modal" class="btn-solid cursor-pointer">Solicitar presupuesto &rarr;</button>
+   <a href="/es/contacto/" class="inline-flex items-center justify-center px-6 py-4 border-2 border-white text-white font-black uppercase italic tracking-widest text-sm rounded-xl hover:bg-white hover:text-brandBlue transition-all w-full">Contactar</a>
   </div>
  {% endcall %}
 </section>
 
 <!-- FAQ -->
-<section class="py-16 bg-white">
+<section id="faq" class="sec bg-white" data-section="faq">
  <div class="container-narrow">
   {{ sectionHeader('FAQ', 'Preguntas frecuentes power bank portátil', '', {max: '', mb: 'mb-12'}) }}
   <div class="space-y-4">
-   <details class="reveal bg-slate-50 rounded-2xl p-6 border border-slate-200"><summary class="font-bold text-brandBlue cursor-pointer">¿Qué portátiles puede cargar una power bank de 240W?</summary><p class="text-sm text-slate-600 mt-3 leading-relaxed faq-answer">PD 3.1 240W carga MacBook Pro 16" (140W), Dell XPS 15/17 (130W), ThinkPad serie P (170W) y portátiles gaming como Razer Blade 16 (230W). También Steam Deck, Nintendo Switch y todas las tablets USB-C.</p></details>
-   <details class="reveal bg-slate-50 rounded-2xl p-6 border border-slate-200"><summary class="font-bold text-brandBlue cursor-pointer">¿Son aptas para vuelo las power banks de 27.000mAh?</summary><p class="text-sm text-slate-600 mt-3 leading-relaxed faq-answer">Sí. 27.000mAh × 3,7V = 99,9Wh, justo bajo el límite IATA de 100Wh para equipaje de mano sin aprobación. Suministramos certificación UN38.3 y documentación MSDS para cada pedido.</p></details>
-   <details class="reveal bg-slate-50 rounded-2xl p-6 border border-slate-200"><summary class="font-bold text-brandBlue cursor-pointer">¿Qué es PD 3.1 y por qué lo necesito?</summary><p class="text-sm text-slate-600 mt-3 leading-relaxed faq-answer">USB Power Delivery 3.1 (Extended Power Range) amplía la potencia de 100W a 240W con voltajes hasta 48V. Permite carga rápida de portátiles vía USB-C sin conectores propietarios.</p></details>
-   <details class="reveal bg-slate-50 rounded-2xl p-6 border border-slate-200"><summary class="font-bold text-brandBlue cursor-pointer">¿Cuál es el MOQ para power bank portátil OEM?</summary><p class="text-sm text-slate-600 mt-3 leading-relaxed faq-answer">MOQ desde 500 unidades para modelos estándar. OEM personalizado con molde propio: 1.000-2.000 unidades. Muestras en 5-7 días.</p></details>
-   <details class="reveal bg-slate-50 rounded-2xl p-6 border border-slate-200"><summary class="font-bold text-brandBlue cursor-pointer">¿Cuánto carga una power bank de 240W a un MacBook Pro?</summary><p class="text-sm text-slate-600 mt-3 leading-relaxed faq-answer">A 27.000mAh (99,9Wh) carga un MacBook Pro 14" (batería 70Wh) aproximadamente 1,3 veces completa, o un MacBook Pro 16" (100Wh) hasta el 95%. Carga rápida de 0 al 50% en 30 minutos gracias a PD 3.1.</p></details>
+   <details class="card-lg-soft reveal p-6"><summary class="font-bold text-brandBlue cursor-pointer">¿Qué portátiles puede cargar una power bank de 240W?</summary><p class="text-sm text-slate-600 mt-3 leading-relaxed faq-answer">PD 3.1 240W carga MacBook Pro 16" (140W), Dell XPS 15/17 (130W), ThinkPad serie P (170W) y portátiles gaming como Razer Blade 16 (230W). También Steam Deck, Nintendo Switch y todas las tablets USB-C.</p></details>
+   <details class="card-lg-soft reveal p-6"><summary class="font-bold text-brandBlue cursor-pointer">¿Son aptas para vuelo las power banks de 27.000mAh?</summary><p class="text-sm text-slate-600 mt-3 leading-relaxed faq-answer">Sí. 27.000mAh × 3,7V = 99,9Wh, justo bajo el límite IATA de 100Wh para equipaje de mano sin aprobación. Suministramos certificación UN38.3 y documentación MSDS para cada pedido.</p></details>
+   <details class="card-lg-soft reveal p-6"><summary class="font-bold text-brandBlue cursor-pointer">¿Qué es PD 3.1 y por qué lo necesito?</summary><p class="text-sm text-slate-600 mt-3 leading-relaxed faq-answer">USB Power Delivery 3.1 (Extended Power Range) amplía la potencia de 100W a 240W con voltajes hasta 48V. Permite carga rápida de portátiles vía USB-C sin conectores propietarios.</p></details>
+   <details class="card-lg-soft reveal p-6"><summary class="font-bold text-brandBlue cursor-pointer">¿Cuál es el MOQ para power bank portátil OEM?</summary><p class="text-sm text-slate-600 mt-3 leading-relaxed faq-answer">MOQ desde 500 unidades para modelos estándar. OEM personalizado con molde propio: 1.000-2.000 unidades. Muestras en 5-7 días.</p></details>
+   <details class="card-lg-soft reveal p-6"><summary class="font-bold text-brandBlue cursor-pointer">¿Cuánto carga una power bank de 240W a un MacBook Pro?</summary><p class="text-sm text-slate-600 mt-3 leading-relaxed faq-answer">A 27.000mAh (99,9Wh) carga un MacBook Pro 14" (batería 70Wh) aproximadamente 1,3 veces completa, o un MacBook Pro 16" (100Wh) hasta el 95%. Carga rápida de 0 al 50% en 30 minutos gracias a PD 3.1.</p></details>
   </div>
  </div>
 </section>
 
 <!-- Cross-Category Links -->
-	<section class="sec bg-white py-12">
-	 <div class="container-narrow text-center"><p class="text-center text-slate-500 text-sm mb-6">Más categorias de WOWOHCOOL:</p>
+	<section id="cross-category-links" class="sec bg-white py-12" data-section="related">
+	 <div class="container-wide text-center"><p class="text-center text-slate-500 text-sm mb-6">Más categorias de WOWOHCOOL:</p>
 	 <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-	  <a href="/es/productos/powerbank/semi-solido/" class="block bg-white rounded-xl p-4 border border-slate-200 hover:border-brandOrange hover:shadow-md transition text-center"><p class="font-black text-brandBlue text-sm uppercase mb-1">Semi-Solido</p><p class="text-[10px] text-slate-500">CES 2026 Tech</p></a>
-	  <a href="/es/productos/powerbank/magnetico-inalambrico/" class="block bg-white rounded-xl p-4 border border-slate-200 hover:border-brandOrange hover:shadow-md transition text-center"><p class="font-black text-brandBlue text-sm uppercase mb-1">Magnetico Qi2</p><p class="text-[10px] text-slate-500">12 Modelos</p></a>
-	  <a href="/es/productos/powerbank/2-en-1-hibrido/" class="block bg-white rounded-xl p-4 border border-slate-200 hover:border-brandOrange hover:shadow-md transition text-center"><p class="font-black text-brandBlue text-sm uppercase mb-1">2-en-1 Hibrido</p><p class="text-[10px] text-slate-500">GaN AC + Batería</p></a>
-	  <a href="/es/productos/powerbank/" class="block bg-white rounded-xl p-4 border border-slate-200 hover:border-brandOrange hover:shadow-md transition text-center"><p class="font-black text-brandBlue text-sm uppercase mb-1">Todos Power Banks</p><p class="text-[10px] text-slate-500">6 Categorias, 35+ Modelos</p></a>
+	  <a href="/es/productos/powerbank/semi-solido/" class="card block p-4 hover:border-brandOrange hover:shadow-md transition text-center"><p class="font-black text-brandBlue text-sm uppercase mb-1">Semi-Solido</p><p class="text-[10px] text-slate-500">CES 2026 Tech</p></a>
+	  <a href="/es/productos/powerbank/magnetico-inalambrico/" class="card block p-4 hover:border-brandOrange hover:shadow-md transition text-center"><p class="font-black text-brandBlue text-sm uppercase mb-1">Magnetico Qi2</p><p class="text-[10px] text-slate-500">12 Modelos</p></a>
+	  <a href="/es/productos/powerbank/2-en-1-hibrido/" class="card block p-4 hover:border-brandOrange hover:shadow-md transition text-center"><p class="font-black text-brandBlue text-sm uppercase mb-1">2-en-1 Hibrido</p><p class="text-[10px] text-slate-500">GaN AC + Batería</p></a>
+	  <a href="/es/productos/powerbank/" class="card block p-4 hover:border-brandOrange hover:shadow-md transition text-center"><p class="font-black text-brandBlue text-sm uppercase mb-1">Todos Power Banks</p><p class="text-[10px] text-slate-500">6 Categorias, 35+ Modelos</p></a>
 	 </div>
 	 </div>
 	</section>

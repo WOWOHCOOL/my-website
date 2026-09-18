@@ -29,6 +29,10 @@ module.exports = {
       colors: {
         brandOrange: '#FF6B00',
         brandBlue: '#0A192F',
+        // 较亮一档的品牌蓝。用途单一且明确：当两个深色板块相邻时，用
+        // brandBlueLight vs darkBg 拉开明度差来区分，**禁止再用渐变分界线**。
+        // 取值与 css/src.css 的 --brand-blue-alt 保持一致（同一色）。
+        brandBlueLight: '#0F2A4A',
         darkBg: '#020B1A',
       },
       zIndex: {

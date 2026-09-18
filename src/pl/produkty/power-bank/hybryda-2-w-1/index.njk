@@ -109,13 +109,13 @@ ruPath: "produkty/poverbanki/gibrid-2-v-1/"
 {% block content %}
 
 <!-- Hero -->
-<section class="relative pt-24 md:pt-28 pb-8 lg:pb-16 bg-white text-slate-900 overflow-hidden">
+<section id="hero" class="relative pt-24 md:pt-28 lg:pt-20 pb-8 lg:pb-20 bg-white text-slate-900 overflow-hidden lg:min-h-[100dvh] lg:flex lg:flex-col lg:justify-center" data-section="hero">
  <div class="absolute inset-0 z-0 pointer-events-none overflow-hidden">
   <div class="absolute top-0 left-0 max-w-full w-64 h-64 bg-brandOrange opacity-20 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
   <div class="absolute bottom-0 right-0 max-w-full w-64 h-64 bg-blue-500 opacity-20 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
  </div>
 
- <div class="container-wide relative z-10 text-center pb-12 lg:pb-12">
+ <div class="container-wide relative z-10 text-center pb-12 lg:pb-0">
   {{ breadcrumb([{name: "Strona Główna", url: "/pl/"}, {name: "Produkty", url: "/pl/produkty/"}, {name: "Power Bank", url: "/pl/produkty/power-bank/"}, {name: "Hybryda 2-w-1"}], "none", "mb-6", { variant: "hero" }) }}
 
   <div>
@@ -127,14 +127,14 @@ ruPath: "produkty/poverbanki/gibrid-2-v-1/"
 
   <p class="max-w-2xl mx-auto text-slate-600 text-sm leading-relaxed mt-6 mb-8">Ładowarka sieciowa w gniazdku, power bank w podróży. Technologia GaN, wyjście PD 20–67W, składana wtyczka AC. Jedno urządzenie zastępuje dwa. Przyjazny w podróży, bezpieczny w samolocie.</p>
 
-  <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-2xl mx-auto mb-10">
-   <div class="bg-slate-50 rounded-xl p-4 border border-slate-100"><p class="text-2xl font-black text-brandBlue">67W</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Moc Max</p></div>
-   <div class="bg-slate-50 rounded-xl p-4 border border-slate-100"><p class="text-2xl font-black text-brandOrange">GaN</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Technologia</p></div>
-   <div class="bg-slate-50 rounded-xl p-4 border border-slate-100"><p class="text-2xl font-black text-brandBlue">20000mAh</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Pojemność</p></div>
-   <div class="bg-slate-50 rounded-xl p-4 border border-slate-100"><p class="text-2xl font-black text-brandOrange">500</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">MOQ</p></div>
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
+   <div class="card-soft p-4"><p class="text-2xl font-black text-brandBlue">67W</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Moc Max</p></div>
+   <div class="card-soft p-4"><p class="text-2xl font-black text-brandOrange">GaN</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Technologia</p></div>
+   <div class="card-soft p-4"><p class="text-2xl font-black text-brandBlue">20000mAh</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Pojemność</p></div>
+   <div class="card-soft p-4"><p class="text-2xl font-black text-brandOrange">500</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">MOQ</p></div>
   </div>
 
-  <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
+  <div class="btn-pair">
    <button data-action="open-modal" data-product="Power Bank Hybrydowy 2-w-1" class="btn-wide-lg">Poproś o Wycenę Fabryczną</button>
    <a href="#produkty" class="btn-ghost-lg">Zobacz 10 Modeli</a>
   </div>
@@ -145,7 +145,7 @@ ruPath: "produkty/poverbanki/gibrid-2-v-1/"
 {% include "trust-bar.njk" %}
 
 <!-- Produkty -->
-<section id="produkty" class="sec bg-white relative py-16">
+<section id="produkty" class="sec bg-white relative" data-section="products">
  <div class="container-wide">
   <h2 class="text-2xl font-black text-brandBlue uppercase italic tracking-tighter mb-2">Power Banki Hybrydowe 2-w-1</h2>
   <p class="text-slate-500 text-sm mb-10">10 modeli | 5000–20000mAh | Wyjście PD 20–67W</p>
@@ -170,7 +170,7 @@ ruPath: "produkty/poverbanki/gibrid-2-v-1/"
     </div>
     <p class="text-[11px] text-slate-500 mb-6 italic leading-relaxed">Flagowy power bank hybrydowy 2-w-1 z wyjściem 67W PD. Pojemność 15000mAh do ładowania laptopów i wielu urządzeń. Obsługa PPS 3.3-11V/4,5A. Globalne opcje wtyczek. Zwijany kabel USB-C.</p>
     <details class="mb-6 group/spec">
-     <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Specyfikacja</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
+     <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Specyfikacja</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
      <div class="p-4 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-[11px]"><tbody>
       <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Energia baterii</td><td class="py-2 font-bold text-slate-700">58Wh (5000mAh × 11,6V)</td></tr>
       <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Poj. znamionowa</td><td class="py-2 font-bold text-slate-700">8600mAh (5V/2A)</td></tr>
@@ -201,7 +201,7 @@ ruPath: "produkty/poverbanki/gibrid-2-v-1/"
     </div>
     <p class="text-[11px] text-slate-500 mb-6 italic leading-relaxed">Power bank hybrydowy 2-w-1 z wbudowanym kablem zwijanym. Wyjście PD 45W w trybie power banku, 33W przy połączonym ładowaniu. Pojemność 10000mAh. Globalne opcje wtyczek.</p>
     <details class="mb-6 group/spec">
-     <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Specyfikacja</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
+     <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Specyfikacja</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
      <div class="p-4 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-[11px]"><tbody>
       <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Poj. baterii</td><td class="py-2 font-bold text-slate-700">10000mAh / 38,7Wh</td></tr>
       <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Wtyczki</td><td class="py-2 font-bold text-slate-700">US/EU/UK/AU</td></tr>
@@ -230,7 +230,7 @@ ruPath: "produkty/poverbanki/gibrid-2-v-1/"
     </div>
     <p class="text-[11px] text-slate-500 mb-6 italic leading-relaxed">Wysoka pojemność 20000mAh z wbudowanymi kablami Type-C + Lightning. 45W PD GaN w trybie adaptera, 30W w trybie power banku. Podwójne wejście: AC + DC Type-C. Bezpieczny w samolocie poniżej 100Wh.</p>
     <details class="mb-6 group/spec">
-     <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Specyfikacja</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
+     <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Specyfikacja</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
      <div class="p-4 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-[11px]"><tbody>
       <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Energia baterii</td><td class="py-2 font-bold text-slate-700">10000mAh×2 / 7,74V / 77,4Wh</td></tr>
       <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Rozmiar</td><td class="py-2 font-bold text-slate-700">13×7×3,2cm</td></tr>
@@ -260,7 +260,7 @@ ruPath: "produkty/poverbanki/gibrid-2-v-1/"
     </div>
     <p class="text-[11px] text-slate-500 mb-6 italic leading-relaxed">Kompaktowa hybryda wejściowa 10000mAh z wbudowanymi kablami Type-C + Lightning. 22,5W PD w trybie power banku, 15W w trybie adaptera. Podwójne wejście: AC 100-240V + DC Type-C. Najmniejszy w ofercie hybryd przy 11×5,9×3,2cm. Idealny do zestawów podróżnych, upominków firmowych i detalicznych SKU wejściowych.</p>
     <details class="mb-6 group/spec">
-     <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Specyfikacja</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
+     <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Specyfikacja</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
      <div class="p-4 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-[11px]"><tbody>
       <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Energia baterii</td><td class="py-2 font-bold text-slate-700">5000mAh×2 / 3,85V / 38,5Wh</td></tr>
       <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Rozmiar</td><td class="py-2 font-bold text-slate-700">11×5,9×3,2cm</td></tr>
@@ -290,7 +290,7 @@ ruPath: "produkty/poverbanki/gibrid-2-v-1/"
     </div>
     <p class="text-[11px] text-slate-500 mb-6 italic leading-relaxed">Ultra-kompaktowa hybryda kieszonkowa 5000mAh (18Wh). 20W PD w trybie power banku, 10W w trybie adaptera. Wbudowane kable Type-C + Lightning ze składaną wtyczką AC. Najmniejsza hybryda w ofercie: 9,1×5×3,4cm — mniejsza niż karta kredytowa. Idealna na brelok, awaryjne zasilanie, upominki eventowe i ultra-lekki EDC.</p>
     <details class="mb-6 group/spec">
-     <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Specyfikacja</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
+     <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Specyfikacja</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
      <div class="p-4 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-[11px]"><tbody>
       <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Energia baterii</td><td class="py-2 font-bold text-slate-700">5000mAh / 3,6V / 18Wh</td></tr>
       <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Rozmiar</td><td class="py-2 font-bold text-slate-700">9,1×5×3,4cm</td></tr>
@@ -322,7 +322,7 @@ ruPath: "produkty/poverbanki/gibrid-2-v-1/"
     </div>
     <p class="text-[11px] text-slate-500 mb-6 italic leading-relaxed">Hybryda średniej pojemności 9600mAh ze składaną wtyczką AC. 22,5W PD przez Type-C, USB-A z SCP 22,5W (kompatybilne z Huawei SuperCharge). Ogniwo litowo-jonowe, 11×5,8×2,9cm. Idealna dla sprzedawców ekosystemu Huawei/Android i SKU akcesoriów podróżnych klasy średniej.</p>
     <details class="mb-6 group/spec">
-     <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Specyfikacja</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
+     <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Specyfikacja</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
      <div class="p-4 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-[11px]"><tbody>
       <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Energia baterii</td><td class="py-2 font-bold text-slate-700">9600mAh / 3,63V / 34,85Wh</td></tr>
       <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Rozmiar</td><td class="py-2 font-bold text-slate-700">11×5,8×2,9cm</td></tr>
@@ -351,7 +351,7 @@ ruPath: "produkty/poverbanki/gibrid-2-v-1/"
     </div>
     <p class="text-[11px] text-slate-500 mb-6 italic leading-relaxed">Kompaktowa hybryda 10000mAh ze składaną wtyczką AC + wbudowanym plecionym kablem Type-C 2365. PD 22,5W przez port Type-C i pleciony kabel. Tryb AC: 12W passthrough. Wyświetlacz matrycowy 188 LED. Obudowa metaliczna + ramka platerowana próżniowo. Wymienne adaptery: UK, US, AU, IN, KR, EU. 92×61×27,8mm.</p>
     <details class="mb-6 group/spec">
-     <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Specyfikacja</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
+     <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Specyfikacja</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
      <div class="p-4 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-[11px]"><tbody>
       <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Energia baterii</td><td class="py-2 font-bold text-slate-700">5000mAh×2 / 3,85V / 38,5Wh</td></tr>
       <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Rozmiar</td><td class="py-2 font-bold text-slate-700">92×61×27,8mm</td></tr>
@@ -381,7 +381,7 @@ ruPath: "produkty/poverbanki/gibrid-2-v-1/"
     </div>
     <p class="text-[11px] text-slate-500 mb-6 italic leading-relaxed">Wszechstronna hybryda 10000mAh ze składaną wtyczką AC + magnetycznym mocowaniem N52. PD 22,5W przez Type-C i odpinany kabel C-to-L (3-w-1: wejście/wyjście/smycz). Port Lightning do wyjścia zwrotnego. USB-A 22,5W. Wyświetlacz matrycowy 188 LED. Wbudowana podstawka ze stopu cynku. Wymienne adaptery wtyczek. 88,3×64,3×27mm.</p>
     <details class="mb-6 group/spec">
-     <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Specyfikacja</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
+     <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Specyfikacja</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
      <div class="p-4 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-[11px]"><tbody>
       <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Energia baterii</td><td class="py-2 font-bold text-slate-700">5000mAh×2 / 3,85V / 38,5Wh</td></tr>
       <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Rozmiar</td><td class="py-2 font-bold text-slate-700">88,3×64,3×27mm</td></tr>
@@ -411,7 +411,7 @@ ruPath: "produkty/poverbanki/gibrid-2-v-1/"
     </div>
     <p class="text-[11px] text-slate-500 mb-6 italic leading-relaxed">Premium hybryda 20000mAh z bezramkowym pełnym ekranem z akrylową soczewką. PD 22,5W przez Type-C i pleciony kabel Type-C (smycz). Tryb AC: PD 20W szybkie ładowanie. Wyświetlacz matrycowy 188 LED. Matowa obudowa UV w 4 konfiguracjach kolorystycznych. 117,5×65×33mm. Idealna do sprzedaży premium, upominków i segmentów podróżnych o wysokiej pojemności.</p>
     <details class="mb-6 group/spec">
-     <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Specyfikacja</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
+     <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Specyfikacja</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
      <div class="p-4 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-[11px]"><tbody>
       <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Energia baterii</td><td class="py-2 font-bold text-slate-700">10000mAh×2 / 3,85V / 77Wh</td></tr>
       <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Rozmiar</td><td class="py-2 font-bold text-slate-700">117,5×65×33mm</td></tr>
@@ -443,7 +443,7 @@ ruPath: "produkty/poverbanki/gibrid-2-v-1/"
     </div>
     <p class="text-[11px] text-slate-500 mb-6 italic leading-relaxed">Hybryda podróżna all-in-one: ładowarka AC + power bank 10000mAh + podkładka bezprzewodowa 15W w jednym urządzeniu. Składana wtyczka AC eliminuje osobną ładowarkę. Wbudowane plecione kable C+Lightning, 22,5W USB-C, plus podkładka Apple Watch 2,5W. Wyświetlacz matrycowy 188 LED, podstawka ze stopu cynku. Globalne adaptery wtyczek. Zastępuje ładowarkę, power bank i podkładkę bezprzewodową.</p>
     <details class="mb-6 group/spec">
-     <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Specyfikacja</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
+     <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Specyfikacja</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
      <div class="p-4 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-[11px]"><tbody>
       <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Pojemność baterii</td><td class="py-2 font-bold text-slate-700">10000mAh (5000mAh×2) / 3,85V</td></tr>
       <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Rozmiar</td><td class="py-2 font-bold text-slate-700">92×61×27,8mm</td></tr>
@@ -461,13 +461,13 @@ ruPath: "produkty/poverbanki/gibrid-2-v-1/"
 </section>
 
 <!-- FAQ -->
-<section class="sec bg-white relative py-16">
+<section id="faq" class="sec bg-white relative" data-section="faq">
  <div class="container-narrow">
   <h2 class="text-3xl lg:text-4xl font-black text-slate-900 uppercase italic tracking-tighter mb-10 text-center">Power Bank Hybrydowy 2-w-1 <span class="text-brandOrange">FAQ</span></h2>
   <div class="space-y-4">
-   <details class="bg-slate-50 rounded-xl p-5 border border-slate-200 group"><summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">Czym jest power bank hybrydowy 2-w-1?<span class="text-brandOrange group-open:rotate-180 transition">&#9660;</span></summary><p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">Power bank hybrydowy 2-w-1 łączy ładowarkę sieciową AC i przenośny power bank w jednym urządzeniu. Podłącz do gniazdka, aby ładować telefon bezpośrednio, a następnie odłącz i używaj jako power bank w podróży.</p></details>
-   <details class="bg-slate-50 rounded-xl p-5 border border-slate-200 group"><summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">Czy power bank hybrydowy 2-w-1 może ładować laptopa?<span class="text-brandOrange group-open:rotate-180 transition">&#9660;</span></summary><p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">Tak. Model WOP69 dostarcza 67W mocy PD, co wystarcza do ładowania większości laptopów USB-C, w tym MacBook Air i Dell XPS 13. WOP67 z mocą 45W ładuje 13-calowe MacBooki z pełną prędkością.</p></details>
-   <details class="bg-slate-50 rounded-xl p-5 border border-slate-200 group"><summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">Czy power bank hybrydowy można zabrać do samolotu?<span class="text-brandOrange group-open:rotate-180 transition">&#9660;</span></summary><p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">Tak. Wszystkie 10 modeli ma poniżej 100Wh. Największy model (WOPJ73, 20000mAh) ma 77,4Wh. Certyfikat UN38.3 z pełną dokumentacją MSDS.</p></details>
+   <details class="card-soft p-5 group"><summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">Czym jest power bank hybrydowy 2-w-1?<span class="text-brandOrange group-open:rotate-180 transition">&#9660;</span></summary><p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">Power bank hybrydowy 2-w-1 łączy ładowarkę sieciową AC i przenośny power bank w jednym urządzeniu. Podłącz do gniazdka, aby ładować telefon bezpośrednio, a następnie odłącz i używaj jako power bank w podróży.</p></details>
+   <details class="card-soft p-5 group"><summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">Czy power bank hybrydowy 2-w-1 może ładować laptopa?<span class="text-brandOrange group-open:rotate-180 transition">&#9660;</span></summary><p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">Tak. Model WOP69 dostarcza 67W mocy PD, co wystarcza do ładowania większości laptopów USB-C, w tym MacBook Air i Dell XPS 13. WOP67 z mocą 45W ładuje 13-calowe MacBooki z pełną prędkością.</p></details>
+   <details class="card-soft p-5 group"><summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">Czy power bank hybrydowy można zabrać do samolotu?<span class="text-brandOrange group-open:rotate-180 transition">&#9660;</span></summary><p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">Tak. Wszystkie 10 modeli ma poniżej 100Wh. Największy model (WOPJ73, 20000mAh) ma 77,4Wh. Certyfikat UN38.3 z pełną dokumentacją MSDS.</p></details>
   </div>
  </div>
 </section>

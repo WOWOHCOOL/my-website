@@ -141,13 +141,13 @@ plPath: "produkty/ladowarka-bezprzewodowa/uchwyt-samochodowy/"
 {% block content %}
 
 <!-- Hero -->
-<section class="relative pt-24 md:pt-28 pb-8 lg:pb-16 bg-white text-slate-900 overflow-hidden">
+<section id="hero" class="relative pt-24 md:pt-28 lg:pt-20 pb-8 lg:pb-20 bg-white text-slate-900 overflow-hidden lg:min-h-[100dvh] lg:flex lg:flex-col lg:justify-center" data-section="hero">
  <div class="absolute inset-0 z-0 pointer-events-none overflow-hidden">
  <div class="absolute top-0 left-0 max-w-full w-64 h-64 bg-brandOrange opacity-20 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
  <div class="absolute bottom-0 right-0 max-w-full w-64 h-64 bg-blue-500 opacity-20 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
  </div>
 
- <div class="container-wide relative z-10 text-center pb-8 lg:pb-12">
+ <div class="container-wide relative z-10 text-center pb-8 lg:pb-0">
  {{ breadcrumb([{name: "Home", url: "/"}, {name: "Products", url: "/products/"}, {name: "Wireless Charger", url: "/products/wireless-charger/"}, {name: "Car Mount"}], "none", "mb-6", { variant: "hero" }) }}
 
  <div>
@@ -161,15 +161,15 @@ plPath: "produkty/ladowarka-bezprzewodowa/uchwyt-samochodowy/"
 
  <p class="max-w-2xl mx-auto text-slate-500 text-xs leading-relaxed mb-8"><strong>Three catalysts converging:</strong> (1) Qi2 standard adoption 63%→75% in 2026 — non-Qi2 being de-listed. (2) 62% of drivers report phone overheating concern — TEC + fan cooling solves this (33-34°C surface at 25W/30min). (3) EU RED Directive enforcement January 2027 — non-certified charger replacement wave. Consumers pay 15-20% premium for active cooling models.</p>
 
- <div class="grid grid-cols-2 md:grid-cols-5 gap-4 max-w-3xl mx-auto mb-10">
- <div class="bg-slate-50 rounded-xl p-4 border border-slate-100"><p class="text-2xl font-black text-brandBlue">25W</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Max Output</p></div>
- <div class="bg-slate-50 rounded-xl p-4 border border-slate-100"><p class="text-2xl font-black text-brandOrange">$2.4B</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Market 2025</p></div>
- <div class="bg-slate-50 rounded-xl p-4 border border-slate-100"><p class="text-2xl font-black text-brandBlue">N52H</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Magnets</p></div>
- <div class="bg-slate-50 rounded-xl p-4 border border-slate-100"><p class="text-2xl font-black text-brandOrange">5</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Models</p></div>
- <div class="bg-slate-50 rounded-xl p-4 border border-slate-100"><p class="text-2xl font-black text-brandBlue">500</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">MOQ</p></div>
+ <div class="grid grid-cols-2 md:grid-cols-5 gap-4 mb-10">
+ <div class="card-soft p-4"><p class="text-2xl font-black text-brandBlue">25W</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Max Output</p></div>
+ <div class="card-soft p-4"><p class="text-2xl font-black text-brandOrange">$2.4B</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Market 2025</p></div>
+ <div class="card-soft p-4"><p class="text-2xl font-black text-brandBlue">N52H</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Magnets</p></div>
+ <div class="card-soft p-4"><p class="text-2xl font-black text-brandOrange">5</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Models</p></div>
+ <div class="card-soft p-4"><p class="text-2xl font-black text-brandBlue">500</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">MOQ</p></div>
  </div>
 
- <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
+ <div class="btn-pair">
  <button data-action="open-modal" data-product="Wireless Car Charger" class="btn-wide-lg">
   Get Factory Pricing
  </button>
@@ -184,7 +184,7 @@ plPath: "produkty/ladowarka-bezprzewodowa/uchwyt-samochodowy/"
 {% include "trust-bar.njk" %}
 
 <!-- Products -->
-<section id="products" class="sec bg-white relative py-16">
+<section id="products" class="sec bg-white relative" data-section="products">
  <div class="container-wide">
  <h2 class="text-2xl font-black text-brandBlue uppercase italic tracking-tighter mb-2">Qi2 Magnetic Car Mounts</h2>
  <p class="text-slate-500 text-sm mb-10">5 models | 15W-25W | N52H magnets | TEC cooling | Supercapacitor | Electric Clamp</p>
@@ -227,7 +227,7 @@ plPath: "produkty/ladowarka-bezprzewodowa/uchwyt-samochodowy/"
  </p>
 
  <details class="mb-6 group/spec">
- <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition">
+ <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition">
  <span class="text-xs font-black text-slate-700 uppercase">Specifications</span>
  <span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">▼</span>
  </summary>
@@ -285,7 +285,7 @@ plPath: "produkty/ladowarka-bezprzewodowa/uchwyt-samochodowy/"
  </p>
 
  <details class="mb-6 group/spec">
- <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition">
+ <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition">
  <span class="text-xs font-black text-slate-700 uppercase">Specifications</span>
  <span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">▼</span>
  </summary>
@@ -342,7 +342,7 @@ plPath: "produkty/ladowarka-bezprzewodowa/uchwyt-samochodowy/"
  </p>
 
  <details class="mb-6 group/spec">
- <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition">
+ <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition">
  <span class="text-xs font-black text-slate-700 uppercase">Specifications</span>
  <span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">▼</span>
  </summary>
@@ -388,7 +388,7 @@ plPath: "produkty/ladowarka-bezprzewodowa/uchwyt-samochodowy/"
  </p>
 
  <details class="mb-6 group/spec">
- <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition">
+ <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition">
  <span class="text-xs font-black text-slate-700 uppercase">Specifications</span>
  <span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">▼</span>
  </summary>
@@ -436,7 +436,7 @@ plPath: "produkty/ladowarka-bezprzewodowa/uchwyt-samochodowy/"
  </p>
 
  <details class="mb-6 group/spec">
- <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition">
+ <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition">
  <span class="text-xs font-black text-slate-700 uppercase">Specifications</span>
  <span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">▼</span>
  </summary>
@@ -463,7 +463,7 @@ plPath: "produkty/ladowarka-bezprzewodowa/uchwyt-samochodowy/"
 </section>
 
 <!-- What Is a Qi2 Magnetic Wireless Car Charger Mount -->
-<section class="sec bg-white relative py-16">
+<section id="what-is-a-qi2-magnetic-wireless-car-charger-mount" class="sec bg-white relative" data-section="content">
  <div class="container-wide">
  <h2 class="section-title text-center">What Is a Qi2 Magnetic Wireless Car Charger Mount?</h2>
  <p class="text-center text-slate-500 text-sm max-w-3xl mx-auto mb-8">A Qi2 magnetic car charger mount combines a <strong>phone holder and wireless fast charger</strong> into one automotive accessory. Built around the Qi2 MPP (Magnetic Power Profile) standard with <strong>N52H neodymium magnets</strong>, modern car mounts deliver 15W-25W wireless charging with perfect magnetic snap alignment — eliminating the need to fumble with cables while driving. For B2B buyers, the wireless car charger mount aftermarket is the <strong>fastest-growing segment in automotive charging</strong> — 50% of new cars now ship with wireless charging built in, but over 1 billion vehicles on the road today do not, creating a massive retrofit opportunity.</p>
@@ -473,18 +473,18 @@ plPath: "produkty/ladowarka-bezprzewodowa/uchwyt-samochodowy/"
   <cite class="block text-xs text-slate-400 mt-2 not-italic">— <a href="https://www.marketresearch.com/LP-Information-Inc-v4134/Global-Vehicle-mounted-Wireless-Charger-44850256/" target="_blank" rel="noopener noreferrer" class="text-brandOrange hover:underline">LP Information</a>, Global Vehicle-Mounted Wireless Charger Market 2026-2032; <a href="https://www.factmr.com/report/6/automotive-mobile-accessories-market" target="_blank" rel="noopener noreferrer" class="text-brandOrange hover:underline">Fact.MR</a>, Automotive Mobile Accessories Market 2025-2036</cite>
  </blockquote>
 
- <div class="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
- <div class="bg-slate-50 rounded-xl p-6 border border-slate-100 text-center">
+ <div class="grid md:grid-cols-3 gap-8">
+ <div class="card-soft p-6 text-center">
   <p class="text-3xl font-black text-brandBlue mb-2">$181M</p>
   <p class="text-sm font-bold text-slate-700 mb-2">Car Charging Stand Market 2025</p>
   <p class="text-xs text-slate-500">Aftermarket wireless car mount segment. 7.5% CAGR to 2032 as hands-free laws expand globally.</p>
  </div>
- <div class="bg-slate-50 rounded-xl p-6 border border-slate-100 text-center">
+ <div class="card-soft p-6 text-center">
   <p class="text-3xl font-black text-brandOrange mb-2">71.8%</p>
   <p class="text-sm font-bold text-slate-700 mb-2">Aftermarket Share</p>
   <p class="text-xs text-slate-500">Aftermarket dominates auto mobile accessory sales. Phone mounts = 32.7% of the $55.9B category.</p>
  </div>
- <div class="bg-slate-50 rounded-xl p-6 border border-slate-100 text-center">
+ <div class="card-soft p-6 text-center">
   <p class="text-3xl font-black text-brandBlue mb-2">N52H</p>
   <p class="text-sm font-bold text-slate-700 mb-2">Strongest Commercial Magnets</p>
   <p class="text-xs text-slate-500">N52H neodymium grade — the highest commercially available. Secure hold through 3mm cases on bumpy roads.</p>
@@ -494,7 +494,7 @@ plPath: "produkty/ladowarka-bezprzewodowa/uchwyt-samochodowy/"
 </section>
 
 <!-- Magnetic vs. Electric Clamp vs. Disc Pad -->
-<section class="sec bg-slate-50 relative py-16">
+<section id="magnetic-vs-electric-clamp-vs-disc-pad" class="sec bg-slate-50 relative" data-section="comparison">
  <div class="container-wide">
  <h2 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4 text-center">Magnetic vs. Electric Clamp vs. Disc Pad — <span class="text-brandOrange">B2B Buyer's Guide</span></h2>
  <p class="text-center text-slate-500 text-sm max-w-3xl mx-auto mb-12">Not all car mounts serve the same buyer. Here's how to choose the right mechanism for your channel and target market.</p>
@@ -502,11 +502,11 @@ plPath: "produkty/ladowarka-bezprzewodowa/uchwyt-samochodowy/"
  <div class="overflow-x-auto rounded-2xl border border-slate-200 shadow-sm">
  <table class="w-full text-sm">
  <thead>
- <tr class="bg-white">
- <th class="p-4 text-left text-slate-500 font-bold text-xs uppercase">Parameter</th>
- <th class="p-4 text-center bg-brandOrange/5 border-x border-brandOrange/20 text-brandOrange font-bold text-xs uppercase">Magnetic Mount<br><span class="text-[10px] normal-case opacity-70">WOW41 / WOW39 / WOW19S</span></th>
- <th class="p-4 text-center text-slate-500 font-bold text-xs uppercase">Electric Clamp<br><span class="text-[10px] normal-case opacity-70">WOW35</span></th>
- <th class="p-4 text-center text-slate-500 font-bold text-xs uppercase">Disc Pad<br><span class="text-[10px] normal-case opacity-70">WOW28</span></th>
+ <tr class="bg-brandBlue text-white">
+ <th class="p-4 text-left font-bold text-xs uppercase">Parameter</th>
+ <th class="p-4 text-center bg-brandOrange/20 font-bold text-xs uppercase">Magnetic Mount<br><span class="text-[10px] normal-case opacity-70">WOW41 / WOW39 / WOW19S</span></th>
+ <th class="p-4 text-center font-bold text-xs uppercase">Electric Clamp<br><span class="text-[10px] normal-case opacity-70">WOW35</span></th>
+ <th class="p-4 text-center font-bold text-xs uppercase">Disc Pad<br><span class="text-[10px] normal-case opacity-70">WOW28</span></th>
  </tr>
  </thead>
  <tbody>
@@ -525,25 +525,25 @@ plPath: "produkty/ladowarka-bezprzewodowa/uchwyt-samochodowy/"
 </section>
 
 <!-- Market Context -->
-<section class="sec bg-slate-50 relative py-16">
- <div class="container-content">
+<section id="market-context" class="sec bg-slate-50 relative" data-section="content">
+ <div class="container-wide">
  <h2 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4 text-center">Automotive Wireless Charger Market <span class="text-brandOrange">$1.47B in 2025</span></h2>
  <p class="text-center text-slate-500 text-sm max-w-3xl mx-auto mb-8">The global vehicle-mounted wireless charger market reached $1.47 billion in 2025, growing at 19.4% CAGR toward $14.2B by 2035. 50% of new cars sold in 2024 had in-car wireless charging built in — but over 1 billion vehicles on the road today do not. The aftermarket opportunity for wireless car charger mounts is massive and accelerating. India leads country-level growth at 7.5% CAGR, driven by expanding hands-free driving legislation and rapid smartphone adoption.</p>
 
- <div class="grid md:grid-cols-4 gap-6 max-w-4xl mx-auto mb-6">
- <div class="bg-white rounded-xl p-6 shadow-sm border border-slate-100 text-center">
+ <div class="grid md:grid-cols-4 gap-6 mb-6">
+ <div class="card p-6 shadow-sm text-center">
   <p class="text-3xl font-black text-brandBlue mb-2">$1.47B</p>
   <p class="text-xs text-slate-500">Vehicle-mounted wireless charger market 2025 (LP Information 2026)</p>
  </div>
- <div class="bg-white rounded-xl p-6 shadow-sm border border-slate-100 text-center">
+ <div class="card p-6 shadow-sm text-center">
   <p class="text-3xl font-black text-brandOrange mb-2">50%+</p>
   <p class="text-xs text-slate-500">New cars with built-in wireless charging in 2024 (Counterpoint Research)</p>
  </div>
- <div class="bg-white rounded-xl p-6 shadow-sm border border-slate-100 text-center">
+ <div class="card p-6 shadow-sm text-center">
   <p class="text-3xl font-black text-brandBlue mb-2">71.8%</p>
   <p class="text-xs text-slate-500">Aftermarket share of auto mobile accessory sales — dominant channel (Fact.MR)</p>
  </div>
- <div class="bg-white rounded-xl p-6 shadow-sm border border-slate-100 text-center">
+ <div class="card p-6 shadow-sm text-center">
   <p class="text-3xl font-black text-brandOrange mb-2">19.4%</p>
   <p class="text-xs text-slate-500">CAGR 2025-2035 — fastest-growing wireless charger segment globally</p>
  </div>
@@ -556,33 +556,33 @@ plPath: "produkty/ladowarka-bezprzewodowa/uchwyt-samochodowy/"
 </section>
 
 <!-- Why Choose WOWOHCOOL Car Mounts -->
-<section class="sec bg-slate-50 relative py-16">
+<section id="why-choose-wowohcool-car-mounts" class="sec bg-slate-50 relative" data-section="content">
  <div class="container-wide">
  <h2 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4 text-center">Why Choose <span class="text-brandOrange">WOWOHCOOL Car Mounts</span> for Your Brand</h2>
  <p class="text-center text-slate-500 text-sm max-w-2xl mx-auto mb-12">The car wireless charger mount category demands automotive-grade reliability — WOWOHCOOL is the only B2B OEM factory offering TEC cooling, supercapacitor tech, and N52H magnets in one lineup.</p>
 
- <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
- <div class="bg-white rounded-xl p-6 border border-slate-200 shadow-sm">
+ <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+ <div class="card p-6 shadow-sm">
   <h3 class="font-black text-brandBlue uppercase mb-3 text-sm">5 Models — 3 Mechanism Types</h3>
   <p class="text-sm text-slate-600 leading-relaxed">Magnetic snap (Qi2 MPP), electric auto-clamp (supercapacitor), and universal disc pad — covering every buyer persona from premium Apple users to budget-conscious fleets. Most competitors offer 1-2 mechanisms only.</p>
  </div>
- <div class="bg-white rounded-xl p-6 border border-slate-200 shadow-sm">
+ <div class="card p-6 shadow-sm">
   <h3 class="font-black text-brandBlue uppercase mb-3 text-sm">TEC Active Cooling Exclusive</h3>
   <p class="text-sm text-slate-600 leading-relaxed">WOW41 is the only B2B OEM car mount with TEC (Thermoelectric Cooling) semiconductor refrigeration. Sustained 25W fast charging in 50°C+ car interiors — no thermal throttling. Silent turbo fan + large-area heatsink for dual device-and-battery cooling.</p>
  </div>
- <div class="bg-white rounded-xl p-6 border border-slate-200 shadow-sm">
+ <div class="card p-6 shadow-sm">
   <h3 class="font-black text-brandBlue uppercase mb-3 text-sm">N52H Industrial-Grade Magnets</h3>
   <p class="text-sm text-slate-600 leading-relaxed">Highest commercially available neodymium grade. 1400g suction force (WOW19S) — secure hold through 3mm protective cases on bumpy roads. No wobble, no drops. 14-array N52H configuration on WOW39 for dual-layer magnetic grip.</p>
  </div>
- <div class="bg-white rounded-xl p-6 border border-slate-200 shadow-sm">
+ <div class="card p-6 shadow-sm">
   <h3 class="font-black text-brandBlue uppercase mb-3 text-sm">Supercapacitor Power-Off Tech</h3>
   <p class="text-sm text-slate-600 leading-relaxed">Exclusive to WOW35: built-in supercapacitor enables up to two full open/close cycles after engine shutdown. No battery degradation over time. Three-axis linkage auto-alignment with 0.1s touch response. Zero-competition B2B differentiator.</p>
  </div>
- <div class="bg-white rounded-xl p-6 border border-slate-200 shadow-sm">
+ <div class="card p-6 shadow-sm">
   <h3 class="font-black text-brandBlue uppercase mb-3 text-sm">Qi2.2 25W Future-Proof</h3>
   <p class="text-sm text-slate-600 leading-relaxed">Qi v2.2.1 25W standard ratified 2025-07. WOW41 supports 25W output for iPhone 16/17, Pixel 10, and Galaxy S25 wireless charging. WPC-certified with full ATL (Authorized Test Lab) compliance documentation for your brand's regulatory needs.</p>
  </div>
- <div class="bg-white rounded-xl p-6 border border-slate-200 shadow-sm">
+ <div class="card p-6 shadow-sm">
   <h3 class="font-black text-brandBlue uppercase mb-3 text-sm">E-Mark Ready Automotive Grade</h3>
   <p class="text-sm text-slate-600 leading-relaxed">EMI shielding and automotive-grade components for EU aftermarket compliance (ECE R10). CE, FCC, RoHS, and Qi2 certified. Full certification documentation package included with every OEM order. Custom E-Mark testing support available.</p>
  </div>
@@ -591,25 +591,25 @@ plPath: "produkty/ladowarka-bezprzewodowa/uchwyt-samochodowy/"
 </section>
 
 <!-- Who Buys Car Mount Wireless Chargers -->
-<section class="sec bg-white relative py-16">
+<section id="who-buys-car-mount-wireless-chargers" class="sec bg-white relative" data-section="content">
  <div class="container-wide">
  <h2 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4 text-center">Who Buys <span class="text-brandOrange">Car Mount Chargers</span> in Bulk</h2>
  <p class="text-center text-slate-500 text-sm max-w-3xl mx-auto mb-12">Four B2B buyer profiles that consistently order wireless car charger mounts at volume — each with distinct requirements and unit economics.</p>
 
- <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto mb-10">
-  <div class="bg-slate-50 rounded-xl p-5 border border-slate-200">
+ <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
+  <div class="card-soft p-5">
    <p class="font-black text-slate-900 text-sm mb-1">Amazon & E-commerce Sellers</p>
    <p class="text-xs text-slate-500">"Magsafe car mount" and "wireless car charger mount" generate high search volume with strong seasonal spikes. TEC cooling models (WOW41) differentiate against commodity listings. Private label MOQ 500 with FBA-ready packaging.</p>
   </div>
-  <div class="bg-slate-50 rounded-xl p-5 border border-slate-200">
+  <div class="card-soft p-5">
    <p class="font-black text-slate-900 text-sm mb-1">Automotive Accessory Brands</p>
    <p class="text-xs text-slate-500">E-Mark certification-ready designs for European automotive retail chains. N52H magnet performance = key spec for premium positioning. WOW41's TEC cooling is a category-first feature for brand differentiation.</p>
   </div>
-  <div class="bg-slate-50 rounded-xl p-5 border border-slate-200">
+  <div class="card-soft p-5">
    <p class="font-black text-slate-900 text-sm mb-1">Ride-Hailing Fleet Operators</p>
    <p class="text-xs text-slate-500">Uber, Lyft, Didi drivers need commercial-grade reliability. WOW35's supercapacitor electric clamp + one-hand operation is purpose-built for all-day driver use. Bulk fleet pricing from 1,000+ units with custom driver kits.</p>
   </div>
-  <div class="bg-slate-50 rounded-xl p-5 border border-slate-200">
+  <div class="card-soft p-5">
    <p class="font-black text-slate-900 text-sm mb-1">Car Dealerships & OEM Tier-2</p>
    <p class="text-xs text-slate-500">4S dealership accessories, new car gift packages, manufacturer-branded merchandise. Custom logo, Pantone-matched colors, luxury packaging. MOQ 500 for standard OEM, 2,000 for exclusive enclosure design.</p>
   </div>
@@ -617,7 +617,7 @@ plPath: "produkty/ladowarka-bezprzewodowa/uchwyt-samochodowy/"
 
  <div class="bg-brandBlue/5 rounded-2xl p-8 border border-brandBlue/10 max-w-3xl mx-auto text-center">
   <p class="text-sm text-slate-700 leading-relaxed mb-4">These buyers share one requirement: a car mount that survives extreme temperatures, constant vibration, and daily use — backed by a factory with verifiable quality control. WOWOHCOOL's 5,000㎡ ISO 9001 facility has served 200+ global brands since 2013 — with 4-stage QC and 4-hour 100% aging test on every unit.</p>
-  <a href="#products" class="inline-block text-brandOrange font-black text-sm uppercase tracking-widest hover:underline">Browse 5 Car Mount Models →</a>
+  <a href="#products" class="btn-more">Browse 5 Car Mount Models →</a>
  </div>
  </div>
 </section>
@@ -629,13 +629,13 @@ plPath: "produkty/ladowarka-bezprzewodowa/uchwyt-samochodowy/"
 </div>
 
 <!-- OEM/ODM Customization -->
-<section class="sec bg-white relative py-16">
+<section id="oem-odm-customization" class="sec bg-white relative" data-section="content">
  <div class="container-wide">
  <h2 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4 text-center">OEM/ODM Customization for <span class="text-brandOrange">Car Mounts</span></h2>
  <p class="text-center text-slate-500 text-sm max-w-2xl mx-auto mb-12">Full car mount customization — from logo printing to exclusive mechanism design. MOQ flexible by complexity. E-Mark certification support included.</p>
 
- <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-  <div class="bg-slate-50 rounded-xl p-6 border border-slate-200">
+ <div class="grid md:grid-cols-2 gap-8">
+  <div class="card-soft p-6">
    <h3 class="font-black text-brandBlue uppercase mb-4 text-sm">OEM (Standard Models, MOQ 500)</h3>
    <ul class="space-y-2 text-sm text-slate-600">
     <li>• Logo printing (silkscreen, laser, UV on mount body)</li>
@@ -647,7 +647,7 @@ plPath: "produkty/ladowarka-bezprzewodowa/uchwyt-samochodowy/"
     <li>• Certification documentation package (CE, FCC, RoHS, Qi2 WPC)</li>
    </ul>
   </div>
-  <div class="bg-slate-50 rounded-xl p-6 border border-slate-200">
+  <div class="card-soft p-6">
    <h3 class="font-black text-brandBlue uppercase mb-4 text-sm">ODM (Custom Design, MOQ 2,000)</h3>
    <ul class="space-y-2 text-sm text-slate-600">
     <li>• Bespoke ID design (CMF: Color, Material, Finish)</li>
@@ -672,13 +672,13 @@ plPath: "produkty/ladowarka-bezprzewodowa/uchwyt-samochodowy/"
 </section>
 
 <!-- TEC Cooling: Why It Matters -->
-<section class="sec bg-slate-50 relative py-16">
+<section id="tec-cooling-why-it-matters" class="sec bg-slate-50 relative" data-section="content">
  <div class="container-wide">
  <h2 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4 text-center">TEC Cooling — <span class="text-brandOrange">Why It Matters</span> for Car Wireless Chargers</h2>
  <p class="text-center text-slate-500 text-sm max-w-3xl mx-auto mb-12">Car interiors present the harshest environment for wireless charging. TEC semiconductor cooling is the only solution that maintains full-speed charging in summer heat — and WOWOHCOOL is the only B2B OEM offering it in a car mount.</p>
 
- <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-  <div class="bg-white rounded-xl p-6 border border-slate-200">
+ <div class="grid md:grid-cols-2 gap-8">
+  <div class="card p-6">
    <h3 class="font-black text-brandBlue uppercase mb-4 text-sm">The Problem: Summer Heat Kills Charging Speed</h3>
    <ul class="space-y-2 text-sm text-slate-600">
     <li>• Car interiors reach <strong>50°C+ (122°F+)</strong> in direct summer sunlight</li>
@@ -688,7 +688,7 @@ plPath: "produkty/ladowarka-bezprzewodowa/uchwyt-samochodowy/"
     <li>• Repeated thermal throttling degrades both phone battery and charger lifespan</li>
    </ul>
   </div>
-  <div class="bg-white rounded-xl p-6 border border-slate-200">
+  <div class="card p-6">
    <h3 class="font-black text-brandOrange uppercase mb-4 text-sm">The Solution: WOW41 TEC + Fan Dual Cooling</h3>
    <ul class="space-y-2 text-sm text-slate-600">
     <li>• TEC (Peltier effect) semiconductor actively <strong>pulls heat away</strong> from phone</li>
@@ -708,23 +708,23 @@ plPath: "produkty/ladowarka-bezprzewodowa/uchwyt-samochodowy/"
 </section>
 
 <!-- Cross-Category Links -->
-<section class="sec bg-slate-50 relative py-12">
- <div class="container-content">
+<section id="cross-category-links" class="sec bg-slate-50 relative py-12" data-section="related">
+ <div class="container-wide">
  <p class="text-center text-slate-500 text-sm mb-6">Explore more charging categories from WOWOHCOOL:</p>
  <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-  <a href="/products/wireless-charger/" class="block bg-white rounded-xl p-4 border border-slate-200 hover:border-brandOrange hover:shadow-md transition text-center">
+  <a href="/products/wireless-charger/" class="card block p-4 hover:border-brandOrange hover:shadow-md transition text-center">
   <p class="font-black text-brandBlue text-sm uppercase mb-1">All Wireless</p>
   <p class="text-[10px] text-slate-500">3 Categories, 18+ Models</p>
   </a>
-  <a href="/products/wireless-charger/3-in-1-station/" class="block bg-white rounded-xl p-4 border border-slate-200 hover:border-brandOrange hover:shadow-md transition text-center">
+  <a href="/products/wireless-charger/3-in-1-station/" class="card block p-4 hover:border-brandOrange hover:shadow-md transition text-center">
   <p class="font-black text-brandBlue text-sm uppercase mb-1">3-in-1 Stations</p>
   <p class="text-[10px] text-slate-500">Phone + Watch + AirPods</p>
   </a>
-  <a href="/products/wireless-charger/desktop/" class="block bg-white rounded-xl p-4 border border-slate-200 hover:border-brandOrange hover:shadow-md transition text-center">
+  <a href="/products/wireless-charger/desktop/" class="card block p-4 hover:border-brandOrange hover:shadow-md transition text-center">
   <p class="font-black text-brandBlue text-sm uppercase mb-1">Desktop Pads</p>
   <p class="text-[10px] text-slate-500">Single-Device Wireless</p>
   </a>
-  <a href="/products/car-charger/" class="block bg-white rounded-xl p-4 border border-slate-200 hover:border-brandOrange hover:shadow-md transition text-center">
+  <a href="/products/car-charger/" class="card block p-4 hover:border-brandOrange hover:shadow-md transition text-center">
   <p class="font-black text-brandBlue text-sm uppercase mb-1">GaN Car Chargers</p>
   <p class="text-[10px] text-slate-500">USB-C Wired PD 3.1</p>
   </a>
@@ -733,41 +733,41 @@ plPath: "produkty/ladowarka-bezprzewodowa/uchwyt-samochodowy/"
 </section>
 
 <!-- FAQ -->
-<section class="sec-lg bg-slate-50 border-t border-slate-100">
+<section id="faq" class="sec bg-slate-50 border-t border-slate-100" data-section="faq">
  <div class="container-narrow">
  <div class="text-center mb-12">
   <h2 class="text-3xl lg:text-4xl font-black text-slate-900 uppercase italic tracking-tighter mb-4">Car Charger <span class="text-brandOrange">FAQ</span></h2>
  </div>
  <div class="space-y-4">
-  <details class="bg-slate-50 rounded-xl p-5 border border-slate-200 group">
+  <details class="card-soft p-5 group">
   <summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">What is the MOQ for wireless car charger OEM?<span class="text-brandOrange group-open:rotate-180 transition">▼</span></summary>
   <p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">MOQ starts at <strong>500 units</strong> for standard ODM models with custom logo. Full OEM with private tooling: <strong>2,000 units</strong>. Sample turnaround: 3-7 days for standard models, 10-15 days for custom logo samples. Flexible MOQ options available for startup brands and market testing.</p>
   </details>
-  <details class="bg-slate-50 rounded-xl p-5 border border-slate-200 group">
+  <details class="card-soft p-5 group">
   <summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">What makes TEC cooling important in a car wireless charger mount?<span class="text-brandOrange group-open:rotate-180 transition">▼</span></summary>
   <p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">Car interiors can reach over <strong>50°C (122°F)</strong> in summer. iPhone Qi2/MagSafe throttles charging speed at ambient temperatures above 35°C, capping at 80% battery to protect the device. TEC (Thermoelectric Cooling) semiconductor technology in WOW41 actively cools the charging surface — the only B2B OEM car mount with this technology — maintaining <strong>25W full-speed charging</strong> even in hot vehicles. Combined with a silent turbo fan and large-area heatsink for dual device-and-battery cooling.</p>
   </details>
-  <details class="bg-slate-50 rounded-xl p-5 border border-slate-200 group">
+  <details class="card-soft p-5 group">
   <summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">Do WOWOHCOOL car mounts support both iPhone and Android?<span class="text-brandOrange group-open:rotate-180 transition">▼</span></summary>
   <p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">Yes. All WOWOHCOOL car mounts use Qi2 universal wireless charging standard compatible with <strong>iPhone 12-17 (15W/25W MagSafe)</strong> and <strong>Android Qi2 devices</strong> (Samsung Galaxy S25, Pixel 10, etc.). For non-MagSafe Android phones, the WOW35 electric clamp model provides universal grip without magnets. Android users can add a magnetic ring case for compatibility with magnetic models WOW39, WOW41, and WOW19S.</p>
   </details>
-  <details class="bg-slate-50 rounded-xl p-5 border border-slate-200 group">
+  <details class="card-soft p-5 group">
   <summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">Do your car mounts work with thick phone cases?<span class="text-brandOrange group-open:rotate-180 transition">▼</span></summary>
   <p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">Yes. Our N52H neodymium magnets are the strongest commercial grade available — with up to <strong>1400g suction force</strong> on WOW19S. They maintain secure magnetic hold through most protective cases up to 3mm thickness. For very thick rugged cases (4mm+), we recommend magnetic-compatible cases or our magnetic ring accessories. WOW35 electric clamp model works with <strong>any phone regardless of case thickness</strong> — no magnets needed.</p>
   </details>
-  <details class="bg-slate-50 rounded-xl p-5 border border-slate-200 group">
+  <details class="card-soft p-5 group">
   <summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">Can I get E-Mark certification for car wireless charger mounts?<span class="text-brandOrange group-open:rotate-180 transition">▼</span></summary>
   <p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">E-Mark (ECE R10) is required for automotive electronics sold in the EU aftermarket. While wireless chargers powered via USB-C from the cigarette lighter port occupy a regulatory gray area, WOWOHCOOL can provide <strong>E-Mark-ready designs</strong> with proper EMI shielding and automotive-grade components. We recommend E-Mark certification for brands selling to automotive retailers and EU distributors. Full certification documentation and testing support included with OEM orders.</p>
   </details>
-  <details class="bg-slate-50 rounded-xl p-5 border border-slate-200 group">
+  <details class="card-soft p-5 group">
   <summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">What ventilation mounts are included?<span class="text-brandOrange group-open:rotate-180 transition">▼</span></summary>
   <p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">All models include a universal vent clip mount with anti-sway clamp. WOW28 includes a suction-cup base for dashboard/windshield mounting. <strong>Custom mount options</strong> (CD slot, cup holder, adhesive dash, Tesla-specific, 17mm ball joint) available for OEM orders. MOQ 500 for custom mount type bundling.</p>
   </details>
-  <details class="bg-slate-50 rounded-xl p-5 border border-slate-200 group">
+  <details class="card-soft p-5 group">
   <summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">How long does OEM/ODM car mount production take?<span class="text-brandOrange group-open:rotate-180 transition">▼</span></summary>
   <p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">OEM (standard models with custom logo): <strong>25-30 days</strong> after sample approval. ODM (custom enclosure or mechanism design): <strong>45-60 days</strong> including tooling. Both timelines include 4-stage QC (IQC → IPQC → FQC → OQC) with 4-hour 100% aging test. Express air freight: 5-7 days to EU/US. Seafreight: 25-35 days.</p>
   </details>
-  <details class="bg-slate-50 rounded-xl p-5 border border-slate-200 group">
+  <details class="card-soft p-5 group">
   <summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">What is a supercapacitor car phone mount and how is it different?<span class="text-brandOrange group-open:rotate-180 transition">▼</span></summary>
   <p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">The WOW35 electric clamp car mount uses a <strong>supercapacitor</strong> instead of a traditional battery for power-off operation. After the engine is turned off, the supercapacitor provides enough stored energy for up to two full open/close cycles — unlike battery-powered clamps that degrade over time. Supercapacitors offer <strong>500,000+ charge cycles</strong> (vs ~500 for lithium batteries) and maintain consistent performance from -20°C to 70°C. This is the only B2B OEM car mount with this technology.</p>
   </details>

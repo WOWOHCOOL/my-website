@@ -42,13 +42,13 @@ plPath: "produkty/ladowarka-bezprzewodowa/"
 {% block content %}
 
 <!-- HERO -->
-<section class="pt-24 md:pt-28 pb-16 md:pb-20 bg-gradient-to-br from-slate-50 via-white to-orange-50">
+<section id="hero" class="pt-24 md:pt-28 lg:pt-20 pb-16 md:pb-20 bg-gradient-to-br from-slate-50 via-white to-orange-50 lg:min-h-[100dvh] lg:flex lg:flex-col lg:justify-center" data-section="hero">
  <div class="container-wide">
   {{ breadcrumb([{name: "Accueil", url: "/fr/"}, {name: "Produits", url: "/fr/produits/"}, {name: "Chargeur sans fil"}], "none", "mb-6", { variant: "hero" }) }}
   <div class="grid lg:grid-cols-2 gap-12 items-center">
    <div class="reveal order-2 lg:order-1">
-    <p class="text-brandOrange text-xs font-bold tracking-widest uppercase mb-3">Chargeur sans fil &middot; OEM Usine</p>
-    <h1 class="text-3xl md:text-5xl font-black text-brandBlue leading-tight mb-6 italic uppercase">Chargeur sans fil Qi2<br><span class="text-brandOrange">Fabricant OEM/ODM</span></h1>
+    <div class="badge-capsule mb-6 uppercase tracking-widest">Chargeur sans fil &middot; OEM Usine</div>
+    <h1 class="text-3xl md:text-4xl xl:text-5xl font-black text-brandBlue leading-tight mb-6 italic uppercase tracking-tighter">Chargeur sans fil Qi2<br><span class="text-brandOrange">Fabricant OEM/ODM</span></h1>
     <p class="text-slate-600 text-lg leading-relaxed mb-6"><strong>3 catégories de format spécialisées de l'usine de Shenzhen</strong> — alignées sur le standard industriel Belkin/Anker/Mophie. 21+ modèles : pads de bureau, stations 3-en-1, supports voiture. <strong>15W-25W Qi2, refroidissement TEC, prêt E-Mark.</strong> CE, TÜV GS, Qi2 WPC certifié. MOQ 500.</p>
     <p class="text-sm text-slate-500 mb-6">Le marché européen croît à un <strong>CAGR de 20,75%</strong> de 1,6 Mrd $ (2024) à 8,7 Mrd $ (2033). La France détient une part significative.</p>
     <div class="flex flex-wrap gap-2 mb-8">
@@ -56,13 +56,13 @@ plPath: "produkty/ladowarka-bezprzewodowa/"
      <span class="trust-badge">3 catégories, 21+ modèles</span>
      <span class="trust-badge">MOQ 500</span>
     </div>
-    <div class="flex flex-wrap gap-4">
-     <button data-action="open-modal" class="btn-primary cursor-pointer">Demander le prix usine &rarr;</button>
-     <a href="#kategorien" class="btn-secondary">Voir les catégories</a>
+    <div class="btn-pair">
+     <button data-action="open-modal" class="btn-solid cursor-pointer">Demander le prix usine &rarr;</button>
+     <a href="#kategorien" class="btn-ghost-lg">Voir les catégories</a>
     </div>
    </div>
    <div class="reveal order-1 lg:order-2">
-    <div class="bg-white rounded-2xl shadow-xl p-6 md:p-8 border border-slate-100">
+    <div class="card-lg shadow-xl p-6 md:p-8 max-w-[480px] mx-auto">
      <img src="/image/product/wireless-charger/wow93-folding-charger.webp" srcset="/image/product/wireless-charger/wow93-folding-charger-800w.webp 800w, /image/product/wireless-charger/wow93-folding-charger.webp 1600w" sizes="(min-width: 1440px) 590px, (min-width: 1280px) 590px, (min-width: 1024px) 462px, (min-width: 768px) 718px, (min-width: 430px) 382px, 338px" alt="Chargeur sans fil Qi2 fabricant OEM/ODM" width="1600" height="1600" class="w-full h-auto object-contain" loading="eager">
     </div>
    </div>
@@ -74,13 +74,13 @@ plPath: "produkty/ladowarka-bezprzewodowa/"
 {% include "trust-bar.njk" %}
 
 <!-- KATEGORIE-HUB -->
-<section class="sec bg-white">
+<section id="kategorie-hub" class="sec bg-white" data-section="products">
  <div class="container-wide">
   {{ sectionHeader('Catégories de produits', '3 gammes spécialisées', 'Chaque gamme optimisée pour des groupes d\'acheteurs B2B et canaux de distribution spécifiques.', {mb: 'mb-12'}) }}
-  <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+  <div class="grid md:grid-cols-3 gap-8">
 
    <!-- Desktop -->
-   <a href="/fr/produits/chargeur-sans-fil/bureau/" class="group bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-200 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 reveal">
+   <a href="/fr/produits/chargeur-sans-fil/bureau/" class="card-lg group overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 reveal">
     <div class="h-48 relative overflow-hidden bg-gradient-to-br from-slate-100 to-slate-200">
      <img src="/image/product/wireless-charger/wow68-vertical-magnetic-3in1-desktop-15w.webp" srcset="/image/product/wireless-charger/wow68-vertical-magnetic-3in1-desktop-15w-750w.webp 750w, /image/product/wireless-charger/wow68-vertical-magnetic-3in1-desktop-15w.webp 1100w" sizes="(min-width: 1440px) 526px, (min-width: 1280px) 526px, (min-width: 1024px) 398px, (min-width: 768px) 654px, (min-width: 430px) 382px, 327px" alt="Chargeur sans fil bureau Qi2 pad et support" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" width="1100" height="1100">
      <div class="absolute top-3 left-3"><span class="bg-brandOrange text-white text-[11px] font-black px-3 py-1 rounded-full uppercase">Pad + Support</span></div>
@@ -94,7 +94,7 @@ plPath: "produkty/ladowarka-bezprzewodowa/"
    </a>
 
    <!-- 3-in-1 -->
-   <a href="/fr/produits/chargeur-sans-fil/station-3-en-1/" class="group bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-200 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 reveal">
+   <a href="/fr/produits/chargeur-sans-fil/station-3-en-1/" class="card-lg group overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 reveal">
     <div class="h-48 relative overflow-hidden bg-gradient-to-br from-slate-100 to-slate-200">
      <img src="/image/product/wireless-charger/wow93-folding-charger.webp" srcset="/image/product/wireless-charger/wow93-folding-charger-800w.webp 800w, /image/product/wireless-charger/wow93-folding-charger.webp 1600w" sizes="(min-width: 1440px) 590px, (min-width: 1280px) 590px, (min-width: 1024px) 462px, (min-width: 768px) 718px, (min-width: 430px) 382px, 338px" alt="Station de charge 3-en-1 Qi2" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" width="1600" height="1600">
     </div>
@@ -107,7 +107,7 @@ plPath: "produkty/ladowarka-bezprzewodowa/"
    </a>
 
    <!-- Auto -->
-   <a href="/fr/produits/chargeur-sans-fil/support-voiture/" class="group bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-200 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 reveal">
+   <a href="/fr/produits/chargeur-sans-fil/support-voiture/" class="card-lg group overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 reveal">
     <div class="h-48 relative overflow-hidden bg-gradient-to-br from-slate-100 to-slate-200">
      <img src="/image/product/wireless-charger/wow41-qi22-25w-car-magnetic-wireless-charger.webp" srcset="/image/product/wireless-charger/wow41-qi22-25w-car-magnetic-wireless-charger-750w.webp 750w, /image/product/wireless-charger/wow41-qi22-25w-car-magnetic-wireless-charger.webp 1100w" sizes="(min-width: 1440px) 526px, (min-width: 1280px) 526px, (min-width: 1024px) 398px, (min-width: 768px) 654px, (min-width: 430px) 382px, 327px" alt="Support voiture Qi2 refroidissement TEC" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" width="1100" height="1100">
      <div class="absolute top-3 left-3"><span class="bg-blue-600 text-white text-[11px] font-black px-3 py-1 rounded-full uppercase">TEC + E-Mark</span></div>
@@ -125,15 +125,15 @@ plPath: "produkty/ladowarka-bezprzewodowa/"
 </section>
 
 <!-- WARUM WOWOHCOOL -->
-<section class="sec bg-white">
+<section id="warum-wowohcool" class="sec bg-white" data-section="comparison">
  <div class="container-wide">
   {{ sectionHeader('Pourquoi WOWOHCOOL', 'Toutes les usines ne se valent pas', 'Comparez WOWOHCOOL aux OEM de chargeurs typiques en Chine.', { max: '', mb: 'mb-14', reveal: false, titleClass: 'text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4', descClass: 'text-slate-500 max-w-2xl mx-auto text-sm', labelStyle: 'pill', pillClass: 'bg-brandOrange/10', pillMb: 'mb-6' }) }}
   <div class="max-w-4xl mx-auto overflow-hidden rounded-2xl border border-slate-200">
    <table class="w-full text-sm">
-    <thead><tr class="bg-slate-50 border-b border-slate-200">
-     <th class="text-left p-4 md:p-5 font-black text-slate-500 uppercase tracking-wider text-[11px]"></th>
-     <th class="p-4 md:p-5 font-black text-brandBlue uppercase tracking-wider text-[11px] text-center">WOWOHCOOL</th>
-     <th class="p-4 md:p-5 font-black text-slate-500 uppercase tracking-wider text-[11px] text-center">Usine typique</th>
+    <thead><tr class="bg-brandBlue text-white">
+     <th class="text-left p-4 md:p-5 font-black uppercase tracking-wider text-[11px]"></th>
+     <th class="p-4 md:p-5 font-black uppercase tracking-wider text-[11px] text-center bg-brandOrange/20">WOWOHCOOL</th>
+     <th class="p-4 md:p-5 font-black uppercase tracking-wider text-[11px] text-center">Usine typique</th>
     </tr></thead>
     <tbody class="divide-y divide-slate-100">
      <tr><td class="p-4 md:p-5 text-slate-600 font-semibold">Certifications Qi2 WPC</td><td class="p-4 md:p-5 text-center text-brandOrange font-black">47 produits, 99,2% ATL</td><td class="p-4 md:p-5 text-center text-slate-300">Peu ou auto-déclarées</td></tr>
@@ -152,7 +152,7 @@ plPath: "produkty/ladowarka-bezprzewodowa/"
 </section>
 
 <!-- WER KAUFT -->
-<section class="sec bg-white">
+<section id="wer-kauft" class="sec bg-white" data-section="content">
  <div class="container-wide">
   <div class="text-center mb-14">
    <div class="inline-block px-4 py-1 bg-brandBlue/10 border border-brandBlue/20 rounded-full text-[11px] font-bold text-brandBlue uppercase tracking-widest mb-6">Qui achète</div>
@@ -160,19 +160,19 @@ plPath: "produkty/ladowarka-bezprzewodowa/"
    <p class="text-slate-500 max-w-2xl mx-auto text-sm">Trois profils d'acheteurs B2B qui commandent des chargeurs sans fil en volume.</p>
   </div>
   <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-   <div class="bg-slate-50 rounded-2xl p-8 border border-slate-100 hover:border-brandOrange/30 hover:shadow-lg transition-all group">
+   <div class="card-lg-soft p-8 hover:border-brandOrange/30 hover:shadow-lg transition-all group">
     <div class="w-14 h-14 bg-brandOrange/10 rounded-2xl flex items-center justify-center mb-5"><svg class="text-brandOrange text-xl" aria-hidden="true" focusable="false" viewBox="0 0 576 512"><path d="M0 24C0 10.7 10.7 0 24 0L69.5 0c22 0 41.5 12.8 50.6 32l411 0c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3l-288 0c-32.5 0-61-21.9-69.5-53.3l-41-152.3C41.5 57 60.7 32 87 32l0 0zM112 160l-28.2 0 35.8 132.8c2.8 10.4 12.3 17.8 23.2 17.8l256 0c10.9 0 20.4-7.4 23.2-17.8L457.8 160l-28.2 0-25.1 93.3c-5.6 20.9-24.6 35.7-46.2 35.7l-140.6 0c-21.6 0-40.6-14.8-46.2-35.7L146.2 160zM176 448c-8.8 0-16 7.2-16 16s7.2 16 16 16l224 0c8.8 0 16-7.2 16-16s-7.2-16-16-16l-224 0zm-48-48c-8.8 0-16 7.2-16 16s7.2 16 16 16l320 0c8.8 0 16-7.2 16-16s-7.2-16-16-16l-320 0z" fill="currentColor"/></svg></div>
     <h3 class="text-lg font-black text-slate-900 uppercase italic mb-3">Amazon & E-Commerce</h3>
     <p class="text-slate-500 text-sm leading-relaxed mb-4">Chargeurs Private-Label avec emballage retail. Pads bureau pour le volume, 3-en-1 pour la marge. Prêt FBA.</p>
     <ul class="text-slate-500 text-xs space-y-2"><li class="flex items-center gap-2"><span class="text-green-500 font-bold">&#10003;</span> MOQ dès 500 pièces</li><li class="flex items-center gap-2"><span class="text-green-500 font-bold">&#10003;</span> Emballage prêt FBA</li></ul>
    </div>
-   <div class="bg-slate-50 rounded-2xl p-8 border border-slate-100 hover:border-brandOrange/30 hover:shadow-lg transition-all group">
+   <div class="card-lg-soft p-8 hover:border-brandOrange/30 hover:shadow-lg transition-all group">
     <div class="w-14 h-14 bg-brandOrange/10 rounded-2xl flex items-center justify-center mb-5"><svg class="text-brandOrange text-xl" aria-hidden="true" focusable="false" viewBox="0 0 640 512"><path d="M32 0C49.7 0 64 14.3 64 32l0 16 32 0 0-16c0-17.7 14.3-32 32-32s32 14.3 32 32l0 16 64 0 0 416 64 0 0-16c0-17.7 14.3-32 32-32s32 14.3 32 32l0 16 32 0 0-16c0-17.7 14.3-32 32-32s32 14.3 32 32l0 16 64 0 0-16c0-17.7 14.3-32 32-32s32 14.3 32 32l0 16 32 0c17.7 0 32 14.3 32 32l0 16c0 17.7-14.3 32-32 32l-32 0 0 48 32 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-32 0 0 32c0 17.7-14.3 32-32 32s-32-14.3-32-32l0-32-64 0 0 32c0 17.7-14.3 32-32 32s-32-14.3-32-32l0-32-32 0 0 32c0 17.7-14.3 32-32 32s-32-14.3-32-32l0-32-64 0 0 32c0 17.7-14.3 32-32 32s-32-14.3-32-32l0-32-64 0 0 32c0 17.7-14.3 32-32 32s-32-14.3-32-32l0-32-32 0c-17.7 0-32-14.3-32-32s14.3-32 32-32l32 0 0-384-32 0C14.3 96 0 81.7 0 64S14.3 32 32 32l32 0 0-16c0-17.7 14.3-32 32-32zm96 96l0 288 128 0 0-288-128 0zm-64 288l0-288-32 0 0 288 32 0zm224-288l0 288 128 0 0-288-128 0zm192 288l32 0 0-288-32 0 0 288z" fill="currentColor"/></svg></div>
     <h3 class="text-lg font-black text-slate-900 uppercase italic mb-3">Hôtels & Restauration</h3>
     <p class="text-slate-500 text-sm leading-relaxed mb-4">Stations 3-en-1 pour chambres d'hôtes. Alliage de zinc + veilleuse. 17,5 M de chambres dans le monde.</p>
     <ul class="text-slate-500 text-xs space-y-2"><li class="flex items-center gap-2"><span class="text-green-500 font-bold">&#10003;</span> Gravure personnalisée</li><li class="flex items-center gap-2"><span class="text-green-500 font-bold">&#10003;</span> Prix dégressifs dès 1 000</li></ul>
    </div>
-   <div class="bg-slate-50 rounded-2xl p-8 border border-slate-100 hover:border-brandOrange/30 hover:shadow-lg transition-all group">
+   <div class="card-lg-soft p-8 hover:border-brandOrange/30 hover:shadow-lg transition-all group">
     <div class="w-14 h-14 bg-brandOrange/10 rounded-2xl flex items-center justify-center mb-5"><svg class="text-brandOrange text-xl" aria-hidden="true" focusable="false" viewBox="0 0 512 512"><path d="M471.6 21.7c-21.9-21.9-57.3-21.9-79.2 0L362.3 51.7l97.9 97.9 30.1-30.1c21.9-21.9 21.9-57.3 0-79.2L471.6 21.7zm-130.6 63.8L243.3 183.1c-14.9 14.9-24.5 33.9-27.4 54.6l-9.4 66.3c-2.6 18.6 12.4 33.9 31.1 31.5l67-8.3c20.5-2.6 39.5-11.9 54.5-26.6L458.6 200.7 341 85.5zM96 64c-53 0-96 43-96 96L0 416c0 53 43 96 96 96l256 0c53 0 96-43 96-96l0-96c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 96c0 17.7-14.3 32-32 32L96 448c-17.7 0-32-14.3-32-32L64 160c0-17.7 14.3-32 32-32l96 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L96 64z" fill="currentColor"/></svg></div>
     <h3 class="text-lg font-black text-slate-900 uppercase italic mb-3">Marques & Distributeurs</h3>
     <p class="text-slate-500 text-sm leading-relaxed mb-4">Full OEM/ODM du concept à la livraison. 50+ ingénieurs R&D. Votre propre identité de marque.</p>
@@ -187,11 +187,11 @@ plPath: "produkty/ladowarka-bezprzewodowa/"
 
 
 <!-- KATEGORIEN-VERGLEICH -->
-<section id="kategorien" class="sec bg-slate-50">
+<section id="kategorien" class="sec bg-slate-50" data-section="comparison">
  <div class="container-wide">
   {{ sectionHeader('Comparaison des catégories', '3 catégories de chargeurs sans fil en aperçu', 'Quelle catégorie correspond à votre marché ? Comparez le format, la puissance et le domaine d\'application.', {mb: 'mb-12'}) }}
   <div class="overflow-x-auto reveal">
-   <table class="w-full min-w-[720px] bg-white rounded-2xl shadow-sm border border-slate-200">
+   <table class="card-lg w-full min-w-[720px] shadow-sm">
     <thead><tr class="bg-brandBlue text-white">
      <th class="py-3 px-3 text-xs font-bold uppercase tracking-wider text-left rounded-tl-2xl">Catégorie</th>
      <th class="py-3 px-3 text-xs font-bold uppercase tracking-wider text-left">Format</th>
@@ -218,7 +218,7 @@ plPath: "produkty/ladowarka-bezprzewodowa/"
 </section>
 
 <!-- MARKET-DATA -->
-<section class="sec bg-white py-8">
+<section id="market-data" class="sec bg-white py-8" data-section="content">
  <div class="container-content">
  <blockquote class="bg-brandOrange/5 border-l-4 border-brandOrange rounded-r-xl px-6 py-5 text-sm text-slate-700 italic leading-relaxed">
   <p>"Le marché européen des chargeurs sans fil passe de 1,6 Mrd $ (2024) à 8,7 Mrd $ d'ici 2033 — un CAGR de 20,75% (Market Data Forecast). <strong>L'Allemagne détient 18,7%, la France est le deuxième marché.</strong> Les pads et supports de bureau représentent 55-60% du volume (QYResearch), les stations 3-en-1 génèrent 40-50% du CA de la catégorie (Grand View Research), et le secteur automobile croît le plus rapidement avec 19,4% CAGR (LP Information). Selon le standard industriel Belkin/Anker/Mophie, ce sont les trois catégories de format établies — WOWOHCOOL couvre les trois en tant qu'usine directe."</p>
@@ -227,27 +227,27 @@ plPath: "produkty/ladowarka-bezprzewodowa/"
  </div>
 </section>
 <!-- ======== AVANTAGES ======== -->
-<section class="sec bg-white">
+<section id="avantages" class="sec bg-white" data-section="content">
 <div class="container-wide">
 {{ sectionHeader('Avantages', 'Pourquoi nos chargeurs sans fil sont le premier choix', 'Technologie Qi2 de pointe, 3 gammes spécialisées et 47 produits certifiés pour le marché français.', {}) }}
 <div class="grid md:grid-cols-2 gap-8">
-<div class="reveal bg-slate-50 rounded-2xl p-8 border border-slate-200">
+<div class="card-lg-soft reveal p-8">
 <div class="flex items-center gap-4 mb-4"><div class="w-12 h-12 rounded-xl bg-brandOrange/10 flex items-center justify-center shrink-0"><svg class="icon-wifi text-xl text-brandOrange" aria-hidden="true" focusable="false" viewBox="0 0 640 512">
  <path d="M54.2 202.9C123.2 136.7 216.8 96 320 96s196.8 40.7 265.8 106.9c12.8 12.2 33 11.8 45.2-1s11.8-33-1-45.2C549.7 79.5 440.4 32 320 32S90.3 79.5 9.8 156.7C-2.9 168.8-3.3 189 9 201.2s32.4 13.2 45.2 1zM320 256c56.8 0 108.6 21.1 148.2 56c13.3 11.7 33.5 10.4 45.2-2.8s10.4-33.5-2.8-45.2C462.6 221.8 394.2 192 320 192s-142.6 29.8-190.6 72c-13.3 11.7-14.5 31.9-2.8 45.2s31.9 14.5 45.2 2.8c39.5-34.9 91.3-56 148.2-56zm64 160a64 64 0 1 0 -128 0 64 64 0 1 0 128 0z" fill="currentColor"/>
  </svg></div><h3 class="text-lg font-bold text-brandBlue">Technologie Qi2 MPP</h3></div>
 <p class="text-sm text-slate-600 leading-relaxed">La norme Qi2 avec Magnetic Power Profile (MPP) offre un alignement magnétique parfait et une charge rapide 15W–25W universelle. Compatible iPhone (MagSafe) et Android. Nos chargeurs utilisent des aimants N52H pour une fixation sécurisée. Le Qi2.2 25W avec refroidissement TEC est disponible sur 7 modèles.</p>
 </div>
-<div class="reveal bg-slate-50 rounded-2xl p-8 border border-slate-200">
+<div class="card-lg-soft reveal p-8">
 <div class="flex items-center gap-4 mb-4"><div class="w-12 h-12 rounded-xl bg-brandOrange/10 flex items-center justify-center shrink-0"><svg class="icon-layer-group text-xl text-brandOrange" aria-hidden="true" focusable="false" viewBox="0 0 512 512">
  <path d="M232.5 5.2c14.9-6.9 32.1-6.9 47 0l218.6 101c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L13.9 149.8C5.4 145.8 0 137.3 0 128s5.4-17.9 13.9-21.8L232.5 5.2zM48.1 218.4l164.3 75.9c27.7 12.8 59.6 12.8 87.3 0l164.3-75.9 34.1 15.8c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L13.9 277.8C5.4 273.8 0 265.3 0 256s5.4-17.9 13.9-21.8l34.1-15.8zM13.9 362.2l34.1-15.8 164.3 75.9c27.7 12.8 59.6 12.8 87.3 0l164.3-75.9 34.1 15.8c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L13.9 405.8C5.4 401.8 0 393.3 0 384s5.4-17.9 13.9-21.8z" fill="currentColor"/>
  </svg></div><h3 class="text-lg font-bold text-brandBlue">3 gammes spécialisées</h3></div>
 <p class="text-sm text-slate-600 leading-relaxed">Contrairement aux fabricants généralistes, nous avons structuré notre offre en 3 gammes distinctes : Bureau (pads et supports, 55-60% du volume), Stations 3-en-1 (40-50% du CA), et Supports voiture (19.4% CAGR, prêt E-Mark). Chaque gamme a ses propres MOQ, délais et options de personnalisation.</p>
 </div>
-<div class="reveal bg-slate-50 rounded-2xl p-8 border border-slate-200">
+<div class="card-lg-soft reveal p-8">
 <div class="flex items-center gap-4 mb-4"><div class="w-12 h-12 rounded-xl bg-brandOrange/10 flex items-center justify-center shrink-0"><svg class="icon-certificate text-xl text-brandOrange" aria-hidden="true" focusable="false" viewBox="0 0 576 512"><path d="M239.2-8c-6.1-6.2-15-8.7-23.4-6.4S200.9-5.6 198.8 2.8L183.5 63c-1.1 4.4-5.6 7-9.9 5.7L113.8 51.9c-8.4-2.4-17.4 0-23.5 6.1s-8.5 15.1-6.1 23.5l16.9 59.8c1.2 4.3-1.4 8.8-5.7 9.9L35.1 166.5c-8.4 2.1-15 8.7-17.3 17.1s.2 17.3 6.4 23.4l44.5 43.3c3.2 3.1 3.2 8.3 0 11.5L24.3 305.1c-6.2 6.1-8.7 15-6.4 23.4s8.9 14.9 17.3 17.1l60.2 15.3c4.4 1.1 7 5.6 5.7 9.9L84.2 430.5c-2.4 8.4 0 17.4 6.1 23.5s15.1 8.5 23.5 6.1l59.8-16.9c4.3-1.2 8.8 1.4 9.9 5.7l15.3 60.2c2.1 8.4 8.7 15 17.1 17.3s17.3-.2 23.4-6.4l43.3-44.5c3.1-3.2 8.3-3.2 11.5 0L337.3 520c6.1 6.2 15 8.7 23.4 6.4s14.9-8.9 17.1-17.3L393.1 449c1.1-4.4 5.6-7 9.9-5.7l59.8 16.9c8.4 2.4 17.4 0 23.5-6.1s8.5-15.1 6.1-23.5l-16.9-59.8c-1.2-4.3 1.4-8.8 5.7-9.9l60.2-15.3c8.4-2.1 15-8.7 17.3-17.1s-.2-17.4-6.4-23.4l-44.5-43.3c-3.2-3.1-3.2-8.3 0-11.5l44.5-43.3c6.2-6.1 8.7-15 6.4-23.4s-8.9-14.9-17.3-17.1l-60.2-15.3c-4.4-1.1-7-5.6-5.7-9.9l16.9-59.8c2.4-8.4 0-17.4-6.1-23.5s-15.1-8.5-23.5-6.1L403 68.8c-4.3 1.2-8.8-1.4-9.9-5.7L377.8 2.8c-2.1-8.4-8.7-15-17.1-17.3s-17.3.2-23.4 6.4L294 36.5c-3.1 3.2-8.3 3.2-11.5 0L239.2-8z" fill="currentColor"/></svg></div><h3 class="text-lg font-bold text-brandBlue">47 produits certifiés Qi2</h3></div>
 <p class="text-sm text-slate-600 leading-relaxed">Avec 47 produits certifiés Qi2 WPC et un taux de réussite ATL de 99,2%, nous sommes l'un des fabricants les plus fiables pour la certification Qi2. Tous les modèles sont certifiés CE, TÜV GS et RoHS. La conformité RED (EN 62368-1) est incluse pour le marché européen.</p>
 </div>
-<div class="reveal bg-slate-50 rounded-2xl p-8 border border-slate-200">
+<div class="card-lg-soft reveal p-8">
 <div class="flex items-center gap-4 mb-4"><div class="w-12 h-12 rounded-xl bg-brandOrange/10 flex items-center justify-center shrink-0"><svg class="icon-globe text-xl text-brandOrange" aria-hidden="true" focusable="false" viewBox="0 0 512 512">
  <path d="M351.9 280l-190.9 0c2.9 64.5 17.2 123.9 37.5 167.4 11.4 24.5 23.7 41.8 35.1 52.4 11.2 10.5 18.9 12.2 22.9 12.2s11.7-1.7 22.9-12.2c11.4-10.6 23.7-28 35.1-52.4 20.3-43.5 34.6-102.9 37.5-167.4zM160.9 232l190.9 0C349 167.5 334.7 108.1 314.4 64.6 303 40.2 290.7 22.8 279.3 12.2 268.1 1.7 260.4 0 256.4 0s-11.7 1.7-22.9 12.2c-11.4 10.6-23.7 28-35.1 52.4-20.3 43.5-34.6 102.9-37.5 167.4zm-48 0C116.4 146.4 138.5 66.9 170.8 14.7 78.7 47.3 10.9 131.2 1.5 232l111.4 0zM1.5 280c9.4 100.8 77.2 184.7 169.3 217.3-32.3-52.2-54.4-131.7-57.9-217.3L1.5 280zm398.4 0c-3.5 85.6-25.6 165.1-57.9 217.3 92.1-32.7 159.9-116.5 169.3-217.3l-111.4 0zm111.4-48C501.9 131.2 434.1 47.3 342 14.7 374.3 66.9 396.4 146.4 399.9 232l111.4 0z" fill="currentColor"/>
  </svg></div><h3 class="text-lg font-bold text-brandBlue">Logistique & Service France</h3></div>
@@ -276,7 +276,7 @@ plPath: "produkty/ladowarka-bezprzewodowa/"
 </section>
 
 <!-- ======== OEM/ODM ======== -->
-<section class="sec bg-white">
+<section id="oem-odm" class="sec bg-white" data-section="content">
 <div class="container-wide">
 <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 {% call sectionHeader('OEM / ODM', 'Votre chargeur sans fil,<br>votre marque', 'Personnalisation complète pour votre marque, du design à la certification.', {align: '', max: '', mb: '', descClass: 'section-desc mb-8'}) %}<ul class="space-y-4">
@@ -285,10 +285,10 @@ plPath: "produkty/ladowarka-bezprzewodowa/"
 <li class="flex items-start gap-3"><svg class="icon-circle-check text-brandOrange mt-0.5" aria-hidden="true" focusable="false" viewBox="0 0 512 512"><path d="M256 512a256 256 0 1 1 0-512 256 256 0 1 1 0 512zM374 145.7c-10.7-7.8-25.7-5.4-33.5 5.3L221.1 315.2 169 263.1c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l72 72c5 5 11.8 7.5 18.8 7s13.4-4.1 17.5-9.8L379.3 179.2c7.8-10.7 5.4-25.7-5.3-33.5z" fill="currentColor"/></svg><span class="text-slate-600 text-sm"><strong class="text-brandBlue">Puissance et protocoles :</strong> Qi2 15W/25W, TEC actif, ports USB-C additionnels</span></li>
 <li class="flex items-start gap-3"><svg class="icon-circle-check text-brandOrange mt-0.5" aria-hidden="true" focusable="false" viewBox="0 0 512 512"><path d="M256 512a256 256 0 1 1 0-512 256 256 0 1 1 0 512zM374 145.7c-10.7-7.8-25.7-5.4-33.5 5.3L221.1 315.2 169 263.1c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l72 72c5 5 11.8 7.5 18.8 7s13.4-4.1 17.5-9.8L379.3 179.2c7.8-10.7 5.4-25.7-5.3-33.5z" fill="currentColor"/></svg><span class="text-slate-600 text-sm"><strong class="text-brandBlue">Certification :</strong> Qi2 WPC, CE, TÜV GS + support UL, PSE, KC</span></li>
 </ul>
-<button data-action="open-modal" class="btn-primary mt-8 cursor-pointer">Demande OEM/ODM <svg class="icon-arrow-right text-sm" aria-hidden="true" focusable="false" viewBox="0 0 512 512"><path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-105.4 105.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" fill="currentColor"/></svg></button>
+<button data-action="open-modal" class="btn-solid mt-8 cursor-pointer">Demande OEM/ODM <svg class="icon-arrow-right text-sm" aria-hidden="true" focusable="false" viewBox="0 0 512 512"><path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-105.4 105.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" fill="currentColor"/></svg></button>
 {% endcall %}
 <div class="reveal">
-<div class="bg-white rounded-2xl p-8 md:p-10 border border-orange-100 shadow-lg relative overflow-hidden">
+<div class="bg-white rounded-2xl p-8 md:p-10 border border-slate-200 border-orange-100 shadow-lg relative overflow-hidden">
 <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-brandOrange to-brandOrange/30"></div>
 <h3 class="text-lg font-bold text-brandBlue mb-6 flex items-center gap-2"><svg class="icon-star text-brandOrange" aria-hidden="true" focusable="false" viewBox="0 0 576 512" style="width:1.1em;height:1.1em">
  <path d="M309.5-18.9c-4.1-8-12.4-13.1-21.4-13.1s-17.3 5.1-21.4 13.1L193.1 125.3 33.2 150.7c-8.9 1.4-16.3 7.7-19.1 16.3s-.5 18 5.8 24.4l114.4 114.5-25.2 159.9c-1.4 8.9 2.3 17.9 9.6 23.2s16.9 6.1 25 2L288.1 417.6 432.4 491c8 4.1 17.7 3.3 25-2s11-14.2 9.6-23.2L441.7 305.9 556.1 191.4c6.4-6.4 8.6-15.8 5.8-24.4s-10.1-14.9-19.1-16.3L383 125.3 309.5-18.9z" fill="currentColor"/>
@@ -310,7 +310,7 @@ plPath: "produkty/ladowarka-bezprzewodowa/"
 </section>
 
 <!-- ====== BLOG INSIGHTS ====== -->
-<section class="sec bg-white">
+<section id="blog-insights" class="sec bg-white" data-section="content">
  <div class="container-wide">
   <div class="text-center mb-12 reveal">
    <h2 class="text-3xl lg:text-4xl font-black text-slate-900 uppercase italic tracking-tighter mb-4">Charge sans fil <span class="text-brandOrange">Insights</span></h2>
@@ -363,26 +363,26 @@ plPath: "produkty/ladowarka-bezprzewodowa/"
 </section>
 
 <!-- ======== PROCESSUS OEM ======== -->
-<section class="sec bg-white">
-<div class="container-content">
+<section id="processus-oem" class="sec bg-white" data-section="process">
+<div class="container-wide">
 {{ sectionHeader('Processus OEM', 'Votre chargeur sans fil personnalisé — de l\'idée à la livraison', 'Un processus structuré en 4 étapes. De la demande initiale à la production en série.', {mb: 'mb-12'}) }}
 <div class="grid md:grid-cols-4 gap-0 reveal">
-<div class="relative bg-white rounded-2xl border border-slate-200 p-6 text-center">
+<div class="card-lg relative p-6 text-center">
 <div class="w-12 h-12 rounded-full bg-brandOrange text-white font-black text-lg flex items-center justify-center mx-auto mb-4">1</div>
 <h3 class="font-bold text-brandBlue text-sm mb-2">Consultation & Design</h3>
 <p class="text-xs text-slate-500 leading-relaxed">Analyse de vos besoins : format (bureau/3-en-1/voiture), puissance Qi2 (15W/25W), matériaux, design. Échantillons 3D sous 5 jours.</p>
 </div>
-<div class="relative bg-white rounded-2xl border border-slate-200 p-6 text-center">
+<div class="card-lg relative p-6 text-center">
 <div class="w-12 h-12 rounded-full bg-brandOrange text-white font-black text-lg flex items-center justify-center mx-auto mb-4">2</div>
 <h3 class="font-bold text-brandBlue text-sm mb-2">Prototype & Certification</h3>
 <p class="text-xs text-slate-500 leading-relaxed">Échantillons fonctionnels en 3–7 jours. Tests Qi2 WPC, CE, TÜV GS, RoHS. Certification Qi2 ATL incluse.</p>
 </div>
-<div class="relative bg-white rounded-2xl border border-slate-200 p-6 text-center">
+<div class="card-lg relative p-6 text-center">
 <div class="w-12 h-12 rounded-full bg-brandOrange text-white font-black text-lg flex items-center justify-center mx-auto mb-4">3</div>
 <h3 class="font-bold text-brandBlue text-sm mb-2">Production en série</h3>
 <p class="text-xs text-slate-500 leading-relaxed">Production 25–35 jours après approbation. Contrôle qualité 4 étapes. Test de vieillissement et test Qi2 sur chaque unité.</p>
 </div>
-<div class="relative bg-white rounded-2xl border border-slate-200 p-6 text-center">
+<div class="card-lg relative p-6 text-center">
 <div class="w-12 h-12 rounded-full bg-brandOrange text-white font-black text-lg flex items-center justify-center mx-auto mb-4">4</div>
 <h3 class="font-bold text-brandBlue text-sm mb-2">Livraison & Suivi</h3>
 <p class="text-xs text-slate-500 leading-relaxed">Expédition DDP vers la France en 5–7 jours (DHL/FedEx). Dédouanement inclus. Garantie 12–24 mois.</p>
@@ -392,16 +392,16 @@ plPath: "produkty/ladowarka-bezprzewodowa/"
 </section>
 
 <!-- FAQ -->
-<section class="sec bg-white">
+<section id="faq" class="sec bg-white" data-section="faq">
  <div class="container-narrow">
   {{ sectionHeader('FAQ', 'Questions fréquentes', '', {max: '', mb: 'mb-12'}) }}
   <div class="space-y-4">
-   <details class="reveal bg-slate-50 rounded-2xl p-6 border border-slate-200"><summary class="font-bold text-brandBlue cursor-pointer">Qu'est-ce que le Qi2 et pourquoi est-il important ?</summary><p class="text-sm text-slate-600 mt-3 leading-relaxed faq-answer">Le Qi2 est la dernière norme WPC avec profil d'alimentation magnétique (MPP). Charge rapide universelle 15W-25W avec alignement magnétique N52H pour iPhone et Android. Le Qi2.2 étend à 25W avec refroidissement actif.</p></details>
-   <details class="reveal bg-slate-50 rounded-2xl p-6 border border-slate-200"><summary class="font-bold text-brandBlue cursor-pointer">Quelle est la MOQ pour les chargeurs sans fil ?</summary><p class="text-sm text-slate-600 mt-3 leading-relaxed faq-answer">MOQ <strong>500 pièces</strong> pour ODM avec logo. Full OEM : <strong>2 000 pièces</strong>. Échantillons en 3-7 jours.</p></details>
-   <details class="reveal bg-slate-50 rounded-2xl p-6 border border-slate-200"><summary class="font-bold text-brandBlue cursor-pointer">Quelles certifications ont vos chargeurs ?</summary><p class="text-sm text-slate-600 mt-3 leading-relaxed faq-answer">CE, TÜV GS, RoHS, Qi2 WPC. 47 produits certifiés avec 99,2% de taux de réussite ATL. Prêt E-Mark pour l'automobile.</p></details>
-   <details class="reveal bg-slate-50 rounded-2xl p-6 border border-slate-200"><summary class="font-bold text-brandBlue cursor-pointer">En quelles catégories sont divisés vos chargeurs ?</summary><p class="text-sm text-slate-600 mt-3 leading-relaxed faq-answer">Bureau (Pads et supports, 55-60% du volume), Stations 3-en-1 (40-50% du CA), Supports voiture (19,4% CAGR, E-Mark). Plus de 21 modèles.</p></details>
-   <details class="reveal bg-slate-50 rounded-2xl p-6 border border-slate-200"><summary class="font-bold text-brandBlue cursor-pointer">Combien de temps dure la production OEM/ODM ?</summary><p class="text-sm text-slate-600 mt-3 leading-relaxed faq-answer">OEM : <strong>25-30 jours</strong>. ODM : <strong>45-60 jours</strong>. Express DHL/FedEx 5-7 jours vers la France. DDP incluant douane disponible.</p></details>
-   <details class="reveal bg-slate-50 rounded-2xl p-6 border border-slate-200"><summary class="font-bold text-brandBlue cursor-pointer">Quel chargeur sans fil convient le mieux à mon activité ?</summary><p class="text-sm text-slate-600 mt-3 leading-relaxed faq-answer">Pour les revendeurs e-commerce, les pads de bureau 15W sont le volume leader (55-60%). Pour les boutiques premium, les stations 3-en-1 (40-50% du CA) avec packaging luxe. Pour les accessoiristes auto, les supports voiture Qi2 (19.4% CAGR) prêts E-Mark. Pour une offre complète, associez chargeur sans fil + <a href="/fr/produits/batterie-externe/" class="text-brandOrange hover:underline">batterie externe Qi2.2</a>. Notre équipe vous conseille selon votre marché cible.</p></details>
+   <details class="card-lg-soft reveal p-6"><summary class="font-bold text-brandBlue cursor-pointer">Qu'est-ce que le Qi2 et pourquoi est-il important ?</summary><p class="text-sm text-slate-600 mt-3 leading-relaxed faq-answer">Le Qi2 est la dernière norme WPC avec profil d'alimentation magnétique (MPP). Charge rapide universelle 15W-25W avec alignement magnétique N52H pour iPhone et Android. Le Qi2.2 étend à 25W avec refroidissement actif.</p></details>
+   <details class="card-lg-soft reveal p-6"><summary class="font-bold text-brandBlue cursor-pointer">Quelle est la MOQ pour les chargeurs sans fil ?</summary><p class="text-sm text-slate-600 mt-3 leading-relaxed faq-answer">MOQ <strong>500 pièces</strong> pour ODM avec logo. Full OEM : <strong>2 000 pièces</strong>. Échantillons en 3-7 jours.</p></details>
+   <details class="card-lg-soft reveal p-6"><summary class="font-bold text-brandBlue cursor-pointer">Quelles certifications ont vos chargeurs ?</summary><p class="text-sm text-slate-600 mt-3 leading-relaxed faq-answer">CE, TÜV GS, RoHS, Qi2 WPC. 47 produits certifiés avec 99,2% de taux de réussite ATL. Prêt E-Mark pour l'automobile.</p></details>
+   <details class="card-lg-soft reveal p-6"><summary class="font-bold text-brandBlue cursor-pointer">En quelles catégories sont divisés vos chargeurs ?</summary><p class="text-sm text-slate-600 mt-3 leading-relaxed faq-answer">Bureau (Pads et supports, 55-60% du volume), Stations 3-en-1 (40-50% du CA), Supports voiture (19,4% CAGR, E-Mark). Plus de 21 modèles.</p></details>
+   <details class="card-lg-soft reveal p-6"><summary class="font-bold text-brandBlue cursor-pointer">Combien de temps dure la production OEM/ODM ?</summary><p class="text-sm text-slate-600 mt-3 leading-relaxed faq-answer">OEM : <strong>25-30 jours</strong>. ODM : <strong>45-60 jours</strong>. Express DHL/FedEx 5-7 jours vers la France. DDP incluant douane disponible.</p></details>
+   <details class="card-lg-soft reveal p-6"><summary class="font-bold text-brandBlue cursor-pointer">Quel chargeur sans fil convient le mieux à mon activité ?</summary><p class="text-sm text-slate-600 mt-3 leading-relaxed faq-answer">Pour les revendeurs e-commerce, les pads de bureau 15W sont le volume leader (55-60%). Pour les boutiques premium, les stations 3-en-1 (40-50% du CA) avec packaging luxe. Pour les accessoiristes auto, les supports voiture Qi2 (19.4% CAGR) prêts E-Mark. Pour une offre complète, associez chargeur sans fil + <a href="/fr/produits/batterie-externe/" class="text-brandOrange hover:underline">batterie externe Qi2.2</a>. Notre équipe vous conseille selon votre marché cible.</p></details>
   </div>
  </div>
 </section>

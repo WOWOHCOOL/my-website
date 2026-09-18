@@ -71,25 +71,25 @@ plPath: "produkty/ladowarka-bezprzewodowa/stacja-3-w-1/"
 {% block content %}
 {% from "breadcrumb.njk" import breadcrumb %}
 
-<section class="pt-24 md:pt-28 pb-16 md:pb-20 bg-gradient-to-br from-slate-50 via-white to-orange-50">
+<section id="hero" class="pt-24 md:pt-28 lg:pt-20 pb-16 md:pb-20 bg-gradient-to-br from-slate-50 via-white to-orange-50 lg:min-h-[100dvh] lg:flex lg:flex-col lg:justify-center" data-section="hero">
  <div class="container-wide">
   {{ breadcrumb([{name:"Inicio",url:"/es/"},{name:"Productos",url:"/es/productos/"},{name:"Cargador Inalámbrico",url:"/es/productos/cargador-inalambrico/"},{name:"Estacion 3-en-1"}], "none", "mb-6", { variant: "hero" }) }}
   <div class="grid lg:grid-cols-2 gap-12 items-center">
    <div class="reveal order-2 lg:order-1">
-    <p class="text-brandOrange text-xs font-bold tracking-widest uppercase mb-3">3-en-1 · Mayor margen del segmento</p>
-    <h1 class="text-3xl md:text-5xl font-black text-brandBlue leading-tight mb-6 italic uppercase">Estacion Carga 3-en-1<br><span class="text-brandOrange">Fabricante OEM</span></h1>
+    <div class="badge-capsule mb-6 uppercase tracking-widest">3-en-1 · Mayor margen del segmento</div>
+    <h1 class="text-3xl md:text-4xl xl:text-5xl font-black text-brandBlue leading-tight mb-6 italic uppercase tracking-tighter">Estacion Carga 3-en-1<br><span class="text-brandOrange">Fabricante OEM</span></h1>
     <p class="text-slate-600 text-lg leading-relaxed mb-6">Estaciones Qi2 certificadas para <strong>iPhone + Apple Watch + AirPods</strong>. 13 modelos: plegable, TEC, zinc, luz nocturna, diseño copa. <strong>40-50% del ingreso</strong> de la categoria - mayor ASP con 50-150 EUR retail.</p>
     <div class="flex flex-wrap gap-2 mb-8"><span class="trust-badge">Qi2 WPC Certificado</span><span class="trust-badge">CE + RAEE España</span><span class="trust-badge">13 Modelos</span></div>
-    <div class="flex flex-wrap gap-4"><button data-action="open-modal" class="btn-primary cursor-pointer">Solicitar precio fábrica &rarr;</button><a href="#modelos" class="btn-secondary">Ver 13 modelos</a></div>
+    <div class="btn-pair"><button data-action="open-modal" class="btn-solid cursor-pointer">Solicitar precio fábrica &rarr;</button><a href="#modelos" class="btn-ghost-lg">Ver 13 modelos</a></div>
    </div>
-   <div class="reveal order-1 lg:order-2"><div class="bg-white rounded-2xl shadow-xl p-6 md:p-8 border border-slate-100"><img src="/image/product/wireless-charger/wow93-folding-charger.webp" srcset="/image/product/wireless-charger/wow93-folding-charger-800w.webp 800w, /image/product/wireless-charger/wow93-folding-charger.webp 1600w" sizes="(min-width: 1440px) 590px, (min-width: 1280px) 590px, (min-width: 1024px) 462px, (min-width: 768px) 718px, (min-width: 430px) 382px, 338px" alt="WOW93 Estacion carga 3-en-1 plegable Qi2 15W" width="1600" height="1600" class="w-full h-auto object-contain" loading="eager"></div></div>
+   <div class="reveal order-1 lg:order-2"><div class="card-lg shadow-xl p-6 md:p-8 max-w-[480px] mx-auto"><img src="/image/product/wireless-charger/wow93-folding-charger.webp" srcset="/image/product/wireless-charger/wow93-folding-charger-800w.webp 800w, /image/product/wireless-charger/wow93-folding-charger.webp 1600w" sizes="(min-width: 1440px) 590px, (min-width: 1280px) 590px, (min-width: 1024px) 462px, (min-width: 768px) 718px, (min-width: 430px) 382px, 338px" alt="WOW93 Estacion carga 3-en-1 plegable Qi2 15W" width="1600" height="1600" class="w-full h-auto object-contain" loading="eager"></div></div>
   </div>
  </div>
 </section>
 {% include "trust-bar.njk" %}
 
 
-<section id="modelos" class="sec bg-white">
+<section id="modelos" class="sec bg-white" data-section="faq">
  <div class="container-wide">
   {% call sectionHeader('Modelos', '13 Modelos Estaciones <span class="text-brandOrange">3-en-1 OEM</span>', '', {mb: 'mb-12', titleClass: 'text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4'}) %}<p class="text-slate-500">13 modelos | 15W-25W | Qi2 | TEC | Plegable | Luz Nocturna</p>
   {% endcall %}
@@ -104,7 +104,7 @@ plPath: "produkty/ladowarka-bezprzewodowa/stacja-3-w-1/"
      {% for b in badges %}<div class="flex items-center space-x-2"><svg class="icon-feature text-brandOrange text-[11px]" aria-hidden="true" focusable="false" viewBox="0 0 448 512"><path d="M338.8-9.9c11.9 8.6 16.3 24.2 10.9 37.8L271.3 224 416 224c13.5 0 25.5 8.4 30.1 21.1s.7 26.9-9.6 35.5l-288 240c-11.3 9.4-27.4 9.9-39.3 1.3s-16.3-24.2-10.9-37.8L176.7 288 32 288c-13.5 0-25.5-8.4-30.1-21.1s-.7-26.9 9.6-35.5l288-240c11.3-9.4 27.4-9.9 39.3-1.3z" fill="currentColor"/></svg><span class="text-[11px] font-bold text-slate-500 uppercase">{{ b }}</span></div>{% endfor %}
     </div>
     <p class="text-[11px] text-slate-500 mb-6 italic leading-relaxed">{{ desc }}</p>
-    <details class="mb-6 group/spec"><summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Especificaciones</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
+    <details class="mb-6 group/spec"><summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Especificaciones</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
      <div class="p-4 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-[11px]"><tbody>
       {% for s in specs %}{% set sp = s.split('</strong>') %}<tr class="border-b border-slate-200"><td class="py-2 text-slate-500">{{ sp[0] | replace('<strong>', '') | safe }}</td><td class="py-2 font-bold text-slate-700">{{ sp[1] | trim | safe }}</td></tr>{% endfor %}
       <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">MOQ / Plazo</td><td class="py-2 font-bold text-slate-700">500 uds | 25-30 días</td></tr>
@@ -170,7 +170,7 @@ plPath: "produkty/ladowarka-bezprzewodowa/stacja-3-w-1/"
  </div>
 </section>
 
-<section class="sec bg-white py-8">
+<section id="content" class="sec bg-white py-8" data-section="content">
  <div class="container-content">
  <blockquote class="bg-brandOrange/5 border-l-4 border-brandOrange rounded-r-xl px-6 py-5 text-sm text-slate-700 italic leading-relaxed">
   <p>"El mercado global de cargadores inalambricos alcanzo 6,78B USD en 2025, proyectado a 19,03B USD en 2030 (CAGR 22,9%, Grand View Research). El 12% de usuarios iPhone poseen los tres dispositivos - unos 170M de usuarios 'Triple Threat' (CIRP/AppleInsider). Las estaciones 3-en-1 capturan el 40-50% del ingreso con solo 18-25% del volumen. El mercado hospitality-tech crece de 129,4B USD a 306,1B USD en 2033 (CAGR 10,2%) - Marriott, Hilton e IHG despliegan carga inalámbrica en 2026."</p>
@@ -179,47 +179,47 @@ plPath: "produkty/ladowarka-bezprzewodowa/stacja-3-w-1/"
  </div>
 </section>
 
-<section class="sec bg-slate-50">
- <div class="container-content">
+<section id="content-2" class="sec bg-slate-50" data-section="content">
+ <div class="container-wide">
   <div class="text-center mb-10 reveal"><h2 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4">Para quien son las <span class="text-brandOrange">estaciones 3-en-1</span>?</h2></div>
   <div class="grid md:grid-cols-3 gap-6">
-   <div class="bg-white rounded-xl p-6 text-center"><p class="font-black text-brandBlue text-sm mb-2">Hoteles & Hosteleria</p><p class="text-xs text-slate-500">17,5M habitaciones global. WOW90 + WOW18 = estándar habitacion. Marriott/Hilton/IHG despliegan en 2026.</p></div>
-   <div class="bg-white rounded-xl p-6 text-center"><p class="font-black text-brandBlue text-sm mb-2">Amazon & E-commerce</p><p class="text-xs text-slate-500">"estacion carga 3-en-1" alta demanda. Modelos premium con 30-40% margen. Private label desde 500 uds.</p></div>
-   <div class="bg-white rounded-xl p-6 text-center"><p class="font-black text-brandBlue text-sm mb-2">Marcas Tech Consumo</p><p class="text-xs text-slate-500">ODM con diseño exclusivo. 50+ ingenieros I+D. Clientes Bosch & Jacob Jensen. Desarrollo completo.</p></div>
+   <div class="card p-6 text-center"><p class="font-black text-brandBlue text-sm mb-2">Hoteles & Hosteleria</p><p class="text-xs text-slate-500">17,5M habitaciones global. WOW90 + WOW18 = estándar habitacion. Marriott/Hilton/IHG despliegan en 2026.</p></div>
+   <div class="card p-6 text-center"><p class="font-black text-brandBlue text-sm mb-2">Amazon & E-commerce</p><p class="text-xs text-slate-500">"estacion carga 3-en-1" alta demanda. Modelos premium con 30-40% margen. Private label desde 500 uds.</p></div>
+   <div class="card p-6 text-center"><p class="font-black text-brandBlue text-sm mb-2">Marcas Tech Consumo</p><p class="text-xs text-slate-500">ODM con diseño exclusivo. 50+ ingenieros I+D. Clientes Bosch & Jacob Jensen. Desarrollo completo.</p></div>
   </div>
  </div>
 </section>
 
-<section class="sec bg-white">
- <div class="container-content">
+<section id="content-3" class="sec bg-white" data-section="content">
+ <div class="container-wide">
   <div class="text-center mb-10 reveal"><h2 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4">OEM/ODM <span class="text-brandOrange">Personalización</span></h2></div>
   <div class="grid md:grid-cols-2 gap-8">
-   <div class="bg-slate-50 rounded-xl p-6"><h3 class="font-black text-brandBlue uppercase mb-3 text-sm">OEM (modelos estándar, MOQ 500)</h3><ul class="text-sm text-slate-600 space-y-1"><li>· Logo (serigrafia, laser, UV)</li><li>· Color Pantone personalizado</li><li>· Embalaje y manual en español</li><li>· CE + Qi2 WPC documentación</li><li>· Plazo: 25-30 días</li></ul></div>
-   <div class="bg-slate-50 rounded-xl p-6"><h3 class="font-black text-brandBlue uppercase mb-3 text-sm">ODM (diseño exclusivo, MOQ 2.000)</h3><ul class="text-sm text-slate-600 space-y-1"><li>· Diseño ID exclusivo (CMF)</li><li>· Refrigeracion: pasiva / ventilador / TEC</li><li>· 15W / 25W configuracion de potencia</li><li>· Display, luz nocturna integrable</li><li>· Plazo: 45-60 días con molde</li></ul></div>
+   <div class="card-soft p-6"><h3 class="font-black text-brandBlue uppercase mb-3 text-sm">OEM (modelos estándar, MOQ 500)</h3><ul class="text-sm text-slate-600 space-y-1"><li>· Logo (serigrafia, laser, UV)</li><li>· Color Pantone personalizado</li><li>· Embalaje y manual en español</li><li>· CE + Qi2 WPC documentación</li><li>· Plazo: 25-30 días</li></ul></div>
+   <div class="card-soft p-6"><h3 class="font-black text-brandBlue uppercase mb-3 text-sm">ODM (diseño exclusivo, MOQ 2.000)</h3><ul class="text-sm text-slate-600 space-y-1"><li>· Diseño ID exclusivo (CMF)</li><li>· Refrigeracion: pasiva / ventilador / TEC</li><li>· 15W / 25W configuracion de potencia</li><li>· Display, luz nocturna integrable</li><li>· Plazo: 45-60 días con molde</li></ul></div>
   </div>
  </div>
 </section>
 
-<section class="sec-lg bg-slate-50 border-t border-slate-100">
+<section id="faq" class="sec bg-slate-50 border-t border-slate-100" data-section="faq">
  <div class="container-narrow">
   <div class="text-center mb-12"><h2 class="text-3xl lg:text-4xl font-black text-slate-900 uppercase italic tracking-tighter mb-4">Estacion 3-en-1 <span class="text-brandOrange">FAQ</span></h2></div>
   <div class="space-y-4">
-   <details class="bg-white rounded-xl p-5 border border-slate-200 group"><summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">¿Qué es una estacion 3-en-1?<span class="text-brandOrange group-open:rotate-180 transition">▼</span></summary><p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">Carga iPhone + Apple Watch + AirPods simultaneamente. Qi2 MPP con imanes N52H. 40-50% del ingreso de categoria - el formato de mayor margen con 50-150 EUR retail.</p></details>
-   <details class="bg-white rounded-xl p-5 border border-slate-200 group"><summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">MOQ para estaciones 3-en-1?<span class="text-brandOrange group-open:rotate-180 transition">▼</span></summary><p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">MOQ <strong>500 unidades</strong> ODM con logo. OEM: <strong>2.000</strong>. Muestras en 3-7 días.</p></details>
-   <details class="bg-white rounded-xl p-5 border border-slate-200 group"><summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">Diferencia entre 15W y 25W?<span class="text-brandOrange group-open:rotate-180 transition">▼</span></summary><p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">15W usa Qi2 MPP para iPhone 12-16. <strong>25W</strong> usa Qi v2.2.1 con refrigeracion activa para Pixel 10, Galaxy S25 y iPhone 16 25W. Los 25W incluyen ventilador o TEC.</p></details>
-   <details class="bg-white rounded-xl p-5 border border-slate-200 group"><summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">Adecuadas para hoteles?<span class="text-brandOrange group-open:rotate-180 transition">▼</span></summary><p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">Si. WOW90 (zinc), WOW18 (luz nocturna) y WOW83 (watch desmontable) para mesitas. Precios volumen desde 1.000 unidades.</p></details>
-   <details class="bg-white rounded-xl p-5 border border-slate-200 group"><summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">Plazos producción OEM/ODM?<span class="text-brandOrange group-open:rotate-180 transition">▼</span></summary><p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">OEM: <strong>25-30 días</strong>. ODM: <strong>45-60 días</strong>. Envío expres 5-7 días a España. DDP con aduana disponible.</p></details>
+   <details class="card p-5 group"><summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">¿Qué es una estacion 3-en-1?<span class="text-brandOrange group-open:rotate-180 transition">▼</span></summary><p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">Carga iPhone + Apple Watch + AirPods simultaneamente. Qi2 MPP con imanes N52H. 40-50% del ingreso de categoria - el formato de mayor margen con 50-150 EUR retail.</p></details>
+   <details class="card p-5 group"><summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">MOQ para estaciones 3-en-1?<span class="text-brandOrange group-open:rotate-180 transition">▼</span></summary><p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">MOQ <strong>500 unidades</strong> ODM con logo. OEM: <strong>2.000</strong>. Muestras en 3-7 días.</p></details>
+   <details class="card p-5 group"><summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">Diferencia entre 15W y 25W?<span class="text-brandOrange group-open:rotate-180 transition">▼</span></summary><p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">15W usa Qi2 MPP para iPhone 12-16. <strong>25W</strong> usa Qi v2.2.1 con refrigeracion activa para Pixel 10, Galaxy S25 y iPhone 16 25W. Los 25W incluyen ventilador o TEC.</p></details>
+   <details class="card p-5 group"><summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">Adecuadas para hoteles?<span class="text-brandOrange group-open:rotate-180 transition">▼</span></summary><p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">Si. WOW90 (zinc), WOW18 (luz nocturna) y WOW83 (watch desmontable) para mesitas. Precios volumen desde 1.000 unidades.</p></details>
+   <details class="card p-5 group"><summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">Plazos producción OEM/ODM?<span class="text-brandOrange group-open:rotate-180 transition">▼</span></summary><p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">OEM: <strong>25-30 días</strong>. ODM: <strong>45-60 días</strong>. Envío expres 5-7 días a España. DDP con aduana disponible.</p></details>
   </div>
  </div>
 </section>
 
-<section class="sec bg-white py-12">
- <div class="container-narrow text-center"><p class="text-center text-slate-500 text-sm mb-6">Más categorias de WOWOHCOOL:</p>
+<section id="content-4" class="sec bg-white py-12" data-section="content">
+ <div class="container-wide text-center"><p class="text-center text-slate-500 text-sm mb-6">Más categorias de WOWOHCOOL:</p>
  <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-  <a href="/es/productos/cargador-inalambrico/" class="block bg-white rounded-xl p-4 border border-slate-200 hover:border-brandOrange hover:shadow-md transition text-center"><p class="font-black text-brandBlue text-sm uppercase mb-1">Todos Inalambricos</p><p class="text-[10px] text-slate-500">3 Categorias, 21+ Modelos</p></a>
-  <a href="/es/productos/cargador-inalambrico/escritorio/" class="block bg-white rounded-xl p-4 border border-slate-200 hover:border-brandOrange hover:shadow-md transition text-center"><p class="font-black text-brandBlue text-sm uppercase mb-1">Escritorio</p><p class="text-[10px] text-slate-500">Pads y Soportes</p></a>
-  <a href="/es/productos/cargador-inalambrico/soporte-coche/" class="block bg-white rounded-xl p-4 border border-slate-200 hover:border-brandOrange hover:shadow-md transition text-center"><p class="font-black text-brandBlue text-sm uppercase mb-1">Soporte Coche</p><p class="text-[10px] text-slate-500">Qi2 Magnetico + Pinza</p></a>
-  <a href="/es/productos/cargador-gan/" class="block bg-white rounded-xl p-4 border border-slate-200 hover:border-brandOrange hover:shadow-md transition text-center"><p class="font-black text-brandBlue text-sm uppercase mb-1">Cargador GaN</p><p class="text-[10px] text-slate-500">USB-C PD 3.1</p></a>
+  <a href="/es/productos/cargador-inalambrico/" class="card block p-4 hover:border-brandOrange hover:shadow-md transition text-center"><p class="font-black text-brandBlue text-sm uppercase mb-1">Todos Inalambricos</p><p class="text-[10px] text-slate-500">3 Categorias, 21+ Modelos</p></a>
+  <a href="/es/productos/cargador-inalambrico/escritorio/" class="card block p-4 hover:border-brandOrange hover:shadow-md transition text-center"><p class="font-black text-brandBlue text-sm uppercase mb-1">Escritorio</p><p class="text-[10px] text-slate-500">Pads y Soportes</p></a>
+  <a href="/es/productos/cargador-inalambrico/soporte-coche/" class="card block p-4 hover:border-brandOrange hover:shadow-md transition text-center"><p class="font-black text-brandBlue text-sm uppercase mb-1">Soporte Coche</p><p class="text-[10px] text-slate-500">Qi2 Magnetico + Pinza</p></a>
+  <a href="/es/productos/cargador-gan/" class="card block p-4 hover:border-brandOrange hover:shadow-md transition text-center"><p class="font-black text-brandBlue text-sm uppercase mb-1">Cargador GaN</p><p class="text-[10px] text-slate-500">USB-C PD 3.1</p></a>
  </div>
  </div>
 </section>

@@ -190,7 +190,7 @@ ruPath: "oem-odm-uslugi/"
 <!-- ========================================================================
  HERO SECTION - Hero Section
  ======================================================================== -->
- <section class="relative pt-24 md:pt-28 pb-8 lg:pb-16 bg-white text-slate-900 overflow-hidden">
+ <section id="hero-section" class="relative pt-24 md:pt-28 pb-8 lg:pb-16 bg-white text-slate-900 overflow-hidden lg:min-h-[100dvh] lg:flex lg:flex-col lg:justify-center" data-section="hero">
  <div class="absolute inset-0 z-0 pointer-events-none">
  <div class="absolute top-0 left-0 w-64 h-64 bg-brandOrange opacity-20 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
  <div class="absolute bottom-0 right-0 w-64 h-64 bg-blue-500 opacity-20 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
@@ -199,15 +199,15 @@ ruPath: "oem-odm-uslugi/"
  <!-- Breadcrumb -->
  {{ breadcrumb([{name: "Strona główna", url: "/pl/"}, {name: "Usługi OEM/ODM"}], "none", "mb-6", { variant: "hero" }) }}
  <div class="badge-capsule mb-6 mx-auto uppercase tracking-widest">Rozwiazanie kompleksowe</div>
-<h1 class="text-4xl md:text-5xl lg:text-6xl font-black text-brandBlue uppercase italic tracking-tighter leading-tight mb-6">
+<h1 class="text-4xl md:text-5xl lg:text-[2.5rem] xl:text-[2.875rem] 2xl:text-6xl font-black text-brandBlue uppercase italic tracking-tighter leading-tight mb-6">
  Produkcja Kontraktowa <span class="text-brandOrange">OEM/ODM</span> <br> — Shenzhen, Chiny
  </h1>
  <p class="text-slate-600 max-w-2xl mx-auto text-lg mb-12">
  Od koncepcji do produkcji seryjnej. Pomagamy markom wprowadzac niestandardowe produkty: <a href="/pl/produkty/ladowarka-bezprzewodowa/" class="text-brandOrange hover:underline">ładowarki bezprzewodowe</a>, <a href="/pl/produkty/power-bank/" class="text-brandOrange hover:underline">power banki</a> i <a href="/pl/produkty/ladowarka-samochodowa/" class="text-brandOrange hover:underline">ładowarki samochodowe</a>. Nasza fabryka ma 10+ lat doswiadczenia.
  </p>
- <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
- <button data-action="open-modal" class="w-full sm:w-auto bg-brandOrange text-white px-8 py-4 rounded-xl font-black uppercase tracking-widest text-sm shadow-xl hover:-translate-y-1 transition">Rozpocznij projekt</button>
- <a href="/pl/kontakt/" class="w-full sm:w-auto border-2 border-brandBlue text-brandBlue px-8 py-4 rounded-xl font-black uppercase tracking-widest text-sm hover:bg-brandBlue hover:text-white transition">Kontakt</a>
+ <div class="btn-pair">
+ <button data-action="open-modal" class="border-2 border-transparent w-full bg-brandOrange text-white px-8 py-4 rounded-xl font-black uppercase tracking-widest text-sm shadow-xl hover:-translate-y-1 transition text-center">Rozpocznij projekt</button>
+ <a href="/pl/kontakt/" class="w-full border-2 border-brandBlue text-brandBlue px-8 py-4 rounded-xl font-black uppercase tracking-widest text-sm hover:bg-brandBlue hover:text-white transition text-center">Kontakt</a>
  </div>
  </div>
  </section>
@@ -216,7 +216,7 @@ ruPath: "oem-odm-uslugi/"
 {% include "trust-bar.njk" %}
 
 	<!-- Polish Trust Signals Bar -->
-	<section class="bg-brandBlue text-white py-10">
+	<section id="polish-trust-signals-bar" class="bg-brandBlue text-white py-10" data-section="trust">
 	 <div class="container-wide">
 	 <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
 	  <div class="p-3"><p class="text-2xl font-black text-brandOrange mb-1">PL</p><p class="text-[11px] font-bold uppercase tracking-wider text-white/80">Dokumentacja w jezyku polskim</p></div>
@@ -229,7 +229,7 @@ ruPath: "oem-odm-uslugi/"
  <!-- ========================================================================
  OEM VS ODM SECTION - id=oem-odm-comparison
  ======================================================================== -->
- <section id="oem-odm-comparison" class="sec bg-white">
+ <section id="oem-odm-comparison" class="sec bg-white" data-section="comparison">
  <div class="container-wide">
  <div class="text-center max-w-3xl mx-auto mb-16">
  <h2 class="text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4">
@@ -333,7 +333,7 @@ ruPath: "oem-odm-uslugi/"
  <!-- ========================================================================
  WORKFLOW SECTION - Workflow section
  ======================================================================== -->
- 	<section id="workflow" class="sec-lg bg-slate-50 overflow-hidden">
+ 	<section id="workflow" class="sec bg-darkBg text-white dark-section overflow-hidden" data-section="content">
  <div class="container-wide">
  <div class="text-center max-w-3xl mx-auto mb-20 reveal">
  <div class="badge-capsule mb-6 mx-auto uppercase tracking-widest">Efektywność i precyzja</div>
@@ -347,7 +347,7 @@ ruPath: "oem-odm-uslugi/"
  
  <div class="relative group reveal" style="transition-delay: 100ms;">
  <div class="flex items-start gap-6">
- <div class="shrink-0 w-14 h-14 bg-white border-2 border-brandBlue text-brandBlue rounded-2xl flex items-center justify-center font-black text-xl group-hover:bg-brandBlue group-hover:text-white transition-all duration-300 shadow-sm">01</div>
+ <div class="shrink-0 w-14 h-14 bg-white/10 border-2 border-white/25 text-white rounded-2xl flex items-center justify-center font-black text-xl group-hover:bg-white/20 transition-all duration-300">01</div>
  <div>
  <h3 class="text-lg font-black text-brandBlue uppercase italic mb-3">Omowienie wymagan</h3>
  <p class="text-sm text-slate-500 leading-relaxed">Szczegolowa analiza specyfikacji technicznej, wymagan zgodnosci, ceny docelowej i oczekiwan rynkowych w celu okreslenia zakresu projektu.</p>
@@ -357,7 +357,7 @@ ruPath: "oem-odm-uslugi/"
 
  <div class="relative group reveal" style="transition-delay: 200ms;">
  <div class="flex items-start gap-6">
- <div class="shrink-0 w-14 h-14 bg-white border-2 border-brandBlue text-brandBlue rounded-2xl flex items-center justify-center font-black text-xl group-hover:bg-brandBlue group-hover:text-white transition-all duration-300 shadow-sm">02</div>
+ <div class="shrink-0 w-14 h-14 bg-white/10 border-2 border-white/25 text-white rounded-2xl flex items-center justify-center font-black text-xl group-hover:bg-white/20 transition-all duration-300">02</div>
  <div>
  <h3 class="text-lg font-black text-brandBlue uppercase italic mb-3">Projektowanie i rendering 3D</h3>
  <p class="text-sm text-slate-500 leading-relaxed">Nasz zespol R&D przeklada pomysly na wysokiej jakości rendery 3D i plany projektowania przemyslowego (ID) do Twojej akceptacji.</p>
@@ -378,7 +378,7 @@ ruPath: "oem-odm-uslugi/"
 
  <div class="relative group reveal" style="transition-delay: 400ms;">
  <div class="flex items-start gap-6">
- <div class="shrink-0 w-14 h-14 bg-white border-2 border-brandBlue text-brandBlue rounded-2xl flex items-center justify-center font-black text-xl group-hover:bg-brandBlue group-hover:text-white transition-all duration-300 shadow-sm">04</div>
+ <div class="shrink-0 w-14 h-14 bg-white/10 border-2 border-white/25 text-white rounded-2xl flex items-center justify-center font-black text-xl group-hover:bg-white/20 transition-all duration-300">04</div>
  <div>
  <h3 class="text-lg font-black text-brandBlue uppercase italic mb-3">Testowanie i certyfikacja</h3>
  <p class="text-sm text-slate-500 leading-relaxed">Testujemy pod katem norm CE, FCC, RoHS i Qi. Gwarantuje to zgodność Twoich produktow z wymaganiami globalnych rynkow.</p>
@@ -399,7 +399,7 @@ ruPath: "oem-odm-uslugi/"
 
  <div class="relative group reveal" style="transition-delay: 600ms;">
  <div class="flex items-start gap-6">
- <div class="shrink-0 w-14 h-14 bg-white border-2 border-brandBlue text-brandBlue rounded-2xl flex items-center justify-center font-black text-xl group-hover:bg-brandBlue group-hover:text-white transition-all duration-300 shadow-sm">06</div>
+ <div class="shrink-0 w-14 h-14 bg-white/10 border-2 border-white/25 text-white rounded-2xl flex items-center justify-center font-black text-xl group-hover:bg-white/20 transition-all duration-300">06</div>
  <div>
  <h3 class="text-lg font-black text-brandBlue uppercase italic mb-3">Wysyłka i serwis posprzedazowy</h3>
  <p class="text-sm text-slate-500 leading-relaxed">Strategiczne wsparcie logistyczne i dokumentacja polaczona z 12-miesieczna gwarancja jakości i dedykowanym wsparciem technicznym.</p>
@@ -409,14 +409,14 @@ ruPath: "oem-odm-uslugi/"
 
  </div>
 
- <div class="mt-20 p-8 bg-white rounded-3xl border border-slate-100 flex flex-col md:flex-row items-center justify-between gap-6 reveal">
+ <div class="card-lg mt-20 p-8 flex flex-col md:flex-row items-center justify-between gap-6 reveal">
  <div class="flex items-center gap-4">
- <div class="w-12 h-12 bg-slate-50 rounded-full flex items-center justify-center text-brandOrange">
+ <div class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center text-brandOrange">
  <svg class="icon-clock-rotate-left text-xl" aria-hidden="true" focusable="false" viewBox="0 0 576 512">
  <path d="M288 64c106 0 192 86 192 192S394 448 288 448c-65.2 0-122.9-32.5-157.6-82.3-10.1-14.5-30.1-18-44.6-7.9s-18 30.1-7.9 44.6C124.1 468.6 201 512 288 512 429.4 512 544 397.4 544 256S429.4 0 288 0C202.3 0 126.5 42.1 80 106.7L80 80c0-17.7-14.3-32-32-32S16 62.3 16 80l0 112c0 17.7 14.3 32 32 32l24.6 0c.5 0 1 0 1.5 0l86 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-38.3 0C154.9 102.6 217 64 288 64zm24 88c0-13.3-10.7-24-24-24s-24 10.7-24 24l0 104c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65 0-94.1z" fill="currentColor"/>
  </svg>
  </div>
- <p class="text-sm text-slate-500 font-medium">Typowy harmonogram: <span class="text-slate-900 font-bold">4-8 tygodni</span> od koncepcji do wysyłki, w zaleznosci od stopnia personalizacji.</p>
+ <p class="text-sm text-slate-500 font-medium">Typowy harmonogram: <span class="text-white font-bold">4-8 tygodni</span> od koncepcji do wysyłki, w zaleznosci od stopnia personalizacji.</p>
  </div>
  <button data-action="open-modal" data-product="Process Consultation" class="bg-brandOrange text-white px-8 py-4 rounded-xl font-black uppercase tracking-widest text-[11px] hover:bg-brandOrange/90 transition-all duration-300">Popros o harmonogram</button>
  </div>
@@ -426,7 +426,7 @@ ruPath: "oem-odm-uslugi/"
  <!-- ========================================================================
  CUSTOMIZATION SECTION - id=customization
  ======================================================================== -->
- <section id="customization" class="sec bg-white overflow-hidden">
+ <section id="customization" class="sec bg-white overflow-hidden" data-section="content">
  <div class="container-wide">
  <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 reveal">
  <div class="max-w-2xl">
@@ -528,7 +528,7 @@ ruPath: "oem-odm-uslugi/"
  <!-- ========================================================================
  FACTORY CAPABILITY SECTION - Factory Capabilities
  ======================================================================== -->
- 	<section id="case-studies" class="sec bg-slate-50">
+ 	<section id="case-studies" class="sec bg-slate-50" data-section="content">
  <div class="container-wide">
  <div class="text-center max-w-3xl mx-auto mb-20 reveal">
  <h2 class="text-4xl lg:text-5xl font-black text-brandBlue uppercase italic tracking-tighter mb-6">
@@ -627,14 +627,20 @@ ruPath: "oem-odm-uslugi/"
  </div>
  </div>
 
- <div class="mt-16 text-center reveal space-y-4">
- <button data-action="open-modal" class="group flex items-center gap-3 mx-auto bg-brandOrange text-white px-8 py-4 rounded-xl font-black uppercase tracking-widest text-sm shadow-xl hover:-translate-y-1 transition">
+ <!-- 两个 CTA 等宽并排：inline-grid + md:grid-cols-2 —— 1fr 1fr 两列在 auto 尺寸下
+      各自取到「较长文案」的宽度，即"以最长文案为准"的大小一致；移动端 grid-cols-1 上下堆叠。
+      grid 默认 align-items:stretch → 两按钮高度也自动一致。
+      断点用 md(768) 而非 sm(640)：640 并排时每侧仅 288px，文案要折 3 行且箭头悬空 -->
+ <div class="mt-16 text-center reveal">
+ <div class="inline-grid grid-cols-1 md:grid-cols-2 gap-4 w-full md:w-auto">
+ <button data-action="open-modal" class="group flex items-center justify-center gap-3 w-full bg-brandOrange text-white px-8 py-4 rounded-xl font-black uppercase tracking-widest text-sm shadow-xl hover:-translate-y-1 transition">
  Zostan nasza kolejna historia sukcesu
  <svg class="icon-arrow-right group-hover:translate-x-2 transition-transform" aria-hidden="true" focusable="false" viewBox="0 0 512 512">
  <path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-105.4 105.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" fill="currentColor"/>
  </svg>
  </button>
- <a href="/pl/studia-przypadkow/" class="inline-block text-sm font-bold text-brandBlue hover:text-brandOrange transition">Zobacz wszystkie 6 historii sukcesu klientow →</a>
+ <a href="/pl/studia-przypadkow/" class="btn-more justify-center w-full">Zobacz wszystkie 6 historii sukcesu klientow →</a>
+ </div>
  </div>
  </div>
  </section>
@@ -642,7 +648,7 @@ ruPath: "oem-odm-uslugi/"
 <!-- ========================================================================
  PRICING SECTION — Transparent Cost Estimates
  ======================================================================== -->
-<section id="pricing" class="sec-lg bg-white">
+<section id="pricing" class="sec bg-white" data-section="pricing">
  <div class="container-wide">
   <div class="text-center max-w-3xl mx-auto mb-16 reveal">
    <h2 class="text-4xl lg:text-5xl font-black text-brandBlue uppercase italic tracking-tighter mb-6">
@@ -651,7 +657,7 @@ ruPath: "oem-odm-uslugi/"
    <p class="text-slate-500 font-medium max-w-2xl mx-auto">Ceny bezposrednio z fabryki, bez marzy posrednikow. Ponizsze zakresy sa szacunkowe dla standardowych power bankow i ladowarek — dokladna wycena zalezy od Twojej specyfikacji, wielkosci zamówienia i zakresu personalizacji.</p>
   </div>
 
-  <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto reveal">
+  <div class="grid md:grid-cols-3 gap-6 reveal">
    <!-- Start -->
    <div class="bg-slate-50 rounded-[2rem] p-8 border border-slate-200 hover:shadow-xl transition-all duration-300">
     <p class="text-[11px] font-black text-slate-400 uppercase tracking-widest mb-2">Start</p>
@@ -702,8 +708,9 @@ ruPath: "oem-odm-uslugi/"
 
 <!-- ======== IMPORT OEM Z CHIN DO POLSKI
 	 ======================================================================== -->
-	<section class="sec bg-white">
-	 <div class="container-narrow">
+	<!-- 深色化：内部只有 h2(text-brandBlue→白) 与 p/ul(text-slate-600→#cbd5e1)，.dark-section 全部自动接管 -->
+	<section id="import-oem-z-chin-do-polski" class="sec bg-darkBg text-white dark-section" data-section="content">
+	 <div class="container-wide">
 	 <div class="grid md:grid-cols-2 gap-10 items-center">
 	  <div>
 	   <h2 class="text-2xl font-black text-brandBlue uppercase italic tracking-tighter mb-4">Import OEM z Chin <span class="text-brandOrange">do Polski</span></h2>
@@ -723,7 +730,7 @@ ruPath: "oem-odm-uslugi/"
 	</section>
 
 	<!-- ======== FAQ ======== -->
-<section class="py-16 bg-slate-50">
+<section id="faq" class="sec bg-slate-50" data-section="faq">
  <div class="container-narrow">
  {{ sectionHeader('FAQ', 'Produkcja kontraktowa OEM/ODM — FAQ', '', {max: '', mb: 'mb-10'}) }}
  <div class="reveal">

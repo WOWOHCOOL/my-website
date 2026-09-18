@@ -75,26 +75,26 @@ plPath: "produkty/power-bank/inteligentny-wyswietlacz/"
 {% from "breadcrumb.njk" import breadcrumb %}
 
 <!-- HERO -->
-<section class="pt-24 md:pt-28 pb-16 md:pb-20 bg-gradient-to-br from-blue-50 via-white to-orange-50">
+<section id="hero" class="pt-24 md:pt-28 lg:pt-20 pb-16 md:pb-20 bg-gradient-to-br from-blue-50 via-white to-orange-50 lg:min-h-[100dvh] lg:flex lg:flex-col lg:justify-center" data-section="hero">
  <div class="container-wide">
   {{ breadcrumb([{name:"Startseite",url:"/de/"},{name:"Produkte",url:"/de/produkte/"},{name:"Powerbank",url:"/de/produkte/powerbank/"},{name:"Smart Display"}], "none", "mb-6", { variant: "hero" }) }}
   <div class="grid lg:grid-cols-2 gap-12 items-center">
    <div class="reveal order-2 lg:order-1">
-    <p class="text-brandOrange text-xs font-bold tracking-widest uppercase mb-3">Premium-Linie &middot; TFT-Display</p>
-    <h1 class="text-3xl md:text-5xl font-black text-brandBlue leading-tight mb-6 italic uppercase">Smart Display Powerbank<br><span class="text-brandOrange">mit TFT-Bildschirm</span></h1>
+    <div class="badge-capsule mb-6 uppercase tracking-widest">Premium-Linie &middot; TFT-Display</div>
+    <h1 class="text-3xl md:text-4xl xl:text-5xl font-black text-brandBlue leading-tight mb-6 italic uppercase tracking-tighter">Smart Display Powerbank<br><span class="text-brandOrange">mit TFT-Bildschirm</span></h1>
     <p class="text-slate-600 text-lg leading-relaxed mb-6">4 Premium-Modelle mit TFT-Farbdisplay zur Anzeige von <strong>Echtzeit-Watt, Spannung, Strom und Ladezyklen</strong>. Aluminium-Unibody mit gehärtetem Frontglas. Optionen mit Qi2 magnetisch und Watch-Charger für die <strong>Premium-Markenpositionierung</strong>.</p>
     <div class="flex flex-wrap gap-2 mb-8">
      <span class="trust-badge">TFT-Farbdisplay</span>
      <span class="trust-badge">Aluminium + Hartglas</span>
      <span class="trust-badge">Qi2 15W</span>
     </div>
-    <div class="flex flex-wrap gap-4">
-     <button data-action="open-modal" class="btn-primary cursor-pointer">Werkspreis anfragen &rarr;</button>
-     <a href="#modelle" class="btn-secondary">Modelle ansehen</a>
+    <div class="btn-pair">
+     <button data-action="open-modal" class="btn-solid cursor-pointer">Werkspreis anfragen &rarr;</button>
+     <a href="#modelle" class="btn-ghost-lg">Modelle ansehen</a>
     </div>
    </div>
    <div class="reveal order-1 lg:order-2">
-    <div class="bg-white rounded-2xl shadow-xl p-6 md:p-8 border border-slate-100">
+    <div class="card-lg shadow-xl p-6 md:p-8 max-w-[480px] mx-auto">
      <img src="/image/product/power-bank/wop25-tft-power-bank.webp" srcset="/image/product/power-bank/wop25-tft-power-bank-750w.webp 750w, /image/product/power-bank/wop25-tft-power-bank.webp 1920w" sizes="(min-width: 1440px) 526px, (min-width: 1280px) 526px, (min-width: 1024px) 398px, (min-width: 768px) 654px, (min-width: 430px) 382px, 327px" alt="Smart Display Powerbank WOP25 mit TFT-Bildschirm" width="1920" height="1920" class="w-full h-auto object-contain" loading="eager">
     </div>
    </div>
@@ -106,7 +106,7 @@ plPath: "produkty/power-bank/inteligentny-wyswietlacz/"
 {% include "trust-bar.njk" %}
 
 <!-- MODELLE -->
-<section id="modelle" class="sec bg-white">
+<section id="modelle" class="sec bg-white" data-section="products">
  <div class="container-wide">
   {{ sectionHeader('Modellreihe', '4 Smart-Display-Modelle', 'Von 5.000mAh kompakt bis 10.000mAh Premium 3-in-1. TFT-Farbdisplay mit Echtzeit-Ladewerten, magnetische Watch-Charger-Optionen verfügbar.', {mb: 'mb-12'}) }}
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -119,7 +119,7 @@ plPath: "produkty/power-bank/inteligentny-wyswietlacz/"
      <div class="flex items-center space-x-2"><svg class="icon-feature text-brandOrange text-[11px]" aria-hidden="true" focusable="false" viewBox="0 0 384 512"><path d="M173.8 5.5c11-7.3 25.4-7.3 36.4 0l79.2 52.8 92.7 4.7c13.2 0.7 24.7 9.1 29.4 21.5l32 84.4 53.7 75.4c7.8 11 7.8 25.7 0 36.7l-53.7 75.4-32 84.4c-4.7 12.4-16.2 20.8-29.4 21.5l-92.7 4.7-79.2 52.8c-11 7.3-25.4 7.3-36.4 0l-79.2-52.8-92.7-4.7c-13.2-0.7-24.7-9.1-29.4-21.5l-32-84.4L0 280.6c-7.8-11-7.8-25.7 0-36.7l53.7-75.4 32-84.4c4.7-12.4 16.2-20.8 29.4-21.5l92.7-4.7L173.8 5.5z" fill="currentColor"/></svg><span class="text-[11px] font-bold text-slate-500 uppercase">TFT-Echtzeit-Anzeige<br><span class="text-[10px] font-normal text-slate-400">Watt/Volt/Ampere</span></span></div>
      <div class="flex items-center space-x-2"><svg class="icon-feature text-brandOrange text-[11px]" aria-hidden="true" focusable="false" viewBox="0 0 512 512"><path d="M256 0c4.6 0 9.2 1 13.4 2.9L457.7 82.8c22 9.3 38.4 31 38.3 57.2c-.5 99.2-41.3 280.7-213.6 363.2c-16.7 8-36.1 8-52.8 0C57.3 420.7 16.5 239.2 16 140c-.1-26.2 16.3-47.9 38.3-57.2L242.7 2.9C246.8 1 251.4 0 256 0z" fill="currentColor"/></svg><span class="text-[11px] font-bold text-slate-500 uppercase">Aluminium + Temperglas<br><span class="text-[10px] font-normal text-slate-400">170g / 10,4mm</span></span></div></div>
     <p class="text-[11px] text-slate-500 mb-6 italic leading-relaxed">Premium 5.000mAh Powerbank mit TFT-Farbdisplay und 3-in-1-Funktionalität. Aluminiumgehäuse + Temperglas. 15W kabellose Ladung für iPhone, Apple Watch und AirPods. Verfügbar in Schwarz, Weiß, Orange.</p>
-    <details class="mb-6 group/spec"><summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Spezifikationen</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary><div class="p-4 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-[11px]"><tbody>
+    <details class="mb-6 group/spec"><summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Spezifikationen</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary><div class="p-4 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-[11px]"><tbody>
      <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Akkuzellen</td><td class="py-2 font-bold text-slate-700">A+ Klasse Li-Polymer</td></tr>
      <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Gehäuse</td><td class="py-2 font-bold text-slate-700">Aluminum Alloy + Tempered Glass + ABS</td></tr>
      <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Maße</td><td class="py-2 font-bold text-slate-700">104 x 66,5 x 10,4 mm</td></tr>
@@ -138,7 +138,7 @@ plPath: "produkty/power-bank/inteligentny-wyswietlacz/"
      <div class="flex items-center space-x-2"><svg class="icon-feature text-brandOrange text-[11px]" aria-hidden="true" focusable="false" viewBox="0 0 640 512"><path d="M528 128c8.8 0 16 7.2 16 16l0 224c0 8.8-7.2 16-16 16l-416 0c-8.8 0-16-7.2-16-16l0-224c0-8.8 7.2-16 16-16l416 0zM112 64c-44.2 0-80 35.8-80 80l0 224c0 44.2 35.8 80 80 80l416 0c44.2 0 80-35.8 80-80l0-48c17.7 0 32-14.3 32-32l0-64c0-17.7-14.3-32-32-32l0-48c0-44.2-35.8-80-80-80L112 64zm56 112c-13.3 0-24 10.7-24 24l0 112c0 13.3 10.7 24 24 24l304 0c13.3 0 24-10.7 24-24l0-112c0-13.3-10.7-24-24-24l-304 0z" fill="currentColor"/></svg><span class="text-[11px] font-bold text-slate-500 uppercase">10.000mAh</span></div>
      <div class="flex items-center space-x-2"><svg class="icon-feature text-brandOrange text-[11px]" aria-hidden="true" focusable="false" viewBox="0 0 384 512"><path d="M173.8 5.5c11-7.3 25.4-7.3 36.4 0l79.2 52.8 92.7 4.7c13.2 0.7 24.7 9.1 29.4 21.5l32 84.4 53.7 75.4c7.8 11 7.8 25.7 0 36.7l-53.7 75.4-32 84.4c-4.7 12.4-16.2 20.8-29.4 21.5l-92.7 4.7-79.2 52.8c-11 7.3-25.4 7.3-36.4 0l-79.2-52.8-92.7-4.7c-13.2-0.7-24.7-9.1-29.4-21.5l-32-84.4L0 280.6c-7.8-11-7.8-25.7 0-36.7l53.7-75.4 32-84.4c4.7-12.4 16.2-20.8 29.4-21.5l92.7-4.7L173.8 5.5z" fill="currentColor"/></svg><span class="text-[11px] font-bold text-slate-500 uppercase">TFT-Display + Qi-Magnet<br><span class="text-[10px] font-normal text-slate-400">2 Kabel</span></span></div></div>
     <p class="text-[11px] text-slate-500 mb-6 italic leading-relaxed">10.000mAh Premium-Powerbank mit TFT-Farbdisplay, Qi2-Magnetladung 15W und zwei eingebauten Schnellladekabeln. Aluminium+Temperglas-Gehäuse in Schwarz, Weiß, Orange erhältlich.</p>
-    <details class="mb-6 group/spec"><summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Spezifikationen</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary><div class="p-4 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-[11px]"><tbody>
+    <details class="mb-6 group/spec"><summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Spezifikationen</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary><div class="p-4 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-[11px]"><tbody>
      <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Akkuzellen</td><td class="py-2 font-bold text-slate-700">A+ Klasse Li-Polymer</td></tr>
      <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Gehäuse</td><td class="py-2 font-bold text-slate-700">Aluminum Alloy + Tempered Glass + ABS</td></tr>
      <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Maße</td><td class="py-2 font-bold text-slate-700">104 x 66,5 x 15,6 mm</td></tr>
@@ -159,7 +159,7 @@ plPath: "produkty/power-bank/inteligentny-wyswietlacz/"
      <div class="flex items-center space-x-2"><svg class="icon-feature text-brandOrange text-[11px]" aria-hidden="true" focusable="false" viewBox="0 0 384 512"><path d="M173.8 5.5c11-7.3 25.4-7.3 36.4 0l79.2 52.8 92.7 4.7c13.2 0.7 24.7 9.1 29.4 21.5l32 84.4 53.7 75.4c7.8 11 7.8 25.7 0 36.7l-53.7 75.4-32 84.4c-4.7 12.4-16.2 20.8-29.4 21.5l-92.7 4.7-79.2 52.8c-11 7.3-25.4 7.3-36.4 0l-79.2-52.8-92.7-4.7c-13.2-0.7-24.7-9.1-29.4-21.5l-32-84.4L0 280.6c-7.8-11-7.8-25.7 0-36.7l53.7-75.4 32-84.4c4.7-12.4 16.2-20.8 29.4-21.5l92.7-4.7L173.8 5.5z" fill="currentColor"/></svg><span class="text-[11px] font-bold text-slate-500 uppercase">TFT-Echtzeit-Anzeige</span></div>
      <div class="flex items-center space-x-2"><svg class="icon-feature text-brandOrange text-[11px]" aria-hidden="true" focusable="false" viewBox="0 0 512 512"><path d="M256 0c4.6 0 9.2 1 13.4 2.9L457.7 82.8c22 9.3 38.4 31 38.3 57.2c-.5 99.2-41.3 280.7-213.6 363.2c-16.7 8-36.1 8-52.8 0C57.3 420.7 16.5 239.2 16 140c-.1-26.2 16.3-47.9 38.3-57.2L242.7 2.9C246.8 1 251.4 0 256 0z" fill="currentColor"/></svg><span class="text-[11px] font-bold text-slate-500 uppercase">Slim-Design<br><span class="text-[10px] font-normal text-slate-400">7,9mm Metall</span></span></div></div>
     <p class="text-[11px] text-slate-500 mb-6 italic leading-relaxed">Ultraschlanke 5.000mAh TFT-Display-Powerbank mit magnetischer Qi2-Ladung und integriertem Apple-Watch-Lademodul. Kompaktes Design für unterwegs, TFT-Echtzeit-Anzeige.</p>
-    <details class="mb-6 group/spec"><summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Spezifikationen</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary><div class="p-4 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-[11px]"><tbody>
+    <details class="mb-6 group/spec"><summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Spezifikationen</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary><div class="p-4 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-[11px]"><tbody>
      <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Akkukapazität</td><td class="py-2 font-bold text-slate-700">5.000mAh / 3.85V</td></tr>
      <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Zelltyp</td><td class="py-2 font-bold text-slate-700">Li-Polymer</td></tr>
      <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Maße</td><td class="py-2 font-bold text-slate-700">107 x 70 x 7,9 mm</td></tr>
@@ -180,7 +180,7 @@ plPath: "produkty/power-bank/inteligentny-wyswietlacz/"
      <div class="flex items-center space-x-2"><svg class="icon-feature text-brandOrange text-[11px]" aria-hidden="true" focusable="false" viewBox="0 0 384 512"><path d="M173.8 5.5c11-7.3 25.4-7.3 36.4 0l79.2 52.8 92.7 4.7c13.2 0.7 24.7 9.1 29.4 21.5l32 84.4 53.7 75.4c7.8 11 7.8 25.7 0 36.7l-53.7 75.4-32 84.4c-4.7 12.4-16.2 20.8-29.4 21.5l-92.7 4.7-79.2 52.8c-11 7.3-25.4 7.3-36.4 0l-79.2-52.8-92.7-4.7c-13.2-0.7-24.7-9.1-29.4-21.5l-32-84.4L0 280.6c-7.8-11-7.8-25.7 0-36.7l53.7-75.4 32-84.4c4.7-12.4 16.2-20.8 29.4-21.5l92.7-4.7L173.8 5.5z" fill="currentColor"/></svg><span class="text-[11px] font-bold text-slate-500 uppercase">TFT-Echtzeit-Anzeige</span></div>
      <div class="flex items-center space-x-2"><svg class="icon-feature text-brandOrange text-[11px]" aria-hidden="true" focusable="false" viewBox="0 0 576 512"><path d="M320.1 56.1c-35.3-35.3-92.7-35.3-128 0L93.7 154.4c-35.3 35.3-35.3 92.7 0 128s92.7 35.3 128 0l34.1-34.1c6.2-6.2 16.4-6.2 22.6 0s6.2 16.4 0 22.6L244.3 305c-47.8 47.8-125.5 47.8-173.3 0S23.2 179.5 71 131.7L169.3 33.4c47.8-47.8 125.5-47.8 173.3 0s47.8 125.5 0 173.3l-27.3 27.3c-6.2 6.2-16.4 6.2-22.6 0s-6.2-16.4 0-22.6l27.3-27.3c35.3-35.3 35.3-92.7 0-128zM186.7 285.5c-6.2-6.2-16.4-6.2-22.6 0l-27.3 27.3c-35.3 35.3-35.3 92.7 0 128s92.7 35.3 128 0l98.4-98.4c35.3-35.3 35.3-92.7 0-128s-92.7-35.3-128 0l-34.1 34.1c-6.2 6.2-16.4 6.2-22.6 0s-6.2-16.4 0-22.6l34.1-34.1c47.8-47.8 125.5-47.8 173.3 0s47.8 125.5 0 173.3L357.3 462.6c-47.8 47.8-125.5 47.8-173.3 0s-47.8-125.5 0-173.3l27.3-27.3c6.2-6.2 16.4-6.2 22.6 0s6.2 16.4 0 22.6z" fill="currentColor"/></svg><span class="text-[11px] font-bold text-slate-500 uppercase">Eingebautes Kabel<br><span class="text-[10px] font-normal text-slate-400">Type-C 22,5W</span></span></div></div>
     <p class="text-[11px] text-slate-500 mb-6 italic leading-relaxed">10.000mAh TFT-Display-Powerbank mit magnetischer Qi2-Ladung, integriertem Apple-Watch-Lademodul und eingebautem Schnellladekabel. TFT-Echtzeitanzeige für Watt, Spannung und Ladestatus.</p>
-    <details class="mb-6 group/spec"><summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Spezifikationen</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary><div class="p-4 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-[11px]"><tbody>
+    <details class="mb-6 group/spec"><summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Spezifikationen</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary><div class="p-4 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-[11px]"><tbody>
      <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Akkukapazität</td><td class="py-2 font-bold text-slate-700">10.000mAh (5.000mAh x 2) / 3.85V</td></tr>
      <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Zelltyp</td><td class="py-2 font-bold text-slate-700">Li-Polymer</td></tr>
      <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Maße</td><td class="py-2 font-bold text-slate-700">107 x 70 x 13,8 mm</td></tr>
@@ -198,7 +198,7 @@ plPath: "produkty/power-bank/inteligentny-wyswietlacz/"
 </section>
 
 <!-- MARKET-DATA -->
-<section class="sec bg-white py-8">
+<section id="market-data" class="sec bg-white py-8" data-section="content">
  <div class="container-content">
  <blockquote class="bg-brandOrange/5 border-l-4 border-brandOrange rounded-r-xl px-6 py-5 text-sm text-slate-700 italic leading-relaxed">
   <p>"TFT-Display-Powerbanks sind das am schnellsten wachsende Subsegment im Powerbank-Markt mit einer prognostizierten CAGR von 17-18% von 2025 bis 2031 — nahezu doppelt so schnell wie der Gesamtmarkt (YH Research / 恒州诚思). Der Markt wächst von 3,7 Mrd. RMB (2024) auf 11,1 Mrd. RMB bis 2031. Die Kategorie entwickelt sich vom 'Akku mit Bildschirm' zum 'interaktiven Desktop-Ladehub'. Hochwertige Materialien, Echtzeit-Ladevisualisierung und transparente Gehäusedesigns treiben die Verkaufspreise 40-60% über konventionelle Powerbanks — und machen dies zur margenstärksten Kategorie für Retail-Marken."</p>
@@ -208,21 +208,21 @@ plPath: "produkty/power-bank/inteligentny-wyswietlacz/"
 </section>
 
 <!-- Was ist eine TFT-Display-Powerbank -->
-<section class="sec bg-white">
+<section id="was-ist-eine-tft-display-powerbank" class="sec bg-white" data-section="content">
  <div class="container-wide">
   {{ sectionHeader('Grundlagen', 'Was macht eine <span class="text-brandOrange">TFT-Display-Powerbank</span> besonders?', 'Ein TFT-Bildschirm zeigt Echtzeit-Ladedaten — das hebt Ihre Marke aus der Masse der Standard-Powerbanks heraus.', {max: '', mb: 'mb-12'}) }}
-  <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-   <div class="bg-slate-50 rounded-2xl p-8 text-center">
+  <div class="grid md:grid-cols-3 gap-8">
+   <div class="card-lg-soft p-8 text-center">
     <p class="text-3xl font-black text-brandOrange mb-2">Echtzeit</p>
     <p class="text-sm font-bold text-brandBlue">Watt + Volt + Ampere</p>
     <p class="text-xs text-slate-500 mt-2">Live-Anzeige von Ladeleistung, Spannung, Stromstärke und Akku-Prozentsatz — sichtbar für den Endkunden.</p>
    </div>
-   <div class="bg-slate-50 rounded-2xl p-8 text-center">
+   <div class="card-lg-soft p-8 text-center">
     <p class="text-3xl font-black text-brandOrange mb-2">Premium</p>
     <p class="text-sm font-bold text-brandBlue">Alu + Hartglas</p>
     <p class="text-xs text-slate-500 mt-2">Aluminium-Unibody mit gehärtetem Frontglas. Positioniert Ihre Marke im Premium-Retail (60–120€ UVP).</p>
    </div>
-   <div class="bg-slate-50 rounded-2xl p-8 text-center">
+   <div class="card-lg-soft p-8 text-center">
     <p class="text-3xl font-black text-brandOrange mb-2">Branding</p>
     <p class="text-sm font-bold text-brandBlue">Eigenes Boot-Logo</p>
     <p class="text-xs text-slate-500 mt-2">Ihr Markenlogo beim Einschalten am TFT-Display. Stärkt Wiedererkennung und Markenbindung.</p>
@@ -232,7 +232,7 @@ plPath: "produkty/power-bank/inteligentny-wyswietlacz/"
 </section>
 
 <!-- DISPLAY-VERGLEICH -->
-<section class="sec bg-slate-50">
+<section id="display-vergleich" class="sec bg-slate-50" data-section="comparison">
  <div class="container-content">
   {{ sectionHeader('Display-Vergleich', 'LED vs. TFT vs. OLED', 'Welche Display-Technologie passt zu Ihrer Markenpositionierung?', {mb: 'mb-12'}) }}
   <div class="overflow-x-auto reveal">
@@ -255,36 +255,36 @@ plPath: "produkty/power-bank/inteligentny-wyswietlacz/"
 </section>
 
 <!-- FAQ -->
-<section class="sec bg-white">
+<section id="faq" class="sec bg-white" data-section="faq">
  <div class="container-narrow">
   {{ sectionHeader('FAQ', 'Smart Display FAQ', '', {max: '', mb: 'mb-12'}) }}
   <div class="space-y-4">
-   <details class="reveal bg-slate-50 rounded-2xl p-6 border border-slate-200"><summary class="font-bold text-brandBlue cursor-pointer">Was zeigt der TFT-Bildschirm einer Smart-Display-Powerbank?</summary><p class="text-sm text-slate-600 mt-3 leading-relaxed faq-answer">Echtzeit-Wattzahl (z.B. 23,5W), Spannung (z.B. 9V), Stromstärke (z.B. 2,6A), verbleibende Akkukapazität in Prozent und mAh, Anzahl der Ladezyklen sowie Temperatur. Auf Wunsch auch Markenlogo beim Einschalten.</p></details>
-   <details class="reveal bg-slate-50 rounded-2xl p-6 border border-slate-200"><summary class="font-bold text-brandBlue cursor-pointer">Warum eine Powerbank mit TFT-Bildschirm?</summary><p class="text-sm text-slate-600 mt-3 leading-relaxed faq-answer">Premium-Positionierung im Retail (Endpreis 60-120€), bessere Markenwahrnehmung durch sichtbare Echtzeit-Daten, höhere Conversion bei Tech-affinen Käufern. Marken wie Anker Prime, Shargeek nutzen TFT-Displays für ihre Premium-Linie.</p></details>
-   <details class="reveal bg-slate-50 rounded-2xl p-6 border border-slate-200"><summary class="font-bold text-brandBlue cursor-pointer">Welche Display-Typen sind verfügbar?</summary><p class="text-sm text-slate-600 mt-3 leading-relaxed faq-answer">TFT-Farbdisplay (Standard), OLED (Premium), LED-Statusanzeige (Einstieg). Wir empfehlen TFT für die meisten B2B-Marken: bessere Lesbarkeit als LED, deutlich günstiger als OLED, voller Farbumfang.</p></details>
-   <details class="reveal bg-slate-50 rounded-2xl p-6 border border-slate-200"><summary class="font-bold text-brandBlue cursor-pointer">Wie hoch ist die MOQ für Smart-Display Powerbank OEM?</summary><p class="text-sm text-slate-600 mt-3 leading-relaxed faq-answer">MOQ ab 500 Stück für Standardmodelle mit Logo. Custom OEM mit eigenem TFT-UI-Design: 2.000 Stück, da Firmware-Entwicklung erforderlich ist.</p></details>
-   <details class="reveal bg-slate-50 rounded-2xl p-6 border border-slate-200"><summary class="font-bold text-brandBlue cursor-pointer">Sind die Gehäuse aus Aluminium oder Kunststoff?</summary><p class="text-sm text-slate-600 mt-3 leading-relaxed faq-answer">Premium-Smart-Display-Modelle kommen mit Aluminium-Unibody-Gehäuse und gehärtetem Frontglas über dem TFT-Bildschirm. Das passt zur Premium-Positionierung und schützt das Display.</p></details>
+   <details class="card-lg-soft reveal p-6"><summary class="font-bold text-brandBlue cursor-pointer">Was zeigt der TFT-Bildschirm einer Smart-Display-Powerbank?</summary><p class="text-sm text-slate-600 mt-3 leading-relaxed faq-answer">Echtzeit-Wattzahl (z.B. 23,5W), Spannung (z.B. 9V), Stromstärke (z.B. 2,6A), verbleibende Akkukapazität in Prozent und mAh, Anzahl der Ladezyklen sowie Temperatur. Auf Wunsch auch Markenlogo beim Einschalten.</p></details>
+   <details class="card-lg-soft reveal p-6"><summary class="font-bold text-brandBlue cursor-pointer">Warum eine Powerbank mit TFT-Bildschirm?</summary><p class="text-sm text-slate-600 mt-3 leading-relaxed faq-answer">Premium-Positionierung im Retail (Endpreis 60-120€), bessere Markenwahrnehmung durch sichtbare Echtzeit-Daten, höhere Conversion bei Tech-affinen Käufern. Marken wie Anker Prime, Shargeek nutzen TFT-Displays für ihre Premium-Linie.</p></details>
+   <details class="card-lg-soft reveal p-6"><summary class="font-bold text-brandBlue cursor-pointer">Welche Display-Typen sind verfügbar?</summary><p class="text-sm text-slate-600 mt-3 leading-relaxed faq-answer">TFT-Farbdisplay (Standard), OLED (Premium), LED-Statusanzeige (Einstieg). Wir empfehlen TFT für die meisten B2B-Marken: bessere Lesbarkeit als LED, deutlich günstiger als OLED, voller Farbumfang.</p></details>
+   <details class="card-lg-soft reveal p-6"><summary class="font-bold text-brandBlue cursor-pointer">Wie hoch ist die MOQ für Smart-Display Powerbank OEM?</summary><p class="text-sm text-slate-600 mt-3 leading-relaxed faq-answer">MOQ ab 500 Stück für Standardmodelle mit Logo. Custom OEM mit eigenem TFT-UI-Design: 2.000 Stück, da Firmware-Entwicklung erforderlich ist.</p></details>
+   <details class="card-lg-soft reveal p-6"><summary class="font-bold text-brandBlue cursor-pointer">Sind die Gehäuse aus Aluminium oder Kunststoff?</summary><p class="text-sm text-slate-600 mt-3 leading-relaxed faq-answer">Premium-Smart-Display-Modelle kommen mit Aluminium-Unibody-Gehäuse und gehärtetem Frontglas über dem TFT-Bildschirm. Das passt zur Premium-Positionierung und schützt das Display.</p></details>
   </div>
  </div>
 </section>
 <!-- Cross-Link: Explore More Categories -->
-<section class="sec bg-white">
+<section id="cross-link-explore-more-categories" class="sec bg-white" data-section="related">
  <div class="container-wide">
  <p class="text-center text-slate-500 text-sm mb-6">Weitere Powerbank-Kategorien von WOWOHCOOL:</p>
  <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-  <a href="/de/produkte/powerbank/halbfest-akku/" class="block bg-slate-50 rounded-xl p-4 border border-slate-200 hover:border-brandOrange hover:shadow-md transition text-center">
+  <a href="/de/produkte/powerbank/halbfest-akku/" class="card-soft block p-4 hover:border-brandOrange hover:shadow-md transition text-center">
    <p class="font-black text-brandBlue text-sm uppercase mb-1">Halbfest-Akku</p>
    <p class="text-[10px] text-slate-500">CES 2026, 50% dünner</p>
   </a>
-  <a href="/de/produkte/powerbank/laptop-powerbank/" class="block bg-slate-50 rounded-xl p-4 border border-slate-200 hover:border-brandOrange hover:shadow-md transition text-center">
+  <a href="/de/produkte/powerbank/laptop-powerbank/" class="card-soft block p-4 hover:border-brandOrange hover:shadow-md transition text-center">
    <p class="font-black text-brandBlue text-sm uppercase mb-1">Laptop Powerbank</p>
    <p class="text-[10px] text-slate-500">65W-240W PD 3.1</p>
   </a>
-  <a href="/de/produkte/powerbank/2-in-1-hybrid/" class="block bg-slate-50 rounded-xl p-4 border border-slate-200 hover:border-brandOrange hover:shadow-md transition text-center">
+  <a href="/de/produkte/powerbank/2-in-1-hybrid/" class="card-soft block p-4 hover:border-brandOrange hover:shadow-md transition text-center">
    <p class="font-black text-brandBlue text-sm uppercase mb-1">2-in-1 Hybrid</p>
    <p class="text-[10px] text-slate-500">Ladegerät + Powerbank</p>
   </a>
-  <a href="/de/produkte/powerbank/" class="block bg-slate-50 rounded-xl p-4 border border-slate-200 hover:border-brandOrange hover:shadow-md transition text-center">
+  <a href="/de/produkte/powerbank/" class="card-soft block p-4 hover:border-brandOrange hover:shadow-md transition text-center">
    <p class="font-black text-brandBlue text-sm uppercase mb-1">Alle Powerbanks</p>
    <p class="text-[10px] text-slate-500">6 Kategorien, 29+ Modelle</p>
   </a>

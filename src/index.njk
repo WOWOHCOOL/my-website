@@ -226,7 +226,7 @@ plPath: ""
  "@type": "FAQPage",
  "name": "Manufacturing FAQ - WOWOHCOOL Wireless Charger Factory",
  "description": "Frequently asked questions about wireless charger and power bank manufacturing, MOQ, OEM/ODM services, certifications, and quality control.",
- "speakable": {"@type": "SpeakableSpecification", "cssSelector": [".faq-answer"]},
+ "speakable": {"@type": "SpeakableSpecification", "cssSelector": [".faq-answer", ".faq-question"]},
  "mainEntity": [
  {
  "@type": "Question",
@@ -419,8 +419,7 @@ plPath: ""
  "cssSelector": [
  ".badge-capsule",
  "h1",
- ".hero-subtitle",
- ".stat-value"
+ ".hero-subtitle"
  ]
  }
 }
@@ -531,15 +530,24 @@ plPath: ""
 <!-- ========================================================================
  HERO SECTION
  ======================================================================== -->
-<section id="hero" class="bg-gradient-to-br from-slate-50 via-white to-orange-50 relative flex flex-col pb-8 lg:pb-0" style="min-height:100dvh">
+<!-- hero 第一屏适配（2026-09-17）：本页用遗留的「整屏分栏 hero」机制（.hero-viewport / .hero-layout），
+     lg 起左右各 50%，文字列宽从满宽骤降到 488px(1024) / 552px(1152) / 616px(1280)。
+     h1 原本 lg:text-6xl(60px)，在 1024–1279 折 6 行 = 360px，把文字列撑到 802px
+     → 1024×768 溢出 114px、1152×720 溢出 114px；1280×720 虽未溢出但只剩 6px 余量。
+     实测定档（余量 = 视口高 − 文字列 − 上下内边距；目标 ≥20px）：
+       1024×768 上限 48px（余量 54）· 1152×720 上限 48px（余量 54）· 1280×720 上限 52px（余量 38）· 1366×768 起 60px 可用
+     → 36 / 48(lg 起钉住，与 md 同档) / 56(xl，余量 22) / 60(2xl)。
+     ⚠️ md:text-5xl 自带 line-height:1，且媒体查询变体在产物里位于基础 `.leading-tight`(1.25) 之后
+     → xl/2xl 用 arbitrary 字号时行高仍为 1（已实测确认，不会变松）。 -->
+<section id="hero" class="hero-viewport bg-gradient-to-br from-slate-50 via-white to-orange-50 relative flex flex-col pb-8 lg:pb-0" style="min-height:100dvh" data-section="hero">
  <div class="flex-1 max-w-7xl mx-auto px-6 w-full hero-layout">
  <div class="hero-text-col max-w-lg py-2 md:py-10">
  <div>
  <div class="badge-capsule mb-3 md:mb-6 uppercase" style="letter-spacing:0.08em">Since 2013 | 5,000㎡Manufacturing Facility</div>
- <h1 class="text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 uppercase italic tracking-tighter leading-tight mb-6">
+ <h1 class="text-4xl md:text-5xl lg:text-5xl xl:text-[3.5rem] 2xl:text-6xl font-black text-slate-900 uppercase italic tracking-tighter leading-tight mb-6">
  Wireless Charger & Power Bank <span class="text-brandOrange">OEM/ODM for</span> 200+ Global Brands
  </h1>
- <p class="text-slate-500 text-base md:text-lg mb-3 md:mb-6 leading-relaxed max-w-xl">
+ <p class="hero-subtitle text-slate-500 text-base md:text-lg mb-3 md:mb-6 leading-relaxed max-w-xl">
  10+ years manufacturing for 200+ global brands including Bosch and Jacob Jensen. From spec to shipment, we engineer, certify, and deliver with &lt; 0.3% defect rate and 25-30 day lead times. <a href="/service" class="text-brandOrange hover:underline font-bold">Learn about our OEM/ODM services →</a>
  </p>
  <ul class="text-slate-500 text-[11px] md:text-xs space-y-1 md:space-y-2 mb-4 md:mb-8 max-w-xl">
@@ -548,9 +556,11 @@ plPath: ""
  <li class="flex items-start gap-2 md:gap-3"><span class="text-brandOrange font-bold shrink-0 mt-0.5">▸</span> MOQ 500+ &bull; Factory-Direct Pricing &bull; Shenzhen, China</li>
  </ul>
  </div>
- <div class="flex flex-col sm:flex-row gap-2 md:gap-4">
- <button data-action="open-modal" class="bg-brandOrange text-white px-5 md:px-8 py-3 md:py-4 rounded-xl font-black uppercase tracking-widest text-[11px] md:text-sm shadow-xl hover:-translate-y-1 transition flex-1 flex items-center justify-center">Get Factory Pricing</button>
- <a href="/products/" class="border-2 border-brandBlue text-brandBlue px-5 md:px-8 py-3 md:py-4 rounded-xl font-black uppercase tracking-widest text-[11px] md:text-sm hover:bg-brandBlue hover:text-white transition flex-1 flex items-center justify-center">Explore Products</a>
+<!-- 移动端（flex-col）两按钮上下堆叠：主按钮原本无 border、副按钮带 border-2 → 高度 41 vs 45 不等。
+     补 border-2 border-transparent 补平（+4px）；桌面 flex-row 下两按钮本就 stretch 等高，不受影响。 -->
+<div class="btn-pair">
+<button data-action="open-modal" class="border-2 border-transparent bg-brandOrange text-white px-5 md:px-8 py-4 md:py-4 rounded-xl font-black uppercase tracking-widest text-[11px] md:text-sm shadow-xl hover:-translate-y-1 transition flex items-center justify-center w-full">Get Factory Pricing</button>
+ <a href="/products/" class="border-2 border-brandBlue text-brandBlue px-5 md:px-8 py-4 md:py-4 rounded-xl font-black uppercase tracking-widest text-[11px] md:text-sm hover:bg-brandBlue hover:text-white transition flex items-center justify-center w-full">Explore Products</a>
  </div>
  </div>
  <div class="hero-img-col">
@@ -574,7 +584,7 @@ plPath: ""
 <!-- ========================================================================
  WOW/OH/COOL — Brand Story
  ======================================================================== -->
-<section class="relative bg-brandBlue overflow-hidden">
+<section id="wow-oh-cool-brand-story" class="relative bg-brandBlue overflow-hidden" data-section="about">
  <!-- Ambient glow -->
  <div class="absolute top-0 right-0 w-[600px] h-[600px] bg-brandOrange/5 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/4"></div>
  <div class="absolute bottom-0 left-0 w-[400px] h-[400px] bg-brandOrange/5 rounded-full blur-[100px] translate-y-1/3 -translate-x-1/4"></div>
@@ -652,8 +662,8 @@ plPath: ""
 <!-- ========================================================================
  COMPARISON SECTION - WOWOHCOOL vs Trading Companies vs Unknown Factories
  ======================================================================== -->
-<section id="comparison" class="sec bg-white reveal overflow-hidden">
- <div class="max-w-7xl mx-auto px-4 md:px-6">
+<section id="comparison" class="sec bg-white reveal overflow-hidden" data-section="comparison">
+ <div class="container-wide px-4 md:px-6">
  <div class="text-center mb-12 md:mb-16">
  <h2 class="text-3xl sm:text-4xl md:text-5xl font-black text-brandBlue uppercase italic tracking-tighter mb-4 leading-tight px-2">
  About <span class="whitespace-nowrap"><span class="highlight-line text-brandBlue">WOWOH</span><span class="text-brandOrange">COOL</span></span> <span class="text-brandOrange">vs Other Suppliers</span>
@@ -679,27 +689,27 @@ plPath: ""
  <p class="text-slate-500 text-[11px] font-bold uppercase tracking-widest mt-1">Middleman Reseller</p>
  </div>
  <div class="space-y-3 md:space-y-4">
- <div class="flex items-start gap-3 p-3 md:p-4 bg-slate-50 rounded-xl">
+ <div class="card-soft flex items-start gap-3 p-3 md:p-4">
  <div class="w-6 h-6 rounded-full bg-red-100 flex items-center justify-center shrink-0 mt-0.5"><span class="text-red-400 text-xs">&#10005;</span></div>
  <div><p class="text-slate-500 text-[11px] md:text-xs font-bold leading-tight">No factory ownership</p><p class="text-slate-300 text-[11px] md:text-[11px] mt-0.5">Middleman &mdash; no fixed assets</p></div>
  </div>
- <div class="flex items-start gap-3 p-3 md:p-4 bg-slate-50 rounded-xl">
+ <div class="card-soft flex items-start gap-3 p-3 md:p-4">
  <div class="w-6 h-6 rounded-full bg-red-100 flex items-center justify-center shrink-0 mt-0.5"><span class="text-red-400 text-xs">&#10005;</span></div>
  <div><p class="text-slate-500 text-[11px] md:text-xs font-bold leading-tight">No quality control</p><p class="text-slate-300 text-[11px] md:text-[11px] mt-0.5">Relies on third-party factories</p></div>
  </div>
- <div class="flex items-start gap-3 p-3 md:p-4 bg-slate-50 rounded-xl">
+ <div class="card-soft flex items-start gap-3 p-3 md:p-4">
  <div class="w-6 h-6 rounded-full bg-red-100 flex items-center justify-center shrink-0 mt-0.5"><span class="text-red-400 text-xs">&#10005;</span></div>
  <div><p class="text-slate-500 text-[11px] md:text-xs font-bold leading-tight">Unverifiable certifications</p><p class="text-slate-300 text-[11px] md:text-[11px] mt-0.5">May provide fake certs</p></div>
  </div>
- <div class="flex items-start gap-3 p-3 md:p-4 bg-slate-50 rounded-xl">
+ <div class="card-soft flex items-start gap-3 p-3 md:p-4">
  <div class="w-6 h-6 rounded-full bg-red-100 flex items-center justify-center shrink-0 mt-0.5"><span class="text-red-400 text-xs">&#10005;</span></div>
  <div><p class="text-slate-500 text-[11px] md:text-xs font-bold leading-tight">No R&amp;D capability</p><p class="text-slate-300 text-[11px] md:text-[11px] mt-0.5">Only resells existing products</p></div>
  </div>
- <div class="flex items-start gap-3 p-3 md:p-4 bg-slate-50 rounded-xl">
+ <div class="card-soft flex items-start gap-3 p-3 md:p-4">
  <div class="w-6 h-6 rounded-full bg-amber-100 flex items-center justify-center shrink-0 mt-0.5"><svg class="icon-minus text-amber-500 text-xs" aria-hidden="true" focusable="false" viewBox="0 0 448 512"><path d="M0 256c0-17.7 14.3-32 32-32l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 288c-17.7 0-32-14.3-32-32z" fill="currentColor"/></svg></div>
  <div><p class="text-slate-500 text-[11px] md:text-xs font-bold leading-tight">48-72h response</p><p class="text-slate-300 text-[11px] md:text-[11px] mt-0.5">Must check with factory first</p></div>
  </div>
- <div class="flex items-start gap-3 p-3 md:p-4 bg-slate-50 rounded-xl">
+ <div class="card-soft flex items-start gap-3 p-3 md:p-4">
  <div class="w-6 h-6 rounded-full bg-red-100 flex items-center justify-center shrink-0 mt-0.5"><span class="text-red-400 text-xs">&#10005;</span></div>
  <div><p class="text-slate-500 text-[11px] md:text-xs font-bold leading-tight">15-30% price markup</p><p class="text-slate-300 text-[11px] md:text-[11px] mt-0.5">Middleman margin added</p></div>
  </div>
@@ -788,8 +798,8 @@ plPath: ""
 <!-- ========================================================================
  PRODUCTS SHOWCASE
  ======================================================================== -->
-<section id="products" class="sec bg-white">
- <div class="max-w-7xl mx-auto px-6">
+<section id="products" class="sec bg-white" data-section="products">
+ <div class="container-wide px-6">
  <div class="text-center mb-14">
  <h2 class="text-3xl md:text-4xl font-black text-brandBlue uppercase italic tracking-tight mb-4">Our Product Lines</h2>
  <p class="text-slate-500 max-w-2xl mx-auto">From GaN fast chargers to semi-solid-state power banks, we manufacture the full spectrum of charging accessories for global brands.</p>
@@ -817,7 +827,7 @@ plPath: ""
  </a>
  </div>
  <div class="text-center mt-10">
- <a href="/products/" class="inline-flex items-center gap-2 text-brandBlue font-black uppercase tracking-widest text-sm hover:text-brandOrange transition">View All Products <span>&rarr;</span></a>
+ <a href="/products/" class="btn-more">View All Products <span>&rarr;</span></a>
  </div>
  </div>
 </section>
@@ -825,7 +835,7 @@ plPath: ""
 <!-- ========================================================================
  SERVICES SECTION - OEM/ODM Advantages
  ======================================================================== -->
-<section id="services" class="sec-lg bg-darkBg text-white reveal relative overflow-hidden">
+<section id="services" class="sec bg-darkBg text-white reveal relative overflow-hidden" data-section="content">
  <div class="absolute top-0 left-0 w-full h-full opacity-[0.02] pointer-events-none">
  <svg width="100%" height="100%"><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="white" stroke-width="1"/></pattern><rect width="100%" height="100%" fill="url(#grid)" /></svg>
  </div>
@@ -846,10 +856,10 @@ plPath: ""
  {% for item in services %}
  <div class="group p-10 bg-white/5 border border-white/10 rounded-3xl hover:border-brandOrange hover:bg-white/[0.08] transition-all duration-500 relative overflow-hidden">
  <div class="flex justify-between items-start mb-8">
- <div class="w-16 h-16 bg-brandOrange/10 rounded-2xl flex items-center justify-center text-brandOrange group-hover:bg-brandOrange group-hover:text-white transition-all duration-300 shadow-lg shadow-brandOrange/05">
+ <div class="w-16 h-16 bg-brandOrange/20 rounded-2xl flex items-center justify-center text-brandOrange group-hover:bg-brandOrange group-hover:text-white transition-all duration-300 shadow-lg shadow-brandOrange/05">
  <svg class="icon-{{ item.icon }} text-2xl" aria-hidden="true" focusable="false" viewBox="{{ item.vb | default('0 0 640 512') }}"><path d="{{ item.path }}" fill="currentColor"/></svg>
  </div>
- <span class="text-white/10 font-black text-4xl italic group-hover:text-brandOrange/20 transition-colors">{{ item.num }}</span>
+ <span class="text-white/20 font-black text-4xl italic group-hover:text-brandOrange/40 transition-colors">{{ item.num }}</span>
  </div>
  <h3 class="font-bold text-white group-hover:text-brandOrange mb-4 uppercase tracking-wider text-xl">{{ item.title }}</h3>
  <p class="text-slate-400 text-sm leading-relaxed">{{ item.desc }}</p>
@@ -862,7 +872,7 @@ plPath: ""
 <!-- ========================================================================
  CTA SECTION
  ======================================================================== -->
-<section class="sec bg-slate-50 text-center relative overflow-hidden reveal border-y border-slate-200">
+<section id="cta-section" class="sec bg-slate-50 text-center relative overflow-hidden reveal border-y border-slate-200" data-section="cta">
  <div class="max-w-2xl mx-auto px-6 relative z-10">
  <h2 class="text-3xl md:text-5xl font-black text-brandBlue uppercase italic mb-6 tracking-tight leading-tight">
  Ready to Launch Your <span class="text-brandOrange">Next Product</span>?
@@ -870,11 +880,11 @@ plPath: ""
  <p class="text-slate-500 max-w-xl mx-auto text-sm md:text-base mb-10 leading-relaxed">
  From spec to shipment, we handle the engineering, certification, and manufacturing so you can focus on growing your brand.
  </p>
- <div class="flex flex-col sm:flex-row justify-center gap-4">
- <button data-action="open-modal" class="bg-brandOrange text-white px-8 md:px-12 py-4 md:py-5 rounded-xl font-black uppercase tracking-widest text-sm shadow-xl hover:-translate-y-1 transition shadow-brandOrange/20">
+ <div class="btn-pair">
+ <button data-action="open-modal" class="bg-brandOrange text-white px-8 md:px-12 py-4 md:py-5 rounded-xl font-black uppercase tracking-widest text-sm shadow-xl hover:-translate-y-1 transition shadow-brandOrange/20 w-full text-center">
  Get Factory Pricing
  </button>
- <a href="/contact" class="border-2 border-brandBlue text-brandBlue px-8 md:px-12 py-4 md:py-5 rounded-xl font-black uppercase tracking-widest text-sm hover:bg-brandBlue hover:text-white transition text-center">
+ <a href="/contact" class="border-2 border-brandBlue text-brandBlue px-8 md:px-12 py-4 md:py-5 rounded-xl font-black uppercase tracking-widest text-sm hover:bg-brandBlue hover:text-white transition text-center w-full">
  Contact Us
  </a>
  </div>
@@ -884,8 +894,8 @@ plPath: ""
 <!-- ========================================================================
  BLOG PREVIEW SECTION
  ======================================================================== -->
-<section id="blog-preview" class="sec bg-white reveal">
- <div class="max-w-7xl mx-auto px-6">
+<section id="blog-preview" class="sec bg-white reveal" data-section="content">
+ <div class="container-wide px-6">
  <div class="text-center mb-16">
  <h2 class="text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4">Industry <span class="text-brandOrange">Insights</span></h2>
  <p class="text-slate-500 font-bold uppercase text-xs tracking-[0.3em]">Expert Guides for OEM/ODM Buyers</p>
@@ -919,8 +929,8 @@ plPath: ""
 <!-- ========================================================================
  CLIENT TESTIMONIALS
  ======================================================================== -->
-<section class="sec bg-slate-50">
- <div class="max-w-7xl mx-auto px-6">
+<section id="client-testimonials" class="sec bg-darkBg text-white dark-section" data-section="content">
+ <div class="container-wide px-6">
  <div class="text-center mb-14">
  <h2 class="text-3xl md:text-4xl font-black text-brandBlue uppercase italic tracking-tight mb-4">What Our Partners Say</h2>
  <p class="text-slate-500">Real feedback from brands we manufacture for</p>
@@ -968,7 +978,7 @@ plPath: ""
  </div>
  </div>
  <div class="text-center mt-10">
- <a href="/case-studies" class="inline-flex items-center gap-2 text-brandBlue font-black uppercase tracking-widest text-sm hover:text-brandOrange transition">View All Case Studies <span>&rarr;</span></a>
+ <a href="/case-studies" class="btn-more">View All Case Studies <span>&rarr;</span></a>
  </div>
  </div>
 </section>
@@ -976,7 +986,7 @@ plPath: ""
 <!-- ========================================================================
  FAQ SECTION
  ======================================================================== -->
-<section id="faq" class="sec bg-slate-50 reveal">
+<section id="faq" class="sec bg-slate-50 reveal" data-section="faq">
  <div class="max-w-4xl mx-auto px-6">
  <h2 class="text-center text-4xl font-black text-brandBlue mb-16 uppercase italic">
  Wireless Charger <span class="text-brandOrange">Manufacturing FAQ</span>
@@ -984,121 +994,121 @@ plPath: ""
 
  <div class="grid gap-4">
  <details class="group bg-white p-6 rounded-2xl shadow-sm cursor-pointer transition-all hover:shadow-md" open>
- <summary class="list-none flex justify-between items-center font-black text-brandBlue uppercase text-xs tracking-[0.15em]">
+ <summary class="faq-question list-none flex justify-between items-center font-black text-brandBlue uppercase text-xs tracking-[0.15em]">
  What is your Minimum Order Quantity (MOQ)?
  <span class="text-brandOrange group-open:rotate-45 transition-transform text-2xl">+</span>
  </summary>
- <p class="mt-6 text-slate-500 text-sm leading-relaxed border-t pt-6">
+ <p class="faq-answer mt-6 text-slate-500 text-sm leading-relaxed border-t pt-6">
  Our MOQ is flexible to support brand growth. Generally, it starts from <strong>500-1000 units</strong> for standard OEM branding and 2000 units for deep ODM customization.
  </p>
  </details>
 
  <details class="group bg-white p-6 rounded-2xl shadow-sm cursor-pointer transition-all hover:shadow-md">
- <summary class="list-none flex justify-between items-center font-black text-brandBlue uppercase text-xs tracking-[0.15em]">
+ <summary class="faq-question list-none flex justify-between items-center font-black text-brandBlue uppercase text-xs tracking-[0.15em]">
  Do you provide full OEM and ODM services?
  <span class="text-brandOrange group-open:rotate-45 transition-transform text-2xl">+</span>
  </summary>
- <p class="mt-6 text-slate-500 text-sm leading-relaxed border-t pt-6">
+ <p class="faq-answer mt-6 text-slate-500 text-sm leading-relaxed border-t pt-6">
  Yes. We offer <strong>End-to-End solutions</strong> including ID design, PCBA engineering, tooling, and mass production at our ISO 9001 certified facility.
  </p>
  </details>
 
  <details class="group bg-white p-6 rounded-2xl shadow-sm cursor-pointer transition-all hover:shadow-md">
- <summary class="list-none flex justify-between items-center font-black text-brandBlue uppercase text-xs tracking-[0.15em]">
+ <summary class="faq-question list-none flex justify-between items-center font-black text-brandBlue uppercase text-xs tracking-[0.15em]">
  What certifications do your products carry?
  <span class="text-brandOrange group-open:rotate-45 transition-transform text-2xl">+</span>
  </summary>
- <p class="mt-6 text-slate-500 text-sm leading-relaxed border-t pt-6">
+ <p class="faq-answer mt-6 text-slate-500 text-sm leading-relaxed border-t pt-6">
  All products are engineered to meet global standards, including <strong>CE, FCC, RoHS, and Qi (WPC certified)</strong>. Our factory currently holds <strong>47 Qi2-certified products</strong> (WPC certified product database, 2025) with a <strong>99.2% ATL testing pass rate</strong> (WPC ATL test records, 2025-2026). We also assist clients in obtaining specific local certifications like UL, PSE, or KC.
  </p>
  </details>
 
  <details class="group bg-white p-6 rounded-2xl shadow-sm cursor-pointer transition-all hover:shadow-md">
- <summary class="list-none flex justify-between items-center font-black text-brandBlue uppercase text-xs tracking-[0.15em]">
+ <summary class="faq-question list-none flex justify-between items-center font-black text-brandBlue uppercase text-xs tracking-[0.15em]">
  What is your production capacity and lead time?
  <span class="text-brandOrange group-open:rotate-45 transition-transform text-2xl">+</span>
  </summary>
- <p class="mt-6 text-slate-500 text-sm leading-relaxed border-t pt-6">
+ <p class="faq-answer mt-6 text-slate-500 text-sm leading-relaxed border-t pt-6">
  Our factory can produce <strong>1 million+ units monthly</strong>. Standard OEM orders ship within <strong>25-30 days</strong> after sample approval. For new ODM projects with tooling, timeline is approximately <strong>45-60 days</strong> from design approval. Rush orders available with dedicated production lines.
  </p>
  </details>
 
  <details class="group bg-white p-6 rounded-2xl shadow-sm cursor-pointer transition-all hover:shadow-md">
- <summary class="list-none flex justify-between items-center font-black text-brandBlue uppercase text-xs tracking-[0.15em]">
+ <summary class="faq-question list-none flex justify-between items-center font-black text-brandBlue uppercase text-xs tracking-[0.15em]">
  How do you ensure product quality and safety?
  <span class="text-brandOrange group-open:rotate-45 transition-transform text-2xl">+</span>
  </summary>
- <p class="mt-6 text-slate-500 text-sm leading-relaxed border-t pt-6">
+ <p class="faq-answer mt-6 text-slate-500 text-sm leading-relaxed border-t pt-6">
  We implement a <strong>4-stage QC process</strong>: IQC (Incoming), IPQC (In-process), FQC (Final), and OQC (Outgoing). 100% of products undergo a <strong>4-hour aging test</strong> before shipping. Our facility is ISO 9001 certified.
  </p>
  </details>
 
  <details class="group bg-white p-6 rounded-2xl shadow-sm cursor-pointer transition-all hover:shadow-md">
- <summary class="list-none flex justify-between items-center font-black text-brandBlue uppercase text-xs tracking-[0.15em]">
+ <summary class="faq-question list-none flex justify-between items-center font-black text-brandBlue uppercase text-xs tracking-[0.15em]">
  Can you help with custom PCBA or ID design?
  <span class="text-brandOrange group-open:rotate-45 transition-transform text-2xl">+</span>
  </summary>
- <p class="mt-6 text-slate-500 text-sm leading-relaxed border-t pt-6">
+ <p class="faq-answer mt-6 text-slate-500 text-sm leading-relaxed border-t pt-6">
  Absolutely. Our in-house R&D team specializes in <strong>GaN technology</strong> and intelligent power allocation, allowing us to create unique hardware and aesthetic designs tailored to your brand.
  </p>
  </details>
 
  <details class="group bg-white p-6 rounded-2xl shadow-sm cursor-pointer transition-all hover:shadow-md">
- <summary class="list-none flex justify-between items-center font-black text-brandBlue uppercase text-xs tracking-[0.15em]">
+ <summary class="faq-question list-none flex justify-between items-center font-black text-brandBlue uppercase text-xs tracking-[0.15em]">
  Can I request samples before placing a bulk order?
  <span class="text-brandOrange group-open:rotate-45 transition-transform text-2xl">+</span>
  </summary>
- <p class="mt-6 text-slate-500 text-sm leading-relaxed border-t pt-6">
+ <p class="faq-answer mt-6 text-slate-500 text-sm leading-relaxed border-t pt-6">
  Yes, we encourage sample testing. Standard samples can be shipped within <strong>3-7 days</strong> to ensure the quality and performance meet your requirements.
  </p>
  </details>
 
  <details class="group bg-white p-6 rounded-2xl shadow-sm cursor-pointer transition-all hover:shadow-md">
- <summary class="list-none flex justify-between items-center font-black text-brandBlue uppercase text-xs tracking-[0.15em]">
+ <summary class="faq-question list-none flex justify-between items-center font-black text-brandBlue uppercase text-xs tracking-[0.15em]">
  What are your payment and shipping terms?
  <span class="text-brandOrange group-open:rotate-45 transition-transform text-2xl">+</span>
  </summary>
- <p class="mt-6 text-slate-500 text-sm leading-relaxed border-t pt-6">
+ <p class="faq-answer mt-6 text-slate-500 text-sm leading-relaxed border-t pt-6">
  We require <strong>T/T (30% deposit, 70% before shipment)</strong> with FOB Shenzhen, EXW, and DDP options. Sample delivery <strong>3-7 business days</strong>; bulk orders ship <strong>25-30 days</strong> after sample approval.
  </p>
  </details>
 
  <details class="group bg-white p-6 rounded-2xl shadow-sm cursor-pointer transition-all hover:shadow-md">
- <summary class="list-none flex justify-between items-center font-black text-brandBlue uppercase text-xs tracking-[0.15em]">
+ <summary class="faq-question list-none flex justify-between items-center font-black text-brandBlue uppercase text-xs tracking-[0.15em]">
  What is your warranty policy for defective products?
  <span class="text-brandOrange group-open:rotate-45 transition-transform text-2xl">+</span>
  </summary>
- <p class="mt-6 text-slate-500 text-sm leading-relaxed border-t pt-6">
+ <p class="faq-answer mt-6 text-slate-500 text-sm leading-relaxed border-t pt-6">
  We provide a <strong>12-month warranty</strong> on power banks and wireless chargers, <strong>24-month</strong> on GaN chargers and car chargers. Average claim rate below 0.5%. Any units with manufacturing defects are replaced or credited in your next order.
  </p>
  </details>
 
  <details class="group bg-white p-6 rounded-2xl shadow-sm cursor-pointer transition-all hover:shadow-md">
- <summary class="list-none flex justify-between items-center font-black text-brandBlue uppercase text-xs tracking-[0.15em]">
+ <summary class="faq-question list-none flex justify-between items-center font-black text-brandBlue uppercase text-xs tracking-[0.15em]">
  Do you offer custom retail packaging design?
  <span class="text-brandOrange group-open:rotate-45 transition-transform text-2xl">+</span>
  </summary>
- <p class="mt-6 text-slate-500 text-sm leading-relaxed border-t pt-6">
+ <p class="faq-answer mt-6 text-slate-500 text-sm leading-relaxed border-t pt-6">
  Yes. Our design team can help create <strong>Eco-friendly</strong> or premium retail packaging, including gift boxes, blister packs, and custom manuals to ensure a complete brand experience.
  </p>
  </details>
 
  <details class="group bg-white p-6 rounded-2xl shadow-sm cursor-pointer transition-all hover:shadow-md">
- <summary class="list-none flex justify-between items-center font-black text-brandBlue uppercase text-xs tracking-[0.15em]">
+ <summary class="faq-question list-none flex justify-between items-center font-black text-brandBlue uppercase text-xs tracking-[0.15em]">
  Can you help with product certification for different markets?
  <span class="text-brandOrange group-open:rotate-45 transition-transform text-2xl">+</span>
  </summary>
- <p class="mt-6 text-slate-500 text-sm leading-relaxed border-t pt-6">
+ <p class="faq-answer mt-6 text-slate-500 text-sm leading-relaxed border-t pt-6">
  Yes, we assist with <strong>CE, FCC, RoHS, Qi, UL, PSE, KC</strong> and other market-specific certifications. Our team will guide you through the entire process.
  </p>
  </details>
 
  <details class="group bg-white p-6 rounded-2xl shadow-sm cursor-pointer transition-all hover:shadow-md">
- <summary class="list-none flex justify-between items-center font-black text-brandBlue uppercase text-xs tracking-[0.15em]">
+ <summary class="faq-question list-none flex justify-between items-center font-black text-brandBlue uppercase text-xs tracking-[0.15em]">
  Do you provide dropshipping services for e-commerce sellers?
  <span class="text-brandOrange group-open:rotate-45 transition-transform text-2xl">+</span>
  </summary>
- <p class="mt-6 text-slate-500 text-sm leading-relaxed border-t pt-6">
+ <p class="faq-answer mt-6 text-slate-500 text-sm leading-relaxed border-t pt-6">
  Yes, we offer <strong>warehousing and fulfillment services</strong> for Amazon FBA and other e-commerce platforms. We can ship directly to your customers or fulfillment centers.
  </p>
  </details>

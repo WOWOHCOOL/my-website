@@ -66,11 +66,11 @@ plPath: "faq/"
 {% block faqHero %}
 {% from "breadcrumb.njk" import breadcrumb %}
 
-<section class="pt-24 md:pt-28 sec-cta bg-gradient-to-br from-slate-50 via-white to-orange-50 pb-16 md:pb-20">
+<section id="hero" class="pt-24 md:pt-28 sec-cta bg-gradient-to-br from-slate-50 via-white to-orange-50 pb-16 md:pb-20 lg:min-h-[100dvh] lg:flex lg:flex-col lg:justify-center" data-section="hero">
  <div class="container-narrow text-center">
  {{ breadcrumb([{name:"Inicio",url:"/es/"},{name:"FAQ"}], "none", "mb-6", { variant: "hero" }) }}
  </div>
- {% call sectionHeader('FAQ', 'Preguntas frecuentes sobre fabricación OEM/ODM', '', {max: '', mb: '', extra: 'container-narrow', titleClass: 'text-3xl md:text-5xl font-black text-brandBlue leading-tight mb-6 italic uppercase', tag: 'h1'}) %}<p class="text-lg text-slate-600 mb-2">Respuestas a las dudas más comunes sobre fabricación OEM/ODM, certificaciones, envíos y logística para España y Latinoamérica.</p>
+ {% call sectionHeader('FAQ', 'Preguntas frecuentes sobre fabricación OEM/ODM', '', {max: '', mb: '', extra: 'container-narrow', labelStyle: 'badge', pillMb: 'mb-6', titleClass: 'text-3xl md:text-5xl font-black text-brandBlue leading-tight mb-6 italic uppercase', tag: 'h1'}) %}<p class="text-lg text-slate-600 mb-2">Respuestas a las dudas más comunes sobre fabricación OEM/ODM, certificaciones, envíos y logística para España y Latinoamérica.</p>
  {% endcall %}
 </section>
 {% endblock %}
@@ -80,7 +80,7 @@ plPath: "faq/"
 {% endblock %}
 
 {% block faqContent %}
-<section class="py-16 bg-white">
+<section id="faq" class="sec bg-white" data-section="faq">
  <div class="container-narrow">
 
  <!-- Quick-jump Nav -->

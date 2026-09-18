@@ -72,7 +72,7 @@ navActive: "products"
 {% from "breadcrumb.njk" import breadcrumb %}
 
 <!-- ======== HERO ======== -->
-<section class="relative pt-24 md:pt-28 pb-8 lg:pb-16 bg-white overflow-hidden">
+<section id="hero" class="relative pt-24 md:pt-28 lg:pt-20 pb-8 lg:pb-20 bg-white overflow-hidden lg:min-h-[100dvh] lg:flex lg:flex-col lg:justify-center" data-section="hero">
  <div class="absolute inset-0 pointer-events-none">
  <div class="absolute top-0 left-0 w-64 h-64 bg-brandOrange opacity-10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
  <div class="absolute bottom-0 right-0 w-64 h-64 bg-brandBlue opacity-10 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
@@ -81,11 +81,8 @@ navActive: "products"
   {{ breadcrumb([{name:"Главная",url:"/ru/"},{name:"Продукция",url:"/ru/produkty/"},{name:"Повербанки"}], "none", "mb-6", { variant: "hero" }) }}
  <div class="grid lg:grid-cols-2 gap-12 items-center">
  <div class="reveal order-2 lg:order-1">
- <div class="inline-flex items-center gap-2 bg-brandOrange/10 text-brandOrange text-[11px] font-bold px-4 py-2 rounded-full tracking-widest uppercase mb-4">
- <span class="w-2 h-2 rounded-full bg-brandOrange animate-pulse"></span>
- OEM/ODM с 2013 года
- </div>
- <h1 class="text-4xl md:text-5xl lg:text-6xl font-black text-brandBlue leading-tight mb-6 italic uppercase">
+ <div class="badge-capsule mb-6 uppercase tracking-widest">OEM/ODM с 2013 года</div>
+ <h1 class="text-3xl md:text-4xl xl:text-5xl font-black text-brandBlue leading-tight mb-6 italic uppercase tracking-tighter">
  Производитель повербанков <span class="text-brandOrange">OEM/ODM оптом</span>
  </h1>
  <p class="text-lg text-slate-600 leading-relaxed mb-6">Повербанки PD 3.1 до <strong>140 Вт</strong> с технологией <strong>Semi-Solid-State</strong>. Ёмкость от 5000 до 27000 мА·ч. Сертификаты CE, FCC, RoHS, UN38.3 и <strong>подготовка комплекта документов для EAC</strong>. MOQ от 500 штук, FOB Шэньчжэнь.</p>
@@ -100,13 +97,13 @@ navActive: "products"
  <path d="M434.8 70.1c14.3 10.4 17.5 30.4 7.1 44.7l-256 352c-5.5 7.6-14 12.3-23.4 13.1s-18.5-2.7-25.1-9.3l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l101.5 101.5 234-321.7c10.4-14.3 30.4-17.5 44.7-7.1z" fill="currentColor"/>
  </svg></span> CE + RoHS + UN38.3 + поддержка при оформлении EAC для ЕАЭС</li>
  </ul>
- <div class="flex flex-wrap gap-3">
- <button data-action="open-modal" class="btn-primary shadow-lg shadow-brandOrange/20 cursor-pointer">Запросить расчёт OEM <svg class="icon-arrow-right" viewBox="0 0 512 512"><path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-105.4 105.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" fill="currentColor"/></svg></button>
- <a href="/ru/kontakty/" class="btn-secondary">Связаться с нами</a>
+ <div class="btn-pair">
+ <button data-action="open-modal" class="btn-solid shadow-lg shadow-brandOrange/20 cursor-pointer">Запросить расчёт OEM <svg class="icon-arrow-right" viewBox="0 0 512 512"><path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-105.4 105.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" fill="currentColor"/></svg></button>
+ <a href="/ru/kontakty/" class="btn-ghost-lg">Связаться с нами</a>
  </div>
  </div>
  <div class="reveal order-1 lg:order-2">
- <div class="bg-slate-50 rounded-2xl shadow-xl overflow-hidden border border-slate-100">
+ <div class="card-lg-soft shadow-xl overflow-hidden max-w-[480px] mx-auto">
  <img src="/image/product/power-bank/wop21-67w-power-bank.webp" srcset="/image/product/power-bank/wop21-67w-power-bank-800w.webp 800w, /image/product/power-bank/wop21-67w-power-bank.webp 1920w" sizes="(min-width: 1440px) 590px, (min-width: 1280px) 590px, (min-width: 1024px) 462px, (min-width: 768px) 718px, (min-width: 430px) 382px, 338px" alt="Повербанк OEM от производителя WOWOHCOOL" width="1920" height="1920" class="w-full h-auto object-cover" loading="eager">
  </div>
  </div>
@@ -118,14 +115,14 @@ navActive: "products"
 {% include "trust-bar.njk" %}
 
 <!-- ======== POWER BANK CATEGORÍAS ======== -->
-<section id="categorias" class="py-16 bg-white">
+<section id="categorias" class="sec bg-white" data-section="content">
  <div class="container-wide">
  {{ sectionHeader('Линейки продукции', '6 категорий повербанков <span class="text-brandOrange">OEM</span>', 'Шесть специализированных линеек под разные B2B-задачи: от технологии Semi-Solid-State до батарей для греющей одежды. По каждой категории — полные характеристики, сертификаты и цены с фабрики.', {mb: 'mb-12'}) }}
 
  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
  <!-- 1. Полутвердотельный -->
- <a href="/ru/produkty/poverbanki/polutverdotelnyy/" class="group block bg-white rounded-3xl border border-slate-200 overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all reveal">
+ <a href="/ru/produkty/poverbanki/polutverdotelnyy/" class="card-lg group block overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all reveal">
  <div class="relative aspect-[4/3] bg-slate-100 overflow-hidden">
  <img src="/image/product/power-bank/wopy21-45w-dual-cable-power-bank-20000mah.webp" srcset="/image/product/power-bank/wopy21-45w-dual-cable-power-bank-20000mah-450w.webp 450w, /image/product/power-bank/wopy21-45w-dual-cable-power-bank-20000mah.webp 800w" sizes="(min-width: 1440px) 389px, (min-width: 1280px) 389px, (min-width: 1024px) 304px, (min-width: 768px) 344px, (min-width: 430px) 382px, 327px" alt="Полутвердотельный повербанк OEM со встроенными кабелями PD 45 Вт" class="w-full h-full object-contain transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async" width="800" height="800">
  <div class="absolute top-4 left-4"><span class="bg-brandOrange text-white text-[11px] font-black px-3 py-1 rounded-full uppercase italic tracking-widest">CES 2026</span></div>
@@ -141,7 +138,7 @@ navActive: "products"
  </a>
 
  <!-- 2. Магнитный / беспроводной -->
- <a href="/ru/produkty/poverbanki/magnitnyy-besprovodnoy/" class="group block bg-white rounded-3xl border border-slate-200 overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all reveal">
+ <a href="/ru/produkty/poverbanki/magnitnyy-besprovodnoy/" class="card-lg group block overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all reveal">
  <div class="relative aspect-[4/3] bg-slate-100 overflow-hidden">
  <img src="/image/product/power-bank/wopq11-qi2-magnetic-40w-power-bank.webp" srcset="/image/product/power-bank/wopq11-qi2-magnetic-40w-power-bank-750w.webp 750w, /image/product/power-bank/wopq11-qi2-magnetic-40w-power-bank.webp 1920w" sizes="(min-width: 1440px) 526px, (min-width: 1280px) 526px, (min-width: 1024px) 398px, (min-width: 768px) 654px, (min-width: 430px) 382px, 327px" alt="Магнитный повербанк Qi2 с поддержкой MagSafe для OEM-заказов" class="w-full h-full object-contain transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async" width="1920" height="1920">
  <div class="absolute top-4 left-4"><span class="bg-brandBlue text-white text-[11px] font-black px-3 py-1 rounded-full uppercase italic tracking-widest">Qi2</span></div>
@@ -157,7 +154,7 @@ navActive: "products"
  </a>
 
  <!-- 3. Греющая батарея -->
- <a href="/ru/produkty/poverbanki/greyushchaya-batareya/" class="group block bg-white rounded-3xl border border-slate-200 overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all reveal">
+ <a href="/ru/produkty/poverbanki/greyushchaya-batareya/" class="card-lg group block overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all reveal">
  <div class="relative aspect-[4/3] bg-slate-100 overflow-hidden">
  <img src="/image/product/power-bank/wop55-heating-battery.webp" srcset="/image/product/power-bank/wop55-heating-battery-750w.webp 750w, /image/product/power-bank/wop55-heating-battery.webp 1100w" sizes="(min-width: 1440px) 526px, (min-width: 1280px) 526px, (min-width: 1024px) 398px, (min-width: 768px) 654px, (min-width: 430px) 382px, 327px" alt="Греющая батарея OEM для курток и жилетов с подогревом" class="w-full h-full object-contain transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async" width="1100" height="1100">
  <div class="absolute top-4 left-4"><span class="bg-red-500 text-white text-[11px] font-black px-3 py-1 rounded-full uppercase italic tracking-widest">Греющая одежда</span></div>
@@ -173,7 +170,7 @@ navActive: "products"
  </a>
 
  <!-- 4. Гибрид 2-в-1 -->
- <a href="/ru/produkty/poverbanki/gibrid-2-v-1/" class="group block bg-white rounded-3xl border border-slate-200 overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all reveal">
+ <a href="/ru/produkty/poverbanki/gibrid-2-v-1/" class="card-lg group block overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all reveal">
  <div class="relative aspect-[4/3] bg-slate-100 overflow-hidden">
  <img src="/image/product/power-bank/wopa01-2in1-hybrid-ac-magnetic-22w-charger-10000mah.webp" srcset="/image/product/power-bank/wopa01-2in1-hybrid-ac-magnetic-22w-charger-10000mah-450w.webp 450w, /image/product/power-bank/wopa01-2in1-hybrid-ac-magnetic-22w-charger-10000mah.webp 800w" sizes="(min-width: 1440px) 389px, (min-width: 1280px) 389px, (min-width: 1024px) 304px, (min-width: 768px) 344px, (min-width: 430px) 382px, 327px" alt="Гибридный повербанк 2-в-1 со складной AC-вилкой и беспроводной зарядкой" class="w-full h-full object-contain transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async" width="800" height="800">
  <div class="absolute top-4 left-4"><span class="bg-purple-600 text-white text-[11px] font-black px-3 py-1 rounded-full uppercase italic tracking-widest">2-в-1</span></div>
@@ -189,7 +186,7 @@ navActive: "products"
  </a>
 
  <!-- 5. Повербанк для ноутбуков -->
- <a href="/ru/produkty/poverbanki/dlya-noutbukov/" class="group block bg-white rounded-3xl border border-slate-200 overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all reveal">
+ <a href="/ru/produkty/poverbanki/dlya-noutbukov/" class="card-lg group block overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all reveal">
  <div class="relative aspect-[4/3] bg-slate-100 overflow-hidden">
  <img src="/image/product/power-bank/wop23-240w-power-bank.webp" srcset="/image/product/power-bank/wop23-240w-power-bank-750w.webp 750w, /image/product/power-bank/wop23-240w-power-bank.webp 1100w" sizes="(min-width: 1440px) 526px, (min-width: 1280px) 526px, (min-width: 1024px) 398px, (min-width: 768px) 654px, (min-width: 430px) 382px, 327px" alt="Повербанк 240 Вт PD 3.1 для MacBook и игровых ноутбуков оптом" class="w-full h-full object-contain transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async" width="1100" height="1100">
  <div class="absolute top-4 left-4"><span class="bg-slate-900 text-white text-[11px] font-black px-3 py-1 rounded-full uppercase italic tracking-widest">PD 3.1 240W</span></div>
@@ -205,7 +202,7 @@ navActive: "products"
  </a>
 
  <!-- 6. Смарт-дисплей -->
- <a href="/ru/produkty/poverbanki/smart-displey/" class="group block bg-white rounded-3xl border border-slate-200 overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all reveal">
+ <a href="/ru/produkty/poverbanki/smart-displey/" class="card-lg group block overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all reveal">
  <div class="relative aspect-[4/3] bg-slate-100 overflow-hidden">
  <img src="/image/product/power-bank/wop25-tft-power-bank.webp" srcset="/image/product/power-bank/wop25-tft-power-bank-750w.webp 750w, /image/product/power-bank/wop25-tft-power-bank.webp 1920w" sizes="(min-width: 1440px) 526px, (min-width: 1280px) 526px, (min-width: 1024px) 398px, (min-width: 768px) 654px, (min-width: 430px) 382px, 327px" alt="Повербанк с TFT-дисплеем и беспроводной зарядкой 3-в-1 для OEM" class="w-full h-full object-contain transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async" width="1920" height="1920">
  <div class="absolute top-4 left-4"><span class="bg-cyan-600 text-white text-[11px] font-black px-3 py-1 rounded-full uppercase italic tracking-widest">TFT-дисплей</span></div>
@@ -231,11 +228,11 @@ navActive: "products"
 <!-- ======== CERTIFICATION SHOWCASE ======== -->
 
 <!-- ======== COMPARATIVA DE CATEGORÍAS ======== -->
-<section class="py-16 bg-slate-50">
+<section id="comparativa-de-categorias" class="sec bg-slate-50" data-section="comparison">
  <div class="container-wide">
  {{ sectionHeader('Сравнение категорий', '6 линеек повербанков <span class="text-brandOrange">OEM</span> в сравнении', 'Какая линейка подходит вашему рынку? Сравните технологию, мощность, ёмкость и сценарий применения — с прямой ссылкой на страницу продукта.', {mb: 'mb-12'}) }}
  <div class="overflow-x-auto reveal">
- <table class="w-full min-w-[720px] bg-white rounded-2xl shadow-sm border border-slate-200">
+ <table class="card-lg w-full min-w-[720px] shadow-sm">
  <thead>
  <tr class="bg-brandBlue text-white">
  <th class="py-3 px-3 text-xs font-bold uppercase tracking-wider text-left rounded-tl-2xl">Линейка</th>
@@ -310,39 +307,39 @@ navActive: "products"
 </section>
 
 <!-- ======== SPECIFICATIONS ======== -->
-<section class="py-16 bg-white">
+<section id="specifications" class="sec bg-white" data-section="content">
  <div class="container-wide">
  {{ sectionHeader('Ёмкости', 'Технические характеристики', 'Производим повербанки во всех востребованных на B2B-рынке ёмкостях — стандартные и кастомные конфигурации.', {mb: 'mb-12'}) }}
  <div class="grid md:grid-cols-3 gap-6 reveal">
- <div class="bg-slate-50 rounded-xl p-6 text-center border border-slate-200 hover:border-brandOrange/30 transition-all"><p class="text-3xl font-black text-brandBlue">5000<span class="text-brandOrange">мА·ч</span></p><p class="text-sm text-slate-500 mt-2">Компактный формат для повседневного использования и поездок. Идеален для промо-акций и корпоративных подарков.</p></div>
- <div class="bg-slate-50 rounded-xl p-6 text-center border border-slate-200 hover:border-brandOrange/30 transition-all"><p class="text-3xl font-black text-brandBlue">10 000<span class="text-brandOrange">мА·ч</span></p><p class="text-sm text-slate-500 mt-2">Самая ходовая ёмкость на B2B-рынке. Оптимальный баланс размера и автономности.</p></div>
- <div class="bg-slate-50 rounded-xl p-6 text-center border border-slate-200 hover:border-brandOrange/30 transition-all"><p class="text-3xl font-black text-brandBlue">20 000<span class="text-brandOrange">мА·ч</span></p><p class="text-sm text-slate-500 mt-2">Высокая ёмкость для командировок и профессионального использования. Заряжает несколько устройств одновременно.</p></div>
+ <div class="card-soft p-6 text-center hover:border-brandOrange/30 transition-all"><p class="text-3xl font-black text-brandBlue">5000<span class="text-brandOrange">мА·ч</span></p><p class="text-sm text-slate-500 mt-2">Компактный формат для повседневного использования и поездок. Идеален для промо-акций и корпоративных подарков.</p></div>
+ <div class="card-soft p-6 text-center hover:border-brandOrange/30 transition-all"><p class="text-3xl font-black text-brandBlue">10 000<span class="text-brandOrange">мА·ч</span></p><p class="text-sm text-slate-500 mt-2">Самая ходовая ёмкость на B2B-рынке. Оптимальный баланс размера и автономности.</p></div>
+ <div class="card-soft p-6 text-center hover:border-brandOrange/30 transition-all"><p class="text-3xl font-black text-brandBlue">20 000<span class="text-brandOrange">мА·ч</span></p><p class="text-sm text-slate-500 mt-2">Высокая ёмкость для командировок и профессионального использования. Заряжает несколько устройств одновременно.</p></div>
  </div>
  <div class="grid md:grid-cols-2 gap-6 mt-6 reveal">
- <div class="bg-slate-50 rounded-xl p-6 text-center border border-slate-200 hover:border-brandOrange/30 transition-all"><p class="text-3xl font-black text-brandBlue">27 000<span class="text-brandOrange">мА·ч</span></p><p class="text-sm text-slate-500 mt-2">Максимум, допустимый в авиаперелётах (99,9 Вт·ч). Профессиональная мощность в переносном формате.</p></div>
- <div class="bg-slate-50 rounded-xl p-6 text-center border border-slate-200 hover:border-brandOrange/30 transition-all"><p class="text-3xl font-black text-brandBlue">67 Вт – 140 Вт</p><p class="text-sm text-slate-500 mt-2">PD 3.1 — быстрая зарядка ноутбуков, планшетов и смартфонов. Доступна технология Semi-Solid-State.</p></div>
+ <div class="card-soft p-6 text-center hover:border-brandOrange/30 transition-all"><p class="text-3xl font-black text-brandBlue">27 000<span class="text-brandOrange">мА·ч</span></p><p class="text-sm text-slate-500 mt-2">Максимум, допустимый в авиаперелётах (99,9 Вт·ч). Профессиональная мощность в переносном формате.</p></div>
+ <div class="card-soft p-6 text-center hover:border-brandOrange/30 transition-all"><p class="text-3xl font-black text-brandBlue">67 Вт – 140 Вт</p><p class="text-sm text-slate-500 mt-2">PD 3.1 — быстрая зарядка ноутбуков, планшетов и смартфонов. Доступна технология Semi-Solid-State.</p></div>
  </div>
  </div>
 </section>
 
 <!-- ======== TECHNOLOGY ======== -->
-<section class="py-16 bg-slate-50">
+<section id="technology" class="sec bg-slate-50" data-section="content">
  <div class="container-wide">
  {{ sectionHeader('Технологии', 'Инновации в <span class="text-brandOrange">каждой зарядке</span>', '', {mb: 'mb-12'}) }}
  <div class="grid md:grid-cols-3 gap-8">
- <div class="reveal bg-white rounded-2xl p-8 border border-slate-200 text-center hover:shadow-lg transition-all">
+ <div class="card-lg reveal p-8 text-center hover:shadow-lg transition-all">
  <div class="w-14 h-14 rounded-2xl bg-brandOrange/10 flex items-center justify-center mx-auto mb-5"><svg class="icon-bolt text-2xl text-brandOrange" viewBox="0 0 448 512" width="24" height="24">
  <path d="M338.8-9.9c11.9 8.6 16.3 24.2 10.9 37.8L271.3 224 416 224c13.5 0 25.5 8.4 30.1 21.1s.7 26.9-9.6 35.5l-288 240c-11.3 9.4-27.4 9.9-39.3 1.3s-16.3-24.2-10.9-37.8L176.7 288 32 288c-13.5 0-25.5-8.4-30.1-21.1s-.7-26.9 9.6-35.5l288-240c11.3-9.4 27.4-9.9 39.3-1.3z" fill="currentColor"/>
  </svg></div>
  <h3 class="text-lg font-bold text-brandBlue mb-3">Semi-Solid-State</h3>
  <p class="text-sm text-slate-500 leading-relaxed">Аккумуляторы нового поколения: корпус <strong>на 50% тоньше</strong>, плотность энергии <strong>на 30% выше</strong>, риск возгорания <strong>практически исключён</strong>. Представлены на CES 2026.</p>
  </div>
- <div class="reveal bg-white rounded-2xl p-8 border border-slate-200 text-center hover:shadow-lg transition-all" style="transition-delay:100ms">
+ <div class="card-lg reveal p-8 text-center hover:shadow-lg transition-all" style="transition-delay:100ms">
  <div class="w-14 h-14 rounded-2xl bg-brandOrange/10 flex items-center justify-center mx-auto mb-5"><svg class="icon-usb-drive text-2xl text-brandOrange" viewBox="0 0 640 512" width="24" height="24"><path d="M64 96C28.7 96 0 124.7 0 160v96c0 35.3 28.7 64 64 64h32V96H64zm96 0v224h32c53 0 96-43 96-96V96H160zm224 0H256v128c0 88.4-71.6 160-160 160H64c-35.3 0-64-28.7-64-64v-96c0-35.3 28.7-64 64-64h32V96H160z" fill="currentColor"/></svg></div>
  <h3 class="text-lg font-bold text-brandBlue mb-3">PD 3.1 до 140 Вт</h3>
  <p class="text-sm text-slate-500 leading-relaxed">Power Delivery 3.1 для сверхбыстрой зарядки ноутбуков, планшетов и смартфонов. Совместимость с MacBook, Dell XPS и Samsung Galaxy.</p>
  </div>
- <div class="reveal bg-white rounded-2xl p-8 border border-slate-200 text-center hover:shadow-lg transition-all" style="transition-delay:200ms">
+ <div class="card-lg reveal p-8 text-center hover:shadow-lg transition-all" style="transition-delay:200ms">
  <div class="w-14 h-14 rounded-2xl bg-brandOrange/10 flex items-center justify-center mx-auto mb-5"><svg class="icon-microchip text-2xl text-brandOrange" viewBox="0 0 512 512" width="24" height="24">
  <path d="M176 24c0-13.3-10.7-24-24-24s-24 10.7-24 24l0 40c-35.3 0-64 28.7-64 64l-40 0c-13.3 0-24 10.7-24 24s10.7 24 24 24l40 0 0 56-40 0c-13.3 0-24 10.7-24 24s10.7 24 24 24l40 0 0 56-40 0c-13.3 0-24 10.7-24 24s10.7 24 24 24l40 0c0 35.3 28.7 64 64 64l0 40c0 13.3 10.7 24 24 24s24-10.7 24-24l0-40 56 0 0 40c0 13.3 10.7 24 24 24s24-10.7 24-24l0-40 56 0 0 40c0 13.3 10.7 24 24 24s24-10.7 24-24l0-40c35.3 0 64-28.7 64-64l40 0c13.3 0 24-10.7 24-24s-10.7-24-24-24l-40 0 0-56 40 0c13.3 0 24-10.7 24-24s-10.7-24-24-24l-40 0 0-56 40 0c13.3 0 24-10.7 24-24s-10.7-24-24-24l-40 0c0-35.3-28.7-64-64-64l0-40c0-13.3-10.7-24-24-24s-24 10.7-24 24l0 40-56 0 0-40c0-13.3-10.7-24-24-24s-24 10.7-24 24l0 40-56 0 0-40zM160 128l192 0c17.7 0 32 14.3 32 32l0 192c0 17.7-14.3 32-32 32l-192 0c-17.7 0-32-14.3-32-32l0-192c0-17.7 14.3-32 32-32zm16 48l0 160 160 0 0-160-160 0z" fill="currentColor"/>
  </svg></div>
@@ -354,7 +351,7 @@ navActive: "products"
 </section>
 
 <!-- ======== COMPARATIVA TECNOLÓGICA ======== -->
-<section class="sec bg-white">
+<section id="comparativa-tecnologica" class="sec bg-white" data-section="comparison">
  <div class="container-content">
  {{ sectionHeader('Сравнение', 'Semi-Solid-State против классического лития', 'Технология Semi-Solid-State — крупнейший шаг в портативных аккумуляторах с 2020 года. Сравнение по рыночным данным 2026 года.', {max: '', mb: 'mb-12'}) }}
  <div class="overflow-x-auto reveal">
@@ -381,26 +378,26 @@ navActive: "products"
 </section>
 
 <!-- ======== СЕРТИФИКАЦИЯ И ЛОГИСТИКА ЕАЭС ======== -->
-<section class="sec bg-slate-50">
- <div class="container-content">
+<section id="content" class="sec bg-slate-50" data-section="content">
+ <div class="container-wide">
  {{ sectionHeader('Сертификация и логистика', 'Поставки импортёрам в РФ и ЕАЭС: документы и доставка', 'Для ввоза повербанков в Россию, Казахстан и Беларусь нужен корректный пакет документов. WOWOHCOOL сопровождает заказ от фабрики до отгрузки.', {max: '', mb: 'mb-12'}) }}
  <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 reveal">
- <div class="bg-white rounded-xl p-6 shadow-sm border border-slate-100 text-center">
+ <div class="card p-6 shadow-sm text-center">
   <div class="w-12 h-12 bg-brandOrange/10 rounded-full flex items-center justify-center mx-auto mb-3"><span class="text-brandOrange font-bold text-lg">1</span></div>
   <h3 class="font-bold text-brandBlue text-sm mb-2">Поддержка при EAC</h3>
   <p class="text-xs text-slate-500">Готовим комплект документов для сертификации по ТР ТС 004/2011 и ТР ТС 020/2011: протоколы испытаний, техописание, инструкция на русском.</p>
  </div>
- <div class="bg-white rounded-xl p-6 shadow-sm border border-slate-100 text-center">
+ <div class="card p-6 shadow-sm text-center">
   <div class="w-12 h-12 bg-brandOrange/10 rounded-full flex items-center justify-center mx-auto mb-3"><span class="text-brandOrange font-bold text-lg">2</span></div>
   <h3 class="font-bold text-brandBlue text-sm mb-2">UN38.3 + MSDS</h3>
   <p class="text-xs text-slate-500">Обязательные документы для перевозки литиевых батарей любым транспортом. Включены в каждый заказ без доплаты.</p>
  </div>
- <div class="bg-white rounded-xl p-6 shadow-sm border border-slate-100 text-center">
+ <div class="card p-6 shadow-sm text-center">
   <div class="w-12 h-12 bg-brandOrange/10 rounded-full flex items-center justify-center mx-auto mb-3"><span class="text-brandOrange font-bold text-lg">3</span></div>
   <h3 class="font-bold text-brandBlue text-sm mb-2">Документы для растаможки</h3>
   <p class="text-xs text-slate-500">Коммерческий инвойс, упаковочный лист, сертификат происхождения, контракт — под требования вашего таможенного представителя.</p>
  </div>
- <div class="bg-white rounded-xl p-6 shadow-sm border border-slate-100 text-center">
+ <div class="card p-6 shadow-sm text-center">
   <div class="w-12 h-12 bg-brandOrange/10 rounded-full flex items-center justify-center mx-auto mb-3"><span class="text-brandOrange font-bold text-lg">4</span></div>
   <h3 class="font-bold text-brandBlue text-sm mb-2">Доставка в РФ</h3>
   <p class="text-xs text-slate-500">Ж/д через Забайкальск/Наушки 18–25 дней, морем через Владивосток/Новороссийск, авиа 3–7 дней для образцов. FOB / EXW / DDP.</p>
@@ -410,7 +407,7 @@ navActive: "products"
 </section>
 
 <!-- ======== FAQ ======== -->
-<section class="py-16 bg-slate-50">
+<section id="faq" class="sec bg-slate-50" data-section="faq">
  <div class="container-narrow">
  {{ sectionHeader('FAQ', 'Частые вопросы', '', {max: '', mb: 'mb-10'}) }}
  <div class="reveal">

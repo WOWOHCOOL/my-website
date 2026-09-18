@@ -139,13 +139,13 @@ plPath: "produkty/ladowarka-bezprzewodowa/biurkowa/"
 {% block content %}
 
 <!-- Hero -->
-<section class="relative pt-24 md:pt-28 pb-8 lg:pb-16 bg-white text-slate-900 overflow-hidden">
+<section id="hero" class="relative pt-24 md:pt-28 lg:pt-20 pb-8 lg:pb-20 bg-white text-slate-900 overflow-hidden lg:min-h-[100dvh] lg:flex lg:flex-col lg:justify-center" data-section="hero">
  <div class="absolute inset-0 z-0 pointer-events-none overflow-hidden">
  <div class="absolute top-0 left-0 max-w-full w-64 h-64 bg-brandOrange opacity-20 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
  <div class="absolute bottom-0 right-0 max-w-full w-64 h-64 bg-blue-500 opacity-20 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
  </div>
 
- <div class="container-wide relative z-10 text-center pb-8 lg:pb-12">
+ <div class="container-wide relative z-10 text-center pb-8 lg:pb-0">
  {{ breadcrumb([{name: "Accueil", url: "/fr/"}, {name: "Produits", url: "/fr/produits/"}, {name: "Chargeur sans fil", url: "/fr/produits/chargeur-sans-fil/"}, {name: "Bureau"}], "none", "mb-6", { variant: "hero" }) }}
 
  <div>
@@ -159,14 +159,14 @@ plPath: "produkty/ladowarka-bezprzewodowa/biurkowa/"
 
  <p class="max-w-2xl mx-auto text-slate-500 text-xs leading-relaxed mb-8"><strong>Le bureau est le segment volume :</strong> 55-60% des ventes unitaires de chargeurs sans fil. Le télétravail crée une demande structurelle — 42% des employés européens en mode hybride. Les entreprises achètent par lots pour équiper leurs équipes. Amazon et Best Buy dé-référencent les produits non-Qi2 d'ici 2026. <strong>Qi2.2 25W (T3 2026) = renouvellement de gamme.</strong></p>
 
- <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto mb-10">
- <div class="bg-slate-50 rounded-xl p-4 border border-slate-100"><p class="text-2xl font-black text-brandBlue">15W</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Sortie triple</p></div>
- <div class="bg-slate-50 rounded-xl p-4 border border-slate-100"><p class="text-2xl font-black text-brandOrange">1,14 Md</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">iPhone 12+ installés</p></div>
- <div class="bg-slate-50 rounded-xl p-4 border border-slate-100"><p class="text-2xl font-black text-brandBlue">500</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">MOQ</p></div>
- <div class="bg-slate-50 rounded-xl p-4 border border-slate-100"><p class="text-2xl font-black text-brandOrange">3</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Modèles</p></div>
+ <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
+ <div class="card-soft p-4"><p class="text-2xl font-black text-brandBlue">15W</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Sortie triple</p></div>
+ <div class="card-soft p-4"><p class="text-2xl font-black text-brandOrange">1,14 Md</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">iPhone 12+ installés</p></div>
+ <div class="card-soft p-4"><p class="text-2xl font-black text-brandBlue">500</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">MOQ</p></div>
+ <div class="card-soft p-4"><p class="text-2xl font-black text-brandOrange">3</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Modèles</p></div>
  </div>
 
- <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
+ <div class="btn-pair">
  <button data-action="open-modal" data-product="Chargeur de bureau sans fil" class="btn-wide-lg">
   Demander le prix usine
  </button>
@@ -186,7 +186,7 @@ plPath: "produkty/ladowarka-bezprzewodowa/biurkowa/"
  <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-white border border-slate-200 rotate-45"></div>
 </div>
 <!-- Products -->
-<section id="products" class="sec bg-white relative py-16">
+<section id="products" class="sec bg-white relative" data-section="products">
  <div class="container-wide">
  <h2 class="text-2xl font-black text-brandBlue uppercase italic tracking-tighter mb-2">Chargeurs de bureau sans fil</h2>
  <p class="text-slate-500 text-sm mb-10">3 modèles | 10W-15W | Support | Ultra-fin | Affichage LED | Brevet</p>
@@ -217,7 +217,7 @@ plPath: "produkty/ladowarka-bezprzewodowa/biurkowa/"
  </p>
 
  <details class="mb-6 group/spec">
- <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition">
+ <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition">
  <span class="text-xs font-black text-slate-700 uppercase">Spécifications</span>
  <span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">▼</span>
  </summary>
@@ -264,7 +264,7 @@ plPath: "produkty/ladowarka-bezprzewodowa/biurkowa/"
  </p>
 
  <details class="mb-6 group/spec">
- <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition">
+ <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition">
  <span class="text-xs font-black text-slate-700 uppercase">Spécifications</span>
  <span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">▼</span>
  </summary>
@@ -308,7 +308,7 @@ plPath: "produkty/ladowarka-bezprzewodowa/biurkowa/"
  </p>
 
  <details class="mb-6 group/spec">
- <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition">
+ <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition">
  <span class="text-xs font-black text-slate-700 uppercase">Spécifications</span>
  <span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">▼</span>
  </summary>
@@ -334,7 +334,7 @@ plPath: "produkty/ladowarka-bezprzewodowa/biurkowa/"
 
 
 <!-- Qu'est-ce qu'un chargeur de bureau sans fil Qi2 -->
-<section class="sec bg-white relative py-16">
+<section id="qu-est-ce-qu-un-chargeur-de-bureau-sans-fil-qi2" class="sec bg-white relative" data-section="content">
  <div class="container-wide">
  <h2 class="section-title text-center">Qu'est-ce qu'un chargeur de bureau sans fil Qi2 ?</h2>
  <p class="text-center text-slate-500 text-sm max-w-3xl mx-auto mb-8">Un chargeur de bureau sans fil Qi2 est un <strong>accessoire de charge pour un ou plusieurs appareils</strong> conçu pour les bureaux, tables de chevet et espaces de travail. Disponible en deux formats — <strong>tapis plat</strong> (téléphone à l'horizontale) et <strong>support vertical</strong> (téléphone droit pour Face ID et appels vidéo) — les chargeurs de bureau Qi2 modernes utilisent le standard MPP (Magnetic Power Profile) avec des aimants néodyme N52H pour un alignement magnétique parfait et une charge rapide 15W-25W. Pour les acheteurs B2B, les chargeurs de bureau sans fil représentent le <strong>segment au plus gros volume de la catégorie</strong> — les tapis et supports pour un seul appareil représentent 55-60 % de toutes les expéditions mondiales de chargeurs sans fil, ce qui les rend indispensables pour les marques, les vendeurs Amazon, les programmes de cadeaux d'entreprise et les marques de distributeurs.</p>
@@ -344,18 +344,18 @@ plPath: "produkty/ladowarka-bezprzewodowa/biurkowa/"
   <cite class="block text-xs text-slate-400 mt-2 not-italic">— <a href="https://dataintelo.com/report/desktop-wireless-charging-stand-market" target="_blank" rel="noopener noreferrer" class="text-brandOrange hover:underline">DataIntelo</a>, Rapport sur le marché des supports de charge sans fil de bureau 2025-2033 ; <a href="https://www.qyresearch.com/" target="_blank" rel="noopener noreferrer" class="text-brandOrange hover:underline">QYResearch</a>, Marché des chargeurs sans fil à tapis unique 2025 ; <a href="https://seller.alibaba.com/blogs/2026/southeast-asia/wireless-charging/qi2-revolution-declining-market" target="_blank" rel="noopener noreferrer" class="text-brandOrange hover:underline">Alibaba.com</a>, Stratégie d'exportation de chargeurs sans fil en Asie du Sud-Est 2026</cite>
  </blockquote>
 
- <div class="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
- <div class="bg-slate-50 rounded-xl p-6 border border-slate-100 text-center">
+ <div class="grid md:grid-cols-3 gap-8">
+ <div class="card-soft p-6 text-center">
   <p class="text-3xl font-black text-brandBlue mb-2">140M</p>
   <p class="text-sm font-bold text-slate-700 mb-2">Unités à tapis unique vendues en 2025</p>
   <p class="text-xs text-slate-500">Le plus gros segment en volume unitaire de la charge sans fil. 55-60 % de toutes les expéditions mondiales de chargeurs sans fil.</p>
  </div>
- <div class="bg-slate-50 rounded-xl p-6 border border-slate-100 text-center">
+ <div class="card-soft p-6 text-center">
   <p class="text-3xl font-black text-brandOrange mb-2">17,2 %</p>
   <p class="text-sm font-bold text-slate-700 mb-2">TCAC 2025-2033</p>
   <p class="text-xs text-slate-500">Les supports de charge sans fil de bureau sont le format à la croissance la plus rapide — marché de 7,5 Md$ d'ici 2033.</p>
  </div>
- <div class="bg-slate-50 rounded-xl p-6 border border-slate-100 text-center">
+ <div class="card-soft p-6 text-center">
   <p class="text-3xl font-black text-brandBlue mb-2">89,2 %</p>
   <p class="text-sm font-bold text-slate-700 mb-2">Score d'opportunité océan bleu</p>
   <p class="text-xs text-slate-500">Chargeurs sans fil iPhone : ratio offre-demande de 19,8. Grave sous-approvisionnement = opportunité B2B massive.</p>
@@ -365,7 +365,7 @@ plPath: "produkty/ladowarka-bezprzewodowa/biurkowa/"
 </section>
 
 <!-- Tapis vs Support vs Station verticale — Guide d'achat B2B -->
-<section class="sec bg-slate-50 relative py-16">
+<section id="tapis-vs-support-vs-station-verticale-guide-d-achat-b2b" class="sec bg-slate-50 relative" data-section="comparison">
  <div class="container-wide">
  <h2 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4 text-center">Tapis vs Support vs Station verticale — <span class="text-brandOrange">Guide d'achat B2B</span></h2>
  <p class="text-center text-slate-500 text-sm max-w-3xl mx-auto mb-12">Choisissez le bon format pour votre canal de distribution et votre gamme de prix. Chacun correspond à un profil d'acheteur et une marge distincts.</p>
@@ -373,11 +373,11 @@ plPath: "produkty/ladowarka-bezprzewodowa/biurkowa/"
  <div class="overflow-x-auto rounded-2xl border border-slate-200 shadow-sm">
  <table class="w-full text-sm">
  <thead>
- <tr class="bg-white">
- <th class="p-4 text-left text-slate-500 font-bold text-xs uppercase">Paramètre</th>
- <th class="p-4 text-center bg-brandOrange/5 border-x border-brandOrange/20 text-brandOrange font-bold text-xs uppercase">Support vertical<br><span class="text-[10px] normal-case opacity-70">WOW68</span></th>
- <th class="p-4 text-center text-slate-500 font-bold text-xs uppercase">Tapis ultra-fin<br><span class="text-[10px] normal-case opacity-70">WOW40</span></th>
- <th class="p-4 text-center text-slate-500 font-bold text-xs uppercase">Tapis minimaliste<br><span class="text-[10px] normal-case opacity-70">WOW33</span></th>
+ <tr class="bg-brandBlue text-white">
+ <th class="p-4 text-left font-bold text-xs uppercase">Paramètre</th>
+ <th class="p-4 text-center bg-brandOrange/20 font-bold text-xs uppercase">Support vertical<br><span class="text-[10px] normal-case opacity-70">WOW68</span></th>
+ <th class="p-4 text-center font-bold text-xs uppercase">Tapis ultra-fin<br><span class="text-[10px] normal-case opacity-70">WOW40</span></th>
+ <th class="p-4 text-center font-bold text-xs uppercase">Tapis minimaliste<br><span class="text-[10px] normal-case opacity-70">WOW33</span></th>
  </tr>
  </thead>
  <tbody>
@@ -398,23 +398,23 @@ plPath: "produkty/ladowarka-bezprzewodowa/biurkowa/"
 
 
 <!-- Aperçu de la gamme bureau -->
-<section class="sec bg-white relative py-16">
+<section id="apercu-de-la-gamme-bureau" class="sec bg-white relative" data-section="content">
  <div class="container-wide">
  <h2 class="section-title text-center">Gamme de chargeurs de bureau sans fil — Disponible + Pipeline T3 2026</h2>
  <p class="text-center text-slate-500 text-sm max-w-3xl mx-auto mb-8">Support magnétique vertical (WOW68) disponible maintenant. Deux designs brevetés exclusifs (WOW33, WOW40). <strong>Tapis magnétique et support de bureau Qi2.2 25W lancement T3 2026</strong> — préinscrivez-vous pour les échantillons et prix early-bird.</p>
 
- <div class="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto mb-12">
- <div class="bg-slate-50 rounded-xl p-6 border border-slate-100 text-center">
+ <div class="grid md:grid-cols-3 gap-8 mb-12">
+ <div class="card-soft p-6 text-center">
   <p class="text-3xl font-black text-brandBlue mb-2">15W</p>
   <p class="text-sm font-bold text-slate-700 mb-2">Support magnétique vertical</p>
   <p class="text-xs text-slate-500">Charge triple appareil. Bobines indépendantes. Trous de refroidissement arrière. Mode Face ID + StandBy. Disponible maintenant — WOW68.</p>
  </div>
- <div class="bg-slate-50 rounded-xl p-6 border border-slate-100 text-center">
+ <div class="card-soft p-6 text-center">
   <p class="text-3xl font-black text-brandOrange mb-2">Qi2.2 25W</p>
   <p class="text-sm font-bold text-slate-700 mb-2">Tapis de charge magnétique — T3 2026</p>
   <p class="text-xs text-slate-500">Format carte ultra-fin. Charge rapide MPP 25W. Aimant N52H. Entrée USB-C. Certifié Qi2.2 WPC. Préinscrivez-vous pour les échantillons.</p>
  </div>
- <div class="bg-slate-50 rounded-xl p-6 border border-slate-100 text-center">
+ <div class="card-soft p-6 text-center">
   <p class="text-3xl font-black text-brandBlue mb-2">Qi2.2 25W</p>
   <p class="text-sm font-bold text-slate-700 mb-2">Support de charge de bureau — T3 2026</p>
   <p class="text-xs text-slate-500">Station verticale avec rotation 360°. Face ID + Mode StandBy. Construction premium aluminium + ABS. Certifié Qi2.2 WPC. Préinscrivez-vous pour les échantillons.</p>
@@ -424,25 +424,25 @@ plPath: "produkty/ladowarka-bezprzewodowa/biurkowa/"
 </section>
 
 <!-- Contexte du marché -->
-<section class="sec bg-slate-50 relative py-16">
- <div class="container-content">
+<section id="contexte-du-marche" class="sec bg-slate-50 relative" data-section="content">
+ <div class="container-wide">
  <h2 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4 text-center">Pourquoi le bureau — <span class="text-brandOrange">Le jeu du volume</span></h2>
  <p class="text-center text-slate-500 text-sm max-w-3xl mx-auto mb-8">Les chargeurs sans fil pour un seul appareil sont le segment au plus gros volume unitaire de la catégorie — 140 millions d'unités expédiées dans le monde en 2025 à un prix de vente moyen de 21,20 $ (QYResearch). Alors que les stations 3-en-1 captent des prix élevés, le segment des tapis/supports de bureau génère de loin le plus d'unités, ce qui le rend indispensable pour les usines servant les vendeurs Amazon, les programmes de cadeaux d'entreprise, les marques d'accessoires pour smartphone et les marques de distributeurs. Les chargeurs sans fil spécifiques à l'iPhone affichent un <strong>ratio offre-demande de 19,8</strong> — gravement sous-approvisionné avec un score d'opportunité océan bleu de 89,2 % (Alibaba 2026).</p>
 
- <div class="grid md:grid-cols-4 gap-6 max-w-4xl mx-auto mb-6">
- <div class="bg-white rounded-xl p-6 shadow-sm border border-slate-100 text-center">
+ <div class="grid md:grid-cols-4 gap-6 mb-6">
+ <div class="card p-6 shadow-sm text-center">
   <p class="text-3xl font-black text-brandBlue mb-2">55-60 %</p>
   <p class="text-xs text-slate-500">Du total des expéditions de chargeurs sans fil — les tapis + supports pour un seul appareil dominent le volume (QYResearch 2025)</p>
  </div>
- <div class="bg-white rounded-xl p-6 shadow-sm border border-slate-100 text-center">
+ <div class="card p-6 shadow-sm text-center">
   <p class="text-3xl font-black text-brandOrange mb-2">1,14 Md</p>
   <p class="text-xs text-slate-500">Base installée d'iPhone 12+ avec compatibilité chargeur de bureau MagSafe/Qi2</p>
  </div>
- <div class="bg-white rounded-xl p-6 shadow-sm border border-slate-100 text-center">
+ <div class="card p-6 shadow-sm text-center">
   <p class="text-3xl font-black text-brandBlue mb-2">17,2 %</p>
   <p class="text-xs text-slate-500">TCAC des supports de charge sans fil de bureau 2025-2033 — format à la croissance la plus rapide (DataIntelo)</p>
  </div>
- <div class="bg-white rounded-xl p-6 shadow-sm border border-slate-100 text-center">
+ <div class="card p-6 shadow-sm text-center">
   <p class="text-3xl font-black text-brandOrange mb-2">89,2 %</p>
   <p class="text-xs text-slate-500">Score d'opportunité océan bleu pour les chargeurs sans fil iPhone — grave sous-approvisionnement (Alibaba 2026)</p>
  </div>
@@ -455,33 +455,33 @@ plPath: "produkty/ladowarka-bezprzewodowa/biurkowa/"
 </section>
 
 <!-- Pourquoi choisir WOWOHCOOL Bureau -->
-<section class="sec bg-slate-50 relative py-16">
+<section id="pourquoi-choisir-wowohcool-bureau" class="sec bg-slate-50 relative" data-section="content">
  <div class="container-wide">
  <h2 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4 text-center">Pourquoi choisir <span class="text-brandOrange">WOWOHCOOL Bureau</span> pour votre marque</h2>
  <p class="text-center text-slate-500 text-sm max-w-2xl mx-auto mb-12">Les chargeurs de bureau sans fil exigent l'équilibre parfait entre design, certification et économie unitaire — WOWOHCOOL offre des designs brevetés, la préparation Qi2.2 et l'échelle d'une catégorie de 140M d'unités.</p>
 
- <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
- <div class="bg-white rounded-xl p-6 border border-slate-200 shadow-sm">
+ <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+ <div class="card p-6 shadow-sm">
   <h3 class="font-black text-brandBlue uppercase mb-3 text-sm">3 modèles — Tapis + Support + Pipeline T3</h3>
   <p class="text-sm text-slate-600 leading-relaxed">Support magnétique vertical (WOW68), tapis LED ultra-fin (WOW40), tapis minimaliste breveté (WOW33). Tapis magnétique Qi2.2 25W et support de bureau Qi2.2 25W lancement T3 2026. Couvre tous les formats de bureau sur toutes les gammes de prix.</p>
  </div>
- <div class="bg-white rounded-xl p-6 border border-slate-200 shadow-sm">
+ <div class="card p-6 shadow-sm">
   <h3 class="font-black text-brandBlue uppercase mb-3 text-sm">Designs brevetés exclusifs</h3>
   <p class="text-sm text-slate-600 leading-relaxed">WOW33 et WOW40 présentent des designs industriels brevetés exclusifs — votre marque obtient un produit unique que les concurrents ne peuvent pas copier. Documentation de brevet fournie avec les commandes ODM. Différenciateur critique pour les vendeurs Amazon confrontés au détournement de fiches et à la concurrence par copie.</p>
  </div>
- <div class="bg-white rounded-xl p-6 border border-slate-200 shadow-sm">
+ <div class="card p-6 shadow-sm">
   <h3 class="font-black text-brandBlue uppercase mb-3 text-sm">Segment de 55-60 % du volume unitaire</h3>
   <p class="text-sm text-slate-600 leading-relaxed">Les chargeurs sans fil pour un seul appareil dominent les expéditions unitaires — 140M d'unités dans le monde en 2025 (QYResearch). Pour les marques, c'est la catégorie de SKU à la plus haute vélocité. Pour les usines, c'est le moteur de volume qui maintient les lignes de production à pleine échelle.</p>
  </div>
- <div class="bg-white rounded-xl p-6 border border-slate-200 shadow-sm">
+ <div class="card p-6 shadow-sm">
   <h3 class="font-black text-brandBlue uppercase mb-3 text-sm">Ingénierie ultra-fine 11mm</h3>
   <p class="text-sm text-slate-600 leading-relaxed">WOW40 atteint un profil de 11mm — parmi les tapis de charge Qi2 3 bobines les plus fins en OEM B2B. Conception PCB personnalisée et ingénierie de bobines à profil bas. Pour les marques ciblant le segment premium ultra-fin, des designs personnalisés jusqu'à 10mm disponibles avec MOQ 2 000.</p>
  </div>
- <div class="bg-white rounded-xl p-6 border border-slate-200 shadow-sm">
+ <div class="card p-6 shadow-sm">
   <h3 class="font-black text-brandBlue uppercase mb-3 text-sm">Qi2.2 25W T3 2026 — Préinscrivez-vous</h3>
   <p class="text-sm text-slate-600 leading-relaxed">Standard Qi v2.2.1 25W ratifié en juillet 2025. WOWOHCOOL lance un tapis de charge magnétique 25W (format carte, aimant N52H) et un support de bureau 25W (rotation 360°, aluminium). Préinscrivez-vous pour les échantillons et bénéficiez du prix early-bird avant le lancement T3.</p>
  </div>
- <div class="bg-white rounded-xl p-6 border border-slate-200 shadow-sm">
+ <div class="card p-6 shadow-sm">
   <h3 class="font-black text-brandBlue uppercase mb-3 text-sm">Usine certifiée WPC Qi2</h3>
   <p class="text-sm text-slate-600 leading-relaxed">Certification Qi2 WPC complète pour MPP 15W/25W avec conformité ATL (Authorized Test Lab). CE (directive CEM + basse tension), FCC Partie 15, RoHS et REACH inclus. Dossier de documentation complet avec chaque commande OEM. Usine ISO 9001 à Shenzhen depuis 2013.</p>
  </div>
@@ -490,25 +490,25 @@ plPath: "produkty/ladowarka-bezprzewodowa/biurkowa/"
 </section>
 
 <!-- Qui achète des chargeurs de bureau en gros -->
-<section class="sec bg-white relative py-16">
+<section id="qui-achete-des-chargeurs-de-bureau-en-gros" class="sec bg-white relative" data-section="content">
  <div class="container-wide">
  <h2 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4 text-center">Qui achète des <span class="text-brandOrange">chargeurs de bureau</span> en gros</h2>
  <p class="text-center text-slate-500 text-sm max-w-3xl mx-auto mb-12">Quatre profils d'acheteurs B2B qui commandent régulièrement des chargeurs de bureau sans fil en volume — chacun avec des exigences, des besoins de canal et une économie unitaire distincts.</p>
 
- <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto mb-10">
-  <div class="bg-slate-50 rounded-xl p-5 border border-slate-200">
+ <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
+  <div class="card-soft p-5">
    <p class="font-black text-slate-900 text-sm mb-1">Vendeurs Amazon & E-commerce</p>
    <p class="text-xs text-slate-500">Les tapis pour un seul appareil sont le SKU n°1 des chargeurs sans fil en volume de recherche Amazon. Tapis Qi2.2 25W T3 2026 avec refroidissement actif = opportunité de fiches premium à moins de 50 $. Marque privée MOQ 500 avec emballage prêt pour FBA et code-barres FNSKU.</p>
   </div>
-  <div class="bg-slate-50 rounded-xl p-5 border border-slate-200">
+  <div class="card-soft p-5">
    <p class="font-black text-slate-900 text-sm mb-1">Acheteurs cadeaux d'entreprise & promo</p>
    <p class="text-xs text-slate-500">Chargeurs de bureau avec logo personnalisé pour salons professionnels, kits d'intégration employés et cadeaux clients. Le design ultra-fin 11mm du WOW40 + affichage LED = expérience de déballage premium. MOQ 500 avec personnalisation complète du logo et de l'emballage.</p>
   </div>
-  <div class="bg-slate-50 rounded-xl p-5 border border-slate-200">
+  <div class="card-soft p-5">
    <p class="font-black text-slate-900 text-sm mb-1">Solutions bureau & espace de travail</p>
    <p class="text-xs text-slate-500">Bureaux partagés (WeWork, Regus), déploiements de sièges d'entreprise et espaces de coworking standardisant la charge de bureau. Le support vertical WOW68 permet Face ID + StandBy pendant les appels. Prix de gros à partir de 1 000+ unités.</p>
   </div>
-  <div class="bg-slate-50 rounded-xl p-5 border border-slate-200">
+  <div class="card-soft p-5">
    <p class="font-black text-slate-900 text-sm mb-1">Marques d'accessoires smartphone</p>
    <p class="text-xs text-slate-500">Marques de coques et protections d'écran qui se développent dans la charge. Les designs brevetés exclusifs (WOW33, WOW40) protègent contre les copieurs. Tapis Qi2.2 25W = accessoire nouvelle génération pour le lancement de l'iPhone 17. MOQ 500 pour logo, 2 000 pour ODM.</p>
   </div>
@@ -516,23 +516,23 @@ plPath: "produkty/ladowarka-bezprzewodowa/biurkowa/"
 
  <div class="bg-brandBlue/5 rounded-2xl p-8 border border-brandBlue/10 max-w-3xl mx-auto text-center">
   <p class="text-sm text-slate-700 leading-relaxed mb-4">Ces acheteurs partagent une exigence : un chargeur de bureau avec certification Qi2 vérifiée, une qualité constante entre les lots et une livraison ponctuelle. L'usine WOWOHCOOL de 5 000 m² certifiée ISO 9001 à Shenzhen a servi plus de 200 marques mondiales depuis 2013 — avec un CQ en 4 étapes et un test de vieillissement 100 % de 4 heures sur chaque unité.</p>
-  <a href="#products" class="inline-block text-brandOrange font-black text-sm uppercase tracking-widest hover:underline">Parcourir 3 modèles de bureau →</a>
+  <a href="#products" class="btn-more">Parcourir 3 modèles de bureau →</a>
  </div>
  </div>
 </section>
 
 <!-- Corporate WFH Procurement -->
-<section class="sec bg-white relative py-16">
-	 <div class="container-content">
+<section id="corporate-wfh-procurement" class="sec bg-white relative" data-section="content">
+	 <div class="container-wide">
 	 <div class="text-center mb-10 reveal">
 	  <div class="inline-block px-4 py-1 bg-green-50 border border-green-200 rounded-full text-[11px] font-bold text-green-600 uppercase tracking-widest mb-6">Teletravail & Entreprise — Canal B2B cache</div>
 	  <h2 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4">Le teletravail crée une <span class="text-brandOrange">demande structurelle</span> pour les chargeurs de bureau</h2>
 	  <p class="text-slate-500 text-sm max-w-3xl mx-auto">42% des employés européens travaillent en mode hybride. Les entreprises équipent leurs équipes de chargeurs sans fil — un canal B2B massif et récurrent.</p>
 	 </div>
-	 <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-10">
-	  <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200 text-center"><p class="text-3xl font-black text-brandBlue mb-2">42%</p><p class="text-sm font-bold text-slate-700 mb-2">Teletravailleurs EU</p><p class="text-xs text-slate-500">des employés européens en mode hybride ou full-remote en 2026. Chaque poste de travail a besoin d'un chargeur sans fil.</p></div>
-	  <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200 text-center"><p class="text-3xl font-black text-brandOrange mb-2">8-12%</p><p class="text-sm font-bold text-slate-700 mb-2">Des ventes = corporate</p><p class="text-xs text-slate-500">Les achats corporate pour équipement teletravail représentent deja 8-12% des ventes unitaires de chargeurs sans fil — en forte croissance.</p></div>
-	  <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200 text-center"><p class="text-3xl font-black text-brandBlue mb-2">Qi2.2 T3</p><p class="text-sm font-bold text-slate-700 mb-2">Pipeline 25W</p><p class="text-xs text-slate-500">Tapis ultra-fin Qi2.2 25W + Support 360 rotatif en lancement T3 2026. Pre-inscrivez-vous pour le premier lot de production.</p></div>
+	 <div class="grid md:grid-cols-3 gap-6 mb-10">
+	  <div class="card-lg-soft p-6 text-center"><p class="text-3xl font-black text-brandBlue mb-2">42%</p><p class="text-sm font-bold text-slate-700 mb-2">Teletravailleurs EU</p><p class="text-xs text-slate-500">des employés européens en mode hybride ou full-remote en 2026. Chaque poste de travail a besoin d'un chargeur sans fil.</p></div>
+	  <div class="card-lg-soft p-6 text-center"><p class="text-3xl font-black text-brandOrange mb-2">8-12%</p><p class="text-sm font-bold text-slate-700 mb-2">Des ventes = corporate</p><p class="text-xs text-slate-500">Les achats corporate pour équipement teletravail représentent deja 8-12% des ventes unitaires de chargeurs sans fil — en forte croissance.</p></div>
+	  <div class="card-lg-soft p-6 text-center"><p class="text-3xl font-black text-brandBlue mb-2">Qi2.2 T3</p><p class="text-sm font-bold text-slate-700 mb-2">Pipeline 25W</p><p class="text-xs text-slate-500">Tapis ultra-fin Qi2.2 25W + Support 360 rotatif en lancement T3 2026. Pre-inscrivez-vous pour le premier lot de production.</p></div>
 	 </div>
 	 <div class="bg-brandBlue/5 rounded-2xl p-6 border border-brandBlue/10 max-w-3xl mx-auto text-center">
 	  <p class="text-sm text-slate-700 leading-relaxed mb-0"><strong>WOWOHCOOL est prêt pour le corporate :</strong> designs brevets exclusifs (WOW33, WOW40), certification Qi2, personnalisation logo/emballage, tarifs dégressifs pour commandes corporate. MOQ 500 — idéal pour les programmes d'équipement teletravail et les achats groupes IT.</p>
@@ -541,13 +541,13 @@ plPath: "produkty/ladowarka-bezprzewodowa/biurkowa/"
 </section>
 
 <!-- Personnalisation OEM/ODM -->
-<section class="sec bg-white relative py-16">
+<section id="personnalisation-oem-odm" class="sec bg-white relative" data-section="content">
  <div class="container-wide">
  <h2 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4 text-center">Personnalisation OEM/ODM pour <span class="text-brandOrange">chargeurs de bureau</span></h2>
  <p class="text-center text-slate-500 text-sm max-w-2xl mx-auto mb-12">Personnalisation complète du chargeur de bureau — du logo au design exclusif du boîtier. Préinscription au pipeline Qi2.2 25W T3 2026 ouverte dès maintenant.</p>
 
- <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-  <div class="bg-slate-50 rounded-xl p-6 border border-slate-200">
+ <div class="grid md:grid-cols-2 gap-8">
+  <div class="card-soft p-6">
    <h3 class="font-black text-brandBlue uppercase mb-4 text-sm">OEM (Modèles standard, MOQ 500)</h3>
    <ul class="space-y-2 text-sm text-slate-600">
     <li>• Impression du logo (sérigraphie, laser, UV sur la surface du tapis/support)</li>
@@ -559,7 +559,7 @@ plPath: "produkty/ladowarka-bezprzewodowa/biurkowa/"
     <li>• Documentation de certification complète (Qi2 WPC, CE, FCC, RoHS, REACH)</li>
    </ul>
   </div>
-  <div class="bg-slate-50 rounded-xl p-6 border border-slate-200">
+  <div class="card-soft p-6">
    <h3 class="font-black text-brandBlue uppercase mb-4 text-sm">ODM (Design personnalisé, MOQ 2 000)</h3>
    <ul class="space-y-2 text-sm text-slate-600">
     <li>• Design ID sur mesure (CMF : Couleur, Matériau, Finition)</li>
@@ -582,29 +582,29 @@ plPath: "produkty/ladowarka-bezprzewodowa/biurkowa/"
 
  <div class="bg-brandBlue/5 rounded-2xl p-8 border border-brandBlue/10 max-w-3xl mx-auto mt-10 text-center">
   <p class="text-sm text-slate-700 leading-relaxed mb-4"><strong>Préinscription Qi2.2 25W :</strong> Bénéficiez d'un accès prioritaire aux échantillons du tapis magnétique et du support de bureau Qi2.2 25W du T3 2026. Prix early-bird, allocation du premier lot de production et documentation de certification exclusive. Contactez-nous pour réserver la position de votre marque dans le pipeline de produits Qi2.2.</p>
-  <a href="#products" class="inline-block text-brandOrange font-black text-sm uppercase tracking-widest hover:underline">Préinscrivez-vous pour le T3 2026 →</a>
+  <a href="#products" class="btn-more">Préinscrivez-vous pour le T3 2026 →</a>
  </div>
  </div>
 </section>
 
 <!-- Liens inter-catégories -->
-<section class="sec bg-slate-50 relative py-12">
- <div class="container-content">
+<section id="liens-inter-categories" class="sec bg-slate-50 relative py-12" data-section="related">
+ <div class="container-wide">
  <p class="text-center text-slate-500 text-sm mb-6">Découvrez d'autres catégories de chargeurs sans fil de WOWOHCOOL :</p>
  <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-  <a href="/fr/produits/chargeur-sans-fil/" class="block bg-white rounded-xl p-4 border border-slate-200 hover:border-brandOrange hover:shadow-md transition text-center">
+  <a href="/fr/produits/chargeur-sans-fil/" class="card block p-4 hover:border-brandOrange hover:shadow-md transition text-center">
   <p class="font-black text-brandBlue text-sm uppercase mb-1">Tous sans fil</p>
   <p class="text-[10px] text-slate-500">3 catégories, 18+ modèles</p>
   </a>
-  <a href="/fr/produits/chargeur-sans-fil/station-3-en-1/" class="block bg-white rounded-xl p-4 border border-slate-200 hover:border-brandOrange hover:shadow-md transition text-center">
+  <a href="/fr/produits/chargeur-sans-fil/station-3-en-1/" class="card block p-4 hover:border-brandOrange hover:shadow-md transition text-center">
   <p class="font-black text-brandBlue text-sm uppercase mb-1">Stations 3-en-1</p>
   <p class="text-[10px] text-slate-500">Tél + Montre + AirPods</p>
   </a>
-  <a href="/fr/produits/chargeur-sans-fil/support-voiture/" class="block bg-white rounded-xl p-4 border border-slate-200 hover:border-brandOrange hover:shadow-md transition text-center">
+  <a href="/fr/produits/chargeur-sans-fil/support-voiture/" class="card block p-4 hover:border-brandOrange hover:shadow-md transition text-center">
   <p class="font-black text-brandBlue text-sm uppercase mb-1">Supports voiture</p>
   <p class="text-[10px] text-slate-500">Qi2 Magnétique + Pince</p>
   </a>
-  <a href="/fr/produits/chargeur-voiture/" class="block bg-white rounded-xl p-4 border border-slate-200 hover:border-brandOrange hover:shadow-md transition text-center">
+  <a href="/fr/produits/chargeur-voiture/" class="card block p-4 hover:border-brandOrange hover:shadow-md transition text-center">
   <p class="font-black text-brandBlue text-sm uppercase mb-1">Chargeurs voiture GaN</p>
   <p class="text-[10px] text-slate-500">USB-C Filaire PD 3.1</p>
   </a>
@@ -613,41 +613,41 @@ plPath: "produkty/ladowarka-bezprzewodowa/biurkowa/"
 </section>
 
 <!-- FAQ -->
-<section class="sec-lg bg-slate-50 border-t border-slate-100">
+<section id="faq" class="sec bg-slate-50 border-t border-slate-100" data-section="faq">
  <div class="container-narrow">
  <div class="text-center mb-12">
   <h2 class="text-3xl lg:text-4xl font-black text-slate-900 uppercase italic tracking-tighter mb-4">FAQ <span class="text-brandOrange">Chargeur de bureau</span></h2>
  </div>
  <div class="space-y-4">
-  <details class="bg-slate-50 rounded-xl p-5 border border-slate-200 group">
+  <details class="card-soft p-5 group">
   <summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">Quelle est la différence entre un tapis de charge sans fil et un support vertical ?<span class="text-brandOrange group-open:rotate-180 transition">▼</span></summary>
   <p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">Un <strong>tapis plat</strong> (WOW33, WOW40) repose horizontalement sur le bureau — le téléphone est à plat, idéal pour les configurations minimales et la compatibilité universelle. Un <strong>support vertical</strong> (WOW68) maintient le téléphone droit en portrait ou paysage, permettant le déverrouillage Face ID, les appels vidéo et le mode StandBy iOS sans prendre le téléphone. WOWOHCOOL fabrique les deux formats avec des performances de charge Qi2 identiques. Les tapis pour un seul appareil représentent 55-60 % du volume unitaire mondial des chargeurs sans fil.</p>
   </details>
-  <details class="bg-slate-50 rounded-xl p-5 border border-slate-200 group">
+  <details class="card-soft p-5 group">
   <summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">Quel est le MOQ pour un chargeur de bureau sans fil en OEM ?<span class="text-brandOrange group-open:rotate-180 transition">▼</span></summary>
   <p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">Modèles ODM standard avec logo personnalisé : MOQ <strong>500 unités</strong>. OEM complet avec outillage privé : MOQ <strong>3 000 unités</strong>. Délai d'échantillonnage : 3-7 jours pour les modèles standard, 10-15 jours pour les échantillons avec logo personnalisé. Options de MOQ flexibles disponibles pour les marques en démarrage et les tests de marché.</p>
   </details>
-  <details class="bg-slate-50 rounded-xl p-5 border border-slate-200 group">
+  <details class="card-soft p-5 group">
   <summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">Quelles certifications sont nécessaires pour les chargeurs de bureau sans fil ?<span class="text-brandOrange group-open:rotate-180 transition">▼</span></summary>
   <p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4"><strong>Certification Qi2 WPC</strong> pour l'alignement magnétique et MPP 15W/25W — Qi-ID vérifié dans la base de données publique WPC. <strong>CE</strong> (directive CEM + basse tension) pour l'UE. <strong>FCC Partie 15</strong> pour les États-Unis. <strong>RoHS + REACH</strong> pour la conformité des matériaux. La certification Qi2.2 25W coûte 15K-20K $ par SKU — inclus dans les commandes ODM WOWOHCOOL. Toute la documentation de certification est fournie avec les commandes OEM.</p>
   </details>
-  <details class="bg-slate-50 rounded-xl p-5 border border-slate-200 group">
+  <details class="card-soft p-5 group">
   <summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">Puis-je obtenir des designs brevetés exclusifs pour ma marque de chargeur sans fil ?<span class="text-brandOrange group-open:rotate-180 transition">▼</span></summary>
   <p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">Oui. WOW33 et WOW40 présentent des <strong>designs industriels brevetés exclusifs</strong> disponibles sous licence OEM/ODM. Votre marque obtient un produit unique qui ne peut pas être copié par vos concurrents sur Amazon ou dans la distribution. Documentation de brevet fournie avec les commandes ODM. MOQ 2 000 pour ODM exclusif basé sur un brevet avec personnalisation CMF complète (Couleur/Matériau/Finition). Critique pour les marques confrontées au détournement de fiches Amazon et à la concurrence par copie.</p>
   </details>
-  <details class="bg-slate-50 rounded-xl p-5 border border-slate-200 group">
+  <details class="card-soft p-5 group">
   <summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">Quelle est l'épaisseur minimale d'un tapis de charge sans fil en OEM ?<span class="text-brandOrange group-open:rotate-180 transition">▼</span></summary>
   <p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">WOW40 atteint un <strong>profil ultra-fin de 11mm</strong> — parmi les tapis de charge sans fil 3 bobines les plus fins en production OEM B2B. Ceci est rendu possible par une conception PCB personnalisée, des bobines à profil bas et une gestion thermique optimisée. Pour les marques ciblant le segment premium ultra-fin, WOWOHCOOL peut concevoir sur mesure des tapis de charge jusqu'à <strong>10mm</strong> tout en maintenant la certification Qi2 et la sécurité thermique. MOQ 2 000 pour un design de boîtier ultra-fin personnalisé.</p>
   </details>
-  <details class="bg-slate-50 rounded-xl p-5 border border-slate-200 group">
+  <details class="card-soft p-5 group">
   <summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">Puis-je obtenir un chargeur de bureau Qi2.2 25W avec mon logo ?<span class="text-brandOrange group-open:rotate-180 transition">▼</span></summary>
   <p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">Oui. Le pipeline T3 2026 de WOWOHCOOL comprend un <strong>tapis de charge magnétique Qi2.2 25W</strong> (format carte ultra-fin, aimant N52H, entrée USB-C) et un <strong>support de bureau Qi2.2 25W</strong> (rotation 360°, aluminium + ABS, mode Face ID + StandBy). Préinscrivez-vous dès maintenant pour les échantillons et prix early-bird. OEM standard avec logo personnalisé : MOQ 500, délai 25-30 jours.</p>
   </details>
-  <details class="bg-slate-50 rounded-xl p-5 border border-slate-200 group">
+  <details class="card-soft p-5 group">
   <summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">Quand les nouveaux SKU de chargeurs de bureau seront-ils disponibles ?<span class="text-brandOrange group-open:rotate-180 transition">▼</span></summary>
   <p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">Les nouveaux modèles de chargeurs de bureau Qi2.2 25W sont en développement actif pour un <strong>lancement T3 2026</strong> : un tapis de charge magnétique Qi2.2 25W ultra-fin (format carte, alignement magnétique N52H) et un support de bureau Qi2.2 25W (rotation 360°, alliage d'aluminium + ABS, compatible Face ID + StandBy). Les deux modèles incluent la certification Qi2.2 WPC, CE/FCC/RoHS et un CQ en 4 étapes. Préinscrivez-vous pour sécuriser l'allocation du premier lot de production et les prix early-bird.</p>
   </details>
-  <details class="bg-slate-50 rounded-xl p-5 border border-slate-200 group">
+  <details class="card-soft p-5 group">
   <summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">Combien de temps prend la production d'un chargeur de bureau OEM/ODM ?<span class="text-brandOrange group-open:rotate-180 transition">▼</span></summary>
   <p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">OEM (modèles standard avec logo personnalisé) : <strong>25-30 jours</strong> après approbation de l'échantillon. ODM (boîtier personnalisé ou design ultra-fin) : <strong>45-60 jours</strong>, outillage et préparation de certification Qi2 inclus. Les deux délais incluent un CQ en 4 étapes (IQC → IPQC → FQC → OQC) avec un test de vieillissement 100 % de 4 heures sur chaque unité. Fret aérien express : 5-7 jours vers l'UE/États-Unis. Fret maritime : 25-35 jours.</p>
   </details>
@@ -656,7 +656,7 @@ plPath: "produkty/ladowarka-bezprzewodowa/biurkowa/"
 </section>
 
 <!-- French Retail Price Comparison -->
-<section class="sec bg-white relative py-12">
+<section id="french-retail-price-comparison" class="sec bg-white relative py-12" data-section="comparison">
  <div class="container-content">
  <div class="text-center mb-8">
   <h2 class="text-2xl lg:text-3xl font-black text-brandBlue uppercase italic tracking-tighter mb-4">Le marché retail <span class="text-brandOrange">en France</span></h2>

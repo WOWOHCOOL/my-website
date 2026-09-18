@@ -147,7 +147,7 @@ plPath: "produkty/"
 
 {% block content %}
 <!-- Hero -->
- <section class="relative pt-24 md:pt-28 pb-8 lg:pb-16 bg-gradient-to-br from-slate-50 via-white to-orange-50 overflow-hidden">
+ <section id="hero" class="relative pt-24 md:pt-28 lg:pt-20 pb-8 lg:pb-20 bg-gradient-to-br from-slate-50 via-white to-orange-50 overflow-hidden lg:min-h-[100dvh] lg:flex lg:flex-col lg:justify-center" data-section="hero">
  <!-- Decorative blobs -->
  <div class="absolute top-0 right-0 w-64 h-64 bg-brandOrange/8 rounded-full blur-3xl -translate-y-1/2 translate-x-1/4 pointer-events-none"></div>
  <div class="absolute bottom-0 left-0 w-64 h-64 bg-blue-500/6 rounded-full blur-3xl translate-y-1/3 -translate-x-1/4 pointer-events-none"></div>
@@ -185,52 +185,52 @@ plPath: "produkty/"
  <!-- Trust Bar (unified: certifications + counters + customer logos) -->
 {% include "trust-bar.njk" %}
  <!-- Product Grid -->
- <section class="sec container-wide">
+ <section id="product-grid" class="sec container-wide" data-section="products">
 
  <!-- ====== Power Bank ====== -->
  <div class="mb-14">
   <div class="flex items-center gap-3 mb-6">
    <div class="w-1 h-6 bg-brandOrange rounded-full"></div>
    <h2 class="text-xl font-black text-brandBlue uppercase italic">Power Bank <span class="text-brandOrange text-sm font-medium">Semi-Solid-State · PD 3.1 · Qi2</span></h2>
-   <a href="/products/power-bank/" class="ml-auto text-[11px] font-black text-brandOrange hover:underline uppercase">All 29+ Models &rarr;</a>
+   <a href="/products/power-bank/" class="btn-more ml-auto">All 29+ Models &rarr;</a>
   </div>
   <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
-   <a href="/products/power-bank/semi-solid-state/" class="group bg-white rounded-xl border border-slate-200 hover:border-brandOrange hover:shadow-md transition-all duration-200 p-3 text-center" data-keywords="semi-solid-state power bank battery 50% thinner CES 2026 OEM factory">
+   <a href="/products/power-bank/semi-solid-state/" class="card group hover:border-brandOrange hover:shadow-md transition-all duration-200 p-3 text-center" data-keywords="semi-solid-state power bank battery 50% thinner CES 2026 OEM factory">
     <div class="aspect-square bg-brandBlue/5 rounded-lg mb-2 flex items-center justify-center overflow-hidden">
      <img src="/image/product/power-bank/wop09-semi-solid-power-bank.webp" srcset="/image/product/power-bank/wop09-semi-solid-power-bank-750w.webp 750w, /image/product/power-bank/wop09-semi-solid-power-bank.webp 1600w" sizes="(min-width: 1440px) 526px, (min-width: 1280px) 526px, (min-width: 1024px) 398px, (min-width: 768px) 654px, (min-width: 430px) 382px, 327px" alt="Semi-Solid-State Power Bank OEM Manufacturer Shenzhen 50% Thinner" class="w-full h-full object-contain p-2 group-hover:scale-105 transition-transform duration-300" loading="lazy" width="1600" height="1600">
     </div>
     <p class="text-[11px] font-black text-brandBlue uppercase leading-tight">Semi-Solid-State</p>
     <p class="text-[10px] text-slate-500">50% thinner, 30% more density</p>
    </a>
-   <a href="/products/power-bank/2-in-1-hybrid/" class="group bg-white rounded-xl border border-slate-200 hover:border-brandOrange hover:shadow-md transition-all duration-200 p-3 text-center" data-keywords="2-in-1 hybrid power bank wall charger GaN foldable plug EU US">
+   <a href="/products/power-bank/2-in-1-hybrid/" class="card group hover:border-brandOrange hover:shadow-md transition-all duration-200 p-3 text-center" data-keywords="2-in-1 hybrid power bank wall charger GaN foldable plug EU US">
     <div class="aspect-square bg-brandBlue/5 rounded-lg mb-2 flex items-center justify-center overflow-hidden">
      <img src="/image/product/power-bank/wop67-2in1-cable-charger.webp" srcset="/image/product/power-bank/wop67-2in1-cable-charger-450w.webp 450w, /image/product/power-bank/wop67-2in1-cable-charger.webp 1050w" sizes="(min-width: 1440px) 389px, (min-width: 1280px) 389px, (min-width: 1024px) 304px, (min-width: 768px) 344px, (min-width: 430px) 382px, 327px" alt="2-in-1 Hybrid Power Bank and Wall Charger GaN OEM" class="w-full h-full object-contain p-2 group-hover:scale-105 transition-transform duration-300" loading="lazy" width="1050" height="1050">
     </div>
     <p class="text-[11px] font-black text-brandBlue uppercase leading-tight">2-in-1 Hybrid</p>
     <p class="text-[10px] text-slate-500">Charger + Power Bank in one</p>
    </a>
-   <a href="/products/power-bank/laptop-power/" class="group bg-white rounded-xl border border-slate-200 hover:border-brandOrange hover:shadow-md transition-all duration-200 p-3 text-center" data-keywords="laptop power bank PD 3.1 240W MacBook Dell 99.9Wh airline safe">
+   <a href="/products/power-bank/laptop-power/" class="card group hover:border-brandOrange hover:shadow-md transition-all duration-200 p-3 text-center" data-keywords="laptop power bank PD 3.1 240W MacBook Dell 99.9Wh airline safe">
     <div class="aspect-square bg-brandBlue/5 rounded-lg mb-2 flex items-center justify-center overflow-hidden">
      <img src="/image/product/power-bank/wop23-240w-power-bank.webp" srcset="/image/product/power-bank/wop23-240w-power-bank-750w.webp 750w, /image/product/power-bank/wop23-240w-power-bank.webp 1100w" sizes="(min-width: 1440px) 526px, (min-width: 1280px) 526px, (min-width: 1024px) 398px, (min-width: 768px) 654px, (min-width: 430px) 382px, 327px" alt="Laptop Power Bank PD 3.1 240W Airline Safe OEM for MacBook Dell" class="w-full h-full object-contain p-2 group-hover:scale-105 transition-transform duration-300" loading="lazy" width="1100" height="1100">
     </div>
     <p class="text-[11px] font-black text-brandBlue uppercase leading-tight">Laptop Power</p>
     <p class="text-[10px] text-slate-500">65W-240W PD 3.1, airline safe</p>
    </a>
-   <a href="/products/power-bank/wireless-magnetic/" class="group bg-white rounded-xl border border-slate-200 hover:border-brandOrange hover:shadow-md transition-all duration-200 p-3 text-center" data-keywords="wireless magnetic power bank Qi2 MagSafe N52H iPhone Android OEM">
+   <a href="/products/power-bank/wireless-magnetic/" class="card group hover:border-brandOrange hover:shadow-md transition-all duration-200 p-3 text-center" data-keywords="wireless magnetic power bank Qi2 MagSafe N52H iPhone Android OEM">
     <div class="aspect-square bg-brandBlue/5 rounded-lg mb-2 flex items-center justify-center overflow-hidden">
      <img src="/image/product/power-bank/wopq11-qi2-magnetic-40w-power-bank.webp" srcset="/image/product/power-bank/wopq11-qi2-magnetic-40w-power-bank-750w.webp 750w, /image/product/power-bank/wopq11-qi2-magnetic-40w-power-bank.webp 1920w" sizes="(min-width: 1440px) 526px, (min-width: 1280px) 526px, (min-width: 1024px) 398px, (min-width: 768px) 654px, (min-width: 430px) 382px, 327px" alt="Qi2 Magnetic Wireless Power Bank MagSafe Compatible N52H OEM" class="w-full h-full object-contain p-2 group-hover:scale-105 transition-transform duration-300" loading="lazy" width="1920" height="1920">
     </div>
     <p class="text-[11px] font-black text-brandBlue uppercase leading-tight">Wireless Magnetic</p>
     <p class="text-[10px] text-slate-500">Qi2 MPP 15W, N52H magnets</p>
    </a>
-   <a href="/products/power-bank/smart-display/" class="group bg-white rounded-xl border border-slate-200 hover:border-brandOrange hover:shadow-md transition-all duration-200 p-3 text-center" data-keywords="smart display power bank TFT screen aluminum real-time wattage premium OEM">
+   <a href="/products/power-bank/smart-display/" class="card group hover:border-brandOrange hover:shadow-md transition-all duration-200 p-3 text-center" data-keywords="smart display power bank TFT screen aluminum real-time wattage premium OEM">
     <div class="aspect-square bg-brandBlue/5 rounded-lg mb-2 flex items-center justify-center overflow-hidden">
      <img src="/image/product/power-bank/wop25-tft-power-bank.webp" srcset="/image/product/power-bank/wop25-tft-power-bank-750w.webp 750w, /image/product/power-bank/wop25-tft-power-bank.webp 1920w" sizes="(min-width: 1440px) 526px, (min-width: 1280px) 526px, (min-width: 1024px) 398px, (min-width: 768px) 654px, (min-width: 430px) 382px, 327px" alt="Smart Display Power Bank TFT Real-Time Wattage Aluminum OEM" class="w-full h-full object-contain p-2 group-hover:scale-105 transition-transform duration-300" loading="lazy" width="1920" height="1920">
     </div>
     <p class="text-[11px] font-black text-brandBlue uppercase leading-tight">Smart Display</p>
     <p class="text-[10px] text-slate-500">TFT real-time display, aluminum</p>
    </a>
-   <a href="/products/power-bank/heating-battery/" class="group bg-white rounded-xl border border-slate-200 hover:border-brandOrange hover:shadow-md transition-all duration-200 p-3 text-center" data-keywords="heating battery heated jacket vest gloves 7.4V DC outdoor clothing OEM">
+   <a href="/products/power-bank/heating-battery/" class="card group hover:border-brandOrange hover:shadow-md transition-all duration-200 p-3 text-center" data-keywords="heating battery heated jacket vest gloves 7.4V DC outdoor clothing OEM">
     <div class="aspect-square bg-brandBlue/5 rounded-lg mb-2 flex items-center justify-center overflow-hidden">
      <img src="/image/product/power-bank/wop55-heating-battery.webp" srcset="/image/product/power-bank/wop55-heating-battery-750w.webp 750w, /image/product/power-bank/wop55-heating-battery.webp 1100w" sizes="(min-width: 1440px) 526px, (min-width: 1280px) 526px, (min-width: 1024px) 398px, (min-width: 768px) 654px, (min-width: 430px) 382px, 327px" alt="Heating Battery for Heated Jackets and Apparel 7.4V OEM" class="w-full h-full object-contain p-2 group-hover:scale-105 transition-transform duration-300" loading="lazy" width="1100" height="1100">
     </div>
@@ -245,24 +245,24 @@ plPath: "produkty/"
   <div class="flex items-center gap-3 mb-6">
    <div class="w-1 h-6 bg-brandOrange rounded-full"></div>
    <h2 class="text-xl font-black text-brandBlue uppercase italic">Wireless Charger <span class="text-brandOrange text-sm font-medium">Qi2 · 3-in-1 · Car Mount</span></h2>
-   <a href="/products/wireless-charger/" class="ml-auto text-[11px] font-black text-brandOrange hover:underline uppercase">All 21+ Models &rarr;</a>
+   <a href="/products/wireless-charger/" class="btn-more ml-auto">All 21+ Models &rarr;</a>
   </div>
   <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
-   <a href="/products/wireless-charger/desktop/" class="group bg-white rounded-xl border border-slate-200 hover:border-brandOrange hover:shadow-md transition-all duration-200 p-3 text-center" data-keywords="desktop wireless charger Qi2 pad stand vertical 11mm ultra-slim OEM">
+   <a href="/products/wireless-charger/desktop/" class="card group hover:border-brandOrange hover:shadow-md transition-all duration-200 p-3 text-center" data-keywords="desktop wireless charger Qi2 pad stand vertical 11mm ultra-slim OEM">
     <div class="aspect-square bg-blue-50 rounded-lg mb-2 flex items-center justify-center overflow-hidden">
      <img src="/image/product/wireless-charger/wow68-vertical-magnetic-3in1-desktop-15w.webp" srcset="/image/product/wireless-charger/wow68-vertical-magnetic-3in1-desktop-15w-750w.webp 750w, /image/product/wireless-charger/wow68-vertical-magnetic-3in1-desktop-15w.webp 1100w" sizes="(min-width: 1440px) 526px, (min-width: 1280px) 526px, (min-width: 1024px) 398px, (min-width: 768px) 654px, (min-width: 430px) 382px, 327px" alt="Desktop Qi2 Wireless Charger Vertical Stand Pad OEM" class="w-full h-full object-contain p-2 group-hover:scale-105 transition-transform duration-300" loading="lazy" width="1100" height="1100">
     </div>
     <p class="text-[11px] font-black text-brandBlue uppercase leading-tight">Desktop</p>
     <p class="text-[10px] text-slate-500">Pads &amp; Stands, 15W Qi2</p>
    </a>
-   <a href="/products/wireless-charger/3-in-1-station/" class="group bg-white rounded-xl border border-slate-200 hover:border-brandOrange hover:shadow-md transition-all duration-200 p-3 text-center" data-keywords="3-in-1 wireless charging station Qi2 iPhone Watch AirPods foldable zinc alloy OEM">
+   <a href="/products/wireless-charger/3-in-1-station/" class="card group hover:border-brandOrange hover:shadow-md transition-all duration-200 p-3 text-center" data-keywords="3-in-1 wireless charging station Qi2 iPhone Watch AirPods foldable zinc alloy OEM">
     <div class="aspect-square bg-blue-50 rounded-lg mb-2 flex items-center justify-center overflow-hidden">
      <img src="/image/product/wireless-charger/wow93-folding-charger.webp" srcset="/image/product/wireless-charger/wow93-folding-charger-800w.webp 800w, /image/product/wireless-charger/wow93-folding-charger.webp 1600w" sizes="(min-width: 1440px) 590px, (min-width: 1280px) 590px, (min-width: 1024px) 462px, (min-width: 768px) 718px, (min-width: 430px) 382px, 338px" alt="Qi2 3-in-1 Wireless Charging Station iPhone Watch AirPods OEM" class="w-full h-full object-contain p-2 group-hover:scale-105 transition-transform duration-300" loading="lazy" width="1600" height="1600">
     </div>
     <p class="text-[11px] font-black text-brandBlue uppercase leading-tight">3-in-1 Station</p>
     <p class="text-[10px] text-slate-500">iPhone + Watch + AirPods</p>
    </a>
-   <a href="/products/wireless-charger/car-mount/" class="group bg-white rounded-xl border border-slate-200 hover:border-brandOrange hover:shadow-md transition-all duration-200 p-3 text-center" data-keywords="car mount wireless charger Qi2 magnetic TEC cooling E-Mark N52H OEM">
+   <a href="/products/wireless-charger/car-mount/" class="card group hover:border-brandOrange hover:shadow-md transition-all duration-200 p-3 text-center" data-keywords="car mount wireless charger Qi2 magnetic TEC cooling E-Mark N52H OEM">
     <div class="aspect-square bg-blue-50 rounded-lg mb-2 flex items-center justify-center overflow-hidden">
      <img src="/image/product/wireless-charger/wow41-qi22-25w-car-magnetic-wireless-charger.webp" srcset="/image/product/wireless-charger/wow41-qi22-25w-car-magnetic-wireless-charger-750w.webp 750w, /image/product/wireless-charger/wow41-qi22-25w-car-magnetic-wireless-charger.webp 1100w" sizes="(min-width: 1440px) 526px, (min-width: 1280px) 526px, (min-width: 1024px) 398px, (min-width: 768px) 654px, (min-width: 430px) 382px, 327px" alt="Qi2 Magnetic Wireless Car Charger Mount TEC Cooling E-Mark OEM" class="w-full h-full object-contain p-2 group-hover:scale-105 transition-transform duration-300" loading="lazy" width="1100" height="1100">
     </div>
@@ -277,10 +277,10 @@ plPath: "produkty/"
   <div class="flex items-center gap-3 mb-6">
    <div class="w-1 h-6 bg-brandOrange rounded-full"></div>
    <h2 class="text-xl font-black text-brandBlue uppercase italic">GaN Charger <span class="text-brandOrange text-sm font-medium">GaN V · PD 3.1 · Multi-Port</span></h2>
-   <a href="/products/gan-charger/" class="ml-auto text-[11px] font-black text-brandOrange hover:underline uppercase">All 11 Models &rarr;</a>
+   <a href="/products/gan-charger/" class="btn-more ml-auto">All 11 Models &rarr;</a>
   </div>
   <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
-   <a href="/products/gan-charger/" class="group bg-white rounded-xl border border-slate-200 hover:border-brandOrange hover:shadow-md transition-all duration-200 p-3 text-center" data-keywords="GaN V charger gallium nitride PD 3.1 240W multi-port power strip retractable cable OEM">
+   <a href="/products/gan-charger/" class="card group hover:border-brandOrange hover:shadow-md transition-all duration-200 p-3 text-center" data-keywords="GaN V charger gallium nitride PD 3.1 240W multi-port power strip retractable cable OEM">
     <div class="aspect-square bg-brandOrange/5 rounded-lg mb-2 flex items-center justify-center overflow-hidden">
      <img src="/image/product/gan-charger/wop37-67w-gan-charger-retractable-cable-wireless.webp" srcset="/image/product/gan-charger/wop37-67w-gan-charger-retractable-cable-wireless-450w.webp 450w, /image/product/gan-charger/wop37-67w-gan-charger-retractable-cable-wireless.webp 1600w" sizes="(min-width: 1440px) 389px, (min-width: 1280px) 389px, (min-width: 1024px) 304px, (min-width: 768px) 344px, (min-width: 430px) 382px, 327px" alt="GaN V Charger PD 3.1 Multi-Port Retractable Cable Wireless OEM" class="w-full h-full object-contain p-2 group-hover:scale-105 transition-transform duration-300" loading="lazy" width="1600" height="1600">
     </div>
@@ -295,10 +295,10 @@ plPath: "produkty/"
   <div class="flex items-center gap-3 mb-6">
    <div class="w-1 h-6 bg-brandOrange rounded-full"></div>
    <h2 class="text-xl font-black text-brandBlue uppercase italic">Car Charger <span class="text-brandOrange text-sm font-medium">PD 3.1 · E-Mark · 12V/24V</span></h2>
-   <a href="/products/car-charger/" class="ml-auto text-[11px] font-black text-brandOrange hover:underline uppercase">All 10 Models &rarr;</a>
+   <a href="/products/car-charger/" class="btn-more ml-auto">All 10 Models &rarr;</a>
   </div>
   <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
-   <a href="/products/car-charger/" class="group bg-white rounded-xl border border-slate-200 hover:border-brandOrange hover:shadow-md transition-all duration-200 p-3 text-center" data-keywords="car charger vehicle GaN PD 3.1 140W E-Mark 12V 24V truck retractable cable OEM">
+   <a href="/products/car-charger/" class="card group hover:border-brandOrange hover:shadow-md transition-all duration-200 p-3 text-center" data-keywords="car charger vehicle GaN PD 3.1 140W E-Mark 12V 24V truck retractable cable OEM">
     <div class="aspect-square bg-slate-100 rounded-lg mb-2 flex items-center justify-center overflow-hidden">
      <img src="/image/product/car-charger/woc24-140w-digital-charger.webp" srcset="/image/product/car-charger/woc24-140w-digital-charger-800w.webp 800w, /image/product/car-charger/woc24-140w-digital-charger.webp 1920w" sizes="(min-width: 1440px) 590px, (min-width: 1280px) 590px, (min-width: 1024px) 462px, (min-width: 768px) 718px, (min-width: 430px) 382px, 359px" alt="GaN Car Charger PD 3.1 140W E-Mark 12V/24V Retractable Cable OEM" class="w-full h-full object-contain p-2 group-hover:scale-105 transition-transform duration-300" loading="lazy" width="1920" height="1920">
     </div>
@@ -317,14 +317,14 @@ plPath: "produkty/"
  </div>
 
  <!-- FAQ Section -->
- <section class="sec bg-slate-50">
+ <section id="faq-section" class="sec bg-slate-50" data-section="faq">
  <div class="container-narrow">
  <div class="flex items-center gap-3 mb-10">
  <div class="w-1 h-8 bg-brandOrange rounded-full"></div>
  <h2 class="text-2xl md:text-3xl font-black text-brandBlue uppercase italic">Frequently Asked Questions</h2>
  </div>
  <div class="space-y-4">
- <details class="group bg-white rounded-2xl p-6 border border-slate-100 open:shadow-md transition-all cursor-pointer">
+ <details class="card-lg group p-6 open:shadow-md transition-all cursor-pointer">
  <summary class="flex items-center justify-between font-black text-brandBlue text-sm uppercase tracking-wider">
  What is the MOQ for OEM/ODM orders?
  <svg class="icon-plus text-brandOrange text-xs group-open:rotate-45 transition-transform" aria-hidden="true" focusable="false" viewBox="0 0 448 512">
@@ -333,7 +333,7 @@ plPath: "produkty/"
  </summary>
  <p class="mt-4 text-slate-600 text-sm leading-relaxed">Our MOQ starts at 500 units per SKU for ODM on in-stock models, 1,000-2,000 units for ODM new development, and 3,000+ units for OEM with new tooling. We offer flexible MOQ options for startup brands, contact us to discuss your requirements.</p>
  </details>
- <details class="group bg-white rounded-2xl p-6 border border-slate-100 open:shadow-md transition-all cursor-pointer">
+ <details class="card-lg group p-6 open:shadow-md transition-all cursor-pointer">
  <summary class="flex items-center justify-between font-black text-brandBlue text-sm uppercase tracking-wider">
  Can I request samples before bulk ordering?
  <svg class="icon-plus text-brandOrange text-xs group-open:rotate-45 transition-transform" aria-hidden="true" focusable="false" viewBox="0 0 448 512">
@@ -342,7 +342,7 @@ plPath: "produkty/"
  </summary>
  <p class="mt-4 text-slate-600 text-sm leading-relaxed">Yes. Standard samples are available within 3-7 days. Sample fees are typically refundable upon placement of a bulk order. We encourage sample testing to verify quality and compatibility.</p>
  </details>
- <details class="group bg-white rounded-2xl p-6 border border-slate-100 open:shadow-md transition-all cursor-pointer">
+ <details class="card-lg group p-6 open:shadow-md transition-all cursor-pointer">
  <summary class="flex items-center justify-between font-black text-brandBlue text-sm uppercase tracking-wider">
  What certifications do your products carry?
  <svg class="icon-plus text-brandOrange text-xs group-open:rotate-45 transition-transform" aria-hidden="true" focusable="false" viewBox="0 0 448 512">
@@ -351,7 +351,7 @@ plPath: "produkty/"
  </summary>
  <p class="mt-4 text-slate-600 text-sm leading-relaxed">All products are engineered to meet global standards including CE, FCC, RoHS, and Qi/Qi2. Power banks are UN38.3 certified. We also assist clients in obtaining UL, PSE, KC, and other market-specific certifications.</p>
  </details>
- <details class="group bg-white rounded-2xl p-6 border border-slate-100 open:shadow-md transition-all cursor-pointer">
+ <details class="card-lg group p-6 open:shadow-md transition-all cursor-pointer">
  <summary class="flex items-center justify-between font-black text-brandBlue text-sm uppercase tracking-wider">
  What is the typical lead time?
  <svg class="icon-plus text-brandOrange text-xs group-open:rotate-45 transition-transform" aria-hidden="true" focusable="false" viewBox="0 0 448 512">

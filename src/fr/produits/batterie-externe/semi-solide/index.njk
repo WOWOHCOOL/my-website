@@ -137,13 +137,13 @@ plPath: "produkty/power-bank/polstaly/"
 {% block content %}
 
 <!-- Hero -->
-<section class="relative pt-24 md:pt-28 pb-8 lg:pb-16 bg-white text-slate-900 overflow-hidden">
+<section id="hero" class="relative pt-24 md:pt-28 lg:pt-20 pb-8 lg:pb-20 bg-white text-slate-900 overflow-hidden lg:min-h-[100dvh] lg:flex lg:flex-col lg:justify-center" data-section="hero">
  <div class="absolute inset-0 z-0 pointer-events-none overflow-hidden">
  <div class="absolute top-0 left-0 max-w-full w-64 h-64 bg-brandOrange opacity-20 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
  <div class="absolute bottom-0 right-0 max-w-full w-64 h-64 bg-blue-500 opacity-20 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
  </div>
 
- <div class="container-wide relative z-10 text-center pb-12 lg:pb-12">
+ <div class="container-wide relative z-10 text-center pb-12 lg:pb-0">
  {{ breadcrumb([{name: "Accueil", url: "/fr/"}, {name: "Produits", url: "/fr/produits/"}, {name: "Batterie externe", url: "/fr/produits/batterie-externe/"}, {name: "Semi-Solide"}], "none", "mb-6", { variant: "hero" }) }}
 
  <div>
@@ -156,15 +156,15 @@ plPath: "produkty/power-bank/polstaly/"
  <p class="max-w-2xl mx-auto text-slate-600 text-sm leading-relaxed mt-6 mb-4">Batteries externes semi-solides nouvelle génération. 50 % plus fines, densité énergétique 30 % supérieure, risque d''incendie réduit par rapport au Li-polymère. Sortie PD 55W-65W, certifié UN38.3 pour le transport aérien mondial. MOQ 500. <strong>Conforme au Règlement UE 2023/1542</strong> — étiquetage renforcé obligatoire dès <strong>août 2026</strong>.</p>
  <p class="max-w-2xl mx-auto text-slate-500 text-xs leading-relaxed mb-8">Le marché français des batteries externes : <strong>12,45 % TCAC</strong> vers 6,2 Mds $ d'ici 2032. Plus de <strong>90 % des batteries externes sont importées de Chine</strong>. WOWOHCOOL livre directement aux marques françaises avec conformité UE complète incluse — certification, EPR et préparation passeport batterie 2027.</p>
 
- <div class="grid grid-cols-2 md:grid-cols-5 gap-4 max-w-3xl mx-auto mb-10">
- <div class="bg-slate-50 rounded-xl p-4 border border-slate-100"><p class="text-2xl font-black text-brandBlue">50 %</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Plus fine</p></div>
- <div class="bg-slate-50 rounded-xl p-4 border border-slate-100"><p class="text-2xl font-black text-brandOrange">30 %</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Densité supérieure</p></div>
- <div class="bg-slate-50 rounded-xl p-4 border border-slate-100"><p class="text-2xl font-black text-brandBlue">65W</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Sortie PD</p></div>
- <div class="bg-slate-50 rounded-xl p-4 border border-slate-100"><p class="text-2xl font-black text-brandOrange">500</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">MOQ</p></div>
- <div class="bg-slate-50 rounded-xl p-4 border border-slate-100 col-span-2 md:col-span-1"><p class="text-2xl font-black text-brandBlue">CES</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">2026</p></div>
+ <div class="grid grid-cols-2 md:grid-cols-5 gap-4 mb-10">
+ <div class="card-soft p-4"><p class="text-2xl font-black text-brandBlue">50 %</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Plus fine</p></div>
+ <div class="card-soft p-4"><p class="text-2xl font-black text-brandOrange">30 %</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Densité supérieure</p></div>
+ <div class="card-soft p-4"><p class="text-2xl font-black text-brandBlue">65W</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Sortie PD</p></div>
+ <div class="card-soft p-4"><p class="text-2xl font-black text-brandOrange">500</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">MOQ</p></div>
+ <div class="card-soft p-4 col-span-2 md:col-span-1"><p class="text-2xl font-black text-brandBlue">CES</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">2026</p></div>
  </div>
 
- <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
+ <div class="btn-pair">
  <button data-action="open-modal" data-product="Batterie externe Semi-Solide" class="btn-wide-lg">
  Demander le prix usine
  </button>
@@ -179,7 +179,7 @@ plPath: "produkty/power-bank/polstaly/"
 {% include "trust-bar.njk" %}
 
 <!-- Products -->
-<section id="products" class="sec bg-white relative py-16">
+<section id="products" class="sec bg-white relative" data-section="products">
  <div class="container-wide">
  <h2 class="text-2xl font-black text-brandBlue uppercase italic tracking-tighter mb-2">Batteries externes Semi-Solides</h2>
  <p class="text-slate-500 text-sm mb-10">6 modèles | 10000-20000mAh | Sortie PD 45W-65W</p>
@@ -229,7 +229,7 @@ plPath: "produkty/power-bank/polstaly/"
  </p>
 
  <details class="mb-6 group/spec">
- <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition">
+ <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition">
  <span class="text-xs font-black text-slate-700 uppercase">Spécifications</span>
  <span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span>
  </summary>
@@ -323,7 +323,7 @@ plPath: "produkty/power-bank/polstaly/"
  </p>
 
  <details class="mb-6 group/spec">
- <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition">
+ <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition">
  <span class="text-xs font-black text-slate-700 uppercase">Spécifications</span>
  <span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span>
  </summary>
@@ -417,7 +417,7 @@ plPath: "produkty/power-bank/polstaly/"
  </p>
 
  <details class="mb-6 group/spec">
- <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition">
+ <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition">
  <span class="text-xs font-black text-slate-700 uppercase">Spécifications</span>
  <span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span>
  </summary>
@@ -511,7 +511,7 @@ plPath: "produkty/power-bank/polstaly/"
  </p>
 
  <details class="mb-6 group/spec">
- <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition">
+ <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition">
  <span class="text-xs font-black text-slate-700 uppercase">Spécifications</span>
  <span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span>
  </summary>
@@ -601,7 +601,7 @@ plPath: "produkty/power-bank/polstaly/"
  </p>
 
  <details class="mb-6 group/spec">
- <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition">
+ <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition">
  <span class="text-xs font-black text-slate-700 uppercase">Spécifications</span>
  <span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span>
  </summary>
@@ -699,7 +699,7 @@ plPath: "produkty/power-bank/polstaly/"
  </p>
 
  <details class="mb-6 group/spec">
- <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition">
+ <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition">
  <span class="text-xs font-black text-slate-700 uppercase">Spécifications</span>
  <span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span>
  </summary>
@@ -769,7 +769,7 @@ plPath: "produkty/power-bank/polstaly/"
 </div>
 
 <!-- What is Semi-Solid-State -->
-<section class="sec bg-white relative py-16">
+<section id="what-is-semi-solid-state" class="sec bg-white relative" data-section="content">
  <div class="container-wide">
  <h2 class="section-title text-center">Qu''est-ce que la technologie de batterie Semi-Solide ?</h2>
  <p class="text-center text-slate-500 text-sm max-w-3xl mx-auto mb-8">Les batteries semi-solides remplacent l''électrolyte liquide des cellules Li-polymère traditionnelles par un électrolyte en gel ou semi-solide. Souvent appelée « batterie à état solide » (solid state power bank) sur le marché grand public, cette chimie de nouvelle génération transforme fondamentalement trois aspects : la densité énergétique, la stabilité thermique et le facteur de forme.</p>
@@ -779,18 +779,18 @@ plPath: "produkty/power-bank/polstaly/"
   <cite class="block text-xs text-slate-400 mt-2 not-italic">— <a href="https://www.marketsandmarkets.com/Market-Reports/solid-state-battery-market-174849304.html" target="_blank" rel="noopener noreferrer" class="text-brandOrange hover:underline">MarketsandMarkets</a>, Rapport marché batteries à état solide 2025-2030 ; <a href="https://www.techsciresearch.com/report/solid-state-micro-battery-market/30237.html" target="_blank" rel="noopener noreferrer" class="text-brandOrange hover:underline">TechSci Research</a>, Marché micro-batteries à état solide 2020-2030F</cite>
  </blockquote>
 
- <div class="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
- <div class="bg-slate-50 rounded-xl p-6 border border-slate-100 text-center">
+ <div class="grid md:grid-cols-3 gap-8">
+ <div class="card-soft p-6 text-center">
  <p class="text-3xl font-black text-brandBlue mb-2">50 %</p>
  <p class="text-sm font-bold text-slate-700 mb-2">Profil plus fin</p>
  <p class="text-xs text-slate-500">Même capacité, moitié moins d''épaisseur. L''électrolyte en gel élimine les couches de séparation nécessaires pour contenir le liquide.</p>
  </div>
- <div class="bg-slate-50 rounded-xl p-6 border border-slate-100 text-center">
+ <div class="card-soft p-6 text-center">
  <p class="text-3xl font-black text-brandOrange mb-2">30 %</p>
  <p class="text-sm font-bold text-slate-700 mb-2">Densité énergétique supérieure</p>
  <p class="text-xs text-slate-500">Plus de wattheures par gramme. Permet 20000mAh dans un format qui contenait auparavant 15000mAh.</p>
  </div>
- <div class="bg-slate-50 rounded-xl p-6 border border-slate-100 text-center">
+ <div class="card-soft p-6 text-center">
  <p class="text-3xl font-black text-brandBlue mb-2">1000+</p>
  <p class="text-sm font-bold text-slate-700 mb-2">Cycles de charge</p>
  <p class="text-xs text-slate-500">Durée de vie de 1 000-2 000 cycles contre 300-500 cycles pour le Li-polymère standard. L''électrolyte en gel réduit la dégradation au fil du temps.</p></div>
@@ -799,7 +799,7 @@ plPath: "produkty/power-bank/polstaly/"
 </section>
 
 <!-- Semi-Solid vs Li-Polymer vs Solid-State Comparison -->
-<section class="sec bg-slate-50 relative py-16">
+<section id="semi-solid-vs-li-polymer-vs-solid-state-comparison" class="sec bg-slate-50 relative" data-section="comparison">
  <div class="container-wide">
  <h2 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4 text-center">Semi-Solide vs. <span class="text-brandOrange">Li-Polymère</span> vs. Solide</h2>
  <p class="text-center text-slate-500 text-sm max-w-3xl mx-auto mb-12">Toutes les affirmations « batterie à état solide » ne se valent pas. Les vraies batteries semi-solides utilisent un électrolyte en gel avec seulement 2,5-10 % de liquide — un juste milieu prêt pour la production entre le lithium-polymère traditionnel et la technologie entièrement solide qui n''atteindra pas la production de masse avant 2027+.</p>
@@ -807,11 +807,11 @@ plPath: "produkty/power-bank/polstaly/"
  <div class="overflow-x-auto rounded-2xl border border-slate-200 shadow-sm">
  <table class="w-full text-sm">
  <thead>
- <tr class="bg-white">
- <th class="p-4 text-left text-slate-500 font-bold text-xs uppercase">Paramètre</th>
- <th class="p-4 text-center text-slate-500 font-bold text-xs uppercase">Li-Polymère<br><span class="text-[10px] normal-case opacity-70">Traditionnelle</span></th>
- <th class="p-4 text-center bg-brandOrange/5 border-x border-brandOrange/20 text-brandOrange font-bold text-xs uppercase">Semi-Solide<br><span class="text-[10px] normal-case opacity-70">WOWOHCOOL</span></th>
- <th class="p-4 text-center text-slate-500 font-bold text-xs uppercase">Solide<br><span class="text-[10px] normal-case opacity-70">Lab/R&D</span></th>
+ <tr class="bg-brandBlue text-white">
+ <th class="p-4 text-left font-bold text-xs uppercase">Paramètre</th>
+ <th class="p-4 text-center font-bold text-xs uppercase">Li-Polymère<br><span class="text-[10px] normal-case opacity-70">Traditionnelle</span></th>
+ <th class="p-4 text-center bg-brandOrange/20 font-bold text-xs uppercase">Semi-Solide<br><span class="text-[10px] normal-case opacity-70">WOWOHCOOL</span></th>
+ <th class="p-4 text-center font-bold text-xs uppercase">Solide<br><span class="text-[10px] normal-case opacity-70">Lab/R&D</span></th>
  </tr>
  </thead>
  <tbody>
@@ -865,33 +865,33 @@ plPath: "produkty/power-bank/polstaly/"
 </section>
 
 <!-- Why Semi-Solid for B2B Brands -->
-<section class="sec bg-slate-50 relative py-16">
+<section id="why-semi-solid-for-b2b-brands" class="sec bg-slate-50 relative" data-section="content">
  <div class="container-wide">
  <h2 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4 text-center">Pourquoi choisir la technologie <span class="text-brandOrange">Semi-Solide</span> pour votre marque</h2>
  <p class="text-center text-slate-500 text-sm max-w-2xl mx-auto mb-12">Différenciation B2B. Positionnement premium. Pérennisez votre gamme de produits avec la technologie de batterie nouvelle génération présentée au CES 2026.</p>
 
- <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
- <div class="bg-white rounded-xl p-6 border border-slate-200 shadow-sm">
+ <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+ <div class="card p-6 shadow-sm">
  <h3 class="font-black text-brandBlue uppercase mb-3 text-sm">Positionnement Retail Premium</h3>
  <p class="text-sm text-slate-600 leading-relaxed">Vendez à un prix public 30-50 % plus élevé que les équivalents Li-polymère. Le marketing « batterie nouvelle génération » différencie votre fiche produit sur Amazon et en magasin.</p>
  </div>
- <div class="bg-white rounded-xl p-6 border border-slate-200 shadow-sm">
+ <div class="card p-6 shadow-sm">
  <h3 class="font-black text-brandBlue uppercase mb-3 text-sm">Taux de retour réduits</h3>
  <p class="text-sm text-slate-600 leading-relaxed">Une meilleure stabilité thermique signifie moins de défaillances sur le terrain. La gamme semi-solide WOWOHCOOL affiche un taux de retour sous garantie 30-50 % inférieur à celui des produits Li-polymère.</p>
  </div>
- <div class="bg-white rounded-xl p-6 border border-slate-200 shadow-sm">
+ <div class="card p-6 shadow-sm">
  <h3 class="font-black text-brandBlue uppercase mb-3 text-sm">Conformité réglementaire anticipée</h3>
  <p class="text-sm text-slate-600 leading-relaxed">Le Règlement européen sur les batteries 2023/1542 favorise les chimies à faible risque d''incendie. La technologie semi-solide s''aligne sur les futurs mandats de durabilité et de sécurité.</p>
  </div>
- <div class="bg-white rounded-xl p-6 border border-slate-200 shadow-sm">
+ <div class="card p-6 shadow-sm">
  <h3 class="font-black text-brandBlue uppercase mb-3 text-sm">Design adapté au voyage</h3>
  <p class="text-sm text-slate-600 leading-relaxed">Tous certifiés UN38.3. Jusqu''à 27 000 mAh (100 Wh) autorisé en bagage cabine. Idéal pour les accessoires de voyage et les programmes de cadeaux d''entreprise.</p>
  </div>
- <div class="bg-white rounded-xl p-6 border border-slate-200 shadow-sm">
+ <div class="card p-6 shadow-sm">
  <h3 class="font-black text-brandBlue uppercase mb-3 text-sm">Commodité des câbles intégrés</h3>
  <p class="text-sm text-slate-600 leading-relaxed">Les 6 modèles incluent des câbles intégrés ou rétractables. Plus de câbles perdus, moins de coûts d''emballage, moins de réclamations clients.</p>
  </div>
- <div class="bg-white rounded-xl p-6 border border-slate-200 shadow-sm">
+ <div class="card p-6 shadow-sm">
  <h3 class="font-black text-brandBlue uppercase mb-3 text-sm">Échantillon sous 3-7 jours</h3>
  <p class="text-sm text-slate-600 leading-relaxed">Les modèles standard sont expédiés en échantillon sous 3-7 jours. Échantillons OEM avec logo personnalisé en 10-15 jours. Délai de production 25-30 jours.</p>
  </div>
@@ -900,13 +900,13 @@ plPath: "produkty/power-bank/polstaly/"
 </section>
 
 <!-- OEM/ODM Customization -->
-<section class="sec bg-white relative py-16">
+<section id="oem-odm-customization" class="sec bg-white relative" data-section="content">
  <div class="container-wide">
  <h2 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4 text-center">Personnalisation OEM/ODM</h2>
  <p class="text-center text-slate-500 text-sm max-w-2xl mx-auto mb-12">Personnalisation complète, de l''impression du logo au design industriel sur mesure. MOQ flexible selon la complexité.</p>
 
- <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
- <div class="bg-slate-50 rounded-xl p-6 border border-slate-200">
+ <div class="grid md:grid-cols-2 gap-8">
+ <div class="card-soft p-6">
  <h3 class="font-black text-brandBlue uppercase mb-4 text-sm">OEM (Modèles standard, MOQ 500)</h3>
  <ul class="space-y-2 text-sm text-slate-600">
  <li>• Impression logo (sérigraphie, laser, UV)</li>
@@ -919,7 +919,7 @@ plPath: "produkty/power-bank/polstaly/"
 	  <li>• Préparation passeport numérique batterie 2027</li>
  </ul>
  </div>
- <div class="bg-slate-50 rounded-xl p-6 border border-slate-200">
+ <div class="card-soft p-6">
  <h3 class="font-black text-brandBlue uppercase mb-4 text-sm">ODM (Design personnalisé, MOQ 1 000-2 000)</h3>
  <ul class="space-y-2 text-sm text-slate-600">
  <li>• Design ID sur mesure (CMF : Couleur, Matériau, Finition)</li>
@@ -942,33 +942,33 @@ plPath: "produkty/power-bank/polstaly/"
 </section>
 
 <!-- Brands Powered by Semi-Solid-State -->
-<section class="sec bg-white relative py-16">
+<section id="brands-powered-by-semi-solid-state" class="sec bg-white relative" data-section="content">
  <div class="container-wide">
  <h2 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4 text-center">Marques utilisant la technologie <span class="text-brandOrange">Semi-Solide</span> (2026)</h2>
  <p class="text-center text-slate-500 text-sm max-w-3xl mx-auto mb-12">Le marché des batteries externes semi-solides explose en 2026, avec des marques DTC, des géants japonais de l''électronique et des projets de crowdfunding qui adoptent tous cette technologie. Derrière beaucoup de ces marques se trouve une usine OEM experte en cellules semi-solides.</p>
 
- <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto mb-10">
- <div class="bg-slate-50 rounded-xl p-5 border border-slate-200">
+ <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
+ <div class="card-soft p-5">
  <p class="font-black text-slate-900 text-sm mb-1"><a href="https://heybmx.com" target="_blank" rel="noopener noreferrer" class="hover:text-brandOrange transition">BMX SolidSafe</a></p>
  <p class="text-xs text-slate-500">Singapour — 5000-10000mAh, « Best of CES 2026 » par TechRadar. Cellules à 2,5 % de liquide.</p>
  </div>
- <div class="bg-slate-50 rounded-xl p-5 border border-slate-200">
+ <div class="card-soft p-5">
  <p class="font-black text-slate-900 text-sm mb-1">Kuxiu</p>
  <p class="text-xs text-slate-500">Australie — Batteries semi-solides MagSafe S2/S3. Présenté sur The Verge.</p>
  </div>
- <div class="bg-slate-50 rounded-xl p-5 border border-slate-200">
+ <div class="card-soft p-5">
  <p class="font-black text-slate-900 text-sm mb-1"><a href="https://www.elecom.co.jp/" target="_blank" rel="noopener noreferrer" class="hover:text-brandOrange transition">ELECOM</a></p>
  <p class="text-xs text-slate-500">Japon — 10000mAh avec durée de vie de 2 000 cycles. Leader du marché retail japonais.</p>
  </div>
- <div class="bg-slate-50 rounded-xl p-5 border border-slate-200">
+ <div class="card-soft p-5">
  <p class="font-black text-slate-900 text-sm mb-1">Neopow</p>
  <p class="text-xs text-slate-500">US — X25 285W/25000mAh flagship. Record de crowdfunding.</p>
  </div>
- <div class="bg-slate-50 rounded-xl p-5 border border-slate-200">
+ <div class="card-soft p-5">
  <p class="font-black text-slate-900 text-sm mb-1">Meenova SolidPower</p>
  <p class="text-xs text-slate-500">US — Lancement Kickstarter mai 2026. Positionnement sécurité avant tout.</p>
  </div>
- <div class="bg-slate-50 rounded-xl p-5 border border-slate-200">
+ <div class="card-soft p-5">
  <p class="font-black text-slate-900 text-sm mb-1">Momax / Bull</p>
  <p class="text-xs text-slate-500">HK / Chine — Distributeurs premium d''électronique grand public adoptant le semi-solide.</p>
  </div>
@@ -976,18 +976,18 @@ plPath: "produkty/power-bank/polstaly/"
 
  <div class="bg-brandBlue/5 rounded-2xl p-8 border border-brandBlue/10 max-w-3xl mx-auto text-center">
  <p class="text-sm text-slate-700 leading-relaxed mb-4">Ces marques DTC démontrent la demande du marché — mais la plupart des acheteurs ont besoin d''un partenaire OEM pour commercialiser leur propre batterie externe semi-solide. WOWOHCOOL fournit les mêmes cellules semi-solides de qualité production, avec une personnalisation OEM/ODM complète, à partir de 500 unités.</p>
- <a href="#products" class="inline-block text-brandOrange font-black text-sm uppercase tracking-widest hover:underline">Voir nos 6 modèles Semi-Solides →</a>
+ <a href="#products" class="btn-more">Voir nos 6 modèles Semi-Solides →</a>
  </div>
  </div>
 </section>
 
 <!-- Safety & Regulatory Advantages -->
-<section class="sec bg-slate-50 relative py-16">
+<section id="safety-regulatory-advantages" class="sec bg-slate-50 relative" data-section="content">
  <div class="container-wide">
  {{ sectionHeader('Sécurité d\'\'abord', 'Pourquoi le Semi-Solide est <span class="text-brandOrange">intrinsèquement plus sûr</span>', 'Au-delà des certifications — la chimie elle-même réduit les risques. Les batteries semi-solides contiennent beaucoup moins d\'\'électrolyte liquide inflammable que le Li-polymère traditionnel, offrant à votre marque un argument de sécurité intégré pour les revendeurs et les clients finaux.', { max: '', mb: 'mb-12', titleClass: 'text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4', descClass: 'text-slate-500 text-sm max-w-3xl mx-auto', labelStyle: 'pill', pillClass: 'bg-brandOrange/10', pillMb: 'mb-6' }) }}
 
- <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
- <div class="bg-white rounded-2xl p-8 border border-slate-200 hover:shadow-lg transition-shadow">
+ <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+ <div class="card-lg p-8 hover:shadow-lg transition-shadow">
   <div class="w-14 h-14 bg-red-50 rounded-2xl flex items-center justify-center mb-5">
    <svg class="text-red-500 text-2xl" aria-hidden="true" focusable="false" viewBox="0 0 384 512"><path d="M192 0C86 0 0 86 0 192S86 384 192 384s192-86 192-192S298 0 192 0zM80 176c0-8.8 7.2-16 16-16l192 0c8.8 0 16 7.2 16 16s-7.2 16-16 16L96 192c-8.8 0-16-7.2-16-16z" fill="currentColor"/></svg>
   </div>
@@ -995,7 +995,7 @@ plPath: "produkty/power-bank/polstaly/"
   <p class="text-sm text-slate-600 leading-relaxed">Seulement <strong>2,5-10 % d''électrolyte liquide</strong> contre 60-90 % dans les cellules Li-polymère standard. Moins de matière inflammable = risque de propagation du feu considérablement réduit, même en cas de dommage physique. L''électrolyte en gel se solidifie au-dessus de 60 °C, auto-contenant les événements thermiques.</p>
  </div>
 
- <div class="bg-white rounded-2xl p-8 border border-slate-200 hover:shadow-lg transition-shadow">
+ <div class="card-lg p-8 hover:shadow-lg transition-shadow">
   <div class="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center mb-5">
    <svg class="text-blue-500 text-2xl" aria-hidden="true" focusable="false" viewBox="0 0 640 512"><path d="M32 160l0-32c0-17.7 14.3-32 32-32l96 0 18.7-18.7c6-6 14.1-9.4 22.6-9.4L304 68c17.7 0 32 14.3 32 32l0 28 96 0c35.3 0 64 28.7 64 64l0 128-48 0 0-128c0-8.8-7.2-16-16-16l-96 0 0 192-64 0 0-192-96 0c-8.8 0-16 7.2-16 16l0 128-48 0 0-128zM576 384c-26.5 0-48-21.5-48-48l64 0c0 26.5-21.5 48-48 48z" fill="currentColor"/></svg>
   </div>
@@ -1003,7 +1003,7 @@ plPath: "produkty/power-bank/polstaly/"
   <p class="text-sm text-slate-600 leading-relaxed">Tous les modèles testés et certifiés pour le <strong>transport aérien et maritime</strong> selon la norme UN38.3. Moins de 100 Wh — autorisé en bagage cabine selon la réglementation IATA sur les marchandises dangereuses. Documentation MSDS complète fournie avec chaque expédition en vrac pour le dédouanement mondial.</p>
  </div>
 
- <div class="bg-white rounded-2xl p-8 border border-slate-200 hover:shadow-lg transition-shadow">
+ <div class="card-lg p-8 hover:shadow-lg transition-shadow">
   <div class="w-14 h-14 bg-green-50 rounded-2xl flex items-center justify-center mb-5">
    <svg class="text-green-600 text-2xl" aria-hidden="true" focusable="false" viewBox="0 0 512 512"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM232 344l0-64-64 0c-13.3 0-24-10.7-24-24s10.7-24 24-24l64 0 0-64c0-13.3 10.7-24 24-24s24 10.7 24 24l0 64 64 0c13.3 0 24 10.7 24 24s-10.7 24-24 24l-64 0 0 64c0 13.3-10.7 24-24 24s-24-10.7-24-24z" fill="currentColor"/></svg>
   </div>
@@ -1011,7 +1011,7 @@ plPath: "produkty/power-bank/polstaly/"
   <p class="text-sm text-slate-600 leading-relaxed">Le nouveau cadre réglementaire européen <strong>pénalise les chimies à haut risque d''incendie</strong>. La teneur réduite en électrolyte liquide du semi-solide positionne vos produits en avance sur la courbe de conformité — charge de conformité réduite, accès au marché plus rapide, confiance renforcée des distributeurs dans toute l''UE.</p>
  </div>
 
- <div class="bg-white rounded-2xl p-8 border border-slate-200 hover:shadow-lg transition-shadow">
+ <div class="card-lg p-8 hover:shadow-lg transition-shadow">
   <div class="w-14 h-14 bg-amber-50 rounded-2xl flex items-center justify-center mb-5">
    <svg class="text-amber-600 text-2xl" aria-hidden="true" focusable="false" viewBox="0 0 576 512"><path d="M288 0c-53 0-96 43-96 96l0 192c0 53 43 96 96 96s96-43 96-96l0-192c0-53-43-96-96-96zM160 288c0-70.7 57.3-128 128-128s128 57.3 128 128l0 32c0 17.7-14.3 32-32 32s-32-14.3-32-32l0-32c0-35.3-28.7-64-64-64s-64 28.7-64 64l0 32c0 17.7-14.3 32-32 32s-32-14.3-32-32l0-32zm-32 64c-17.7 0-32 14.3-32 32l0 64c0 17.7 14.3 32 32 32l320 0c17.7 0 32-14.3 32-32l0-64c0-17.7-14.3-32-32-32l-320 0z" fill="currentColor"/></svg>
   </div>
@@ -1019,7 +1019,7 @@ plPath: "produkty/power-bank/polstaly/"
   <p class="text-sm text-slate-600 leading-relaxed">Besoin de la norme <strong>UL 2056</strong> pour l''Amérique du Nord, <strong>PSE</strong> pour le Japon ou <strong>KC</strong> pour la Corée ? Nous coordonnons l''ensemble du processus de demande, de test et de documentation. Délai standard : 4-8 semaines. Disponible pour les commandes de 2 000+ unités.</p>
  </div>
 
- <div class="bg-white rounded-2xl p-8 border border-slate-200 hover:shadow-lg transition-shadow">
+ <div class="card-lg p-8 hover:shadow-lg transition-shadow">
   <div class="w-14 h-14 bg-purple-50 rounded-2xl flex items-center justify-center mb-5">
    <svg class="text-purple-500 text-2xl" aria-hidden="true" focusable="false" viewBox="0 0 512 512"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM164.1 372.1c-4.4 4.4-10.2 6.9-16.1 6.9s-11.7-2.5-16.1-6.9l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0L148 320.1 216.1 252c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-86.1 86.1zM361 209L273 297c-9.4 9.4-24.6 9.4-33.9 0l-16-16c-9.4-9.4-9.4-24.6 0-33.9l104-104c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z" fill="currentColor"/></svg>
   </div>
@@ -1031,7 +1031,7 @@ plPath: "produkty/power-bank/polstaly/"
 </section>
 
 <!-- EU Battery Régulation 2023/1542 Timeline -->
-<section class="sec bg-white relative py-16">
+<section id="eu-battery-regulation-2023-1542-timeline" class="sec bg-white relative" data-section="comparison">
  <div class="container-content">
  <div class="text-center mb-10 reveal">
   <div class="inline-block px-4 py-1 bg-red-50 border border-red-200 rounded-full text-[11px] font-bold text-red-600 uppercase tracking-widest mb-6">Échéance imminente — Août 2026</div>
@@ -1091,23 +1091,23 @@ plPath: "produkty/power-bank/polstaly/"
 </section>
 
 <!-- Cross-Category Internal Links -->
-<section class="sec bg-white relative py-12">
- <div class="container-content">
+<section id="cross-category-internal-links" class="sec bg-white relative py-12" data-section="related">
+ <div class="container-wide">
  <p class="text-center text-slate-500 text-sm mb-6">Explorez plus de catégories de batteries externes WOWOHCOOL :</p>
  <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
- <a href="/fr/produits/batterie-externe/batterie-externe-ordinateur-portable/" class="block bg-slate-50 rounded-xl p-4 border border-slate-200 hover:border-brandOrange hover:shadow-md transition text-center">
+ <a href="/fr/produits/batterie-externe/batterie-externe-ordinateur-portable/" class="card-soft block p-4 hover:border-brandOrange hover:shadow-md transition text-center">
  <p class="font-black text-brandBlue text-sm uppercase mb-1">Batterie PC portable</p>
  <p class="text-[10px] text-slate-500">65W-240W PD 3.1</p>
  </a>
- <a href="/fr/produits/batterie-externe/hybride-2-en-1/" class="block bg-slate-50 rounded-xl p-4 border border-slate-200 hover:border-brandOrange hover:shadow-md transition text-center">
+ <a href="/fr/produits/batterie-externe/hybride-2-en-1/" class="card-soft block p-4 hover:border-brandOrange hover:shadow-md transition text-center">
  <p class="font-black text-brandBlue text-sm uppercase mb-1">Hybride 2-en-1</p>
  <p class="text-[10px] text-slate-500">Chargeur + Batterie</p>
  </a>
- <a href="/fr/produits/batterie-externe/magnetique-sans-fil/" class="block bg-slate-50 rounded-xl p-4 border border-slate-200 hover:border-brandOrange hover:shadow-md transition text-center">
+ <a href="/fr/produits/batterie-externe/magnetique-sans-fil/" class="card-soft block p-4 hover:border-brandOrange hover:shadow-md transition text-center">
  <p class="font-black text-brandBlue text-sm uppercase mb-1">Magnétique sans fil</p>
  <p class="text-[10px] text-slate-500">Qi2 / MagSafe</p>
  </a>
- <a href="/fr/produits/batterie-externe/" class="block bg-slate-50 rounded-xl p-4 border border-slate-200 hover:border-brandOrange hover:shadow-md transition text-center">
+ <a href="/fr/produits/batterie-externe/" class="card-soft block p-4 hover:border-brandOrange hover:shadow-md transition text-center">
  <p class="font-black text-brandBlue text-sm uppercase mb-1">Toutes les batteries</p>
  <p class="text-[10px] text-slate-500">29 modèles au total</p>
  </a>
@@ -1116,39 +1116,39 @@ plPath: "produkty/power-bank/polstaly/"
 </section>
 
 <!-- FAQ -->
-<section class="sec bg-white relative py-16">
+<section id="faq" class="sec bg-white relative" data-section="faq">
  <div class="container-narrow">
  <h2 class="text-3xl lg:text-4xl font-black text-slate-900 uppercase italic tracking-tighter mb-10 text-center">FAQ <span class="text-brandOrange">Semi-Solide</span></h2>
  <div class="space-y-4">
- <details class="bg-slate-50 rounded-xl p-5 border border-slate-200 group">
+ <details class="card-soft p-5 group">
  <summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">Qu''est-ce qu''une batterie externe semi-solide ?<span class="text-brandOrange group-open:rotate-180 transition">▼</span></summary>
  <p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">Une batterie externe semi-solide utilise un électrolyte en gel ou semi-solide au lieu de l''électrolyte liquide des batteries Li-polymère traditionnelles. Cela permet des profils 50 % plus fins, une densité énergétique 30 % supérieure, un risque d''incendie réduit et une durée de vie plus longue (1 000-2 000 cycles contre 300-500 pour le Li-polymère). Souvent commercialisée comme « batterie à état solide », la vraie technologie semi-solide ne contient que 2,5-10 % de liquide.</p>
  </details>
- <details class="bg-slate-50 rounded-xl p-5 border border-slate-200 group">
+ <details class="card-soft p-5 group">
  <summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">Quel est le MOQ pour une batterie externe semi-solide OEM ?<span class="text-brandOrange group-open:rotate-180 transition">▼</span></summary>
  <p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">MOQ à partir de 500 unités pour les modèles ODM standard avec impression de logo personnalisé. OEM sur mesure avec outillage : 1 000-2 000 unités. Délai d''échantillon : 3-7 jours pour les modèles standard, 10-15 jours pour le sur-mesure.</p>
  </details>
- <details class="bg-slate-50 rounded-xl p-5 border border-slate-200 group">
+ <details class="card-soft p-5 group">
  <summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">Les batteries externes semi-solides sont-elles sûres pour le transport aérien ?<span class="text-brandOrange group-open:rotate-180 transition">▼</span></summary>
  <p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">Oui. Toutes les batteries externes semi-solides WOWOHCOOL sont certifiées UN38.3 et conformes à la réglementation IATA sur le transport aérien. Une capacité jusqu''à 27 000 mAh (100 Wh) est autorisée en bagage cabine selon les règles passagers IATA.</p>
  </details>
- <details class="bg-slate-50 rounded-xl p-5 border border-slate-200 group">
+ <details class="card-soft p-5 group">
  <summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">Quelle est la différence entre semi-solide et batterie entièrement solide ?<span class="text-brandOrange group-open:rotate-180 transition">▼</span></summary>
  <p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">La technologie semi-solide utilise un électrolyte hybride (partiellement liquide + partiellement solide) et est en production de masse actuellement. Les batteries entièrement solides sont encore en production pilote par des fabricants comme Sunwoda et Svolt et ne seront pas disponibles commercialement pour les batteries externes avant 2027+.</p>
  </details>
- <details class="bg-slate-50 rounded-xl p-5 border border-slate-200 group">
+ <details class="card-soft p-5 group">
  <summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">Les batteries externes semi-solides sont-elles plus sûres que le lithium-ion ?<span class="text-brandOrange group-open:rotate-180 transition">▼</span></summary>
  <p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">Oui. L''électrolyte en gel réduit considérablement le risque d''emballement thermique par rapport aux cellules lithium-ion ou Li-polymère traditionnelles. Avec seulement 2,5-10 % de liquide (contre 60-90 % dans le Li-polymère), il y a beaucoup moins de matière inflammable si la cellule est endommagée. Cela s''aligne sur le Règlement européen sur les batteries 2023/1542 qui favorise les chimies à faible risque d''incendie.</p>
  </details>
- <details class="bg-slate-50 rounded-xl p-5 border border-slate-200 group">
+ <details class="card-soft p-5 group">
  <summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">Quelle est la durée de vie d''une batterie externe semi-solide ?<span class="text-brandOrange group-open:rotate-180 transition">▼</span></summary>
  <p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">Les batteries externes semi-solides WOWOHCOOL offrent 1 000-2 000 cycles de charge avant d''atteindre 80 % de capacité — soit 3-4 fois plus longtemps que le Li-polymère traditionnel (300-500 cycles). À raison d''une charge complète par jour, cela représente 3-5+ ans d''utilisation quotidienne avant une perte de capacité notable.</p>
  </details>
- <details class="bg-slate-50 rounded-xl p-5 border border-slate-200 group">
+ <details class="card-soft p-5 group">
  <summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">Quelles marques utilisent la technologie de batterie semi-solide ?<span class="text-brandOrange group-open:rotate-180 transition">▼</span></summary>
  <p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">Les marques notables qui lancent des batteries externes semi-solides en 2025-2026 incluent BMX SolidSafe (US, lauréat CES 2026), Kuxiu (Australie), ELECOM (Japon, 2 000 cycles), Neopow (US, flagship 285W), Meenova (Kickstarter), Momax (Hong Kong) et Bull (Chine). De nombreuses marques DTC s''approvisionnent en cellules semi-solides via des usines OEM — WOWOHCOOL offre la même technologie avec une personnalisation complète à partir de 500 unités.</p>
  </details>
- <details class="bg-slate-50 rounded-xl p-5 border border-slate-200 group">
+ <details class="card-soft p-5 group">
  <summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">Peut-on prendre une batterie externe semi-solide en avion ?<span class="text-brandOrange group-open:rotate-180 transition">▼</span></summary>
  <p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">Oui. Toutes les batteries externes semi-solides WOWOHCOOL sont inférieures à 100 Wh et certifiées UN38.3 — entièrement conformes à la réglementation IATA sur les marchandises dangereuses pour le bagage cabine. Aucune approbation préalable de la compagnie aérienne n''est nécessaire. La documentation MSDS complète est fournie pour l''expédition internationale et le dédouanement.</p>
  </details>

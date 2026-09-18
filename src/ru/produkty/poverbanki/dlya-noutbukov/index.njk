@@ -75,26 +75,26 @@ ogImage: "/image/product/power-bank/wop23-240w-power-bank.webp"
 {% from "breadcrumb.njk" import breadcrumb %}
 
 <!-- HERO -->
-<section class="pt-24 md:pt-28 pb-16 md:pb-20 bg-gradient-to-br from-slate-50 via-white to-orange-50">
+<section id="hero" class="pt-24 md:pt-28 lg:pt-20 pb-16 md:pb-20 bg-gradient-to-br from-slate-50 via-white to-orange-50 lg:min-h-[100dvh] lg:flex lg:flex-col lg:justify-center" data-section="hero">
  <div class="container-wide">
   {{ breadcrumb([{name:"Главная",url:"/ru/"},{name:"Продукция",url:"/ru/produkty/"},{name:"Повербанки",url:"/ru/produkty/poverbanki/"},{name:"Повербанк для ноутбуков"}], "none", "mb-6", { variant: "hero" }) }}
   <div class="grid lg:grid-cols-2 gap-12 items-center">
    <div class="reveal order-2 lg:order-1">
-    <p class="text-brandOrange text-xs font-bold tracking-widest uppercase mb-3">PD 3.1 &middot; 240W</p>
-    <h1 class="text-3xl md:text-5xl font-black text-brandBlue leading-tight mb-6 italic uppercase">Повербанк для ноутбука<br><span class="text-brandOrange">PD 3.1 240 Вт с OEM-завода</span></h1>
+    <div class="badge-capsule mb-6 uppercase tracking-widest">PD 3.1 &middot; 240W</div>
+    <h1 class="text-3xl md:text-5xl font-black text-brandBlue leading-tight mb-6 italic uppercase tracking-tighter">Повербанк для ноутбука<br><span class="text-brandOrange">PD 3.1 240 Вт с <span class="whitespace-nowrap">OEM-завода</span></span></h1>
     <p class="text-slate-600 text-lg leading-relaxed mb-6">4 мощные модели для MacBook Pro, Dell XPS, ThinkPad и игровых ноутбуков. <strong>От 65 до 240 Вт PD 3.1</strong>, 20 000–27 000 мА·ч. <strong>Лимит 99,9 Вт·ч</strong> — полностью разрешён к перевозке в ручной клади.</p>
     <div class="flex flex-wrap gap-2 mb-8">
      <span class="trust-badge">PD 3.1 240W</span>
      <span class="trust-badge">99,9 Вт·ч — можно в самолёт</span>
      <span class="trust-badge">UN38.3 + MSDS</span>
     </div>
-    <div class="flex flex-wrap gap-4">
-     <button data-action="open-modal" class="btn-primary cursor-pointer">Запросить цену с фабрики &rarr;</button>
-     <a href="#modelos" class="btn-secondary">Смотреть модели</a>
+    <div class="btn-pair">
+     <button data-action="open-modal" class="btn-solid cursor-pointer">Запросить цену с фабрики &rarr;</button>
+     <a href="#modelos" class="btn-ghost-lg">Смотреть модели</a>
     </div>
    </div>
    <div class="reveal order-1 lg:order-2">
-    <div class="bg-white rounded-2xl shadow-xl p-6 md:p-8 border border-slate-100">
+    <div class="card-lg shadow-xl p-6 md:p-8 max-w-[480px] mx-auto">
      <img src="/image/product/power-bank/wop23-240w-power-bank.webp" srcset="/image/product/power-bank/wop23-240w-power-bank-750w.webp 750w, /image/product/power-bank/wop23-240w-power-bank.webp 1100w" sizes="(min-width: 1440px) 526px, (min-width: 1280px) 526px, (min-width: 1024px) 398px, (min-width: 768px) 654px, (min-width: 430px) 382px, 327px" alt="Повербанк для ноутбука WOP23 240 Вт PD 3.1 для MacBook Pro" width="1100" height="1100" class="w-full h-auto object-contain" loading="eager">
     </div>
    </div>
@@ -106,7 +106,7 @@ ogImage: "/image/product/power-bank/wop23-240w-power-bank.webp"
 
 
 <!-- MODELOS -->
-<section id="modelos" class="py-16 bg-white">
+<section id="modelos" class="sec bg-white" data-section="products">
  <div class="container-wide">
   {{ sectionHeader('Линейка', '4 мощных повербанка <span class="text-brandOrange">OEM</span> для ноутбуков', 'От 65 Вт для ультрабуков до 240 Вт для рабочих станций и игровых ноутбуков.', {mb: 'mb-12'}) }}
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -120,7 +120,7 @@ ogImage: "/image/product/power-bank/wop23-240w-power-bank.webp"
      <div class="flex items-center space-x-2"><svg class="icon-feature text-brandOrange text-[11px]" aria-hidden="true" focusable="false" viewBox="0 0 576 512"><path d="M482.3 192c34.2 0 93.7 29 93.7 64 0 36-59.5 64-93.7 64H395.5l-58.4 144H280l32.5-144H136.6L96 432H32l32-144L0 192h64l40.6 80h208.5L280 128h57.1l58.4 144H482.3z" fill="currentColor"/></svg><span class="text-[11px] font-bold text-slate-500 uppercase">IATA ручная кладь<br><span class="text-[10px] font-normal text-slate-400">MacBook Pro 16/гейминг</span></span></div></div>
     <p class="text-[11px] text-slate-500 mb-6 italic leading-relaxed">Профессиональный повербанк с PD 3.1 240 Вт. Заряжает MacBook Pro 16, Dell XPS 17 и игровые ноутбуки.</p>
     <details class="mb-6 group/spec">
-     <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Характеристики</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
+     <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Характеристики</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
      <div class="p-4 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-[11px]"><tbody>
      <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Ёмкость</td><td class="py-2 font-bold text-slate-700">27000mAh / 97.2Wh</td></tr>
      <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Номинальная ёмкость</td><td class="py-2 font-bold text-slate-700">16000mAh (5V/2A)</td></tr>
@@ -145,7 +145,7 @@ ogImage: "/image/product/power-bank/wop23-240w-power-bank.webp"
      <div class="flex items-center space-x-2"><svg class="icon-feature text-brandOrange text-[11px]" aria-hidden="true" focusable="false" viewBox="0 0 576 512"><path d="M482.3 192c34.2 0 93.7 29 93.7 64 0 36-59.5 64-93.7 64H395.5l-58.4 144H280l32.5-144H136.6L96 432H32l32-144L0 192h64l40.6 80h208.5L280 128h57.1l58.4 144H482.3z" fill="currentColor"/></svg><span class="text-[11px] font-bold text-slate-500 uppercase">IATA ручная кладь<br><span class="text-[10px] font-normal text-slate-400">Workstation</span></span></div></div>
     <p class="text-[11px] text-slate-500 mb-6 italic leading-relaxed">Повербанк 27 000 мА·ч PD 130 Вт с цифровым дисплеем. Идеален для MacBook Pro и рабочих станций.</p>
     <details class="mb-6 group/spec">
-     <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Характеристики</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
+     <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Характеристики</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
      <div class="p-4 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-[11px]"><tbody>
      <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Ёмкость</td><td class="py-2 font-bold text-slate-700">20000mAh / 72Wh</td></tr>
      <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Номинальная ёмкость</td><td class="py-2 font-bold text-slate-700">12000mAh (5V/2A)</td></tr>
@@ -170,7 +170,7 @@ ogImage: "/image/product/power-bank/wop23-240w-power-bank.webp"
      <div class="flex items-center space-x-2"><svg class="icon-feature text-brandOrange text-[11px]" aria-hidden="true" focusable="false" viewBox="0 0 576 512"><path d="M482.3 192c34.2 0 93.7 29 93.7 64 0 36-59.5 64-93.7 64H395.5l-58.4 144H280l32.5-144H136.6L96 432H32l32-144L0 192h64l40.6 80h208.5L280 128h57.1l58.4 144H482.3z" fill="currentColor"/></svg><span class="text-[11px] font-bold text-slate-500 uppercase">IATA ручная кладь<br><span class="text-[10px] font-normal text-slate-400">MacBook Air/ультрабук</span></span></div></div>
     <p class="text-[11px] text-slate-500 mb-6 italic leading-relaxed">Повербанк 20 000 мА·ч для ноутбука со встроенными кабелями Type-C + Lightning. PD 65 Вт.</p>
     <details class="mb-6 group/spec">
-     <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Характеристики</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
+     <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Характеристики</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
      <div class="p-4 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-[11px]"><tbody>
      <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Ёмкость</td><td class="py-2 font-bold text-slate-700">20000mAh (5000mAh×4S) / 15.4V / 1.5C</td></tr>
      <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Тип ячейки</td><td class="py-2 font-bold text-slate-700">Li-Polymer (686074)</td></tr>
@@ -199,7 +199,7 @@ ogImage: "/image/product/power-bank/wop23-240w-power-bank.webp"
      <div class="flex items-center space-x-2"><svg class="icon-feature text-brandOrange text-[11px]" aria-hidden="true" focusable="false" viewBox="0 0 576 512"><path d="M482.3 192c34.2 0 93.7 29 93.7 64 0 36-59.5 64-93.7 64H395.5l-58.4 144H280l32.5-144H136.6L96 432H32l32-144L0 192h64l40.6 80h208.5L280 128h57.1l58.4 144H482.3z" fill="currentColor"/></svg><span class="text-[11px] font-bold text-slate-500 uppercase">IATA ручная кладь<br><span class="text-[10px] font-normal text-slate-400">Multi-Port</span></span></div></div>
     <p class="text-[11px] text-slate-500 mb-6 italic leading-relaxed">Производительный повербанк 67 Вт PD + PPS. 20 000 мА·ч, 2x Type-C + USB-A.</p>
     <details class="mb-6 group/spec">
-     <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Характеристики</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
+     <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Характеристики</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
      <div class="p-4 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-[11px]"><tbody>
      <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Ёмкость</td><td class="py-2 font-bold text-slate-700">20000mAh (4×5000mAh cells)</td></tr>
      <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Энергия батареи</td><td class="py-2 font-bold text-slate-700">74Wh (5000mAh × 14.8V)</td></tr>
@@ -218,7 +218,7 @@ ogImage: "/image/product/power-bank/wop23-240w-power-bank.webp"
 </section>
 
 <!-- MARKET-DATA -->
-<section class="sec bg-white py-8">
+<section id="market-data" class="sec bg-white py-8" data-section="content">
  <div class="container-content">
  <blockquote class="bg-brandOrange/5 border-l-4 border-brandOrange rounded-r-xl px-6 py-5 text-sm text-slate-700 italic leading-relaxed">
   <p>«Повербанки высокой ёмкости (&gt;20 000 мА·ч), рассчитанные на зарядку ноутбуков, — самый быстрорастущий премиальный сегмент с прогнозным CAGR 9,86% до 2031 года (TechSci Research). Стандарт USB-C PD 3.1, допускающий до 240 Вт двунаправленной мощности, — структурная точка перелома. При 53 млн ноутбуков, ежегодно поставляемых только на рынок США, повербанки для ноутбуков превращаются из нишевого аксессуара в базовую инфраструктуру удалённой работы».</p>
@@ -228,7 +228,7 @@ ogImage: "/image/product/power-bank/wop23-240w-power-bank.webp"
 </section>
 
 <!-- СОВМЕСТИМОСТЬ -->
-<section class="py-16 bg-slate-50">
+<section id="comparison" class="sec bg-slate-50" data-section="comparison">
  <div class="container-content">
   {{ sectionHeader('Совместимость', 'Гид по мощности для каждого ноутбука', 'Какая мощность повербанка нужна вашему ноутбуку? Сводка по требованиям производителей.', {mb: 'mb-12'}) }}
   <div class="overflow-x-auto reveal">
@@ -250,14 +250,14 @@ ogImage: "/image/product/power-bank/wop23-240w-power-bank.webp"
 </section>
 
 <!-- СЕРТИФИКАЦИЯ -->
-<section class="py-16 bg-white">
- <div class="container-content">
+<section id="content" class="sec bg-white" data-section="content">
+ <div class="container-wide">
   {{ sectionHeader('Соответствие требованиям', 'Документы для импортёров повербанков для ноутбуков', '', {mb: 'mb-12'}) }}
   <div class="grid md:grid-cols-2 gap-6 reveal">
-   <div class="bg-white rounded-2xl p-6 border border-slate-200">
+   <div class="card-lg p-6">
     <p class="text-sm text-slate-600 leading-relaxed">Для ввоза в РФ и ЕАЭС готовим комплект документов для сертификации EAC (ТР ТС 004/2011, ТР ТС 020/2011): протоколы испытаний, техническое описание и инструкцию на русском языке. К каждой отгрузке прикладываем инвойс, упаковочный лист и сертификат происхождения для таможенного оформления.</p>
    </div>
-   <div class="bg-white rounded-2xl p-6 border border-slate-200">
+   <div class="card-lg p-6">
     <h3 class="text-base font-bold text-brandBlue mb-2">UN38.3 и авиаперевозка</h3>
     <p class="text-sm text-slate-600 leading-relaxed">Все модели укладываются в лимит 99,9 Вт·ч и сертифицированы по UN38.3 с MSDS — это позволяет и авиаперевозку партий, и провоз в ручной клади конечными пользователями. По IATA DGR (67-я редакция, с 01.01.2026) отгружаем партии с уровнем заряда не выше 30%.</p>
    </div>
@@ -267,37 +267,37 @@ ogImage: "/image/product/power-bank/wop23-240w-power-bank.webp"
 </section>
 
 <!-- OEM/ODM CTA -->
-<section class="py-16 bg-brandBlue text-white">
+<section id="oem-odm-cta" class="sec bg-brandBlue text-white" data-section="cta">
  {% call sectionHeader('OEM / ODM', 'Повербанк для ноутбуков<br><span class="text-brandOrange">под вашей маркой</span>', '', {max: '', mb: '', extra: 'container-content', reveal: false, labelClass: 'text-brandOrange', titleClass: 'text-3xl lg:text-4xl font-black uppercase italic tracking-tighter mb-4'}) %}<p class="text-slate-300 max-w-2xl mx-auto mb-8">MOQ от 500 штук. Собственные цвет, логотип и упаковка. Для премиальных брендов — алюминиевый корпус с лазерной гравировкой. Образец за 5–7 дней, производство за 25–30 дней. Партии готовим под карточки Ozon и Wildberries: этикетки, штрихкоды и комплект документов EAC.</p>
-  <div class="flex flex-wrap gap-4 justify-center">
-   <button data-action="open-modal" class="btn-primary cursor-pointer">Запросить расчёт OEM &rarr;</button>
-   <a href="/ru/kontakty/" class="inline-flex items-center justify-center px-6 py-3 border-2 border-white text-white font-black uppercase italic tracking-widest text-sm rounded-full hover:bg-white hover:text-brandBlue transition-all">Связаться с нами</a>
+  <div class="btn-pair">
+   <button data-action="open-modal" class="btn-solid cursor-pointer">Запросить расчёт OEM &rarr;</button>
+   <a href="/ru/kontakty/" class="inline-flex items-center justify-center px-6 py-4 border-2 border-white text-white font-black uppercase italic tracking-widest text-sm rounded-xl hover:bg-white hover:text-brandBlue transition-all w-full">Связаться с нами</a>
   </div>
  {% endcall %}
 </section>
 
 <!-- FAQ -->
-<section class="py-16 bg-white">
+<section id="faq" class="sec bg-white" data-section="faq">
  <div class="container-narrow">
   {{ sectionHeader('FAQ', 'Частые вопросы о повербанках для ноутбуков', '', {max: '', mb: 'mb-12'}) }}
   <div class="space-y-4">
-   <details class="reveal bg-slate-50 rounded-2xl p-6 border border-slate-200"><summary class="font-bold text-brandBlue cursor-pointer">Какие ноутбуки заряжает повербанк на 240 Вт?</summary><p class="text-sm text-slate-600 mt-3 leading-relaxed faq-answer">PD 3.1 240 Вт заряжает MacBook Pro 16" (140 Вт), Dell XPS 15/17 (130 Вт), ThinkPad серии P (170 Вт) и игровые ноутбуки вроде Razer Blade 16 (230 Вт). А также Steam Deck, Nintendo Switch и любые планшеты с USB-C. Для корпоративных закупок это главный аргумент: одна модель на 240 Вт покрывает весь парк ноутбуков IT-отдела — не нужно подбирать повербанк под каждую модель.</p></details>
-   <details class="reveal bg-slate-50 rounded-2xl p-6 border border-slate-200"><summary class="font-bold text-brandBlue cursor-pointer">Разрешены ли повербанки 27 000 мА·ч в самолёте?</summary><p class="text-sm text-slate-600 mt-3 leading-relaxed faq-answer">Да. 27 000 мА·ч × 3,7 В = 99,9 Вт·ч — чуть ниже лимита IATA в 100 Вт·ч для ручной клади без одобрения. С каждым заказом поставляем сертификат UN38.3 и документацию MSDS.</p></details>
-   <details class="reveal bg-slate-50 rounded-2xl p-6 border border-slate-200"><summary class="font-bold text-brandBlue cursor-pointer">Что такое PD 3.1 и зачем он нужен?</summary><p class="text-sm text-slate-600 mt-3 leading-relaxed faq-answer">USB Power Delivery 3.1 (Extended Power Range) расширяет мощность со 100 до 240 Вт при напряжении до 48 В. Позволяет быстро заряжать ноутбуки через USB-C без проприетарных разъёмов.</p></details>
-   <details class="reveal bg-slate-50 rounded-2xl p-6 border border-slate-200"><summary class="font-bold text-brandBlue cursor-pointer">Какой MOQ на повербанки для ноутбуков OEM?</summary><p class="text-sm text-slate-600 mt-3 leading-relaxed faq-answer">MOQ от 500 штук для стандартных моделей. Кастомный OEM с собственной пресс-формой: 1000–2000 штук. Образцы за 5–7 дней.</p></details>
-   <details class="reveal bg-slate-50 rounded-2xl p-6 border border-slate-200"><summary class="font-bold text-brandBlue cursor-pointer">Насколько повербанк 240 Вт заряжает MacBook Pro?</summary><p class="text-sm text-slate-600 mt-3 leading-relaxed faq-answer">При 27 000 мА·ч (99,9 Вт·ч) он заряжает MacBook Pro 14" (батарея 70 Вт·ч) примерно 1,3 раза полностью или MacBook Pro 16" (100 Вт·ч) до 95%. Быстрая зарядка с 0 до 50% за 30 минут благодаря PD 3.1.</p></details>
+   <details class="card-lg-soft reveal p-6"><summary class="font-bold text-brandBlue cursor-pointer">Какие ноутбуки заряжает повербанк на 240 Вт?</summary><p class="text-sm text-slate-600 mt-3 leading-relaxed faq-answer">PD 3.1 240 Вт заряжает MacBook Pro 16" (140 Вт), Dell XPS 15/17 (130 Вт), ThinkPad серии P (170 Вт) и игровые ноутбуки вроде Razer Blade 16 (230 Вт). А также Steam Deck, Nintendo Switch и любые планшеты с USB-C. Для корпоративных закупок это главный аргумент: одна модель на 240 Вт покрывает весь парк ноутбуков IT-отдела — не нужно подбирать повербанк под каждую модель.</p></details>
+   <details class="card-lg-soft reveal p-6"><summary class="font-bold text-brandBlue cursor-pointer">Разрешены ли повербанки 27 000 мА·ч в самолёте?</summary><p class="text-sm text-slate-600 mt-3 leading-relaxed faq-answer">Да. 27 000 мА·ч × 3,7 В = 99,9 Вт·ч — чуть ниже лимита IATA в 100 Вт·ч для ручной клади без одобрения. С каждым заказом поставляем сертификат UN38.3 и документацию MSDS.</p></details>
+   <details class="card-lg-soft reveal p-6"><summary class="font-bold text-brandBlue cursor-pointer">Что такое PD 3.1 и зачем он нужен?</summary><p class="text-sm text-slate-600 mt-3 leading-relaxed faq-answer">USB Power Delivery 3.1 (Extended Power Range) расширяет мощность со 100 до 240 Вт при напряжении до 48 В. Позволяет быстро заряжать ноутбуки через USB-C без проприетарных разъёмов.</p></details>
+   <details class="card-lg-soft reveal p-6"><summary class="font-bold text-brandBlue cursor-pointer">Какой MOQ на повербанки для ноутбуков OEM?</summary><p class="text-sm text-slate-600 mt-3 leading-relaxed faq-answer">MOQ от 500 штук для стандартных моделей. Кастомный OEM с собственной пресс-формой: 1000–2000 штук. Образцы за 5–7 дней.</p></details>
+   <details class="card-lg-soft reveal p-6"><summary class="font-bold text-brandBlue cursor-pointer">Насколько повербанк 240 Вт заряжает MacBook Pro?</summary><p class="text-sm text-slate-600 mt-3 leading-relaxed faq-answer">При 27 000 мА·ч (99,9 Вт·ч) он заряжает MacBook Pro 14" (батарея 70 Вт·ч) примерно 1,3 раза полностью или MacBook Pro 16" (100 Вт·ч) до 95%. Быстрая зарядка с 0 до 50% за 30 минут благодаря PD 3.1.</p></details>
   </div>
  </div>
 </section>
 
 <!-- Cross-Category Links -->
-	<section class="sec bg-white py-12">
-	 <div class="container-narrow text-center"><p class="text-center text-slate-500 text-sm mb-6">Другие категории WOWOHCOOL:</p>
+	<section id="cross-category-links" class="sec bg-white py-12" data-section="related">
+	 <div class="container-wide text-center"><p class="text-center text-slate-500 text-sm mb-6">Другие категории WOWOHCOOL:</p>
 	 <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-	  <a href="/ru/produkty/poverbanki/polutverdotelnyy/" class="block bg-white rounded-xl p-4 border border-slate-200 hover:border-brandOrange hover:shadow-md transition text-center"><p class="font-black text-brandBlue text-sm uppercase mb-1">Полутвердотельный</p><p class="text-[10px] text-slate-500">CES 2026 Tech</p></a>
-	  <a href="/ru/produkty/poverbanki/magnitnyy-besprovodnoy/" class="block bg-white rounded-xl p-4 border border-slate-200 hover:border-brandOrange hover:shadow-md transition text-center"><p class="font-black text-brandBlue text-sm uppercase mb-1">Магнитный Qi2</p><p class="text-[10px] text-slate-500">12 моделей</p></a>
-	  <a href="/ru/produkty/poverbanki/gibrid-2-v-1/" class="block bg-white rounded-xl p-4 border border-slate-200 hover:border-brandOrange hover:shadow-md transition text-center"><p class="font-black text-brandBlue text-sm uppercase mb-1">Гибрид 2-в-1</p><p class="text-[10px] text-slate-500">GaN AC + батарея</p></a>
-	  <a href="/ru/produkty/poverbanki/" class="block bg-white rounded-xl p-4 border border-slate-200 hover:border-brandOrange hover:shadow-md transition text-center"><p class="font-black text-brandBlue text-sm uppercase mb-1">Все повербанки</p><p class="text-[10px] text-slate-500">6 категорий, 35+ моделей</p></a>
+	  <a href="/ru/produkty/poverbanki/polutverdotelnyy/" class="card block p-4 hover:border-brandOrange hover:shadow-md transition text-center"><p class="font-black text-brandBlue text-sm uppercase mb-1">Полутвердотельный</p><p class="text-[10px] text-slate-500">CES 2026 Tech</p></a>
+	  <a href="/ru/produkty/poverbanki/magnitnyy-besprovodnoy/" class="card block p-4 hover:border-brandOrange hover:shadow-md transition text-center"><p class="font-black text-brandBlue text-sm uppercase mb-1">Магнитный Qi2</p><p class="text-[10px] text-slate-500">12 моделей</p></a>
+	  <a href="/ru/produkty/poverbanki/gibrid-2-v-1/" class="card block p-4 hover:border-brandOrange hover:shadow-md transition text-center"><p class="font-black text-brandBlue text-sm uppercase mb-1">Гибрид 2-в-1</p><p class="text-[10px] text-slate-500">GaN AC + батарея</p></a>
+	  <a href="/ru/produkty/poverbanki/" class="card block p-4 hover:border-brandOrange hover:shadow-md transition text-center"><p class="font-black text-brandBlue text-sm uppercase mb-1">Все повербанки</p><p class="text-[10px] text-slate-500">6 категорий, 35+ моделей</p></a>
 	 </div>
 	 </div>
 	</section>

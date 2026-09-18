@@ -134,13 +134,13 @@ plPath: "produkty/power-bank/do-laptopa/"
 {% block content %}
 
 <!-- Hero -->
-<section class="relative pt-24 md:pt-28 pb-8 lg:pb-16 bg-white text-slate-900 overflow-hidden">
+<section id="hero" class="relative pt-24 md:pt-28 lg:pt-20 pb-8 lg:pb-20 bg-white text-slate-900 overflow-hidden lg:min-h-[100dvh] lg:flex lg:flex-col lg:justify-center" data-section="hero">
  <div class="absolute inset-0 z-0 pointer-events-none overflow-hidden">
  <div class="absolute top-0 left-0 max-w-full w-64 h-64 bg-brandOrange opacity-20 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
  <div class="absolute bottom-0 right-0 max-w-full w-64 h-64 bg-blue-500 opacity-20 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
  </div>
 
- <div class="container-wide relative z-10 text-center pb-12 lg:pb-12">
+ <div class="container-wide relative z-10 text-center pb-12 lg:pb-0">
  {{ breadcrumb([{name: "Home", url: "/"}, {name: "Products", url: "/products/"}, {name: "Power Bank", url: "/products/power-bank/"}, {name: "Laptop Power"}], "none", "mb-6", { variant: "hero" }) }}
 
  <div>
@@ -152,14 +152,14 @@ plPath: "produkty/power-bank/do-laptopa/"
 
  <p class="max-w-2xl mx-auto text-slate-600 text-sm leading-relaxed mt-6 mb-8">High-power PD 3.1 power banks that charge MacBook Pro, gaming laptops, and multiple devices simultaneously. 65W to 240W output. Airline-safe under 100Wh (27,000mAh max).</p>
 
- <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-2xl mx-auto mb-10">
- <div class="bg-slate-50 rounded-xl p-4 border border-slate-100"><p class="text-2xl font-black text-brandBlue">240W</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Max Output</p></div>
- <div class="bg-slate-50 rounded-xl p-4 border border-slate-100"><p class="text-2xl font-black text-brandOrange">PD 3.1</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Protocol</p></div>
- <div class="bg-slate-50 rounded-xl p-4 border border-slate-100"><p class="text-2xl font-black text-brandBlue">27000mAh</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Max Capacity</p></div>
- <div class="bg-slate-50 rounded-xl p-4 border border-slate-100"><p class="text-2xl font-black text-brandOrange">500</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">MOQ</p></div>
+ <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
+ <div class="card-soft p-4"><p class="text-2xl font-black text-brandBlue">240W</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Max Output</p></div>
+ <div class="card-soft p-4"><p class="text-2xl font-black text-brandOrange">PD 3.1</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Protocol</p></div>
+ <div class="card-soft p-4"><p class="text-2xl font-black text-brandBlue">27000mAh</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Max Capacity</p></div>
+ <div class="card-soft p-4"><p class="text-2xl font-black text-brandOrange">500</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">MOQ</p></div>
  </div>
 
- <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
+ <div class="btn-pair">
  <button data-action="open-modal" data-product="Laptop Power Bank" class="btn-wide-lg">
  Get Factory Pricing
  </button>
@@ -174,7 +174,7 @@ plPath: "produkty/power-bank/do-laptopa/"
 {% include "trust-bar.njk" %}
 
 <!-- Products -->
-<section id="products" class="sec bg-white relative py-16">
+<section id="products" class="sec bg-white relative" data-section="products">
  <div class="container-wide">
  <h2 class="text-2xl font-black text-brandBlue uppercase italic tracking-tighter mb-2">Laptop Power Banks</h2>
  <p class="text-slate-500 text-sm mb-10">4 models | 20000-27000mAh | 65W-240W PD output</p>
@@ -224,7 +224,7 @@ plPath: "produkty/power-bank/do-laptopa/"
  </p>
 
  <details class="mb-6 group/spec">
- <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition">
+ <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition">
  <span class="text-xs font-black text-slate-700 uppercase">Specifications</span>
  <span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span>
  </summary>
@@ -318,7 +318,7 @@ plPath: "produkty/power-bank/do-laptopa/"
  </p>
 
  <details class="mb-6 group/spec">
- <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition">
+ <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition">
  <span class="text-xs font-black text-slate-700 uppercase">Specifications</span>
  <span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span>
  </summary>
@@ -416,7 +416,7 @@ plPath: "produkty/power-bank/do-laptopa/"
  </p>
 
  <details class="mb-6 group/spec">
- <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition">
+ <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition">
  <span class="text-xs font-black text-slate-700 uppercase">Specifications</span>
  <span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span>
  </summary>
@@ -510,7 +510,7 @@ plPath: "produkty/power-bank/do-laptopa/"
  </p>
 
  <details class="mb-6 group/spec">
- <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition">
+ <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition">
  <span class="text-xs font-black text-slate-700 uppercase">Specifications</span>
  <span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span>
  </summary>
@@ -592,7 +592,7 @@ plPath: "produkty/power-bank/do-laptopa/"
 </div>
 
 <!-- What Makes a Laptop-Grade Power Bank -->
-<section class="sec bg-white relative py-16">
+<section id="what-makes-a-laptop-grade-power-bank" class="sec bg-white relative" data-section="content">
  <div class="container-wide">
  <h2 class="section-title text-center">What Makes a Laptop-Grade Power Bank?</h2>
  <p class="text-center text-slate-500 text-sm max-w-3xl mx-auto mb-8">Not all power banks can charge laptops. Three technical requirements separate laptop-grade from phone-grade: protocol, capacity compliance, and multi-device delivery.</p>
@@ -602,18 +602,18 @@ plPath: "produkty/power-bank/do-laptopa/"
   <cite class="block text-xs text-slate-400 mt-2 not-italic">— <a href="https://www.techsciresearch.com/report/high-capacity-power-banks-market/19744.html" target="_blank" rel="noopener noreferrer" class="text-brandOrange hover:underline">TechSci Research</a>, High Capacity Power Banks Market Report 2025-2031</cite>
  </blockquote>
 
- <div class="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
- <div class="bg-slate-50 rounded-xl p-6 border border-slate-100 text-center">
+ <div class="grid md:grid-cols-3 gap-8">
+ <div class="card-soft p-6 text-center">
  <p class="text-3xl font-black text-brandBlue mb-2">240W</p>
  <p class="text-sm font-bold text-slate-700 mb-2">PD 3.1 Protocol</p>
  <p class="text-xs text-slate-500">USB PD 3.1 Extended Power Range (EPR) enables 28V/36V/48V rails up to 240W. Required for gaming laptops and MacBook Pro 16" fast charge at 140W.</p>
  </div>
- <div class="bg-slate-50 rounded-xl p-6 border border-slate-100 text-center">
+ <div class="card-soft p-6 text-center">
  <p class="text-3xl font-black text-brandOrange mb-2">100Wh</p>
  <p class="text-sm font-bold text-slate-700 mb-2">Airline Compliance</p>
  <p class="text-xs text-slate-500">IATA allows up to 100Wh (27,000mAh @ 3.7V) in carry-on without airline approval. Our 27,000mAh models hit 99.9Wh — maximum capacity, zero travel friction.</p>
  </div>
- <div class="bg-slate-50 rounded-xl p-6 border border-slate-100 text-center">
+ <div class="card-soft p-6 text-center">
  <p class="text-3xl font-black text-brandBlue mb-2">2×65W</p>
  <p class="text-sm font-bold text-slate-700 mb-2">Dual Port Simultaneous</p>
  <p class="text-xs text-slate-500">Charge laptop + phone simultaneously. WOP22 delivers 65W to each USB-C port — enough to power two MacBook Airs at the same time.</p>
@@ -623,7 +623,7 @@ plPath: "produkty/power-bank/do-laptopa/"
 </section>
 
 <!-- Laptop Power Bank vs Standard Power Bank Comparison -->
-<section class="sec bg-slate-50 relative py-16">
+<section id="laptop-power-bank-vs-standard-power-bank-comparison" class="sec bg-slate-50 relative" data-section="comparison">
  <div class="container-content">
   <div class="text-center mb-12 reveal">
    <h2 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4">Laptop-Grade vs. <span class="text-brandOrange">Standard Power Bank</span></h2>
@@ -646,33 +646,33 @@ plPath: "produkty/power-bank/do-laptopa/"
 </section>
 
 <!-- Why Laptop Power Banks for Your Brand -->
-<section class="sec bg-slate-50 relative py-16">
+<section id="why-laptop-power-banks-for-your-brand" class="sec bg-slate-50 relative" data-section="content">
  <div class="container-wide">
  <h2 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4 text-center">Why <span class="text-brandOrange">Laptop Power Banks</span> for Your Brand</h2>
  <p class="text-center text-slate-500 text-sm max-w-2xl mx-auto mb-12">High-wattage power banks command premium pricing and target the fastest-growing segment of portable power: laptop and multi-device users.</p>
 
- <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
- <div class="bg-white rounded-xl p-6 border border-slate-200 shadow-sm">
+ <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+ <div class="card p-6 shadow-sm">
  <h3 class="font-black text-brandBlue uppercase mb-3 text-sm">Digital Nomad Market Growth</h3>
  <p class="text-sm text-slate-600 leading-relaxed">Remote workers need all-day laptop power away from outlets. The digital nomad market grows 20%+ YoY — portable laptop charging is their top gear priority.</p>
  </div>
- <div class="bg-white rounded-xl p-6 border border-slate-200 shadow-sm">
+ <div class="card p-6 shadow-sm">
  <h3 class="font-black text-brandBlue uppercase mb-3 text-sm">Premium Pricing ($50-120 Retail)</h3>
  <p class="text-sm text-slate-600 leading-relaxed">Laptop power banks retail at 3-5x the price of phone power banks. Higher wattage = higher margins for your brand with the same shelf space.</p>
  </div>
- <div class="bg-white rounded-xl p-6 border border-slate-200 shadow-sm">
+ <div class="card p-6 shadow-sm">
  <h3 class="font-black text-brandBlue uppercase mb-3 text-sm">Corporate & Enterprise Demand</h3>
  <p class="text-sm text-slate-600 leading-relaxed">IT departments bulk-order laptop power banks for field teams, trade shows, and executive travel kits. B2B reorder rates exceed 40%.</p>
  </div>
- <div class="bg-white rounded-xl p-6 border border-slate-200 shadow-sm">
+ <div class="card p-6 shadow-sm">
  <h3 class="font-black text-brandBlue uppercase mb-3 text-sm">MacBook Compatibility Differentiator</h3>
  <p class="text-sm text-slate-600 leading-relaxed">"Charges MacBook Pro" is the #1 search filter on Amazon power bank listings. PD 3.1 support puts your SKU in the premium tier automatically.</p>
  </div>
- <div class="bg-white rounded-xl p-6 border border-slate-200 shadow-sm">
+ <div class="card p-6 shadow-sm">
  <h3 class="font-black text-brandBlue uppercase mb-3 text-sm">UN38.3 for Global Shipping</h3>
  <p class="text-sm text-slate-600 leading-relaxed">All models ship with UN38.3 test reports, MSDS, and air transport documentation. Sell globally without compliance delays at customs.</p>
  </div>
- <div class="bg-white rounded-xl p-6 border border-slate-200 shadow-sm">
+ <div class="card p-6 shadow-sm">
  <h3 class="font-black text-brandBlue uppercase mb-3 text-sm">Amazon Laptop Charger Category</h3>
  <p class="text-sm text-slate-600 leading-relaxed">Amazon's "Laptop Portable Charger" sub-category has lower competition and higher AOV than generic power banks. PD 3.1 listings rank faster.</p>
  </div>
@@ -680,13 +680,13 @@ plPath: "produkty/power-bank/do-laptopa/"
  </div>
 </section>
 <!-- OEM/ODM Customization -->
-<section class="sec bg-white relative py-16">
+<section id="oem-odm-customization" class="sec bg-white relative" data-section="content">
  <div class="container-wide">
  <h2 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4 text-center">OEM/ODM Customization</h2>
  <p class="text-center text-slate-500 text-sm max-w-2xl mx-auto mb-12">Full customization from logo printing to bespoke industrial design. MOQ flexible by complexity.</p>
 
- <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
- <div class="bg-slate-50 rounded-xl p-6 border border-slate-200">
+ <div class="grid md:grid-cols-2 gap-8">
+ <div class="card-soft p-6">
  <h3 class="font-black text-brandBlue uppercase mb-4 text-sm">OEM (Standard Models, MOQ 500)</h3>
  <ul class="space-y-2 text-sm text-slate-600">
  <li>• Logo printing (silkscreen, laser, UV)</li>
@@ -697,7 +697,7 @@ plPath: "produkty/power-bank/do-laptopa/"
  <li>• Lead time: 25-30 days after sample approval</li>
  </ul>
  </div>
- <div class="bg-slate-50 rounded-xl p-6 border border-slate-200">
+ <div class="card-soft p-6">
  <h3 class="font-black text-brandBlue uppercase mb-4 text-sm">ODM (Custom Design, MOQ 1,000-2,000)</h3>
  <ul class="space-y-2 text-sm text-slate-600">
  <li>• Bespoke ID design (CMF: Color, Material, Finish)</li>
@@ -719,7 +719,7 @@ plPath: "produkty/power-bank/do-laptopa/"
 </section>
 
 <!-- Laptop Compatibility Guide -->
-<section class="sec bg-white relative py-16">
+<section id="laptop-compatibility-guide" class="sec bg-white relative" data-section="comparison">
  <div class="container-wide">
  <h2 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4 text-center">Laptop Compatibility Guide: <span class="text-brandOrange">Wattage by Brand</span></h2>
  <p class="text-center text-slate-500 text-sm max-w-3xl mx-auto mb-12">How many watts does your customer's laptop need? This table shows the minimum power bank wattage required to charge popular laptops at full speed — helping you choose the right WOWOHCOOL model for your target market.</p>
@@ -727,11 +727,11 @@ plPath: "produkty/power-bank/do-laptopa/"
  <div class="overflow-x-auto rounded-2xl border border-slate-200 shadow-sm max-w-4xl mx-auto">
  <table class="w-full text-sm">
  <thead>
- <tr class="bg-white">
- <th class="p-3 text-left text-slate-500 font-bold text-xs uppercase">Laptop</th>
- <th class="p-3 text-center text-slate-500 font-bold text-xs uppercase">OEM Charger</th>
- <th class="p-3 text-center text-slate-500 font-bold text-xs uppercase">Min PD Wattage</th>
- <th class="p-3 text-center text-brandOrange font-bold text-xs uppercase">Recommended Model</th>
+ <tr class="bg-brandBlue text-white">
+ <th class="p-3 text-left font-bold text-xs uppercase">Laptop</th>
+ <th class="p-3 text-center font-bold text-xs uppercase">OEM Charger</th>
+ <th class="p-3 text-center font-bold text-xs uppercase">Min PD Wattage</th>
+ <th class="p-3 text-center font-bold text-xs uppercase">Recommended Model</th>
  </tr>
  </thead>
  <tbody>
@@ -790,7 +790,7 @@ plPath: "produkty/power-bank/do-laptopa/"
 </section>
 
 <!-- PD 3.1 vs PD 3.0 -->
-<section class="sec bg-slate-50 relative py-16">
+<section id="pd-3-1-vs-pd-3-0" class="sec bg-slate-50 relative" data-section="comparison">
  <div class="container-wide">
  <h2 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4 text-center">PD 3.1 vs. PD 3.0: <span class="text-brandOrange">Technical Comparison</span></h2>
  <p class="text-center text-slate-500 text-sm max-w-3xl mx-auto mb-12">USB Power Delivery 3.1 introduces Extended Power Range (EPR) — enabling 140W and 240W charging that PD 3.0 simply cannot deliver. Here's what this means for your product lineup.</p>
@@ -798,10 +798,10 @@ plPath: "produkty/power-bank/do-laptopa/"
  <div class="overflow-x-auto rounded-2xl border border-slate-200 shadow-sm max-w-4xl mx-auto">
  <table class="w-full text-sm">
  <thead>
- <tr class="bg-white">
- <th class="p-4 text-left text-slate-500 font-bold text-xs uppercase">Specification</th>
- <th class="p-4 text-center text-slate-500 font-bold text-xs uppercase">PD 3.0 (SPR)</th>
- <th class="p-4 text-center bg-brandOrange/5 border-x border-brandOrange/20 text-brandOrange font-bold text-xs uppercase">PD 3.1 (EPR)</th>
+ <tr class="bg-brandBlue text-white">
+ <th class="p-4 text-left font-bold text-xs uppercase">Specification</th>
+ <th class="p-4 text-center font-bold text-xs uppercase">PD 3.0 (SPR)</th>
+ <th class="p-4 text-center bg-brandOrange/20 font-bold text-xs uppercase">PD 3.1 (EPR)</th>
  </tr>
  </thead>
  <tbody>
@@ -852,23 +852,23 @@ plPath: "produkty/power-bank/do-laptopa/"
 </section>
 
 <!-- Airline-Safe 100Wh -->
-<section class="sec bg-white relative py-16">
+<section id="airline-safe-100wh" class="sec bg-white relative" data-section="content">
  <div class="container-wide">
  <h2 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4 text-center">Airline-Safe: <span class="text-brandOrange">100Wh Compliance</span></h2>
  <p class="text-center text-slate-500 text-sm max-w-3xl mx-auto mb-12">All WOWOHCOOL laptop power banks are designed to stay under the 100Wh IATA carry-on limit — no airline pre-approval needed. Here's how the math works: Wh = mAh × Voltage ÷ 1000.</p>
 
- <div class="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
- <div class="bg-slate-50 rounded-xl p-6 border border-slate-100 text-center">
+ <div class="grid md:grid-cols-3 gap-6">
+ <div class="card-soft p-6 text-center">
  <p class="text-3xl font-black text-brandBlue mb-2">99.9Wh</p>
  <p class="text-sm font-bold text-slate-700 mb-2">27000mAh @ 3.7V</p>
  <p class="text-xs text-slate-500">Maximum capacity while staying under the 100Wh limit. Our largest models (WOP22, WOP23) use this optimal size.</p>
  </div>
- <div class="bg-slate-50 rounded-xl p-6 border border-slate-100 text-center">
+ <div class="card-soft p-6 text-center">
  <p class="text-3xl font-black text-brandOrange mb-2">100Wh</p>
  <p class="text-sm font-bold text-slate-700 mb-2">IATA Carry-On Limit</p>
  <p class="text-xs text-slate-500">Power banks under 100Wh are allowed in carry-on luggage on all airlines worldwide. No pre-approval or declaration required.</p>
  </div>
- <div class="bg-slate-50 rounded-xl p-6 border border-slate-100 text-center">
+ <div class="card-soft p-6 text-center">
  <p class="text-3xl font-black text-brandBlue mb-2">UN38.3</p>
  <p class="text-sm font-bold text-slate-700 mb-2">All Models Certified</p>
  <p class="text-xs text-slate-500">Full UN38.3 test reports and MSDS documentation. Ready for international air freight and customs clearance.</p>
@@ -878,23 +878,23 @@ plPath: "produkty/power-bank/do-laptopa/"
 </section>
 
 <!-- Cross-Category Internal Links -->
-<section class="sec bg-slate-50 relative py-12">
- <div class="container-content">
+<section id="cross-category-internal-links" class="sec bg-slate-50 relative py-12" data-section="related">
+ <div class="container-wide">
  <p class="text-center text-slate-500 text-sm mb-6">Explore more power bank categories from WOWOHCOOL:</p>
  <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
- <a href="/products/power-bank/semi-solid-state/" class="block bg-white rounded-xl p-4 border border-slate-200 hover:border-brandOrange hover:shadow-md transition text-center">
+ <a href="/products/power-bank/semi-solid-state/" class="card block p-4 hover:border-brandOrange hover:shadow-md transition text-center">
  <p class="font-black text-brandBlue text-sm uppercase mb-1">Semi-Solid-State</p>
  <p class="text-[10px] text-slate-500">Next-Gen Battery</p>
  </a>
- <a href="/products/power-bank/2-in-1-hybrid/" class="block bg-white rounded-xl p-4 border border-slate-200 hover:border-brandOrange hover:shadow-md transition text-center">
+ <a href="/products/power-bank/2-in-1-hybrid/" class="card block p-4 hover:border-brandOrange hover:shadow-md transition text-center">
  <p class="font-black text-brandBlue text-sm uppercase mb-1">2-in-1 Hybrid</p>
  <p class="text-[10px] text-slate-500">Charger + Power Bank</p>
  </a>
- <a href="/products/power-bank/wireless-magnetic/" class="block bg-white rounded-xl p-4 border border-slate-200 hover:border-brandOrange hover:shadow-md transition text-center">
+ <a href="/products/power-bank/wireless-magnetic/" class="card block p-4 hover:border-brandOrange hover:shadow-md transition text-center">
  <p class="font-black text-brandBlue text-sm uppercase mb-1">Wireless Magnetic</p>
  <p class="text-[10px] text-slate-500">Qi2 / MagSafe</p>
  </a>
- <a href="/products/power-bank/" class="block bg-white rounded-xl p-4 border border-slate-200 hover:border-brandOrange hover:shadow-md transition text-center">
+ <a href="/products/power-bank/" class="card block p-4 hover:border-brandOrange hover:shadow-md transition text-center">
  <p class="font-black text-brandBlue text-sm uppercase mb-1">All Power Banks</p>
  <p class="text-[10px] text-slate-500">29 Models Total</p>
  </a>
@@ -903,35 +903,35 @@ plPath: "produkty/power-bank/do-laptopa/"
 </section>
 
 <!-- FAQ -->
-<section class="sec bg-white relative py-16">
+<section id="faq" class="sec bg-white relative" data-section="faq">
  <div class="container-narrow">
  <h2 class="text-3xl lg:text-4xl font-black text-slate-900 uppercase italic tracking-tighter mb-10 text-center">Laptop Power Bank <span class="text-brandOrange">FAQ</span></h2>
  <div class="space-y-4">
- <details class="bg-slate-50 rounded-xl p-5 border border-slate-200 group">
+ <details class="card-soft p-5 group">
  <summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">Can a laptop power bank charge a MacBook Pro?<span class="text-brandOrange group-open:rotate-180 transition">▼</span></summary>
  <p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">Yes. Models with 67W or higher PD output (WOP21, WOP22, WOP23) charge MacBook Pro 13/14/16-inch at full speed. The WOP23 240W PD 3.1 model also supports MacBook Pro 16-inch fast charging at 140W, matching Apple's MagSafe 3 charger output.</p>
  </details>
- <details class="bg-slate-50 rounded-xl p-5 border border-slate-200 group">
+ <details class="card-soft p-5 group">
  <summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">What is PD 3.1 vs PD 3.0?<span class="text-brandOrange group-open:rotate-180 transition">▼</span></summary>
  <p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">PD 3.0 caps at 100W maximum output. PD 3.1 (released 2021) extends the standard up to 240W using new 28V, 36V, and 48V voltage rails (Extended Power Range, EPR). PD 3.1 is required for charging gaming laptops and 16-inch MacBook Pro at full speed.</p>
  </details>
- <details class="bg-slate-50 rounded-xl p-5 border border-slate-200 group">
+ <details class="card-soft p-5 group">
  <summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">Is a 27000mAh laptop power bank airline safe?<span class="text-brandOrange group-open:rotate-180 transition">▼</span></summary>
  <p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">Yes. 27000mAh at 3.7V equals 99.9Wh, just under the 100Wh IATA carry-on limit. All WOWOHCOOL laptop power banks are UN38.3 certified and approved for air carry-on. Anything above 100Wh requires airline approval and is forbidden in checked baggage.</p>
  </details>
- <details class="bg-slate-50 rounded-xl p-5 border border-slate-200 group">
+ <details class="card-soft p-5 group">
  <summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">What is the MOQ for laptop power bank OEM?<span class="text-brandOrange group-open:rotate-180 transition">&#9660;</span></summary>
  <p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">MOQ starts at 500 units for standard ODM models with custom logo printing. Custom OEM with tooling: 1,000-2,000 units. Sample turnaround: 3-7 days for standard, 10-15 days for custom.</p>
  </details>
- <details class="bg-slate-50 rounded-xl p-5 border border-slate-200 group">
+ <details class="card-soft p-5 group">
  <summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">How long does a 27000mAh power bank charge a MacBook Pro?<span class="text-brandOrange group-open:rotate-180 transition">&#9660;</span></summary>
  <p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">A 27000mAh (99.9Wh) power bank provides approximately 1.3-1.5 full charges for a MacBook Pro 14" (70Wh battery) or about 0.7-0.8 charges for a MacBook Pro 16" (100Wh battery). With 85% conversion efficiency, expect 85Wh usable energy from a 99.9Wh bank.</p>
  </details>
- <details class="bg-slate-50 rounded-xl p-5 border border-slate-200 group">
+ <details class="card-soft p-5 group">
  <summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">Can I charge a laptop and phone simultaneously?<span class="text-brandOrange group-open:rotate-180 transition">&#9660;</span></summary>
  <p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">Yes. All WOWOHCOOL laptop power banks support simultaneous multi-device output. The WOP23 can deliver 240W to a laptop while charging a phone via secondary USB-C or USB-A port. Total output is dynamically allocated across ports.</p>
  </details>
- <details class="bg-slate-50 rounded-xl p-5 border border-slate-200 group">
+ <details class="card-soft p-5 group">
  <summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">How do I calculate Wh for airline compliance?<span class="text-brandOrange group-open:rotate-180 transition">&#9660;</span></summary>
  <p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">Formula: Wh = mAh × Nominal Voltage ÷ 1000. Example: 27000mAh × 3.7V ÷ 1000 = 99.9Wh (just under the 100Wh carry-on limit). Batteries 100-160Wh need airline approval; above 160Wh are prohibited. All WOWOHCOOL models are designed at or below 99.9Wh.</p>
  </details>

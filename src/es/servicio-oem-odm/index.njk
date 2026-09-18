@@ -84,18 +84,15 @@ plPath: "uslugi-oem-odm/"
 {% from "breadcrumb.njk" import breadcrumb %}
 
 <!-- ======== 1. HERO ======== -->
-<section class="relative pt-24 md:pt-28 pb-8 lg:pb-16 bg-white overflow-hidden">
+<section id="hero" class="relative pt-24 md:pt-28 pb-8 lg:pb-16 bg-white overflow-hidden lg:min-h-[100dvh] lg:flex lg:flex-col lg:justify-center" data-section="hero">
  <div class="absolute inset-0 pointer-events-none">
  <div class="absolute top-0 left-0 w-64 h-64 bg-brandOrange opacity-10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
  <div class="absolute bottom-0 right-0 w-64 h-64 bg-brandBlue opacity-10 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
  </div>
  <div class="container-wide relative z-10 text-center pb-8">
   {{ breadcrumb([{name:"Inicio",url:"/es/"},{name:"Servicio OEM/ODM"}], "none", "mb-6", { variant: "hero" }) }}
- <div class="inline-flex items-center gap-2 bg-brandOrange/10 text-brandOrange text-[11px] font-bold px-4 py-2 rounded-full tracking-widest uppercase mb-4">
- <span class="w-2 h-2 rounded-full bg-brandOrange animate-pulse"></span>
- Solución integral desde Shenzhen
- </div>
- <h1 class="text-4xl md:text-5xl lg:text-6xl font-black text-brandBlue leading-tight mb-6 italic uppercase">
+ <div class="badge-capsule mb-6 mx-auto uppercase tracking-widest">Solución integral desde Shenzhen</div>
+ <h1 class="text-4xl md:text-5xl lg:text-[2.5rem] xl:text-[2.875rem] 2xl:text-6xl font-black text-brandBlue leading-tight mb-6 italic uppercase tracking-tighter">
  Servicio <span class="text-brandOrange">OEM/ODM</span>: del concepto a la producción en serie
  </h1>
  <p class="text-slate-600 max-w-2xl mx-auto text-lg mb-4">
@@ -108,9 +105,9 @@ plPath: "uslugi-oem-odm/"
  <span class="text-[10px] bg-brandBlue/5 text-slate-500 px-3 py-1 rounded-full font-bold">DDP España</span>
  <span class="text-[10px] bg-brandBlue/5 text-slate-500 px-3 py-1 rounded-full font-bold">MOQ 500</span>
  </div>
- <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
- <button data-action="open-modal" class="w-full sm:w-auto bg-brandOrange text-white px-8 py-4 rounded-xl font-black uppercase tracking-widest text-sm shadow-xl hover:-translate-y-1 transition cursor-pointer">Iniciar proyecto</button>
- <a href="#proceso" class="w-full sm:w-auto border-2 border-brandBlue text-brandBlue px-8 py-4 rounded-xl font-black uppercase tracking-widest text-sm hover:bg-brandBlue hover:text-white transition">Nuestro proceso</a>
+ <div class="btn-pair">
+ <button data-action="open-modal" class="border-2 border-transparent w-full bg-brandOrange text-white px-8 py-4 rounded-xl font-black uppercase tracking-widest text-sm shadow-xl hover:-translate-y-1 transition cursor-pointer text-center">Iniciar proyecto</button>
+ <a href="#proceso" class="w-full border-2 border-brandBlue text-brandBlue px-8 py-4 rounded-xl font-black uppercase tracking-widest text-sm hover:bg-brandBlue hover:text-white transition text-center">Nuestro proceso</a>
  </div>
  </div>
 </section>
@@ -119,7 +116,7 @@ plPath: "uslugi-oem-odm/"
 {% include "trust-bar.njk" %}
 
 <!-- ======== 3. OEM VS ODM ======== -->
-<section class="sec bg-slate-50">
+<section id="oem-vs-odm" class="sec bg-slate-50" data-section="comparison">
  <div class="container-wide">
  {{ sectionHeader('OEM vs ODM', '¿Qué modelo <span class="text-brandOrange">le conviene más</span>?', 'Elija OEM si ya tiene un diseño propio. Elija ODM si necesita que desarrollemos el producto desde cero. Ambos con MOQ flexible y precio directo de fábrica.', {}) }}
  <div class="grid lg:grid-cols-2 gap-8">
@@ -143,7 +140,7 @@ plPath: "uslugi-oem-odm/"
  <path d="M256 512a256 256 0 1 1 0-512 256 256 0 1 1 0 512zM374 145.7c-10.7-7.8-25.7-5.4-33.5 5.3L221.1 315.2 169 263.1c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l72 72c5 5 11.8 7.5 18.8 7s13.4-4.1 17.5-9.8L379.3 179.2c7.8-10.7 5.4-25.7-5.3-33.5z" fill="currentColor"/>
  </svg><div><span class="font-bold text-xs uppercase text-brandBlue">Rapidez</span><p class="text-sm text-slate-500">Pedidos estándar en 25-30 días tras aprobación de muestra.</p></div></li>
  </ul>
- <div class="bg-slate-50 rounded-xl p-4 text-center"><span class="font-black text-brandBlue text-lg">500 uds</span><span class="text-xs text-slate-500 ml-1">MOQ mínimo</span></div>
+ <div class="card-soft p-4 text-center"><span class="font-black text-brandBlue text-lg">500 uds</span><span class="text-xs text-slate-500 ml-1">MOQ mínimo</span></div>
  </div>
  <div class="group p-8 bg-white rounded-[2rem] border-2 border-transparent hover:border-brandOrange/20 hover:shadow-2xl transition-all duration-500 reveal delay-1">
  <div class="flex items-center justify-between mb-6">
@@ -172,18 +169,19 @@ plPath: "uslugi-oem-odm/"
 </section>
 
 <!-- ======== 4. WORKFLOW ======== -->
-<section id="proceso" class="sec bg-white">
+<!-- 深色化：对齐 DE #prozess 的深色流程区块；步骤徽章原为 bg-white+border-brandBlue，深底上会白底白字，改为半透明白 -->
+<section id="proceso" class="sec bg-darkBg text-white dark-section" data-section="content">
  <div class="container-wide">
  {{ sectionHeader('Proceso', 'Nuestro proceso <span class="text-brandOrange">transparente</span>', 'Hitos claros y plazos predecibles, le mantenemos informado en cada etapa, desde el concepto inicial hasta la logística global.', {}) }}
  <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-y-10 gap-x-8">
- <div class="reveal flex items-start gap-4"><div class="shrink-0 w-12 h-12 bg-white border-2 border-brandBlue text-brandBlue rounded-xl flex items-center justify-center font-black">01</div><div><h3 class="font-black text-brandBlue uppercase text-sm mb-2">Consulta y requisitos</h3><p class="text-sm text-slate-500">Análisis de especificaciones técnicas, necesidades de certificación, presupuesto y plazo. Respuesta en 24h.</p></div></div>
- <div class="reveal flex items-start gap-4" style="transition-delay:100ms"><div class="shrink-0 w-12 h-12 bg-white border-2 border-brandBlue text-brandBlue rounded-xl flex items-center justify-center font-black">02</div><div><h3 class="font-black text-brandBlue uppercase text-sm mb-2">Diseño y presupuesto</h3><p class="text-sm text-slate-500">Nuestro equipo I+D crea diseños industriales y esquemas PCBA. Presupuesto detallado con costes y plazos.</p></div></div>
+ <div class="reveal flex items-start gap-4"><div class="shrink-0 w-12 h-12 bg-white/10 border-2 border-white/25 text-white rounded-xl flex items-center justify-center font-black">01</div><div><h3 class="font-black text-brandBlue uppercase text-sm mb-2">Consulta y requisitos</h3><p class="text-sm text-slate-500">Análisis de especificaciones técnicas, necesidades de certificación, presupuesto y plazo. Respuesta en 24h.</p></div></div>
+ <div class="reveal flex items-start gap-4" style="transition-delay:100ms"><div class="shrink-0 w-12 h-12 bg-white/10 border-2 border-white/25 text-white rounded-xl flex items-center justify-center font-black">02</div><div><h3 class="font-black text-brandBlue uppercase text-sm mb-2">Diseño y presupuesto</h3><p class="text-sm text-slate-500">Nuestro equipo I+D crea diseños industriales y esquemas PCBA. Presupuesto detallado con costes y plazos.</p></div></div>
  <div class="reveal flex items-start gap-4" style="transition-delay:200ms"><div class="shrink-0 w-12 h-12 bg-brandOrange text-white rounded-xl flex items-center justify-center font-black shadow-lg">03</div><div><h3 class="font-black text-brandBlue uppercase text-sm mb-2">Muestras y prototipos</h3><span class="inline-block px-2 py-0.5 bg-brandOrange/10 text-brandOrange text-[11px] font-bold rounded mb-1">7-15 DÍAS</span><p class="text-sm text-slate-500">Muestras funcionales y validación de PCBA para garantizar que el producto cumple todos los criterios.</p></div></div>
- <div class="reveal flex items-start gap-4" style="transition-delay:300ms"><div class="shrink-0 w-12 h-12 bg-white border-2 border-brandBlue text-brandBlue rounded-xl flex items-center justify-center font-black">04</div><div><h3 class="font-black text-brandBlue uppercase text-sm mb-2">Certificación</h3><p class="text-sm text-slate-500">Pruebas CE, RoHS, Qi2, AENOR. Test envejecimiento 4h. Certificación UE 2023/1542 incluida para power banks. Verificable por <a href="https://www.sgs.com/" target="_blank" rel="noopener external">SGS</a>.</p></div></div>
+ <div class="reveal flex items-start gap-4" style="transition-delay:300ms"><div class="shrink-0 w-12 h-12 bg-white/10 border-2 border-white/25 text-white rounded-xl flex items-center justify-center font-black">04</div><div><h3 class="font-black text-brandBlue uppercase text-sm mb-2">Certificación</h3><p class="text-sm text-slate-500">Pruebas CE, RoHS, Qi2, AENOR. Test envejecimiento 4h. Certificación UE 2023/1542 incluida para power banks. Verificable por <a href="https://www.sgs.com/" target="_blank" rel="noopener external">SGS</a>.</p></div></div>
  <div class="reveal flex items-start gap-4" style="transition-delay:400ms"><div class="shrink-0 w-12 h-12 bg-brandOrange text-white rounded-xl flex items-center justify-center font-black shadow-lg">05</div><div><h3 class="font-black text-brandBlue uppercase text-sm mb-2">Producción en serie</h3><span class="inline-block px-2 py-0.5 bg-brandOrange/10 text-brandOrange text-[11px] font-bold rounded mb-1">25-35 DÍAS</span><p class="text-sm text-slate-500">Líneas automatizadas. Control 4 etapas (IQC, IPQC, FQC, OQC). 100% pruebas de envejecimiento.</p></div></div>
- <div class="reveal flex items-start gap-4" style="transition-delay:500ms"><div class="shrink-0 w-12 h-12 bg-white border-2 border-brandBlue text-brandBlue rounded-xl flex items-center justify-center font-black">06</div><div><h3 class="font-black text-brandBlue uppercase text-sm mb-2">Envío y postventa</h3><p class="text-sm text-slate-500">Embalaje personalizado, envío DDP (<a href="https://www.dhl.com/es-es/home/envio.html" target="_blank" rel="noopener">DHL 5-7 días</a>), gestión aduanera. Garantía 12 meses y soporte técnico.</p></div></div>
+ <div class="reveal flex items-start gap-4" style="transition-delay:500ms"><div class="shrink-0 w-12 h-12 bg-white/10 border-2 border-white/25 text-white rounded-xl flex items-center justify-center font-black">06</div><div><h3 class="font-black text-brandBlue uppercase text-sm mb-2">Envío y postventa</h3><p class="text-sm text-slate-500">Embalaje personalizado, envío DDP (<a href="https://www.dhl.com/es-es/home/envio.html" target="_blank" rel="noopener">DHL 5-7 días</a>), gestión aduanera. Garantía 12 meses y soporte técnico.</p></div></div>
  </div>
- <div class="mt-12 p-6 bg-slate-50 rounded-2xl border border-slate-200 flex flex-col md:flex-row items-center justify-between gap-4 reveal">
+ <div class="card-lg-soft mt-12 p-6 flex flex-col md:flex-row items-center justify-between gap-4 reveal">
  <p class="text-sm text-slate-600">Plazos típicos: <span class="font-bold text-brandBlue">4-8 semanas</span> del concepto al envío, según complejidad.</p>
  <button data-action="open-modal" class="bg-brandOrange text-white px-6 py-3 rounded-xl font-black uppercase tracking-widest text-[11px] hover:bg-brandOrange/90 transition-all cursor-pointer">Solicitar plazo personalizado</button>
  </div>
@@ -191,7 +189,7 @@ plPath: "uslugi-oem-odm/"
 </section>
 
 <!-- ======== 5. FULL-STACK CUSTOMIZATION ======== -->
-<section class="sec bg-slate-50">
+<section id="full-stack-customization" class="sec bg-slate-50" data-section="content">
  <div class="container-wide">
  {{ sectionHeader('Personalización integral', 'Mucho más que <span class="text-brandOrange">un logotipo</span>', 'El servicio OEM/ODM de WOWOHCOOL cubre cada aspecto de su producto. Desde la ingeniería hasta el embalaje minorista listo para Amazon.', {}) }}
  <div class="grid md:grid-cols-3 gap-6">
@@ -235,11 +233,11 @@ plPath: "uslugi-oem-odm/"
 </section>
 
 <!-- ======== 6. PRICING GUIDE ======== -->
-<section class="sec bg-white">
+<section id="pricing-guide" class="sec bg-white" data-section="pricing">
  <div class="container-wide">
  {{ sectionHeader('Guía de inversión', 'Transparencia <span class="text-brandOrange">en costes</span>', 'Rangos orientativos según volumen de pedido. Precios exactos tras analizar sus especificaciones. Sin sorpresas.', {}) }}
- <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
- <div class="bg-slate-50 rounded-2xl p-8 border border-slate-200 reveal text-center">
+ <div class="grid md:grid-cols-3 gap-6">
+ <div class="card-lg-soft p-8 reveal text-center">
  <p class="text-[11px] font-black text-brandOrange uppercase tracking-widest mb-2">Pedido inicial</p>
  <div class="text-3xl font-black text-brandBlue mb-1">500 – 1.000</div>
  <p class="text-xs text-slate-400 mb-6">unidades</p>
@@ -266,7 +264,7 @@ plPath: "uslugi-oem-odm/"
  </ul>
  <p class="text-xs text-slate-400">Equilibrio coste-personalización</p>
  </div>
- <div class="bg-slate-50 rounded-2xl p-8 border border-slate-200 reveal text-center">
+ <div class="card-lg-soft p-8 reveal text-center">
  <p class="text-[11px] font-black text-brandOrange uppercase tracking-widest mb-2">Gran volumen</p>
  <div class="text-3xl font-black text-brandBlue mb-1">5.000+</div>
  <p class="text-xs text-slate-400 mb-6">unidades</p>
@@ -287,13 +285,15 @@ plPath: "uslugi-oem-odm/"
 </section>
 
 <!-- ======== 7. CASE STUDIES ======== -->
-<section class="sec bg-slate-50">
+<!-- 深色化：卡片改用语义类 .card（.dark-section 会把它转成半透明白 + 白描边）；
+     logo 瓦片由 bg-slate-100 改 bg-white —— 素材是 100×75 白底 webp，灰瓦片上会露出白色矩形边 -->
+<section id="case-studies" class="sec bg-darkBg text-white dark-section" data-section="content">
  <div class="container-wide">
  {{ sectionHeader('Casos de éxito', 'Casos de éxito <span class="text-brandOrange">OEM/ODM</span>', 'No hacemos promesas vacías. Estos son resultados reales de nuestros clientes.', {}) }}
- <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
- <div class="bg-white rounded-2xl p-8 shadow-md reveal">
+ <div class="grid md:grid-cols-2 gap-6">
+ <div class="card rounded-2xl p-8 reveal">
  <div class="flex items-center gap-4 mb-4">
- <div class="w-12 h-12 bg-slate-100 rounded-xl flex items-center justify-center"><img src="/image/customer-logo/bosch-logo.svg.webp" alt="Bosch" class="h-6 w-auto" loading="lazy" width="100" height="75"></div>
+ <div class="w-12 h-12 bg-white rounded-xl flex items-center justify-center"><img src="/image/customer-logo/bosch-logo.svg.webp" alt="Bosch" class="h-6 w-auto" loading="lazy" width="100" height="75"></div>
  <div>
  <h3 class="font-black text-brandBlue uppercase text-sm">Bosch</h3>
  <p class="text-xs text-slate-400">Alemania · Empresa DAX</p>
@@ -306,9 +306,9 @@ plPath: "uslugi-oem-odm/"
  </div>
  <blockquote class="text-sm text-slate-600 italic border-l-2 border-brandOrange pl-4">"WOWOHCOOL entregó 10.000 unidades de cargadores GaN para coche de 65W en un plazo urgente, cumpliendo con la fecha de nuestra campaña de pre-venta con muestras en 5 días."</blockquote>
  </div>
- <div class="bg-white rounded-2xl p-8 shadow-md reveal delay-1">
+ <div class="card rounded-2xl p-8 reveal delay-1">
  <div class="flex items-center gap-4 mb-4">
- <div class="w-12 h-12 bg-slate-100 rounded-xl flex items-center justify-center"><img src="/image/customer-logo/jacobjensen-clients.webp" alt="Jacob Jensen" class="h-6 w-auto" loading="lazy" width="100" height="75"></div>
+ <div class="w-12 h-12 bg-white rounded-xl flex items-center justify-center"><img src="/image/customer-logo/jacobjensen-clients.webp" alt="Jacob Jensen" class="h-6 w-auto" loading="lazy" width="100" height="75"></div>
  <div>
  <h3 class="font-black text-brandBlue uppercase text-sm">Jacob jensen</h3>
  <p class="text-xs text-slate-400">Dinamarca · Estudio de diseño</p>
@@ -322,14 +322,15 @@ plPath: "uslugi-oem-odm/"
  <blockquote class="text-sm text-slate-600 italic border-l-2 border-brandOrange pl-4">"WOWOHCOOL resolvió nuestro complejo desafío ODM integrando sensores duales infrarrojos y táctiles donde otros proveedores fallaron. 6.000 unidades con cero defectos."</blockquote>
  </div>
  </div>
- <div class="text-center mt-8 reveal">
- <a href="/es/casos-de-exito/" class="btn-secondary">Ver todos los casos de éxito →</a>
+ <!-- 深色区里 .btn-ghost-lg 的 brandBlue 描边会隐形 → 内联工具类改白描边；间隔 mt-8 → mt-12 -->
+ <div class="text-center mt-12 reveal">
+ <a href="/es/casos-de-exito/" class="btn-ghost-lg border-white/30 text-white hover:bg-white hover:text-brandBlue">Ver todos los casos de éxito →</a>
  </div>
  </div>
 </section>
 
 <!-- ======== 8. FAQ ======== -->
-<section class="sec bg-white">
+<section id="faq" class="sec bg-white" data-section="faq">
  <div class="container-narrow">
  {{ sectionHeader('FAQ', 'Preguntas frecuentes', 'Respuestas a las dudas más comunes sobre nuestros servicios OEM/ODM.', {max: ''}) }}
  <div class="reveal">

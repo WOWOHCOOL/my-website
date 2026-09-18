@@ -25,11 +25,11 @@ plPath: "kontakt/"
 {% endblock %}
 
 {% block contactHero %}
-<section class="pt-24 md:pt-28 pb-20 md:pb-24 bg-gradient-to-br from-slate-50 via-white to-orange-50">
+<section id="hero" class="pt-24 md:pt-28 pb-20 md:pb-24 bg-gradient-to-br from-slate-50 via-white to-orange-50 lg:min-h-[100dvh] lg:flex lg:flex-col lg:justify-center" data-section="hero">
  <div class="container-narrow text-center reveal">
   {{ breadcrumb([{name: "Startseite", url: "/de/"}, {name: "Kontakt"}], "none", "mb-6", { variant: "hero" }) }}
- <p class="text-brandOrange text-xs font-bold tracking-widest uppercase mb-3">Kontakt</p>
- <h1 class="text-3xl md:text-5xl font-black text-brandBlue leading-tight mb-6 italic uppercase">Kontakt &amp; Angebot<br><span class="text-brandOrange">für Ihr Projekt</span></h1>
+ <div class="badge-capsule mb-6 mx-auto uppercase tracking-widest">Kontakt</div>
+ <h1 class="text-3xl md:text-5xl font-black text-brandBlue leading-tight mb-6 italic uppercase tracking-tighter">Kontakt &amp; Angebot<br><span class="text-brandOrange">für Ihr Projekt</span></h1>
  <p class="text-slate-600 text-lg max-w-2xl mx-auto">Antwort innerhalb von 24 Stunden. Ihr persönlicher Account Manager steht Ihnen zur Seite.</p>
 
  </div>
@@ -42,7 +42,7 @@ plPath: "kontakt/"
 {% endblock %}
 
 {% block contactMain %}
-<section class="sec bg-white">
+<section id="trust-bar" class="sec bg-white" data-section="trust">
  <div class="container-wide">
  <div class="grid lg:grid-cols-3 gap-10">
  <div class="lg:col-span-1 reveal">
@@ -70,7 +70,7 @@ plPath: "kontakt/"
  </div>
  </div>
  <div class="lg:col-span-2 reveal">
- <div class="bg-slate-50 rounded-2xl p-8 md:p-10 border border-slate-200">
+ <div class="card-lg-soft p-8 md:p-10">
  <h2 class="text-2xl font-bold text-brandBlue mb-6">Anfrage senden</h2>
  <form action="https://api.web3forms.com/submit" method="POST" class="inquiry-form space-y-4">
  <input type="hidden" name="access_key" value="7f077cf3-642b-4aba-9be2-cb99c0c65b19">
@@ -81,12 +81,12 @@ plPath: "kontakt/"
  <input type="hidden" name="utm_medium" id="utm_medium" value="">
  <input type="hidden" name="utm_campaign" id="utm_campaign" value="">
  <div class="grid md:grid-cols-2 gap-4">
- <div><label class="block text-sm font-semibold text-slate-700 mb-1.5">Vorname *</label><input type="text" name="name" required autocomplete="name" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-brandOrange focus:ring-2 focus:ring-brandOrange/20 outline-none transition text-sm bg-white"></div>
- <div><label class="block text-sm font-semibold text-slate-700 mb-1.5">Unternehmen <span class="text-slate-500 font-medium">(optional)</span></label><input type="text" name="company" autocomplete="organization" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-brandOrange focus:ring-2 focus:ring-brandOrange/20 outline-none transition text-sm bg-white"></div>
+ <div><label class="block text-sm font-semibold text-slate-700 mb-1.5">Vorname *</label><input type="text" name="name" required autocomplete="name" class="card w-full px-4 py-3 focus:border-brandOrange focus:ring-2 focus:ring-brandOrange/20 outline-none transition text-sm"></div>
+ <div><label class="block text-sm font-semibold text-slate-700 mb-1.5">Unternehmen <span class="text-slate-500 font-medium">(optional)</span></label><input type="text" name="company" autocomplete="organization" class="card w-full px-4 py-3 focus:border-brandOrange focus:ring-2 focus:ring-brandOrange/20 outline-none transition text-sm"></div>
  </div>
- <div><label class="block text-sm font-semibold text-slate-700 mb-1.5">E-Mail *</label><input type="email" name="email" required autocomplete="email" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-brandOrange focus:ring-2 focus:ring-brandOrange/20 outline-none transition text-sm bg-white"></div>
- <div><label class="block text-sm font-semibold text-slate-700 mb-1.5">Telefon (optional)</label><input type="tel" name="phone" autocomplete="tel" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-brandOrange focus:ring-2 focus:ring-brandOrange/20 outline-none transition text-sm bg-white"></div>
- <div><label class="block text-sm font-semibold text-slate-700 mb-1.5">Nachricht *</label><textarea name="message" rows="4" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-brandOrange focus:ring-2 focus:ring-brandOrange/20 outline-none transition text-sm resize-none bg-white"></textarea></div>
+ <div><label class="block text-sm font-semibold text-slate-700 mb-1.5">E-Mail *</label><input type="email" name="email" required autocomplete="email" class="card w-full px-4 py-3 focus:border-brandOrange focus:ring-2 focus:ring-brandOrange/20 outline-none transition text-sm"></div>
+ <div><label class="block text-sm font-semibold text-slate-700 mb-1.5">Telefon (optional)</label><input type="tel" name="phone" autocomplete="tel" class="card w-full px-4 py-3 focus:border-brandOrange focus:ring-2 focus:ring-brandOrange/20 outline-none transition text-sm"></div>
+ <div><label class="block text-sm font-semibold text-slate-700 mb-1.5">Nachricht *</label><textarea name="message" rows="4" required class="card w-full px-4 py-3 focus:border-brandOrange focus:ring-2 focus:ring-brandOrange/20 outline-none transition text-sm resize-none"></textarea></div>
  <label class="flex items-start gap-3"><input type="checkbox" required class="mt-1 accent-brandOrange"><span class="text-xs text-slate-500">Ich habe die <a href="/de/datenschutz/" class="text-brandOrange hover:underline">Datenschutzerklärung</a> gelesen und zur Kenntnis genommen. *</span></label>
  <button type="submit" class="btn-form">Kostenloses Angebot anfordern <svg class="icon-arrow-right text-sm" aria-hidden="true" focusable="false" viewBox="0 0 512 512"><path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-105.4 105.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" fill="currentColor"/></svg></button>
  </form>
@@ -99,25 +99,25 @@ plPath: "kontakt/"
 
 {% block contactExtra %}
 <!-- ======== COMMON QUESTIONS ======== -->
-<section class="sec bg-white">
- <div class="container-narrow">
+<section id="common-questions" class="sec bg-white" data-section="faq">
+ <div class="container-wide">
  {{ sectionHeader('Auf einen Blick', 'Häufige Fragen vor der Kontaktaufnahme', '', {max: '', mb: 'mb-10'}) }}
  <div class="grid md:grid-cols-3 gap-6 reveal">
- <div class="bg-slate-50 rounded-xl p-6 text-center">
+ <div class="card-soft p-6 text-center">
  <svg class="icon-clock text-brandOrange mx-auto mb-3" width="24" height="24" aria-hidden="true" focusable="false" viewBox="0 0 512 512">
  <path d="M256 0a256 256 0 1 1 0 512 256 256 0 1 1 0-512zM232 120l0 136c0 8 4 15.5 10.7 20l96 64c11 7.4 25.9 4.4 33.3-6.7s4.4-25.9-6.7-33.3L280 243.2 280 120c0-13.3-10.7-24-24-24s-24 10.7-24 24z" fill="currentColor"/>
  </svg>
  <h3 class="font-bold text-brandBlue text-sm mb-2">Antwort innerhalb von 24h</h3>
  <p class="text-xs text-slate-500">Unser deutsches Account-Team antwortet garantiert innerhalb eines Werktages.</p>
  </div>
- <div class="bg-slate-50 rounded-xl p-6 text-center">
+ <div class="card-soft p-6 text-center">
  <svg class="icon-box text-brandOrange mx-auto mb-3" width="24" height="24" aria-hidden="true" focusable="false" viewBox="0 0 448 512">
  <path d="M369.4 128l-34.3-48-222.1 0-34.3 48 290.7 0zM0 148.5c0-13.3 4.2-26.3 11.9-37.2L60.9 42.8C72.9 26 92.3 16 112.9 16l222.1 0c20.7 0 40.1 10 52.1 26.8l48.9 68.5c7.8 10.9 11.9 23.9 11.9 37.2L448 416c0 35.3-28.7 64-64 64L64 480c-35.3 0-64-28.7-64-64L0 148.5z" fill="currentColor"/>
  </svg>
  <h3 class="font-bold text-brandBlue text-sm mb-2">Muster in 3–7 Tagen</h3>
  <p class="text-xs text-slate-500">Standardmuster werden innerhalb einer Woche per Express verschickt. Kosten anrechenbar.</p>
  </div>
- <div class="bg-slate-50 rounded-xl p-6 text-center">
+ <div class="card-soft p-6 text-center">
  <svg class="icon-shield text-brandOrange mx-auto mb-3" width="24" height="24" aria-hidden="true" focusable="false" viewBox="0 0 512 512"><path d="M256 0c4.6 0 9.2 1 13.4 2.9L457.8 82.8c22 9.3 38.4 31 38.3 57.2-.5 99.2-41.3 280.7-213.6 363.2-16.7 8-36.1 8-52.8 0-172.4-82.5-213.1-264-213.6-363.2-.1-26.2 16.3-47.9 38.3-57.2L242.7 2.9C246.9 1 251.4 0 256 0z" fill="currentColor"/></svg>
  <h3 class="font-bold text-brandBlue text-sm mb-2">30% Anzahlung, 70% vor Versand</h3>
  <p class="text-xs text-slate-500">Bewährte Zahlungsbedingungen. Für geprüfte Partner auch auf Rechnung.</p>
@@ -128,10 +128,10 @@ plPath: "kontakt/"
 
 
 <!-- ======== TEAM ======== -->
-<section class="sec bg-slate-50">
+<section id="team" class="sec bg-slate-50" data-section="about">
  <div class="container-wide">
  {{ sectionHeader('Ihr Ansprechpartner', 'Persönliche Betreuung aus Shenzhen', 'Jeder Kunde erhält einen festen Account Manager, der Sie von der ersten Anfrage bis zur Auslieferung begleitet.', {}) }}
- <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-4xl mx-auto">
+ <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
  <div class="team-card reveal text-center p-6">
  <div class="w-20 h-20 rounded-full bg-brandOrange/10 mx-auto mb-4 overflow-hidden">
  <img src="/image/factory/team-nina.webp" srcset="/image/factory/team-nina-200w.webp 200w, /image/factory/team-nina.webp 800w" sizes="(min-width: 1440px) 152px, (min-width: 1280px) 152px, (min-width: 1024px) 152px, (min-width: 768px) 152px, (min-width: 430px) 120px, 120px" alt="Nina" width="800" height="800" class="w-full h-full object-cover" loading="lazy">

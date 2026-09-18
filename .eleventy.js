@@ -5,7 +5,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.setUseGitIgnore(false);
   // Passthrough copies: project-root paths → _site/
   const passthrough = [
-    'image', 'css',
+    'image', 'css/styles.css',
     'main.js', 'main.src.js',
     'robots.txt',
     '_headers', '_redirects',

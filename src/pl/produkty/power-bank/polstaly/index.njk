@@ -147,13 +147,13 @@ ruPath: "produkty/poverbanki/polutverdotelnyy/"
 {% block content %}
 
 <!-- Hero -->
-<section class="relative pt-24 md:pt-28 pb-8 lg:pb-16 bg-white text-slate-900 overflow-hidden">
+<section id="hero" class="relative pt-24 md:pt-28 lg:pt-20 pb-8 lg:pb-20 bg-white text-slate-900 overflow-hidden lg:min-h-[100dvh] lg:flex lg:flex-col lg:justify-center" data-section="hero">
  <div class="absolute inset-0 z-0 pointer-events-none overflow-hidden">
   <div class="absolute top-0 left-0 max-w-full w-64 h-64 bg-brandOrange opacity-20 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
   <div class="absolute bottom-0 right-0 max-w-full w-64 h-64 bg-blue-500 opacity-20 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
  </div>
 
- <div class="container-wide relative z-10 text-center pb-12 lg:pb-12">
+ <div class="container-wide relative z-10 text-center pb-12 lg:pb-0">
   {{ breadcrumb([{name: "Strona Główna", url: "/pl/"}, {name: "Produkty", url: "/pl/produkty/"}, {name: "Power Bank", url: "/pl/produkty/power-bank/"}, {name: "Półstały"}], "none", "mb-6", { variant: "hero" }) }}
 
   <div>
@@ -165,15 +165,15 @@ ruPath: "produkty/poverbanki/polutverdotelnyy/"
 
   <p class="max-w-2xl mx-auto text-slate-600 text-sm leading-relaxed mt-6 mb-8">Power banki z baterią półstałą nowej generacji. 50% cieńsze, 30% większa gęstość energii, niższe ryzyko pożaru niż Li-Po. Wyjście PD 55W–65W, certyfikat UN38.3 do transportu lotniczego. MOQ 500 szt. Fabryka w Shenzhen od 2013.</p>
 
-  <div class="grid grid-cols-2 md:grid-cols-5 gap-4 max-w-3xl mx-auto mb-10">
-   <div class="bg-slate-50 rounded-xl p-4 border border-slate-100"><p class="text-2xl font-black text-brandBlue">50%</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Cieńszy</p></div>
-   <div class="bg-slate-50 rounded-xl p-4 border border-slate-100"><p class="text-2xl font-black text-brandOrange">30%</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Większa Gęstość</p></div>
-   <div class="bg-slate-50 rounded-xl p-4 border border-slate-100"><p class="text-2xl font-black text-brandBlue">65W</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">PD Output</p></div>
-   <div class="bg-slate-50 rounded-xl p-4 border border-slate-100"><p class="text-2xl font-black text-brandOrange">500</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">MOQ</p></div>
-   <div class="bg-slate-50 rounded-xl p-4 border border-slate-100 col-span-2 md:col-span-1"><p class="text-2xl font-black text-brandBlue">CES</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">2026 Wyróżnienie</p></div>
+  <div class="grid grid-cols-2 md:grid-cols-5 gap-4 mb-10">
+   <div class="card-soft p-4"><p class="text-2xl font-black text-brandBlue">50%</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Cieńszy</p></div>
+   <div class="card-soft p-4"><p class="text-2xl font-black text-brandOrange">30%</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Większa Gęstość</p></div>
+   <div class="card-soft p-4"><p class="text-2xl font-black text-brandBlue">65W</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">PD Output</p></div>
+   <div class="card-soft p-4"><p class="text-2xl font-black text-brandOrange">500</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">MOQ</p></div>
+   <div class="card-soft p-4 col-span-2 md:col-span-1"><p class="text-2xl font-black text-brandBlue">CES</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">2026 Wyróżnienie</p></div>
   </div>
 
-  <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
+  <div class="btn-pair">
    <button data-action="open-modal" data-product="Power Bank Półstały" class="btn-wide-lg">
     Poproś o Wycenę Fabryczną
    </button>
@@ -188,7 +188,7 @@ ruPath: "produkty/poverbanki/polutverdotelnyy/"
 {% include "trust-bar.njk" %}
 
 <!-- Produkty -->
-<section id="produkty" class="sec bg-white relative py-16">
+<section id="produkty" class="sec bg-white relative" data-section="products">
  <div class="container-wide">
   <h2 class="text-2xl font-black text-brandBlue uppercase italic tracking-tighter mb-2">Power Banki Półstałe</h2>
   <p class="text-slate-500 text-sm mb-10">6 modeli | 10000–20000mAh | 45W–65W PD</p>
@@ -231,7 +231,7 @@ ruPath: "produkty/poverbanki/polutverdotelnyy/"
     </p>
 
     <details class="mb-6 group/spec">
-     <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition">
+     <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition">
       <span class="text-xs font-black text-slate-700 uppercase">Specyfikacja</span>
       <span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span>
      </summary>
@@ -291,7 +291,7 @@ ruPath: "produkty/poverbanki/polutverdotelnyy/"
     </p>
 
     <details class="mb-6 group/spec">
-     <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Specyfikacja</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
+     <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Specyfikacja</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
      <div class="p-4 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-[11px]"><tbody>
       <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Pojemność baterii</td><td class="py-2 font-bold text-slate-700">10000mAh / 72Wh (przy 7,2V)</td></tr>
       <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Typ baterii</td><td class="py-2 font-bold text-slate-700">Półstała</td></tr>
@@ -344,7 +344,7 @@ ruPath: "produkty/poverbanki/polutverdotelnyy/"
     </p>
 
     <details class="mb-6 group/spec">
-     <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Specyfikacja</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
+     <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Specyfikacja</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
      <div class="p-4 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-[11px]"><tbody>
       <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Pojemność baterii</td><td class="py-2 font-bold text-slate-700">10000mAh × 2szt / 72Wh</td></tr>
       <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Typ baterii</td><td class="py-2 font-bold text-slate-700">Półstała</td></tr>
@@ -397,7 +397,7 @@ ruPath: "produkty/poverbanki/polutverdotelnyy/"
     </p>
 
     <details class="mb-6 group/spec">
-     <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Specyfikacja</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
+     <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Specyfikacja</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
      <div class="p-4 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-[11px]"><tbody>
       <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Pojemność baterii</td><td class="py-2 font-bold text-slate-700">10000mAh × 2szt / 72Wh</td></tr>
       <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Typ baterii</td><td class="py-2 font-bold text-slate-700">Półstała</td></tr>
@@ -450,7 +450,7 @@ ruPath: "produkty/poverbanki/polutverdotelnyy/"
     </p>
 
     <details class="mb-6 group/spec">
-     <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Specyfikacja</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
+     <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Specyfikacja</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
      <div class="p-4 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-[11px]"><tbody>
       <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Energia baterii</td><td class="py-2 font-bold text-slate-700">10000mAh×2 / 7,4V / 74Wh</td></tr>
       <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Pojemność znamionowa</td><td class="py-2 font-bold text-slate-700">12000mAh (5V/2,4A)</td></tr>
@@ -505,7 +505,7 @@ ruPath: "produkty/poverbanki/polutverdotelnyy/"
     </p>
 
     <details class="mb-6 group/spec">
-     <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Specyfikacja</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
+     <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Specyfikacja</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
      <div class="p-4 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-[11px]"><tbody>
       <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Energia baterii</td><td class="py-2 font-bold text-slate-700">10000mAh×2 / 7,4V / 74Wh</td></tr>
       <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Pojemność znamionowa</td><td class="py-2 font-bold text-slate-700">12000mAh (5V/2,4A)</td></tr>
@@ -535,7 +535,7 @@ ruPath: "produkty/poverbanki/polutverdotelnyy/"
 </div>
 
 <!-- Czym jest technologia baterii półstałej? -->
-<section class="sec bg-white relative py-16">
+<section id="czym-jest-technologia-baterii-polstalej" class="sec bg-white relative" data-section="content">
  <div class="container-wide">
   <h2 class="section-title text-center">Czym Jest Technologia Baterii Półstałej?</h2>
   <p class="text-center text-slate-500 text-sm max-w-3xl mx-auto mb-8">Baterie półstałe (semi-solid-state) zastępują ciekły elektrolit w tradycyjnych ogniwach Li-Po elektrolitem żelowym lub półstałym. Ta chemia nowej generacji fundamentalnie zmienia trzy rzeczy: gęstość energii, stabilność termiczną i format obudowy.</p>
@@ -545,18 +545,18 @@ ruPath: "produkty/poverbanki/polutverdotelnyy/"
    <cite class="block text-xs text-slate-400 mt-2 not-italic">— <a href="https://www.marketsandmarkets.com/Market-Reports/solid-state-battery-market-174849304.html" target="_blank" rel="noopener noreferrer" class="text-brandOrange hover:underline">MarketsandMarkets</a>, Solid-State Battery Market Report 2025-2030; <a href="https://www.techsciresearch.com/report/solid-state-micro-battery-market/30237.html" target="_blank" rel="noopener noreferrer" class="text-brandOrange hover:underline">TechSci Research</a>, Solid-State Micro Battery Market 2020-2030F</cite>
   </blockquote>
 
-  <div class="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-   <div class="bg-slate-50 rounded-xl p-6 border border-slate-100 text-center">
+  <div class="grid md:grid-cols-3 gap-8">
+   <div class="card-soft p-6 text-center">
     <p class="text-3xl font-black text-brandBlue mb-2">50%</p>
     <p class="text-sm font-bold text-slate-700 mb-2">Cieńszy Profil</p>
     <p class="text-xs text-slate-500">Ta sama pojemność, połowa grubości. Elektrolit żelowy eliminuje warstwy separatora potrzebne do utrzymania cieczy.</p>
    </div>
-   <div class="bg-slate-50 rounded-xl p-6 border border-slate-100 text-center">
+   <div class="card-soft p-6 text-center">
     <p class="text-3xl font-black text-brandOrange mb-2">30%</p>
     <p class="text-sm font-bold text-slate-700 mb-2">Wyższa Gęstość Energii</p>
     <p class="text-xs text-slate-500">Więcej watogodzin na gram. Umożliwia 20000mAh w formacie, który wcześniej mieścił 15000mAh.</p>
    </div>
-   <div class="bg-slate-50 rounded-xl p-6 border border-slate-100 text-center">
+   <div class="card-soft p-6 text-center">
     <p class="text-3xl font-black text-brandBlue mb-2">1000+</p>
     <p class="text-sm font-bold text-slate-700 mb-2">Cykli Ładowania</p>
     <p class="text-xs text-slate-500">Żywotność 1000–2000 cykli vs 300–500 dla standardowego Li-Po. Elektrolit żelowy spowalnia degradację.</p>
@@ -566,7 +566,7 @@ ruPath: "produkty/poverbanki/polutverdotelnyy/"
 </section>
 
 <!-- Półstała vs Li-Po vs Solid-State -->
-<section class="sec bg-slate-50 relative py-16">
+<section id="polstala-vs-li-po-vs-solid-state" class="sec bg-slate-50 relative" data-section="comparison">
  <div class="container-wide">
   <h2 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4 text-center">Półstała vs. <span class="text-brandOrange">Li-Po</span> vs. Solid-State</h2>
   <p class="text-center text-slate-500 text-sm max-w-3xl mx-auto mb-12">Nie wszystkie deklaracje "baterii solid-state" są równe. Prawdziwe baterie półstałe używają elektrolitu żelowego z zaledwie 2,5–10% zawartości cieczy — to gotowy produkcyjnie kompromis między tradycyjnym Li-Po a pełną technologią solid-state, która trafi do masowej produkcji najwcześniej w 2027+.</p>
@@ -574,11 +574,11 @@ ruPath: "produkty/poverbanki/polutverdotelnyy/"
   <div class="overflow-x-auto rounded-2xl border border-slate-200 shadow-sm">
    <table class="w-full text-sm">
     <thead>
-     <tr class="bg-white">
-      <th class="p-4 text-left text-slate-500 font-bold text-xs uppercase">Parametr</th>
-      <th class="p-4 text-center text-slate-500 font-bold text-xs uppercase">Li-Po<br><span class="text-[10px] normal-case opacity-70">Tradycyjna</span></th>
-      <th class="p-4 text-center bg-brandOrange/5 border-x border-brandOrange/20 text-brandOrange font-bold text-xs uppercase">Półstała<br><span class="text-[10px] normal-case opacity-70">WOWOHCOOL</span></th>
-      <th class="p-4 text-center text-slate-500 font-bold text-xs uppercase">Solid-State<br><span class="text-[10px] normal-case opacity-70">Lab/R&D</span></th>
+     <tr class="bg-brandBlue text-white">
+      <th class="p-4 text-left font-bold text-xs uppercase">Parametr</th>
+      <th class="p-4 text-center font-bold text-xs uppercase">Li-Po<br><span class="text-[10px] normal-case opacity-70">Tradycyjna</span></th>
+      <th class="p-4 text-center bg-brandOrange/20 font-bold text-xs uppercase">Półstała<br><span class="text-[10px] normal-case opacity-70">WOWOHCOOL</span></th>
+      <th class="p-4 text-center font-bold text-xs uppercase">Solid-State<br><span class="text-[10px] normal-case opacity-70">Lab/R&D</span></th>
      </tr>
     </thead>
     <tbody>
@@ -597,23 +597,23 @@ ruPath: "produkty/poverbanki/polutverdotelnyy/"
 </section>
 
 <!-- Cross-Category Internal Links -->
-<section class="sec bg-white relative py-12">
- <div class="container-content">
+<section id="cross-category-internal-links" class="sec bg-white relative py-12" data-section="related">
+ <div class="container-wide">
   <p class="text-center text-slate-500 text-sm mb-6">Poznaj pozostałe kategorie power banków WOWOHCOOL:</p>
   <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-   <a href="/pl/produkty/power-bank/do-laptopa/" class="block bg-slate-50 rounded-xl p-4 border border-slate-200 hover:border-brandOrange hover:shadow-md transition text-center">
+   <a href="/pl/produkty/power-bank/do-laptopa/" class="card-soft block p-4 hover:border-brandOrange hover:shadow-md transition text-center">
     <p class="font-black text-brandBlue text-sm uppercase mb-1">Do Laptopa</p>
     <p class="text-[10px] text-slate-500">65W–240W PD 3.1</p>
    </a>
-   <a href="/pl/produkty/power-bank/hybryda-2-w-1/" class="block bg-slate-50 rounded-xl p-4 border border-slate-200 hover:border-brandOrange hover:shadow-md transition text-center">
+   <a href="/pl/produkty/power-bank/hybryda-2-w-1/" class="card-soft block p-4 hover:border-brandOrange hover:shadow-md transition text-center">
     <p class="font-black text-brandBlue text-sm uppercase mb-1">Hybryda 2-w-1</p>
     <p class="text-[10px] text-slate-500">Ładowarka + Power Bank</p>
    </a>
-   <a href="/pl/produkty/power-bank/magnetyczny-bezprzewodowy/" class="block bg-slate-50 rounded-xl p-4 border border-slate-200 hover:border-brandOrange hover:shadow-md transition text-center">
+   <a href="/pl/produkty/power-bank/magnetyczny-bezprzewodowy/" class="card-soft block p-4 hover:border-brandOrange hover:shadow-md transition text-center">
     <p class="font-black text-brandBlue text-sm uppercase mb-1">Magnetyczny</p>
     <p class="text-[10px] text-slate-500">Qi2 / MagSafe</p>
    </a>
-   <a href="/pl/produkty/power-bank/" class="block bg-slate-50 rounded-xl p-4 border border-slate-200 hover:border-brandOrange hover:shadow-md transition text-center">
+   <a href="/pl/produkty/power-bank/" class="card-soft block p-4 hover:border-brandOrange hover:shadow-md transition text-center">
     <p class="font-black text-brandBlue text-sm uppercase mb-1">Wszystkie Power Banki</p>
     <p class="text-[10px] text-slate-500">6 kategorii, 40 modeli</p>
    </a>
@@ -622,43 +622,43 @@ ruPath: "produkty/poverbanki/polutverdotelnyy/"
 </section>
 
 <!-- FAQ -->
-<section class="sec bg-white relative py-16">
+<section id="faq" class="sec bg-white relative" data-section="faq">
  <div class="container-narrow">
   <h2 class="text-3xl lg:text-4xl font-black text-slate-900 uppercase italic tracking-tighter mb-10 text-center">Power Bank Półstały <span class="text-brandOrange">FAQ</span></h2>
   <div class="space-y-4">
-   <details class="bg-slate-50 rounded-xl p-5 border border-slate-200 group">
+   <details class="card-soft p-5 group">
     <summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">Czym jest power bank z baterią półstałą?<span class="text-brandOrange group-open:rotate-180 transition">▼</span></summary>
     <p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">Power bank półstały wykorzystuje elektrolit żelowy lub półstały zamiast ciekłego elektrolitu w tradycyjnych bateriach Li-Po. Zapewnia to profile cieńsze o 50%, gęstość energii wyższą o 30%, mniejsze ryzyko pożaru i dłuższą żywotność (1000–2000 cykli vs 300–500 dla Li-Po). Prawdziwa technologia półstała zawiera tylko 2,5–10% ciekłego elektrolitu.</p>
    </details>
-   <details class="bg-slate-50 rounded-xl p-5 border border-slate-200 group">
+   <details class="card-soft p-5 group">
     <summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">Jakie jest MOQ dla power banków półstałych OEM?<span class="text-brandOrange group-open:rotate-180 transition">▼</span></summary>
     <p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">MOQ od 500 sztuk dla standardowych modeli ODM z nadrukiem logo. Niestandardowe projekty OEM z własnym oprzyrządowaniem: 1000–2000 sztuk. Próbki w 3–7 dni dla standardowych, 10–15 dni dla niestandardowych.</p>
    </details>
-   <details class="bg-slate-50 rounded-xl p-5 border border-slate-200 group">
+   <details class="card-soft p-5 group">
     <summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">Czy power banki półstałe są bezpieczne w transporcie lotniczym?<span class="text-brandOrange group-open:rotate-180 transition">▼</span></summary>
     <p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">Tak. Wszystkie power banki półstałe WOWOHCOOL posiadają certyfikat UN38.3 i spełniają przepisy IATA. Pojemność do 27 000 mAh (99,9 Wh) jest dozwolona w bagażu podręcznym.</p>
    </details>
-   <details class="bg-slate-50 rounded-xl p-5 border border-slate-200 group">
+   <details class="card-soft p-5 group">
     <summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">Czym różni się bateria półstała od pełnej solid-state?<span class="text-brandOrange group-open:rotate-180 transition">▼</span></summary>
     <p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">Bateria półstała używa hybrydowego elektrolitu (częściowo ciekłego + częściowo stałego) i jest już w masowej produkcji. Pełne baterie solid-state są nadal w produkcji pilotażowej u producentów takich jak Sunwoda i Svolt i nie będą dostępne komercyjnie dla power banków przed 2027 rokiem.</p>
    </details>
-   <details class="bg-slate-50 rounded-xl p-5 border border-slate-200 group">
+   <details class="card-soft p-5 group">
     <summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">Czy power banki półstałe są bezpieczniejsze od litowo-jonowych?<span class="text-brandOrange group-open:rotate-180 transition">▼</span></summary>
     <p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">Tak. Elektrolit żelowy znacząco redukuje ryzyko niekontrolowanego wzrostu temperatury w porównaniu do tradycyjnych ogniw Li-Ion lub Li-Po. Przy zaledwie 2,5–10% zawartości cieczy (vs 60–90% w Li-Po), w przypadku uszkodzenia ogniwa dostępnych jest znacznie mniej materiału łatwopalnego. Jest to zgodne z rozporządzeniem UE 2023/1542, które preferuje chemię o niskim ryzyku pożarowym.</p>
    </details>
-   <details class="bg-slate-50 rounded-xl p-5 border border-slate-200 group">
+   <details class="card-soft p-5 group">
     <summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">Jaka jest żywotność power banku półstałego?<span class="text-brandOrange group-open:rotate-180 transition">▼</span></summary>
     <p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">Power banki półstałe WOWOHCOOL osiągają 1000–2000 cykli ładowania przed spadkiem do 80% pojemności — to 3–4 razy dłużej niż tradycyjne Li-Po (300–500 cykli). Przy jednym pełnym ładowaniu dziennie przekłada się to na 3–5+ lat codziennego użytkowania przed zauważalną utratą pojemności.</p>
    </details>
-   <details class="bg-slate-50 rounded-xl p-5 border border-slate-200 group">
+   <details class="card-soft p-5 group">
     <summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">Jakie marki stosują technologię baterii półstałej?<span class="text-brandOrange group-open:rotate-180 transition">▼</span></summary>
     <p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">Marki wprowadzające power banki półstałe to m.in. BMX SolidSafe (USA, zwycięzca CES 2026), Kuxiu (Australia), ELECOM (Japonia, 2000 cykli), Neopow (USA, flagowy 285W), Meenova (Kickstarter), Momax (Hongkong) i Bull (Chiny). Wiele marek DTC zamawia ogniwa przez fabryki OEM — WOWOHCOOL oferuje tę samą technologię z pełną personalizacją od MOQ 500.</p>
    </details>
-   <details class="bg-slate-50 rounded-xl p-5 border border-slate-200 group">
+   <details class="card-soft p-5 group">
     <summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">Jaka jest gwarancja na power banki półstałe OEM?<span class="text-brandOrange group-open:rotate-180 transition">▼</span></summary>
     <p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">Standardowa gwarancja wynosi <strong>12 miesięcy</strong> od daty wysyłki, z możliwością przedłużenia do <strong>24 miesięcy</strong> dla stałych partnerów. Docelowy poziom wadliwości: <strong>poniżej 0,3%</strong>. Wymiana lub kredyt na kolejne zamówienie w ciągu 15 dni roboczych na potwierdzone wady produkcyjne. <a href="/pl/studia-przypadkow/" class="text-brandOrange hover:underline font-semibold">Zobacz nasze case studies →</a></p>
    </details>
-   <details class="bg-slate-50 rounded-xl p-5 border border-slate-200 group">
+   <details class="card-soft p-5 group">
     <summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">Jak odróżnić prawdziwą baterię półstałą od ulepszonego Li-Polymer?<span class="text-brandOrange group-open:rotate-180 transition">▼</span></summary>
     <p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">Prawdziwa bateria półstała zawiera <strong>2,5–10% ciekłego elektrolitu</strong> w matrycy żelowej — nie jest to ulepszony Li-Po. Weryfikuj 3 rzeczy: <strong>(1)</strong> certyfikat UN38.3 na konkretny model ogniwa, <strong>(2)</strong> raport z testu cykli życia (1000+ cykli do 80% pojemności), <strong>(3)</strong> gęstość energii 260+ Wh/kg. W czerwcu 2026 sprawa Donut Lab ujawniła, że niektórzy producenci sprzedają ulepszony Li-Polymer jako semi-solid-state. WOWOHCOOL dostarcza <strong>pełną dokumentację ogniw</strong> z każdym zamówieniem OEM — bez ryzyka fałszywych deklaracji.</p>
    </details>

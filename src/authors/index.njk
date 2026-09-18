@@ -162,14 +162,21 @@ ogType: "website"
 
 {% block content %}
 
-<div class="container-narrow pt-24 md:pt-28 pb-16">
+<section id="hero" data-section="hero" class="pt-24 md:pt-28 pb-12 md:pb-16 lg:min-h-[100dvh] lg:flex lg:flex-col lg:justify-center">
+ <div class="container-wide">
  {{ breadcrumb([{name: "Home", url: "/"}, {name: "Authors"}], "none", "mb-6", { variant: "hero" }) }}
 
  <h1 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-2">Meet Our Authors</h1>
- <p class="text-slate-600 mb-12">Industry experts with 10+ years in OEM/ODM manufacturing, writing from the factory floor in Shenzhen.</p>
+ <p class="text-slate-600 max-w-3xl">Industry experts with 10+ years in OEM/ODM manufacturing, writing from the factory floor in Shenzhen.</p>
+ </div>
+</section>
+
+<section id="authors" data-section="about" class="pb-16">
+ <div class="container-wide">
+ <div class="grid md:grid-cols-2 gap-8">
 
  <!-- Nina Nico -->
- <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 mb-6">
+ <div class="card-lg shadow-sm p-6">
  <div class="flex items-start gap-4">
  <a href="/authors/nina-nico/" class="shrink-0">
  <img src="/image/factory/team-nina.webp" srcset="/image/factory/team-nina-200w.webp 200w, /image/factory/team-nina.webp 800w" sizes="(min-width: 1440px) 152px, (min-width: 1280px) 152px, (min-width: 1024px) 152px, (min-width: 768px) 152px, (min-width: 430px) 120px, 120px" alt="Nina Nico" loading="lazy" width="800" height="800" class="w-14 h-14 rounded-full object-cover border-2 border-brandOrange">
@@ -199,7 +206,7 @@ ogType: "website"
  </div>
 
  <!-- Snowy May -->
- <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 mb-6">
+ <div class="card-lg shadow-sm p-6">
  <div class="flex items-start gap-4">
  <a href="/authors/snowy-may/" class="shrink-0">
  <img src="/image/factory/team-snowy.webp" srcset="/image/factory/team-snowy-200w.webp 200w, /image/factory/team-snowy.webp 750w" sizes="(min-width: 1440px) 152px, (min-width: 1280px) 152px, (min-width: 1024px) 152px, (min-width: 768px) 152px, (min-width: 430px) 120px, 120px" alt="Snowy May" loading="lazy" width="750" height="750" class="w-14 h-14 rounded-full object-cover border-2 border-brandOrange">
@@ -227,8 +234,9 @@ ogType: "website"
  </div>
  </div>
  </div>
-
-</div>
+ </div>
+ </div>
+</section>
 
 {% set ctaLabel = "Get Started" %}
 {% set ctaHeading1 = "Work With" %}

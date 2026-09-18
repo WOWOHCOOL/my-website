@@ -134,13 +134,13 @@ ruPath: "produkty/poverbanki/dlya-noutbukov/"
 {% block content %}
 
 <!-- Hero -->
-<section class="relative pt-24 md:pt-28 pb-8 lg:pb-16 bg-white text-slate-900 overflow-hidden">
+<section id="hero" class="relative pt-24 md:pt-28 lg:pt-20 pb-8 lg:pb-20 bg-white text-slate-900 overflow-hidden lg:min-h-[100dvh] lg:flex lg:flex-col lg:justify-center" data-section="hero">
  <div class="absolute inset-0 z-0 pointer-events-none overflow-hidden">
  <div class="absolute top-0 left-0 max-w-full w-64 h-64 bg-brandOrange opacity-20 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
  <div class="absolute bottom-0 right-0 max-w-full w-64 h-64 bg-blue-500 opacity-20 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
  </div>
 
- <div class="container-wide relative z-10 text-center pb-12 lg:pb-12">
+ <div class="container-wide relative z-10 text-center pb-12 lg:pb-0">
  {{ breadcrumb([{name: "Strona Główna", url: "/pl/"}, {name: "Produkty", url: "/pl/produkty/"}, {name: "Power Bank", url: "/pl/produkty/power-bank/"}, {name: "Do Laptopa"}], "none", "mb-6", { variant: "hero" }) }}
 
  <div>
@@ -152,14 +152,14 @@ ruPath: "produkty/poverbanki/dlya-noutbukov/"
 
  <p class="max-w-2xl mx-auto text-slate-600 text-sm leading-relaxed mt-6 mb-8">Wysokowydajne power banki PD 3.1 ładujące MacBook Pro, laptopy gamingowe i wiele urządzeń jednocześnie. Wyjście od 65W do 240W. Bezpieczne w transporcie lotniczym poniżej 100Wh (max 27 000 mAh).</p>
 
- <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-2xl mx-auto mb-10">
- <div class="bg-slate-50 rounded-xl p-4 border border-slate-100"><p class="text-2xl font-black text-brandBlue">240W</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Moc Maks.</p></div>
- <div class="bg-slate-50 rounded-xl p-4 border border-slate-100"><p class="text-2xl font-black text-brandOrange">PD 3.1</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Protokół</p></div>
- <div class="bg-slate-50 rounded-xl p-4 border border-slate-100"><p class="text-2xl font-black text-brandBlue">27000mAh</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Maks. Pojemność</p></div>
- <div class="bg-slate-50 rounded-xl p-4 border border-slate-100"><p class="text-2xl font-black text-brandOrange">500</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">MOQ</p></div>
+ <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
+ <div class="card-soft p-4"><p class="text-2xl font-black text-brandBlue">240W</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Moc Maks.</p></div>
+ <div class="card-soft p-4"><p class="text-2xl font-black text-brandOrange">PD 3.1</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Protokół</p></div>
+ <div class="card-soft p-4"><p class="text-2xl font-black text-brandBlue">27000mAh</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Maks. Pojemność</p></div>
+ <div class="card-soft p-4"><p class="text-2xl font-black text-brandOrange">500</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">MOQ</p></div>
  </div>
 
- <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
+ <div class="btn-pair">
  <button data-action="open-modal" data-product="Power Bank do Laptopa" class="btn-wide-lg">
  Poproś o Wycenę Fabryczną
  </button>
@@ -174,7 +174,7 @@ ruPath: "produkty/poverbanki/dlya-noutbukov/"
 {% include "trust-bar.njk" %}
 
 <!-- Products -->
-<section id="produkty" class="sec bg-white relative py-16">
+<section id="produkty" class="sec bg-white relative" data-section="products">
  <div class="container-wide">
  <h2 class="text-2xl font-black text-brandBlue uppercase italic tracking-tighter mb-2">Power Banki do Laptopów</h2>
  <p class="text-slate-500 text-sm mb-10">4 modele | 20000–27000mAh | 65W–240W PD</p>
@@ -197,7 +197,7 @@ ruPath: "produkty/poverbanki/dlya-noutbukov/"
  <div class="flex items-center space-x-2"><svg class="icon-gauge-high text-brandOrange text-[11px]" aria-hidden="true" focusable="false" viewBox="0 0 512 512"><path d="M0 256a256 256 0 1 1 512 0 256 256 0 1 1 -512 0zM288 96a32 32 0 1 0 -64 0 32 32 0 1 0 64 0zM256 416c35.3 0 64-28.7 64-64 0-16.2-6-31.1-16-42.3l69.5-138.9c5.9-11.9 1.1-26.3-10.7-32.2s-26.3-1.1-32.2 10.7L261.1 288.2c-1.7-.1-3.4-.2-5.1-.2-35.3 0-64 28.7-64 64s28.7 64 64 64zM176 144a32 32 0 1 0 -64 0 32 32 0 1 0 64 0zM96 288a32 32 0 1 0 0-64 32 32 0 1 0 0 64zm352-32a32 32 0 1 0 -64 0 32 32 0 1 0 64 0z" fill="currentColor"/></svg><span class="text-[11px] font-bold text-slate-500 uppercase">Wydajność ≥5%</span></div>
  </div>
  <p class="text-[11px] text-slate-500 mb-6 italic leading-relaxed">Power bank o wysokiej mocy 20000mAh (74Wh) z wyjściem PD 67W. Ładuje laptopy i wiele urządzeń jednocześnie. Obudowa ABS+PC. Ogniwa polimerowe 4×5000mAh zapewniające niezawodną pracę.</p>
- <details class="mb-6 group/spec"><summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Specyfikacja</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
+ <details class="mb-6 group/spec"><summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Specyfikacja</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
  <div class="p-4 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-[11px]"><tbody>
  <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Pojemność baterii</td><td class="py-2 font-bold text-slate-700">20000mAh (ogniwa 4×5000mAh)</td></tr>
  <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Energia baterii</td><td class="py-2 font-bold text-slate-700">74Wh (5000mAh × 14,8V)</td></tr>
@@ -255,7 +255,7 @@ ruPath: "produkty/poverbanki/dlya-noutbukov/"
  </p>
 
  <details class="mb-6 group/spec">
- <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition">
+ <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition">
  <span class="text-xs font-black text-slate-700 uppercase">Specyfikacja</span>
  <span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span>
  </summary>
@@ -323,7 +323,7 @@ ruPath: "produkty/poverbanki/dlya-noutbukov/"
  </p>
 
  <details class="mb-6 group/spec">
- <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition">
+ <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition">
  <span class="text-xs font-black text-slate-700 uppercase">Specyfikacja</span>
  <span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span>
  </summary>
@@ -383,7 +383,7 @@ ruPath: "produkty/poverbanki/dlya-noutbukov/"
  </p>
 
  <details class="mb-6 group/spec">
- <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition">
+ <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition">
  <span class="text-xs font-black text-slate-700 uppercase">Specyfikacja</span>
  <span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span>
  </summary>
@@ -423,7 +423,7 @@ ruPath: "produkty/poverbanki/dlya-noutbukov/"
 </div>
 
 <!-- What Makes a Laptop-Grade Power Bank -->
-<section class="sec bg-white relative py-16">
+<section id="what-makes-a-laptop-grade-power-bank" class="sec bg-white relative" data-section="content">
  <div class="container-wide">
  <h2 class="section-title text-center">Co Wyróżnia Power Bank do Laptopa?</h2>
  <p class="text-center text-slate-500 text-sm max-w-3xl mx-auto mb-8">Nie każdy power bank naładuje laptopa. Trzy wymagania techniczne odróżniają klasę laptop od klasy telefon: protokół ładowania, zgodność pojemnościowa z limitami lotniczymi i zasilanie wielu urządzeń jednocześnie.</p>
@@ -433,18 +433,18 @@ ruPath: "produkty/poverbanki/dlya-noutbukov/"
   <cite class="block text-xs text-slate-400 mt-2 not-italic">— <a href="https://www.techsciresearch.com/report/high-capacity-power-banks-market/19744.html" target="_blank" rel="noopener noreferrer" class="text-brandOrange hover:underline">TechSci Research</a>, Raport Rynku Power Banków Dużej Pojemności 2025-2031</cite>
  </blockquote>
 
- <div class="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
- <div class="bg-slate-50 rounded-xl p-6 border border-slate-100 text-center">
+ <div class="grid md:grid-cols-3 gap-8">
+ <div class="card-soft p-6 text-center">
  <p class="text-3xl font-black text-brandBlue mb-2">240W</p>
  <p class="text-sm font-bold text-slate-700 mb-2">Protokół PD 3.1</p>
  <p class="text-xs text-slate-500">USB PD 3.1 Extended Power Range (EPR) umożliwia szyny 28V/36V/48V do 240W. Wymagany do laptopów gamingowych i szybkiego ładowania MacBook Pro 16" przy 140W.</p>
  </div>
- <div class="bg-slate-50 rounded-xl p-6 border border-slate-100 text-center">
+ <div class="card-soft p-6 text-center">
  <p class="text-3xl font-black text-brandOrange mb-2">100Wh</p>
  <p class="text-sm font-bold text-slate-700 mb-2">Zgodność Lotnicza</p>
  <p class="text-xs text-slate-500">IATA dopuszcza do 100Wh (27 000mAh @ 3,7V) w bagażu podręcznym bez zgody linii lotniczych. Nasze modele 27 000mAh osiągają 99,9Wh — maksymalna pojemność, zerowe problemy w podróży.</p>
  </div>
- <div class="bg-slate-50 rounded-xl p-6 border border-slate-100 text-center">
+ <div class="card-soft p-6 text-center">
  <p class="text-3xl font-black text-brandBlue mb-2">2×65W</p>
  <p class="text-sm font-bold text-slate-700 mb-2">Dwa Porty Jednocześnie</p>
  <p class="text-xs text-slate-500">Ładuj laptopa i telefon jednocześnie. WOP22 dostarcza 65W na każdy port USB-C — wystarczająco, by zasilić dwa MacBooki Air w tym samym czasie.</p>
@@ -454,7 +454,7 @@ ruPath: "produkty/poverbanki/dlya-noutbukov/"
 </section>
 
 <!-- Laptop Power Bank vs Standard Power Bank Comparison -->
-<section class="sec bg-slate-50 relative py-16">
+<section id="laptop-power-bank-vs-standard-power-bank-comparison" class="sec bg-slate-50 relative" data-section="comparison">
  <div class="container-content">
   <div class="text-center mb-12 reveal">
    <h2 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4">Power Bank do Laptopa vs. <span class="text-brandOrange">Standardowy Power Bank</span></h2>
@@ -477,33 +477,33 @@ ruPath: "produkty/poverbanki/dlya-noutbukov/"
 </section>
 
 <!-- Why Laptop Power Banks for Your Brand -->
-<section class="sec bg-slate-50 relative py-16">
+<section id="why-laptop-power-banks-for-your-brand" class="sec bg-slate-50 relative" data-section="content">
  <div class="container-wide">
  <h2 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4 text-center">Dlaczego <span class="text-brandOrange">Power Banki do Laptopów</span> dla Twojej Marki</h2>
  <p class="text-center text-slate-500 text-sm max-w-2xl mx-auto mb-12">Power banki o wysokiej mocy osiągają ceny premium i targetują najszybciej rosnący segment zasilania przenośnego: użytkowników laptopów i wielu urządzeń.</p>
 
- <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
- <div class="bg-white rounded-xl p-6 border border-slate-200 shadow-sm">
+ <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+ <div class="card p-6 shadow-sm">
  <h3 class="font-black text-brandBlue uppercase mb-3 text-sm">Wzrost Rynku Cyfrowych Nomadów</h3>
  <p class="text-sm text-slate-600 leading-relaxed">Pracownicy zdalni potrzebują całodziennego zasilania laptopa z dala od gniazdek. Rynek cyfrowych nomadów rośnie 20%+ rocznie — przenośne ładowanie laptopa to ich priorytet sprzętowy numer jeden.</p>
  </div>
- <div class="bg-white rounded-xl p-6 border border-slate-200 shadow-sm">
+ <div class="card p-6 shadow-sm">
  <h3 class="font-black text-brandBlue uppercase mb-3 text-sm">Wycena Premium (Detal $50-120)</h3>
  <p class="text-sm text-slate-600 leading-relaxed">Power banki do laptopów sprzedają się w cenach detalicznych 3-5 razy wyższych niż power banki do telefonów. Wyższa moc = wyższe marże dla Twojej marki przy tej samej powierzchni na półce.</p>
  </div>
- <div class="bg-white rounded-xl p-6 border border-slate-200 shadow-sm">
+ <div class="card p-6 shadow-sm">
  <h3 class="font-black text-brandBlue uppercase mb-3 text-sm">Popyt Korporacyjny i Enterprise</h3>
  <p class="text-sm text-slate-600 leading-relaxed">Działy IT zamawiają hurtowo power banki do laptopów dla zespołów terenowych, targów i zestawów podróżnych dla kadry zarządzającej. Wskaźnik ponownych zamówień B2B przekracza 40%.</p>
  </div>
- <div class="bg-white rounded-xl p-6 border border-slate-200 shadow-sm">
+ <div class="card p-6 shadow-sm">
  <h3 class="font-black text-brandBlue uppercase mb-3 text-sm">Kompatybilność z MacBook jako Wyróżnik</h3>
  <p class="text-sm text-slate-600 leading-relaxed">"Ładuje MacBook Pro" to filtr wyszukiwania nr 1 w listingach power banków na Amazon. Wsparcie PD 3.1 automatycznie umieszcza Twój SKU w segmencie premium.</p>
  </div>
- <div class="bg-white rounded-xl p-6 border border-slate-200 shadow-sm">
+ <div class="card p-6 shadow-sm">
  <h3 class="font-black text-brandBlue uppercase mb-3 text-sm">UN38.3 dla Globalnej Wysyłki</h3>
  <p class="text-sm text-slate-600 leading-relaxed">Wszystkie modele wysyłane są z raportami z testów UN38.3, MSDS i dokumentacją transportu lotniczego. Sprzedawaj globalnie bez opóźnień celnych związanych ze zgodnością.</p>
  </div>
- <div class="bg-white rounded-xl p-6 border border-slate-200 shadow-sm">
+ <div class="card p-6 shadow-sm">
  <h3 class="font-black text-brandBlue uppercase mb-3 text-sm">Kategoria Amazon Ładowarki do Laptopów</h3>
  <p class="text-sm text-slate-600 leading-relaxed">Podkategoria Amazon "Przenośna Ładowarka do Laptopa" ma niższą konkurencję i wyższy AOV niż generyczne power banki. Listingi PD 3.1 rankują się szybciej.</p>
  </div>
@@ -511,13 +511,13 @@ ruPath: "produkty/poverbanki/dlya-noutbukov/"
  </div>
 </section>
 <!-- OEM/ODM Customization -->
-<section class="sec bg-white relative py-16">
+<section id="oem-odm-customization" class="sec bg-white relative" data-section="content">
  <div class="container-wide">
  <h2 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4 text-center">Personalizacja OEM/ODM</h2>
  <p class="text-center text-slate-500 text-sm max-w-2xl mx-auto mb-12">Pełna personalizacja od nadruku logo po autorski projekt przemysłowy. MOQ elastyczne w zależności od stopnia złożoności.</p>
 
- <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
- <div class="bg-slate-50 rounded-xl p-6 border border-slate-200">
+ <div class="grid md:grid-cols-2 gap-8">
+ <div class="card-soft p-6">
  <h3 class="font-black text-brandBlue uppercase mb-4 text-sm">OEM (Modele Standardowe, MOQ 500)</h3>
  <ul class="space-y-2 text-sm text-slate-600">
  <li>• Nadruk logo (sitodruk, laser, UV)</li>
@@ -528,7 +528,7 @@ ruPath: "produkty/poverbanki/dlya-noutbukov/"
  <li>• Czas realizacji: 25-30 dni po zatwierdzeniu próbki</li>
  </ul>
  </div>
- <div class="bg-slate-50 rounded-xl p-6 border border-slate-200">
+ <div class="card-soft p-6">
  <h3 class="font-black text-brandBlue uppercase mb-4 text-sm">ODM (Projekt Niestandardowy, MOQ 1000-2000)</h3>
  <ul class="space-y-2 text-sm text-slate-600">
  <li>• Autorski projekt ID (CMF: Kolor, Materiał, Wykończenie)</li>
@@ -550,7 +550,7 @@ ruPath: "produkty/poverbanki/dlya-noutbukov/"
 </section>
 
 <!-- Laptop Compatibility Guide -->
-<section class="sec bg-white relative py-16">
+<section id="laptop-compatibility-guide" class="sec bg-white relative" data-section="comparison">
  <div class="container-wide">
  <h2 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4 text-center">Kompatybilność z Laptopami: <span class="text-brandOrange">Moc Według Marki</span></h2>
  <p class="text-center text-slate-500 text-sm max-w-3xl mx-auto mb-12">Ile watów potrzebuje laptop Twojego klienta? Ta tabela pokazuje minimalną moc power banku wymaganą do ładowania popularnych laptopów z pełną prędkością — pomagając wybrać odpowiedni model WOWOHCOOL do rynku docelowego.</p>
@@ -558,11 +558,11 @@ ruPath: "produkty/poverbanki/dlya-noutbukov/"
  <div class="overflow-x-auto rounded-2xl border border-slate-200 shadow-sm max-w-4xl mx-auto">
  <table class="w-full text-sm">
  <thead>
- <tr class="bg-white">
- <th class="p-3 text-left text-slate-500 font-bold text-xs uppercase">Laptop</th>
- <th class="p-3 text-center text-slate-500 font-bold text-xs uppercase">Ładowarka OEM</th>
- <th class="p-3 text-center text-slate-500 font-bold text-xs uppercase">Min. Moc PD</th>
- <th class="p-3 text-center text-brandOrange font-bold text-xs uppercase">Rekomendowany Model</th>
+ <tr class="bg-brandBlue text-white">
+ <th class="p-3 text-left font-bold text-xs uppercase">Laptop</th>
+ <th class="p-3 text-center font-bold text-xs uppercase">Ładowarka OEM</th>
+ <th class="p-3 text-center font-bold text-xs uppercase">Min. Moc PD</th>
+ <th class="p-3 text-center font-bold text-xs uppercase">Rekomendowany Model</th>
  </tr>
  </thead>
  <tbody>
@@ -581,7 +581,7 @@ ruPath: "produkty/poverbanki/dlya-noutbukov/"
 </section>
 
 <!-- PD 3.1 vs PD 3.0 -->
-<section class="sec bg-slate-50 relative py-16">
+<section id="pd-3-1-vs-pd-3-0" class="sec bg-slate-50 relative" data-section="comparison">
  <div class="container-wide">
  <h2 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4 text-center">PD 3.1 vs. PD 3.0: <span class="text-brandOrange">Porównanie Techniczne</span></h2>
  <p class="text-center text-slate-500 text-sm max-w-3xl mx-auto mb-12">USB Power Delivery 3.1 wprowadza Extended Power Range (EPR) — umożliwiając ładowanie 140W i 240W, którego PD 3.0 po prostu nie jest w stanie dostarczyć. Oto co to oznacza dla Twojej linii produktów.</p>
@@ -589,10 +589,10 @@ ruPath: "produkty/poverbanki/dlya-noutbukov/"
  <div class="overflow-x-auto rounded-2xl border border-slate-200 shadow-sm max-w-4xl mx-auto">
  <table class="w-full text-sm">
  <thead>
- <tr class="bg-white">
- <th class="p-4 text-left text-slate-500 font-bold text-xs uppercase">Specyfikacja</th>
- <th class="p-4 text-center text-slate-500 font-bold text-xs uppercase">PD 3.0 (SPR)</th>
- <th class="p-4 text-center bg-brandOrange/5 border-x border-brandOrange/20 text-brandOrange font-bold text-xs uppercase">PD 3.1 (EPR)</th>
+ <tr class="bg-brandBlue text-white">
+ <th class="p-4 text-left font-bold text-xs uppercase">Specyfikacja</th>
+ <th class="p-4 text-center font-bold text-xs uppercase">PD 3.0 (SPR)</th>
+ <th class="p-4 text-center bg-brandOrange/20 font-bold text-xs uppercase">PD 3.1 (EPR)</th>
  </tr>
  </thead>
  <tbody>
@@ -611,23 +611,23 @@ ruPath: "produkty/poverbanki/dlya-noutbukov/"
 </section>
 
 <!-- Airline-Safe 100Wh -->
-<section class="sec bg-white relative py-16">
+<section id="airline-safe-100wh" class="sec bg-white relative" data-section="content">
  <div class="container-wide">
  <h2 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4 text-center">Bezpieczny w Locie: <span class="text-brandOrange">Zgodność 100Wh</span></h2>
  <p class="text-center text-slate-500 text-sm max-w-3xl mx-auto mb-12">Wszystkie power banki do laptopów WOWOHCOOL zaprojektowano tak, aby mieściły się poniżej limitu IATA 100Wh dla bagażu podręcznego — bez konieczności uzyskiwania zgody linii lotniczych. Oto jak działa matematyka: Wh = mAh × Napięcie ÷ 1000.</p>
 
- <div class="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
- <div class="bg-slate-50 rounded-xl p-6 border border-slate-100 text-center">
+ <div class="grid md:grid-cols-3 gap-6">
+ <div class="card-soft p-6 text-center">
  <p class="text-3xl font-black text-brandBlue mb-2">99,9Wh</p>
  <p class="text-sm font-bold text-slate-700 mb-2">27000mAh @ 3,7V</p>
  <p class="text-xs text-slate-500">Maksymalna pojemność mieszcząca się poniżej limitu 100Wh. Nasze największe modele (WOP22, WOP23) wykorzystują ten optymalny rozmiar.</p>
  </div>
- <div class="bg-slate-50 rounded-xl p-6 border border-slate-100 text-center">
+ <div class="card-soft p-6 text-center">
  <p class="text-3xl font-black text-brandOrange mb-2">100Wh</p>
  <p class="text-sm font-bold text-slate-700 mb-2">Limit IATA Bagaż Podręczny</p>
  <p class="text-xs text-slate-500">Power banki poniżej 100Wh są dozwolone w bagażu podręcznym we wszystkich liniach lotniczych na świecie. Bez konieczności zgody ani deklaracji.</p>
  </div>
- <div class="bg-slate-50 rounded-xl p-6 border border-slate-100 text-center">
+ <div class="card-soft p-6 text-center">
  <p class="text-3xl font-black text-brandBlue mb-2">UN38.3</p>
  <p class="text-sm font-bold text-slate-700 mb-2">Wszystkie Modele Certyfikowane</p>
  <p class="text-xs text-slate-500">Pełne raporty z testów UN38.3 i dokumentacja MSDS. Gotowe do międzynarodowego frachtu lotniczego i odprawy celnej.</p>
@@ -637,23 +637,23 @@ ruPath: "produkty/poverbanki/dlya-noutbukov/"
 </section>
 
 <!-- Cross-Category Internal Links -->
-<section class="sec bg-slate-50 relative py-12">
- <div class="container-content">
+<section id="cross-category-internal-links" class="sec bg-slate-50 relative py-12" data-section="related">
+ <div class="container-wide">
  <p class="text-center text-slate-500 text-sm mb-6">Poznaj pozostałe kategorie power banków WOWOHCOOL:</p>
  <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
- <a href="/pl/produkty/power-bank/polstaly/" class="block bg-white rounded-xl p-4 border border-slate-200 hover:border-brandOrange hover:shadow-md transition text-center">
+ <a href="/pl/produkty/power-bank/polstaly/" class="card block p-4 hover:border-brandOrange hover:shadow-md transition text-center">
  <p class="font-black text-brandBlue text-sm uppercase mb-1">Półstały</p>
  <p class="text-[10px] text-slate-500">Bateria Nowej Gen.</p>
  </a>
- <a href="/pl/produkty/power-bank/hybryda-2-w-1/" class="block bg-white rounded-xl p-4 border border-slate-200 hover:border-brandOrange hover:shadow-md transition text-center">
+ <a href="/pl/produkty/power-bank/hybryda-2-w-1/" class="card block p-4 hover:border-brandOrange hover:shadow-md transition text-center">
  <p class="font-black text-brandBlue text-sm uppercase mb-1">Hybryda 2-w-1</p>
  <p class="text-[10px] text-slate-500">Ładowarka + Power Bank</p>
  </a>
- <a href="/pl/produkty/power-bank/magnetyczny-bezprzewodowy/" class="block bg-white rounded-xl p-4 border border-slate-200 hover:border-brandOrange hover:shadow-md transition text-center">
+ <a href="/pl/produkty/power-bank/magnetyczny-bezprzewodowy/" class="card block p-4 hover:border-brandOrange hover:shadow-md transition text-center">
  <p class="font-black text-brandBlue text-sm uppercase mb-1">Magnetyczny</p>
  <p class="text-[10px] text-slate-500">Qi2 / MagSafe</p>
  </a>
- <a href="/pl/produkty/power-bank/" class="block bg-white rounded-xl p-4 border border-slate-200 hover:border-brandOrange hover:shadow-md transition text-center">
+ <a href="/pl/produkty/power-bank/" class="card block p-4 hover:border-brandOrange hover:shadow-md transition text-center">
  <p class="font-black text-brandBlue text-sm uppercase mb-1">Wszystkie Power Banki</p>
  <p class="text-[10px] text-slate-500">6 kategorii, 40 modeli</p>
  </a>
@@ -662,35 +662,35 @@ ruPath: "produkty/poverbanki/dlya-noutbukov/"
 </section>
 
 <!-- FAQ -->
-<section class="sec bg-white relative py-16">
+<section id="faq" class="sec bg-white relative" data-section="faq">
  <div class="container-narrow">
  <h2 class="text-3xl lg:text-4xl font-black text-slate-900 uppercase italic tracking-tighter mb-10 text-center">Power Bank do Laptopa <span class="text-brandOrange">FAQ</span></h2>
  <div class="space-y-4">
- <details class="bg-slate-50 rounded-xl p-5 border border-slate-200 group">
+ <details class="card-soft p-5 group">
  <summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">Czy power bank do laptopa naładuje MacBooka Pro?<span class="text-brandOrange group-open:rotate-180 transition">▼</span></summary>
  <p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">Tak. Modele z wyjściem PD 67W lub wyższym (WOP21, WOP22, WOP23) ładują MacBooka Pro 13/14/16 cali z pełną prędkością. Model WOP23 240W PD 3.1 obsługuje również szybkie ładowanie MacBooka Pro 16 cali przy 140W, dorównując wyjściu ładowarki Apple MagSafe 3.</p>
  </details>
- <details class="bg-slate-50 rounded-xl p-5 border border-slate-200 group">
+ <details class="card-soft p-5 group">
  <summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">Czym różni się PD 3.1 od PD 3.0?<span class="text-brandOrange group-open:rotate-180 transition">▼</span></summary>
  <p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">PD 3.0 ma limit maksymalnej mocy wyjściowej 100W. PD 3.1 (wydany w 2021) rozszerza standard do 240W, wykorzystując nowe szyny napięciowe 28V, 36V i 48V (Extended Power Range, EPR). PD 3.1 jest wymagany do ładowania laptopów gamingowych i MacBooka Pro 16 cali z pełną prędkością.</p>
  </details>
- <details class="bg-slate-50 rounded-xl p-5 border border-slate-200 group">
+ <details class="card-soft p-5 group">
  <summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">Czy power bank do laptopa 27000mAh jest bezpieczny w samolocie?<span class="text-brandOrange group-open:rotate-180 transition">▼</span></summary>
  <p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">Tak. 27000mAh przy 3,7V daje 99,9Wh, czyli tuż poniżej limitu IATA 100Wh dla bagażu podręcznego. Wszystkie power banki do laptopów WOWOHCOOL posiadają certyfikat UN38.3 i są dopuszczone do przewozu w kabinie. Wszystko powyżej 100Wh wymaga zgody linii lotniczych i jest zabronione w bagażu rejestrowanym.</p>
  </details>
- <details class="bg-slate-50 rounded-xl p-5 border border-slate-200 group">
+ <details class="card-soft p-5 group">
  <summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">Jakie jest MOQ dla OEM power banków do laptopów?<span class="text-brandOrange group-open:rotate-180 transition">&#9660;</span></summary>
  <p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">MOQ od 500 sztuk dla standardowych modeli OEM z nadrukiem logo. Niestandardowe projekty ODM z własnym oprzyrządowaniem: 1000–2000 sztuk. Czas realizacji próbek: 3–7 dni dla standardowych, 10–15 dni dla niestandardowych.</p>
  </details>
- <details class="bg-slate-50 rounded-xl p-5 border border-slate-200 group">
+ <details class="card-soft p-5 group">
  <summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">Jak długo ładuje się MacBook Pro power bankiem 27000mAh?<span class="text-brandOrange group-open:rotate-180 transition">&#9660;</span></summary>
  <p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">Power bank 27000mAh (99,9Wh) zapewnia około 1,3–1,5 pełnego ładowania MacBooka Pro 14 cali (bateria 70Wh) lub około 0,7–0,8 ładowania MacBooka Pro 16 cali (bateria 100Wh). Przy sprawności konwersji 85% można oczekiwać około 85Wh energii użytkowej z banku 99,9Wh.</p>
  </details>
- <details class="bg-slate-50 rounded-xl p-5 border border-slate-200 group">
+ <details class="card-soft p-5 group">
  <summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">Czy mogę ładować laptopa i telefon jednocześnie?<span class="text-brandOrange group-open:rotate-180 transition">&#9660;</span></summary>
  <p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">Tak. Wszystkie power banki do laptopów WOWOHCOOL obsługują jednoczesne wyjście na wiele urządzeń. WOP23 może dostarczać 240W do laptopa, ładując jednocześnie telefon przez dodatkowy port USB-C lub USB-A. Całkowita moc wyjściowa jest dynamicznie rozdzielana między porty.</p>
  </details>
- <details class="bg-slate-50 rounded-xl p-5 border border-slate-200 group">
+ <details class="card-soft p-5 group">
  <summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">Jak obliczyć Wh power banku pod kątem zgodności lotniczej?<span class="text-brandOrange group-open:rotate-180 transition">&#9660;</span></summary>
  <p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">Wzór: Wh = mAh × Napięcie znamionowe ÷ 1000. Przykład: 27000mAh × 3,7V ÷ 1000 = 99,9Wh (tuż poniżej limitu 100Wh dla bagażu podręcznego). Baterie 100–160Wh wymagają zgody linii lotniczych; powyżej 160Wh są zabronione. Wszystkie modele WOWOHCOOL zaprojektowano na poziomie ≤99,9Wh.</p>
  </details>

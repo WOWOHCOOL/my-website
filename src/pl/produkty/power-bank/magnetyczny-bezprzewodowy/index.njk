@@ -119,13 +119,13 @@ ruPath: "produkty/poverbanki/magnitnyy-besprovodnoy/"
 {% block content %}
 
 <!-- Hero -->
-<section class="relative pt-24 md:pt-28 pb-8 lg:pb-16 bg-white text-slate-900 overflow-hidden">
+<section id="hero" class="relative pt-24 md:pt-28 lg:pt-20 pb-8 lg:pb-20 bg-white text-slate-900 overflow-hidden lg:min-h-[100dvh] lg:flex lg:flex-col lg:justify-center" data-section="hero">
  <div class="absolute inset-0 z-0 pointer-events-none overflow-hidden">
   <div class="absolute top-0 left-0 max-w-full w-64 h-64 bg-brandOrange opacity-20 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
   <div class="absolute bottom-0 right-0 max-w-full w-64 h-64 bg-blue-500 opacity-20 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
  </div>
 
- <div class="container-wide relative z-10 text-center pb-12 lg:pb-12">
+ <div class="container-wide relative z-10 text-center pb-12 lg:pb-0">
   {{ breadcrumb([{name: "Strona Główna", url: "/pl/"}, {name: "Produkty", url: "/pl/produkty/"}, {name: "Power Bank", url: "/pl/produkty/power-bank/"}, {name: "Magnetyczny Bezprzewodowy"}], "none", "mb-6", { variant: "hero" }) }}
 
   <div>
@@ -137,14 +137,14 @@ ruPath: "produkty/poverbanki/magnitnyy-besprovodnoy/"
 
   <p class="max-w-2xl mx-auto text-slate-600 text-sm leading-relaxed mt-6 mb-8">10 modeli power banków magnetycznych z Qi2 Magnetic Power Profile. Ładowanie bezprzewodowe 15–25W, kompatybilność MagSafe dla iPhone 12-16, certyfikacja Qi2 dla flagowych Androidów. Magnesy neodymowe N52H dla pewnego trzymania. MOQ 500. Certyfikaty CE/UN38.3/FCC.</p>
 
-  <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-2xl mx-auto mb-10">
-   <div class="bg-slate-50 rounded-xl p-4 border border-slate-100"><p class="text-2xl font-black text-brandBlue">15W</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Qi2 Output</p></div>
-   <div class="bg-slate-50 rounded-xl p-4 border border-slate-100"><p class="text-2xl font-black text-brandOrange">Qi2+MS</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Kompatybilność</p></div>
-   <div class="bg-slate-50 rounded-xl p-4 border border-slate-100"><p class="text-2xl font-black text-brandBlue">10K</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Maks. mAh</p></div>
-   <div class="bg-slate-50 rounded-xl p-4 border border-slate-100"><p class="text-2xl font-black text-brandOrange">500</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">MOQ</p></div>
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
+   <div class="card-soft p-4"><p class="text-2xl font-black text-brandBlue">15W</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Qi2 Output</p></div>
+   <div class="card-soft p-4"><p class="text-2xl font-black text-brandOrange">Qi2+MS</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Kompatybilność</p></div>
+   <div class="card-soft p-4"><p class="text-2xl font-black text-brandBlue">10K</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Maks. mAh</p></div>
+   <div class="card-soft p-4"><p class="text-2xl font-black text-brandOrange">500</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">MOQ</p></div>
   </div>
 
-  <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
+  <div class="btn-pair">
    <button data-action="open-modal" data-product="Power Bank Magnetyczny Bezprzewodowy" class="btn-wide-lg">Poproś o Wycenę Fabryczną</button>
    <a href="#produkty" class="btn-ghost-lg">Zobacz 10 Modeli</a>
   </div>
@@ -155,7 +155,7 @@ ruPath: "produkty/poverbanki/magnitnyy-besprovodnoy/"
 {% include "trust-bar.njk" %}
 
 <!-- Produkty -->
-<section id="produkty" class="sec bg-white relative py-16">
+<section id="produkty" class="sec bg-white relative" data-section="products">
  <div class="container-wide">
   <h2 class="text-2xl font-black text-brandBlue uppercase italic tracking-tighter mb-2">Magnetyczne Power Banki Bezprzewodowe</h2>
   <p class="text-slate-500 text-sm mb-10">10 modeli | 5000–20000mAh | Do 25W Qi2.2 + PD 40W</p>
@@ -188,7 +188,7 @@ ruPath: "produkty/poverbanki/magnitnyy-besprovodnoy/"
     </p>
 
     <details class="mb-6 group/spec">
-     <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Specyfikacja</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
+     <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Specyfikacja</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
      <div class="p-4 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-[11px]"><tbody>
       <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Pojemność baterii</td><td class="py-2 font-bold text-slate-700">5000mAh / 3,85V</td></tr>
       <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Typ ogniwa</td><td class="py-2 font-bold text-slate-700">Li-Polymer</td></tr>
@@ -231,7 +231,7 @@ ruPath: "produkty/poverbanki/magnitnyy-besprovodnoy/"
     </p>
 
     <details class="mb-6 group/spec">
-     <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Specyfikacja</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
+     <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Specyfikacja</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
      <div class="p-4 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-[11px]"><tbody>
       <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Pojemność baterii</td><td class="py-2 font-bold text-slate-700">10000mAh (5000mAh×2) / 3,85V</td></tr>
       <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Typ ogniwa</td><td class="py-2 font-bold text-slate-700">Li-Polymer</td></tr>
@@ -274,7 +274,7 @@ ruPath: "produkty/poverbanki/magnitnyy-besprovodnoy/"
     </p>
 
     <details class="mb-6 group/spec">
-     <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Specyfikacja</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
+     <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Specyfikacja</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
      <div class="p-4 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-[11px]"><tbody>
       <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Pojemność baterii</td><td class="py-2 font-bold text-slate-700">10000mAh (5000mAh×2S) / 7,7V / 1,5C</td></tr>
       <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Typ ogniwa</td><td class="py-2 font-bold text-slate-700">Li-Polymer (Toyuan)</td></tr>
@@ -317,7 +317,7 @@ ruPath: "produkty/poverbanki/magnitnyy-besprovodnoy/"
     </p>
 
     <details class="mb-6 group/spec">
-     <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Specyfikacja</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
+     <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Specyfikacja</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
      <div class="p-4 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-[11px]"><tbody>
       <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Pojemność baterii</td><td class="py-2 font-bold text-slate-700">10000mAh (5000mAh×2S) / 7,7V / 1,5C</td></tr>
       <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Typ ogniwa</td><td class="py-2 font-bold text-slate-700">Li-Polymer (Toyuan)</td></tr>
@@ -359,7 +359,7 @@ ruPath: "produkty/poverbanki/magnitnyy-besprovodnoy/"
     </p>
 
     <details class="mb-6 group/spec">
-     <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Specyfikacja</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
+     <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Specyfikacja</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
      <div class="p-4 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-[11px]"><tbody>
       <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Pojemność baterii</td><td class="py-2 font-bold text-slate-700">10000mAh / 3,85V</td></tr>
       <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Typ ogniwa</td><td class="py-2 font-bold text-slate-700">Li-Polymer</td></tr>
@@ -401,7 +401,7 @@ ruPath: "produkty/poverbanki/magnitnyy-besprovodnoy/"
     </p>
 
     <details class="mb-6 group/spec">
-     <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Specyfikacja</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
+     <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Specyfikacja</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
      <div class="p-4 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-[11px]"><tbody>
       <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Pojemność baterii</td><td class="py-2 font-bold text-slate-700">10000mAh / 3,85V</td></tr>
       <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Typ ogniwa</td><td class="py-2 font-bold text-slate-700">Li-Polymer</td></tr>
@@ -447,7 +447,7 @@ ruPath: "produkty/poverbanki/magnitnyy-besprovodnoy/"
     </p>
 
     <details class="mb-6 group/spec">
-     <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Specyfikacja</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
+     <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Specyfikacja</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
      <div class="p-4 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-[11px]"><tbody>
       <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Pojemność baterii</td><td class="py-2 font-bold text-slate-700">5000mAh / 3,7V (ogniwo 21700)</td></tr>
       <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Rozmiar</td><td class="py-2 font-bold text-slate-700">80×37,3×25mm</td></tr>
@@ -490,7 +490,7 @@ ruPath: "produkty/poverbanki/magnitnyy-besprovodnoy/"
     </p>
 
     <details class="mb-6 group/spec">
-     <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Specyfikacja</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
+     <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Specyfikacja</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
      <div class="p-4 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-[11px]"><tbody>
       <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Pojemność baterii</td><td class="py-2 font-bold text-slate-700">10000mAh / 3,85V</td></tr>
       <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Typ ogniwa</td><td class="py-2 font-bold text-slate-700">Li-Polymer (146074)</td></tr>
@@ -539,7 +539,7 @@ ruPath: "produkty/poverbanki/magnitnyy-besprovodnoy/"
     </p>
 
     <details class="mb-6 group/spec">
-     <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Specyfikacja</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
+     <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Specyfikacja</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
      <div class="p-4 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-[11px]"><tbody>
       <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Pojemność baterii</td><td class="py-2 font-bold text-slate-700">20000mAh (10000mAh×2) / 3,85V</td></tr>
       <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Typ ogniwa</td><td class="py-2 font-bold text-slate-700">Li-Polymer (146074)</td></tr>
@@ -587,7 +587,7 @@ ruPath: "produkty/poverbanki/magnitnyy-besprovodnoy/"
     </p>
 
     <details class="mb-6 group/spec">
-     <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Specyfikacja</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
+     <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Specyfikacja</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
      <div class="p-4 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-[11px]"><tbody>
       <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Pojemność baterii</td><td class="py-2 font-bold text-slate-700">10000mAh / 3,7V</td></tr>
       <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Typ ogniwa</td><td class="py-2 font-bold text-slate-700">Li-Polymer (126280×1)</td></tr>
@@ -618,17 +618,17 @@ ruPath: "produkty/poverbanki/magnitnyy-besprovodnoy/"
 </div>
 
 <!-- Qi2 vs MagSafe vs Qi -->
-<section class="sec bg-slate-50 relative py-16">
+<section id="qi2-vs-magsafe-vs-qi" class="sec bg-slate-50 relative" data-section="comparison">
  <div class="container-wide">
   <h2 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4 text-center">Qi2 vs. MagSafe vs. <span class="text-brandOrange">Qi</span> — Porównanie</h2>
   <p class="text-center text-slate-500 text-sm max-w-3xl mx-auto mb-12">Qi2 integruje Magnetic Power Profile (MPP) oparte na technologii MagSafe Apple'a. Dla producentów akcesoriów oznacza to jeden standard, który działa natywnie z iPhone'ami i urządzeniami Android nowej generacji.</p>
   <div class="overflow-x-auto rounded-2xl border border-slate-200 shadow-sm">
    <table class="w-full text-sm">
-    <thead><tr class="bg-white">
-     <th class="p-4 text-left text-slate-500 font-bold text-xs uppercase">Parametr</th>
-     <th class="p-4 text-center text-slate-500 font-bold text-xs uppercase">Qi (Standard)</th>
-     <th class="p-4 text-center bg-brandOrange/5 border-x border-brandOrange/20 text-brandOrange font-bold text-xs uppercase">Qi2 (WOWOHCOOL)</th>
-     <th class="p-4 text-center text-slate-500 font-bold text-xs uppercase">MagSafe (Apple)</th>
+    <thead><tr class="bg-brandBlue text-white">
+     <th class="p-4 text-left font-bold text-xs uppercase">Parametr</th>
+     <th class="p-4 text-center font-bold text-xs uppercase">Qi (Standard)</th>
+     <th class="p-4 text-center bg-brandOrange/20 font-bold text-xs uppercase">Qi2 (WOWOHCOOL)</th>
+     <th class="p-4 text-center font-bold text-xs uppercase">MagSafe (Apple)</th>
     </tr></thead>
     <tbody>
      <tr class="border-t border-slate-100"><td class="p-4 text-slate-700 font-semibold">Moc bezprzewodowa</td><td class="p-4 text-center text-slate-600">5W</td><td class="p-4 text-center bg-brandOrange/5 border-x border-brandOrange/20 font-bold text-slate-900">15W</td><td class="p-4 text-center text-slate-600">15W</td></tr>
@@ -643,44 +643,44 @@ ruPath: "produkty/poverbanki/magnitnyy-besprovodnoy/"
 </section>
 
 <!-- Cross-Category Internal Links -->
-<section class="sec bg-white relative py-12">
- <div class="container-content">
+<section id="cross-category-internal-links" class="sec bg-white relative py-12" data-section="related">
+ <div class="container-wide">
   <p class="text-center text-slate-500 text-sm mb-6">Poznaj pozostałe kategorie power banków WOWOHCOOL:</p>
   <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-   <a href="/pl/produkty/power-bank/polstaly/" class="block bg-slate-50 rounded-xl p-4 border border-slate-200 hover:border-brandOrange hover:shadow-md transition text-center"><p class="font-black text-brandBlue text-sm uppercase mb-1">Półstały</p><p class="text-[10px] text-slate-500">CES 2026, 65W</p></a>
-   <a href="/pl/produkty/power-bank/hybryda-2-w-1/" class="block bg-slate-50 rounded-xl p-4 border border-slate-200 hover:border-brandOrange hover:shadow-md transition text-center"><p class="font-black text-brandBlue text-sm uppercase mb-1">Hybryda 2-w-1</p><p class="text-[10px] text-slate-500">Ładowarka + Power Bank</p></a>
-   <a href="/pl/produkty/power-bank/do-laptopa/" class="block bg-slate-50 rounded-xl p-4 border border-slate-200 hover:border-brandOrange hover:shadow-md transition text-center"><p class="font-black text-brandBlue text-sm uppercase mb-1">Do Laptopa</p><p class="text-[10px] text-slate-500">65W–240W PD 3.1</p></a>
-   <a href="/pl/produkty/power-bank/" class="block bg-slate-50 rounded-xl p-4 border border-slate-200 hover:border-brandOrange hover:shadow-md transition text-center"><p class="font-black text-brandBlue text-sm uppercase mb-1">Wszystkie Power Banki</p><p class="text-[10px] text-slate-500">6 kategorii, 40 modeli</p></a>
+   <a href="/pl/produkty/power-bank/polstaly/" class="card-soft block p-4 hover:border-brandOrange hover:shadow-md transition text-center"><p class="font-black text-brandBlue text-sm uppercase mb-1">Półstały</p><p class="text-[10px] text-slate-500">CES 2026, 65W</p></a>
+   <a href="/pl/produkty/power-bank/hybryda-2-w-1/" class="card-soft block p-4 hover:border-brandOrange hover:shadow-md transition text-center"><p class="font-black text-brandBlue text-sm uppercase mb-1">Hybryda 2-w-1</p><p class="text-[10px] text-slate-500">Ładowarka + Power Bank</p></a>
+   <a href="/pl/produkty/power-bank/do-laptopa/" class="card-soft block p-4 hover:border-brandOrange hover:shadow-md transition text-center"><p class="font-black text-brandBlue text-sm uppercase mb-1">Do Laptopa</p><p class="text-[10px] text-slate-500">65W–240W PD 3.1</p></a>
+   <a href="/pl/produkty/power-bank/" class="card-soft block p-4 hover:border-brandOrange hover:shadow-md transition text-center"><p class="font-black text-brandBlue text-sm uppercase mb-1">Wszystkie Power Banki</p><p class="text-[10px] text-slate-500">6 kategorii, 40 modeli</p></a>
   </div>
  </div>
 </section>
 
 <!-- FAQ -->
-<section class="sec bg-white relative py-16">
+<section id="faq" class="sec bg-white relative" data-section="faq">
  <div class="container-narrow">
   <h2 class="text-3xl lg:text-4xl font-black text-slate-900 uppercase italic tracking-tighter mb-10 text-center">Power Bank Magnetyczny <span class="text-brandOrange">FAQ</span></h2>
   <div class="space-y-4">
-   <details class="bg-slate-50 rounded-xl p-5 border border-slate-200 group">
+   <details class="card-soft p-5 group">
     <summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">Czym jest ładowanie magnetyczne Qi2?<span class="text-brandOrange group-open:rotate-180 transition">▼</span></summary>
     <p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">Qi2 to standard opracowany przez Wireless Power Consortium (WPC), integrujący Magnetic Power Profile (MPP) oparty na technologii MagSafe. Qi2 zapewnia 15W bezprzewodowego szybkiego ładowania z precyzyjnym magnetycznym pozycjonowaniem przez magnesy N52H.</p>
    </details>
-   <details class="bg-slate-50 rounded-xl p-5 border border-slate-200 group">
+   <details class="card-soft p-5 group">
     <summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">Czy power banki magnetyczne są kompatybilne z iPhone i Android?<span class="text-brandOrange group-open:rotate-180 transition">▼</span></summary>
     <p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">Tak. Działają z iPhone'ami (serii 12-16, 15W Qi2) oraz urządzeniami Android certyfikowanymi Qi2 (Samsung Galaxy S25 Ultra, Pixel 10 Pro). Starsze modele Android ładują się z mocą 5W. Z etui magnetycznym Qi2 uzyskują pełne 15W.</p>
    </details>
-   <details class="bg-slate-50 rounded-xl p-5 border border-slate-200 group">
+   <details class="card-soft p-5 group">
     <summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">Jaką siłę trzymania mają magnesy?<span class="text-brandOrange group-open:rotate-180 transition">▼</span></summary>
     <p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">Wszystkie nasze magnetyczne power banki używają magnesów neodymowych N52H o sile trzymania 800–1200 Gaussów. To najsilniejszy dostępny gatunek magnesu neodymowego, spełniający specyfikację MagSafe do bezpiecznego trzymania przez etui o grubości do 3mm.</p>
    </details>
-   <details class="bg-slate-50 rounded-xl p-5 border border-slate-200 group">
+   <details class="card-soft p-5 group">
     <summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">Czy można ładować bez etui magnetycznego?<span class="text-brandOrange group-open:rotate-180 transition">▼</span></summary>
     <p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">Tak. Urządzenia z wbudowanym pierścieniem magnetycznym (iPhone 12-16, certyfikowane Qi2 Androidy) ładują się bezpośrednio bez etui. Grube etui niemagnetyczne mogą redukować siłę trzymania. Dla optymalnej wydajności zalecamy etui kompatybilne z MagSafe/Qi2.</p>
    </details>
-   <details class="bg-slate-50 rounded-xl p-5 border border-slate-200 group">
+   <details class="card-soft p-5 group">
     <summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">Jaka jest różnica między Qi2 a MagSafe?<span class="text-brandOrange group-open:rotate-180 transition">▼</span></summary>
     <p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">MagSafe to własnościowa technologia Apple. Qi2 to otwarty standard WPC, który integruje Magnetic Power Profile na bazie MagSafe. Qi2 działa natywnie z iPhone'ami (tak samo jak MagSafe, 15W) ORAZ z Androidami — jest uniwersalnym standardem magnetycznym.</p>
    </details>
-   <details class="bg-slate-50 rounded-xl p-5 border border-slate-200 group">
+   <details class="card-soft p-5 group">
     <summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">Jakie certyfikaty posiadają power banki magnetyczne?<span class="text-brandOrange group-open:rotate-180 transition">▼</span></summary>
     <p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">Wszystkie modele posiadają certyfikat Qi2 (WPC), CE, FCC, RoHS i UN38.3. Dostarczamy deklarację zgodności CE wymaganą przez UOKiK dla polskiego rynku oraz wsparcie w rejestracji BDO. Zgodność z rozporządzeniem UE 2023/1542.</p>
    </details>

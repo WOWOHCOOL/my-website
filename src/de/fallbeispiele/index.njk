@@ -43,11 +43,11 @@ plPath: "studia-przypadkow/"
 {% endblock %}
 
 {% block content %}
-<section class="pt-24 md:pt-28 pb-16 md:pb-20 bg-gradient-to-br from-slate-50 via-white to-orange-50">
+<section id="hero" class="pt-24 md:pt-28 pb-16 md:pb-20 bg-gradient-to-br from-slate-50 via-white to-orange-50 lg:min-h-[100dvh] lg:flex lg:flex-col lg:justify-center" data-section="hero">
 <div class="container-narrow text-center">
  {{ breadcrumb([{name: "Startseite", url: "/de/"}, {name: "Fallbeispiele"}], "none", "mb-6", { variant: "hero" }) }}
-<p class="text-brandOrange text-xs font-bold tracking-widest uppercase mb-3">Referenzen</p>
-<h1 class="text-3xl md:text-5xl font-black text-brandBlue leading-tight mb-4 italic uppercase">Erfolgreiche OEM/ODM Projekte<br><span class="text-brandOrange">für unsere Kunden</span></h1>
+<div class="badge-capsule mb-6 mx-auto uppercase tracking-widest">Referenzen</div>
+<h1 class="text-3xl md:text-5xl font-black text-brandBlue leading-tight mb-4 italic uppercase tracking-tighter">Erfolgreiche OEM/ODM Projekte<br><span class="text-brandOrange">für unsere Kunden</span></h1>
 <p class="text-slate-600 text-lg max-w-2xl mx-auto">Seit 2013 fertigen wir Ladegeräte und Powerbanks für über 200 Marken weltweit. Der deutsche Markt wächst jährlich um 3–5%, mit dem Trend zu GaN (17% CAGR <sup><a href="https://www.marketresearchfuture.com/reports/germany-gan-powered-chargers-market-57523" target="_blank" rel="noopener noreferrer" class="text-[10px] text-brandOrange no-underline hover:underline">[1]</a></sup>) und Qi2. Hier sehen Sie ausgewählte Projekte.</p>
 </div>
 </section>
@@ -56,13 +56,13 @@ plPath: "studia-przypadkow/"
 {% include "trust-bar.njk" %}
 
 <!-- BLOG LIST -->
-<section class="sec">
-<div class="container-content">
+<section id="blog-list" class="sec" data-section="content">
+<div class="container-wide">
 
 <div class="grid md:grid-cols-2 gap-8">
 
 <!-- Case 1: Bosch -->
-<div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
+<div class="card-lg overflow-hidden shadow-sm">
 <img src="/image/case-studies/bosch-65w-gan-car-charger-product-lineup.webp" srcset="/image/case-studies/bosch-65w-gan-car-charger-product-lineup-800w.webp 800w, /image/case-studies/bosch-65w-gan-car-charger-product-lineup.webp 1200w" sizes="(min-width: 1440px) 596px, (min-width: 1280px) 596px, (min-width: 1024px) 468px, (min-width: 768px) 720px, (min-width: 430px) 382px, 327px" alt="Bosch 65W GaN Autoladegerät Produktlinie" width="1200" height="900" class="w-full h-48 object-cover bg-slate-50" loading="eager">
 <div class="p-6">
 <p class="text-brandOrange text-xs font-bold tracking-widest uppercase mb-2">Bosch · 10.000 Stück</p>
@@ -79,7 +79,7 @@ plPath: "studia-przypadkow/"
 </div>
 
 <!-- Case 2: Jacob Jensen -->
-<div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
+<div class="card-lg overflow-hidden shadow-sm">
 <img src="/image/case-studies/jacob-jensen-wireless-car-mount.webp" srcset="/image/case-studies/jacob-jensen-wireless-car-mount-800w.webp 800w, /image/case-studies/jacob-jensen-wireless-car-mount.webp 1200w" sizes="(min-width: 1440px) 596px, (min-width: 1280px) 596px, (min-width: 1024px) 468px, (min-width: 768px) 720px, (min-width: 430px) 382px, 327px" alt="Jacob Jensen Kabellose Autohalterung ODM" width="1200" height="900" class="w-full h-48 object-cover bg-slate-50" loading="lazy">
 <div class="p-6">
 <p class="text-brandOrange text-xs font-bold tracking-widest uppercase mb-2">Jacob Jensen · 6.000 Stück</p>
@@ -95,7 +95,7 @@ plPath: "studia-przypadkow/"
 </div>
 
 <!-- Case 3: Merlin Digital -->
-<div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
+<div class="card-lg overflow-hidden shadow-sm">
 <img src="/image/case-studies/merlin-15w-wireless-charger.webp" srcset="/image/case-studies/merlin-15w-wireless-charger-800w.webp 800w, /image/case-studies/merlin-15w-wireless-charger.webp 1200w" sizes="(min-width: 1440px) 584px, (min-width: 1280px) 584px, (min-width: 1024px) 456px, (min-width: 768px) 720px, (min-width: 430px) 382px, 327px" alt="Merlin Digital 15W kabelloses Ladegerät" width="1200" height="900" class="w-full h-48 object-cover bg-slate-50" loading="lazy">
 <div class="p-6">
 <p class="text-brandOrange text-xs font-bold tracking-widest uppercase mb-2">Merlin Digital · 1.000 Stück</p>
@@ -111,7 +111,7 @@ plPath: "studia-przypadkow/"
 </div>
 
 <!-- Case 4: Techmade -->
-<div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
+<div class="card-lg overflow-hidden shadow-sm">
 <img src="/image/case-studies/techmade-10000mah-magsafe-powerbank.webp" srcset="/image/case-studies/techmade-10000mah-magsafe-powerbank-800w.webp 800w, /image/case-studies/techmade-10000mah-magsafe-powerbank.webp 1200w" sizes="(min-width: 1440px) 596px, (min-width: 1280px) 596px, (min-width: 1024px) 468px, (min-width: 768px) 720px, (min-width: 430px) 382px, 327px" alt="Techmade Custom Powerbanks für Fußballvereine" width="1200" height="900" class="w-full h-48 object-cover bg-slate-50" loading="lazy">
 <div class="p-6">
 <p class="text-brandOrange text-xs font-bold tracking-widest uppercase mb-2">Techmade · 5.000 Stück</p>
@@ -127,7 +127,7 @@ plPath: "studia-przypadkow/"
 </div>
 
 <!-- Case 5: Tempel Group -->
-<div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
+<div class="card-lg overflow-hidden shadow-sm">
 <img src="/image/case-studies/tempel-10000mah-air-compressor.webp" srcset="/image/case-studies/tempel-10000mah-air-compressor-800w.webp 800w, /image/case-studies/tempel-10000mah-air-compressor.webp 1200w" sizes="(min-width: 1440px) 596px, (min-width: 1280px) 596px, (min-width: 1024px) 468px, (min-width: 768px) 720px, (min-width: 430px) 382px, 327px" alt="Tempel Group Luftkompressor Sourcing" width="1200" height="900" class="w-full h-48 object-cover bg-slate-50" loading="lazy">
 <div class="p-6">
 <p class="text-brandOrange text-xs font-bold tracking-widest uppercase mb-2">Tempel Group · 3.000 Stück</p>
@@ -148,8 +148,8 @@ plPath: "studia-przypadkow/"
 </section>
 
 <!-- ======== HERO STATS SUMMARY ======== -->
-<section class="py-8 md:py-10 bg-white border-b border-slate-100">
- <div class="container-narrow">
+<section id="hero-stats-summary" class="py-8 md:py-10 bg-white border-b border-slate-100" data-section="stats">
+ <div class="container-wide">
  <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
  <div><p class="text-3xl font-black text-brandOrange">75.500+</p><p class="text-xs text-slate-500 mt-1 font-semibold uppercase tracking-wider">Einheiten geliefert</p></div>
  <div><p class="text-3xl font-black text-brandOrange">100%</p><p class="text-xs text-slate-500 mt-1 font-semibold uppercase tracking-wider">Termingerecht</p></div>

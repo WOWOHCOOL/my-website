@@ -54,28 +54,26 @@ plPath: "uslugi-oem-odm/"
 {% block content %}
 
  <!-- HERO -->
- <section class="pt-24 md:pt-28 relative overflow-hidden bg-gradient-to-br from-slate-50 via-white to-orange-50">
+ <section id="hero" class="pt-24 md:pt-28 pb-20 relative overflow-hidden bg-gradient-to-br from-slate-50 via-white to-orange-50 lg:min-h-[100dvh] lg:flex lg:flex-col lg:justify-center" data-section="hero">
  <div class="container-wide">
   {{ breadcrumb([{name: "Accueil", url: "/fr/"}, {name: "Service OEM/ODM"}], "none", "mb-6", { variant: "hero" }) }}
- <div class="hero-split grid lg:grid-cols-2 gap-10 lg:gap-16 items-center py-20 md:py-0">
+ <div class="hero-split grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
  <!-- Left: Text -->
- <div class="reveal py-12 lg:py-20">
- <p class="text-brandOrange text-xs font-bold tracking-widest uppercase mb-4 flex items-center gap-2">
- <span class="w-6 h-px bg-brandOrange"></span> OEM / ODM
- </p>
- <h1 class="text-3xl md:text-5xl lg:text-6xl font-black text-brandBlue leading-tight mb-6 italic uppercase">
+ <div class="reveal">
+ <div class="badge-capsule mb-6 uppercase tracking-widest">OEM / ODM</div>
+ <h1 class="text-3xl md:text-5xl lg:text-[2.5rem] xl:text-[2.875rem] 2xl:text-6xl font-black text-brandBlue leading-tight mb-6 italic uppercase tracking-tighter">
   Votre partenaire pour<br>
   <span class="text-brandOrange">des solutions de charge sur mesure</span>
  </h1>
  <p class="text-slate-600 text-lg max-w-xl leading-relaxed mb-8">
   Accompagnement complet cle en main, de la première idée à la livraison. <strong>MOQ des 500 unités (ODM sur modèles en stock)</strong>, certification CE/NF incluse. La DGCCRF a constate que <strong>75% des imports électroniques ne sont pas conformes</strong> aux normes UE (<a href="https://www.economie.gouv.fr/dgccrf" target="_blank" rel="noopener external" class="text-brandOrange hover:underline">DGCCRF 2025</a>) — avec WOWOHCOOL, votre conformité est garantie des la première pièce.
  </p>
- <div class="flex flex-wrap gap-3">
- <button data-action="open-modal" class="btn-primary cursor-pointer">
+<div class="btn-pair">
+<button data-action="open-modal" class="btn-solid border-2 border-transparent w-full sm:w-auto px-5 sm:px-6 cursor-pointer">
   Demander une consultation
  <svg class="icon-arrow-right text-sm" aria-hidden="true" focusable="false" viewBox="0 0 512 512"><path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-105.4 105.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" fill="currentColor"/></svg>
  </button>
- <a href="#prozess" class="btn-secondary">Notre processus</a>
+ <a href="#prozess" class="btn-ghost-lg sm:px-7">Notre processus</a>
  </div>
  <div class="flex flex-wrap gap-3 mt-8">
  <span class="trust-badge"><svg class="icon-certificate text-brandOrange" aria-hidden="true" focusable="false" viewBox="0 0 576 512" width="14"><path d="M239.2-8c-6.1-6.2-15-8.7-23.4-6.4S200.9-5.6 198.8 2.8L183.5 63c-1.1 4.4-5.6 7-9.9 5.7L113.8 51.9c-8.4-2.4-17.4 0-23.5 6.1s-8.5 15.1-6.1 23.5l16.9 59.8c1.2 4.3-1.4 8.8-5.7 9.9L35.1 166.5c-8.4 2.1-15 8.7-17.3 17.1s.2 17.3 6.4 23.4l44.5 43.3c3.2 3.1 3.2 8.3 0 11.5L24.3 305.1c-6.2 6.1-8.7 15-6.4 23.4s8.9 14.9 17.3 17.1l60.2 15.3c4.4 1.1 7 5.6 5.7 9.9L84.2 430.5c-2.4 8.4 0 17.4 6.1 23.5s15.1 8.5 23.5 6.1l59.8-16.9c4.3-1.2 8.8 1.4 9.9 5.7l15.3 60.2c2.1 8.4 8.7 15 17.1 17.3s17.3-.2 23.4-6.4l43.3-44.5c3.1-3.2 8.3-3.2 11.5 0L337.3 520c6.1 6.2 15 8.7 23.4 6.4s14.9-8.9 17.1-17.3L393.1 449c1.1-4.4 5.6-7 9.9-5.7l59.8 16.9c8.4 2.4 17.4 0 23.5-6.1s8.5-15.1 6.1-23.5l-16.9-59.8c-1.2-4.3 1.4-8.8 5.7-9.9l60.2-15.3c8.4-2.1 15-8.7 17.3-17.1s-.2-17.4-6.4-23.4l-44.5-43.3c-3.2-3.1-3.2-8.3 0-11.5l44.5-43.3c6.2-6.1 8.7-15 6.4-23.4s-8.9-14.9-17.3-17.1l-60.2-15.3c-4.4-1.1-7-5.6-5.7-9.9l16.9-59.8c2.4-8.4 0-17.4-6.1-23.5s-15.1-8.5-23.5-6.1L403 68.8c-4.3 1.2-8.8-1.4-9.9-5.7L377.8 2.8c-2.1-8.4-8.7-15-17.1-17.3s-17.3.2-23.4 6.4L294 36.5c-3.1 3.2-8.3 3.2-11.5 0L239.2-8z" fill="currentColor"/></svg> CE + TUV GS + Qi2</span>
@@ -83,7 +81,7 @@ plPath: "uslugi-oem-odm/"
  </div>
  </div>
  <!-- Right: Image -->
- <div class="reveal delay-2 relative lg:py-20">
+ <div class="reveal delay-2 relative lg:py-0">
  <div class="relative rounded-2xl overflow-hidden shadow-2xl">
  <img src="/image/factory/factory-smt-line.webp"
  alt="Ligne de production SMT dans l'usine WOWOHCOOL"
@@ -91,7 +89,7 @@ plPath: "uslugi-oem-odm/"
  class="w-full h-auto object-cover"
  loading="eager">
  </div>
- <div class="absolute -bottom-4 -left-4 bg-white rounded-xl shadow-xl p-4 border border-slate-100 max-w-[180px]">
+ <div class="card absolute -bottom-4 -left-4 shadow-xl p-4 max-w-[180px]">
  <p class="text-2xl font-black text-brandOrange">6</p>
  <p class="text-xs text-slate-500 font-medium">Étapes vers la série</p>
  </div>
@@ -104,42 +102,32 @@ plPath: "uslugi-oem-odm/"
  {% include "trust-bar.njk" %}
 
  <!-- PROCESS -->
- <section id="prozess" class="sec bg-white">
+ <!-- 深色化：对齐 DE #prozess 的深色流程区块；卡片原 bg-slate-50/border-slate-100 在深底上会变亮块，改半透明白 -->
+ <section id="prozess" class="sec bg-darkBg text-white dark-section" data-section="process">
  <div class="container-wide">
  {{ sectionHeader('Notre processus', 'Du concept à la série', 'En 6 étapes transparentes, de votre idée a votre produit fini, rapidement, professionnellement et fiablement.', {}) }}
  <div class="grid md:grid-cols-3 gap-8">
- <div class="text-center reveal p-6"><div class="w-16 h-16 rounded-2xl bg-brandOrange/10 flex items-center justify-center mx-auto mb-5"><span class="text-2xl font-black text-brandOrange">01</span></div><h3 class="text-lg font-bold text-brandBlue mb-3">Demande &amp; Consultation</h3><p class="text-sm text-slate-500">Vous nous communiquez vos exigences produit et vos objectifs, nous vous conseillons de manière experte sur la faisabilité technique, les coûts réalistes et le calendrier optimal.</p></div>
- <div class="text-center reveal p-6"><div class="w-16 h-16 rounded-2xl bg-brandOrange/10 flex items-center justify-center mx-auto mb-5"><span class="text-2xl font-black text-brandOrange">02</span></div><h3 class="text-lg font-bold text-brandBlue mb-3">Design &amp; Développement</h3><p class="text-sm text-slate-500">Notre équipe R&D experimentee de plus de 50 ingénieurs crée le design industriel, le layout PCBA et les dessins 3D precisement selon vos spécifications et souhaits individuels.</p></div>
- <div class="text-center reveal p-6"><div class="w-16 h-16 rounded-2xl bg-brandOrange/10 flex items-center justify-center mx-auto mb-5"><span class="text-2xl font-black text-brandOrange">03</span></div><h3 class="text-lg font-bold text-brandBlue mb-3">Échantillons &amp; Validation</h3><p class="text-sm text-slate-500">Nous fabriquons des prototypes à l'échelle pour votre examen approfondi et vos tests. Apres votre validation, la production en série démarre immédiatement.</p></div>
- <div class="text-center reveal p-6"><div class="w-16 h-16 rounded-2xl bg-brandOrange/10 flex items-center justify-center mx-auto mb-5"><span class="text-2xl font-black text-brandOrange">04</span></div><h3 class="text-lg font-bold text-brandBlue mb-3">Production en série</h3><p class="text-sm text-slate-500">Production en série certifiée ISO 9001 avec processus QC rigoureux en 4 étapes et test de vieillissement 100%.</p></div>
- <div class="text-center reveal p-6"><div class="w-16 h-16 rounded-2xl bg-brandOrange/10 flex items-center justify-center mx-auto mb-5"><span class="text-2xl font-black text-brandOrange">05</span></div><h3 class="text-lg font-bold text-brandBlue mb-3">Marque &amp; Emballage</h3><p class="text-sm text-slate-500">Votre logo, votre emballage personnalise, votre marque forte, nous nous chargeons de la mise en oeuvre complète et de la coordination.</p></div>
- <div class="text-center reveal p-6"><div class="w-16 h-16 rounded-2xl bg-brandOrange/10 flex items-center justify-center mx-auto mb-5"><span class="text-2xl font-black text-brandOrange">06</span></div><h3 class="text-lg font-bold text-brandBlue mb-3">Logistique &amp; Expédition</h3><p class="text-sm text-slate-500">Express 5-7 jours ou standard 25-35 jours, EXW ou DDP avec dédouanement inclus. Prêt pour Amazon FBA sur demande.</p></div>
+ <div class="group text-center reveal p-8 rounded-[2.5rem] bg-white/5 border border-white/10 hover:bg-white/10 hover:shadow-2xl hover:-translate-y-2 transition-all duration-500"><div class="w-16 h-16 rounded-2xl bg-brandOrange/20 flex items-center justify-center mx-auto mb-5"><span class="text-2xl font-black text-brandOrange">01</span></div><h3 class="text-lg font-bold text-brandBlue mb-3">Demande &amp; Consultation</h3><p class="text-sm text-slate-500">Vous nous communiquez vos exigences produit et vos objectifs, nous vous conseillons de manière experte sur la faisabilité technique, les coûts réalistes et le calendrier optimal.</p></div>
+ <div class="group text-center reveal p-8 rounded-[2.5rem] bg-white/5 border border-white/10 hover:bg-white/10 hover:shadow-2xl hover:-translate-y-2 transition-all duration-500"><div class="w-16 h-16 rounded-2xl bg-brandOrange/20 flex items-center justify-center mx-auto mb-5"><span class="text-2xl font-black text-brandOrange">02</span></div><h3 class="text-lg font-bold text-brandBlue mb-3">Design &amp; Développement</h3><p class="text-sm text-slate-500">Notre équipe R&D experimentee de plus de 50 ingénieurs crée le design industriel, le layout PCBA et les dessins 3D precisement selon vos spécifications et souhaits individuels.</p></div>
+ <div class="group text-center reveal p-8 rounded-[2.5rem] bg-white/5 border border-white/10 hover:bg-white/10 hover:shadow-2xl hover:-translate-y-2 transition-all duration-500"><div class="w-16 h-16 rounded-2xl bg-brandOrange/20 flex items-center justify-center mx-auto mb-5"><span class="text-2xl font-black text-brandOrange">03</span></div><h3 class="text-lg font-bold text-brandBlue mb-3">Échantillons &amp; Validation</h3><p class="text-sm text-slate-500">Nous fabriquons des prototypes à l'échelle pour votre examen approfondi et vos tests. Apres votre validation, la production en série démarre immédiatement.</p></div>
+ <div class="group text-center reveal p-8 rounded-[2.5rem] bg-white/5 border border-white/10 hover:bg-white/10 hover:shadow-2xl hover:-translate-y-2 transition-all duration-500"><div class="w-16 h-16 rounded-2xl bg-brandOrange/20 flex items-center justify-center mx-auto mb-5"><span class="text-2xl font-black text-brandOrange">04</span></div><h3 class="text-lg font-bold text-brandBlue mb-3">Production en série</h3><p class="text-sm text-slate-500">Production en série certifiée ISO 9001 avec processus QC rigoureux en 4 étapes et test de vieillissement 100%.</p></div>
+ <div class="group text-center reveal p-8 rounded-[2.5rem] bg-white/5 border border-white/10 hover:bg-white/10 hover:shadow-2xl hover:-translate-y-2 transition-all duration-500"><div class="w-16 h-16 rounded-2xl bg-brandOrange/20 flex items-center justify-center mx-auto mb-5"><span class="text-2xl font-black text-brandOrange">05</span></div><h3 class="text-lg font-bold text-brandBlue mb-3">Marque &amp; Emballage</h3><p class="text-sm text-slate-500">Votre logo, votre emballage personnalise, votre marque forte, nous nous chargeons de la mise en oeuvre complète et de la coordination.</p></div>
+ <div class="group text-center reveal p-8 rounded-[2.5rem] bg-white/5 border border-white/10 hover:bg-white/10 hover:shadow-2xl hover:-translate-y-2 transition-all duration-500"><div class="w-16 h-16 rounded-2xl bg-brandOrange/20 flex items-center justify-center mx-auto mb-5"><span class="text-2xl font-black text-brandOrange">06</span></div><h3 class="text-lg font-bold text-brandBlue mb-3">Logistique &amp; Expédition</h3><p class="text-sm text-slate-500">Express 5-7 jours ou standard 25-35 jours, EXW ou DDP avec dédouanement inclus. Prêt pour Amazon FBA sur demande.</p></div>
  </div>
  </div>
  </section>
 
  <!-- SERVICE Détails -->
- <section class="sec bg-slate-50">
+ <section id="service-details" class="sec bg-slate-50" data-section="content">
  <div class="container-wide">
- <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
- {% call sectionHeader('OEM vs ODM', 'Quelle approche convient le mieux a votre projet et a vos objectifs ?', '', {align: '', max: '', mb: ''}) %}<div class="space-y-6 mt-8">
- <div class="bg-white rounded-xl p-6 border border-slate-200"><h3 class="font-bold text-brandBlue text-lg mb-2">ODM, Votre propre marque sur modèles en stock</h3><p class="text-sm text-slate-500 mb-3">En tant que client ODM, vous choisissez parmi nos produits existants et éprouves et nous les personnalisons avec votre logo, vos couleurs et votre identité de marque, rapidement, économiquement et simplement.</p><p class="text-xs font-bold text-brandOrange">MOQ : 500 unités | Délai : 25-30 jours</p></div>
- <div class="bg-white rounded-xl p-6 border border-slate-200"><h3 class="font-bold text-brandBlue text-lg mb-2">ODM, Développement sur mesure</h3><p class="text-sm text-slate-500 mb-3">En tant que client ODM, vous faites développer un produit personnalise sur notre plateforme existante selon vos spécifications techniques et de design précises, de l'électronique au design du boîtier jusqu'à la certification complète. OEM avec outillage entièrement neuf : MOQ à partir de 3 000 unités.</p><p class="text-xs font-bold text-brandOrange">MOQ : 1 000–2 000 unités | Délai : 45-60 jours</p></div>
+ {{ sectionHeader('OEM vs ODM', 'Quelle approche convient le mieux a votre projet et a vos objectifs ?', '', {}) }}
+ <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-stretch">
+ <div class="space-y-6 flex flex-col h-full">
+ <div class="card p-6 flex-1"><h3 class="font-bold text-brandBlue text-lg mb-2">ODM, Votre propre marque sur modèles en stock</h3><p class="text-sm text-slate-500 mb-3">En tant que client ODM, vous choisissez parmi nos produits existants et éprouves et nous les personnalisons avec votre logo, vos couleurs et votre identité de marque, rapidement, économiquement et simplement.</p><p class="text-xs font-bold text-brandOrange">MOQ : 500 unités | Délai : 25-30 jours</p></div>
+ <div class="card p-6 flex-1"><h3 class="font-bold text-brandBlue text-lg mb-2">ODM, Développement sur mesure</h3><p class="text-sm text-slate-500 mb-3">En tant que client ODM, vous faites développer un produit personnalise sur notre plateforme existante selon vos spécifications techniques et de design précises, de l'électronique au design du boîtier jusqu'à la certification complète. OEM avec outillage entièrement neuf : MOQ à partir de 3 000 unités.</p><p class="text-xs font-bold text-brandOrange">MOQ : 1 000–2 000 unités | Délai : 45-60 jours</p></div>
  </div>
- <div class="flex flex-wrap gap-6 mt-6 p-5 bg-brandOrange/5 rounded-xl border border-brandOrange/10">
- <div class="text-center"><p class="text-2xl font-black text-brandOrange">200+</p><p class="text-xs text-slate-500">marques mondiales</p></div>
- <div class="text-center"><p class="text-2xl font-black text-brandOrange">10+</p><p class="text-xs text-slate-500">ans d'expérience</p></div>
- <div class="text-center"><p class="text-2xl font-black text-brandOrange">&lt;0,3%</p><p class="text-xs text-slate-500">taux de défaut</p></div>
- <div class="text-center"><p class="text-2xl font-black text-brandOrange">500+</p><p class="text-xs text-slate-500">clients B2B</p></div>
- </div>
- <p class="text-xs text-slate-400 mt-4"><strong>Conformité et coûts pour le marche français :</strong> La certification CE (EMC+LVD) coûte <strong>1.500-5.200 EUR</strong> par produit, la NF (AFNOR) <strong>2.000-5.000 EUR</strong> supplémentaires (<a href="https://www.blueasialabs.com/fr/shouyehuandeng/ce-emc-certification-cost-analysis-a-2025-price-breakdown" target="_blank" rel="noopener noreferrer" class="text-brandOrange hover:underline">Blue Asia Labs 2025</a>). En OEM, WOWOHCOOL prend en charge ces certifications — vous évitez <strong>2.000-10.000 EUR</strong> de frais initiaux. Droits de douane UE : <strong>0-3%</strong> pour l'électronique grand public. TVA à l'import : <strong>20%</strong> (recuperable). Plus de 90% des chargeurs en France sont importes de Chine — en tant que fabricant direct certifie, nous garantissons qualité et conformité des la première pièce.</p>
- <p class="text-xs text-slate-400 mt-4">En savoir plus : <a href="/fr/etudes-de-cas/" class="text-brandOrange hover:underline">Études de cas clients →</a></p>
- <button data-action="open-modal" class="btn-primary mt-6 cursor-pointer">Demander une consultation <svg class="icon-arrow-right text-sm" aria-hidden="true" focusable="false" viewBox="0 0 512 512">
- <path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-105.4 105.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" fill="currentColor"/>
- </svg></button>
- {% endcall %}
- <div class="reveal">
- <div class="bg-white rounded-2xl p-8 border border-slate-200"><h3 class="text-lg font-bold text-brandBlue mb-6">Ce que nous offrons</h3>
+ <div class="reveal h-full flex items-center">
+ <div class="card-lg p-8 w-full h-full flex flex-col justify-center"><h3 class="text-lg font-bold text-brandBlue mb-6">Ce que nous offrons</h3>
  <ul class="space-y-4">
  <li class="flex items-start gap-3"><svg class="icon-circle-check text-brandOrange mt-0.5" aria-hidden="true" focusable="false" viewBox="0 0 512 512">
  <path d="M256 512a256 256 0 1 1 0-512 256 256 0 1 1 0 512zM374 145.7c-10.7-7.8-25.7-5.4-33.5 5.3L221.1 315.2 169 263.1c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l72 72c5 5 11.8 7.5 18.8 7s13.4-4.1 17.5-9.8L379.3 179.2c7.8-10.7 5.4-25.7-5.3-33.5z" fill="currentColor"/>
@@ -161,10 +149,18 @@ plPath: "uslugi-oem-odm/"
  </div>
  </div>
  </div>
- </section>
+ <!-- full-width trust + CTA band -->
+<div class="mt-12 lg:mt-16 reveal text-center">
+<p class="text-xs text-slate-400 mt-4 max-w-2xl mx-auto"><strong>Conformité et coûts pour le marche français :</strong> La certification CE (EMC+LVD) coûte <strong>1.500-5.200 EUR</strong> par produit, la NF (AFNOR) <strong>2.000-5.000 EUR</strong> supplémentaires (<a href="https://www.blueasialabs.com/fr/shouyehuandeng/ce-emc-certification-cost-analysis-a-2025-price-breakdown" target="_blank" rel="noopener noreferrer" class="text-brandOrange hover:underline">Blue Asia Labs 2025</a>). En OEM, WOWOHCOOL prend en charge ces certifications — vous évitez <strong>2.000-10.000 EUR</strong> de frais initiaux. Droits de douane UE : <strong>0-3%</strong> pour l'électronique grand public. TVA à l'import : <strong>20%</strong> (recuperable). Plus de 90% des chargeurs en France sont importes de Chine — en tant que fabricant direct certifie, nous garantissons qualité et conformité des la première pièce.</p>
+ <p class="text-xs text-slate-400 mt-2">En savoir plus : <a href="/fr/etudes-de-cas/" class="text-brandOrange hover:underline">Études de cas clients →</a></p>
+ <button data-action="open-modal" class="btn-solid mt-6 cursor-pointer">Demander une consultation <svg class="icon-arrow-right text-sm" aria-hidden="true" focusable="false" viewBox="0 0 512 512">
+ <path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-105.4 105.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" fill="currentColor"/>
+ </svg></button>
+</div>
+</section>
 
  <!-- STEPS -->
- <section class="sec bg-white">
+ <section id="steps" class="sec bg-slate-50" data-section="content">
  <div class="container-wide">
  {{ sectionHeader('Démarrez simplement', 'Comment travailler avec nous', '', {}) }}
  <div class="grid md:grid-cols-4 gap-6">
@@ -174,16 +170,16 @@ plPath: "uslugi-oem-odm/"
  <div class="text-center reveal p-4"><div class="w-12 h-12 rounded-full bg-brandOrange text-white text-xl font-black flex items-center justify-center mx-auto mb-4">4</div><h3 class="font-bold text-brandBlue text-sm mb-2">Production en série &amp; Expédition</h3><p class="text-xs text-slate-500">Production en série complète avec contrôle qualité rigoureux et livraison fiable vers la France et l'Europe</p></div>
  </div>
  <div class="text-center mt-10 reveal">
- <button data-action="open-modal" class="btn-primary cursor-pointer">Démarrer maintenant <svg class="icon-arrow-right text-sm" aria-hidden="true" focusable="false" viewBox="0 0 512 512">
+ <button data-action="open-modal" class="btn-solid cursor-pointer">Démarrer maintenant <svg class="icon-arrow-right text-sm" aria-hidden="true" focusable="false" viewBox="0 0 512 512">
  <path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-105.4 105.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" fill="currentColor"/>
  </svg></button>
  </div>
  </div>
- </section>
+</section>
 
  <!-- CASE STUDIES -->
- <section class="sec bg-white">
- <div class="container-content">
+ <section id="case-studies" class="sec bg-white" data-section="content">
+ <div class="container-wide">
  {% call sectionHeader('Histoires de réussite', 'Ce que disent nos partenaires et clients', 'Découvrez ce que nos clients en France et en Europe disent de leur collaboration avec nous.', {}) %}<p class="section-desc mx-auto">Plus de 500 clients B2B satisfaits dans plus de 30 pays, dont des marques leaders en France, Belgique et Suisse. <a href="/fr/etudes-de-cas/" class="text-brandOrange hover:underline font-semibold">Voir toutes les references clients →</a></p>
  {% endcall %}
  <div class="grid md:grid-cols-2 gap-6 reveal">
@@ -210,12 +206,13 @@ plPath: "uslugi-oem-odm/"
  </section>
 
  <!-- ======== Qualité ======== -->
- <section class="sec bg-white">
+ <!-- 深色化：内部卡片全是语义类 .card-soft/.card-lg-soft/.card，.dark-section 会自动转半透明白，无需逐个改 -->
+ <section id="qualite" class="sec bg-darkBg text-white dark-section" data-section="content">
  <div class="container-wide">
  {{ sectionHeader('Assurance qualité', 'Processus QC en 4 étapes pour une qualité maximale', 'Chaque produit est soumis a des contrôles qualité rigoureux dans notre usine certifiée <strong>ISO 9001:2015</strong> (<a href="https://www.iso.org/standard/62085.html" target="_blank" rel="noopener external" class="text-brandOrange hover:underline">ISO</a>). Notre taux de défaut est inférieur a <strong>0,3%</strong>. Audits tiers par <a href="https://www.sgs.com/" target="_blank" rel="noopener external" class="text-brandOrange hover:underline">SGS</a> et <a href="https://www.tuv.com/" target="_blank" rel="noopener external" class="text-brandOrange hover:underline">TUV</a> sur demande.', {}) }}
 
  <div class="grid md:grid-cols-4 gap-4 mb-16 reveal">
- <div class="bg-slate-50 rounded-xl p-6 border border-slate-200 text-center">
+ <div class="card-soft p-6 text-center">
  <div class="w-14 h-14 rounded-full bg-brandOrange/10 flex items-center justify-center mx-auto mb-4">
  <span class="text-2xl font-black text-brandOrange">1</span>
  </div>
@@ -223,7 +220,7 @@ plPath: "uslugi-oem-odm/"
  <p class="text-xs text-slate-500">Contrôle à la réception</p>
  <p class="text-xs text-slate-400 mt-2">Inspection de toutes les matières premières et composants à la réception.</p>
  </div>
- <div class="bg-slate-50 rounded-xl p-6 border border-slate-200 text-center">
+ <div class="card-soft p-6 text-center">
  <div class="w-14 h-14 rounded-full bg-brandOrange/10 flex items-center justify-center mx-auto mb-4">
  <span class="text-2xl font-black text-brandOrange">2</span>
  </div>
@@ -231,7 +228,7 @@ plPath: "uslugi-oem-odm/"
  <p class="text-xs text-slate-500">Contrôle en cours de production</p>
  <p class="text-xs text-slate-400 mt-2">Surveillance continue pendant la fabrication et l'assemblage.</p>
  </div>
- <div class="bg-slate-50 rounded-xl p-6 border border-slate-200 text-center">
+ <div class="card-soft p-6 text-center">
  <div class="w-14 h-14 rounded-full bg-brandOrange/10 flex items-center justify-center mx-auto mb-4">
  <span class="text-2xl font-black text-brandOrange">3</span>
  </div>
@@ -239,7 +236,7 @@ plPath: "uslugi-oem-odm/"
  <p class="text-xs text-slate-500">Contrôle final</p>
  <p class="text-xs text-slate-400 mt-2">Test fonctionnel a 100% de tous les produits finis.</p>
  </div>
- <div class="bg-slate-50 rounded-xl p-6 border border-slate-200 text-center">
+ <div class="card-soft p-6 text-center">
  <div class="w-14 h-14 rounded-full bg-brandOrange/10 flex items-center justify-center mx-auto mb-4">
  <span class="text-2xl font-black text-brandOrange">4</span>
  </div>
@@ -250,7 +247,7 @@ plPath: "uslugi-oem-odm/"
  </div>
 
  <div class="grid lg:grid-cols-2 gap-8 reveal">
- <div class="bg-slate-50 rounded-2xl p-8 border border-slate-200">
+ <div class="card-lg-soft p-8">
  <div class="flex items-center gap-3 mb-4">
  <svg class="icon-flask text-brandOrange" width="24" height="24" viewBox="0 0 448 512">
  <path d="M288 0L128 0C110.3 0 96 14.3 96 32s14.3 32 32 32L128 215.5 7.5 426.3C2.6 435 0 444.7 0 454.7 0 486.4 25.6 512 57.3 512l333.4 0c31.6 0 57.3-25.6 57.3-57.3 0-10-2.6-19.8-7.5-28.4L320 215.5 320 64c17.7 0 32-14.3 32-32S337.7 0 320 0L288 0zM192 215.5l0-151.5 64 0 0 151.5c0 11.1 2.9 22.1 8.4 31.8l41.6 72.7-164 0 41.6-72.7c5.5-9.7 8.4-20.6 8.4-31.8z" fill="currentColor"/>
@@ -275,25 +272,25 @@ plPath: "uslugi-oem-odm/"
  </svg> Test CEM conforme CE/FCC/VDE</li>
  </ul>
  </div>
- <div class="bg-slate-50 rounded-2xl p-8 border border-slate-200">
+ <div class="card-lg-soft p-8">
  <div class="flex items-center gap-3 mb-4">
  <svg class="icon-file-certificate text-brandOrange" width="24" height="24" viewBox="0 0 576 512"><path d="M239.2-8c-6.1-6.2-15-8.7-23.4-6.4S200.9-5.6 198.8 2.8L183.5 63c-1.1 4.4-5.6 7-9.9 5.7L113.8 51.9c-8.4-2.4-17.4 0-23.5 6.1s-8.5 15.1-6.1 23.5l16.9 59.8c1.2 4.3-1.4 8.8-5.7 9.9L35.1 166.5c-8.4 2.1-15 8.7-17.3 17.1s.2 17.3 6.4 23.4l44.5 43.3c3.2 3.1 3.2 8.3 0 11.5L24.3 305.1c-6.2 6.1-8.7 15-6.4 23.4s8.9 14.9 17.3 17.1l60.2 15.3c4.4 1.1 7 5.6 5.7 9.9L84.2 430.5c-2.4 8.4 0 17.4 6.1 23.5s15.1 8.5 23.5 6.1l59.8-16.9c4.3-1.2 8.8 1.4 9.9 5.7l15.3 60.2c2.1 8.4 8.7 15 17.1 17.3s17.3-.2 23.4-6.4l43.3-44.5c3.1-3.2 8.3-3.2 11.5 0L337.3 520c6.1 6.2 15 8.7 23.4 6.4s14.9-8.9 17.1-17.3L393.1 449c1.1-4.4 5.6-7 9.9-5.7l59.8 16.9c8.4 2.4 17.4 0 23.5-6.1s8.5-15.1 6.1-23.5l-16.9-59.8c-1.2-4.3 1.4-8.8 5.7-9.9l60.2-15.3c8.4-2.1 15-8.7 17.3-17.1s-.2-17.4-6.4-23.4l-44.5-43.3c-3.2-3.1-3.2-8.3 0-11.5l44.5-43.3c6.2-6.1 8.7-15 6.4-23.4s-8.9-14.9-17.3-17.1l-60.2-15.3c-4.4-1.1-7-5.6-5.7-9.9l16.9-59.8c2.4-8.4 0-17.4-6.1-23.5s-15.1-8.5-23.5-6.1L403 68.8c-4.3 1.2-8.8-1.4-9.9-5.7L377.8 2.8c-2.1-8.4-8.7-15-17.1-17.3s-17.3.2-23.4 6.4L294 36.5c-3.1 3.2-8.3 3.2-11.5 0L239.2-8z" fill="currentColor"/></svg>
  <h3 class="font-bold text-brandBlue">Indicateurs qualité</h3>
  </div>
  <div class="grid grid-cols-2 gap-4">
- <div class="text-center p-4 bg-white rounded-xl border border-slate-200">
+ <div class="card text-center p-4">
  <p class="text-2xl font-black text-brandOrange">&lt;0,3%</p>
  <p class="text-xs text-slate-500">Taux de défaut</p>
  </div>
- <div class="text-center p-4 bg-white rounded-xl border border-slate-200">
+ <div class="card text-center p-4">
  <p class="text-2xl font-black text-brandOrange">100%</p>
  <p class="text-xs text-slate-500">Test de vieillissement</p>
  </div>
- <div class="text-center p-4 bg-white rounded-xl border border-slate-200">
+ <div class="card text-center p-4">
  <p class="text-2xl font-black text-brandOrange">4h</p>
  <p class="text-xs text-slate-500">Durée du test</p>
  </div>
- <div class="text-center p-4 bg-white rounded-xl border border-slate-200">
+ <div class="card text-center p-4">
  <p class="text-2xl font-black text-brandOrange">ISO</p>
  <p class="text-xs text-slate-500">9001:2024</p>
  </div>
@@ -307,11 +304,11 @@ plPath: "uslugi-oem-odm/"
  </section>
 
  <!-- ======== LIVRAISON ======== -->
- <section class="sec bg-slate-50">
+ <section id="livraison" class="sec bg-slate-50" data-section="content">
  <div class="container-wide">
  {{ sectionHeader('Livraison &amp; Expédition', 'Rapide et fiable vers la France', 'Options de livraison flexibles pour chaque besoin, avec ou sans dédouanement.', {}) }}
  <div class="grid md:grid-cols-3 gap-6 reveal">
- <div class="bg-white rounded-xl p-6 border border-slate-200 text-center hover:border-brandOrange transition-all">
+ <div class="card p-6 text-center hover:border-brandOrange transition-all">
  <div class="w-16 h-16 rounded-full bg-brandOrange/10 flex items-center justify-center mx-auto mb-4">
  <svg class="icon-plane text-brandOrange" width="24" height="24" viewBox="0 0 576 512">
  <path d="M520 200c30.9 0 56 25.1 56 56s-25.1 56-56 56l-127.3 0-159.2 173.6c-6.1 6.6-14.6 10.4-23.6 10.4l-43.7 0c-10.9 0-18.6-10.7-15.2-21.1l54.3-162.9-99.7 0-52.8 66c-3 3.8-7.6 6-12.5 6l-19.8 0c-10.4 0-18-9.8-15.5-19.9L32 256 5 147.9C2.4 137.8 10.1 128 20.5 128l19.8 0c4.9 0 9.5 2.2 12.5 6l52.8 66 99.7 0-54.3-162.9C147.6 26.7 155.3 16 166.2 16l43.7 0c9 0 17.5 3.8 23.6 10.4L392.7 200 520 200z" fill="currentColor"/>
@@ -331,7 +328,7 @@ plPath: "uslugi-oem-odm/"
  </svg> Dédouanement inclus</li>
  </ul>
  </div>
- <div class="bg-white rounded-xl p-6 border border-slate-200 text-center hover:border-brandOrange transition-all">
+ <div class="card p-6 text-center hover:border-brandOrange transition-all">
  <div class="w-16 h-16 rounded-full bg-brandBlue/10 flex items-center justify-center mx-auto mb-4">
  <svg class="icon-ship text-brandBlue" width="24" height="24" viewBox="0 0 640 512"><path d="M48 408C48 385.9 59.4 365.4 77.6 353.7L231.3 248.7C249.8 236.8 273.1 234 294.1 241.2L381.1 270.5C393.1 274.5 406.2 272.1 416.8 264.1L553.1 156.8C569.6 143.9 594.1 151.1 602.5 169.6C610.1 186.1 602.8 204.9 586.1 212.9L472 261.6V408C472 426.1 429.5 440 376 440C322.5 440 280 426.1 280 408C280 398.1 310.1 390 341.8 385.5L320 376L248 341.6V408C248 426.1 205.5 440 152 440C98.5 440 56 426.1 56 408L48 408zM0 192C0 174.3 14.3 160 32 160L192 160L192 128L250.5 128C277.5 128 303.5 139.5 322.5 158.5L384 220L384 160L608 160C625.7 160 640 174.3 640 192L640 256C640 273.7 625.7 288 608 288L384 288L384 278.9L316.2 211.1C308.5 203.4 298.2 199.1 287.4 197.7L189.6 175.1C171.1 171.3 151.1 178.7 139.5 192.9L86.4 256H32C14.3 256 0 241.7 0 224V192z"/></svg>
  </div>
@@ -349,7 +346,7 @@ plPath: "uslugi-oem-odm/"
  </svg> Économique pour gros volumes</li>
  </ul>
  </div>
- <div class="bg-white rounded-xl p-6 border border-slate-200 text-center hover:border-brandOrange transition-all">
+ <div class="card p-6 text-center hover:border-brandOrange transition-all">
  <div class="w-16 h-16 rounded-full bg-green-500/10 flex items-center justify-center mx-auto mb-4">
  <svg class="icon-box text-green-600" width="24" height="24" viewBox="0 0 448 512">
  <path d="M369.4 128l-34.3-48-222.1 0-34.3 48 290.7 0zM0 148.5c0-13.3 4.2-26.3 11.9-37.2L60.9 42.8C72.9 26 92.3 16 112.9 16l222.1 0c20.7 0 40.1 10 52.1 26.8l48.9 68.5c7.8 10.9 11.9 23.9 11.9 37.2L448 416c0 35.3-28.7 64-64 64L64 480c-35.3 0-64-28.7-64-64L0 148.5z" fill="currentColor"/>
@@ -372,31 +369,13 @@ plPath: "uslugi-oem-odm/"
  </div>
  <div class="text-center mt-10 reveal">
  <p class="text-sm text-slate-500 mb-4">Conditions d'expédition personnalisées ? Demandez-nous un devis sur mesure.</p>
- <button data-action="open-modal" class="btn-primary cursor-pointer">Demander une offre d'expédition <svg class="icon-arrow-right text-sm" aria-hidden="true" focusable="false" viewBox="0 0 512 512"><path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-105.4 105.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" fill="currentColor"/></svg></button>
- </div>
- </div>
- </section>
-
- <!-- FAQ -->
- <section class="sec bg-slate-50">
- <div class="container-narrow">
- {{ sectionHeader('FAQ', 'Questions fréquentes sur l\'OEM/ODM', '', {max: ''}) }}
- <div class="reveal">
- {% call faqItem("Quelle est la différence entre OEM et ODM ?") %}L'OEM (Original Equipment Manufacturing) signifie que nous fabriquons votre propre design avec outillage neuf. L'ODM (Original Design Manufacturing) signifie que nous développons le produit sur notre plateforme existante. L'ODM sur modèles en stock démarre à un MOQ de 500, la production OEM avec outillage neuf à 3 000+ — entre les deux, l'ODM offre une liberté de conception totale avec un seuil d'entrée plus accessible.{% endcall %}
- {% call faqItem("Quelle est la quantité minimum de commande (MOQ) ?") %}Pour l'ODM sur modèles en stock (logo, couleur, emballage standard), le MOQ est de 500 unités par modele. Pour le développement ODM nouveau design, le MOQ est de 1 000–2 000 unités, et pour l'OEM avec outillage neuf à partir de 3 000 unités. Nous proposons des conditions flexibles pour les premières commandes.{% endcall %}
- {% call faqItem("Puis-je recevoir des échantillons avant la commande en gros ?") %}Oui, nous recommandons les échantillons avant la production en série. Échantillons standard sous 3-7 jours. Les frais d'échantillons sont déduits de la commande finale.{% endcall %}
- {% call faqItem("Quelles certifications prenez-vous en charge ?") %}Nous prenons en charge CE, TUV GS, RoHS, Qi2, UL, PSE, KC, UN38.3 et d'autres certifications spécifiques par pays. Notre équipe vous accompagne tout au long du processus.{% endcall %}
- {% call faqItem("Quelle est la durée d'une commande OEM type ?") %}OEM standard : 25-35 jours apres validation des échantillons. Projets ODM avec nouvel outillage : 45-60 jours. Production express possible sur demande.{% endcall %}
- {% call faqItem("Proposez-vous un accompagnement pour le design de l'emballage ?") %}Oui, notre équipe de design crée des emballages personnalises, des matériaux durables aux coffrets cadeaux haut de gamme. Documentation produit et manuel d'utilisation inclus.{% endcall %}
- {% call faqItem("Proposez-vous une protection de la propriete intellectuelle pour les designs ODM ?") %}Oui, nous signons des accords de confidentialité (NDA) avant le démarrage du projet. Vos designs, outillages et spécifications restent votre propriete intellectuelle. Nous ne fabriquons pas pour vos concurrents.{% endcall %}
- {% call faqItem("Quelle est votre politique de garantie ?") %}Garantie de 12 mois sur tous les produits. En cas de taux de défaut supérieur a 0,3%, nous fournissons un remplacement gratuit. Chaque lot est soumis a un test de vieillissement de 4 heures avant expédition.{% endcall %}
- {% call faqItem("Quelles options de livraison proposez-vous ?") %}Express (DHL/FedEx, 5-7 jours), fret maritime (15-25 jours) et expédition directe Amazon FBA. Service DDP avec dédouanement inclus disponible.{% endcall %}
+ <button data-action="open-modal" class="btn-solid cursor-pointer">Demander une offre d'expédition <svg class="icon-arrow-right text-sm" aria-hidden="true" focusable="false" viewBox="0 0 512 512"><path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-105.4 105.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" fill="currentColor"/></svg></button>
  </div>
  </div>
  </section>
 
  <!-- ======== DOWNLOADS ======== -->
- <section class="sec bg-white">
+ <section id="downloads" class="sec bg-white" data-section="content">
  <div class="container-wide">
  <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
  {% call sectionHeader('Documents techniques', 'Fiches techniques &amp; Certificats', '', {align: '', max: '', mb: ''}) %}<p class="text-slate-600 leading-relaxed mb-6">Demandez nos spécifications produit et certificats actuels. Nous mettons a votre disposition tous les documents pertinents pour le développement de vos produits et vos procédures d'importation.</p>
@@ -414,7 +393,7 @@ plPath: "uslugi-oem-odm/"
  </div>
  {% endcall %}
  <div class="reveal delay-2">
- <div class="bg-slate-50 rounded-2xl p-8 border border-slate-200">
+ <div class="card-lg-soft p-8">
  <p class="text-sm font-bold text-brandBlue mb-4">Documents disponibles</p>
  <ul class="space-y-3">
  <li class="flex items-center gap-3 text-sm text-slate-600"><svg class="icon-check-circle text-green-500" width="16" height="16" viewBox="0 0 512 512"><path d="M256 512a256 256 0 1 1 0-512 256 256 0 1 1 0 512zM369 145L241 273 177 209c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l80 80c9.4 9.4 24.6 9.4 33.9 0L403 179c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0z"/></svg> Fiches techniques produit (PDF)</li>
@@ -429,8 +408,26 @@ plPath: "uslugi-oem-odm/"
  </div>
  </section>
 
+ <!-- FAQ -->
+ <section id="faq" class="sec bg-slate-50" data-section="faq">
+ <div class="container-narrow">
+ {{ sectionHeader('FAQ', 'Questions fréquentes sur l\'OEM/ODM', '', {max: ''}) }}
+ <div class="reveal">
+ {% call faqItem("Quelle est la différence entre OEM et ODM ?") %}L'OEM (Original Equipment Manufacturing) signifie que nous fabriquons votre propre design avec outillage neuf. L'ODM (Original Design Manufacturing) signifie que nous développons le produit sur notre plateforme existante. L'ODM sur modèles en stock démarre à un MOQ de 500, la production OEM avec outillage neuf à 3 000+ — entre les deux, l'ODM offre une liberté de conception totale avec un seuil d'entrée plus accessible.{% endcall %}
+ {% call faqItem("Quelle est la quantité minimum de commande (MOQ) ?") %}Pour l'ODM sur modèles en stock (logo, couleur, emballage standard), le MOQ est de 500 unités par modele. Pour le développement ODM nouveau design, le MOQ est de 1 000–2 000 unités, et pour l'OEM avec outillage neuf à partir de 3 000 unités. Nous proposons des conditions flexibles pour les premières commandes.{% endcall %}
+ {% call faqItem("Puis-je recevoir des échantillons avant la commande en gros ?") %}Oui, nous recommandons les échantillons avant la production en série. Échantillons standard sous 3-7 jours. Les frais d'échantillons sont déduits de la commande finale.{% endcall %}
+ {% call faqItem("Quelles certifications prenez-vous en charge ?") %}Nous prenons en charge CE, TUV GS, RoHS, Qi2, UL, PSE, KC, UN38.3 et d'autres certifications spécifiques par pays. Notre équipe vous accompagne tout au long du processus.{% endcall %}
+ {% call faqItem("Quelle est la durée d'une commande OEM type ?") %}OEM standard : 25-35 jours apres validation des échantillons. Projets ODM avec nouvel outillage : 45-60 jours. Production express possible sur demande.{% endcall %}
+ {% call faqItem("Proposez-vous un accompagnement pour le design de l'emballage ?") %}Oui, notre équipe de design crée des emballages personnalises, des matériaux durables aux coffrets cadeaux haut de gamme. Documentation produit et manuel d'utilisation inclus.{% endcall %}
+ {% call faqItem("Proposez-vous une protection de la propriete intellectuelle pour les designs ODM ?") %}Oui, nous signons des accords de confidentialité (NDA) avant le démarrage du projet. Vos designs, outillages et spécifications restent votre propriete intellectuelle. Nous ne fabriquons pas pour vos concurrents.{% endcall %}
+ {% call faqItem("Quelle est votre politique de garantie ?") %}Garantie de 12 mois sur tous les produits. En cas de taux de défaut supérieur a 0,3%, nous fournissons un remplacement gratuit. Chaque lot est soumis a un test de vieillissement de 4 heures avant expédition.{% endcall %}
+ {% call faqItem("Quelles options de livraison proposez-vous ?") %}Express (DHL/FedEx, 5-7 jours), fret maritime (15-25 jours) et expédition directe Amazon FBA. Service DDP avec dédouanement inclus disponible.{% endcall %}
+ </div>
+ </div>
+ </section>
+
  <!-- ======== PAIEMENT ======== -->
- <section class="sec bg-white">
+ <section id="paiement" class="sec bg-white" data-section="content">
  <div class="container-wide">
  {% call sectionHeader('Conditions de paiement', 'Paiement flexible pour votre projet', 'Moyens de paiement éprouves pour les clients professionnels. Nous travaillons avec des assureurs et banques de renom.', {mb: 'mb-10'}) %}<p class="text-xs text-slate-400 mt-4 text-center max-w-2xl mx-auto">Le marche français des chargeurs GaN croit de plus de 17% par an <sup><a href="https://www.marketresearchfuture.com/reports/germany-gan-powered-chargers-market-57523" target="_blank" rel="noopener noreferrer" class="text-[10px] text-brandOrange no-underline hover:underline">[1]</a></sup>. Entrer maintenant vous assure des positions de marche précoces.</p>
  {% endcall %}

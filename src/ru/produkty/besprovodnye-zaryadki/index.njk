@@ -72,7 +72,7 @@ navActive: "products"
 {% from "breadcrumb.njk" import breadcrumb %}
 
 <!-- ======== HERO ======== -->
-<section class="relative pt-24 md:pt-28 pb-8 lg:pb-16 bg-white overflow-hidden">
+<section id="hero" class="relative pt-24 md:pt-28 lg:pt-20 pb-8 lg:pb-20 bg-white overflow-hidden lg:min-h-[100dvh] lg:flex lg:flex-col lg:justify-center" data-section="hero">
  <div class="absolute inset-0 pointer-events-none">
  <div class="absolute top-0 left-0 w-64 h-64 bg-brandOrange opacity-10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
  <div class="absolute bottom-0 right-0 w-64 h-64 bg-brandBlue opacity-10 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
@@ -81,11 +81,8 @@ navActive: "products"
   {{ breadcrumb([{name:"Главная",url:"/ru/"},{name:"Продукция",url:"/ru/produkty/"},{name:"Беспроводные зарядки"}], "none", "mb-6", { variant: "hero" }) }}
  <div class="grid lg:grid-cols-2 gap-12 items-center">
  <div class="reveal order-2 lg:order-1">
- <div class="inline-flex items-center gap-2 bg-brandOrange/10 text-brandOrange text-[11px] font-bold px-4 py-2 rounded-full tracking-widest uppercase mb-4">
- <span class="w-2 h-2 rounded-full bg-brandOrange animate-pulse"></span>
- Сертификация WPC · Qi2
- </div>
- <h1 class="text-4xl md:text-5xl lg:text-6xl font-black text-brandBlue leading-tight mb-6 italic uppercase">
+ <div class="badge-capsule mb-6 uppercase tracking-widest">Сертификация WPC · Qi2</div>
+ <h1 class="text-3xl md:text-4xl xl:text-5xl font-black text-brandBlue leading-tight mb-6 italic uppercase tracking-tighter">
  Производитель беспроводных зарядок Qi2 <span class="text-brandOrange">OEM/ODM</span>
  </h1>
  <p class="text-lg text-slate-600 leading-relaxed mb-6">Беспроводные зарядные устройства <strong>Qi2 15–25 Вт</strong> с сертификацией WPC. Складные станции 3-в-1, магнитные автодержатели, доки из цинкового сплава, модели с активным охлаждением и другие. MOQ от 500 шт.</p>
@@ -100,13 +97,13 @@ navActive: "products"
  <path d="M434.8 70.1c14.3 10.4 17.5 30.4 7.1 44.7l-256 352c-5.5 7.6-14 12.3-23.4 13.1s-18.5-2.7-25.1-9.3l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l101.5 101.5 234-321.7c10.4-14.3 30.4-17.5 44.7-7.1z" fill="currentColor"/>
  </svg></span> Быстрая зарядка до 25 Вт · Модели 3-в-1, авто, настольные</li>
  </ul>
- <div class="flex flex-wrap gap-3">
- <button data-action="open-modal" class="btn-primary shadow-lg shadow-brandOrange/20 cursor-pointer">Запросить расчёт <svg class="icon-arrow-right" viewBox="0 0 512 512"><path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-105.4 105.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" fill="currentColor"/></svg></button>
- <a href="/ru/kontakty/" class="btn-secondary">Связаться</a>
+ <div class="btn-pair">
+ <button data-action="open-modal" class="btn-solid shadow-lg shadow-brandOrange/20 cursor-pointer">Запросить расчёт <svg class="icon-arrow-right" viewBox="0 0 512 512"><path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-105.4 105.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" fill="currentColor"/></svg></button>
+ <a href="/ru/kontakty/" class="btn-ghost-lg">Связаться</a>
  </div>
  </div>
  <div class="reveal order-1 lg:order-2">
- <div class="bg-slate-50 rounded-2xl shadow-xl overflow-hidden border border-slate-100">
+ <div class="card-lg-soft shadow-xl overflow-hidden max-w-[480px] mx-auto">
  <img src="/image/product/wireless-charger/wow93-folding-charger.webp" srcset="/image/product/wireless-charger/wow93-folding-charger-800w.webp 800w, /image/product/wireless-charger/wow93-folding-charger.webp 1600w" sizes="(min-width: 1440px) 590px, (min-width: 1280px) 590px, (min-width: 1024px) 462px, (min-width: 768px) 718px, (min-width: 430px) 382px, 338px" alt="Беспроводная зарядка Qi2 OEM с завода WOWOHCOOL" width="1600" height="1600" class="w-full h-auto object-cover" loading="eager">
  </div>
  </div>
@@ -118,13 +115,13 @@ navActive: "products"
 {% include "trust-bar.njk" %}
 
 <!-- ======== 3 ЛИНЕЙКИ БЕСПРОВОДНОЙ ЗАРЯДКИ ======== -->
-<section class="sec bg-white">
+<section id="matrica-produkcii" class="sec bg-white" data-section="content">
  <div class="container-wide">
  {{ sectionHeader('Матрица продукции', '3 линейки <span class="text-brandOrange">беспроводных зарядок OEM</span>', 'Стандартная классификация по форм-фактору и сценарию использования. Каждая линейка нацелена на свой B2B-сегмент.', { max: '', mb: 'mb-12', labelStyle: 'pill', pillClass: 'bg-brandOrange/10', pillMb: 'mb-6' }) }}
 
- <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+ <div class="grid md:grid-cols-3 gap-8">
  <!-- Настольная -->
- <a href="/ru/produkty/besprovodnye-zaryadki/nastolnaya/" class="group bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-200 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 reveal">
+ <a href="/ru/produkty/besprovodnye-zaryadki/nastolnaya/" class="card-lg group overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 reveal">
  <div class="h-48 relative overflow-hidden bg-gradient-to-br from-slate-100 to-slate-200">
   <img src="/image/product/wireless-charger/wow68-vertical-magnetic-3in1-desktop-15w.webp" srcset="/image/product/wireless-charger/wow68-vertical-magnetic-3in1-desktop-15w-750w.webp 750w, /image/product/wireless-charger/wow68-vertical-magnetic-3in1-desktop-15w.webp 1100w" sizes="(min-width: 1440px) 526px, (min-width: 1280px) 526px, (min-width: 1024px) 398px, (min-width: 768px) 654px, (min-width: 430px) 382px, 327px" alt="Настольная беспроводная зарядка Qi2 — вертикальная магнитная подставка" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async" width="1100" height="1100">
   <div class="absolute top-3 left-3"><span class="bg-brandOrange text-white text-[11px] font-black px-3 py-1 rounded-full uppercase">Pad + Stand</span></div>
@@ -137,7 +134,7 @@ navActive: "products"
  </div>
  </a>
  <!-- Станция 3-в-1 -->
- <a href="/ru/produkty/besprovodnye-zaryadki/stanciya-3-v-1/" class="group bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-200 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 reveal">
+ <a href="/ru/produkty/besprovodnye-zaryadki/stanciya-3-v-1/" class="card-lg group overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 reveal">
  <div class="h-48 relative overflow-hidden bg-gradient-to-br from-slate-100 to-slate-200">
   <img src="/image/product/wireless-charger/wow93-folding-charger.webp" srcset="/image/product/wireless-charger/wow93-folding-charger-800w.webp 800w, /image/product/wireless-charger/wow93-folding-charger.webp 1600w" sizes="(min-width: 1440px) 590px, (min-width: 1280px) 590px, (min-width: 1024px) 462px, (min-width: 768px) 718px, (min-width: 430px) 382px, 338px" alt="Станция зарядки 3-в-1 Qi2: iPhone + Apple Watch + AirPods" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async" width="1600" height="1600">
  </div>
@@ -149,7 +146,7 @@ navActive: "products"
  </div>
  </a>
  <!-- Автодержатель -->
- <a href="/ru/produkty/besprovodnye-zaryadki/avtoderzhatel/" class="group bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-200 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 reveal">
+ <a href="/ru/produkty/besprovodnye-zaryadki/avtoderzhatel/" class="card-lg group overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 reveal">
  <div class="h-48 relative overflow-hidden bg-gradient-to-br from-slate-100 to-slate-200">
   <img src="/image/product/wireless-charger/wow41-qi22-25w-car-magnetic-wireless-charger.webp" srcset="/image/product/wireless-charger/wow41-qi22-25w-car-magnetic-wireless-charger-750w.webp 750w, /image/product/wireless-charger/wow41-qi22-25w-car-magnetic-wireless-charger.webp 1100w" sizes="(min-width: 1440px) 526px, (min-width: 1280px) 526px, (min-width: 1024px) 398px, (min-width: 768px) 654px, (min-width: 430px) 382px, 327px" alt="Магнитный автодержатель Qi2 с активным охлаждением TEC" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async" width="1100" height="1100">
   <div class="absolute top-3 left-3"><span class="bg-blue-600 text-white text-[11px] font-black px-3 py-1 rounded-full uppercase">TEC Cooling</span></div>
@@ -167,7 +164,7 @@ navActive: "products"
 
 
 <!-- ======== COMPARATIVA TECNOLÓGICA ======== -->
-<section class="sec bg-white">
+<section id="comparativa-tecnologica" class="sec bg-white" data-section="comparison">
  <div class="container-content">
  {{ sectionHeader('Сравнение', 'Qi2 vs MagSafe vs Qi (v1)', 'Qi2 с MPP (Magnetic Power Profile) — универсальный стандарт, сочетающий магнитное выравнивание MagSafe с открытой совместимостью. Данные актуальны на 2026 год.', {max: '', mb: 'mb-12'}) }}
  <div class="overflow-x-auto reveal">
@@ -194,26 +191,26 @@ navActive: "products"
 </section>
 
 <!-- ======== СЕРТИФИКАЦИЯ ======== -->
-<section class="sec bg-slate-50">
- <div class="container-content">
+<section id="content" class="sec bg-slate-50" data-section="content">
+ <div class="container-wide">
  {{ sectionHeader('Сертификация', 'Сертификация WPC Qi2 + поддержка EAC для импортёров ЕАЭС', 'Беспроводные зарядки требуют отдельных сертификатов. WOWOHCOOL сопровождает весь процесс: 47 Qi2-продуктов уже сертифицированы, для ЕАЭС готовим документы под EAC.', {max: '', mb: 'mb-12'}) }}
  <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 reveal">
- <div class="bg-white rounded-xl p-6 shadow-sm border border-slate-100 text-center">
+ <div class="card p-6 shadow-sm text-center">
   <div class="w-12 h-12 bg-brandOrange/10 rounded-full flex items-center justify-center mx-auto mb-3"><span class="text-brandOrange font-bold text-lg">EAC</span></div>
   <h3 class="font-bold text-brandBlue text-sm mb-2">EAC (ЕАЭС)</h3>
   <p class="text-xs text-slate-500">Поддержка при оформлении EAC: ТР ТС 020/2011 (ЭМС) и ТР ТС 004/2011. Готовим техдокументацию и протоколы испытаний.</p>
  </div>
- <div class="bg-white rounded-xl p-6 shadow-sm border border-slate-100 text-center">
+ <div class="card p-6 shadow-sm text-center">
   <div class="w-12 h-12 bg-brandOrange/10 rounded-full flex items-center justify-center mx-auto mb-3"><span class="text-brandOrange font-bold text-lg">WPC</span></div>
   <h3 class="font-bold text-brandBlue text-sm mb-2">WPC Qi2 Certified</h3>
   <p class="text-xs text-slate-500">Официальная сертификация Wireless Power Consortium. 47 моделей можно проверить в базе данных WPC.</p>
  </div>
- <div class="bg-white rounded-xl p-6 shadow-sm border border-slate-100 text-center">
+ <div class="card p-6 shadow-sm text-center">
   <div class="w-12 h-12 bg-brandOrange/10 rounded-full flex items-center justify-center mx-auto mb-3"><span class="text-brandOrange font-bold text-lg">EMC</span></div>
   <h3 class="font-bold text-brandBlue text-sm mb-2">EMC + безопасность</h3>
   <p class="text-xs text-slate-500">Электромагнитная совместимость и электробезопасность (CE LVD — требования аналогичны ТР ТС 004/2011 + 020/2011). Лабораторные протоколы прилагаются.</p>
  </div>
- <div class="bg-white rounded-xl p-6 shadow-sm border border-slate-100 text-center">
+ <div class="card p-6 shadow-sm text-center">
   <div class="w-12 h-12 bg-brandOrange/10 rounded-full flex items-center justify-center mx-auto mb-3"><span class="text-brandOrange font-bold text-lg">47</span></div>
   <h3 class="font-bold text-brandBlue text-sm mb-2">Сертифицированные продукты</h3>
   <p class="text-xs text-slate-500">47 моделей Qi2 с сертификацией WPC. Подтверждённый опыт сертификации для OEM-клиентов.</p>
@@ -223,7 +220,7 @@ navActive: "products"
 </section>
 
 <!-- ======== FAQ ======== -->
-<section class="py-16 bg-white">
+<section id="faq" class="sec bg-white" data-section="faq">
  <div class="container-narrow">
  {{ sectionHeader('FAQ', 'Частые вопросы', '', {max: '', mb: 'mb-10'}) }}
  <div class="reveal">

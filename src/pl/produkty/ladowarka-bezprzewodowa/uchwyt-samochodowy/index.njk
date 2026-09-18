@@ -137,13 +137,13 @@ ruPath: "produkty/besprovodnye-zaryadki/avtoderzhatel/"
 {% block content %}
 
 <!-- Hero -->
-<section class="relative pt-24 md:pt-28 pb-8 lg:pb-16 bg-white text-slate-900 overflow-hidden">
+<section id="hero" class="relative pt-24 md:pt-28 lg:pt-20 pb-8 lg:pb-20 bg-white text-slate-900 overflow-hidden lg:min-h-[100dvh] lg:flex lg:flex-col lg:justify-center" data-section="hero">
  <div class="absolute inset-0 z-0 pointer-events-none overflow-hidden">
  <div class="absolute top-0 left-0 max-w-full w-64 h-64 bg-brandOrange opacity-20 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
  <div class="absolute bottom-0 right-0 max-w-full w-64 h-64 bg-blue-500 opacity-20 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
  </div>
 
- <div class="container-wide relative z-10 text-center pb-8 lg:pb-12">
+ <div class="container-wide relative z-10 text-center pb-8 lg:pb-0">
  {{ breadcrumb([{name: "Strona Główna", url: "/pl/"}, {name: "Produkty", url: "/pl/produkty/"}, {name: "Ładowarki Bezprzewodowe", url: "/pl/produkty/ladowarka-bezprzewodowa/"}, {name: "Uchwyt Samochodowy"}], "none", "mb-6", { variant: "hero" }) }}
 
  <div>
@@ -157,15 +157,15 @@ ruPath: "produkty/besprovodnye-zaryadki/avtoderzhatel/"
 
  <p class="max-w-2xl mx-auto text-slate-500 text-xs leading-relaxed mb-8"><strong>Trzy zbiegające się katalizatory:</strong> (1) Adopcja standardu Qi2 63%→75% w 2026 — produkty bez Qi2 są wycofywane. (2) 62% kierowców zgłasza obawy o przegrzewanie telefonu — TEC + wentylator rozwiązuje problem (33-34°C powierzchni przy 25W/30min). (3) Egzekwowanie dyrektywy RED UE od stycznia 2027 — fala wymiany niecertyfikowanych ładowarek. Konsumenci płacą 15-20% więcej za modele z aktywnym chłodzeniem.</p>
 
- <div class="grid grid-cols-2 md:grid-cols-5 gap-4 max-w-3xl mx-auto mb-10">
- <div class="bg-slate-50 rounded-xl p-4 border border-slate-100"><p class="text-2xl font-black text-brandBlue">25W</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Moc Maks.</p></div>
- <div class="bg-slate-50 rounded-xl p-4 border border-slate-100"><p class="text-2xl font-black text-brandOrange">N52H</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Magnesy</p></div>
- <div class="bg-slate-50 rounded-xl p-4 border border-slate-100"><p class="text-2xl font-black text-brandBlue">5</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Modeli</p></div>
- <div class="bg-slate-50 rounded-xl p-4 border border-slate-100"><p class="text-2xl font-black text-brandOrange">500</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">MOQ</p></div>
- <div class="bg-slate-50 rounded-xl p-4 border border-slate-100"><p class="text-2xl font-black text-brandBlue">E-Mark</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Gotowość</p></div>
+ <div class="grid grid-cols-2 md:grid-cols-5 gap-4 mb-10">
+ <div class="card-soft p-4"><p class="text-2xl font-black text-brandBlue">25W</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Moc Maks.</p></div>
+ <div class="card-soft p-4"><p class="text-2xl font-black text-brandOrange">N52H</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Magnesy</p></div>
+ <div class="card-soft p-4"><p class="text-2xl font-black text-brandBlue">5</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Modeli</p></div>
+ <div class="card-soft p-4"><p class="text-2xl font-black text-brandOrange">500</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">MOQ</p></div>
+ <div class="card-soft p-4"><p class="text-2xl font-black text-brandBlue">E-Mark</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Gotowość</p></div>
  </div>
 
- <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
+ <div class="btn-pair">
  <button data-action="open-modal" data-product="Uchwyt Samochodowy z Ładowarką" class="btn-wide-lg">
   Poproś o Wycenę Fabryczną
  </button>
@@ -186,7 +186,7 @@ ruPath: "produkty/besprovodnye-zaryadki/avtoderzhatel/"
 </div>
 
 <!-- Products -->
-<section id="produkty" class="sec bg-white relative py-16">
+<section id="produkty" class="sec bg-white relative" data-section="products">
  <div class="container-wide">
  <h2 class="text-2xl font-black text-brandBlue uppercase italic tracking-tighter mb-2">Uchwyty Samochodowe Qi2</h2>
  <p class="text-slate-500 text-sm mb-10">5 modeli | 15W-25W | Magnesy N52H | Chłodzenie TEC | Superkondensator | Zacisk Elektryczny</p>
@@ -229,7 +229,7 @@ ruPath: "produkty/besprovodnye-zaryadki/avtoderzhatel/"
  </p>
 
  <details class="mb-6 group/spec">
- <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition">
+ <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition">
  <span class="text-xs font-black text-slate-700 uppercase">Specyfikacja</span>
  <span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">▼</span>
  </summary>
@@ -287,7 +287,7 @@ ruPath: "produkty/besprovodnye-zaryadki/avtoderzhatel/"
  </p>
 
  <details class="mb-6 group/spec">
- <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition">
+ <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition">
  <span class="text-xs font-black text-slate-700 uppercase">Specyfikacja</span>
  <span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">▼</span>
  </summary>
@@ -334,7 +334,7 @@ ruPath: "produkty/besprovodnye-zaryadki/avtoderzhatel/"
  </p>
 
  <details class="mb-6 group/spec">
- <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition">
+ <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition">
  <span class="text-xs font-black text-slate-700 uppercase">Specyfikacja</span>
  <span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">▼</span>
  </summary>
@@ -376,7 +376,7 @@ ruPath: "produkty/besprovodnye-zaryadki/avtoderzhatel/"
  </div>
  <p class="text-[11px] text-slate-500 mb-6 italic leading-relaxed">Talerzowy uchwyt magnetyczny z ładowarką 15W. Zielone podświetlenie ambientowe ułatwia ładowanie nocą. Wzmocniona macierz magnetyczna z mocną przyssawką dla stabilnego trzymania nawet na wyboistych drogach. Konstrukcja auto-mount do bezpiecznej jazdy bez szukania portów.</p>
  <details class="mb-6 group/spec">
- <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Specyfikacja</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">▼</span></summary>
+ <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Specyfikacja</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">▼</span></summary>
  <div class="p-4 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-[11px]"><tbody>
  <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Moc Wyjściowa</td><td class="py-2 font-bold text-slate-700">15W</td></tr>
  <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Materiał</td><td class="py-2 font-bold text-slate-700">ABS + PC</td></tr>
@@ -406,7 +406,7 @@ ruPath: "produkty/besprovodnye-zaryadki/avtoderzhatel/"
  </div>
  <p class="text-[11px] text-slate-500 mb-6 italic leading-relaxed">Przemysłowa macierz magnetyczna 1400g z supermocną siłą trzymania N52H — zero wibracji na wybojach. Cewka 15W o zwiększonej mocy. Swobodny obrót 360° do nawigacji. Ramka omijająca obiektyw dla bezpieczeństwa aparatu. Gumowa powłoka natryskowa dla lepszego chwytu i trwałości.</p>
  <details class="mb-6 group/spec">
- <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Specyfikacja</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">▼</span></summary>
+ <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Specyfikacja</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">▼</span></summary>
  <div class="p-4 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-[11px]"><tbody>
  <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Siła Magnesu</td><td class="py-2 font-bold text-slate-700">1400g N52H Neodym</td></tr>
  <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Moc Wyjściowa</td><td class="py-2 font-bold text-slate-700">15W</td></tr>
@@ -423,7 +423,7 @@ ruPath: "produkty/besprovodnye-zaryadki/avtoderzhatel/"
 </section>
 
 <!-- Czym Jest Uchwyt Samochodowy z Ładowarką Qi2 -->
-<section class="sec bg-white relative py-16">
+<section id="czym-jest-uchwyt-samochodowy-z-ladowarka-qi2" class="sec bg-white relative" data-section="content">
  <div class="container-wide">
  <h2 class="section-title text-center">Czym Jest Magnetyczny Uchwyt Samochodowy z Ładowarką Qi2?</h2>
  <p class="text-center text-slate-500 text-sm max-w-3xl mx-auto mb-8">Uchwyt samochodowy z ładowarką Qi2 łączy <strong>uchwyt na telefon i szybką ładowarkę bezprzewodową</strong> w jednym akcesorium motoryzacyjnym. Oparty na standardzie Qi2 MPP (Magnetic Power Profile) z <strong>magnesami neodymowymi N52H</strong>, nowoczesny uchwyt dostarcza 15W-25W mocy z perfekcyjnym magnetycznym pozycjonowaniem — eliminując potrzebę podłączania kabli podczas jazdy. Dla kupców B2B, rynek wtórny uchwytów samochodowych to <strong>najszybciej rosnący segment ładowania motoryzacyjnego</strong> — 50% nowych aut ma wbudowane ładowanie bezprzewodowe, ale ponad 1 miliard pojazdów na drogach go nie posiada, tworząc ogromną szansę retrofit.</p>
@@ -433,18 +433,18 @@ ruPath: "produkty/besprovodnye-zaryadki/avtoderzhatel/"
   <cite class="block text-xs text-slate-400 mt-2 not-italic">— <a href="https://www.marketresearch.com/LP-Information-Inc-v4134/Global-Vehicle-mounted-Wireless-Charger-44850256/" target="_blank" rel="noopener noreferrer" class="text-brandOrange hover:underline">LP Information</a>, Global Vehicle-Mounted Wireless Charger Market 2026-2032; <a href="https://www.factmr.com/report/6/automotive-mobile-accessories-market" target="_blank" rel="noopener noreferrer" class="text-brandOrange hover:underline">Fact.MR</a>, Automotive Mobile Accessories Market 2025-2036</cite>
  </blockquote>
 
- <div class="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
- <div class="bg-slate-50 rounded-xl p-6 border border-slate-100 text-center">
+ <div class="grid md:grid-cols-3 gap-8">
+ <div class="card-soft p-6 text-center">
   <p class="text-3xl font-black text-brandBlue mb-2">181 mln USD</p>
   <p class="text-sm font-bold text-slate-700 mb-2">Rynek Podstawek Samochodowych 2025</p>
   <p class="text-xs text-slate-500">Segment aftermarketowych uchwytów bezprzewodowych. CAGR 7,5% do 2032 wraz z rozwojem przepisów hands-free.</p>
  </div>
- <div class="bg-slate-50 rounded-xl p-6 border border-slate-100 text-center">
+ <div class="card-soft p-6 text-center">
   <p class="text-3xl font-black text-brandOrange mb-2">71,8%</p>
   <p class="text-sm font-bold text-slate-700 mb-2">Udział Aftermarketu</p>
   <p class="text-xs text-slate-500">Aftermarket dominuje sprzedaż akcesoriów samochodowych. Uchwyty = 32,7% kategorii 55,9 mld USD.</p>
  </div>
- <div class="bg-slate-50 rounded-xl p-6 border border-slate-100 text-center">
+ <div class="card-soft p-6 text-center">
   <p class="text-3xl font-black text-brandBlue mb-2">N52H</p>
   <p class="text-sm font-bold text-slate-700 mb-2">Najmocniejsze Magnesy Komercyjne</p>
   <p class="text-xs text-slate-500">Neodymy klasy N52H — najmocniejsze dostępne komercyjnie. Pewny uchwyt przez etui 3mm na wybojach.</p>
@@ -454,7 +454,7 @@ ruPath: "produkty/besprovodnye-zaryadki/avtoderzhatel/"
 </section>
 
 <!-- Magnetyczny vs Zacisk Elektryczny vs Talerzowy -->
-<section class="sec bg-slate-50 relative py-16">
+<section id="magnetyczny-vs-zacisk-elektryczny-vs-talerzowy" class="sec bg-slate-50 relative" data-section="comparison">
  <div class="container-wide">
  <h2 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4 text-center">Magnetyczny vs. Zacisk Elektryczny vs. Talerzowy — <span class="text-brandOrange">Poradnik Kupca B2B</span></h2>
  <p class="text-center text-slate-500 text-sm max-w-3xl mx-auto mb-12">Nie każdy uchwyt służy temu samemu odbiorcy. Oto jak wybrać odpowiedni mechanizm dla Twojego kanału dystrybucji i rynku docelowego.</p>
@@ -462,11 +462,11 @@ ruPath: "produkty/besprovodnye-zaryadki/avtoderzhatel/"
  <div class="overflow-x-auto rounded-2xl border border-slate-200 shadow-sm">
  <table class="w-full text-sm">
  <thead>
- <tr class="bg-white">
- <th class="p-4 text-left text-slate-500 font-bold text-xs uppercase">Parametr</th>
- <th class="p-4 text-center bg-brandOrange/5 border-x border-brandOrange/20 text-brandOrange font-bold text-xs uppercase">Uchwyt Magnetyczny<br><span class="text-[10px] normal-case opacity-70">WOW41 / WOW39 / WOW19S</span></th>
- <th class="p-4 text-center text-slate-500 font-bold text-xs uppercase">Zacisk Elektryczny<br><span class="text-[10px] normal-case opacity-70">WOW35</span></th>
- <th class="p-4 text-center text-slate-500 font-bold text-xs uppercase">Talerzowy<br><span class="text-[10px] normal-case opacity-70">WOW28</span></th>
+ <tr class="bg-brandBlue text-white">
+ <th class="p-4 text-left font-bold text-xs uppercase">Parametr</th>
+ <th class="p-4 text-center bg-brandOrange/20 font-bold text-xs uppercase">Uchwyt Magnetyczny<br><span class="text-[10px] normal-case opacity-70">WOW41 / WOW39 / WOW19S</span></th>
+ <th class="p-4 text-center font-bold text-xs uppercase">Zacisk Elektryczny<br><span class="text-[10px] normal-case opacity-70">WOW35</span></th>
+ <th class="p-4 text-center font-bold text-xs uppercase">Talerzowy<br><span class="text-[10px] normal-case opacity-70">WOW28</span></th>
  </tr>
  </thead>
  <tbody>
@@ -485,25 +485,25 @@ ruPath: "produkty/besprovodnye-zaryadki/avtoderzhatel/"
 </section>
 
 <!-- Kontekst Rynkowy -->
-<section class="sec bg-slate-50 relative py-16">
- <div class="container-content">
+<section id="kontekst-rynkowy" class="sec bg-slate-50 relative" data-section="content">
+ <div class="container-wide">
  <h2 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4 text-center">Rynek Ładowarek Samochodowych <span class="text-brandOrange">1,47 mld USD w 2025</span></h2>
  <p class="text-center text-slate-500 text-sm max-w-3xl mx-auto mb-8">Globalny rynek montowanych w pojeździe ładowarek bezprzewodowych osiągnął 1,47 mld USD w 2025, rosnąc w tempie 19,4% CAGR do 14,2 mld USD do 2035. 50% nowych aut sprzedanych w 2024 miało wbudowane ładowanie bezprzewodowe — ale ponad 1 miliard pojazdów na drogach go nie posiada. Szansa aftermarketowa dla uchwytów samochodowych z ładowarką jest ogromna i przyspiesza. Indie prowadzą wzrost na poziomie krajowym z 7,5% CAGR, napędzane rozszerzającym się ustawodawstwem hands-free i szybką adopcją smartfonów.</p>
 
- <div class="grid md:grid-cols-4 gap-6 max-w-4xl mx-auto mb-6">
- <div class="bg-white rounded-xl p-6 shadow-sm border border-slate-100 text-center">
+ <div class="grid md:grid-cols-4 gap-6 mb-6">
+ <div class="card p-6 shadow-sm text-center">
   <p class="text-3xl font-black text-brandBlue mb-2">1,47 mld USD</p>
   <p class="text-xs text-slate-500">Rynek ładowarek montowanych w pojeździe 2025 (LP Information 2026)</p>
  </div>
- <div class="bg-white rounded-xl p-6 shadow-sm border border-slate-100 text-center">
+ <div class="card p-6 shadow-sm text-center">
   <p class="text-3xl font-black text-brandOrange mb-2">50%+</p>
   <p class="text-xs text-slate-500">Nowych aut z ładowaniem bezprzewodowym w 2024 (Counterpoint Research)</p>
  </div>
- <div class="bg-white rounded-xl p-6 shadow-sm border border-slate-100 text-center">
+ <div class="card p-6 shadow-sm text-center">
   <p class="text-3xl font-black text-brandBlue mb-2">71,8%</p>
   <p class="text-xs text-slate-500">Udział aftermarketu w akcesoriach samochodowych — kanał dominujący (Fact.MR)</p>
  </div>
- <div class="bg-white rounded-xl p-6 shadow-sm border border-slate-100 text-center">
+ <div class="card p-6 shadow-sm text-center">
   <p class="text-3xl font-black text-brandOrange mb-2">19,4%</p>
   <p class="text-xs text-slate-500">CAGR 2025-2035 — najszybciej rosnący segment ładowarek bezprzewodowych</p>
  </div>
@@ -516,33 +516,33 @@ ruPath: "produkty/besprovodnye-zaryadki/avtoderzhatel/"
 </section>
 
 <!-- Dlaczego WOWOHCOOL -->
-<section class="sec bg-slate-50 relative py-16">
+<section id="dlaczego-wowohcool" class="sec bg-slate-50 relative" data-section="content">
  <div class="container-wide">
  <h2 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4 text-center">Dlaczego <span class="text-brandOrange">WOWOHCOOL</span> dla Twojej Marki</h2>
  <p class="text-center text-slate-500 text-sm max-w-2xl mx-auto mb-12">Kategoria uchwytów samochodowych z ładowarką wymaga niezawodności klasy motoryzacyjnej — WOWOHCOOL to jedyna fabryka B2B OEM oferująca chłodzenie TEC, superkondensator i magnesy N52H w jednej linii.</p>
 
- <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
- <div class="bg-white rounded-xl p-6 border border-slate-200 shadow-sm">
+ <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+ <div class="card p-6 shadow-sm">
   <h3 class="font-black text-brandBlue uppercase mb-3 text-sm">5 Modeli — 3 Typy Mechanizmów</h3>
   <p class="text-sm text-slate-600 leading-relaxed">Magnetyczny zatrzask (Qi2 MPP), elektryczny auto-zacisk (superkondensator) i uniwersalny talerz — pokrywający każdą personę kupca od premium użytkowników Apple po budżetowe floty. Większość konkurencji oferuje tylko 1-2 mechanizmy.</p>
  </div>
- <div class="bg-white rounded-xl p-6 border border-slate-200 shadow-sm">
+ <div class="card p-6 shadow-sm">
   <h3 class="font-black text-brandBlue uppercase mb-3 text-sm">Ekskluzywne Chłodzenie TEC</h3>
   <p class="text-sm text-slate-600 leading-relaxed">WOW41 to jedyny uchwyt samochodowy B2B OEM z półprzewodnikowym chłodzeniem TEC. Utrzymuje ładowanie 25W w kabinie 50°C+ — bez dławienia termicznego. Cichy wentylator turbo + duży radiator dla podwójnego chłodzenia urządzenia i baterii.</p>
  </div>
- <div class="bg-white rounded-xl p-6 border border-slate-200 shadow-sm">
+ <div class="card p-6 shadow-sm">
   <h3 class="font-black text-brandBlue uppercase mb-3 text-sm">Magnesy Przemysłowe N52H</h3>
   <p class="text-sm text-slate-600 leading-relaxed">Najwyższy dostępny komercyjnie gatunek neodymu. Siła trzymania 1400g (WOW19S) — pewny uchwyt przez etui 3mm na wyboistych drogach. Zero wibracji, zero upadków. Macierz 14 magnesów N52H w WOW39 dla dwuwarstwowego chwytu.</p>
  </div>
- <div class="bg-white rounded-xl p-6 border border-slate-200 shadow-sm">
+ <div class="card p-6 shadow-sm">
   <h3 class="font-black text-brandBlue uppercase mb-3 text-sm">Superkondensator Power-Off</h3>
   <p class="text-sm text-slate-600 leading-relaxed">Wyłącznie w WOW35: wbudowany superkondensator umożliwia do dwóch pełnych cykli otwarcia/zamknięcia po wyłączeniu silnika. Bez degradacji baterii z czasem. Trójosiowa automatyczna kalibracja z reakcją dotykową 0,1s. Unikalny wyróżnik B2B bez konkurencji.</p>
  </div>
- <div class="bg-white rounded-xl p-6 border border-slate-200 shadow-sm">
+ <div class="card p-6 shadow-sm">
   <h3 class="font-black text-brandBlue uppercase mb-3 text-sm">Qi2.2 25W Gotowość Przyszłościowa</h3>
   <p class="text-sm text-slate-600 leading-relaxed">Standard Qi v2.2.1 25W ratyfikowany 2025-07. WOW41 obsługuje wyjście 25W dla iPhone 16/17, Pixel 10 i Galaxy S25. Certyfikat WPC z pełną dokumentacją ATL (Authorized Test Lab) dla potrzeb regulacyjnych Twojej marki.</p>
  </div>
- <div class="bg-white rounded-xl p-6 border border-slate-200 shadow-sm">
+ <div class="card p-6 shadow-sm">
   <h3 class="font-black text-brandBlue uppercase mb-3 text-sm">Gotowość E-Mark Klasa Motoryzacyjna</h3>
   <p class="text-sm text-slate-600 leading-relaxed">Ekranowanie EMI i komponenty klasy motoryzacyjnej dla zgodności z rynkiem wtórnym UE (ECE R10). Certyfikaty CE, FCC, RoHS i Qi2 WPC. Pełny pakiet dokumentacji certyfikacyjnej z każdym zamówieniem OEM. Dostępne wsparcie testów E-Mark na zamówienie.</p>
  </div>
@@ -551,25 +551,25 @@ ruPath: "produkty/besprovodnye-zaryadki/avtoderzhatel/"
 </section>
 
 <!-- Kto Kupuje -->
-<section class="sec bg-white relative py-16">
+<section id="kto-kupuje" class="sec bg-white relative" data-section="content">
  <div class="container-wide">
  <h2 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4 text-center">Kto Kupuje <span class="text-brandOrange">Uchwyty Samochodowe</span> Hurtowo</h2>
  <p class="text-center text-slate-500 text-sm max-w-3xl mx-auto mb-12">Cztery profile kupców B2B, którzy regularnie zamawiają uchwyty samochodowe z ładowarką w ilościach hurtowych — każdy z odrębnymi wymaganiami.</p>
 
- <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto mb-10">
-  <div class="bg-slate-50 rounded-xl p-5 border border-slate-200">
+ <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
+  <div class="card-soft p-5">
    <p class="font-black text-slate-900 text-sm mb-1">Sprzedawcy Amazon i E-Commerce</p>
    <p class="text-xs text-slate-500">"Uchwyt magsafe" i "ładowarka samochodowa" generują wysoki wolumen wyszukiwań z silną sezonowością. Modele TEC (WOW41) wyróżniają się na tle ofert masowych. Private label MOQ 500 z opakowaniem FBA-ready.</p>
   </div>
-  <div class="bg-slate-50 rounded-xl p-5 border border-slate-200">
+  <div class="card-soft p-5">
    <p class="font-black text-slate-900 text-sm mb-1">Marki Akcesoriów Samochodowych</p>
    <p class="text-xs text-slate-500">Projekty gotowe do certyfikacji E-Mark dla europejskich sieci handlowych. Wydajność magnesów N52H = kluczowa specyfikacja premium. Chłodzenie TEC w WOW41 to funkcja pierwsza w kategorii.</p>
   </div>
-  <div class="bg-slate-50 rounded-xl p-5 border border-slate-200">
+  <div class="card-soft p-5">
    <p class="font-black text-slate-900 text-sm mb-1">Operatorzy Flot Ride-Hailing</p>
    <p class="text-xs text-slate-500">Kierowcy Uber, Bolt, FreeNow potrzebują niezawodności komercyjnej. WOW35 z zaciskiem elektrycznym i superkondensatorem + obsługa jedną ręką jest stworzony do całodziennego użytku. Ceny flotowe od 1 000+ sztuk.</p>
   </div>
-  <div class="bg-slate-50 rounded-xl p-5 border border-slate-200">
+  <div class="card-soft p-5">
    <p class="font-black text-slate-900 text-sm mb-1">Salony Samochodowe i OEM Tier-2</p>
    <p class="text-xs text-slate-500">Akcesoria dealerskie, pakiety prezentowe, gadżety z logo producenta. Własne logo, kolory Pantone, opakowania premium. MOQ 500 dla standardowego OEM, 2 000 dla ekskluzywnego designu.</p>
   </div>
@@ -577,7 +577,7 @@ ruPath: "produkty/besprovodnye-zaryadki/avtoderzhatel/"
 
  <div class="bg-brandBlue/5 rounded-2xl p-8 border border-brandBlue/10 max-w-3xl mx-auto text-center">
   <p class="text-sm text-slate-700 leading-relaxed mb-4">Wszystkich tych kupców łączy jedno wymaganie: uchwyt, który przetrwa ekstremalne temperatury, ciągłe wibracje i codzienne użytkowanie — wsparty fabryką z weryfikowalną kontrolą jakości. Fabryka WOWOHCOOL o powierzchni 5 000 m2 z certyfikatem ISO 9001 obsługuje 200+ globalnych marek od 2013 — z 4-stopniową kontrolą QC i 4-godzinnym testem starzeniowym 100% każdej sztuki.</p>
-  <a href="#produkty" class="inline-block text-brandOrange font-black text-sm uppercase tracking-widest hover:underline">Przeglądaj 5 Modeli Uchwytów →</a>
+  <a href="#produkty" class="btn-more">Przeglądaj 5 Modeli Uchwytów →</a>
  </div>
  </div>
 </section>
@@ -589,13 +589,13 @@ ruPath: "produkty/besprovodnye-zaryadki/avtoderzhatel/"
 </div>
 
 <!-- OEM/ODM -->
-<section class="sec bg-white relative py-16">
+<section id="oem-odm" class="sec bg-white relative" data-section="content">
  <div class="container-wide">
  <h2 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4 text-center">Personalizacja OEM/ODM dla <span class="text-brandOrange">Uchwytów Samochodowych</span></h2>
  <p class="text-center text-slate-500 text-sm max-w-2xl mx-auto mb-12">Pełna personalizacja — od logo po ekskluzywny design mechanizmu. Elastyczne MOQ zależne od stopnia złożoności. Wsparcie certyfikacji E-Mark w cenie.</p>
 
- <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-  <div class="bg-slate-50 rounded-xl p-6 border border-slate-200">
+ <div class="grid md:grid-cols-2 gap-8">
+  <div class="card-soft p-6">
    <h3 class="font-black text-brandBlue uppercase mb-4 text-sm">OEM (Modele Standardowe, MOQ 500)</h3>
    <ul class="space-y-2 text-sm text-slate-600">
     <li>Nadruk logo (sitodruk, laser, UV na obudowie uchwytu)</li>
@@ -607,7 +607,7 @@ ruPath: "produkty/besprovodnye-zaryadki/avtoderzhatel/"
     <li>Pakiet dokumentacji certyfikacyjnej (CE, FCC, RoHS, Qi2 WPC)</li>
    </ul>
   </div>
-  <div class="bg-slate-50 rounded-xl p-6 border border-slate-200">
+  <div class="card-soft p-6">
    <h3 class="font-black text-brandBlue uppercase mb-4 text-sm">ODM (Własny Design, MOQ 2 000)</h3>
    <ul class="space-y-2 text-sm text-slate-600">
     <li>Indywidualny design przemysłowy (CMF: Kolor, Materiał, Wykończenie)</li>
@@ -630,19 +630,19 @@ ruPath: "produkty/besprovodnye-zaryadki/avtoderzhatel/"
 
  <div class="bg-brandBlue/5 rounded-2xl p-8 border border-brandBlue/10 max-w-3xl mx-auto mt-10 text-center">
   <p class="text-sm text-slate-700 leading-relaxed mb-4"><strong>Uwaga dla importerów z Polski:</strong> Wszystkie nasze uchwyty samochodowe są zgodne z dyrektywą RED 2014/53/UE i gotowe do certyfikacji E-Mark (ECE R10). Do każdego zamówienia dołączamy deklarację zgodności CE, certyfikat RoHS oraz dokumentację Qi2 WPC. Ceny fabryczne FOB Shenzhen — dolicz cło (stawka 0% dla ładowarek bezprzewodowych z Chin, kod CN 8504 40 90) i VAT 23%.</p>
-  <a href="#produkty" class="inline-block text-brandOrange font-black text-sm uppercase tracking-widest hover:underline">Przeglądaj 5 Modeli Uchwytów →</a>
+  <a href="#produkty" class="btn-more">Przeglądaj 5 Modeli Uchwytów →</a>
  </div>
  </div>
 </section>
 
 <!-- Chłodzenie TEC -->
-<section class="sec bg-slate-50 relative py-16">
+<section id="chlodzenie-tec" class="sec bg-slate-50 relative" data-section="content">
  <div class="container-wide">
  <h2 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4 text-center">Chłodzenie TEC — <span class="text-brandOrange">Dlaczego Ma Znaczenie</span> w Ładowarkach Samochodowych</h2>
  <p class="text-center text-slate-500 text-sm max-w-3xl mx-auto mb-12">Kabina samochodu to najtrudniejsze środowisko dla ładowania bezprzewodowego. Półprzewodnikowe chłodzenie TEC to jedyne rozwiązanie utrzymujące pełną prędkość ładowania w letnim upale — a WOWOHCOOL to jedyny producent B2B OEM oferujący je w uchwycie samochodowym.</p>
 
- <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-  <div class="bg-white rounded-xl p-6 border border-slate-200">
+ <div class="grid md:grid-cols-2 gap-8">
+  <div class="card p-6">
    <h3 class="font-black text-brandBlue uppercase mb-4 text-sm">Problem: Letni Upał Zabija Prędkość Ładowania</h3>
    <ul class="space-y-2 text-sm text-slate-600">
     <li>Kabiny samochodów osiągają <strong>50°C+</strong> w bezpośrednim letnim słońcu</li>
@@ -652,7 +652,7 @@ ruPath: "produkty/besprovodnye-zaryadki/avtoderzhatel/"
     <li>Powtarzalne dławienie termiczne degraduje zarówno baterię telefonu, jak i żywotność ładowarki</li>
    </ul>
   </div>
-  <div class="bg-white rounded-xl p-6 border border-slate-200">
+  <div class="card p-6">
    <h3 class="font-black text-brandOrange uppercase mb-4 text-sm">Rozwiązanie: Podwójne Chłodzenie WOW41 TEC + Wentylator</h3>
    <ul class="space-y-2 text-sm text-slate-600">
     <li>Półprzewodnik TEC (efekt Peltiera) aktywnie <strong>odprowadza ciepło</strong> z telefonu</li>
@@ -672,23 +672,23 @@ ruPath: "produkty/besprovodnye-zaryadki/avtoderzhatel/"
 </section>
 
 <!-- Cross-Category Links -->
-<section class="sec bg-slate-50 relative py-12">
- <div class="container-content">
+<section id="cross-category-links" class="sec bg-slate-50 relative py-12" data-section="related">
+ <div class="container-wide">
  <p class="text-center text-slate-500 text-sm mb-6">Poznaj więcej kategorii ładowarek bezprzewodowych WOWOHCOOL:</p>
  <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-  <a href="/pl/produkty/ladowarka-bezprzewodowa/" class="block bg-white rounded-xl p-4 border border-slate-200 hover:border-brandOrange hover:shadow-md transition text-center">
+  <a href="/pl/produkty/ladowarka-bezprzewodowa/" class="card block p-4 hover:border-brandOrange hover:shadow-md transition text-center">
   <p class="font-black text-brandBlue text-sm uppercase mb-1">Wszystkie Ładowarki</p>
   <p class="text-[10px] text-slate-500">3 Kategorie, 18+ Modeli</p>
   </a>
-  <a href="/pl/produkty/ladowarka-bezprzewodowa/stacja-3-w-1/" class="block bg-white rounded-xl p-4 border border-slate-200 hover:border-brandOrange hover:shadow-md transition text-center">
+  <a href="/pl/produkty/ladowarka-bezprzewodowa/stacja-3-w-1/" class="card block p-4 hover:border-brandOrange hover:shadow-md transition text-center">
   <p class="font-black text-brandBlue text-sm uppercase mb-1">Stacje 3-w-1</p>
   <p class="text-[10px] text-slate-500">Tel. + Zegarek + AirPods</p>
   </a>
-  <a href="/pl/produkty/ladowarka-bezprzewodowa/biurkowa/" class="block bg-white rounded-xl p-4 border border-slate-200 hover:border-brandOrange hover:shadow-md transition text-center">
+  <a href="/pl/produkty/ladowarka-bezprzewodowa/biurkowa/" class="card block p-4 hover:border-brandOrange hover:shadow-md transition text-center">
   <p class="font-black text-brandBlue text-sm uppercase mb-1">Biurkowe</p>
   <p class="text-[10px] text-slate-500">Podstawki i Podkładki</p>
   </a>
-  <a href="/pl/produkty/power-bank/" class="block bg-white rounded-xl p-4 border border-slate-200 hover:border-brandOrange hover:shadow-md transition text-center">
+  <a href="/pl/produkty/power-bank/" class="card block p-4 hover:border-brandOrange hover:shadow-md transition text-center">
   <p class="font-black text-brandBlue text-sm uppercase mb-1">Power Banki</p>
   <p class="text-[10px] text-slate-500">Litowo-Jonowe OEM</p>
   </a>
@@ -697,37 +697,37 @@ ruPath: "produkty/besprovodnye-zaryadki/avtoderzhatel/"
 </section>
 
 <!-- FAQ -->
-<section class="sec-lg bg-slate-50 border-t border-slate-100">
+<section id="faq" class="sec bg-slate-50 border-t border-slate-100" data-section="faq">
  <div class="container-narrow">
  <div class="text-center mb-12">
   <h2 class="text-3xl lg:text-4xl font-black text-slate-900 uppercase italic tracking-tighter mb-4">Uchwyty Samochodowe <span class="text-brandOrange">FAQ</span></h2>
  </div>
  <div class="space-y-4">
-  <details class="bg-slate-50 rounded-xl p-5 border border-slate-200 group">
+  <details class="card-soft p-5 group">
   <summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">Jakie jest MOQ dla uchwytu samochodowego z ładowarką OEM?<span class="text-brandOrange group-open:rotate-180 transition">▼</span></summary>
   <p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">Standardowe modele ODM z własnym logo: MOQ <strong>500 sztuk</strong>. Pełne OEM z prywatnym oprzyrządowaniem: MOQ <strong>2 000 sztuk</strong>. Czas realizacji próbek: 3-7 dni dla modeli standardowych, 10-15 dni z własnym logo. Elastyczne opcje MOQ dostępne dla startupów i testowania rynku.</p>
   </details>
-  <details class="bg-slate-50 rounded-xl p-5 border border-slate-200 group">
+  <details class="card-soft p-5 group">
   <summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">Dlaczego chłodzenie TEC jest ważne w samochodowym uchwycie z ładowarką?<span class="text-brandOrange group-open:rotate-180 transition">▼</span></summary>
   <p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">Kabina samochodu latem może osiągnąć ponad <strong>50°C</strong>. iPhone z Qi2/MagSafe dławi ładowanie przy temperaturze otoczenia powyżej 35°C, zatrzymując się na 80% baterii. Półprzewodnikowa technologia TEC (Thermoelectric Cooling) w WOW41 aktywnie chłodzi powierzchnię ładującą — jedyny uchwyt B2B OEM z tą technologią — utrzymując <strong>pełne ładowanie 25W</strong> nawet w gorącym samochodzie. W połączeniu z cichym wentylatorem turbo i dużym radiatorem dla podwójnego chłodzenia urządzenia i baterii.</p>
   </details>
-  <details class="bg-slate-50 rounded-xl p-5 border border-slate-200 group">
+  <details class="card-soft p-5 group">
   <summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">Czy uchwyty WOWOHCOOL obsługują iPhone i Android?<span class="text-brandOrange group-open:rotate-180 transition">▼</span></summary>
   <p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">Tak. Wszystkie uchwyty WOWOHCOOL wykorzystują uniwersalny standard Qi2, kompatybilny z <strong>iPhone 12-17 (15W/25W MagSafe)</strong> oraz <strong>urządzeniami Android Qi2</strong> (Samsung Galaxy S25, Pixel 10 itp.). Dla telefonów Android bez MagSafe, model WOW35 z zaciskiem elektrycznym zapewnia uniwersalny uchwyt bez magnesów. Użytkownicy Androida mogą dodać etui z pierścieniem magnetycznym dla modeli WOW39, WOW41 i WOW19S.</p>
   </details>
-  <details class="bg-slate-50 rounded-xl p-5 border border-slate-200 group">
+  <details class="card-soft p-5 group">
   <summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">Czy uchwyty samochodowe działają z grubymi etui na telefon?<span class="text-brandOrange group-open:rotate-180 transition">▼</span></summary>
   <p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">Tak. Nasze magnesy neodymowe N52H to najmocniejszy dostępny komercyjnie gatunek — z siłą trzymania do <strong>1400g</strong> (WOW19S). Utrzymują pewny uchwyt przez większość etui ochronnych o grubości do 3mm. Dla bardzo grubych etui pancernych (4mm+) zalecamy etui kompatybilne magnetycznie lub akcesoria z pierścieniem magnetycznym. Model WOW35 z zaciskiem elektrycznym działa z <strong>każdym telefonem niezależnie od grubości etui</strong> — bez magnesów.</p>
   </details>
-  <details class="bg-slate-50 rounded-xl p-5 border border-slate-200 group">
+  <details class="card-soft p-5 group">
   <summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">Czy mogę uzyskać certyfikację E-Mark dla uchwytów samochodowych?<span class="text-brandOrange group-open:rotate-180 transition">▼</span></summary>
   <p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">E-Mark (ECE R10) jest wymagany dla elektroniki samochodowej sprzedawanej na rynku wtórnym UE. Chociaż ładowarki zasilane przez USB-C z gniazda zapalniczki znajdują się w szarej strefie regulacyjnej, WOWOHCOOL dostarcza <strong>projekty gotowe do E-Mark</strong> z odpowiednim ekranowaniem EMI i komponentami klasy motoryzacyjnej. Zalecamy certyfikację E-Mark dla marek sprzedających do detalistów motoryzacyjnych i dystrybutorów UE. Pełna dokumentacja i wsparcie testowe wliczone w zamówienia OEM.</p>
   </details>
-  <details class="bg-slate-50 rounded-xl p-5 border border-slate-200 group">
+  <details class="card-soft p-5 group">
   <summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">Jakie typy montażu są dostępne?<span class="text-brandOrange group-open:rotate-180 transition">▼</span></summary>
   <p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">Wszystkie modele zawierają uniwersalny klips na kratkę wentylacyjną z zaciskiem antywibracyjnym. WOW28 posiada podstawę z przyssawką do montażu na desce rozdzielczej / szybie. <strong>Niestandardowe opcje montażu</strong> (slot CD, uchwyt na kubek, naklejka na deskę, dedykowany Tesla, przegub kulowy 17mm) dostępne dla zamówień OEM. MOQ 500 dla niestandardowego typu montażu.</p>
   </details>
-  <details class="bg-slate-50 rounded-xl p-5 border border-slate-200 group">
+  <details class="card-soft p-5 group">
   <summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">Ile trwa produkcja uchwytu samochodowego OEM/ODM?<span class="text-brandOrange group-open:rotate-180 transition">▼</span></summary>
   <p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">OEM (modele standardowe z własnym logo): <strong>25-30 dni</strong> po zatwierdzeniu próbki. ODM (niestandardowa obudowa lub mechanizm): <strong>45-60 dni</strong> z oprzyrządowaniem. Oba harmonogramy obejmują 4-stopniową kontrolę QC (IQC → IPQC → FQC → OQC) z 4-godzinnym testem starzeniowym 100% każdej sztuki. Ekspresowy fracht lotniczy: 5-7 dni do UE. Fracht morski: 25-35 dni.</p>
   </details>

@@ -88,11 +88,11 @@ plPath: "studia-przypadkow/"
 {% endblock %}
 
 {% block content %}
-<section class="pt-24 md:pt-28 pb-16 md:pb-20 bg-gradient-to-br from-slate-50 via-white to-orange-50">
+<section id="hero" class="pt-24 md:pt-28 pb-16 md:pb-20 bg-gradient-to-br from-slate-50 via-white to-orange-50 lg:min-h-[100dvh] lg:flex lg:flex-col lg:justify-center" data-section="hero">
 <div class="container-narrow text-center">
  {{ breadcrumb([{name: "Accueil", url: "/fr/"}, {name: "Études de cas"}], "none", "mb-6", { variant: "hero" }) }}
-<p class="text-brandOrange text-xs font-bold tracking-widest uppercase mb-3">References</p>
-<h1 class="text-3xl md:text-5xl font-black text-brandBlue leading-tight mb-4 italic uppercase">Projets OEM/ODM réussis<br><span class="text-brandOrange">pour nos clients</span></h1>
+<div class="badge-capsule mb-6 mx-auto uppercase tracking-widest">References</div>
+<h1 class="text-3xl md:text-5xl font-black text-brandBlue leading-tight mb-4 italic uppercase tracking-tighter">Projets OEM/ODM réussis<br><span class="text-brandOrange">pour nos clients</span></h1>
 <p class="text-slate-600 text-lg max-w-2xl mx-auto">Depuis 2013, nous fabriquons pour <strong>200+ marques dans le monde</strong>. Le marche français des chargeurs pese <strong>380-420 MEUR</strong> avec <strong>90% importes de Chine</strong> (<a href="https://www.indexbox.io/store/france-kw-fast-usb-c-charger-840-market-analysis-forecast-size-trends-and-insights/" target="_blank" rel="noopener noreferrer" class="text-brandOrange hover:underline">IndexBox 2026</a>). La DGCCRF constate que <strong>75% des imports électroniques ne sont pas conformes</strong> (<a href="https://www.economie.gouv.fr/dgccrf" target="_blank" rel="noopener external" class="text-brandOrange hover:underline">DGCCRF 2025</a>). Nos clients évitent ces risques — découvrez leurs projets.</p>
 </div>
 </section>
@@ -101,13 +101,13 @@ plPath: "studia-przypadkow/"
 {% include "trust-bar.njk" %}
 
 <!-- BLOG LIST -->
-<section class="sec">
-<div class="container-content">
+<section id="blog-list" class="sec" data-section="content">
+<div class="container-wide">
 
 <div class="grid md:grid-cols-2 gap-8">
 
 <!-- Case 1: Bosch -->
-<div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
+<div class="card-lg overflow-hidden shadow-sm">
 <img src="/image/case-studies/bosch-65w-gan-car-charger-product-lineup.webp" srcset="/image/case-studies/bosch-65w-gan-car-charger-product-lineup-800w.webp 800w, /image/case-studies/bosch-65w-gan-car-charger-product-lineup.webp 1200w" sizes="(min-width: 1440px) 596px, (min-width: 1280px) 596px, (min-width: 1024px) 468px, (min-width: 768px) 720px, (min-width: 430px) 382px, 327px" alt="Gamme de chargeurs voiture GaN 65W Bosch" width="1200" height="900" class="w-full h-48 object-cover bg-slate-50" loading="eager">
 <div class="p-6">
 <p class="text-brandOrange text-xs font-bold tracking-widest uppercase mb-2">Bosch · 10.000 pièces</p>
@@ -123,7 +123,7 @@ plPath: "studia-przypadkow/"
 </div>
 
 <!-- Case 2: Jacob Jensen -->
-<div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
+<div class="card-lg overflow-hidden shadow-sm">
 <img src="/image/case-studies/jacob-jensen-wireless-car-mount.webp" srcset="/image/case-studies/jacob-jensen-wireless-car-mount-800w.webp 800w, /image/case-studies/jacob-jensen-wireless-car-mount.webp 1200w" sizes="(min-width: 1440px) 596px, (min-width: 1280px) 596px, (min-width: 1024px) 468px, (min-width: 768px) 720px, (min-width: 430px) 382px, 327px" alt="Support voiture sans fil Jacob Jensen ODM" width="1200" height="900" class="w-full h-48 object-cover bg-slate-50" loading="lazy">
 <div class="p-6">
 <p class="text-brandOrange text-xs font-bold tracking-widest uppercase mb-2">Jacob Jensen · 6.000 pièces</p>
@@ -139,7 +139,7 @@ plPath: "studia-przypadkow/"
 </div>
 
 <!-- Case 3: Merlin Digital -->
-<div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
+<div class="card-lg overflow-hidden shadow-sm">
 <img src="/image/case-studies/merlin-15w-wireless-charger.webp" srcset="/image/case-studies/merlin-15w-wireless-charger-800w.webp 800w, /image/case-studies/merlin-15w-wireless-charger.webp 1200w" sizes="(min-width: 1440px) 584px, (min-width: 1280px) 584px, (min-width: 1024px) 456px, (min-width: 768px) 720px, (min-width: 430px) 382px, 327px" alt="Chargeur sans fil 15W Merlin Digital" width="1200" height="900" class="w-full h-48 object-cover bg-slate-50" loading="lazy">
 <div class="p-6">
 <p class="text-brandOrange text-xs font-bold tracking-widest uppercase mb-2">Merlin Digital · 1.000 pièces</p>
@@ -155,7 +155,7 @@ plPath: "studia-przypadkow/"
 </div>
 
 <!-- Case 4: Techmade -->
-<div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
+<div class="card-lg overflow-hidden shadow-sm">
 <img src="/image/case-studies/techmade-10000mah-magsafe-powerbank.webp" srcset="/image/case-studies/techmade-10000mah-magsafe-powerbank-800w.webp 800w, /image/case-studies/techmade-10000mah-magsafe-powerbank.webp 1200w" sizes="(min-width: 1440px) 596px, (min-width: 1280px) 596px, (min-width: 1024px) 468px, (min-width: 768px) 720px, (min-width: 430px) 382px, 327px" alt="Batteries externes personnalisées Techmade pour clubs de football" width="1200" height="900" class="w-full h-48 object-cover bg-slate-50" loading="lazy">
 <div class="p-6">
 <p class="text-brandOrange text-xs font-bold tracking-widest uppercase mb-2">Techmade · 5.000 pièces</p>
@@ -171,7 +171,7 @@ plPath: "studia-przypadkow/"
 </div>
 
 <!-- Case 5: Tempel Group -->
-<div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
+<div class="card-lg overflow-hidden shadow-sm">
 <img src="/image/case-studies/tempel-10000mah-air-compressor.webp" srcset="/image/case-studies/tempel-10000mah-air-compressor-800w.webp 800w, /image/case-studies/tempel-10000mah-air-compressor.webp 1200w" sizes="(min-width: 1440px) 596px, (min-width: 1280px) 596px, (min-width: 1024px) 468px, (min-width: 768px) 720px, (min-width: 430px) 382px, 327px" alt="Sourcing compresseur d'air Tempel Group" width="1200" height="900" class="w-full h-48 object-cover bg-slate-50" loading="lazy">
 <div class="p-6">
 <p class="text-brandOrange text-xs font-bold tracking-widest uppercase mb-2">Tempel Group · 3.000 pièces</p>

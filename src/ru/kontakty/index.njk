@@ -127,19 +127,16 @@ navActive: "contact"
 {% block contactHero %}
 {% from "breadcrumb.njk" import breadcrumb %}
 
-<section class="relative pt-24 md:pt-28 pb-8 lg:pb-16 bg-white overflow-hidden">
+<section id="hero" class="relative pt-24 md:pt-28 pb-8 lg:pb-16 bg-white overflow-hidden lg:min-h-[100dvh] lg:flex lg:flex-col lg:justify-center" data-section="hero">
  <div class="absolute inset-0 pointer-events-none">
  <div class="absolute top-0 left-0 w-64 h-64 bg-brandOrange opacity-10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
  <div class="absolute bottom-0 right-0 w-64 h-64 bg-brandBlue opacity-10 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
  </div>
  <div class="container-wide relative z-10 text-center pb-8">
   {{ breadcrumb([{name:"Главная",url:"/ru/"},{name:"Контакты"}], "none", "mb-6", { variant: "hero" }) }}
- <div class="inline-flex items-center gap-2 bg-brandOrange/10 text-brandOrange text-[11px] font-bold px-4 py-2 rounded-full tracking-widest uppercase mb-4">
- <span class="w-2 h-2 rounded-full bg-brandOrange animate-pulse"></span>
- Ответ в течение 24 часов
- </div>
- <h1 class="text-4xl md:text-5xl lg:text-6xl font-black text-brandBlue leading-tight mb-6 italic uppercase">
- Свяжитесь с <span class="whitespace-nowrap"><span class="highlight-line text-brandBlue">WOWOH</span><span class="text-brandOrange">COOL</span></span> — обсудим ваш OEM/ODM-проект
+ <div class="badge-capsule mb-6 mx-auto uppercase tracking-widest">Ответ в течение 24 часов</div>
+ <h1 class="text-4xl md:text-5xl lg:text-6xl font-black text-brandBlue leading-tight mb-6 italic uppercase tracking-tighter">
+ Свяжитесь с <span class="whitespace-nowrap"><span class="highlight-line text-brandBlue">WOWOH</span><span class="text-brandOrange">COOL</span></span> — обсудим ваш <span class="whitespace-nowrap">OEM/ODM-проект</span>
  </h1>
  <p class="text-slate-600 max-w-2xl mx-auto text-lg mb-8">
  Запросите расчёт OEM-заказа, образцы или техническую документацию. Менеджер ответит на русском или английском языке в течение 24 часов.
@@ -159,7 +156,7 @@ navActive: "contact"
 
 {% block contactMain %}
 <!-- ======== CONTACT INFO + FORM ======== -->
-<section class="py-16 bg-white">
+<section id="contact-info-form" class="sec bg-white" data-section="cta">
  <div class="container-wide">
  <div class="grid md:grid-cols-2 gap-12 lg:gap-16">
  <div class="reveal space-y-8">
@@ -198,7 +195,7 @@ navActive: "contact"
  </div>
  </div>
  <div class="reveal">
- <div class="bg-slate-50 rounded-2xl p-8 border border-slate-200">
+ <div class="card-lg-soft p-8">
  <h2 class="text-xl font-black text-brandBlue mb-6 italic uppercase">Запросить расчёт OEM</h2>
  <form action="https://api.web3forms.com/submit" method="POST" class="inquiry-form space-y-4">
  <input type="hidden" name="access_key" value="7f077cf3-642b-4aba-9be2-cb99c0c65b19">
@@ -213,7 +210,7 @@ navActive: "contact"
  <input type="email" name="email" required placeholder="Ваш email *" class="w-full px-4 py-3.5 rounded-xl border border-slate-200 focus:border-brandOrange outline-none text-sm">
  </div>
  <input type="text" name="company" placeholder="Компания (необязательно)" class="w-full px-4 py-3.5 rounded-xl border border-slate-200 focus:border-brandOrange outline-none text-sm">
- <select name="product" class="w-full px-4 py-3.5 rounded-xl border border-slate-200 focus:border-brandOrange outline-none text-sm bg-white">
+ <select name="product" class="card w-full px-4 py-3.5 focus:border-brandOrange outline-none text-sm">
  <option value="">Интересующий продукт (необязательно)</option>
  <option value="powerbank">Повербанк</option>
  <option value="wireless">Беспроводная зарядка</option>
@@ -223,7 +220,7 @@ navActive: "contact"
  </select>
  <textarea name="message" rows="4" required minlength="10" placeholder="Опишите ваш проект (характеристики, тираж, требования) *" class="w-full px-4 py-3.5 rounded-xl border border-slate-200 focus:border-brandOrange outline-none text-sm resize-none"></textarea>
  <label class="flex items-start gap-3"><input type="checkbox" required class="mt-1 accent-brandOrange"><span class="text-xs text-slate-500">Я прочитал(а) и принимаю <a href="/ru/politika-konfidencialnosti/" class="text-brandOrange hover:underline">Политику конфиденциальности</a> *</span></label>
- <button type="submit" class="btn-primary w-full justify-center text-base py-4">Запросить расчёт с завода <svg class="icon-arrow-right" viewBox="0 0 512 512"><path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-105.4 105.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" fill="currentColor"/></svg></button>
+ <button type="submit" class="btn-solid w-full justify-center text-base py-4">Запросить расчёт с завода <svg class="icon-arrow-right" viewBox="0 0 512 512"><path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-105.4 105.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" fill="currentColor"/></svg></button>
  </form>
  </div>
  </div>
@@ -234,19 +231,19 @@ navActive: "contact"
 
 {% block contactExtra %}
 <!-- ======== QUICK ANSWERS ======== -->
-<section class="py-16 bg-white">
- <div class="container-narrow">
+<section id="quick-answers" class="sec bg-white" data-section="content">
+ <div class="container-wide">
  {{ sectionHeader('Быстрые ответы', 'Полезная информация перед обращением', '', {max: '', mb: 'mb-10', titleClass: 'text-2xl md:text-3xl font-black text-brandBlue italic uppercase mb-4'}) }}
  <div class="grid md:grid-cols-3 gap-4 reveal">
- <div class="bg-slate-50 rounded-xl p-5 text-center">
+ <div class="card-soft p-5 text-center">
  <p class="font-bold text-brandBlue text-sm mb-1">Время ответа</p>
  <p class="text-xs text-slate-500">Отвечаем в течение <strong class="text-brandOrange">24 часов</strong> (в рабочие дни). В WeChat обычно за 2-4 часа.</p>
  </div>
- <div class="bg-slate-50 rounded-xl p-5 text-center">
+ <div class="card-soft p-5 text-center">
  <p class="font-bold text-brandBlue text-sm mb-1">Образцы</p>
  <p class="text-xs text-slate-500">Стандартные образцы за <strong class="text-brandOrange">3-7 дней</strong>. Стоимость зачитывается при размещении производственного заказа.</p>
  </div>
- <div class="bg-slate-50 rounded-xl p-5 text-center">
+ <div class="card-soft p-5 text-center">
  <p class="font-bold text-brandBlue text-sm mb-1">Условия оплаты</p>
  <p class="text-xs text-slate-500">T/T <strong class="text-brandOrange">30/70</strong> в USD на счёт китайского юрлица. Гибкие условия для проверенных партнёров.</p>
  </div>
@@ -255,11 +252,11 @@ navActive: "contact"
 </section>
 
 <!-- ======== POST-FORM CTA ======== -->
-<section class="py-16 bg-slate-50">
+<section id="post-form-cta" class="sec bg-slate-50" data-section="cta">
  <div class="container-narrow text-center reveal">
  <h2 class="text-2xl md:text-3xl font-black text-brandBlue mb-4 italic uppercase">Хотите увидеть реальные OEM/ODM-проекты?</h2>
  <p class="text-slate-600 mb-6">Узнайте, как мы помогли брендам Bosch, Techmade, Tempel Group и Jacob Jensen реализовать их OEM/ODM-проекты.</p>
- <a href="/ru/keysy/" class="btn-secondary">Смотреть кейсы →</a>
+ <a href="/ru/keysy/" class="btn-ghost-lg">Смотреть кейсы →</a>
  </div>
 </section>
 {% endblock %}

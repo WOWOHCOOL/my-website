@@ -104,6 +104,11 @@ scratch-*
 *-v[0-9].md
 *.bak
 
+# Local one-off batch backups (per-change snapshots, never website content).
+# `*.bak` alone does NOT cover these dirs — they also hold .njk/.txt copies.
+# 2026-09-18: 12 such dirs (233 files, 127 untracked) had accumulated in the repo.
+backup-*/
+
 # Local audit / draft / research outputs (SEO machine workspace)
 audits/
 research/

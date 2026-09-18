@@ -46,11 +46,11 @@ plPath: "faq/"
 {% endblock %}
 
 {% block faqHero %}
-<section class="pt-24 md:pt-28 pb-16 md:pb-20 relative overflow-hidden bg-gradient-to-br from-slate-50 via-white to-orange-50">
+<section id="hero" class="pt-24 md:pt-28 pb-16 md:pb-20 relative overflow-hidden bg-gradient-to-br from-slate-50 via-white to-orange-50 lg:min-h-[100dvh] lg:flex lg:flex-col lg:justify-center" data-section="hero">
  <div class="container-narrow text-center reveal">
   {{ breadcrumb([{name: "Accueil", url: "/fr/"}, {name: "FAQ"}], "none", "mb-6", { variant: "hero" }) }}
- <p class="text-brandOrange text-xs font-bold tracking-widest uppercase mb-3">FAQ</p>
- <h1 class="text-3xl md:text-5xl font-black text-brandBlue leading-tight mb-6 italic uppercase">Questions fréquentes</h1>
+ <div class="badge-capsule mb-6 mx-auto uppercase tracking-widest">FAQ</div>
+ <h1 class="text-3xl md:text-5xl font-black text-brandBlue leading-tight mb-6 italic uppercase tracking-tighter">Questions fréquentes</h1>
  <p class="text-slate-600 text-lg max-w-2xl mx-auto">Réponses aux questions les plus importantes sur l'OEM/ODM, la production, la livraison et la collaboration avec WOWOHCOOL. <strong>90% des chargeurs en France sont importes de Chine</strong> (<a href="https://www.indexbox.io/store/france-kw-fast-usb-c-charger-840-market-analysis-forecast-size-trends-and-insights/" target="_blank" rel="noopener noreferrer" class="text-brandOrange hover:underline">IndexBox 2026</a>). La certification CE coûte <strong>1.500-5.200 EUR</strong> par produit — en OEM, nous la prenons en charge.</p>
  </div>
 </section>
@@ -62,7 +62,8 @@ plPath: "faq/"
 {% endblock %}
 
 {% block faqContent %}
-<section class="sec bg-white">
+<section id="trust-bar" class="sec bg-white" data-section="trust">
+ <!-- 折叠区 = 单列阅读流 → container-narrow（与 EN/DE/ES/RU/PL 一致，720px）；底部三列卡片块独立，另行 container-wide -->
  <div class="container-narrow">
  {{ sectionHeader("Catégories FAQ", "Tout ce que vous devez savoir", "Des réponses rapides a vos questions. Notre équipe est a votre disposition.") }}
 
@@ -126,12 +127,15 @@ plPath: "faq/"
  </div>
  </div>
 
- <!-- Blog Links + CTA -->
+ </div>
+
+ <!-- Blog Links + CTA — 独立区域：三列卡片网格，宽度对齐其它板块（container-wide） -->
+ <div class="container-wide">
  <div class="mt-16 pt-12 border-t border-slate-200">
  <div class="grid md:grid-cols-3 gap-6 reveal">
 
   <!-- Card 1: Blog -->
-  <a href="/fr/blog/" class="group bg-white rounded-2xl p-6 border border-slate-200 hover:border-brandOrange hover:shadow-lg transition-all text-center">
+  <a href="/fr/blog/" class="card-lg group p-6 hover:border-brandOrange hover:shadow-lg transition-all text-center">
   <div class="w-12 h-12 rounded-xl bg-brandBlue/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-brandOrange/10 transition-colors">
   <svg class="text-brandBlue group-hover:text-brandOrange transition-colors" width="24" height="24" aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/><path d="M8 7h6"/><path d="M8 11h8"/></svg>
   </div>
@@ -141,7 +145,7 @@ plPath: "faq/"
   </a>
 
   <!-- Card 2: Service -->
-  <a href="/fr/service-oem-odm/" class="group bg-white rounded-2xl p-6 border border-slate-200 hover:border-brandOrange hover:shadow-lg transition-all text-center">
+  <a href="/fr/service-oem-odm/" class="card-lg group p-6 hover:border-brandOrange hover:shadow-lg transition-all text-center">
   <div class="w-12 h-12 rounded-xl bg-brandBlue/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-brandOrange/10 transition-colors">
   <svg class="text-brandBlue group-hover:text-brandOrange transition-colors" width="24" height="24" aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
   </div>
@@ -151,7 +155,7 @@ plPath: "faq/"
   </a>
 
   <!-- Card 3: Contact -->
-  <a href="/fr/contact/" class="group bg-white rounded-2xl p-6 border border-slate-200 hover:border-brandOrange hover:shadow-lg transition-all text-center">
+  <a href="/fr/contact/" class="card-lg group p-6 hover:border-brandOrange hover:shadow-lg transition-all text-center">
   <div class="w-12 h-12 rounded-xl bg-brandBlue/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-brandOrange/10 transition-colors">
   <svg class="text-brandBlue group-hover:text-brandOrange transition-colors" width="24" height="24" aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
   </div>

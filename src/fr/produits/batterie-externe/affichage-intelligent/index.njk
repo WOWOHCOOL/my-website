@@ -134,13 +134,13 @@ plPath: "produkty/power-bank/inteligentny-wyswietlacz/"
 {% block content %}
 
 <!-- Hero -->
-<section class="relative pt-24 md:pt-28 pb-8 lg:pb-16 bg-white text-slate-900 overflow-hidden">
+<section id="hero" class="relative pt-24 md:pt-28 lg:pt-20 pb-8 lg:pb-20 bg-white text-slate-900 overflow-hidden lg:min-h-[100dvh] lg:flex lg:flex-col lg:justify-center" data-section="hero">
  <div class="absolute inset-0 z-0 pointer-events-none overflow-hidden">
  <div class="absolute top-0 left-0 max-w-full w-64 h-64 bg-brandOrange opacity-20 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
  <div class="absolute bottom-0 right-0 max-w-full w-64 h-64 bg-blue-500 opacity-20 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
  </div>
 
- <div class="container-wide relative z-10 text-center pb-12 lg:pb-12">
+ <div class="container-wide relative z-10 text-center pb-12 lg:pb-0">
  {{ breadcrumb([{name: "Accueil", url: "/fr/"}, {name: "Produits", url: "/fr/produits/"}, {name: "Batterie externe", url: "/fr/produits/batterie-externe/"}, {name: "Affichage intelligent"}], "none", "mb-6", { variant: "hero" }) }}
 
  <div>
@@ -154,14 +154,14 @@ plPath: "produkty/power-bank/inteligentny-wyswietlacz/"
 
  <p class="max-w-2xl mx-auto text-slate-500 text-xs leading-relaxed mb-8"><strong>L'écran TFT n'est pas un gadget — c'est un argument de vente :</strong> les batteries avec écran réduisent les retours clients de <strong>-22%</strong> (les utilisateurs diagnostiquent eux-mêmes les problèmes de câble ou d'appareil). Elles se vendent <strong>15-25% plus cher</strong> que les modèles sans écran. Le logo de démarrage personnalisable transforme chaque utilisation en <strong>rappel de marque</strong>. La tendance "transparent tech" (Shargeek, CUKTECH, Xiaomi) domine le segment premium en 2026.</p>
 
- <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-2xl mx-auto mb-10">
- <div class="bg-slate-50 rounded-xl p-4 border border-slate-100"><p class="text-2xl font-black text-brandBlue">TFT</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Écran couleur</p></div>
- <div class="bg-slate-50 rounded-xl p-4 border border-slate-100"><p class="text-2xl font-black text-brandOrange">3-en-1</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Design Hub</p></div>
- <div class="bg-slate-50 rounded-xl p-4 border border-slate-100"><p class="text-2xl font-black text-brandBlue">Qi2 15W</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Sans fil</p></div>
- <div class="bg-slate-50 rounded-xl p-4 border border-slate-100"><p class="text-2xl font-black text-brandOrange">500</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">MOQ</p></div>
+ <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
+ <div class="card-soft p-4"><p class="text-2xl font-black text-brandBlue">TFT</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Écran couleur</p></div>
+ <div class="card-soft p-4"><p class="text-2xl font-black text-brandOrange">3-en-1</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Design Hub</p></div>
+ <div class="card-soft p-4"><p class="text-2xl font-black text-brandBlue">Qi2 15W</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Sans fil</p></div>
+ <div class="card-soft p-4"><p class="text-2xl font-black text-brandOrange">500</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">MOQ</p></div>
  </div>
 
- <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
+ <div class="btn-pair">
  <button data-action="open-modal" data-product="Batterie externe à affichage TFT" class="btn-wide-lg">
  Demander le prix usine
  </button>
@@ -176,7 +176,7 @@ plPath: "produkty/power-bank/inteligentny-wyswietlacz/"
 {% include "trust-bar.njk" %}
 
 <!-- Products -->
-<section id="products" class="sec bg-white relative py-16">
+<section id="products" class="sec bg-white relative" data-section="products">
  <div class="container-wide">
  <h2 class="text-2xl font-black text-brandBlue uppercase italic tracking-tighter mb-2">Batteries externes à affichage intelligent TFT</h2>
  <p class="text-slate-500 text-sm mb-10">2 modèles | 5000-10000mAh | Écran couleur TFT | Qi2 + Hub 3-en-1</p>
@@ -226,7 +226,7 @@ plPath: "produkty/power-bank/inteligentny-wyswietlacz/"
  </p>
 
  <details class="mb-6 group/spec">
- <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition">
+ <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition">
  <span class="text-xs font-black text-slate-700 uppercase">Spécifications</span>
  <span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span>
  </summary>
@@ -320,7 +320,7 @@ plPath: "produkty/power-bank/inteligentny-wyswietlacz/"
  </p>
 
  <details class="mb-6 group/spec">
- <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition">
+ <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition">
  <span class="text-xs font-black text-slate-700 uppercase">Spécifications</span>
  <span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span>
  </summary>
@@ -414,7 +414,7 @@ plPath: "produkty/power-bank/inteligentny-wyswietlacz/"
  </p>
 
  <details class="mb-6 group/spec">
- <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition">
+ <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition">
  <span class="text-xs font-black text-slate-700 uppercase">Spécifications</span>
  <span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span>
  </summary>
@@ -508,7 +508,7 @@ plPath: "produkty/power-bank/inteligentny-wyswietlacz/"
  </p>
 
  <details class="mb-6 group/spec">
- <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition">
+ <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition">
  <span class="text-xs font-black text-slate-700 uppercase">Spécifications</span>
  <span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span>
  </summary>
@@ -574,7 +574,7 @@ plPath: "produkty/power-bank/inteligentny-wyswietlacz/"
 </div>
 
 <!-- What Makes TFT Display Spécial -->
-<section class="sec bg-white relative py-16">
+<section id="what-makes-tft-display-special" class="sec bg-white relative" data-section="content">
  <div class="container-wide">
  <h2 class="section-title text-center">Qu'est-ce qui rend les batteries à affichage TFT spéciales ?</h2>
  <p class="text-center text-slate-500 text-sm max-w-3xl mx-auto mb-8">Un écran couleur TFT haute résolution transforme une batterie externe ordinaire en un accessoire tech premium. Combiné à une construction aluminium-verre et une disposition hub 3-en-1, il offre une expérience de déballage flagship que vos concurrents ne peuvent égaler.</p>
@@ -584,18 +584,18 @@ plPath: "produkty/power-bank/inteligentny-wyswietlacz/"
   <cite class="block text-xs text-slate-400 mt-2 not-italic">— <a href="https://www.yhresearch.cn/reports/2396545/tft-screen-power-bank" target="_blank" rel="noopener noreferrer" class="text-brandOrange hover:underline">YH Research / Hengzhou Chengsi</a>, Rapport sur le marché mondial des batteries externes à écran TFT 2025-2031</cite>
  </blockquote>
 
- <div class="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
- <div class="bg-slate-50 rounded-xl p-6 border border-slate-100 text-center">
+ <div class="grid md:grid-cols-3 gap-8">
+ <div class="card-soft p-6 text-center">
  <p class="text-3xl font-black text-brandBlue mb-2">Stats en temps réel</p>
  <p class="text-sm font-bold text-slate-700 mb-2">% Batterie | Puissance | Temps</p>
  <p class="text-xs text-slate-500">L'écran couleur TFT affiche en direct le pourcentage de batterie, la puissance en watts entrée/sortie, le temps restant estimé et les indicateurs de ports actifs. Pas d'approximation, pas d'application nécessaire.</p>
  </div>
- <div class="bg-slate-50 rounded-xl p-6 border border-slate-100 text-center">
+ <div class="card-soft p-6 text-center">
  <p class="text-3xl font-black text-brandOrange mb-2">Matériaux premium</p>
  <p class="text-sm font-bold text-slate-700 mb-2">Aluminium + Verre trempé</p>
  <p class="text-xs text-slate-500">Cadre en alliage d'aluminium usiné CNC avec finition anodisée. Face arrière en verre trempé qui ressemble à un téléphone flagship. Résistant aux rayures, traitement anti-empreintes.</p>
  </div>
- <div class="bg-slate-50 rounded-xl p-6 border border-slate-100 text-center">
+ <div class="card-soft p-6 text-center">
  <p class="text-3xl font-black text-brandBlue mb-2">Hub 3-en-1</p>
  <p class="text-sm font-bold text-slate-700 mb-2">USB-C + USB-A + Qi2</p>
  <p class="text-xs text-slate-500">Entrée/sortie USB-C PD, sortie USB-A pour appareils existants, plus pad de charge magnétique Qi2 sans fil sur le dessus. Chargez trois appareils simultanément.</p>
@@ -605,7 +605,7 @@ plPath: "produkty/power-bank/inteligentny-wyswietlacz/"
 </section>
 
 <!-- TFT Display vs LED vs Plain Shell Comparison -->
-<section class="sec bg-slate-50 relative py-16">
+<section id="tft-display-vs-led-vs-plain-shell-comparison" class="sec bg-slate-50 relative" data-section="comparison">
  <div class="container-content">
   <div class="text-center mb-12 reveal">
    <h2 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4">Affichage TFT vs <span class="text-brandOrange">Indicateur LED</span> vs Coque simple</h2>
@@ -628,33 +628,33 @@ plPath: "produkty/power-bank/inteligentny-wyswietlacz/"
 </section>
 
 <!-- Why TFT Display for Your Brand -->
-<section class="sec bg-slate-50 relative py-16">
+<section id="why-tft-display-for-your-brand" class="sec bg-slate-50 relative" data-section="content">
  <div class="container-wide">
  <h2 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4 text-center">Pourquoi l'<span class="text-brandOrange">affichage TFT</span> pour votre marque</h2>
  <p class="text-center text-slate-500 text-sm max-w-2xl mx-auto mb-12">Positionnement premium, marges plus élevées et une expérience de déballage intégrée. Les batteries externes avec écran TFT sont la voie la plus simple pour passer du produit standard au flagship.</p>
 
- <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
- <div class="bg-white rounded-xl p-6 border border-slate-200 shadow-sm">
+ <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+ <div class="card p-6 shadow-sm">
  <h3 class="font-black text-brandBlue uppercase mb-3 text-sm">Positionnement retail premium</h3>
  <p class="text-sm text-slate-600 leading-relaxed">Prix public 39-79 $ contre 15-25 $ pour les modèles à coque simple. L'écran TFT et la construction aluminium-verre justifient un prix flagship sur Amazon, les rayons Accessoires Apple et les boutiques DTC.</p>
  </div>
- <div class="bg-white rounded-xl p-6 border border-slate-200 shadow-sm">
+ <div class="card p-6 shadow-sm">
  <h3 class="font-black text-brandBlue uppercase mb-3 text-sm">Attrait pour les cadeaux d'entreprise</h3>
  <p class="text-sm text-slate-600 leading-relaxed">Un design high-tech et un écran de statistiques visible en font un cadeau « wahou » pour les cadeaux aux cadres dirigeants, les kits d'accueil employés et les remerciements clients haut de gamme.</p>
  </div>
- <div class="bg-white rounded-xl p-6 border border-slate-200 shadow-sm">
+ <div class="card p-6 shadow-sm">
  <h3 class="font-black text-brandBlue uppercase mb-3 text-sm">Le déballage devient viral</h3>
  <p class="text-sm text-slate-600 leading-relaxed">L'écran TFT illuminé est magnifique en photo et en vidéo. TikTok, Réels Instagram et YouTube Shorts de déballage obtiennent un engagement organique que les batteries externes classiques ne verront jamais.</p>
  </div>
- <div class="bg-white rounded-xl p-6 border border-slate-200 shadow-sm">
+ <div class="card p-6 shadow-sm">
  <h3 class="font-black text-brandBlue uppercase mb-3 text-sm">Les données en direct créent la confiance</h3>
  <p class="text-sm text-slate-600 leading-relaxed">La puissance en watts et le pourcentage de batterie visibles prouvent que le produit délivre les performances annoncées. Réduit les plaintes « est-ce que ça charge vraiment vite ? » et les retours sous garantie.</p>
  </div>
- <div class="bg-white rounded-xl p-6 border border-slate-200 shadow-sm">
+ <div class="card p-6 shadow-sm">
  <h3 class="font-black text-brandBlue uppercase mb-3 text-sm">Durabilité de la coque aluminium</h3>
  <p class="text-sm text-slate-600 leading-relaxed">Le corps en aluminium CNC résiste bien mieux aux chutes, éraflures et usure de poche que le plastique ABS. Taux de retour à 12 mois plus faible, moins de demandes de remplacement sous garantie.</p>
  </div>
- <div class="bg-white rounded-xl p-6 border border-slate-200 shadow-sm">
+ <div class="card p-6 shadow-sm">
  <h3 class="font-black text-brandBlue uppercase mb-3 text-sm">Qi2 pérennise votre SKU</h3>
  <p class="text-sm text-slate-600 leading-relaxed">Le sans fil magnétique Qi2 15W est la nouvelle référence attendue par les utilisateurs d'iPhone 15+ et Galaxy S24+. Commercialiser un produit certifié Qi2 prolonge le cycle de vie du produit de 2-3 ans.</p>
  </div>
@@ -662,13 +662,13 @@ plPath: "produkty/power-bank/inteligentny-wyswietlacz/"
  </div>
 </section>
 <!-- OEM/ODM Customization -->
-<section class="sec bg-white relative py-16">
+<section id="oem-odm-customization" class="sec bg-white relative" data-section="content">
  <div class="container-wide">
  <h2 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4 text-center">Personnalisation OEM/ODM</h2>
  <p class="text-center text-slate-500 text-sm max-w-2xl mx-auto mb-12">Personnalisation complète incluant le logo de démarrage TFT, les thèmes de couleur et l'emballage coffret cadeau premium. MOQ flexible selon la complexité.</p>
 
- <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
- <div class="bg-slate-50 rounded-xl p-6 border border-slate-200">
+ <div class="grid md:grid-cols-2 gap-8">
+ <div class="card-soft p-6">
  <h3 class="font-black text-brandBlue uppercase mb-4 text-sm">OEM (Modèles standard, MOQ 500)</h3>
  <ul class="space-y-2 text-sm text-slate-600">
  <li>• Impression de logo (sérigraphie, laser, UV)</li>
@@ -679,7 +679,7 @@ plPath: "produkty/power-bank/inteligentny-wyswietlacz/"
  <li>• Délai : 25-30 jours après approbation de l'échantillon</li>
  </ul>
  </div>
- <div class="bg-slate-50 rounded-xl p-6 border border-slate-200">
+ <div class="card-soft p-6">
  <h3 class="font-black text-brandBlue uppercase mb-4 text-sm">ODM + Écran personnalisé (MOQ 1 000)</h3>
  <ul class="space-y-2 text-sm text-slate-600">
  <li>• Logo/animation de démarrage TFT personnalisé</li>
@@ -701,7 +701,7 @@ plPath: "produkty/power-bank/inteligentny-wyswietlacz/"
 </section>
 
 <!-- LED vs TFT vs OLED Display Comparison -->
-<section class="sec bg-white relative py-16">
+<section id="led-vs-tft-vs-oled-display-comparison" class="sec bg-white relative" data-section="comparison">
  <div class="container-wide">
  <h2 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4 text-center">LED vs TFT vs <span class="text-brandOrange">OLED</span> : Types d'écran pour batteries externes</h2>
  <p class="text-center text-slate-500 text-sm max-w-3xl mx-auto mb-12">Quelle est la différence entre un affichage LED et TFT sur une batterie externe ? Tous les écrans ne se valent pas. Le type d'écran détermine les données que vos clients voient, la perception premium du produit en magasin et votre structure de coûts.</p>
@@ -709,11 +709,11 @@ plPath: "produkty/power-bank/inteligentny-wyswietlacz/"
  <div class="overflow-x-auto rounded-2xl border border-slate-200 shadow-sm max-w-4xl mx-auto">
  <table class="w-full text-sm">
  <thead>
- <tr class="bg-white">
- <th class="p-4 text-left text-slate-500 font-bold text-xs uppercase">Fonctionnalité</th>
- <th class="p-4 text-center text-slate-500 font-bold text-xs uppercase">LED Numérique<br><span class="text-[10px] normal-case opacity-70">Budget</span></th>
- <th class="p-4 text-center bg-brandOrange/5 border-x border-brandOrange/20 text-brandOrange font-bold text-xs uppercase">TFT Couleur<br><span class="text-[10px] normal-case opacity-70">WOWOHCOOL</span></th>
- <th class="p-4 text-center text-slate-500 font-bold text-xs uppercase">OLED<br><span class="text-[10px] normal-case opacity-70">Ultra-Premium</span></th>
+ <tr class="bg-brandBlue text-white">
+ <th class="p-4 text-left font-bold text-xs uppercase">Fonctionnalité</th>
+ <th class="p-4 text-center font-bold text-xs uppercase">LED Numérique<br><span class="text-[10px] normal-case opacity-70">Budget</span></th>
+ <th class="p-4 text-center bg-brandOrange/20 font-bold text-xs uppercase">TFT Couleur<br><span class="text-[10px] normal-case opacity-70">WOWOHCOOL</span></th>
+ <th class="p-4 text-center font-bold text-xs uppercase">OLED<br><span class="text-[10px] normal-case opacity-70">Ultra-Premium</span></th>
  </tr>
  </thead>
  <tbody>
@@ -767,33 +767,33 @@ plPath: "produkty/power-bank/inteligentny-wyswietlacz/"
 </section>
 
 <!-- What the Smart Screen Shows -->
-<section class="sec bg-slate-50 relative py-16">
+<section id="what-the-smart-screen-shows" class="sec bg-slate-50 relative" data-section="content">
  <div class="container-wide">
  <h2 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4 text-center">Qu'affiche l'<span class="text-brandOrange">écran intelligent</span> ?</h2>
  <p class="text-center text-slate-500 text-sm max-w-3xl mx-auto mb-12">Une batterie externe avec écran vaut-elle le coup ? Pour vos clients, oui — les données de charge en temps réel éliminent l'incertitude et renforcent la confiance. Voici ce que les écrans TFT WOWOHCOOL affichent :</p>
 
- <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
- <div class="bg-white rounded-xl p-6 border border-slate-200 shadow-sm">
+ <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+ <div class="card p-6 shadow-sm">
  <h3 class="font-black text-brandBlue uppercase mb-3 text-sm">Pourcentage de batterie</h3>
  <p class="text-sm text-slate-600 leading-relaxed">Incréments précis de 1% (pas d'estimation 4 LED). Les utilisateurs savent exactement quand recharger — réduisant l'anxiété de la « batterie vide ».</p>
  </div>
- <div class="bg-white rounded-xl p-6 border border-slate-200 shadow-sm">
+ <div class="card p-6 shadow-sm">
  <h3 class="font-black text-brandBlue uppercase mb-3 text-sm">Puissance en temps réel (W)</h3>
  <p class="text-sm text-slate-600 leading-relaxed">Affiche la puissance de charge réelle en watts. Les utilisateurs peuvent vérifier que leur appareil reçoit bien une charge rapide (ex. « 22,5W » et non 5W lent).</p>
  </div>
- <div class="bg-white rounded-xl p-6 border border-slate-200 shadow-sm">
+ <div class="card p-6 shadow-sm">
  <h3 class="font-black text-brandBlue uppercase mb-3 text-sm">Tension et courant (V/A)</h3>
  <p class="text-sm text-slate-600 leading-relaxed">Données techniques pour les utilisateurs avancés et les testeurs tech. Différencie votre produit des chargeurs « mystère » sans aucun retour d'information.</p>
  </div>
- <div class="bg-white rounded-xl p-6 border border-slate-200 shadow-sm">
+ <div class="card p-6 shadow-sm">
  <h3 class="font-black text-brandBlue uppercase mb-3 text-sm">Temps restant estimé</h3>
  <p class="text-sm text-slate-600 leading-relaxed">Affiche les heures/minutes jusqu'à la charge complète ou l'épuisement. Les clients planifient leur journée sans deviner — moins d'avis 1 étoile « s'est déchargé trop vite ».</p>
  </div>
- <div class="bg-white rounded-xl p-6 border border-slate-200 shadow-sm">
+ <div class="card p-6 shadow-sm">
  <h3 class="font-black text-brandBlue uppercase mb-3 text-sm">Indicateurs de ports actifs</h3>
  <p class="text-sm text-slate-600 leading-relaxed">Retour visuel indiquant quels ports sont actifs et à quelle vitesse. Plus de confusion sur la connexion correcte du câble.</p>
  </div>
- <div class="bg-white rounded-xl p-6 border border-slate-200 shadow-sm">
+ <div class="card p-6 shadow-sm">
  <h3 class="font-black text-brandBlue uppercase mb-3 text-sm">Atténuation auto et faible conso.</h3>
  <p class="text-sm text-slate-600 leading-relaxed">L'écran s'atténue automatiquement après 10 secondes, consommant moins de 0,1% de batterie par heure. L'écran n'affecte pas significativement l'autonomie.</p>
  </div>
@@ -802,7 +802,7 @@ plPath: "produkty/power-bank/inteligentny-wyswietlacz/"
 </section>
 
 <!-- French Retail Price Comparison -->
- <section class="sec bg-white relative py-12">
+ <section id="french-retail-price-comparison" class="sec bg-white relative py-12" data-section="comparison">
   <div class="container-content">
   <div class="text-center mb-8">
    <h2 class="text-2xl lg:text-3xl font-black text-brandBlue uppercase italic tracking-tighter mb-4">Le premium TFT <span class="text-brandOrange">en France</span> — potentiel de marge</h2>
@@ -824,23 +824,23 @@ plPath: "produkty/power-bank/inteligentny-wyswietlacz/"
  </section>
 
  <!-- Cross-Category Internal Links -->
-<section class="sec bg-white relative py-12">
- <div class="container-content">
+<section id="cross-category-internal-links" class="sec bg-white relative py-12" data-section="related">
+ <div class="container-wide">
  <p class="text-center text-slate-500 text-sm mb-6">Découvrez plus de catégories de batteries externes WOWOHCOOL :</p>
  <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
- <a href="/fr/produits/batterie-externe/semi-solide/" class="block bg-slate-50 rounded-xl p-4 border border-slate-200 hover:border-brandOrange hover:shadow-md transition text-center">
+ <a href="/fr/produits/batterie-externe/semi-solide/" class="card-soft block p-4 hover:border-brandOrange hover:shadow-md transition text-center">
  <p class="font-black text-brandBlue text-sm uppercase mb-1">Semi-solide</p>
  <p class="text-[10px] text-slate-500">Batterie nouvelle génération</p>
  </a>
- <a href="/fr/produits/batterie-externe/magnetique-sans-fil/" class="block bg-slate-50 rounded-xl p-4 border border-slate-200 hover:border-brandOrange hover:shadow-md transition text-center">
+ <a href="/fr/produits/batterie-externe/magnetique-sans-fil/" class="card-soft block p-4 hover:border-brandOrange hover:shadow-md transition text-center">
  <p class="font-black text-brandBlue text-sm uppercase mb-1">Magnétique sans fil</p>
  <p class="text-[10px] text-slate-500">Qi2 / MagSafe</p>
  </a>
- <a href="/fr/produits/batterie-externe/batterie-externe-ordinateur-portable/" class="block bg-slate-50 rounded-xl p-4 border border-slate-200 hover:border-brandOrange hover:shadow-md transition text-center">
+ <a href="/fr/produits/batterie-externe/batterie-externe-ordinateur-portable/" class="card-soft block p-4 hover:border-brandOrange hover:shadow-md transition text-center">
  <p class="font-black text-brandBlue text-sm uppercase mb-1">Charge ordinateur</p>
  <p class="text-[10px] text-slate-500">65W-240W PD 3.1</p>
  </a>
- <a href="/fr/produits/batterie-externe/" class="block bg-slate-50 rounded-xl p-4 border border-slate-200 hover:border-brandOrange hover:shadow-md transition text-center">
+ <a href="/fr/produits/batterie-externe/" class="card-soft block p-4 hover:border-brandOrange hover:shadow-md transition text-center">
  <p class="font-black text-brandBlue text-sm uppercase mb-1">Toutes les batteries</p>
  <p class="text-[10px] text-slate-500">29 modèles au total</p>
  </a>
@@ -849,35 +849,35 @@ plPath: "produkty/power-bank/inteligentny-wyswietlacz/"
 </section>
 
 <!-- FAQ -->
-<section class="sec bg-white relative py-16">
+<section id="faq" class="sec bg-white relative" data-section="faq">
  <div class="container-narrow">
  <h2 class="text-3xl lg:text-4xl font-black text-slate-900 uppercase italic tracking-tighter mb-10 text-center">FAQ Affichage intelligent <span class="text-brandOrange">TFT</span></h2>
  <div class="space-y-4">
- <details class="bg-slate-50 rounded-xl p-5 border border-slate-200 group">
+ <details class="card-soft p-5 group">
  <summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">Qu'affiche l'écran TFT ?<span class="text-brandOrange group-open:rotate-180 transition">▼</span></summary>
  <p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">L'écran couleur TFT affiche en temps réel le pourcentage de batterie, la puissance de charge/décharge en watts, le temps restant estimé et les indicateurs de ports actifs. L'écran s'atténue automatiquement après 10 secondes pour économiser l'énergie.</p>
  </details>
- <details class="bg-slate-50 rounded-xl p-5 border border-slate-200 group">
+ <details class="card-soft p-5 group">
  <summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">Est-ce certifié Qi2 ?<span class="text-brandOrange group-open:rotate-180 transition">▼</span></summary>
  <p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">Oui. Les modèles WOP25 et WOP15 sont certifiés WPC Qi2 avec alignement magnétique, offrant une recharge sans fil de 15W compatible avec les iPhones (séries 15 et plus récentes) et les appareils Android compatibles Qi2.</p>
  </details>
- <details class="bg-slate-50 rounded-xl p-5 border border-slate-200 group">
+ <details class="card-soft p-5 group">
  <summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">Quel est le MOQ pour une batterie externe à affichage TFT en OEM ?<span class="text-brandOrange group-open:rotate-180 transition">▼</span></summary>
  <p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">Le MOQ commence à 500 unités pour les modèles standards avec impression de logo personnalisé sur la coque. La personnalisation du logo de démarrage ou du thème de couleur de l'écran nécessite un MOQ de 1 000 unités. Délai d'échantillon : 5-7 jours.</p>
  </details>
- <details class="bg-slate-50 rounded-xl p-5 border border-slate-200 group">
+ <details class="card-soft p-5 group">
  <summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">Puis-je personnaliser le logo de démarrage de l'écran ?<span class="text-brandOrange group-open:rotate-180 transition">&#9660;</span></summary>
  <p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">Oui. Nous offrons une personnalisation complète de l'écran, y compris l'animation/logo de démarrage personnalisé, le thème de couleur adapté à votre palette de marque, et des icônes de statut et une interface utilisateur personnalisées. MOQ 1 000 unités pour la personnalisation de l'écran. Ajoutez 5-7 jours au délai pour l'intégration du firmware.</p>
  </details>
- <details class="bg-slate-50 rounded-xl p-5 border border-slate-200 group">
+ <details class="card-soft p-5 group">
  <summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">Quelle est la différence entre un affichage LED et TFT sur une batterie externe ?<span class="text-brandOrange group-open:rotate-180 transition">&#9660;</span></summary>
  <p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">Les écrans LED affichent uniquement le pourcentage de batterie sous forme d'un simple chiffre (une seule couleur, sans graphisme). Les écrans TFT sont des écrans couleur complets affichant la puissance en watts, la tension, le courant, le temps restant estimé et l'activité des ports en temps réel — et ils prennent en charge les logos de démarrage et les thèmes de marque personnalisés. L'écran TFT coûte 1,50-3,00 $ de plus par unité mais permet un prix de vente de 40-100 $ contre 15-30 $ pour les produits avec LED uniquement.</p>
  </details>
- <details class="bg-slate-50 rounded-xl p-5 border border-slate-200 group">
+ <details class="card-soft p-5 group">
  <summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">L'écran décharge-t-il la batterie externe ?<span class="text-brandOrange group-open:rotate-180 transition">&#9660;</span></summary>
  <p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">De façon négligeable. L'écran TFT s'atténue automatiquement après 10 secondes et consomme moins de 0,1% de batterie par heure lorsqu'il est actif. Sur un cycle de charge complet, la consommation d'énergie de l'écran représente moins de 0,5% de la capacité totale — invisible pour l'utilisateur final.</p>
  </details>
- <details class="bg-slate-50 rounded-xl p-5 border border-slate-200 group">
+ <details class="card-soft p-5 group">
  <summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">Une batterie externe avec écran vaut-elle le coup pour les vendeurs Amazon ?<span class="text-brandOrange group-open:rotate-180 transition">&#9660;</span></summary>
  <p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">Oui. Les batteries externes avec écran se vendent 40-60% plus cher que les modèles sans écran de capacité identique. Elles génèrent également de meilleures photos produit (l'écran est superbe en visuel), réduisent les retours pour « ne charge pas » (les utilisateurs voient la puissance en temps réel) et se différencient dans la catégorie très concurrentielle des batteries externes sur Amazon.</p>
  </details>

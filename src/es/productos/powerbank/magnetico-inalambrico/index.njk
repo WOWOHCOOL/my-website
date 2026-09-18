@@ -75,26 +75,26 @@ plPath: "produkty/power-bank/magnetyczny-bezprzewodowy/"
 {% from "breadcrumb.njk" import breadcrumb %}
 
 <!-- HERO -->
-<section class="pt-24 md:pt-28 pb-16 md:pb-20 bg-gradient-to-br from-blue-50 via-white to-orange-50">
+<section id="hero" class="pt-24 md:pt-28 lg:pt-20 pb-16 md:pb-20 bg-gradient-to-br from-blue-50 via-white to-orange-50 lg:min-h-[100dvh] lg:flex lg:flex-col lg:justify-center" data-section="hero">
  <div class="container-wide">
   {{ breadcrumb([{name:"Inicio",url:"/es/"},{name:"Productos",url:"/es/productos/"},{name:"Power Bank",url:"/es/productos/powerbank/"},{name:"Magnético / Inalámbrico"}], "none", "mb-6", { variant: "hero" }) }}
   <div class="grid lg:grid-cols-2 gap-12 items-center">
    <div class="reveal order-2 lg:order-1">
-    <p class="text-brandOrange text-xs font-bold tracking-widest uppercase mb-3">Qi2 / Qi2.2 &middot; Fábrica directa para marcas</p>
-    <h1 class="text-3xl md:text-5xl font-black text-brandBlue leading-tight mb-6 italic uppercase">Power Bank Magnético Qi2<br><span class="text-brandOrange">Fábrica OEM Directa</span></h1>
+    <div class="badge-capsule mb-6 uppercase tracking-widest">Qi2 / Qi2.2 &middot; Fábrica directa para marcas</div>
+    <h1 class="text-3xl md:text-4xl xl:text-5xl font-black text-brandBlue leading-tight mb-6 italic uppercase tracking-tighter">Power Bank Magnético Qi2<br><span class="text-brandOrange">Fábrica OEM Directa</span></h1>
     <p class="text-slate-600 text-lg leading-relaxed mb-6">12 modelos con Qi2 / Qi2.2 Magnetic Power Profile. <strong>15-25W inalámbrico</strong>, compatible MagSafe para iPhone 12-16, certificado Qi2 para Android flagship. <strong>Imanes N52H de neodimio</strong> para sujeción segura.</p>
     <div class="flex flex-wrap gap-2 mb-8">
      <span class="trust-badge">Qi2 + Qi2.2</span>
      <span class="trust-badge">Compatible MagSafe</span>
      <span class="trust-badge">Imanes N52H</span>
     </div>
-    <div class="flex flex-wrap gap-4">
-     <button data-action="open-modal" class="btn-primary cursor-pointer">Solicitar precio fábrica &rarr;</button>
-     <a href="#modelos" class="btn-secondary">Ver modelos</a>
+    <div class="btn-pair">
+     <button data-action="open-modal" class="btn-solid cursor-pointer">Solicitar precio fábrica &rarr;</button>
+     <a href="#modelos" class="btn-ghost-lg">Ver modelos</a>
     </div>
    </div>
    <div class="reveal order-1 lg:order-2">
-    <div class="bg-white rounded-2xl shadow-xl p-6 md:p-8 border border-slate-100">
+    <div class="card-lg shadow-xl p-6 md:p-8 max-w-[480px] mx-auto">
      <img src="/image/product/power-bank/wopq11-qi2-magnetic-40w-power-bank.webp" srcset="/image/product/power-bank/wopq11-qi2-magnetic-40w-power-bank-750w.webp 750w, /image/product/power-bank/wopq11-qi2-magnetic-40w-power-bank.webp 1920w" sizes="(min-width: 1440px) 526px, (min-width: 1280px) 526px, (min-width: 1024px) 398px, (min-width: 768px) 654px, (min-width: 430px) 382px, 327px" alt="Power bank magnético Qi2.2 WOPQ11 con alineación MagSafe" width="1920" height="1920" class="w-full h-auto object-contain" loading="eager">
     </div>
    </div>
@@ -106,7 +106,7 @@ plPath: "produkty/power-bank/magnetyczny-bezprzewodowy/"
 
 
 <!-- MODELOS -->
-<section id="modelos" class="py-16 bg-white">
+<section id="modelos" class="sec bg-white" data-section="products">
  <div class="container-wide">
   {{ sectionHeader('Gama', '12 Power Banks Magnéticos <span class="text-brandOrange">Qi2 OEM</span>', 'Desde 5.000mAh compactos hasta 20.000mAh de alta capacidad. Todos con carga magnética Qi y alineación N52H.', {mb: 'mb-12'}) }}
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -118,7 +118,7 @@ plPath: "produkty/power-bank/magnetyczny-bezprzewodowy/"
      <div class="flex items-center space-x-2"><svg class="icon-feature text-brandOrange text-[11px]" aria-hidden="true" focusable="false" viewBox="0 0 448 512"><path d="M338.8-9.9c11.9 8.6 16.3 24.2 10.9 37.8L271.3 224 416 224c13.5 0 25.5 8.4 30.1 21.1s.7 26.9-9.6 35.5l-288 240c-11.3 9.4-27.4 9.9-39.3 1.3s-16.3-24.2-10.9-37.8L176.7 288 32 288c-13.5 0-25.5-8.4-30.1-21.1s-.7-26.9 9.6-35.5l288-240c11.3-9.4 27.4-9.9 39.3-1.3z" fill="currentColor"/></svg><span class="text-[11px] font-bold text-slate-500 uppercase">PD 40W<br><span class="text-[10px] font-normal text-slate-400">Pantalla TFT</span></span></div></div>
     <p class="text-[11px] text-slate-500 mb-6 italic leading-relaxed">Power bank premium Qi2.2 con 25W carga inalámbrica magnetica y PD 40W.</p>
     <details class="mb-6 group/spec">
-     <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Especificaciones</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
+     <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Especificaciones</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
      <div class="p-4 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-[11px]"><tbody>
      <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Capacidad</td><td class="py-2 font-bold text-slate-700">10000mAh (5000mAh×2S) / 7.7V / 1.5C</td></tr>
      <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Tipo de celda</td><td class="py-2 font-bold text-slate-700">Li-Polymer (Toyuan)</td></tr>
@@ -140,7 +140,7 @@ plPath: "produkty/power-bank/magnetyczny-bezprzewodowy/"
      <div class="flex items-center space-x-2"><svg class="icon-feature text-brandOrange text-[11px]" aria-hidden="true" focusable="false" viewBox="0 0 448 512"><path d="M338.8-9.9c11.9 8.6 16.3 24.2 10.9 37.8L271.3 224 416 224c13.5 0 25.5 8.4 30.1 21.1s.7 26.9-9.6 35.5l-288 240c-11.3 9.4-27.4 9.9-39.3 1.3s-16.3-24.2-10.9-37.8L176.7 288 32 288c-13.5 0-25.5-8.4-30.1-21.1s-.7-26.9 9.6-35.5l288-240c11.3-9.4 27.4-9.9 39.3-1.3z" fill="currentColor"/></svg><span class="text-[11px] font-bold text-slate-500 uppercase">2,5W Watch<br><span class="text-[10px] font-normal text-slate-400">PD 35W</span></span></div></div>
     <p class="text-[11px] text-slate-500 mb-6 italic leading-relaxed">Power bank magnetica Qi2 con cargador Apple Watch. 15W movil + 2,5W Watch + PD 35W.</p>
     <details class="mb-6 group/spec">
-     <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Especificaciones</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
+     <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Especificaciones</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
      <div class="p-4 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-[11px]"><tbody>
      <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Capacidad</td><td class="py-2 font-bold text-slate-700">10000mAh (5000mAh×2S) / 7.7V / 1.5C</td></tr>
      <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Tipo de celda</td><td class="py-2 font-bold text-slate-700">Li-Polymer (Toyuan)</td></tr>
@@ -163,7 +163,7 @@ plPath: "produkty/power-bank/magnetyczny-bezprzewodowy/"
      <div class="flex items-center space-x-2"><svg class="icon-feature text-brandOrange text-[11px]" aria-hidden="true" focusable="false" viewBox="0 0 512 512"><path d="M256 0c4.6 0 9.2 1 13.4 2.9L457.7 82.8c22 9.3 38.4 31 38.3 57.2c-.5 99.2-41.3 280.7-213.6 363.2c-16.7 8-36.1 8-52.8 0C57.3 420.7 16.5 239.2 16 140c-.1-26.2 16.3-47.9 38.3-57.2L242.7 2.9C246.8 1 251.4 0 256 0z" fill="currentColor"/></svg><span class="text-[11px] font-bold text-slate-500 uppercase">Aluminio 15,2mm<br><span class="text-[10px] font-normal text-slate-400">PD 20W</span></span></div></div>
     <p class="text-[11px] text-slate-500 mb-6 italic leading-relaxed">Power bank ultra-esbelta 15,2mm con carcasa aluminio. Qi2 15W + PD 20W.</p>
     <details class="mb-6 group/spec">
-     <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Especificaciones</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
+     <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Especificaciones</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
      <div class="p-4 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-[11px]"><tbody>
      <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Capacidad</td><td class="py-2 font-bold text-slate-700">10000mAh / 3.7V</td></tr>
      <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Tipo de celda</td><td class="py-2 font-bold text-slate-700">Li-Polymer (126280×1)</td></tr>
@@ -188,7 +188,7 @@ plPath: "produkty/power-bank/magnetyczny-bezprzewodowy/"
      <div class="flex items-center space-x-2"><svg class="icon-feature text-brandOrange text-[11px]" aria-hidden="true" focusable="false" viewBox="0 0 512 512"><path d="M256 0c4.6 0 9.2 1 13.4 2.9L457.7 82.8c22 9.3 38.4 31 38.3 57.2c-.5 99.2-41.3 280.7-213.6 363.2c-16.7 8-36.1 8-52.8 0C57.3 420.7 16.5 239.2 16 140c-.1-26.2 16.3-47.9 38.3-57.2L242.7 2.9C246.8 1 251.4 0 256 0z" fill="currentColor"/></svg><span class="text-[11px] font-bold text-slate-500 uppercase">Ultra-compacto<br><span class="text-[10px] font-normal text-slate-400">102mm</span></span></div></div>
     <p class="text-[11px] text-slate-500 mb-6 italic leading-relaxed">Power bank ultra-compacta 102mm. 10.000mAh, Qi2 15W, PD 22,5W. Imanes N52H.</p>
     <details class="mb-6 group/spec">
-     <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Especificaciones</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
+     <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Especificaciones</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
      <div class="p-4 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-[11px]"><tbody>
      <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Capacidad</td><td class="py-2 font-bold text-slate-700">10000mAh / 3.85V</td></tr>
      <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Tipo de celda</td><td class="py-2 font-bold text-slate-700">Li-Polymer</td></tr>
@@ -209,7 +209,7 @@ plPath: "produkty/power-bank/magnetyczny-bezprzewodowy/"
      <div class="flex items-center space-x-2"><svg class="icon-feature text-brandOrange text-[11px]" aria-hidden="true" focusable="false" viewBox="0 0 512 512"><path d="M256 0c4.6 0 9.2 1 13.4 2.9L457.7 82.8c22 9.3 38.4 31 38.3 57.2c-.5 99.2-41.3 280.7-213.6 363.2c-16.7 8-36.1 8-52.8 0C57.3 420.7 16.5 239.2 16 140c-.1-26.2 16.3-47.9 38.3-57.2L242.7 2.9C246.8 1 251.4 0 256 0z" fill="currentColor"/></svg><span class="text-[11px] font-bold text-slate-500 uppercase">Metal 7,9mm<br><span class="text-[10px] font-normal text-slate-400">Slim Pocket</span></span></div></div>
     <p class="text-[11px] text-slate-500 mb-6 italic leading-relaxed">Power bank ultra-esbelta 7,9mm con carga Watch integrada. 5.000mAh, Qi2 15W + 2,5W Watch.</p>
     <details class="mb-6 group/spec">
-     <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Especificaciones</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
+     <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Especificaciones</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
      <div class="p-4 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-[11px]"><tbody>
      <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Capacidad</td><td class="py-2 font-bold text-slate-700">5000mAh / 3.85V</td></tr>
      <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Tipo de celda</td><td class="py-2 font-bold text-slate-700">Li-Polymer</td></tr>
@@ -231,7 +231,7 @@ plPath: "produkty/power-bank/magnetyczny-bezprzewodowy/"
      <div class="flex items-center space-x-2"><svg class="icon-feature text-brandOrange text-[11px]" aria-hidden="true" focusable="false" viewBox="0 0 576 512"><path d="M320.1 56.1c-35.3-35.3-92.7-35.3-128 0L93.7 154.4c-35.3 35.3-35.3 92.7 0 128s92.7 35.3 128 0l34.1-34.1c6.2-6.2 16.4-6.2 22.6 0s6.2 16.4 0 22.6L244.3 305c-47.8 47.8-125.5 47.8-173.3 0S23.2 179.5 71 131.7L169.3 33.4c47.8-47.8 125.5-47.8 173.3 0s47.8 125.5 0 173.3l-27.3 27.3c-6.2 6.2-16.4 6.2-22.6 0s-6.2-16.4 0-22.6l27.3-27.3c35.3-35.3 35.3-92.7 0-128zM186.7 285.5c-6.2-6.2-16.4-6.2-22.6 0l-27.3 27.3c-35.3 35.3-35.3 92.7 0 128s92.7 35.3 128 0l98.4-98.4c35.3-35.3 35.3-92.7 0-128s-92.7-35.3-128 0l-34.1 34.1c-6.2 6.2-16.4 6.2-22.6 0s-6.2-16.4 0-22.6l34.1-34.1c47.8-47.8 125.5-47.8 173.3 0s47.8 125.5 0 173.3L357.3 462.6c-47.8 47.8-125.5 47.8-173.3 0s-47.8-125.5 0-173.3l27.3-27.3c6.2-6.2 16.4-6.2 22.6 0s6.2 16.4 0 22.6z" fill="currentColor"/></svg><span class="text-[11px] font-bold text-slate-500 uppercase">Cable C+L<br><span class="text-[10px] font-normal text-slate-400">2,5W Watch</span></span></div></div>
     <p class="text-[11px] text-slate-500 mb-6 italic leading-relaxed">Power bank 3-en-1 con Qi2, cables Type-C + Lightning integrados y carga Watch.</p>
     <details class="mb-6 group/spec">
-     <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Especificaciones</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
+     <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Especificaciones</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
      <div class="p-4 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-[11px]"><tbody>
      <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Capacidad</td><td class="py-2 font-bold text-slate-700">10000mAh (5000mAh×2) / 3.85V</td></tr>
      <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Tipo de celda</td><td class="py-2 font-bold text-slate-700">Li-Polymer</td></tr>
@@ -255,7 +255,7 @@ plPath: "produkty/power-bank/magnetyczny-bezprzewodowy/"
      <div class="flex items-center space-x-2"><svg class="icon-feature text-brandOrange text-[11px]" aria-hidden="true" focusable="false" viewBox="0 0 384 512"><path d="M173.8 5.5c11-7.3 25.4-7.3 36.4 0l79.2 52.8 92.7 4.7c13.2 0.7 24.7 9.1 29.4 21.5l32 84.4 53.7 75.4c7.8 11 7.8 25.7 0 36.7l-53.7 75.4-32 84.4c-4.7 12.4-16.2 20.8-29.4 21.5l-92.7 4.7-79.2 52.8c-11 7.3-25.4 7.3-36.4 0l-79.2-52.8-92.7-4.7c-13.2-0.7-24.7-9.1-29.4-21.5l-32-84.4L0 280.6c-7.8-11-7.8-25.7 0-36.7l53.7-75.4 32-84.4c4.7-12.4 16.2-20.8 29.4-21.5l92.7-4.7L173.8 5.5z" fill="currentColor"/></svg><span class="text-[11px] font-bold text-slate-500 uppercase">Kickstand zinc<br><span class="text-[10px] font-normal text-slate-400">PD 22,5W</span></span></div></div>
     <p class="text-[11px] text-slate-500 mb-6 italic leading-relaxed">Power bank magnetica con soporte integrado en aleacion zinc. Qi2 15W, PD 22,5W.</p>
     <details class="mb-6 group/spec">
-     <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Especificaciones</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
+     <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Especificaciones</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
      <div class="p-4 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-[11px]"><tbody>
      <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Capacidad</td><td class="py-2 font-bold text-slate-700">10000mAh / 3.85V</td></tr>
      <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Tipo de celda</td><td class="py-2 font-bold text-slate-700">Li-Polymer</td></tr>
@@ -278,7 +278,7 @@ plPath: "produkty/power-bank/magnetyczny-bezprzewodowy/"
      <div class="flex items-center space-x-2"><svg class="icon-feature text-brandOrange text-[11px]" aria-hidden="true" focusable="false" viewBox="0 0 576 512"><path d="M320.1 56.1c-35.3-35.3-92.7-35.3-128 0L93.7 154.4c-35.3 35.3-35.3 92.7 0 128s92.7 35.3 128 0l34.1-34.1c6.2-6.2 16.4-6.2 22.6 0s6.2 16.4 0 22.6L244.3 305c-47.8 47.8-125.5 47.8-173.3 0S23.2 179.5 71 131.7L169.3 33.4c47.8-47.8 125.5-47.8 173.3 0s47.8 125.5 0 173.3l-27.3 27.3c-6.2 6.2-16.4 6.2-22.6 0s-6.2-16.4 0-22.6l27.3-27.3c35.3-35.3 35.3-92.7 0-128zM186.7 285.5c-6.2-6.2-16.4-6.2-22.6 0l-27.3 27.3c-35.3 35.3-35.3 92.7 0 128s92.7 35.3 128 0l98.4-98.4c35.3-35.3 35.3-92.7 0-128s-92.7-35.3-128 0l-34.1 34.1c-6.2 6.2-16.4 6.2-22.6 0s-6.2-16.4 0-22.6l34.1-34.1c47.8-47.8 125.5-47.8 173.3 0s47.8 125.5 0 173.3L357.3 462.6c-47.8 47.8-125.5 47.8-173.3 0s-47.8-125.5 0-173.3l27.3-27.3c6.2-6.2 16.4-6.2 22.6 0s6.2 16.4 0 22.6z" fill="currentColor"/></svg><span class="text-[11px] font-bold text-slate-500 uppercase">2 cables + Watch<br><span class="text-[10px] font-normal text-slate-400">Pantalla LED</span></span></div></div>
     <p class="text-[11px] text-slate-500 mb-6 italic leading-relaxed">Power bank magnetica con cables Type-C + Lightning, cargador Watch y pantalla LED.</p>
     <details class="mb-6 group/spec">
-     <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Especificaciones</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
+     <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Especificaciones</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
      <div class="p-4 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-[11px]"><tbody>
      <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Capacidad</td><td class="py-2 font-bold text-slate-700">10000mAh / 3.85V</td></tr>
      <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Tipo de celda</td><td class="py-2 font-bold text-slate-700">Li-Polymer (146074)</td></tr>
@@ -306,7 +306,7 @@ plPath: "produkty/power-bank/magnetyczny-bezprzewodowy/"
      <div class="flex items-center space-x-2"><svg class="icon-feature text-brandOrange text-[11px]" aria-hidden="true" focusable="false" viewBox="0 0 576 512"><path d="M320.1 56.1c-35.3-35.3-92.7-35.3-128 0L93.7 154.4c-35.3 35.3-35.3 92.7 0 128s92.7 35.3 128 0l34.1-34.1c6.2-6.2 16.4-6.2 22.6 0s6.2 16.4 0 22.6L244.3 305c-47.8 47.8-125.5 47.8-173.3 0S23.2 179.5 71 131.7L169.3 33.4c47.8-47.8 125.5-47.8 173.3 0s47.8 125.5 0 173.3l-27.3 27.3c-6.2 6.2-16.4 6.2-22.6 0s-6.2-16.4 0-22.6l27.3-27.3c35.3-35.3 35.3-92.7 0-128zM186.7 285.5c-6.2-6.2-16.4-6.2-22.6 0l-27.3 27.3c-35.3 35.3-35.3 92.7 0 128s92.7 35.3 128 0l98.4-98.4c35.3-35.3 35.3-92.7 0-128s-92.7-35.3-128 0l-34.1 34.1c-6.2 6.2-16.4 6.2-22.6 0s-6.2-16.4 0-22.6l34.1-34.1c47.8-47.8 125.5-47.8 173.3 0s47.8 125.5 0 173.3L357.3 462.6c-47.8 47.8-125.5 47.8-173.3 0s-47.8-125.5 0-173.3l27.3-27.3c6.2-6.2 16.4-6.2 22.6 0s6.2 16.4 0 22.6z" fill="currentColor"/></svg><span class="text-[11px] font-bold text-slate-500 uppercase">2 cables + Watch<br><span class="text-[10px] font-normal text-slate-400">PD 22,5W</span></span></div></div>
     <p class="text-[11px] text-slate-500 mb-6 italic leading-relaxed">Power bank alta capacidad 20.000mAh magnetica Qi2 con cables y módulo Watch.</p>
     <details class="mb-6 group/spec">
-     <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Especificaciones</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
+     <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Especificaciones</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
      <div class="p-4 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-[11px]"><tbody>
      <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Capacidad</td><td class="py-2 font-bold text-slate-700">20000mAh (10000mAh×2) / 3.85V</td></tr>
      <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Tipo de celda</td><td class="py-2 font-bold text-slate-700">Li-Polymer (146074)</td></tr>
@@ -334,7 +334,7 @@ plPath: "produkty/power-bank/magnetyczny-bezprzewodowy/"
      <div class="flex items-center space-x-2"><svg class="icon-feature text-brandOrange text-[11px]" aria-hidden="true" focusable="false" viewBox="0 0 384 512"><path d="M173.8 5.5c11-7.3 25.4-7.3 36.4 0l79.2 52.8 92.7 4.7c13.2 0.7 24.7 9.1 29.4 21.5l32 84.4 53.7 75.4c7.8 11 7.8 25.7 0 36.7l-53.7 75.4-32 84.4c-4.7 12.4-16.2 20.8-29.4 21.5l-92.7 4.7-79.2 52.8c-11 7.3-25.4 7.3-36.4 0l-79.2-52.8-92.7-4.7c-13.2-0.7-24.7-9.1-29.4-21.5l-32-84.4L0 280.6c-7.8-11-7.8-25.7 0-36.7l53.7-75.4 32-84.4c4.7-12.4 16.2-20.8 29.4-21.5l92.7-4.7L173.8 5.5z" fill="currentColor"/></svg><span class="text-[11px] font-bold text-slate-500 uppercase">Enchufe plegable<br><span class="text-[10px] font-normal text-slate-400">PD 22,5W</span></span></div></div>
     <p class="text-[11px] text-slate-500 mb-6 italic leading-relaxed">Power bank 5.000mAh con carga magnetica Apple Watch y enchufe Type-C/Lightning plegable.</p>
     <details class="mb-6 group/spec">
-     <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Especificaciones</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
+     <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Especificaciones</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
      <div class="p-4 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-[11px]"><tbody>
      <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Capacidad</td><td class="py-2 font-bold text-slate-700">5000mAh / 3.7V (21700 cell)</td></tr>
      <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Dimensiones</td><td class="py-2 font-bold text-slate-700">80×37.3×25mm</td></tr>
@@ -353,7 +353,7 @@ plPath: "produkty/power-bank/magnetyczny-bezprzewodowy/"
 </section>
 
 <!-- MARKET-DATA -->
-<section class="sec bg-white py-8">
+<section id="market-data" class="sec bg-white py-8" data-section="content">
  <div class="container-content">
  <blockquote class="bg-brandOrange/5 border-l-4 border-brandOrange rounded-r-xl px-6 py-5 text-sm text-slate-700 italic leading-relaxed">
   <p>"El mercado de power banks magnéticos inalámbricos crecerá de 1,85B USD (2024) a 3,79B USD en 2031, con un CAGR del 10,8% (QY Research). Para diciembre 2025, más de 2.665 productos certificados Qi2 estaban en el mercado — los power banks representan el 23% con 609 modelos. El WPC proyecta cerca de 4 mil millones de dispositivos Qi2 en cinco años. Con Qi2.2 (25W) y la compatibilidad nativa con Android a través de Samsung Galaxy S25 y Google Pixel 10, el mercado direccionable para power banks magnéticos multiplataforma se ha duplicado."</p>
@@ -363,7 +363,7 @@ plPath: "produkty/power-bank/magnetyczny-bezprzewodowy/"
 </section>
 
 <!-- Qi2 vs MagSafe vs Qi -->
-<section class="py-16 bg-slate-50">
+<section id="qi2-vs-magsafe-vs-qi" class="sec bg-slate-50" data-section="comparison">
  <div class="container-content">
   {{ sectionHeader('Comparativa', 'qi2 vs. MagSafe vs. Qi', 'Tres estándares de carga inalámbrica comparados directamente para compradores B2B.', {mb: 'mb-12'}) }}
   <div class="overflow-x-auto reveal">
@@ -387,14 +387,14 @@ plPath: "produkty/power-bank/magnetyczny-bezprzewodowy/"
 </section>
 
 <!-- CERTIFICACIONES -->
-<section class="py-16 bg-white">
- <div class="container-content">
+<section id="certificaciones" class="sec bg-white" data-section="trust">
+ <div class="container-wide">
   {% call sectionHeader('Cumplimiento', 'Certificaciones para power banks magnéticos', '', {mb: 'mb-12'}) %}<div class="grid md:grid-cols-2 gap-6 reveal">
-   <div class="bg-white rounded-2xl p-6 border border-slate-200">
+   <div class="card-lg p-6">
     <h3 class="text-base font-bold text-brandBlue mb-2">Reglamento UE 2023/1542 — servicio RAEE España</h3>
     <p class="text-sm text-slate-600 leading-relaxed">Desde el 18.08.2024 las obligaciones de productor estan en vigor; desde el 18.02.2027 el pasaporte digital de batería sera obligatorio. Suministramos documentación técnica, Declaracion CE de Conformidad y gestionamos el registro RAEE/EPR en España (código EC-XXX), Francia, Italia y Portugal.</p>
    </div>
-   <div class="bg-white rounded-2xl p-6 border border-slate-200">
+   <div class="card-lg p-6">
     <h3 class="text-base font-bold text-brandBlue mb-2">Pasaporte digital de batería 2027</h3>
     <p class="text-sm text-slate-600 leading-relaxed">Nuestros power banks magneticos Qi2 desde 2026 con etiquetas QR y captura continua de datos de ciclo de vida — preparados para el pasaporte digital de batería obligatorio desde febrero 2027 según el Reglamento UE 2023/1542.</p>
    </div>
@@ -405,37 +405,37 @@ plPath: "produkty/power-bank/magnetyczny-bezprzewodowy/"
 </section>
 
 <!-- OEM/ODM CTA -->
-<section class="py-16 bg-brandBlue text-white">
+<section id="oem-odm-cta" class="sec bg-brandBlue text-white" data-section="cta">
  {% call sectionHeader('OEM / ODM', 'Power Bank Magnético Qi2<br><span class="text-brandOrange">con su marca</span>', '', {max: '', mb: '', extra: 'container-content', reveal: false, labelClass: 'text-brandOrange', titleClass: 'text-3xl lg:text-4xl font-black uppercase italic tracking-tighter mb-4'}) %}<p class="text-slate-300 max-w-2xl mx-auto mb-8">MOQ desde 500 unidades. Posición de anillo magnético propia, grabado láser, embalaje personalizado. Muestra en 3-7 días, producción en 25-30 días.</p>
-  <div class="flex flex-wrap gap-4 justify-center">
-   <button data-action="open-modal" class="btn-primary cursor-pointer">Solicitar presupuesto &rarr;</button>
-   <a href="/es/contacto/" class="inline-flex items-center justify-center px-6 py-3 border-2 border-white text-white font-black uppercase italic tracking-widest text-sm rounded-full hover:bg-white hover:text-brandBlue transition-all">Contactar</a>
+  <div class="btn-pair">
+   <button data-action="open-modal" class="btn-solid cursor-pointer">Solicitar presupuesto &rarr;</button>
+   <a href="/es/contacto/" class="inline-flex items-center justify-center px-6 py-4 border-2 border-white text-white font-black uppercase italic tracking-widest text-sm rounded-xl hover:bg-white hover:text-brandBlue transition-all w-full">Contactar</a>
   </div>
  {% endcall %}
 </section>
 
 <!-- FAQ -->
-<section class="py-16 bg-white">
+<section id="faq" class="sec bg-white" data-section="faq">
  <div class="container-narrow">
   {{ sectionHeader('FAQ', 'Preguntas frecuentes Qi2', '', {max: '', mb: 'mb-12'}) }}
   <div class="space-y-4">
-   <details class="reveal bg-slate-50 rounded-2xl p-6 border border-slate-200"><summary class="font-bold text-brandBlue cursor-pointer">¿Qué es la carga magnética Qi2?</summary><p class="text-sm text-slate-600 mt-3 leading-relaxed faq-answer">Qi2 es el sucesor estandarizado de Qi por el Wireless Power Consortium e integra el Magnetic Power Profile (MPP) basado en la tecnología MagSafe de Apple. Qi2 entrega carga rápida inalámbrica de 15W con alineación magnética precisa mediante imanes de neodimio N52H.</p></details>
-   <details class="reveal bg-slate-50 rounded-2xl p-6 border border-slate-200"><summary class="font-bold text-brandBlue cursor-pointer">¿Son los power banks Qi2 compatibles con MagSafe?</summary><p class="text-sm text-slate-600 mt-3 leading-relaxed faq-answer">Sí. Los power banks magnéticos Qi2 son totalmente compatibles con MagSafe en iPhone 12-16. Usan el mismo anillo magnético N52H y entregan 15W vs. 7,5W de la carga Qi tradicional.</p></details>
-   <details class="reveal bg-slate-50 rounded-2xl p-6 border border-slate-200"><summary class="font-bold text-brandBlue cursor-pointer">¿Funciona Qi2 con smartphones Android?</summary><p class="text-sm text-slate-600 mt-3 leading-relaxed faq-answer">Sí, con dispositivos Android certificados Qi2 (Samsung Galaxy S25 Ultra, Pixel 10 Pro, HMD Skyline). Los Android sin imanes cargan a 5W con Qi estándar. Con funda Qi2 alcanzan los 15W completos con alineación magnética.</p></details>
-   <details class="reveal bg-slate-50 rounded-2xl p-6 border border-slate-200"><summary class="font-bold text-brandBlue cursor-pointer">¿Cuál es el MOQ para power banks magnéticos OEM?</summary><p class="text-sm text-slate-600 mt-3 leading-relaxed faq-answer">MOQ desde 500 unidades para modelos ODM estándar. OEM con molde nuevo: 1.000-2.000 unidades. Muestras en 3-7 días.</p></details>
-   <details class="reveal bg-slate-50 rounded-2xl p-6 border border-slate-200"><summary class="font-bold text-brandBlue cursor-pointer">¿Qué fuerza magnética usa WOWOHCOOL?</summary><p class="text-sm text-slate-600 mt-3 leading-relaxed faq-answer">Usamos imanes de neodimio N52H con 800-1.200 Gauss de fuerza de sujeción. Esto cumple la especificación MagSafe y asegura sujeción firme incluso con fundas iPhone de hasta 3mm de grosor.</p></details>
+   <details class="card-lg-soft reveal p-6"><summary class="font-bold text-brandBlue cursor-pointer">¿Qué es la carga magnética Qi2?</summary><p class="text-sm text-slate-600 mt-3 leading-relaxed faq-answer">Qi2 es el sucesor estandarizado de Qi por el Wireless Power Consortium e integra el Magnetic Power Profile (MPP) basado en la tecnología MagSafe de Apple. Qi2 entrega carga rápida inalámbrica de 15W con alineación magnética precisa mediante imanes de neodimio N52H.</p></details>
+   <details class="card-lg-soft reveal p-6"><summary class="font-bold text-brandBlue cursor-pointer">¿Son los power banks Qi2 compatibles con MagSafe?</summary><p class="text-sm text-slate-600 mt-3 leading-relaxed faq-answer">Sí. Los power banks magnéticos Qi2 son totalmente compatibles con MagSafe en iPhone 12-16. Usan el mismo anillo magnético N52H y entregan 15W vs. 7,5W de la carga Qi tradicional.</p></details>
+   <details class="card-lg-soft reveal p-6"><summary class="font-bold text-brandBlue cursor-pointer">¿Funciona Qi2 con smartphones Android?</summary><p class="text-sm text-slate-600 mt-3 leading-relaxed faq-answer">Sí, con dispositivos Android certificados Qi2 (Samsung Galaxy S25 Ultra, Pixel 10 Pro, HMD Skyline). Los Android sin imanes cargan a 5W con Qi estándar. Con funda Qi2 alcanzan los 15W completos con alineación magnética.</p></details>
+   <details class="card-lg-soft reveal p-6"><summary class="font-bold text-brandBlue cursor-pointer">¿Cuál es el MOQ para power banks magnéticos OEM?</summary><p class="text-sm text-slate-600 mt-3 leading-relaxed faq-answer">MOQ desde 500 unidades para modelos ODM estándar. OEM con molde nuevo: 1.000-2.000 unidades. Muestras en 3-7 días.</p></details>
+   <details class="card-lg-soft reveal p-6"><summary class="font-bold text-brandBlue cursor-pointer">¿Qué fuerza magnética usa WOWOHCOOL?</summary><p class="text-sm text-slate-600 mt-3 leading-relaxed faq-answer">Usamos imanes de neodimio N52H con 800-1.200 Gauss de fuerza de sujeción. Esto cumple la especificación MagSafe y asegura sujeción firme incluso con fundas iPhone de hasta 3mm de grosor.</p></details>
   </div>
  </div>
 </section>
 
 <!-- Cross-Category Links -->
-	<section class="sec bg-white py-12">
-	 <div class="container-narrow text-center"><p class="text-center text-slate-500 text-sm mb-6">Más categorias de WOWOHCOOL:</p>
+	<section id="cross-category-links" class="sec bg-white py-12" data-section="related">
+	 <div class="container-wide text-center"><p class="text-center text-slate-500 text-sm mb-6">Más categorias de WOWOHCOOL:</p>
 	 <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-	  <a href="/es/productos/powerbank/semi-solido/" class="block bg-white rounded-xl p-4 border border-slate-200 hover:border-brandOrange hover:shadow-md transition text-center"><p class="font-black text-brandBlue text-sm uppercase mb-1">Semi-Solido</p><p class="text-[10px] text-slate-500">CES 2026 Tech</p></a>
-	  <a href="/es/productos/powerbank/2-en-1-hibrido/" class="block bg-white rounded-xl p-4 border border-slate-200 hover:border-brandOrange hover:shadow-md transition text-center"><p class="font-black text-brandBlue text-sm uppercase mb-1">2-en-1 Hibrido</p><p class="text-[10px] text-slate-500">GaN AC + Batería</p></a>
-	  <a href="/es/productos/powerbank/portatil/" class="block bg-white rounded-xl p-4 border border-slate-200 hover:border-brandOrange hover:shadow-md transition text-center"><p class="font-black text-brandBlue text-sm uppercase mb-1">Portatil</p><p class="text-[10px] text-slate-500">PD 3.1 240W</p></a>
-	  <a href="/es/productos/powerbank/" class="block bg-white rounded-xl p-4 border border-slate-200 hover:border-brandOrange hover:shadow-md transition text-center"><p class="font-black text-brandBlue text-sm uppercase mb-1">Todos Power Banks</p><p class="text-[10px] text-slate-500">6 Categorias, 35+ Modelos</p></a>
+	  <a href="/es/productos/powerbank/semi-solido/" class="card block p-4 hover:border-brandOrange hover:shadow-md transition text-center"><p class="font-black text-brandBlue text-sm uppercase mb-1">Semi-Solido</p><p class="text-[10px] text-slate-500">CES 2026 Tech</p></a>
+	  <a href="/es/productos/powerbank/2-en-1-hibrido/" class="card block p-4 hover:border-brandOrange hover:shadow-md transition text-center"><p class="font-black text-brandBlue text-sm uppercase mb-1">2-en-1 Hibrido</p><p class="text-[10px] text-slate-500">GaN AC + Batería</p></a>
+	  <a href="/es/productos/powerbank/portatil/" class="card block p-4 hover:border-brandOrange hover:shadow-md transition text-center"><p class="font-black text-brandBlue text-sm uppercase mb-1">Portatil</p><p class="text-[10px] text-slate-500">PD 3.1 240W</p></a>
+	  <a href="/es/productos/powerbank/" class="card block p-4 hover:border-brandOrange hover:shadow-md transition text-center"><p class="font-black text-brandBlue text-sm uppercase mb-1">Todos Power Banks</p><p class="text-[10px] text-slate-500">6 Categorias, 35+ Modelos</p></a>
 	 </div>
 	 </div>
 	</section>

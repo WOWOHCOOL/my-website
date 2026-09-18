@@ -138,13 +138,13 @@ plPath: "produkty/power-bank/bateria-grzejaca/"
 {% block content %}
 
 <!-- Hero -->
-<section class="relative pt-24 md:pt-28 pb-8 lg:pb-16 bg-white text-slate-900 overflow-hidden">
+<section id="hero" class="relative pt-24 md:pt-28 lg:pt-20 pb-8 lg:pb-20 bg-white text-slate-900 overflow-hidden lg:min-h-[100dvh] lg:flex lg:flex-col lg:justify-center" data-section="hero">
  <div class="absolute inset-0 z-0 pointer-events-none overflow-hidden">
  <div class="absolute top-0 left-0 max-w-full w-64 h-64 bg-brandOrange opacity-20 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
  <div class="absolute bottom-0 right-0 max-w-full w-64 h-64 bg-blue-500 opacity-20 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
  </div>
 
- <div class="container-wide relative z-10 text-center pb-12 lg:pb-12">
+ <div class="container-wide relative z-10 text-center pb-12 lg:pb-0">
  {{ breadcrumb([{name: "Accueil", url: "/fr/"}, {name: "Produits", url: "/fr/produits/"}, {name: "Batterie externe", url: "/fr/produits/batterie-externe/"}, {name: "Batterie chauffante"}], "none", "mb-6", { variant: "hero" }) }}
 
  <div>
@@ -158,14 +158,14 @@ plPath: "produkty/power-bank/bateria-grzejaca/"
 
  <p class="max-w-2xl mx-auto text-slate-500 text-xs leading-relaxed mb-8"><strong>Tendances 2026 :</strong> (1) Le graphène remplace la fibre carbone — chauffe plus rapide et plus uniforme. (2) L'USB-C devient le standard universel de charge, les chargeurs propriétaires disparaissent. (3) Compatibilité croissante avec les batteries d'outillage (Milwaukee M12, DEWALT 20V MAX) — un levier clé pour le marché BTP. Avec <strong>>60% de la production mondiale en Chine</strong>, WOWOHCOOL est idéalement positionné pour fournir les marques françaises.</p>
 
- <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-2xl mx-auto mb-10">
- <div class="bg-slate-50 rounded-xl p-4 border border-slate-100"><p class="text-2xl font-black text-brandBlue">7.4V</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Sortie DC</p></div>
- <div class="bg-slate-50 rounded-xl p-4 border border-slate-100"><p class="text-2xl font-black text-brandOrange">8</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Modèles</p></div>
- <div class="bg-slate-50 rounded-xl p-4 border border-slate-100"><p class="text-2xl font-black text-brandBlue">14400mAh</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Capacité Max</p></div>
- <div class="bg-slate-50 rounded-xl p-4 border border-slate-100"><p class="text-2xl font-black text-brandOrange">500</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">MOQ</p></div>
+ <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
+ <div class="card-soft p-4"><p class="text-2xl font-black text-brandBlue">7.4V</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Sortie DC</p></div>
+ <div class="card-soft p-4"><p class="text-2xl font-black text-brandOrange">8</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Modèles</p></div>
+ <div class="card-soft p-4"><p class="text-2xl font-black text-brandBlue">14400mAh</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Capacité Max</p></div>
+ <div class="card-soft p-4"><p class="text-2xl font-black text-brandOrange">500</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">MOQ</p></div>
  </div>
 
- <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
+ <div class="btn-pair">
  <button data-action="open-modal" data-product="Batterie Chauffante" class="btn-wide-lg">
  Demander le prix usine
  </button>
@@ -180,7 +180,7 @@ plPath: "produkty/power-bank/bateria-grzejaca/"
 {% include "trust-bar.njk" %}
 
 <!-- Products -->
-<section id="products" class="sec bg-white relative py-16">
+<section id="products" class="sec bg-white relative" data-section="products">
  <div class="container-wide">
  <h2 class="text-2xl font-black text-brandBlue uppercase italic tracking-tighter mb-2">Batteries Chauffantes pour Vêtements Chauffants</h2>
  <p class="text-slate-500 text-sm mb-10">8 modèles | 1800-14400mAh | Sortie 5V et 7,4V DC</p>
@@ -230,7 +230,7 @@ plPath: "produkty/power-bank/bateria-grzejaca/"
  </p>
 
  <details class="mb-6 group/spec">
- <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition">
+ <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition">
  <span class="text-xs font-black text-slate-700 uppercase">Spécifications</span>
  <span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span>
  </summary>
@@ -319,7 +319,7 @@ plPath: "produkty/power-bank/bateria-grzejaca/"
  </p>
 
  <details class="mb-6 group/spec">
- <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition">
+ <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition">
  <span class="text-xs font-black text-slate-700 uppercase">Spécifications</span>
  <span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span>
  </summary>
@@ -420,7 +420,7 @@ plPath: "produkty/power-bank/bateria-grzejaca/"
  </p>
 
  <details class="mb-6 group/spec">
- <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition">
+ <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition">
  <span class="text-xs font-black text-slate-700 uppercase">Spécifications</span>
  <span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span>
  </summary>
@@ -517,7 +517,7 @@ plPath: "produkty/power-bank/bateria-grzejaca/"
  </p>
 
  <details class="mb-6 group/spec">
- <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition">
+ <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition">
  <span class="text-xs font-black text-slate-700 uppercase">Spécifications</span>
  <span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span>
  </summary>
@@ -606,7 +606,7 @@ plPath: "produkty/power-bank/bateria-grzejaca/"
  </p>
 
  <details class="mb-6 group/spec">
- <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition">
+ <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition">
  <span class="text-xs font-black text-slate-700 uppercase">Spécifications</span>
  <span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span>
  </summary>
@@ -692,7 +692,7 @@ plPath: "produkty/power-bank/bateria-grzejaca/"
  </p>
 
  <details class="mb-6 group/spec">
- <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition">
+ <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition">
  <span class="text-xs font-black text-slate-700 uppercase">Spécifications</span>
  <span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span>
  </summary>
@@ -786,7 +786,7 @@ plPath: "produkty/power-bank/bateria-grzejaca/"
  </p>
 
  <details class="mb-6 group/spec">
- <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition">
+ <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition">
  <span class="text-xs font-black text-slate-700 uppercase">Spécifications</span>
  <span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span>
  </summary>
@@ -884,7 +884,7 @@ plPath: "produkty/power-bank/bateria-grzejaca/"
  </p>
 
  <details class="mb-6 group/spec">
- <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition">
+ <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition">
  <span class="text-xs font-black text-slate-700 uppercase">Spécifications</span>
  <span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span>
  </summary>
@@ -950,7 +950,7 @@ plPath: "produkty/power-bank/bateria-grzejaca/"
 </div>
 
 <!-- How Heating Batteries Work -->
-<section class="sec bg-white relative py-16">
+<section id="how-heating-batteries-work" class="sec bg-white relative" data-section="content">
  <div class="container-wide">
  <h2 class="section-title text-center">Comment Fonctionnent les Batteries Chauffantes</h2>
  <p class="text-center text-slate-500 text-sm max-w-3xl mx-auto mb-8">Les batteries chauffantes fournissent une tension DC constante aux éléments chauffants résistifs intégrés dans le tissu des vêtements. Contrairement aux batteries externes USB standard, elles sont optimisées pour une décharge soutenue à courant élevé par basses températures.</p>
@@ -960,18 +960,18 @@ plPath: "produkty/power-bank/bateria-grzejaca/"
   <cite class="block text-xs text-slate-400 mt-2 not-italic">— <a href="https://www.techsciresearch.com/report/heated-clothing-market/14740.html" target="_blank" rel="noopener noreferrer" class="text-brandOrange hover:underline">TechSci Research</a>, Heated Clothing Market 2026-2031; <a href="https://qyang.livedoor.blog/archives/10959428.html" target="_blank" rel="noopener noreferrer" class="text-brandOrange hover:underline">QY Research</a>, Battery Heated Warm Jackets Market 2025-2031</cite>
  </blockquote>
 
- <div class="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
- <div class="bg-slate-50 rounded-xl p-6 border border-slate-100 text-center">
+ <div class="grid md:grid-cols-3 gap-8">
+ <div class="card-soft p-6 text-center">
  <p class="text-3xl font-black text-brandBlue mb-2">7.4V DC</p>
  <p class="text-sm font-bold text-slate-700 mb-2">Tension Constante</p>
  <p class="text-xs text-slate-500">La configuration série à deux cellules délivre une sortie stable de 7,4V pour des performances de chauffage constantes sur tous les réglages de température.</p>
  </div>
- <div class="bg-slate-50 rounded-xl p-6 border border-slate-100 text-center">
+ <div class="card-soft p-6 text-center">
  <p class="text-3xl font-black text-brandOrange mb-2">-20°C to 60°C</p>
  <p class="text-sm font-bold text-slate-700 mb-2">Plage de Fonctionnement</p>
  <p class="text-xs text-slate-500">Conçue pour la décharge par temps froid. Maintient sa capacité à des températures inférieures à zéro où les cellules Li-ion standard perdent 30 à 50% de performance.</p>
  </div>
- <div class="bg-slate-50 rounded-xl p-6 border border-slate-100 text-center">
+ <div class="card-soft p-6 text-center">
  <p class="text-3xl font-black text-brandBlue mb-2">500+</p>
  <p class="text-sm font-bold text-slate-700 mb-2">Cycles</p>
  <p class="text-xs text-slate-500">Premium 18650 cells rated for 500+ full charge-discharge cycles. Built for season-after-season reliability in heated apparel.</p>
@@ -981,7 +981,7 @@ plPath: "produkty/power-bank/bateria-grzejaca/"
 </section>
 
 <!-- Batterie Chauffante vs Batterie Externe Standard -->
-<section class="sec bg-slate-50 relative py-16">
+<section id="batterie-chauffante-vs-batterie-externe-standard" class="sec bg-slate-50 relative" data-section="comparison">
  <div class="container-content">
   <div class="text-center mb-12 reveal">
    <h2 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4">Batterie Chauffante vs. <span class="text-brandOrange">Batterie Externe Standard</span></h2>
@@ -1004,33 +1004,33 @@ plPath: "produkty/power-bank/bateria-grzejaca/"
 </section>
 
 <!-- Why Choose WOWOHCOOL for Heated Apparel -->
-<section class="sec bg-slate-50 relative py-16">
+<section id="why-choose-wowohcool-for-heated-apparel" class="sec bg-slate-50 relative" data-section="content">
  <div class="container-wide">
  <h2 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4 text-center">Pourquoi Choisir <span class="highlight-line text-brandBlue">WOWOH</span><span class="text-brandOrange">COOL</span> pour les <span class="text-brandOrange">Batteries de Vêtements Chauffants</span></h2>
  <p class="text-center text-slate-500 text-sm max-w-2xl mx-auto mb-12">Expertise spécialisée dans la conception de batteries portables. Des gants compacts aux vestes haute capacité, chaque format est conçu pour une diffusion de chaleur sûre et fiable.</p>
 
- <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
- <div class="bg-white rounded-xl p-6 border border-slate-200 shadow-sm">
+ <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+ <div class="card p-6 shadow-sm">
  <h3 class="font-black text-brandBlue uppercase mb-3 text-sm">Expertise Format Portable</h3>
  <p class="text-sm text-slate-600 leading-relaxed">Mini batteries pour gants et chaussettes, packs fins pour vestes, ultra-compactes pour écharpes. Nous concevons la disposition des cellules pour s'adapter exactement aux dimensions des poches de vos vêtements.</p>
  </div>
- <div class="bg-white rounded-xl p-6 border border-slate-200 shadow-sm">
+ <div class="card p-6 shadow-sm">
  <h3 class="font-black text-brandBlue uppercase mb-3 text-sm">Intégration Contrôleur de Température</h3>
  <p class="text-sm text-slate-600 leading-relaxed">Compatible avec les contrôleurs de chaleur 3 et 5 niveaux. Nous fournissons des paires batterie + contrôleur assorties, testées ensemble pour une sortie stable sur tous les réglages de chaleur.</p>
  </div>
- <div class="bg-white rounded-xl p-6 border border-slate-200 shadow-sm">
+ <div class="card p-6 shadow-sm">
  <h3 class="font-black text-brandBlue uppercase mb-3 text-sm">Certifié CE/PSE</h3>
  <p class="text-sm text-slate-600 leading-relaxed">Documentation complète de certification pour l'UE (CE), le Japon (PSE) et le fret aérien mondial (UN38.3). Requis pour les principaux canaux de vente au détail et e-commerce dans le monde entier.</p>
  </div>
- <div class="bg-white rounded-xl p-6 border border-slate-200 shadow-sm">
+ <div class="card p-6 shadow-sm">
  <h3 class="font-black text-brandBlue uppercase mb-3 text-sm">Flexibilité de Demande Saisonnière</h3>
  <p class="text-sm text-slate-600 leading-relaxed">Les vêtements chauffants sont saisonniers. Nous proposons un MOQ flexible (500 unités) et des délais rapides pour aider les marques à monter en puissance avant l'hiver sans immobiliser trop de capital.</p>
  </div>
- <div class="bg-white rounded-xl p-6 border border-slate-200 shadow-sm">
+ <div class="card p-6 shadow-sm">
  <h3 class="font-black text-brandBlue uppercase mb-3 text-sm">Sécurité Niveau Portable</h3>
  <p class="text-sm text-slate-600 leading-relaxed">Circuits de protection OTP (surtempérature), OCP (surintensité), SCP (court-circuit) en standard. Essentiel pour les batteries portées directement contre le corps.</p>
  </div>
- <div class="bg-white rounded-xl p-6 border border-slate-200 shadow-sm">
+ <div class="card p-6 shadow-sm">
  <h3 class="font-black text-brandBlue uppercase mb-3 text-sm">Options de Connecteurs Personnalisés</h3>
  <p class="text-sm text-slate-600 leading-relaxed">Connecteurs DC barrel (3,5mm, 5,5mm), broches pogo magnétiques et connecteurs propriétaires. Envoyez-nous votre échantillon de vêtement et nous adapterons le connecteur exactement.</p>
  </div>
@@ -1038,13 +1038,13 @@ plPath: "produkty/power-bank/bateria-grzejaca/"
  </div>
 </section>
 <!-- OEM/ODM Customization -->
-<section class="sec bg-white relative py-16">
+<section id="oem-odm-customization" class="sec bg-white relative" data-section="content">
  <div class="container-wide">
  <h2 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4 text-center">Personnalisation OEM/ODM</h2>
  <p class="text-center text-slate-500 text-sm max-w-2xl mx-auto mb-12">Personnalisation complète, de l'adaptation du connecteur au réglage sur mesure de la capacité. Conçu pour s'intégrer parfaitement à votre ligne de vêtements chauffants existante.</p>
 
- <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
- <div class="bg-slate-50 rounded-xl p-6 border border-slate-200">
+ <div class="grid md:grid-cols-2 gap-8">
+ <div class="card-soft p-6">
  <h3 class="font-black text-brandBlue uppercase mb-4 text-sm">OEM (Modèles Standard, MOQ 500)</h3>
  <ul class="space-y-2 text-sm text-slate-600">
  <li>• Impression de logo (sérigraphie, laser, UV)</li>
@@ -1055,7 +1055,7 @@ plPath: "produkty/power-bank/bateria-grzejaca/"
  <li>• Délai : 25-30 jours après approbation de l'échantillon</li>
  </ul>
  </div>
- <div class="bg-slate-50 rounded-xl p-6 border border-slate-200">
+ <div class="card-soft p-6">
  <h3 class="font-black text-brandBlue uppercase mb-4 text-sm">ODM (Design Personnalisé, MOQ 1 000-2 000)</h3>
  <ul class="space-y-2 text-sm text-slate-600">
  <li>• Types de connecteurs personnalisés (DC barrel, pogo pin magnétique, propriétaire)</li>
@@ -1077,7 +1077,7 @@ plPath: "produkty/power-bank/bateria-grzejaca/"
 </section>
 
 <!-- Voltage Guide: 5V vs 7.4V vs 12V -->
-<section class="sec bg-white relative py-16">
+<section id="voltage-guide-5v-vs-7-4v-vs-12v" class="sec bg-white relative" data-section="comparison">
  <div class="container-wide">
  <h2 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4 text-center">5V vs. 7,4V vs. <span class="text-brandOrange">12V</span> : Guide des Tensions pour Vêtements Chauffants</h2>
  <p class="text-center text-slate-500 text-sm max-w-3xl mx-auto mb-12">Quelle tension de batterie utilisent les vestes chauffantes ? La réponse dépend des exigences de puissance de chauffe de votre produit. La plupart des vestes et gilets chauffants utilisent du 7,4V (cellules lithium 2S), mais le 5V et le 12V répondent à des besoins spécifiques.</p>
@@ -1085,11 +1085,11 @@ plPath: "produkty/power-bank/bateria-grzejaca/"
  <div class="overflow-x-auto rounded-2xl border border-slate-200 shadow-sm max-w-4xl mx-auto">
  <table class="w-full text-sm">
  <thead>
- <tr class="bg-white">
- <th class="p-4 text-left text-slate-500 font-bold text-xs uppercase">Paramètre</th>
- <th class="p-4 text-center text-slate-500 font-bold text-xs uppercase">5V USB<br><span class="text-[10px] normal-case opacity-70">Entrée de Gamme</span></th>
- <th class="p-4 text-center bg-brandOrange/5 border-x border-brandOrange/20 text-brandOrange font-bold text-xs uppercase">7.4V DC<br><span class="text-[10px] normal-case opacity-70">Le Plus Populaire</span></th>
- <th class="p-4 text-center text-slate-500 font-bold text-xs uppercase">12V DC<br><span class="text-[10px] normal-case opacity-70">Haute Puissance</span></th>
+ <tr class="bg-brandBlue text-white">
+ <th class="p-4 text-left font-bold text-xs uppercase">Paramètre</th>
+ <th class="p-4 text-center font-bold text-xs uppercase">5V USB<br><span class="text-[10px] normal-case opacity-70">Entrée de Gamme</span></th>
+ <th class="p-4 text-center bg-brandOrange/20 font-bold text-xs uppercase">7.4V DC<br><span class="text-[10px] normal-case opacity-70">Le Plus Populaire</span></th>
+ <th class="p-4 text-center font-bold text-xs uppercase">12V DC<br><span class="text-[10px] normal-case opacity-70">Haute Puissance</span></th>
  </tr>
  </thead>
  <tbody>
@@ -1142,7 +1142,7 @@ plPath: "produkty/power-bank/bateria-grzejaca/"
 </section>
 
 <!-- Battery Runtime Guide -->
-<section class="sec bg-slate-50 relative py-16">
+<section id="battery-runtime-guide" class="sec bg-slate-50 relative" data-section="comparison">
  <div class="container-wide">
  <h2 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4 text-center">Combien de Temps Dure une <span class="text-brandOrange">Batterie de Veste Chauffante</span> ?</h2>
  <p class="text-center text-slate-500 text-sm max-w-3xl mx-auto mb-12">L'autonomie dépend de la capacité de la batterie (Wh) et du niveau de chaleur sélectionné. Formule : Autonomie (heures) = Énergie de la batterie (Wh) ÷ Puissance consommée (W). Voici ce à quoi s'attendre des configurations courantes :</p>
@@ -1150,12 +1150,12 @@ plPath: "produkty/power-bank/bateria-grzejaca/"
  <div class="overflow-x-auto rounded-2xl border border-slate-200 shadow-sm max-w-4xl mx-auto">
  <table class="w-full text-sm">
  <thead>
- <tr class="bg-white">
- <th class="p-3 text-left text-slate-500 font-bold text-xs uppercase">Batterie (7,4V)</th>
- <th class="p-3 text-center text-slate-500 font-bold text-xs uppercase">Énergie (Wh)</th>
- <th class="p-3 text-center text-slate-500 font-bold text-xs uppercase">Basse (5W)</th>
- <th class="p-3 text-center text-slate-500 font-bold text-xs uppercase">Moyenne (8W)</th>
- <th class="p-3 text-center text-slate-500 font-bold text-xs uppercase">Haute (12W)</th>
+ <tr class="bg-brandBlue text-white">
+ <th class="p-3 text-left font-bold text-xs uppercase">Batterie (7,4V)</th>
+ <th class="p-3 text-center font-bold text-xs uppercase">Énergie (Wh)</th>
+ <th class="p-3 text-center font-bold text-xs uppercase">Basse (5W)</th>
+ <th class="p-3 text-center font-bold text-xs uppercase">Moyenne (8W)</th>
+ <th class="p-3 text-center font-bold text-xs uppercase">Haute (12W)</th>
  </tr>
  </thead>
  <tbody>
@@ -1202,33 +1202,33 @@ plPath: "produkty/power-bank/bateria-grzejaca/"
 </section>
 
 <!-- Wearable Battery Certifications -->
-<section class="sec bg-white relative py-16">
+<section id="wearable-battery-certifications" class="sec bg-white relative" data-section="trust">
  <div class="container-wide">
  <h2 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4 text-center">Certifications de Sécurité pour <span class="text-brandOrange">Batteries Portables</span></h2>
  <p class="text-center text-slate-500 text-sm max-w-3xl mx-auto mb-12">Les batteries chauffantes portables restent contre le corps pendant des heures — la certification n'est pas optionnelle. Le procès Fieldsheer 2026 sur les chaussettes chauffantes souligne pourquoi les marques doivent s'approvisionner auprès de fabricants certifiés. Les batteries WOWOHCOOL sont livrées avec une documentation complète pour chaque marché majeur.</p>
 
- <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
- <div class="bg-slate-50 rounded-xl p-6 border border-slate-200 shadow-sm">
+ <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+ <div class="card-soft p-6 shadow-sm">
  <h3 class="font-black text-brandBlue uppercase mb-3 text-sm">IEC 62133-2</h3>
  <p class="text-sm text-slate-600 leading-relaxed">Norme de sécurité internationale pour les batteries portables. Couvre les courts-circuits, la surcharge, les abus thermiques et les tests mécaniques. La référence mondiale pour la sécurité des batteries portables.</p>
  </div>
- <div class="bg-slate-50 rounded-xl p-6 border border-slate-200 shadow-sm">
+ <div class="card-soft p-6 shadow-sm">
  <h3 class="font-black text-brandBlue uppercase mb-3 text-sm">UN38.3 Transport</h3>
  <p class="text-sm text-slate-600 leading-relaxed">Requis pour le fret aérien/maritime des batteries au lithium. Rapport de test complet + MSDS inclus. Tous les modèles sous 100Wh pour une conformité bagage cabine sans restriction.</p>
  </div>
- <div class="bg-slate-50 rounded-xl p-6 border border-slate-200 shadow-sm">
+ <div class="card-soft p-6 shadow-sm">
  <h3 class="font-black text-brandBlue uppercase mb-3 text-sm">CE / FCC / RoHS</h3>
  <p class="text-sm text-slate-600 leading-relaxed">Conformité standard pour l'UE (CE), l'Amérique du Nord (FCC) et les restrictions sur les substances dangereuses (RoHS). Inclus sur tous les modèles standard sans frais supplémentaires.</p>
  </div>
- <div class="bg-slate-50 rounded-xl p-6 border border-slate-200 shadow-sm">
+ <div class="card-soft p-6 shadow-sm">
  <h3 class="font-black text-brandBlue uppercase mb-3 text-sm">UL 2054 (Amazon US)</h3>
  <p class="text-sm text-slate-600 leading-relaxed">Amazon exige la certification UL pour les batteries vendues sur le marché américain. Nous aidons à la demande UL 2054 / UL 1642, à la coordination des tests et à la documentation.</p>
  </div>
- <div class="bg-slate-50 rounded-xl p-6 border border-slate-200 shadow-sm">
+ <div class="card-soft p-6 shadow-sm">
  <h3 class="font-black text-brandBlue uppercase mb-3 text-sm">PSE (Japan)</h3>
  <p class="text-sm text-slate-600 leading-relaxed">Marque Product Safety Electrical Appliance requise pour le marché japonais. Nous prenons en charge la certification PSE pour les packs de batteries de vêtements chauffants entrant dans le canal de vente au détail japonais.</p>
  </div>
- <div class="bg-slate-50 rounded-xl p-6 border border-slate-200 shadow-sm">
+ <div class="card-soft p-6 shadow-sm">
  <h3 class="font-black text-brandBlue uppercase mb-3 text-sm">Over-Température Protection</h3>
  <p class="text-sm text-slate-600 leading-relaxed">BMS intégré avec coupure de surtempérature à 65°C, protection contre les surintensités, protection contre les courts-circuits et protection contre les surcharges/décharges excessives sur chaque cellule.</p>
  </div>
@@ -1237,41 +1237,41 @@ plPath: "produkty/power-bank/bateria-grzejaca/"
 </section>
 
 <!-- 2026 Heated Apparel Trends -->
- <section class="sec bg-white relative py-16">
-  <div class="container-content">
+ <section id="heated-apparel-trends" class="sec bg-white relative" data-section="content">
+  <div class="container-wide">
   <div class="text-center mb-10 reveal">
    <div class="inline-block px-4 py-1 bg-red-50 border border-red-200 rounded-full text-[11px] font-bold text-red-600 uppercase tracking-widest mb-6">Tendances 2026 — Vêtements Chauffants</div>
    <h2 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4">Pourquoi 2026 est l''année du <span class="text-brandOrange">vêtement chauffant</span></h2>
    <p class="text-slate-500 text-sm max-w-3xl mx-auto">Le marché passe d''un gadget saisonnier à un équipement fonctionnel établi. Les avancées technologiques créent une vague de renouvellement des gammes — vos clients cherchent des batteries plus performantes.</p>
   </div>
 
-  <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto mb-10">
-   <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200">
+  <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
+   <div class="card-lg-soft p-6">
     <div class="w-10 h-10 bg-green-50 rounded-xl flex items-center justify-center mb-3"><span class="text-green-600 font-black text-sm">G</span></div>
     <h3 class="font-black text-brandBlue text-sm mb-2">Graphène > Fibre carbone</h3>
     <p class="text-xs text-slate-600 leading-relaxed">Chauffe 2-4× plus rapide (15-60s vs 30-120s), distribution plus uniforme, consommation réduite. Le nouveau standard premium.</p>
    </div>
-   <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200">
+   <div class="card-lg-soft p-6">
     <div class="w-10 h-10 bg-blue-50 rounded-xl flex items-center justify-center mb-3"><span class="text-blue-600 font-black text-sm">C</span></div>
     <h3 class="font-black text-brandBlue text-sm mb-2">USB-C universel</h3>
     <p class="text-xs text-slate-600 leading-relaxed">Les chargeurs propriétaires sont morts. Toutes les batteries 2026 utilisent l''USB-C — logistique simplifiée, déchets réduits.</p>
    </div>
-   <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200">
+   <div class="card-lg-soft p-6">
     <div class="w-10 h-10 bg-purple-50 rounded-xl flex items-center justify-center mb-3"><span class="text-purple-600 font-black text-sm">📱</span></div>
     <h3 class="font-black text-brandBlue text-sm mb-2">Contrôle par App</h3>
     <p class="text-xs text-slate-600 leading-relaxed">Bluetooth + app mobile : température précise, monitoring batterie en temps réel, API météo pour réglage automatique.</p>
    </div>
-   <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200">
+   <div class="card-lg-soft p-6">
     <div class="w-10 h-10 bg-amber-50 rounded-xl flex items-center justify-center mb-3"><span class="text-amber-600 font-black text-sm">🔧</span></div>
     <h3 class="font-black text-brandBlue text-sm mb-2">Compatibilité batteries-outils</h3>
     <p class="text-xs text-slate-600 leading-relaxed">Milwaukee M12, DEWALT 20V MAX, Makita — les batteries d''outillage s''intègrent aux vestes. Levier majeur pour le marché BTP.</p>
    </div>
-   <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200">
+   <div class="card-lg-soft p-6">
     <div class="w-10 h-10 bg-teal-50 rounded-xl flex items-center justify-center mb-3"><span class="text-teal-600 font-black text-sm">♻</span></div>
     <h3 class="font-black text-brandBlue text-sm mb-2">Durabilité & Recyclage</h3>
     <p class="text-xs text-slate-600 leading-relaxed">Tissus recyclés GRS, batteries modulaires amovibles, conformes réglementation européenne. Argument de vente n°1 en France.</p>
    </div>
-   <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200">
+   <div class="card-lg-soft p-6">
     <div class="w-10 h-10 bg-brandOrange/10 rounded-xl flex items-center justify-center mb-3"><span class="text-brandOrange font-black text-sm"><200g</span></div>
     <h3 class="font-black text-brandBlue text-sm mb-2">Batteries ultra-légères</h3>
     <p class="text-xs text-slate-600 leading-relaxed">Lithium-silicium : packs <200g pour 10 000mAh. Autonomie jusqu''à 14h en chauffe continue. Confort utilisateur transformé.</p>
@@ -1285,23 +1285,23 @@ plPath: "produkty/power-bank/bateria-grzejaca/"
  </section>
 
  <!-- Cross-Category Internal Links -->
-<section class="sec bg-slate-50 relative py-12">
- <div class="container-content">
+<section id="cross-category-internal-links" class="sec bg-slate-50 relative py-12" data-section="related">
+ <div class="container-wide">
  <p class="text-center text-slate-500 text-sm mb-6">Découvrez plus de catégories de batteries externes de WOWOHCOOL :</p>
  <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
- <a href="/fr/produits/batterie-externe/semi-solide/" class="block bg-white rounded-xl p-4 border border-slate-200 hover:border-brandOrange hover:shadow-md transition text-center">
+ <a href="/fr/produits/batterie-externe/semi-solide/" class="card block p-4 hover:border-brandOrange hover:shadow-md transition text-center">
  <p class="font-black text-brandBlue text-sm uppercase mb-1">Semi-Solide</p>
  <p class="text-[10px] text-slate-500">Batterie Nouvelle Génération</p>
  </a>
- <a href="/fr/produits/batterie-externe/hybride-2-en-1/" class="block bg-white rounded-xl p-4 border border-slate-200 hover:border-brandOrange hover:shadow-md transition text-center">
+ <a href="/fr/produits/batterie-externe/hybride-2-en-1/" class="card block p-4 hover:border-brandOrange hover:shadow-md transition text-center">
  <p class="font-black text-brandBlue text-sm uppercase mb-1">Hybride 2-en-1</p>
  <p class="text-[10px] text-slate-500">Chargeur + Batterie Externe</p>
  </a>
- <a href="/fr/produits/batterie-externe/magnetique-sans-fil/" class="block bg-white rounded-xl p-4 border border-slate-200 hover:border-brandOrange hover:shadow-md transition text-center">
+ <a href="/fr/produits/batterie-externe/magnetique-sans-fil/" class="card block p-4 hover:border-brandOrange hover:shadow-md transition text-center">
  <p class="font-black text-brandBlue text-sm uppercase mb-1">Magnétique Sans Fil</p>
  <p class="text-[10px] text-slate-500">Qi2 / MagSafe</p>
  </a>
- <a href="/fr/produits/batterie-externe/" class="block bg-white rounded-xl p-4 border border-slate-200 hover:border-brandOrange hover:shadow-md transition text-center">
+ <a href="/fr/produits/batterie-externe/" class="card block p-4 hover:border-brandOrange hover:shadow-md transition text-center">
  <p class="font-black text-brandBlue text-sm uppercase mb-1">Toutes les Batteries Externes</p>
  <p class="text-[10px] text-slate-500">29 Modèles au Total</p>
  </a>
@@ -1310,35 +1310,35 @@ plPath: "produkty/power-bank/bateria-grzejaca/"
 </section>
 
 <!-- FAQ -->
-<section class="sec bg-white relative py-16">
+<section id="faq" class="sec bg-white relative" data-section="faq">
  <div class="container-narrow">
  <h2 class="text-3xl lg:text-4xl font-black text-slate-900 uppercase italic tracking-tighter mb-10 text-center">Batterie Chauffante <span class="text-brandOrange">FAQ</span></h2>
  <div class="space-y-4">
- <details class="bg-slate-50 rounded-xl p-5 border border-slate-200 group">
+ <details class="card-soft p-5 group">
  <summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">Quelle tension de batterie utilisent les vestes chauffantes ?<span class="text-brandOrange group-open:rotate-180 transition">▼</span></summary>
  <p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">La plupart des vestes et gilets chauffants utilisent des batteries 7,4V DC. Cela fournit une puissance de chauffe optimale tout en gardant la batterie compacte et sûre pour un usage portable. Certains accessoires chauffants de faible puissance comme les coussins utilisent une sortie USB 5V à la place.</p>
  </details>
- <details class="bg-slate-50 rounded-xl p-5 border border-slate-200 group">
+ <details class="card-soft p-5 group">
  <summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">Quel est le MOQ pour la batterie chauffante en OEM ?<span class="text-brandOrange group-open:rotate-180 transition">▼</span></summary>
  <p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">Le MOQ commence à 500 unités pour les modèles OEM standard avec logo personnalisé. ODM personnalisé avec nouveaux types de connecteurs ou réglage de capacité : 1 000-2 000 unités. Délai d'échantillon : 3-7 jours pour le standard, 10-15 jours pour le personnalisé.</p>
  </details>
- <details class="bg-slate-50 rounded-xl p-5 border border-slate-200 group">
+ <details class="card-soft p-5 group">
  <summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">Pouvez-vous adapter notre connecteur de veste chauffante existant ?<span class="text-brandOrange group-open:rotate-180 transition">▼</span></summary>
  <p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">Oui. WOWOHCOOL prend en charge l'adaptation de connecteurs personnalisés, y compris les connecteurs DC barrel (3,5mm, 5,5mm), les broches pogo magnétiques et les connecteurs propriétaires. Envoyez-nous votre batterie ou échantillon de connecteur existant et nous l'adapterons exactement.</p>
  </details>
- <details class="bg-slate-50 rounded-xl p-5 border border-slate-200 group">
+ <details class="card-soft p-5 group">
  <summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">Quelle est la plage de température de fonctionnement ?<span class="text-brandOrange group-open:rotate-180 transition">&#9660;</span></summary>
  <p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">Les batteries chauffantes WOWOHCOOL fonctionnent de -20°C à 60°C, ce qui les rend adaptées aux applications de vêtements chauffants par temps extrêmement froid. Les performances de décharge sont optimisées pour les environnements à basse température où les cellules Li-ion standard perdent 30 à 50% de capacité.</p>
  </details>
- <details class="bg-slate-50 rounded-xl p-5 border border-slate-200 group">
+ <details class="card-soft p-5 group">
  <summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">Combien de temps dure une batterie de veste chauffante 7,4V 5000mAh ?<span class="text-brandOrange group-open:rotate-180 transition">&#9660;</span></summary>
  <p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">Une batterie 7,4V 5000mAh fournit 37Wh d'énergie. Sur une veste chauffante typique à 3 zones : environ 7,4 heures en mode bas (5W), 4,6 heures en mode moyen (8W) ou 3,1 heures en mode haut (12W). L'autonomie réelle varie selon le nombre de zones de chauffe, la température ambiante et l'isolation du vêtement.</p>
  </details>
- <details class="bg-slate-50 rounded-xl p-5 border border-slate-200 group">
+ <details class="card-soft p-5 group">
  <summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">Les batteries de veste chauffante peuvent-elles être emportées en avion ?<span class="text-brandOrange group-open:rotate-180 transition">&#9660;</span></summary>
  <p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">Oui. Toutes les batteries chauffantes WOWOHCOOL sont sous 100Wh (le plus grand modèle 14400mAh est d'environ 106Wh au maximum — nous pouvons configurer la capacité pour rester dans la limite IATA de 100Wh pour le bagage cabine). Certifié UN38.3 avec documentation MSDS complète pour la conformité aérienne. Les batteries sous 100Wh sont autorisées en bagage cabine sans approbation préalable.</p>
  </details>
- <details class="bg-slate-50 rounded-xl p-5 border border-slate-200 group">
+ <details class="card-soft p-5 group">
  <summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">Quelles certifications les batteries pour vêtements chauffants nécessitent-elles pour Amazon ?<span class="text-brandOrange group-open:rotate-180 transition">&#9660;</span></summary>
  <p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">Amazon US exige la certification UL (UL 2054 ou UL 1642) pour les batteries au lithium vendues sur leur plateforme. De plus, UN38.3 est nécessaire pour l'expédition, et FCC pour la fiche produit. WOWOHCOOL fournit CE/FCC/RoHS en standard et aide à la demande de certification UL et à la coordination des tests.</p>
  </details>
@@ -1347,7 +1347,7 @@ plPath: "produkty/power-bank/bateria-grzejaca/"
 </section>
 
 <!-- French Retail Price Comparison -->
- <section class="sec bg-white relative py-12">
+ <section id="french-retail-price-comparison" class="sec bg-white relative py-12" data-section="comparison">
   <div class="container-content">
   <div class="text-center mb-8">
    <h2 class="text-2xl lg:text-3xl font-black text-brandBlue uppercase italic tracking-tighter mb-4">Le marché retail <span class="text-brandOrange">en France</span></h2>

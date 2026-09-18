@@ -139,13 +139,13 @@ plPath: "produkty/ladowarka-bezprzewodowa/biurkowa/"
 {% block content %}
 
 <!-- Hero -->
-<section class="relative pt-24 md:pt-28 pb-8 lg:pb-16 bg-white text-slate-900 overflow-hidden">
+<section id="hero" class="relative pt-24 md:pt-28 lg:pt-20 pb-8 lg:pb-20 bg-white text-slate-900 overflow-hidden lg:min-h-[100dvh] lg:flex lg:flex-col lg:justify-center" data-section="hero">
  <div class="absolute inset-0 z-0 pointer-events-none overflow-hidden">
  <div class="absolute top-0 left-0 max-w-full w-64 h-64 bg-brandOrange opacity-20 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
  <div class="absolute bottom-0 right-0 max-w-full w-64 h-64 bg-blue-500 opacity-20 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
  </div>
 
- <div class="container-wide relative z-10 text-center pb-8 lg:pb-12">
+ <div class="container-wide relative z-10 text-center pb-8 lg:pb-0">
  {{ breadcrumb([{name: "Home", url: "/"}, {name: "Products", url: "/products/"}, {name: "Wireless Charger", url: "/products/wireless-charger/"}, {name: "Desktop"}], "none", "mb-6", { variant: "hero" }) }}
 
  <div>
@@ -159,14 +159,14 @@ plPath: "produkty/ladowarka-bezprzewodowa/biurkowa/"
 
  <p class="max-w-2xl mx-auto text-slate-500 text-xs leading-relaxed mb-8"><strong>Triple catalyst 2026:</strong> (1) Qi2 15W mandatory baseline — Amazon & Best Buy de-listing non-Qi2 products. (2) 42% of employees in hybrid work — corporate WFH procurement = 8-12% of unit sales, fastest-growing B2B channel. (3) Qi2.2 25W launching Q3 2026 — ultra-slim card format + 360° rotating stand. Non-Qi2 inventory faces de-listing by 2026-2027.</p>
 
- <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto mb-10">
- <div class="bg-slate-50 rounded-xl p-4 border border-slate-100"><p class="text-2xl font-black text-brandBlue">15W</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Triple Output</p></div>
- <div class="bg-slate-50 rounded-xl p-4 border border-slate-100"><p class="text-2xl font-black text-brandOrange">1.14B</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">iPhone 12+ Installed</p></div>
- <div class="bg-slate-50 rounded-xl p-4 border border-slate-100"><p class="text-2xl font-black text-brandBlue">500</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">MOQ</p></div>
- <div class="bg-slate-50 rounded-xl p-4 border border-slate-100"><p class="text-2xl font-black text-brandOrange">3</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Models</p></div>
+ <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
+ <div class="card-soft p-4"><p class="text-2xl font-black text-brandBlue">15W</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Triple Output</p></div>
+ <div class="card-soft p-4"><p class="text-2xl font-black text-brandOrange">1.14B</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">iPhone 12+ Installed</p></div>
+ <div class="card-soft p-4"><p class="text-2xl font-black text-brandBlue">500</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">MOQ</p></div>
+ <div class="card-soft p-4"><p class="text-2xl font-black text-brandOrange">3</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Models</p></div>
  </div>
 
- <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
+ <div class="btn-pair">
  <button data-action="open-modal" data-product="Desktop Wireless Charger" class="btn-wide-lg">
   Get Factory Pricing
  </button>
@@ -186,7 +186,7 @@ plPath: "produkty/ladowarka-bezprzewodowa/biurkowa/"
  <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-white border border-slate-200 rotate-45"></div>
 </div>
 <!-- Products -->
-<section id="products" class="sec bg-white relative py-16">
+<section id="products" class="sec bg-white relative" data-section="products">
  <div class="container-wide">
  <h2 class="text-2xl font-black text-brandBlue uppercase italic tracking-tighter mb-2">Desktop Wireless Chargers</h2>
  <p class="text-slate-500 text-sm mb-10">3 models | 10W-15W | Stand | Ultra-Slim | LED Display | Patent</p>
@@ -217,7 +217,7 @@ plPath: "produkty/ladowarka-bezprzewodowa/biurkowa/"
  </p>
 
  <details class="mb-6 group/spec">
- <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition">
+ <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition">
  <span class="text-xs font-black text-slate-700 uppercase">Specifications</span>
  <span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">▼</span>
  </summary>
@@ -264,7 +264,7 @@ plPath: "produkty/ladowarka-bezprzewodowa/biurkowa/"
  </p>
 
  <details class="mb-6 group/spec">
- <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition">
+ <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition">
  <span class="text-xs font-black text-slate-700 uppercase">Specifications</span>
  <span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">▼</span>
  </summary>
@@ -308,7 +308,7 @@ plPath: "produkty/ladowarka-bezprzewodowa/biurkowa/"
  </p>
 
  <details class="mb-6 group/spec">
- <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition">
+ <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition">
  <span class="text-xs font-black text-slate-700 uppercase">Specifications</span>
  <span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">▼</span>
  </summary>
@@ -334,7 +334,7 @@ plPath: "produkty/ladowarka-bezprzewodowa/biurkowa/"
 
 
 <!-- What Is a Qi2 Desktop Wireless Charger -->
-<section class="sec bg-white relative py-16">
+<section id="what-is-a-qi2-desktop-wireless-charger" class="sec bg-white relative" data-section="content">
  <div class="container-wide">
  <h2 class="section-title text-center">What Is a Qi2 Desktop Wireless Charger?</h2>
  <p class="text-center text-slate-500 text-sm max-w-3xl mx-auto mb-8">A Qi2 desktop wireless charger is a <strong>single-device or multi-device charging accessory</strong> designed for desks, nightstands, and office workspaces. Available in two form factors — <strong>flat pad</strong> (phone lies horizontal) and <strong>vertical stand</strong> (phone held upright for Face ID and video calls) — modern Qi2 desktop chargers use the MPP (Magnetic Power Profile) standard with N52H neodymium magnets for perfect snap alignment and 15W-25W fast charging. For B2B buyers, desktop wireless chargers represent the <strong>highest-volume segment in the category</strong> — single-device pads and stands account for 55-60% of all wireless charger unit shipments globally, making them essential for brands, Amazon sellers, corporate gift programs, and retailer house brands.</p>
@@ -344,18 +344,18 @@ plPath: "produkty/ladowarka-bezprzewodowa/biurkowa/"
   <cite class="block text-xs text-slate-400 mt-2 not-italic">— <a href="https://dataintelo.com/report/desktop-wireless-charging-stand-market" target="_blank" rel="noopener noreferrer" class="text-brandOrange hover:underline">DataIntelo</a>, Desktop Wireless Charging Stand Market 2025-2033; <a href="https://www.qyresearch.com/" target="_blank" rel="noopener noreferrer" class="text-brandOrange hover:underline">QYResearch</a>, Single-PAD Wireless Charger Market 2025; <a href="https://seller.alibaba.com/blogs/2026/southeast-asia/wireless-charging/qi2-revolution-declining-market" target="_blank" rel="noopener noreferrer" class="text-brandOrange hover:underline">Alibaba.com</a>, Southeast Asia Wireless Charging Export Strategy 2026</cite>
  </blockquote>
 
- <div class="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
- <div class="bg-slate-50 rounded-xl p-6 border border-slate-100 text-center">
+ <div class="grid md:grid-cols-3 gap-8">
+ <div class="card-soft p-6 text-center">
   <p class="text-3xl font-black text-brandBlue mb-2">140M</p>
   <p class="text-sm font-bold text-slate-700 mb-2">Single-PAD Units Sold 2025</p>
   <p class="text-xs text-slate-500">Largest unit-volume segment in wireless charging. 55-60% of all wireless charger shipments globally.</p>
  </div>
- <div class="bg-slate-50 rounded-xl p-6 border border-slate-100 text-center">
+ <div class="card-soft p-6 text-center">
   <p class="text-3xl font-black text-brandOrange mb-2">17.2%</p>
   <p class="text-sm font-bold text-slate-700 mb-2">CAGR 2025-2033</p>
   <p class="text-xs text-slate-500">Desktop wireless charging stands are the fastest-growing form factor — $7.5B market by 2033.</p>
  </div>
- <div class="bg-slate-50 rounded-xl p-6 border border-slate-100 text-center">
+ <div class="card-soft p-6 text-center">
   <p class="text-3xl font-black text-brandBlue mb-2">89.2%</p>
   <p class="text-sm font-bold text-slate-700 mb-2">Blue Ocean Opportunity Score</p>
   <p class="text-xs text-slate-500">iPhone wireless chargers: 19.8 supply-demand ratio. Severe undersupply = massive B2B opportunity.</p>
@@ -365,7 +365,7 @@ plPath: "produkty/ladowarka-bezprzewodowa/biurkowa/"
 </section>
 
 <!-- Pad vs Stand vs Vertical Dock — B2B Buyer's Guide -->
-<section class="sec bg-slate-50 relative py-16">
+<section id="pad-vs-stand-vs-vertical-dock-b2b-buyer-s-guide" class="sec bg-slate-50 relative" data-section="comparison">
  <div class="container-wide">
  <h2 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4 text-center">Pad vs. Stand vs. Vertical Dock — <span class="text-brandOrange">B2B Buyer's Guide</span></h2>
  <p class="text-center text-slate-500 text-sm max-w-3xl mx-auto mb-12">Choose the right form factor for your channel and price tier. Each serves a distinct buyer persona and margin profile.</p>
@@ -373,11 +373,11 @@ plPath: "produkty/ladowarka-bezprzewodowa/biurkowa/"
  <div class="overflow-x-auto rounded-2xl border border-slate-200 shadow-sm">
  <table class="w-full text-sm">
  <thead>
- <tr class="bg-white">
- <th class="p-4 text-left text-slate-500 font-bold text-xs uppercase">Parameter</th>
- <th class="p-4 text-center bg-brandOrange/5 border-x border-brandOrange/20 text-brandOrange font-bold text-xs uppercase">Vertical Stand<br><span class="text-[10px] normal-case opacity-70">WOW68</span></th>
- <th class="p-4 text-center text-slate-500 font-bold text-xs uppercase">Ultra-Slim Pad<br><span class="text-[10px] normal-case opacity-70">WOW40</span></th>
- <th class="p-4 text-center text-slate-500 font-bold text-xs uppercase">Minimalist Pad<br><span class="text-[10px] normal-case opacity-70">WOW33</span></th>
+ <tr class="bg-brandBlue text-white">
+ <th class="p-4 text-left font-bold text-xs uppercase">Parameter</th>
+ <th class="p-4 text-center bg-brandOrange/20 font-bold text-xs uppercase">Vertical Stand<br><span class="text-[10px] normal-case opacity-70">WOW68</span></th>
+ <th class="p-4 text-center font-bold text-xs uppercase">Ultra-Slim Pad<br><span class="text-[10px] normal-case opacity-70">WOW40</span></th>
+ <th class="p-4 text-center font-bold text-xs uppercase">Minimalist Pad<br><span class="text-[10px] normal-case opacity-70">WOW33</span></th>
  </tr>
  </thead>
  <tbody>
@@ -398,23 +398,23 @@ plPath: "produkty/ladowarka-bezprzewodowa/biurkowa/"
 
 
 <!-- Desktop Line Overview -->
-<section class="sec bg-white relative py-16">
+<section id="desktop-line-overview" class="sec bg-white relative" data-section="content">
  <div class="container-wide">
  <h2 class="section-title text-center">Desktop Wireless Charger Line — Now Shipping + Q3 2026 Pipeline</h2>
  <p class="text-center text-slate-500 text-sm max-w-3xl mx-auto mb-8">Vertical magnetic stand (WOW68) shipping now. Two exclusive patented designs (WOW33, WOW40). <strong>Qi2.2 25W magnetic pad and desktop stand launching Q3 2026</strong> — pre-register for early-bird samples and pricing.</p>
 
- <div class="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto mb-12">
- <div class="bg-slate-50 rounded-xl p-6 border border-slate-100 text-center">
+ <div class="grid md:grid-cols-3 gap-8 mb-12">
+ <div class="card-soft p-6 text-center">
   <p class="text-3xl font-black text-brandBlue mb-2">15W</p>
   <p class="text-sm font-bold text-slate-700 mb-2">Vertical Magnetic Stand</p>
   <p class="text-xs text-slate-500">Triple-device charging. Independent coils. Rear cooling holes. Face ID + StandBy mode. Available now — WOW68.</p>
  </div>
- <div class="bg-slate-50 rounded-xl p-6 border border-slate-100 text-center">
+ <div class="card-soft p-6 text-center">
   <p class="text-3xl font-black text-brandOrange mb-2">Qi2.2 25W</p>
   <p class="text-sm font-bold text-slate-700 mb-2">Magnetic Charging Pad — Q3 2026</p>
   <p class="text-xs text-slate-500">Slim card form factor. 25W MPP fast charge. N52H magnetic snap. USB-C input. Qi2.2 WPC certified. Pre-register for samples.</p>
  </div>
- <div class="bg-slate-50 rounded-xl p-6 border border-slate-100 text-center">
+ <div class="card-soft p-6 text-center">
   <p class="text-3xl font-black text-brandBlue mb-2">Qi2.2 25W</p>
   <p class="text-sm font-bold text-slate-700 mb-2">Desktop Charging Stand — Q3 2026</p>
   <p class="text-xs text-slate-500">Vertical dock with 360° rotation. Face ID + StandBy mode. Aluminum + ABS premium build. Qi2.2 WPC certified. Pre-register for samples.</p>
@@ -424,25 +424,25 @@ plPath: "produkty/ladowarka-bezprzewodowa/biurkowa/"
 </section>
 
 <!-- Market Context -->
-<section class="sec bg-slate-50 relative py-16">
- <div class="container-content">
+<section id="market-context" class="sec bg-slate-50 relative" data-section="content">
+ <div class="container-wide">
  <h2 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4 text-center">Why Desktop — <span class="text-brandOrange">The Volume Play</span></h2>
  <p class="text-center text-slate-500 text-sm max-w-3xl mx-auto mb-8">Single-device wireless chargers are the largest unit-volume segment in the category — 140 million units shipped globally in 2025 at an ASP of $21.20 (QYResearch). While 3-in-1 stations capture high ASP, the desktop pad/stand segment drives the most units by far, making it indispensable for factories serving Amazon sellers, corporate gift programs, smartphone accessory brands, and retailer house brands. iPhone-specific wireless chargers show a <strong>19.8 supply-demand ratio</strong> — severely undersupplied with an 89.2% blue ocean opportunity score (Alibaba 2026).</p>
 
- <div class="grid md:grid-cols-4 gap-6 max-w-4xl mx-auto mb-6">
- <div class="bg-white rounded-xl p-6 shadow-sm border border-slate-100 text-center">
+ <div class="grid md:grid-cols-4 gap-6 mb-6">
+ <div class="card p-6 shadow-sm text-center">
   <p class="text-3xl font-black text-brandBlue mb-2">55-60%</p>
   <p class="text-xs text-slate-500">Of total wireless charger unit shipments — single-device pads + stands dominate volume (QYResearch 2025)</p>
  </div>
- <div class="bg-white rounded-xl p-6 shadow-sm border border-slate-100 text-center">
+ <div class="card p-6 shadow-sm text-center">
   <p class="text-3xl font-black text-brandOrange mb-2">1.14B</p>
   <p class="text-xs text-slate-500">iPhone 12+ installed base with MagSafe/Qi2 desktop charger compatibility</p>
  </div>
- <div class="bg-white rounded-xl p-6 shadow-sm border border-slate-100 text-center">
+ <div class="card p-6 shadow-sm text-center">
   <p class="text-3xl font-black text-brandBlue mb-2">17.2%</p>
   <p class="text-xs text-slate-500">Desktop wireless charging stand CAGR 2025-2033 — fastest-growing form factor (DataIntelo)</p>
  </div>
- <div class="bg-white rounded-xl p-6 shadow-sm border border-slate-100 text-center">
+ <div class="card p-6 shadow-sm text-center">
   <p class="text-3xl font-black text-brandOrange mb-2">89.2%</p>
   <p class="text-xs text-slate-500">Blue ocean opportunity score for iPhone wireless chargers — severe undersupply (Alibaba 2026)</p>
  </div>
@@ -455,33 +455,33 @@ plPath: "produkty/ladowarka-bezprzewodowa/biurkowa/"
 </section>
 
 <!-- Why Choose WOWOHCOOL Desktop Chargers -->
-<section class="sec bg-slate-50 relative py-16">
+<section id="why-choose-wowohcool-desktop-chargers" class="sec bg-slate-50 relative" data-section="content">
  <div class="container-wide">
  <h2 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4 text-center">Why Choose <span class="text-brandOrange">WOWOHCOOL Desktop</span> for Your Brand</h2>
  <p class="text-center text-slate-500 text-sm max-w-2xl mx-auto mb-12">Desktop wireless chargers demand the perfect balance of design, certification, and unit economics — WOWOHCOOL delivers patented designs, Qi2.2 readiness, and 140M-unit category scale.</p>
 
- <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
- <div class="bg-white rounded-xl p-6 border border-slate-200 shadow-sm">
+ <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+ <div class="card p-6 shadow-sm">
   <h3 class="font-black text-brandBlue uppercase mb-3 text-sm">3 Models — Pad + Stand + Q3 Pipeline</h3>
   <p class="text-sm text-slate-600 leading-relaxed">Vertical magnetic stand (WOW68), ultra-slim LED pad (WOW40), minimalist patented pad (WOW33). Qi2.2 25W magnetic pad and Qi2.2 25W desktop stand launching Q3 2026. Covers all desktop form factors across every price tier.</p>
  </div>
- <div class="bg-white rounded-xl p-6 border border-slate-200 shadow-sm">
+ <div class="card p-6 shadow-sm">
   <h3 class="font-black text-brandBlue uppercase mb-3 text-sm">Exclusive Patented Designs</h3>
   <p class="text-sm text-slate-600 leading-relaxed">WOW33 and WOW40 feature exclusive patented industrial designs — your brand gets a unique product competitors cannot copy. Patent documentation provided with ODM orders. Critical differentiator for Amazon sellers facing listing hijacking and copycat competition.</p>
  </div>
- <div class="bg-white rounded-xl p-6 border border-slate-200 shadow-sm">
+ <div class="card p-6 shadow-sm">
   <h3 class="font-black text-brandBlue uppercase mb-3 text-sm">55-60% Unit Volume Segment</h3>
   <p class="text-sm text-slate-600 leading-relaxed">Single-device wireless chargers dominate unit shipments — 140M units globally in 2025 (QYResearch). For brands, this is the highest-velocity SKU category. For factories, it's the volume engine that keeps production lines running at scale.</p>
  </div>
- <div class="bg-white rounded-xl p-6 border border-slate-200 shadow-sm">
+ <div class="card p-6 shadow-sm">
   <h3 class="font-black text-brandBlue uppercase mb-3 text-sm">11mm Ultra-Slim Engineering</h3>
   <p class="text-sm text-slate-600 leading-relaxed">WOW40 achieves 11mm profile — among the thinnest 3-coil Qi2 charging pads in B2B OEM. Custom PCB layout plus low-profile coil engineering. For brands targeting the premium slim segment, custom ultra-slim designs down to 10mm available with MOQ 2,000.</p>
  </div>
- <div class="bg-white rounded-xl p-6 border border-slate-200 shadow-sm">
+ <div class="card p-6 shadow-sm">
   <h3 class="font-black text-brandBlue uppercase mb-3 text-sm">Qi2.2 25W Q3 2026 — Pre-Register Now</h3>
   <p class="text-sm text-slate-600 leading-relaxed">Qi v2.2.1 25W standard ratified 2025-07. WOWOHCOOL is launching a 25W magnetic charging pad (slim card form, N52H snap) and 25W desktop stand (360° rotation, aluminum). Pre-register for samples and secure early-bird pricing before Q3 launch.</p>
  </div>
- <div class="bg-white rounded-xl p-6 border border-slate-200 shadow-sm">
+ <div class="card p-6 shadow-sm">
   <h3 class="font-black text-brandBlue uppercase mb-3 text-sm">WPC Qi2 Certified Factory</h3>
   <p class="text-sm text-slate-600 leading-relaxed">Full Qi2 WPC certification for 15W/25W MPP with ATL (Authorized Test Lab) compliance. CE (EMC + Low Voltage Directive), FCC Part 15, RoHS, and REACH included. Complete documentation package with every OEM order. ISO 9001 Shenzhen factory since 2013.</p>
  </div>
@@ -490,25 +490,25 @@ plPath: "produkty/ladowarka-bezprzewodowa/biurkowa/"
 </section>
 
 <!-- Who Buys Desktop Wireless Chargers in Bulk -->
-<section class="sec bg-white relative py-16">
+<section id="who-buys-desktop-wireless-chargers-in-bulk" class="sec bg-white relative" data-section="content">
  <div class="container-wide">
  <h2 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4 text-center">Who Buys <span class="text-brandOrange">Desktop Chargers</span> in Bulk</h2>
  <p class="text-center text-slate-500 text-sm max-w-3xl mx-auto mb-12">Four B2B buyer profiles that consistently order desktop wireless chargers at volume — each with distinct requirements, channel needs, and unit economics.</p>
 
- <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto mb-10">
-  <div class="bg-slate-50 rounded-xl p-5 border border-slate-200">
+ <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
+  <div class="card-soft p-5">
    <p class="font-black text-slate-900 text-sm mb-1">Amazon & E-commerce Sellers</p>
    <p class="text-xs text-slate-500">Single-device pads are the #1 wireless charger SKU by Amazon search volume. Q3 2026 Qi2.2 25W pads with active cooling = premium sub-$50 listing opportunity. Private label MOQ 500 with FBA-ready packaging and FNSKU barcode.</p>
   </div>
-  <div class="bg-slate-50 rounded-xl p-5 border border-slate-200">
+  <div class="card-soft p-5">
    <p class="font-black text-slate-900 text-sm mb-1">Corporate Gift & Promo Buyers</p>
    <p class="text-xs text-slate-500">Custom logo desktop chargers for trade show giveaways, employee onboarding kits, and client gifts. WOW40's 11mm ultra-slim design + LED display = premium unboxing experience. MOQ 500 with full logo and packaging customization.</p>
   </div>
-  <div class="bg-slate-50 rounded-xl p-5 border border-slate-200">
+  <div class="card-soft p-5">
    <p class="font-black text-slate-900 text-sm mb-1">Office & Workspace Solutions</p>
    <p class="text-xs text-slate-500">Shared offices (WeWork, Regus), corporate HQ deployments, and co-working spaces standardizing desktop charging. WOW68 vertical stand enables Face ID + StandBy during work calls. Bulk pricing from 1,000+ units.</p>
   </div>
-  <div class="bg-slate-50 rounded-xl p-5 border border-slate-200">
+  <div class="card-soft p-5">
    <p class="font-black text-slate-900 text-sm mb-1">Smartphone Accessory Brands</p>
    <p class="text-xs text-slate-500">Phone case and screen protector brands expanding into charging. Exclusive patented designs (WOW33, WOW40) protect against copycats. Qi2.2 25W pads = next-gen accessory for iPhone 17 launch. MOQ 500 for logo, 2,000 for ODM.</p>
   </div>
@@ -516,19 +516,19 @@ plPath: "produkty/ladowarka-bezprzewodowa/biurkowa/"
 
  <div class="bg-brandBlue/5 rounded-2xl p-8 border border-brandBlue/10 max-w-3xl mx-auto text-center">
   <p class="text-sm text-slate-700 leading-relaxed mb-4">These buyers share one requirement: a desktop charger with verified Qi2 certification, consistent quality across batches, and on-time delivery. WOWOHCOOL's 5,000㎡ ISO 9001 Shenzhen facility has served 200+ global brands since 2013 — with 4-stage QC and 4-hour 100% aging test on every unit.</p>
-  <a href="#products" class="inline-block text-brandOrange font-black text-sm uppercase tracking-widest hover:underline">Browse 3 Desktop Models →</a>
+  <a href="#products" class="btn-more">Browse 3 Desktop Models →</a>
  </div>
  </div>
 </section>
 
 <!-- OEM/ODM Customization -->
-<section class="sec bg-white relative py-16">
+<section id="oem-odm-customization" class="sec bg-white relative" data-section="content">
  <div class="container-wide">
  <h2 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4 text-center">OEM/ODM Customization for <span class="text-brandOrange">Desktop Chargers</span></h2>
  <p class="text-center text-slate-500 text-sm max-w-2xl mx-auto mb-12">Full desktop charger customization — from logo to exclusive enclosure design. Q3 2026 Qi2.2 25W pipeline pre-registration open now.</p>
 
- <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-  <div class="bg-slate-50 rounded-xl p-6 border border-slate-200">
+ <div class="grid md:grid-cols-2 gap-8">
+  <div class="card-soft p-6">
    <h3 class="font-black text-brandBlue uppercase mb-4 text-sm">OEM (Standard Models, MOQ 500)</h3>
    <ul class="space-y-2 text-sm text-slate-600">
     <li>• Logo printing (silkscreen, laser, UV on pad/stand surface)</li>
@@ -540,7 +540,7 @@ plPath: "produkty/ladowarka-bezprzewodowa/biurkowa/"
     <li>• Full certification documentation (Qi2 WPC, CE, FCC, RoHS, REACH)</li>
    </ul>
   </div>
-  <div class="bg-slate-50 rounded-xl p-6 border border-slate-200">
+  <div class="card-soft p-6">
    <h3 class="font-black text-brandBlue uppercase mb-4 text-sm">ODM (Custom Design, MOQ 2,000)</h3>
    <ul class="space-y-2 text-sm text-slate-600">
     <li>• Bespoke ID design (CMF: Color, Material, Finish)</li>
@@ -563,29 +563,29 @@ plPath: "produkty/ladowarka-bezprzewodowa/biurkowa/"
 
  <div class="bg-brandBlue/5 rounded-2xl p-8 border border-brandBlue/10 max-w-3xl mx-auto mt-10 text-center">
   <p class="text-sm text-slate-700 leading-relaxed mb-4"><strong>Qi2.2 25W Pre-Registration:</strong> Secure priority access to Q3 2026 Qi2.2 25W magnetic pad and desktop stand samples. Early-bird pricing, first-production-run allocation, and exclusive certification documentation. Contact us to reserve your brand's position in the Qi2.2 product pipeline.</p>
-  <a href="#products" class="inline-block text-brandOrange font-black text-sm uppercase tracking-widest hover:underline">Pre-Register for Q3 2026 →</a>
+  <a href="#products" class="btn-more">Pre-Register for Q3 2026 →</a>
  </div>
  </div>
 </section>
 
 <!-- Cross-Category Links -->
-<section class="sec bg-slate-50 relative py-12">
- <div class="container-content">
+<section id="cross-category-links" class="sec bg-slate-50 relative py-12" data-section="related">
+ <div class="container-wide">
  <p class="text-center text-slate-500 text-sm mb-6">Explore more wireless charger categories from WOWOHCOOL:</p>
  <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-  <a href="/products/wireless-charger/" class="block bg-white rounded-xl p-4 border border-slate-200 hover:border-brandOrange hover:shadow-md transition text-center">
+  <a href="/products/wireless-charger/" class="card block p-4 hover:border-brandOrange hover:shadow-md transition text-center">
   <p class="font-black text-brandBlue text-sm uppercase mb-1">All Wireless</p>
   <p class="text-[10px] text-slate-500">3 Categories, 18+ Models</p>
   </a>
-  <a href="/products/wireless-charger/3-in-1-station/" class="block bg-white rounded-xl p-4 border border-slate-200 hover:border-brandOrange hover:shadow-md transition text-center">
+  <a href="/products/wireless-charger/3-in-1-station/" class="card block p-4 hover:border-brandOrange hover:shadow-md transition text-center">
   <p class="font-black text-brandBlue text-sm uppercase mb-1">3-in-1 Stations</p>
   <p class="text-[10px] text-slate-500">Phone + Watch + AirPods</p>
   </a>
-  <a href="/products/wireless-charger/car-mount/" class="block bg-white rounded-xl p-4 border border-slate-200 hover:border-brandOrange hover:shadow-md transition text-center">
+  <a href="/products/wireless-charger/car-mount/" class="card block p-4 hover:border-brandOrange hover:shadow-md transition text-center">
   <p class="font-black text-brandBlue text-sm uppercase mb-1">Car Mounts</p>
   <p class="text-[10px] text-slate-500">Qi2 Magnetic + Clamp</p>
   </a>
-  <a href="/products/car-charger/" class="block bg-white rounded-xl p-4 border border-slate-200 hover:border-brandOrange hover:shadow-md transition text-center">
+  <a href="/products/car-charger/" class="card block p-4 hover:border-brandOrange hover:shadow-md transition text-center">
   <p class="font-black text-brandBlue text-sm uppercase mb-1">GaN Car Chargers</p>
   <p class="text-[10px] text-slate-500">USB-C Wired PD 3.1</p>
   </a>
@@ -594,41 +594,41 @@ plPath: "produkty/ladowarka-bezprzewodowa/biurkowa/"
 </section>
 
 <!-- FAQ -->
-<section class="sec-lg bg-slate-50 border-t border-slate-100">
+<section id="faq" class="sec bg-slate-50 border-t border-slate-100" data-section="faq">
  <div class="container-narrow">
  <div class="text-center mb-12">
   <h2 class="text-3xl lg:text-4xl font-black text-slate-900 uppercase italic tracking-tighter mb-4">Desktop Charger <span class="text-brandOrange">FAQ</span></h2>
  </div>
  <div class="space-y-4">
-  <details class="bg-slate-50 rounded-xl p-5 border border-slate-200 group">
+  <details class="card-soft p-5 group">
   <summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">What is the difference between a wireless charging pad and a vertical stand?<span class="text-brandOrange group-open:rotate-180 transition">▼</span></summary>
   <p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">A <strong>flat pad</strong> (WOW33, WOW40) sits horizontally on the desk — the phone lies flat, ideal for minimal setups and universal compatibility. A <strong>vertical stand</strong> (WOW68) holds the phone upright in portrait or landscape, enabling Face ID unlock, video calls, and iOS StandBy mode without picking up the phone. WOWOHCOOL manufactures both form factors with identical Qi2 charging performance. Single-device pads account for 55-60% of wireless charger unit volume globally.</p>
   </details>
-  <details class="bg-slate-50 rounded-xl p-5 border border-slate-200 group">
+  <details class="card-soft p-5 group">
   <summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">What is the MOQ for desktop wireless charger OEM?<span class="text-brandOrange group-open:rotate-180 transition">▼</span></summary>
   <p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">Standard ODM models with custom logo: MOQ <strong>500 units</strong>. Full OEM with private tooling: MOQ <strong>3,000+ units</strong>. Sample turnaround: 3-7 days for standard models, 10-15 days for custom logo samples. Flexible MOQ options available for startup brands and market testing.</p>
   </details>
-  <details class="bg-slate-50 rounded-xl p-5 border border-slate-200 group">
+  <details class="card-soft p-5 group">
   <summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">What certifications do desktop wireless chargers need?<span class="text-brandOrange group-open:rotate-180 transition">▼</span></summary>
   <p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4"><strong>Qi2 WPC certification</strong> for magnetic alignment and 15W/25W MPP — verified Qi-ID in the WPC public database. <strong>CE</strong> (EMC + Low Voltage Directive) for EU. <strong>FCC Part 15</strong> for US. <strong>RoHS + REACH</strong> for materials compliance. Qi2.2 25W certification costs $15K-20K per SKU — included in WOWOHCOOL ODM orders. All certification documentation provided with OEM orders.</p>
   </details>
-  <details class="bg-slate-50 rounded-xl p-5 border border-slate-200 group">
+  <details class="card-soft p-5 group">
   <summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">Can I get exclusive patented designs for my wireless charger brand?<span class="text-brandOrange group-open:rotate-180 transition">▼</span></summary>
   <p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">Yes. WOW33 and WOW40 feature <strong>exclusive patented industrial designs</strong> available for OEM/ODM licensing. Your brand gets a unique product that cannot be copied by competitors on Amazon or retail channels. Patent documentation provided with ODM orders. MOQ 2,000 for exclusive patent-based ODM with full CMF (Color/Material/Finish) customization. Critical for brands facing Amazon listing hijacking and copycat competition.</p>
   </details>
-  <details class="bg-slate-50 rounded-xl p-5 border border-slate-200 group">
+  <details class="card-soft p-5 group">
   <summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">How thin can an OEM wireless charging pad be?<span class="text-brandOrange group-open:rotate-180 transition">▼</span></summary>
   <p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">WOW40 achieves <strong>11mm ultra-slim profile</strong> — among the thinnest 3-coil wireless charging pads in B2B OEM production. This is enabled by custom PCB layout, low-profile coils, and optimized thermal management. For brands targeting the premium slim segment, WOWOHCOOL can custom-engineer charging pads down to <strong>10mm</strong> while maintaining Qi2 certification and thermal safety. MOQ 2,000 for custom ultra-slim enclosure design.</p>
   </details>
-  <details class="bg-slate-50 rounded-xl p-5 border border-slate-200 group">
+  <details class="card-soft p-5 group">
   <summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">Can I get a 25W Qi2.2 desktop charger with my logo?<span class="text-brandOrange group-open:rotate-180 transition">▼</span></summary>
   <p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">Yes. WOWOHCOOL's Q3 2026 pipeline includes a <strong>Qi2.2 25W magnetic charging pad</strong> (slim card form, N52H magnetic snap, USB-C input) and a <strong>Qi2.2 25W desktop stand</strong> (360° rotation, aluminum + ABS, Face ID + StandBy mode). Pre-register now for early-bird samples and pricing. Standard OEM with custom logo: MOQ 500, lead time 25-30 days.</p>
   </details>
-  <details class="bg-slate-50 rounded-xl p-5 border border-slate-200 group">
+  <details class="card-soft p-5 group">
   <summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">When will new desktop charger SKUs be available?<span class="text-brandOrange group-open:rotate-180 transition">▼</span></summary>
   <p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">New Qi2.2 25W desktop charger models are in active development for <strong>Q3 2026 launch</strong>: a slim Qi2.2 25W magnetic charging pad (card form, N52H snap alignment) and a Qi2.2 25W desktop stand (360° rotation, aluminum alloy + ABS, Face ID + StandBy mode compatible). Both models include Qi2.2 WPC certification, CE/FCC/RoHS, and 4-stage QC. Pre-register to secure first-production-run allocation and early-bird pricing.</p>
   </details>
-  <details class="bg-slate-50 rounded-xl p-5 border border-slate-200 group">
+  <details class="card-soft p-5 group">
   <summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">How long does OEM/ODM desktop charger production take?<span class="text-brandOrange group-open:rotate-180 transition">▼</span></summary>
   <p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">OEM (standard models with custom logo): <strong>25-30 days</strong> after sample approval. ODM (custom enclosure or ultra-slim design): <strong>45-60 days</strong> including tooling and Qi2 certification prep. Both timelines include 4-stage QC (IQC → IPQC → FQC → OQC) with 4-hour 100% aging test on every unit. Express air freight: 5-7 days to EU/US. Seafreight: 25-35 days.</p>
   </details>

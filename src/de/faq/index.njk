@@ -46,11 +46,11 @@ plPath: "faq/"
 {% endblock %}
 
 {% block faqHero %}
-<section class="pt-24 md:pt-28 pb-16 md:pb-20 relative overflow-hidden bg-gradient-to-br from-slate-50 via-white to-orange-50">
+<section id="hero" class="pt-24 md:pt-28 pb-16 md:pb-20 relative overflow-hidden bg-gradient-to-br from-slate-50 via-white to-orange-50 lg:min-h-[100dvh] lg:flex lg:flex-col lg:justify-center" data-section="hero">
  <div class="container-narrow text-center reveal">
   {{ breadcrumb([{name: "Startseite", url: "/de/"}, {name: "FAQ"}], "none", "mb-6", { variant: "hero" }) }}
- <p class="text-brandOrange text-xs font-bold tracking-widest uppercase mb-3">FAQ</p>
- <h1 class="text-3xl md:text-5xl font-black text-brandBlue leading-tight mb-6 italic uppercase">Häufig gestellte Fragen</h1>
+ <div class="badge-capsule mb-6 mx-auto uppercase tracking-widest">FAQ</div>
+ <h1 class="text-3xl md:text-5xl font-black text-brandBlue leading-tight mb-6 italic uppercase tracking-tighter">Häufig gestellte Fragen</h1>
  <p class="text-slate-600 text-lg max-w-2xl mx-auto">Antworten auf die wichtigsten Fragen rund um OEM/ODM, Produktion, Versand und Zusammenarbeit mit WOWOHCOOL.</p>
  </div>
 </section>
@@ -62,7 +62,7 @@ plPath: "faq/"
 {% endblock %}
 
 {% block faqContent %}
-<section class="sec bg-white">
+<section id="trust-bar" class="sec bg-white" data-section="trust">
  <div class="container-narrow">
  {{ sectionHeader("FAQ Kategorien", "Alles, was Sie wissen müssen", "Schnelle Antworten auf Ihre Fragen. Unser Team steht Ihnen jederzeit zur Verfügung.") }}
 
@@ -126,11 +126,14 @@ plPath: "faq/"
  </div>
  </div>
 
- <!-- Blog Links + CTA -->
+ </div>
+
+ <!-- Blog Links + CTA — 独立区域：三列卡片网格，宽度对齐其它板块（container-wide） -->
+ <div class="container-wide">
  <div class="mt-16 pt-12 border-t border-slate-200">
  <div class="grid md:grid-cols-3 gap-6 reveal">
 
-  <a href="/de/blog/oem-vs-odm-leitfaden/" class="group bg-white rounded-2xl p-6 border border-slate-200 hover:border-brandOrange hover:shadow-lg transition-all text-center">
+  <a href="/de/blog/oem-vs-odm-leitfaden/" class="card-lg group p-6 hover:border-brandOrange hover:shadow-lg transition-all text-center">
   <div class="w-12 h-12 rounded-xl bg-brandBlue/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-brandOrange/10 transition-colors">
   <svg class="text-brandBlue group-hover:text-brandOrange transition-colors" width="24" height="24" aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
   </div>
@@ -139,7 +142,7 @@ plPath: "faq/"
   <span class="inline-block mt-3 text-xs font-bold text-brandOrange group-hover:underline">Zum Leitfaden →</span>
   </a>
 
-  <a href="/de/blog/qualitaetskontrolle-china/" class="group bg-white rounded-2xl p-6 border border-slate-200 hover:border-brandOrange hover:shadow-lg transition-all text-center">
+  <a href="/de/blog/qualitaetskontrolle-china/" class="card-lg group p-6 hover:border-brandOrange hover:shadow-lg transition-all text-center">
   <div class="w-12 h-12 rounded-xl bg-brandBlue/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-brandOrange/10 transition-colors">
   <svg class="text-brandBlue group-hover:text-brandOrange transition-colors" width="24" height="24" aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
   </div>
@@ -148,7 +151,7 @@ plPath: "faq/"
   <span class="inline-block mt-3 text-xs font-bold text-brandOrange group-hover:underline">QC-Leitfaden lesen →</span>
   </a>
 
-  <a href="/de/blog/ladegeraet-import-china-zoll-zertifikate/" class="group bg-white rounded-2xl p-6 border border-slate-200 hover:border-brandOrange hover:shadow-lg transition-all text-center">
+  <a href="/de/blog/ladegeraet-import-china-zoll-zertifikate/" class="card-lg group p-6 hover:border-brandOrange hover:shadow-lg transition-all text-center">
   <div class="w-12 h-12 rounded-xl bg-brandBlue/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-brandOrange/10 transition-colors">
   <svg class="text-brandBlue group-hover:text-brandOrange transition-colors" width="24" height="24" aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l2-1.14"/><path d="m7.5 4.27 9 5.15"/><polyline points="3.29 7 12 12 20.71 7"/><line x1="12" y1="22" x2="12" y2="12"/><circle cx="18" cy="18" r="3"/><path d="m20.5 20.5-2.3-2.3"/></svg>
   </div>

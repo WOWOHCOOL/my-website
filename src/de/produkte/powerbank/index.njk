@@ -82,13 +82,13 @@ plPath: "produkty/power-bank/"
 {% block content %}
 
  <!-- ======== PRODUCT HERO ======== -->
- <section class="pt-24 md:pt-28 pb-16 md:pb-20 bg-gradient-to-br from-slate-50 via-white to-orange-50">
+ <section id="product-hero" class="pt-24 md:pt-28 lg:pt-20 pb-16 md:pb-20 bg-gradient-to-br from-slate-50 via-white to-orange-50 lg:min-h-[100dvh] lg:flex lg:flex-col lg:justify-center" data-section="hero">
  <div class="container-wide">
   {{ breadcrumb([{name: "Startseite", url: "/de/"}, {name: "Produkte", url: "/de/produkte/"}, {name: "Powerbank"}], "none", "mb-6", { variant: "hero" }) }}
  <div class="grid lg:grid-cols-2 gap-12 items-center">
  <div class="reveal order-2 lg:order-1">
- <p class="text-brandOrange text-xs font-bold tracking-widest uppercase mb-3">Powerbank Hersteller &middot; EU-Compliance</p>
- <h1 class="text-3xl md:text-5xl font-black text-brandBlue leading-tight mb-6 italic uppercase">
+ <div class="badge-capsule mb-6 uppercase tracking-widest">Powerbank Hersteller &middot; EU-Compliance</div>
+ <h1 class="text-3xl md:text-4xl xl:text-5xl font-black text-brandBlue leading-tight mb-6 italic uppercase tracking-tighter">
  Powerbank Hersteller<br>
  <span class="text-brandOrange">mit EU-Compliance</span>
  </h1>
@@ -107,15 +107,15 @@ plPath: "produkty/power-bank/"
  <path d="M176 24c0-13.3-10.7-24-24-24s-24 10.7-24 24l0 40c-35.3 0-64 28.7-64 64l-40 0c-13.3 0-24 10.7-24 24s10.7 24 24 24l40 0 0 56-40 0c-13.3 0-24 10.7-24 24s10.7 24 24 24l40 0 0 56-40 0c-13.3 0-24 10.7-24 24s10.7 24 24 24l40 0c0 35.3 28.7 64 64 64l0 40c0 13.3 10.7 24 24 24s24-10.7 24-24l0-40 56 0 0 40c0 13.3 10.7 24 24 24s24-10.7 24-24l0-40 56 0 0 40c0 13.3 10.7 24 24 24s24-10.7 24-24l0-40c35.3 0 64-28.7 64-64l40 0c13.3 0 24-10.7 24-24s-10.7-24-24-24l-40 0 0-56 40 0c13.3 0 24-10.7 24-24s-10.7-24-24-24l-40 0 0-56 40 0c13.3 0 24-10.7 24-24s-10.7-24-24-24l-40 0c0-35.3-28.7-64-64-64l0-40c0-13.3-10.7-24-24-24s-24 10.7-24 24l0 40-56 0 0-40c0-13.3-10.7-24-24-24s-24 10.7-24 24l0 40-56 0 0-40zM160 128l192 0c17.7 0 32 14.3 32 32l0 192c0 17.7-14.3 32-32 32l-192 0c-17.7 0-32-14.3-32-32l0-192c0-17.7 14.3-32 32-32zm16 48l0 160 160 0 0-160-160 0z" fill="currentColor"/>
  </svg> Semi-Solid-State</span>
  </div>
- <div class="flex flex-wrap gap-4">
- <button data-action="open-modal" class="btn-primary cursor-pointer">Preis anfragen <svg class="icon-arrow-right text-sm" aria-hidden="true" focusable="false" viewBox="0 0 512 512">
+ <div class="btn-pair">
+ <button data-action="open-modal" class="btn-solid cursor-pointer">Preis anfragen <svg class="icon-arrow-right text-sm" aria-hidden="true" focusable="false" viewBox="0 0 512 512">
  <path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-105.4 105.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" fill="currentColor"/>
  </svg></button>
- <a href="#specs" class="btn-secondary">Technische Daten</a>
+ <a href="#specs" class="btn-ghost-lg">Technische Daten</a>
  </div>
  </div>
  <div class="reveal order-1 lg:order-2">
- <div class="bg-white rounded-2xl shadow-xl p-6 md:p-8 border border-slate-100">
+ <div class="card-lg shadow-xl p-6 md:p-8 max-w-[480px] mx-auto">
  <img src="/image/product/power-bank/wop26-semi-solid-retractable.webp" srcset="/image/product/power-bank/wop26-semi-solid-retractable-750w.webp 750w, /image/product/power-bank/wop26-semi-solid-retractable.webp 1920w" sizes="(min-width: 1440px) 526px, (min-width: 1280px) 526px, (min-width: 1024px) 398px, (min-width: 768px) 654px, (min-width: 430px) 382px, 327px"
  alt="Powerbank Hersteller OEM/ODM"
  width="1920" height="1920"
@@ -131,14 +131,14 @@ plPath: "produkty/power-bank/"
  {% include "trust-bar.njk" %}
 
  <!-- ======== POWERBANK KATEGORIEN ======== -->
- <section id="kategorien" class="sec bg-white">
+ <section id="kategorien" class="sec bg-white" data-section="products">
  <div class="container-wide">
  {{ sectionHeader('Produktreihen', 'Powerbank-Kategorien', 'Sechs spezialisierte Produktreihen für jeden B2B-Anwendungsfall, von der Semi-Solid-State-Technologie bis zu Heizakkus für Bekleidung. Jede Kategorie mit vollständigen Spezifikationen, Zertifizierungen und Werkspreisen.', {mb: 'mb-12'}) }}
 
  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
  <!-- 1. Semi-Solid-State -->
- <a href="/de/produkte/powerbank/halbfest-akku/" class="group block bg-white rounded-3xl border border-slate-200 overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all reveal">
+ <a href="/de/produkte/powerbank/halbfest-akku/" class="card-lg group block overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all reveal">
  <div class="relative aspect-[4/3] bg-slate-100 overflow-hidden">
  <img src="/image/product/power-bank/wopy21-45w-dual-cable-power-bank-20000mah.webp" srcset="/image/product/power-bank/wopy21-45w-dual-cable-power-bank-20000mah-450w.webp 450w, /image/product/power-bank/wopy21-45w-dual-cable-power-bank-20000mah.webp 800w" sizes="(min-width: 1440px) 389px, (min-width: 1280px) 389px, (min-width: 1024px) 304px, (min-width: 768px) 344px, (min-width: 430px) 382px, 327px" alt="Semi-Solid-State Powerbank mit eingebauten Kabeln, PD 45W" class="w-full h-full object-contain transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async" width="800" height="800">
  <div class="absolute top-4 left-4"><span class="bg-brandOrange text-white text-[11px] font-black px-3 py-1 rounded-full uppercase italic tracking-widest">CES 2026</span></div>
@@ -154,7 +154,7 @@ plPath: "produkty/power-bank/"
  </a>
 
  <!-- 2. Wireless / Magnetisch -->
- <a href="/de/produkte/powerbank/magnetisch-kabellos/" class="group block bg-white rounded-3xl border border-slate-200 overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all reveal">
+ <a href="/de/produkte/powerbank/magnetisch-kabellos/" class="card-lg group block overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all reveal">
  <div class="relative aspect-[4/3] bg-slate-100 overflow-hidden">
  <img src="/image/product/power-bank/wopq11-qi2-magnetic-40w-power-bank.webp" srcset="/image/product/power-bank/wopq11-qi2-magnetic-40w-power-bank-750w.webp 750w, /image/product/power-bank/wopq11-qi2-magnetic-40w-power-bank.webp 1920w" sizes="(min-width: 1440px) 526px, (min-width: 1280px) 526px, (min-width: 1024px) 398px, (min-width: 768px) 654px, (min-width: 430px) 382px, 327px" alt="Qi2 magnetische Powerbank MagSafe-kompatibel" class="w-full h-full object-contain transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async" width="1920" height="1920">
  <div class="absolute top-4 left-4"><span class="bg-brandBlue text-white text-[11px] font-black px-3 py-1 rounded-full uppercase italic tracking-widest">Qi2</span></div>
@@ -170,7 +170,7 @@ plPath: "produkty/power-bank/"
  </a>
 
  <!-- 3. Heizakku -->
- <a href="/de/produkte/powerbank/heizakku/" class="group block bg-white rounded-3xl border border-slate-200 overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all reveal">
+ <a href="/de/produkte/powerbank/heizakku/" class="card-lg group block overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all reveal">
  <div class="relative aspect-[4/3] bg-slate-100 overflow-hidden">
  <img src="/image/product/power-bank/wop55-heating-battery.webp" srcset="/image/product/power-bank/wop55-heating-battery-750w.webp 750w, /image/product/power-bank/wop55-heating-battery.webp 1100w" sizes="(min-width: 1440px) 526px, (min-width: 1280px) 526px, (min-width: 1024px) 398px, (min-width: 768px) 654px, (min-width: 430px) 382px, 327px" alt="Heizakku für Heizjacke und beheizte Bekleidung OEM" class="w-full h-full object-contain transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async" width="1100" height="1100">
  <div class="absolute top-4 left-4"><span class="bg-red-500 text-white text-[11px] font-black px-3 py-1 rounded-full uppercase italic tracking-widest">Beheizte Bekleidung</span></div>
@@ -186,7 +186,7 @@ plPath: "produkty/power-bank/"
  </a>
 
  <!-- 4. 2-in-1 Hybrid -->
- <a href="/de/produkte/powerbank/2-in-1-hybrid/" class="group block bg-white rounded-3xl border border-slate-200 overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all reveal">
+ <a href="/de/produkte/powerbank/2-in-1-hybrid/" class="card-lg group block overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all reveal">
  <div class="relative aspect-[4/3] bg-slate-100 overflow-hidden">
  <img src="/image/product/power-bank/wopa01-2in1-hybrid-ac-magnetic-22w-charger-10000mah.webp" srcset="/image/product/power-bank/wopa01-2in1-hybrid-ac-magnetic-22w-charger-10000mah-450w.webp 450w, /image/product/power-bank/wopa01-2in1-hybrid-ac-magnetic-22w-charger-10000mah.webp 800w" sizes="(min-width: 1440px) 389px, (min-width: 1280px) 389px, (min-width: 1024px) 304px, (min-width: 768px) 344px, (min-width: 430px) 382px, 327px" alt="2-in-1 Hybrid Powerbank mit klappbarem AC-Stecker und Qi-Ladung" class="w-full h-full object-contain transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async" width="800" height="800">
  <div class="absolute top-4 left-4"><span class="bg-purple-600 text-white text-[11px] font-black px-3 py-1 rounded-full uppercase italic tracking-widest">2-in-1</span></div>
@@ -202,7 +202,7 @@ plPath: "produkty/power-bank/"
  </a>
 
  <!-- 5. Laptop-Powerbank -->
- <a href="/de/produkte/powerbank/laptop-powerbank/" class="group block bg-white rounded-3xl border border-slate-200 overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all reveal">
+ <a href="/de/produkte/powerbank/laptop-powerbank/" class="card-lg group block overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all reveal">
  <div class="relative aspect-[4/3] bg-slate-100 overflow-hidden">
  <img src="/image/product/power-bank/wop23-240w-power-bank.webp" srcset="/image/product/power-bank/wop23-240w-power-bank-750w.webp 750w, /image/product/power-bank/wop23-240w-power-bank.webp 1100w" sizes="(min-width: 1440px) 526px, (min-width: 1280px) 526px, (min-width: 1024px) 398px, (min-width: 768px) 654px, (min-width: 430px) 382px, 327px" alt="Laptop-Powerbank 240W PD 3.1 für MacBook und Gaming-Laptops" class="w-full h-full object-contain transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async" width="1100" height="1100">
  <div class="absolute top-4 left-4"><span class="bg-slate-900 text-white text-[11px] font-black px-3 py-1 rounded-full uppercase italic tracking-widest">PD 3.1 240W</span></div>
@@ -218,7 +218,7 @@ plPath: "produkty/power-bank/"
  </a>
 
  <!-- 6. Smart Display -->
- <a href="/de/produkte/powerbank/smart-display/" class="group block bg-white rounded-3xl border border-slate-200 overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all reveal">
+ <a href="/de/produkte/powerbank/smart-display/" class="card-lg group block overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all reveal">
  <div class="relative aspect-[4/3] bg-slate-100 overflow-hidden">
  <img src="/image/product/power-bank/wop25-tft-power-bank.webp" srcset="/image/product/power-bank/wop25-tft-power-bank-750w.webp 750w, /image/product/power-bank/wop25-tft-power-bank.webp 1920w" sizes="(min-width: 1440px) 526px, (min-width: 1280px) 526px, (min-width: 1024px) 398px, (min-width: 768px) 654px, (min-width: 430px) 382px, 327px" alt="Smart-Display Powerbank mit TFT-Bildschirm und 3-in-1 Qi-Ladung" class="w-full h-full object-contain transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async" width="1920" height="1920">
  <div class="absolute top-4 left-4"><span class="bg-cyan-600 text-white text-[11px] font-black px-3 py-1 rounded-full uppercase italic tracking-widest">TFT Display</span></div>
@@ -244,29 +244,29 @@ plPath: "produkty/power-bank/"
 
 
  <!-- ======== VORTEILE ======== -->
- <section class="sec bg-white">
+ <section id="vorteile" class="sec bg-white" data-section="content">
  <div class="container-wide">
  {{ sectionHeader('Vorteile', 'Warum unsere Powerbanks die richtige Wahl sind', 'Deutsche Unternehmen vertrauen auf unsere Powerbank-Fertigung. Hier sind die Gründe.', {}) }}
  <div class="grid md:grid-cols-2 gap-8">
- <div class="reveal bg-slate-50 rounded-2xl p-8 border border-slate-200">
+ <div class="card-lg-soft reveal p-8">
  <div class="flex items-center gap-4 mb-4"><div class="w-12 h-12 rounded-xl bg-brandOrange/10 flex items-center justify-center shrink-0"><svg class="icon-shield-halved text-xl text-brandOrange" aria-hidden="true" focusable="false" viewBox="0 0 512 512">
  <path d="M256 0c4.6 0 9.2 1 13.4 2.9L457.8 82.8c22 9.3 38.4 31 38.3 57.2-.5 99.2-41.3 280.7-213.6 363.2-16.7 8-36.1 8-52.8 0-172.4-82.5-213.1-264-213.6-363.2-.1-26.2 16.3-47.9 38.3-57.2L242.7 2.9C246.9 1 251.4 0 256 0zm0 66.8l0 378.1c138-66.8 175.1-214.8 176-303.4l-176-74.6 0 0z" fill="currentColor"/>
  </svg></div><h3 class="text-lg font-bold text-brandBlue">Höchste Sicherheitsstandards</h3></div>
  <p class="text-sm text-slate-600 leading-relaxed">Alle Powerbanks sind CE, TÜV GS, RoHS und UN38.3 zertifiziert. Unsere Semi-Solid-State-Modelle verwenden eine innovative Elektrolyt-Technologie, die das Risiko von Überhitzung und Brand deutlich reduziert. Jede Powerbank durchläuft einen 4-Stunden-Aging-Test unter Volllast, bevor sie unser Werk verlässt. Die Defektrate liegt bei unter 0,3%.</p>
  </div>
- <div class="reveal bg-slate-50 rounded-2xl p-8 border border-slate-200">
+ <div class="card-lg-soft reveal p-8">
  <div class="flex items-center gap-4 mb-4"><div class="w-12 h-12 rounded-xl bg-brandOrange/10 flex items-center justify-center shrink-0"><svg class="icon-bolt text-xl text-brandOrange" aria-hidden="true" focusable="false" viewBox="0 0 448 512">
  <path d="M338.8-9.9c11.9 8.6 16.3 24.2 10.9 37.8L271.3 224 416 224c13.5 0 25.5 8.4 30.1 21.1s.7 26.9-9.6 35.5l-288 240c-11.3 9.4-27.4 9.9-39.3 1.3s-16.3-24.2-10.9-37.8L176.7 288 32 288c-13.5 0-25.5-8.4-30.1-21.1s-.7-26.9 9.6-35.5l288-240c11.3-9.4 27.4-9.9 39.3-1.3z" fill="currentColor"/>
  </svg></div><h3 class="text-lg font-bold text-brandBlue">Modernste Ladetechnologie</h3></div>
  <p class="text-sm text-slate-600 leading-relaxed">Unsere Powerbanks unterstützen Power Delivery 3.1 mit bis zu 140W Ladeleistung. Die Semi-Solid-State-Technologie ermöglicht eine höhere Energiedichte bei gleichzeitig verbesserter Sicherheit. Mit intelligentem Power-Management werden angeschlossene Geräte optimal und schonend geladen. Ideal für MacBook, iPhone, Samsung und alle USB-C Geräte.</p>
  </div>
- <div class="reveal bg-slate-50 rounded-2xl p-8 border border-slate-200">
+ <div class="card-lg-soft reveal p-8">
  <div class="flex items-center gap-4 mb-4"><div class="w-12 h-12 rounded-xl bg-brandOrange/10 flex items-center justify-center shrink-0"><svg class="icon-tag text-xl text-brandOrange" aria-hidden="true" focusable="false" viewBox="0 0 512 512">
  <path d="M32.5 96l0 149.5c0 17 6.7 33.3 18.7 45.3l192 192c25 25 65.5 25 90.5 0L483.2 333.3c25-25 25-65.5 0-90.5l-192-192C279.2 38.7 263 32 246 32L96.5 32c-35.3 0-64 28.7-64 64zm112 16a32 32 0 1 1 0 64 32 32 0 1 1 0-64z" fill="currentColor"/>
  </svg></div><h3 class="text-lg font-bold text-brandBlue">Flexible OEM/ODM Anpassung</h3></div>
  <p class="text-sm text-slate-600 leading-relaxed">Ob eigenes Logo, individuelle Farbe oder kundenspezifische Verpackung, wir setzen Ihre Markenwunsche um. Die MOQ für Lasergravur beginnt bei 500 Stück, für Siebdruck bei 1.000 Stück und für individuelle Verpackung bei 2.000 Stück. Wir bieten Lasergravur, Siebdruck und individuelle Verpackungsgestaltung aus nachhaltigen Materialien. Ihr persönlicher Account Manager begleitet Sie von der Musterphase bis zur Auslieferung. Ergänzen Sie mit unseren <a href="/de/produkte/gan-ladegeraet/" class="text-brandOrange hover:underline font-semibold">GaN-Netzladegeräten</a> für ein komplettes Lade-Sortiment.</p>
  </div>
- <div class="reveal bg-slate-50 rounded-2xl p-8 border border-slate-200">
+ <div class="card-lg-soft reveal p-8">
  <div class="flex items-center gap-4 mb-4"><div class="w-12 h-12 rounded-xl bg-brandOrange/10 flex items-center justify-center shrink-0"><svg class="icon-truck-fast text-xl text-brandOrange" aria-hidden="true" focusable="false" viewBox="0 0 640 512">
  <path d="M64 96c0-35.3 28.7-64 64-64l288 0c35.3 0 64 28.7 64 64l0 32 50.7 0c17 0 33.3 6.7 45.3 18.7L621.3 192c12 12 18.7 28.3 18.7 45.3L640 384c0 35.3-28.7 64-64 64l-3.3 0c-10.4 36.9-44.4 64-84.7 64s-74.2-27.1-84.7-64l-102.6 0c-10.4 36.9-44.4 64-84.7 64s-74.2-27.1-84.7-64l-3.3 0c-35.3 0-64-28.7-64-64l0-48-40 0c-13.3 0-24-10.7-24-24s10.7-24 24-24l112 0c13.3 0 24-10.7 24-24s-10.7-24-24-24L24 240c-13.3 0-24-10.7-24-24s10.7-24 24-24l176 0c13.3 0 24-10.7 24-24s-10.7-24-24-24L24 144c-13.3 0-24-10.7-24-24S10.7 96 24 96l40 0zM576 288l0-50.7-45.3-45.3-50.7 0 0 96 96 0zM256 424a40 40 0 1 0 -80 0 40 40 0 1 0 80 0zm232 40a40 40 0 1 0 0-80 40 40 0 1 0 0 80z" fill="currentColor"/>
  </svg></div><h3 class="text-lg font-bold text-brandBlue">Schnelle Lieferung nach Deutschland</h3></div>
@@ -295,21 +295,21 @@ plPath: "produkty/power-bank/"
  </section>
 
  <!-- ======== SEMI-SOLID-STATE TECHNOLOGIE ======== -->
- <section class="sec bg-white">
- <div class="container-content">
+ <section id="semi-solid-state-technologie" class="sec bg-white" data-section="comparison">
+ <div class="container-wide">
  {{ sectionHeader('Technologie', 'Semi-Solid-State — Die Zukunft der Powerbank', 'Unsere Semi-Solid-State-Powerbanks wurden auf der CES 2026 vorgestellt. Die Technologie setzt neue Maßstäbe bei Sicherheit, Lebensdauer und Energiedichte.', {mb: 'mb-12'}) }}
  <div class="grid md:grid-cols-3 gap-6 mb-12 reveal">
- <div class="text-center p-6 bg-slate-50 rounded-2xl border border-slate-200">
+ <div class="card-lg-soft text-center p-6">
  <p class="text-3xl font-black text-brandOrange mb-2">50%</p>
  <p class="text-sm font-bold text-brandBlue">Dünner</p>
  <p class="text-xs text-slate-500 mt-1">Höhere Energiedichte ermöglicht kompaktere Bauweise</p>
  </div>
- <div class="text-center p-6 bg-slate-50 rounded-2xl border border-slate-200">
+ <div class="card-lg-soft text-center p-6">
  <p class="text-3xl font-black text-brandOrange mb-2">2.000+</p>
  <p class="text-sm font-bold text-brandBlue">Ladezyklen</p>
  <p class="text-xs text-slate-500 mt-1">3–4× längere Lebensdauer als herkömmliche Li-Polymer</p>
  </div>
- <div class="text-center p-6 bg-slate-50 rounded-2xl border border-slate-200">
+ <div class="card-lg-soft text-center p-6">
  <p class="text-3xl font-black text-brandOrange mb-2">30%</p>
  <p class="text-sm font-bold text-brandBlue">Mehr Energiedichte</p>
  <p class="text-xs text-slate-500 mt-1">Mehr Kapazität bei gleichem Gewicht</p>
@@ -338,26 +338,26 @@ plPath: "produkty/power-bank/"
  </section>
 
  <!-- ======== EU-BATTERIEVERORDNUNG 2023/1542 ======== -->
- <section class="sec bg-white">
- <div class="container-content">
+ <section id="eu-batterieverordnung-2023-1542" class="sec bg-white" data-section="content">
+ <div class="container-wide">
  {{ sectionHeader('EU-Batterieverordnung 2023/1542', 'Vollständige EU-Compliance — als Service inklusive', 'Seit dem <strong>18.08.2024</strong> sind die ersten Erzeugerpflichten in Kraft. Ab <strong>18.02.2027</strong> wird der digitale Batteriepass für Industriebatterien Pflicht. Wir übernehmen die Compliance — Sie konzentrieren sich auf Ihren Markt.', {mb: 'mb-12'}) }}
  <div class="grid md:grid-cols-2 gap-6 reveal">
- <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200">
+ <div class="card-lg-soft p-6">
  <div class="flex items-center gap-3 mb-3"><span class="bg-brandOrange/10 text-brandOrange text-[11px] font-black px-3 py-1 rounded-full uppercase tracking-widest">Aktiv seit 2024</span></div>
  <h3 class="text-lg font-bold text-brandBlue mb-3">CE-Kennzeichnung &amp; Konformitätserklärung</h3>
  <p class="text-sm text-slate-600 leading-relaxed">Vollständige technische Dokumentation, EU-Konformitätserklärung nach 2023/1542 sowie Sicherheitsprüfung gemäß Anhang VI. Inkludiert in jeder OEM-Bestellung.</p>
  </div>
- <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200">
+ <div class="card-lg-soft p-6">
  <div class="flex items-center gap-3 mb-3"><span class="bg-brandOrange/10 text-brandOrange text-[11px] font-black px-3 py-1 rounded-full uppercase tracking-widest">EPR-Service</span></div>
  <h3 class="text-lg font-bold text-brandBlue mb-3">EAR-Registrierung Deutschland</h3>
  <p class="text-sm text-slate-600 leading-relaxed">Wir unterstützen bei der Registrierung im EAR-Stiftung-Register und übernehmen die jährliche Mengenmeldung. Auf Wunsch zusätzlich für AT, CH, FR, IT, ES.</p>
  </div>
- <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200">
+ <div class="card-lg-soft p-6">
  <div class="flex items-center gap-3 mb-3"><span class="bg-brandOrange/10 text-brandOrange text-[11px] font-black px-3 py-1 rounded-full uppercase tracking-widest">Ab 2027 Pflicht</span></div>
  <h3 class="text-lg font-bold text-brandBlue mb-3">Digitaler Batteriepass-Bereitschaft</h3>
  <p class="text-sm text-slate-600 leading-relaxed">Unsere Halbfest-Akku- und Laptop-Powerbank-Produkte sind bereits 2026 für den digitalen Batteriepass vorbereitet — QR-Code-fähige Etiketten, Lebenszyklus-Daten ab Produktion erfasst.</p>
  </div>
- <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200">
+ <div class="card-lg-soft p-6">
  <div class="flex items-center gap-3 mb-3"><span class="bg-brandOrange/10 text-brandOrange text-[11px] font-black px-3 py-1 rounded-full uppercase tracking-widest">Recycling</span></div>
  <h3 class="text-lg font-bold text-brandBlue mb-3">Rücknahme &amp; Rezyklatanteil</h3>
  <p class="text-sm text-slate-600 leading-relaxed">Mindest-Rezyklatanteil-Dokumentation für Lithium, Kobalt und Nickel. Take-back-Vereinbarung mit deutschen Entsorgern auf Anfrage. Halbfest-Akku-Produkte mit reduzierter Brandklasse.</p>
@@ -369,36 +369,36 @@ plPath: "produkty/power-bank/"
  </section>
 
  <!-- ======== ZERTIFIZIERUNGEN ======== -->
- <section class="sec bg-slate-50">
- <div class="container-content">
+ <section id="zertifizierungen" class="sec bg-slate-50" data-section="trust">
+ <div class="container-wide">
  {{ sectionHeader('Zertifizierungen &amp; Normen', 'EU-Konformität — Bereit für den deutschen Markt', 'Alle unsere Powerbanks sind für den Import und Vertrieb in der Europäischen Union zertifiziert.', {mb: 'mb-12'}) }}
  <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5 reveal">
- <div class="bg-white rounded-xl p-6 border border-slate-100 shadow-sm">
+ <div class="card p-6 shadow-sm">
  <div class="w-10 h-10 rounded-lg bg-brandOrange/10 flex items-center justify-center mb-3"><svg class="icon-certificate text-brandOrange text-lg" aria-hidden="true" focusable="false" viewBox="0 0 576 512"><path d="M239.2-8c-6.1-6.2-15-8.7-23.4-6.4S200.9-5.6 198.8 2.8L183.5 63c-1.1 4.4-5.6 7-9.9 5.7L113.8 51.9c-8.4-2.4-17.4 0-23.5 6.1s-8.5 15.1-6.1 23.5l16.9 59.8c1.2 4.3-1.4 8.8-5.7 9.9L35.1 166.5c-8.4 2.1-15 8.7-17.3 17.1s.2 17.3 6.4 23.4l44.5 43.3c3.2 3.1 3.2 8.3 0 11.5L24.3 305.1c-6.2 6.1-8.7 15-6.4 23.4s8.9 14.9 17.3 17.1l60.2 15.3c4.4 1.1 7 5.6 5.7 9.9L84.2 430.5c-2.4 8.4 0 17.4 6.1 23.5s15.1 8.5 23.5 6.1l59.8-16.9c4.3-1.2 8.8 1.4 9.9 5.7l15.3 60.2c2.1 8.4 8.7 15 17.1 17.3s17.3-.2 23.4-6.4l43.3-44.5c3.1-3.2 8.3-3.2 11.5 0L337.3 520c6.1 6.2 15 8.7 23.4 6.4s14.9-8.9 17.1-17.3L393.1 449c1.1-4.4 5.6-7 9.9-5.7l59.8 16.9c8.4 2.4 17.4 0 23.5-6.1s8.5-15.1 6.1-23.5l-16.9-59.8c-1.2-4.3 1.4-8.8 5.7-9.9l60.2-15.3c8.4-2.1 15-8.7 17.3-17.1s-.2-17.4-6.4-23.4l-44.5-43.3c-3.2-3.1-3.2-8.3 0-11.5l44.5-43.3c6.2-6.1 8.7-15 6.4-23.4s-8.9-14.9-17.3-17.1l-60.2-15.3c-4.4-1.1-7-5.6-5.7-9.9l16.9-59.8c2.4-8.4 0-17.4-6.1-23.5s-15.1-8.5-23.5-6.1L403 68.8c-4.3 1.2-8.8-1.4-9.9-5.7L377.8 2.8c-2.1-8.4-8.7-15-17.1-17.3s-17.3.2-23.4 6.4L294 36.5c-3.1 3.2-8.3 3.2-11.5 0L239.2-8z" fill="currentColor"/></svg></div>
  <h3 class="font-bold text-brandBlue text-sm mb-1">CE + UN38.3</h3>
  <p class="text-xs text-slate-500 leading-relaxed">CE-Kennzeichnung für EU-Verkauf + UN38.3 Zertifizierung für Lufttransport von Lithium-Batterien. Vollständige Dokumentation.</p>
  </div>
- <div class="bg-white rounded-xl p-6 border border-slate-100 shadow-sm">
+ <div class="card p-6 shadow-sm">
  <div class="w-10 h-10 rounded-lg bg-brandOrange/10 flex items-center justify-center mb-3"><svg class="icon-file text-brandOrange text-lg" aria-hidden="true" focusable="false" viewBox="0 0 384 512"><path d="M64 0C28.7 0 0 28.7 0 64L0 448c0 35.3 28.7 64 64 64l256 0c35.3 0 64-28.7 64-64l0-288-128 0c-17.7 0-32-14.3-32-32L224 0 64 0zM256 0l0 128 128 0L256 0zM112 256l160 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-160 0c-8.8 0-16-7.2-16-16s7.2-16 16-16zm0 64l160 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-160 0c-8.8 0-16-7.2-16-16s7.2-16 16-16zm0 64l160 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-160 0c-8.8 0-16-7.2-16-16s7.2-16 16-16z" fill="currentColor"/></svg></div>
  <h3 class="font-bold text-brandBlue text-sm mb-1">EU-Batterieverordnung 2023/1542</h3>
  <p class="text-xs text-slate-500 leading-relaxed">Konformität zur neuen Batterieverordnung: EPR-Registrierung, CE-Konformitätserklärung, Vorbereitung auf digitalen Batteriepass 2027.</p>
  </div>
- <div class="bg-white rounded-xl p-6 border border-slate-100 shadow-sm">
+ <div class="card p-6 shadow-sm">
  <div class="w-10 h-10 rounded-lg bg-brandOrange/10 flex items-center justify-center mb-3"><svg class="icon-leaf text-brandOrange text-lg" aria-hidden="true" focusable="false" viewBox="0 0 512 512"><path d="M272 96c-78.6 0-145.1 51.5-167.7 122.5c33.6-17 72.5-22.5 111.3-13.9l.7 .2C262.3 215.5 301.4 254.1 312 300c1.6 6.9 1.6 14 1.6 21.2l0 2.8c0 35.3-28.7 64-64 64l-16 0-104 0c-17.7 0-32-14.3-32-32l0-4c0-97.2 60.4-180.5 148.8-214.2c3.3-1.2 6.7-2.3 10.1-3.3c-22.5-8.5-46.3-13.8-70.5-14.9L206 104c0-35.3-21.4-64-48-64l-48 0c-26.6 0-48 28.7-48 64l0 5.7C26.6 140.9 0 186.4 0 240l0 64c0 35.3 28.7 64 64 64l185.7 0c36.6 0 69.1-20.5 85.1-50.3C372.7 329.4 400 353.6 400 384l0 64c0 35.3-28.7 64-64 64l-16 0c-17.7 0-32-14.3-32-32l0-62.3c-2.2 0-4.4-.2-6.6-.5C248.2 411.8 224 392 224 368l0-2.8c0-11.5-2.4-22.5-6.7-32.5C183.3 316.5 148.6 304 112 304l-21.5 0c-8.3 2.4-14.6 8.2-17.5 15.4L48 369.5l0 6.5c0 14.6 4.3 28 11.5 40l80.7 0C161.3 436.5 188 464 221.7 464l178.3 0c26.5 0 48-21.5 48-48l0-64zM512 158.3c0-49.3-29.7-91.4-72.3-108.1l6.3 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-16 0 0 32 16 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-16 0 0 32 16 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-16 0 0 32 16 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-16 0 0 32 16 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-6.3 0C482.3 249.7 512 207.6 512 158.3z" fill="currentColor"/></svg></div>
  <h3 class="font-bold text-brandBlue text-sm mb-1">RoHS / WEEE</h3>
  <p class="text-xs text-slate-500 leading-relaxed">RoHS-konform ohne gefährliche Stoffe. WEEE-Registrierung mit Entsorgungsverantwortung (ElektroG).</p>
  </div>
- <div class="bg-white rounded-xl p-6 border border-slate-100 shadow-sm">
+ <div class="card p-6 shadow-sm">
  <div class="w-10 h-10 rounded-lg bg-brandOrange/10 flex items-center justify-center mb-3"><svg class="icon-shield-halved text-brandOrange text-lg" aria-hidden="true" focusable="false" viewBox="0 0 512 512"><path d="M256 0c4.6 0 9.2 1 13.4 2.9L457.8 82.8c22 9.3 38.4 31 38.3 57.2-.5 99.2-41.3 280.7-213.6 363.2-16.7 8-36.1 8-52.8 0-172.4-82.5-213.1-264-213.6-363.2-.1-26.2 16.3-47.9 38.3-57.2L242.7 2.9C246.9 1 251.4 0 256 0zm0 66.8l0 378.1c138-66.8 175.1-214.8 176-303.4l-176-74.6 0 0z" fill="currentColor"/></svg></div>
  <h3 class="font-bold text-brandBlue text-sm mb-1">TÜV GS</h3>
  <p class="text-xs text-slate-500 leading-relaxed">Deutsche Sicherheitszertifizierung. Jährliche Produktionskontrolle durch TÜV Rheinland.</p>
  </div>
- <div class="bg-white rounded-xl p-6 border border-slate-100 shadow-sm">
+ <div class="card p-6 shadow-sm">
  <div class="w-10 h-10 rounded-lg bg-brandOrange/10 flex items-center justify-center mb-3"><svg class="icon-bolt text-brandOrange text-lg" aria-hidden="true" focusable="false" viewBox="0 0 448 512"><path d="M338.8-9.9c11.9 8.6 16.3 24.2 10.9 37.8L271.3 224 416 224c13.5 0 25.5 8.4 30.1 21.1s.7 26.9-9.6 35.5l-288 240c-11.3 9.4-27.4 9.9-39.3 1.3s-16.3-24.2-10.9-37.8L176.7 288 32 288c-13.5 0-25.5-8.4-30.1-21.1s-.7-26.9 9.6-35.5l288-240c11.3-9.4 27.4-9.9 39.3-1.3z" fill="currentColor"/></svg></div>
  <h3 class="font-bold text-brandBlue text-sm mb-1">2000+ Ladezyklen</h3>
  <p class="text-xs text-slate-500 leading-relaxed">Halbfest-Akkus: 2000+ Zyklen (vs. 500-800 Li-Polymer). 4x längere Lebensdauer, ideal für professionelle Anwendungen.</p>
  </div>
- <div class="bg-white rounded-xl p-6 border border-slate-100 shadow-sm">
+ <div class="card p-6 shadow-sm">
  <div class="w-10 h-10 rounded-lg bg-brandOrange/10 flex items-center justify-center mb-3"><svg class="icon-wifi text-brandOrange text-lg" aria-hidden="true" focusable="false" viewBox="0 0 640 512">
  <path d="M54.2 202.9C123.2 136.7 216.8 96 320 96s196.8 40.7 265.8 106.9c12.8 12.2 33 11.8 45.2-1s11.8-33-1-45.2C549.7 79.5 440.4 32 320 32S90.3 79.5 9.8 156.7C-2.9 168.8-3.3 189 9 201.2s32.4 13.2 45.2 1zM320 256c56.8 0 108.6 21.1 148.2 56c13.3 11.7 33.5 10.4 45.2-2.8s10.4-33.5-2.8-45.2C462.6 221.8 394.2 192 320 192s-142.6 29.8-190.6 72c-13.3 11.7-14.5 31.9-2.8 45.2s31.9 14.5 45.2 2.8c39.5-34.9 91.3-56 148.2-56zm64 160a64 64 0 1 0 -128 0 64 64 0 1 0 128 0z" fill="currentColor"/>
  </svg></div>
@@ -410,11 +410,11 @@ plPath: "produkty/power-bank/"
  </section>
 
  <!-- ======== KATEGORIEN-VERGLEICH ======== -->
- <section class="sec bg-slate-50">
+ <section id="kategorien-vergleich" class="sec bg-slate-50" data-section="comparison">
  <div class="container-wide">
  {{ sectionHeader('Kategorien-Vergleich', '6 Powerbank-Reihen im Überblick', 'Welche Reihe passt zu Ihrem Markt? Vergleichen Sie Technologie, Leistung, Kapazität und Einsatzgebiet — direkt verlinkt zur passenden Produktseite.', {mb: 'mb-12'}) }}
  <div class="overflow-x-auto reveal">
- <table class="w-full min-w-[720px] bg-white rounded-2xl shadow-sm border border-slate-200">
+ <table class="card-lg w-full min-w-[720px] shadow-sm">
  <thead>
  <tr class="bg-brandBlue text-white">
  <th class="py-3 px-3 text-xs font-bold uppercase tracking-wider text-left rounded-tl-2xl">Reihe</th>
@@ -489,7 +489,7 @@ plPath: "produkty/power-bank/"
  </section>
 
 <!-- ======== OEM/ODM ======== -->
- <section class="sec bg-slate-50">
+ <section id="oem-odm" class="sec bg-slate-50" data-section="content">
  <div class="container-wide">
  <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
  {% call sectionHeader('OEM / ODM', 'Ihre Powerbank,<br>Ihr Branding', 'Von der Idee bis zur fertigen Powerbank mit Ihrem Logo. Wir begleiten Sie durch den gesamten Prozess.', {align: '', max: '', mb: '', descClass: 'section-desc mb-8'}) %}<ul class="space-y-4">
@@ -524,12 +524,12 @@ plPath: "produkty/power-bank/"
  <span class="text-slate-600 text-sm"><strong class="text-brandBlue">EU-Compliance-Service:</strong> EAR-Registrierung Deutschland, Konformitätserklärung 2023/1542, Batteriepass-Bereitschaft 2027</span>
  </li>
  </ul>
- <button data-action="open-modal" class="btn-primary mt-8 cursor-pointer">OEM/ODM Anfrage <svg class="icon-arrow-right text-sm" aria-hidden="true" focusable="false" viewBox="0 0 512 512">
+ <button data-action="open-modal" class="btn-solid mt-8 cursor-pointer">OEM/ODM Anfrage <svg class="icon-arrow-right text-sm" aria-hidden="true" focusable="false" viewBox="0 0 512 512">
  <path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-105.4 105.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" fill="currentColor"/>
  </svg></button>
  {% endcall %}
  <div class="reveal">
- <div class="bg-slate-50 rounded-2xl p-8 md:p-10 border border-slate-200">
+ <div class="card-lg-soft p-8 md:p-10">
  <h3 class="text-lg font-bold text-brandBlue mb-6">Warum deutsche Unternehmen uns wählen</h3>
  <div class="space-y-5">
  <div class="flex items-start gap-4">
@@ -564,26 +564,26 @@ plPath: "produkty/power-bank/"
  </section>
 
  <!-- ======== PROZESS OEM ======== -->
- <section class="sec bg-white">
- <div class="container-content">
+ <section id="prozess-oem" class="sec bg-white" data-section="process">
+ <div class="container-wide">
  {{ sectionHeader('Prozess OEM', 'Ihre maßgeschneiderte Powerbank — von der Idee zur Lieferung', 'Ein strukturierter 4-Schritte-Prozess. Von der ersten Anfrage bis zur Serienproduktion begleiten wir Sie in jeder Phase.', {mb: 'mb-12'}) }}
  <div class="grid md:grid-cols-4 gap-0 reveal">
- <div class="relative bg-white rounded-2xl border border-slate-200 p-6 text-center">
+ <div class="card-lg relative p-6 text-center">
  <div class="w-12 h-12 rounded-full bg-brandOrange text-white font-black text-lg flex items-center justify-center mx-auto mb-4">1</div>
  <h3 class="font-bold text-brandBlue text-sm mb-2">Beratung & Design</h3>
  <p class="text-xs text-slate-500 leading-relaxed">Analyse Ihrer Anforderungen: Kapazität, PD-Leistung, Akku-Typ (Li-Po oder Halbfest), Ports, Design. 3D-Muster in 5 Tagen.</p>
  </div>
- <div class="relative bg-white rounded-2xl border border-slate-200 p-6 text-center">
+ <div class="card-lg relative p-6 text-center">
  <div class="w-12 h-12 rounded-full bg-brandOrange text-white font-black text-lg flex items-center justify-center mx-auto mb-4">2</div>
  <h3 class="font-bold text-brandBlue text-sm mb-2">Prototyp & Zertifizierung</h3>
  <p class="text-xs text-slate-500 leading-relaxed">Funktionsmuster in 3-7 Tagen. Tests: CE, UN38.3, TÜV GS, RoHS. Anpassungen bis zur vollständigen Freigabe.</p>
  </div>
- <div class="relative bg-white rounded-2xl border border-slate-200 p-6 text-center">
+ <div class="card-lg relative p-6 text-center">
  <div class="w-12 h-12 rounded-full bg-brandOrange text-white font-black text-lg flex items-center justify-center mx-auto mb-4">3</div>
  <h3 class="font-bold text-brandBlue text-sm mb-2">Serienproduktion</h3>
  <p class="text-xs text-slate-500 leading-relaxed">Produktion 25-35 Tage nach Freigabe. 4-Stufen-Qualitätskontrolle (IQC, IPQC, FQC, OQC). 4h Burn-in-Test pro Gerät.</p>
  </div>
- <div class="relative bg-white rounded-2xl border border-slate-200 p-6 text-center">
+ <div class="card-lg relative p-6 text-center">
  <div class="w-12 h-12 rounded-full bg-brandOrange text-white font-black text-lg flex items-center justify-center mx-auto mb-4">4</div>
  <h3 class="font-bold text-brandBlue text-sm mb-2">Lieferung & Support</h3>
  <p class="text-xs text-slate-500 leading-relaxed">DDP-Versand nach Deutschland in 5-7 Tagen (DHL/FedEx). Zollabwicklung inklusive. 12-24 Monate Garantie.</p>
@@ -593,7 +593,7 @@ plPath: "produkty/power-bank/"
  </section>
 
  <!-- ======== FAQ ======== -->
- <section class="sec bg-slate-50">
+ <section id="faq" class="sec bg-slate-50" data-section="faq">
  <div class="container-narrow">
  {{ sectionHeader('FAQ', 'Häufige Fragen zu Powerbanks', '', {max: ''}) }}
  <div class="reveal">
@@ -612,7 +612,7 @@ plPath: "produkty/power-bank/"
  </section>
 
  <!-- ====== BLOG INSIGHTS ====== -->
-<section class="sec bg-white">
+<section id="blog-insights" class="sec bg-white" data-section="content">
  <div class="container-wide">
   <div class="text-center mb-12 reveal">
    <h2 class="text-3xl lg:text-4xl font-black text-slate-900 uppercase italic tracking-tighter mb-4">Powerbank <span class="text-brandOrange">Insights</span></h2>
@@ -665,23 +665,23 @@ plPath: "produkty/power-bank/"
 </section>
 
 <!-- ====== WEITERE KATEGORIEN ====== -->
-<section class="sec bg-white">
- <div class="container-content">
+<section id="weitere-kategorien" class="sec bg-white" data-section="products">
+ <div class="container-wide">
   <p class="text-center text-slate-500 text-sm mb-6">Weitere Powerbank-Kategorien von WOWOHCOOL:</p>
   <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-   <a href="/de/produkte/powerbank/halbfest-akku/" class="block bg-slate-50 rounded-xl p-4 border border-slate-200 hover:border-brandOrange hover:shadow-md transition text-center">
+   <a href="/de/produkte/powerbank/halbfest-akku/" class="card-soft block p-4 hover:border-brandOrange hover:shadow-md transition text-center">
     <p class="font-black text-brandBlue text-sm uppercase mb-1">Halbfest-Akku</p>
     <p class="text-[10px] text-slate-500">50% dünner, CES 2026</p>
    </a>
-   <a href="/de/produkte/powerbank/2-in-1-hybrid/" class="block bg-slate-50 rounded-xl p-4 border border-slate-200 hover:border-brandOrange hover:shadow-md transition text-center">
+   <a href="/de/produkte/powerbank/2-in-1-hybrid/" class="card-soft block p-4 hover:border-brandOrange hover:shadow-md transition text-center">
     <p class="font-black text-brandBlue text-sm uppercase mb-1">2-in-1 Hybrid</p>
     <p class="text-[10px] text-slate-500">Ladegerät + Powerbank</p>
    </a>
-   <a href="/de/produkte/powerbank/magnetisch-kabellos/" class="block bg-slate-50 rounded-xl p-4 border border-slate-200 hover:border-brandOrange hover:shadow-md transition text-center">
+   <a href="/de/produkte/powerbank/magnetisch-kabellos/" class="card-soft block p-4 hover:border-brandOrange hover:shadow-md transition text-center">
     <p class="font-black text-brandBlue text-sm uppercase mb-1">Magnetisch Kabellos</p>
     <p class="text-[10px] text-slate-500">Qi2 / MagSafe</p>
    </a>
-   <a href="/de/produkte/powerbank/" class="block bg-slate-50 rounded-xl p-4 border border-slate-200 hover:border-brandOrange hover:shadow-md transition text-center">
+   <a href="/de/produkte/powerbank/" class="card-soft block p-4 hover:border-brandOrange hover:shadow-md transition text-center">
     <p class="font-black text-brandBlue text-sm uppercase mb-1">Alle Powerbanks</p>
     <p class="text-[10px] text-slate-500">6 Kategorien, 29+ Modelle</p>
    </a>

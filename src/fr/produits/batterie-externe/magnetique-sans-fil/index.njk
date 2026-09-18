@@ -97,13 +97,13 @@ plPath: "produkty/power-bank/magnetyczny-bezprzewodowy/"
 {% block content %}
 
 <!-- Hero -->
-<section class="relative pt-24 md:pt-28 pb-8 lg:pb-16 bg-white text-slate-900 overflow-hidden">
+<section id="hero" class="relative pt-24 md:pt-28 lg:pt-20 pb-8 lg:pb-20 bg-white text-slate-900 overflow-hidden lg:min-h-[100dvh] lg:flex lg:flex-col lg:justify-center" data-section="hero">
  <div class="absolute inset-0 z-0 pointer-events-none overflow-hidden">
  <div class="absolute top-0 left-0 max-w-full w-64 h-64 bg-brandOrange opacity-20 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
  <div class="absolute bottom-0 right-0 max-w-full w-64 h-64 bg-blue-500 opacity-20 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
  </div>
 
- <div class="container-wide relative z-10 text-center pb-12 lg:pb-12">
+ <div class="container-wide relative z-10 text-center pb-12 lg:pb-0">
  {{ breadcrumb([{name: "Accueil", url: "/fr/"}, {name: "Produits", url: "/fr/produits/"}, {name: "Batterie externe", url: "/fr/produits/batterie-externe/"}, {name: "Magnétique / Sans fil"}], "none", "mb-6", { variant: "hero" }) }}
 
  <div>
@@ -115,14 +115,14 @@ plPath: "produkty/power-bank/magnetyczny-bezprzewodowy/"
 
  <p class="max-w-2xl mx-auto text-slate-500 text-xs leading-relaxed mb-8">Triple catalyseur marché 2026 : <strong>(1)</strong> Apple a abandonné sa batterie MagSafe universelle — des centaines de millions d'utilisateurs cherchent des alternatives. <strong>(2)</strong> Android arrive sur Qi2 (Pixel 10, Galaxy S25) — le marché adressable double. <strong>(3)</strong> La transition Qi2 → Qi2.2 (25W, +67% vitesse) force le renouvellement des gammes. Les marques françaises qui sécurisent leur chaîne d'approvisionnement Qi2.2 maintenant prennent une longueur d'avance.</p>
 
- <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-2xl mx-auto mb-10">
- <div class="bg-slate-50 rounded-xl p-4 border border-slate-100"><p class="text-2xl font-black text-brandBlue">15W</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Sortie Qi2</p></div>
- <div class="bg-slate-50 rounded-xl p-4 border border-slate-100"><p class="text-2xl font-black text-brandOrange">Qi2+MS</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Compatibilité</p></div>
- <div class="bg-slate-50 rounded-xl p-4 border border-slate-100"><p class="text-2xl font-black text-brandBlue">10K</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">mAh Max</p></div>
- <div class="bg-slate-50 rounded-xl p-4 border border-slate-100"><p class="text-2xl font-black text-brandOrange">500</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">MOQ</p></div>
+ <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
+ <div class="card-soft p-4"><p class="text-2xl font-black text-brandBlue">15W</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Sortie Qi2</p></div>
+ <div class="card-soft p-4"><p class="text-2xl font-black text-brandOrange">Qi2+MS</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Compatibilité</p></div>
+ <div class="card-soft p-4"><p class="text-2xl font-black text-brandBlue">10K</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">mAh Max</p></div>
+ <div class="card-soft p-4"><p class="text-2xl font-black text-brandOrange">500</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">MOQ</p></div>
  </div>
 
- <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
+ <div class="btn-pair">
  <button data-action="open-modal" data-product="Qi2 Wireless Magnetic Power Bank" class="btn-wide-lg">Demander un échantillon</button>
  <a href="#products" class="btn-ghost-lg">En savoir plus</a>
  </div>
@@ -138,7 +138,7 @@ plPath: "produkty/power-bank/magnetyczny-bezprzewodowy/"
  <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-white border border-slate-200 rotate-45"></div>
 </div>
 <!-- Products -->
-<section id="products" class="sec bg-slate-50 relative py-16">
+<section id="products" class="sec bg-slate-50 relative" data-section="products">
  <div class="container-wide">
  <h2 class="text-2xl font-black text-brandBlue uppercase italic tracking-tighter mb-2 text-center">Batteries Externes À Chargement Sans Fil</h2>
  <p class="text-center text-slate-500 text-sm mb-10">11 modèles | 5000-20000mAh | Jusqu'à Qi2.2 25W + PD 40W</p>
@@ -186,7 +186,7 @@ plPath: "produkty/power-bank/magnetyczny-bezprzewodowy/"
  </p>
 
  <details class="mb-6 group/spec">
- <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition">
+ <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition">
  <span class="text-xs font-black text-slate-700 uppercase">Spécifications</span>
  <span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span>
  </summary>
@@ -280,7 +280,7 @@ plPath: "produkty/power-bank/magnetyczny-bezprzewodowy/"
  </p>
 
  <details class="mb-6 group/spec">
- <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition">
+ <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition">
  <span class="text-xs font-black text-slate-700 uppercase">Spécifications</span>
  <span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span>
  </summary>
@@ -382,7 +382,7 @@ plPath: "produkty/power-bank/magnetyczny-bezprzewodowy/"
  </p>
 
  <details class="mb-6 group/spec">
- <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition">
+ <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition">
  <span class="text-xs font-black text-slate-700 uppercase">Spécifications</span>
  <span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span>
  </summary>
@@ -476,7 +476,7 @@ plPath: "produkty/power-bank/magnetyczny-bezprzewodowy/"
  </p>
 
  <details class="mb-6 group/spec">
- <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition">
+ <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition">
  <span class="text-xs font-black text-slate-700 uppercase">Spécifications</span>
  <span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span>
  </summary>
@@ -574,7 +574,7 @@ plPath: "produkty/power-bank/magnetyczny-bezprzewodowy/"
  </p>
 
  <details class="mb-6 group/spec">
- <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition">
+ <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition">
  <span class="text-xs font-black text-slate-700 uppercase">Spécifications</span>
  <span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span>
  </summary>
@@ -664,7 +664,7 @@ plPath: "produkty/power-bank/magnetyczny-bezprzewodowy/"
  </p>
 
  <details class="mb-6 group/spec">
- <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition">
+ <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition">
  <span class="text-xs font-black text-slate-700 uppercase">Spécifications</span>
  <span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span>
  </summary>
@@ -762,7 +762,7 @@ plPath: "produkty/power-bank/magnetyczny-bezprzewodowy/"
  </p>
 
  <details class="mb-6 group/spec">
- <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition">
+ <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition">
  <span class="text-xs font-black text-slate-700 uppercase">Spécifications</span>
  <span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span>
  </summary>
@@ -856,7 +856,7 @@ plPath: "produkty/power-bank/magnetyczny-bezprzewodowy/"
  </p>
 
  <details class="mb-6 group/spec">
- <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition">
+ <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition">
  <span class="text-xs font-black text-slate-700 uppercase">Spécifications</span>
  <span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span>
  </summary>
@@ -974,7 +974,7 @@ plPath: "produkty/power-bank/magnetyczny-bezprzewodowy/"
  </p>
 
  <details class="mb-6 group/spec">
- <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition">
+ <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition">
  <span class="text-xs font-black text-slate-700 uppercase">Spécifications</span>
  <span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span>
  </summary>
@@ -1096,7 +1096,7 @@ plPath: "produkty/power-bank/magnetyczny-bezprzewodowy/"
  </p>
 
  <details class="mb-6 group/spec">
- <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition">
+ <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition">
  <span class="text-xs font-black text-slate-700 uppercase">Spécifications</span>
  <span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span>
  </summary>
@@ -1163,7 +1163,7 @@ plPath: "produkty/power-bank/magnetyczny-bezprzewodowy/"
 </section>
 
 <!-- What is Qi2 -->
-<section class="sec bg-white relative py-16">
+<section id="what-is-qi2" class="sec bg-white relative" data-section="content">
  <div class="container-wide">
  <h2 class="section-title text-center">Qu'est-ce Que La Recharge Magnétique Sans Fil Qi2 ?</h2>
  <p class="text-center text-slate-500 text-sm max-w-3xl mx-auto mb-8">Le Qi2 est la nouvelle génération du standard de recharge sans fil Qi, basé sur la technologie MagSafe d'Apple. Il ajoute l'alignement magnétique via des aimants néodyme N52H et la charge rapide universelle 15W pour toutes les marques de téléphones.</p>
@@ -1172,16 +1172,16 @@ plPath: "produkty/power-bank/magnetyczny-bezprzewodowy/"
   <p>"Le marché des batteries externes magnétiques sans fil devrait passer de 1,85 milliard de dollars en 2024 à 3,79 milliards de dollars d'ici 2031, avec un TCAC de 10,8%. En décembre 2025, plus de 2665 produits certifiés Qi2 étaient sur le marché, les batteries externes représentant 23% de toutes les certifications — 609 modèles. Le WPC prévoit que près de 4 milliards d'appareils Qi2 seront expédiés d'ici cinq ans. Avec le Qi2.2 permettant la recharge sans fil 25W et les Samsung Galaxy S25 et Google Pixel 10 ajoutant le support magnétique Android natif, le marché adressable pour les batteries externes magnétiques cross-platform a effectivement doublé du jour au lendemain."</p>
   <cite class="block text-xs text-slate-400 mt-2 not-italic">— <a href="https://www.qyresearch.com/news/14014/magnetic-wireless-power-bank" target="_blank" rel="noopener noreferrer" class="text-brandOrange hover:underline">QY Research</a>, Magnetic Wireless Power Bank Market 2025-2031; <a href="https://www.businesswire.com/news/home/20260105765040/en/Qi2s-Rapid-Adoption-Highlights-Its-Redefinition-of-Wireless-Charging" target="_blank" rel="noopener noreferrer" class="text-brandOrange hover:underline">WPC / BusinessWire</a>, Qi2 Adoption Report Jan 2026</cite>
  </blockquote>
- <div class="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
- <div class="bg-slate-50 rounded-xl p-6 border border-slate-100 text-center"><p class="text-3xl font-black text-brandBlue mb-2">15W</p><p class="text-sm font-bold text-slate-700 mb-2">Charge Rapide Universelle</p><p class="text-xs text-slate-500">Même vitesse que MagSafe sur tous les téléphones Qi2. Sans verrouillage constructeur.</p></div>
- <div class="bg-slate-50 rounded-xl p-6 border border-slate-100 text-center"><p class="text-3xl font-black text-brandOrange mb-2">&lt;10mm</p><p class="text-sm font-bold text-slate-700 mb-2">Profil Ultra-Fin</p><p class="text-xs text-slate-500">Design compact avec fixation magnétique. Plus besoin de câbles.</p></div>
- <div class="bg-slate-50 rounded-xl p-6 border border-slate-100 text-center"><p class="text-3xl font-black text-brandBlue mb-2">500+</p><p class="text-sm font-bold text-slate-700 mb-2">Durée de Vie</p><p class="text-xs text-slate-500">Cellules premium Grade A avec capacité constante dans le temps.</p></div>
+ <div class="grid md:grid-cols-3 gap-8">
+ <div class="card-soft p-6 text-center"><p class="text-3xl font-black text-brandBlue mb-2">15W</p><p class="text-sm font-bold text-slate-700 mb-2">Charge Rapide Universelle</p><p class="text-xs text-slate-500">Même vitesse que MagSafe sur tous les téléphones Qi2. Sans verrouillage constructeur.</p></div>
+ <div class="card-soft p-6 text-center"><p class="text-3xl font-black text-brandOrange mb-2">&lt;10mm</p><p class="text-sm font-bold text-slate-700 mb-2">Profil Ultra-Fin</p><p class="text-xs text-slate-500">Design compact avec fixation magnétique. Plus besoin de câbles.</p></div>
+ <div class="card-soft p-6 text-center"><p class="text-3xl font-black text-brandBlue mb-2">500+</p><p class="text-sm font-bold text-slate-700 mb-2">Durée de Vie</p><p class="text-xs text-slate-500">Cellules premium Grade A avec capacité constante dans le temps.</p></div>
  </div>
  </div>
 </section>
 
 <!-- Qi2 vs MagSafe vs Qi Comparison -->
-<section class="sec bg-slate-50 relative py-16">
+<section id="qi2-vs-magsafe-vs-qi-comparison" class="sec bg-slate-50 relative" data-section="comparison">
  <div class="container-wide">
  <h2 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4 text-center">Qi2 vs. MagSafe vs. <span class="text-brandOrange">Qi : Ce Que Les Acheteurs Doivent Savoir</span></h2>
  <p class="text-center text-slate-500 text-sm max-w-3xl mx-auto mb-12">Vous ne savez pas quel standard spécifier pour votre gamme de produits ? Voici l'analyse technique. Le Qi2 vous offre la compatibilité MagSafe avec une portée cross-platform — le meilleur des deux mondes pour les marques OEM ciblant les marchés mondiaux.</p>
@@ -1189,11 +1189,11 @@ plPath: "produkty/power-bank/magnetyczny-bezprzewodowy/"
  <div class="overflow-x-auto rounded-2xl border border-slate-200 shadow-sm max-w-4xl mx-auto">
  <table class="w-full text-sm">
  <thead>
- <tr class="bg-white">
- <th class="p-4 text-left text-slate-500 font-bold text-xs uppercase">Fonctionnalité</th>
- <th class="p-4 text-center text-slate-500 font-bold text-xs uppercase">Qi (v1)<br><span class="text-[10px] normal-case opacity-70">Ancien</span></th>
- <th class="p-4 text-center bg-brandOrange/5 border-x border-brandOrange/20 text-brandOrange font-bold text-xs uppercase">Qi2 / Qi2.2<br><span class="text-[10px] normal-case opacity-70">WOWOHCOOL</span></th>
- <th class="p-4 text-center text-slate-500 font-bold text-xs uppercase">MagSafe<br><span class="text-[10px] normal-case opacity-70">Apple Uniquement</span></th>
+ <tr class="bg-brandBlue text-white">
+ <th class="p-4 text-left font-bold text-xs uppercase">Fonctionnalité</th>
+ <th class="p-4 text-center font-bold text-xs uppercase">Qi (v1)<br><span class="text-[10px] normal-case opacity-70">Ancien</span></th>
+ <th class="p-4 text-center bg-brandOrange/20 font-bold text-xs uppercase">Qi2 / Qi2.2<br><span class="text-[10px] normal-case opacity-70">WOWOHCOOL</span></th>
+ <th class="p-4 text-center font-bold text-xs uppercase">MagSafe<br><span class="text-[10px] normal-case opacity-70">Apple Uniquement</span></th>
  </tr>
  </thead>
  <tbody>
@@ -1247,41 +1247,41 @@ plPath: "produkty/power-bank/magnetyczny-bezprzewodowy/"
 </section>
 
 <!-- Why Wireless/Magnetic -->
-<section class="sec bg-white relative py-16">
+<section id="why-wireless-magnetic" class="sec bg-white relative" data-section="content">
  <div class="container-wide">
  <h2 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4 text-center">Pourquoi Choisir Le <span class="text-brandOrange">Magnétique / Sans Fil</span> Pour Votre Marque</h2>
  <p class="text-center text-slate-500 text-sm max-w-2xl mx-auto mb-12">Captez la demande de l'écosystème iPhone. Positionnement premium. Commodité sans câble.</p>
- <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
- <div class="bg-slate-50 rounded-xl p-6 border border-slate-200 shadow-sm"><h3 class="font-black text-brandBlue uppercase mb-3 text-sm">Capture de l'Écosystème iPhone</h3><p class="text-sm text-slate-600 leading-relaxed">Plus de 800M d'iPhones compatibles MagSafe sur le marché (séries 12-16). Les batteries externes Qi2 accèdent directement à la base d'utilisateurs premium d'Apple.</p></div>
- <div class="bg-slate-50 rounded-xl p-6 border border-slate-200 shadow-sm"><h3 class="font-black text-brandBlue uppercase mb-3 text-sm">Attrait Premium en Rayon</h3><p class="text-sm text-slate-600 leading-relaxed">Le design magnétique fin se photographie bien, se vend entre 39 et 89 $ au détail. Marges plus élevées que les batteries externes à câble standard.</p></div>
- <div class="bg-slate-50 rounded-xl p-6 border border-slate-200 shadow-sm"><h3 class="font-black text-brandBlue uppercase mb-3 text-sm">Commodité Sans Câble</h3><p class="text-sm text-slate-600 leading-relaxed">Fixation et charge. Plus de câbles perdus, pas d'usure de port. Particulièrement attractif pour les marchés du voyage et des cadeaux d'entreprise.</p></div>
- <div class="bg-slate-50 rounded-xl p-6 border border-slate-200 shadow-sm"><h3 class="font-black text-brandBlue uppercase mb-3 text-sm">Certification Qi2</h3><p class="text-sm text-slate-600 leading-relaxed">Les produits certifiés WPC portent le logo Qi2, un signal de confiance fort en magasin. Évitez les pièges marketing "compatible Qi".</p></div>
- <div class="bg-slate-50 rounded-xl p-6 border border-slate-200 shadow-sm"><h3 class="font-black text-brandBlue uppercase mb-3 text-sm">Compatibilité Coque MagSafe</h3><p class="text-sm text-slate-600 leading-relaxed">Fonctionne avec la plupart des coques compatibles MagSafe. L'alignement magnétique pénètre les coques standard de 4mm sans perte de vitesse.</p></div>
- <div class="bg-slate-50 rounded-xl p-6 border border-slate-200 shadow-sm"><h3 class="font-black text-brandBlue uppercase mb-3 text-sm">Moteur d'Achats Répétés</h3><p class="text-sm text-slate-600 leading-relaxed">Les clients achètent souvent 2-3 unités (une par sac, bureau, voiture). Meilleure valeur client à vie que les catégories à achat unique.</p></div>
+ <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+ <div class="card-soft p-6 shadow-sm"><h3 class="font-black text-brandBlue uppercase mb-3 text-sm">Capture de l'Écosystème iPhone</h3><p class="text-sm text-slate-600 leading-relaxed">Plus de 800M d'iPhones compatibles MagSafe sur le marché (séries 12-16). Les batteries externes Qi2 accèdent directement à la base d'utilisateurs premium d'Apple.</p></div>
+ <div class="card-soft p-6 shadow-sm"><h3 class="font-black text-brandBlue uppercase mb-3 text-sm">Attrait Premium en Rayon</h3><p class="text-sm text-slate-600 leading-relaxed">Le design magnétique fin se photographie bien, se vend entre 39 et 89 $ au détail. Marges plus élevées que les batteries externes à câble standard.</p></div>
+ <div class="card-soft p-6 shadow-sm"><h3 class="font-black text-brandBlue uppercase mb-3 text-sm">Commodité Sans Câble</h3><p class="text-sm text-slate-600 leading-relaxed">Fixation et charge. Plus de câbles perdus, pas d'usure de port. Particulièrement attractif pour les marchés du voyage et des cadeaux d'entreprise.</p></div>
+ <div class="card-soft p-6 shadow-sm"><h3 class="font-black text-brandBlue uppercase mb-3 text-sm">Certification Qi2</h3><p class="text-sm text-slate-600 leading-relaxed">Les produits certifiés WPC portent le logo Qi2, un signal de confiance fort en magasin. Évitez les pièges marketing "compatible Qi".</p></div>
+ <div class="card-soft p-6 shadow-sm"><h3 class="font-black text-brandBlue uppercase mb-3 text-sm">Compatibilité Coque MagSafe</h3><p class="text-sm text-slate-600 leading-relaxed">Fonctionne avec la plupart des coques compatibles MagSafe. L'alignement magnétique pénètre les coques standard de 4mm sans perte de vitesse.</p></div>
+ <div class="card-soft p-6 shadow-sm"><h3 class="font-black text-brandBlue uppercase mb-3 text-sm">Moteur d'Achats Répétés</h3><p class="text-sm text-slate-600 leading-relaxed">Les clients achètent souvent 2-3 unités (une par sac, bureau, voiture). Meilleure valeur client à vie que les catégories à achat unique.</p></div>
  </div>
  </div>
 </section>
 <!-- Why the Magnetic Market is Exploding in 2026 -->
- <section class="sec bg-slate-50 relative py-16">
-  <div class="container-content">
+ <section id="why-the-magnetic-market-is-exploding-in-2026" class="sec bg-slate-50 relative" data-section="content">
+  <div class="container-wide">
   {{ sectionHeader('Opportunité 2026 — Marche en pleine explosion', 'Pourquoi le marche du <span class="text-brandOrange">magnétique explose</span> en 2026', 'Trois forces convergentes créent une opportunité unique pour les marques françaises — le moment d\'entrer sur le marche est maintenant.', { max: '', mb: 'mb-10', titleClass: 'text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4', descClass: 'text-slate-500 text-sm max-w-3xl mx-auto', labelStyle: 'pill', pillClass: 'bg-brandOrange/10', pillMb: 'mb-6' }) }}
 
-  <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-10">
-   <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm">
+  <div class="grid md:grid-cols-3 gap-6 mb-10">
+   <div class="card-lg p-6 shadow-sm">
     <div class="w-12 h-12 bg-red-50 rounded-xl flex items-center justify-center mb-4">
      <svg class="text-red-500 text-xl" aria-hidden="true" focusable="false" viewBox="0 0 576 512"><path d="M290.7 311L95 269.7 86.8 309l195.7 41 130.1-81.3-27.3-42.3L290.7 311zm91.1-134.5L310.3 103 195.4 171.5l41 28.6 131.4-23.6zm-69.3 211.3l152.4-99.9-28.6-41.2-152.7 76.2 1.3 31.8 27.6 33.1zM0 96l0 256c0 35.3 28.7 64 64 64l448 0c35.3 0 64-28.7 64-64l0-256c0-35.3-28.7-64-64-64L64 32C28.7 32 0 60.7 0 96z" fill="currentColor"/></svg>
     </div>
     <h3 class="font-black text-brandBlue text-sm mb-2">Apple abandonne MagSafe</h3>
     <p class="text-xs text-slate-600 leading-relaxed">Apple a arrête sa batterie MagSafe universelle (2023) et son modele 2025 est incompatible avec les autres iPhones. Des <strong>centaines de millions d'utilisateurs</strong> cherchent des alternatives tierces — le marche est grand ouvert.</p>
    </div>
-   <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm">
+   <div class="card-lg p-6 shadow-sm">
     <div class="w-12 h-12 bg-green-50 rounded-xl flex items-center justify-center mb-4">
      <svg class="text-green-500 text-xl" aria-hidden="true" focusable="false" viewBox="0 0 512 512"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z" fill="currentColor"/></svg>
     </div>
     <h3 class="font-black text-brandBlue text-sm mb-2">Android adopte Qi2</h3>
     <p class="text-xs text-slate-600 leading-relaxed">Google Pixel 10 (2026) et Samsung Galaxy S25 sont les premiers flagships Android avec support Qi2 natif. Le marche adressable <strong>double</strong> — vos batteries couvrent iPhone ET Android premium.</p>
    </div>
-   <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm">
+   <div class="card-lg p-6 shadow-sm">
     <div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center mb-4">
      <svg class="text-blue-500 text-xl" aria-hidden="true" focusable="false" viewBox="0 0 448 512"><path d="M338.8-9.9c11.9 8.6 16.3 24.2 10.9 37.8L271.3 224 416 224c13.5 0 25.5 8.4 30.1 21.1s.7 26.9-9.6 35.5l-288 240c-11.3 9.4-27.4 9.9-39.3 1.3s-16.3-24.2-10.9-37.8L176.7 288 32 288c-13.5 0-25.5-8.4-30.1-21.1s-.7-26.9 9.6-35.5l288-240c11.3-9.4 27.4-9.9 39.3-1.3z" fill="currentColor"/></svg>
     </div>
@@ -1297,12 +1297,12 @@ plPath: "produkty/power-bank/magnetyczny-bezprzewodowy/"
  </section>
 
  <!-- OEM/ODM Customization -->
-<section class="sec bg-slate-50 relative py-16">
+<section id="oem-odm-customization" class="sec bg-slate-50 relative" data-section="content">
  <div class="container-wide">
  <h2 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4 text-center">Personnalisation OEM/ODM</h2>
  <p class="text-center text-slate-500 text-sm max-w-2xl mx-auto mb-12">Personnalisation complète, de l'impression du logo au design industriel sur mesure. Échantillons de pré-production disponibles dès maintenant.</p>
- <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
- <div class="bg-white rounded-xl p-6 border border-slate-200">
+ <div class="grid md:grid-cols-2 gap-8">
+ <div class="card p-6">
  <h3 class="font-black text-brandBlue uppercase mb-4 text-sm">OEM (Modèles Standard, MOQ 500)</h3>
  <ul class="space-y-2 text-sm text-slate-600">
  <li>&bull; Impression logo (sérigraphie, laser, UV)</li>
@@ -1312,7 +1312,7 @@ plPath: "produkty/power-bank/magnetyczny-bezprzewodowy/"
  <li>&bull; Délai : 30 jours après approbation de l'échantillon</li>
  </ul>
  </div>
- <div class="bg-white rounded-xl p-6 border border-slate-200">
+ <div class="card p-6">
  <h3 class="font-black text-brandBlue uppercase mb-4 text-sm">ODM (Design Personnalisé, MOQ 1000-2000)</h3>
  <ul class="space-y-2 text-sm text-slate-600">
  <li>&bull; Design ID sur mesure (CMF : Couleur, Matériau, Finition)</li>
@@ -1333,7 +1333,7 @@ plPath: "produkty/power-bank/magnetyczny-bezprzewodowy/"
 </section>
 
 <!-- Android Qi2 Adoption -->
-<section class="sec bg-white relative py-16">
+<section id="android-qi2-adoption" class="sec bg-white relative" data-section="content">
  <div class="container-wide">
  <h2 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4 text-center">Adoption Android Qi2 : <span class="text-brandOrange">Votre Marché Vient De Doubler</span></h2>
  <p class="text-center text-slate-500 text-sm max-w-3xl mx-auto mb-12">Les batteries externes magnétiques sans fil étaient exclusivement iPhone jusqu'en 2025. Désormais, les Samsung Galaxy S25 et Google Pixel 10 supportent le Qi2 nativement — et d'autres flagships Android les rejoignent au S2 2026. Votre inventaire de batteries externes Qi2 vient de devenir cross-platform.</p>
@@ -1342,18 +1342,18 @@ plPath: "produkty/power-bank/magnetyczny-bezprzewodowy/"
    <p class="text-sm text-slate-700 leading-relaxed mb-0"><strong>Transition Qi2 → Qi2.2 (25W) :</strong> Le standard Qi2.2 finalisé en juillet 2025 est la nouvelle référence. WOWOHCOOL propose déjà le modèle <strong>WOPQ11 Qi2.2 25W + PD 40W</strong> — 67% plus rapide que le Qi2 15W standard. Les acheteurs OEM qui intègrent le Qi2.2 maintenant évitent l'obsolescence de gamme dans 12-18 mois.</p>
   </div>
 
- <div class="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
- <div class="bg-slate-50 rounded-xl p-6 border border-slate-100 text-center">
+ <div class="grid md:grid-cols-3 gap-6">
+ <div class="card-soft p-6 text-center">
  <p class="text-3xl font-black text-brandBlue mb-2">iPhone</p>
  <p class="text-sm font-bold text-slate-700 mb-2">Séries 12-16 (2020+)</p>
  <p class="text-xs text-slate-500">Plus de 800M d'appareils avec anneau MagSafe/Qi2. Charge magnétique 15W complète.</p>
  </div>
- <div class="bg-slate-50 rounded-xl p-6 border border-slate-100 text-center">
+ <div class="card-soft p-6 text-center">
  <p class="text-3xl font-black text-brandOrange mb-2">Samsung</p>
  <p class="text-sm font-bold text-slate-700 mb-2">Série Galaxy S25 (2025)</p>
  <p class="text-xs text-slate-500">Premier flagship Samsung avec alignement magnétique Qi2 natif. 15W sans fil.</p>
  </div>
- <div class="bg-slate-50 rounded-xl p-6 border border-slate-100 text-center">
+ <div class="card-soft p-6 text-center">
  <p class="text-3xl font-black text-brandBlue mb-2">Pixel</p>
  <p class="text-sm font-bold text-slate-700 mb-2">Série Pixel 10 (2025)</p>
  <p class="text-xs text-slate-500">L'engagement Qi2 de Google. <a href="https://9to5google.com/" target="_blank" rel="noopener noreferrer" class="text-brandOrange hover:underline">"Le moment MagSafe d'Android est arrivé." — 9to5Google</a></p>
@@ -1365,13 +1365,13 @@ plPath: "produkty/power-bank/magnetyczny-bezprzewodowy/"
 </section>
 
 <!-- N52H Magnet Technology -->
-<section class="sec bg-slate-50 relative py-16">
+<section id="n52h-magnet-technology" class="sec bg-slate-50 relative" data-section="content">
  <div class="container-wide">
  <h2 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4 text-center">Technologie D'Aimant N52H : <span class="text-brandOrange">Pourquoi La Qualité Compte</span></h2>
  <p class="text-center text-slate-500 text-sm max-w-3xl mx-auto mb-12">Toutes les batteries externes Qi2 WOWOHCOOL utilisent des aimants néodyme N52H — pas les N35 ou N48 moins chers des produits budget. Voici pourquoi la qualité H est importante pour la fiabilité de la recharge sans fil.</p>
 
- <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
- <div class="bg-white rounded-xl p-6 border border-slate-200 shadow-sm">
+ <div class="grid md:grid-cols-2 gap-8">
+ <div class="card p-6 shadow-sm">
  <h3 class="font-black text-brandBlue uppercase mb-3 text-sm">N52 (Standard)</h3>
  <ul class="space-y-2 text-sm text-slate-600">
  <li>&bull; BH(max) : 52 MGOe</li>
@@ -1395,7 +1395,7 @@ plPath: "produkty/power-bank/magnetyczny-bezprzewodowy/"
 </section>
 
 <!-- French Retail Price Comparison -->
- <section class="sec bg-white relative py-12">
+ <section id="french-retail-price-comparison" class="sec bg-white relative py-12" data-section="comparison">
   <div class="container-content">
   <div class="text-center mb-8">
    <h2 class="text-2xl lg:text-3xl font-black text-brandBlue uppercase italic tracking-tighter mb-4">Vos concurrents sur <span class="text-brandOrange">Amazon.fr</span> — et votre marge</h2>
@@ -1462,23 +1462,23 @@ plPath: "produkty/power-bank/magnetyczny-bezprzewodowy/"
  </section>
 
  <!-- Cross-Category Internal Links -->
-<section class="sec bg-white relative py-12">
- <div class="container-content">
+<section id="cross-category-internal-links" class="sec bg-white relative py-12" data-section="related">
+ <div class="container-wide">
  <p class="text-center text-slate-500 text-sm mb-6">Découvrez plus de catégories de batteries externes WOWOHCOOL :</p>
  <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
- <a href="/fr/produits/batterie-externe/semi-solide/" class="block bg-slate-50 rounded-xl p-4 border border-slate-200 hover:border-brandOrange hover:shadow-md transition text-center">
+ <a href="/fr/produits/batterie-externe/semi-solide/" class="card-soft block p-4 hover:border-brandOrange hover:shadow-md transition text-center">
  <p class="font-black text-brandBlue text-sm uppercase mb-1">Semi-Solid-State</p>
  <p class="text-[10px] text-slate-500">Batterie Nouvelle Génération</p>
  </a>
- <a href="/fr/produits/batterie-externe/hybride-2-en-1/" class="block bg-slate-50 rounded-xl p-4 border border-slate-200 hover:border-brandOrange hover:shadow-md transition text-center">
+ <a href="/fr/produits/batterie-externe/hybride-2-en-1/" class="card-soft block p-4 hover:border-brandOrange hover:shadow-md transition text-center">
  <p class="font-black text-brandBlue text-sm uppercase mb-1">Hybride 2-en-1</p>
  <p class="text-[10px] text-slate-500">Chargeur + Batterie Externe</p>
  </a>
- <a href="/fr/produits/batterie-externe/batterie-externe-ordinateur-portable/" class="block bg-slate-50 rounded-xl p-4 border border-slate-200 hover:border-brandOrange hover:shadow-md transition text-center">
+ <a href="/fr/produits/batterie-externe/batterie-externe-ordinateur-portable/" class="card-soft block p-4 hover:border-brandOrange hover:shadow-md transition text-center">
  <p class="font-black text-brandBlue text-sm uppercase mb-1">Alimentation PC Portable</p>
  <p class="text-[10px] text-slate-500">65W-240W PD 3.1</p>
  </a>
- <a href="/fr/produits/batterie-externe/" class="block bg-slate-50 rounded-xl p-4 border border-slate-200 hover:border-brandOrange hover:shadow-md transition text-center">
+ <a href="/fr/produits/batterie-externe/" class="card-soft block p-4 hover:border-brandOrange hover:shadow-md transition text-center">
  <p class="font-black text-brandBlue text-sm uppercase mb-1">Toutes Les Batteries</p>
  <p class="text-[10px] text-slate-500">29 Modèles Au Total</p>
  </a>
@@ -1488,39 +1488,39 @@ plPath: "produkty/power-bank/magnetyczny-bezprzewodowy/"
 </section>
 
 <!-- FAQ -->
-<section class="sec bg-slate-50 relative py-16">
+<section id="faq" class="sec bg-slate-50 relative" data-section="faq">
  <div class="container-narrow">
  <h2 class="text-3xl lg:text-4xl font-black text-slate-900 uppercase italic tracking-tighter mb-10 text-center">Magnétique / Sans Fil <span class="text-brandOrange">FAQ</span></h2>
  <div class="space-y-4">
- <details class="bg-white rounded-xl p-5 border border-slate-200 group">
+ <details class="card p-5 group">
  <summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">Qu'est-ce que le Qi2 par rapport au Qi ?<span class="text-brandOrange group-open:rotate-180 transition">&#9660;</span></summary>
  <p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">Le Qi2 est la deuxième génération du standard de recharge sans fil Qi, ajoutant l'alignement magnétique (MPP - Magnetic Power Profile) et la charge rapide universelle 15W. Il est basé sur la technologie MagSafe d'Apple et fonctionne nativement avec les iPhone 12-16.</p>
  </details>
- <details class="bg-white rounded-xl p-5 border border-slate-200 group">
+ <details class="card p-5 group">
  <summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">Quel est le MOQ pour les batteries externes sans fil Qi2 ?<span class="text-brandOrange group-open:rotate-180 transition">&#9660;</span></summary>
  <p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">Le MOQ commence à 500 unités pour les modèles ODM standard avec logo personnalisé. OEM personnalisé avec nouveau moule : 1000-2000 unités. Délai d'échantillon : 7-10 jours pour les échantillons de pré-production.</p>
  </details>
- <details class="bg-white rounded-xl p-5 border border-slate-200 group">
+ <details class="card p-5 group">
  <summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">Ces batteries sont-elles compatibles MagSafe ?<span class="text-brandOrange group-open:rotate-180 transition">&#9660;</span></summary>
  <p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">Oui. Le Qi2 est basé sur le standard MagSafe d'Apple. Nos batteries externes utilisent des aimants néodyme N52H pour la même force d'alignement que les accessoires MagSafe d'Apple.</p>
  </details>
- <details class="bg-white rounded-xl p-5 border border-slate-200 group">
+ <details class="card p-5 group">
  <summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">Peut-on charger à travers une coque de téléphone ?<span class="text-brandOrange group-open:rotate-180 transition">&#9660;</span></summary>
  <p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">Oui, à travers des coques jusqu'à 4mm d'épaisseur. Pour l'alignement magnétique, la coque doit être compatible MagSafe (la plupart des coques premium le sont). Les coques en plastique sans interférence métallique fonctionnent universellement.</p>
  </details>
- <details class="bg-white rounded-xl p-5 border border-slate-200 group">
+ <details class="card p-5 group">
  <summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">Quelle est la différence entre Qi2 et MagSafe ?<span class="text-brandOrange group-open:rotate-180 transition">&#9660;</span></summary>
  <p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">Le Qi2 est la version standard ouverte du MagSafe, gérée par le WPC (Wireless Power Consortium). Le MagSafe est l'implémentation propriétaire d'Apple. Les deux utilisent le même anneau magnétique et la vitesse 15W, mais le Qi2 fonctionne cross-platform — iPhone 12-16 plus Android comme Samsung Galaxy S25 et Google Pixel 10. Pour les acheteurs OEM, la certification Qi2 signifie que votre produit est automatiquement compatible MagSafe sans avoir besoin de la licence Apple MFi.</p>
  </details>
- <details class="bg-white rounded-xl p-5 border border-slate-200 group">
+ <details class="card p-5 group">
  <summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">Quels téléphones Android supportent la recharge magnétique Qi2 ?<span class="text-brandOrange group-open:rotate-180 transition">&#9660;</span></summary>
  <p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">À mi-2026, les séries Samsung Galaxy S25 et Google Pixel 10 supportent l'alignement magnétique Qi2 natif. D'autres flagships Android sont attendus au S2 2026. Cela signifie que les batteries externes magnétiques Qi2 couvrent désormais les utilisateurs premium iPhone ET Android — doublant effectivement le marché adressable total pour votre marque.</p>
  </details>
- <details class="bg-white rounded-xl p-5 border border-slate-200 group">
+ <details class="card p-5 group">
  <summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">Qu'est-ce qu'un aimant N52H et pourquoi est-ce important ?<span class="text-brandOrange group-open:rotate-180 transition">&#9660;</span></summary>
  <p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">Le N52H est une qualité d'aimant néodyme avec une énergie de 52 MGOe et une température de fonctionnement jusqu'à 120°C (contre 60°C pour le N52 standard). Comme la recharge sans fil génère 40-55°C de chaleur, le N52H empêche la démagnétisation pendant les charges prolongées — maintenant la force d'alignement sur toute la durée de vie du produit. Les concurrents budget utilisant des aimants N52 ou N48 développent souvent un alignement faible en 6-12 mois.</p>
  </details>
- <details class="bg-white rounded-xl p-5 border border-slate-200 group">
+ <details class="card p-5 group">
  <summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">Qu'est-ce que le Qi2.2 et la recharge sans fil 25W ?<span class="text-brandOrange group-open:rotate-180 transition">&#9660;</span></summary>
  <p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">Le Qi2.2 est le dernier standard WPC (publié en 2025) permettant la recharge magnétique sans fil 25W — une augmentation de 67% par rapport aux 15W du Qi2. Les premiers produits Qi2.2 ont été lancés en 2026 par Belkin, EcoFlow et Baseus. Il est rétrocompatible avec les appareils Qi2 15W existants. WOWOHCOOL propose des modèles OEM Qi2.2 25W pour les marques souhaitant un positionnement vitesse de nouvelle génération.</p>
  </details>

@@ -372,7 +372,7 @@ ruPath: ""
  "publisher": { "@id": "https://www.wowohcool.com/#organization" },
  "speakable": {
  "@type": "SpeakableSpecification",
- "cssSelector": [".badge-capsule", "h1", ".hero-subtitle", ".stat-value"]
+ "cssSelector": [".badge-capsule", "h1", ".hero-subtitle"]
  }
 }
 </script>
@@ -479,15 +479,26 @@ ruPath: ""
 <!-- ========================================================================
  HERO SECTION
  ======================================================================== -->
-<section id="hero" class="bg-gradient-to-br from-slate-50 via-white to-orange-50 relative flex flex-col pb-16 lg:pb-20" style="min-height:100dvh;padding-top:8rem">
+<!-- hero 第一屏适配（2026-09-17）：与 EN 首页同一套遗留「整屏分栏 hero」（.hero-viewport / .hero-layout）。
+     原先内联写死 `padding-top:8rem`(128px)，lg 起也不收窄 → 白白吃掉 48px；改用 .hero-viewport
+     （8rem → lg 5rem=80px，正好等于 fixed header 的 h-20），并把 lg 底边距从 pb-20(80px) 收到 0（对齐 EN）。
+     h1 原本 lg:text-6xl(60px)：1024×768 折 7 行、1152×720 折 5 行，六语言里最严重
+     （改前 1440×800 溢出 58 / 1366×768 溢出 90 / 1280×720 溢出 138 / 1152 溢出 198 / 1024 溢出 302）。
+     实测定档（余量 = 视口高 − 文字列 − 上下内边距；目标 ≥20px）：
+       1024×768 上限 48px（余量 54）· 1152×720 上限 48px（余量 34）· 1280×720 上限 48px（余量 82）· 1366×768 起 56px 可用
+     → 36 / 48（md 起一直用到 xl）/ 60(2xl)。波兰语 h1 文案最长（"Fabryka Power Banków i Ładowarek
+       OEM — Shenzhen, Chiny"），xl 档实测 52px 只剩 18px 余量 → 不收窄，保持 48px。
+     ⚠️ md:text-5xl 自带 line-height:1，媒体查询变体在产物里位于基础 `.leading-tight`(1.25) 之后
+     → xl/2xl 用 arbitrary 字号时行高仍为 1（已实测确认）。 -->
+<section id="hero" class="hero-viewport bg-gradient-to-br from-slate-50 via-white to-orange-50 relative flex flex-col pb-16 lg:pb-0" style="min-height:100dvh" data-section="hero">
  <div class="flex-1 max-w-7xl mx-auto px-6 w-full hero-layout">
  <div class="hero-text-col max-w-lg py-2 md:py-10">
  <div>
  <div class="badge-capsule mb-3 md:mb-6 uppercase" style="letter-spacing:0.08em">Od 2013 | Zakład produkcyjny 5000 m²</div>
- <h1 class="text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 uppercase italic tracking-tighter leading-tight mb-6">
+ <h1 class="text-4xl md:text-5xl lg:text-5xl 2xl:text-6xl font-black text-slate-900 uppercase italic tracking-tighter leading-tight mb-6">
  Fabryka Power Banków i Ładowarek <span class="text-brandOrange">OEM — Shenzhen, Chiny</span>
  </h1>
- <p class="text-slate-500 text-base md:text-lg mb-3 md:mb-6 leading-relaxed max-w-xl">
+ <p class="hero-subtitle text-slate-500 text-base md:text-lg mb-3 md:mb-6 leading-relaxed max-w-xl">
  10+ lat produkcji dla ponad 200 marek globalnych, w tym Bosch i Jacob Jensen. Od specyfikacji do wysyłki — projektujemy, certyfikujemy i dostarczamy z poziomem wadliwości poniżej 0,3% i czasem realizacji 25-30 dni. <a href="/pl/uslugi-oem-odm/" class="text-brandOrange hover:underline font-bold">Poznaj nasze usługi OEM/ODM →</a>
  </p>
  <ul class="text-slate-500 text-[11px] md:text-xs space-y-1 md:space-y-2 mb-4 md:mb-8 max-w-xl">
@@ -496,9 +507,11 @@ ruPath: ""
  <li class="flex items-start gap-2 md:gap-3"><span class="text-brandOrange font-bold shrink-0 mt-0.5">▸</span> MOQ od 500 szt. &bull; Ceny fabryczne &bull; Shenzhen, Chiny</li>
  </ul>
  </div>
- <div class="flex flex-col sm:flex-row gap-2 md:gap-4">
- <button data-action="open-modal" class="bg-brandOrange text-white px-5 md:px-8 py-3 md:py-4 rounded-xl font-black uppercase tracking-widest text-[11px] md:text-sm shadow-xl hover:-translate-y-1 transition flex-1 flex items-center justify-center">Poproś o wycenę fabryczną</button>
- <a href="/pl/produkty/" class="border-2 border-brandBlue text-brandBlue px-5 md:px-8 py-3 md:py-4 rounded-xl font-black uppercase tracking-widest text-[11px] md:text-sm hover:bg-brandBlue hover:text-white transition flex-1 flex items-center justify-center">Zobacz produkty</a>
+<!-- 移动端（flex-col）两按钮上下堆叠：主按钮原本无 border、副按钮带 border-2 → 高度 41 vs 45 不等。
+     补 border-2 border-transparent 补平（+4px）；桌面 flex-row 下两按钮本就 stretch 等高，不受影响。 -->
+<div class="btn-pair">
+<button data-action="open-modal" class="border-2 border-transparent bg-brandOrange text-white px-5 md:px-8 py-4 md:py-4 rounded-xl font-black uppercase tracking-widest text-[11px] md:text-sm shadow-xl hover:-translate-y-1 transition flex items-center justify-center w-full">Poproś o wycenę fabryczną</button>
+ <a href="/pl/produkty/" class="border-2 border-brandBlue text-brandBlue px-5 md:px-8 py-4 md:py-4 rounded-xl font-black uppercase tracking-widest text-[11px] md:text-sm hover:bg-brandBlue hover:text-white transition flex items-center justify-center w-full">Zobacz produkty</a>
  </div>
  </div>
  <div class="hero-img-col">
@@ -523,7 +536,7 @@ ruPath: ""
 <!-- ========================================================================
  WOW/OH/COOL — Brand Story
  ======================================================================== -->
-<section class="relative bg-brandBlue overflow-hidden">
+<section id="wow-oh-cool-brand-story" class="relative bg-brandBlue overflow-hidden" data-section="about">
  <div class="absolute top-0 right-0 w-[600px] h-[600px] bg-brandOrange/5 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/4"></div>
  <div class="absolute bottom-0 left-0 w-[400px] h-[400px] bg-brandOrange/5 rounded-full blur-[100px] translate-y-1/3 -translate-x-1/4"></div>
 
@@ -597,8 +610,8 @@ ruPath: ""
 <!-- ========================================================================
  PORÓWNANIE — WOWOHCOOL vs Trading Company vs Unknown Workshop
  ======================================================================== -->
-<section id="comparison" class="sec bg-white reveal overflow-hidden">
- <div class="max-w-7xl mx-auto px-4 md:px-6">
+<section id="comparison" class="sec bg-white reveal overflow-hidden" data-section="comparison">
+ <div class="container-wide px-4 md:px-6">
  <div class="text-center mb-12 md:mb-16">
  <h2 class="text-3xl sm:text-4xl md:text-5xl font-black text-brandBlue uppercase italic tracking-tighter mb-4 leading-tight px-2">
  <span class="whitespace-nowrap"><span class="highlight-line text-brandBlue">WOWOH</span><span class="text-brandOrange">COOL</span></span> <span class="text-brandOrange">vs Inni Dostawcy</span>
@@ -632,7 +645,7 @@ ruPath: ""
  ["Marża 15-30%", "Doliczona prowizja pośrednika"]
  ] %}
  {% for item in trading %}
- <div class="flex items-start gap-3 p-3 md:p-4 bg-slate-50 rounded-xl">
+ <div class="card-soft flex items-start gap-3 p-3 md:p-4">
  <div class="w-6 h-6 rounded-full bg-red-100 flex items-center justify-center shrink-0 mt-0.5"><span class="text-red-400 text-xs">&#10005;</span></div>
  <div><p class="text-slate-500 text-[11px] md:text-xs font-bold leading-tight">{{ item[0] }}</p><p class="text-slate-300 text-[11px] md:text-[11px] mt-0.5">{{ item[1] }}</p></div>
  </div>
@@ -711,8 +724,8 @@ ruPath: ""
 <!-- ========================================================================
  PRODUKTY — Linie produktowe
  ======================================================================== -->
-<section id="products" class="sec bg-white">
- <div class="max-w-7xl mx-auto px-6">
+<section id="products" class="sec bg-white" data-section="products">
+ <div class="container-wide px-6">
  <div class="text-center mb-14">
  <h2 class="text-3xl md:text-4xl font-black text-brandBlue uppercase italic tracking-tight mb-4">Nasze linie produktowe</h2>
  <p class="text-slate-500 max-w-2xl mx-auto">Od ładowarek GaN po power banki półstałe — produkujemy pełne spektrum akcesoriów do ładowania dla marek globalnych.</p>
@@ -740,7 +753,7 @@ ruPath: ""
  </a>
  </div>
  <div class="text-center mt-10">
- <a href="/pl/produkty/" class="inline-flex items-center gap-2 text-brandBlue font-black uppercase tracking-widest text-sm hover:text-brandOrange transition">Zobacz wszystkie produkty <span>&rarr;</span></a>
+ <a href="/pl/produkty/" class="btn-more">Zobacz wszystkie produkty <span>&rarr;</span></a>
  </div>
  </div>
 </section>
@@ -748,7 +761,7 @@ ruPath: ""
 <!-- ========================================================================
  ZALETY OEM/ODM — 6 kart
  ======================================================================== -->
-<section id="services" class="sec-lg bg-darkBg text-white reveal relative overflow-hidden">
+<section id="services" class="sec bg-darkBg text-white reveal relative overflow-hidden" data-section="content">
  <div class="absolute top-0 left-0 w-full h-full opacity-[0.02] pointer-events-none">
  <svg width="100%" height="100%"><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="white" stroke-width="1"/></pattern><rect width="100%" height="100%" fill="url(#grid)" /></svg>
  </div>
@@ -769,10 +782,10 @@ ruPath: ""
  {% for item in services %}
  <div class="group p-10 bg-white/5 border border-white/10 rounded-3xl hover:border-brandOrange hover:bg-white/[0.08] transition-all duration-500 relative overflow-hidden">
  <div class="flex justify-between items-start mb-8">
- <div class="w-16 h-16 bg-brandOrange/10 rounded-2xl flex items-center justify-center text-brandOrange group-hover:bg-brandOrange group-hover:text-white transition-all duration-300 shadow-lg shadow-brandOrange/05">
+ <div class="w-16 h-16 bg-brandOrange/20 rounded-2xl flex items-center justify-center text-brandOrange group-hover:bg-brandOrange group-hover:text-white transition-all duration-300 shadow-lg shadow-brandOrange/05">
  <svg class="icon-{{ item.icon }} text-2xl" aria-hidden="true" focusable="false" viewBox="{{ item.vb | default('0 0 640 512') }}"><path d="{{ item.path }}" fill="currentColor"/></svg>
  </div>
- <span class="text-white/10 font-black text-4xl italic group-hover:text-brandOrange/20 transition-colors">{{ item.num }}</span>
+ <span class="text-white/20 font-black text-4xl italic group-hover:text-brandOrange/40 transition-colors">{{ item.num }}</span>
  </div>
  <h3 class="font-bold text-white group-hover:text-brandOrange mb-4 uppercase tracking-wider text-xl">{{ item.title }}</h3>
  <p class="text-slate-400 text-sm leading-relaxed">{{ item.desc }}</p>
@@ -785,7 +798,7 @@ ruPath: ""
 <!-- ========================================================================
  CTA SECTION
  ======================================================================== -->
-<section class="sec bg-slate-50 text-center relative overflow-hidden reveal border-y border-slate-200">
+<section id="cta-section" class="sec bg-slate-50 text-center relative overflow-hidden reveal border-y border-slate-200" data-section="cta">
  <div class="max-w-2xl mx-auto px-6 relative z-10">
  <h2 class="text-3xl md:text-5xl font-black text-brandBlue uppercase italic mb-6 tracking-tight leading-tight">
  Gotowy, aby wprowadzić na rynek <span class="text-brandOrange">swój produkt?</span>
@@ -793,11 +806,11 @@ ruPath: ""
  <p class="text-slate-500 max-w-xl mx-auto text-sm md:text-base mb-10 leading-relaxed">
  Od specyfikacji do wysyłki — zajmujemy się inżynierią, certyfikacją i produkcją, abyś mógł skupić się na rozwoju swojej marki.
  </p>
- <div class="flex flex-col sm:flex-row justify-center gap-4">
- <button data-action="open-modal" class="bg-brandOrange text-white px-8 md:px-12 py-4 md:py-5 rounded-xl font-black uppercase tracking-widest text-sm shadow-xl hover:-translate-y-1 transition shadow-brandOrange/20">
+ <div class="btn-pair">
+ <button data-action="open-modal" class="bg-brandOrange text-white px-8 md:px-12 py-4 md:py-5 rounded-xl font-black uppercase tracking-widest text-sm shadow-xl hover:-translate-y-1 transition shadow-brandOrange/20 w-full text-center">
  Poproś o wycenę fabryczną
  </button>
- <a href="/pl/kontakt/" class="border-2 border-brandBlue text-brandBlue px-8 md:px-12 py-4 md:py-5 rounded-xl font-black uppercase tracking-widest text-sm hover:bg-brandBlue hover:text-white transition text-center">
+ <a href="/pl/kontakt/" class="border-2 border-brandBlue text-brandBlue px-8 md:px-12 py-4 md:py-5 rounded-xl font-black uppercase tracking-widest text-sm hover:bg-brandBlue hover:text-white transition text-center w-full">
  Skontaktuj się z nami
  </a>
  </div>
@@ -807,8 +820,11 @@ ruPath: ""
 <!-- ========================================================================
  BLOG PREVIEW SECTION
  ======================================================================== -->
-<section id="blog-preview" class="sec bg-white reveal">
- <div class="max-w-7xl mx-auto px-6">
+<!-- 深色化：卡片刻意不用 .card-soft —— 它自带的 border-color 会被 `.dark-section .card-soft`
+     的特异性 (0,2,0) 压过 `border-transparent`/`hover:border-brandOrange`，8px 橙色底边会失效，
+     故显式写 bg-white/5 并保留原有 border-b-8 交互 -->
+<section id="blog-preview" class="sec bg-white reveal" data-section="content">
+ <div class="container-wide px-6">
  <div class="text-center mb-16">
  <h2 class="text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4">Branżowe <span class="text-brandOrange">Analizy</span></h2>
  <p class="text-slate-500 font-bold uppercase text-xs tracking-[0.3em]">Poradniki eksperckie dla importerów B2B</p>
@@ -842,8 +858,8 @@ ruPath: ""
 <!-- ========================================================================
  OPINIE KLIENTÓW
  ======================================================================== -->
-<section class="sec bg-slate-50">
- <div class="max-w-7xl mx-auto px-6">
+<section id="opinie-klientow" class="sec bg-darkBg text-white dark-section" data-section="content">
+ <div class="container-wide px-6">
  <div class="text-center mb-14">
  <h2 class="text-3xl md:text-4xl font-black text-brandBlue uppercase italic tracking-tight mb-4">Co mówią nasi partnerzy</h2>
  <p class="text-slate-500">Opinie marek, dla których produkujemy</p>
@@ -890,7 +906,7 @@ ruPath: ""
  </div>
  </div>
  <div class="text-center mt-10">
- <a href="/pl/studia-przypadkow/" class="inline-flex items-center gap-2 text-brandBlue font-black uppercase tracking-widest text-sm hover:text-brandOrange transition">Zobacz wszystkie studia przypadków <span>&rarr;</span></a>
+ <a href="/pl/studia-przypadkow/" class="btn-more">Zobacz wszystkie studia przypadków <span>&rarr;</span></a>
  </div>
  </div>
 </section>
@@ -898,7 +914,7 @@ ruPath: ""
 <!-- ========================================================================
  FAQ SECTION
  ======================================================================== -->
-<section id="faq" class="sec bg-slate-50 reveal">
+<section id="faq" class="sec bg-slate-50 reveal" data-section="faq">
  <div class="max-w-4xl mx-auto px-6">
  <h2 class="text-center text-4xl font-black text-brandBlue mb-16 uppercase italic">
  FAQ — <span class="text-brandOrange">Produkcja OEM/ODM</span>

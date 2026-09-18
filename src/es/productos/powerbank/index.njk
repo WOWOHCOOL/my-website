@@ -71,7 +71,7 @@ plPath: "produkty/power-bank/"
 {% from "breadcrumb.njk" import breadcrumb %}
 
 <!-- ======== HERO ======== -->
-<section class="relative pt-24 md:pt-28 pb-8 lg:pb-16 bg-white overflow-hidden">
+<section id="hero" class="relative pt-24 md:pt-28 lg:pt-20 pb-8 lg:pb-20 bg-white overflow-hidden lg:min-h-[100dvh] lg:flex lg:flex-col lg:justify-center" data-section="hero">
  <div class="absolute inset-0 pointer-events-none">
  <div class="absolute top-0 left-0 w-64 h-64 bg-brandOrange opacity-10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
  <div class="absolute bottom-0 right-0 w-64 h-64 bg-brandBlue opacity-10 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
@@ -80,11 +80,8 @@ plPath: "produkty/power-bank/"
   {{ breadcrumb([{name:"Inicio",url:"/es/"},{name:"Productos",url:"/es/productos/"},{name:"Power Bank"}], "none", "mb-6", { variant: "hero" }) }}
  <div class="grid lg:grid-cols-2 gap-12 items-center">
  <div class="reveal order-2 lg:order-1">
- <div class="inline-flex items-center gap-2 bg-brandOrange/10 text-brandOrange text-[11px] font-bold px-4 py-2 rounded-full tracking-widest uppercase mb-4">
- <span class="w-2 h-2 rounded-full bg-brandOrange animate-pulse"></span>
- OEM/ODM desde 2013
- </div>
- <h1 class="text-4xl md:text-5xl lg:text-6xl font-black text-brandBlue leading-tight mb-6 italic uppercase">
+ <div class="badge-capsule mb-6 uppercase tracking-widest">OEM/ODM desde 2013</div>
+ <h1 class="text-3xl md:text-4xl xl:text-5xl font-black text-brandBlue leading-tight mb-6 italic uppercase tracking-tighter">
  Fabricante de Power Banks <span class="text-brandOrange">OEM/ODM</span>
  </h1>
  <p class="text-lg text-slate-600 leading-relaxed mb-6">Power banks PD 3.1 hasta <strong>140W</strong> con tecnología <strong>Semi-Solid-State</strong>. Capacidades de 5.000 a 27.000mAh. Certificación CE, FCC, RoHS, UN38.3 y cumplimiento <strong>UE 2023/1542</strong>. MOQ desde 500 unidades.</p>
@@ -99,13 +96,13 @@ plPath: "produkty/power-bank/"
  <path d="M434.8 70.1c14.3 10.4 17.5 30.4 7.1 44.7l-256 352c-5.5 7.6-14 12.3-23.4 13.1s-18.5-2.7-25.1-9.3l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l101.5 101.5 234-321.7c10.4-14.3 30.4-17.5 44.7-7.1z" fill="currentColor"/>
  </svg></span> Certificación CE + RoHS + UN38.3 + cumplimiento UE 2023/1542</li>
  </ul>
- <div class="flex flex-wrap gap-3">
- <button data-action="open-modal" class="btn-primary shadow-lg shadow-brandOrange/20 cursor-pointer">Solicitar presupuesto <svg class="icon-arrow-right" viewBox="0 0 512 512"><path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-105.4 105.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" fill="currentColor"/></svg></button>
- <a href="/es/contacto/" class="btn-secondary">Contactar</a>
+ <div class="btn-pair">
+ <button data-action="open-modal" class="btn-solid shadow-lg shadow-brandOrange/20 cursor-pointer">Solicitar presupuesto <svg class="icon-arrow-right" viewBox="0 0 512 512"><path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-105.4 105.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" fill="currentColor"/></svg></button>
+ <a href="/es/contacto/" class="btn-ghost-lg">Contactar</a>
  </div>
  </div>
  <div class="reveal order-1 lg:order-2">
- <div class="bg-slate-50 rounded-2xl shadow-xl overflow-hidden border border-slate-100">
+ <div class="card-lg-soft shadow-xl overflow-hidden max-w-[480px] mx-auto">
  <img src="/image/product/power-bank/wop21-67w-power-bank.webp" srcset="/image/product/power-bank/wop21-67w-power-bank-800w.webp 800w, /image/product/power-bank/wop21-67w-power-bank.webp 1920w" sizes="(min-width: 1440px) 590px, (min-width: 1280px) 590px, (min-width: 1024px) 462px, (min-width: 768px) 718px, (min-width: 430px) 382px, 338px" alt="Power Bank OEM WOWOHCOOL" width="1920" height="1920" class="w-full h-auto object-cover" loading="eager">
  </div>
  </div>
@@ -117,14 +114,14 @@ plPath: "produkty/power-bank/"
 {% include "trust-bar.njk" %}
 
 <!-- ======== POWER BANK CATEGORÍAS ======== -->
-<section id="categorias" class="py-16 bg-white">
+<section id="categorias" class="sec bg-white" data-section="content">
  <div class="container-wide">
  {{ sectionHeader('Líneas de producto', '6 Categorías de Power Banks <span class="text-brandOrange">OEM</span>', 'Seis líneas especializadas para cada caso de uso B2B: desde tecnología Semi-Solid-State hasta baterías para ropa calefactora. Cada categoría con especificaciones completas, certificaciones y precios de fábrica.', {mb: 'mb-12'}) }}
 
  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
  <!-- 1. Semi-Sólido -->
- <a href="/es/productos/powerbank/semi-solido/" class="group block bg-white rounded-3xl border border-slate-200 overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all reveal">
+ <a href="/es/productos/powerbank/semi-solido/" class="card-lg group block overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all reveal">
  <div class="relative aspect-[4/3] bg-slate-100 overflow-hidden">
  <img src="/image/product/power-bank/wopy21-45w-dual-cable-power-bank-20000mah.webp" srcset="/image/product/power-bank/wopy21-45w-dual-cable-power-bank-20000mah-450w.webp 450w, /image/product/power-bank/wopy21-45w-dual-cable-power-bank-20000mah.webp 800w" sizes="(min-width: 1440px) 389px, (min-width: 1280px) 389px, (min-width: 1024px) 304px, (min-width: 768px) 344px, (min-width: 430px) 382px, 327px" alt="Power bank Semi-Solid-State con cables integrados PD 45W" class="w-full h-full object-contain transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async" width="800" height="800">
  <div class="absolute top-4 left-4"><span class="bg-brandOrange text-white text-[11px] font-black px-3 py-1 rounded-full uppercase italic tracking-widest">CES 2026</span></div>
@@ -140,7 +137,7 @@ plPath: "produkty/power-bank/"
  </a>
 
  <!-- 2. Magnético / Inalámbrico -->
- <a href="/es/productos/powerbank/magnetico-inalambrico/" class="group block bg-white rounded-3xl border border-slate-200 overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all reveal">
+ <a href="/es/productos/powerbank/magnetico-inalambrico/" class="card-lg group block overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all reveal">
  <div class="relative aspect-[4/3] bg-slate-100 overflow-hidden">
  <img src="/image/product/power-bank/wopq11-qi2-magnetic-40w-power-bank.webp" srcset="/image/product/power-bank/wopq11-qi2-magnetic-40w-power-bank-750w.webp 750w, /image/product/power-bank/wopq11-qi2-magnetic-40w-power-bank.webp 1920w" sizes="(min-width: 1440px) 526px, (min-width: 1280px) 526px, (min-width: 1024px) 398px, (min-width: 768px) 654px, (min-width: 430px) 382px, 327px" alt="Power bank magnético Qi2 compatible con MagSafe" class="w-full h-full object-contain transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async" width="1920" height="1920">
  <div class="absolute top-4 left-4"><span class="bg-brandBlue text-white text-[11px] font-black px-3 py-1 rounded-full uppercase italic tracking-widest">Qi2</span></div>
@@ -156,7 +153,7 @@ plPath: "produkty/power-bank/"
  </a>
 
  <!-- 3. Batería calefactora -->
- <a href="/es/productos/powerbank/bateria-calefactora/" class="group block bg-white rounded-3xl border border-slate-200 overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all reveal">
+ <a href="/es/productos/powerbank/bateria-calefactora/" class="card-lg group block overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all reveal">
  <div class="relative aspect-[4/3] bg-slate-100 overflow-hidden">
  <img src="/image/product/power-bank/wop55-heating-battery.webp" srcset="/image/product/power-bank/wop55-heating-battery-750w.webp 750w, /image/product/power-bank/wop55-heating-battery.webp 1100w" sizes="(min-width: 1440px) 526px, (min-width: 1280px) 526px, (min-width: 1024px) 398px, (min-width: 768px) 654px, (min-width: 430px) 382px, 327px" alt="Batería calefactora para chaqueta y chaleco calefactor OEM" class="w-full h-full object-contain transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async" width="1100" height="1100">
  <div class="absolute top-4 left-4"><span class="bg-red-500 text-white text-[11px] font-black px-3 py-1 rounded-full uppercase italic tracking-widest">Ropa Calefactora</span></div>
@@ -172,7 +169,7 @@ plPath: "produkty/power-bank/"
  </a>
 
  <!-- 4. 2-en-1 Híbrido -->
- <a href="/es/productos/powerbank/2-en-1-hibrido/" class="group block bg-white rounded-3xl border border-slate-200 overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all reveal">
+ <a href="/es/productos/powerbank/2-en-1-hibrido/" class="card-lg group block overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all reveal">
  <div class="relative aspect-[4/3] bg-slate-100 overflow-hidden">
  <img src="/image/product/power-bank/wopa01-2in1-hybrid-ac-magnetic-22w-charger-10000mah.webp" srcset="/image/product/power-bank/wopa01-2in1-hybrid-ac-magnetic-22w-charger-10000mah-450w.webp 450w, /image/product/power-bank/wopa01-2in1-hybrid-ac-magnetic-22w-charger-10000mah.webp 800w" sizes="(min-width: 1440px) 389px, (min-width: 1280px) 389px, (min-width: 1024px) 304px, (min-width: 768px) 344px, (min-width: 430px) 382px, 327px" alt="Power bank híbrido 2-en-1 con enchufe AC plegable y carga inalámbrica" class="w-full h-full object-contain transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async" width="800" height="800">
  <div class="absolute top-4 left-4"><span class="bg-purple-600 text-white text-[11px] font-black px-3 py-1 rounded-full uppercase italic tracking-widest">2-en-1</span></div>
@@ -188,7 +185,7 @@ plPath: "produkty/power-bank/"
  </a>
 
  <!-- 5. Power bank para portátil -->
- <a href="/es/productos/powerbank/portatil/" class="group block bg-white rounded-3xl border border-slate-200 overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all reveal">
+ <a href="/es/productos/powerbank/portatil/" class="card-lg group block overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all reveal">
  <div class="relative aspect-[4/3] bg-slate-100 overflow-hidden">
  <img src="/image/product/power-bank/wop23-240w-power-bank.webp" srcset="/image/product/power-bank/wop23-240w-power-bank-750w.webp 750w, /image/product/power-bank/wop23-240w-power-bank.webp 1100w" sizes="(min-width: 1440px) 526px, (min-width: 1280px) 526px, (min-width: 1024px) 398px, (min-width: 768px) 654px, (min-width: 430px) 382px, 327px" alt="Power bank 240W PD 3.1 para MacBook y portátiles gaming" class="w-full h-full object-contain transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async" width="1100" height="1100">
  <div class="absolute top-4 left-4"><span class="bg-slate-900 text-white text-[11px] font-black px-3 py-1 rounded-full uppercase italic tracking-widest">PD 3.1 240W</span></div>
@@ -204,7 +201,7 @@ plPath: "produkty/power-bank/"
  </a>
 
  <!-- 6. Pantalla inteligente -->
- <a href="/es/productos/powerbank/pantalla-inteligente/" class="group block bg-white rounded-3xl border border-slate-200 overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all reveal">
+ <a href="/es/productos/powerbank/pantalla-inteligente/" class="card-lg group block overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all reveal">
  <div class="relative aspect-[4/3] bg-slate-100 overflow-hidden">
  <img src="/image/product/power-bank/wop25-tft-power-bank.webp" srcset="/image/product/power-bank/wop25-tft-power-bank-750w.webp 750w, /image/product/power-bank/wop25-tft-power-bank.webp 1920w" sizes="(min-width: 1440px) 526px, (min-width: 1280px) 526px, (min-width: 1024px) 398px, (min-width: 768px) 654px, (min-width: 430px) 382px, 327px" alt="Power bank con pantalla TFT inteligente y carga inalámbrica 3-en-1" class="w-full h-full object-contain transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async" width="1920" height="1920">
  <div class="absolute top-4 left-4"><span class="bg-cyan-600 text-white text-[11px] font-black px-3 py-1 rounded-full uppercase italic tracking-widest">Pantalla TFT</span></div>
@@ -230,11 +227,11 @@ plPath: "produkty/power-bank/"
 <!-- ======== CERTIFICATION SHOWCASE ======== -->
 
 <!-- ======== COMPARATIVA DE CATEGORÍAS ======== -->
-<section class="py-16 bg-slate-50">
+<section id="comparativa-de-categorias" class="sec bg-slate-50" data-section="comparison">
  <div class="container-wide">
  {{ sectionHeader('Comparativa de categorías', '6 Líneas de Power Banks <span class="text-brandOrange">OEM</span> comparadas', '¿Qué línea encaja con su mercado? Compare tecnología, potencia, capacidad y caso de uso, con enlace directo a la página de producto correspondiente.', {mb: 'mb-12'}) }}
  <div class="overflow-x-auto reveal">
- <table class="w-full min-w-[720px] bg-white rounded-2xl shadow-sm border border-slate-200">
+ <table class="card-lg w-full min-w-[720px] shadow-sm">
  <thead>
  <tr class="bg-brandBlue text-white">
  <th class="py-3 px-3 text-xs font-bold uppercase tracking-wider text-left rounded-tl-2xl">Línea</th>
@@ -309,39 +306,39 @@ plPath: "produkty/power-bank/"
 </section>
 
 <!-- ======== SPECIFICATIONS ======== -->
-<section class="py-16 bg-white">
+<section id="specifications" class="sec bg-white" data-section="content">
  <div class="container-wide">
  {{ sectionHeader('Capacidades', 'Especificaciones técnicas', 'Fabricamos power banks en todas las capacidades populares para el mercado B2B, con opciones estándar y personalizadas.', {mb: 'mb-12'}) }}
  <div class="grid md:grid-cols-3 gap-6 reveal">
- <div class="bg-slate-50 rounded-xl p-6 text-center border border-slate-200 hover:border-brandOrange/30 transition-all"><p class="text-3xl font-black text-brandBlue">5.000<span class="text-brandOrange">mAh</span></p><p class="text-sm text-slate-500 mt-2">Compacta, ideal para uso diario y viajes. Perfecta para promociones y regalos corporativos.</p></div>
- <div class="bg-slate-50 rounded-xl p-6 text-center border border-slate-200 hover:border-brandOrange/30 transition-all"><p class="text-3xl font-black text-brandBlue">10.000<span class="text-brandOrange">mAh</span></p><p class="text-sm text-slate-500 mt-2">Capacidad más popular para el mercado B2B. Equilibrio perfecto entre tamaño y autonomía.</p></div>
- <div class="bg-slate-50 rounded-xl p-6 text-center border border-slate-200 hover:border-brandOrange/30 transition-all"><p class="text-3xl font-black text-brandBlue">20.000<span class="text-brandOrange">mAh</span></p><p class="text-sm text-slate-500 mt-2">Alta capacidad para viajes y uso profesional. Carga múltiples dispositivos simultáneamente.</p></div>
+ <div class="card-soft p-6 text-center hover:border-brandOrange/30 transition-all"><p class="text-3xl font-black text-brandBlue">5.000<span class="text-brandOrange">mAh</span></p><p class="text-sm text-slate-500 mt-2">Compacta, ideal para uso diario y viajes. Perfecta para promociones y regalos corporativos.</p></div>
+ <div class="card-soft p-6 text-center hover:border-brandOrange/30 transition-all"><p class="text-3xl font-black text-brandBlue">10.000<span class="text-brandOrange">mAh</span></p><p class="text-sm text-slate-500 mt-2">Capacidad más popular para el mercado B2B. Equilibrio perfecto entre tamaño y autonomía.</p></div>
+ <div class="card-soft p-6 text-center hover:border-brandOrange/30 transition-all"><p class="text-3xl font-black text-brandBlue">20.000<span class="text-brandOrange">mAh</span></p><p class="text-sm text-slate-500 mt-2">Alta capacidad para viajes y uso profesional. Carga múltiples dispositivos simultáneamente.</p></div>
  </div>
  <div class="grid md:grid-cols-2 gap-6 mt-6 reveal">
- <div class="bg-slate-50 rounded-xl p-6 text-center border border-slate-200 hover:border-brandOrange/30 transition-all"><p class="text-3xl font-black text-brandBlue">27.000<span class="text-brandOrange">mAh</span></p><p class="text-sm text-slate-500 mt-2">Máximo permitido para viajes aéreos (99,9Wh). Potencia profesional en un formato transportable.</p></div>
- <div class="bg-slate-50 rounded-xl p-6 text-center border border-slate-200 hover:border-brandOrange/30 transition-all"><p class="text-3xl font-black text-brandBlue">67W – 140W</p><p class="text-sm text-slate-500 mt-2">PD 3.1, Carga rápida para portátiles, tablets y smartphones. Tecnología Semi-Solid-State disponible.</p></div>
+ <div class="card-soft p-6 text-center hover:border-brandOrange/30 transition-all"><p class="text-3xl font-black text-brandBlue">27.000<span class="text-brandOrange">mAh</span></p><p class="text-sm text-slate-500 mt-2">Máximo permitido para viajes aéreos (99,9Wh). Potencia profesional en un formato transportable.</p></div>
+ <div class="card-soft p-6 text-center hover:border-brandOrange/30 transition-all"><p class="text-3xl font-black text-brandBlue">67W – 140W</p><p class="text-sm text-slate-500 mt-2">PD 3.1, Carga rápida para portátiles, tablets y smartphones. Tecnología Semi-Solid-State disponible.</p></div>
  </div>
  </div>
 </section>
 
 <!-- ======== TECHNOLOGY ======== -->
-<section class="py-16 bg-slate-50">
+<section id="technology" class="sec bg-slate-50" data-section="content">
  <div class="container-wide">
  {{ sectionHeader('Tecnología', 'Innovación en <span class="text-brandOrange">cada carga</span>', '', {mb: 'mb-12'}) }}
  <div class="grid md:grid-cols-3 gap-8">
- <div class="reveal bg-white rounded-2xl p-8 border border-slate-200 text-center hover:shadow-lg transition-all">
+ <div class="card-lg reveal p-8 text-center hover:shadow-lg transition-all">
  <div class="w-14 h-14 rounded-2xl bg-brandOrange/10 flex items-center justify-center mx-auto mb-5"><svg class="icon-bolt text-2xl text-brandOrange" viewBox="0 0 448 512" width="24" height="24">
  <path d="M338.8-9.9c11.9 8.6 16.3 24.2 10.9 37.8L271.3 224 416 224c13.5 0 25.5 8.4 30.1 21.1s.7 26.9-9.6 35.5l-288 240c-11.3 9.4-27.4 9.9-39.3 1.3s-16.3-24.2-10.9-37.8L176.7 288 32 288c-13.5 0-25.5-8.4-30.1-21.1s-.7-26.9 9.6-35.5l288-240c11.3-9.4 27.4-9.9 39.3-1.3z" fill="currentColor"/>
  </svg></div>
  <h3 class="text-lg font-bold text-brandBlue mb-3">Semi-Solid-State</h3>
  <p class="text-sm text-slate-500 leading-relaxed">Tecnología de batería de última generación: perfiles <strong>50% más delgados</strong>, densidad energética <strong>30% mayor</strong> y prácticamente <strong>sin riesgo de incendio</strong>. Presentada en CES 2026.</p>
  </div>
- <div class="reveal bg-white rounded-2xl p-8 border border-slate-200 text-center hover:shadow-lg transition-all" style="transition-delay:100ms">
+ <div class="card-lg reveal p-8 text-center hover:shadow-lg transition-all" style="transition-delay:100ms">
  <div class="w-14 h-14 rounded-2xl bg-brandOrange/10 flex items-center justify-center mx-auto mb-5"><svg class="icon-usb-drive text-2xl text-brandOrange" viewBox="0 0 640 512" width="24" height="24"><path d="M64 96C28.7 96 0 124.7 0 160v96c0 35.3 28.7 64 64 64h32V96H64zm96 0v224h32c53 0 96-43 96-96V96H160zm224 0H256v128c0 88.4-71.6 160-160 160H64c-35.3 0-64-28.7-64-64v-96c0-35.3 28.7-64 64-64h32V96H160z" fill="currentColor"/></svg></div>
  <h3 class="text-lg font-bold text-brandBlue mb-3">PD 3.1 hasta 140W</h3>
  <p class="text-sm text-slate-500 leading-relaxed">Power Delivery 3.1 para carga ultrarrápida de portátiles, tablets y smartphones. Compatible con MacBook, Dell XPS y Samsung Galaxy.</p>
  </div>
- <div class="reveal bg-white rounded-2xl p-8 border border-slate-200 text-center hover:shadow-lg transition-all" style="transition-delay:200ms">
+ <div class="card-lg reveal p-8 text-center hover:shadow-lg transition-all" style="transition-delay:200ms">
  <div class="w-14 h-14 rounded-2xl bg-brandOrange/10 flex items-center justify-center mx-auto mb-5"><svg class="icon-microchip text-2xl text-brandOrange" viewBox="0 0 512 512" width="24" height="24">
  <path d="M176 24c0-13.3-10.7-24-24-24s-24 10.7-24 24l0 40c-35.3 0-64 28.7-64 64l-40 0c-13.3 0-24 10.7-24 24s10.7 24 24 24l40 0 0 56-40 0c-13.3 0-24 10.7-24 24s10.7 24 24 24l40 0 0 56-40 0c-13.3 0-24 10.7-24 24s10.7 24 24 24l40 0c0 35.3 28.7 64 64 64l0 40c0 13.3 10.7 24 24 24s24-10.7 24-24l0-40 56 0 0 40c0 13.3 10.7 24 24 24s24-10.7 24-24l0-40 56 0 0 40c0 13.3 10.7 24 24 24s24-10.7 24-24l0-40c35.3 0 64-28.7 64-64l40 0c13.3 0 24-10.7 24-24s-10.7-24-24-24l-40 0 0-56 40 0c13.3 0 24-10.7 24-24s-10.7-24-24-24l-40 0 0-56 40 0c13.3 0 24-10.7 24-24s-10.7-24-24-24l-40 0c0-35.3-28.7-64-64-64l0-40c0-13.3-10.7-24-24-24s-24 10.7-24 24l0 40-56 0 0-40c0-13.3-10.7-24-24-24s-24 10.7-24 24l0 40-56 0 0-40zM160 128l192 0c17.7 0 32 14.3 32 32l0 192c0 17.7-14.3 32-32 32l-192 0c-17.7 0-32-14.3-32-32l0-192c0-17.7 14.3-32 32-32zm16 48l0 160 160 0 0-160-160 0z" fill="currentColor"/>
  </svg></div>
@@ -353,7 +350,7 @@ plPath: "produkty/power-bank/"
 </section>
 
 <!-- ======== COMPARATIVA TECNOLÓGICA ======== -->
-<section class="sec bg-white">
+<section id="comparativa-tecnologica" class="sec bg-white" data-section="comparison">
  <div class="container-content">
  {{ sectionHeader('Comparativa', 'Semi-Solid-State vs litio convencional', 'La tecnología Semi-Solid-State representa el mayor avance en baterías portátiles desde 2020. Comparativa basada en datos de mercado 2026.', {max: '', mb: 'mb-12'}) }}
  <div class="overflow-x-auto reveal">
@@ -380,26 +377,26 @@ plPath: "produkty/power-bank/"
 </section>
 
 <!-- ======== CUMPLIMIENTO UE ======== -->
-<section class="sec bg-slate-50">
- <div class="container-content">
+<section id="cumplimiento-ue" class="sec bg-slate-50" data-section="content">
+ <div class="container-wide">
  {{ sectionHeader('Normativa UE', 'Cumplimiento reglamento UE 2023/1542', 'Desde agosto 2025, todas las power banks importadas a la UE deben cumplir el nuevo Reglamento de Baterías. WOWOHCOOL gestiona todo el proceso.', {max: '', mb: 'mb-12'}) }}
  <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 reveal">
- <div class="bg-white rounded-xl p-6 shadow-sm border border-slate-100 text-center">
+ <div class="card p-6 shadow-sm text-center">
   <div class="w-12 h-12 bg-brandOrange/10 rounded-full flex items-center justify-center mx-auto mb-3"><span class="text-brandOrange font-bold text-lg">1</span></div>
   <h3 class="font-bold text-brandBlue text-sm mb-2">Registro EPR España</h3>
   <p class="text-xs text-slate-500">Registro obligatorio como productor de baterías. Código EC-XXX para aduanas y Amazon.</p>
  </div>
- <div class="bg-white rounded-xl p-6 shadow-sm border border-slate-100 text-center">
+ <div class="card p-6 shadow-sm text-center">
   <div class="w-12 h-12 bg-brandOrange/10 rounded-full flex items-center justify-center mx-auto mb-3"><span class="text-brandOrange font-bold text-lg">2</span></div>
   <h3 class="font-bold text-brandBlue text-sm mb-2">Representante UE</h3>
   <p class="text-xs text-slate-500">Obligatorio según GPSR (UE 2023/988). Proporcionamos representante autorizado.</p>
  </div>
- <div class="bg-white rounded-xl p-6 shadow-sm border border-slate-100 text-center">
+ <div class="card p-6 shadow-sm text-center">
   <div class="w-12 h-12 bg-brandOrange/10 rounded-full flex items-center justify-center mx-auto mb-3"><span class="text-brandOrange font-bold text-lg">3</span></div>
   <h3 class="font-bold text-brandBlue text-sm mb-2">Documentación CE</h3>
   <p class="text-xs text-slate-500">Declaración de Conformidad, informes RoHS, UN38.3, MSDS. Todo verificable en NANDO.</p>
  </div>
- <div class="bg-white rounded-xl p-6 shadow-sm border border-slate-100 text-center">
+ <div class="card p-6 shadow-sm text-center">
   <div class="w-12 h-12 bg-brandOrange/10 rounded-full flex items-center justify-center mx-auto mb-3"><span class="text-brandOrange font-bold text-lg">4</span></div>
   <h3 class="font-bold text-brandBlue text-sm mb-2">Battery passport</h3>
   <p class="text-xs text-slate-500">Preparados para 2027: trazabilidad completa, huella de carbono y materiales reciclados.</p>
@@ -408,8 +405,19 @@ plPath: "produkty/power-bank/"
  </div>
 </section>
 
+<!-- ======== CTA ======== -->
+<section id="cta" class="sec bg-brandBlue relative overflow-hidden" data-section="cta">
+ <div class="absolute bottom-0 left-0 w-1/2 h-1/2 bg-gradient-to-tr from-brandOrange/5 to-transparent"></div>
+ {% call sectionHeader('Comience ahora', 'Solicite su <span class="text-brandOrange">presupuesto</span>', '', {max: '', mb: '', extra: 'container-narrow relative z-10', titleClass: 'text-3xl md:text-5xl font-black text-white leading-tight mb-4 italic uppercase'}) %}<p class="text-slate-300 text-lg mb-8">Respuesta en 24 horas. Presupuesto personalizado para su proyecto.</p>
+ <div class="btn-pair">
+ <button data-action="open-modal" class="btn-solid text-base px-8 py-4 shadow-lg shadow-brandOrange/20 cursor-pointer">Solicitar presupuesto <svg class="icon-arrow-right" viewBox="0 0 512 512"><path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-105.4 105.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" fill="currentColor"/></svg></button>
+ <a href="https://wa.me/8618620789739" target="_blank" rel="noopener noreferrer" class="border-2 border-white/30 text-white px-10 py-4 rounded-xl font-black uppercase tracking-widest text-sm hover:bg-white hover:text-brandBlue transition text-center w-full">WhatsApp <svg class="icon-whatsapp" viewBox="0 0 448 512"><path d="M380.9 97.1c-41.9-42-97.7-65.1-157-65.1-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480 117.7 449.1c32.4 17.7 68.9 27 106.1 27l.1 0c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3 18.6-68.1-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1s56.2 81.2 56.1 130.5c0 101.8-84.9 184.6-186.6 184.6zM325.1 300.5c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8s-14.3 18-17.6 21.8c-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7s-12.5-30.1-17.1-41.2c-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2s-9.7 1.4-14.8 6.9c-5.1 5.6-19.4 19-19.4 46.3s19.9 53.7 22.6 57.4c2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4s4.6-24.1 3.2-26.4c-1.3-2.5-5-3.9-10.5-6.6z" fill="currentColor"/></svg></a>
+ </div>
+ {% endcall %}
+</section>
+
 <!-- ======== FAQ ======== -->
-<section class="py-16 bg-slate-50">
+<section id="faq" class="sec bg-slate-50" data-section="faq">
  <div class="container-narrow">
  {{ sectionHeader('FAQ', 'Preguntas frecuentes', '', {max: '', mb: 'mb-10'}) }}
  <div class="reveal">
@@ -427,16 +435,6 @@ plPath: "produkty/power-bank/"
  </div>
 </section>
 
-<!-- ======== CTA ======== -->
-<section class="sec bg-brandBlue relative overflow-hidden">
- <div class="absolute bottom-0 left-0 w-1/2 h-1/2 bg-gradient-to-tr from-brandOrange/5 to-transparent"></div>
- {% call sectionHeader('Comience ahora', 'Solicite su <span class="text-brandOrange">presupuesto</span>', '', {max: '', mb: '', extra: 'container-narrow relative z-10', titleClass: 'text-3xl md:text-5xl font-black text-white leading-tight mb-4 italic uppercase'}) %}<p class="text-slate-300 text-lg mb-8">Respuesta en 24 horas. Presupuesto personalizado para su proyecto.</p>
- <div class="flex flex-col sm:flex-row gap-4 justify-center">
- <button data-action="open-modal" class="btn-primary text-base px-8 py-4 shadow-lg shadow-brandOrange/20 cursor-pointer">Solicitar presupuesto <svg class="icon-arrow-right" viewBox="0 0 512 512"><path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-105.4 105.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" fill="currentColor"/></svg></button>
- <a href="https://wa.me/8618620789739" target="_blank" rel="noopener noreferrer" class="btn-outline-white text-base px-8 py-4">WhatsApp <svg class="icon-whatsapp" viewBox="0 0 448 512"><path d="M380.9 97.1c-41.9-42-97.7-65.1-157-65.1-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480 117.7 449.1c32.4 17.7 68.9 27 106.1 27l.1 0c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3 18.6-68.1-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1s56.2 81.2 56.1 130.5c0 101.8-84.9 184.6-186.6 184.6zM325.1 300.5c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8s-14.3 18-17.6 21.8c-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7s-12.5-30.1-17.1-41.2c-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2s-9.7 1.4-14.8 6.9c-5.1 5.6-19.4 19-19.4 46.3s19.9 53.7 22.6 57.4c2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4s4.6-24.1 3.2-26.4c-1.3-2.5-5-3.9-10.5-6.6z" fill="currentColor"/></svg></a>
- </div>
- {% endcall %}
-</section>
 {%- set formProduct = "Power bank OEM/ODM" %}
 {%- set formHeading = "Power bank: precio de fábrica" %}
 {%- set formSubtext = "Cuéntenos su proyecto: semisólido, PD 3.1, capacidad personalizada; nos encargamos de todo." %}

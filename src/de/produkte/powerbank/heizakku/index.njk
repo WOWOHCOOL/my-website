@@ -75,13 +75,13 @@ plPath: "produkty/power-bank/bateria-grzejaca/"
 {% from "breadcrumb.njk" import breadcrumb %}
 
 <!-- HERO -->
-<section class="pt-24 md:pt-28 pb-16 md:pb-20 bg-gradient-to-br from-red-50 via-white to-orange-50">
+<section id="hero" class="pt-24 md:pt-28 lg:pt-20 pb-16 md:pb-20 bg-gradient-to-br from-red-50 via-white to-orange-50 lg:min-h-[100dvh] lg:flex lg:flex-col lg:justify-center" data-section="hero">
  <div class="container-wide">
   {{ breadcrumb([{name:"Startseite",url:"/de/"},{name:"Produkte",url:"/de/produkte/"},{name:"Powerbank",url:"/de/produkte/powerbank/"},{name:"Heizakku"}], "none", "mb-6", { variant: "hero" }) }}
   <div class="grid lg:grid-cols-2 gap-12 items-center">
    <div class="reveal order-2 lg:order-1">
-    <p class="text-brandOrange text-xs font-bold tracking-widest uppercase mb-3">Beheizte Bekleidung &middot; Werks-OEM &middot; Q4 2026</p>
-    <h1 class="text-3xl md:text-5xl font-black text-brandBlue leading-tight mb-6 italic uppercase">Heizakku Hersteller<br><span class="text-brandOrange">für Heizjacken &amp; mehr</span></h1>
+    <div class="badge-capsule mb-6 uppercase tracking-widest">Beheizte Bekleidung &middot; Werks-OEM &middot; Q4 2026</div>
+    <h1 class="text-3xl md:text-4xl xl:text-5xl font-black text-brandBlue leading-tight mb-6 italic uppercase tracking-tighter">Heizakku Hersteller<br><span class="text-brandOrange">für Heizjacken &amp; mehr</span></h1>
     <p class="text-slate-600 text-lg leading-relaxed mb-6"><strong>Spezialisiertes Akku-Werk für beheizte Bekleidung</strong> seit 2013. 8 produktionsreife Modelle für Heizjacken, Heizwesten, Heizhandschuhe, Heizsocken, Heizschals und Massagekissen. 5V USB und 7,4V DC, kundenspezifische Steckverbinder. <strong>EN 60335-2-17 konform</strong>, EU 2023/1542 ready. Lead-Time 25-35 Tage — Q4-Lieferung jetzt sichern. <strong>Deutschland Heizjacken-Markt: $23.17M (2025) → $50.14M (2034), 8.95% CAGR (DeepMarketInsights). Deutschland = führender EU-Markt mit 5.91% Globalanteil.</strong></p>
 
  <p class="text-sm text-slate-500 mb-6"><strong>Batterie = 35-50% der Herstellkosten</strong> einer Heizjacke. 7.4V DC = Standard (80%+ aller Heizjacken). Wiederkehrender Umsatz: Akku-Austausch alle 2-3 Saisons. Große Werkzeugmarken (Bosch/DEWALT/Milwaukee) nutzen eigene Akkus — Bekleidungsmarken sourcen von China-OEMs wie WOWOHCOOL.</p>
@@ -90,13 +90,13 @@ plPath: "produkty/power-bank/bateria-grzejaca/"
      <span class="trust-badge">CE + PSE + UN38.3</span>
      <span class="trust-badge">5V USB + 7,4V DC</span>
     </div>
-    <div class="flex flex-wrap gap-4">
-     <button data-action="open-modal" class="btn-primary cursor-pointer">Werkspreis anfragen &rarr;</button>
-     <a href="#modelle" class="btn-secondary">Modelle ansehen</a>
+    <div class="btn-pair">
+     <button data-action="open-modal" class="btn-solid cursor-pointer">Werkspreis anfragen &rarr;</button>
+     <a href="#modelle" class="btn-ghost-lg">Modelle ansehen</a>
     </div>
    </div>
    <div class="reveal order-1 lg:order-2">
-    <div class="bg-white rounded-2xl shadow-xl p-6 md:p-8 border border-slate-100">
+    <div class="card-lg shadow-xl p-6 md:p-8 max-w-[480px] mx-auto">
      <img src="/image/product/power-bank/wop55-heating-battery.webp" srcset="/image/product/power-bank/wop55-heating-battery-750w.webp 750w, /image/product/power-bank/wop55-heating-battery.webp 1100w" sizes="(min-width: 1440px) 526px, (min-width: 1280px) 526px, (min-width: 1024px) 398px, (min-width: 768px) 654px, (min-width: 430px) 382px, 327px" alt="Heizakku WOP55 für Heizjacke 14.400mAh 7,4V" width="1100" height="1100" class="w-full h-auto object-contain" loading="eager">
     </div>
    </div>
@@ -108,7 +108,7 @@ plPath: "produkty/power-bank/bateria-grzejaca/"
 {% include "trust-bar.njk" %}
 
 <!-- MODELLE -->
-<section id="modelle" class="sec bg-white">
+<section id="modelle" class="sec bg-white" data-section="products">
  <div class="container-wide">
   {{ sectionHeader('Heizakku-Reihe', '8 Heizakku-Modelle für jeden Bekleidungstyp', 'Von kompakten 1.800mAh-Modulen für Massagekissen bis 14.400mAh High-Capacity für Heizjacken-Volltagsbetrieb.', {mb: 'mb-12'}) }}
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -120,7 +120,7 @@ plPath: "produkty/power-bank/bateria-grzejaca/"
      <div class="flex items-center space-x-2"><svg class="icon-feature text-brandOrange text-[11px]" aria-hidden="true" focusable="false" viewBox="0 0 384 512"><path d="M173.8 5.5c11-7.3 25.4-7.3 36.4 0l79.2 52.8 92.7 4.7c13.2 0.7 24.7 9.1 29.4 21.5l32 84.4 53.7 75.4c7.8 11 7.8 25.7 0 36.7l-53.7 75.4-32 84.4c-4.7 12.4-16.2 20.8-29.4 21.5l-92.7 4.7-79.2 52.8c-11 7.3-25.4 7.3-36.4 0l-79.2-52.8-92.7-4.7c-13.2-0.7-24.7-9.1-29.4-21.5l-32-84.4L0 280.6c-7.8-11-7.8-25.7 0-36.7l53.7-75.4 32-84.4c4.7-12.4 16.2-20.8 29.4-21.5l92.7-4.7L173.8 5.5z" fill="currentColor"/></svg><span class="text-[11px] font-bold text-slate-500 uppercase">Heizjacke / Weste<br><span class="text-[10px] font-normal text-slate-400">8-10h Laufzeit</span></span></div></div>
     <p class="text-[11px] text-slate-500 mb-6 italic leading-relaxed">Spezial-Akku für beheizte Bekleidung. 14.400mAh, 7,4V DC. ABS+PC.</p>
     <details class="mb-6 group/spec">
-     <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Spezifikationen</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
+     <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Spezifikationen</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
      <div class="p-4 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-[11px]"><tbody>
      <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Maße</td><td class="py-2 font-bold text-slate-700">10  x  7.1  x  2,2 cm</td></tr>
      <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Gehäuse</td><td class="py-2 font-bold text-slate-700">ABS + PC</td></tr>
@@ -141,7 +141,7 @@ plPath: "produkty/power-bank/bateria-grzejaca/"
      <div class="flex items-center space-x-2"><svg class="icon-feature text-brandOrange text-[11px]" aria-hidden="true" focusable="false" viewBox="0 0 384 512"><path d="M173.8 5.5c11-7.3 25.4-7.3 36.4 0l79.2 52.8 92.7 4.7c13.2 0.7 24.7 9.1 29.4 21.5l32 84.4 53.7 75.4c7.8 11 7.8 25.7 0 36.7l-53.7 75.4-32 84.4c-4.7 12.4-16.2 20.8-29.4 21.5l-92.7 4.7-79.2 52.8c-11 7.3-25.4 7.3-36.4 0l-79.2-52.8-92.7-4.7c-13.2-0.7-24.7-9.1-29.4-21.5l-32-84.4L0 280.6c-7.8-11-7.8-25.7 0-36.7l53.7-75.4 32-84.4c4.7-12.4 16.2-20.8 29.4-21.5l92.7-4.7L173.8 5.5z" fill="currentColor"/></svg><span class="text-[11px] font-bold text-slate-500 uppercase">Heizsocken<br><span class="text-[10px] font-normal text-slate-400">Ultraleicht</span></span></div></div>
     <p class="text-[11px] text-slate-500 mb-6 italic leading-relaxed">Kompakter 2.000mAh Heizakku mit 7,4V DC. Ultraleicht.</p>
     <details class="mb-6 group/spec">
-     <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Spezifikationen</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
+     <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Spezifikationen</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
      <div class="p-4 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-[11px]"><tbody>
      <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Maße</td><td class="py-2 font-bold text-slate-700">8.1  x  4.9  x  1,6 cm</td></tr>
      <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Gewicht</td><td class="py-2 font-bold text-slate-700">54g</td></tr>
@@ -165,7 +165,7 @@ plPath: "produkty/power-bank/bateria-grzejaca/"
      <div class="flex items-center space-x-2"><svg class="icon-feature text-brandOrange text-[11px]" aria-hidden="true" focusable="false" viewBox="0 0 384 512"><path d="M173.8 5.5c11-7.3 25.4-7.3 36.4 0l79.2 52.8 92.7 4.7c13.2 0.7 24.7 9.1 29.4 21.5l32 84.4 53.7 75.4c7.8 11 7.8 25.7 0 36.7l-53.7 75.4-32 84.4c-4.7 12.4-16.2 20.8-29.4 21.5l-92.7 4.7-79.2 52.8c-11 7.3-25.4 7.3-36.4 0l-79.2-52.8-92.7-4.7c-13.2-0.7-24.7-9.1-29.4-21.5l-32-84.4L0 280.6c-7.8-11-7.8-25.7 0-36.7l53.7-75.4 32-84.4c4.7-12.4 16.2-20.8 29.4-21.5l92.7-4.7L173.8 5.5z" fill="currentColor"/></svg><span class="text-[11px] font-bold text-slate-500 uppercase">Heizschal / Mütze<br><span class="text-[10px] font-normal text-slate-400">Mini-Modul</span></span></div></div>
     <p class="text-[11px] text-slate-500 mb-6 italic leading-relaxed">Mini-Heizakku 2.000mAh, 7,4V DC. Kompaktestes Modul.</p>
     <details class="mb-6 group/spec">
-     <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Spezifikationen</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
+     <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Spezifikationen</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
      <div class="p-4 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-[11px]"><tbody>
      <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Maße</td><td class="py-2 font-bold text-slate-700">7.2  x  4.1  x  1,3 cm</td></tr>
      <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Gewicht</td><td class="py-2 font-bold text-slate-700">47g</td></tr>
@@ -188,7 +188,7 @@ plPath: "produkty/power-bank/bateria-grzejaca/"
      <div class="flex items-center space-x-2"><svg class="icon-feature text-brandOrange text-[11px]" aria-hidden="true" focusable="false" viewBox="0 0 384 512"><path d="M173.8 5.5c11-7.3 25.4-7.3 36.4 0l79.2 52.8 92.7 4.7c13.2 0.7 24.7 9.1 29.4 21.5l32 84.4 53.7 75.4c7.8 11 7.8 25.7 0 36.7l-53.7 75.4-32 84.4c-4.7 12.4-16.2 20.8-29.4 21.5l-92.7 4.7-79.2 52.8c-11 7.3-25.4 7.3-36.4 0l-79.2-52.8-92.7-4.7c-13.2-0.7-24.7-9.1-29.4-21.5l-32-84.4L0 280.6c-7.8-11-7.8-25.7 0-36.7l53.7-75.4 32-84.4c4.7-12.4 16.2-20.8 29.4-21.5l92.7-4.7L173.8 5.5z" fill="currentColor"/></svg><span class="text-[11px] font-bold text-slate-500 uppercase">Heizhandschuhe<br><span class="text-[10px] font-normal text-slate-400">Links + Rechts</span></span></div></div>
     <p class="text-[11px] text-slate-500 mb-6 italic leading-relaxed">2.500mAh Heizakku-Set (2 Stück), 7,4V DC. Paarweise.</p>
     <details class="mb-6 group/spec">
-     <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Spezifikationen</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
+     <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Spezifikationen</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
      <div class="p-4 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-[11px]"><tbody>
      <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Maße</td><td class="py-2 font-bold text-slate-700">5.2  x  4.8  x  2,1 cm</td></tr>
      <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Gewicht</td><td class="py-2 font-bold text-slate-700">83g</td></tr>
@@ -209,7 +209,7 @@ plPath: "produkty/power-bank/bateria-grzejaca/"
      <div class="flex items-center space-x-2"><svg class="icon-feature text-brandOrange text-[11px]" aria-hidden="true" focusable="false" viewBox="0 0 384 512"><path d="M173.8 5.5c11-7.3 25.4-7.3 36.4 0l79.2 52.8 92.7 4.7c13.2 0.7 24.7 9.1 29.4 21.5l32 84.4 53.7 75.4c7.8 11 7.8 25.7 0 36.7l-53.7 75.4-32 84.4c-4.7 12.4-16.2 20.8-29.4 21.5l-92.7 4.7-79.2 52.8c-11 7.3-25.4 7.3-36.4 0l-79.2-52.8-92.7-4.7c-13.2-0.7-24.7-9.1-29.4-21.5l-32-84.4L0 280.6c-7.8-11-7.8-25.7 0-36.7l53.7-75.4 32-84.4c4.7-12.4 16.2-20.8 29.4-21.5l92.7-4.7L173.8 5.5z" fill="currentColor"/></svg><span class="text-[11px] font-bold text-slate-500 uppercase">Massagekissen / Handwaermer<br><span class="text-[10px] font-normal text-slate-400">USB-Heizung</span></span></div></div>
     <p class="text-[11px] text-slate-500 mb-6 italic leading-relaxed">1.800mAh Heizakku, 5V USB. Für Massagekissen und Handwaermer.</p>
     <details class="mb-6 group/spec">
-     <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Spezifikationen</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
+     <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Spezifikationen</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
      <div class="p-4 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-[11px]"><tbody>
      <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Maße</td><td class="py-2 font-bold text-slate-700">8.5  x  6.3  x  2,2 cm</td></tr>
      <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Gehäuse</td><td class="py-2 font-bold text-slate-700">ABS + PC</td></tr>
@@ -229,7 +229,7 @@ plPath: "produkty/power-bank/bateria-grzejaca/"
      <div class="flex items-center space-x-2"><svg class="icon-feature text-brandOrange text-[11px]" aria-hidden="true" focusable="false" viewBox="0 0 384 512"><path d="M173.8 5.5c11-7.3 25.4-7.3 36.4 0l79.2 52.8 92.7 4.7c13.2 0.7 24.7 9.1 29.4 21.5l32 84.4 53.7 75.4c7.8 11 7.8 25.7 0 36.7l-53.7 75.4-32 84.4c-4.7 12.4-16.2 20.8-29.4 21.5l-92.7 4.7-79.2 52.8c-11 7.3-25.4 7.3-36.4 0l-79.2-52.8-92.7-4.7c-13.2-0.7-24.7-9.1-29.4-21.5l-32-84.4L0 280.6c-7.8-11-7.8-25.7 0-36.7l53.7-75.4 32-84.4c4.7-12.4 16.2-20.8 29.4-21.5l92.7-4.7L173.8 5.5z" fill="currentColor"/></svg><span class="text-[11px] font-bold text-slate-500 uppercase">USB-Heizgeraete<br><span class="text-[10px] font-normal text-slate-400">Standard-Output</span></span></div></div>
     <p class="text-[11px] text-slate-500 mb-6 italic leading-relaxed">4.000mAh Heizakku, 5V USB. ABS+PC-Gehäuse.</p>
     <details class="mb-6 group/spec">
-     <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Spezifikationen</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
+     <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Spezifikationen</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
      <div class="p-4 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-[11px]"><tbody>
      <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Akkukapazität</td><td class="py-2 font-bold text-slate-700">4.000mAh / 3.7V / 14,8Wh</td></tr>
      <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Zelltyp</td><td class="py-2 font-bold text-slate-700">Li-Polymer</td></tr>
@@ -251,7 +251,7 @@ plPath: "produkty/power-bank/bateria-grzejaca/"
      <div class="flex items-center space-x-2"><svg class="icon-feature text-brandOrange text-[11px]" aria-hidden="true" focusable="false" viewBox="0 0 576 512"><path d="M320.1 56.1c-35.3-35.3-92.7-35.3-128 0L93.7 154.4c-35.3 35.3-35.3 92.7 0 128s92.7 35.3 128 0l34.1-34.1c6.2-6.2 16.4-6.2 22.6 0s6.2 16.4 0 22.6L244.3 305c-47.8 47.8-125.5 47.8-173.3 0S23.2 179.5 71 131.7L169.3 33.4c47.8-47.8 125.5-47.8 173.3 0s47.8 125.5 0 173.3l-27.3 27.3c-6.2 6.2-16.4 6.2-22.6 0s-6.2-16.4 0-22.6l27.3-27.3c35.3-35.3 35.3-92.7 0-128zM186.7 285.5c-6.2-6.2-16.4-6.2-22.6 0l-27.3 27.3c-35.3 35.3-35.3 92.7 0 128s92.7 35.3 128 0l98.4-98.4c35.3-35.3 35.3-92.7 0-128s-92.7-35.3-128 0l-34.1 34.1c-6.2 6.2-16.4 6.2-22.6 0s-6.2-16.4 0-22.6l34.1-34.1c47.8-47.8 125.5-47.8 173.3 0s47.8 125.5 0 173.3L357.3 462.6c-47.8 47.8-125.5 47.8-173.3 0s-47.8-125.5 0-173.3l27.3-27.3c6.2-6.2 16.4-6.2 22.6 0s6.2 16.4 0 22.6z" fill="currentColor"/></svg><span class="text-[11px] font-bold text-slate-500 uppercase">2x USB-Heizports<br><span class="text-[10px] font-normal text-slate-400">Gleichzeitig</span></span></div></div>
     <p class="text-[11px] text-slate-500 mb-6 italic leading-relaxed">9.600mAh Heizakku, 5V Dual-USB. Versorgt zwei Heizelemente.</p>
     <details class="mb-6 group/spec">
-     <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Spezifikationen</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
+     <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Spezifikationen</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
      <div class="p-4 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-[11px]"><tbody>
      <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Akkukapazität</td><td class="py-2 font-bold text-slate-700">9.600mAh / 3.63V / 34,85Wh</td></tr>
      <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Zelltyp</td><td class="py-2 font-bold text-slate-700">Lithium-Ion</td></tr>
@@ -274,7 +274,7 @@ plPath: "produkty/power-bank/bateria-grzejaca/"
      <div class="flex items-center space-x-2"><svg class="icon-feature text-brandOrange text-[11px]" aria-hidden="true" focusable="false" viewBox="0 0 576 512"><path d="M320.1 56.1c-35.3-35.3-92.7-35.3-128 0L93.7 154.4c-35.3 35.3-35.3 92.7 0 128s92.7 35.3 128 0l34.1-34.1c6.2-6.2 16.4-6.2 22.6 0s6.2 16.4 0 22.6L244.3 305c-47.8 47.8-125.5 47.8-173.3 0S23.2 179.5 71 131.7L169.3 33.4c47.8-47.8 125.5-47.8 173.3 0s47.8 125.5 0 173.3l-27.3 27.3c-6.2 6.2-16.4 6.2-22.6 0s-6.2-16.4 0-22.6l27.3-27.3c35.3-35.3 35.3-92.7 0-128zM186.7 285.5c-6.2-6.2-16.4-6.2-22.6 0l-27.3 27.3c-35.3 35.3-35.3 92.7 0 128s92.7 35.3 128 0l98.4-98.4c35.3-35.3 35.3-92.7 0-128s-92.7-35.3-128 0l-34.1 34.1c-6.2 6.2-16.4 6.2-22.6 0s-6.2-16.4 0-22.6l34.1-34.1c47.8-47.8 125.5-47.8 173.3 0s47.8 125.5 0 173.3L357.3 462.6c-47.8 47.8-125.5 47.8-173.3 0s-47.8-125.5 0-173.3l27.3-27.3c6.2-6.2 16.4-6.2 22.6 0s6.2 16.4 0 22.6z" fill="currentColor"/></svg><span class="text-[11px] font-bold text-slate-500 uppercase">2x USB-Heizports<br><span class="text-[10px] font-normal text-slate-400">Ganztaetiger Einsatz</span></span></div></div>
     <p class="text-[11px] text-slate-500 mb-6 italic leading-relaxed">10.000mAh High-Capacity Heizakku, 5V Dual-USB. Groesste USB-Heizbatterie.</p>
     <details class="mb-6 group/spec">
-     <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Spezifikationen</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
+     <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Spezifikationen</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
      <div class="p-4 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-[11px]"><tbody>
      <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Akkukapazität</td><td class="py-2 font-bold text-slate-700">10.000mAh / 3.7V / 37Wh</td></tr>
      <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Zelltyp</td><td class="py-2 font-bold text-slate-700">Li-Polymer</td></tr>
@@ -294,7 +294,7 @@ plPath: "produkty/power-bank/bateria-grzejaca/"
 </section>
 
 <!-- MARKET-DATA -->
-<section class="sec bg-white py-8">
+<section id="market-data" class="sec bg-white py-8" data-section="content">
  <div class="container-content">
  <blockquote class="bg-brandOrange/5 border-l-4 border-brandOrange rounded-r-xl px-6 py-5 text-sm text-slate-700 italic leading-relaxed">
   <p>"Der globale Markt für beheizte Bekleidung wächst laut TechSci Research von 480 Mio. USD (2025) auf 830 Mio. USD bis 2031 bei einer CAGR von 9,56%. Das batteriebeheizte Jackensegment wird laut QY Research bis 2031 ein Volumen von 451 Mio. USD erreichen (12% CAGR). Allein die US-Skiindustrie verzeichnete 2023/24 60,4 Millionen Besuche mit über 30 Millionen Wintersport-Teilnehmern. Der entscheidende Wettbewerbsfaktor für Marken ist der Akku: Laufzeit bei Minusgraden, Steckverbinder-Zuverlässigkeit über 500+ Ladezyklen und marktübergreifende Zertifizierungen — PSE (Japan), UL (USA), UN38.3 (Luftfracht) und CE (EU) — trennen Premium-Heizbekleidung von Importware."</p>
@@ -304,21 +304,21 @@ plPath: "produkty/power-bank/bateria-grzejaca/"
 </section>
 
 <!-- SPANNUNGS-LEITFADEN -->
-<section class="sec bg-slate-50">
- <div class="container-content">
+<section id="spannungs-leitfaden" class="sec bg-slate-50" data-section="content">
+ <div class="container-wide">
   {{ sectionHeader('Grundlagen', 'Was ist ein <span class="text-brandOrange">Heizakku</span>?', 'Spezialisierte Akkus für beheizbare Bekleidung — kein gewöhnlicher USB-Akku.', {mb: 'mb-12'}) }}
-  <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-   <div class="bg-slate-50 rounded-2xl p-8 text-center">
+  <div class="grid md:grid-cols-3 gap-8">
+   <div class="card-lg-soft p-8 text-center">
     <p class="text-3xl font-black text-brandOrange mb-2">5V + 7,4V</p>
     <p class="text-sm font-bold text-brandBlue">Duale Spannung</p>
     <p class="text-xs text-slate-500 mt-2">5V USB für Heizpaneele, 7,4V DC für Kabel-Heizelemente. Individuelle Spannungskonfigurationen möglich.</p>
    </div>
-   <div class="bg-slate-50 rounded-2xl p-8 text-center">
+   <div class="card-lg-soft p-8 text-center">
     <p class="text-3xl font-black text-brandOrange mb-2">EN 60335-2-17</p>
     <p class="text-sm font-bold text-brandBlue">Sicherheitsnorm</p>
     <p class="text-xs text-slate-500 mt-2">Speziell für Heizdecken und -bekleidung. Übertemperaturschutz und automatische Abschaltung integriert.</p>
    </div>
-   <div class="bg-slate-50 rounded-2xl p-8 text-center">
+   <div class="card-lg-soft p-8 text-center">
     <p class="text-3xl font-black text-brandOrange mb-2">8-10h</p>
     <p class="text-sm font-bold text-brandBlue">Laufzeit</p>
     <p class="text-xs text-slate-500 mt-2">Bei 14.400mAh auf niedriger Stufe. Kundenspezifische Steckverbinder und Kabellängen für Ihre Heizbekleidung.</p>
@@ -328,7 +328,7 @@ plPath: "produkty/power-bank/bateria-grzejaca/"
 </section>
 
 <!-- Heizakku vs Standard-Powerbank -->
-<section class="sec bg-slate-50">
+<section id="heizakku-vs-standard-powerbank" class="sec bg-slate-50" data-section="comparison">
  <div class="container-content">
   {{ sectionHeader('Vergleich', 'Heizakku vs. <span class="text-brandOrange">Standard-Powerbank</span>', 'Warum beheizbare Bekleidung spezialisierte Akkus braucht — und keine gewöhnliche Powerbank ausreicht.', {max: '', mb: 'mb-12'}) }}
   <div class="overflow-x-auto reveal">
@@ -347,14 +347,14 @@ plPath: "produkty/power-bank/bateria-grzejaca/"
 </section>
 
 <!-- EU Compliance -->
-<section class="sec bg-white">
- <div class="container-content">
+<section id="eu-compliance" class="sec bg-white" data-section="content">
+ <div class="container-wide">
   <div class="grid md:grid-cols-2 gap-6 reveal">
-   <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200">
+   <div class="card-lg-soft p-6">
     <h3 class="text-base font-bold text-brandBlue mb-2">EN 60335-2-17 Konformität</h3>
     <p class="text-sm text-slate-600 leading-relaxed">Diese Norm regelt die Sicherheit von Heizdecken, Heizkissen und ähnlichen flexiblen Heizgeräten. Unsere Heizakku-Steuerung integriert Übertemperaturschutz, Übersleerlauf und automatische Abschaltung gemäß Anhang AA der Norm. Wir liefern das vollständige Prüfprotokoll mit jeder Bestellung.</p>
    </div>
-   <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200">
+   <div class="card-lg-soft p-6">
     <h3 class="text-base font-bold text-brandBlue mb-2">EU 2023/1542 + EAR-Service</h3>
     <p class="text-sm text-slate-600 leading-relaxed">Für tragbare Heizakkus gilt die EU-Batterieverordnung 2023/1542 — wir übernehmen die EAR-Stiftung-Registrierung in Deutschland und unterstützen die EPR-Pendants für Bekleidungs-Distribution in AT, FR, IT, ES. Ab 2027 inkl. Batteriepass-Vorbereitung.</p>
    </div>
@@ -366,27 +366,27 @@ plPath: "produkty/power-bank/bateria-grzejaca/"
 
 
 <!-- SPANNUNGS-LEITFADEN -->
-<section class="sec bg-slate-50">
- <div class="container-content">
+<section id="spannungs-leitfaden-2" class="sec bg-slate-50" data-section="content">
+ <div class="container-wide">
   {{ sectionHeader('Spannungs-Leitfaden', '5V USB vs. 7,4V DC', 'Welche Spannung passt zu Ihrem Heizelement? Übersicht für Markenhersteller von Heizbekleidung.', {mb: 'mb-12'}) }}
   <div class="grid md:grid-cols-2 gap-6 reveal">
-   <div class="bg-white rounded-2xl p-8 border border-slate-200"><p class="text-2xl font-black text-brandOrange mb-2">5V USB</p><p class="text-sm font-bold text-brandBlue mb-2">USB-Heizgeräte</p><p class="text-xs text-slate-500">Heizjacken/Westen mit USB-Heizpaneelen, Massagekissen, Heizdecken, Handwärmer. Standard-USB-A-Ausgang. Heizleistung 5-15W. Akkukapazität 1.800-10.000mAh. Modelle: WOP53, WOP57, WOP54, WOP63.</p></div>
+   <div class="card-lg p-8"><p class="text-2xl font-black text-brandOrange mb-2">5V USB</p><p class="text-sm font-bold text-brandBlue mb-2">USB-Heizgeräte</p><p class="text-xs text-slate-500">Heizjacken/Westen mit USB-Heizpaneelen, Massagekissen, Heizdecken, Handwärmer. Standard-USB-A-Ausgang. Heizleistung 5-15W. Akkukapazität 1.800-10.000mAh. Modelle: WOP53, WOP57, WOP54, WOP63.</p></div>
    <div class="bg-white rounded-2xl p-8 border border-brandOrange/30 ring-2 ring-brandOrange/20"><p class="text-2xl font-black text-brandOrange mb-2">7,4V DC</p><p class="text-sm font-bold text-brandBlue mb-2">Premium-Heizbekleidung</p><p class="text-xs text-slate-500">Heizjacken, Heizwesten, Heizhandschuhe, Heizsocken, Heizschal mit DC-Kabelheizelementen. Höchste Heizleistung 15-45W. Akkukapazität 2.000-14.400mAh. Modelle: WOP49, WOP50, WOP55, WOP61. <strong>Standard für Premium-Marken.</strong></p></div>
   </div>
  </div>
 </section>
 
 <!-- Q4-SAISONKALENDER -->
-<section class="pt-16 md:pt-20 pb-4 bg-white">
- <div class="container-content">
+<section id="q4-saisonkalender" class="pt-20 pb-4 bg-white" data-section="content">
+ <div class="container-wide">
   {{ sectionHeader('Q4-Lieferplanung', 'Heizjacken-Saison 2026 vorbereiten', 'Der Heizbekleidungs-Markt im DACH-Raum hat den Peak von <strong>Oktober bis Februar</strong>. Bei 25-35 Tagen Werks-Lead-Time + Seefracht müssen Bestellungen für Q4 2026 spätestens im August platziert sein. Hier ist der Zeitplan, den unsere DACH-Kunden nutzen.', {mb: 'mb-12'}) }}
   <div class="grid md:grid-cols-4 gap-4 reveal">
-   <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200">
+   <div class="card-lg-soft p-6">
     <p class="text-2xl font-black text-brandOrange mb-2">Mai-Juni</p>
     <p class="text-sm font-bold text-brandBlue mb-2">Konzept &amp; Sample</p>
     <p class="text-xs text-slate-500">Spezifikation festlegen, kundenspezifischer Stecker und Kabel definieren. Sample-Versand 5-10 Tage.</p>
    </div>
-   <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200">
+   <div class="card-lg-soft p-6">
     <p class="text-2xl font-black text-brandOrange mb-2">Juli</p>
     <p class="text-sm font-bold text-brandBlue mb-2">Musterfreigabe</p>
     <p class="text-xs text-slate-500">PP-Sample testen, EN 60335-2-17 Kompatibilität mit Ihrem Heizelement bestätigen, finale Bestellung auslösen.</p>
@@ -396,7 +396,7 @@ plPath: "produkty/power-bank/bateria-grzejaca/"
     <p class="text-sm font-bold text-brandBlue mb-2">Produktion &amp; Versand</p>
     <p class="text-xs text-slate-500"><strong>Critical-Path</strong>: 25-35 Tage Werksproduktion + 25 Tage Seefracht oder 5-7 Tage Luftfracht für Express.</p>
    </div>
-   <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200">
+   <div class="card-lg-soft p-6">
     <p class="text-2xl font-black text-brandOrange mb-2">Okt-Feb</p>
     <p class="text-sm font-bold text-brandBlue mb-2">Verkaufsfenster</p>
     <p class="text-xs text-slate-500">Heizjacken-Saison im DACH-Retail. Reorders ab November für Reststock — 15-20 Tage Express-Produktion möglich.</p>
@@ -406,7 +406,7 @@ plPath: "produkty/power-bank/bateria-grzejaca/"
 </section>
 
 <!-- Was ist ein Heizakku -->
-<section class="sec bg-white">
+<section id="was-ist-ein-heizakku" class="sec bg-white" data-section="content">
  <div class="container-wide">
   <div class="text-center mb-12 reveal">
   </div>
@@ -414,21 +414,21 @@ plPath: "produkty/power-bank/bateria-grzejaca/"
 </section>
 
 <!-- FAQ -->
-<section class="pb-16 md:pb-20 pt-8 md:pt-12 bg-white">
+<section id="faq" class="pb-20 pt-8 md:pt-12 bg-white" data-section="faq">
  <div class="container-narrow">
   {{ sectionHeader('FAQ', 'Heizakku FAQ', '', {max: '', mb: 'mb-12'}) }}
   <div class="space-y-4">
-   <details class="reveal bg-slate-50 rounded-2xl p-6 border border-slate-200"><summary class="font-bold text-brandBlue cursor-pointer">Welche Spannungen bieten Sie für Heizakkus an?</summary><p class="text-sm text-slate-600 mt-3 leading-relaxed faq-answer">5V USB (Heizjacken/Westen mit USB-Heizpaneelen, Massagekissen, Handwärmer) und 7,4V DC (Heizjacken, Heizhandschuhe, Heizsocken, Heizschal mit DC-Kabelheizelementen). Wir fertigen kundenspezifische Spannungskonfigurationen für Ihre Heizelemente.</p></details>
-   <details class="reveal bg-slate-50 rounded-2xl p-6 border border-slate-200"><summary class="font-bold text-brandBlue cursor-pointer">Welche Steckverbinder sind verfügbar?</summary><p class="text-sm text-slate-600 mt-3 leading-relaxed faq-answer">DC 5,5×2,1mm, DC 3,5×1,35mm, JST-PH, JST-XH, USB-A, USB-C, eigene Pin-Konfigurationen. Kabellängen 30-150cm. Wir liefern auf Wunsch komplette Heizelement-Steckverbinder-Kombinationen.</p></details>
-   <details class="reveal bg-slate-50 rounded-2xl p-6 border border-slate-200"><summary class="font-bold text-brandBlue cursor-pointer">Wie lange hält ein Heizakku im Einsatz?</summary><p class="text-sm text-slate-600 mt-3 leading-relaxed faq-answer">Bei einer 14.400mAh / 7,4V Heizjacken-Batterie: niedrige Stufe 8-10h, mittlere Stufe 5-6h, hohe Stufe 3-4h. Bei 2.500mAh / 7,4V Handschuhen: 4-6h niedrig, 2-3h hoch.</p></details>
-   <details class="reveal bg-slate-50 rounded-2xl p-6 border border-slate-200"><summary class="font-bold text-brandBlue cursor-pointer">Welche Zertifizierungen brauche ich für Heizakkus in der EU?</summary><p class="text-sm text-slate-600 mt-3 leading-relaxed faq-answer">Pflicht: CE (EMV + Niederspannung), UN38.3, RoHS. Empfohlen für DACH-Handel: TÜV GS. Für tragbare Heizgeräte gilt zusätzlich EN 60335-2-17 (Sicherheit von Heizdecken/-kissen). Wir liefern alle Konformitätsdokumente.</p></details>
-   <details class="reveal bg-slate-50 rounded-2xl p-6 border border-slate-200"><summary class="font-bold text-brandBlue cursor-pointer">Wie hoch ist die MOQ für Heizakku OEM?</summary><p class="text-sm text-slate-600 mt-3 leading-relaxed faq-answer">MOQ ab 500 Stück bei Standardmodellen. Bei kundenspezifischen Spannungen oder Steckverbindern: 1.000-2.000 Stück. Muster in 5-10 Tagen, da Spezialteile beschafft werden müssen.</p></details>
+   <details class="card-lg-soft reveal p-6"><summary class="font-bold text-brandBlue cursor-pointer">Welche Spannungen bieten Sie für Heizakkus an?</summary><p class="text-sm text-slate-600 mt-3 leading-relaxed faq-answer">5V USB (Heizjacken/Westen mit USB-Heizpaneelen, Massagekissen, Handwärmer) und 7,4V DC (Heizjacken, Heizhandschuhe, Heizsocken, Heizschal mit DC-Kabelheizelementen). Wir fertigen kundenspezifische Spannungskonfigurationen für Ihre Heizelemente.</p></details>
+   <details class="card-lg-soft reveal p-6"><summary class="font-bold text-brandBlue cursor-pointer">Welche Steckverbinder sind verfügbar?</summary><p class="text-sm text-slate-600 mt-3 leading-relaxed faq-answer">DC 5,5×2,1mm, DC 3,5×1,35mm, JST-PH, JST-XH, USB-A, USB-C, eigene Pin-Konfigurationen. Kabellängen 30-150cm. Wir liefern auf Wunsch komplette Heizelement-Steckverbinder-Kombinationen.</p></details>
+   <details class="card-lg-soft reveal p-6"><summary class="font-bold text-brandBlue cursor-pointer">Wie lange hält ein Heizakku im Einsatz?</summary><p class="text-sm text-slate-600 mt-3 leading-relaxed faq-answer">Bei einer 14.400mAh / 7,4V Heizjacken-Batterie: niedrige Stufe 8-10h, mittlere Stufe 5-6h, hohe Stufe 3-4h. Bei 2.500mAh / 7,4V Handschuhen: 4-6h niedrig, 2-3h hoch.</p></details>
+   <details class="card-lg-soft reveal p-6"><summary class="font-bold text-brandBlue cursor-pointer">Welche Zertifizierungen brauche ich für Heizakkus in der EU?</summary><p class="text-sm text-slate-600 mt-3 leading-relaxed faq-answer">Pflicht: CE (EMV + Niederspannung), UN38.3, RoHS. Empfohlen für DACH-Handel: TÜV GS. Für tragbare Heizgeräte gilt zusätzlich EN 60335-2-17 (Sicherheit von Heizdecken/-kissen). Wir liefern alle Konformitätsdokumente.</p></details>
+   <details class="card-lg-soft reveal p-6"><summary class="font-bold text-brandBlue cursor-pointer">Wie hoch ist die MOQ für Heizakku OEM?</summary><p class="text-sm text-slate-600 mt-3 leading-relaxed faq-answer">MOQ ab 500 Stück bei Standardmodellen. Bei kundenspezifischen Spannungen oder Steckverbindern: 1.000-2.000 Stück. Muster in 5-10 Tagen, da Spezialteile beschafft werden müssen.</p></details>
   </div>
  </div>
 </section>
 <!-- DACH Retail Pricing -->
-<section class="sec bg-white relative py-12">
- <div class="container-content">
+<section id="dach-retail-pricing" class="sec bg-white relative py-12" data-section="pricing">
+ <div class="container-wide">
  <div class="text-center mb-8">
   <h2 class="text-2xl lg:text-3xl font-black text-brandBlue uppercase italic tracking-tighter mb-4">DACH Heizbekleidung: <span class="text-brandOrange">Akkus bestimmen die Marge</span></h2>
   <p class="text-slate-500 text-sm max-w-2xl mx-auto">Heizjacken retail 80-300 EUR. OEM-Akku $3-18 (MOQ 500). Batterie = 35-50% der Herstellkosten — größter Einzelposten.</p>
@@ -446,26 +446,26 @@ plPath: "produkty/power-bank/bateria-grzejaca/"
  </div>
 
  <!-- DACH Heizbekleidung Markt -->
- <section class="sec bg-white relative py-16">
-  <div class="container-content">
+ <section id="dach-heizbekleidung-markt" class="sec bg-white relative" data-section="stats">
+  <div class="container-wide">
   <div class="text-center mb-10 reveal">
    <div class="inline-block px-4 py-1 bg-red-50 border border-red-200 rounded-full text-[11px] font-bold text-red-600 uppercase tracking-widest mb-6">Deutscher Markt — Real Data DeepMarketInsights 2026</div>
    <h2 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4">Deutschland: <span class="text-brandOrange">Führender EU-Markt</span> für Heizbekleidung</h2>
    <p class="text-slate-500 text-sm max-w-3xl mx-auto">Der deutsche Heizjacken-Markt wächst von <strong>3,17 Mio. (2025) auf 0,14 Mio. (2034)</strong> bei 8,95% CAGR (DeepMarketInsights). Deutschland hält 5,91% des globalen Marktanteils und ist der groesste EU-Einzelmarkt — vor Italien und Frankreich.</p>
   </div>
 
-  <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-10">
-   <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200 text-center">
+  <div class="grid md:grid-cols-3 gap-6 mb-10">
+   <div class="card-lg-soft p-6 text-center">
     <p class="text-3xl font-black text-brandBlue mb-2">80%+</p>
     <p class="text-sm font-bold text-slate-700 mb-2">7.4V DC Standard</p>
     <p class="text-xs text-slate-500">Über 80% aller Heizjacken nutzen 7.4V DC als Standardspannung. WOWOHCOOL deckt 5V USB, 7.4V DC und 12.6V ab — die gesamte Marktbreite.</p>
    </div>
-   <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200 text-center">
+   <div class="card-lg-soft p-6 text-center">
     <p class="text-3xl font-black text-brandOrange mb-2">35-50%</p>
     <p class="text-sm font-bold text-slate-700 mb-2">Batterie = Herstellkosten</p>
     <p class="text-xs text-slate-500">Der Akku macht 35-50% der Herstellkosten einer Heizjacke aus — der groesste Einzelposten. OEM-Einkauf direkt ab Werk = maximale Marge.</p>
    </div>
-   <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200 text-center">
+   <div class="card-lg-soft p-6 text-center">
     <p class="text-3xl font-black text-brandBlue mb-2">Q3/Q4</p>
     <p class="text-sm font-bold text-slate-700 mb-2">Hauptsaison Aug-Dez</p>
     <p class="text-xs text-slate-500">Bestellungen müssen bis Juli platziert sein für pünktliche Winter-Lieferung (25-35 Tage Produktion + Seefracht). JETZT ist der letzte Bestellmonat.</p>
@@ -481,23 +481,23 @@ plPath: "produkty/power-bank/bateria-grzejaca/"
 </section>
 
 <!-- Cross-Link: Explore More Categories -->
-<section class="sec bg-white">
+<section id="cross-link-explore-more-categories" class="sec bg-white" data-section="related">
  <div class="container-wide">
  <p class="text-center text-slate-500 text-sm mb-6">Weitere Powerbank-Kategorien von WOWOHCOOL:</p>
  <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-  <a href="/de/produkte/powerbank/halbfest-akku/" class="block bg-slate-50 rounded-xl p-4 border border-slate-200 hover:border-brandOrange hover:shadow-md transition text-center">
+  <a href="/de/produkte/powerbank/halbfest-akku/" class="card-soft block p-4 hover:border-brandOrange hover:shadow-md transition text-center">
    <p class="font-black text-brandBlue text-sm uppercase mb-1">Halbfest-Akku</p>
    <p class="text-[10px] text-slate-500">CES 2026, 50% dünner</p>
   </a>
-  <a href="/de/produkte/powerbank/2-in-1-hybrid/" class="block bg-slate-50 rounded-xl p-4 border border-slate-200 hover:border-brandOrange hover:shadow-md transition text-center">
+  <a href="/de/produkte/powerbank/2-in-1-hybrid/" class="card-soft block p-4 hover:border-brandOrange hover:shadow-md transition text-center">
    <p class="font-black text-brandBlue text-sm uppercase mb-1">2-in-1 Hybrid</p>
    <p class="text-[10px] text-slate-500">Ladegerät + Powerbank</p>
   </a>
-  <a href="/de/produkte/powerbank/magnetisch-kabellos/" class="block bg-slate-50 rounded-xl p-4 border border-slate-200 hover:border-brandOrange hover:shadow-md transition text-center">
+  <a href="/de/produkte/powerbank/magnetisch-kabellos/" class="card-soft block p-4 hover:border-brandOrange hover:shadow-md transition text-center">
    <p class="font-black text-brandBlue text-sm uppercase mb-1">Magnetisch Kabellos</p>
    <p class="text-[10px] text-slate-500">Qi2 / MagSafe</p>
   </a>
-  <a href="/de/produkte/powerbank/" class="block bg-slate-50 rounded-xl p-4 border border-slate-200 hover:border-brandOrange hover:shadow-md transition text-center">
+  <a href="/de/produkte/powerbank/" class="card-soft block p-4 hover:border-brandOrange hover:shadow-md transition text-center">
    <p class="font-black text-brandBlue text-sm uppercase mb-1">Alle Powerbanks</p>
    <p class="text-[10px] text-slate-500">6 Kategorien, 29+ Modelle</p>
   </a>

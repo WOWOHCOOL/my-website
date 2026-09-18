@@ -129,10 +129,10 @@ ogType: "profile"
 
 {% block content %}
 
-<article class="pt-12">
+<section id="hero" data-section="hero">
 <div class="relative pt-24 md:pt-28 pb-12 lg:pt-28 lg:pb-16 bg-gradient-to-b from-slate-50 to-white overflow-hidden">
  <div class="absolute top-0 left-1/4 w-64 h-64 bg-brandOrange/10 rounded-full blur-3xl"></div>
- <div class="container-narrow relative z-10">
+ <div class="container-wide relative z-10">
  {{ breadcrumb([{name: "Home", url: "/"}, {name: "Authors", url: "/authors/"}, {name: "Snowy May"}], "none", "mb-6", { variant: "hero" }) }}
 
  <div class="flex flex-col md:flex-row items-start gap-8">
@@ -153,12 +153,14 @@ ogType: "profile"
  </div>
  </div>
 </div>
-</article>
+</section>
 
-<div class="container-narrow mb-16">
+<section id="profile" data-section="about" class="pb-16">
+<div class="container-wide">
+<div class="space-y-8">
 
 <!-- Bio -->
-<div class="bg-slate-50 rounded-2xl p-8 border border-slate-200 mb-8">
+<div class="card-lg-soft p-8 mb-8">
 <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-6">About Snowy</h2>
 <div class="space-y-4 text-slate-600 leading-relaxed">
 
@@ -176,26 +178,26 @@ ogType: "profile"
 
 <!-- Trust Stats -->
 <div class="grid md:grid-cols-4 gap-4 mb-8">
-<div class="bg-white rounded-xl p-5 border border-slate-200 text-center shadow-sm">
+<div class="card p-5 text-center shadow-sm">
 <div class="text-2xl font-black text-brandBlue">50+</div>
 <p class="text-xs text-slate-500 mt-1">Successful Client Projects</p>
 </div>
-<div class="bg-white rounded-xl p-5 border border-slate-200 text-center shadow-sm">
+<div class="card p-5 text-center shadow-sm">
 <div class="text-2xl font-black text-brandBlue">10+</div>
 <p class="text-xs text-slate-500 mt-1">Years in Consumer Electronics</p>
 </div>
-<div class="bg-white rounded-xl p-5 border border-slate-200 text-center shadow-sm">
+<div class="card p-5 text-center shadow-sm">
 <div class="text-2xl font-black text-brandOrange">2</div>
 <p class="text-xs text-slate-500 mt-1">Brands Founded (WOWOHCOOL + KEEPWIRELESS)</p>
 </div>
-<div class="bg-white rounded-xl p-5 border border-slate-200 text-center shadow-sm">
+<div class="card p-5 text-center shadow-sm">
 <div class="text-2xl font-black text-brandOrange">44</div>
 <p class="text-xs text-slate-500 mt-1">Articles Published (EN/DE/ES)</p>
 </div>
 </div>
 
 <!-- Expertise -->
-<div class="bg-slate-50 rounded-2xl p-8 border border-slate-200 mb-8">
+<div class="card-lg-soft p-8 mb-8">
 <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-6">Areas of Expertise</h2>
 <div class="flex flex-wrap gap-2">
 <span class="px-4 py-2 bg-brandOrange/10 text-brandOrange text-xs font-black rounded-full">Consumer Electronics OEM/ODM</span>
@@ -216,7 +218,7 @@ ogType: "profile"
 </div>
 
 <!-- Work Experience -->
-<div class="bg-slate-50 rounded-2xl p-8 border border-slate-200 mb-8">
+<div class="card-lg-soft p-8 mb-8">
 <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-6">Work Experience</h2>
 <div class="space-y-6">
 
@@ -244,7 +246,7 @@ ogType: "profile"
 </div>
 
 <!-- Factory Footprint -->
-<div class="bg-slate-50 rounded-2xl p-8 border border-slate-200 mb-8">
+<div class="card-lg-soft p-8 mb-8">
 <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-6">Factory Footprint</h2>
 <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
 <div class="bg-white rounded-xl p-4 shadow-sm"><div class="text-2xl font-black text-brandBlue">5,000 m²</div><p class="text-xs text-slate-500 mt-1">ISO 9001 Facility</p></div>
@@ -258,8 +260,14 @@ ogType: "profile"
 </div>
 </div>
 
+</div>
+</div>
+</section>
+
 <!-- Articles (dynamic: frontmatter author filter — auto-updates) -->
-<div class="bg-slate-50 rounded-2xl p-8 border border-slate-200 mb-8">
+<section id="articles" data-section="articles" class="pb-16">
+<div class="container-wide">
+<div class="card-lg-soft p-8">
 <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-6">Articles by Snowy May</h2>
 {% set enBy = collections.blog_en | byAuthor("Snowy May") %}
 {% set deBy = collections.blog_de | byAuthor("Snowy May") %}
@@ -280,7 +288,7 @@ ogType: "profile"
 {% for g in groups %}
 {% if g.list.length > 0 %}
 <h3 class="font-black text-brandBlue uppercase mb-4">{{ g.label }} ({{ g.list.length }} {{ g.suffix }})</h3>
-<div class="grid md:grid-cols-2 gap-2 mb-8">
+<div class="grid md:grid-cols-3 gap-x-6 gap-y-2 mb-8">
 {% for item in g.list %}
 <a href="{{ item.url }}" class="text-slate-600 text-sm hover:text-brandOrange transition">{{ item.data.title | replace(" | WOWOHCOOL", "") }}</a>
 {% endfor %}
@@ -289,6 +297,7 @@ ogType: "profile"
 {% endfor %}
 </div>
 </div>
+</section>
 
 {% set ctaLabel = "Get Started" %}
 {% set ctaHeading1 = "Work With Snowy" %}

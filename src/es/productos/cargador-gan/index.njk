@@ -72,7 +72,7 @@ plPath: "produkty/ladowarka-gan/"
 {% from "breadcrumb.njk" import breadcrumb %}
 
 <!-- ======== HERO ======== -->
-<section class="relative pt-24 md:pt-28 pb-8 lg:pb-16 bg-white overflow-hidden">
+<section id="hero" class="relative pt-24 md:pt-28 lg:pt-20 pb-8 lg:pb-20 bg-white overflow-hidden lg:min-h-[100dvh] lg:flex lg:flex-col lg:justify-center" data-section="hero">
  <div class="absolute inset-0 pointer-events-none">
  <div class="absolute top-0 left-0 w-64 h-64 bg-brandOrange opacity-10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
  <div class="absolute bottom-0 right-0 w-64 h-64 bg-brandBlue opacity-10 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
@@ -81,11 +81,8 @@ plPath: "produkty/ladowarka-gan/"
   {{ breadcrumb([{name:"Inicio",url:"/es/"},{name:"Productos",url:"/es/productos/"},{name:"Cargador GaN"}], "none", "mb-6", { variant: "hero" }) }}
  <div class="grid lg:grid-cols-2 gap-12 items-center">
  <div class="reveal order-2 lg:order-1">
- <div class="inline-flex items-center gap-2 bg-brandOrange/10 text-brandOrange text-[11px] font-bold px-4 py-2 rounded-full tracking-widest uppercase mb-4">
- <span class="w-2 h-2 rounded-full bg-brandOrange animate-pulse"></span>
- Tecnología GaN V
- </div>
- <h1 class="text-4xl md:text-5xl lg:text-6xl font-black text-brandBlue leading-tight mb-6 italic uppercase">
+ <div class="badge-capsule mb-6 uppercase tracking-widest">Tecnología GaN V</div>
+ <h1 class="text-3xl md:text-4xl xl:text-5xl font-black text-brandBlue leading-tight mb-6 italic uppercase tracking-tighter">
  Fabricante de Cargadores GaN <span class="text-brandOrange">OEM/ODM</span>
  </h1>
  <p class="text-lg text-slate-600 leading-relaxed mb-6">Cargadores GaN (nitruro de galio) de <strong>67W a 100W+</strong> con tecnología <strong>GaN V (5ª gen.)</strong>. Tamaño hasta un 40% más pequeño que el silicio, mayor eficiencia y menor calor. Múltiples puertos USB-C. MOQ desde 500 unidades.</p>
@@ -100,13 +97,13 @@ plPath: "produkty/ladowarka-gan/"
  <path d="M434.8 70.1c14.3 10.4 17.5 30.4 7.1 44.7l-256 352c-5.5 7.6-14 12.3-23.4 13.1s-18.5-2.7-25.1-9.3l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l101.5 101.5 234-321.7c10.4-14.3 30.4-17.5 44.7-7.1z" fill="currentColor"/>
  </svg></span> Certificaciones CE, FCC, RoHS, UL. Enchufe EU intercambiable</li>
  </ul>
- <div class="flex flex-wrap gap-3">
- <button data-action="open-modal" class="btn-primary shadow-lg shadow-brandOrange/20 cursor-pointer">Solicitar presupuesto <svg class="icon-arrow-right" viewBox="0 0 512 512"><path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-105.4 105.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" fill="currentColor"/></svg></button>
- <a href="/es/contacto/" class="btn-secondary">Contactar</a>
+ <div class="btn-pair">
+ <button data-action="open-modal" class="btn-solid shadow-lg shadow-brandOrange/20 cursor-pointer">Solicitar presupuesto <svg class="icon-arrow-right" viewBox="0 0 512 512"><path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-105.4 105.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" fill="currentColor"/></svg></button>
+ <a href="/es/contacto/" class="btn-ghost-lg">Contactar</a>
  </div>
  </div>
  <div class="reveal order-1 lg:order-2">
- <div class="bg-slate-50 rounded-2xl shadow-xl overflow-hidden border border-slate-100">
+ <div class="card-lg-soft shadow-xl overflow-hidden max-w-[480px] mx-auto">
  <img src="/image/product/gan-charger/wop10-65w-gan-power-strip-4-port.webp" srcset="/image/product/gan-charger/wop10-65w-gan-power-strip-4-port-800w.webp 800w, /image/product/gan-charger/wop10-65w-gan-power-strip-4-port.webp 1920w" sizes="(min-width: 1440px) 590px, (min-width: 1280px) 590px, (min-width: 1024px) 462px, (min-width: 768px) 718px, (min-width: 430px) 382px, 338px" alt="Cargador GaN OEM WOWOHCOOL" width="1920" height="1920" class="w-full h-auto object-cover" loading="eager">
  </div>
  </div>
@@ -118,7 +115,7 @@ plPath: "produkty/ladowarka-gan/"
 {% include "trust-bar.njk" %}
 
 <!-- ======== PRODUCT MODELS ======== -->
-<section class="py-16 bg-slate-50">
+<section id="product-models" class="sec bg-slate-50" data-section="products">
  <div class="container-wide">
  {{ sectionHeader('Modelos destacados', 'Línea de <span class="text-brandOrange">carga GaN</span>', 'Selección de modelos populares para OEM/ODM. Todos personalizables con su logotipo, color y embalaje.', {mb: 'mb-12'}) }}
    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -132,7 +129,7 @@ plPath: "produkty/ladowarka-gan/"
      <div class="flex items-center space-x-2"><svg class="icon-feature text-brandOrange text-[11px]" aria-hidden="true" focusable="false" viewBox="0 0 384 512"><path d="M173.8 5.5c11-7.3 25.4-7.3 36.4 0l79.2 52.8 92.7 4.7c13.2 0.7 24.7 9.1 29.4 21.5l32 84.4 53.7 75.4c7.8 11 7.8 25.7 0 36.7l-53.7 75.4-32 84.4c-4.7 12.4-16.2 20.8-29.4 21.5l-92.7 4.7-79.2 52.8c-11 7.3-25.4 7.3-36.4 0l-79.2-52.8-92.7-4.7c-13.2-0.7-24.7-9.1-29.4-21.5l-32-84.4L0 280.6c-7.8-11-7.8-25.7 0-36.7l53.7-75.4 32-84.4c4.7-12.4 16.2-20.8 29.4-21.5l92.7-4.7L173.8 5.5z" fill="currentColor"/></svg><span class="text-[11px] font-bold text-slate-500 uppercase">Formato viaje</span></div></div>
     <p class="text-[11px] text-slate-500 mb-6 italic leading-relaxed">Cargador GaN de viaje con enchufe plegable y 65W PD. MacBook Air y movil simultaneamente.</p>
     <details class="mb-6 group/spec">
-     <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Especificaciones</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
+     <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Especificaciones</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
      <div class="p-4 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-[11px]"><tbody>
      <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Dimensiones</td><td class="py-2 font-bold text-slate-700">5.9×5.5×5.5cm</td></tr>
      <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Carcasa</td><td class="py-2 font-bold text-slate-700">PC/ABS optional</td></tr>
@@ -155,7 +152,7 @@ plPath: "produkty/ladowarka-gan/"
      <div class="flex items-center space-x-2"><svg class="icon-feature text-brandOrange text-[11px]" aria-hidden="true" focusable="false" viewBox="0 0 384 512"><path d="M173.8 5.5c11-7.3 25.4-7.3 36.4 0l79.2 52.8 92.7 4.7c13.2 0.7 24.7 9.1 29.4 21.5l32 84.4 53.7 75.4c7.8 11 7.8 25.7 0 36.7l-53.7 75.4-32 84.4c-4.7 12.4-16.2 20.8-29.4 21.5l-92.7 4.7-79.2 52.8c-11 7.3-25.4 7.3-36.4 0l-79.2-52.8-92.7-4.7c-13.2-0.7-24.7-9.1-29.4-21.5l-32-84.4L0 280.6c-7.8-11-7.8-25.7 0-36.7l53.7-75.4 32-84.4c4.7-12.4 16.2-20.8 29.4-21.5l92.7-4.7L173.8 5.5z" fill="currentColor"/></svg><span class="text-[11px] font-bold text-slate-500 uppercase">Workstation</span></div></div>
     <p class="text-[11px] text-slate-500 mb-6 italic leading-relaxed">Cargador de escritorio profesional 100W GaN, perfecto para workstation. PD 3.1 carga MacBook Pro 14 a velocidad maxima.</p>
     <details class="mb-6 group/spec">
-     <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Especificaciones</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
+     <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Especificaciones</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
      <div class="p-4 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-[11px]"><tbody>
      <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Dimensiones</td><td class="py-2 font-bold text-slate-700">5.3×5.5×5.5cm</td></tr>
      <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Carcasa</td><td class="py-2 font-bold text-slate-700">PC Shell</td></tr>
@@ -178,7 +175,7 @@ plPath: "produkty/ladowarka-gan/"
      <div class="flex items-center space-x-2"><svg class="icon-feature text-brandOrange text-[11px]" aria-hidden="true" focusable="false" viewBox="0 0 384 512"><path d="M173.8 5.5c11-7.3 25.4-7.3 36.4 0l79.2 52.8 92.7 4.7c13.2 0.7 24.7 9.1 29.4 21.5l32 84.4 53.7 75.4c7.8 11 7.8 25.7 0 36.7l-53.7 75.4-32 84.4c-4.7 12.4-16.2 20.8-29.4 21.5l-92.7 4.7-79.2 52.8c-11 7.3-25.4 7.3-36.4 0l-79.2-52.8-92.7-4.7c-13.2-0.7-24.7-9.1-29.4-21.5l-32-84.4L0 280.6c-7.8-11-7.8-25.7 0-36.7l53.7-75.4 32-84.4c4.7-12.4 16.2-20.8 29.4-21.5l92.7-4.7L173.8 5.5z" fill="currentColor"/></svg><span class="text-[11px] font-bold text-slate-500 uppercase">Ultra-compacto</span></div></div>
     <p class="text-[11px] text-slate-500 mb-6 italic leading-relaxed">Cargador de viaje compacto con enchufe plegable. PD 67W para ultrabook y movil en movilidad.</p>
     <details class="mb-6 group/spec">
-     <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Especificaciones</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
+     <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Especificaciones</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
      <div class="p-4 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-[11px]"><tbody>
      <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Dimensiones</td><td class="py-2 font-bold text-slate-700">4.1×3.2×4.4cm</td></tr>
      <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Dimensiones (EU)</td><td class="py-2 font-bold text-slate-700">4.1×3.2×8.1cm</td></tr>
@@ -201,7 +198,7 @@ plPath: "produkty/ladowarka-gan/"
      <div class="flex items-center space-x-2"><svg class="icon-feature text-brandOrange text-[11px]" aria-hidden="true" focusable="false" viewBox="0 0 384 512"><path d="M173.8 5.5c11-7.3 25.4-7.3 36.4 0l79.2 52.8 92.7 4.7c13.2 0.7 24.7 9.1 29.4 21.5l32 84.4 53.7 75.4c7.8 11 7.8 25.7 0 36.7l-53.7 75.4-32 84.4c-4.7 12.4-16.2 20.8-29.4 21.5l-92.7 4.7-79.2 52.8c-11 7.3-25.4 7.3-36.4 0l-79.2-52.8-92.7-4.7c-13.2-0.7-24.7-9.1-29.4-21.5l-32-84.4L0 280.6c-7.8-11-7.8-25.7 0-36.7l53.7-75.4 32-84.4c4.7-12.4 16.2-20.8 29.4-21.5l92.7-4.7L173.8 5.5z" fill="currentColor"/></svg><span class="text-[11px] font-bold text-slate-500 uppercase">MacBook Pro 16</span></div></div>
     <p class="text-[11px] text-slate-500 mb-6 italic leading-relaxed">Cargador de escritorio alto rendimiento 140W GaN PD 3.1. Carga MacBook Pro 16 y portatiles gaming.</p>
     <details class="mb-6 group/spec">
-     <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Especificaciones</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
+     <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Especificaciones</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
      <div class="p-4 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-[11px]"><tbody>
      <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Dimensiones</td><td class="py-2 font-bold text-slate-700">12×4.6×4.2cm</td></tr>
      <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Carcasa</td><td class="py-2 font-bold text-slate-700">PC Shell</td></tr>
@@ -226,7 +223,7 @@ plPath: "produkty/ladowarka-gan/"
      <div class="flex items-center space-x-2"><svg class="icon-feature text-brandOrange text-[11px]" aria-hidden="true" focusable="false" viewBox="0 0 384 512"><path d="M173.8 5.5c11-7.3 25.4-7.3 36.4 0l79.2 52.8 92.7 4.7c13.2 0.7 24.7 9.1 29.4 21.5l32 84.4 53.7 75.4c7.8 11 7.8 25.7 0 36.7l-53.7 75.4-32 84.4c-4.7 12.4-16.2 20.8-29.4 21.5l-92.7 4.7-79.2 52.8c-11 7.3-25.4 7.3-36.4 0l-79.2-52.8-92.7-4.7c-13.2-0.7-24.7-9.1-29.4-21.5l-32-84.4L0 280.6c-7.8-11-7.8-25.7 0-36.7l53.7-75.4 32-84.4c4.7-12.4 16.2-20.8 29.4-21.5l92.7-4.7L173.8 5.5z" fill="currentColor"/></svg><span class="text-[11px] font-bold text-slate-500 uppercase">Ultra-compacto</span></div></div>
     <p class="text-[11px] text-slate-500 mb-6 italic leading-relaxed">Cargador GaN de viaje ultraligero con 30W PD. Movil y tablet carga rápida, cabe en cualquier bolsillo.</p>
     <details class="mb-6 group/spec">
-     <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Especificaciones</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
+     <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Especificaciones</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
      <div class="p-4 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-[11px]"><tbody>
      <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Dimensiones</td><td class="py-2 font-bold text-slate-700">12×4.6×4.2cm</td></tr>
      <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Carcasa</td><td class="py-2 font-bold text-slate-700">PC Shell</td></tr>
@@ -251,7 +248,7 @@ plPath: "produkty/ladowarka-gan/"
      <div class="flex items-center space-x-2"><svg class="icon-feature text-brandOrange text-[11px]" aria-hidden="true" focusable="false" viewBox="0 0 384 512"><path d="M173.8 5.5c11-7.3 25.4-7.3 36.4 0l79.2 52.8 92.7 4.7c13.2 0.7 24.7 9.1 29.4 21.5l32 84.4 53.7 75.4c7.8 11 7.8 25.7 0 36.7l-53.7 75.4-32 84.4c-4.7 12.4-16.2 20.8-29.4 21.5l-92.7 4.7-79.2 52.8c-11 7.3-25.4 7.3-36.4 0l-79.2-52.8-92.7-4.7c-13.2-0.7-24.7-9.1-29.4-21.5l-32-84.4L0 280.6c-7.8-11-7.8-25.7 0-36.7l53.7-75.4 32-84.4c4.7-12.4 16.2-20.8 29.4-21.5l92.7-4.7L173.8 5.5z" fill="currentColor"/></svg><span class="text-[11px] font-bold text-slate-500 uppercase">Cable 1,5m</span></div></div>
     <p class="text-[11px] text-slate-500 mb-6 italic leading-relaxed">Regleta de alimentacion GaN de alta potencia con carga rápida 65W PD 3.1. 4 puertos USB para multiples dispositivos simultaneamente. Ideal para escritorio y carga de portatiles.</p>
     <details class="mb-6 group/spec">
-     <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Especificaciones</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
+     <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Especificaciones</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
      <div class="p-4 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-[11px]"><tbody>
      <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Dimensiones</td><td class="py-2 font-bold text-slate-700">11,9 x 4,7 x 4,2 cm (sin cable)</td></tr>
      <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Carcasa</td><td class="py-2 font-bold text-slate-700">PC</td></tr>
@@ -276,7 +273,7 @@ plPath: "produkty/ladowarka-gan/"
      <div class="flex items-center space-x-2"><svg class="icon-feature text-brandOrange text-[11px]" aria-hidden="true" focusable="false" viewBox="0 0 384 512"><path d="M173.8 5.5c11-7.3 25.4-7.3 36.4 0l79.2 52.8 92.7 4.7c13.2 0.7 24.7 9.1 29.4 21.5l32 84.4 53.7 75.4c7.8 11 7.8 25.7 0 36.7l-53.7 75.4-32 84.4c-4.7 12.4-16.2 20.8-29.4 21.5l-92.7 4.7-79.2 52.8c-11 7.3-25.4 7.3-36.4 0l-79.2-52.8-92.7-4.7c-13.2-0.7-24.7-9.1-29.4-21.5l-32-84.4L0 280.6c-7.8-11-7.8-25.7 0-36.7l53.7-75.4 32-84.4c4.7-12.4 16.2-20.8 29.4-21.5l92.7-4.7L173.8 5.5z" fill="currentColor"/></svg><span class="text-[11px] font-bold text-slate-500 uppercase">Apto gaming</span></div></div>
     <p class="text-[11px] text-slate-500 mb-6 italic leading-relaxed">Cargador de escritorio flagship GaN con 240W PD 3.1. Alimenta portatiles gaming, MacBook Pro 16 y multiples dispositivos.</p>
     <details class="mb-6 group/spec">
-     <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Especificaciones</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
+     <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Especificaciones</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
      <div class="p-4 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-[11px]"><tbody>
      <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Dimensiones</td><td class="py-2 font-bold text-slate-700">14.9×4.7×4cm</td></tr>
      <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">Carcasa</td><td class="py-2 font-bold text-slate-700">PC Shell</td></tr>
@@ -298,19 +295,19 @@ plPath: "produkty/ladowarka-gan/"
 </section>
 
 <!-- ======== SPECS ======== -->
-<section class="py-16 bg-white">
+<section id="specs" class="sec bg-white" data-section="comparison">
  <div class="container-wide">
  {{ sectionHeader('Potencia', 'Especificaciones técnicas de cargadores GaN', 'Fabricamos cargadores GaN en todas las potencias populares para el mercado B2B.', {mb: 'mb-12'}) }}
 	 <div class="overflow-x-auto reveal">
 	  <table class="w-full text-sm">
 	   <thead>
-	    <tr class="border-b-2 border-brandOrange">
-	     <th class="text-left py-4 px-4 font-black text-brandBlue uppercase text-xs tracking-wider">Potencia</th>
-	     <th class="text-left py-4 px-4 font-black text-brandBlue uppercase text-xs tracking-wider">Puertos</th>
-	     <th class="text-left py-4 px-4 font-black text-brandBlue uppercase text-xs tracking-wider">Tecnologia</th>
-	     <th class="text-left py-4 px-4 font-black text-brandBlue uppercase text-xs tracking-wider">Tamano vs silicio</th>
-	     <th class="text-left py-4 px-4 font-black text-brandBlue uppercase text-xs tracking-wider">Uso recomendado</th>
-	     <th class="text-left py-4 px-4 font-black text-brandBlue uppercase text-xs tracking-wider">Modelo</th>
+	    <tr class="bg-brandBlue text-white">
+	     <th class="text-left py-4 px-4 font-black uppercase text-xs tracking-wider">Potencia</th>
+	     <th class="text-left py-4 px-4 font-black uppercase text-xs tracking-wider">Puertos</th>
+	     <th class="text-left py-4 px-4 font-black uppercase text-xs tracking-wider">Tecnologia</th>
+	     <th class="text-left py-4 px-4 font-black uppercase text-xs tracking-wider">Tamano vs silicio</th>
+	     <th class="text-left py-4 px-4 font-black uppercase text-xs tracking-wider">Uso recomendado</th>
+	     <th class="text-left py-4 px-4 font-black uppercase text-xs tracking-wider">Modelo</th>
 	    </tr>
 	   </thead>
 	   <tbody>
@@ -346,7 +343,7 @@ plPath: "produkty/ladowarka-gan/"
 
 
 <!-- ======== COMPARATIVA TECNOLÓGICA ======== -->
-<section class="sec bg-white">
+<section id="comparativa-tecnologica" class="sec bg-white" data-section="comparison">
  <div class="container-content">
  {{ sectionHeader('Comparativa', 'GaN vs silicio: datos reales 2026', 'El nitruro de galio (GaN) domina el 50%+ del mercado de cargadores 65W+. Mercado GaN: $1.2B (2026) → $6.0B (2033), CAGR 25.7%.', {max: '', mb: 'mb-12'}) }}
  <div class="overflow-x-auto reveal">
@@ -373,26 +370,26 @@ plPath: "produkty/ladowarka-gan/"
 </section>
 
 <!-- ======== NORMATIVA UE ======== -->
-<section class="sec bg-slate-50">
- <div class="container-content">
+<section id="normativa-ue" class="sec bg-slate-50" data-section="content">
+ <div class="container-wide">
  {{ sectionHeader('Normativa UE', 'Directiva cargador común UE + CE', 'Desde 2025, todos los dispositivos vendidos en España deben usar USB-C. Desde abril 2026, también los portátiles. WOWOHCOOL cumple todas las normativas.', {max: '', mb: 'mb-12'}) }}
  <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 reveal">
- <div class="bg-white rounded-xl p-6 shadow-sm border border-slate-100 text-center">
+ <div class="card p-6 shadow-sm text-center">
   <div class="w-12 h-12 bg-brandOrange/10 rounded-full flex items-center justify-center mx-auto mb-3"><span class="text-brandOrange font-bold text-lg">USB-C</span></div>
   <h3 class="font-bold text-brandBlue text-sm mb-2">Cargador común UE</h3>
   <p class="text-xs text-slate-500">Directiva 2022/2380. USB-C obligatorio en España desde 2025. Portátiles desde abril 2026.</p>
  </div>
- <div class="bg-white rounded-xl p-6 shadow-sm border border-slate-100 text-center">
+ <div class="card p-6 shadow-sm text-center">
   <div class="w-12 h-12 bg-brandOrange/10 rounded-full flex items-center justify-center mx-auto mb-3"><span class="text-brandOrange font-bold text-lg">LV</span></div>
   <h3 class="font-bold text-brandBlue text-sm mb-2">Seguridad LVD + EMC</h3>
   <p class="text-xs text-slate-500">Cumplimiento Directiva de Baja Tensión y Compatibilidad Electromagnética. Declaración de Conformidad incluida.</p>
  </div>
- <div class="bg-white rounded-xl p-6 shadow-sm border border-slate-100 text-center">
+ <div class="card p-6 shadow-sm text-center">
   <div class="w-12 h-12 bg-brandOrange/10 rounded-full flex items-center justify-center mx-auto mb-3"><span class="text-brandOrange font-bold text-lg">PD</span></div>
   <h3 class="font-bold text-brandBlue text-sm mb-2">USB-IF PD 3.1</h3>
   <p class="text-xs text-slate-500">Certificación USB-IF para PD 3.1 EPR (140W). Compatibilidad universal garantizada.</p>
  </div>
- <div class="bg-white rounded-xl p-6 shadow-sm border border-slate-100 text-center">
+ <div class="card p-6 shadow-sm text-center">
   <div class="w-12 h-12 bg-brandOrange/10 rounded-full flex items-center justify-center mx-auto mb-3"><span class="text-brandOrange font-bold text-lg">EU</span></div>
   <h3 class="font-bold text-brandBlue text-sm mb-2">Enchufe EU/UK/US/AU</h3>
   <p class="text-xs text-slate-500">Clavija intercambiable para múltiples mercados. Ideal para distribuidores europeos.</p>
@@ -402,7 +399,7 @@ plPath: "produkty/ladowarka-gan/"
 </section>
 
 <!-- ======== FAQ ======== -->
-<section class="py-16 bg-white">
+<section id="faq" class="sec bg-white" data-section="faq">
  <div class="container-narrow">
  {{ sectionHeader('FAQ', 'Preguntas frecuentes', '', {max: '', mb: 'mb-10'}) }}
  <div class="reveal">
@@ -420,24 +417,24 @@ plPath: "produkty/ladowarka-gan/"
 </section>
 
 <!-- ======== CTA ======== -->
-<section class="sec bg-brandBlue relative overflow-hidden">
+<section id="cta" class="sec bg-brandBlue relative overflow-hidden" data-section="cta">
  <div class="absolute bottom-0 left-0 w-1/2 h-1/2 bg-gradient-to-tr from-brandOrange/5 to-transparent"></div>
  {% call sectionHeader('Comience ahora', 'Solicite su <span class="text-brandOrange">presupuesto</span>', '', {max: '', mb: '', extra: 'container-narrow relative z-10', titleClass: 'text-3xl md:text-5xl font-black text-white leading-tight mb-4 italic uppercase'}) %}<p class="text-slate-300 text-lg mb-8">Respuesta en 24 horas. Presupuesto personalizado para su proyecto.</p>
- <div class="flex flex-col sm:flex-row gap-4 justify-center">
- <button data-action="open-modal" class="btn-primary text-base px-8 py-4 shadow-lg shadow-brandOrange/20 cursor-pointer">Solicitar presupuesto <svg class="icon-arrow-right" viewBox="0 0 512 512"><path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-105.4 105.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" fill="currentColor"/></svg></button>
- <a href="https://wa.me/8618620789739" target="_blank" rel="noopener noreferrer" class="btn-outline-white text-base px-8 py-4">WhatsApp <svg class="icon-whatsapp" viewBox="0 0 448 512"><path d="M380.9 97.1c-41.9-42-97.7-65.1-157-65.1-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480 117.7 449.1c32.4 17.7 68.9 27 106.1 27l.1 0c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3 18.6-68.1-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1s56.2 81.2 56.1 130.5c0 101.8-84.9 184.6-186.6 184.6zM325.1 300.5c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8s-14.3 18-17.6 21.8c-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7s-12.5-30.1-17.1-41.2c-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2s-9.7 1.4-14.8 6.9c-5.1 5.6-19.4 19-19.4 46.3s19.9 53.7 22.6 57.4c2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4s4.6-24.1 3.2-26.4c-1.3-2.5-5-3.9-10.5-6.6z" fill="currentColor"/></svg></a>
+ <div class="btn-pair">
+ <button data-action="open-modal" class="btn-solid text-base px-8 py-4 shadow-lg shadow-brandOrange/20 cursor-pointer">Solicitar presupuesto <svg class="icon-arrow-right" viewBox="0 0 512 512"><path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-105.4 105.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" fill="currentColor"/></svg></button>
+ <a href="https://wa.me/8618620789739" target="_blank" rel="noopener noreferrer" class="border-2 border-white/30 text-white px-10 py-4 rounded-xl font-black uppercase tracking-widest text-sm hover:bg-white hover:text-brandBlue transition text-center w-full">WhatsApp <svg class="icon-whatsapp" viewBox="0 0 448 512"><path d="M380.9 97.1c-41.9-42-97.7-65.1-157-65.1-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480 117.7 449.1c32.4 17.7 68.9 27 106.1 27l.1 0c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3 18.6-68.1-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1s56.2 81.2 56.1 130.5c0 101.8-84.9 184.6-186.6 184.6zM325.1 300.5c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8s-14.3 18-17.6 21.8c-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7s-12.5-30.1-17.1-41.2c-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2s-9.7 1.4-14.8 6.9c-5.1 5.6-19.4 19-19.4 46.3s19.9 53.7 22.6 57.4c2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4s4.6-24.1 3.2-26.4c-1.3-2.5-5-3.9-10.5-6.6z" fill="currentColor"/></svg></a>
  </div>
  {% endcall %}
 </section>
 
 <!-- Cross-Category Links -->
-	<section class="sec bg-white py-12">
-	 <div class="container-narrow text-center"><p class="text-center text-slate-500 text-sm mb-6">Más categorias de WOWOHCOOL:</p>
+	<section id="cross-category-links" class="sec bg-white py-12" data-section="related">
+	 <div class="container-wide text-center"><p class="text-center text-slate-500 text-sm mb-6">Más categorias de WOWOHCOOL:</p>
 	 <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-	  <a href="/es/productos/cargador-coche/" class="block bg-white rounded-xl p-4 border border-slate-200 hover:border-brandOrange hover:shadow-md transition text-center"><p class="font-black text-brandBlue text-sm uppercase mb-1">Cargador Coche</p><p class="text-[10px] text-slate-500">PD 3.1 + E-Mark</p></a>
-	  <a href="/es/productos/powerbank/" class="block bg-white rounded-xl p-4 border border-slate-200 hover:border-brandOrange hover:shadow-md transition text-center"><p class="font-black text-brandBlue text-sm uppercase mb-1">Power Bank</p><p class="text-[10px] text-slate-500">Semi-Solid + PD 3.1</p></a>
-	  <a href="/es/productos/cargador-inalambrico/estacion-3-en-1/" class="block bg-white rounded-xl p-4 border border-slate-200 hover:border-brandOrange hover:shadow-md transition text-center"><p class="font-black text-brandBlue text-sm uppercase mb-1">Estacion 3-en-1</p><p class="text-[10px] text-slate-500">Telefono + Watch + AirPods</p></a>
-	  <a href="/es/productos/cargador-inalambrico/" class="block bg-white rounded-xl p-4 border border-slate-200 hover:border-brandOrange hover:shadow-md transition text-center"><p class="font-black text-brandBlue text-sm uppercase mb-1">Todos Inalambricos</p><p class="text-[10px] text-slate-500">3 Categorias, 21+ Modelos</p></a>
+	  <a href="/es/productos/cargador-coche/" class="card block p-4 hover:border-brandOrange hover:shadow-md transition text-center"><p class="font-black text-brandBlue text-sm uppercase mb-1">Cargador Coche</p><p class="text-[10px] text-slate-500">PD 3.1 + E-Mark</p></a>
+	  <a href="/es/productos/powerbank/" class="card block p-4 hover:border-brandOrange hover:shadow-md transition text-center"><p class="font-black text-brandBlue text-sm uppercase mb-1">Power Bank</p><p class="text-[10px] text-slate-500">Semi-Solid + PD 3.1</p></a>
+	  <a href="/es/productos/cargador-inalambrico/estacion-3-en-1/" class="card block p-4 hover:border-brandOrange hover:shadow-md transition text-center"><p class="font-black text-brandBlue text-sm uppercase mb-1">Estacion 3-en-1</p><p class="text-[10px] text-slate-500">Telefono + Watch + AirPods</p></a>
+	  <a href="/es/productos/cargador-inalambrico/" class="card block p-4 hover:border-brandOrange hover:shadow-md transition text-center"><p class="font-black text-brandBlue text-sm uppercase mb-1">Todos Inalambricos</p><p class="text-[10px] text-slate-500">3 Categorias, 21+ Modelos</p></a>
 	 </div>
 	 </div>
 	</section>

@@ -141,13 +141,13 @@ plPath: "produkty/ladowarka-bezprzewodowa/uchwyt-samochodowy/"
 {% block content %}
 
 <!-- Hero -->
-<section class="relative pt-24 md:pt-28 pb-8 lg:pb-16 bg-white text-slate-900 overflow-hidden">
+<section id="hero" class="relative pt-24 md:pt-28 lg:pt-20 pb-8 lg:pb-20 bg-white text-slate-900 overflow-hidden lg:min-h-[100dvh] lg:flex lg:flex-col lg:justify-center" data-section="hero">
  <div class="absolute inset-0 z-0 pointer-events-none overflow-hidden">
  <div class="absolute top-0 left-0 max-w-full w-64 h-64 bg-brandOrange opacity-20 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
  <div class="absolute bottom-0 right-0 max-w-full w-64 h-64 bg-blue-500 opacity-20 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
  </div>
 
- <div class="container-wide relative z-10 text-center pb-8 lg:pb-12">
+ <div class="container-wide relative z-10 text-center pb-8 lg:pb-0">
  {{ breadcrumb([{name: "Accueil", url: "/fr/"}, {name: "Produits", url: "/fr/produits/"}, {name: "Chargeur sans fil", url: "/fr/produits/chargeur-sans-fil/"}, {name: "Support voiture"}], "none", "mb-6", { variant: "hero" }) }}
 
  <div>
@@ -161,15 +161,15 @@ plPath: "produkty/ladowarka-bezprzewodowa/uchwyt-samochodowy/"
 
  <p class="max-w-2xl mx-auto text-slate-500 text-xs leading-relaxed mb-8"><strong>Double catalyseur 2026 :</strong> (1) La directive Européenne RED amendée (Sept 2025) impose la certification EN 62368-1 pour tous les chargeurs sans fil embarqués d'ici <strong>janvier 2027</strong> — vague de remplacement des chargeurs non-certifiés. (2) Les véhicules électriques (NEV) représentent <strong>56% de la demande OEM</strong> front-install — la recharge sans fil devient un équipement standard. Le refroidissement <strong>TEC + ventilateur</strong> est désormais indispensable pour maintenir 25W sans throttling thermique (sans TEC : chute de puissance après 10-15 min). WOWOHCOOL : 5 modèles, TEC 25W, pince électrique supercondensateur, aimants N52H 1400g — prêts E-Mark.</p>
 
- <div class="grid grid-cols-2 md:grid-cols-5 gap-4 max-w-3xl mx-auto mb-10">
- <div class="bg-slate-50 rounded-xl p-4 border border-slate-100"><p class="text-2xl font-black text-brandBlue">25W</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Puissance Max</p></div>
- <div class="bg-slate-50 rounded-xl p-4 border border-slate-100"><p class="text-2xl font-black text-brandOrange">2,4 Md$</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Marché 2025</p></div>
- <div class="bg-slate-50 rounded-xl p-4 border border-slate-100"><p class="text-2xl font-black text-brandBlue">N52H</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Aimants</p></div>
- <div class="bg-slate-50 rounded-xl p-4 border border-slate-100"><p class="text-2xl font-black text-brandOrange">5</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Modèles</p></div>
- <div class="bg-slate-50 rounded-xl p-4 border border-slate-100"><p class="text-2xl font-black text-brandBlue">500</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">MOQ</p></div>
+ <div class="grid grid-cols-2 md:grid-cols-5 gap-4 mb-10">
+ <div class="card-soft p-4"><p class="text-2xl font-black text-brandBlue">25W</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Puissance Max</p></div>
+ <div class="card-soft p-4"><p class="text-2xl font-black text-brandOrange">2,4 Md$</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Marché 2025</p></div>
+ <div class="card-soft p-4"><p class="text-2xl font-black text-brandBlue">N52H</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Aimants</p></div>
+ <div class="card-soft p-4"><p class="text-2xl font-black text-brandOrange">5</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Modèles</p></div>
+ <div class="card-soft p-4"><p class="text-2xl font-black text-brandBlue">500</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">MOQ</p></div>
  </div>
 
- <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
+ <div class="btn-pair">
  <button data-action="open-modal" data-product="Chargeur Voiture Sans Fil" class="btn-wide-lg">
   Demander le prix usine
  </button>
@@ -184,7 +184,7 @@ plPath: "produkty/ladowarka-bezprzewodowa/uchwyt-samochodowy/"
 {% include "trust-bar.njk" %}
 
 <!-- Products -->
-<section id="products" class="sec bg-white relative py-16">
+<section id="products" class="sec bg-white relative" data-section="products">
  <div class="container-wide">
  <h2 class="text-2xl font-black text-brandBlue uppercase italic tracking-tighter mb-2">Supports Voiture Magnétiques Qi2</h2>
  <p class="text-slate-500 text-sm mb-10">5 modèles | 15W-25W | Aimants N52H | Refroidissement TEC | Supercondensateur | Pince Électrique</p>
@@ -227,7 +227,7 @@ plPath: "produkty/ladowarka-bezprzewodowa/uchwyt-samochodowy/"
  </p>
 
  <details class="mb-6 group/spec">
- <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition">
+ <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition">
  <span class="text-xs font-black text-slate-700 uppercase">Spécifications</span>
  <span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">▼</span>
  </summary>
@@ -285,7 +285,7 @@ plPath: "produkty/ladowarka-bezprzewodowa/uchwyt-samochodowy/"
  </p>
 
  <details class="mb-6 group/spec">
- <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition">
+ <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition">
  <span class="text-xs font-black text-slate-700 uppercase">Spécifications</span>
  <span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">▼</span>
  </summary>
@@ -342,7 +342,7 @@ plPath: "produkty/ladowarka-bezprzewodowa/uchwyt-samochodowy/"
  </p>
 
  <details class="mb-6 group/spec">
- <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition">
+ <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition">
  <span class="text-xs font-black text-slate-700 uppercase">Spécifications</span>
  <span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">▼</span>
  </summary>
@@ -388,7 +388,7 @@ plPath: "produkty/ladowarka-bezprzewodowa/uchwyt-samochodowy/"
  </p>
 
  <details class="mb-6 group/spec">
- <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition">
+ <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition">
  <span class="text-xs font-black text-slate-700 uppercase">Spécifications</span>
  <span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">▼</span>
  </summary>
@@ -436,7 +436,7 @@ plPath: "produkty/ladowarka-bezprzewodowa/uchwyt-samochodowy/"
  </p>
 
  <details class="mb-6 group/spec">
- <summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition">
+ <summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition">
  <span class="text-xs font-black text-slate-700 uppercase">Spécifications</span>
  <span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">▼</span>
  </summary>
@@ -463,7 +463,7 @@ plPath: "produkty/ladowarka-bezprzewodowa/uchwyt-samochodowy/"
 </section>
 
 <!-- Qu'est-ce qu'un support voiture chargeur sans fil magnétique Qi2 -->
-<section class="sec bg-white relative py-16">
+<section id="qu-est-ce-qu-un-support-voiture-chargeur-sans-fil-magnetique-qi2" class="sec bg-white relative" data-section="content">
  <div class="container-wide">
  <h2 class="section-title text-center">Qu'est-ce qu'un Support Voiture Chargeur Sans Fil Magnétique Qi2 ?</h2>
  <p class="text-center text-slate-500 text-sm max-w-3xl mx-auto mb-8">Un support voiture chargeur sans fil magnétique Qi2 combine un <strong>support téléphone et un chargeur rapide sans fil</strong> en un seul accessoire automobile. Construit autour du standard Qi2 MPP (Magnetic Power Profile) avec des <strong>aimants néodyme N52H</strong>, les supports voiture modernes offrent une charge sans fil 15W-25W avec un alignement magnétique parfait — éliminant le besoin de chercher les câbles en conduisant. Pour les acheteurs B2B, le marché aftermarket des supports voiture chargeur sans fil est le <strong>segment à la plus forte croissance dans la recharge automobile</strong> — 50% des voitures neuves sont désormais équipées de charge sans fil intégrée, mais plus d'un milliard de véhicules en circulation n'en ont pas, créant une opportunité massive de modernisation.</p>
@@ -473,18 +473,18 @@ plPath: "produkty/ladowarka-bezprzewodowa/uchwyt-samochodowy/"
   <cite class="block text-xs text-slate-400 mt-2 not-italic">— <a href="https://www.marketresearch.com/LP-Information-Inc-v4134/Global-Vehicle-mounted-Wireless-Charger-44850256/" target="_blank" rel="noopener noreferrer" class="text-brandOrange hover:underline">LP Information</a>, Marché Mondial des Chargeurs Sans Fil pour Véhicules 2026-2032 ; <a href="https://www.factmr.com/report/6/automotive-mobile-accessories-market" target="_blank" rel="noopener noreferrer" class="text-brandOrange hover:underline">Fact.MR</a>, Marché des Accessoires Mobiles Automobiles 2025-2036</cite>
  </blockquote>
 
- <div class="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
- <div class="bg-slate-50 rounded-xl p-6 border border-slate-100 text-center">
+ <div class="grid md:grid-cols-3 gap-8">
+ <div class="card-soft p-6 text-center">
   <p class="text-3xl font-black text-brandBlue mb-2">181 M$</p>
   <p class="text-sm font-bold text-slate-700 mb-2">Marché Support Voiture 2025</p>
   <p class="text-xs text-slate-500">Segment aftermarket des supports voiture sans fil. TCAC 7,5% jusqu'en 2032 avec l'expansion des lois mains libres.</p>
  </div>
- <div class="bg-slate-50 rounded-xl p-6 border border-slate-100 text-center">
+ <div class="card-soft p-6 text-center">
   <p class="text-3xl font-black text-brandOrange mb-2">71,8%</p>
   <p class="text-sm font-bold text-slate-700 mb-2">Part Aftermarket</p>
   <p class="text-xs text-slate-500">L'aftermarket domine les ventes d'accessoires mobiles auto. Supports téléphone = 32,7% de la catégorie à 55,9 Md$.</p>
  </div>
- <div class="bg-slate-50 rounded-xl p-6 border border-slate-100 text-center">
+ <div class="card-soft p-6 text-center">
   <p class="text-3xl font-black text-brandBlue mb-2">N52H</p>
   <p class="text-sm font-bold text-slate-700 mb-2">Aimants Commerciaux les Plus Puissants</p>
   <p class="text-xs text-slate-500">Grade néodyme N52H — le plus élevé disponible commercialement. Maintien sécurisé à travers des coques de 3 mm sur routes cahoteuses.</p>
@@ -494,7 +494,7 @@ plPath: "produkty/ladowarka-bezprzewodowa/uchwyt-samochodowy/"
 </section>
 
 <!-- Magnétique vs Pince Électrique vs Disque -->
-<section class="sec bg-slate-50 relative py-16">
+<section id="magnetique-vs-pince-electrique-vs-disque" class="sec bg-slate-50 relative" data-section="comparison">
  <div class="container-wide">
  <h2 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4 text-center">Magnétique vs Pince Électrique vs Disque — <span class="text-brandOrange">Guide Acheteur B2B</span></h2>
  <p class="text-center text-slate-500 text-sm max-w-3xl mx-auto mb-12">Tous les supports voiture ne servent pas le même acheteur. Voici comment choisir le bon mécanisme pour votre canal de distribution et marché cible.</p>
@@ -502,11 +502,11 @@ plPath: "produkty/ladowarka-bezprzewodowa/uchwyt-samochodowy/"
  <div class="overflow-x-auto rounded-2xl border border-slate-200 shadow-sm">
  <table class="w-full text-sm">
  <thead>
- <tr class="bg-white">
- <th class="p-4 text-left text-slate-500 font-bold text-xs uppercase">Paramètre</th>
- <th class="p-4 text-center bg-brandOrange/5 border-x border-brandOrange/20 text-brandOrange font-bold text-xs uppercase">Support Magnétique<br><span class="text-[10px] normal-case opacity-70">WOW41 / WOW39 / WOW19S</span></th>
- <th class="p-4 text-center text-slate-500 font-bold text-xs uppercase">Pince Électrique<br><span class="text-[10px] normal-case opacity-70">WOW35</span></th>
- <th class="p-4 text-center text-slate-500 font-bold text-xs uppercase">Format Disque<br><span class="text-[10px] normal-case opacity-70">WOW28</span></th>
+ <tr class="bg-brandBlue text-white">
+ <th class="p-4 text-left font-bold text-xs uppercase">Paramètre</th>
+ <th class="p-4 text-center bg-brandOrange/20 font-bold text-xs uppercase">Support Magnétique<br><span class="text-[10px] normal-case opacity-70">WOW41 / WOW39 / WOW19S</span></th>
+ <th class="p-4 text-center font-bold text-xs uppercase">Pince Électrique<br><span class="text-[10px] normal-case opacity-70">WOW35</span></th>
+ <th class="p-4 text-center font-bold text-xs uppercase">Format Disque<br><span class="text-[10px] normal-case opacity-70">WOW28</span></th>
  </tr>
  </thead>
  <tbody>
@@ -525,25 +525,25 @@ plPath: "produkty/ladowarka-bezprzewodowa/uchwyt-samochodowy/"
 </section>
 
 <!-- Contexte du Marché -->
-<section class="sec bg-slate-50 relative py-16">
- <div class="container-content">
+<section id="contexte-du-marche" class="sec bg-slate-50 relative" data-section="content">
+ <div class="container-wide">
  <h2 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4 text-center">Marché du Chargeur Sans Fil Automobile <span class="text-brandOrange">$6,5 Md (Aftermarket) + $14,9 Md (OEM) en 2025</span></h2>
  <p class="text-center text-slate-500 text-sm max-w-3xl mx-auto mb-8">Le marché mondial des chargeurs sans fil pour véhicules a atteint 1,47 milliard de dollars en 2025, avec une croissance de 19,4% de TCAC vers 14,2 Md$ d'ici 2035. 50% des voitures neuves vendues en 2024 étaient équipées de charge sans fil intégrée — mais plus d'un milliard de véhicules en circulation n'en ont pas. L'opportunité aftermarket pour les supports voiture chargeur sans fil est massive et s'accélère. L'Inde mène la croissance nationale à 7,5% de TCAC, portée par l'expansion des lois sur la conduite mains libres et l'adoption rapide des smartphones.</p>
 
- <div class="grid md:grid-cols-4 gap-6 max-w-4xl mx-auto mb-6">
- <div class="bg-white rounded-xl p-6 shadow-sm border border-slate-100 text-center">
+ <div class="grid md:grid-cols-4 gap-6 mb-6">
+ <div class="card p-6 shadow-sm text-center">
   <p class="text-3xl font-black text-brandBlue mb-2">1,47 Md$</p>
   <p class="text-xs text-slate-500">Marché chargeur sans fil véhicule 2025 (LP Information 2026)</p>
  </div>
- <div class="bg-white rounded-xl p-6 shadow-sm border border-slate-100 text-center">
+ <div class="card p-6 shadow-sm text-center">
   <p class="text-3xl font-black text-brandOrange mb-2">50%+</p>
   <p class="text-xs text-slate-500">Voitures neuves avec charge sans fil intégrée en 2024 (Counterpoint Research)</p>
  </div>
- <div class="bg-white rounded-xl p-6 shadow-sm border border-slate-100 text-center">
+ <div class="card p-6 shadow-sm text-center">
   <p class="text-3xl font-black text-brandBlue mb-2">71,8%</p>
   <p class="text-xs text-slate-500">Part aftermarket des ventes d'accessoires mobiles auto — canal dominant (Fact.MR)</p>
  </div>
- <div class="bg-white rounded-xl p-6 shadow-sm border border-slate-100 text-center">
+ <div class="card p-6 shadow-sm text-center">
   <p class="text-3xl font-black text-brandOrange mb-2">19,4%</p>
   <p class="text-xs text-slate-500">TCAC 2025-2035 — segment charge sans fil à la plus forte croissance mondiale</p>
  </div>
@@ -556,33 +556,33 @@ plPath: "produkty/ladowarka-bezprzewodowa/uchwyt-samochodowy/"
 </section>
 
 <!-- Pourquoi Choisir les Supports Voiture WOWOHCOOL -->
-<section class="sec bg-slate-50 relative py-16">
+<section id="pourquoi-choisir-les-supports-voiture-wowohcool" class="sec bg-slate-50 relative" data-section="content">
  <div class="container-wide">
  <h2 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4 text-center">Pourquoi Choisir les <span class="text-brandOrange">Supports Voiture WOWOHCOOL</span> pour Votre Marque</h2>
  <p class="text-center text-slate-500 text-sm max-w-2xl mx-auto mb-12">La catégorie des supports voiture chargeur sans fil exige une fiabilité de qualité automobile — WOWOHCOOL est le seul fabricant OEM B2B offrant refroidissement TEC, technologie supercondensateur et aimants N52H dans une seule gamme.</p>
 
- <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
- <div class="bg-white rounded-xl p-6 border border-slate-200 shadow-sm">
+ <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+ <div class="card p-6 shadow-sm">
   <h3 class="font-black text-brandBlue uppercase mb-3 text-sm">5 Modèles — 3 Types de Mécanisme</h3>
   <p class="text-sm text-slate-600 leading-relaxed">Fixation magnétique (Qi2 MPP), pince électrique automatique (supercondensateur) et disque universel — couvrant chaque profil d'acheteur, des utilisateurs Apple premium aux flottes économiques. La plupart des concurrents n'offrent que 1-2 mécanismes.</p>
  </div>
- <div class="bg-white rounded-xl p-6 border border-slate-200 shadow-sm">
+ <div class="card p-6 shadow-sm">
   <h3 class="font-black text-brandBlue uppercase mb-3 text-sm">Exclusivité Refroidissement Actif TEC</h3>
   <p class="text-sm text-slate-600 leading-relaxed">Le WOW41 est le seul support voiture OEM B2B avec refroidissement semi-conducteur TEC (Thermoélectrique). Charge rapide 25W maintenue dans des habitacles à 50°C+ — sans limitation thermique. Ventilateur turbo silencieux + dissipateur thermique grande surface pour double refroidissement appareil et batterie.</p>
  </div>
- <div class="bg-white rounded-xl p-6 border border-slate-200 shadow-sm">
+ <div class="card p-6 shadow-sm">
   <h3 class="font-black text-brandBlue uppercase mb-3 text-sm">Aimants Qualité Industrielle N52H</h3>
   <p class="text-sm text-slate-600 leading-relaxed">Grade néodyme le plus élevé disponible commercialement. Force d'aspiration 1400g (WOW19S) — maintien sécurisé à travers des coques de protection de 3 mm sur routes cahoteuses. Sans vacillement, sans chute. Configuration réseau 14 aimants N52H sur WOW39 pour une prise magnétique double couche.</p>
  </div>
- <div class="bg-white rounded-xl p-6 border border-slate-200 shadow-sm">
+ <div class="card p-6 shadow-sm">
   <h3 class="font-black text-brandBlue uppercase mb-3 text-sm">Technologie Supercondensateur Hors-Tension</h3>
   <p class="text-sm text-slate-600 leading-relaxed">Exclusif au WOW35 : supercondensateur intégré permettant jusqu'à deux cycles complets d'ouverture/fermeture après l'arrêt du moteur. Aucune dégradation de batterie dans le temps. Alignement automatique trois axes avec réponse tactile 0,1s. Différenciateur B2B sans concurrence.</p>
  </div>
- <div class="bg-white rounded-xl p-6 border border-slate-200 shadow-sm">
+ <div class="card p-6 shadow-sm">
   <h3 class="font-black text-brandBlue uppercase mb-3 text-sm">Qi2.2 25W Prêt pour l'Avenir</h3>
   <p class="text-sm text-slate-600 leading-relaxed">Norme Qi v2.2.1 25W ratifiée 2025-07. Le WOW41 prend en charge la sortie 25W pour la charge sans fil iPhone 16/17, Pixel 10 et Galaxy S25. Certifié WPC avec documentation complète de conformité ATL (Authorized Test Lab) pour les besoins réglementaires de votre marque.</p>
  </div>
- <div class="bg-white rounded-xl p-6 border border-slate-200 shadow-sm">
+ <div class="card p-6 shadow-sm">
   <h3 class="font-black text-brandBlue uppercase mb-3 text-sm">Qualité Automobile Prêt E-Mark</h3>
   <p class="text-sm text-slate-600 leading-relaxed">Blindage EMI et composants de qualité automobile pour la conformité aftermarket européenne (ECE R10). Certifié CE, FCC, RoHS et Qi2. Documentation complète de certification incluse avec chaque commande OEM. Support de test E-Mark personnalisé disponible.</p>
  </div>
@@ -591,25 +591,25 @@ plPath: "produkty/ladowarka-bezprzewodowa/uchwyt-samochodowy/"
 </section>
 
 <!-- Qui Achète des Supports Voiture Chargeur Sans Fil en Gros -->
-<section class="sec bg-white relative py-16">
+<section id="qui-achete-des-supports-voiture-chargeur-sans-fil-en-gros" class="sec bg-white relative" data-section="content">
  <div class="container-wide">
  <h2 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4 text-center">Qui Achète des <span class="text-brandOrange">Supports Voiture Chargeur</span> en Gros</h2>
  <p class="text-center text-slate-500 text-sm max-w-3xl mx-auto mb-12">Quatre profils d'acheteurs B2B qui commandent régulièrement des supports voiture chargeur sans fil en volume — chacun avec des exigences et une économie unitaire distinctes.</p>
 
- <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto mb-10">
-  <div class="bg-slate-50 rounded-xl p-5 border border-slate-200">
+ <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
+  <div class="card-soft p-5">
    <p class="font-black text-slate-900 text-sm mb-1">Vendeurs Amazon & E-commerce</p>
    <p class="text-xs text-slate-500">"Support Magsafe voiture" et "chargeur sans fil voiture" génèrent un volume de recherche élevé avec de fortes pointes saisonnières. Les modèles à refroidissement TEC (WOW41) se différencient des annonces génériques. MOQ 500 en marque privée avec emballage prêt FBA.</p>
   </div>
-  <div class="bg-slate-50 rounded-xl p-5 border border-slate-200">
+  <div class="card-soft p-5">
    <p class="font-black text-slate-900 text-sm mb-1">Marques d'Accessoires Automobiles</p>
    <p class="text-xs text-slate-500">Conceptions prêtes pour la certification E-Mark destinées aux chaînes de distribution automobile européennes. Performance des aimants N52H = spécification clé pour le positionnement premium. Le refroidissement TEC du WOW41 est une fonctionnalité inédite pour la différenciation de marque.</p>
   </div>
-  <div class="bg-slate-50 rounded-xl p-5 border border-slate-200">
+  <div class="card-soft p-5">
    <p class="font-black text-slate-900 text-sm mb-1">Opérateurs de Flottes VTC</p>
    <p class="text-xs text-slate-500">Les chauffeurs Uber, Lyft, Didi, Bolt ont besoin d'une fiabilité qualité professionnelle. La pince électrique supercondensateur du WOW35 + utilisation une main est conçue pour un usage quotidien par les chauffeurs. Tarification flotte en gros à partir de 1 000+ unités avec kits conducteur personnalisés.</p>
   </div>
-  <div class="bg-slate-50 rounded-xl p-5 border border-slate-200">
+  <div class="card-soft p-5">
    <p class="font-black text-slate-900 text-sm mb-1">Concessionnaires Auto & Sous-Traitants OEM</p>
    <p class="text-xs text-slate-500">Accessoires de concession 4S, coffrets cadeaux véhicules neufs, merchandise de marque constructeur. Logo personnalisé, couleurs Pantone, emballage luxe. MOQ 500 pour OEM standard, 2 000 pour design de boîtier exclusif.</p>
   </div>
@@ -617,7 +617,7 @@ plPath: "produkty/ladowarka-bezprzewodowa/uchwyt-samochodowy/"
 
  <div class="bg-brandBlue/5 rounded-2xl p-8 border border-brandBlue/10 max-w-3xl mx-auto text-center">
   <p class="text-sm text-slate-700 leading-relaxed mb-4">Ces acheteurs partagent une exigence : un support voiture qui résiste aux températures extrêmes, aux vibrations constantes et à l'usage quotidien — soutenu par une usine avec un contrôle qualité vérifiable. L'installation ISO 9001 de 5 000 m2 de WOWOHCOOL sert plus de 200 marques mondiales depuis 2013 — avec un contrôle qualité en 4 étapes et un test de vieillissement 100% de 4 heures sur chaque unité.</p>
-  <a href="#products" class="inline-block text-brandOrange font-black text-sm uppercase tracking-widest hover:underline">Voir les 5 Modèles de Support Voiture →</a>
+  <a href="#products" class="btn-more">Voir les 5 Modèles de Support Voiture →</a>
  </div>
  </div>
 </section>
@@ -629,13 +629,13 @@ plPath: "produkty/ladowarka-bezprzewodowa/uchwyt-samochodowy/"
 </div>
 
 <!-- Personnalisation OEM/ODM -->
-<section class="sec bg-white relative py-16">
+<section id="personnalisation-oem-odm" class="sec bg-white relative" data-section="content">
  <div class="container-wide">
  <h2 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4 text-center">Personnalisation OEM/ODM pour <span class="text-brandOrange">Supports Voiture</span></h2>
  <p class="text-center text-slate-500 text-sm max-w-2xl mx-auto mb-12">Personnalisation complète des supports voiture — de l'impression du logo au design de mécanisme exclusif. MOQ flexible selon la complexité. Support de certification E-Mark inclus.</p>
 
- <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-  <div class="bg-slate-50 rounded-xl p-6 border border-slate-200">
+ <div class="grid md:grid-cols-2 gap-8">
+  <div class="card-soft p-6">
    <h3 class="font-black text-brandBlue uppercase mb-4 text-sm">OEM (Modèles Standard, MOQ 500)</h3>
    <ul class="space-y-2 text-sm text-slate-600">
     <li>• Impression logo (sérigraphie, laser, UV sur le corps du support)</li>
@@ -647,7 +647,7 @@ plPath: "produkty/ladowarka-bezprzewodowa/uchwyt-samochodowy/"
     <li>• Documentation de certification (CE, FCC, RoHS, Qi2 WPC)</li>
    </ul>
   </div>
-  <div class="bg-slate-50 rounded-xl p-6 border border-slate-200">
+  <div class="card-soft p-6">
    <h3 class="font-black text-brandBlue uppercase mb-4 text-sm">ODM (Design Personnalisé, MOQ 2 000)</h3>
    <ul class="space-y-2 text-sm text-slate-600">
     <li>• Design ID sur mesure (CMF : Couleur, Matériau, Finition)</li>
@@ -672,13 +672,13 @@ plPath: "produkty/ladowarka-bezprzewodowa/uchwyt-samochodowy/"
 </section>
 
 <!-- Refroidissement TEC : Pourquoi C'est Important -->
-<section class="sec bg-slate-50 relative py-16">
+<section id="refroidissement-tec-pourquoi-c-est-important" class="sec bg-slate-50 relative" data-section="content">
  <div class="container-wide">
  <h2 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4 text-center">Refroidissement TEC — <span class="text-brandOrange">Indispensable en 2026</span> pour le 25W Automobile</h2>
  <p class="text-center text-slate-500 text-sm max-w-3xl mx-auto mb-12">L'habitacle automobile présente l'environnement le plus hostile pour la charge sans fil. Le refroidissement semi-conducteur TEC est la seule solution qui maintient une charge à pleine vitesse en chaleur estivale. En 2026, avec le standard <strong>Qi2.2 25W</strong>, le TEC n'est plus optionnel — il est <strong>obligatoire</strong>. Le protocole thermique Qi2.2 impose un rapport de température actif au-dessus de 39°C et une limitation de puissance au-dessus de 60°C. <strong>Sans TEC + ventilateur, un chargeur 15W+ subit un throttling après 10-15 minutes.</strong> Avec TEC actif, la température de surface reste à 33-34°C après 30 minutes de charge 25W — aucune perte de puissance — et WOWOHCOOL est le seul OEM B2B à l'offrir dans un support voiture.</p>
 
- <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-  <div class="bg-white rounded-xl p-6 border border-slate-200">
+ <div class="grid md:grid-cols-2 gap-8">
+  <div class="card p-6">
    <h3 class="font-black text-brandBlue uppercase mb-4 text-sm">Le Problème : La Chaleur Estivale Réduit la Vitesse de Charge</h3>
    <ul class="space-y-2 text-sm text-slate-600">
     <li>• Les habitacles atteignent <strong>50°C+ (122°F+)</strong> en plein soleil d'été</li>
@@ -688,7 +688,7 @@ plPath: "produkty/ladowarka-bezprzewodowa/uchwyt-samochodowy/"
     <li>• Les limitations thermiques répétées dégradent la batterie du téléphone et la durée de vie du chargeur</li>
    </ul>
   </div>
-  <div class="bg-white rounded-xl p-6 border border-slate-200">
+  <div class="card p-6">
    <h3 class="font-black text-brandOrange uppercase mb-4 text-sm">La Solution : Double Refroidissement WOW41 TEC + Ventilateur</h3>
    <ul class="space-y-2 text-sm text-slate-600">
     <li>• Le semi-conducteur TEC (effet Peltier) <strong>extrait activement la chaleur</strong> du téléphone</li>
@@ -708,7 +708,7 @@ plPath: "produkty/ladowarka-bezprzewodowa/uchwyt-samochodowy/"
 </section>
 
 <!-- French Retail Price Comparison -->
-<section class="sec bg-white relative py-12">
+<section id="french-retail-price-comparison" class="sec bg-white relative py-12" data-section="comparison">
  <div class="container-content">
  <div class="text-center mb-8">
   <h2 class="text-2xl lg:text-3xl font-black text-brandBlue uppercase italic tracking-tighter mb-4">Le marché retail <span class="text-brandOrange">en France</span> — potentiel B2B</h2>
@@ -728,23 +728,23 @@ plPath: "produkty/ladowarka-bezprzewodowa/uchwyt-samochodowy/"
 </section>
 
 <!-- Liens Inter-Catégories -->
-<section class="sec bg-slate-50 relative py-12">
- <div class="container-content">
+<section id="liens-inter-categories" class="sec bg-slate-50 relative py-12" data-section="related">
+ <div class="container-wide">
  <p class="text-center text-slate-500 text-sm mb-6">Découvrez plus de catégories de charge de WOWOHCOOL :</p>
  <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-  <a href="/fr/produits/chargeur-sans-fil/" class="block bg-white rounded-xl p-4 border border-slate-200 hover:border-brandOrange hover:shadow-md transition text-center">
+  <a href="/fr/produits/chargeur-sans-fil/" class="card block p-4 hover:border-brandOrange hover:shadow-md transition text-center">
   <p class="font-black text-brandBlue text-sm uppercase mb-1">Tout Sans Fil</p>
   <p class="text-[10px] text-slate-500">3 Catégories, 18+ Modèles</p>
   </a>
-  <a href="/fr/produits/chargeur-sans-fil/station-3-en-1/" class="block bg-white rounded-xl p-4 border border-slate-200 hover:border-brandOrange hover:shadow-md transition text-center">
+  <a href="/fr/produits/chargeur-sans-fil/station-3-en-1/" class="card block p-4 hover:border-brandOrange hover:shadow-md transition text-center">
   <p class="font-black text-brandBlue text-sm uppercase mb-1">Stations 3-en-1</p>
   <p class="text-[10px] text-slate-500">Téléphone + Montre + AirPods</p>
   </a>
-  <a href="/fr/produits/chargeur-sans-fil/bureau/" class="block bg-white rounded-xl p-4 border border-slate-200 hover:border-brandOrange hover:shadow-md transition text-center">
+  <a href="/fr/produits/chargeur-sans-fil/bureau/" class="card block p-4 hover:border-brandOrange hover:shadow-md transition text-center">
   <p class="font-black text-brandBlue text-sm uppercase mb-1">Supports Bureau</p>
   <p class="text-[10px] text-slate-500">Sans Fil Simple Appareil</p>
   </a>
-  <a href="/fr/produits/chargeur-voiture/" class="block bg-white rounded-xl p-4 border border-slate-200 hover:border-brandOrange hover:shadow-md transition text-center">
+  <a href="/fr/produits/chargeur-voiture/" class="card block p-4 hover:border-brandOrange hover:shadow-md transition text-center">
   <p class="font-black text-brandBlue text-sm uppercase mb-1">Chargeurs Voiture GaN</p>
   <p class="text-[10px] text-slate-500">USB-C Filaire PD 3.1</p>
   </a>
@@ -753,41 +753,41 @@ plPath: "produkty/ladowarka-bezprzewodowa/uchwyt-samochodowy/"
 </section>
 
 <!-- FAQ -->
-<section class="sec-lg bg-slate-50 border-t border-slate-100">
+<section id="faq" class="sec bg-slate-50 border-t border-slate-100" data-section="faq">
  <div class="container-narrow">
  <div class="text-center mb-12">
   <h2 class="text-3xl lg:text-4xl font-black text-slate-900 uppercase italic tracking-tighter mb-4">Support Voiture <span class="text-brandOrange">FAQ</span></h2>
  </div>
  <div class="space-y-4">
-  <details class="bg-slate-50 rounded-xl p-5 border border-slate-200 group">
+  <details class="card-soft p-5 group">
   <summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">Quelle est la quantité minimum de commande (MOQ) pour un chargeur voiture sans fil OEM ?<span class="text-brandOrange group-open:rotate-180 transition">▼</span></summary>
   <p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">Le MOQ commence à <strong>500 unités</strong> pour les modèles ODM standard avec logo personnalisé. OEM complet avec outillage privé : <strong>2 000 unités</strong>. Délai d'échantillon : 3-7 jours pour les modèles standard, 10-15 jours pour les échantillons avec logo personnalisé. Options de MOQ flexibles disponibles pour les marques en démarrage et les tests de marché.</p>
   </details>
-  <details class="bg-slate-50 rounded-xl p-5 border border-slate-200 group">
+  <details class="card-soft p-5 group">
   <summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">Pourquoi le refroidissement TEC est-il important dans un support voiture chargeur sans fil ?<span class="text-brandOrange group-open:rotate-180 transition">▼</span></summary>
   <p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">L'habitacle d'une voiture peut dépasser <strong>50°C (122°F)</strong> en été. L'iPhone Qi2/MagSafe limite la vitesse de charge à des températures ambiantes supérieures à 35°C, plafonnant à 80% de batterie pour protéger l'appareil. La technologie semi-conducteur TEC (refroidissement thermoélectrique) du WOW41 refroidit activement la surface de charge — le seul support voiture OEM B2B avec cette technologie — maintenant une <strong>charge rapide 25W</strong> même dans les véhicules chauds. Combiné à un ventilateur turbo silencieux et un dissipateur thermique grande surface pour un double refroidissement appareil et batterie.</p>
   </details>
-  <details class="bg-slate-50 rounded-xl p-5 border border-slate-200 group">
+  <details class="card-soft p-5 group">
   <summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">Les supports voiture WOWOHCOOL sont-ils compatibles iPhone et Android ?<span class="text-brandOrange group-open:rotate-180 transition">▼</span></summary>
   <p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">Oui. Tous les supports voiture WOWOHCOOL utilisent la norme de charge sans fil universelle Qi2 compatible <strong>iPhone 12-17 (MagSafe 15W/25W)</strong> et les <strong>appareils Android Qi2</strong> (Samsung Galaxy S25, Pixel 10, etc.). Pour les téléphones Android non MagSafe, le modèle à pince électrique WOW35 offre une prise universelle sans aimants. Les utilisateurs Android peuvent ajouter une coque à anneau magnétique pour la compatibilité avec les modèles magnétiques WOW39, WOW41 et WOW19S.</p>
   </details>
-  <details class="bg-slate-50 rounded-xl p-5 border border-slate-200 group">
+  <details class="card-soft p-5 group">
   <summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">Vos supports voiture fonctionnent-ils avec des coques de téléphone épaisses ?<span class="text-brandOrange group-open:rotate-180 transition">▼</span></summary>
   <p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">Oui. Nos aimants néodyme N52H sont de la plus haute qualité commerciale disponible — avec jusqu'à <strong>1400g de force d'aspiration</strong> sur le WOW19S. Ils maintiennent une prise magnétique sécurisée à travers la plupart des coques de protection jusqu'à 3 mm d'épaisseur. Pour les coques très épaisses (4 mm+), nous recommandons des coques compatibles magnétiques ou nos accessoires d'anneau magnétique. Le modèle à pince électrique WOW35 fonctionne avec <strong>n'importe quel téléphone quelle que soit l'épaisseur de la coque</strong> — aucun aimant nécessaire.</p>
   </details>
-  <details class="bg-slate-50 rounded-xl p-5 border border-slate-200 group">
+  <details class="card-soft p-5 group">
   <summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">Puis-je obtenir la certification E-Mark pour les supports voiture chargeur sans fil ?<span class="text-brandOrange group-open:rotate-180 transition">▼</span></summary>
   <p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">L'E-Mark (ECE R10) est obligatoire pour les équipements électroniques automobiles vendus sur le marché secondaire européen. Bien que les chargeurs sans fil alimentés par USB-C depuis l'allume-cigare se trouvent dans une zone grise réglementaire, WOWOHCOOL peut fournir des <strong>conceptions prêtes E-Mark</strong> avec blindage EMI approprié et composants de qualité automobile. Nous recommandons la certification E-Mark pour les marques vendant aux détaillants automobiles et distributeurs européens. Documentation complète de certification et support de test inclus avec les commandes OEM.</p>
   </details>
-  <details class="bg-slate-50 rounded-xl p-5 border border-slate-200 group">
+  <details class="card-soft p-5 group">
   <summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">Quels supports de ventilation sont inclus ?<span class="text-brandOrange group-open:rotate-180 transition">▼</span></summary>
   <p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">Tous les modèles incluent un clip de ventilation universel avec pince anti-balancement. Le WOW28 inclut une base à ventouse pour montage sur tableau de bord/pare-brise. <strong>Options de montage personnalisées</strong> (fente CD, porte-gobelet, tableau de bord adhésif, spécifique Tesla, rotule 17 mm) disponibles pour les commandes OEM. MOQ 500 pour le groupage de type de montage personnalisé.</p>
   </details>
-  <details class="bg-slate-50 rounded-xl p-5 border border-slate-200 group">
+  <details class="card-soft p-5 group">
   <summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">Quel est le délai de production OEM/ODM pour un support voiture ?<span class="text-brandOrange group-open:rotate-180 transition">▼</span></summary>
   <p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">OEM (modèles standard avec logo personnalisé) : <strong>25-30 jours</strong> après approbation de l'échantillon. ODM (design de boîtier ou mécanisme personnalisé) : <strong>45-60 jours</strong> outillage inclus. Les deux délais incluent le contrôle qualité en 4 étapes (IQC → IPQC → FQC → OQC) avec test de vieillissement 100% de 4 heures. Fret aérien express : 5-7 jours vers UE/US. Fret maritime : 25-35 jours.</p>
   </details>
-  <details class="bg-slate-50 rounded-xl p-5 border border-slate-200 group">
+  <details class="card-soft p-5 group">
   <summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">Qu'est-ce qu'un support téléphone voiture à supercondensateur et quelle est sa différence ?<span class="text-brandOrange group-open:rotate-180 transition">▼</span></summary>
   <p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">Le support voiture à pince électrique WOW35 utilise un <strong>supercondensateur</strong> au lieu d'une batterie traditionnelle pour le fonctionnement hors tension. Après l'arrêt du moteur, le supercondensateur fournit suffisamment d'énergie stockée pour jusqu'à deux cycles complets d'ouverture/fermeture — contrairement aux pinces alimentées par batterie qui se dégradent avec le temps. Les supercondensateurs offrent <strong>plus de 500 000 cycles de charge</strong> (contre environ 500 pour les batteries lithium) et maintiennent des performances constantes de -20°C à 70°C. C'est le seul support voiture OEM B2B avec cette technologie.</p>
   </details>

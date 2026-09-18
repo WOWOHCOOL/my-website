@@ -177,7 +177,7 @@ plPath: "produkty/ladowarka-gan/"
 {
  "@context": "https://schema.org",
  "@type": "FAQPage",
- "speakable": {"@type": "SpeakableSpecification", "cssSelector": [".faq-answer"]},
+ "speakable": {"@type": "SpeakableSpecification", "cssSelector": [".faq-answer", ".faq-question"]},
  "mainEntity": [
  {
  "@type": "Question",
@@ -219,13 +219,13 @@ plPath: "produkty/ladowarka-gan/"
 <!-- ========================================================================
  HERO SECTION - Hero Section
  ======================================================================== -->
- <section class="relative pt-24 md:pt-28 pb-8 lg:pb-16 bg-white text-slate-900 overflow-hidden">
+ <section id="hero-section" class="relative pt-24 md:pt-28 lg:pt-20 pb-8 lg:pb-20 bg-white text-slate-900 overflow-hidden lg:min-h-[100dvh] lg:flex lg:flex-col lg:justify-center" data-section="hero">
  <div class="absolute inset-0 z-0 pointer-events-none overflow-hidden">
  <div class="absolute top-0 left-0 max-w-full w-64 h-64 bg-brandOrange opacity-20 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
  <div class="absolute bottom-0 right-0 max-w-full w-64 h-64 bg-blue-500 opacity-20 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
  </div>
 
- <div class="container-wide relative z-10 text-center pb-12 lg:pb-12">
+ <div class="container-wide relative z-10 text-center pb-12 lg:pb-0">
  <!-- Breadcrumb -->
  {{ breadcrumb([{name: "Home", url: "/"}, {name: "Products", url: "/products/"}, {name: "GaN Charger"}], "none", "mb-6", { variant: "hero" }) }}
  <!-- Top: badge + H1 -->
@@ -240,15 +240,15 @@ plPath: "produkty/ladowarka-gan/"
  <p class="max-w-2xl mx-auto text-slate-600 text-sm leading-relaxed mt-6 mb-8">GaN V chargers 40% smaller than silicon with PD 3.1 up to 240W. Power strips, retractable cable chargers, and wireless combo units. CE/FCC certified. GaN charger market: $1.2B (2026) — $6.0B by 2033.</p>
 
  <!-- Stats -->
- <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-2xl mx-auto mb-10">
- <div class="bg-slate-50 rounded-xl p-4 border border-slate-100"><p class="text-2xl font-black text-brandBlue">2013</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Est.</p></div>
- <div class="bg-slate-50 rounded-xl p-4 border border-slate-100"><p class="text-2xl font-black text-brandOrange">10</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Models</p></div>
- <div class="bg-slate-50 rounded-xl p-4 border border-slate-100"><p class="text-2xl font-black text-brandBlue">240W</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">PD 3.1</p></div>
- <div class="bg-slate-50 rounded-xl p-4 border border-slate-100"><p class="text-2xl font-black text-brandOrange">500+</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">MOQ</p></div>
+ <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
+ <div class="card-soft p-4"><p class="text-2xl font-black text-brandBlue">2013</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Est.</p></div>
+ <div class="card-soft p-4"><p class="text-2xl font-black text-brandOrange">10</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Models</p></div>
+ <div class="card-soft p-4"><p class="text-2xl font-black text-brandBlue">240W</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">PD 3.1</p></div>
+ <div class="card-soft p-4"><p class="text-2xl font-black text-brandOrange">500+</p><p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">MOQ</p></div>
  </div>
 
  <!-- CTA -->
- <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
+ <div class="btn-pair">
  <button data-action="open-modal" class="btn-wide-lg">
  Get Free Wholesale Catalog
  </button>
@@ -266,7 +266,7 @@ plPath: "produkty/ladowarka-gan/"
  <!-- ========================================================================
  PRODUCTS SHOWCASE SECTION
  ======================================================================== -->
- <section id="products" class="sec bg-white relative">
+ <section id="products" class="sec bg-white relative" data-section="products">
  <div class="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-slate-50 to-transparent -z-10"></div>
  
  <div class="container-wide"> 
@@ -321,7 +321,7 @@ plPath: "produkty/ladowarka-gan/"
  </p>
 
  <details class="mb-6 group/spec">
-<summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition">
+<summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition">
 <span class="text-xs font-black text-slate-700 uppercase">Specifications</span>
 <span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">▼</span>
 </summary>
@@ -410,7 +410,7 @@ plPath: "produkty/ladowarka-gan/"
  </p>
 
  <details class="mb-6 group/spec">
-<summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition">
+<summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition">
 <span class="text-xs font-black text-slate-700 uppercase">Specifications</span>
 <span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">▼</span>
 </summary>
@@ -501,7 +501,7 @@ plPath: "produkty/ladowarka-gan/"
  </p>
 
  <details class="mb-6 group/spec">
-<summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition">
+<summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition">
 <span class="text-xs font-black text-slate-700 uppercase">Specifications</span>
 <span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">▼</span>
 </summary>
@@ -592,7 +592,7 @@ plPath: "produkty/ladowarka-gan/"
  </p>
 
  <details class="mb-6 group/spec">
-<summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition">
+<summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition">
 <span class="text-xs font-black text-slate-700 uppercase">Specifications</span>
 <span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">▼</span>
 </summary>
@@ -691,7 +691,7 @@ plPath: "produkty/ladowarka-gan/"
  </p>
 
  <details class="mb-6 group/spec">
-<summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition">
+<summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition">
 <span class="text-xs font-black text-slate-700 uppercase">Specifications</span>
 <span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">▼</span>
 </summary>
@@ -790,7 +790,7 @@ plPath: "produkty/ladowarka-gan/"
  </p>
 
  <details class="mb-6 group/spec">
-<summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition">
+<summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition">
 <span class="text-xs font-black text-slate-700 uppercase">Specifications</span>
 <span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">▼</span>
 </summary>
@@ -889,7 +889,7 @@ plPath: "produkty/ladowarka-gan/"
  </p>
 
  <details class="mb-6 group/spec">
-<summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition">
+<summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition">
 <span class="text-xs font-black text-slate-700 uppercase">Specifications</span>
 <span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">▼</span>
 </summary>
@@ -984,7 +984,7 @@ plPath: "produkty/ladowarka-gan/"
  </p>
 
  <details class="mb-6 group/spec">
-<summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition">
+<summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition">
 <span class="text-xs font-black text-slate-700 uppercase">Specifications</span>
 <span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">▼</span>
 </summary>
@@ -1077,7 +1077,7 @@ plPath: "produkty/ladowarka-gan/"
  </p>
 
  <details class="mb-6 group/spec">
-<summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition">
+<summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition">
 <span class="text-xs font-black text-slate-700 uppercase">Specifications</span>
 <span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">▼</span>
 </summary>
@@ -1170,7 +1170,7 @@ plPath: "produkty/ladowarka-gan/"
  </p>
 
  <details class="mb-6 group/spec">
-<summary class="p-4 bg-slate-50 rounded-xl cursor-pointer flex justify-between items-center hover:bg-slate-100 transition">
+<summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition">
 <span class="text-xs font-black text-slate-700 uppercase">Specifications</span>
 <span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">▼</span>
 </summary>
@@ -1218,12 +1218,12 @@ plPath: "produkty/ladowarka-gan/"
  </section>
 
 <!-- ======== POWER OPTIONS ======== -->
- <section class="sec bg-white">
+ <section id="power-options" class="sec bg-white" data-section="content">
  <div class="container-wide">
  {{ sectionHeader('Power Options', 'Choose Your <span class="text-brandOrange">GaN Charger</span>', 'From compact phone chargers to high-power laptop solutions. Find the right wattage for your target market. Need power banks too? <a href="/products/power-bank" class="text-brandOrange hover:underline">Check our power bank selection</a>.', { max: '', mb: 'mb-12', reveal: false, titleClass: 'text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4', descClass: 'text-slate-500 max-w-2xl mx-auto', labelStyle: 'pill', pillClass: 'bg-brandOrange/10', pillMb: 'mb-6' }) }}
  
  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
- <div class="bg-slate-50 rounded-2xl p-8">
+ <div class="card-lg-soft p-8">
  <div class="w-16 h-16 bg-brandBlue/10 rounded-2xl flex items-center justify-center mb-6">
  <svg class="icon-mobile-screen text-brandBlue text-3xl" aria-hidden="true" focusable="false" viewBox="0 0 384 512">
  <path d="M16 64C16 28.7 44.7 0 80 0L304 0c35.3 0 64 28.7 64 64l0 384c0 35.3-28.7 64-64 64L80 512c-35.3 0-64-28.7-64-64L16 64zM128 440c0 13.3 10.7 24 24 24l80 0c13.3 0 24-10.7 24-24s-10.7-24-24-24l-80 0c-13.3 0-24 10.7-24 24zM304 64l-224 0 0 304 224 0 0-304z" fill="currentColor"/>
@@ -1246,7 +1246,7 @@ plPath: "produkty/ladowarka-gan/"
  </svg> Lightweight & portable</li>
  </ul>
  </div>
- <div class="bg-slate-50 rounded-2xl p-8">
+ <div class="card-lg-soft p-8">
  <div class="w-16 h-16 bg-brandOrange/10 rounded-2xl flex items-center justify-center mb-6">
  <svg class="icon-laptop text-brandOrange text-3xl" aria-hidden="true" focusable="false" viewBox="0 0 640 512">
  <path d="M128 32C92.7 32 64 60.7 64 96l0 240 64 0 0-240 384 0 0 240 64 0 0-240c0-35.3-28.7-64-64-64L128 32zM19.2 384C8.6 384 0 392.6 0 403.2 0 445.6 34.4 480 76.8 480l486.4 0c42.4 0 76.8-34.4 76.8-76.8 0-10.6-8.6-19.2-19.2-19.2L19.2 384z" fill="currentColor"/>
@@ -1269,7 +1269,7 @@ plPath: "produkty/ladowarka-gan/"
  </svg> MacBook/Ultrabook ready</li>
  </ul>
  </div>
- <div class="bg-slate-50 rounded-2xl p-8">
+ <div class="card-lg-soft p-8">
  <div class="w-16 h-16 bg-brandBlue/10 rounded-2xl flex items-center justify-center mb-6">
  <svg class="icon-bolt text-brandBlue text-3xl" aria-hidden="true" focusable="false" viewBox="0 0 448 512">
  <path d="M338.8-9.9c11.9 8.6 16.3 24.2 10.9 37.8L271.3 224 416 224c13.5 0 25.5 8.4 30.1 21.1s.7 26.9-9.6 35.5l-288 240c-11.3 9.4-27.4 9.9-39.3 1.3s-16.3-24.2-10.9-37.8L176.7 288 32 288c-13.5 0-25.5-8.4-30.1-21.1s-.7-26.9 9.6-35.5l288-240c11.3-9.4 27.4-9.9 39.3-1.3z" fill="currentColor"/>
@@ -1296,7 +1296,7 @@ plPath: "produkty/ladowarka-gan/"
  </div>
  </section>
 <!-- ======== WHO IS THIS FOR ======== -->
- <section class="sec bg-white">
+ <section id="who-is-this-for" class="sec bg-white" data-section="content">
  <div class="container-wide">
  <div class="text-center mb-14">
  <div class="inline-block px-4 py-1 bg-brandBlue/10 border border-brandBlue/20 rounded-full text-[11px] font-bold text-brandBlue uppercase tracking-widest mb-6">Who Is This For</div>
@@ -1304,7 +1304,7 @@ plPath: "produkty/ladowarka-gan/"
  <p class="text-slate-500 max-w-2xl mx-auto text-sm">Thousands of businesses trust WOWOHCOOL for their GaN charger sourcing. See which profile fits you.</p>
  </div>
  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
- <div class="bg-slate-50 rounded-2xl p-8 border border-slate-100 hover:border-brandOrange/30 hover:shadow-lg transition-all group">
+ <div class="card-lg-soft p-8 hover:border-brandOrange/30 hover:shadow-lg transition-all group">
  <div class="w-14 h-14 bg-brandOrange/10 rounded-2xl flex items-center justify-center mb-5 group-hover:bg-brandOrange/20 transition-colors">
  <svg class="icon-microchip text-brandOrange text-xl" aria-hidden="true" focusable="false" viewBox="0 0 512 512">
  <path d="M176 24c0-13.3-10.7-24-24-24s-24 10.7-24 24l0 40c-35.3 0-64 28.7-64 64l-40 0c-13.3 0-24 10.7-24 24s10.7 24 24 24l40 0 0 56-40 0c-13.3 0-24 10.7-24 24s10.7 24 24 24l40 0 0 56-40 0c-13.3 0-24 10.7-24 24s10.7 24 24 24l40 0c0 35.3 28.7 64 64 64l0 40c0 13.3 10.7 24 24 24s24-10.7 24-24l0-40 56 0 0 40c0 13.3 10.7 24 24 24s24-10.7 24-24l0-40 56 0 0 40c0 13.3 10.7 24 24 24s24-10.7 24-24l0-40c35.3 0 64-28.7 64-64l40 0c13.3 0 24-10.7 24-24s-10.7-24-24-24l-40 0 0-56 40 0c13.3 0 24-10.7 24-24s-10.7-24-24-24l-40 0 0-56 40 0c13.3 0 24-10.7 24-24s-10.7-24-24-24l-40 0c0-35.3-28.7-64-64-64l0-40c0-13.3-10.7-24-24-24s-24 10.7-24 24l0 40-56 0 0-40c0-13.3-10.7-24-24-24s-24 10.7-24 24l0 40-56 0 0-40zM160 128l192 0c17.7 0 32 14.3 32 32l0 192c0 17.7-14.3 32-32 32l-192 0c-17.7 0-32-14.3-32-32l0-192c0-17.7 14.3-32 32-32zm16 48l0 160 160 0 0-160-160 0z" fill="currentColor"/>
@@ -1318,7 +1318,7 @@ plPath: "produkty/ladowarka-gan/"
  <li class="flex items-center gap-2"><span class="text-green-500 font-bold">✓</span> Custom PCB &amp; firmware</li>
  </ul>
  </div>
- <div class="bg-slate-50 rounded-2xl p-8 border border-slate-100 hover:border-brandOrange/30 hover:shadow-lg transition-all group">
+ <div class="card-lg-soft p-8 hover:border-brandOrange/30 hover:shadow-lg transition-all group">
  <div class="w-14 h-14 bg-brandOrange/10 rounded-2xl flex items-center justify-center mb-5 group-hover:bg-brandOrange/20 transition-colors">
  <svg class="icon-building text-brandOrange text-xl" aria-hidden="true" focusable="false" viewBox="0 0 384 512">
  <path d="M64 0C28.7 0 0 28.7 0 64L0 448c0 35.3 28.7 64 64 64l256 0c35.3 0 64-28.7 64-64l0-384c0-35.3-28.7-64-64-64L64 0zM176 352l32 0c17.7 0 32 14.3 32 32l0 80-96 0 0-80c0-17.7 14.3-32 32-32zM96 112c0-8.8 7.2-16 16-16l32 0c8.8 0 16 7.2 16 16l0 32c0 8.8-7.2 16-16 16l-32 0c-8.8 0-16-7.2-16-16l0-32zM240 96l32 0c8.8 0 16 7.2 16 16l0 32c0 8.8-7.2 16-16 16l-32 0c-8.8 0-16-7.2-16-16l0-32c0-8.8 7.2-16 16-16zM96 240c0-8.8 7.2-16 16-16l32 0c8.8 0 16 7.2 16 16l0 32c0 8.8-7.2 16-16 16l-32 0c-8.8 0-16-7.2-16-16l0-32zm144-16l32 0c8.8 0 16 7.2 16 16l0 32c0 8.8-7.2 16-16 16l-32 0c-8.8 0-16-7.2-16-16l0-32c0-8.8 7.2-16 16-16z" fill="currentColor"/>
@@ -1332,7 +1332,7 @@ plPath: "produkty/ladowarka-gan/"
  <li class="flex items-center gap-2"><span class="text-green-500 font-bold">✓</span> White-label options</li>
  </ul>
  </div>
- <div class="bg-slate-50 rounded-2xl p-8 border border-slate-100 hover:border-brandOrange/30 hover:shadow-lg transition-all group">
+ <div class="card-lg-soft p-8 hover:border-brandOrange/30 hover:shadow-lg transition-all group">
  <div class="w-14 h-14 bg-brandOrange/10 rounded-2xl flex items-center justify-center mb-5 group-hover:bg-brandOrange/20 transition-colors">
  <svg class="icon-briefcase text-brandOrange text-xl" aria-hidden="true" focusable="false" viewBox="0 0 512 512">
  <path d="M200 48l112 0c4.4 0 8 3.6 8 8l0 40-128 0 0-40c0-4.4 3.6-8 8-8zm-56 8l0 40-80 0C28.7 96 0 124.7 0 160l0 96 512 0 0-96c0-35.3-28.7-64-64-64l-80 0 0-40c0-30.9-25.1-56-56-56L200 0c-30.9 0-56 25.1-56 56zM512 304l-192 0 0 16c0 17.7-14.3 32-32 32l-64 0c-17.7 0-32-14.3-32-32l0-16-192 0 0 112c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-112z" fill="currentColor"/>
@@ -1350,7 +1350,7 @@ plPath: "produkty/ladowarka-gan/"
  </div>
  </section>
 <!-- ======== TECHNOLOGY COMPARISON ======== -->
-<section class="sec bg-white">
+<section id="technology-comparison" class="sec bg-white" data-section="comparison">
  <div class="container-content">
  {{ sectionHeader('Technology', 'GaN V vs Silicon vs GaN III', '5th-generation GaN delivers 40% smaller size and 93-95% efficiency. GaN charger market: $1.2B (2026)  — $6.0B by 2033, CAGR 25.7%.', {max: '', mb: 'mb-12'}) }}
  <div class="overflow-x-auto reveal">
@@ -1378,16 +1378,16 @@ plPath: "produkty/ladowarka-gan/"
  <!-- ========================================================================
  WHY WOWOHCOOL - Competitive Comparison
  ======================================================================== -->
- <section class="sec bg-white">
+ <section id="why-wowohcool-competitive-comparison" class="sec bg-white" data-section="comparison">
  <div class="container-wide">
  {{ sectionHeader('Why WOWOHCOOL', 'Not All Factories Are Equal', 'See how WOWOHCOOL compares to typical GaN charger OEMs in China.', { max: '', mb: 'mb-14', reveal: false, titleClass: 'text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4', descClass: 'text-slate-500 max-w-2xl mx-auto text-sm', labelStyle: 'pill', pillClass: 'bg-brandOrange/10', pillMb: 'mb-6' }) }}
  <div class="max-w-4xl mx-auto overflow-hidden rounded-2xl border border-slate-200">
  <table class="w-full text-sm">
  <thead>
- <tr class="bg-slate-50 border-b border-slate-200">
- <th class="text-left p-4 md:p-5 font-black text-slate-500 uppercase tracking-wider text-[11px]"></th>
- <th class="p-4 md:p-5 font-black text-brandBlue uppercase tracking-wider text-[11px] text-center">WOWOHCOOL</th>
- <th class="p-4 md:p-5 font-black text-slate-500 uppercase tracking-wider text-[11px] text-center">Typical Factory</th>
+ <tr class="bg-brandBlue text-white">
+ <th class="text-left p-4 md:p-5 font-black uppercase tracking-wider text-[11px]"></th>
+ <th class="p-4 md:p-5 font-black uppercase tracking-wider text-[11px] text-center bg-brandOrange/20">WOWOHCOOL</th>
+ <th class="p-4 md:p-5 font-black uppercase tracking-wider text-[11px] text-center">Typical Factory</th>
  </tr>
  </thead>
  <tbody class="divide-y divide-slate-100">
@@ -1432,7 +1432,7 @@ plPath: "produkty/ladowarka-gan/"
  <!-- ========================================================================
  CLIENT TESTIMONIALS SECTION - B2B client testimonials
  ======================================================================== -->
- <section class="sec-lg bg-brandBlue">
+ <section id="client-testimonials-section-b2b-client-testimonials" class="sec bg-brandBlue" data-section="content">
  <div class="container-wide">
  {{ sectionHeader('Client Feedback', 'What Our B2B Partners Say', 'Trusted by IT distributors, corporate procurement teams, and tech brands across 50+ countries.', { max: '', reveal: false, titleClass: 'text-3xl lg:text-4xl font-black text-white uppercase italic tracking-tighter mb-4', descClass: 'text-slate-500 max-w-2xl mx-auto', labelStyle: 'pill', pillClass: 'bg-brandOrange/10', pillMb: 'mb-6' }) }}
  
@@ -1604,7 +1604,7 @@ plPath: "produkty/ladowarka-gan/"
  </section>
  
  <!-- ======== PROTOCOL SUPPORT ======== -->
- <section class="sec bg-white border-t border-slate-100">
+ <section id="protocol-support" class="sec bg-white border-t border-slate-100" data-section="content">
  <div class="container-wide">
  <div class="bg-brandBlue rounded-2xl md:rounded-3xl p-6 md:p-8 text-white">
  <div class="flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-6">
@@ -1622,26 +1622,26 @@ plPath: "produkty/ladowarka-gan/"
  </div>
  </section>
 <!-- ======== EU COMPLIANCE ======== -->
-<section class="sec bg-slate-50">
- <div class="container-content">
+<section id="eu-compliance" class="sec bg-slate-50" data-section="content">
+ <div class="container-wide">
  {{ sectionHeader('Compliance', 'EU &amp; Global Certification Support', 'All GaN chargers ship with CE/FCC documentation. We assist with market-specific certifications for hassle-free import.', {max: '', mb: 'mb-12'}) }}
  <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 reveal">
- <div class="bg-white rounded-xl p-6 shadow-sm border border-slate-100 text-center">
+ <div class="card p-6 shadow-sm text-center">
   <img src="/image/certifications/ce-certification.svg" alt="CE Certified" width="280" height="200" class="w-10 h-10 mx-auto mb-3" loading="lazy">
   <h3 class="font-bold text-brandBlue text-sm mb-2">CE + FCC Included</h3>
   <p class="text-xs text-slate-500">Every unit ships with CE Declaration of Conformity and FCC test report. No extra cost, no delays.</p>
  </div>
- <div class="bg-white rounded-xl p-6 shadow-sm border border-slate-100 text-center">
+ <div class="card p-6 shadow-sm text-center">
   <img src="/image/certifications/ul.svg" alt="UL Certified" width="330" height="330" class="w-10 h-10 mx-auto mb-3" loading="lazy">
   <h3 class="font-bold text-brandBlue text-sm mb-2">UL 62368-1</h3>
   <p class="text-xs text-slate-500">Required for US retail (Amazon, Best Buy). We coordinate UL/ETL testing. Lead time: 2-4 weeks.</p>
  </div>
- <div class="bg-white rounded-xl p-6 shadow-sm border border-slate-100 text-center">
+ <div class="card p-6 shadow-sm text-center">
   <img src="/image/certifications/pse.svg" alt="PSE Certified" width="449" height="445" class="w-10 h-10 mx-auto mb-3" loading="lazy">
   <h3 class="font-bold text-brandBlue text-sm mb-2">PSE (Japan)</h3>
   <p class="text-xs text-slate-500">Mandatory for Japan market. Diamond PSE for AC chargers. We handle the full application process.</p>
  </div>
- <div class="bg-white rounded-xl p-6 shadow-sm border border-slate-100 text-center">
+ <div class="card p-6 shadow-sm text-center">
   <img src="/image/certifications/kc.svg" alt="KC Certified" width="498" height="701" class="w-10 h-10 mx-auto mb-3" loading="lazy">
   <h3 class="font-bold text-brandBlue text-sm mb-2">KC (Korea)</h3>
   <p class="text-xs text-slate-500">Required for Korean market entry. We provide samples and documentation for KC certification.</p>
@@ -1652,64 +1652,64 @@ plPath: "produkty/ladowarka-gan/"
  <!-- ========================================================================
  FAQ SECTION
  ======================================================================== -->
- <section class="sec-lg bg-slate-50 border-t border-slate-100">
+ <section id="faq-section" class="sec bg-slate-50 border-t border-slate-100" data-section="faq">
  <div class="container-narrow">
  <div class="text-center mb-16 reveal">
  <h2 class="text-3xl lg:text-4xl font-black text-slate-900 uppercase italic tracking-tighter mb-4">GaN Charger <span class="text-brandOrange">FAQ</span></h2>
  <p class="text-slate-500 font-bold uppercase tracking-widest text-[11px]">Essential for OEM/ODM partnerships</p>
  </div>
  <div class="grid gap-6">
- <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200 reveal">
+ <div class="card-lg p-8 shadow-sm reveal">
  <div class="flex gap-3 md:gap-6 italic">
  <div class="shrink-0 w-10 h-10 rounded-full bg-brandOrange/10 flex items-center justify-center text-brandOrange font-black italic">01</div>
  <div>
- <h3 class="text-lg font-black text-slate-900 uppercase mb-3">What is the MOQ for OEM GaN charger orders?</h3>
- <p class="text-slate-600 leading-relaxed text-sm">Our MOQ is <strong>500 units</strong> per SKU for standard GaN V models. Custom ODM projects with unique housing or multi-port configurations require 1000+ units. All GaN chargers benefit from our automated production lines, ensuring consistent quality across high-volume orders.</p>
+ <h3 class="faq-question text-lg font-black text-slate-900 uppercase mb-3">What is the MOQ for OEM GaN charger orders?</h3>
+ <p class="faq-answer text-slate-600 leading-relaxed text-sm">Our MOQ is <strong>500 units</strong> per SKU for standard GaN V models. Custom ODM projects with unique housing or multi-port configurations require 1000+ units. All GaN chargers benefit from our automated production lines, ensuring consistent quality across high-volume orders.</p>
  </div>
  </div>
  </div>
- <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200 reveal">
+ <div class="card-lg p-8 shadow-sm reveal">
  <div class="flex gap-3 md:gap-6 italic">
  <div class="shrink-0 w-10 h-10 rounded-full bg-brandBlue/10 flex items-center justify-center text-brandBlue font-black italic">02</div>
  <div>
- <h4 class="text-lg font-black text-slate-900 uppercase mb-3">What fast charging protocols are supported?</h4>
- <p class="text-slate-600 leading-relaxed text-sm">Our GaN chargers support <strong>PD 3.1 (up to 140W), PPS, QC 5.0, SCP, and AFC</strong>. Universal compatibility from iPhone 15 to MacBook Pro 16 and Samsung Galaxy devices.</p>
+ <h4 class="faq-question text-lg font-black text-slate-900 uppercase mb-3">What fast charging protocols are supported?</h4>
+ <p class="faq-answer text-slate-600 leading-relaxed text-sm">Our GaN chargers support <strong>PD 3.1 (up to 140W), PPS, QC 5.0, SCP, and AFC</strong>. Universal compatibility from iPhone 15 to MacBook Pro 16 and Samsung Galaxy devices.</p>
  </div>
  </div>
  </div>
- <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200 reveal">
+ <div class="card-lg p-8 shadow-sm reveal">
  <div class="flex gap-3 md:gap-6 italic">
  <div class="shrink-0 w-10 h-10 rounded-full bg-green-500/10 flex items-center justify-center text-green-500 font-black italic">03</div>
  <div>
- <h4 class="text-lg font-black text-slate-900 uppercase mb-3">Are GaN chargers safe?</h4>
- <p class="text-slate-600 leading-relaxed text-sm">Yes. GaN chargers generate <strong>less heat than silicon chargers</strong>, reducing fire risks. They include advanced over-voltage/current protection and thermal monitoring.</p>
+ <h4 class="faq-question text-lg font-black text-slate-900 uppercase mb-3">Are GaN chargers safe?</h4>
+ <p class="faq-answer text-slate-600 leading-relaxed text-sm">Yes. GaN chargers generate <strong>less heat than silicon chargers</strong>, reducing fire risks. They include advanced over-voltage/current protection and thermal monitoring.</p>
  </div>
  </div>
  </div>
- <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200 reveal">
+ <div class="card-lg p-8 shadow-sm reveal">
  <div class="flex gap-3 md:gap-6 italic">
  <div class="shrink-0 w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-600 font-black italic">04</div>
  <div>
- <h4 class="text-lg font-black text-slate-900 uppercase mb-3">What power options are available?</h4>
- <p class="text-slate-600 leading-relaxed text-sm"><strong>20W-240W</strong> range. Popular: 20W-30W (phone), 45W-65W (laptop), 100W-140W (high-performance). All use latest GaN V technology.</p>
+ <h4 class="faq-question text-lg font-black text-slate-900 uppercase mb-3">What power options are available?</h4>
+ <p class="faq-answer text-slate-600 leading-relaxed text-sm"><strong>20W-240W</strong> range. Popular: 20W-30W (phone), 45W-65W (laptop), 100W-140W (high-performance). All use latest GaN V technology.</p>
  </div>
  </div>
  </div>
- <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200 reveal">
+ <div class="card-lg p-8 shadow-sm reveal">
  <div class="flex gap-3 md:gap-6 italic">
  <div class="shrink-0 w-10 h-10 rounded-full bg-brandOrange/10 flex items-center justify-center text-brandOrange font-black italic">05</div>
  <div>
- <h4 class="text-lg font-black text-slate-900 uppercase mb-3">Can you customize the design?</h4>
- <p class="text-slate-600 leading-relaxed text-sm">Yes. Our OEM/ODM service includes <strong>custom CMF, logo printing, packaging design, and port configuration</strong>. GaN-specific options include foldable AC pins, retractable cables, integrated power strip designs, and multi-port desktop stations with GaN V technology.</p>
+ <h4 class="faq-question text-lg font-black text-slate-900 uppercase mb-3">Can you customize the design?</h4>
+ <p class="faq-answer text-slate-600 leading-relaxed text-sm">Yes. Our OEM/ODM service includes <strong>custom CMF, logo printing, packaging design, and port configuration</strong>. GaN-specific options include foldable AC pins, retractable cables, integrated power strip designs, and multi-port desktop stations with GaN V technology.</p>
  </div>
  </div>
  </div>
- <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200 reveal">
+ <div class="card-lg p-8 shadow-sm reveal">
  <div class="flex gap-3 md:gap-6 italic">
  <div class="shrink-0 w-10 h-10 rounded-full bg-green-500/10 flex items-center justify-center text-green-500 font-black italic">06</div>
  <div>
- <h4 class="text-lg font-black text-slate-900 uppercase mb-3">What efficiency advantages does GaN V offer?</h4>
- <p class="text-slate-600 leading-relaxed text-sm">GaN V technology delivers <strong>92-95% power efficiency</strong> compared to 85-88% for traditional silicon chargers (Navitas/EPC GaN transistor performance benchmarks). This means 40% smaller size, 30% less heat generation, and compliance with DOE Level VI / EU ErP efficiency standards. Ideal for brands targeting premium market segments.</p>
+ <h4 class="faq-question text-lg font-black text-slate-900 uppercase mb-3">What efficiency advantages does GaN V offer?</h4>
+ <p class="faq-answer text-slate-600 leading-relaxed text-sm">GaN V technology delivers <strong>92-95% power efficiency</strong> compared to 85-88% for traditional silicon chargers (Navitas/EPC GaN transistor performance benchmarks). This means 40% smaller size, 30% less heat generation, and compliance with DOE Level VI / EU ErP efficiency standards. Ideal for brands targeting premium market segments.</p>
  </div>
  </div>
  </div>
@@ -1724,7 +1724,7 @@ plPath: "produkty/ladowarka-gan/"
  </div>
  </section>
  <!-- ======== BLOG ARTICLES ======== -->
- <section class="sec bg-white border-t border-slate-100">
+ <section id="blog-articles" class="sec bg-white border-t border-slate-100" data-section="content">
  <div class="container-wide">
  <div class="text-center mb-12 reveal">
  <h2 class="text-3xl lg:text-4xl font-black text-slate-900 uppercase italic tracking-tighter mb-4">GaN Charger <span class="text-brandOrange">Insights</span></h2>
@@ -1788,23 +1788,23 @@ plPath: "produkty/ladowarka-gan/"
  </div>
  </section>
 <!-- ====== EXPLORE MORE ====== -->
-<section class="sec bg-white relative py-12">
- <div class="container-content">
+<section id="explore-more" class="sec bg-white relative py-12" data-section="content">
+ <div class="container-wide">
   <p class="text-center text-slate-500 text-sm mb-6">Explore more charging categories from WOWOHCOOL:</p>
   <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-   <a href="/products/power-bank/" class="block bg-slate-50 rounded-xl p-4 border border-slate-200 hover:border-brandOrange hover:shadow-md transition text-center">
+   <a href="/products/power-bank/" class="card-soft block p-4 hover:border-brandOrange hover:shadow-md transition text-center">
     <p class="font-black text-brandBlue text-sm uppercase mb-1">Power Banks</p>
     <p class="text-[10px] text-slate-500">29+ Models</p>
    </a>
-   <a href="/products/wireless-charger/" class="block bg-slate-50 rounded-xl p-4 border border-slate-200 hover:border-brandOrange hover:shadow-md transition text-center">
+   <a href="/products/wireless-charger/" class="card-soft block p-4 hover:border-brandOrange hover:shadow-md transition text-center">
     <p class="font-black text-brandBlue text-sm uppercase mb-1">Wireless Chargers</p>
     <p class="text-[10px] text-slate-500">Qi2, 21+ Models</p>
    </a>
-   <a href="/products/car-charger/" class="block bg-slate-50 rounded-xl p-4 border border-slate-200 hover:border-brandOrange hover:shadow-md transition text-center">
+   <a href="/products/car-charger/" class="card-soft block p-4 hover:border-brandOrange hover:shadow-md transition text-center">
     <p class="font-black text-brandBlue text-sm uppercase mb-1">Car Chargers</p>
     <p class="text-[10px] text-slate-500">PD 3.1, E-Mark</p>
    </a>
-   <a href="/products/gan-charger/" class="block bg-slate-50 rounded-xl p-4 border border-slate-200 hover:border-brandOrange hover:shadow-md transition text-center">
+   <a href="/products/gan-charger/" class="card-soft block p-4 hover:border-brandOrange hover:shadow-md transition text-center">
     <p class="font-black text-brandBlue text-sm uppercase mb-1">All GaN Chargers</p>
     <p class="text-[10px] text-slate-500">11 Models Total</p>
    </a>
