@@ -1,7 +1,7 @@
 ---
 title: "Blog | WOWOHCOOL, partenaire OEM/ODM en solutions de charge à Shenzhen"
 lang: "fr"
-description: "Blog sur la fabrication de powerbanks, la certification Qi2, l'import depuis la Chine, la technologie GaN et la production en marque propre. Expertise pour importateurs français."
+description: "Blog sur la fabrication de powerbanks, la certification Qi2, l'import depuis la Chine et la technologie GaN. Notre expertise pour importateurs français."
 canonical: "/fr/blog/"
 dePath: "blog/"
 enPath: "blog/"
@@ -19,7 +19,7 @@ plPath: "blog/"
    "knowsAbout": ["OEM/ODM Power Bank Manufacturing", "Qi2 Wireless Charging Standard", "GaN Power Architecture", "Automotive Fast Charging Systems", "Custom Power Adapter Production", "Consumer Electronics Sourcing", "UL & CE Safety Compliance"]},
 {"@context":"https://schema.org","@type":"WebSite","@id":"https://www.wowohcool.com/#website","url":"https://www.wowohcool.com/fr/","name":"WOWOHCOOL"},
 {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://www.wowohcool.com/fr/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://www.wowohcool.com/fr/blog/"}]},
-{"@context":"https://schema.org","@type":"Blog","name":"Blog WOWOHCOOL","description":"Expertise pour importateurs français : OEM powerbank, Qi2, GaN et plus.","url":"https://www.wowohcool.com/fr/blog/","image":"https://www.wowohcool.com/image/blog/cover-fr/oem-vs-odm-guide-importateur.webp","speakable":{"@type":"SpeakableSpecification","cssSelector":["h1"]}}]
+{"@context":"https://schema.org","@id":"https://www.wowohcool.com/fr/blog/","@type":"CollectionPage","name":"Blog WOWOHCOOL","description":"Expertise pour importateurs français : OEM powerbank, Qi2, GaN et plus.","url":"https://www.wowohcool.com/fr/blog/","image":"https://www.wowohcool.com/image/blog/cover-fr/oem-vs-odm-guide-importateur.webp","speakable":{"@type":"SpeakableSpecification","cssSelector":["h1"]},"publisher":{"@id":"https://www.wowohcool.com/#organization"},"mainEntity":{"@type":"ItemList","name":"Blog Articles","numberOfItems": {{ collections.blog_fr | length }}}}]
 </script>
 {% endblock %}
 
@@ -51,7 +51,7 @@ plPath: "blog/"
 
 {% for item in collections.blog_fr | sort(attribute="date") | reverse %}{% if item.url != "/fr/blog/" and loop.index0 < 6 %}
 <a href="{{ item.url }}" class="card-lg group overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-<img src="{{ item.data.ogImage or '/image/blog/cover-fr/default.webp' }}" alt="{{ item.data.articleSection or 'Blog' }}" width="800" height="384" class="w-full h-48 object-cover bg-slate-50" loading="{{ 'eager' if loop.first else 'lazy' }}"{% if not loop.first %} decoding="async"{% endif %}>
+{% set _og = item.data.ogImage %}{% set _ss = _og | imgSrcset %}{% set _m = _og | imgMeta %}<img src="{{ _og or '/image/blog/cover-fr/default.webp' }}"{% if _ss %} srcset="{{ _ss }}" sizes="(min-width: 1024px) 472px, (min-width: 768px) calc(50vw - 40px), calc(100vw - 48px)"{% endif %}{% if _m %} width="{{ _m.w }}" height="{{ _m.h }}"{% endif %} alt="{{ item.data.articleSection or 'Blog' }}" class="w-full h-48 object-cover bg-slate-50" loading="{{ 'eager' if loop.first else 'lazy' }}"{% if not loop.first %} decoding="async"{% endif %}>
 <div class="p-6"><p class="text-brandOrange text-xs font-bold tracking-widest uppercase mb-2">{{ item.data.articleSection or 'Blog' }}</p>
 <h2 class="text-lg font-bold text-brandBlue group-hover:text-brandOrange transition-colors mb-2">{{ item.data.title | replace(" | WOWOHCOOL", "") }}</h2>
 <p class="text-sm text-slate-500 line-clamp-2">{{ item.data.description }}</p>

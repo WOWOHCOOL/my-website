@@ -36,14 +36,12 @@
 /pl/*
   Link: <https://www.wowohcool.com/pl/sitemap.xml>; rel="sitemap"
 
-# --- Images (EN, cache 1 year) ---
+# --- Images (cache 1 year) ---
+# 全部语言共用根级 /image/ 目录（_site 下只有一个 image 目录）。
+# 2026-09-20 删除两条死规则 /de/image/* 与 /de/produkte/image/*：
+# 它们指向的目录在产物里根本不存在，永远不可能匹配（德语页面引用的是 /image/...）。
+# 德语图片的缓存本来就由上面这条 /image/* 覆盖，删除 = 零行为变化。
 /image/*
-  Cache-Control: public, max-age=31536000, immutable
-
-# --- Images (DE, cache 1 year) ---
-/de/image/*
-  Cache-Control: public, max-age=31536000, immutable
-/de/produkte/image/*
   Cache-Control: public, max-age=31536000, immutable
 
 # --- CSS (no hashed filename: short cache so deploys take effect) ---

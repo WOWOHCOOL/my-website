@@ -1,4 +1,5 @@
 const fs = require('fs');
+const path = require('path');
 
 module.exports = function (eleventyConfig) {
   // FR site is in .gitignore to prevent GitHub push — still build locally
@@ -6,7 +7,7 @@ module.exports = function (eleventyConfig) {
   // Passthrough copies: project-root paths → _site/
   const passthrough = [
     'image', 'css/styles.css',
-    'main.js', 'main.src.js',
+    'main.js',
     'robots.txt',
     '_headers', '_redirects',
     'BingSiteAuth.xml',
@@ -116,7 +117,17 @@ module.exports = function (eleventyConfig) {
       const trimmed = part.trim();
       if (!trimmed) continue;
       if (trimmed.startsWith('<h2')) {
-        wrapped += '\n<div class="content-card">' + part + '</div>\n';
+        // ⚠️ 必须与「手写主流形态」逐字同构，否则这 11 页与其余 175 页 blog 正文块不一致：
+        //    手写主流 = <section id="锚点" class="mb-16"><div class="bg-slate-50 rounded-xl p-6 border border-slate-200 shadow-sm">
+        //    旧写法   = <div class="content-card">（白卡 · 无 section · 锚点挂在 h2 上）
+        //    因此这里把 h2 的 id 搬到 section 上（**不能两处都留，会造出重复 id**），并改用灰卡类。
+        //    `.content-card` 已废弃，勿再使用。
+        const idMatch = /^<h2[^>]*\sid="([^"]*)"/.exec(trimmed);
+        const anchor = idMatch ? ' id="' + idMatch[1] + '"' : '';
+        const body = idMatch ? part.replace(/(<h2[^>]*?)\s+id="[^"]*"/, '$1') : part;
+        wrapped += '\n<section' + anchor + ' class="mb-16">\n'
+          + '<div class="bg-slate-50 rounded-xl p-6 border border-slate-200 shadow-sm">'
+          + body + '</div>\n</section>\n';
       } else {
         wrapped += part;
       }
@@ -145,7 +156,94 @@ module.exports = function (eleventyConfig) {
   // Ensure trailing slash on path strings (returns empty string unchanged)
   eleventyConfig.addFilter("trailingSlash", (s) => {
     if (!s || s === '') return s;
+    // 静态文件路径（如 404 页的 "404.html"）不能加尾斜杠，否则变成 /xx/404.html/ 死链
+    if (/\.html?$/i.test(s)) return s;
     return s.endsWith('/') ? s : s + '/';
+  });
+
+  // ---- 图片真实元数据（无第三方库）----
+  // 返回 { w, h, type }；读不到返回 null。
+  // ⚠️ 用途：og:image:width/height/type。这三个值必须是**文件真实像素/MIME**，
+  //    因为社交平台在下载图片前就用它们预留卡片版面；写死默认值会让 350 个页面
+  //    的卡片比例全部失真（2026-09-20 实测 350/350 全错）。
+  //    与 <img width/height> 是同一条硬规则，只是消费方不同。
+  // 格式偏移见 .workbuddy-ai/memory/RULES-AUDIT.md「怎么读图片真实尺寸」。
+  const IMG_META_CACHE = new Map();
+  function readImageMeta(rel) {
+    if (IMG_META_CACHE.has(rel)) return IMG_META_CACHE.get(rel);
+    let out = null;
+    try {
+      const abs = path.join(__dirname, rel.replace(/^\/+/, ''));
+      if (fs.existsSync(abs)) {
+        const b = fs.readFileSync(abs);
+        let w = null, h = null, type = null;
+        if (b.length > 24 && b.slice(0, 8).toString('hex') === '89504e470d0a1a0a') {
+          w = b.readUInt32BE(16); h = b.readUInt32BE(20); type = 'image/png';
+        } else if (b[0] === 0xff && b[1] === 0xd8) {
+          type = 'image/jpeg';
+          let i = 2;
+          while (i < b.length - 9) {
+            if (b[i] !== 0xff) { i++; continue; }
+            const mk = b[i + 1];
+            if (mk >= 0xc0 && mk <= 0xcf && mk !== 0xc4 && mk !== 0xc8 && mk !== 0xcc) {
+              h = b.readUInt16BE(i + 5); w = b.readUInt16BE(i + 7); break;
+            }
+            i += 2 + b.readUInt16BE(i + 2);
+          }
+        } else if (b.length > 30 && b.slice(0, 4).toString() === 'RIFF' && b.slice(8, 12).toString() === 'WEBP') {
+          type = 'image/webp';
+          const fmt = b.slice(12, 16).toString();
+          if (fmt === 'VP8X') { w = b.readUIntLE(24, 3) + 1; h = b.readUIntLE(27, 3) + 1; }
+          else if (fmt === 'VP8L') { const n = b.readUInt32LE(21); w = (n & 0x3fff) + 1; h = ((n >> 14) & 0x3fff) + 1; }
+          else if (fmt === 'VP8 ') { w = b.readUInt16LE(26) & 0x3fff; h = b.readUInt16LE(28) & 0x3fff; }
+        } else if (b.slice(0, 400).toString('utf8').includes('<svg')) {
+          type = 'image/svg+xml';
+          const s = b.toString('utf8');
+          const wm = s.match(/\bwidth\s*=\s*["']?([\d.]+)/i);
+          const hm = s.match(/\bheight\s*=\s*["']?([\d.]+)/i);
+          const vm = s.match(/\bviewBox\s*=\s*["']\s*[-\d.]+\s+[-\d.]+\s+([\d.]+)\s+([\d.]+)/i);
+          if (wm && hm) { w = Math.round(+wm[1]); h = Math.round(+hm[1]); }
+          else if (vm) { w = Math.round(+vm[1]); h = Math.round(+vm[2]); }
+        }
+        if (w && h && type) out = { w, h, type };
+      }
+    } catch (e) { out = null; }
+    IMG_META_CACHE.set(rel, out);
+    return out;
+  }
+
+  // 用法：{{ "/image/x.webp" | imgMeta }} → { w, h, type } | null
+  // 接受绝对 URL（剥掉 host）与带 ?/# 的写法。
+  eleventyConfig.addFilter("imgMeta", (src) => {
+    if (!src) return null;
+    const rel = String(src).replace(/^https?:\/\/[^/]+/i, '').split('#')[0].split('?')[0];
+    return readImageMeta(rel);
+  });
+
+  // ---- 统一图片梯子 → srcset ----
+  // 封面图变体由 scripts/build-images.js 统一生成，档位固定为下面这一组。
+  // 用法：srcset="{{ item.data.ogImage | imgSrcset }}"
+  // ⚠️⚠️ 描述符一律取**文件真实宽度**，绝不用档位常量。
+  //   2026-09-21 实测：手工写的 srcset 里有 9 处「声明 1700w 实际 2240px」、
+  //   1 处「声明 1440w 实际 1200px」（后者会让浏览器选走它却拿到更小的图 → 被拉伸）。
+  //   由磁盘真值生成，这类假声明在结构上不可能出现。
+  // 返回 '' 表示候选不足 2 个（不值得输出 srcset），调用方须判空。
+  const IMG_LADDER = [450, 800, 950, 1200, 1700];
+  eleventyConfig.addFilter("imgSrcset", (src) => {
+    if (!src) return '';
+    const rel = String(src).replace(/^https?:\/\/[^/]+/i, '').split('#')[0].split('?')[0];
+    if (!/\.(webp|png|jpe?g)$/i.test(rel)) return '';
+    const base = readImageMeta(rel);
+    if (!base) return '';
+    const out = [];
+    for (const w of IMG_LADDER) {
+      if (w >= base.w) continue;
+      const cand = rel.replace(/(\.[a-z0-9]+)$/i, '-' + w + 'w$1');
+      const m = readImageMeta(cand);
+      if (m && m.w === w) out.push(cand + ' ' + w + 'w');
+    }
+    out.push(rel + ' ' + base.w + 'w');
+    return out.length > 1 ? out.join(', ') : '';
   });
 
   // Locale date filter: Date → "11. Mai 2026" (de), "May 11, 2026" (en), "11 de mayo de 2026" (es), "11 mai 2026" (fr)

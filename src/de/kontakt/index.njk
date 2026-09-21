@@ -18,7 +18,7 @@ plPath: "kontakt/"
 [{"@context":"https://schema.org","@type":"Organization","@id":"https://www.wowohcool.com/#organization","name":"WOWOHCOOL", "legalName":"Dong Yi Technology Co., Ltd",
    "vatID": "91441900MA558A2N27","areaServed":["US", "DE", "AT", "CH", "UK", "FR", "ES", "PL", "EU", "JP", "KR", "AU", "MX", "CO", "AR", "CL", "PE", "RU", "KZ", "BY", "EAEU"],
    "knowsAbout": ["OEM/ODM Power Bank Manufacturing", "Qi2 Wireless Charging Standard", "GaN Power Architecture", "Automotive Fast Charging Systems", "Custom Power Adapter Production", "Consumer Electronics Sourcing", "UL & CE Safety Compliance"]},
-{"@context":"https://schema.org","@type":"ContactPage","@id":"https://www.wowohcool.com/de/kontakt#contactpage","url":"https://www.wowohcool.com/de/kontakt","name":"Kontakt | WOWOHCOOL","description":"Kontaktieren Sie WOWOHCOOL, OEM/ODM Partner für Powerbanks und Ladelösungen aus Shenzhen.","mainEntity":{"@id":"https://www.wowohcool.com/#organization"}},
+{"@context":"https://schema.org","@type":"ContactPage","@id":"https://www.wowohcool.com/de/kontakt#contactpage","url":"https://www.wowohcool.com/de/kontakt","name":"Kontakt | WOWOHCOOL","description":"Kontaktieren Sie WOWOHCOOL, OEM/ODM Partner für Powerbanks und Ladelösungen aus Shenzhen.","mainEntity":{"@id":"https://www.wowohcool.com/#organization"}, "speakable": {"@type": "SpeakableSpecification", "cssSelector": [".badge-capsule", "h1"]}},
 {"@context":"https://schema.org","@type":"WebSite","@id":"https://www.wowohcool.com/#website","url":"https://www.wowohcool.com/de/","name":"WOWOHCOOL"},
 {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Startseite","item":"https://www.wowohcool.com/de/"},{"@type":"ListItem","position":2,"name":"Kontakt","item":"https://www.wowohcool.com/de/kontakt/"}]}]
 </script>
@@ -57,15 +57,16 @@ plPath: "kontakt/"
  </div>
  <div class="mt-8 pt-8 border-t border-slate-200">
  <p class="font-bold text-brandBlue text-sm mb-3">Folgen Sie uns</p>
+ {% set f = i18n.footer[lang] %}
  <div class="flex gap-3">
- <a href="https://www.linkedin.com/company/wowohcool" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center hover:bg-brandOrange hover:text-white transition-all"><svg class="icon-linkedin-in text-slate-500" aria-hidden="true" focusable="false" viewBox="0 0 448 512">
+ <a href="https://www.linkedin.com/company/wowohcool" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center hover:bg-brandOrange hover:text-white transition-all" title="{{ f.socialLinkedinAriaLabel }}" aria-label="{{ f.socialLinkedinAriaLabel }}"><svg class="icon-linkedin-in text-slate-500" aria-hidden="true" focusable="false" viewBox="0 0 448 512">
  <path d="M100.3 448l-92.9 0 0-299.1 92.9 0 0 299.1zM53.8 108.1C24.1 108.1 0 83.5 0 53.8 0 39.5 5.7 25.9 15.8 15.8s23.8-15.8 38-15.8 27.9 5.7 38 15.8 15.8 23.8 15.8 38c0 29.7-24.1 54.3-53.8 54.3zM447.9 448l-92.7 0 0-145.6c0-34.7-.7-79.2-48.3-79.2-48.3 0-55.7 37.7-55.7 76.7l0 148.1-92.8 0 0-299.1 89.1 0 0 40.8 1.3 0c12.4-23.5 42.7-48.3 87.9-48.3 94 0 111.3 61.9 111.3 142.3l0 164.3-.1 0z" fill="currentColor"/>
  </svg></a>
- <a href="https://www.facebook.com/wowohcoolelectronic" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center hover:bg-brandOrange hover:text-white transition-all"><svg class="icon-facebook-f text-slate-500" aria-hidden="true" focusable="false" viewBox="0 0 320 512">
+ <a href="https://www.facebook.com/wowohcoolelectronic" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center hover:bg-brandOrange hover:text-white transition-all" title="{{ f.socialFacebookAriaLabel }}" aria-label="{{ f.socialFacebookAriaLabel }}"><svg class="icon-facebook-f text-slate-500" aria-hidden="true" focusable="false" viewBox="0 0 320 512">
  <path d="M80 299.3l0 212.7 116 0 0-212.7 86.5 0 18-97.8-104.5 0 0-34.6c0-51.7 20.3-71.5 72.7-71.5 16.3 0 29.4.4 37 1.2l0-88.7C291.4 4 256.4 0 236.2 0 129.3 0 80 50.5 80 159.4l0 42.1-66 0 0 97.8 66 0z" fill="currentColor"/>
  </svg></a>
- <a href="https://www.youtube.com/@WOWOHCOOL" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center hover:bg-brandOrange hover:text-white transition-all"><svg class="icon-youtube text-slate-500" aria-hidden="true" focusable="false" viewBox="0 0 576 512"><path d="M549.7 124.1c-6.3-23.7-24.9-42.3-48.3-48.6C458.9 64 288 64 288 64S117.1 64 74.7 75.5c-23.5 6.3-42 24.9-48.3 48.6C15 167 15 256.4 15 256.4s0 89.4 11.4 132.3c6.3 23.7 24.9 42.3 48.3 48.6 42.6 11.5 213.4 11.5 213.4 11.5s170.8 0 213.4-11.5c23.5-6.3 42-24.9 48.3-48.6 11.4-42.9 11.4-132.3 11.4-132.3s0-89.4-11.4-132.3zM232.2 337.6V174.4l142.7 81.6-142.7 81.6z" fill="currentColor"/></svg></a>
- <a href="https://www.xing.com/profile/snowy_may" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center hover:bg-brandOrange hover:text-white transition-all"><svg class="icon-xing text-slate-500" aria-hidden="true" focusable="false" viewBox="0 0 384 512"><path d="M162.7 210c-1.8 3.3-25.2 44.4-70.1 123.5-4.9 8.3-10.8 12.5-17.7 12.5H9.8c-7.7 0-12.1-7.5-8.5-14.4l69-121.3c.2-.3.2-.6 0-.9L26.8 134.4c-4.3-7.8.3-14.1 8.5-14.1h65.1c7.3 0 13.3 4.1 18 12.2l44.3 77.5zM382.6 46.1l-144 253c-.2.3-.2.6 0 .9l91.6 166.6c3.9 7.1.2 14.1-8.5 14.1h-65.2c-7.6 0-13.6-4-18-12.2l-92.4-168.5c3.3-5.8 51.5-90.8 144.8-255.2 4.6-8.1 10.4-12.2 17.5-12.2h65.7c8 0 12.3 6.7 8.5 14.1z" fill="currentColor"/></svg></a>
+ <a href="https://www.youtube.com/@WOWOHCOOL" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center hover:bg-brandOrange hover:text-white transition-all" title="{{ f.socialYoutubeAriaLabel }}" aria-label="{{ f.socialYoutubeAriaLabel }}"><svg class="icon-youtube text-slate-500" aria-hidden="true" focusable="false" viewBox="0 0 576 512"><path d="M549.7 124.1c-6.3-23.7-24.9-42.3-48.3-48.6C458.9 64 288 64 288 64S117.1 64 74.7 75.5c-23.5 6.3-42 24.9-48.3 48.6C15 167 15 256.4 15 256.4s0 89.4 11.4 132.3c6.3 23.7 24.9 42.3 48.3 48.6 42.6 11.5 213.4 11.5 213.4 11.5s170.8 0 213.4-11.5c23.5-6.3 42-24.9 48.3-48.6 11.4-42.9 11.4-132.3 11.4-132.3s0-89.4-11.4-132.3zM232.2 337.6V174.4l142.7 81.6-142.7 81.6z" fill="currentColor"/></svg></a>
+ <a href="https://www.xing.com/profile/snowy_may" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center hover:bg-brandOrange hover:text-white transition-all" title="{{ f.socialXingAriaLabel }}" aria-label="{{ f.socialXingAriaLabel }}"><svg class="icon-xing text-slate-500" aria-hidden="true" focusable="false" viewBox="0 0 384 512"><path d="M162.7 210c-1.8 3.3-25.2 44.4-70.1 123.5-4.9 8.3-10.8 12.5-17.7 12.5H9.8c-7.7 0-12.1-7.5-8.5-14.4l69-121.3c.2-.3.2-.6 0-.9L26.8 134.4c-4.3-7.8.3-14.1 8.5-14.1h65.1c7.3 0 13.3 4.1 18 12.2l44.3 77.5zM382.6 46.1l-144 253c-.2.3-.2.6 0 .9l91.6 166.6c3.9 7.1.2 14.1-8.5 14.1h-65.2c-7.6 0-13.6-4-18-12.2l-92.4-168.5c3.3-5.8 51.5-90.8 144.8-255.2 4.6-8.1 10.4-12.2 17.5-12.2h65.7c8 0 12.3 6.7 8.5 14.1z" fill="currentColor"/></svg></a>
  </div>
  </div>
  </div>
@@ -81,12 +82,12 @@ plPath: "kontakt/"
  <input type="hidden" name="utm_medium" id="utm_medium" value="">
  <input type="hidden" name="utm_campaign" id="utm_campaign" value="">
  <div class="grid md:grid-cols-2 gap-4">
- <div><label class="block text-sm font-semibold text-slate-700 mb-1.5">Vorname *</label><input type="text" name="name" required autocomplete="name" class="card w-full px-4 py-3 focus:border-brandOrange focus:ring-2 focus:ring-brandOrange/20 outline-none transition text-sm"></div>
- <div><label class="block text-sm font-semibold text-slate-700 mb-1.5">Unternehmen <span class="text-slate-500 font-medium">(optional)</span></label><input type="text" name="company" autocomplete="organization" class="card w-full px-4 py-3 focus:border-brandOrange focus:ring-2 focus:ring-brandOrange/20 outline-none transition text-sm"></div>
+ <div><label for="contact-name" class="block text-sm font-semibold text-slate-700 mb-1.5">Vorname *</label><input id="contact-name" type="text" name="name" required autocomplete="name" class="card w-full px-4 py-3 focus:border-brandOrange focus:ring-2 focus:ring-brandOrange/20 outline-none transition text-sm"></div>
+ <div><label for="contact-company" class="block text-sm font-semibold text-slate-700 mb-1.5">Unternehmen <span class="text-slate-500 font-medium">(optional)</span></label><input id="contact-company" type="text" name="company" autocomplete="organization" class="card w-full px-4 py-3 focus:border-brandOrange focus:ring-2 focus:ring-brandOrange/20 outline-none transition text-sm"></div>
  </div>
- <div><label class="block text-sm font-semibold text-slate-700 mb-1.5">E-Mail *</label><input type="email" name="email" required autocomplete="email" class="card w-full px-4 py-3 focus:border-brandOrange focus:ring-2 focus:ring-brandOrange/20 outline-none transition text-sm"></div>
- <div><label class="block text-sm font-semibold text-slate-700 mb-1.5">Telefon (optional)</label><input type="tel" name="phone" autocomplete="tel" class="card w-full px-4 py-3 focus:border-brandOrange focus:ring-2 focus:ring-brandOrange/20 outline-none transition text-sm"></div>
- <div><label class="block text-sm font-semibold text-slate-700 mb-1.5">Nachricht *</label><textarea name="message" rows="4" required class="card w-full px-4 py-3 focus:border-brandOrange focus:ring-2 focus:ring-brandOrange/20 outline-none transition text-sm resize-none"></textarea></div>
+ <div><label for="contact-email" class="block text-sm font-semibold text-slate-700 mb-1.5">E-Mail *</label><input id="contact-email" type="email" name="email" required autocomplete="email" class="card w-full px-4 py-3 focus:border-brandOrange focus:ring-2 focus:ring-brandOrange/20 outline-none transition text-sm"></div>
+ <div><label for="contact-phone" class="block text-sm font-semibold text-slate-700 mb-1.5">Telefon (optional)</label><input id="contact-phone" type="tel" name="phone" autocomplete="tel" class="card w-full px-4 py-3 focus:border-brandOrange focus:ring-2 focus:ring-brandOrange/20 outline-none transition text-sm"></div>
+ <div><label for="contact-message" class="block text-sm font-semibold text-slate-700 mb-1.5">Nachricht *</label><textarea id="contact-message" name="message" rows="4" required class="card w-full px-4 py-3 focus:border-brandOrange focus:ring-2 focus:ring-brandOrange/20 outline-none transition text-sm resize-none"></textarea></div>
  <label class="flex items-start gap-3"><input type="checkbox" required class="mt-1 accent-brandOrange"><span class="text-xs text-slate-500">Ich habe die <a href="/de/datenschutz/" class="text-brandOrange hover:underline">Datenschutzerklärung</a> gelesen und zur Kenntnis genommen. *</span></label>
  <button type="submit" class="btn-form">Kostenloses Angebot anfordern <svg class="icon-arrow-right text-sm" aria-hidden="true" focusable="false" viewBox="0 0 512 512"><path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-105.4 105.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" fill="currentColor"/></svg></button>
  </form>
@@ -99,7 +100,7 @@ plPath: "kontakt/"
 
 {% block contactExtra %}
 <!-- ======== COMMON QUESTIONS ======== -->
-<section id="common-questions" class="sec bg-white" data-section="faq">
+<section id="common-questions" class="sec bg-white" data-section="content">
  <div class="container-wide">
  {{ sectionHeader('Auf einen Blick', 'Häufige Fragen vor der Kontaktaufnahme', '', {max: '', mb: 'mb-10'}) }}
  <div class="grid md:grid-cols-3 gap-6 reveal">
@@ -134,7 +135,7 @@ plPath: "kontakt/"
  <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
  <div class="team-card reveal text-center p-6">
  <div class="w-20 h-20 rounded-full bg-brandOrange/10 mx-auto mb-4 overflow-hidden">
- <img src="/image/factory/team-nina.webp" srcset="/image/factory/team-nina-200w.webp 200w, /image/factory/team-nina.webp 800w" sizes="(min-width: 1440px) 152px, (min-width: 1280px) 152px, (min-width: 1024px) 152px, (min-width: 768px) 152px, (min-width: 430px) 120px, 120px" alt="Nina" width="800" height="800" class="w-full h-full object-cover" loading="lazy">
+ <img src="/image/factory/team-nina.webp" srcset="/image/factory/team-nina-200w.webp 200w, /image/factory/team-nina.webp 800w" sizes="(min-width: 1440px) 152px, (min-width: 1280px) 152px, (min-width: 1024px) 152px, (min-width: 768px) 152px, (min-width: 430px) 120px, 120px" alt="Nina" width="800" height="800" class="w-full h-full object-cover" loading="lazy" decoding="async">
  </div>
  <p class="team-name">Nina</p>
  <p class="team-role">Sales Managerin</p>
@@ -143,7 +144,7 @@ plPath: "kontakt/"
  </div>
  <div class="team-card reveal text-center p-6">
  <div class="w-20 h-20 rounded-full bg-brandBlue/10 mx-auto mb-4 overflow-hidden">
- <img src="/image/factory/team-snowy.webp" srcset="/image/factory/team-snowy-200w.webp 200w, /image/factory/team-snowy.webp 750w" sizes="(min-width: 1440px) 152px, (min-width: 1280px) 152px, (min-width: 1024px) 152px, (min-width: 768px) 152px, (min-width: 430px) 120px, 120px" alt="Snowy" width="750" height="750" class="w-full h-full object-cover" loading="lazy">
+ <img src="/image/factory/team-snowy.webp" srcset="/image/factory/team-snowy-200w.webp 200w, /image/factory/team-snowy.webp 750w" sizes="(min-width: 1440px) 152px, (min-width: 1280px) 152px, (min-width: 1024px) 152px, (min-width: 768px) 152px, (min-width: 430px) 120px, 120px" alt="Snowy" width="750" height="750" class="w-full h-full object-cover" loading="lazy" decoding="async">
  </div>
  <p class="team-name">Snowy</p>
  <p class="team-role">Market Managerin</p>

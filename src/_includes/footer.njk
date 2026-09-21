@@ -6,11 +6,11 @@
 
  <!-- Col 1: Logo + Company Intro -->
  <div class="flex flex-col items-center md:items-start">
- <a href="/" class="block mb-6 group" aria-label="WOWOHCOOL Home">
+ <a href="/" class="block mb-6 group" aria-label="{{ i18n.header[lang].logoAriaLabel }}">
  <img src="/image/wowohcool-logo-optimized.webp"
- alt="WOWOHCOOL - Premium Charging Solution Specialist in Shenzhen"
+ alt="{{ f.logoAlt }}"
  class="h-10 w-auto group-hover:opacity-80 transition-opacity duration-300"
- width="263" height="70">
+ width="263" height="70" decoding="async" loading="lazy">
  </a>
  <div class="text-slate-500 text-xs font-bold uppercase leading-relaxed tracking-[0.15em]">
  <p class="mb-1">{{ f.companyName }}</p>
@@ -58,11 +58,11 @@
  </a></p>{% endif %}
  </div>
  <div class="flex justify-center md:justify-start gap-5 text-slate-500 mt-8">
- <a href="https://www.linkedin.com/company/wowohcool" class="hover:text-brandOrange text-xl transition" title="{{ f.socialLinkedinAriaLabel }}" aria-label="{{ f.socialLinkedinAriaLabel }}"><svg class="icon-linkedin" aria-hidden="true" focusable="false" viewBox="0 0 448 512"><path d="M416 32L31.9 32C14.3 32 0 46.5 0 64.3L0 447.7C0 465.5 14.3 480 31.9 480L416 480c17.6 0 32-14.5 32-32.3l0-383.4C448 46.5 433.6 32 416 32zM135.4 416l-66.4 0 0-213.8 66.5 0 0 213.8-.1 0zM102.2 96a38.5 38.5 0 1 1 0 77 38.5 38.5 0 1 1 0-77zM384.3 416l-66.4 0 0-104c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9l0 105.8-66.4 0 0-213.8 63.7 0 0 29.2.9 0c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9l0 117.2z" fill="currentColor"/></svg></a>
- <a href="https://www.facebook.com/wowohcoolelectronic" class="hover:text-brandOrange text-xl transition" title="{{ f.socialFacebookAriaLabel }}" aria-label="{{ f.socialFacebookAriaLabel }}"><svg class="icon-facebook" aria-hidden="true" focusable="false" viewBox="0 0 512 512"><path d="M512 256C512 114.6 397.4 0 256 0S0 114.6 0 256C0 376 82.7 476.8 194.2 504.5l0-170.3-52.8 0 0-78.2 52.8 0 0-33.7c0-87.1 39.4-127.5 125-127.5 16.2 0 44.2 3.2 55.7 6.4l0 70.8c-6-.6-16.5-1-29.6-1-42 0-58.2 15.9-58.2 57.2l0 27.8 83.6 0-14.4 78.2-69.3 0 0 175.9C413.8 494.8 512 386.9 512 256z" fill="currentColor"/></svg></a>
+ <a href="https://www.linkedin.com/company/wowohcool" target="_blank" rel="noopener noreferrer" class="hover:text-brandOrange text-xl transition" title="{{ f.socialLinkedinAriaLabel }}" aria-label="{{ f.socialLinkedinAriaLabel }}"><svg class="icon-linkedin" aria-hidden="true" focusable="false" viewBox="0 0 448 512"><path d="M416 32L31.9 32C14.3 32 0 46.5 0 64.3L0 447.7C0 465.5 14.3 480 31.9 480L416 480c17.6 0 32-14.5 32-32.3l0-383.4C448 46.5 433.6 32 416 32zM135.4 416l-66.4 0 0-213.8 66.5 0 0 213.8-.1 0zM102.2 96a38.5 38.5 0 1 1 0 77 38.5 38.5 0 1 1 0-77zM384.3 416l-66.4 0 0-104c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9l0 105.8-66.4 0 0-213.8 63.7 0 0 29.2.9 0c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9l0 117.2z" fill="currentColor"/></svg></a>
+ <a href="https://www.facebook.com/wowohcoolelectronic" target="_blank" rel="noopener noreferrer" class="hover:text-brandOrange text-xl transition" title="{{ f.socialFacebookAriaLabel }}" aria-label="{{ f.socialFacebookAriaLabel }}"><svg class="icon-facebook" aria-hidden="true" focusable="false" viewBox="0 0 512 512"><path d="M512 256C512 114.6 397.4 0 256 0S0 114.6 0 256C0 376 82.7 476.8 194.2 504.5l0-170.3-52.8 0 0-78.2 52.8 0 0-33.7c0-87.1 39.4-127.5 125-127.5 16.2 0 44.2 3.2 55.7 6.4l0 70.8c-6-.6-16.5-1-29.6-1-42 0-58.2 15.9-58.2 57.2l0 27.8 83.6 0-14.4 78.2-69.3 0 0 175.9C413.8 494.8 512 386.9 512 256z" fill="currentColor"/></svg></a>
  <a href="https://www.youtube.com/@WOWOHCOOL" target="_blank" rel="noopener noreferrer" class="hover:text-brandOrange text-xl transition" title="{{ f.socialYoutubeAriaLabel }}" aria-label="{{ f.socialYoutubeAriaLabel }}"><svg class="icon-youtube" aria-hidden="true" focusable="false" viewBox="0 0 576 512"><path d="M549.7 124.1c-6.3-23.7-24.9-42.3-48.3-48.6C458.9 64 288 64 288 64S117.1 64 74.7 75.5c-23.5 6.3-42 24.9-48.3 48.6C15 167 15 256.4 15 256.4s0 89.4 11.4 132.3c6.3 23.7 24.9 42.3 48.3 48.6 42.6 11.5 213.4 11.5 213.4 11.5s170.8 0 213.4-11.5c23.5-6.3 42-24.9 48.3-48.6 11.4-42.9 11.4-132.3 11.4-132.3s0-89.4-11.4-132.3zM232.2 337.6V174.4l142.7 81.6-142.7 81.6z" fill="currentColor"/></svg></a>
  {% if lang === "de" %}
- <a href="https://www.xing.com/profile/snowy_may" class="hover:text-brandOrange text-xl transition" title="{{ f.socialXingAriaLabel }}" aria-label="{{ f.socialXingAriaLabel }}"><svg class="icon-xing" aria-hidden="true" focusable="false" viewBox="0 0 384 512"><path d="M162.7 210c-1.8 3.3-25.2 44.4-70.1 123.5-4.9 8.3-10.8 12.5-17.7 12.5H9.8c-7.7 0-12.1-7.5-8.5-14.4l69-121.3c.2-.3.2-.6 0-.9L26.8 134.4c-4.3-7.8.3-14.1 8.5-14.1h65.1c7.3 0 13.3 4.1 18 12.2l44.3 77.5zM382.6 46.1l-144 253c-.2.3-.2.6 0 .9l91.6 166.6c3.9 7.1.2 14.1-8.5 14.1h-65.2c-7.6 0-13.6-4-18-12.2l-92.4-168.5c3.3-5.8 51.5-90.8 144.8-255.2 4.6-8.1 10.4-12.2 17.5-12.2h65.7c8 0 12.3 6.7 8.5 14.1z" fill="currentColor"/></svg></a>
+ <a href="https://www.xing.com/profile/snowy_may" target="_blank" rel="noopener noreferrer" class="hover:text-brandOrange text-xl transition" title="{{ f.socialXingAriaLabel }}" aria-label="{{ f.socialXingAriaLabel }}"><svg class="icon-xing" aria-hidden="true" focusable="false" viewBox="0 0 384 512"><path d="M162.7 210c-1.8 3.3-25.2 44.4-70.1 123.5-4.9 8.3-10.8 12.5-17.7 12.5H9.8c-7.7 0-12.1-7.5-8.5-14.4l69-121.3c.2-.3.2-.6 0-.9L26.8 134.4c-4.3-7.8.3-14.1 8.5-14.1h65.1c7.3 0 13.3 4.1 18 12.2l44.3 77.5zM382.6 46.1l-144 253c-.2.3-.2.6 0 .9l91.6 166.6c3.9 7.1.2 14.1-8.5 14.1h-65.2c-7.6 0-13.6-4-18-12.2l-92.4-168.5c3.3-5.8 51.5-90.8 144.8-255.2 4.6-8.1 10.4-12.2 17.5-12.2h65.7c8 0 12.3 6.7 8.5 14.1z" fill="currentColor"/></svg></a>
  {% endif %}
  </div>
  </div>

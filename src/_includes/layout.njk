@@ -33,6 +33,9 @@
  {% elif plPath is defined %}<link rel="alternate" hreflang="pl" href="https://www.wowohcool.com/pl/{{ plPath | trailingSlash }}">{% endif %}
  {% if enPath is defined %}<link rel="alternate" hreflang="x-default" href="https://www.wowohcool.com/{{ enPath | trailingSlash }}">
  {% else %}<link rel="alternate" hreflang="x-default" href="https://www.wowohcool.com{{ canonical }}">{% endif %}
+ {# RSS 自动发现：6 语言各有 /[lang/]rss.xml（src/rss.njk 生成）。
+    此前只在 _headers 用 HTTP Link: header 声明（仅 Cloudflare 生效），HTML 侧缺失 → 浏览器/爬虫/阅读器无法自动发现。 #}
+ <link rel="alternate" type="application/rss+xml" title="{{ i18n.header[lang].navBlog }} — WOWOHCOOL" href="https://www.wowohcool.com{% if lang != "en" %}/{{ lang }}{% endif %}/rss.xml">
 {% endif %}
 
  <!-- Open Graph -->
@@ -42,10 +45,20 @@
  <meta property="og:description" content="{{ ogDescription or description or i18nLayout.defaultOgDescription }}">
  <meta property="og:url" content="https://www.wowohcool.com{{ canonical }}">
  <meta property="og:type" content="{{ ogType or "website" }}">
- <meta property="og:image" content="https://www.wowohcool.com{{ ogImage or "/image/factory/wowohcool-smart-charging-solutions.webp" }}">
- <meta property="og:image:width" content="{{ ogImageWidth or "1200" }}">
- <meta property="og:image:height" content="{{ ogImageHeight or "630" }}">
- {% if lang == "en" %}<meta property="og:image:type" content="image/webp">{% endif %}
+ {#- og:image:width/height/type 一律从**源文件真实像素**读取（imgMeta 过滤器），绝不写死默认值。
+     理由与 <img width/height> 完全相同：这两个值是社交平台在「下载图片之前」用来预留卡片版面的
+     提示，声明值与真实像素不符 → 平台按错误比例排版 → 卡片裁切/留白异常。
+     此前全站写死 1200x630，实测 350/350 页全错（2026-09-20 归真）。
+     ⚠️ 读不到元数据时**不输出**这三个标签，**也不要退回默认值** —— 缺省时平台会自行下载图片探测尺寸，
+     写错值反而更糟。 #}
+ {%- set ogSrc = ogImage or "/image/factory/wowohcool-smart-charging-solutions.webp" %}
+ {%- set ogMeta = ogSrc | imgMeta %}
+ <meta property="og:image" content="https://www.wowohcool.com{{ ogSrc }}">
+ {%- if ogMeta %}
+ <meta property="og:image:width" content="{{ ogMeta.w }}">
+ <meta property="og:image:height" content="{{ ogMeta.h }}">
+ <meta property="og:image:type" content="{{ ogMeta.type }}">
+ {%- endif %}
  <meta name="twitter:card" content="summary_large_image">
  <meta name="twitter:title" content="{{ ogTitle or title or i18nLayout.defaultTwitterTitle }}">
  <meta name="twitter:description" content="{{ ogDescription or description or i18nLayout.defaultTwitterDescription }}">
@@ -67,7 +80,7 @@
  {% block head_extra %}{% endblock %}
 
  <!-- Favicon -->
- <link rel="icon" type="image/png" href="/image/favicon.png">
+ <link rel="icon" type="image/png" sizes="512x512" href="/image/favicon.png">
  <link rel="icon" type="image/png" sizes="32x32" href="/image/favicon-32x32.png">
  <link rel="icon" type="image/png" sizes="16x16" href="/image/favicon-16x16.png">
  <link rel="apple-touch-icon" sizes="180x180" href="/image/apple-touch-icon.png">

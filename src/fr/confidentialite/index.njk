@@ -13,27 +13,36 @@ plPath: "polityka-prywatnosci/"
 
 {% extends "layout.njk" %}
 
-{% block head_extra %}
-<style>
- .legal-content h2 { font-size: 1.3rem; font-weight: 700; color: #0A192F; margin-top: 2.5rem; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 2px solid #f1f5f9; }
- .legal-content h3 { font-size: 1.1rem; font-weight: 600; color: #0A192F; margin-top: 1.75rem; margin-bottom: 0.75rem; }
- .legal-content p { margin-bottom: 0.75rem; line-height: 1.7; color: #475569; }
- .legal-content ul { margin-bottom: 1rem; padding-left: 1.5rem; }
- .legal-content ul li { margin-bottom: 0.4rem; line-height: 1.6; color: #475569; list-style-type: disc; }
- .legal-content strong { color: #0A192F; }
-</style>
-{% endblock %}
 
 {% block head_schema %}
 <script type="application/ld+json">
 [{"@context":"https://schema.org","@type":"Organization","@id":"https://www.wowohcool.com/#organization","name":"WOWOHCOOL", "legalName":"Dong Yi Technology Co., Ltd",
    "vatID": "91441900MA558A2N27","areaServed":["US", "DE", "AT", "CH", "UK", "FR", "ES", "PL", "EU", "JP", "KR", "AU", "MX", "CO", "AR", "CL", "PE", "RU", "KZ", "BY", "EAEU"],
-   "knowsAbout": ["OEM/ODM Power Bank Manufacturing", "Qi2 Wireless Charging Standard", "GaN Power Architecture", "Automotive Fast Charging Systems", "Custom Power Adapter Production", "Consumer Electronics Sourcing", "UL & CE Safety Compliance"]},
-{"@context":"https://schema.org","@type":"WebSite","@id":"https://www.wowohcool.com/#website","url":"https://www.wowohcool.com/fr/","name":"WOWOHCOOL"},
-{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+   "knowsAbout": ["OEM/ODM Power Bank Manufacturing", "Qi2 Wireless Charging Standard", "GaN Power Architecture", "Automotive Fast Charging Systems", "Custom Power Adapter Production", "Consumer Electronics Sourcing", "UL & CE Safety Compliance"],
+ "contactPoint": {
+  "@type": "ContactPoint",
+  "email": "info@wowohcool.com",
+  "contactType": "OEM/ODM Sales",
+  "telephone": "+86-186-2078-9739"
+ }},
+{"@context":"https://schema.org","@type":"WebSite","@id":"https://www.wowohcool.com/#website","url":"https://www.wowohcool.com/fr/","name":"WOWOHCOOL"}]
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "WebPage",
+ "name": "Politique de confidentialité | WOWOHCOOL, RGPD",
+ "description": "Politique de confidentialité conforme au RGPD. Informations sur la collecte, le traitement et l'utilisation des données personnelles chez WOWOHCOOL.",
+ "url": "https://www.wowohcool.com/fr/confidentialite/",
+ "breadcrumb": {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
  {"@type":"ListItem","position":1,"name":"Accueil","item":"https://www.wowohcool.com/fr/"},
  {"@type":"ListItem","position":2,"name":"Politique de confidentialité","item":"https://www.wowohcool.com/fr/confidentialite/"}
-]}]
+]},
+ "speakable": {
+  "@type": "SpeakableSpecification",
+  "cssSelector": ["h1"]
+ }
+}
 </script>
 {% endblock %}
 

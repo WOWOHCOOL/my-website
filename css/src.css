@@ -736,12 +736,6 @@ svg[class*="icon-"]{display:inline-block;width:1em;height:1em;vertical-align:-0.
   .blog-content :where(table) { border-collapse: collapse; width: 100%; margin: 1.5rem 0; font-size: 0.9rem; }
   .blog-content :where(th) { background: #0A192F; color: #fff; padding: 0.75rem; text-align: left; font-weight: 700; }
   .blog-content :where(td) { padding: 0.75rem; border-bottom: 1px solid #e2e8f0; color: #475569; }
-  .blog-content .content-card {
-    background: #fff; border-radius: 1rem; padding: 1.5rem 2rem;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.02);
-    border: 1px solid #f1f5f9; margin-bottom: 1.5rem;
-  }
-  .blog-content .content-card :where(h2) { margin-top: 0; }
 }
 
 /* ─── Inquiry Form ─────────────────────────────────────────── */
@@ -968,3 +962,14 @@ table td, table th { overflow-wrap: break-word; word-break: normal; }
   left: auto;
   right: 100%;
 }
+
+/* ─── Legal Content（2026-09-19：原 DE/FR 6 个法务页的内联 <style> 块提为全局） ──────
+   DE: agb / datenschutz / impressum · FR: cgv / confidentialite / mentions-legales
+   这 6 页此前各自内联一份逐字节相同的 607 B 块。提到这里后：单一来源，6 页少 3.6 KB。
+   ⚠️ 必须留在 @layer 外（未分层规则压过 @layer utilities），与原内联块行为逐项一致。 */
+.legal-content h2 { font-size: 1.3rem; font-weight: 700; color: #0A192F; margin-top: 2.5rem; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 2px solid #f1f5f9; }
+.legal-content h3 { font-size: 1.1rem; font-weight: 600; color: #0A192F; margin-top: 1.75rem; margin-bottom: 0.75rem; }
+.legal-content p { margin-bottom: 0.75rem; line-height: 1.7; color: #475569; }
+.legal-content ul { margin-bottom: 1rem; padding-left: 1.5rem; }
+.legal-content ul li { margin-bottom: 0.4rem; line-height: 1.6; color: #475569; list-style-type: disc; }
+.legal-content strong { color: #0A192F; }

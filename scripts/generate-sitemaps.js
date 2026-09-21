@@ -11,13 +11,12 @@ const path = require('path');
 const REPO_ROOT = path.join(__dirname, '..');
 const SITE_DIR = path.join(REPO_ROOT, '_site');
 const SRC_DIR = path.join(REPO_ROOT, 'src');
-const TODAY = new Date().toISOString().split('T')[0];
 
 // Build page map: canonical URL -> { lang: url }
 const pageMap = {};
 
 // Lastmod map: canonical URL -> real modified date from src frontmatter.
-// Falls back to TODAY for non-article pages (layout rarely changes per page).
+// Pages without a real `modified:` emit no <lastmod> at all (see genSitemap).
 const lastmodMap = {};
 function collectLastmods(dir) {
   let entries;
@@ -144,8 +143,11 @@ function genSitemap(langFilter) {
       urlsXml += `  <xhtml:link rel="alternate" hreflang="x-default" href="${hreflangs['x-default']}"/>\n`;
     }
 
-    const lastmod = lastmodMap[canonical] || TODAY;
-    urlsXml += `  <lastmod>${lastmod}</lastmod>\n`;
+    // lastmod 只在 src frontmatter 有真实 modified: 时输出。
+    // 缺 modified: 时不再回落构建日 —— 否则 150+ 页每次构建都宣称「今天改过」，
+    // 持续发出虚假新鲜度信号，反而稀释 lastmod 的可信度。省略即「未知」。
+    const lastmod = lastmodMap[canonical];
+    if (lastmod) urlsXml += `  <lastmod>${lastmod}</lastmod>\n`;
     urlsXml += `  <changefreq>${changefreq}</changefreq>\n`;
     urlsXml += `  <priority>${priority}</priority>\n`;
     urlsXml += ` </url>\n`;
@@ -166,10 +168,20 @@ const configs = [
 
 for (const [lang, filename, label] of configs) {
   const xml = genSitemap(lang);
-  const outPath = path.join(SITE_DIR, filename);
-  const outDir = path.dirname(outPath);
-  if (!fs.existsSync(outDir)) fs.mkdirSync(outDir, { recursive: true });
-  fs.writeFileSync(outPath, xml, 'utf-8');
+  // 同时写入 _site/（部署产物）与 src/（Eleventy 模板源）。
+  //
+  // 为什么必须写两处：.eleventy.js 的 templateFormats 含 'xml'，因此
+  // src/*/sitemap.xml 会被 Eleventy 当作模板渲染到 _site/*/sitemap.xml。
+  // 若只写 _site/，则**下一次 eleventy 运行会把刚生成的文件覆盖回 src/ 里的
+  // 旧副本** —— sitemap 静默回退（实测曾停留 4 天前的版本，且旧副本里的
+  // hreflang 映射已与当前页面不符，会向搜索引擎声明错误的语言对应关系）。
+  // 写两处后，Eleventy 的渲染变为幂等，dev 环境也能拿到最新 sitemap。
+  for (const base of [SITE_DIR, SRC_DIR]) {
+    const outPath = path.join(base, filename);
+    const outDir = path.dirname(outPath);
+    if (!fs.existsSync(outDir)) fs.mkdirSync(outDir, { recursive: true });
+    fs.writeFileSync(outPath, xml, 'utf-8');
+  }
   const count = (xml.match(/<url>/g) || []).length;
   console.log(`${label} sitemap: ${count} URLs -> ${filename}`);
 }

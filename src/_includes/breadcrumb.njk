@@ -4,64 +4,42 @@
    (always the language home) as a fallback so the aria-label stays localized
    even on templates that import without context.
 
-   opts.variant == "hero" switches to the flat, single-line breadcrumb that
-   sits inside a page hero (the 192 blog articles). Differences, all deliberate:
+   Only one variant is in use: the flat, single-line breadcrumb that sits inside
+   a page hero (all 344 call sites pass `variant: "hero"` explicitly, incl. the
+   192 blog articles). The former default variant — an <ol>/<li> microdata
+   BreadcrumbList wrapped in a container div — was never reached and was removed
+   on 2026-09-20. Rationale for the surviving variant:
      - no <ol>/<li> wrapper and no schema.org microdata: blog articles already
        emit a JSON-LD BreadcrumbList, so microdata here would duplicate it
      - 14px slate-500 instead of 13px slate-400: slate-400 on white is only
        ~2.6:1 contrast and fails WCAG AA, slate-500 is ~4.6:1
      - the current crumb is slate-900 rather than brand orange
-   opts.sep is the separator markup for the hero variant. Canonical form is
+   opts.sep is the separator markup. Canonical form is
    ' <span class="mx-2">/</span> ' (2026-09-13: the site had two forms — a bare
    " / " and the span — so the span form became the macro default and every
    call site dropped its explicit sep). Only pass sep for a deliberate exception.
 
-   opts.dark == true is for the hero variant on a dark background (the six
-   404 pages are bg-brandBlue). The default hero palette is tuned for white:
+   opts.dark == true is for the variant on a dark background (the six
+   404 pages are bg-brandBlue). The default palette is tuned for white:
    the current crumb is slate-900, which is ~1.0:1 on brandBlue — i.e. invisible.
    Dark mode swaps the base to slate-300 and the current crumb to white.
 
-   The tag layout below is load-bearing: `{% set %}` and `{% else %}` are kept
-   on shared lines so the DEFAULT variant still emits exactly the same
-   whitespace it did before this option was added. #}
+   `container` (2nd positional arg) is retained for call-site compatibility and
+   is intentionally unused. #}
 {% set o = opts or {} %}{% set lc = lang or ((items[0].url or "/") | replace("/", "")) or "en" %}
 {% set ariaMap = {
   "en": "Breadcrumb",
-  "de": "Breadcrumb",
+  "de": "Brotkrumennavigation",
   "es": "Migas de pan",
   "fr": "Fil d'Ariane",
   "ru": "Хлебные крошки",
   "pl": "Ścieżka nawigacji"
 } %}
-{% if o.variant == "hero" %}
+{# 原 hero 分支的 if 条件已删除；本行作为占位保留，以维持产物空白字节与改动前完全一致 #}
 {% set sep = o.sep or ' <span class="mx-2">/</span> ' %}{% set baseC = 'text-slate-300' if o.dark else 'text-slate-500' %}{% set curC = 'text-white' if o.dark else 'text-slate-900' %}
 <nav aria-label="{{ ariaMap[lc] or 'Breadcrumb' }}" class="text-sm {{ baseC }} {{ spacing or 'mb-6' }}">
 {%- for item in items %}
  {% if item.url %}<a href="{{ item.url }}" class="hover:text-brandOrange">{{ item.name }}</a>{% else %}<span class="{{ curC }}">{{ item.name }}</span>{% endif %}{% if not loop.last %}{{ sep | safe }}{% endif %}
 {%- endfor %}
 </nav>
-{% else %}{% set wrap = container or "container-wide" %}
-<nav aria-label="{{ ariaMap[lc] or 'Breadcrumb' }}" class="{{ spacing or 'pt-20 pb-2' }} bg-transparent">
- {% if wrap != "none" %}<div class="{{ wrap }}">{% endif %}
- <ol class="flex items-center flex-wrap gap-x-2 gap-y-1 text-[13px] text-slate-500" itemscope itemtype="https://schema.org/BreadcrumbList">
- {% for item in items %}
- {% set pos = loop.index %}
- <li class="flex items-center" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
- {% if item.url %}
- <a href="{{ item.url }}" itemprop="item" class="hover:text-brandOrange transition-colors">
- <span itemprop="name">{{ item.name }}</span>
- </a>
- <meta itemprop="position" content="{{ pos }}">
- {% else %}
- <span itemprop="name" class="text-slate-900 font-semibold">{{ item.name }}</span>
- <meta itemprop="position" content="{{ pos }}">
- {% endif %}
- {% if not loop.last %}
- <span class="mx-2 text-slate-300">/</span>
- {% endif %}
- </li>
- {% endfor %}
- </ol>
- {% if wrap != "none" %}</div>{% endif %}
-</nav>
-{% endif %}{% endmacro %}
+{% endmacro %}

@@ -20,7 +20,7 @@ plPath: "produkty/ladowarka-samochodowa/"
  "@id":"https://www.wowohcool.com/#organization",
  "name":"WOWOHCOOL",
  "legalName":"Dong Yi Technology Co., Ltd",
- "vatID": "91441900MA558A2N27","url":"https://www.wowohcool.com/es/",
+ "vatID": "91441900MA558A2N27","url": "https://www.wowohcool.com/es/sobre-nosotros/",
  "logo":{ "@type": "ImageObject", "url": "https://www.wowohcool.com/image/wowohcool-logo-optimized.webp", "width": 263, "height": 70 },
  "foundingDate":"2013",
  "areaServed":["US", "DE", "AT", "CH", "UK", "FR", "ES", "PL", "EU", "JP", "KR", "AU", "MX", "CO", "AR", "CL", "PE", "RU", "KZ", "BY", "EAEU"],
@@ -29,9 +29,27 @@ plPath: "produkty/ladowarka-samochodowa/"
  "address":{"@type":"PostalAddress","addressLocality":"Shenzhen","addressRegion":"Guangdong","addressCountry":"CN"}
 },
 {
+ "@context": "https://schema.org",
+ "@type": "ItemList",
+ "name": "Línea de carga para automóvil",
+ "url": "https://www.wowohcool.com/es/productos/cargador-coche/",
+ "numberOfItems": 10,
+ "itemListElement": [
+ {"@type": "ListItem", "position": 1, "name": "WOC42 retráctil 105W hub", "url": "https://www.wowohcool.com/es/productos/cargador-coche/#woc42"},
+ {"@type": "ListItem", "position": 2, "name": "WOC45 compacto 3-en-1 hub", "url": "https://www.wowohcool.com/es/productos/cargador-coche/#woc45"},
+ {"@type": "ListItem", "position": 3, "name": "WOC91 hub pasajero 120W", "url": "https://www.wowohcool.com/es/productos/cargador-coche/#woc91"},
+ {"@type": "ListItem", "position": 4, "name": "WOC92 retráctil hub 120W", "url": "https://www.wowohcool.com/es/productos/cargador-coche/#woc92"},
+ {"@type": "ListItem", "position": 5, "name": "WOC38 Quad-Port carga rápida", "url": "https://www.wowohcool.com/es/productos/cargador-coche/#woc38"},
+ {"@type": "ListItem", "position": 6, "name": "WOC24 140W pro digital hub", "url": "https://www.wowohcool.com/es/productos/cargador-coche/#woc24"},
+ {"@type": "ListItem", "position": 7, "name": "WOC39 pro outdoor 100W hub", "url": "https://www.wowohcool.com/es/productos/cargador-coche/#woc39"},
+ {"@type": "ListItem", "position": 8, "name": "WOC05 mini hidden hub", "url": "https://www.wowohcool.com/es/productos/cargador-coche/#woc05"},
+ {"@type": "ListItem", "position": 9, "name": "WOC04 mini PD 45W hub", "url": "https://www.wowohcool.com/es/productos/cargador-coche/#woc04"},
+ {"@type": "ListItem", "position": 10, "name": "WOC10 65W GaN Dual-Port", "url": "https://www.wowohcool.com/es/productos/cargador-coche/#woc10"}
+ ]
+},
+{
  "@context":"https://schema.org","@type":"WebSite",
- "@id":"https://www.wowohcool.com/#website","url":"https://www.wowohcool.com/es/","name":"WOWOHCOOL",
- "speakable":{"@type":"SpeakableSpecification","cssSelector":[".section-label","h1"]}
+ "@id":"https://www.wowohcool.com/#website","url":"https://www.wowohcool.com/es/","name":"WOWOHCOOL"
 },
 {
  "@context":"https://schema.org","@type":"Product",
@@ -39,7 +57,8 @@ plPath: "produkty/ladowarka-samochodowa/"
  "description":"Cargadores de coche PD 3.1 hasta 140W con certificación E-Mark. Multi-puerto, cable retráctil, pantalla digital.",
  "brand":{"@type":"Brand","name":"WOWOHCOOL"},
  "category":"Electrónica > Carga > Cargadores de Coche",
- "offers":{"@type":"AggregateOffer","priceCurrency":"EUR","lowPrice":4,"highPrice":18,"availability":"https://schema.org/InStock"}
+ "offers":{"@type":"AggregateOffer","priceCurrency":"EUR","lowPrice":4,"highPrice":18,"availability":"https://schema.org/InStock"},
+ "manufacturer": {"@id": "https://www.wowohcool.com/#organization"}
 },
 {
  "@context":"https://schema.org","@type":"BreadcrumbList",
@@ -51,7 +70,7 @@ plPath: "produkty/ladowarka-samochodowa/"
 },
 {
  "@context":"https://schema.org","@type":"FAQPage",
- "speakable":{"@type":"SpeakableSpecification","cssSelector":[".faq-answer"]},
+ "speakable":{"@type":"SpeakableSpecification","cssSelector": [".faq-answer", ".section-label", "h1"]},
  "mainEntity":[
  {"@type":"Question","name":"¿Qué es la certificación E-Mark?","acceptedAnswer":{"@type":"Answer","text":"Es la certificación obligatoria para productos electrónicos instalados en vehículos en la UE (Reglamento ECE R10). Garantiza compatibilidad electromagnética y seguridad. Todos nuestros cargadores de coche la cumplen."}},
  {"@type":"Question","name":"¿Ofrecen cargadores con cable retráctil?","acceptedAnswer":{"@type":"Answer","text":"Sí, disponibles con cable USB-C retráctil integrado (0,8m). También ofrecemos modelos con doble cable retráctil (USB-C + Lightning). Ideales para marcas automotrices."}},
@@ -115,11 +134,11 @@ plPath: "produkty/ladowarka-samochodowa/"
 {% include "trust-bar.njk" %}
 
 <!-- ======== PRODUCT MODELS ======== -->
-<section id="product-models" class="sec bg-slate-50" data-section="products">
+<section id="product-models" class="sec bg-white" data-section="products">
  <div class="container-wide">
  {{ sectionHeader('Modelos destacados', 'Línea de <span class="text-brandOrange">carga para automóvil</span>', 'Selección de modelos populares para OEM/ODM. Todos personalizables con su logotipo, color y embalaje.', {mb: 'mb-12'}) }}
    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-   <div class="group reveal">
+   <div class="group reveal" id="woc42">
     <div class="relative aspect-square rounded-3xl bg-slate-100 overflow-hidden mb-6"><img src="/image/product/car-charger/woc42-retractable-car-charger.webp" srcset="/image/product/car-charger/woc42-retractable-car-charger-450w.webp 450w, /image/product/car-charger/woc42-retractable-car-charger.webp 1920w" sizes="(min-width: 1440px) 389px, (min-width: 1280px) 389px, (min-width: 1024px) 304px, (min-width: 768px) 344px, (min-width: 430px) 382px, 327px" alt="WOC42 Retráctil 105W Hub" width="1920" height="1920" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async"><div class="absolute top-4 left-4 flex flex-col gap-2"><span class="bg-brandOrange text-white text-[11px] font-black px-3 py-1 rounded-full uppercase italic tracking-widest">Retráctil</span></div></div>
     <h3 class="text-xl font-black text-slate-900 uppercase italic mb-3">WOC42 retráctil 105W hub</h3>
     <div class="grid grid-cols-2 gap-y-3 gap-x-2 mb-6 border-t border-slate-100 pt-4">
@@ -145,7 +164,7 @@ plPath: "produkty/ladowarka-samochodowa/"
     </details>
     <button data-action="open-modal" data-product="WOC42 Retráctil 105W Hub" class="btn-card">Solicitar precio fábrica</button>
    </div>
-   <div class="group reveal">
+   <div class="group reveal" id="woc45">
     <div class="relative aspect-square rounded-3xl bg-slate-100 overflow-hidden mb-6"><img src="/image/product/car-charger/woc45-retractable-charger.webp" srcset="/image/product/car-charger/woc45-retractable-charger-450w.webp 450w, /image/product/car-charger/woc45-retractable-charger.webp 800w" sizes="(min-width: 1440px) 389px, (min-width: 1280px) 389px, (min-width: 1024px) 304px, (min-width: 768px) 344px, (min-width: 430px) 382px, 327px" alt="WOC45 Compacto 3-en-1 Hub" width="800" height="800" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async"><div class="absolute top-4 left-4 flex flex-col gap-2"><span class="bg-brandOrange text-white text-[11px] font-black px-3 py-1 rounded-full uppercase italic tracking-widest">Compacto</span></div></div>
     <h3 class="text-xl font-black text-slate-900 uppercase italic mb-3">WOC45 compacto 3-en-1 hub</h3>
     <div class="grid grid-cols-2 gap-y-3 gap-x-2 mb-6 border-t border-slate-100 pt-4">
@@ -170,7 +189,7 @@ plPath: "produkty/ladowarka-samochodowa/"
     </details>
     <button data-action="open-modal" data-product="WOC45 Compacto 3-en-1 Hub" class="btn-card">Solicitar precio fábrica</button>
    </div>
-   <div class="group reveal">
+   <div class="group reveal" id="woc91">
     <div class="relative aspect-square rounded-3xl bg-slate-100 overflow-hidden mb-6"><img src="/image/product/car-charger/woc91-backseat-hub.webp" srcset="/image/product/car-charger/woc91-backseat-hub-450w.webp 450w, /image/product/car-charger/woc91-backseat-hub.webp 1920w" sizes="(min-width: 1440px) 389px, (min-width: 1280px) 389px, (min-width: 1024px) 304px, (min-width: 768px) 344px, (min-width: 430px) 382px, 327px" alt="WOC91 Hub Pasajero 120W" width="1920" height="1920" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async"><div class="absolute top-4 left-4 flex flex-col gap-2"><span class="bg-brandOrange text-white text-[11px] font-black px-3 py-1 rounded-full uppercase italic tracking-widest">Familia</span></div></div>
     <h3 class="text-xl font-black text-slate-900 uppercase italic mb-3">WOC91 hub pasajero 120W</h3>
     <div class="grid grid-cols-2 gap-y-3 gap-x-2 mb-6 border-t border-slate-100 pt-4">
@@ -194,7 +213,7 @@ plPath: "produkty/ladowarka-samochodowa/"
     </details>
     <button data-action="open-modal" data-product="WOC91 Hub Pasajero 120W" class="btn-card">Solicitar precio fábrica</button>
    </div>
-   <div class="group reveal">
+   <div class="group reveal" id="woc92">
     <div class="relative aspect-square rounded-3xl bg-slate-100 overflow-hidden mb-6"><img src="/image/product/car-charger/woc92-retractable-car-charger-hub.webp" srcset="/image/product/car-charger/woc92-retractable-car-charger-hub-450w.webp 450w, /image/product/car-charger/woc92-retractable-car-charger-hub.webp 800w" sizes="(min-width: 1440px) 389px, (min-width: 1280px) 389px, (min-width: 1024px) 304px, (min-width: 768px) 344px, (min-width: 430px) 382px, 327px" alt="WOC92 Retráctil Hub 120W" width="800" height="800" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async"><div class="absolute top-4 left-4 flex flex-col gap-2"><span class="bg-brandOrange text-white text-[11px] font-black px-3 py-1 rounded-full uppercase italic tracking-widest">Retráctil 120W</span></div></div>
     <h3 class="text-xl font-black text-slate-900 uppercase italic mb-3">WOC92 retráctil hub 120W</h3>
     <div class="grid grid-cols-2 gap-y-3 gap-x-2 mb-6 border-t border-slate-100 pt-4">
@@ -221,7 +240,7 @@ plPath: "produkty/ladowarka-samochodowa/"
     </details>
     <button data-action="open-modal" data-product="WOC92 Retráctil Hub 120W" class="btn-card">Solicitar precio fábrica</button>
    </div>
-   <div class="group reveal">
+   <div class="group reveal" id="woc38">
     <div class="relative aspect-square rounded-3xl bg-slate-100 overflow-hidden mb-6"><img src="/image/product/car-charger/woc38-4port-charger.webp" srcset="/image/product/car-charger/woc38-4port-charger-450w.webp 450w, /image/product/car-charger/woc38-4port-charger.webp 800w" sizes="(min-width: 1440px) 389px, (min-width: 1280px) 389px, (min-width: 1024px) 304px, (min-width: 768px) 344px, (min-width: 430px) 382px, 327px" alt="WOC38 Quad-Port Carga Rápida" width="800" height="800" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async"><div class="absolute top-4 left-4 flex flex-col gap-2"><span class="bg-brandOrange text-white text-[11px] font-black px-3 py-1 rounded-full uppercase italic tracking-widest">Quad-Port</span></div></div>
     <h3 class="text-xl font-black text-slate-900 uppercase italic mb-3">WOC38 Quad-Port carga rápida</h3>
     <div class="grid grid-cols-2 gap-y-3 gap-x-2 mb-6 border-t border-slate-100 pt-4">
@@ -246,7 +265,7 @@ plPath: "produkty/ladowarka-samochodowa/"
     </details>
     <button data-action="open-modal" data-product="WOC38 Quad-Port Carga Rápida" class="btn-card">Solicitar precio fábrica</button>
    </div>
-   <div class="group reveal">
+   <div class="group reveal" id="woc24">
     <div class="relative aspect-square rounded-3xl bg-slate-100 overflow-hidden mb-6"><img src="/image/product/car-charger/woc24-140w-digital-charger.webp" srcset="/image/product/car-charger/woc24-140w-digital-charger-800w.webp 800w, /image/product/car-charger/woc24-140w-digital-charger.webp 1920w" sizes="(min-width: 1440px) 590px, (min-width: 1280px) 590px, (min-width: 1024px) 462px, (min-width: 768px) 718px, (min-width: 430px) 382px, 359px" alt="WOC24 140W Pro Digital Hub" width="1920" height="1920" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async"><div class="absolute top-4 left-4 flex flex-col gap-2"><span class="bg-brandOrange text-white text-[11px] font-black px-3 py-1 rounded-full uppercase italic tracking-widest">Premium 140W</span></div></div>
     <h3 class="text-xl font-black text-slate-900 uppercase italic mb-3">WOC24 140W pro digital hub</h3>
     <div class="grid grid-cols-2 gap-y-3 gap-x-2 mb-6 border-t border-slate-100 pt-4">
@@ -268,7 +287,7 @@ plPath: "produkty/ladowarka-samochodowa/"
     </details>
     <button data-action="open-modal" data-product="WOC24 140W Pro Digital Hub" class="btn-card">Solicitar precio fábrica</button>
    </div>
-   <div class="group reveal">
+   <div class="group reveal" id="woc39">
     <div class="relative aspect-square rounded-3xl bg-slate-100 overflow-hidden mb-6"><img src="/image/product/car-charger/woc39-100w-charger.webp" srcset="/image/product/car-charger/woc39-100w-charger-450w.webp 450w, /image/product/car-charger/woc39-100w-charger.webp 900w" sizes="(min-width: 1440px) 389px, (min-width: 1280px) 389px, (min-width: 1024px) 304px, (min-width: 768px) 344px, (min-width: 430px) 382px, 327px" alt="WOC39 Pro Outdoor 100W Hub" width="900" height="900" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async"><div class="absolute top-4 left-4 flex flex-col gap-2"><span class="bg-brandOrange text-white text-[11px] font-black px-3 py-1 rounded-full uppercase italic tracking-widest">Outdoor 100W</span></div></div>
     <h3 class="text-xl font-black text-slate-900 uppercase italic mb-3">WOC39 pro outdoor 100W hub</h3>
     <div class="grid grid-cols-2 gap-y-3 gap-x-2 mb-6 border-t border-slate-100 pt-4">
@@ -293,7 +312,7 @@ plPath: "produkty/ladowarka-samochodowa/"
     </details>
     <button data-action="open-modal" data-product="WOC39 Pro Outdoor 100W Hub" class="btn-card">Solicitar precio fábrica</button>
    </div>
-   <div class="group reveal">
+   <div class="group reveal" id="woc05">
     <div class="relative aspect-square rounded-3xl bg-slate-100 overflow-hidden mb-6"><img src="/image/product/car-charger/woc05-mini-hidden-car-charger.webp" srcset="/image/product/car-charger/woc05-mini-hidden-car-charger-450w.webp 450w, /image/product/car-charger/woc05-mini-hidden-car-charger.webp 800w" sizes="(min-width: 1440px) 389px, (min-width: 1280px) 389px, (min-width: 1024px) 304px, (min-width: 768px) 344px, (min-width: 430px) 382px, 327px" alt="WOC05 Mini Hidden Hub" width="800" height="800" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async"><div class="absolute top-4 left-4 flex flex-col gap-2"><span class="bg-brandOrange text-white text-[11px] font-black px-3 py-1 rounded-full uppercase italic tracking-widest">Innovacion</span></div></div>
     <h3 class="text-xl font-black text-slate-900 uppercase italic mb-3">WOC05 mini hidden hub</h3>
     <div class="grid grid-cols-2 gap-y-3 gap-x-2 mb-6 border-t border-slate-100 pt-4">
@@ -314,7 +333,7 @@ plPath: "produkty/ladowarka-samochodowa/"
     </details>
     <button data-action="open-modal" data-product="WOC05 Mini Hidden Hub" class="btn-card">Solicitar precio fábrica</button>
    </div>
-   <div class="group reveal">
+   <div class="group reveal" id="woc04">
     <div class="relative aspect-square rounded-3xl bg-slate-100 overflow-hidden mb-6"><img src="/image/product/car-charger/woc04-mini-pd45w-car-charger.webp" srcset="/image/product/car-charger/woc04-mini-pd45w-car-charger-450w.webp 450w, /image/product/car-charger/woc04-mini-pd45w-car-charger.webp 800w" sizes="(min-width: 1440px) 389px, (min-width: 1280px) 389px, (min-width: 1024px) 304px, (min-width: 768px) 344px, (min-width: 430px) 382px, 327px" alt="WOC04 Mini PD 45W Hub" width="800" height="800" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async"><div class="absolute top-4 left-4 flex flex-col gap-2"><span class="bg-brandOrange text-white text-[11px] font-black px-3 py-1 rounded-full uppercase italic tracking-widest">Mini</span></div></div>
     <h3 class="text-xl font-black text-slate-900 uppercase italic mb-3">WOC04 mini PD 45W hub</h3>
     <div class="grid grid-cols-2 gap-y-3 gap-x-2 mb-6 border-t border-slate-100 pt-4">
@@ -334,7 +353,7 @@ plPath: "produkty/ladowarka-samochodowa/"
     </details>
     <button data-action="open-modal" data-product="WOC04 Mini PD 45W Hub" class="btn-card">Solicitar precio fábrica</button>
    </div>
-   <div class="group reveal">
+   <div class="group reveal" id="woc10">
     <div class="relative aspect-square rounded-3xl bg-slate-100 overflow-hidden mb-6"><img src="/image/product/car-charger/woc10-dual-port-car-charger.webp" srcset="/image/product/car-charger/woc10-dual-port-car-charger-450w.webp 450w, /image/product/car-charger/woc10-dual-port-car-charger.webp 1920w" sizes="(min-width: 1440px) 389px, (min-width: 1280px) 389px, (min-width: 1024px) 304px, (min-width: 768px) 344px, (min-width: 430px) 382px, 327px" alt="WOC10 65W GaN Dual-Port" width="1920" height="1920" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async"><div class="absolute top-4 left-4 flex flex-col gap-2"><span class="bg-brandOrange text-white text-[11px] font-black px-3 py-1 rounded-full uppercase italic tracking-widest">GaN 65W</span></div></div>
     <h3 class="text-xl font-black text-slate-900 uppercase italic mb-3">WOC10 65W GaN Dual-Port</h3>
     <div class="grid grid-cols-2 gap-y-3 gap-x-2 mb-6 border-t border-slate-100 pt-4">

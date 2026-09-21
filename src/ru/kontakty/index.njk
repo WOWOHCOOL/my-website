@@ -21,7 +21,7 @@ navActive: "contact"
  "name": "WOWOHCOOL",
  "legalName": "Dong Yi Technology Co., Ltd",
  "vatID": "91441900MA558A2N27",
- "url": "https://www.wowohcool.com/ru/",
+ "url": "https://www.wowohcool.com/ru/o-kompanii/",
  "logo": {
   "@type": "ImageObject",
   "url": "https://www.wowohcool.com/image/wowohcool-logo-optimized.webp",
@@ -37,14 +37,19 @@ navActive: "contact"
   "postalCode": "518111",
   "addressCountry": "CN"
  },
- "geo": {
-  "@type": "GeoCoordinates",
-  "latitude": "22.5431",
-  "longitude": "114.0579"
+ "location": {
+  "@type": "ManufacturingBusiness",
+  "@id": "https://www.wowohcool.com/#factory",
+  "name": "WOWOHCOOL Factory",
+  "geo": {
+   "@type": "GeoCoordinates",
+   "latitude": "22.5431",
+   "longitude": "114.0579"
+  },
+  "openingHours": "Mo-Sa 09:00-18:00"
  },
  "telephone": "+86-186-2078-9739",
  "email": "info@wowohcool.com",
- "openingHours": "Пн-Сб 09:00-18:00",
  "areaServed": [
   "US",
   "DE",
@@ -94,7 +99,8 @@ navActive: "contact"
  "sameAs": [
   "https://www.linkedin.com/company/wowohcool",
   "https://www.facebook.com/wowohcoolelectronic",
-  "https://www.youtube.com/@WOWOHCOOL"
+  "https://www.youtube.com/@WOWOHCOOL",
+  "https://x.com/wowohcool"
  ]
 },
 {
@@ -108,9 +114,11 @@ navActive: "contact"
  "@context":"https://schema.org","@type":"ContactPage",
  "name":"Связаться с WOWOHCOOL","description":"Свяжитесь с отделом продаж для расчёта OEM/ODM-заказа, заказа образцов и получения технической документации. Ответ в течение 24 часов.",
  "url":"https://www.wowohcool.com/ru/kontakty/",
- "mainEntity": {"@id": "https://www.wowohcool.com/#organization"}
+ "mainEntity": {"@id": "https://www.wowohcool.com/#organization"},
+ "speakable": {"@type": "SpeakableSpecification", "cssSelector": [".badge-capsule", "h1"]}
 },
 {
+ "@context": "https://schema.org",
  "@type": "WebSite",
  "@id": "https://www.wowohcool.com/#website",
  "url": "https://www.wowohcool.com/",
@@ -206,11 +214,11 @@ navActive: "contact"
  <input type="hidden" name="utm_medium" id="utm_medium" value="">
  <input type="hidden" name="utm_campaign" id="utm_campaign" value="">
  <div class="grid md:grid-cols-2 gap-4">
- <input type="text" name="name" required placeholder="Ваше имя *" class="w-full px-4 py-3.5 rounded-xl border border-slate-200 focus:border-brandOrange outline-none text-sm">
- <input type="email" name="email" required placeholder="Ваш email *" class="w-full px-4 py-3.5 rounded-xl border border-slate-200 focus:border-brandOrange outline-none text-sm">
+<input type="text" name="name" required aria-label="Ваше имя" placeholder="Ваше имя *" class="w-full px-4 py-3.5 rounded-xl border border-slate-200 focus:border-brandOrange outline-none text-sm">
+<input type="email" name="email" required aria-label="Ваш email" placeholder="Ваш email *" class="w-full px-4 py-3.5 rounded-xl border border-slate-200 focus:border-brandOrange outline-none text-sm">
  </div>
- <input type="text" name="company" placeholder="Компания (необязательно)" class="w-full px-4 py-3.5 rounded-xl border border-slate-200 focus:border-brandOrange outline-none text-sm">
- <select name="product" class="card w-full px-4 py-3.5 focus:border-brandOrange outline-none text-sm">
+<input type="text" name="company" aria-label="Компания (необязательно)" placeholder="Компания (необязательно)" class="w-full px-4 py-3.5 rounded-xl border border-slate-200 focus:border-brandOrange outline-none text-sm">
+<select name="product" aria-label="Интересующий продукт (необязательно)" class="card w-full px-4 py-3.5 focus:border-brandOrange outline-none text-sm">
  <option value="">Интересующий продукт (необязательно)</option>
  <option value="powerbank">Повербанк</option>
  <option value="wireless">Беспроводная зарядка</option>
@@ -218,7 +226,7 @@ navActive: "contact"
  <option value="gan">GaN-зарядка</option>
  <option value="other">Другое</option>
  </select>
- <textarea name="message" rows="4" required minlength="10" placeholder="Опишите ваш проект (характеристики, тираж, требования) *" class="w-full px-4 py-3.5 rounded-xl border border-slate-200 focus:border-brandOrange outline-none text-sm resize-none"></textarea>
+ <textarea name="message" rows="4" required minlength="10" aria-label="Опишите ваш проект" placeholder="Опишите ваш проект (характеристики, тираж, требования) *" class="w-full px-4 py-3.5 rounded-xl border border-slate-200 focus:border-brandOrange outline-none text-sm resize-none"></textarea>
  <label class="flex items-start gap-3"><input type="checkbox" required class="mt-1 accent-brandOrange"><span class="text-xs text-slate-500">Я прочитал(а) и принимаю <a href="/ru/politika-konfidencialnosti/" class="text-brandOrange hover:underline">Политику конфиденциальности</a> *</span></label>
  <button type="submit" class="btn-solid w-full justify-center text-base py-4">Запросить расчёт с завода <svg class="icon-arrow-right" viewBox="0 0 512 512"><path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-105.4 105.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" fill="currentColor"/></svg></button>
  </form>

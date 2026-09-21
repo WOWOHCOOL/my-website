@@ -1,13 +1,13 @@
 {% set t = i18n.modal[lang] %}
 {% set modalProducts = products_pl if lang === "pl" else (products_de if lang === "de" else (products_es if lang === "es" else (products_fr if lang === "fr" else (products_ru if lang === "ru" else products)))) %}
-<div id="inquiryModal" class="fixed inset-0 z-[500] hidden flex-col overflow-y-auto bg-brandBlue/95 backdrop-blur-lg" role="dialog" aria-modal="true" aria-hidden="true">
+<div id="inquiryModal" class="fixed inset-0 z-[500] hidden flex-col overflow-y-auto bg-brandBlue/95 backdrop-blur-lg" role="dialog" aria-modal="true" aria-labelledby="inquiry-modal-title" aria-hidden="true">
  <div class="shrink-0 w-full max-w-xl mx-auto mt-8 sm:mt-16 mb-4 px-4 sm:px-6">
  <div class="bg-white rounded-2xl relative shadow-2xl">
  <div class="p-4 sm:p-8">
  <button data-action="close-modal" class="absolute top-3 right-3 sm:top-4 sm:right-4 z-10 w-8 h-8 flex items-center justify-center rounded-full bg-slate-100 hover:bg-slate-200 text-slate-500 hover:text-brandBlue transition-colors text-sm" aria-label="{{ t.closeAriaLabel }}">&#10005;</button>
 
  <div class="mb-4 sm:mb-6 text-left">
- <h3 class="text-3xl font-black text-brandBlue uppercase mb-2 italic tracking-tighter">{{ t.title }}</h3>
+ <h3 id="inquiry-modal-title" class="text-3xl font-black text-brandBlue uppercase mb-2 italic tracking-tighter">{{ t.title }}</h3>
  <div class="flex items-center gap-2">
  <span class="w-10 h-[2px] bg-brandOrange" aria-hidden="true"></span>
  <p class="text-slate-500 text-[11px] font-bold uppercase tracking-widest">{{ t.subtitle }}</p>
@@ -58,7 +58,7 @@
  <div class="space-y-1 mt-3 sm:mt-4">
  <label for="modal-message" class="text-[11px] font-bold text-brandBlue ml-2 tracking-widest">{{ t.labelMessage }}</label>
  <textarea id="modal-message" name="message" placeholder="{{ t.placeholderMessage }}" rows="2" required minlength="10"
- class="w-full bg-slate-50 p-3.5 sm:p-4 rounded-xl text-[16px] border-2 border-transparent focus:border-brandOrange focus:bg-white transition-all outline-none font-medium resize-none sm:rows-3"></textarea>
+ class="w-full bg-slate-50 p-3.5 sm:p-4 rounded-xl text-[16px] border-2 border-transparent focus:border-brandOrange focus:bg-white transition-all outline-none font-medium resize-none"></textarea>
  </div>
 
  <div class="pt-2 sm:pt-3">
