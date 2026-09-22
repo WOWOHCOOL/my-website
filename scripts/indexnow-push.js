@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 /**
- * IndexNow Push Script — pushes ALL sitemap URLs to Bing/Yandex after deploy.
- * Usage: node scripts/indexnow-push.js
+ * IndexNow Push Script — pushes ALL sitemap URLs to Bing/Yandex on production builds.
+ * Usage: node scripts/indexnow-push.js [--force] [--dry-run]
+ *   （默认仅在 CF Pages 生产分支构建时执行；--force 本地强制推送；--dry-run 只收集不提交）
  *
  * Submits all URLs from sitemap.xml + rss.xml across all languages.
  * No caching — Bing/Yandex deduplicate on their side.
@@ -82,6 +83,25 @@ function pushToIndexNow(urls) {
 }
 
 async function main() {
+  // ── 生产分支门控（2026-09-22）─────────────────────────────────────────────
+  // CF Pages 的 build.command = "npm install && npm run build"，而 build 末尾会调用本脚本
+  // ⇒ 每次构建（含 *.pages.dev 预览部署）都会执行。但预览构建**不会**改变生产 URL 的内容，
+  //   全量推送等于向搜索引擎声明「不存在的变化」。
+  // Cloudflare 官方注入 CF_PAGES=1 与 CF_PAGES_BRANCH=<本次部署的分支名>
+  //   （官方文档给 CF_PAGES_BRANCH 的示例用途正是 "disabling debug logging on production"）。
+  // ⇒ 只在生产分支推送；本地与预览默认跳过。需要立即推送用 --force。
+  const onCF = process.env.CF_PAGES === '1';
+  const branch = process.env.CF_PAGES_BRANCH;
+  const PROD_BRANCH = process.env.INDEXNOW_PROD_BRANCH || 'main';
+  const force = process.argv.includes('--force');
+  const dryRun = process.argv.includes('--dry-run');
+  if (!force && (!onCF || branch !== PROD_BRANCH)) {
+    console.log(`[IndexNow] 跳过：onCF=${onCF} branch=${branch || '(未设置)'}` +
+      ` —— 仅生产分支「${PROD_BRANCH}」推送；本地强制推送用 --force`);
+    process.exit(0);
+  }
+  if (dryRun) console.log('[IndexNow] --dry-run：只收集 URL，不提交');
+
   // Sitemaps: core B2B pages per language
   const sitemaps = [
     path.join(SITE_DIR, 'sitemap.xml'),
@@ -130,6 +150,11 @@ async function main() {
   if (unique.length === 0) {
     console.log('[IndexNow] No URLs found — build may have failed. Check _site/ directory.');
     process.exit(1);
+  }
+
+  if (dryRun) {
+    console.log(`[IndexNow] --dry-run 结束：本应提交 ${unique.length} 个 URL（未实际提交）`);
+    process.exit(0);
   }
 
   // Submit in batches if needed
