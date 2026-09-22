@@ -38,8 +38,42 @@ _site_*/
 /rss.xml
 /sitemap.xml
 
-# Built JS (CSS is committed for reliable deployment)
+# ============================================================
+# 构建产物 —— 不推送 GitHub
+# Cloudflare 构建时由 build:css / build:js 重新生成（构建链 `&&` 严格串联，
+# 每次构建必跑，提交旧副本提供不了任何兜底）。2026-09-22 起改为本地生成。
+# ⚠️ `.eleventy.js` 有 `setUseGitIgnore(false)` → 忽略不影响本地构建与 passthrough
+# ============================================================
+/css/styles.css
+/main.js
+/de/js/
+/es/js/
+/fr/js/
+/pl/js/
+/ru/js/
 
+# ============================================================
+# 本地专用工具与根文件 —— 不推送 GitHub，仅保留在本地
+# ⚠️⚠️ 构建链脚本必须保持被跟踪，下方通配符不得覆盖它们：
+#    clean · gate · generate-sitemaps · indexnow-push · svg-sprite ·
+#    lint-i18n-paths · lint-njk-templates · validate-*
+# （其中 lint-njk-templates.js 由 scripts/gate.js:13 spawn，不在 package.json 里）
+# ============================================================
+scripts/audit-*.js
+scripts/dbg-*.js
+scripts/dump-*.js
+scripts/normalize-*.js
+scripts/build-images.js
+scripts/lib-html-sections.js
+scripts/make-ab-sample.js
+scripts/scan-section-fingerprint.js
+scripts/verify-sections.js
+scripts/verify-text-identity.js
+
+# worker.js —— wrangler.json 无 `main` ⇒ 未部署（但保留着预览域 noindex 逻辑）
+# dev.mjs   —— `npm run dev` 的本地开发入口
+/worker.js
+/dev.mjs
 
 # Node.js
 node_modules/
