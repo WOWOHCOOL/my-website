@@ -10,6 +10,19 @@
 # 都会得到「两条自相矛盾的 Cache-Control」→ 资源反而完全不被边缘缓存（cf-cache-status: DYNAMIC）。
 # 因此 Cache-Control 一律只在下方各资源专属块里声明，保证每个 URL 恰好命中一条。
 # HTML 的边缘缓存需在 Cloudflare 面板用 Cache Rule 配置（默认不缓存 HTML）。
+#
+# --- CSP 修补 2026-09-22（用真实 Chrome 干净配置档审计生产站后逐条确认）---
+# ① script-src 补 https://static.cloudflareinsights.com
+#    Cloudflare Pages **自动注入** Web Analytics beacon，原 CSP 未放行 → 每页都报 CSP 违规。
+#    替代方案：在 Pages 项目设置里关掉 Web Analytics。放行 = 保留这份免 cookie 统计。
+# ② connect-src 补 https://pagead2.googlesyndication.com
+#    仅当 GA4 触发「Google Ads 转化测量」时才请求（访客带 gclid 或已授予 ad_storage）。
+#    拦掉不影响本站功能，只是控制台噪音；若**不投 Google Ads** 可删掉这一项。
+# ③ font-src 显式写 'self'：本站**零 webfont**（无 @font-face、无字体文件），
+#    行为与 default-src 回退完全相同，仅让约束显式化。
+# ④ 未放行 img-src / frame-src 的外部源：产物里**无外部图片、无 iframe**（已实测）。
+# ⑤ 控制台里的「font violates default-src」「unload is not allowed」来自**浏览器扩展**
+#    （如 Grammarly）。干净配置档实测字体请求 = 0，与本站无关，无需处理。
 /*
   Content-Signal: ai-train=yes, search=yes, ai-input=yes, ai-personalization=yes, ai-retrieval=yes
   Link: <https://www.wowohcool.com/sitemap.xml>; rel="sitemap", <https://www.wowohcool.com/rss.xml>; rel="alternate"; type="application/rss+xml"; title="Blog RSS"
@@ -18,7 +31,7 @@
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=(), interest-cohort=()
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self' https://www.google-analytics.com https://api.web3forms.com; frame-src 'self'; object-src 'none'; base-uri 'self'
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://www.google-analytics.com https://api.web3forms.com https://pagead2.googlesyndication.com; frame-src 'self'; object-src 'none'; base-uri 'self'
 
 # --- DE pages: override sitemap Link header (Content-Signal & security inherit from /*) ---
 /de/*
