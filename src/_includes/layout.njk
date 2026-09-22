@@ -31,8 +31,13 @@
  {% elif ruPath is defined %}<link rel="alternate" hreflang="ru" href="https://www.wowohcool.com/ru/{{ ruPath | trailingSlash }}">{% endif %}
  {% if lang == "pl" %}<link rel="alternate" hreflang="pl" href="https://www.wowohcool.com{{ canonical }}">
  {% elif plPath is defined %}<link rel="alternate" hreflang="pl" href="https://www.wowohcool.com/pl/{{ plPath | trailingSlash }}">{% endif %}
- {% if enPath is defined %}<link rel="alternate" hreflang="x-default" href="https://www.wowohcool.com/{{ enPath | trailingSlash }}">
- {% else %}<link rel="alternate" hreflang="x-default" href="https://www.wowohcool.com{{ canonical }}">{% endif %}
+ {# x-default = 该语言簇的「默认语言版本」。本站默认语言是 EN ⇒ 只可能有两种合法来源：
+    ① 本页是 EN 页 → 指向自身；② 本页是其它语言且声明了 enPath → 指向 EN 版。
+    ⚠️ 若两者都不成立（该语言簇**根本没有 EN 版**，如法务声明页 de/es/fr/ru/pl），
+    就**必须不输出** x-default —— 否则 5 个页面各自声明自己，
+    等于把同一个 hreflang 码映射到 5 个不同 URL，规范上是非法标注（Google 会整簇丢弃）。
+    绝不退化成「指向自身」。 #}{% if enPath is defined %}<link rel="alternate" hreflang="x-default" href="https://www.wowohcool.com/{{ enPath | trailingSlash }}">
+ {% elif lang == "en" %}<link rel="alternate" hreflang="x-default" href="https://www.wowohcool.com{{ canonical }}">{% endif %}
  {# RSS 自动发现：6 语言各有 /[lang/]rss.xml（src/rss.njk 生成）。
     此前只在 _headers 用 HTTP Link: header 声明（仅 Cloudflare 生效），HTML 侧缺失 → 浏览器/爬虫/阅读器无法自动发现。 #}
  <link rel="alternate" type="application/rss+xml" title="{{ i18n.header[lang].navBlog }} — WOWOHCOOL" href="https://www.wowohcool.com{% if lang != "en" %}/{{ lang }}{% endif %}/rss.xml">
