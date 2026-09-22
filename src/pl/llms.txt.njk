@@ -9,6 +9,7 @@ permalink: /pl/llms.txt
 - search: yes
 - ai-personalization: yes
 - ai-retrieval: yes
+- markdown: każda strona jest również serwowana jako text/markdown przez nagłówek Accept (ten sam URL)
 
 ## O Fabryce
 - [O WOWOHCOOL](https://www.wowohcool.com/pl/o-nas/): ISO 9001 | {{ facts.areaSqm | numloc("pl") }} m² | {{ facts.engineers }} inżynierów R&D | {{ facts.capacityMonthly }} szt./mies. | {{ facts.qcStages }}-stopniowa QC | Od {{ facts.founded }}
@@ -45,7 +46,7 @@ CE (Europa), FCC (USA), RoHS (globalny), Qi2 (WPC), UL (USA), PSE (Japonia), KC 
 
 ## Artykuły na Blogu
 {%- for post in collections.blog_pl %}
-- [{{ post.data.title | e }}](https://www.wowohcool.com{{ post.data.canonical }})
+- [{{ post.data.title | safe }}](https://www.wowohcool.com{{ post.data.canonical }})
 {%- endfor %}
 
 ## Kontakt i Wsparcie

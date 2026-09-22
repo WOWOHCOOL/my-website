@@ -9,6 +9,7 @@ permalink: /llms.txt
 - search: yes
 - ai-personalization: yes
 - ai-retrieval: yes
+- markdown: every page is also served as text/markdown via the Accept header (same URL)
 
 ## About the Factory
 - [About WOWOHCOOL](https://www.wowohcool.com/about/): ISO 9001 | {{ facts.areaSqm }}m² | {{ facts.engineers }} R&D engineers | {{ facts.capacityMonthly }} units/month | {{ facts.qcStages }}-stage QC | Since {{ facts.founded }}
@@ -45,7 +46,7 @@ CE (Europe), FCC (US), RoHS (global), Qi2 (WPC), UL (US), PSE (Japan), KC (Korea
 
 ## Blog Articles
 {%- for post in collections.blog_en %}
-- [{{ post.data.title | e }}](https://www.wowohcool.com{{ post.data.canonical }})
+- [{{ post.data.title | safe }}](https://www.wowohcool.com{{ post.data.canonical }})
 {%- endfor %}
 
 ## Contact & Support
