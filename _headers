@@ -33,23 +33,34 @@
   Permissions-Policy: camera=(), microphone=(), geolocation=(), interest-cohort=()
   Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://www.google-analytics.com https://api.web3forms.com https://pagead2.googlesyndication.com; frame-src 'self'; object-src 'none'; base-uri 'self'
 
-# --- DE pages: override sitemap Link header (Content-Signal & security inherit from /*) ---
+# --- 各语言的 sitemap Link ---
+# ⚠️ 这些块是**追加**（ADD），不是「覆盖」（OVERRIDE）——
+#    Cloudflare 官方文档：「If a header is applied twice in the _headers file,
+#    the values are joined with a comma separator.」已线上实测确认：
+#    `curl -I /de/` 返回**一条** Link 头，把全局的 sitemap+rss 与 /de/sitemap.xml
+#    逗号拼接在一起。
+#    这里之所以**无害**：`Link` 是列表型头（逗号拼接合法，且 rel="sitemap" 可重复）。
+#    ⚠️ 但**单值型头**（Cache-Control / Content-Type / CSP / X-Frame-Options …）
+#    绝不可跨块重复声明 —— 拼接出的两个值会自相矛盾（见文件顶部 Cache-Control 的教训）。
+#    `scripts/validate-headers.js` 已对这两类分别做 FAIL / 提示。
+#
+# --- DE pages (Content-Signal & security inherit from /*) ---
 /de/*
   Link: <https://www.wowohcool.com/de/sitemap.xml>; rel="sitemap"
 
-# --- ES pages: override sitemap Link header (Content-Signal & security inherit from /*) ---
+# --- ES pages (Content-Signal & security inherit from /*) ---
 /es/*
   Link: <https://www.wowohcool.com/es/sitemap.xml>; rel="sitemap"
 
-# --- FR pages: override sitemap Link header (Content-Signal & security inherit from /*) ---
+# --- FR pages (Content-Signal & security inherit from /*) ---
 /fr/*
   Link: <https://www.wowohcool.com/fr/sitemap.xml>; rel="sitemap"
 
-# --- RU pages: override sitemap Link header (Content-Signal & security inherit from /*) ---
+# --- RU pages (Content-Signal & security inherit from /*) ---
 /ru/*
   Link: <https://www.wowohcool.com/ru/sitemap.xml>; rel="sitemap"
 
-# --- PL pages: override sitemap Link header (Content-Signal & security inherit from /*) ---
+# --- PL pages (Content-Signal & security inherit from /*) ---
 /pl/*
   Link: <https://www.wowohcool.com/pl/sitemap.xml>; rel="sitemap"
 
