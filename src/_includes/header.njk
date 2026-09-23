@@ -1,6 +1,26 @@
 {% from "icons.njk" import iconChevronDown, iconEnvelope, iconWhatsapp %}
 {% set h = i18n.header[lang] %}
 
+{# 语言切换器 href 派生（2026-09-23 修正）
+   ⚠️ 原写法：**所有**语言（含当前语言）都走 `{{ ({lang}Path or '') | trailingSlash }}`。
+   但元数据标准 §二 规定「只写其它语言、不写自己」⇒ 194 篇 blog 中 164 篇不写自语言
+   `{lang}Path` ⇒ 被高亮的**当前语言**那一项 href 退化成语言首页：`/blog/x/` → `/`（实测）。
+   这是真实 UX 缺陷 —— 点「当前语言」不该把你带离本页。
+   ⇒ 现在：**当前语言一律指向本页自身（canonical）**，其它语言仍走各自 `{lang}Path`。
+   实测：全站 352 页中 310 页被修正、42 页不变（6 个 404 + 6 个语言首页 + 30 个原本
+   写了自语言字段的 blog 页）；那 30 处自语言 `{lang}Path` 已随之成为死数据并已删除。
+   ⚠️ 显式门控 `noSeoTags`（与 layout.njk 对 canonical 的门控口径一致）：6 个 404 页
+   （noindex，切换器指回错误页无意义）→ 回退语言首页，与原行为逐字节一致。
+   不变量：全站 347 个含 canonical 的页面，`canonical` === 该页自身 URL（实测 347/347）。
+   ⚠️ 空白控制：下面 7 行必须整体 `{%- ... -%}`，否则每页多出 7 个换行（已实测）。
+   而 `{%-` 会连注释后的换行一起吃掉，故空行必须留在注释**之前**。 #}
+{%- set selfHref = canonical if (canonical and not noSeoTags) else ('/' if lang === 'en' else '/' + lang + '/') -%}
+{%- set enHref = selfHref if lang === 'en' else '/' + ((enPath or '') | trailingSlash) -%}
+{%- set deHref = selfHref if lang === 'de' else '/de/' + ((dePath or '') | trailingSlash) -%}
+{%- set esHref = selfHref if lang === 'es' else '/es/' + ((esPath or '') | trailingSlash) -%}
+{%- set frHref = selfHref if lang === 'fr' else '/fr/' + ((frPath or '') | trailingSlash) -%}
+{%- set ruHref = selfHref if lang === 'ru' else '/ru/' + ((ruPath or '') | trailingSlash) -%}
+{%- set plHref = selfHref if lang === 'pl' else '/pl/' + ((plPath or '') | trailingSlash) -%}
 <header class="fixed w-full z-[100] bg-white/95 backdrop-blur-md border-b border-slate-100 h-20">
  <nav aria-label="{{ h.navAriaLabel }}" class="max-w-7xl mx-auto px-6 h-full flex items-center justify-between">
  <!-- Logo -->
@@ -61,12 +81,12 @@
    <svg width="12" height="12" aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
   </summary>
   <div class="absolute top-16 right-0 bg-white shadow-2xl rounded-xl border border-slate-100 py-2 min-w-[130px] z-50" onclick="this.parentElement.removeAttribute('open')">
-   <a href="/{{ (enPath or '') | trailingSlash }}" class="flex items-center gap-2 px-4 py-2.5 text-[11px] font-bold uppercase tracking-widest hover:bg-slate-50 transition-colors {% if lang === 'en' %}text-brandOrange bg-brandOrange/5{% else %}text-slate-500{% endif %}"><span class="w-5 text-center">EN</span><span class="text-slate-400 font-medium normal-case tracking-normal text-[10px]">English</span></a>
-   <a href="/de/{{ (dePath or '') | trailingSlash }}" class="flex items-center gap-2 px-4 py-2.5 text-[11px] font-bold uppercase tracking-widest hover:bg-slate-50 transition-colors {% if lang === 'de' %}text-brandOrange bg-brandOrange/5{% else %}text-slate-500{% endif %}"><span class="w-5 text-center">DE</span><span class="text-slate-400 font-medium normal-case tracking-normal text-[10px]">Deutsch</span></a>
-   <a href="/es/{{ (esPath or '') | trailingSlash }}" class="flex items-center gap-2 px-4 py-2.5 text-[11px] font-bold uppercase tracking-widest hover:bg-slate-50 transition-colors {% if lang === 'es' %}text-brandOrange bg-brandOrange/5{% else %}text-slate-500{% endif %}"><span class="w-5 text-center">ES</span><span class="text-slate-400 font-medium normal-case tracking-normal text-[10px]">Español</span></a>
-   <a href="/fr/{{ (frPath or '') | trailingSlash }}" class="flex items-center gap-2 px-4 py-2.5 text-[11px] font-bold uppercase tracking-widest hover:bg-slate-50 transition-colors {% if lang === 'fr' %}text-brandOrange bg-brandOrange/5{% else %}text-slate-500{% endif %}"><span class="w-5 text-center">FR</span><span class="text-slate-400 font-medium normal-case tracking-normal text-[10px]">Français</span></a>
-   <a href="/ru/{{ (ruPath or '') | trailingSlash }}" class="flex items-center gap-2 px-4 py-2.5 text-[11px] font-bold uppercase tracking-widest hover:bg-slate-50 transition-colors {% if lang === 'ru' %}text-brandOrange bg-brandOrange/5{% else %}text-slate-500{% endif %}"><span class="w-5 text-center">RU</span><span class="text-slate-400 font-medium normal-case tracking-normal text-[10px]">Русский</span></a>
-	   <a href="/pl/{{ (plPath or '') | trailingSlash }}" class="flex items-center gap-2 px-4 py-2.5 text-[11px] font-bold uppercase tracking-widest hover:bg-slate-50 transition-colors {% if lang === 'pl' %}text-brandOrange bg-brandOrange/5{% else %}text-slate-500{% endif %}"><span class="w-5 text-center">PL</span><span class="text-slate-400 font-medium normal-case tracking-normal text-[10px]">Polski</span></a>
+   <a href="{{ enHref }}" class="flex items-center gap-2 px-4 py-2.5 text-[11px] font-bold uppercase tracking-widest hover:bg-slate-50 transition-colors {% if lang === 'en' %}text-brandOrange bg-brandOrange/5{% else %}text-slate-500{% endif %}"><span class="w-5 text-center">EN</span><span class="text-slate-400 font-medium normal-case tracking-normal text-[10px]">English</span></a>
+   <a href="{{ deHref }}" class="flex items-center gap-2 px-4 py-2.5 text-[11px] font-bold uppercase tracking-widest hover:bg-slate-50 transition-colors {% if lang === 'de' %}text-brandOrange bg-brandOrange/5{% else %}text-slate-500{% endif %}"><span class="w-5 text-center">DE</span><span class="text-slate-400 font-medium normal-case tracking-normal text-[10px]">Deutsch</span></a>
+   <a href="{{ esHref }}" class="flex items-center gap-2 px-4 py-2.5 text-[11px] font-bold uppercase tracking-widest hover:bg-slate-50 transition-colors {% if lang === 'es' %}text-brandOrange bg-brandOrange/5{% else %}text-slate-500{% endif %}"><span class="w-5 text-center">ES</span><span class="text-slate-400 font-medium normal-case tracking-normal text-[10px]">Español</span></a>
+   <a href="{{ frHref }}" class="flex items-center gap-2 px-4 py-2.5 text-[11px] font-bold uppercase tracking-widest hover:bg-slate-50 transition-colors {% if lang === 'fr' %}text-brandOrange bg-brandOrange/5{% else %}text-slate-500{% endif %}"><span class="w-5 text-center">FR</span><span class="text-slate-400 font-medium normal-case tracking-normal text-[10px]">Français</span></a>
+   <a href="{{ ruHref }}" class="flex items-center gap-2 px-4 py-2.5 text-[11px] font-bold uppercase tracking-widest hover:bg-slate-50 transition-colors {% if lang === 'ru' %}text-brandOrange bg-brandOrange/5{% else %}text-slate-500{% endif %}"><span class="w-5 text-center">RU</span><span class="text-slate-400 font-medium normal-case tracking-normal text-[10px]">Русский</span></a>
+	   <a href="{{ plHref }}" class="flex items-center gap-2 px-4 py-2.5 text-[11px] font-bold uppercase tracking-widest hover:bg-slate-50 transition-colors {% if lang === 'pl' %}text-brandOrange bg-brandOrange/5{% else %}text-slate-500{% endif %}"><span class="w-5 text-center">PL</span><span class="text-slate-400 font-medium normal-case tracking-normal text-[10px]">Polski</span></a>
   </div>
  </details>
  <button data-action="open-modal" class="bg-brandOrange text-white p-2 md:px-7 md:py-2 rounded-full text-[11px] md:text-[11px] font-black uppercase tracking-widest hover:scale-105 transition shadow-lg shadow-brandOrange/20 flex items-center justify-center min-h-[44px] min-w-[44px]" aria-label="{{ h.ctaButtonAriaLabel }}">
@@ -83,12 +103,12 @@
    <svg width="10" height="10" aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
   </summary>
   <div class="absolute top-8 right-0 bg-white shadow-2xl rounded-xl border border-slate-100 py-2 min-w-[90px] z-50" onclick="this.parentElement.removeAttribute('open')">
-   <a href="/{{ (enPath or '') | trailingSlash }}" class="block px-4 py-2 text-[11px] font-bold uppercase tracking-widest hover:bg-slate-50 transition-colors {% if lang === 'en' %}text-brandOrange bg-brandOrange/5{% else %}text-slate-500{% endif %}">EN</a>
-   <a href="/de/{{ (dePath or '') | trailingSlash }}" class="block px-4 py-2 text-[11px] font-bold uppercase tracking-widest hover:bg-slate-50 transition-colors {% if lang === 'de' %}text-brandOrange bg-brandOrange/5{% else %}text-slate-500{% endif %}">DE</a>
-   <a href="/es/{{ (esPath or '') | trailingSlash }}" class="block px-4 py-2 text-[11px] font-bold uppercase tracking-widest hover:bg-slate-50 transition-colors {% if lang === 'es' %}text-brandOrange bg-brandOrange/5{% else %}text-slate-500{% endif %}">ES</a>
-   <a href="/fr/{{ (frPath or '') | trailingSlash }}" class="block px-4 py-2 text-[11px] font-bold uppercase tracking-widest hover:bg-slate-50 transition-colors {% if lang === 'fr' %}text-brandOrange bg-brandOrange/5{% else %}text-slate-500{% endif %}">FR</a>
-   <a href="/ru/{{ (ruPath or '') | trailingSlash }}" class="block px-4 py-2 text-[11px] font-bold uppercase tracking-widest hover:bg-slate-50 transition-colors {% if lang === 'ru' %}text-brandOrange bg-brandOrange/5{% else %}text-slate-500{% endif %}">RU</a>
-	   <a href="/pl/{{ (plPath or '') | trailingSlash }}" class="block px-4 py-2 text-[11px] font-bold uppercase tracking-widest hover:bg-slate-50 transition-colors {% if lang === 'pl' %}text-brandOrange bg-brandOrange/5{% else %}text-slate-500{% endif %}">PL</a>
+   <a href="{{ enHref }}" class="block px-4 py-2 text-[11px] font-bold uppercase tracking-widest hover:bg-slate-50 transition-colors {% if lang === 'en' %}text-brandOrange bg-brandOrange/5{% else %}text-slate-500{% endif %}">EN</a>
+   <a href="{{ deHref }}" class="block px-4 py-2 text-[11px] font-bold uppercase tracking-widest hover:bg-slate-50 transition-colors {% if lang === 'de' %}text-brandOrange bg-brandOrange/5{% else %}text-slate-500{% endif %}">DE</a>
+   <a href="{{ esHref }}" class="block px-4 py-2 text-[11px] font-bold uppercase tracking-widest hover:bg-slate-50 transition-colors {% if lang === 'es' %}text-brandOrange bg-brandOrange/5{% else %}text-slate-500{% endif %}">ES</a>
+   <a href="{{ frHref }}" class="block px-4 py-2 text-[11px] font-bold uppercase tracking-widest hover:bg-slate-50 transition-colors {% if lang === 'fr' %}text-brandOrange bg-brandOrange/5{% else %}text-slate-500{% endif %}">FR</a>
+   <a href="{{ ruHref }}" class="block px-4 py-2 text-[11px] font-bold uppercase tracking-widest hover:bg-slate-50 transition-colors {% if lang === 'ru' %}text-brandOrange bg-brandOrange/5{% else %}text-slate-500{% endif %}">RU</a>
+	   <a href="{{ plHref }}" class="block px-4 py-2 text-[11px] font-bold uppercase tracking-widest hover:bg-slate-50 transition-colors {% if lang === 'pl' %}text-brandOrange bg-brandOrange/5{% else %}text-slate-500{% endif %}">PL</a>
   </div>
  </details>
  <button data-action="open-modal" class="bg-brandOrange text-white p-2 rounded-full min-w-[44px] min-h-[44px] flex items-center justify-center shadow-lg shadow-brandOrange/20 hover:scale-105 transition" aria-label="{{ h.ctaButtonAriaLabel }}">
