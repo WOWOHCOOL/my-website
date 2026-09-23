@@ -83,6 +83,11 @@ module.exports = function (eleventyConfig) {
   });
 
   // Wrap h2 sections in .blog-content into card divs (DE/ES blog posts)
+  // ⚠️ 2026-09-23：`.blog-content` 已**全站退役** → 本 transform **已惰性**（对任何输入均为恒等映射）。
+  //    行为探针已证（seomachine/_transform_probe.js，Proxy mock eleventyConfig 捕获 transform）：
+  //      · 带精确 marker 时仍正常产出灰卡 section → **没坏**
+  //      · 迁移前形态（有 blog-content 无 marker）与迁移后形态（无 blog-content）**都原样返回** → 零影响
+  //    保留原因：零成本的安全网（只覆盖 de|es|pl，不影响 EN/FR/RU）。移除属独立决策，勿顺手删。
   eleventyConfig.addTransform("blogSectionCards", function (content) {
     if (!this.outputPath || !this.outputPath.endsWith('.html')) return content;
     if (!this.outputPath.match(/\/(de|es|pl)\/blog\/.+\/index\.html$/)) return content;

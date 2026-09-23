@@ -724,7 +724,23 @@ svg[class*="icon-"]{display:inline-block;width:1em;height:1em;vertical-align:-0.
    (text-white, text-2xl, mb-6, ...) on classed elements always win — without
    this, these rules overrode utilities and turned white headings dark on
    blue backgrounds (ToC/CTA). Values mirror the standard template
-   (text-slate-600 leading-relaxed mb-4; no margin-top on h2/h3). */
+   (text-slate-600 leading-relaxed mb-4; no margin-top on h2/h3).
+
+   ⚠️⚠️ 2026-09-23：`.blog-content` 已**全站退役** —— 29 篇 DE/ES 老文章迁到显式 Tailwind 类，
+   载体类已从 `<article>` 摘除。实测 `_site/` 下全部 .html 中带该类的元素 = **0**，且无 JS 动态注入
+   （`grep -rn blog-content --include="*.js"` 仅命中本仓库的 transform 本体）
+   → 以下 11 条规则**当前零消费者、永不匹配**。
+   ⚠️ 本段注释内不得出现 `*` 紧跟 `/` 的字面量（含 glob 写法），否则会提前闭合注释、整段被当选择器解析。
+
+   **⛔ 保留原因（勿删）**：
+     ① 硬门禁依赖：`data_sources/modules/prebuild_gate.py` L193-198 要求
+        `.blog-content :where(h2)` 必须存在于本文件，否则 `GATE BLOCKED`
+        （已用真注入验证：删掉该行 → `[FAIL] blog template`）。
+        要退役必须「本段规则 + 门禁检查」**一起**改 —— 属**耦合退役**，不是单点清理。
+     ② 作为特异性样板：提醒后来者此类回退**必须**用 `:where()`（(0,1,0)），
+        否则会压过 Tailwind 单类工具类。
+
+   收益仅 **947 B / 101883 B = 0.93%**（gzip 前），**不足以抵消动门禁的风险**。 */
 @layer components {
   .blog-content :where(h2) { font-size: 1.5rem; font-weight: 700; color: #0A192F; margin-bottom: 1rem; }
   .blog-content :where(h3) { font-size: 1.2rem; font-weight: 600; color: #0A192F; margin-bottom: 0.75rem; }
