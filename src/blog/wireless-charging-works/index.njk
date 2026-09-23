@@ -310,6 +310,7 @@ navActive: "blog"
 {% endblock %}
 
 {% block content %}
+ <article class="pb-12">
 <!-- Article Hero Header -->
  <div class="relative pt-24 md:pt-28 pb-12 lg:pt-28 lg:pb-16 bg-gradient-to-b from-slate-50 to-white overflow-hidden">
  <!-- Decorative blobs -->
@@ -343,7 +344,7 @@ navActive: "blog"
  {{ postMeta(date, modified, "20 min read", "en") }}
  
  <!-- The Hook -->
- <div class="bg-brandBlue/5 border-l-4 border-brandOrange p-6 rounded-r-xl mb-12 speakable">
+ <div class="bg-brandBlue/5 border-l-4 border-brandOrange p-6 rounded-r-xl mb-8 speakable">
  <p class="text-lg text-slate-700 italic">The global wireless charging market reached <strong>$18.4 billion in 2026</strong> (CAGR 24.2% toward $83.8B by 2033), and Qi2.2 25W is growing at <strong>38% CAGR</strong>. Yet the #1 cause of wireless charger returns isn't a faulty chip — it's coil misalignment. Qi2 MPP with N52H magnets solved this, but only if the OEM factory implements it correctly at the PCB level.</p>
  <p class="text-slate-600 leading-relaxed mt-4">This guide covers what B2B buyers need to verify before placing an order: electromagnetic induction fundamentals, Qi2 vs Qi2.2 certification tiers, magnetic alignment tolerances, thermal management requirements, and the FOD safety gate that blocks uncertified products from EU and US markets.</p>
  </div>
@@ -361,9 +362,9 @@ navActive: "blog"
 </div>
 
 <!-- Key Takeaways -->
-<div class="max-w-4xl mx-auto px-6 mb-12">
+<div class="max-w-4xl mx-auto px-6">
  <div class="bg-amber-50 border-l-4 border-amber-500 rounded-r-xl p-6 mb-8">
- <p class="text-lg font-black uppercase text-amber-700 mb-3">Key Takeaways</p>
+ <p class="text-[11px] font-black text-brandOrange uppercase tracking-widest mb-2">Key Takeaways</p>
  <p class="text-slate-700 leading-relaxed text-sm mb-4 speakable">Qi transfers power via magnetic resonance at 100-205 kHz; Qi2 MPP with its alignment ring is the 2026 OEM standard. 3-in-1 stations are the highest-margin category: 15W Qi2 pad $6.50-9.00 FOB at MOQ 500.</p>
  <ul class="text-sm text-slate-700 space-y-2 list-disc pl-5">
  <li><strong>Qi (inductive) charging works via magnetic resonance at 100-205 kHz</strong>, transferring power from a transmitter coil to a receiver coil across a gap of up to 5mm (Qi) or tightly aligned (Qi2 MPP with magnets). Efficiency: 70-80% vs 90-95% for wired, the 15-20% gap is lost as heat, which is why wireless chargers run warmer and charge slower than wired equivalents at the same wattage rating.</li>
@@ -393,8 +394,6 @@ navActive: "blog"
  <a href="#faq" class="block hover:text-brandOrange transition">12. Frequently Asked Questions</a>
  </nav>
  </div>
-
- <article class="pb-12">
 
 
 
@@ -1260,8 +1259,8 @@ navActive: "blog"
  <h2 class="text-2xl font-black text-white uppercase italic mb-4">Need Qi-Certified Wireless Chargers?</h2>
  <p class="text-slate-300 mb-8 max-w-xl mx-auto">WOWOHCOOL offers Qi2-certified wireless chargers with advanced thermal management and magnetic alignment. Factory-direct pricing with custom branding available.</p>
  <div class="flex flex-col sm:flex-row gap-4 justify-center">
- <a href="/contact/" class="w-full sm:flex-1 bg-brandOrange text-white px-8 py-4 rounded-xl font-black uppercase tracking-widest text-sm hover:-translate-y-1 transition shadow-lg">Get Factory Pricing</a>
- <a href="/products/wireless-charger/" class="w-full sm:flex-1 text-center border-2 border-white text-white px-8 py-4 rounded-xl font-black uppercase tracking-widest text-sm hover:bg-white hover:text-brandBlue transition">View Products</a>
+ <a href="/contact/" class="btn-wide">Get Factory Pricing</a>
+ <a href="/products/wireless-charger/" class="w-full sm:flex-1 text-center border-2 border-white text-white px-8 py-4 rounded-xl font-black uppercase text-sm hover:bg-white hover:text-brandBlue transition">View Products</a>
  </div>
  </div>
  </section>
@@ -1317,7 +1316,6 @@ navActive: "blog"
  </ul>
  </section>
 
- </article>
 
 </div>
 <!-- END SHARED CONTENT WRAPPER -->
@@ -1329,6 +1327,8 @@ navActive: "blog"
 {%- set ctaSubject = "Blog Inquiry" %}
 {%- set ctaButton = "Get Free Quote" %}
 </div>
+
+ </article>
 
 {% include "partials/blog-cta.njk" %}
 
