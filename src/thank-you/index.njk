@@ -73,21 +73,14 @@ plPath: "dziekujemy/"
 {% endblock %}
 
 {% block content %}
-<div class="absolute top-0 left-0 w-full h-2 bg-brandOrange"></div>
-
-<section id="hero" class="relative pt-24 md:pt-28 bg-white overflow-hidden" data-section="hero">
- <div class="container-narrow">
- {{ breadcrumb([{name: "Home", url: "/"}, {name: "Thank You"}], "none", "mb-6", { variant: "hero" }) }}
- </div>
-</section>
-
-<section id="content" class="pb-12 md:pb-16 bg-white" data-section="content">
- <div class="container-wide text-center">
+<div class="max-w-xl w-[90%] bg-white rounded-[3rem] p-12 shadow-2xl text-center relative overflow-hidden mx-auto mt-24 mb-16">
+ <div class="absolute top-0 left-0 w-full h-2 bg-brandOrange"></div>
+ {{ breadcrumb([{name: "Home", url: "/"}, {name: "Thank You"}], "none", "mb-6 text-left", { variant: "hero" }) }}
  <div class="w-24 h-24 bg-green-50 text-green-500 rounded-full flex items-center justify-center mx-auto mb-8">
  <svg class="icon-circle-check text-5xl" aria-hidden="true" focusable="false" viewBox="0 0 512 512"><path d="M256 512a256 256 0 1 1 0-512 256 256 0 1 1 0 512zM374 145.7c-10.7-7.8-25.7-5.4-33.5 5.3L221.1 315.2 169 263.1c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l72 72c5 5 11.8 7.5 18.8 7s13.4-4.1 17.5-9.8L379.3 179.2c7.8-10.7 5.4-25.7-5.3-33.5z" fill="currentColor"/></svg>
  </div>
 
- <h1 class="text-3xl md:text-5xl font-black text-brandBlue uppercase italic tracking-tighter mb-4">
+ <h1 class="text-3xl font-black text-brandBlue uppercase italic tracking-tighter mb-4">
  Inquiry <span class="text-brandOrange">Received!</span>
  </h1>
 
@@ -149,8 +142,7 @@ plPath: "dziekujemy/"
  <a href="/products/car-charger/" class="chip-light">Car Chargers</a>
  </div>
  </div>
- </div>
-</section>
+</div>
 
 {% include "trust-bar.njk" %}
 {% endblock %}
