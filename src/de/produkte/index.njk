@@ -271,42 +271,15 @@ plPath: "produkty/"
  </section>
 
  <!-- FAQ Section -->
- <section id="faq" class="sec bg-slate-50" data-section="faq">
- <div class="container-narrow">
- <div class="flex items-center gap-3 mb-10">
- <div class="w-1 h-8 bg-brandOrange rounded-full"></div>
- <h2 class="text-2xl md:text-3xl font-black text-brandBlue uppercase italic">Häufig gestellte Fragen</h2>
- </div>
- <div class="space-y-4">
- <details class="card-lg group p-6 open:shadow-md transition-all cursor-pointer">
- <summary class="flex items-center justify-between font-black text-brandBlue text-sm uppercase tracking-wider">
- Wie hoch ist die Mindestbestellmenge (MOQ) für OEM/ODM?
- <svg class="icon-plus text-brandOrange text-xs group-open:rotate-45 transition-transform" aria-hidden="true" focusable="false" viewBox="0 0 448 512"><path d="M256 64c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 160-160 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l160 0 0 160c0 17.7 14.3 32 32 32s32-14.3 32-32l0-160 160 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-160 0 0-160z" fill="currentColor"/></svg>
- </summary>
- <p class="mt-4 text-slate-600 text-sm leading-relaxed faq-answer">Ab 500 Stück pro SKU für Standard-OEM-Branding und 1.000 Stück für ODM-Projekte mit neuem Werkzeug. Wir bieten flexible MOQ-Optionen für Startup-Marken — kontaktieren Sie uns für individuelle Konditionen.</p>
- </details>
- <details class="card-lg group p-6 open:shadow-md transition-all cursor-pointer">
- <summary class="flex items-center justify-between font-black text-brandBlue text-sm uppercase tracking-wider">
- Kann ich vor der Großbestellung Muster erhalten?
- <svg class="icon-plus text-brandOrange text-xs group-open:rotate-45 transition-transform" aria-hidden="true" focusable="false" viewBox="0 0 448 512"><path d="M256 64c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 160-160 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l160 0 0 160c0 17.7 14.3 32 32 32s32-14.3 32-32l0-160 160 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-160 0 0-160z" fill="currentColor"/></svg>
- </summary>
- <p class="mt-4 text-slate-600 text-sm leading-relaxed faq-answer">Ja. Standardmuster sind innerhalb von 3-7 Tagen verfügbar. Musterkosten werden bei Auftragserteilung erstattet. Wir empfehlen Mustertests zur Qualitäts- und Kompatibilitätsprüfung.</p>
- </details>
- <details class="card-lg group p-6 open:shadow-md transition-all cursor-pointer">
- <summary class="flex items-center justify-between font-black text-brandBlue text-sm uppercase tracking-wider">
- Welche Zertifizierungen haben Ihre Produkte?
- <svg class="icon-plus text-brandOrange text-xs group-open:rotate-45 transition-transform" aria-hidden="true" focusable="false" viewBox="0 0 448 512"><path d="M256 64c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 160-160 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l160 0 0 160c0 17.7 14.3 32 32 32s32-14.3 32-32l0-160 160 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-160 0 0-160z" fill="currentColor"/></svg>
- </summary>
- <p class="mt-4 text-slate-600 text-sm leading-relaxed faq-answer">Alle Produkte erfüllen globale Standards: CE, FCC, RoHS und Qi/Qi2. Powerbanks sind UN38.3-zertifiziert. Wir unterstützen auch bei UL, PSE, KC und weiteren marktspezifischen Zertifizierungen.</p>
- </details>
- <details class="card-lg group p-6 open:shadow-md transition-all cursor-pointer">
- <summary class="flex items-center justify-between font-black text-brandBlue text-sm uppercase tracking-wider">
- Wie lang ist die typische Lieferzeit?
- <svg class="icon-plus text-brandOrange text-xs group-open:rotate-45 transition-transform" aria-hidden="true" focusable="false" viewBox="0 0 448 512"><path d="M256 64c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 160-160 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l160 0 0 160c0 17.7 14.3 32 32 32s32-14.3 32-32l0-160 160 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-160 0 0-160z" fill="currentColor"/></svg>
- </summary>
- <p class="mt-4 text-slate-600 text-sm leading-relaxed faq-answer">Standard-OEM-Bestellungen werden innerhalb von 25-30 Tagen nach Musterfreigabe versandt. ODM-Projekte mit neuem Werkzeug benötigen ca. 45-60 Tage ab Designfreigabe. Eilaufträge für etablierte Partner möglich.</p>
- </details>
- </div>
+  <section id="faq" class="sec bg-slate-50" data-section="faq">
+  <div class="container-narrow">
+  {{ sectionHeader('FAQ', 'Häufig gestellte Fragen', '', {max: ''}) }}
+  <div class="reveal">
+  {% call faqItem("Wie hoch ist die Mindestbestellmenge (MOQ) für OEM/ODM?") %}Ab 500 Stück pro SKU für Standard-OEM-Branding und 1.000 Stück für ODM-Projekte mit neuem Werkzeug. Wir bieten flexible MOQ-Optionen für Startup-Marken — kontaktieren Sie uns für individuelle Konditionen.{% endcall %}
+  {% call faqItem("Kann ich vor der Großbestellung Muster erhalten?") %}Ja. Standardmuster sind innerhalb von 3-7 Tagen verfügbar. Musterkosten werden bei Auftragserteilung erstattet. Wir empfehlen Mustertests zur Qualitäts- und Kompatibilitätsprüfung.{% endcall %}
+  {% call faqItem("Welche Zertifizierungen haben Ihre Produkte?") %}Alle Produkte erfüllen globale Standards: CE, FCC, RoHS und Qi/Qi2. Powerbanks sind UN38.3-zertifiziert. Wir unterstützen auch bei UL, PSE, KC und weiteren marktspezifischen Zertifizierungen.{% endcall %}
+  {% call faqItem("Wie lang ist die typische Lieferzeit?") %}Standard-OEM-Bestellungen werden innerhalb von 25-30 Tagen nach Musterfreigabe versandt. ODM-Projekte mit neuem Werkzeug benötigen ca. 45-60 Tage ab Designfreigabe. Eilaufträge für etablierte Partner möglich.{% endcall %}
+  </div>
  </div>
  </section>
 

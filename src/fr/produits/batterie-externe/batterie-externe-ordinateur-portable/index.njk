@@ -1077,38 +1077,17 @@ plPath: "produkty/power-bank/do-laptopa/"
 </section>
 
 <!-- FAQ -->
-<section id="faq" class="sec bg-white relative" data-section="faq">
+<section id="faq" class="sec bg-slate-50" data-section="faq">
  <div class="container-narrow">
- <h2 class="text-3xl lg:text-4xl font-black text-slate-900 uppercase italic tracking-tighter mb-10 text-center">Batterie externe PC portable <span class="text-brandOrange">FAQ</span></h2>
- <div class="space-y-4">
- <details class="card-soft p-5 group">
- <summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">Une batterie externe peut-elle charger un MacBook Pro ?<span class="text-brandOrange group-open:rotate-180 transition">▼</span></summary>
- <p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">Oui. Les modèles avec sortie PD 67W ou plus (WOP21, WOP22, WOP23) chargent les MacBook Pro 13/14/16 pouces à pleine vitesse. Le modèle WOP23 PD 3.1 240W prend également en charge la charge rapide du MacBook Pro 16 pouces à 140W, égalant la sortie du chargeur MagSafe 3 d'Apple.</p>
- </details>
- <details class="card-soft p-5 group">
- <summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">Quelle est la différence entre PD 3.1 et PD 3.0 ?<span class="text-brandOrange group-open:rotate-180 transition">▼</span></summary>
- <p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">Le PD 3.0 est limité à 100W maximum. Le PD 3.1 (publié en 2021) étend la norme jusqu'à 240W en utilisant les nouvelles tensions 28V, 36V et 48V (Extended Power Range, EPR). Le PD 3.1 est requis pour charger les PC portables gaming et le MacBook Pro 16 pouces à pleine vitesse.</p>
- </details>
- <details class="card-soft p-5 group">
- <summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">Une batterie externe 27000mAh est-elle autorisée en avion ?<span class="text-brandOrange group-open:rotate-180 transition">▼</span></summary>
- <p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">Oui. 27000mAh à 3,7V équivaut à 99,9Wh, juste sous la limite bagage cabine IATA de 100Wh. Toutes les batteries externes WOWOHCOOL sont certifiées UN38.3 et approuvées pour le transport en cabine. Au-delà de 100Wh, une approbation de la compagnie est requise et le transport en soute est interdit.</p>
- </details>
- <details class="card-soft p-5 group">
- <summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">Quel est le MOQ pour une batterie externe PC portable en OEM ?<span class="text-brandOrange group-open:rotate-180 transition">&#9660;</span></summary>
- <p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">Le MOQ commence à 500 unités pour les modèles ODM standards avec impression logo personnalisée. OEM sur mesure avec outillage : 1 000-2 000 unités. Délai d'échantillon : 3-7 jours pour le standard, 10-15 jours pour le sur mesure.</p>
- </details>
- <details class="card-soft p-5 group">
- <summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">Combien de temps une batterie 27000mAh charge-t-elle un MacBook Pro ?<span class="text-brandOrange group-open:rotate-180 transition">&#9660;</span></summary>
- <p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">Une batterie externe 27000mAh (99,9Wh) fournit environ 1,3 à 1,5 charge complète pour un MacBook Pro 14" (batterie 70Wh) ou environ 0,7 à 0,8 charge pour un MacBook Pro 16" (batterie 100Wh). Avec 85 % d'efficacité de conversion, prévoyez 85Wh d'énergie utilisable.</p>
- </details>
- <details class="card-soft p-5 group">
- <summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">Puis-je charger un PC portable et un téléphone simultanément ?<span class="text-brandOrange group-open:rotate-180 transition">&#9660;</span></summary>
- <p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">Oui. Toutes les batteries externes WOWOHCOOL prennent en charge la sortie simultanée multi-appareils. Le WOP23 peut délivrer 240W à un PC portable tout en chargeant un téléphone via le port USB-C ou USB-A secondaire. La sortie totale est répartie dynamiquement entre les ports.</p>
- </details>
- <details class="card-soft p-5 group">
- <summary class="font-black text-slate-900 cursor-pointer flex justify-between items-center text-sm uppercase">Comment calculer les Wh pour la conformité aérienne ?<span class="text-brandOrange group-open:rotate-180 transition">&#9660;</span></summary>
- <p class="faq-answer text-slate-600 text-sm leading-relaxed mt-4">Formule : Wh = mAh × Tension Nominale ÷ 1000. Exemple : 27000mAh × 3,7V ÷ 1000 = 99,9Wh (juste sous la limite bagage cabine de 100Wh). Les batteries 100-160Wh nécessitent une approbation de la compagnie aérienne ; au-delà de 160Wh, elles sont interdites à bord.</p>
- </details>
+ {{ sectionHeader('FAQ', 'Batterie externe PC portable <span class="text-brandOrange">FAQ</span>', '', {max: ''}) }}
+ <div class="reveal">
+ {% call faqItem("Une batterie externe peut-elle charger un MacBook Pro ?") %}Oui. Les modèles avec sortie PD 67W ou plus (WOP21, WOP22, WOP23) chargent les MacBook Pro 13/14/16 pouces à pleine vitesse. Le modèle WOP23 PD 3.1 240W prend également en charge la charge rapide du MacBook Pro 16 pouces à 140W, égalant la sortie du chargeur MagSafe 3 d'Apple.{% endcall %}
+ {% call faqItem("Quelle est la différence entre PD 3.1 et PD 3.0 ?") %}Le PD 3.0 est limité à 100W maximum. Le PD 3.1 (publié en 2021) étend la norme jusqu'à 240W en utilisant les nouvelles tensions 28V, 36V et 48V (Extended Power Range, EPR). Le PD 3.1 est requis pour charger les PC portables gaming et le MacBook Pro 16 pouces à pleine vitesse.{% endcall %}
+ {% call faqItem("Une batterie externe 27000mAh est-elle autorisée en avion ?") %}Oui. 27000mAh à 3,7V équivaut à 99,9Wh, juste sous la limite bagage cabine IATA de 100Wh. Toutes les batteries externes WOWOHCOOL sont certifiées UN38.3 et approuvées pour le transport en cabine. Au-delà de 100Wh, une approbation de la compagnie est requise et le transport en soute est interdit.{% endcall %}
+ {% call faqItem("Quel est le MOQ pour une batterie externe PC portable en OEM ?") %}Le MOQ commence à 500 unités pour les modèles ODM standards avec impression logo personnalisée. OEM sur mesure avec outillage : 1 000-2 000 unités. Délai d'échantillon : 3-7 jours pour le standard, 10-15 jours pour le sur mesure.{% endcall %}
+ {% call faqItem("Combien de temps une batterie 27000mAh charge-t-elle un MacBook Pro ?") %}Une batterie externe 27000mAh (99,9Wh) fournit environ 1,3 à 1,5 charge complète pour un MacBook Pro 14" (batterie 70Wh) ou environ 0,7 à 0,8 charge pour un MacBook Pro 16" (batterie 100Wh). Avec 85 % d'efficacité de conversion, prévoyez 85Wh d'énergie utilisable.{% endcall %}
+ {% call faqItem("Puis-je charger un PC portable et un téléphone simultanément ?") %}Oui. Toutes les batteries externes WOWOHCOOL prennent en charge la sortie simultanée multi-appareils. Le WOP23 peut délivrer 240W à un PC portable tout en chargeant un téléphone via le port USB-C ou USB-A secondaire. La sortie totale est répartie dynamiquement entre les ports.{% endcall %}
+ {% call faqItem("Comment calculer les Wh pour la conformité aérienne ?") %}Formule : Wh = mAh × Tension Nominale ÷ 1000. Exemple : 27000mAh × 3,7V ÷ 1000 = 99,9Wh (juste sous la limite bagage cabine de 100Wh). Les batteries 100-160Wh nécessitent une approbation de la compagnie aérienne ; au-delà de 160Wh, elles sont interdites à bord.{% endcall %}
  </div>
  </div>
 </section>

@@ -312,50 +312,15 @@ plPath: "produkty/"
  </div>
 
  <!-- FAQ Section -->
- <section id="faq" class="sec bg-slate-50" data-section="faq">
- <div class="container-narrow">
- <div class="flex items-center gap-3 mb-10">
- <div class="w-1 h-8 bg-brandOrange rounded-full"></div>
- <h2 class="text-2xl md:text-3xl font-black text-brandBlue uppercase italic">Frequently Asked Questions</h2>
- </div>
- <div class="space-y-4">
- <details class="card-lg group p-6 open:shadow-md transition-all cursor-pointer">
- <summary class="flex items-center justify-between font-black text-brandBlue text-sm uppercase tracking-wider">
- What is the MOQ for OEM/ODM orders?
- <svg class="icon-plus text-brandOrange text-xs group-open:rotate-45 transition-transform" aria-hidden="true" focusable="false" viewBox="0 0 448 512">
- <path d="M256 64c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 160-160 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l160 0 0 160c0 17.7 14.3 32 32 32s32-14.3 32-32l0-160 160 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-160 0 0-160z" fill="currentColor"/>
- </svg>
- </summary>
- <p class="mt-4 text-slate-600 text-sm leading-relaxed faq-answer">Our MOQ starts at 500 units per SKU for ODM on in-stock models, 1,000-2,000 units for ODM new development, and 3,000+ units for OEM with new tooling. We offer flexible MOQ options for startup brands, contact us to discuss your requirements.</p>
- </details>
- <details class="card-lg group p-6 open:shadow-md transition-all cursor-pointer">
- <summary class="flex items-center justify-between font-black text-brandBlue text-sm uppercase tracking-wider">
- Can I request samples before bulk ordering?
- <svg class="icon-plus text-brandOrange text-xs group-open:rotate-45 transition-transform" aria-hidden="true" focusable="false" viewBox="0 0 448 512">
- <path d="M256 64c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 160-160 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l160 0 0 160c0 17.7 14.3 32 32 32s32-14.3 32-32l0-160 160 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-160 0 0-160z" fill="currentColor"/>
- </svg>
- </summary>
- <p class="mt-4 text-slate-600 text-sm leading-relaxed faq-answer">Yes. Standard samples are available within 3-7 days. Sample fees are typically refundable upon placement of a bulk order. We encourage sample testing to verify quality and compatibility.</p>
- </details>
- <details class="card-lg group p-6 open:shadow-md transition-all cursor-pointer">
- <summary class="flex items-center justify-between font-black text-brandBlue text-sm uppercase tracking-wider">
- What certifications do your products carry?
- <svg class="icon-plus text-brandOrange text-xs group-open:rotate-45 transition-transform" aria-hidden="true" focusable="false" viewBox="0 0 448 512">
- <path d="M256 64c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 160-160 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l160 0 0 160c0 17.7 14.3 32 32 32s32-14.3 32-32l0-160 160 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-160 0 0-160z" fill="currentColor"/>
- </svg>
- </summary>
- <p class="mt-4 text-slate-600 text-sm leading-relaxed faq-answer">All products are engineered to meet global standards including CE, FCC, RoHS, and Qi/Qi2. Power banks are UN38.3 certified. We also assist clients in obtaining UL, PSE, KC, and other market-specific certifications.</p>
- </details>
- <details class="card-lg group p-6 open:shadow-md transition-all cursor-pointer">
- <summary class="flex items-center justify-between font-black text-brandBlue text-sm uppercase tracking-wider">
- What is the typical lead time?
- <svg class="icon-plus text-brandOrange text-xs group-open:rotate-45 transition-transform" aria-hidden="true" focusable="false" viewBox="0 0 448 512">
- <path d="M256 64c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 160-160 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l160 0 0 160c0 17.7 14.3 32 32 32s32-14.3 32-32l0-160 160 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-160 0 0-160z" fill="currentColor"/>
- </svg>
- </summary>
- <p class="mt-4 text-slate-600 text-sm leading-relaxed faq-answer">Standard OEM orders ship within 25-30 days after sample approval. ODM projects with new tooling require approximately 45-60 days from design approval. Rush orders are available for established partners.</p>
- </details>
- </div>
+  <section id="faq" class="sec bg-slate-50" data-section="faq">
+  <div class="container-narrow">
+  {{ sectionHeader('FAQ', 'Frequently Asked Questions', '', {max: ''}) }}
+  <div class="reveal">
+  {% call faqItem("What is the MOQ for OEM/ODM orders?") %}Our MOQ starts at 500 units per SKU for ODM on in-stock models, 1,000-2,000 units for ODM new development, and 3,000+ units for OEM with new tooling. We offer flexible MOQ options for startup brands, contact us to discuss your requirements.{% endcall %}
+  {% call faqItem("Can I request samples before bulk ordering?") %}Yes. Standard samples are available within 3-7 days. Sample fees are typically refundable upon placement of a bulk order. We encourage sample testing to verify quality and compatibility.{% endcall %}
+  {% call faqItem("What certifications do your products carry?") %}All products are engineered to meet global standards including CE, FCC, RoHS, and Qi/Qi2. Power banks are UN38.3 certified. We also assist clients in obtaining UL, PSE, KC, and other market-specific certifications.{% endcall %}
+  {% call faqItem("What is the typical lead time?") %}Standard OEM orders ship within 25-30 days after sample approval. ODM projects with new tooling require approximately 45-60 days from design approval. Rush orders are available for established partners.{% endcall %}
+  </div>
  </div>
  </section>
 
