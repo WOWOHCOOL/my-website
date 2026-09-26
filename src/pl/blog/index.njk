@@ -52,7 +52,7 @@ ruPath: "blog/"
 
 {% for item in collections.blog_pl | sort(attribute="date") | reverse %}{% if item.url != "/pl/blog/" and loop.index0 < 6 %}
 <a href="{{ item.url }}" class="card-lg group overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-{% set _og = item.data.ogImage %}{% set _ss = _og | imgSrcset %}{% set _m = _og | imgMeta %}<img src="{{ _og or '/image/factory/wowohcool-smart-charging-solutions.webp' }}"{% if _ss %} srcset="{{ _ss }}" sizes="(min-width: 1024px) 472px, (min-width: 768px) calc(50vw - 40px), calc(100vw - 48px)"{% endif %}{% if _m %} width="{{ _m.w }}" height="{{ _m.h }}"{% endif %} alt="{{ item.data.articleSection or 'Blog' }}" class="w-full h-48 object-cover bg-slate-50" loading="{{ 'eager' if loop.first else 'lazy' }}"{% if not loop.first %} decoding="async"{% endif %}>
+{% set _og = item.data.ogImage %}{% set _ss = _og | imgSrcset %}{% set _m = _og | imgMeta %}<img src="{{ _og or '/image/factory/wowohcool-smart-charging-solutions.webp' }}"{% if _ss %} srcset="{{ _ss }}" sizes="(min-width: 1024px) 472px, (min-width: 768px) calc(50vw - 40px), calc(100vw - 48px)"{% endif %}{% if _m %} width="{{ _m.w }}" height="{{ _m.h }}"{% endif %} alt="{{ item.data.articleSection or 'Blog' }}" class="w-full h-48 object-cover bg-slate-50" loading="{{ 'eager' if loop.first else 'lazy' }}" decoding="async">
 <div class="p-6"><p class="text-brandOrange text-xs font-bold tracking-widest uppercase mb-2">{{ item.data.articleSection or 'Blog' }}</p>
 <h2 class="text-lg font-bold text-brandBlue group-hover:text-brandOrange transition-colors mb-2">{{ item.data.title | replace(" | WOWOHCOOL", "") }}</h2>
 <p class="text-sm text-slate-500 line-clamp-2">{{ item.data.description }}</p>

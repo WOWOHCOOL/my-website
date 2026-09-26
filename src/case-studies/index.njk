@@ -149,7 +149,7 @@ plPath: "studia-przypadkow/"
  <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
  {% if imgLeft %}
  <div class="reveal order-1">
- <img src="{{ imgSrc }}" alt="{{ imgAlt }}" width="800" height="600" class="w-full rounded-2xl shadow-lg" loading="lazy" decoding="async">
+ {% set _ss = imgSrc | imgSrcset %}{% set _m = imgSrc | imgMeta %}<img src="{{ imgSrc }}"{% if _ss %} srcset="{{ _ss }}" sizes="(min-width: 1440px) 584px, (min-width: 1280px) 584px, (min-width: 1024px) 456px, (min-width: 768px) 720px, (min-width: 430px) 382px, 327px"{% endif %}{% if _m %} width="{{ _m.w }}" height="{{ _m.h }}"{% endif %} alt="{{ imgAlt }}" class="w-full rounded-2xl shadow-lg" loading="lazy" decoding="async">
  </div>
  <div class="reveal order-2">
  {% else %}
@@ -176,7 +176,7 @@ plPath: "studia-przypadkow/"
  {% else %}
  </div>
  <div class="reveal order-1 lg:order-2">
- <img src="{{ imgSrc }}" alt="{{ imgAlt }}" width="800" height="600" class="w-full rounded-2xl shadow-lg" loading="lazy" decoding="async">
+ {% set _ss = imgSrc | imgSrcset %}{% set _m = imgSrc | imgMeta %}<img src="{{ imgSrc }}"{% if _ss %} srcset="{{ _ss }}" sizes="(min-width: 1440px) 584px, (min-width: 1280px) 584px, (min-width: 1024px) 456px, (min-width: 768px) 720px, (min-width: 430px) 382px, 327px"{% endif %}{% if _m %} width="{{ _m.w }}" height="{{ _m.h }}"{% endif %} alt="{{ imgAlt }}" class="w-full rounded-2xl shadow-lg" loading="lazy" decoding="async">
  </div>
  {% endif %}
  </div>

@@ -3,10 +3,76 @@
  * Converts HTML → Markdown when client sends Accept: text/markdown
  * Free tier compatible, no external dependencies
  */
+
+/**
+ * RFC 7231 §5.3.2 Accept negotiation.
+ *
+ * WHY NOT `accept.includes('text/markdown')` — that ignores q-values, so all of
+ * these wrongly received markdown:
+ *   `text/markdown;q=0`                     explicit refusal
+ *   `text/html;q=1.0, text/markdown;q=0.1`  HTML explicitly preferred
+ *   `* / *`                                 no preference at all
+ *   `text / *`                              no preference at all
+ *
+ * Instead compute the effective quality of text/markdown and text/html
+ * (exact match > type-wildcard > full-wildcard, most specific wins) and serve
+ * markdown only when it is genuinely preferred: q(markdown) > 0 AND
+ * q(markdown) > q(html). A bare `text/markdown` still yields markdown
+ * (qMd=1, qHtml=0).
+ *
+ * NOTE: never write the literal two-character sequence star-slash inside a
+ * block comment (it terminates the comment) — hence `* / *` above.
+ */
+function parseAccept(header) {
+  const out = [];
+  for (const part of String(header).split(',')) {
+    const seg = part.trim();
+    if (!seg) continue;
+    const bits = seg.split(';');
+    const range = bits[0].trim().toLowerCase();
+    const slash = range.indexOf('/');
+    if (slash < 1) continue;
+    const type = range.slice(0, slash);
+    const sub = range.slice(slash + 1);
+    if (!type || !sub) continue;
+    let q = 1;
+    for (let i = 1; i < bits.length; i++) {
+      const m = bits[i].trim().match(/^q\s*=\s*(-?[0-9.]+)$/i);
+      if (m) { const v = parseFloat(m[1]); if (!isNaN(v)) q = v; }
+    }
+    if (q < 0) q = 0; else if (q > 1) q = 1;
+    out.push({ type, sub, q, spec: (type !== '*' ? 2 : 0) + (sub !== '*' ? 1 : 0) });
+  }
+  return out;
+}
+
+function qualityOf(list, type, sub) {
+  let best = null;
+  for (const a of list) {
+    const hit =
+      (a.type === type && a.sub === sub) ||
+      (a.type === type && a.sub === '*') ||
+      (a.type === '*' && a.sub === '*');
+    if (!hit) continue;
+    if (best === null || a.spec > best.spec || (a.spec === best.spec && a.q > best.q)) best = a;
+  }
+  return best ? best.q : 0;
+}
+
+export function negotiateMarkdown(accept) {
+  if (!accept) return false;
+  const list = parseAccept(accept);
+  if (!list.length) return false;
+  const qMd = qualityOf(list, 'text', 'markdown');
+  if (qMd <= 0) return false;
+  const qHtml = qualityOf(list, 'text', 'html');
+  return qMd > qHtml;
+}
+
 export async function onRequest(context) {
   const { request, next } = context;
   const accept = request.headers.get('Accept') || '';
-  const wantsMarkdown = accept.includes('text/markdown');
+  const wantsMarkdown = negotiateMarkdown(accept);
   const hostname = new URL(request.url).hostname;
   // Preview deployments (*.pages.dev / *.workers.dev) must never be indexed —
   // otherwise every preview build competes with production as duplicate content.
@@ -79,6 +145,27 @@ function htmlToMarkdown(html) {
       .replace(/<svg(?=[\s/>])[^>]*>[\s\S]*?<\/svg>/gi, '');
   }
 
+  // 1b. Strip non-content elements from the extracted region.
+  //     ⚠️ The fallback branch above already does this, but the <main> branch does
+  //     NOT — and the block pass has no <script> rule, so the final
+  //     `md.replace(/<[^>]+>/g, '')` removed only the TAGS and left the JavaScript
+  //     SOURCE in the markdown. Inline scripts inside <main> (the countdown timer on
+  //     the thank-you pages) leaked `var seconds = 30; …` to AI readers on 5 pages.
+  //     Applied uniformly here so both branches behave identically.
+  body = body.replace(
+    /<(script|style|svg|template|noscript)(?=[\s/>])[^>]*>[\s\S]*?<\/\1>/gi,
+    ''
+  );
+
+  // 1c. Strip HTML comments. The generic tag strip at the end of the block pass
+  //     (`/<[^>]+>/g`) stops at the FIRST `>`, so any comment whose body contains
+  //     `>` keeps its tail as literal text. The template comment
+  //     `<!-- Soft CTA: OEM process -> products -->` therefore reached readers as
+  //     the blockquote `> products -->` on es/sobre-nosotros and ru/o-kompanii.
+  //     Removing comments up front also keeps them out of table cells and links,
+  //     which are converted before the generic strip runs.
+  body = body.replace(/<!--[\s\S]*?-->/g, '');
+
   // 2. Normalise line endings BEFORE conversion. Several source templates are
   //    CRLF, so without this the markdown keeps stray \r characters — and even
   //    whole "\r"-only lines — which defeat every blank-line rule below.
@@ -113,6 +200,33 @@ function htmlToMarkdown(html) {
     }
   );
 
+  // ── 3a-0. ELEMENT-BOUNDARY NORMALISATION ───────────────────────────────────
+  // A block boundary must survive tag stripping. The block pass only emits blank
+  // lines for the tags it has a rule for; `<div>` / `<section>` / `<article>` have
+  // none, and the final `md.replace(/<[^>]+>/g, '')` deletes tags WITHOUT inserting
+  // a separator. So whenever two elements sit flush against each other in the source
+  // (`</div><div>`, `</span><p>`, `</div>Beta`) the two blocks were welded into ONE
+  // token: `<div>105W</div><div>Max</div>` became `105WMax`, and the author-bio
+  // stat grid became `5,000 m²ISO 9001 Facility` (measured on 211 of 348 pages).
+  //
+  // Two passes, both anchored on a real tag boundary:
+  //   • AFTER  — a closing block tag immediately followed by non-whitespace
+  //   • BEFORE — an opening block tag immediately preceded by `>`
+  // ⚠️ The `(?<=>)` anchor is deliberate: it keeps the rule out of attribute values
+  //    (e.g. `alt="a > b"`), where an inserted newline would corrupt the tag.
+  // ⚠️ ONLY block tags participate. Inserting a separator between two INLINE elements
+  //    would break inline emphasis (`<strong>a</strong><em>b</em>` → `**a**\n*b*`),
+  //    so `<p>a<span>b</span><span>c</span>d</p>` must stay `abcd`.
+  // Placed AFTER the code-block parking above, so fenced code is never touched.
+  const AFTER_BLOCK = new RegExp('</(?:' + BOUNDARY_BLOCK_TAGS + ')(?=[\\s/>])[^>]*>(?=\\S)', 'gi');
+  const BEFORE_BLOCK = new RegExp('(?<=>)(?=<(?:' + BOUNDARY_BLOCK_TAGS + ')(?=[\\s/>]))', 'gi');
+  // A blank line (not a single \n) so the result is a real Markdown block boundary —
+  // matching what the existing `<p>` sibling rule already produces. The `\n{3,}` →
+  // `\n\n` pass below absorbs any over-insertion, and the list-tightening loop
+  // re-collapses blank lines between `- ` items.
+  md = md.replace(AFTER_BLOCK, (m) => m + '\n\n');
+  md = md.replace(BEFORE_BLOCK, '\n\n');
+
   // Images → `![alt](src)`. Attribute-order agnostic + quote-aware:
   //   • every <img> on this site puts `src` BEFORE `alt`, so an `alt … src …`
   //     regex matched 0 images on all 350 pages;
@@ -122,7 +236,7 @@ function htmlToMarkdown(html) {
     const src = attr(tag, 'src');
     if (!src) return '';
     const alt = attr(tag, 'alt') || '';
-    return `![${alt}](${src})`;
+    return `![${alt}](${mdDest(src)})`;
   });
 
   // Links — keep href + text.
@@ -141,7 +255,7 @@ function htmlToMarkdown(html) {
     const isCard = stripped !== text;
     const label = stripped.replace(/\s+/g, ' ').trim();
     if (href === null) return label;
-    const link = `[${label}](${href})`;
+    const link = `[${label}](${mdDest(href)})`;
     return isCard ? `\n\n${link}\n\n` : link;
   });
 
@@ -177,13 +291,32 @@ function htmlToMarkdown(html) {
   // Tables — basic conversion
   md = md.replace(/<table(?=[\s/>])[^>]*>([\s\S]*?)<\/table>/gi, (_, t) => convertTable(t));
 
-  // Details / Summary → blockquote-style.
+  // Details / Summary → a HEADING (level resolved later, see 3c-0) + content.
+  // ⚠️ The summary used to be emitted as bold text (`**Question**`), which lost
+  // the Q/A structure signal. The same "FAQ" concept therefore rendered as
+  // `### Question` on the 197 pages whose FAQ is real <h3>s (all blog posts) and
+  // as `**Question**` on the 108 pages that migrated to <details class="faq-item">
+  // — one semantic construct, two different Markdown structures, decided by page
+  // type. AI readers chunk documents by heading, so on non-blog pages no FAQ
+  // question was ever a chunk boundary.
+  // ⚠️ The level CANNOT be hard-coded to `### `. Measured on the built site:
+  //   • 739 faq-item sit under an <h2> section title      → h3
+  //   • 107 faq-item sit under an <h3> category title     → h4
+  //     (all 6 `/{lang}/faq/` hubs: "Factory & Credibility" / "Bestellung &
+  //      Angebot" / … group their questions under <h3> categories)
+  //   • 489 group/spec sit under an <h3> model name       → h4
+  //     (product pages: <h3>WOP37 67W All-in-One</h3> then its spec accordion)
+  // Emitting `### ` unconditionally would flatten the 6 hub pages' category
+  // structure and promote 489 spec labels to the level of the model headings.
+  // So the summary is parked as a placeholder and resolved against the document
+  // outline afterwards — every <details> gets the level one step below its
+  // nearest preceding heading, whatever that is.
   // ⚠️ `inline()` for the SUMMARY only (it must occupy one line). The CONTENT
   // must use `stripHtml()`: `inline()` collapses every newline to a space, which
   // flattens any table/list already converted inside the content into a single
   // unusable line — that regression cost 4,226 table rows across the site.
   md = md.replace(/<details(?=[\s/>])[^>]*>[\s\S]*?<summary(?=[\s/>])[^>]*>([\s\S]*?)<\/summary>([\s\S]*?)<\/details>/gi, (_, summary, content) =>
-    `\n**${inline(summary)}**\n${stripHtml(content)}\n`);
+    `\n\n\u0000HDR\u0000${inline(summary)}\u0000HDR\u0000\n\n${stripHtml(content)}\n`);
 
   // ── 3c. CLEAN UP ───────────────────────────────────────────────────────────
   // Strip remaining HTML tags
@@ -192,17 +325,48 @@ function htmlToMarkdown(html) {
   // Decode HTML entities — exactly ONCE, over the whole document.
   md = decodeEntities(md);
 
+  // ── 3c-0. RESOLVE <details> SUMMARY HEADING LEVELS ─────────────────────────
+  // Each `\u0000HDR\u0000…\u0000HDR\u0000` placeholder parked by the details rule
+  // becomes a heading one level deeper than the nearest PRECEDING heading of the
+  // document outline.
+  // ⚠️ Placeholders deliberately do NOT update the running level. If they did, the
+  // first FAQ item would be emitted as h3, and that new h3 would push every
+  // following item to h4 — the whole FAQ would cascade one level per question.
+  // ⚠️ MUST run BEFORE the fenced-code blocks are restored below: a code block
+  // whose line starts with `# ` would otherwise be read as a heading and shift
+  // the level for every later <details> on the page.
+  // ⚠️ The heading branch requires a space after the hashes, so a line starting
+  // with `#hashtag` is not mistaken for a heading.
+  let outlineLevel = 1;
+  md = md.replace(
+    /^(#{1,6}) [^\n]*$|^\u0000HDR\u0000([^\u0000\n]*)\u0000HDR\u0000$/gm,
+    (m, hashes, summary) => {
+      if (hashes) { outlineLevel = hashes.length; return m; }
+      return '#'.repeat(Math.min(6, outlineLevel + 1)) + ' ' + summary;
+    }
+  );
+
   // Restore fenced code blocks (already decoded above, so they are not touched
   // again by the entity pass).
   md = md.replace(/\u0000CODE(\d+)\u0000/g, (_, i) => '```\n' + codeBlocks[Number(i)] + '\n```');
 
   // Normalise whitespace
   md = md.replace(/[ \t]+/g, ' ');
-  md = md.replace(/\n{3,}/g, '\n\n');
+  // ⚠️⚠️ ORDER IS LOAD-BEARING: the per-line trim MUST run BEFORE the blank-line
+  // collapse, not after.
+  // `[ \t]+` → ' ' turns an indented blank line into a line holding one space, so
+  // a run reads `\n \n \n \n` — which `/\n{3,}/` does NOT match (the spaces break
+  // it). Trimming the line edges afterwards then yields `\n\n\n\n` with nothing
+  // left to collapse it. Measured: with the old order every one of the 354 pages
+  // carried such runs (179 runs / max 17 newlines on products/gan-charger), and
+  // 82,809 bytes — 1.3% of all Markdown — was pure blank-line padding, inflating
+  // the `x-markdown-tokens` header the middleware reports to AI clients (worst
+  // page: 913 B ≈ 228 tokens of nothing).
+  md = md.replace(/^[ \t]+|[ \t]+$/gm, '');
   // ⚠️ MUST NOT use \s here: \s matches \n, so `/^\s+|\s+$/gm` eats the blank
   // lines created by `\n\n` above and collapses every block into a single line
   // (headings glued to paragraphs, list items glued together).
-  md = md.replace(/^[ \t]+|[ \t]+$/gm, '');
+  md = md.replace(/\n{3,}/g, '\n\n');
   // Tighten lists: the indentation between source <li> tags otherwise turns every
   // list into a "loose list" (blank line between items) and roughly doubles its
   // token cost for AI readers. Repeat a few times to reach nested levels.
@@ -232,6 +396,15 @@ function inline(str) {
   return stripHtml(str).replace(/\s+/g, ' ').trim();
 }
 
+/** Block-level tags that must keep their boundary when the tag itself is stripped.
+ *  Used by the element-boundary normalisation in step 3a-0 — a closing/opening tag
+ *  in this set gets a newline inserted when it sits flush against its neighbour,
+ *  so two blocks can never be welded into one token.
+ *  ⚠️ `<br>` is deliberately EXCLUDED: it is a line break, not a block container,
+ *  and it already has its own rule that emits `\n`. */
+const BOUNDARY_BLOCK_TAGS =
+  'div|section|article|aside|header|footer|main|nav|figure|figcaption|p|ul|ol|li|dl|dt|dd|h[1-6]|blockquote|table|thead|tbody|tfoot|tr|td|th|details|summary|hr|form|fieldset|legend';
+
 /** Block-level tags whose *markup* must not survive inside a link's text.
  *  The content stays; only the tags go. Quote-aware so an attribute value
  *  containing `>` cannot truncate the match. */
@@ -246,6 +419,21 @@ function attr(tag, name) {
   const m = tag.match(new RegExp('\\b' + name + '\\s*=\\s*("([^"]*)"|\'([^\']*)\'|([^\\s">]+))', 'i'));
   if (!m) return null;
   return m[2] !== undefined ? m[2] : m[3] !== undefined ? m[3] : m[4];
+}
+
+/** Make a URL safe as a Markdown link/image destination.
+ *  Whitespace terminates the destination in every Markdown parser, so
+ *  `[Solicitar Auditoría](/es/contacto/?subject=Consulta blog: …)` is not a link
+ *  at all — it renders as literal text with the raw URL visible to the reader.
+ *  Two such links exist on this site (a `? Lang=de` TARIC link and a contact link
+ *  whose `?subject=` value contains spaces); both leaked `subject` / `taric` /
+ *  `lang` into the visible text of their page.
+ *  Browsers already treat a space inside `href` as `%20`, so encoding here changes
+ *  nothing for the reader — it only keeps the Markdown parseable.
+ *  ⚠️ Only whitespace is encoded: a scan of every `href`/`src` inside `<main>` found
+ *  no `(`, `)`, `<`, `>` or quote character, so there is nothing else to escape. */
+function mdDest(url) {
+  return url.replace(/\s/g, '%20');
 }
 
 /** Named HTML entities seen in the rendered pages.
@@ -291,7 +479,13 @@ function convertTable(html) {
     const tdRe = /<t[dh](?=[\s/>])[^>]*>([\s\S]*?)<\/t[dh]>/gi;
     let cm;
     while ((cm = tdRe.exec(match[1])) !== null) {
-      cells.push(inline(cm[1]));
+      // ⚠️ A literal `|` inside a cell is a COLUMN SEPARATOR to any Markdown
+      // renderer, so a row with more cells than the header has its trailing cells
+      // silently DROPPED. Measured on 73 rows across 18 pages — e.g. the
+      // car-charger power table on all 6 languages:
+      //   source  <td>USB-A: 5V/3A (36W) | USB-C: 5V/3A (36W, PPS) | USB-A+USB-C: 5V/3.4A</td>
+      //   without escaping the reader only ever sees `USB-A: 5V/3A (36W)`.
+      cells.push(inline(cm[1]).replace(/\|/g, '\\|'));
     }
     if (cells.length) rows.push(cells);
   }

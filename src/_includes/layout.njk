@@ -15,7 +15,10 @@
  <meta name="geo.placename" content="Shenzhen" />
  <meta name="geo.position" content="22.5431;114.0579" />
  {% if noSeoTags %}<meta name="robots" content="noindex, follow">{% else %}<meta name="robots" content="index, follow">{% endif %}
- {% if lang == "en" %}<meta name="author" content="WOWOHCOOL">{% endif %}
+ {# author：博客文章由 front matter 的**署名作者**（人名，不翻译）署名，其余页由机构署名。
+    ⚠️ 不可对所有页一律写机构名 —— 196 篇博客的 JSON-LD `BlogPosting.author` 指向
+       #nina-nico / #snowy-may，meta 若写机构名即与之**自相矛盾**。
+    ⚠️ 旧版只在 `lang == "en"` 输出 ⇒ 其余 5 语言全缺（i18n 前遗留的裂缝），且 EN 博客页矛盾。 #}{% if author %}<meta name="author" content="{{ author }}">{% else %}<meta name="author" content="WOWOHCOOL">{% endif %}
  <link rel="preconnect" href="https://api.web3forms.com">
  {% if not noSeoTags %}
  <link rel="canonical" href="https://www.wowohcool.com{{ canonical }}">
