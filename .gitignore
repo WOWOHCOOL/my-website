@@ -52,6 +52,13 @@ _site_*/
 /pl/js/
 /ru/js/
 
+# sitemap 同属构建产物：`generate-sitemaps.js` 读 _site/**/*.html 反推 canonical +
+# hreflang 后，直写 _site/ 与 src/ 两处。全仓没有任何消费者读 src 侧副本
+# （indexnow-push.js 读 _site/；eleventy 不 copy 它）。曾因被跟踪而静默陈旧：
+# 内容更新但没跑到构建链第 12 步时，旧副本会随提交进库（4aa49e7e 即此例）。
+/src/sitemap.xml
+/src/*/sitemap.xml
+
 # ============================================================
 # 本地专用工具与根文件 —— 不推送 GitHub，仅保留在本地
 # ⚠️⚠️ 构建链脚本必须保持被跟踪，下方通配符不得覆盖它们：
