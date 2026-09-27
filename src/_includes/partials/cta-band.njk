@@ -10,7 +10,7 @@
         ) }}
 
    buttons[] item: { label, href?, action?, cls? }
-     - action -> renders <button data-action="...">
+     - action -> renders <button type="button" data-action="...">
      - href   -> renders <a href="...">
      - cls    defaults to "btn-hero"
 
@@ -38,7 +38,7 @@
 {% if desc %}<p class="text-slate-400 leading-relaxed mb-8 max-w-xl mx-auto">{{ desc | safe }}</p>{% endif %}
 <div class="flex flex-col sm:flex-row justify-center gap-4">
 {% for b in buttons %}
-{% if b.action %}<button data-action="{{ b.action }}" class="{{ b.cls or 'btn-hero' }}">{{ b.label }}</button>
+{% if b.action %}<button type="button" data-action="{{ b.action }}" class="{{ b.cls or 'btn-hero' }}">{{ b.label }}</button>
 {% else %}<a href="{{ b.href }}" class="{{ b.cls or 'btn-hero' }}">{{ b.label }}</a>{% endif %}
 {% endfor %}
 </div>
