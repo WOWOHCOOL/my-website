@@ -11,11 +11,19 @@
 <script>
 (function(){
  const banner = document.getElementById('cookie-banner');
- try { if (localStorage.getItem('cookie_consent') ||!banner) return; } catch(e) { return; }
- setTimeout(function(){ banner.classList.add('show'); }, 500);
+ if (!banner) return;
+ const root = document.documentElement;
+ // 让底部悬浮元素（悬浮询盘/WhatsApp、返回顶部按钮）避让横幅：写入横幅实测高度
+ function syncOffset(){
+   root.style.setProperty('--cookie-banner-h', banner.classList.contains('show') ? banner.offsetHeight + 'px' : '0px');
+ }
+ try { if (localStorage.getItem('cookie_consent')) { syncOffset(); return; } } catch(e) { return; }
+ setTimeout(function(){ banner.classList.add('show'); syncOffset(); }, 500);
+ window.addEventListener('resize', syncOffset);
  document.getElementById('cookie-accept').addEventListener('click', function(){
  localStorage.setItem('cookie_consent', 'accepted');
  banner.classList.remove('show');
+ syncOffset();
  if (typeof gtag!== 'undefined') {
  gtag('consent', 'update', {'analytics_storage': 'granted'});
  var s = document.createElement('script');
@@ -29,6 +37,7 @@
  document.getElementById('cookie-decline').addEventListener('click', function(){
  localStorage.setItem('cookie_consent', 'declined');
  banner.classList.remove('show');
+ syncOffset();
  if (typeof gtag!== 'undefined') {
  gtag('consent', 'update', {'analytics_storage': 'denied'});
  }

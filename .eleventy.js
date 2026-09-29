@@ -141,6 +141,52 @@ module.exports = function (eleventyConfig) {
     return content.substring(0, startIdx) + wrapped + content.substring(endIdx);
   });
 
+  // ---- 响应时间单一真源（2026-09-23）----
+  // 源文件里写 {RT} / {RTG} / {RTS} / {RTSP}，构建时按**页面语言**替换成 inquiry.json 里的口径。
+  // 目的：把散落在 215 个文件里的响应时间表述收敛到一处 —— 改口径只改 src/_data/inquiry.json。
+  // ⚠️ token 必须在**输出期**替换，而不是在模板里拼变量：因为 479 处里有一批在 front matter
+  //    （24 处，全仓 front matter 无任何 Nunjucks 先例）、还有 JSON-LD 的 "text" 字面量，
+  //    模板表达式到不了这些位置，但输出期替换能一次覆盖全部。
+  // ⚠️ 必须覆盖 .xml：blog 的 front matter description 会流进 rss.njk 的 <description>。
+  // ⚠️ 未替换的 token 由 scripts/validate-response-time-tokens.js 拦下（构建失败）。
+  //    静默留下字面量 "{RT}" 比直接报错糟得多。
+  const RT_FILE = path.join(__dirname, 'src/_data/inquiry.json');
+  let RT_DATA;
+  try {
+    RT_DATA = JSON.parse(fs.readFileSync(RT_FILE, 'utf8'));
+  } catch (e) {
+    throw new Error('[responseTime] 读不到或解析不了 src/_data/inquiry.json: ' + e.message);
+  }
+  const RT_LANGS = ['en', 'de', 'es', 'fr', 'pl', 'ru'];
+  // 顺序无关（split/join 是字面量精确匹配），但按长度降序更便于人读
+  const RT_FORMS = [
+    ['{RTSP}', 'responseTimeShortSp'],
+    ['{RTG}', 'responseTimeGen'],
+    ['{RTS}', 'responseTimeShort'],
+    ['{RT}', 'responseTime'],
+  ];
+  for (const lg of RT_LANGS) {
+    for (const f of RT_FORMS) {
+      const v = RT_DATA[f[1]] && RT_DATA[f[1]][lg];
+      if (typeof v !== 'string' || v === '') {
+        throw new Error('[responseTime] src/_data/inquiry.json 缺少 ' + f[1] + '.' + lg);
+      }
+      if (v.indexOf('{RT') !== -1) {
+        throw new Error('[responseTime] ' + f[1] + '.' + lg + ' 的值里又出现了 token: ' + v);
+      }
+    }
+  }
+  eleventyConfig.addTransform('responseTime', function (content) {
+    if (!this.outputPath || !/\.(html|xml|txt)$/.test(this.outputPath)) return content;
+    if (content.indexOf('{RT') === -1) return content;
+    const rel = this.outputPath.replace(/\\/g, '/');
+    const m = rel.match(/(?:^|\/)_site\/(.+)$/);
+    const seg = (m ? m[1] : rel).split('/')[0];
+    const lang = RT_LANGS.indexOf(seg) >= 0 ? seg : 'en';
+    for (const f of RT_FORMS) content = content.split(f[0]).join(RT_DATA[f[1]][lang]);
+    return content;
+  });
+
   // Date format filter: Date object → "YYYY-MM-DD"
   eleventyConfig.addFilter("fmtDate", (d) => {
     if (d instanceof Date) {

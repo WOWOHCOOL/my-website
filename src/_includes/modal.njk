@@ -37,15 +37,15 @@
  </div>
 
  <div class="space-y-1 mt-3 sm:mt-4">
- <label for="modal-company" class="text-[11px] font-bold text-brandBlue ml-2 tracking-widest">{{ t.labelCompany }}</label>
- <input id="modal-company" type="text" name="company" placeholder="{{ t.placeholderCompany }}" required
+ <label for="modal-company" class="text-[11px] font-bold text-brandBlue ml-2 tracking-widest">{{ t.labelCompany }}{% if t.companyOptional %} <span class="text-slate-400 font-medium">{{ t.companyOptional }}</span>{% endif %}</label>
+ <input id="modal-company" type="text" name="company" placeholder="{{ t.placeholderCompany }}"
  class="w-full bg-slate-50 p-3.5 sm:p-4 rounded-xl text-[16px] border-2 border-transparent focus:border-brandOrange focus:bg-white transition-all outline-none font-medium">
  </div>
 
  <div class="space-y-1 mt-3 sm:mt-4">
- <label for="productSelect" class="text-[11px] font-bold text-brandBlue ml-2 tracking-widest">{{ t.labelProduct }}</label>
+ <label for="productSelect" class="text-[11px] font-bold text-brandBlue ml-2 tracking-widest">{{ t.labelProduct }}{% if t.productOptional %} <span class="text-slate-400 font-medium">{{ t.productOptional }}</span>{% endif %}</label>
  <div class="relative">
- <select id="productSelect" name="product" required
+ <select id="productSelect" name="product"
  class="w-full bg-slate-50 p-3.5 sm:p-4 rounded-xl text-[16px] border-2 border-transparent focus:border-brandOrange focus:bg-white transition-all outline-none font-medium appearance-none">
  <option value="">{{ t.placeholderProduct }}</option>
  {% for p in modalProducts %}<option value="{{ p.value }}">{{ p.label }}</option>

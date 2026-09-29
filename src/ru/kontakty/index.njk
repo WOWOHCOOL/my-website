@@ -1,6 +1,6 @@
 ---
 title: "Контакты | WOWOHCOOL — OEM/ODM завод зарядных устройств"
-description: "Свяжитесь с WOWOHCOOL — OEM/ODM заводом в Шэньчжэне. Ответ в течение 24 часов по email или WeChat. Запросите расчёт, образцы или техническую документацию."
+description: "Свяжитесь с WOWOHCOOL — OEM/ODM заводом в Шэньчжэне. Ответ в течение {RTG} по email или WeChat. Запросите расчёт, образцы или техническую документацию."
 canonical: "/ru/kontakty/"
 frPath: "contact/"
 enPath: "contact/"
@@ -112,7 +112,7 @@ navActive: "contact"
 },
 {
  "@context":"https://schema.org","@type":"ContactPage",
- "name":"Связаться с WOWOHCOOL","description":"Свяжитесь с отделом продаж для расчёта OEM/ODM-заказа, заказа образцов и получения технической документации. Ответ в течение 24 часов.",
+ "name":"Связаться с WOWOHCOOL","description":"Свяжитесь с отделом продаж для расчёта OEM/ODM-заказа, заказа образцов и получения технической документации. Ответ в течение {RTG}.",
  "url":"https://www.wowohcool.com/ru/kontakty/",
  "mainEntity": {"@id": "https://www.wowohcool.com/#organization"},
  "speakable": {"@type": "SpeakableSpecification", "cssSelector": [".badge-capsule", "h1"]}
@@ -142,12 +142,12 @@ navActive: "contact"
  </div>
  <div class="container-wide relative z-10 text-center pb-8">
   {{ breadcrumb([{name:"Главная",url:"/ru/"},{name:"Контакты"}], "none", "mb-6", { variant: "hero" }) }}
- <div class="badge-capsule mb-6 mx-auto uppercase tracking-widest">Ответ в течение 24 часов</div>
+ <div class="badge-capsule mb-6 mx-auto uppercase tracking-widest">Ответ в течение {RTG}</div>
  <h1 class="text-4xl md:text-5xl lg:text-6xl font-black text-brandBlue leading-tight mb-6 italic uppercase tracking-tighter">
  Свяжитесь с <span class="whitespace-nowrap"><span class="highlight-line text-brandBlue">WOWOH</span><span class="text-brandOrange">COOL</span></span> — обсудим ваш <span class="whitespace-nowrap">OEM/ODM-проект</span>
  </h1>
  <p class="text-slate-600 max-w-2xl mx-auto text-lg mb-8">
- Запросите расчёт OEM-заказа, образцы или техническую документацию. Менеджер ответит на русском или английском языке в течение 24 часов.
+ Запросите расчёт OEM-заказа, образцы или техническую документацию. Менеджер ответит на русском или английском языке в течение {RTG}.
  </p>
  <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
  <span class="w-full sm:w-auto bg-[#07C160] text-white px-8 py-4 rounded-xl font-black uppercase tracking-widest text-sm shadow-xl flex items-center justify-center gap-2 select-all"><svg class="icon-wechat" aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="18" height="18"><path d="M9.3 4C5.3 4 2 6.7 2 10.1c0 1.9 1 3.6 2.6 4.7l-.7 2.2 2.5-1.3c.6.2 1.3.3 1.9.4-.1-.4-.1-.8-.1-1.2 0-3.3 3.1-5.9 6.9-5.9h.4C14.7 6.1 12.2 4 9.3 4zM7 7.7c.5 0 .9.4.9.9s-.4.9-.9.9-.9-.4-.9-.9.4-.9.9-.9zm4.7 0c.5 0 .9.4.9.9s-.4.9-.9.9-.9-.4-.9-.9.4-.9.9-.9zM22 14.9c0-2.9-2.8-5.2-6.2-5.2s-6.2 2.3-6.2 5.2 2.8 5.2 6.2 5.2c.7 0 1.3-.1 1.9-.3l2.3 1.2-.6-2c1.6-.9 2.6-2.4 2.6-4.1zm-8.2-1.4c-.4 0-.8-.3-.8-.8s.3-.8.8-.8.8.3.8.8-.4.8-.8.8zm4.1 0c-.4 0-.8-.3-.8-.8s.3-.8.8-.8.8.3.8.8-.4.8-.8.8z" fill="currentColor"/></svg> WeChat: +86-186-2078-9739</span>
@@ -220,11 +220,8 @@ navActive: "contact"
 <input type="text" name="company" aria-label="Компания (необязательно)" placeholder="Компания (необязательно)" class="w-full px-4 py-3.5 rounded-xl border border-slate-200 focus:border-brandOrange outline-none text-sm">
 <select name="product" aria-label="Интересующий продукт (необязательно)" class="card w-full px-4 py-3.5 focus:border-brandOrange outline-none text-sm">
  <option value="">Интересующий продукт (необязательно)</option>
- <option value="powerbank">Повербанк</option>
- <option value="wireless">Беспроводная зарядка</option>
- <option value="car">Автомобильная зарядка</option>
- <option value="gan">GaN-зарядка</option>
- <option value="other">Другое</option>
+ {% for p in products_ru %}<option value="{{ p.value }}">{{ p.label }}</option>
+ {% endfor %}
  </select>
  <textarea name="message" rows="4" required minlength="10" aria-label="Опишите ваш проект" placeholder="Опишите ваш проект (характеристики, тираж, требования) *" class="w-full px-4 py-3.5 rounded-xl border border-slate-200 focus:border-brandOrange outline-none text-sm resize-none"></textarea>
  <label class="flex items-start gap-3"><input type="checkbox" required class="mt-1 accent-brandOrange"><span class="text-xs text-slate-500">Я прочитал(а) и принимаю <a href="/ru/politika-konfidencialnosti/" class="text-brandOrange hover:underline">Политику конфиденциальности</a> *</span></label>
@@ -245,7 +242,7 @@ navActive: "contact"
  <div class="grid md:grid-cols-3 gap-4 reveal">
  <div class="card-soft p-5 text-center">
  <p class="font-bold text-brandBlue text-sm mb-1">Время ответа</p>
- <p class="text-xs text-slate-500">Отвечаем в течение <strong class="text-brandOrange">24 часов</strong> (в рабочие дни). В WeChat обычно за 2-4 часа.</p>
+ <p class="text-xs text-slate-500">Отвечаем в течение <strong class="text-brandOrange">{RTG}</strong> (в рабочие дни). В WeChat обычно за 2-4 часа.</p>
  </div>
  <div class="card-soft p-5 text-center">
  <p class="font-bold text-brandBlue text-sm mb-1">Образцы</p>

@@ -231,6 +231,21 @@ svg[class*="icon-"]{display:inline-block;width:1em;height:1em;vertical-align:-0.
 }
 .cookie-btn-decline:hover { border-color: #64748b; color: #fff; }
 
+/* ─── 悬浮元素避让 Cookie 横幅 ────────────────────────────────
+   横幅是 position:fixed; bottom:0; z-index:9999（全宽），会盖住同样固定在
+   底部的右下角悬浮 CTA 与左下角返回顶部按钮（都是 z-index:150）。
+   横幅显示时由 cookie-banner.njk 的脚本写入 --cookie-banner-h（横幅实测高度），
+   悬浮元素据此整体上移。
+   ⚠️ 横幅未显示 / JS 未执行 / 已存同意时变量缺省为 0px ⇒ 回到原始位置（安全回退）。
+   ⚠️ 本规则位于 @tailwind utilities 之后，与 Tailwind 的 bottom-[…] 工具类同特异性，
+     靠源码顺序取胜（工具类保留作回退）。 */
+.cookie-offset {
+  bottom: calc(max(2rem, env(safe-area-inset-bottom)) + var(--cookie-banner-h, 0px));
+}
+.cookie-offset-anim {
+  transition: bottom 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 /* ─── Design System: Section Spacing ─────────────────────────
    `.sec` / `.sec-lg` are deliberately left OUTSIDE any @layer, so they win
    over Tailwind padding utilities. That is the historical behaviour and 311

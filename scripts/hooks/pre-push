@@ -1,0 +1,54 @@
+#!/bin/sh
+# pre-push — run the metadata gate before content changes leave the machine.
+#
+# WHY THIS EXISTS (2026-09-28)
+# `prebuild_gate.py` is step 1 of `npm run build`, but Cloudflare Pages never
+# checks out `../seomachine`, so the DEPLOY build skips it (see scripts/gate.js).
+# The only machine that can run the gate is this one. Before this hook there was
+# nothing that guaranteed it ran at all: no CI, and .git/hooks/pre-commit only
+# runs lint-i18n-paths.js. "Local gate not run" literally meant "no gate".
+#
+# SCOPE: only fires when the push touches `src/**/*.njk`. Tooling-only or
+# docs-only pushes are not slowed down.
+#
+# INSTALL (this file is the source of truth; hooks themselves are not versioned):
+#     cp scripts/hooks/pre-push .git/hooks/pre-push && chmod +x .git/hooks/pre-push
+# REMOVE:
+#     rm .git/hooks/pre-push
+# BYPASS (please don't):
+#     git push --no-verify
+
+ZERO=0000000000000000000000000000000000000000
+touched=""
+
+while read -r _local_ref local_sha _remote_ref remote_sha; do
+  [ -z "${local_sha:-}" ] && continue
+  if [ "$remote_sha" = "$ZERO" ]; then
+    base="origin/main"
+  else
+    base="$remote_sha"
+  fi
+  hit=$(git diff --name-only "$base..$local_sha" 2>/dev/null | grep -E '^src/.*\.njk$' || true)
+  [ -n "$hit" ] && touched="$touched$hit
+"
+done
+
+if [ -z "$touched" ]; then
+  echo "[pre-push] no src/**/*.njk changes — skipping the metadata gate"
+  exit 0
+fi
+
+echo "[pre-push] content changes detected:"
+echo "$touched" | sed '/^$/d' | head -20 | sed 's/^/           /'
+echo "[pre-push] running the metadata gate (npm run gate) — Cloudflare cannot run it."
+echo
+
+npm run gate
+status=$?
+
+if [ "$status" -ne 0 ]; then
+  echo
+  echo "[pre-push] BLOCKED — the metadata gate failed (exit $status)."
+  echo "[pre-push] Fix the findings above. To bypass: git push --no-verify"
+fi
+exit "$status"
