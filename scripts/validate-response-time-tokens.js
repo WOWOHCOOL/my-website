@@ -5,11 +5,12 @@
  * token，由 .eleventy.js 的 `responseTime` 转换器按页面语言替换成
  * src/_data/inquiry.json 里的值。改口径 = 只改那一个 JSON。
  *
- * 这个校验器守两件事：
+ * 这个校验器守三件事：
  *   A. 源侧（src/**）：只允许 {RT} {RTG} {RTS} {RTSP} 四种 token。
  *      形近写法（{RTx} / {rt} / { RT }）会让转换器**静默不替换**，
  *      最后以字面量出现在页面上 —— 用户看得见，构建却全绿。
- *   B. 产物侧（_site/**）：不允许残留 token。分两档：
+ *   B. main.src.js：用户可见成功提示不得硬编码响应时间，必须使用 inquiry.json。
+ *   C. 产物侧（_site/**）：不允许残留 token。分两档：
  *      B1 所有文件（含 .js/.css/.json）→ 不许有四种合法 token 的字面量
  *      B2 仅文本产物（.html/.xml/.txt）→ 不许有形近写法
  *      （.js/.css 排除在 B2 外：压缩代码里 `{sort}` 这类花括号块会误报）
@@ -31,6 +32,7 @@ const path = require('path');
 const ROOT = path.join(__dirname, '..');
 const SRC = path.join(ROOT, 'src');
 const SITE = path.join(ROOT, '_site');
+const JS_SOURCE = path.join(ROOT, 'main.src.js');
 const VERBOSE = process.argv.includes('--verbose');
 
 const LEGAL = ['{RT}', '{RTG}', '{RTS}', '{RTSP}'];
@@ -39,6 +41,8 @@ const LEGAL_SET = new Set(LEGAL);
 // ⚠️ 早期写成 `\{[A-Za-z_ ]{0,6}RT[A-Za-z_ ]{0,6}\}`（不分大小写）会误报：
 //    `{% set _cert = ... %}` 里的 `{ _cert }` 含 "rt" → 假阳性。
 const NEAR = /\{\s*RT[A-Za-z_]{0,4}\s*\}/gi;
+// JS 用户提示必须使用 inquiry.json 注入的 ${rt}，不能另起硬编码响应时间。
+const RT_LITERAL = /\b\d+\s*(?:business\s+hours?|hours?|h|Arbeitsstunden|Stunden|horas(?:\s+hábiles)?|heures(?:\s+ouvrables)?|рабочих\s+часов|часов|godzin(?:\s+roboczych)?)\b/giu;
 // 合法 token 的精确串（大小写敏感）
 const EXACT = new RegExp('\\{(?:RT|RTG|RTS|RTSP)\\}', 'g');
 
@@ -77,6 +81,18 @@ function scanSource() {
       for (const t of h) bad.push({ file: rel(f), line: i + 1, text: t, ctx: line.trim().slice(0, 140) });
     });
   }
+  return bad;
+}
+
+/* C. JS 源码里不得硬编码响应时间；必须使用 ${rt}。 */
+function scanJsLiterals() {
+  const bad = [];
+  if (!fs.existsSync(JS_SOURCE)) return bad;
+  fs.readFileSync(JS_SOURCE, 'utf8').split(/\r?\n/).forEach((line, i) => {
+    RT_LITERAL.lastIndex = 0;
+    let m;
+    while ((m = RT_LITERAL.exec(line))) bad.push({ file: rel(JS_SOURCE), line: i + 1, text: m[0], ctx: line.trim().slice(0, 140) });
+  });
   return bad;
 }
 
@@ -143,6 +159,7 @@ if (process.argv.includes('--selftest')) {
 }
 
 const srcBad = scanSource();
+const jsBad = scanJsLiterals();
 const outExact = scanOutputExact();
 const outNear = scanOutputNear();
 
@@ -152,6 +169,12 @@ if (!srcBad.length) console.log('     ✅ 0 处 —— 只有 {RT} {RTG} {RTS} {
 else {
   console.log('     ❌ ' + srcBad.length + ' 处 —— 转换器不会替换这些写法');
   srcBad.slice(0, 20).forEach((x) => console.log('        ' + x.file + ':' + x.line + '  "' + x.text + '"' + (VERBOSE ? '\n            ' + x.ctx : '')));
+}
+console.log('  B. main.src.js 硬编码响应时间（应 0）');
+if (!jsBad.length) console.log('     ✅ 0 处 —— 已使用 inquiry.json 注入值');
+else {
+  console.log('     ❌ ' + jsBad.length + ' 处 —— JS 提示会绕开响应时间单一真源');
+  jsBad.slice(0, 20).forEach((x) => console.log('        ' + x.file + ':' + x.line + '  "' + x.text + '"' + (VERBOSE ? '\n            ' + x.ctx : '')));
 }
 console.log('  B1. 产物残留合法 token（_site/**，全扩展名，应 0）');
 if (!outExact.length) console.log('     ✅ 0 处');
@@ -165,4 +188,4 @@ else {
   console.log('     ❌ ' + outNear.length + ' 处');
   outNear.slice(0, 20).forEach((x) => console.log('        ' + x.file + '  "' + x.text + '"'));
 }
-process.exit(srcBad.length || outExact.length || outNear.length ? 1 : 0);
+process.exit(srcBad.length || jsBad.length || outExact.length || outNear.length ? 1 : 0);

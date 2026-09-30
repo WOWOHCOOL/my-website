@@ -119,8 +119,8 @@ function main() {
     const content = fs.readFileSync(path.join(SRC, rel), "utf-8");
     const fm = frontmatter(content);
 
-    // Same exclusions the generator honours: no rendered canonical => no entry.
-    if (/^noSeoTags:\s*true\s*$/m.test(fm)) continue;
+    // Same exclusions the generator honours: noSeoTags/robotsNoindex, or no canonical => no entry.
+    if (/^noSeoTags:\s*true\s*$/m.test(fm) || /^robotsNoindex:\s*true\s*$/m.test(fm)) continue;
     const canonical = field(fm, "canonical");
     if (!canonical) continue;
     checked++;

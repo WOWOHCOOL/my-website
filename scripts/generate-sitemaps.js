@@ -55,6 +55,9 @@ function walkHtml(dir) {
     } else if (entry.name.endsWith('.html')) {
       const content = fs.readFileSync(full, 'utf-8');
 
+      // Respect per-page noindex even when a canonical exists.
+      if (/<meta name="robots" content="noindex/i.test(content)) continue;
+
       // Extract hreflang entries
       const hreflangs = {};
       const hreflangRegex = /hreflang="([^"]*)" href="([^"]*)"/g;

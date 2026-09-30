@@ -12,12 +12,16 @@
 
 // ─── Language Configuration ──────────────────────────────────────────
 // Overridden at build time via esbuild --define:LANG="\"de\""
+const RESPONSE_TIME = require('./src/_data/inquiry.json').responseTime;
+const ACTIVE_LANG = typeof LANG !== "undefined" ? LANG : "en";
+const rt = RESPONSE_TIME[ACTIVE_LANG] || RESPONSE_TIME.en;
+
 const _ = typeof LANG !== "undefined" && LANG === "de"
   ? {
       redirectUrl: '/de/danke',
       sendingText: 'Wird gesendet...',
       successTitle: 'Vielen Dank!',
-      successMsg: 'Ihre Anfrage wurde erfolgreich gesendet.<br>Wir antworten innerhalb von 24 Stunden.',
+      successMsg: `Ihre Anfrage wurde erfolgreich gesendet.<br>Wir antworten innerhalb von ${rt}.`,
       redirectingText: 'Weiterleitung...',
       submitError: 'Fehler beim Senden. Bitte versuchen Sie es erneut.',
       networkError: 'Netzwerkfehler. Bitte überprüfen Sie Ihre Verbindung.',
@@ -30,7 +34,7 @@ const _ = typeof LANG !== "undefined" && LANG === "de"
       redirectUrl: '/es/gracias',
       sendingText: 'Enviando consulta...',
       successTitle: '¡Gracias!',
-      successMsg: 'Su consulta ha sido enviada correctamente.<br>Le responderemos en 24 horas.',
+      successMsg: `Su consulta ha sido enviada correctamente.<br>Le responderemos en ${rt}.`,
       redirectingText: 'Redirigiendo...',
       submitError: 'Error al enviar. Por favor, inténtelo de nuevo.',
       networkError: 'Error de red. Por favor, verifique su conexión.',
@@ -43,7 +47,7 @@ const _ = typeof LANG !== "undefined" && LANG === "de"
       redirectUrl: '/ru/spasibo',
       sendingText: 'Отправляем запрос...',
       successTitle: 'Спасибо!',
-      successMsg: 'Ваш запрос успешно отправлен.<br>Мы ответим в течение 24 часов.',
+      successMsg: `Ваш запрос успешно отправлен.<br>Мы ответим в течение ${rt}.`,
       redirectingText: 'Перенаправление...',
       submitError: 'Не удалось отправить. Пожалуйста, попробуйте ещё раз.',
       networkError: 'Ошибка сети. Проверьте подключение к интернету.',
@@ -56,7 +60,7 @@ const _ = typeof LANG !== "undefined" && LANG === "de"
       redirectUrl: '/fr/remerciements',
       sendingText: 'Envoi en cours...',
       successTitle: 'Merci !',
-      successMsg: 'Votre demande a bien été envoyée.<br>Nous vous répondrons sous 24 heures.',
+      successMsg: `Votre demande a bien été envoyée.<br>Nous vous répondrons sous ${rt}.`,
       redirectingText: 'Redirection...',
       submitError: 'Échec de l\'envoi. Veuillez réessayer.',
       networkError: 'Erreur réseau. Veuillez vérifier votre connexion.',
@@ -69,7 +73,7 @@ const _ = typeof LANG !== "undefined" && LANG === "de"
       redirectUrl: '/pl/dziekujemy',
       sendingText: 'Wysyłanie zapytania...',
       successTitle: 'Dziękujemy!',
-      successMsg: 'Twoje zapytanie zostało wysłane.<br>Odpowiemy w ciągu 24 godzin.',
+      successMsg: `Twoje zapytanie zostało wysłane.<br>Odpowiemy w ciągu ${rt}.`,
       redirectingText: 'Przekierowywanie...',
       submitError: 'Nie udało się wysłać zapytania. Spróbuj ponownie.',
       networkError: 'Błąd sieci. Sprawdź połączenie i spróbuj ponownie.',
@@ -81,7 +85,7 @@ const _ = typeof LANG !== "undefined" && LANG === "de"
       redirectUrl: '/thank-you',
       sendingText: 'Sending Inquiry...',
       successTitle: 'Thank You!',
-      successMsg: 'Your inquiry has been sent successfully.<br>We will reply within 24 hours.',
+      successMsg: `Your inquiry has been sent successfully.<br>We will reply within ${rt}.`,
       redirectingText: 'Redirecting...',
       submitError: 'Submission failed. Please try again.',
       networkError: 'Network error. Please check your connection and try again.',

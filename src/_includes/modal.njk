@@ -17,6 +17,7 @@
  <form action="https://api.web3forms.com/submit" method="post" accept-charset="UTF-8" id="inquiry-form">
  <input type="hidden" name="access_key" value="{{ t.accessKey }}">
  <input type="hidden" name="subject" id="email-subject" value="{{ t.emailSubject }}">
+ <input type="hidden" name="page_url" value="https://www.wowohcool.com{{ canonical or page.url }}">
  <input type="hidden" name="redirect" value="{{ t.redirectUrl }}">
  <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;opacity:0;height:0;width:0">
  <input type="hidden" name="utm_source" value="">
@@ -64,7 +65,7 @@
  <div class="pt-2 sm:pt-3">
  <div class="mb-3 sm:mb-4">
  <div class="flex items-start gap-2 sm:gap-3">
- <input type="checkbox" required id="modal-privacy" class="mt-0.5 accent-brandOrange shrink-0">
+ <input type="checkbox" name="consent" value="granted" required id="modal-privacy" class="mt-0.5 accent-brandOrange shrink-0">
  <span class="text-xs text-slate-500"><label for="modal-privacy">{{ t.consentText }} </label><a href="{{ t.consentLinkHref }}" target="_blank" rel="noopener" class="text-brandOrange hover:underline">{{ t.consentLinkText }}</a><label for="modal-privacy">{{ t.consentSuffix }}</label></span>
  </div>
  </div>
