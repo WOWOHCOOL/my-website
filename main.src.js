@@ -2,19 +2,13 @@
  * WOWOHCOOL — Main Script (Shared)
  *
  * Build:
- *   EN: esbuild main.src.js --bundle --minify --outfile=main.js           --define:LANG="\"en\""
- *   DE: esbuild main.src.js --bundle --minify --outfile=de/js/de-main.js  --define:LANG="\"de\""
- *   ES: esbuild main.src.js --bundle --minify --outfile=es/js/es-main.js  --define:LANG="\"es\""
- *   FR: esbuild main.src.js --bundle --minify --outfile=fr/js/fr-main.js  --define:LANG="\"fr\""
- *   RU: esbuild main.src.js --bundle --minify --outfile=ru/js/ru-main.js  --define:LANG="\"ru\""
- *   PL: esbuild main.src.js --bundle --minify --outfile=pl/js/pl-main.js  --define:LANG="\"pl\""
+ *   npm run build:js
+ *   scripts/build-js.js injects LANG and RESPONSE_TIME from src/_data/inquiry.json.
  */
 
 // ─── Language Configuration ──────────────────────────────────────────
-// Overridden at build time via esbuild --define:LANG="\"de\""
-const RESPONSE_TIME = require('./src/_data/inquiry.json').responseTime;
-const ACTIVE_LANG = typeof LANG !== "undefined" ? LANG : "en";
-const rt = RESPONSE_TIME[ACTIVE_LANG] || RESPONSE_TIME.en;
+// LANG and RESPONSE_TIME are injected by scripts/build-js.js from source data.
+const rt = typeof RESPONSE_TIME !== "undefined" ? RESPONSE_TIME : "the stated response time";
 
 const _ = typeof LANG !== "undefined" && LANG === "de"
   ? {
