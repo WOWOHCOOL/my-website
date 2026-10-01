@@ -44,41 +44,30 @@ function collectLastmods(dir) {
 collectLastmods(SRC_DIR);
 console.log(`Collected ${Object.keys(lastmodMap).length} real modified dates from src frontmatter`);
 
-function walkHtml(dir) {
-  const entries = fs.readdirSync(dir, { withFileTypes: true });
-  for (const entry of entries) {
-    const full = path.join(dir, entry.name);
-    if (entry.isDirectory()) {
-      if (!['image', 'css', 'js', 'node_modules', '.git'].includes(entry.name)) {
-        walkHtml(full);
-      }
-    } else if (entry.name.endsWith('.html')) {
-      const content = fs.readFileSync(full, 'utf-8');
-
-      // Respect per-page noindex even when a canonical exists.
-      if (/<meta name="robots" content="noindex/i.test(content)) continue;
-
-      // Extract hreflang entries
-      const hreflangs = {};
-      const hreflangRegex = /hreflang="([^"]*)" href="([^"]*)"/g;
-      let m;
-      while ((m = hreflangRegex.exec(content)) !== null) {
-        hreflangs[m[1]] = m[2];
-      }
-
-      // Extract canonical
-      const canonMatch = content.match(/<link rel="canonical" href="([^"]*)"/);
-      if (!canonMatch) continue;
-      const canonical = canonMatch[1];
-
-      if (!pageMap[canonical]) {
-        pageMap[canonical] = hreflangs;
-      }
+function loadClusterRegistry() {
+  const registryPath = path.join(SITE_DIR, 'content-clusters.json');
+  if (!fs.existsSync(registryPath)) {
+    throw new Error('[sitemap] _site/content-clusters.json not found; run node scripts/content-cluster-registry.js first');
+  }
+  const registry = JSON.parse(fs.readFileSync(registryPath, 'utf-8'));
+  let pages = 0;
+  for (const cluster of registry.clusters || []) {
+    const indexable = Object.entries(cluster.pages || {})
+      .filter(([, page]) => page && page.indexable && page.canonical);
+    if (!indexable.length) continue;
+    const hreflangs = {};
+    for (const [lang, page] of indexable) hreflangs[lang] = page.canonical;
+    if (hreflangs.en) hreflangs['x-default'] = hreflangs.en;
+    for (const [, page] of indexable) {
+      pageMap[page.canonical] = hreflangs;
+      pages++;
     }
   }
+  return pages;
 }
 
-walkHtml(SITE_DIR);
+const indexedPages = loadClusterRegistry();
+console.log('Loaded ' + indexedPages + ' indexable pages from content-clusters.json');
 console.log(`Found ${Object.keys(pageMap).length} unique pages`);
 
 // Breakdown by page type

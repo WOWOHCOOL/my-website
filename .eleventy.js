@@ -187,6 +187,82 @@ module.exports = function (eleventyConfig) {
     return content;
   });
 
+  // ---- Structured facts single source (Organization JSON-LD) ----
+  const FACTS_FILE = path.join(__dirname, 'src/_data/facts.json');
+  let FACTS_DATA;
+  try {
+    FACTS_DATA = JSON.parse(fs.readFileSync(FACTS_FILE, 'utf8'));
+  } catch (e) {
+    throw new Error('[facts] 读不到或解析不了 src/_data/facts.json: ' + e.message);
+  }
+  const ORG_ID = 'https://www.wowohcool.com/#organization';
+  function applyFactsToOrganization(node) {
+    if (!node || typeof node !== 'object') return;
+    const t = node['@type'];
+    const isOrg = Array.isArray(t) ? t.includes('Organization') : t === 'Organization';
+    if (isOrg && node['@id'] === ORG_ID) {
+      node.legalName = FACTS_DATA.legalName;
+      node.vatID = FACTS_DATA.vatID;
+      node.foundingDate = FACTS_DATA.founded;
+      node.email = FACTS_DATA.contact.email;
+      node.telephone = FACTS_DATA.contact.phoneE164;
+      if (!node.contactPoint) node.contactPoint = { '@type': 'ContactPoint' };
+      const cps = Array.isArray(node.contactPoint) ? node.contactPoint : [node.contactPoint];
+      for (const cp of cps) {
+        if (!cp || typeof cp !== 'object') continue;
+        cp['@type'] = cp['@type'] || 'ContactPoint';
+        cp.contactType = cp.contactType || 'OEM/ODM Sales';
+        cp.email = FACTS_DATA.contact.email;
+        cp.telephone = FACTS_DATA.contact.phoneE164;
+      }
+      if (cps.length === 1) node.contactPoint = cps[0];
+      else node.contactPoint = cps;
+    }
+    for (const v of Object.values(node)) {
+      if (v && typeof v === 'object') applyFactsToOrganization(v);
+    }
+  }
+  function normalizeJsonLdFacts(jsonText) {
+    let parsed;
+    try { parsed = JSON.parse(jsonText); } catch { return jsonText; }
+    applyFactsToOrganization(parsed);
+    return JSON.stringify(parsed).replace(/</g, '\\u003c');
+  }
+  function getFactPath(root, keyPath) {
+    let cur = root;
+    for (const part of String(keyPath).split('.')) {
+      if (!cur || typeof cur !== 'object' || !(part in cur)) return null;
+      cur = cur[part];
+    }
+    return cur;
+  }
+  function factValue(keyPath, lang) {
+    const localized = lang && FACTS_DATA.i18n && FACTS_DATA.i18n[lang]
+      ? getFactPath(FACTS_DATA.i18n[lang], keyPath)
+      : null;
+    if (localized !== null && localized !== undefined) return localized;
+    return getFactPath(FACTS_DATA, keyPath);
+  }
+  eleventyConfig.addTransform('factTokens', function (content) {
+    if (!this.outputPath || !/\.(html|xml|txt)$/.test(this.outputPath)) return content;
+    if (content.indexOf('{FACT:') === -1) return content;
+    const rel = this.outputPath.replace(/\\/g, '/');
+    const m = rel.match(/(?:^|\/)_site\/(.+)$/);
+    const seg = (m ? m[1] : rel).split('/')[0];
+    const lang = RT_LANGS.indexOf(seg) >= 0 ? seg : 'en';
+    return content.replace(/\{FACT:([A-Za-z0-9_.]+)\}/g, function (full, key) {
+      const value = factValue(key, lang);
+      return value === null || value === undefined ? full : String(value);
+    });
+  });
+
+  eleventyConfig.addTransform('organizationFacts', function (content) {
+    if (!this.outputPath || !/\.html$/.test(this.outputPath)) return content;
+    return content.replace(/<script([^>]*type=["']application\/ld\+json["'][^>]*)>([\s\S]*?)<\/script>/gi, function (full, attrs, jsonText) {
+      return '<script' + attrs + '>' + normalizeJsonLdFacts(jsonText) + '</script>';
+    });
+  });
+
   // Date format filter: Date object → "YYYY-MM-DD"
   eleventyConfig.addFilter("fmtDate", (d) => {
     if (d instanceof Date) {

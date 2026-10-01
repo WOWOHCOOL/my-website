@@ -44,17 +44,17 @@
  <div>
  <h3 class="font-black text-brandBlue text-xs mb-8 uppercase tracking-widest">{{ f.colConnectTitle }}</h3>
  <div class="text-slate-500 text-xs font-bold space-y-4 uppercase tracking-widest">
-{% if f.phone %} <p><a href="tel:+8618620789739" class="hover:text-brandOrange transition flex items-center justify-center md:justify-start gap-2">
- <svg class="icon-phone text-brandOrange" aria-hidden="true" focusable="false" viewBox="0 0 512 512"><path d="M160.2 25C152.3 6.1 131.7-3.9 112.1 1.4l-5.5 1.5c-64.6 17.6-119.8 80.2-103.7 156.4 37.1 175 174.8 312.7 349.8 349.8 76.3 16.2 138.8-39.1 156.4-103.7l1.5-5.5c5.4-19.7-4.7-40.3-23.5-48.1l-97.3-40.5c-16.5-6.9-35.6-2.1-47 11.8l-38.6 47.2C233.9 335.4 177.3 277 144.8 205.3L189 169.3c13.9-11.3 18.6-30.4 11.8-47L160.2 25z" fill="currentColor"/></svg> +86 186 2078 9739
+{% if f.phone %} <p><a href="tel:{{ facts.contact.phoneE164 }}" class="hover:text-brandOrange transition flex items-center justify-center md:justify-start gap-2">
+ <svg class="icon-phone text-brandOrange" aria-hidden="true" focusable="false" viewBox="0 0 512 512"><path d="M160.2 25C152.3 6.1 131.7-3.9 112.1 1.4l-5.5 1.5c-64.6 17.6-119.8 80.2-103.7 156.4 37.1 175 174.8 312.7 349.8 349.8 76.3 16.2 138.8-39.1 156.4-103.7l1.5-5.5c5.4-19.7-4.7-40.3-23.5-48.1l-97.3-40.5c-16.5-6.9-35.6-2.1-47 11.8l-38.6 47.2C233.9 335.4 177.3 277 144.8 205.3L189 169.3c13.9-11.3 18.6-30.4 11.8-47L160.2 25z" fill="currentColor"/></svg> {{ facts.contact.phone }}
  </a></p>{% endif %}
- <p><a href="mailto:info@wowohcool.com" class="hover:text-brandOrange transition flex items-center justify-center md:justify-start gap-2" rel="noopener noreferrer">
- {{ iconEnvelope("text-brandOrange") }} info@wowohcool.com
+ <p><a href="mailto:{{ facts.contact.email }}" class="hover:text-brandOrange transition flex items-center justify-center md:justify-start gap-2" rel="noopener noreferrer">
+ {{ iconEnvelope("text-brandOrange") }} {{ facts.contact.email }}
  </a></p>
 {% if f.wechat %} <p><span class="flex items-center justify-center md:justify-start gap-2 select-all">
  {{ iconWechat("text-brandOrange text-sm") }} WeChat: {{ f.wechat }}
  </span></p>
-{% elif f.whatsapp %} <p><a href="https://wa.me/8618620789739" target="_blank" rel="noopener noreferrer" class="hover:text-brandOrange transition flex items-center justify-center md:justify-start gap-2">
- {{ iconWhatsapp("text-brandOrange text-sm") }} WhatsApp: +86 186 2078 9739
+{% elif f.whatsapp %} <p><a href="{{ facts.contact.whatsappUrl }}" target="_blank" rel="noopener noreferrer" class="hover:text-brandOrange transition flex items-center justify-center md:justify-start gap-2">
+ {{ iconWhatsapp("text-brandOrange text-sm") }} WhatsApp: {{ facts.contact.phone }}
  </a></p>{% endif %}
  </div>
  <div class="flex justify-center md:justify-start gap-5 text-slate-500 mt-8">
