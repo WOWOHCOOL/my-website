@@ -451,42 +451,9 @@ svg[class*="icon-"]{display:inline-block;width:1em;height:1em;vertical-align:-0.
 .dark-section [class~="bg-white"] .text-slate-600 { color: #475569; }
 .dark-section [class~="bg-white"] .text-slate-900 { color: var(--brand-blue); }
 
-/* ─── Product Cards ────────────────────────────────────────── */
-.product-card {
-  background: #fff;
-  border: 1px solid #e2e8f0;
-  border-radius: 1rem;
-  padding: 1.5rem;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  position: relative;
-  overflow: hidden;
-}
-.product-card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(255, 107, 0, 0.04) 0%, transparent 50%);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  pointer-events: none;
-}
-.product-card:hover {
-  border-color: var(--brand-orange);
-  box-shadow: 0 12px 40px rgba(255, 107, 0, 0.12);
-  transform: translateY(-3px);
-}
-.product-card:hover::before { opacity: 1; }
-.product-card .card-badge {
-  display: inline-block;
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  padding: 0.25rem 0.75rem;
-  border-radius: 999px;
-  background: rgba(255, 107, 0, 0.1);
-  color: var(--brand-orange);
-}
+/* Removed 2026-10-01: .product-card / .card-badge — 0 class refs in
+   src/ (incl. _includes) and _site/ (verified; lone _site hit was the
+   unrelated id="kategorie-hub-product-cards"). */
 
 /* ─── Stats Bar ────────────────────────────────────────────── */
 /* Removed 2026-09-12: .stats-bar / .stat-item / .stat-number / .stat-label have
@@ -561,10 +528,7 @@ svg[class*="icon-"]{display:inline-block;width:1em;height:1em;vertical-align:-0.
   .btn-card {
     @apply w-full py-4 bg-brandOrange text-white font-black uppercase text-[11px] tracking-widest rounded-2xl shadow-lg transition-all hover:bg-brandOrange/90;
   }
-  /* Small full-width CTA pinned to the bottom of a product card. */
-  .btn-card-sm {
-    @apply mt-auto w-full py-3 bg-brandOrange text-white font-black uppercase text-[11px] tracking-widest rounded-xl shadow-md transition cursor-pointer hover:bg-brandOrange/90;
-  }
+  /* Removed 2026-10-01: .btn-card-sm — 0 refs in src/ (incl. _includes) and _site/. */
   /* Wide marketing CTA that shares a row and grows from the sm breakpoint up.
      ⚠️ 补 `border-2 border-transparent` 与 `.btn-ghost-lg` 等高（同 `.btn-solid`）。
         桌面端并排时靠 grid 的 `align-items:stretch` 掩盖了 4px 差，
@@ -929,7 +893,7 @@ table td, table th { overflow-wrap: break-word; word-break: normal; }
 /* ─── Responsive (shared DE/ES/EN) ─────────────────────────── */
 @media (max-width: 768px) {
   .hero-title { font-size: 1.75rem; }
-  .product-card { padding: 1rem; }
+
 }
 @media (max-width: 640px) {
   .cookie-banner-inner { flex-direction: column; text-align: center; }
