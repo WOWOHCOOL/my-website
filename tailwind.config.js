@@ -35,6 +35,31 @@ module.exports = {
         brandBlueLight: '#0F2A4A',
         darkBg: '#020B1A',
       },
+      // --- design tokens (2026-10-01) ---
+      // Non-breaking: new utilities only; each value is EXACTLY equal to the
+      // arbitrary value it replaces (font-size-only, no line-height), so a
+      // later migration is CSS-equivalent.
+      fontSize: {
+        micro: '10px',
+        badge: '11px',
+        lead: '1.2rem',
+        body: '0.9rem',
+      },
+      borderRadius: {
+        '4xl': '2rem',
+        '5xl': '2.5rem',
+        '6xl': '3rem',
+      },
+      maxWidth: {
+        content: '480px',
+      },
+      minHeight: {
+        'screen-d': '100dvh',
+      },
+      aspectRatio: {
+        '4/3': '4 / 3',
+        '16/9': '16 / 9',
+      },
       zIndex: {
         '100': '100',
         '150': '150',

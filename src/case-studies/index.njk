@@ -109,7 +109,7 @@ plPath: "studia-przypadkow/"
 <!-- ========================================================================
  HERO SECTION
  ======================================================================== -->
- <section id="hero-section" class="relative pt-24 md:pt-28 pb-8 lg:pb-16 bg-white text-slate-900 overflow-hidden lg:min-h-[100dvh] lg:flex lg:flex-col lg:justify-center" data-section="hero">
+ <section id="hero-section" class="relative pt-24 md:pt-28 pb-8 lg:pb-16 bg-white text-slate-900 overflow-hidden lg:min-h-screen-d lg:flex lg:flex-col lg:justify-center" data-section="hero">
  <div class="absolute inset-0 z-0 pointer-events-none">
  <div class="absolute top-0 left-0 w-64 h-64 bg-brandOrange opacity-20 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
  <div class="absolute bottom-0 right-0 w-64 h-64 bg-blue-500 opacity-20 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
@@ -126,15 +126,15 @@ plPath: "studia-przypadkow/"
  <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-lg mx-auto">
  <div class="text-center">
  <p class="text-2xl md:text-3xl font-black text-brandBlue">75,500+</p>
- <p class="text-[10px] md:text-[11px] text-slate-500 font-bold uppercase tracking-wider mt-1">Units Delivered</p>
+ <p class="text-micro md:text-badge text-slate-500 font-bold uppercase tracking-wider mt-1">Units Delivered</p>
  </div>
  <div class="text-center border-x border-slate-200">
  <p class="text-2xl md:text-3xl font-black text-brandOrange">100%</p>
- <p class="text-[10px] md:text-[11px] text-slate-500 font-bold uppercase tracking-wider mt-1">On-Time</p>
+ <p class="text-micro md:text-badge text-slate-500 font-bold uppercase tracking-wider mt-1">On-Time</p>
  </div>
  <div class="text-center">
  <p class="text-2xl md:text-3xl font-black text-brandBlue">6</p>
- <p class="text-[10px] md:text-[11px] text-slate-500 font-bold uppercase tracking-wider mt-1">Projects</p>
+ <p class="text-micro md:text-badge text-slate-500 font-bold uppercase tracking-wider mt-1">Projects</p>
  </div>
  </div>
  </div>
@@ -155,7 +155,7 @@ plPath: "studia-przypadkow/"
  {% else %}
  <div class="reveal order-2 lg:order-1">
  {% endif %}
- <span class="inline-block px-3 py-1 text-[11px] font-bold rounded-full mb-3 {% if num == '1' %}bg-indigo-50 text-indigo-600{% elif num == '2' %}bg-red-50 text-red-500{% elif num == '3' %}bg-blue-50 text-blue-500{% elif num == '4' %}bg-green-50 text-green-700{% elif num == '5' %}bg-purple-50 text-purple-700{% else %}bg-amber-50 text-amber-700{% endif %}">{{ tag }}</span>
+ <span class="inline-block px-3 py-1 text-badge font-bold rounded-full mb-3 {% if num == '1' %}bg-indigo-50 text-indigo-600{% elif num == '2' %}bg-red-50 text-red-500{% elif num == '3' %}bg-blue-50 text-blue-500{% elif num == '4' %}bg-green-50 text-green-700{% elif num == '5' %}bg-purple-50 text-purple-700{% else %}bg-amber-50 text-amber-700{% endif %}">{{ tag }}</span>
  <p class="text-brandOrange text-xs font-bold tracking-widest uppercase mb-2">Case Study #{{ num }}</p>
  <h2 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4">{{ title | safe }}</h2>
  <div class="bg-slate-50 rounded-xl p-5 mb-6 border-l-4 border-brandOrange">
@@ -165,7 +165,7 @@ plPath: "studia-przypadkow/"
  </div>
  <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-6">
  {% for m in metrics %}
- <div class="card-soft p-3 text-center"><p class="text-xl font-black {% if loop.index is odd %}text-brandBlue{% else %}text-brandOrange{% endif %}">{{ m.val }}</p><p class="text-[11px] text-slate-500 font-bold uppercase">{{ m.label }}</p></div>
+ <div class="card-soft p-3 text-center"><p class="text-xl font-black {% if loop.index is odd %}text-brandBlue{% else %}text-brandOrange{% endif %}">{{ m.val }}</p><p class="text-badge text-slate-500 font-bold uppercase">{{ m.label }}</p></div>
  {% endfor %}
  </div>
  {% for p in text %}
