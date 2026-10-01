@@ -2,10 +2,12 @@
 /*
  * FAQ schema ↔ visible FAQ consistency gate.
  *
- * Default mode is warn-first: it reports mismatches but exits 0, because the
- * historical site backlog includes wording-only differences. Use --strict (or
- * FAQ_CONSISTENCY_STRICT=1) once numeric conflicts and count mismatches are
- * cleaned up.
+ * HARD GATE since 2026-10-01: the build chain runs this with --strict, so a
+ * count mismatch, an unmatched question, or ANY schema-vs-body text difference
+ * exits non-zero and blocks the deploy. The historical wording-only backlog was
+ * driven to 0 on 2026-10-01 (308 pages / 1838 answers), which is what made the
+ * strict switch safe. --strict / FAQ_CONSISTENCY_STRICT=1 remain the explicit
+ * switches; running the file bare is still warn-first for ad-hoc debugging.
  *
  * Scope: built _site HTML pages carrying a FAQPage JSON-LD node and a
  * visible .faq-answer FAQ body. It parses JSON-LD as JSON and compares
