@@ -129,6 +129,94 @@ function isBlogArticleUrl(url) {
   return false;
 }
 
+// --- DOM-level tag scan (2026-10-01) -------------------------------------
+// Regex can only count "class=... speakable ..." text. DOM-level validation needs
+// element identity, document order and nesting -- in particular the documented
+// nested double-count defect (a .speakable nested in another still counts as 2 by
+// regex but is structurally wrong). Focused tokenizer (same approach as
+// scripts/validate-html.js): honours quoted attributes, skips comments/doctype/PI,
+// and SKIPS script/style bodies -- essential because JSON-LD carries <a href>
+// strings that would otherwise parse as real tags.
+const VOID_TAGS = new Set(["area","base","br","col","embed","hr","img","input","link","meta","param","source","track","wbr"]);
+
+function scanTags(html) {
+  const out = [];
+  let i = 0;
+  while (i < html.length) {
+    const lt = html.indexOf("<", i);
+    if (lt < 0) break;
+    if (html.startsWith("<!--", lt)) { const e = html.indexOf("-->", lt + 4); i = e < 0 ? html.length : e + 3; continue; }
+    if (html.startsWith("<!", lt) || html.startsWith("<?", lt)) { const e = html.indexOf(">", lt); i = e < 0 ? html.length : e + 1; continue; }
+    let j = lt + 1, closing = false;
+    if (html[j] === "/") { closing = true; j++; }
+    if (!/[a-zA-Z]/.test(html[j] || "")) { i = lt + 1; continue; }
+    const ns = j; j++;
+    while (j < html.length && /[a-zA-Z0-9-]/.test(html[j])) j++;
+    const name = html.slice(ns, j).toLowerCase();
+    let k = j, quote = null;
+    for (; k < html.length; k++) {
+      const c = html[k];
+      if (quote) { if (c === quote) quote = null; continue; }
+      if (c === "\"" || c === "'") { quote = c; continue; }
+      if (c === ">") break;
+    }
+    if (k >= html.length) break;
+    const attrs = html.slice(j, k);
+    const selfClosing = html[k - 1] === "/" || VOID_TAGS.has(name);
+    if (!closing && (name === "script" || name === "style")) {
+      const cm = html.slice(k + 1).match(new RegExp("</" + name + "\\s*>", "i"));
+      out.push({ name, closing: false, selfClosing: true, attrs });
+      i = cm ? k + 1 + cm.index + cm[0].length : html.length;
+      continue;
+    }
+    out.push({ name, closing, selfClosing, attrs, index: lt });
+    i = k + 1;
+  }
+  return out;
+}
+
+function classListFromAttrs(attrs) {
+  const m = String(attrs).match(/\bclass\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s>]+))/i);
+  const val = m ? (m[1] || m[2] || m[3] || "") : "";
+  return val.split(/\s+/).filter(Boolean);
+}
+
+// Span-based (NOT a global stack): HTML optional-end tags (<p>, <li>, <td>...)
+// make a naive element stack drift (measured: depth=146 on a real article),
+// which produced false "nested" verdicts. Instead, for each speakable element
+// find its own matching close tag by counting same-name opens/closes.
+function matchClose(tags, idx) {
+  const open = tags[idx];
+  let depth = 0;
+  for (let k = idx; k < tags.length; k++) {
+    const u = tags[k];
+    if (u.name !== open.name) continue;
+    if (u.closing) { depth--; if (depth === 0) return u.index; }
+    else if (!u.selfClosing) depth++;
+  }
+  return Number.MAX_SAFE_INTEGER;   // unclosed -> treat as spanning to EOF
+}
+
+function speakableDomElements(html) {
+  const tags = scanTags(html);
+  const found = [];
+  for (let i = 0; i < tags.length; i++) {
+    const t = tags[i];
+    if (t.closing || t.selfClosing) continue;
+    if (!classListFromAttrs(t.attrs).includes('speakable')) continue;
+    found.push({ tag: t.name, start: t.index, end: matchClose(tags, i), nested: false });
+  }
+  // nesting: one speakable span contains another's start
+  for (const a of found) for (const b of found) if (a !== b && a.start < b.start && b.start < a.end) b.nested = true;
+  return found;
+}
+
+function countDomClass(html, cls) {
+  let n = 0;
+  for (const t of scanTags(html)) if (!t.closing && classListFromAttrs(t.attrs).includes(cls)) n++;
+  return n;
+}
+
 function strictBlogIssues(page) {
   const { url, s } = page;
   if (!isBlogArticleUrl(url)) return { issues: [], warnings: [] };
@@ -141,12 +229,17 @@ function strictBlogIssues(page) {
   const h1Count = (s.match(/<h1\b/gi) || []).length;
   if (h1Count !== 1) issues.push('h1 count=' + h1Count + ' (expected 1)');
 
-  const tags = speakableClassTags(s);
-  if (tags.length !== 2) issues.push('.speakable nodes=' + tags.length + ' (expected 2)');
+  // DOM-level: identity + order + nesting (not just a class-string count).
+  const spDom = speakableDomElements(s);
+  if (spDom.length !== 2) issues.push('.speakable DOM elements=' + spDom.length + ' (expected 2)');
   else {
-    const div = tags.filter((t) => t === 'div').length;
-    const p = tags.filter((t) => t === 'p').length;
-    if (div !== 1 || p !== 1) issues.push('.speakable tags=' + tags.join('+') + ' (expected one div Hook + one p TL;DR)');
+    const [hook, tldr] = spDom;
+    if (hook.tag !== 'div' || tldr.tag !== 'p') {
+      issues.push('.speakable DOM tags=' + hook.tag + '+' + tldr.tag + ' (expected div Hook + p TL;DR)');
+    }
+    if (hook.nested || tldr.nested) {
+      issues.push('.speakable DOM: nested speakable element (double-count) -- Hook and TL;DR must be siblings, not nested');
+    }
   }
 
   const blogSels = blog.flatMap((n) => selectorList(n.speakable));
@@ -161,7 +254,7 @@ function strictBlogIssues(page) {
     issues.push('FAQPage.speakable=' + JSON.stringify(faqSels) + ' (expected [".faq-answer"])');
   }
 
-  const faqCount = countClassToken(s, 'faq-answer');
+  const faqCount = countDomClass(s, 'faq-answer');   // DOM-level count
   if (faq.length === 1) {
     const entityCount = Array.isArray(faq[0].mainEntity) ? faq[0].mainEntity.length : 0;
     if (faqCount !== entityCount) {
@@ -238,7 +331,37 @@ function check(root = DEFAULT_ROOT) {
   return { pages, ok, bad, strictBad, warnings, strictTotal };
 }
 
+
+// Built-in self-test: the DOM-level nesting rule must catch a nested .speakable
+// (the old regex counted it as 2 and passed it). Run: node scripts/validate-speakable.js --selftest
+function selftest(quiet) {
+  const os = require("os");
+  const page = (nested) => {
+    const hook = nested
+      ? '<div class="bg-brandBlue/5 speakable"><p class="text-lg">Hook.</p><p class="text-sm speakable">TL;DR.</p></div>'
+      : '<div class="bg-brandBlue/5 speakable"><p class="text-lg">Hook.</p></div><p class="text-sm speakable">TL;DR.</p>';
+    const ld = JSON.stringify({ "@graph": [
+      { "@type": "BlogPosting", "headline": "T", "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".speakable"] } },
+      { "@type": "FAQPage", "speakable": { "@type": "SpeakableSpecification", "cssSelector": [".faq-answer"] },
+        "mainEntity": [0,1,2].map((i) => ({ "@type": "Question", "name": "Q"+i, "acceptedAnswer": { "@type": "Answer", "text": "A"+i } })) }
+    ] });
+    const faq = [0,1,2].map((i) => '<div class="faq-answer">A'+i+'</div>').join("");
+    return '<!doctype html><html><head><script type="application/ld+json">'+ld+'</script></head><body><h1>Title</h1>'+hook+faq+'</body></html>';
+  };
+  const mk = (html) => { const r = fs.mkdtempSync(path.join(os.tmpdir(), "spk-")); const d = path.join(r, "blog", "sample"); fs.mkdirSync(d, { recursive: true }); fs.writeFileSync(path.join(d, "index.html"), html); return r; };
+  const good = check(mk(page(false)));
+  const bad = check(mk(page(true)));
+  const badHit = bad.strictBad.length === 1 && /nested/.test(bad.strictBad[0].issues.join(" "));
+  const ok = good.strictBad.length === 0 && badHit;
+  if (!quiet) console.log("[selftest] speakable DOM nesting -- good page clean=" + (good.strictBad.length === 0) + ", bad page flagged=" + badHit);
+  if (!ok) { console.error("[selftest] FAIL -- detector is broken (good page flagged or nested bad page missed)"); process.exit(1); }
+  if (!quiet) console.log("[selftest] PASS");
+}
+
 function main() {
+  const loud = process.argv.includes("--selftest");
+  selftest(!loud);                       // always prove the detector works first
+  if (loud) return;
   const res = check();
   if (res.error) {
     console.error('[validate-speakable] FAIL — ' + res.error + ' (run the build first)');
@@ -292,6 +415,6 @@ function main() {
   console.log('[validate-speakable] PASS');
 }
 
-module.exports = { check, selectorsOf, stripSpeakable, exists, existsSimple };
+module.exports = { check, selectorsOf, stripSpeakable, exists, existsSimple, scanTags, classListFromAttrs, speakableDomElements, countDomClass };
 
 if (require.main === module) main();
