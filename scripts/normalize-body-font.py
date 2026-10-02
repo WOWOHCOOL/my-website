@@ -52,11 +52,16 @@ def norm_block(blk):
     def repl_h3(m):
         nonlocal changes
         pre, cls, post = m.group(1), m.group(2), m.group(3)
-        if 'text-slate-900' not in cls:
-            return m.group(0)
         nc = cls.replace('text-slate-900', 'text-brandBlue')
-        changes += 1
-        return pre + nc + post
+        if 'uppercase' in nc:
+            nc = re.sub(r'\btext-sm\b\s*', '', nc)      # subheading -> default size
+            nc = re.sub(r'(^|\s)mb-[\w.]+', r'\1mb-3', nc)  # unify existing gap
+            nc = _ensure(nc, ['mb-3'])                     # add gap if missing
+            nc = re.sub(r'\s{2,}', ' ', nc).strip()
+        if nc != cls:
+            changes += 1
+            return pre + nc + post
+        return m.group(0)
     blk = re.sub(r'(<p\b[^>]*class=")([^"]*)(")', repl_p, blk)
     blk = re.sub(r'(<ul\b[^>]*class=")([^"]*)(")', repl_ul, blk)
     blk = re.sub(r'(<h3\b[^>]*class=")([^"]*)(")', repl_h3, blk)

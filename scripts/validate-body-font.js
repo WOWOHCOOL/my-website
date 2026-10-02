@@ -24,6 +24,8 @@ for (const f of files) {
     for (const h of blk.matchAll(/<h3\b[^>]*class="([^"]*)"/g)) {
       const c = h[1]; scanned++;
       if (/\btext-slate-900\b/.test(c)) bad.push([path.relative(ROOT, f), 'h3 color: ' + c]);
+      if (/\buppercase\b/.test(c) && /\btext-sm\b/.test(c)) bad.push([path.relative(ROOT, f), 'h3 size: ' + c]);
+      if (/\buppercase\b/.test(c) && !/\bmb-3\b/.test(c)) bad.push([path.relative(ROOT, f), 'h3 gap: ' + c]);
     }
     for (const u of blk.matchAll(/<ul\b[^>]*class="([^"]*)"/g)) {
       const c = u[1]; if (!c.includes('text-slate-600') || c.includes('text-xs')) continue;
