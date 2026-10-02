@@ -49,11 +49,22 @@ const VPS = [320, 360, 390, 430];
         for (const el of document.querySelectorAll('a,button,input,select,textarea,[role=button]')) {
           const b = el.getBoundingClientRect(); if (b.width === 0 || b.height === 0) continue;
           const cs = getComputedStyle(el); if (cs.visibility === 'hidden' || cs.display === 'none') continue;
-          if (el.tagName === 'INPUT' && /^(checkbox|radio)$/.test(el.type)) continue; // label is the target
+          if (el.tagName === 'INPUT' && /^(checkbox|radio)$/.test(el.type)) continue;
+          // WCAG 2.5.8 inline exception: <a> inside a sentence. Flex/grid parents
+          // blockify the anchor (display:block), which used to defeat the check.
+          const isInlineTextAnchor = (a) => {
+            if (a.tagName !== 'A') return false;
+            const cls = (a.className || '').toString();
+            if (/\b(inline-flex|flex|block|inline-block|btn|card|w-\d|h-\d|px-|py-)\b/.test(cls)) return false;
+            const p = a.parentElement;
+            if (!p) return false;
+            for (const n of p.childNodes) if (n.nodeType === 3 && n.textContent.trim().length) return true;
+            return false;
+          }; // label is the target
           // WCAG 2.5.8 AA: 24x24 min (inline text links exempt). 2.5.5 AAA: 44x44.
           const min = Math.min(b.width, b.height);
           if (min < 24) {
-            if (el.tagName === 'A' && cs.display === 'inline') continue; // inline-text exception
+            if (el.tagName === 'A' && (cs.display === 'inline' || isInlineTextAnchor(el))) continue; // inline-text exception
             out.smallTapsAA.push(el.tagName.toLowerCase() + ' ' + Math.round(b.width) + 'x' + Math.round(b.height) + ' "' + (el.getAttribute('aria-label') || el.textContent || '').trim().slice(0, 18) + '"');
           } else if (min < 44) out.smallTapsWarn++;
           if (out.smallTapsAA.length >= 8) break;
