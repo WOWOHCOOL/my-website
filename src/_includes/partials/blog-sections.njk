@@ -51,3 +51,28 @@
  </a>
 {% endfor %} </div>
 </aside>{% endmacro %}
+
+{# ---- Hook (panel 2) ---- #}
+{% macro hookPanel(para1, para2) %}<!-- The Hook -->
+ <div class="bg-brandBlue/5 border-l-4 border-brandOrange p-6 rounded-r-xl mb-8 speakable">
+ <p class="text-lg text-slate-700 italic">{{ para1 | safe }}</p>
+{% if para2 %} <p class="text-slate-600 leading-relaxed mt-4">{{ para2 | safe }}</p>
+{% endif %} </div>{% endmacro %}
+
+{# ---- Key Takeaways (panel 4) ---- #}
+{% macro takeawaysPanel(label, tldr, items) %}<div class="bg-amber-50 border-l-4 border-amber-500 rounded-r-xl p-6 mb-8">
+ <p class="text-badge font-black text-brandOrange uppercase tracking-widest mb-2">{{ label | safe }}</p>
+ <p class="text-slate-700 leading-relaxed text-sm mb-4 speakable">{{ tldr | safe }}</p>
+ <ul class="text-sm text-slate-700 space-y-2 list-disc pl-5">
+{% for it in items %} <li>{{ it | safe }}</li>
+{% endfor %} </ul>
+ </div>{% endmacro %}
+
+{# ---- Table of Contents (panel 6) ---- #}
+{% macro tocPanel(heading, items, h2Class) %}<!-- Table of Contents -->
+ <div class="bg-brandBlue rounded-2xl p-8 text-white mb-12">
+ <h2 class="{{ h2Class or 'text-lg font-black uppercase italic mb-6' }}">{{ heading | safe }}</h2>
+ <nav class="text-sm space-y-2">
+{% for it in items %} <a href="{{ it.href }}" class="block hover:text-brandOrange transition">{{ it.text | safe }}</a>
+{% endfor %} </nav>
+ </div>{% endmacro %}

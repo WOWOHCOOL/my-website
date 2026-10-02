@@ -95,6 +95,44 @@ const PANELS = [
   },
 ];
 
+PANELS.push(
+  {
+    name: 'hookPanel',
+    call: '{{ hookPanel(a.para1, a.para2) }}',
+    extract(src) {
+      const b = blockAt(src, '<!-- The Hook -->', 'div'); if (!b) return null;
+      const ps = [...b.std.matchAll(/<p class="text-lg text-slate-700 italic">([\s\S]*?)<\/p>/g)];
+      const p2 = b.std.match(/<p class="text-slate-600 leading-relaxed mt-4">([\s\S]*?)<\/p>/);
+      if (!ps.length) return null;
+      return { std: b.std, args: { para1: ps[0][1], para2: p2 ? p2[1] : '' } };
+    },
+  },
+  {
+    name: 'takeawaysPanel',
+    call: '{{ takeawaysPanel(a.label, a.tldr, a.items) }}',
+    extract(src) {
+      const mk = src.indexOf('bg-amber-50 border-l-4 border-amber-500'); if (mk < 0) return null;
+      const o = src.lastIndexOf('<div', mk); const e = closeBal(src, o, 'div'); if (e < 0) return null;
+      const b = { std: src.slice(o, e) };
+      const label = (b.std.match(/<p class="text-badge[^"]*">([\s\S]*?)<\/p>/) || [])[1] || '';
+      const tldr = (b.std.match(/<p class="text-slate-700 leading-relaxed text-sm mb-4 speakable">([\s\S]*?)<\/p>/) || [])[1] || '';
+      const items = [...b.std.matchAll(/<li>([\s\S]*?)<\/li>/g)].map(m => m[1]);
+      if (!items.length) return null;
+      return { std: b.std, args: { label, tldr, items } };
+    },
+  },
+  {
+    name: 'tocPanel',
+    call: '{{ tocPanel(a.heading, a.items, a.h2Class) }}',
+    extract(src) {
+      const b = blockAt(src, '<!-- Table of Contents -->', 'div'); if (!b) return null;
+      const h2 = b.std.match(/<h2 class="([^"]*)">([\s\S]*?)<\/h2>/); if (!h2) return null;
+      const items = [...b.std.matchAll(/<a href="([^"]+)" class="block hover:text-brandOrange transition">([\s\S]*?)<\/a>/g)].map(m => ({ href: m[1], text: m[2] }));
+      if (!items.length) return null;
+      return { std: b.std, args: { heading: h2[2], items, h2Class: h2[1] } };
+    },
+  }
+);
 let totalPass = 0, totalFail = 0;
 for (const panel of PANELS) {
   let p = 0, f = 0; const fails = [];
