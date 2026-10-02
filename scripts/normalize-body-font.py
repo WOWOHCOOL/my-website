@@ -62,9 +62,25 @@ def norm_block(blk):
             changes += 1
             return pre + nc + post
         return m.group(0)
+    def repl_table(m):
+        nonlocal changes
+        pre, cls, post = m.group(1), m.group(2), m.group(3)
+        if re.search(r'\btext-(base|lg|xl|lead)\b', cls):
+            nc = cls
+        elif re.search(r'\btext-(xs|body)\b', cls):
+            nc = re.sub(r'\btext-(xs|body)\b', 'text-sm', cls)   # table density -> 14px
+        elif re.search(r'\btext-sm\b', cls):
+            nc = cls
+        else:
+            nc = (cls + ' text-sm').strip()
+        if nc != cls:
+            changes += 1
+            return pre + nc + post
+        return m.group(0)
     blk = re.sub(r'(<p\b[^>]*class=")([^"]*)(")', repl_p, blk)
     blk = re.sub(r'(<ul\b[^>]*class=")([^"]*)(")', repl_ul, blk)
     blk = re.sub(r'(<h3\b[^>]*class=")([^"]*)(")', repl_h3, blk)
+    blk = re.sub(r'(<table\b[^>]*class=")([^"]*)(")', repl_table, blk)
     return blk, changes
 def migrate(text):
     n = 0; out = []; last = 0
