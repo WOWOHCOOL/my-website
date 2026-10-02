@@ -364,6 +364,18 @@ svg[class*="icon-"]{display:inline-block;width:1em;height:1em;vertical-align:-0.
   .container-narrow { max-width: 48rem; }
 }
 
+/* ─── Typography Tiers (全站正文三层信息层级, 2026-10) ─────────────
+   原则："越靠近正文主线 → 字越大、色越深；越靠近元信息 → 字越小、色越浅"。
+   T1 叙述   Section 引言 / 文章式段落（未被 card / grid-cell / li / details 包裹）
+             → 16px  text-slate-600 leading-relaxed mb-4   （与 blog 正文同款）
+   T2 辅助   卡片 / 网格项 / 步骤 / 列表项 正文
+             → 14px  text-sm text-slate-500 leading-relaxed
+   T3 微文案 eyebrow / 标签 / 图注（class 含 uppercase+tracking 或 text-badge/micro/xs）
+             → 11–12px
+   ⚠️ 层级由"内容角色"决定，不能只按 DOM/标签自动判定：<p> 同时承担引言、卡片描述、
+      eyebrow、图注四种角色（批量脚本实测会误判——曾把 text-xl 声明段降级、把图注升级）。
+      新增内容请按语义选层级；批量修改务必逐页视觉复核。
+*/
 /* ─── Design System: Typography Scale ──────────────────────── */
 /* Note: heading-1/2/3, body-lg/sm, label-sm were defined here but never adopted
    in templates (verified 0 occurrences in src/ and _site/). Removed 2026-09-12.
