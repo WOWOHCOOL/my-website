@@ -22,9 +22,9 @@
  </div>{% endmacro %}
 
 {# ---- CTA (panel 12). cardInner=true → gradient on inner div (standard §12); wrapClass → outer container ---- #}
-{% macro ctaPanel(heading, subtext, primaryHref, primaryLabel, secondaryHref, secondaryLabel, wrapClass, cardInner, sectionClass, cardClass, primaryClass, secondaryClass, subtextClass) %}<!-- CTA -->
+{% macro ctaPanel(heading, subtext, primaryHref, primaryLabel, secondaryHref, secondaryLabel, wrapClass, cardInner, sectionClass, cardClass, primaryClass, secondaryClass, subtextClass) %}{% if cardInner is defined %}{% set ci = cardInner %}{% else %}{% set ci = true %}{% endif %}<!-- CTA -->
 {% if wrapClass %} <div class="{{ wrapClass }}">
-{% endif %}{% if cardInner %} <section class="{{ sectionClass or 'max-w-4xl mx-auto px-6 mb-16' }}">
+{% endif %}{% if ci %} <section class="{{ sectionClass or 'max-w-4xl mx-auto px-6 mb-16' }}">
  <div class="{{ cardClass or 'relative bg-gradient-to-br from-brandBlue to-slate-800 rounded-3xl p-10 text-center overflow-hidden' }}">
 {% else %} <section class="{{ cardClass or 'relative bg-gradient-to-br from-brandBlue to-slate-800 rounded-3xl p-10 text-center mb-16 overflow-hidden' }}">
 {% endif %} <div class="absolute top-0 right-0 w-64 h-64 bg-brandOrange/20 rounded-full blur-3xl"></div>
@@ -37,12 +37,12 @@
  <a href="{{ secondaryHref }}" class="{{ secondaryClass or 'w-full sm:flex-1 text-center border-2 border-white text-white px-8 py-4 rounded-xl font-black uppercase text-sm hover:bg-white hover:text-brandBlue transition' }}">{{ secondaryLabel | safe }}</a>
  </div>
  </div>
-{% if cardInner %} </div>
+{% if ci %} </div>
 {% endif %}</section>{% if wrapClass %}
  </div>{% endif %}{% endmacro %}
 
 {# ---- Related Articles (panel 13) ---- #}
-{% macro relatedPanel(heading, cards, asideClass, h2Class, headingBar) %}<aside id="related-articles" class="{{ asideClass or 'max-w-4xl mx-auto mb-16' }}">
+{% macro relatedPanel(heading, cards, asideClass, h2Class, headingBar) %}<aside id="related-articles" class="{{ asideClass or 'max-w-4xl mx-auto px-6 mb-16' }}">
 {% if headingBar %} <div class="flex items-center gap-3 mb-6">
  <div class="w-1 h-6 bg-brandOrange rounded-full"></div>
  <h2 class="{{ h2Class or 'text-lg font-black text-brandBlue uppercase italic' }}">{{ heading | safe }}</h2>

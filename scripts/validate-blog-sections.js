@@ -278,5 +278,10 @@ for (const panel of PANELS) {
   }
 }
 console.log('\n[validate-blog-sections] TOTAL byte-exact PASS=' + totalPass + ' / whitespace-only=' + totalWs + ' / STRUCTURAL=' + totalStruct);
-console.log('  [diagnostic mode] Step-1 prototype: reports variants; does not gate the build.');
+const strict = process.argv.includes('--strict');
+if (strict && totalStruct > 0) {
+  console.log('  [strict] STRUCTURAL>0 — 共享宏无法无损复现存量板块，门禁 BLOCKED');
+  process.exit(1);
+}
+if (!strict) console.log('  [diagnostic mode] Step-1 prototype: reports variants; does not gate the build.');
 process.exit(0);

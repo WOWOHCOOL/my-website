@@ -1,0 +1,30 @@
+{# Registry-driven blog section renderer (Step 2 prototype).
+   Content files declare an ordered `sections` array; this partial renders the
+   validated shared macros. Registry: src/_data/blog-sections.json.
+   Usage:
+     {% from "partials/blog-render.njk" import renderBlogSections %}
+     {{ renderBlogSections(sections) }}
+   Each item: { key: '<registry key>', ...data }. `hero` and `body` accept raw `html`.
+   Panel macros are lossless supersets: only pass the knobs you need; defaults are
+   the written standard (CTA = §12 inner-gradient card, Related = §13 self-constraining aside). #}
+{% from "partials/blog-sections.njk" import hookPanel, featuredImage, takeawaysPanel, metricsPanel, tocPanel, conclusionPanel, buyerSpecPanel, faqPanel, authorBioPanel, ctaPanel, relatedPanel, sourcesPanel %}
+
+{% macro renderBlogSections(sections) %}
+{% for s in sections %}
+{% if s.key == 'hero' %}{{ s.html | safe }}
+{% elif s.key == 'hook' %}{{ hookPanel(s.para1, s.para2, s.wrapClass) }}
+{% elif s.key == 'featured-image' %}{{ featuredImage(s.src, s.srcset, s.sizes, s.alt, s.title, s.width, s.height) }}
+{% elif s.key == 'takeaways' %}{{ takeawaysPanel(s.label, s.tldr, s.items) }}
+{% elif s.key == 'metrics' %}{{ metricsPanel(s.items) }}
+{% elif s.key == 'toc' %}{{ tocPanel(s.heading, s.items, s.h2Class, s.wrapClass) }}
+{% elif s.key == 'body' %}{{ s.html | safe }}
+{% elif s.key == 'conclusion' %}{{ conclusionPanel(s.heading, s.paragraphs, s.list, s.paragraphsAfter, s.sectionClass) }}
+{% elif s.key == 'buyer-spec' %}{{ buyerSpecPanel(s.heading, s.cards, s.sectionClass) }}
+{% elif s.key == 'faq' %}{{ faqPanel(s.heading, s.items, s.layout, s.wrapClass) }}
+{% elif s.key == 'author-bio' %}{{ authorBioPanel(s) }}
+{% elif s.key == 'cta' %}{{ ctaPanel(s.heading, s.subtext, s.primaryHref, s.primaryLabel, s.secondaryHref, s.secondaryLabel, s.wrapClass, s.cardInner, s.sectionClass, s.cardClass, s.primaryClass, s.secondaryClass, s.subtextClass) }}
+{% elif s.key == 'related' %}{{ relatedPanel(s.heading, s.cards, s.asideClass, s.h2Class, s.headingBar) }}
+{% elif s.key == 'sources' %}{{ sourcesPanel(s.heading, s.items, s.sectionClass) }}
+{% endif %}
+{% endfor %}
+{% endmacro %}
