@@ -17,8 +17,12 @@ def fix_block(blk):
     def repl(m):
         nonlocal n
         cls = m.group(1)
-        nc = re.sub(r'\brounded-xl\b', 'rounded-2xl', cls)
+        nc = re.sub(r'\bmax-w-3xl\b\s*', '', cls)   # full width inside the card
+        nc = re.sub(r'\bmx-auto\b\s*', '', nc)
+        nc = re.sub(r'\brounded-xl\b', 'rounded-2xl', nc)
         nc = re.sub(r'\bshadow-md\b', 'shadow-lg', nc)
+        if 'w-full' not in nc.split(): nc = 'w-full ' + nc
+        nc = re.sub(r'\s{2,}', ' ', nc).strip()
         if nc != cls:
             n += 1
             return m.group(0).replace('class="' + cls + '"', 'class="' + nc + '"')

@@ -31,6 +31,8 @@ for (const f of files) {
       const c = im[1]; scanned++;
       if (/\brounded-xl\b/.test(c)) bad.push([path.relative(ROOT, f), 'img radius: ' + c]);
       if (/\bshadow-md\b/.test(c)) bad.push([path.relative(ROOT, f), 'img shadow: ' + c]);
+      if (/\bmax-w-3xl\b/.test(c)) bad.push([path.relative(ROOT, f), 'img not full width: ' + c]);
+      if (!/\bw-full\b/.test(c)) bad.push([path.relative(ROOT, f), 'img missing w-full: ' + c]);
     }
     for (const tb of blk.matchAll(/<table\b[^>]*class="([^"]*)"/g)) {
       const c = tb[1]; scanned++;
