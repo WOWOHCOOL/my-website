@@ -87,9 +87,10 @@
 {% endfor %} </div>
  </div>{% endmacro %}
 
-{# ---- FAQ (panel 10). layout=card (default) | details ---- #}
-{% macro faqPanel(heading, items, layout) %}<section id="faq" class="mb-16">
- <div class="bg-slate-50 rounded-2xl p-8 border border-slate-200 shadow-sm">
+{# ---- FAQ (panel 10). layout=card (default) | details. wrapClass e.g. 'max-w-4xl mx-auto px-6' ---- #}
+{% macro faqPanel(heading, items, layout, wrapClass) %}<section id="faq" class="mb-16">
+{% if wrapClass %} <div class="{{ wrapClass }}">
+{% endif %} <div class="bg-slate-50 rounded-2xl p-8 border border-slate-200 shadow-sm">
  <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-8 text-center">{{ heading | safe }}</h2>
  <div class="space-y-6 max-w-3xl mx-auto">
 {% for it in items %}{% if layout == 'details' %}<details class="faq-item">
@@ -101,4 +102,55 @@
 </div>{% endif %}
 {% endfor %} </div>
  </div>
+{% if wrapClass %} </div>
+{% endif %}</section>{% endmacro %}
+
+{# ---- Conclusion (panel 9, optional). list = { class?, items:[...] } | null ---- #}
+{% macro conclusionPanel(heading, paragraphs, list, sectionClass) %}<section id="conclusion" class="{{ sectionClass or 'max-w-4xl mx-auto px-6 mb-16' }}">
+ <div class="bg-slate-50 rounded-xl p-6 border border-slate-200 shadow-sm">
+ <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-6">{{ heading | safe }}</h2>
+{% for p in paragraphs %} <p class="text-slate-600 leading-relaxed mb-4">{{ p | safe }}</p>
+{% endfor %}{% if list and list.items and list.items.length %} <ol class="{{ list.class or 'list-decimal pl-5 space-y-2 text-slate-600 text-sm' }}">
+{% for it in list.items %} <li>{{ it | safe }}</li>
+{% endfor %} </ol>
+{% endif %} </div>
+</section>{% endmacro %}
+
+{# ---- Full Author Bio (panel 11) ---- #}
+{% macro authorBioPanel(a) %}<section id="author-bio" class="{{ a.sectionClass or 'max-w-4xl mx-auto px-6' }}">
+<div class="{{ a.innerClass or 'bg-slate-50 rounded-2xl p-6 md:p-8 mb-12 border border-slate-100' }}">
+ <div class="flex flex-col sm:flex-row items-start gap-4 sm:gap-6">
+ <div class="w-20 h-20 rounded-full overflow-hidden flex items-center justify-center border-2 border-brandOrange bg-white shadow-lg shrink-0">
+ <img src="{{ a.avatar }}"{{ a.avatarSrcset | safe }} sizes="{{ a.avatarSizes | safe }}" alt="{{ a.avatarAlt | safe }}" loading="lazy" width="{{ a.avatarW }}" height="{{ a.avatarH }}" class="w-full h-full object-cover" decoding="async">
+ </div>
+ <div class="flex-1 min-w-0">
+ <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 mb-2 sm:mb-3">
+ <a href="{{ a.linkedin }}" target="_blank" rel="noopener noreferrer" class="font-black text-slate-900 text-lg hover:text-brandOrange transition">{{ a.name | safe }}</a>
+ <span class="px-2 py-1 bg-brandOrange/10 text-brandOrange text-badge font-black rounded-full uppercase w-fit">{{ a.badge | safe }}</span>
+ </div>
+ <p class="text-sm text-slate-500 mb-3">{{ a.role | safe }}</p>
+ <p class="text-slate-600 text-sm leading-relaxed">{{ a.bio | safe }}</p>
+        <p class="text-sm mb-3"><a href="{{ a.profileHref }}"{% if a.profileHreflang %} hreflang="{{ a.profileHreflang }}"{% endif %} class="text-brandBlue hover:text-brandOrange font-bold">{{ a.profileLabel | safe }}</a></p>
+<div class="mt-4 pt-4 border-t border-slate-200">
+ <p class="text-xs text-slate-400 uppercase tracking-wider mb-2">{{ a.footprintLabel | safe }}</p>
+ <div class="grid grid-cols-2 md:grid-cols-4 gap-3 text-sm">
+{% for it in a.footprint %} <div><span class="font-black text-brandBlue">{{ it.val | safe }}</span><p class="text-xs text-slate-500">{{ it.label | safe }}</p></div>
+{% endfor %} </div>
+ </div>
+ </div>
+ </div>
+ </div>
+</section>{% endmacro %}
+
+{# ---- Buyer Specification Card (panel 9.5, optional) ---- #}
+{% macro buyerSpecPanel(heading, cards, sectionClass) %}<section class="{{ sectionClass or 'max-w-4xl mx-auto px-6 mb-16' }}">
+ <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-6">{{ heading | safe }}</h2>
+ <div class="grid md:grid-cols-3 gap-4">
+{% for c in cards %}   <div class="bg-slate-50 rounded-xl p-5 border border-slate-200">
+     <p class="text-xs font-black text-brandOrange uppercase tracking-wider mb-2">{{ c.label | safe }}</p>
+     <ul class="text-sm text-slate-600 space-y-1 list-disc pl-4">
+{% for it in c.items %}       <li>{{ it | safe }}</li>
+{% endfor %}     </ul>
+   </div>
+{% endfor %} </div>
 </section>{% endmacro %}

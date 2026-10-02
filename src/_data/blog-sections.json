@@ -17,7 +17,8 @@
         "modified",
         "readTime",
         "lang"
-      ]
+      ],
+      "note": "Step-1 deferred: the hero scaffold embeds page-scoped macros breadcrumb() and postMeta() (plus a {% from %} import), so scripts/validate-blog-sections.js cannot byte-exact it in source-vs-source mode. Handle it in the data-file migration (renderer receives real breadcrumb/date/lang data) or validate against the _site render product. Every other fixed-structure panel now has a proven renderer macro."
     },
     {
       "key": "hook",
@@ -88,7 +89,9 @@
       "required": false,
       "renderer": "conclusionPanel",
       "requiredData": [
-        "text"
+        "heading",
+        "paragraphs",
+        "list"
       ]
     },
     {
@@ -98,10 +101,9 @@
       "required": false,
       "renderer": "buyerSpecPanel",
       "requiredData": [
-        "certifications",
-        "moq",
-        "leadTime",
-        "aql"
+        "heading",
+        "cards",
+        "sectionClass"
       ]
     },
     {
@@ -120,9 +122,14 @@
       "order": 11,
       "kind": "shared",
       "required": true,
-      "renderer": "authorBio",
+      "renderer": "authorBioPanel",
       "requiredData": [
-        "author"
+        "badge",
+        "avatar",
+        "bio",
+        "profileHref",
+        "footprintLabel",
+        "footprint"
       ]
     },
     {
