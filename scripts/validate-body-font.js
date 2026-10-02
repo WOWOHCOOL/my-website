@@ -27,6 +27,10 @@ for (const f of files) {
       if (/\buppercase\b/.test(c) && /\btext-sm\b/.test(c)) bad.push([path.relative(ROOT, f), 'h3 size: ' + c]);
       if (/\buppercase\b/.test(c) && !/\bmb-3\b/.test(c)) bad.push([path.relative(ROOT, f), 'h3 gap: ' + c]);
     }
+    for (const co of blk.matchAll(/<div class="([^"]*(?:bg-brandBlue\/5|bg-amber-50|bg-green-50|bg-red-50)[^"]*)"/g)) {
+      const c = co[1]; scanned++;
+      if (/\bp-5\b/.test(c)) bad.push([path.relative(ROOT, f), 'callout p-5: ' + c]);
+    }
     for (const im of blk.matchAll(/<img\b[^>]*class="([^"]*)"/g)) {
       const c = im[1]; scanned++;
       if (/\brounded-xl\b/.test(c)) bad.push([path.relative(ROOT, f), 'img radius: ' + c]);
