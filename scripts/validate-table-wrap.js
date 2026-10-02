@@ -10,8 +10,11 @@ for (const f of files) {
   const s = fs.readFileSync(f, 'utf8');
   for (const m of s.matchAll(/<table\b[^>]*>/g)) {
     total++;
-    if (!/<div class="[^"]*overflow-x-auto[^"]*">\s*$/.test(s.slice(0, m.index))) bad.push(path.relative(ROOT, f));
+    if (!/<div class="[^"]*overflow-x-auto[^"]*">\s*$/.test(s.slice(0, m.index))) bad.push([path.relative(ROOT, f), 'no overflow wrapper']);
+    const end = s.indexOf('</table>', m.index); const blk = end < 0 ? '' : s.slice(m.index, end);
+    if (blk && /<thead\b|<th\b/.test(blk) && !/bg-brandBlue/.test(blk)) bad.push([path.relative(ROOT, f), 'header not blue']);
+    if (blk && !/border-b|divide-y/.test(blk)) bad.push([path.relative(ROOT, f), 'no row separators']);
   }
 }
-if (bad.length) { console.log('[validate-table-wrap] UNWRAPPED tables: ' + bad.length + ' / ' + total); [...new Set(bad)].slice(0, 15).forEach(b => console.log('   - ' + b)); process.exit(1); }
+if (bad.length) { console.log('[validate-table-wrap] UNWRAPPED tables: ' + bad.length + ' / ' + total); [...new Set(bad.map(x => x[0] + '  ' + x[1]))].slice(0, 15).forEach(b => console.log('   - ' + b)); process.exit(1); }
 console.log('[validate-table-wrap] PASS — ' + total + ' tables all inside overflow-x-auto wrapper');
