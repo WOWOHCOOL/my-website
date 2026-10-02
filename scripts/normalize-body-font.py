@@ -15,20 +15,42 @@ def balance(s, start, tag):
         if depth == 0: return start + m.end()
     return -1
 PSIZE = re.compile(r'\btext-(?:sm|body|lg)\b\s*')
+def _ensure(cls, tokens):
+    added = []
+    for t in tokens:
+        prefix = 'leading-' if t == 'leading-relaxed' else 'mb-'
+        if not re.search(r'(^|\s)' + re.escape(prefix) + r'[\w.-]*', cls):
+            added.append(t)
+    if not added: return cls
+    return re.sub(r'\s{2,}', ' ', (cls + ' ' + ' '.join(added)).strip())
 def norm_block(blk):
     changes = 0
-    def repl(m):
+    def repl_p(m):
         nonlocal changes
         pre, cls, post = m.group(1), m.group(2), m.group(3)
-        if 'text-slate-600' not in cls or 'text-xs' in cls:
+        if 'text-slate-600' not in cls or 'text-xs' in cls or 'text-badge' in cls:
             return m.group(0)
-        nc = PSIZE.sub('', cls).strip()
+        nc = PSIZE.sub('', cls).strip()          # unify size -> 16px
+        nc = _ensure(nc, ['leading-relaxed', 'mb-4'])  # ensure body rhythm
         nc = re.sub(r'\s{2,}', ' ', nc)
         if nc != cls:
             changes += 1
             return pre + nc + post
         return m.group(0)
-    return re.sub(r'(<p\b[^>]*class=")([^"]*)(")', repl, blk), changes
+    def repl_ul(m):
+        nonlocal changes
+        pre, cls, post = m.group(1), m.group(2), m.group(3)
+        if 'text-slate-600' not in cls or 'text-xs' in cls:
+            return m.group(0)
+        nc = PSIZE.sub('', cls).strip()          # lists match body size 16px
+        nc = re.sub(r'\s{2,}', ' ', nc)
+        if nc != cls:
+            changes += 1
+            return pre + nc + post
+        return m.group(0)
+    blk = re.sub(r'(<p\b[^>]*class=")([^"]*)(")', repl_p, blk)
+    blk = re.sub(r'(<ul\b[^>]*class=")([^"]*)(")', repl_ul, blk)
+    return blk, changes
 def migrate(text):
     n = 0; out = []; last = 0
     for m in CARD.finditer(text):

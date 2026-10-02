@@ -15,9 +15,16 @@ for (const f of files) {
     const end = balance(s, m.index, 'div'); if (end < 0) continue;
     const blk = s.slice(m.index, end);
     for (const p of blk.matchAll(/<p\b[^>]*class="([^"]*)"/g)) {
-      const c = p[1]; if (!c.includes('text-slate-600') || c.includes('text-xs')) continue;
+      const c = p[1]; if (!c.includes('text-slate-600') || c.includes('text-xs') || c.includes('text-badge')) continue;
       scanned++;
-      if (/\btext-(sm|body|lg)\b/.test(c)) bad.push([path.relative(ROOT, f), c]);
+      if (/\btext-(sm|body|lg)\b/.test(c)) bad.push([path.relative(ROOT, f), 'size: ' + c]);
+      if (!/\bleading-/.test(c)) bad.push([path.relative(ROOT, f), 'no leading: ' + c]);
+      if (!/\bmb-/.test(c)) bad.push([path.relative(ROOT, f), 'no mb: ' + c]);
+    }
+    for (const u of blk.matchAll(/<ul\b[^>]*class="([^"]*)"/g)) {
+      const c = u[1]; if (!c.includes('text-slate-600') || c.includes('text-xs')) continue;
+      scanned++;
+      if (/\btext-(sm|body|lg)\b/.test(c)) bad.push([path.relative(ROOT, f), 'ul size: ' + c]);
     }
   }
 }
