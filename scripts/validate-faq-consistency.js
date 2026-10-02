@@ -121,15 +121,34 @@ function extractFirstTag(block, tag) {
   return m ? m[1] : '';
 }
 
+// Depth-aware: return the inner HTML of every <div class="...faq-answer..."> block,
+// so nested <div> inside an answer (e.g. mobile table scroll wrapper) does not truncate it.
+function faqAnswerBlocks(html) {
+  const out = [];
+  const open = /<div\b[^>]*class="[^"]*\bfaq-answer\b[^"]*"[^>]*>/gi;
+  let m;
+  while ((m = open.exec(html))) {
+    const start = m.index + m[0].length;
+    let depth = 1;
+    const tagRe = /<\/?div\b[^>]*>/gi;
+    tagRe.lastIndex = start;
+    let t;
+    while ((t = tagRe.exec(html))) {
+      if (t[0].startsWith('</')) { depth--; if (depth === 0) { out.push(html.slice(start, t.index)); break; } }
+      else if (!t[0].endsWith('/>')) depth++;
+    }
+  }
+  return out;
+}
+
 function extractBodyFaq(html) {
   const q = [], a = [];
   const body = html.replace(/<script\b[\s\S]*?<\/script>/gi, ' ');
 
-  // Layout A: <div class="faq-answer"><h3>Q</h3><p>A</p></div>
-  for (const m of body.matchAll(/<div\b[^>]*class="[^"]*\bfaq-answer\b[^"]*"[^>]*>([\s\S]*?)<\/div>/gi)) {
-    const block = m[1];
-    const question = extractFirstTag(block, 'h3');
-    const answer = extractFirstTag(block, 'p');
+  // Layout A: <div class="faq-answer"><h3>Q</h3><p>A</p>...</div>
+  for (const inner of faqAnswerBlocks(body)) {
+    const question = extractFirstTag(inner, 'h3');
+    const answer = extractFirstTag(inner, 'p');
     if (question && answer) { q.push(question); a.push(answer); }
   }
   if (q.length) return { questions: q, answers: a };
@@ -144,8 +163,8 @@ function extractBodyFaq(html) {
   for (const m of body.matchAll(/<details\b[^>]*class="[^"]*\bfaq-item\b[^"]*"[^>]*>([\s\S]*?)<\/details>/gi)) {
     const block = m[1];
     const question = extractFirstTag(block, 'summary');
-    const am = block.match(/<div\b[^>]*class="[^"]*\bfaq-answer\b[^"]*"[^>]*>([\s\S]*?)<\/div>/i);
-    if (question && am) { q.push(question); a.push(am[1]); }
+    const ab = faqAnswerBlocks(block);
+    if (question && ab.length) { q.push(question); a.push(ab[0]); }
   }
   return { questions: q, answers: a };
 }
