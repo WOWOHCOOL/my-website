@@ -15,8 +15,24 @@ def set_class(open_tag, newcls):
     if re.search(r'\bclass="', open_tag):
         return re.sub(r'class="[^"]*"', 'class="' + newcls + '"', open_tag, count=1)
     return open_tag[:-1] + ' class="' + newcls + '">'
+def upgrade_radius(blk):
+    m = re.search(r'<table\b[^>]*>', blk)
+    if not m: return blk, 0
+    tag = m.group(0)
+    cm = re.search(r'class="([^"]*)"', tag)
+    cls = cm.group(1) if cm else ''
+    nc = cls.replace('rounded-lg', 'rounded-xl')
+    for tok in ['w-full', 'text-sm', 'border', 'border-slate-200', 'rounded-xl', 'overflow-hidden']:
+        if not re.search(r'(^|\s)' + re.escape(tok) + r'(\s|$)', nc):
+            nc = (nc + ' ' + tok).strip()
+    nc = re.sub(r'\s{2,}', ' ', nc).strip()
+    if nc != cls:
+        ntag = re.sub(r'class="[^"]*"', 'class="' + nc + '"', tag, count=1) if cm else set_class(tag, nc)
+        return blk[:m.start()] + ntag + blk[m.end():], 1
+    return blk, 0
 def fix_table(blk):
     n = 0
+    blk, r = upgrade_radius(blk); n += r
     # 1) blue header
     blue = re.search(r'<thead\b[^>]*class="[^"]*bg-brandBlue|<tr\b[^>]*class="[^"]*bg-brandBlue|<th\b[^>]*class="[^"]*bg-brandBlue', blk)
     thm = re.search(r'<thead\b[^>]*>', blk)
@@ -39,17 +55,36 @@ def fix_table(blk):
             blk = blk[:tbm.start()] + set_class(tbm.group(0), 'divide-y divide-slate-200') + blk[tbm.end():]
             n += 1
     return blk, n
+def fix_wrapper(text, table_start):
+    before = text[:table_start]
+    m = re.search(r'<div class="([^"]*overflow-x-auto[^"]*)">\s*$', before)
+    if not m: return text, 1, 0
+    cls = m.group(1)
+    if re.search(r'\brounded-xl\b', cls): return text, 1, 0
+    nc = re.sub(r'\s{2,}', ' ', (cls + ' rounded-xl').strip())
+    nt = text[:m.start(1)] + nc + text[m.end(1):]
+    return nt, 1 + len(nc) - len(cls), 1
 def migrate(text):
-    n = 0; out = []; last = 0
+    spans = []
     for m in re.finditer(r'<table\b[^>]*>', text):
-        if m.start() < last: continue
         end = balance(text, m.start(), 'table')
-        if end < 0: continue
-        nblk, c = fix_table(text[m.start():end])
-        if c:
-            out.append(text[last:m.start()]); out.append(nblk); last = end; n += c
-    if n == 0: return text, 0
-    out.append(text[last:]); return ''.join(out), n
+        if end > 0: spans.append((m.start(), end))
+    if not spans: return text, 0
+    out = []; last = 0; n = 0
+    for ts, end in spans:
+        if ts < last: continue
+        pre = text[last:ts]
+        wm = re.search(r'<div class="([^"]*overflow-x-auto[^"]*)">\s*$', pre)
+        if wm:
+            cls = wm.group(1)
+            if not re.search(r'\brounded-xl\b', cls):
+                ncls = re.sub(r'\s{2,}', ' ', (cls + ' rounded-xl').strip())
+                pre = pre[:wm.start(1)] + ncls + pre[wm.end(1):]
+                n += 1
+        nblk, c = fix_table(text[ts:end]); n += c
+        out.append(pre); out.append(nblk); last = end
+    out.append(text[last:])
+    return ''.join(out), n
 def main():
     args = sys.argv[1:]; apply = "--apply" in args
     only = args[args.index("--only") + 1] if "--only" in args else None

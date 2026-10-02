@@ -10,7 +10,9 @@ for (const f of files) {
   const s = fs.readFileSync(f, 'utf8');
   for (const m of s.matchAll(/<table\b[^>]*>/g)) {
     total++;
-    if (!/<div class="[^"]*overflow-x-auto[^"]*">\s*$/.test(s.slice(0, m.index))) bad.push([path.relative(ROOT, f), 'no overflow wrapper']);
+    const wrapM = s.slice(0, m.index).match(/<div class="([^"]*overflow-x-auto[^"]*)">\s*$/);
+    if (!wrapM) bad.push([path.relative(ROOT, f), 'no overflow wrapper']);
+    else if (!/\brounded-xl\b/.test(wrapM[1])) bad.push([path.relative(ROOT, f), 'wrapper not rounded']);
     const end = s.indexOf('</table>', m.index); const blk = end < 0 ? '' : s.slice(m.index, end);
     if (blk && /<thead\b|<th\b/.test(blk) && !/bg-brandBlue/.test(blk)) bad.push([path.relative(ROOT, f), 'header not blue']);
     if (blk && !/border-b|divide-y/.test(blk)) bad.push([path.relative(ROOT, f), 'no row separators']);
