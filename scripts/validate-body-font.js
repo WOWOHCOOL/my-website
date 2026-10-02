@@ -27,6 +27,11 @@ for (const f of files) {
       if (/\buppercase\b/.test(c) && /\btext-sm\b/.test(c)) bad.push([path.relative(ROOT, f), 'h3 size: ' + c]);
       if (/\buppercase\b/.test(c) && !/\bmb-3\b/.test(c)) bad.push([path.relative(ROOT, f), 'h3 gap: ' + c]);
     }
+    for (const im of blk.matchAll(/<img\b[^>]*class="([^"]*)"/g)) {
+      const c = im[1]; scanned++;
+      if (/\brounded-xl\b/.test(c)) bad.push([path.relative(ROOT, f), 'img radius: ' + c]);
+      if (/\bshadow-md\b/.test(c)) bad.push([path.relative(ROOT, f), 'img shadow: ' + c]);
+    }
     for (const tb of blk.matchAll(/<table\b[^>]*class="([^"]*)"/g)) {
       const c = tb[1]; scanned++;
       if (!/\btext-sm\b/.test(c)) bad.push([path.relative(ROOT, f), 'table size: ' + c]);
