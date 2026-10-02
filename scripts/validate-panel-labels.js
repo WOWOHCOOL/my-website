@@ -22,6 +22,7 @@ for (const f of files) {
   i = s.indexOf('<aside id="related-articles"'); if (i >= 0) { const b = s.slice(i, closeBal(s, i, 'aside')); const m = b.match(/<h2[^>]*>([\s\S]*?)<\/h2>/); checks.push(['related', m && m[1]]); }
   i = s.indexOf('<div class="bg-brandBlue rounded-2xl p-8 text-white mb-12">'); if (i >= 0) { const b = s.slice(i, closeBal(s, i, 'div')); const m = b.match(/<h2[^>]*>([\s\S]*?)<\/h2>/); checks.push(['toc', m && m[1]]); }
   const mt = s.match(/<div class="bg-amber-50 border-l-4 border-amber-500[^"]*">\s*<p class="text-badge[^"]*">([\s\S]*?)<\/p>/); if (mt) checks.push(['takeaways', mt[1]]);
+  { const ulRe = /<ul class="text-sm text-slate-600 space-y-2 list-disc pl-5">([\s\S]{0,4000}?)<\/ul>/g; let um; while ((um = ulRe.exec(s)) && !checks.find(c => c[0] === 'sources')) { if (!/target="_blank"/.test(um[1])) continue; const before = s.slice(0, um.index); const he = before.lastIndexOf('</h2>'); if (he < 0) continue; if (s.slice(he + 5, um.index).trim() !== '') continue; const hs = before.lastIndexOf('<h2', he); if (hs < 0) continue; const gt = before.indexOf('>', hs); checks.push(['sources', s.slice(gt + 1, he)]); } }
   i = s.indexOf('<section id="author-bio"'); if (i >= 0) { const b = s.slice(i, closeBal(s, i, 'section'));
     const bd = b.match(/<span class="px-2 py-1 bg-brandOrange\/10[^"]*">([\s\S]*?)<\/span>/); if (bd) checks.push(['badge', bd[1]]);
     const fp = b.match(/<p class="text-xs text-slate-400[^"]*">([\s\S]*?)<\/p>/); if (fp) checks.push(['footprint', fp[1]]); }
