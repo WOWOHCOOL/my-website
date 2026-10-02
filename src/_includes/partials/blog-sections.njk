@@ -6,3 +6,48 @@
 {% for it in items %} <li><a href="{{ it.href }}" target="_blank" rel="{{ it.rel }}" class="{{ it.cls }}">{{ it.text | safe }}</a></li>
 {% endfor %} </ul>
  </section>{% endmacro %}
+
+{# ---- Featured Image (panel 3) ---- #}
+{% macro featuredImage(imgSrc, srcset, sizes, alt, title, width, height) %}<!-- Featured Image -->
+ <div class="max-w-4xl mx-auto px-6 mb-16">
+ <img src="{{ imgSrc }}" srcset="{{ srcset }}" sizes="{{ sizes }}"
+ alt="{{ alt }}"
+ title="{{ title }}"
+ width="{{ width }}"
+ height="{{ height }}"
+ loading="eager"
+ decoding="async"
+ class="w-full rounded-3xl shadow-xl"
+ fetchpriority="high">
+ </div>{% endmacro %}
+
+{# ---- CTA (panel 12) ---- #}
+{% macro ctaPanel(heading, subtext, primaryHref, primaryLabel, secondaryHref, secondaryLabel) %}<!-- CTA -->
+
+<section class="relative bg-gradient-to-br from-brandBlue to-slate-800 rounded-3xl p-10 text-center mb-16 overflow-hidden">
+ <div class="absolute top-0 right-0 w-64 h-64 bg-brandOrange/20 rounded-full blur-3xl"></div>
+ <div class="absolute bottom-0 left-0 w-64 h-64 bg-blue-500/20 rounded-full blur-3xl"></div>
+ <div class="relative z-10">
+ <h2 class="text-2xl font-black text-white uppercase italic mb-4">{{ heading | safe }}</h2>
+ <p class="text-slate-300 mb-8 max-w-xl mx-auto">{{ subtext | safe }}</p>
+ <div class="flex flex-col sm:flex-row gap-4 justify-center">
+ <a href="{{ primaryHref }}" class="btn-wide">{{ primaryLabel }}</a>
+ <a href="{{ secondaryHref }}" class="w-full sm:flex-1 text-center border-2 border-white text-white px-8 py-4 rounded-xl font-black uppercase text-sm hover:bg-white hover:text-brandBlue transition">{{ secondaryLabel }}</a>
+ </div>
+ </div>
+ </section>{% endmacro %}
+
+{# ---- Related Articles (panel 13) ---- #}
+{% macro relatedPanel(heading, cards, asideClass) %}<aside id="related-articles" class="{{ asideClass or 'max-w-4xl mx-auto mb-16' }}">
+ <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-6">{{ heading | safe }}</h2>
+ <div class="grid md:grid-cols-3 gap-4">
+{% for c in cards %} <a href="{{ c.href }}" class="bg-slate-50 rounded-xl overflow-hidden hover:shadow-xl transition group">
+ <div class="h-2 bg-gradient-to-r {{ c.gradient }}"></div>
+ <div class="p-6">
+ <span class="text-xs font-black text-brandOrange uppercase mb-2 block">{{ c.tag }}</span>
+ <h3 class="font-black text-brandBlue uppercase text-sm mb-1 group-hover:text-brandOrange transition">{{ c.title }}</h3>
+ <p class="text-slate-600 text-sm">{{ c.desc }}</p>
+ </div>
+ </a>
+{% endfor %} </div>
+</aside>{% endmacro %}
