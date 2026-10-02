@@ -14,77 +14,307 @@ navActive: "service"
 {% extends "layout.njk" %}
 
 {% block head_schema %}
-<script type="application/ld+json">[{
- "@context":"https://schema.org","@type":"Organization",
- "@id":"https://www.wowohcool.com/#organization",
- "name":"WOWOHCOOL",
- "legalName":"Dong Yi Technology Co., Ltd",
- "knowsAbout": ["OEM/ODM Power Bank Manufacturing", "Qi2 Wireless Charging Standard", "GaN Power Architecture", "Automotive Fast Charging Systems", "Custom Power Adapter Production", "Consumer Electronics Sourcing", "UL & CE Safety Compliance"],
- "vatID": "91441900MA558A2N27","url": "https://www.wowohcool.com/ru/o-kompanii/",
- "logo":{ "@type": "ImageObject", "url": "https://www.wowohcool.com/image/wowohcool-logo-optimized.webp", "width": 263, "height": 70 },
- "description":"Профессиональный OEM/ODM-производитель повербанков и зарядных устройств в Шэньчжэне с 2013 года.",
- "foundingDate":"2013",
- "contactPoint":{"@type":"ContactPoint","email":"info@wowohcool.com","telephone":"+86-186-2078-9739","contactType":"OEM/ODM Sales","availableLanguage":["English", "German", "Spanish", "French", "Russian", "Polish"]},
- "address":{"@type":"PostalAddress","addressLocality":"Shenzhen","addressRegion":"Guangdong","addressCountry":"CN"},
- "sameAs":["https://www.linkedin.com/company/wowohcool","https://www.facebook.com/wowohcoolelectronic","https://www.youtube.com/@WOWOHCOOL","https://x.com/wowohcool"]
-},
-{
- "@context":"https://schema.org","@type":"WebSite",
- "@id":"https://www.wowohcool.com/#website","url":"https://www.wowohcool.com/ru/","name":"WOWOHCOOL"
-},
-{
- "@context":"https://schema.org","@type":"Service",
- "serviceType":"OEM/ODM-производство электроники",
- "provider": {"@id": "https://www.wowohcool.com/#organization"},
- "areaServed":["US", "DE", "AT", "CH", "UK", "FR", "ES", "PL", "EU", "JP", "KR", "AU", "MX", "CO", "AR", "CL", "PE", "RU", "KZ", "BY", "EAEU"],
- "description":"R&D, разработка и серийное производство зарядных решений под вашей торговой маркой."
-},
-{
- "@context":"https://schema.org","@type":"HowTo",
- "name":"Как запустить производство зарядных устройств с WOWOHCOOL",
- "description":"Пошаговый процесс OEM/ODM-производства повербанков, беспроводных, GaN- и автомобильных зарядок.",
- "estimatedCost":{"@type":"MonetaryAmount","currency":"USD","minValue":3000,"maxValue":50000},
- "supply":[
- {"@type":"HowToSupply","name":"Требования и спецификация продукта"},
- {"@type":"HowToSupply","name":"Референсный дизайн или эскизы концепции"},
- {"@type":"HowToSupply","name":"Логотип бренда и дизайн упаковки"}
- ],"tool":[
- {"@type":"HowToTool","name":"Производство 5 000 м² с сертификатом ISO 9001"},
- {"@type":"HowToTool","name":"50+ штатных R&D-инженеров (PCBA, ID, ME)"},
- {"@type":"HowToTool","name":"4-этапная система QC: IQC, IPQC, FQC, OQC"}
- ],
- "step":[
- {"@type":"HowToStep","position":1,"name":"Запрос и требования","text":"Отправьте спецификации, MOQ, бюджет и сроки. Наша команда проверяет техническую реализуемость и отвечает за {RT}."},
- {"@type":"HowToStep","position":2,"name":"Дизайн и расчёт","text":"Команда R&D готовит промышленный дизайн и схемы PCBA. Вы получаете детальное предложение с ценами и сроками."},
- {"@type":"HowToStep","position":3,"name":"Образцы и прототипы","text":"OEM-образцы за 7–15 дней. ODM-прототипы за 25–35 дней, включая пресс-формы и оснастку."},
- {"@type":"HowToStep","position":4,"name":"Утверждение и сертификация","text":"Функциональные испытания, подготовка документов CE/RoHS/Qi2 и под EAC, 4-часовой тест старения. Клиент утверждает образец до запуска серии."},
- {"@type":"HowToStep","position":5,"name":"Серийное производство","text":"4-ступенчатый контроль качества (IQC, IPQC, FQC, OQC). 100% изделий проходят тест старения."},
- {"@type":"HowToStep","position":6,"name":"Отгрузка и логистика","text":"Фирменная упаковка. Отгрузка FOB, EXW или DDP: ж/д в РФ 18–25 дней, море, авиа для образцов. Производство 25–35 дней после утверждения образцов."}
- ],
- "totalTime":"P45D"
-},
-{
- "@context":"https://schema.org","@type":"BreadcrumbList",
- "itemListElement":[
- {"@type":"ListItem","position":1,"name":"Главная","item":"https://www.wowohcool.com/ru/"},
- {"@type":"ListItem","position":2,"name":"OEM/ODM-услуги","item":"https://www.wowohcool.com/ru/oem-odm-uslugi/"}
- ]
-},
-{
- "@context":"https://schema.org","@type":"FAQPage",
- "speakable":{"@type":"SpeakableSpecification","cssSelector": [".faq-answer", ".section-label", "h1"]},
- "mainEntity":[
- {"@type":"Question","name":"Какой MOQ для OEM/ODM-заказов?","acceptedAnswer":{"@type":"Answer","text":"MOQ — 500 шт. на SKU для ODM на складских моделях. Новая разработка ODM (не со склада): 1 000–2 000 шт. OEM с новой оснасткой: от 3 000 шт. Оптовые скидки при больших объёмах."}},
- {"@type":"Question","name":"В чём разница между OEM и ODM?","acceptedAnswer":{"@type":"Answer","text":"OEM: мы производим ваш собственный дизайн с новой оснасткой. MOQ от 3 000 шт. ODM: мы развиваем продукт на нашей существующей платформе — складские модели с вашим брендом от 500 шт.; новый дизайн без складского запаса — 1 000–2 000 шт., срок 45–60 дней."}},
- {"@type":"Question","name":"Сколько занимает весь процесс?","acceptedAnswer":{"@type":"Answer","text":"Стандартный OEM: 25–35 дней после утверждения образца. Индивидуальный ODM: 45–60 дней, включая изготовление оснастки. Для срочных заказов доступен экспресс-режим."}},
- {"@type":"Question","name":"Какие сертификаты входят в услугу?","acceptedAnswer":{"@type":"Answer","text":"CE, RoHS, UN38.3 и Qi2 — заводской стандарт. Завод сертифицирован по ISO 9001. Для рынка ЕАЭС готовим комплект технической документации под оформление EAC (ТР ТС 004/2011, ТР ТС 020/2011). Помогаем с UL, PSE, KC в зависимости от рынка сбыта."}},
- {"@type":"Question","name":"Защищаете ли вы интеллектуальную собственность?","acceptedAnswer":{"@type":"Answer","text":"Да. Все ODM-проекты включают эксклюзивную защиту IP. Подписываем юридически обязывающие NDA. Ваши пресс-формы и разработки никогда не продаются и не демонстрируются другим клиентам."}},
- {"@type":"Question","name":"Можно ли получить образцы до заказа?","acceptedAnswer":{"@type":"Answer","text":"Да. Стандартные образцы за 7–15 дней. Индивидуальные ODM-прототипы за 25–35 дней. Стоимость образцов возмещается при подтверждении производственного заказа."}},
- {"@type":"Question","name":"Какие варианты доставки вы предлагаете?","acceptedAnswer":{"@type":"Answer","text":"FOB Шэньчжэнь, EXW и DDP до склада. Авиа (7–14 дней) для образцов и срочных партий, ж/д через Забайкальск/Наушки (18–25 дней), море через Владивосток или Новороссийск. Предоставляем полный комплект документов для таможенного оформления в РФ и странах ЕАЭС."}},
- {"@type":"Question","name":"На каком языке вы работаете с клиентами из ЕАЭС?","acceptedAnswer":{"@type":"Answer","text":"На русском и английском. Персональный менеджер отвечает в течение {RTG}. Прямая коммуникация с заводом — без языковых барьеров и посредников."}},
- {"@type":"Question","name":"Какая у вас гарантия?","acceptedAnswer":{"@type":"Answer","text":"12 месяцев стандартно, до 24 месяцев для проверенных партнёров. Доля брака ниже 0,3%. Единицы с производственными дефектами заменяем без дополнительной оплаты."}}
- ]
-}]
+<script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": "https://www.wowohcool.com/#organization",
+    "name": "WOWOHCOOL",
+    "legalName": "Dong Yi Technology Co., Ltd",
+    "knowsAbout": [
+      "OEM/ODM Power Bank Manufacturing",
+      "Qi2 Wireless Charging Standard",
+      "GaN Power Architecture",
+      "Automotive Fast Charging Systems",
+      "Custom Power Adapter Production",
+      "Consumer Electronics Sourcing",
+      "UL & CE Safety Compliance"
+    ],
+    "vatID": "91441900MA558A2N27",
+    "url": "https://www.wowohcool.com/ru/o-kompanii/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.wowohcool.com/image/wowohcool-logo-optimized.webp",
+      "width": 263,
+      "height": 70
+    },
+    "description": "Профессиональный OEM/ODM-производитель повербанков и зарядных устройств в Шэньчжэне с 2013 года.",
+    "foundingDate": "2013",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "email": "info@wowohcool.com",
+      "telephone": "+86-186-2078-9739",
+      "contactType": "OEM/ODM Sales",
+      "availableLanguage": [
+        "English",
+        "German",
+        "Spanish",
+        "French",
+        "Russian",
+        "Polish"
+      ]
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Shenzhen",
+      "addressRegion": "Guangdong",
+      "addressCountry": "CN"
+    },
+    "sameAs": [
+      "https://www.linkedin.com/company/wowohcool",
+      "https://www.facebook.com/wowohcoolelectronic",
+      "https://www.youtube.com/@WOWOHCOOL",
+      "https://x.com/wowohcool"
+    ],
+    "publishingPrinciples": "https://www.wowohcool.com/ru/o-kompanii/",
+    "areaServed": [
+      "US",
+      "DE",
+      "AT",
+      "CH",
+      "UK",
+      "FR",
+      "ES",
+      "PL",
+      "EU",
+      "JP",
+      "KR",
+      "AU",
+      "MX",
+      "CO",
+      "AR",
+      "CL",
+      "PE",
+      "RU",
+      "KZ",
+      "BY",
+      "EAEU"
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": "https://www.wowohcool.com/#website",
+    "url": "https://www.wowohcool.com/ru/",
+    "name": "WOWOHCOOL"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "OEM/ODM-производство электроники",
+    "provider": {
+      "@id": "https://www.wowohcool.com/#organization"
+    },
+    "areaServed": [
+      "US",
+      "DE",
+      "AT",
+      "CH",
+      "UK",
+      "FR",
+      "ES",
+      "PL",
+      "EU",
+      "JP",
+      "KR",
+      "AU",
+      "MX",
+      "CO",
+      "AR",
+      "CL",
+      "PE",
+      "RU",
+      "KZ",
+      "BY",
+      "EAEU"
+    ],
+    "description": "R&D, разработка и серийное производство зарядных решений под вашей торговой маркой."
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "Как запустить производство зарядных устройств с WOWOHCOOL",
+    "description": "Пошаговый процесс OEM/ODM-производства повербанков, беспроводных, GaN- и автомобильных зарядок.",
+    "estimatedCost": {
+      "@type": "MonetaryAmount",
+      "currency": "USD",
+      "minValue": 3000,
+      "maxValue": 50000
+    },
+    "supply": [
+      {
+        "@type": "HowToSupply",
+        "name": "Требования и спецификация продукта"
+      },
+      {
+        "@type": "HowToSupply",
+        "name": "Референсный дизайн или эскизы концепции"
+      },
+      {
+        "@type": "HowToSupply",
+        "name": "Логотип бренда и дизайн упаковки"
+      }
+    ],
+    "tool": [
+      {
+        "@type": "HowToTool",
+        "name": "Производство 5 000 м² с сертификатом ISO 9001"
+      },
+      {
+        "@type": "HowToTool",
+        "name": "50+ штатных R&D-инженеров (PCBA, ID, ME)"
+      },
+      {
+        "@type": "HowToTool",
+        "name": "4-этапная система QC: IQC, IPQC, FQC, OQC"
+      }
+    ],
+    "step": [
+      {
+        "@type": "HowToStep",
+        "position": 1,
+        "name": "Запрос и требования",
+        "text": "Отправьте спецификации, MOQ, бюджет и сроки. Наша команда проверяет техническую реализуемость и отвечает за {RT}."
+      },
+      {
+        "@type": "HowToStep",
+        "position": 2,
+        "name": "Дизайн и расчёт",
+        "text": "Команда R&D готовит промышленный дизайн и схемы PCBA. Вы получаете детальное предложение с ценами и сроками."
+      },
+      {
+        "@type": "HowToStep",
+        "position": 3,
+        "name": "Образцы и прототипы",
+        "text": "OEM-образцы за 7–15 дней. ODM-прототипы за 25–35 дней, включая пресс-формы и оснастку."
+      },
+      {
+        "@type": "HowToStep",
+        "position": 4,
+        "name": "Утверждение и сертификация",
+        "text": "Функциональные испытания, подготовка документов CE/RoHS/Qi2 и под EAC, 4-часовой тест старения. Клиент утверждает образец до запуска серии."
+      },
+      {
+        "@type": "HowToStep",
+        "position": 5,
+        "name": "Серийное производство",
+        "text": "4-ступенчатый контроль качества (IQC, IPQC, FQC, OQC). 100% изделий проходят тест старения."
+      },
+      {
+        "@type": "HowToStep",
+        "position": 6,
+        "name": "Отгрузка и логистика",
+        "text": "Фирменная упаковка. Отгрузка FOB, EXW или DDP: ж/д в РФ 18–25 дней, море, авиа для образцов. Производство 25–35 дней после утверждения образцов."
+      }
+    ],
+    "totalTime": "P45D"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Главная",
+        "item": "https://www.wowohcool.com/ru/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "OEM/ODM-услуги",
+        "item": "https://www.wowohcool.com/ru/oem-odm-uslugi/"
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "speakable": {
+      "@type": "SpeakableSpecification",
+      "cssSelector": [
+        ".faq-answer",
+        ".section-label",
+        "h1"
+      ]
+    },
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Какой MOQ для OEM/ODM-заказов?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "MOQ — 500 шт. на SKU для ODM на складских моделях. Новая разработка ODM (не со склада): 1 000–2 000 шт. OEM с новой оснасткой: от 3 000 шт. Оптовые скидки при больших объёмах."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "В чём разница между OEM и ODM?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "OEM: мы производим ваш собственный дизайн с новой оснасткой. MOQ от 3 000 шт. ODM: мы развиваем продукт на нашей существующей платформе — складские модели с вашим брендом от 500 шт.; новый дизайн без складского запаса — 1 000–2 000 шт., срок 45–60 дней."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Сколько занимает весь процесс?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Стандартный OEM: 25–35 дней после утверждения образца. Индивидуальный ODM: 45–60 дней, включая изготовление оснастки. Для срочных заказов доступен экспресс-режим."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Какие сертификаты входят в услугу?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "CE, RoHS, UN38.3 и Qi2 — заводской стандарт. Завод сертифицирован по ISO 9001. Для рынка ЕАЭС готовим комплект технической документации под оформление EAC (ТР ТС 004/2011, ТР ТС 020/2011). Помогаем с UL, PSE, KC в зависимости от рынка сбыта."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Защищаете ли вы интеллектуальную собственность?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Да. Все ODM-проекты включают эксклюзивную защиту IP. Подписываем юридически обязывающие NDA. Ваши пресс-формы и разработки никогда не продаются и не демонстрируются другим клиентам."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Можно ли получить образцы до заказа?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Да. Стандартные образцы за 7–15 дней. Индивидуальные ODM-прототипы за 25–35 дней. Стоимость образцов возмещается при подтверждении производственного заказа."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Какие варианты доставки вы предлагаете?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "FOB Шэньчжэнь, EXW и DDP до склада. Авиа (7–14 дней) для образцов и срочных партий, ж/д через Забайкальск/Наушки (18–25 дней), море через Владивосток или Новороссийск. Предоставляем полный комплект документов для таможенного оформления в РФ и странах ЕАЭС."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "На каком языке вы работаете с клиентами из ЕАЭС?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "На русском и английском. Персональный менеджер отвечает в течение {RTG}. Прямая коммуникация с заводом — без языковых барьеров и посредников."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Какая у вас гарантия?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "12 месяцев стандартно, до 24 месяцев для проверенных партнёров. Доля брака ниже 0,3%. Единицы с производственными дефектами заменяем без дополнительной оплаты."
+        }
+      }
+    ]
+  }
+]
 </script>
 {% endblock %}
 

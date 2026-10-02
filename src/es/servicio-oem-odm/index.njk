@@ -14,77 +14,307 @@ plPath: "uslugi-oem-odm/"
 {% extends "layout.njk" %}
 
 {% block head_schema %}
-<script type="application/ld+json">[{
- "@context":"https://schema.org","@type":"Organization",
- "@id":"https://www.wowohcool.com/#organization",
- "name":"WOWOHCOOL",
- "legalName":"Dong Yi Technology Co., Ltd",
- "knowsAbout": ["OEM/ODM Power Bank Manufacturing", "Qi2 Wireless Charging Standard", "GaN Power Architecture", "Automotive Fast Charging Systems", "Custom Power Adapter Production", "Consumer Electronics Sourcing", "UL & CE Safety Compliance"],
- "vatID": "91441900MA558A2N27","url": "https://www.wowohcool.com/es/sobre-nosotros/",
- "logo":{ "@type": "ImageObject", "url": "https://www.wowohcool.com/image/wowohcool-logo-optimized.webp", "width": 263, "height": 70 },
- "description":"Fabricante profesional OEM/ODM de power banks y cargadores en Shenzhen desde 2013.",
- "foundingDate":"2013",
- "contactPoint":{"@type":"ContactPoint","email":"info@wowohcool.com","telephone":"+86-186-2078-9739","contactType":"OEM/ODM Sales","availableLanguage":["English", "German", "Spanish", "French", "Russian", "Polish"]},
- "address":{"@type":"PostalAddress","addressLocality":"Shenzhen","addressRegion":"Guangdong","addressCountry":"CN"},
- "sameAs":["https://www.linkedin.com/company/wowohcool","https://www.facebook.com/wowohcoolelectronic","https://www.youtube.com/@WOWOHCOOL","https://x.com/wowohcool"]
-},
-{
- "@context":"https://schema.org","@type":"WebSite",
- "@id":"https://www.wowohcool.com/#website","url":"https://www.wowohcool.com/es/","name":"WOWOHCOOL"
-},
-{
- "@context":"https://schema.org","@type":"Service",
- "serviceType":"Fabricación OEM/ODM Electrónica",
- "provider": {"@id": "https://www.wowohcool.com/#organization"},
- "areaServed":["US", "DE", "AT", "CH", "UK", "FR", "ES", "PL", "EU", "JP", "KR", "AU", "MX", "CO", "AR", "CL", "PE", "RU", "KZ", "BY", "EAEU"],
- "description":"I+D, diseño y producción en serie de soluciones de carga."
-},
-{
- "@context":"https://schema.org","@type":"HowTo",
- "name":"Cómo fabricar productos de carga con WOWOHCOOL",
- "description":"Proceso paso a paso para fabricación OEM/ODM de power banks, cargadores inalámbricos, GaN y cargadores de coche.",
- "estimatedCost":{"@type":"MonetaryAmount","currency":"EUR","minValue":3000,"maxValue":50000},
- "supply":[
- {"@type":"HowToSupply","name":"Requisitos y especificaciones del producto"},
- {"@type":"HowToSupply","name":"Diseño de referencia o bocetos del concepto"},
- {"@type":"HowToSupply","name":"Logotipo de marca y diseño del embalaje"}
- ],"tool":[
- {"@type":"HowToTool","name":"Fábrica certificada ISO 9001 de 5.000m²"},
- {"@type":"HowToTool","name":"50+ ingenieros de I+D propios (PCBA, ID, ME)"},
- {"@type":"HowToTool","name":"Sistema QC de 4 etapas: IQC, IPQC, FQC, OQC"}
- ],
- "step":[
- {"@type":"HowToStep","position":1,"name":"Consulta y requisitos","text":"Envíe sus especificaciones, MOQ, presupuesto y plazo. Nuestro equipo revisa la viabilidad técnica y responde en {RTS}."},
- {"@type":"HowToStep","position":2,"name":"Diseño y presupuesto","text":"Nuestro equipo I+D crea diseños industriales y esquemas PCBA. Entregamos presupuesto detallado con costes y plazos."},
- {"@type":"HowToStep","position":3,"name":"Muestras y prototipos","text":"Muestras OEM en 7-15 días. Prototipos ODM en 25-35 días incluyendo moldes y utillaje."},
- {"@type":"HowToStep","position":4,"name":"Aprobación y certificación","text":"Pruebas funcionales, pre-certificación CE/RoHS/Qi2 y test de envejecimiento de 4h. El cliente aprueba antes de producción."},
- {"@type":"HowToStep","position":5,"name":"Producción en serie","text":"Control calidad 4 etapas (IQC, IPQC, FQC, OQC). 100% de unidades con test de envejecimiento."},
- {"@type":"HowToStep","position":6,"name":"Envío y logística","text":"Embalaje personalizado. Envío FOB, EXW o DDP. Entrega 25-35 días tras aprobación de muestras."}
- ],
- "totalTime":"P45D"
-},
-{
- "@context":"https://schema.org","@type":"BreadcrumbList",
- "itemListElement":[
- {"@type":"ListItem","position":1,"name":"Inicio","item":"https://www.wowohcool.com/es/"},
- {"@type":"ListItem","position":2,"name":"Servicio OEM/ODM","item":"https://www.wowohcool.com/es/servicio-oem-odm/"}
- ]
-},
-{
- "@context":"https://schema.org","@type":"FAQPage",
- "speakable":{"@type":"SpeakableSpecification","cssSelector": [".faq-answer", ".section-label", "h1"]},
- "mainEntity":[
- {"@type":"Question","name":"¿Cuál es el MOQ para pedidos OEM/ODM?","acceptedAnswer":{"@type":"Answer","text":"MOQ de 500 unidades por SKU para ODM sobre modelos en stock. Desarrollo ODM nuevo (sin stock): 1.000–2.000 unidades. OEM con utillaje nuevo: 3.000+ unidades. Descuentos por volumen en pedidos superiores."}},
- {"@type":"Question","name":"¿Cuál es la diferencia entre OEM y ODM?","acceptedAnswer":{"@type":"Answer","text":"OEM: fabricamos su propio diseño con utillaje nuevo. MOQ 3.000+. ODM: desarrollamos el producto sobre nuestra plataforma existente — modelos en stock con su marca desde MOQ 500; un diseño nuevo sin stock, 1.000–2.000 unidades, plazo 45–60 días."}},
- {"@type":"Question","name":"¿Cuánto tarda el proceso completo?","acceptedAnswer":{"@type":"Answer","text":"OEM estándar: 25–35 días tras aprobación de muestra. ODM personalizado: 45–60 días incluyendo utillaje. Servicio exprés disponible para urgencias."}},
- {"@type":"Question","name":"¿Qué certificaciones incluyen?","acceptedAnswer":{"@type":"Answer","text":"CE, RoHS, UN38.3, Qi2 y AENOR de serie. ISO 9001 en fábrica. Cumplimiento Reglamento UE 2023/1542 con representante UE. Ayudamos con UL, PSE, KC según mercado."}},
- {"@type":"Question","name":"¿Ofrecen protección de propiedad intelectual?","acceptedAnswer":{"@type":"Answer","text":"Sí. Todos los proyectos ODM incluyen protección IP exclusiva. Firmamos acuerdos NDA vinculantes. Sus moldes y diseños nunca se venden ni muestran a otros clientes."}},
- {"@type":"Question","name":"¿Puedo recibir muestras antes del pedido?","acceptedAnswer":{"@type":"Answer","text":"Sí. Muestras estándar en 7–15 días. Prototipos ODM personalizados en 25–35 días. Coste de muestras reembolsable al confirmar el pedido de producción."}},
- {"@type":"Question","name":"¿Qué opciones de envío tienen?","acceptedAnswer":{"@type":"Answer","text":"FOB Shenzhen, EXW y DDP puerta a puerta. Exprés (5–7 días DHL/FedEx), aéreo (7–14 días) o marítimo (25–35 días). Gestionamos aduanas e IVA para España y Latinoamérica."}},
- {"@type":"Question","name":"¿Tienen atención en español?","acceptedAnswer":{"@type":"Answer","text":"Sí. Gestor de cuenta que habla español nativo. Respuesta en {RTS}. Comunicación directa sin barreras de idioma ni intermediarios."}},
- {"@type":"Question","name":"¿Cuál es su garantía?","acceptedAnswer":{"@type":"Answer","text":"12 meses estándar, ampliable a 24 meses para socios verificados. Tasa de defectos inferior al 0,3%. Reposición de unidades con defectos de fabricación sin coste adicional."}}
- ]
-}]
+<script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": "https://www.wowohcool.com/#organization",
+    "name": "WOWOHCOOL",
+    "legalName": "Dong Yi Technology Co., Ltd",
+    "knowsAbout": [
+      "OEM/ODM Power Bank Manufacturing",
+      "Qi2 Wireless Charging Standard",
+      "GaN Power Architecture",
+      "Automotive Fast Charging Systems",
+      "Custom Power Adapter Production",
+      "Consumer Electronics Sourcing",
+      "UL & CE Safety Compliance"
+    ],
+    "vatID": "91441900MA558A2N27",
+    "url": "https://www.wowohcool.com/es/sobre-nosotros/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.wowohcool.com/image/wowohcool-logo-optimized.webp",
+      "width": 263,
+      "height": 70
+    },
+    "description": "Fabricante profesional OEM/ODM de power banks y cargadores en Shenzhen desde 2013.",
+    "foundingDate": "2013",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "email": "info@wowohcool.com",
+      "telephone": "+86-186-2078-9739",
+      "contactType": "OEM/ODM Sales",
+      "availableLanguage": [
+        "English",
+        "German",
+        "Spanish",
+        "French",
+        "Russian",
+        "Polish"
+      ]
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Shenzhen",
+      "addressRegion": "Guangdong",
+      "addressCountry": "CN"
+    },
+    "sameAs": [
+      "https://www.linkedin.com/company/wowohcool",
+      "https://www.facebook.com/wowohcoolelectronic",
+      "https://www.youtube.com/@WOWOHCOOL",
+      "https://x.com/wowohcool"
+    ],
+    "publishingPrinciples": "https://www.wowohcool.com/es/sobre-nosotros/",
+    "areaServed": [
+      "US",
+      "DE",
+      "AT",
+      "CH",
+      "UK",
+      "FR",
+      "ES",
+      "PL",
+      "EU",
+      "JP",
+      "KR",
+      "AU",
+      "MX",
+      "CO",
+      "AR",
+      "CL",
+      "PE",
+      "RU",
+      "KZ",
+      "BY",
+      "EAEU"
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": "https://www.wowohcool.com/#website",
+    "url": "https://www.wowohcool.com/es/",
+    "name": "WOWOHCOOL"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "Fabricación OEM/ODM Electrónica",
+    "provider": {
+      "@id": "https://www.wowohcool.com/#organization"
+    },
+    "areaServed": [
+      "US",
+      "DE",
+      "AT",
+      "CH",
+      "UK",
+      "FR",
+      "ES",
+      "PL",
+      "EU",
+      "JP",
+      "KR",
+      "AU",
+      "MX",
+      "CO",
+      "AR",
+      "CL",
+      "PE",
+      "RU",
+      "KZ",
+      "BY",
+      "EAEU"
+    ],
+    "description": "I+D, diseño y producción en serie de soluciones de carga."
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "Cómo fabricar productos de carga con WOWOHCOOL",
+    "description": "Proceso paso a paso para fabricación OEM/ODM de power banks, cargadores inalámbricos, GaN y cargadores de coche.",
+    "estimatedCost": {
+      "@type": "MonetaryAmount",
+      "currency": "EUR",
+      "minValue": 3000,
+      "maxValue": 50000
+    },
+    "supply": [
+      {
+        "@type": "HowToSupply",
+        "name": "Requisitos y especificaciones del producto"
+      },
+      {
+        "@type": "HowToSupply",
+        "name": "Diseño de referencia o bocetos del concepto"
+      },
+      {
+        "@type": "HowToSupply",
+        "name": "Logotipo de marca y diseño del embalaje"
+      }
+    ],
+    "tool": [
+      {
+        "@type": "HowToTool",
+        "name": "Fábrica certificada ISO 9001 de 5.000m²"
+      },
+      {
+        "@type": "HowToTool",
+        "name": "50+ ingenieros de I+D propios (PCBA, ID, ME)"
+      },
+      {
+        "@type": "HowToTool",
+        "name": "Sistema QC de 4 etapas: IQC, IPQC, FQC, OQC"
+      }
+    ],
+    "step": [
+      {
+        "@type": "HowToStep",
+        "position": 1,
+        "name": "Consulta y requisitos",
+        "text": "Envíe sus especificaciones, MOQ, presupuesto y plazo. Nuestro equipo revisa la viabilidad técnica y responde en {RTS}."
+      },
+      {
+        "@type": "HowToStep",
+        "position": 2,
+        "name": "Diseño y presupuesto",
+        "text": "Nuestro equipo I+D crea diseños industriales y esquemas PCBA. Entregamos presupuesto detallado con costes y plazos."
+      },
+      {
+        "@type": "HowToStep",
+        "position": 3,
+        "name": "Muestras y prototipos",
+        "text": "Muestras OEM en 7-15 días. Prototipos ODM en 25-35 días incluyendo moldes y utillaje."
+      },
+      {
+        "@type": "HowToStep",
+        "position": 4,
+        "name": "Aprobación y certificación",
+        "text": "Pruebas funcionales, pre-certificación CE/RoHS/Qi2 y test de envejecimiento de 4h. El cliente aprueba antes de producción."
+      },
+      {
+        "@type": "HowToStep",
+        "position": 5,
+        "name": "Producción en serie",
+        "text": "Control calidad 4 etapas (IQC, IPQC, FQC, OQC). 100% de unidades con test de envejecimiento."
+      },
+      {
+        "@type": "HowToStep",
+        "position": 6,
+        "name": "Envío y logística",
+        "text": "Embalaje personalizado. Envío FOB, EXW o DDP. Entrega 25-35 días tras aprobación de muestras."
+      }
+    ],
+    "totalTime": "P45D"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Inicio",
+        "item": "https://www.wowohcool.com/es/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Servicio OEM/ODM",
+        "item": "https://www.wowohcool.com/es/servicio-oem-odm/"
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "speakable": {
+      "@type": "SpeakableSpecification",
+      "cssSelector": [
+        ".faq-answer",
+        ".section-label",
+        "h1"
+      ]
+    },
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "¿Cuál es el MOQ para pedidos OEM/ODM?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "MOQ de 500 unidades por SKU para ODM sobre modelos en stock. Desarrollo ODM nuevo (sin stock): 1.000–2.000 unidades. OEM con utillaje nuevo: 3.000+ unidades. Descuentos por volumen en pedidos superiores."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cuál es la diferencia entre OEM y ODM?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "OEM: fabricamos su propio diseño con utillaje nuevo. MOQ 3.000+. ODM: desarrollamos el producto sobre nuestra plataforma existente — modelos en stock con su marca desde MOQ 500; un diseño nuevo sin stock, 1.000–2.000 unidades, plazo 45–60 días."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cuánto tarda el proceso completo?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "OEM estándar: 25–35 días tras aprobación de muestra. ODM personalizado: 45–60 días incluyendo utillaje. Servicio exprés disponible para urgencias."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Qué certificaciones incluyen?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "CE, RoHS, UN38.3, Qi2 y AENOR de serie. ISO 9001 en fábrica. Cumplimiento Reglamento UE 2023/1542 con representante UE. Ayudamos con UL, PSE, KC según mercado."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Ofrecen protección de propiedad intelectual?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sí. Todos los proyectos ODM incluyen protección IP exclusiva. Firmamos acuerdos NDA vinculantes. Sus moldes y diseños nunca se venden ni muestran a otros clientes."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Puedo recibir muestras antes del pedido?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sí. Muestras estándar en 7–15 días. Prototipos ODM personalizados en 25–35 días. Coste de muestras reembolsable al confirmar el pedido de producción."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Qué opciones de envío tienen?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "FOB Shenzhen, EXW y DDP puerta a puerta. Exprés (5–7 días DHL/FedEx), aéreo (7–14 días) o marítimo (25–35 días). Gestionamos aduanas e IVA para España y Latinoamérica."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Tienen atención en español?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sí. Gestor de cuenta que habla español nativo. Respuesta en {RTS}. Comunicación directa sin barreras de idioma ni intermediarios."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cuál es su garantía?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "12 meses estándar, ampliable a 24 meses para socios verificados. Tasa de defectos inferior al 0,3%. Reposición de unidades con defectos de fabricación sin coste adicional."
+        }
+      }
+    ]
+  }
+]
 </script>
 {% endblock %}
 

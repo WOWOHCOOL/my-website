@@ -15,72 +15,277 @@ navActive: "products"
 
 {% block head_schema %}
 <script type="application/ld+json">
-[{
- "@context":"https://schema.org","@type":"Organization",
- "@id":"https://www.wowohcool.com/#organization",
- "name":"WOWOHCOOL",
- "legalName":"Dong Yi Technology Co., Ltd",
- "vatID": "91441900MA558A2N27","url": "https://www.wowohcool.com/ru/o-kompanii/",
- "logo":{ "@type": "ImageObject", "url": "https://www.wowohcool.com/image/wowohcool-logo-optimized.webp", "width": 263, "height": 70 },
- "foundingDate":"2013",
- "areaServed":["US", "DE", "AT", "CH", "UK", "FR", "ES", "PL", "EU", "JP", "KR", "AU", "MX", "CO", "AR", "CL", "PE", "RU", "KZ", "BY", "EAEU"],
- "knowsAbout": ["OEM/ODM Power Bank Manufacturing", "Qi2 Wireless Charging Standard", "GaN Power Architecture", "Automotive Fast Charging Systems", "Custom Power Adapter Production", "Consumer Electronics Sourcing", "UL & CE Safety Compliance"],
- "contactPoint":{"@type":"ContactPoint","email":"info@wowohcool.com","telephone":"+86-186-2078-9739","contactType":"OEM/ODM Sales","availableLanguage":["English", "German", "Spanish", "French", "Russian", "Polish"]},
- "address":{"@type":"PostalAddress","addressLocality":"Shenzhen","addressRegion":"Guangdong","addressCountry":"CN"}
-},
-{
- "@context": "https://schema.org",
- "@type": "ItemList",
- "name": "Линейка GaN-зарядок",
- "url": "https://www.wowohcool.com/ru/produkty/gan-zaryadnye-ustroystva/",
- "numberOfItems": 7,
- "itemListElement": [
- {"@type": "ListItem", "position": 1, "name": "WOP37 65W GaN Travel", "url": "https://www.wowohcool.com/ru/produkty/gan-zaryadnye-ustroystva/#wop37"},
- {"@type": "ListItem", "position": 2, "name": "WOP39 100W GaN Pro Hub", "url": "https://www.wowohcool.com/ru/produkty/gan-zaryadnye-ustroystva/#wop39"},
- {"@type": "ListItem", "position": 3, "name": "WOP28 67W GaN Складной", "url": "https://www.wowohcool.com/ru/produkty/gan-zaryadnye-ustroystva/#wop28"},
- {"@type": "ListItem", "position": 4, "name": "WOP20 140W GaN Pro Workstation", "url": "https://www.wowohcool.com/ru/produkty/gan-zaryadnye-ustroystva/#wop20"},
- {"@type": "ListItem", "position": 5, "name": "WOP30 30W GaN Travel", "url": "https://www.wowohcool.com/ru/produkty/gan-zaryadnye-ustroystva/#wop30"},
- {"@type": "ListItem", "position": 6, "name": "WOP10 65W GaN Power Strip", "url": "https://www.wowohcool.com/ru/produkty/gan-zaryadnye-ustroystva/#wop10"},
- {"@type": "ListItem", "position": 7, "name": "WOP80 240W GaN Pro Hub", "url": "https://www.wowohcool.com/ru/produkty/gan-zaryadnye-ustroystva/#wop80"}
- ]
-},
-{
- "@context":"https://schema.org","@type":"WebSite",
- "@id":"https://www.wowohcool.com/#website","url":"https://www.wowohcool.com/ru/","name":"WOWOHCOOL"
-},
-{
- "@context":"https://schema.org","@type":"Product",
- "@id":"https://www.wowohcool.com/ru/produkty/gan-zaryadnye-ustroystva/",
- "name":"GaN-зарядные устройства WOWOHCOOL, GaN V, PD 3.1",
- "description":"GaN-зарядки (нитрид галлия) 30–240 Вт на технологии GaN V. Мультипортовые, компактные, КПД 93–95%.",
- "brand":{"@type":"Brand","name":"WOWOHCOOL"},
- "category":"Электроника > Зарядные устройства > GaN-зарядки",
- "offers":{"@type":"AggregateOffer","priceCurrency":"USD","lowPrice":3.5,"highPrice":24,"availability":"https://schema.org/MadeToOrder","eligibleQuantity":{"@type":"QuantitativeValue","minValue":500,"unitCode":"C62"}},
- "manufacturer": {"@id": "https://www.wowohcool.com/#organization"}
-},
-{
- "@context":"https://schema.org","@type":"BreadcrumbList",
- "itemListElement":[
- {"@type":"ListItem","position":1,"name":"Главная","item":"https://www.wowohcool.com/ru/"},
- {"@type":"ListItem","position":2,"name":"Продукция","item":"https://www.wowohcool.com/ru/produkty/"},
- {"@type":"ListItem","position":3,"name":"GaN-зарядки"}
- ]
-},
-{
- "@context":"https://schema.org","@type":"FAQPage",
- "speakable":{"@type":"SpeakableSpecification","cssSelector": [".faq-answer", ".section-label", "h1"]},
- "mainEntity":[
- {"@type":"Question","name":"В чём преимущества технологии GaN?","acceptedAnswer":{"@type":"Answer","text":"Нитрид галлия (GaN) позволяет делать зарядные устройства до 40% компактнее кремниевых, с более высоким КПД, меньшим нагревом и поддержкой больших мощностей. Мы используем GaN V (5-е поколение) — самую совершенную технологию на рынке."}},
- {"@type":"Question","name":"Могут ли они заряжать ноутбуки?","acceptedAnswer":{"@type":"Answer","text":"Да, модели от 100 Вт заряжают ноутбуки с USB-C: MacBook Pro, Dell XPS, Lenovo ThinkPad и HP Spectre, а также планшеты, смартфоны и другие устройства. Модели 65 Вт заряжают большинство ультрабуков."}},
- {"@type":"Question","name":"Какой MOQ?","acceptedAnswer":{"@type":"Answer","text":"500 штук на модель для OEM-заказов. ODM-проекты с индивидуальным дизайном — от 1 000 штук. Образцы — за 7–15 дней."}},
- {"@type":"Question","name":"Возможна ли полная кастомизация?","acceptedAnswer":{"@type":"Answer","text":"Да: цвет (Pantone), логотип (лазерная гравировка или шелкография), индивидуальная упаковка, инструкция на русском языке и сменная вилка (EU, UK, US, AU)."}},
- {"@type":"Question","name":"Совместимы ли GaN-зарядки с устройствами Apple и Samsung?","acceptedAnswer":{"@type":"Answer","text":"Да, универсальная совместимость: iPhone (15/16/17), Samsung Galaxy S/S24/S25, MacBook, iPad, Dell XPS, Lenovo ThinkPad, Nintendo Switch и любые устройства с зарядкой USB-C PD. Поддерживается протокол PPS для оптимальной быстрой зарядки."}},
- {"@type":"Question","name":"Чем GaN отличается от традиционных кремниевых зарядок?","acceptedAnswer":{"@type":"Answer","text":"Нитрид галлия (GaN) позволяет выпускать зарядки до 40% компактнее, с на 30% меньшим нагревом и более высоким КПД. Наша технология GaN V (5-е поколение) обеспечивает до 240 Вт в корпусах, которые на кремнии ограничивались 65 Вт."}},
- {"@type":"Question","name":"Какие ноутбуки заряжает GaN-зарядка на 100 Вт?","acceptedAnswer":{"@type":"Answer","text":"Модели от 100 Вт заряжают любой ноутбук с USB-C: MacBook Pro 16\", Dell XPS 15/17, Lenovo ThinkPad X1, HP Spectre x360, ASUS ZenBook и другие. Модели 65 Вт подходят для большинства ультрабуков и MacBook Air. Все поддерживают одновременную зарядку ноутбука и смартфона."}},
- {"@type":"Question","name":"Поставляете ли зарядки с евровилкой для России?","acceptedAnswer":{"@type":"Answer","text":"Да. Для рынков РФ, Казахстана и Беларуси зарядки комплектуются евровилкой (тип C/F) — стандарт EU. Также доступны вилки UK, US, AU и версии со сменной вилкой для брендов, продающих в нескольких странах. Партии готовим под требования маркетплейсов: этикетки, штрихкоды и упаковка под карточки Ozon и Wildberries."}},
- {"@type":"Question","name":"Безопасно ли оставлять GaN-зарядку на ночь?","acceptedAnswer":{"@type":"Answer","text":"Да. Все модели имеют многоуровневую защиту: от перегрузки по току, перенапряжения, короткого замыкания, перегрева, а также капельную зарядку (trickle charge), которая останавливает процесс при 100%. Сертификаты CE, FCC, RoHS и UL."}}
- ]
-}]
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": "https://www.wowohcool.com/#organization",
+    "name": "WOWOHCOOL",
+    "legalName": "Dong Yi Technology Co., Ltd",
+    "vatID": "91441900MA558A2N27",
+    "url": "https://www.wowohcool.com/ru/o-kompanii/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.wowohcool.com/image/wowohcool-logo-optimized.webp",
+      "width": 263,
+      "height": 70
+    },
+    "foundingDate": "2013",
+    "areaServed": [
+      "US",
+      "DE",
+      "AT",
+      "CH",
+      "UK",
+      "FR",
+      "ES",
+      "PL",
+      "EU",
+      "JP",
+      "KR",
+      "AU",
+      "MX",
+      "CO",
+      "AR",
+      "CL",
+      "PE",
+      "RU",
+      "KZ",
+      "BY",
+      "EAEU"
+    ],
+    "knowsAbout": [
+      "OEM/ODM Power Bank Manufacturing",
+      "Qi2 Wireless Charging Standard",
+      "GaN Power Architecture",
+      "Automotive Fast Charging Systems",
+      "Custom Power Adapter Production",
+      "Consumer Electronics Sourcing",
+      "UL & CE Safety Compliance"
+    ],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "email": "info@wowohcool.com",
+      "telephone": "+86-186-2078-9739",
+      "contactType": "OEM/ODM Sales",
+      "availableLanguage": [
+        "English",
+        "German",
+        "Spanish",
+        "French",
+        "Russian",
+        "Polish"
+      ]
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Shenzhen",
+      "addressRegion": "Guangdong",
+      "addressCountry": "CN"
+    },
+    "publishingPrinciples": "https://www.wowohcool.com/ru/o-kompanii/",
+    "sameAs": [
+      "https://www.linkedin.com/company/wowohcool",
+      "https://www.facebook.com/wowohcoolelectronic",
+      "https://www.youtube.com/@WOWOHCOOL",
+      "https://x.com/wowohcool"
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Линейка GaN-зарядок",
+    "url": "https://www.wowohcool.com/ru/produkty/gan-zaryadnye-ustroystva/",
+    "numberOfItems": 7,
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "WOP37 65W GaN Travel",
+        "url": "https://www.wowohcool.com/ru/produkty/gan-zaryadnye-ustroystva/#wop37"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "WOP39 100W GaN Pro Hub",
+        "url": "https://www.wowohcool.com/ru/produkty/gan-zaryadnye-ustroystva/#wop39"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "WOP28 67W GaN Складной",
+        "url": "https://www.wowohcool.com/ru/produkty/gan-zaryadnye-ustroystva/#wop28"
+      },
+      {
+        "@type": "ListItem",
+        "position": 4,
+        "name": "WOP20 140W GaN Pro Workstation",
+        "url": "https://www.wowohcool.com/ru/produkty/gan-zaryadnye-ustroystva/#wop20"
+      },
+      {
+        "@type": "ListItem",
+        "position": 5,
+        "name": "WOP30 30W GaN Travel",
+        "url": "https://www.wowohcool.com/ru/produkty/gan-zaryadnye-ustroystva/#wop30"
+      },
+      {
+        "@type": "ListItem",
+        "position": 6,
+        "name": "WOP10 65W GaN Power Strip",
+        "url": "https://www.wowohcool.com/ru/produkty/gan-zaryadnye-ustroystva/#wop10"
+      },
+      {
+        "@type": "ListItem",
+        "position": 7,
+        "name": "WOP80 240W GaN Pro Hub",
+        "url": "https://www.wowohcool.com/ru/produkty/gan-zaryadnye-ustroystva/#wop80"
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": "https://www.wowohcool.com/#website",
+    "url": "https://www.wowohcool.com/ru/",
+    "name": "WOWOHCOOL"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "@id": "https://www.wowohcool.com/ru/produkty/gan-zaryadnye-ustroystva/",
+    "name": "GaN-зарядные устройства WOWOHCOOL, GaN V, PD 3.1",
+    "description": "GaN-зарядки (нитрид галлия) 30–240 Вт на технологии GaN V. Мультипортовые, компактные, КПД 93–95%.",
+    "brand": {
+      "@type": "Brand",
+      "name": "WOWOHCOOL"
+    },
+    "category": "Электроника > Зарядные устройства > GaN-зарядки",
+    "offers": {
+      "@type": "AggregateOffer",
+      "priceCurrency": "USD",
+      "lowPrice": 3.5,
+      "highPrice": 24,
+      "availability": "https://schema.org/MadeToOrder",
+      "eligibleQuantity": {
+        "@type": "QuantitativeValue",
+        "minValue": 500,
+        "unitCode": "C62"
+      }
+    },
+    "manufacturer": {
+      "@id": "https://www.wowohcool.com/#organization"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Главная",
+        "item": "https://www.wowohcool.com/ru/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Продукция",
+        "item": "https://www.wowohcool.com/ru/produkty/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "GaN-зарядки"
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "speakable": {
+      "@type": "SpeakableSpecification",
+      "cssSelector": [
+        ".faq-answer",
+        ".section-label",
+        "h1"
+      ]
+    },
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "В чём преимущества технологии GaN?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Нитрид галлия (GaN) позволяет делать зарядные устройства до 40% компактнее кремниевых, с более высоким КПД, меньшим нагревом и поддержкой больших мощностей. Мы используем GaN V (5-е поколение) — самую совершенную технологию на рынке."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Могут ли они заряжать ноутбуки?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Да, модели от 100 Вт заряжают ноутбуки с USB-C: MacBook Pro, Dell XPS, Lenovo ThinkPad и HP Spectre, а также планшеты, смартфоны и другие устройства. Модели 65 Вт заряжают большинство ультрабуков."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Какой MOQ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "500 штук на модель для OEM-заказов. ODM-проекты с индивидуальным дизайном — от 1 000 штук. Образцы — за 7–15 дней."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Возможна ли полная кастомизация?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Да: цвет (Pantone), логотип (лазерная гравировка или шелкография), индивидуальная упаковка, инструкция на русском языке и сменная вилка (EU, UK, US, AU)."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Совместимы ли GaN-зарядки с устройствами Apple и Samsung?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Да, универсальная совместимость: iPhone (15/16/17), Samsung Galaxy S/S24/S25, MacBook, iPad, Dell XPS, Lenovo ThinkPad, Nintendo Switch и любые устройства с зарядкой USB-C PD. Поддерживается протокол PPS для оптимальной быстрой зарядки."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Чем GaN отличается от традиционных кремниевых зарядок?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Нитрид галлия (GaN) позволяет выпускать зарядки до 40% компактнее, с на 30% меньшим нагревом и более высоким КПД. Наша технология GaN V (5-е поколение) обеспечивает до 240 Вт в корпусах, которые на кремнии ограничивались 65 Вт."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Какие ноутбуки заряжает GaN-зарядка на 100 Вт?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Модели от 100 Вт заряжают любой ноутбук с USB-C: MacBook Pro 16\", Dell XPS 15/17, Lenovo ThinkPad X1, HP Spectre x360, ASUS ZenBook и другие. Модели 65 Вт подходят для большинства ультрабуков и MacBook Air. Все поддерживают одновременную зарядку ноутбука и смартфона."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Поставляете ли зарядки с евровилкой для России?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Да. Для рынков РФ, Казахстана и Беларуси зарядки комплектуются евровилкой (тип C/F) — стандарт EU. Также доступны вилки UK, US, AU и версии со сменной вилкой для брендов, продающих в нескольких странах. Партии готовим под требования маркетплейсов: этикетки, штрихкоды и упаковка под карточки Ozon и Wildberries."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Безопасно ли оставлять GaN-зарядку на ночь?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Да. Все модели имеют многоуровневую защиту: от перегрузки по току, перенапряжения, короткого замыкания, перегрева, а также капельную зарядку (trickle charge), которая останавливает процесс при 100%. Сертификаты CE, FCC, RoHS и UL."
+        }
+      }
+    ]
+  }
+]
 </script>
 
 {% endblock %}
