@@ -126,7 +126,7 @@ ogImage: "/image/product/wireless-charger/wow93-folding-charger.webp"
     <div class="grid grid-cols-2 gap-y-3 gap-x-2 mb-6 border-t border-slate-100 pt-4">
      {% for b in badges %}<div class="flex items-center space-x-2"><svg class="icon-feature text-brandOrange text-badge" aria-hidden="true" focusable="false" viewBox="0 0 448 512"><path d="M338.8-9.9c11.9 8.6 16.3 24.2 10.9 37.8L271.3 224 416 224c13.5 0 25.5 8.4 30.1 21.1s.7 26.9-9.6 35.5l-288 240c-11.3 9.4-27.4 9.9-39.3 1.3s-16.3-24.2-10.9-37.8L176.7 288 32 288c-13.5 0-25.5-8.4-30.1-21.1s-.7-26.9 9.6-35.5l288-240c11.3-9.4 27.4-9.9 39.3-1.3z" fill="currentColor"/></svg><span class="text-badge font-bold text-slate-500 uppercase">{{ b }}</span></div>{% endfor %}
     </div>
-    <p class="text-badge text-slate-500 mb-6 italic leading-relaxed">{{ desc }}</p>
+    <p class="text-sm text-slate-500 mb-6 italic leading-relaxed">{{ desc }}</p>
     <details class="mb-6 group/spec"><summary class="card-soft border-0 p-4 cursor-pointer flex justify-between items-center hover:bg-slate-100 transition"><span class="text-xs font-black text-slate-700 uppercase">Характеристики</span><span class="text-brandOrange text-xs font-bold group-open/spec:rotate-180 transition-transform">&#9660;</span></summary>
      <div class="p-4 bg-slate-50 rounded-b-xl -mt-2"><table class="w-full text-badge"><tbody>
       {% for s in specs %}{% set sp = s.split('</strong>') %}<tr class="border-b border-slate-200"><td class="py-2 text-slate-500">{{ sp[0] | replace('<strong>', '') | safe }}</td><td class="py-2 font-bold text-slate-700">{{ sp[1] | trim | safe }}</td></tr>{% endfor %}
