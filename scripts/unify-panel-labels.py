@@ -73,6 +73,14 @@ def migrate(text, canon, rel):
             changes += 1
             text = text[:gt + 1] + esc(canon["sources"]) + text[h2end:]
         break
+    # buyer-spec card labels (A: English canonical). Anchor is unique: exactly 3
+    # <p class="text-xs ... tracking-wider mb-2"> per buyer-spec section.
+    bl = list(re.finditer(r'(<p class="text-xs font-black text-brandOrange uppercase tracking-wider mb-2">)([\s\S]*?)(</p>)', text))
+    if len(bl) == 3:
+        for m, key in zip(reversed(bl), reversed(["buyerCert", "buyerMoq", "buyerQuality"])):
+            if m.group(2) != esc(canon[key]):
+                changes += 1
+                text = text[:m.start(2)] + esc(canon[key]) + text[m.end(2):]
     # author-bio badge + footprint
     span = find_block(text, r'<section id="author-bio"', "section")
     if span:
