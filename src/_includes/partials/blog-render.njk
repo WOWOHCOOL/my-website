@@ -7,11 +7,11 @@
    Each item: { key: '<registry key>', ...data }. `hero` and `body` accept raw `html`.
    Panel macros are lossless supersets: only pass the knobs you need; defaults are
    the written standard (CTA = §12 inner-gradient card, Related = §13 self-constraining aside). #}
-{% from "partials/blog-sections.njk" import hookPanel, featuredImage, takeawaysPanel, metricsPanel, tocPanel, conclusionPanel, buyerSpecPanel, faqPanel, authorBioPanel, ctaPanel, relatedPanel, sourcesPanel %}
+{% from "partials/blog-sections.njk" import heroPanel, hookPanel, featuredImage, takeawaysPanel, metricsPanel, tocPanel, conclusionPanel, buyerSpecPanel, faqPanel, authorBioPanel, ctaPanel, relatedPanel, sourcesPanel %}
 
 {% macro renderBlogSections(sections) %}
 {% for s in sections %}
-{% if s.key == 'hero' %}{{ s.html | safe }}
+{% if s.key == 'hero' %}{% if s.html %}{{ s.html | safe }}{% else %}{{ heroPanel(s.breadcrumbHtml, s.tag, s.h1, s.author, s.metaHtml) }}{% endif %}
 {% elif s.key == 'hook' %}{{ hookPanel(s.para1, s.para2, s.wrapClass) }}
 {% elif s.key == 'featured-image' %}{{ featuredImage(s.src, s.srcset, s.sizes, s.alt, s.title, s.width, s.height) }}
 {% elif s.key == 'takeaways' %}{{ takeawaysPanel(s.label, s.tldr, s.items) }}

@@ -9,7 +9,7 @@ const ROOT = path.join(__dirname, '..');
 const env = new nunjucks.Environment(new nunjucks.FileSystemLoader(path.join(ROOT, 'src', '_includes')));
 
 const sections = [
-  { key: 'hero', html: '<article class="pb-12">\n' },
+  { key: 'hero', breadcrumbHtml: '<nav class="text-sm mb-6">BREADCRUMB</nav>', tag: 'TAG-X', h1: 'H1-TITLE', author: { name: 'AUTHOR-X', avatarSrc: '/a.webp', avatarSrcset: '/a-200w.webp 200w', avatarSizes: '152px', avatarAlt: 'Auth', avatarW: '750', avatarH: '750', role: 'ROLE-X' }, metaHtml: '<div class="meta">META-LINE</div>' },
   { key: 'hook', para1: 'HOOK-ONE', para2: 'HOOK-TWO' },
   { key: 'featured-image', src: '/img.webp', srcset: '/img-950w.webp 950w', sizes: '848px', alt: 'ALT', title: 'TITLE', width: '1700', height: '956' },
   { key: 'takeaways', label: 'KEY TAKEAWAYS', tldr: 'TLDR-TEXT', items: ['<strong>A:</strong> one', 'B: two'] },
@@ -23,7 +23,7 @@ const sections = [
   { key: 'cta', heading: 'CTA-HEADING', subtext: 'CTA-SUB', primaryHref: '/contact/', primaryLabel: 'Get Factory Pricing', secondaryHref: '/products/', secondaryLabel: 'View Products' },
   { key: 'related', heading: 'Related Articles', cards: [ { href: '/blog/a/', gradient: 'from-brandBlue to-brandOrange', tag: 'Cat', title: 'Rel A', desc: 'Desc A' }, { href: '/blog/b/', gradient: 'from-brandOrange to-slate-800', tag: '', title: 'Rel B', desc: 'Desc B' }, { href: '/blog/c/', gradient: 'from-brandBlue to-brandOrange', tag: 'Cat', title: 'Rel C', desc: 'Desc C' } ] },
   { key: 'sources', heading: 'Sources &amp; References', items: [{ href: 'https://example.com', rel: 'noopener external', cls: 'text-brandBlue hover:text-brandOrange', text: 'Source One', after: ', official' }] },
-  { key: 'hero', html: '</article>\n' },
+  { key: 'body', html: '</article>\n' },
 ];
 
 const html = env.renderString(
@@ -33,6 +33,7 @@ const html = env.renderString(
 
 const checks = [];
 const has = (label, cond) => checks.push([label, !!cond]);
+has('hero title/breadcrumb/author/meta', html.includes('H1-TITLE') && html.includes('BREADCRUMB') && html.includes('AUTHOR-X') && html.includes('META-LINE') && html.includes('pt-24 md:pt-28'));
 has('hook speakable', html.includes('speakable') && html.includes('HOOK-ONE'));
 has('featured image eager', html.includes('fetchpriority="high"'));
 has('metrics grid', html.includes('1M+'));
@@ -45,7 +46,7 @@ has('author-bio section', html.includes('id="author-bio"') && html.includes('AUT
 has('cta standard inner-gradient default', /max-w-4xl mx-auto px-6 mb-16">\s*<div class="relative bg-gradient-to-br/.test(html));
 has('related aside + tagless card ok', html.includes('id="related-articles"') && html.includes('Rel B'));
 has('sources trailing text', html.includes('Source One</a>, official'));
-has('order hook<faq<author<related<sources', html.indexOf('HOOK-ONE') < html.indexOf('id="faq"') && html.indexOf('id="faq"') < html.indexOf('id="author-bio"') && html.indexOf('id="author-bio"') < html.indexOf('id="related-articles"') && html.indexOf('id="related-articles"') < html.indexOf('Sources &amp; References'));
+has('order hero<hook<faq<author<related<sources', html.indexOf('H1-TITLE') < html.indexOf('HOOK-ONE') && html.indexOf('HOOK-ONE') < html.indexOf('id="faq"') && html.indexOf('id="faq"') < html.indexOf('id="author-bio"') && html.indexOf('id="author-bio"') < html.indexOf('id="related-articles"') && html.indexOf('id="related-articles"') < html.indexOf('Sources &amp; References'));
 
 let fail = 0;
 for (const [label, ok] of checks) { console.log((ok ? '[PASS] ' : '[FAIL] ') + label); if (!ok) fail++; }
