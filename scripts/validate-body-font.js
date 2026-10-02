@@ -27,6 +27,12 @@ for (const f of files) {
       if (/\buppercase\b/.test(c) && /\btext-sm\b/.test(c)) bad.push([path.relative(ROOT, f), 'h3 size: ' + c]);
       if (/\buppercase\b/.test(c) && !/\bmb-3\b/.test(c)) bad.push([path.relative(ROOT, f), 'h3 gap: ' + c]);
     }
+    for (const bd of blk.matchAll(/<span class="([^"]*rounded-full[^"]*)"/g)) {
+      const c = bd[1];
+      if (/\bw-\d|\bh-\d/.test(c)) continue;   // icon circle, not a text badge
+      scanned++;
+      if (!/\btext-badge\b/.test(c)) bad.push([path.relative(ROOT, f), 'badge size: ' + c]);
+    }
     for (const co of blk.matchAll(/<div class="([^"]*(?:bg-brandBlue\/5|bg-amber-50|bg-green-50|bg-red-50)[^"]*)"/g)) {
       const c = co[1]; scanned++;
       if (/\bp-5\b/.test(c)) bad.push([path.relative(ROOT, f), 'callout p-5: ' + c]);
