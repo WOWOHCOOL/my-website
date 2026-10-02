@@ -19,4 +19,18 @@ for (const f of files) {
   }
 }
 if (bad.length) { console.log('[validate-table-wrap] UNWRAPPED tables: ' + bad.length + ' / ' + total); [...new Set(bad.map(x => x[0] + '  ' + x[1]))].slice(0, 15).forEach(b => console.log('   - ' + b)); process.exit(1); }
-console.log('[validate-table-wrap] PASS — ' + total + ' tables all inside overflow-x-auto wrapper');
+// non-blog: wide tables (>=3 cols or min-w-[..]) must be scrollable
+let nb = 0, nbBad = [];
+for (const f of walk(path.join(ROOT, 'src')).filter(x => !/[\\/]blog[\\/]/.test(x) && !/_includes|_data/.test(x))) {
+  const s = fs.readFileSync(f, 'utf8');
+  for (const m of s.matchAll(/<table\b([^>]*)>/g)) {
+    nb++;
+    const end = s.indexOf('</table>', m.index); const blk = end < 0 ? '' : s.slice(m.index, end);
+    const row = blk.match(/<tr\b[^>]*>([\s\S]*?)<\/tr>/);
+    const cols = row ? (row[1].match(/<t[hd]\b/g) || []).length : 0;
+    const wide = cols >= 3 || /min-w-\[/.test(m[1] || '');
+    if (wide && !/overflow-x-auto/.test(s.slice(Math.max(0, m.index - 200), m.index))) nbBad.push(path.relative(ROOT, f));
+  }
+}
+if (nbBad.length) { console.log('[validate-table-wrap] NON-BLOG wide tables not scrollable: ' + nbBad.length + ' / ' + nb); [...new Set(nbBad)].slice(0, 15).forEach(x => console.log('   - ' + x)); process.exit(1); }
+console.log('[validate-table-wrap] PASS — ' + total + ' blog tables wrapped; ' + nb + ' non-blog tables checked');
