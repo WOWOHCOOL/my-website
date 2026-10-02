@@ -133,6 +133,34 @@ PANELS.push(
     },
   }
 );
+PANELS.push(
+  {
+    name: 'metricsPanel',
+    call: '{{ metricsPanel(a.items) }}',
+    extract(src) {
+      const b = blockAt(src, '<!-- GaN Key Metrics Cards -->', 'div'); const bb = b || null;
+      const mk = src.search(/<div class="mb-12">\s*<div class="grid grid-cols-2 md:grid-cols-\d+ gap-3">/);
+      if (mk < 0) return null;
+      const open = src.indexOf('<div class="mb-12">', mk); const e = closeBal(src, open, 'div'); const std = src.slice(open, e);
+      const items = [...std.matchAll(/<div class="(bg-white[^"]*)">\s*<div class="text-2xl font-black ([^"]*) mb-1">([\s\S]*?)<\/div>\s*<div class="text-micro[^"]*">([\s\S]*?)<\/div>/g)].map(m => ({ cardClass: m[1], colorClass: m[2], val: m[3], label: m[4] }));
+      if (!items.length) return null;
+      return { std, args: { items } };
+    },
+  },
+  {
+    name: 'faqPanel',
+    call: '{{ faqPanel(a.heading, a.items, a.layout) }}',
+    extract(src) {
+      const b = blockAt(src, '<section id="faq"', 'section'); if (!b) return null;
+      const heading = (b.std.match(/<h2[^>]*>([\s\S]*?)<\/h2>/) || [])[1] || '';
+      let items = [...b.std.matchAll(/<details class="faq-item">\s*<summary>([\s\S]*?)<\/summary>\s*<div class="faq-answer">([\s\S]*?)<\/div>\s*<\/details>/g)].map(m => ({ q: m[1], a: m[2] }));
+      let layout = 'details';
+      if (!items.length) { layout = 'card'; items = [...b.std.matchAll(/<div class="bg-white rounded-xl p-6 faq-answer">\s*<h3[^>]*>([\s\S]*?)<\/h3>\s*<p class="text-slate-600 text-sm">([\s\S]*?)<\/p>\s*<\/div>/g)].map(m => ({ q: m[1], a: m[2] })); }
+      if (!items.length) return null;
+      return { std: b.std, args: { heading, items, layout } };
+    },
+  }
+);
 let totalPass = 0, totalFail = 0;
 for (const panel of PANELS) {
   let p = 0, f = 0; const fails = [];

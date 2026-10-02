@@ -76,3 +76,29 @@
 {% for it in items %} <a href="{{ it.href }}" class="block hover:text-brandOrange transition">{{ it.text | safe }}</a>
 {% endfor %} </nav>
  </div>{% endmacro %}
+
+{# ---- Key Metrics Cards (panel 5, optional) ---- #}
+{% macro metricsPanel(items) %}<div class="mb-12">
+ <div class="grid grid-cols-2 md:grid-cols-{{ items.length if items.length > 3 else items.length }} gap-3">
+{% for it in items %} <div class="{{ it.cardClass or 'bg-white rounded-xl p-4 border border-slate-200 text-center shadow-sm' }}">
+ <div class="text-2xl font-black {{ it.colorClass or 'text-brandBlue' }} mb-1">{{ it.val }}</div>
+ <div class="text-micro text-slate-500 uppercase tracking-wider leading-tight">{{ it.label | safe }}</div>
+ </div>
+{% endfor %} </div>
+ </div>{% endmacro %}
+
+{# ---- FAQ (panel 10). layout=card (default) | details ---- #}
+{% macro faqPanel(heading, items, layout) %}<section id="faq" class="mb-16">
+ <div class="bg-slate-50 rounded-2xl p-8 border border-slate-200 shadow-sm">
+ <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-8 text-center">{{ heading | safe }}</h2>
+ <div class="space-y-6 max-w-3xl mx-auto">
+{% for it in items %}{% if layout == 'details' %}<details class="faq-item">
+<summary>{{ it.q | safe }}</summary>
+<div class="faq-answer">{{ it.a | safe }}</div>
+</details>{% else %}<div class="bg-white rounded-xl p-6 faq-answer">
+<h3 class="font-black text-brandBlue mb-2">{{ it.q | safe }}</h3>
+<p class="text-slate-600 text-sm">{{ it.a | safe }}</p>
+</div>{% endif %}
+{% endfor %} </div>
+ </div>
+</section>{% endmacro %}
