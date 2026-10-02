@@ -19,32 +19,47 @@ def build(tags):
     out.append(" </div>")
     out.append("")
     return "\n".join(out)
+def _article_tags(text):
+    m = re.search(r'^articleTags:\s*(.+)$', text, re.M)
+    if not m: return []
+    return [x.strip() for x in re.split(r',', m.group(1).strip().strip('[]')) if x.strip()]
+def _final_tags(tags, at):
+    # split compound tags, then fill/trim to exactly 3
+    parts = []
+    for t in tags:
+        sp = [x.strip() for x in re.split(r'\s*[·•|]\s*', t) if x.strip()]
+        parts.extend(sp if len(sp) > 1 else [t])
+    for cand in at:
+        if len(parts) >= 3: break
+        cl = cand.lower()
+        if any((cl in p.lower()) or (p.lower() in cl) for p in parts): continue
+        parts.append(cand)
+    return parts[:3]
 def migrate(text):
     m = re.search(r'(\{\{ breadcrumb\([\s\S]*?\) \}\})([\s\S]*?)(<h1)', text)
     if not m: return text, 0, 0
     region = m.group(2)
     spans = re.findall(r'<span class="[^"]*">([\s\S]*?)</span>', region)
-    if len(spans) != 3: return text, 0, len(spans)
-    body = "\n".join(' <span class="%s">%s</span>' % (C[i], t) for i, t in enumerate(spans, 1))
-    # (1) existing flex-wrap wrapper -> replace its inner content
+    if not spans: return text, 0, 0
+    tags = _final_tags(spans, _article_tags(text))
+    if len(tags) != 3: return text, 0, len(spans)
+    body = "\n".join(' <span class="%s">%s</span>' % (C[i], t) for i, t in enumerate(tags, 1))
     wm = re.search(r'(<div class="flex flex-wrap gap-2 mb-6">)([\s\S]*?)(</div>)', region)
     if wm:
         new_region = region[:wm.start(2)] + "\n" + body + "\n " + region[wm.end(2):]
-        return text[:m.start(2)] + new_region + text[m.end(2):], (0 if new_region == region else 1), 3
-    # (2) loose span(s) -> wrap them
-    sm = re.search(r'[ \t]*<span class="[^"]*">[\s\S]*?</span>(\s*<span class="[^"]*">[\s\S]*?</span>)*', region)
-    if sm:
+    else:
+        sm = re.search(r'[ \t]*<span class="[^"]*">[\s\S]*?</span>(\s*<span class="[^"]*">[\s\S]*?</span>)*', region)
+        if not sm: return text, 0, len(spans)
         wrapped = " <div class=\"flex flex-wrap gap-2 mb-6\">\n" + body + "\n </div>"
         new_region = region[:sm.start()] + wrapped + region[sm.end():]
-        return text[:m.start(2)] + new_region + text[m.end(2):], (0 if new_region == region else 1), 3
-    return text, 0, len(spans)
+    return text[:m.start(2)] + new_region + text[m.end(2):], (0 if new_region == region else 1), len(spans)
 def main():
     args = sys.argv[1:]; apply = "--apply" in args
     only = args[args.index("--only") + 1] if "--only" in args else None
     files = [os.path.join(ROOT, only)] if only else glob.glob(os.path.join(ROOT, "src", "**", "index.njk"), recursive=True)
     done = []; need = []
     for f in files:
-        if "blog" not in f.replace("\\", "/") or not os.path.exists(f): continue
+        if "blog" not in f.replace("\\", "/") or f.replace("\\", "/").endswith("blog/index.njk") or not os.path.exists(f): continue
         if not os.path.exists(f): continue
         t = io.open(f, encoding="utf-8").read()
         nt, changed, n = migrate(t)

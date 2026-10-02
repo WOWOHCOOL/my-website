@@ -11,7 +11,7 @@
     "build:js:ru": "node scripts/build-js.js ru",
     "build:js:pl": "node scripts/build-js.js pl",
     "build:js": "npm run build:js:en && npm run build:js:de && npm run build:js:es && npm run build:js:fr && npm run build:js:ru && npm run build:js:pl",
-    "build": "npm run gate && npm run validate:accept && npm run validate:redirects && npm run validate:headers && npm run build:css && npm run build:js && npm run clean && npx @11ty/eleventy && node scripts/validate-response-time-tokens.js && node scripts/validate-html.js && node scripts/validate-offers.js && node scripts/validate-stray-lt.js && node scripts/validate-img-dims.js && node scripts/content-cluster-registry.js && node scripts/validate-facts.js && node scripts/generate-sitemaps.js && node scripts/validate-sitemap-coverage.js && node scripts/svg-sprite.js && node scripts/validate-sprite.js && node scripts/validate-img-exists.js && node scripts/validate-img-variants.js && node scripts/validate-a11y.js && node scripts/validate-links.js && node scripts/validate-og.js && node scripts/validate-speakable.js && node scripts/validate-faq-consistency.js --strict && npm run validate:blog-sections && npm run validate:blog-render && npm run validate:panel-labels && npm run validate:section-containers && (node scripts/indexnow-push.js || true)",
+    "build": "npm run gate && npm run validate:accept && npm run validate:redirects && npm run validate:headers && npm run build:css && npm run build:js && npm run clean && npx @11ty/eleventy && node scripts/validate-response-time-tokens.js && node scripts/validate-html.js && node scripts/validate-offers.js && node scripts/validate-stray-lt.js && node scripts/validate-img-dims.js && node scripts/content-cluster-registry.js && node scripts/validate-facts.js && node scripts/generate-sitemaps.js && node scripts/validate-sitemap-coverage.js && node scripts/svg-sprite.js && node scripts/validate-sprite.js && node scripts/validate-img-exists.js && node scripts/validate-img-variants.js && node scripts/validate-a11y.js && node scripts/validate-links.js && node scripts/validate-og.js && node scripts/validate-speakable.js && node scripts/validate-faq-consistency.js --strict && npm run validate:blog-sections && npm run validate:blog-render && npm run validate:panel-labels && npm run validate:section-containers && npm run validate:hero-tags && (node scripts/indexnow-push.js || true)",
     "clean": "node scripts/clean.js",
     "gate": "node scripts/gate.js",
     "validate:accept": "node scripts/validate-accept-negotiation.js",
@@ -40,6 +40,7 @@
     "validate:blog-render": "node scripts/validate-blog-render.js",
     "validate:panel-labels": "node scripts/validate-panel-labels.js",
     "validate:section-containers": "node scripts/validate-section-containers.js",
+    "validate:hero-tags": "node scripts/validate-hero-tags.js",
     "validate:clusters": "node scripts/content-cluster-registry.js",
     "validate:facts": "node scripts/validate-facts.js"
   },
