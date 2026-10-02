@@ -19,7 +19,11 @@ for (const f of files) {
       scanned++;
       if (/\btext-(sm|body|lg)\b/.test(c)) bad.push([path.relative(ROOT, f), 'size: ' + c]);
       if (!/\bleading-/.test(c)) bad.push([path.relative(ROOT, f), 'no leading: ' + c]);
-      if (!/\bmb-/.test(c)) bad.push([path.relative(ROOT, f), 'no mb: ' + c]);
+      if (!/\bmb-4\b/.test(c)) bad.push([path.relative(ROOT, f), 'not mb-4: ' + c]);
+    }
+    for (const h of blk.matchAll(/<h3\b[^>]*class="([^"]*)"/g)) {
+      const c = h[1]; scanned++;
+      if (/\btext-slate-900\b/.test(c)) bad.push([path.relative(ROOT, f), 'h3 color: ' + c]);
     }
     for (const u of blk.matchAll(/<ul\b[^>]*class="([^"]*)"/g)) {
       const c = u[1]; if (!c.includes('text-slate-600') || c.includes('text-xs')) continue;

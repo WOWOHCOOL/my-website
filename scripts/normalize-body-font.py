@@ -32,6 +32,7 @@ def norm_block(blk):
             return m.group(0)
         nc = PSIZE.sub('', cls).strip()          # unify size -> 16px
         nc = _ensure(nc, ['leading-relaxed', 'mb-4'])  # ensure body rhythm
+        nc = re.sub(r'(^|\s)mb-[\w.]+', r'\1mb-4', nc)  # unify paragraph gap -> mb-4
         nc = re.sub(r'\s{2,}', ' ', nc)
         if nc != cls:
             changes += 1
@@ -48,8 +49,17 @@ def norm_block(blk):
             changes += 1
             return pre + nc + post
         return m.group(0)
+    def repl_h3(m):
+        nonlocal changes
+        pre, cls, post = m.group(1), m.group(2), m.group(3)
+        if 'text-slate-900' not in cls:
+            return m.group(0)
+        nc = cls.replace('text-slate-900', 'text-brandBlue')
+        changes += 1
+        return pre + nc + post
     blk = re.sub(r'(<p\b[^>]*class=")([^"]*)(")', repl_p, blk)
     blk = re.sub(r'(<ul\b[^>]*class=")([^"]*)(")', repl_ul, blk)
+    blk = re.sub(r'(<h3\b[^>]*class=")([^"]*)(")', repl_h3, blk)
     return blk, changes
 def migrate(text):
     n = 0; out = []; last = 0
