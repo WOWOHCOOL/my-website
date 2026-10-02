@@ -1,0 +1,179 @@
+{
+  "_comment": "Blog section registry — single source of truth for the 15-panel standard. 'renderer' points to the macro in partials/blog-sections.njk; 'kind' = shared (uniform frame) | unique (article-specific body) | global (layout/partial). 'requiredData' lists the fields a renderer needs.",
+  "standard": "seomachine/context/blog-template-standard.md §二",
+  "panels": [
+    {
+      "key": "hero",
+      "order": 1,
+      "kind": "shared",
+      "required": true,
+      "renderer": "heroPanel",
+      "requiredData": [
+        "breadcrumb",
+        "tag",
+        "h1",
+        "author",
+        "date",
+        "modified",
+        "readTime",
+        "lang"
+      ]
+    },
+    {
+      "key": "hook",
+      "order": 2,
+      "kind": "shared",
+      "required": true,
+      "renderer": "hookPanel",
+      "requiredData": [
+        "hook"
+      ]
+    },
+    {
+      "key": "featured-image",
+      "order": 3,
+      "kind": "shared",
+      "required": true,
+      "renderer": "featuredImage",
+      "requiredData": [
+        "ogImage",
+        "alt"
+      ]
+    },
+    {
+      "key": "takeaways",
+      "order": 4,
+      "kind": "shared",
+      "required": true,
+      "renderer": "takeawaysPanel",
+      "requiredData": [
+        "items"
+      ]
+    },
+    {
+      "key": "metrics",
+      "order": 5,
+      "kind": "shared",
+      "required": false,
+      "renderer": "metricsPanel",
+      "requiredData": [
+        "items"
+      ]
+    },
+    {
+      "key": "toc",
+      "order": 6,
+      "kind": "shared",
+      "required": true,
+      "renderer": "tocPanel",
+      "requiredData": [
+        "items",
+        "faqIncluded"
+      ]
+    },
+    {
+      "key": "body",
+      "order": 7,
+      "kind": "unique",
+      "required": true,
+      "renderer": null,
+      "requiredData": [
+        "sections"
+      ]
+    },
+    {
+      "key": "conclusion",
+      "order": 8,
+      "kind": "shared",
+      "required": false,
+      "renderer": "conclusionPanel",
+      "requiredData": [
+        "text"
+      ]
+    },
+    {
+      "key": "buyer-spec",
+      "order": 9,
+      "kind": "shared",
+      "required": false,
+      "renderer": "buyerSpecPanel",
+      "requiredData": [
+        "certifications",
+        "moq",
+        "leadTime",
+        "aql"
+      ]
+    },
+    {
+      "key": "faq",
+      "order": 10,
+      "kind": "shared",
+      "required": true,
+      "renderer": "faqPanel",
+      "requiredData": [
+        "heading",
+        "items"
+      ]
+    },
+    {
+      "key": "author-bio",
+      "order": 11,
+      "kind": "shared",
+      "required": true,
+      "renderer": "authorBio",
+      "requiredData": [
+        "author"
+      ]
+    },
+    {
+      "key": "cta",
+      "order": 12,
+      "kind": "shared",
+      "required": true,
+      "renderer": "ctaPanel",
+      "requiredData": [
+        "heading",
+        "subtext",
+        "primary",
+        "secondary"
+      ]
+    },
+    {
+      "key": "related",
+      "order": 13,
+      "kind": "shared",
+      "required": true,
+      "renderer": "relatedPanel",
+      "requiredData": [
+        "heading",
+        "cards"
+      ]
+    },
+    {
+      "key": "sources",
+      "order": 14,
+      "kind": "shared",
+      "required": true,
+      "renderer": "sourcesPanel",
+      "requiredData": [
+        "heading",
+        "items"
+      ]
+    },
+    {
+      "key": "global-cta",
+      "order": 15,
+      "kind": "global",
+      "required": true,
+      "renderer": "blog-cta.njk",
+      "requiredData": [
+        "label",
+        "heading1",
+        "heading2",
+        "subtext",
+        "subject",
+        "button"
+      ]
+    }
+  ]
+}
