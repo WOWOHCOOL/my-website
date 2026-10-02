@@ -47,7 +47,8 @@
     "validate:nonblog-fonts": "node scripts/validate-nonblog-fonts.js",
     "validate:org-schema": "node scripts/validate-org-schema.js",
     "validate:clusters": "node scripts/content-cluster-registry.js",
-    "validate:facts": "node scripts/validate-facts.js"
+    "validate:facts": "node scripts/validate-facts.js",
+    "prepush": "npx @11ty/eleventy && npm run gate && node scripts/validate-org-schema.js && node scripts/validate-faq-consistency.js --strict && node scripts/validate-body-font.js && node scripts/validate-table-wrap.js && node scripts/validate-hero-tags.js && node scripts/validate-section-containers.js && node scripts/validate-panel-labels.js && node scripts/validate-nonblog-headings.js && node scripts/validate-nonblog-fonts.js"
   },
   "devDependencies": {
     "@11ty/eleventy": "^3.1.6",
