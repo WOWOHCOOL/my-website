@@ -24,6 +24,13 @@ const SAMPLES = [
   'src/fr/blog/verifier-certificats-faux-chargeurs-oem/index.njk',
   'src/pl/blog/weryfikacja-falszywych-certyfikatow-ce-importer-oem/index.njk',
   'src/ru/blog/priemka-partii-power-bank-aql-oem/index.njk',
+  'src/es/blog/baterias-semi-solid-state/index.njk',
+  'src/fr/blog/solutions-recharge-hotellerie-oem/index.njk',
+  'src/ru/blog/zaryadnye-resheniya-gostinicy-oem/index.njk',
+  'src/pl/blog/stacje-ladowania-hotel-oem/index.njk',
+  'src/de/blog/nageltest-halbfest-akku-powerbank-verifizierung/index.njk',
+  'src/blog/wireless-charger-manufacturers-china/index.njk',
+  'src/blog/power-bank-specs-guide/index.njk',
   'src/pl/blog/checklista-weryfikacji-fabryki-chiny-oem/index.njk',
 ];
 
@@ -54,14 +61,14 @@ const PANELS = [
       if (i < 0) {
         for (const m of s.matchAll(/<h2[^>]*>([\s\S]*?)<\/h2>/g)) {
           const t = m[1].replace(/<[^>]+>/g, '').toLowerCase();
-          if (/(source|refer|quelle|fuent|référ|źród|источник)/.test(t)) { const sec = s.lastIndexOf('<section', m.index); if (sec >= 0) { i = sec; break; } }
+          if (/^\s*(sources|references?|références?|quellen|fuentes|referencias|źródła|источники)/i.test(t)) { const sec = s.lastIndexOf('<section', m.index); if (sec >= 0) { i = sec; break; } }
         }
       }
       if (i < 0) return null;
       const std = s.slice(i, s.indexOf('</section>', i) + '</section>'.length);
       const heading = (std.match(/<h2[^>]*>([\s\S]*?)<\/h2>/) || [])[1] || '';
       const sectionClass = attr(std.match(/<section\b[^>]*>/) ? std.match(/<section\b[^>]*>/)[0] : '', 'class');
-      const items = [...std.matchAll(/<li><a href="([^"]+)" target="_blank" rel="([^"]+)" class="([^"]+)">([\s\S]*?)<\/a><\/li>/g)].map(m => ({ href: m[1], rel: m[2], cls: m[3], text: m[4] }));
+      const items = [...std.matchAll(/<li([^>]*)><a href="([^"]+)" target="_blank" rel="([^"]+)" class="([^"]+)">([\s\S]*?)<\/a>([\s\S]*?)<\/li>/g)].map(m => ({ liClass: attr('<li' + m[1] + '>', 'class'), href: m[2], rel: m[3], cls: m[4], text: m[5], after: m[6] }));
       return { std, args: { heading, items, sectionClass } };
     },
   },
@@ -76,26 +83,43 @@ const PANELS = [
   },
   {
     name: 'ctaPanel',
-    call: '{{ ctaPanel(a.heading, a.subtext, a.primaryHref, a.primaryLabel, a.secondaryHref, a.secondaryLabel) }}',
+    call: '{{ ctaPanel(a.heading, a.subtext, a.primaryHref, a.primaryLabel, a.secondaryHref, a.secondaryLabel, a.wrapClass, a.cardInner, a.sectionClass, a.cardClass, a.primaryClass, a.secondaryClass, a.subtextClass) }}',
     extract(s) {
-      const b = blockAt(s, '<!-- CTA -->', 'section'); if (!b) return null;
-      const heading = (b.std.match(/<h2[^>]*>([\s\S]*?)<\/h2>/) || [])[1] || '';
-      const subtext = (b.std.match(/<p class="text-slate-300[^"]*">([\s\S]*?)<\/p>/) || [])[1] || '';
-      const as = [...b.std.matchAll(/<a href="([^"]+)" class="[^"]*">([\s\S]*?)<\/a>/g)];
+      const i = s.indexOf('<!-- CTA -->'); if (i < 0) return null;
+      const isSectionCta = /^<!-- CTA -->\s*(?:<div class="max-w-[^"]*">\s*)?<section\b/.test(s.slice(i));
+      if (!isSectionCta) return null;
+      const wrapMatch = s.slice(i).match(/^<!-- CTA -->\s*<div class="(max-w-[^"]*)">/);
+      const wrapClass = wrapMatch ? wrapMatch[1] : '';
+      const so = s.indexOf('<section', i); if (so < 0) return null;
+      const se = closeBal(s, so, 'section'); if (se < 0) return null;
+      let end = se;
+      if (wrapClass) { const j = s.slice(se).match(/^\s*<\/div>/); if (j) end = se + j[0].length; }
+      const std = s.slice(i, end);
+      const heading = (std.match(/<h2[^>]*>([\s\S]*?)<\/h2>/) || [])[1] || '';
+      const subtextTag = (std.match(/<p class="(text-slate-300[^"]*)">/) || []);
+      const subtext = (std.match(/<p class="text-slate-300[^"]*">([\s\S]*?)<\/p>/) || [])[1] || '';
+      const as = [...std.matchAll(/<a href="([^"]+)" class="([^"]*)">([\s\S]*?)<\/a>/g)];
       if (as.length < 2) return null;
-      return { std: b.std, args: { heading, subtext, primaryHref: as[0][1], primaryLabel: as[0][2], secondaryHref: as[1][1], secondaryLabel: as[1][2] } };
+      const secTag = (std.match(/<section class="([^"]*)"/) || [])[1] || '';
+      const cardInner = /<section[^>]*>\s*<div class="[^"]*bg-gradient-to-br/.test(std);
+      const gradTag = (std.match(/<(?:section|div) class="([^"]*bg-gradient-to-br[^"]*)"/) || []);
+      const cardClass = gradTag[1] || '';
+      const sectionClass = cardInner ? secTag : '';
+      return { std, args: { heading, subtext, primaryHref: as[0][1], primaryLabel: as[0][3], secondaryHref: as[1][1], secondaryLabel: as[1][3], wrapClass, cardInner, sectionClass, cardClass, primaryClass: as[0][2], secondaryClass: as[1][2], subtextClass: subtextTag[1] || '' } };
     },
   },
   {
     name: 'relatedPanel',
-    call: '{{ relatedPanel(a.heading, a.cards, a.asideClass) }}',
+    call: '{{ relatedPanel(a.heading, a.cards, a.asideClass, a.h2Class, a.headingBar) }}',
     extract(s) {
       const b = blockAt(s, '<aside id="related-articles"', 'aside'); if (!b) return null;
-      const heading = (b.std.match(/<h2[^>]*>([\s\S]*?)<\/h2>/) || [])[1] || '';
+      const h2 = b.std.match(/<h2 class="([^"]*)">([\s\S]*?)<\/h2>/); if (!h2) return null;
+      const heading = h2[2];
+      const headingBar = /<div class="flex items-center gap-3 mb-6">\s*<div class="w-1 h-6 bg-brandOrange rounded-full"><\/div>\s*<h2/.test(b.std);
       const asideClass = attr(b.std.match(/<aside\b[^>]*>/) ? b.std.match(/<aside\b[^>]*>/)[0] : '', 'class');
-      const cards = [...b.std.matchAll(/<a href="([^"]+)" class="bg-slate-50[^"]*">\s*<div class="h-2 bg-gradient-to-r ([^"]*)"><\/div>\s*<div class="p-6">\s*<span[^>]*>([\s\S]*?)<\/span>\s*<h3[^>]*>([\s\S]*?)<\/h3>\s*<p class="text-slate-600 text-sm">([\s\S]*?)<\/p>/g)].map(m => ({ href: m[1], gradient: m[2], tag: m[3], title: m[4], desc: m[5] }));
+      const cards = [...b.std.matchAll(/<a href="([^"]+)" class="bg-slate-50[^"]*">\s*<div class="h-2 bg-gradient-to-r ([^"]*)"><\/div>\s*<div class="(p-[^"]*)">\s*(?:<span[^>]*>([\s\S]*?)<\/span>\s*)?<h3[^>]*>([\s\S]*?)<\/h3>\s*<p class="text-slate-600 ([^"]*)">([\s\S]*?)<\/p>/g)].map(m => ({ href: m[1], gradient: m[2], contentClass: m[3], tag: m[4] || '', title: m[5], descClass: m[6], desc: m[7] }));
       if (!cards.length) return null;
-      return { std: b.std, args: { heading, cards, asideClass } };
+      return { std: b.std, args: { heading, cards, asideClass, h2Class: h2[1], headingBar } };
     },
   },
 ];
@@ -103,13 +127,14 @@ const PANELS = [
 PANELS.push(
   {
     name: 'hookPanel',
-    call: '{{ hookPanel(a.para1, a.para2) }}',
+    call: '{{ hookPanel(a.para1, a.para2, a.wrapClass) }}',
     extract(src) {
       const b = blockAt(src, '<!-- The Hook -->', 'div'); if (!b) return null;
+      const wrapClass = (b.std.match(/<!-- The Hook -->\s*<div class="(max-w-[^"]*)"/) || [])[1] || '';
       const ps = [...b.std.matchAll(/<p class="text-lg text-slate-700 italic">([\s\S]*?)<\/p>/g)];
       const p2 = b.std.match(/<p class="text-slate-600 leading-relaxed mt-4">([\s\S]*?)<\/p>/);
       if (!ps.length) return null;
-      return { std: b.std, args: { para1: ps[0][1], para2: p2 ? p2[1] : '' } };
+      return { std: b.std, args: { para1: ps[0][1], para2: p2 ? p2[1] : '', wrapClass } };
     },
   },
   {
@@ -128,13 +153,14 @@ PANELS.push(
   },
   {
     name: 'tocPanel',
-    call: '{{ tocPanel(a.heading, a.items, a.h2Class) }}',
+    call: '{{ tocPanel(a.heading, a.items, a.h2Class, a.wrapClass) }}',
     extract(src) {
       const b = blockAt(src, '<!-- Table of Contents -->', 'div'); if (!b) return null;
+      const wrapClass = (b.std.match(/<!-- Table of Contents -->\s*<div class="(max-w-[^"]*)"/) || [])[1] || '';
       const h2 = b.std.match(/<h2 class="([^"]*)">([\s\S]*?)<\/h2>/); if (!h2) return null;
       const items = [...b.std.matchAll(/<a href="([^"]+)" class="block hover:text-brandOrange transition">([\s\S]*?)<\/a>/g)].map(m => ({ href: m[1], text: m[2] }));
       if (!items.length) return null;
-      return { std: b.std, args: { heading: h2[2], items, h2Class: h2[1] } };
+      return { std: b.std, args: { heading: h2[2], items, h2Class: h2[1], wrapClass } };
     },
   }
 );
@@ -170,17 +196,19 @@ PANELS.push(
 PANELS.push(
   {
     name: 'conclusionPanel',
-    call: '{{ conclusionPanel(a.heading, a.paragraphs, a.list, a.sectionClass) }}',
+    call: '{{ conclusionPanel(a.heading, a.paragraphs, a.list, a.paragraphsAfter, a.sectionClass) }}',
     extract(src) {
       const i = src.indexOf('<section id="conclusion"'); if (i < 0) return null;
       const e = closeBal(src, i, 'section'); const std = src.slice(i, e);
       const heading = (std.match(/<h2[^>]*>([\s\S]*?)<\/h2>/) || [])[1] || '';
-      const sectionClass = (std.match(/<section class="([^"]*)"/) || [])[1] || '';
-      const paragraphs = [...std.matchAll(/<p class="text-slate-600 leading-relaxed mb-4">([\s\S]*?)<\/p>/g)].map(m => m[1]);
+      const sectionClass = (std.match(/<section[^>]*class="([^"]*)"/) || [])[1] || '';
       const om = std.match(/<ol\b([^>]*)>([\s\S]*?)<\/ol>/);
+      const olStart = om ? std.indexOf(om[0]) : -1;
+      const paragraphs = [], paragraphsAfter = [];
+      for (const m of std.matchAll(/<p class="text-slate-600 leading-relaxed mb-4">([\s\S]*?)<\/p>/g)) { (olStart >= 0 && m.index > olStart ? paragraphsAfter : paragraphs).push(m[1]); }
       let list = null;
-      if (om) list = { class: (om[1].match(/class="([^"]*)"/) || [])[1] || '', items: [...om[2].matchAll(/<li\b[^>]*>([\s\S]*?)<\/li>/g)].map(m => m[1]) };
-      return { std, args: { heading, paragraphs, list, sectionClass } };
+      if (om) list = { class: (om[1].match(/class="([^"]*)"/) || [])[1] || '', items: [...om[2].matchAll(/<li([^>]*)>([\s\S]*?)<\/li>/g)].map(m => ({ cls: attr('<li' + m[1] + '>', 'class'), html: m[2] })) };
+      return { std, args: { heading, paragraphs, list, paragraphsAfter, sectionClass } };
     },
   },
   {
@@ -242,6 +270,11 @@ for (const panel of PANELS) {
   for (const x of fails.slice(0, 3)) {
     let k = 0; while (k < x.std.length && k < x.out.length && x.std[k] === x.out[k]) k++;
     console.log('    - ' + x.rel + '  firstDiff@' + k + '  (std ' + x.std.length + ' / out ' + x.out.length + ')');
+    if (process.env.VERBOSE) {
+      const A = norm(x.std), B = norm(x.out); let j = 0; while (j < A.length && j < B.length && A[j] === B[j]) j++;
+      console.log('        std*: ' + JSON.stringify(A.slice(Math.max(0, j - 50), j + 90)));
+      console.log('        out*: ' + JSON.stringify(B.slice(Math.max(0, j - 50), j + 90)));
+    }
   }
 }
 console.log('\n[validate-blog-sections] TOTAL byte-exact PASS=' + totalPass + ' / whitespace-only=' + totalWs + ' / STRUCTURAL=' + totalStruct);

@@ -3,7 +3,7 @@
  <section class="{{ sectionClass or 'max-w-4xl mx-auto px-6 mb-16' }}">
  <h2 class="text-lg font-black text-brandBlue uppercase italic mb-4">{{ heading | safe }}</h2>
  <ul class="text-sm text-slate-600 space-y-2 list-disc pl-5">
-{% for it in items %} <li><a href="{{ it.href }}" target="_blank" rel="{{ it.rel }}" class="{{ it.cls }}">{{ it.text | safe }}</a></li>
+{% for it in items %} <li{% if it.liClass %} class="{{ it.liClass }}"{% endif %}><a href="{{ it.href }}" target="_blank" rel="{{ it.rel }}" class="{{ it.cls }}">{{ it.text | safe }}</a>{{ it.after | safe }}</li>
 {% endfor %} </ul>
  </section>{% endmacro %}
 
@@ -12,8 +12,8 @@
  <div class="max-w-4xl mx-auto px-6 mb-16">
  <img src="{{ imgSrc }}" srcset="{{ srcset }}" sizes="{{ sizes }}"
  alt="{{ alt }}"
- title="{{ title }}"
- width="{{ width }}"
+{% if title %} title="{{ title }}"
+{% endif %} width="{{ width }}"
  height="{{ height }}"
  loading="eager"
  decoding="async"
@@ -21,43 +21,54 @@
  fetchpriority="high">
  </div>{% endmacro %}
 
-{# ---- CTA (panel 12) ---- #}
-{% macro ctaPanel(heading, subtext, primaryHref, primaryLabel, secondaryHref, secondaryLabel) %}<!-- CTA -->
-
-<section class="relative bg-gradient-to-br from-brandBlue to-slate-800 rounded-3xl p-10 text-center mb-16 overflow-hidden">
- <div class="absolute top-0 right-0 w-64 h-64 bg-brandOrange/20 rounded-full blur-3xl"></div>
+{# ---- CTA (panel 12). cardInner=true → gradient on inner div (standard §12); wrapClass → outer container ---- #}
+{% macro ctaPanel(heading, subtext, primaryHref, primaryLabel, secondaryHref, secondaryLabel, wrapClass, cardInner, sectionClass, cardClass, primaryClass, secondaryClass, subtextClass) %}<!-- CTA -->
+{% if wrapClass %} <div class="{{ wrapClass }}">
+{% endif %}{% if cardInner %} <section class="{{ sectionClass or 'max-w-4xl mx-auto px-6 mb-16' }}">
+ <div class="{{ cardClass or 'relative bg-gradient-to-br from-brandBlue to-slate-800 rounded-3xl p-10 text-center overflow-hidden' }}">
+{% else %} <section class="{{ cardClass or 'relative bg-gradient-to-br from-brandBlue to-slate-800 rounded-3xl p-10 text-center mb-16 overflow-hidden' }}">
+{% endif %} <div class="absolute top-0 right-0 w-64 h-64 bg-brandOrange/20 rounded-full blur-3xl"></div>
  <div class="absolute bottom-0 left-0 w-64 h-64 bg-blue-500/20 rounded-full blur-3xl"></div>
  <div class="relative z-10">
  <h2 class="text-2xl font-black text-white uppercase italic mb-4">{{ heading | safe }}</h2>
- <p class="text-slate-300 mb-8 max-w-xl mx-auto">{{ subtext | safe }}</p>
+ <p class="{{ subtextClass or 'text-slate-300 mb-8 max-w-xl mx-auto' }}">{{ subtext | safe }}</p>
  <div class="flex flex-col sm:flex-row gap-4 justify-center">
- <a href="{{ primaryHref }}" class="btn-wide">{{ primaryLabel }}</a>
- <a href="{{ secondaryHref }}" class="w-full sm:flex-1 text-center border-2 border-white text-white px-8 py-4 rounded-xl font-black uppercase text-sm hover:bg-white hover:text-brandBlue transition">{{ secondaryLabel }}</a>
+ <a href="{{ primaryHref }}" class="{{ primaryClass or 'btn-wide' }}">{{ primaryLabel | safe }}</a>
+ <a href="{{ secondaryHref }}" class="{{ secondaryClass or 'w-full sm:flex-1 text-center border-2 border-white text-white px-8 py-4 rounded-xl font-black uppercase text-sm hover:bg-white hover:text-brandBlue transition' }}">{{ secondaryLabel | safe }}</a>
  </div>
  </div>
- </section>{% endmacro %}
+{% if cardInner %} </div>
+{% endif %}</section>{% if wrapClass %}
+ </div>{% endif %}{% endmacro %}
 
 {# ---- Related Articles (panel 13) ---- #}
-{% macro relatedPanel(heading, cards, asideClass) %}<aside id="related-articles" class="{{ asideClass or 'max-w-4xl mx-auto mb-16' }}">
- <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-6">{{ heading | safe }}</h2>
+{% macro relatedPanel(heading, cards, asideClass, h2Class, headingBar) %}<aside id="related-articles" class="{{ asideClass or 'max-w-4xl mx-auto mb-16' }}">
+{% if headingBar %} <div class="flex items-center gap-3 mb-6">
+ <div class="w-1 h-6 bg-brandOrange rounded-full"></div>
+ <h2 class="{{ h2Class or 'text-lg font-black text-brandBlue uppercase italic' }}">{{ heading | safe }}</h2>
+ </div>
+{% else %} <h2 class="{{ h2Class or 'text-2xl font-black text-brandBlue uppercase italic mb-6' }}">{{ heading | safe }}</h2>
+{% endif %}
  <div class="grid md:grid-cols-3 gap-4">
 {% for c in cards %} <a href="{{ c.href }}" class="bg-slate-50 rounded-xl overflow-hidden hover:shadow-xl transition group">
  <div class="h-2 bg-gradient-to-r {{ c.gradient }}"></div>
- <div class="p-6">
- <span class="text-xs font-black text-brandOrange uppercase mb-2 block">{{ c.tag }}</span>
- <h3 class="font-black text-brandBlue uppercase text-sm mb-1 group-hover:text-brandOrange transition">{{ c.title }}</h3>
- <p class="text-slate-600 text-sm">{{ c.desc }}</p>
+ <div class="{{ c.contentClass or 'p-6' }}">
+{% if c.tag %} <span class="text-xs font-black text-brandOrange uppercase mb-2 block">{{ c.tag | safe }}</span>
+{% endif %} <h3 class="font-black text-brandBlue uppercase text-sm mb-1 group-hover:text-brandOrange transition">{{ c.title | safe }}</h3>
+ <p class="text-slate-600 {{ c.descClass or 'text-sm' }}">{{ c.desc | safe }}</p>
  </div>
  </a>
 {% endfor %} </div>
 </aside>{% endmacro %}
 
 {# ---- Hook (panel 2) ---- #}
-{% macro hookPanel(para1, para2) %}<!-- The Hook -->
- <div class="bg-brandBlue/5 border-l-4 border-brandOrange p-6 rounded-r-xl mb-8 speakable">
+{% macro hookPanel(para1, para2, wrapClass) %}<!-- The Hook -->
+{% if wrapClass %} <div class="{{ wrapClass }}">
+{% endif %} <div class="bg-brandBlue/5 border-l-4 border-brandOrange p-6 rounded-r-xl mb-8 speakable">
  <p class="text-lg text-slate-700 italic">{{ para1 | safe }}</p>
 {% if para2 %} <p class="text-slate-600 leading-relaxed mt-4">{{ para2 | safe }}</p>
-{% endif %} </div>{% endmacro %}
+{% endif %} </div>{% if wrapClass %}
+ </div>{% endif %}{% endmacro %}
 
 {# ---- Key Takeaways (panel 4) ---- #}
 {% macro takeawaysPanel(label, tldr, items) %}<div class="bg-amber-50 border-l-4 border-amber-500 rounded-r-xl p-6 mb-8">
@@ -69,13 +80,15 @@
  </div>{% endmacro %}
 
 {# ---- Table of Contents (panel 6) ---- #}
-{% macro tocPanel(heading, items, h2Class) %}<!-- Table of Contents -->
- <div class="bg-brandBlue rounded-2xl p-8 text-white mb-12">
+{% macro tocPanel(heading, items, h2Class, wrapClass) %}<!-- Table of Contents -->
+{% if wrapClass %} <div class="{{ wrapClass }}">
+{% endif %} <div class="bg-brandBlue rounded-2xl p-8 text-white mb-12">
  <h2 class="{{ h2Class or 'text-lg font-black uppercase italic mb-6' }}">{{ heading | safe }}</h2>
  <nav class="text-sm space-y-2">
 {% for it in items %} <a href="{{ it.href }}" class="block hover:text-brandOrange transition">{{ it.text | safe }}</a>
 {% endfor %} </nav>
- </div>{% endmacro %}
+ </div>{% if wrapClass %}
+ </div>{% endif %}{% endmacro %}
 
 {# ---- Key Metrics Cards (panel 5, optional) ---- #}
 {% macro metricsPanel(items) %}<div class="mb-12">
@@ -106,14 +119,15 @@
 {% endif %}</section>{% endmacro %}
 
 {# ---- Conclusion (panel 9, optional). list = { class?, items:[...] } | null ---- #}
-{% macro conclusionPanel(heading, paragraphs, list, sectionClass) %}<section id="conclusion" class="{{ sectionClass or 'max-w-4xl mx-auto px-6 mb-16' }}">
+{% macro conclusionPanel(heading, paragraphs, list, paragraphsAfter, sectionClass) %}<section id="conclusion" class="{{ sectionClass or 'max-w-4xl mx-auto px-6 mb-16' }}">
  <div class="bg-slate-50 rounded-xl p-6 border border-slate-200 shadow-sm">
  <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-6">{{ heading | safe }}</h2>
 {% for p in paragraphs %} <p class="text-slate-600 leading-relaxed mb-4">{{ p | safe }}</p>
 {% endfor %}{% if list and list.items and list.items.length %} <ol class="{{ list.class or 'list-decimal pl-5 space-y-2 text-slate-600 text-sm' }}">
-{% for it in list.items %} <li>{{ it | safe }}</li>
+{% for it in list.items %} <li{% if it.cls %} class="{{ it.cls }}"{% endif %}>{{ it.html | safe }}</li>
 {% endfor %} </ol>
-{% endif %} </div>
+{% endif %}{% for p in paragraphsAfter %} <p class="text-slate-600 leading-relaxed mb-4">{{ p | safe }}</p>
+{% endfor %} </div>
 </section>{% endmacro %}
 
 {# ---- Full Author Bio (panel 11) ---- #}
