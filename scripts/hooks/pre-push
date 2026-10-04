@@ -18,6 +18,12 @@
 # BYPASS (please don't):
 #     git push --no-verify
 
+ROOT="$(git rev-parse --show-toplevel 2>/dev/null)"
+if [ -z "$ROOT" ]; then
+  echo "[pre-push] not inside a git repo — skipping content gates"
+  exit 0
+fi
+
 ZERO=0000000000000000000000000000000000000000
 touched=""
 
@@ -40,6 +46,42 @@ fi
 
 echo "[pre-push] content changes detected:"
 echo "$touched" | sed '/^$/d' | head -20 | sed 's/^/           /'
+
+blog_touched=$(printf '%s\n' "$touched" | grep -E '^src/([^/]+/)?blog/.*/index\.njk$' | sed '/^$/d' || true)
+if [ -n "$blog_touched" ]; then
+  B2B_ROOT="${SEOMACHINE_ROOT:-$ROOT/../seomachine}"
+  B2B_CHECKER="$B2B_ROOT/extensions/blog_b2b/modules/check_new_article.py"
+  PY="${PYTHON:-python}"
+
+  if [ ! -f "$B2B_CHECKER" ]; then
+    echo "[pre-push] BLOCKED — B2B checker not found: $B2B_CHECKER"
+    echo "[pre-push] Set SEOMACHINE_ROOT or restore the B2B extension before pushing blog changes."
+    exit 1
+  fi
+  if ! command -v "$PY" >/dev/null 2>&1; then
+    echo "[pre-push] BLOCKED — python not found ($PY); B2B blog gate cannot run."
+    exit 1
+  fi
+
+  echo "[pre-push] running B2B new-article gate for changed blog files:"
+  echo "$blog_touched" | sed '/^$/d' | head -20 | sed 's/^/           /'
+  echo
+  while IFS= read -r file; do
+    [ -z "$file" ] && continue
+    echo "[pre-push] B2B gate -> $file"
+    PYTHONUTF8=1 "$PY" "$B2B_CHECKER" --new-article-target "$ROOT/$file"
+    b2b_status=$?
+    if [ "$b2b_status" -ne 0 ]; then
+      echo
+      echo "[pre-push] BLOCKED — B2B gate failed for $file (exit $b2b_status)."
+      echo "[pre-push] Fix the findings above. To bypass: git push --no-verify"
+      exit "$b2b_status"
+    fi
+  done <<EOF2
+$blog_touched
+EOF2
+fi
+
 echo "[pre-push] running the prepush gate (npm run prepush) — Cloudflare cannot run it."
 echo
 
