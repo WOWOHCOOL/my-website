@@ -68,9 +68,10 @@ blog_touched=$(printf '%s\n' "$touched" | grep -E '^src/([^/]+/)?blog/.*/index\.
 if [ -n "$blog_touched" ]; then
   B2B_ROOT="${SEOMACHINE_ROOT:-$ROOT/../seomachine}"
   B2B_CHECKER="$B2B_ROOT/extensions/blog_b2b/modules/check_new_article.py"
+  B2B_BATCH="$B2B_ROOT/extensions/blog_b2b/modules/preflight_blog_batch.py"
   PY="${PYTHON:-python}"
 
-  if [ ! -f "$B2B_CHECKER" ]; then
+  if [ ! -f "$B2B_CHECKER" ] || [ ! -f "$B2B_BATCH" ]; then
     echo "[pre-push] BLOCKED — B2B checker not found: $B2B_CHECKER"
     echo "[pre-push] Set SEOMACHINE_ROOT or restore the B2B extension before pushing blog changes."
     exit 1
@@ -80,62 +81,25 @@ if [ -n "$blog_touched" ]; then
     exit 1
   fi
 
-  # ── Profile selection (2026-10-05) ────────────────────────────────────────
-  # Two profile: a NEW article is graded on absolute quality, a MAINTENANCE
-  # edit is graded on "did you make it worse". Pick per file; default to the
-  # strict profile whenever the shape of the edit is unclear.
-  #
-  #   new file                                  -> --new-article-target
-  #   added/removed <h2>, or an identity field  -> --new-article-target
-  #     (title / description / canonical / h1 / <lang>Path) changed
-  #   otherwise                                 -> --maintenance-gate --base $base
-  #
-  # The maintenance profile itself re-checks the identity freeze and the H2
-  # outline against $base, so a misclassification is caught rather than passed.
-  echo "[pre-push] B2B gate profile per file:"
+  # Batch preflight classifies every changed article as new-target,
+  # maintenance-content, or maintenance-structural. It runs all files and
+  # reports all failures at the end instead of stopping at the first one.
+  echo "[pre-push] running B2B batch preflight for changed blog files:"
   echo "$blog_touched" | sed '/^$/d' | head -20 | sed 's/^/           /'
   echo
-  while IFS= read -r file; do
-    [ -z "$file" ] && continue
 
-    profile="--new-article-target"
-    why="default (strict)"
+  batch_extra=""
+  [ -n "$AMBIG_BASE" ] && batch_extra="--force-target"
+  # shellcheck disable=SC2086
+  PYTHONUTF8=1 "$PY" "$B2B_BATCH" --base "$base" $batch_extra $blog_touched
+  b2b_status=$?
+  if [ "$b2b_status" -ne 0 ]; then
+    echo
+    echo "[pre-push] BLOCKED — B2B batch preflight failed (exit $b2b_status)."
+    echo "[pre-push] Fix all findings above. To bypass: git push --no-verify"
+    exit "$b2b_status"
+  fi
 
-    if [ -n "$AMBIG_BASE" ]; then
-      why="ref context ambiguous (multi-ref push) -> strict"
-    elif [ "$base" != "$ZERO" ] && git cat-file -e "$base:${file}" 2>/dev/null; then
-      changed=$(git diff --unified=0 "$base..$local_sha" -- "$file" 2>/dev/null | grep -E '^[+-]' | grep -vE '^(\+\+\+|---)')
-      # H2 additions/removals
-      h2=$(printf '%s\n' "$changed" | grep -cE '^[+-][^+-]*<h2[ >]' || true)
-      # identity fields
-      ident=$(printf '%s\n' "$changed" | grep -cE '^[+-](title|description|canonical|h1|[a-z]{2}Path):' || true)
-      if [ "$h2" -eq 0 ] && [ "$ident" -eq 0 ]; then
-        profile="--maintenance-gate"
-        why="maintenance (no H2 or identity change vs $(echo "$base" | cut -c1-8))"
-      elif [ "$h2" -gt 0 ]; then
-        why="H2 changed -> strict"
-      else
-        why="identity field changed -> strict"
-      fi
-    else
-      why="new file -> strict"
-    fi
-
-    echo "[pre-push] B2B gate -> $file   [$profile : $why]"
-    PYTHONUTF8=1 "$PY" "$B2B_CHECKER" $profile --base "$base" "$ROOT/$file"
-    b2b_status=$?
-    if [ "$b2b_status" -ne 0 ]; then
-      echo
-      echo "[pre-push] BLOCKED — B2B gate failed for $file (exit $b2b_status)."
-      echo "[pre-push] If this was a maintenance edit that changed an <h2> or an"
-      echo "[pre-push] identity field (title/description/canonical/h1/langPath), it must"
-      echo "[pre-push] clear the strict profile: $PY $B2B_CHECKER --new-article-target $ROOT/$file"
-      echo "[pre-push] To bypass entirely: git push --no-verify"
-      exit "$b2b_status"
-    fi
-  done <<EOF2
-$blog_touched
-EOF2
 fi
 
 echo "[pre-push] running the prepush gate (npm run prepush) — Cloudflare cannot run it."
