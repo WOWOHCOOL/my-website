@@ -26,23 +26,40 @@ fi
 
 ZERO=0000000000000000000000000000000000000000
 touched=""
+ref_count=0
+base=""
+local_sha=""
 
-while read -r _local_ref local_sha _remote_ref remote_sha; do
-  [ -z "${local_sha:-}" ] && continue
+while read -r _local_ref local_sha_in _remote_ref remote_sha; do
+  [ -z "${local_sha_in:-}" ] && continue
+  ref_count=$((ref_count + 1))
   if [ "$remote_sha" = "$ZERO" ]; then
-    base="origin/main"
+    base_in="origin/main"
   else
-    base="$remote_sha"
+    base_in="$remote_sha"
   fi
-  hit=$(git diff --name-only "$base..$local_sha" 2>/dev/null | grep -E '^src/.*\.njk$' || true)
+  hit=$(git diff --name-only "$base_in..$local_sha_in" 2>/dev/null | grep -E '^src/.*\.njk$' || true)
   [ -n "$hit" ] && touched="$touched$hit
 "
+  # Keep the LAST ref's context for the profile diff below. Only meaningful when
+  # exactly one ref is pushed; ref_count gates that (see AmbigBase below).
+  base="$base_in"
+  local_sha="$local_sha_in"
 done
 
 if [ -z "$touched" ]; then
   echo "[pre-push] no src/**/*.njk changes — skipping the metadata gate"
   exit 0
 fi
+
+# The per-file profile decision diffs $base..$local_sha. Those variables only
+# describe ONE ref, so a push carrying several refs would classify every blog
+# file against the wrong range and could wrongly downgrade a new article to the
+# maintenance profile. When the ref context is not unique, force the strict
+# profile — "unclear" must resolve to the stricter gate, never the looser one.
+AMBIG_BASE=""
+[ "$ref_count" -ne 1 ] && AMBIG_BASE="1"
+[ -z "$base" ] && AMBIG_BASE="1"
 
 echo "[pre-push] content changes detected:"
 echo "$touched" | sed '/^$/d' | head -20 | sed 's/^/           /'
@@ -63,18 +80,57 @@ if [ -n "$blog_touched" ]; then
     exit 1
   fi
 
-  echo "[pre-push] running B2B new-article gate for changed blog files:"
+  # ── Profile selection (2026-10-05) ────────────────────────────────────────
+  # Two profile: a NEW article is graded on absolute quality, a MAINTENANCE
+  # edit is graded on "did you make it worse". Pick per file; default to the
+  # strict profile whenever the shape of the edit is unclear.
+  #
+  #   new file                                  -> --new-article-target
+  #   added/removed <h2>, or an identity field  -> --new-article-target
+  #     (title / description / canonical / h1 / <lang>Path) changed
+  #   otherwise                                 -> --maintenance-gate --base $base
+  #
+  # The maintenance profile itself re-checks the identity freeze and the H2
+  # outline against $base, so a misclassification is caught rather than passed.
+  echo "[pre-push] B2B gate profile per file:"
   echo "$blog_touched" | sed '/^$/d' | head -20 | sed 's/^/           /'
   echo
   while IFS= read -r file; do
     [ -z "$file" ] && continue
-    echo "[pre-push] B2B gate -> $file"
-    PYTHONUTF8=1 "$PY" "$B2B_CHECKER" --new-article-target "$ROOT/$file"
+
+    profile="--new-article-target"
+    why="default (strict)"
+
+    if [ -n "$AMBIG_BASE" ]; then
+      why="ref context ambiguous (multi-ref push) -> strict"
+    elif [ "$base" != "$ZERO" ] && git cat-file -e "$base:${file}" 2>/dev/null; then
+      changed=$(git diff --unified=0 "$base..$local_sha" -- "$file" 2>/dev/null | grep -E '^[+-]' | grep -vE '^(\+\+\+|---)')
+      # H2 additions/removals
+      h2=$(printf '%s\n' "$changed" | grep -cE '^[+-][^+-]*<h2[ >]' || true)
+      # identity fields
+      ident=$(printf '%s\n' "$changed" | grep -cE '^[+-](title|description|canonical|h1|[a-z]{2}Path):' || true)
+      if [ "$h2" -eq 0 ] && [ "$ident" -eq 0 ]; then
+        profile="--maintenance-gate"
+        why="maintenance (no H2 or identity change vs $(echo "$base" | cut -c1-8))"
+      elif [ "$h2" -gt 0 ]; then
+        why="H2 changed -> strict"
+      else
+        why="identity field changed -> strict"
+      fi
+    else
+      why="new file -> strict"
+    fi
+
+    echo "[pre-push] B2B gate -> $file   [$profile : $why]"
+    PYTHONUTF8=1 "$PY" "$B2B_CHECKER" $profile --base "$base" "$ROOT/$file"
     b2b_status=$?
     if [ "$b2b_status" -ne 0 ]; then
       echo
       echo "[pre-push] BLOCKED — B2B gate failed for $file (exit $b2b_status)."
-      echo "[pre-push] Fix the findings above. To bypass: git push --no-verify"
+      echo "[pre-push] If this was a maintenance edit that changed an <h2> or an"
+      echo "[pre-push] identity field (title/description/canonical/h1/langPath), it must"
+      echo "[pre-push] clear the strict profile: $PY $B2B_CHECKER --new-article-target $ROOT/$file"
+      echo "[pre-push] To bypass entirely: git push --no-verify"
       exit "$b2b_status"
     fi
   done <<EOF2
