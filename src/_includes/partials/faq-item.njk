@@ -14,8 +14,8 @@
    The body is the answer (HTML, not escaped).
    The question argument is treated as HTML too, so entities such as
    "Bestellung &amp; Angebot" pass through unchanged. #}
-{% macro faqItem(question) %}
-<details class="faq-item">
+{% macro faqItem(question, open=false) %}
+<details class="faq-item"{{ " open" if open else "" }}>
 <summary>{{ question | safe }}</summary>
 <div class="faq-answer">{{ caller() }}</div>
 </details>
