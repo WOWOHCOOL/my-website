@@ -127,7 +127,7 @@ plPath: "blog/"
 {% for item in collections.blog_de | sort(attribute="date") | reverse %}{% if item.url != "/de/blog/" and loop.index0 < 6 %}
 <a href="{{ item.url }}" class="group bg-white rounded-2xl border border-slate-200 overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
 {% set _og = item.data.ogImage %}{% set _ss = _og | imgSrcset %}{% set _m = _og | imgMeta %}<img src="{{ _og or '/image/factory/wowohcool-smart-charging-solutions.webp' }}"{% if _ss %} srcset="{{ _ss }}" sizes="(min-width: 1024px) 472px, (min-width: 768px) calc(50vw - 40px), calc(100vw - 48px)"{% endif %}{% if _m %} width="{{ _m.w }}" height="{{ _m.h }}"{% endif %} alt="{{ item.data.articleSection or 'Blog' }}" class="w-full h-48 object-cover bg-slate-50" loading="{{ 'eager' if loop.first else 'lazy' }}" decoding="async">
-<div class="p-6"><p class="text-brandOrange text-xs font-bold tracking-widest uppercase mb-2">{{ item.data.articleSection or 'Blog' }}</p>
+<div class="p-6"><p class="text-brandOrangeDeep text-xs font-bold tracking-widest uppercase mb-2">{{ item.data.articleSection or 'Blog' }}</p>
 <h2 class="text-lg font-bold text-brandBlue group-hover:text-brandOrange transition-colors mb-2">{{ item.data.title | replace(" | WOWOHCOOL", "") }}</h2>
 <p class="text-sm text-slate-500 line-clamp-2">{{ item.data.description }}</p>
 <div class="flex items-center gap-3 mt-4 text-xs text-slate-500"><span><svg class="icon-calendar mr-1" aria-hidden="true" focusable="false" viewBox="0 0 448 512">
@@ -168,7 +168,7 @@ plPath: "blog/"
     {% set sections = sections | concat(item.data.articleSection) %}
     <div class="p-4 bg-brandBlue/5"><span class="text-badge font-black text-brandOrange uppercase tracking-widest">{{ item.data.articleSection }}</span></div>
   {% endif %}
-  <a href="{{ item.url }}" class="block px-6 py-3 text-sm text-slate-700 hover:bg-brandBlue/5 hover:text-brandOrange transition flex items-center justify-between"><span>{{ item.data.title | replace(" | WOWOHCOOL", "") }}</span><span class="text-badge text-slate-400">{{ item.date | localeDate("de") }}</span></a>
+  <a href="{{ item.url }}" class="block px-6 py-3 text-sm text-slate-700 hover:bg-brandBlue/5 hover:text-brandOrange transition flex items-center justify-between"><span>{{ item.data.title | replace(" | WOWOHCOOL", "") }}</span><span class="text-badge text-slate-500">{{ item.date | localeDate("de") }}</span></a>
 {% endfor %}
 
 </div>

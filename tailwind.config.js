@@ -28,6 +28,12 @@ module.exports = {
     extend: {
       colors: {
         brandOrange: '#FF6B00',
+        // 品牌橙的**文字加深档**（2026-10-06 WCAG 1.4.3）：
+        // #FF6B00 作为**文字色**放在浅底上只有 2.86:1(#fff) / 2.73:1(#f8fafc)，
+        // 连大字的 3:1 都不到 ⇒ 浅底上的橙字一律用本档（5.18 / 4.95:1）。
+        // ⚠️ 只用于 `text-*`；`bg-brandOrange` 仍是 #FF6B00（品牌底色不变）。
+        // ⚠️ logo 字标（WOWOH/COOL）、★ 装饰星、图标不受此限（WCAG 对 logotype 免检）。
+        brandOrangeDeep: '#C2410C',
         brandBlue: '#0A192F',
         // 较亮一档的品牌蓝。用途单一且明确：当两个深色板块相邻时，用
         // brandBlueLight vs darkBg 拉开明度差来区分，**禁止再用渐变分界线**。

@@ -15,6 +15,12 @@
 :root{
   /* brand */
   --brand-orange:#FF6B00;--brand-orange-alt:#FF6600;--brand-orange-hover:#e06000;
+  /* 品牌橙的**文字加深档**（2026-10-06 WCAG 1.4.3）：
+     #FF6B00 作为文字色放在浅底上只有 2.86:1(#fff) / 2.73:1(#f8fafc)，连大字 3:1 都不到。
+     浅底上的橙字一律用本档（5.18 / 4.95:1）；深色上下文里用回 --brand-orange（5.4~7.0:1）。
+     ⚠️ 只用于文字；`bg-brand-orange` 底色仍是 #FF6B00。
+     与 tailwind.config.js 的 `brandOrangeDeep` 是同一个值，改动需同步。 */
+  --brand-orange-deep:#C2410C;
   --brand-blue:#0A192F;--brand-blue-alt:#0f2a4a;
   /* text */
   --text-primary:#0A192F;--text-body:#475569;--text-secondary:#64748b;--text-muted:#94a3b8;
@@ -204,7 +210,7 @@ svg[class*="icon-"]{display:inline-block;width:1em;height:1em;vertical-align:-0.
 .cookie-btn-group { display: flex; gap: 0.75rem; flex-shrink: 0; }
 .cookie-btn-accept {
   background: var(--brand-orange);
-  color: #fff;
+  color: var(--brand-blue);
   border: none;
   padding: 0.6rem 1.5rem;
   border-radius: 0.5rem;
@@ -397,7 +403,10 @@ svg[class*="icon-"]{display:inline-block;width:1em;height:1em;vertical-align:-0.
   font-weight: 700;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: var(--brand-orange);
+  /* ⚠️ 文字色用**加深档**（2026-10-06）：0.75rem/700 属小字，需 4.5:1，
+     原 var(--brand-orange) 在 #fff/#f8fafc 上只有 2.86/2.73:1。
+     `.dark-section .section-label{color:#f97316}` 特异性更高，深色区块不受影响。 */
+  color: var(--brand-orange-deep);
   margin-bottom: 0.75rem;
 }
 .section-title {
@@ -427,6 +436,21 @@ svg[class*="icon-"]{display:inline-block;width:1em;height:1em;vertical-align:-0.
 .dark-section .card-lg,
 .dark-section .card-lg-soft { background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.1); }
 .dark-section .text-brandBlue { color: #fff; }
+/* ⚠️ 上一条是为「深蓝底上的深蓝字」准备的；但**橙底上的品牌深蓝字是正确配对**
+   （#0A192F on #FF6B00 = 6.17:1），绝不能被翻白（白 on 橙 = 2.86:1 ✗）。
+   2026-10-06 A1 整改实测：`.dark-section` 内的橙底徽标/步骤号/CTA 被上一条翻成白字。
+   两条来源都要堵：
+     ① 标记层 `<div class="bg-brandOrange text-brandBlue">`（属性选择器精确 token，
+        天然排除 `bg-brandOrange/10` 这类浅橙底）
+     ② 组件层 `.btn-*`（`@apply text-brandBlue` 会被 Tailwind **复制**成
+        `.dark-section .btn-solid{color:#fff}` —— 见下方 450 行同类复制机制的说明）
+   ⚠️ 必须写在上一条**之后**（同层靠后者胜）。 */
+.dark-section .btn-solid,
+.dark-section .btn-card,
+.dark-section .btn-wide,
+.dark-section .btn-wide-lg,
+.dark-section .btn-form,
+.dark-section [class~="bg-brandOrange"] { color: var(--brand-blue); }
 .dark-section .text-slate-500 { color: #cbd5e1; }
 .dark-section .text-slate-600 { color: #cbd5e1; }
 /* text-slate-900 是 <body> 的默认正文色，深底上会彻底隐形 → 统一转白 */
@@ -457,6 +481,84 @@ svg[class*="icon-"]{display:inline-block;width:1em;height:1em;vertical-align:-0.
 .dark-section [class~="bg-white"] .text-brandBlue { color: var(--brand-blue); }
 .dark-section [class~="bg-white"] .text-slate-500 { color: #64748b; }
 .dark-section [class~="bg-white"] .text-slate-600 { color: #475569; }
+
+/* ─── 深色上下文：文字色适配（2026-10-06 WCAG 1.4.3 / 1.4.11）───────────
+   ① 品牌橙作为**文字色**的浅/深底统一取值（2026-10-06 补）
+      站内 `text-brandOrange`（#FF6B00）绝大多数落在**浅底文字**上（标题内高亮、
+      正文链接、统计数字、语言切换…）：#FF6B00 on #fff = 2.86:1、on #f8fafc = 2.73:1
+      —— **连大字的 3:1 都不到** ⇒ 浅底文字一律用加深档 #C2410C（5.18 / 4.95:1）。
+      但 #C2410C 放回深底反而不足：on #0a192f 3.4:1、on #0f2a4a 2.8:1、on #020b1a 3.81:1
+      ⇒ 深色上下文一律还原亮橙 --brand-orange（5.4~7.0:1）。
+      ⚠️ **只改文字**：`bg-brandOrange`（按钮/徽标/底块）仍是 #FF6B00，品牌底色不变。
+      ⚠️ 选择器必须写 `body .text-brandOrange`（0,1,1）压过 Tailwind 工具类（0,1,0）；
+         裸 `.text-brandOrange`（0,1,0）与工具类同层、只能靠先后顺序定胜负，不可靠。
+      ⚠️ `.text-brandOrangeDeep` 是本档的**显式别名**（历史：先在标记层铺过一轮 611 处），
+         两个 token 现在语义完全等价，共用下面同一组上下文规则。
+   ② 半透明深卡（`bg-white/5`，深色区里 `.card`/`.card-lg` 也渲染成它）上的
+      slate-500 / slate-600（T1/T2 灰阶）在合成后的 #162539 上只有 3.26 / 2.05:1
+      ⇒ 提到 #cbd5e1（10.4:1）。深色区内的**真白卡**由上面三条还原规则兜底
+      （那三条在本块之前，靠 `[class~="bg-white"]` 精确 token 排除 bg-white/5）。
+   ⚠️ 本块必须写在 .dark-section 覆盖块**之后**（同层靠后者胜）。 */
+body .text-brandOrange,
+body .text-brandOrangeDeep { color: var(--brand-orange-deep); }
+
+.dark-section .text-brandOrange,
+.dark-section .text-brandOrangeDeep,
+[class~="bg-brandBlue"] .text-brandOrange,
+[class~="bg-brandBlue"] .text-brandOrangeDeep,
+[class~="bg-brandBlueLight"] .text-brandOrange,
+[class~="bg-brandBlueLight"] .text-brandOrangeDeep,
+[class~="bg-darkBg"] .text-brandOrange,
+[class~="bg-darkBg"] .text-brandOrangeDeep,
+[class~="bg-white/5"] .text-brandOrange,
+[class~="bg-white/5"] .text-brandOrangeDeep,
+[class~="bg-white/10"] .text-brandOrange,
+[class~="bg-white/10"] .text-brandOrangeDeep { color: var(--brand-orange); }
+
+/* 深色区内的**真白卡**：橙字要还原回加深档（同上面 .text-brandBlue / slate 的处理）。
+   ⚠️⚠️ 白卡容器**必须逐个列全**，不能只写 `[class~="bg-white"]`：
+      `.referenz-card` / `.team-card` / `.payment-item` / `.cert-item` / `.sub-dropdown`
+      都是 `background:#fff` 的**组件类**（不是 `bg-white` 工具类）⇒ 属性选择器匹配不到。
+      2026-10-06 实测：DE/ES/RU 首页的评价卡（`.referenz-card`，白底）里的 ★ 评分
+      被 `.dark-section .text-brandOrange` 翻成 #FF6B00，在白底上只有 2.86:1。
+   ⚠️ `.card` / `.card-lg` **不在**此列：它们在 `.dark-section` 里被改成
+      `rgba(255,255,255,.05)`（见上面 434 行），是**深卡**，橙字必须保持亮橙。 */
+.dark-section [class~="bg-white"] .text-brandOrange,
+.dark-section [class~="bg-white"] .text-brandOrangeDeep,
+.dark-section .referenz-card .text-brandOrange,
+.dark-section .referenz-card .text-brandOrangeDeep,
+.dark-section .referencia-card .text-brandOrange,
+.dark-section .referencia-card .text-brandOrangeDeep,
+.dark-section .team-card .text-brandOrange,
+.dark-section .team-card .text-brandOrangeDeep,
+.dark-section .payment-item .text-brandOrange,
+.dark-section .payment-item .text-brandOrangeDeep,
+.dark-section .cert-item .text-brandOrange,
+.dark-section .cert-item .text-brandOrangeDeep,
+.dark-section .sub-dropdown .text-brandOrange,
+.dark-section .sub-dropdown .text-brandOrangeDeep { color: var(--brand-orange-deep); }
+
+/* 深色容器（未使用 `.dark-section` 命名，但底色就是品牌深色）里的 `.section-label`
+   同样要还原亮橙 —— 基础规则给的是浅底用的加深档，在深底上只有 2.8~3.8:1。
+   2026-10-06 实测：`bg-brandBlue` / `bg-brandBlueLight` / `bg-darkBg` 三处共 6 个
+   `.section-label` 渲染成 #C2410C 不达标。 */
+[class~="bg-brandBlue"] .section-label,
+[class~="bg-brandBlueLight"] .section-label,
+[class~="bg-darkBg"] .section-label { color: var(--brand-orange); }
+
+/* 橙底上的品牌深蓝字（2026-10-06 补）：上面 `.dark-section .text-brandBlue{color:#fff}`
+   会命中橙底块的**后代**（后代自己带 `text-brandBlue` 类），把 #0A192F on #FF6B00
+   （6.17:1 ✓）翻成白字（2.86:1 ✗）。已实测 about 页 `bg-brandOrange` 浮层内的
+   `<p class="text-brandBlue ...">` 被翻白 ⇒ 这里对**后代**再堵一次。 */
+.dark-section [class~="bg-brandOrange"] .text-brandBlue,
+[class~="bg-brandOrange"] .text-brandBlue { color: var(--brand-blue); }
+
+.dark-section [class~="bg-white/5"] .text-slate-500,
+.dark-section [class~="bg-white/5"] .text-slate-600,
+[class~="bg-brandBlue"] [class~="bg-white/5"] .text-slate-500,
+[class~="bg-brandBlue"] [class~="bg-white/5"] .text-slate-600,
+[class~="bg-brandBlueLight"] [class~="bg-white/5"] .text-slate-500,
+[class~="bg-brandBlueLight"] [class~="bg-white/5"] .text-slate-600 { color: #cbd5e1; }
 .dark-section [class~="bg-white"] .text-slate-900 { color: var(--brand-blue); }
 
 /* Removed 2026-10-01: .product-card / .card-badge — 0 class refs in
@@ -499,7 +601,7 @@ svg[class*="icon-"]{display:inline-block;width:1em;height:1em;vertical-align:-0.
     border: 1px solid var(--border);
     cursor: pointer; transition: all .25s ease;
   }
-  .filter-chip:hover, .filter-chip.is-active { background: var(--brand-orange); color: #fff; border-color: var(--brand-orange); }
+  .filter-chip:hover, .filter-chip.is-active { background: var(--brand-orange); color: var(--brand-blue); border-color: var(--brand-orange); }
 }
 
 /* ─── Buttons: extracted inline patterns (2026-09-13, P4 batch 1) ─────────
@@ -523,7 +625,7 @@ svg[class*="icon-"]{display:inline-block;width:1em;height:1em;vertical-align:-0.
 @layer components {
   /* Full-width CTA inside a card or section. */
   .btn-card {
-    @apply w-full py-4 bg-brandOrange text-white font-black uppercase text-[11px] tracking-widest rounded-2xl shadow-lg transition-all hover:bg-brandOrange/90;
+    @apply w-full py-4 bg-brandOrange text-brandBlue font-black uppercase text-[11px] tracking-widest rounded-2xl shadow-lg transition-all hover:bg-brandOrange/90;
   }
   /* Removed 2026-10-01: .btn-card-sm — 0 refs in src/ (incl. _includes) and _site/. */
   /* Wide marketing CTA that shares a row and grows from the sm breakpoint up.
@@ -531,11 +633,11 @@ svg[class*="icon-"]{display:inline-block;width:1em;height:1em;vertical-align:-0.
         桌面端并排时靠 grid 的 `align-items:stretch` 掩盖了 4px 差，
         移动端上下堆叠就暴露出来（2026-09-18 实测 52 vs 56）。 */
   .btn-wide {
-    @apply w-full sm:flex-1 px-8 py-4 border-2 border-transparent bg-brandOrange text-white font-black uppercase text-sm rounded-xl shadow-lg transition hover:-translate-y-1;
+    @apply w-full sm:flex-1 px-8 py-4 border-2 border-transparent bg-brandOrange text-brandBlue font-black uppercase text-sm rounded-xl shadow-lg transition hover:-translate-y-1;
   }
   /* Same as .btn-wide but wider gutters, natural width from sm up. */
   .btn-wide-lg {
-    @apply w-full sm:w-auto px-10 py-4 border-2 border-transparent bg-brandOrange text-white font-black uppercase text-sm tracking-widest rounded-xl shadow-xl transition hover:-translate-y-1;
+    @apply w-full sm:w-auto px-10 py-4 border-2 border-transparent bg-brandOrange text-brandBlue font-black uppercase text-sm tracking-widest rounded-xl shadow-xl transition hover:-translate-y-1;
   }
   /* The canonical inline solid-orange button.
      ⚠️ 必须与 `.btn-ghost-lg` 等高：后者带 `border-2`，所以这里补一层**透明描边**
@@ -544,11 +646,11 @@ svg[class*="icon-"]{display:inline-block;width:1em;height:1em;vertical-align:-0.
         `<button>` 退化为 inline-block，`w-full`/`justify-center` 形同虚设，
         且 `hover:-translate-y-1` 在 `<a>` 上不生效（transform 对非替换行内元素无效）。 */
   .btn-solid {
-    @apply inline-flex items-center justify-center px-8 py-4 border-2 border-transparent bg-brandOrange text-white font-black uppercase text-sm tracking-widest rounded-xl shadow-xl transition hover:-translate-y-1;
+    @apply inline-flex items-center justify-center px-8 py-4 border-2 border-transparent bg-brandOrange text-brandBlue font-black uppercase text-sm tracking-widest rounded-xl shadow-xl transition hover:-translate-y-1;
   }
   /* Full-width form submit; hovers to brand blue (unlike the other CTAs). */
   .btn-form {
-    @apply w-full py-4 bg-brandOrange text-white font-bold text-base rounded-xl shadow-lg shadow-brandOrange/20 transition-all duration-300 flex items-center justify-center gap-3 hover:bg-brandBlue;
+    @apply w-full py-4 bg-brandOrange text-brandBlue font-bold text-base rounded-xl shadow-lg shadow-brandOrange/20 transition-all duration-300 flex items-center justify-center gap-3 hover:bg-brandBlue hover:text-white;
   }
   /* Outline (secondary) CTA. Natural width (the `.btn-pair` context supplies
      `w-full`), vertically centered like `.btn-solid`.
@@ -819,7 +921,9 @@ table td, table th { overflow-wrap: break-word; word-break: normal; }
 .team-card img { width: 100%; aspect-ratio: 1; object-fit: cover; }
 .team-card .team-info { padding: 1rem 1.25rem 1.25rem; }
 .team-card .team-name { font-weight: 700; color: var(--brand-blue); font-size: 0.95rem; }
-.team-card .team-role { font-size: 0.8rem; color: var(--brand-orange); font-weight: 500; }
+/* ⚠️ `.team-role` 落在白底 `.team-card` 上（该卡恒为 background:#fff，无深色变体）
+   ⇒ 用**文字加深档**（2026-10-06 WCAG 1.4.3）：原 var(--brand-orange) on #fff = 2.86:1。 */
+.team-card .team-role { font-size: 0.8rem; color: var(--brand-orange-deep); font-weight: 500; }
 
 /* ─── Download Button ──────────────────────────────────────── */
 .download-btn {
@@ -829,7 +933,7 @@ table td, table th { overflow-wrap: break-word; word-break: normal; }
   color: var(--brand-blue); transition: all 0.3s ease; cursor: pointer; text-decoration: none;
 }
 .download-btn:hover { background: var(--brand-blue); color: #fff; transform: translateY(-1px); box-shadow: 0 4px 16px rgba(10, 25, 47, 0.2); }
-.download-btn.orange { background: var(--brand-orange); border-color: var(--brand-orange); color: #fff; }
+.download-btn.orange { background: var(--brand-orange); border-color: var(--brand-orange); color: var(--brand-blue); }
 .download-btn.orange:hover { background: var(--brand-orange-hover); border-color: var(--brand-orange-hover); box-shadow: 0 4px 16px rgba(255, 107, 0, 0.3); }
 
 /* ─── Timezone Badge ───────────────────────────────────────── */
@@ -858,7 +962,9 @@ table td, table th { overflow-wrap: break-word; word-break: normal; }
   vertical-align: -0.4em; margin-right: 0.15em;
 }
 .referenz-card .ref-meta, .referencia-card .ref-meta {
-  font-size: 0.75rem; color: #94a3b8; border-top: 1px solid #e2e8f0;
+  /* ⚠️ 0.75rem 小字 → 需 4.5:1。原 #94a3b8 在白卡上只有 2.56:1（2026-10-06 实测，
+     与 PageSpeed 报的评价卡同源）⇒ 提到 slate-500（4.76:1）。 */
+  font-size: 0.75rem; color: #64748b; border-top: 1px solid #e2e8f0;
   padding-top: 0.75rem; margin-top: 0.5rem;
 }
 .referenz-card .ref-meta strong, .referencia-card .ref-meta strong { color: var(--brand-blue); }
