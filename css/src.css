@@ -17,10 +17,22 @@
   --brand-orange:#FF6B00;--brand-orange-alt:#FF6600;--brand-orange-hover:#e06000;
   /* 品牌橙的**文字加深档**（2026-10-06 WCAG 1.4.3）：
      #FF6B00 作为文字色放在浅底上只有 2.86:1(#fff) / 2.73:1(#f8fafc)，连大字 3:1 都不到。
-     浅底上的橙字一律用本档（5.18 / 4.95:1）；深色上下文里用回 --brand-orange（5.4~7.0:1）。
+     **小字**（<24px，且非 ≥18.66px 粗体）用本档。
+     取值按站内**最暗的浅色文字面**反解（2026-10-06 全站 354 页扫描实测，含半透明底合成）：
+       #fff 5.77 · slate-50 5.51 · `bg-brandOrange/10` 叠 slate-50 (#F9ECE3) 4.98
+       · `bg-brandBlue/5` 叠 slate-50 (#ECEEF2) 5.00 · `bg-brandBlue/10` 叠 slate-50 (#E0E4E8) 4.51
+     （上一版 #C2410C 在**后三个面上只有 4.47 / 4.49 / 4.05** ⇒ 949 处 1.4.3 未达标，
+      这三类是「橙字压在半透明有色底上」，底色本身吃掉了对比度预算。）
+     深色上下文里用回 --brand-orange（4.4~6.9:1）。
      ⚠️ 只用于文字；`bg-brand-orange` 底色仍是 #FF6B00。
      与 tailwind.config.js 的 `brandOrangeDeep` 是同一个值，改动需同步。 */
-  --brand-orange-deep:#C2410C;
+  --brand-orange-deep:#B63C0B;
+  /* 品牌橙的**大字档**（2026-10-06 二轮）：浅底上 ≥24px 的橙字只需 3:1。
+     #FF6B00 保留色相/饱和度、仅压暗 ⇒ 白底 3.54 / slate-50 3.38 / 最暗浅底 3.06。
+     视觉上与 logo 里烘焙的品牌橙（webp 实测 ≈ #EE6B1E）同族，远优于加深档的观感。
+     ⚠️ 只给「大字」用；小字仍走 --brand-orange-deep。
+     与 tailwind.config.js 的 `brandOrangeLarge` 是同一个值，改动需同步。 */
+  --brand-orange-large:#E45F00;
   --brand-blue:#0A192F;--brand-blue-alt:#0f2a4a;
   /* text */
   --text-primary:#0A192F;--text-body:#475569;--text-secondary:#64748b;--text-muted:#94a3b8;
@@ -502,6 +514,71 @@ svg[class*="icon-"]{display:inline-block;width:1em;height:1em;vertical-align:-0.
 body .text-brandOrange,
 body .text-brandOrangeDeep { color: var(--brand-orange-deep); }
 
+/* ─── 浅底「大字橙」：3:1 档（2026-10-06 二轮 · 品牌一致性修正）──────────────
+   上一轮把浅底上**所有** text-brandOrange 都压成了 4.5:1 的加深档。
+   但 WCAG 1.4.3 对**大字**（≥24px，或 ≥18.66px 且粗体）的门槛只有 3:1 ——
+   标题高亮（首页 h1 的 "OEM/ODM for"、h2 的 "Next Product?" / "vs Other Suppliers"）
+   用加深档属于**过度加深**：与 logo 里烘焙的品牌橙（webp 实测 ≈ #EE6B1E）肉眼不同族，
+   用户可感知为「橙色不一致」。本档把它修正回品牌橙族（保留色相/饱和度、仅压暗）。
+
+   ⚠️ **尺寸判据必须覆盖三类来源**（2026-10-06 全站实测，缺一类就漏网）：
+      ① Tailwind 尺寸类 —— 用 `[class*="text-2xl"]` 这类**子串**匹配，而不是 `:is(.text-2xl)`
+         精确类：站内 418 个橙字元素带响应式变体（`md:text-3xl` / `lg:text-4xl`），
+         精确类名**匹配不到** `md:text-3xl`。实测这 418 处的**基准字号全部已是大字**
+         （≥24px，或 20px 粗体）⇒ 子串匹配无移动端风险。
+      ② 自定义排版类 `.section-title`（clamp 1.75–2.5rem ⇒ 最小 28px）、
+         `.hero-title`（clamp 2–3.5rem ⇒ 最小 32px）—— 站内 **168 个**主标题的橙字高亮
+         （`<span class="text-brandOrange">` 挂在 `<h2 class="section-title">` 下）
+         只靠 Tailwind 类**完全漏网**，是本档最大的一处覆盖。
+      ③ `text-[2.375rem]` 这类任意值/响应式任意值（首页 hero h1）—— 由 ② 的
+         `.hero-title` 祖先兜住，无需单独枚举。
+   ⚠️ **只改颜色，不改字号**（用户 2026-10-06 明确要求「不要随便乱加大变小」）：
+      本档不新增/不修改任何 font-size，只把已存在的大字元素换个橙色值。
+   ⚠️ **绝不能按 h1–h6 泛化** —— 站内有 1708 个标题自身带 `text-sm`/`text-badge`
+      等小字号（eyebrow 标签、卡片标题），按标签泛化会把小字误判为大字、
+      反而制造新的 WCAG 失败。
+   ⚠️ 后代选择器**必须**带小字号守卫：
+      `<span class="text-sm">` 挂在 `<p class="text-3xl text-brandOrangeDeep">` 下
+      （/about/ 的 "24h" 单位后缀）会被祖先升档成 3.53:1 ⇒ 小字不达标。
+      ⚠️ 守卫必须用 `:where()`（特异性 0）而非裸 `:not()`：裸 `:not()` 会把特异性抬到
+      (0,3,0)，压过下面的深色上下文规则 (0,2,0)，导致深底橙字被错误加深。
+      ⚠️⚠️ 守卫里的类名**必须写成属性选择器** `[class~="text-sm"]`，**绝不能写 `.text-sm`**：
+         Tailwind 的 `@apply` 会按「选择器里出现过的类名」建索引 —— 组件层 `.btn-*`
+         里有 `@apply text-sm` / `@apply text-base`（见下方 @layer components），
+         于是本规则被**复制**进每个 `.btn-*`，并把守卫里那个类名替换成 `.btn-wide`
+         等（2026-10-06 实测：产物里同一条规则出现 **7 份**，其中 6 份守卫被改写、
+         丢失 `.text-sm` 排除 ⇒ 小字反而被升档）。属性选择器不是 class 节点，
+         `@apply` 索引不到 ⇒ 产物里只保留本处这一条。
+   ⚠️ 本块必须写在 `body .text-brandOrange` **之后**（(0,2,0) 压过 (0,1,1)）、
+      深色上下文块**之前**（同为 (0,2,0)，靠后者胜 ⇒ 深底仍还原亮橙 #FF6B00）。
+   ⚠️ 已知边界（刻意保留）：**裸 `text-xl`（20px，无粗体类）不升档** ——
+      20px 只有粗体时才算大字，而 font-weight **可继承**，用类名判断不可靠 ⇒
+      保守留在 4.5:1 档。实测 39 处 20px 粗体统计数字仍走加深档（5.77:1，达标，仅观感略深）。 */
+:is([class*="text-2xl"], [class*="text-3xl"], [class*="text-4xl"], [class*="text-5xl"],
+    [class*="text-6xl"], [class*="text-7xl"], [class*="text-8xl"], [class*="text-9xl"],
+    .section-title, .hero-title)
+  :is(.text-brandOrange, .text-brandOrangeDeep):where(:not([class~="text-xs"]):not([class~="text-sm"]):not([class~="text-base"]):not([class~="text-lg"]):not([class~="text-badge"]):not([class~="text-micro"]):not([class~="text-2xs"]):not(svg)),
+:is(.text-brandOrange, .text-brandOrangeDeep):is([class*="text-2xl"], [class*="text-3xl"], [class*="text-4xl"],
+    [class*="text-5xl"], [class*="text-6xl"], [class*="text-7xl"], [class*="text-8xl"], [class*="text-9xl"],
+    .section-title, .hero-title):where(:not([class~="text-xs"]):not([class~="text-sm"]):not([class~="text-base"]):not([class~="text-lg"]):not([class~="text-badge"]):not([class~="text-micro"]):not([class~="text-2xs"]):not(svg)) { color: var(--brand-orange-large); }
+
+/* ─── 反向：大字橙元素内部的**小字后代**回落加深档（2026-10-06 三修）──────
+   ⚠️⚠️ 上一条的 `:where()` 守卫只能阻止**命中**元素，**拦不住 CSS 继承**：
+   `/about/` 的 `<span class="text-sm">h</span>` 自身**没有**橙类 ⇒ 上一条根本没
+   匹配它，但它**继承**了父级 `<p class="text-3xl font-black text-brandOrangeDeep">24</p>`
+   已升档的 #E45F00 ⇒ 14px 小字只有 3.54:1（需 4.5:1）。实测全站仅此 1 处。
+   ⚠️ 特异性刻意取 (0,2,0) 并夹在「大字档」与「深色上下文」**之间**：
+       · 对大字档 (0,2,0)：更靠后 ⇒ 胜 ⇒ 浅底小字回落加深档 ✓
+       · 对深色块 (0,2,0)：深色块更靠后 ⇒ 胜 ⇒ 深底小字仍是亮橙 #FF6B00 ✓
+     （若写成 (0,3,0) 会**压过**深色块，把深底小字错误加深。）
+   ⚠️ 落地前先量化爆炸半径（全站 354 页探针）：本选择器命中 1 个元素，
+      其中「颜色不是三档橙」的 = **0** ⇒ 不会误改任何自带颜色的元素。 */
+:is(.text-brandOrange, .text-brandOrangeDeep):is([class*="text-2xl"], [class*="text-3xl"], [class*="text-4xl"],
+    [class*="text-5xl"], [class*="text-6xl"], [class*="text-7xl"], [class*="text-8xl"], [class*="text-9xl"],
+    .section-title, .hero-title)
+  :where([class~="text-xs"], [class~="text-sm"], [class~="text-base"], [class~="text-lg"],
+    [class~="text-badge"], [class~="text-micro"], [class~="text-2xs"]) { color: var(--brand-orange-deep); }
+
 .dark-section .text-brandOrange,
 .dark-section .text-brandOrangeDeep,
 [class~="bg-brandBlue"] .text-brandOrange,
@@ -514,6 +591,48 @@ body .text-brandOrangeDeep { color: var(--brand-orange-deep); }
 [class~="bg-white/5"] .text-brandOrangeDeep,
 [class~="bg-white/10"] .text-brandOrange,
 [class~="bg-white/10"] .text-brandOrangeDeep { color: var(--brand-orange); }
+
+/* ─── hover 态橙字（2026-10-06 四修 · hover 统一）─────────────────────────
+   ⚠️⚠️ 问题：`hover:text-brandOrange`（全站 **5415 处**、312 个文件）在**浅底**上
+   把文字翻成 #FF6B00 ⇒ 白底 2.86:1 / slate-50 2.73:1 / 各类浅色卡 2.47~2.69:1，
+   **比静止态更差**（静止态 #64748b on #fff = 4.76:1 ✓）。
+   全站 354 页强制 `:hover` 实测（CDP forcePseudoState，已关过渡取终值）：
+   有直接文本的 hover 不达标 **12024** 条，其中 **12019 条在浅底**，
+   而 `#ff6b00 on #fff|#f8fafc` 一个签名就占 **11821** 条。
+   ⇒ 修法：浅色上下文里 hover 橙字改用**加深档**（白底 5.77:1），
+      深色上下文保持亮橙 #FF6B00（深底 6.9:1）。
+   ⚠️⚠️ 选择器**必须**带 `body ` 前缀（0,2,1），**绝不能写裸 `.hover\:text-brandOrange:hover`**：
+      Tailwind 的 utilities 在**编译产物里排在文件末尾**（实测本规则 @78326，Tailwind 的
+      `.hover\:text-brandOrange:hover` @91661）⇒ 裸写与工具类同为 (0,2,0)、**靠后者的 Tailwind 胜**，
+      规则静默失效（2026-10-06 单例测试实测：hover 仍是 #FF6B00）。
+      这与站内 `body .text-brandOrange`（0,1,1 压 0,1,0）是同一个坑。
+   ⚠️ 特异性：浅底规则 (0,2,1)；深色覆盖 `[class~="bg-…"] .hover\:text-brandOrange:hover` = (0,3,0) 稳定压过；
+      深色区白卡还原 `.dark-section [class~="bg-white"] …` = (0,4,0) 再压过。
+   ⚠️ 必须同时补「深色区**真白卡**」的反向重置（见下方 .dark-section 白卡块），
+      否则深色区里的白卡会被深色规则翻成亮橙 ⇒ 在白底上只有 2.86:1。
+   ⚠️ 只改颜色，不改任何尺寸/间距/transition。 */
+body .hover\:text-brandOrange:hover { color: var(--brand-orange-deep); }
+
+/* `group-hover:` 变体（2026-10-06 补）：hover 整卡时卡片内标题变橙。
+   站内 `group-hover:text-brandOrange` 的**卡片标题**实测 **1487 处**不达标
+   （`<h3 class="… text-brandBlue group-hover:text-brandOrange">` 落在 `#f8fafc` 卡上 = 2.73:1）。
+   只修 `hover:` 漏掉这一类 ⇒ 必须并列覆盖。
+   ⚠️ 特异性 (0,3,1)（body + .group + :hover + .group-hover\:…）> Tailwind 的 (0,3,0)。 */
+body .group:hover .group-hover\:text-brandOrange { color: var(--brand-orange-deep); }
+
+.dark-section .hover\:text-brandOrange:hover,
+[class~="bg-brandBlue"] .hover\:text-brandOrange:hover,
+[class~="bg-brandBlueLight"] .hover\:text-brandOrange:hover,
+[class~="bg-darkBg"] .hover\:text-brandOrange:hover,
+[class~="bg-white/5"] .hover\:text-brandOrange:hover,
+[class~="bg-white/10"] .hover\:text-brandOrange:hover { color: var(--brand-orange); }
+
+.dark-section .group:hover .group-hover\:text-brandOrange,
+[class~="bg-brandBlue"] .group:hover .group-hover\:text-brandOrange,
+[class~="bg-brandBlueLight"] .group:hover .group-hover\:text-brandOrange,
+[class~="bg-darkBg"] .group:hover .group-hover\:text-brandOrange,
+[class~="bg-white/5"] .group:hover .group-hover\:text-brandOrange,
+[class~="bg-white/10"] .group:hover .group-hover\:text-brandOrange { color: var(--brand-orange); }
 
 /* 深色区内的**真白卡**：橙字要还原回加深档（同上面 .text-brandBlue / slate 的处理）。
    ⚠️⚠️ 白卡容器**必须逐个列全**，不能只写 `[class~="bg-white"]`：
@@ -537,6 +656,16 @@ body .text-brandOrangeDeep { color: var(--brand-orange-deep); }
 .dark-section .cert-item .text-brandOrangeDeep,
 .dark-section .sub-dropdown .text-brandOrange,
 .dark-section .sub-dropdown .text-brandOrangeDeep { color: var(--brand-orange-deep); }
+
+/* 同上，hover 版：深色区里的**真白卡**内，hover 橙字要还原加深档，
+   否则被上面的深色 hover 规则 (0,3,0) 翻成亮橙 ⇒ 白卡上 2.86:1。 */
+.dark-section [class~="bg-white"] .hover\:text-brandOrange:hover,
+.dark-section .referenz-card .hover\:text-brandOrange:hover,
+.dark-section .referencia-card .hover\:text-brandOrange:hover,
+.dark-section .team-card .hover\:text-brandOrange:hover,
+.dark-section .payment-item .hover\:text-brandOrange:hover,
+.dark-section .cert-item .hover\:text-brandOrange:hover,
+.dark-section .sub-dropdown .hover\:text-brandOrange:hover { color: var(--brand-orange-deep); }
 
 /* 深色容器（未使用 `.dark-section` 命名，但底色就是品牌深色）里的 `.section-label`
    同样要还原亮橙 —— 基础规则给的是浅底用的加深档，在深底上只有 2.8~3.8:1。
@@ -764,6 +893,20 @@ body .text-brandOrangeDeep { color: var(--brand-orange-deep); }
      ⚠️ 不要在这里写 `:visited` —— 它的特异性 (0,2,0) 会排在 `.btn-more:hover`
      （同样 (0,2,0)、由上面的 @apply 生成、位置更靠后）之后，hover 时文字
      拿不到 `hover:text-white` 的白色，变成深蓝底 + 深蓝字（2026-09-17 实测踩过）。 */
+}
+
+/* ─── 窄屏防横向溢出：长不可断串允许断行（2026-10） ─────────────────
+   长 URL / 德语复合词 / 波兰语长词 / 型号 / 证书号在 320–393px 下会把容器撑破
+   （实测 `Bezprzewodowych` 单字 273px > 容器 272px；`wirelesspowerconsortium.com`
+   281px > 222px）。加在**承载该串的元素**上（会继承给后代）。
+
+   ⚠️⚠️⚠️ 必须是 `anywhere`，**不能**用 `break-word`：
+       `overflow-wrap: break-word` 只在**排版时**断行，**不影响 min-content**，
+       所以 flex/grid 子项仍按原 min-content 撑破父级（本仓 `table td,th` 就踩了这个坑）；
+       `overflow-wrap: anywhere` 会**降低 min-content**，父级才真正能收缩。
+   ⚠️ 只在窄屏问题处按需加，不做全站通配 —— 全站加会改变既有（正常的）断行位置。 */
+@layer components {
+  .break-anywhere { overflow-wrap: anywhere; }
 }
 
 /* ─── Trust Badges ─────────────────────────────────────────── */

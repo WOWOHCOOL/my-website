@@ -29,11 +29,20 @@ module.exports = {
       colors: {
         brandOrange: '#FF6B00',
         // 品牌橙的**文字加深档**（2026-10-06 WCAG 1.4.3）：
-        // #FF6B00 作为**文字色**放在浅底上只有 2.86:1(#fff) / 2.73:1(#f8fafc)，
-        // 连大字的 3:1 都不到 ⇒ 浅底上的橙字一律用本档（5.18 / 4.95:1）。
+        // #FF6B00 作为**小字**（<24px 且非 ≥18.66px 粗体）放在浅底上只有
+        // 2.86:1(#fff) / 2.73:1(#f8fafc) ⇒ 浅底上的橙字小字一律用本档。
+        // 取值按站内**最暗的浅色文字面**反解（全站 354 页扫描实测，含半透明底合成）：
+        //   #fff 5.77 · slate-50 5.51 · `bg-brandOrange/10` 叠 slate-50 4.98
+        //   · `bg-brandBlue/5` 叠 slate-50 5.00 · `bg-brandBlue/10` 叠 slate-50 4.51
+        // （上一版 #C2410C 在后三个面上只有 4.47 / 4.49 / 4.05 ⇒ 949 处未达标。）
         // ⚠️ 只用于 `text-*`；`bg-brandOrange` 仍是 #FF6B00（品牌底色不变）。
-        // ⚠️ logo 字标（WOWOH/COOL）、★ 装饰星、图标不受此限（WCAG 对 logotype 免检）。
-        brandOrangeDeep: '#C2410C',
+        // ⚠️ logo 字标、★ 装饰星、图标不受此限（WCAG 对 logotype 免检）。
+        brandOrangeDeep: '#B63C0B',
+        // 品牌橙的**大字档**（2026-10-06 二轮）：浅底上 ≥24px 的橙字只需 3:1，
+        // 用「保留色相/饱和度、仅压暗」的值 ⇒ 白底 3.54 / slate-50 3.38 / 最暗浅底 3.06，
+        // 视觉上与 logo 的品牌橙同族（避免上一轮加深档的过度加深）。
+        // 与 css/src.css 的 `--brand-orange-large` 是同一个值，改动需同步。
+        brandOrangeLarge: '#E45F00',
         brandBlue: '#0A192F',
         // 较亮一档的品牌蓝。用途单一且明确：当两个深色板块相邻时，用
         // brandBlueLight vs darkBg 拉开明度差来区分，**禁止再用渐变分界线**。
