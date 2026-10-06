@@ -592,6 +592,34 @@ body .text-brandOrangeDeep { color: var(--brand-orange-deep); }
 [class~="bg-white/10"] .text-brandOrange,
 [class~="bg-white/10"] .text-brandOrangeDeep { color: var(--brand-orange); }
 
+/* ─── 橙色图标一律用品牌橙 #FF6B00（2026-10-06 五修 · 图标品牌化）──────────
+   用户要求：「所有被认定橙色的图标都是品牌橙」，与 logo 一致
+   （footer 的电话 / 邮箱 / WeChat / WhatsApp 图标此前被加深档压成 #B63C0B）。
+
+   ⚠️⚠️ 为什么**图标**可以安全用 #FF6B00（on #fff 仅 2.86:1），而**正文**不行：
+      ① 本站橙色图标**全部** `aria-hidden="true"`（装饰性），语义由相邻文字承担
+         ⇒ WCAG 1.4.11「理解内容所**必需**的图形」不覆盖装饰性图形；
+      ② Lighthouse / PageSpeed 的 `color-contrast` 审计**只测文本节点**，
+         SVG `<path>` 无文本 ⇒ 不会因此报对比度（与正文规则互不影响）。
+
+   ⚠️ 两类载体都要覆盖，但**必须只染 svg 本身**：
+      ① `<svg class="icon-xxx text-brandOrange">` —— 图标宏 iconXxx("text-brandOrange")
+      ② 图标壳 `<div class="… text-brandOrange …"><svg class="icon-…">` ——
+         svg 自身**不带**颜色类，靠 `currentColor` 从壳继承
+      ⚠️⚠️ **绝不能用 `:has(> svg)` 去染外壳**：那会把「内部带图标、但本身是文本」的
+         元素一起染色（实测 `H3.text-brandOrange "Testing Tip"` 落在 `#f9ece3` 上
+         由 5.24:1 掉到 **2.46:1** —— 真回归）。
+         正确写法 = 选择器末端落在 `svg`：外壳文字保持加深档，只有图标变品牌橙。
+
+   ⚠️ 特异性：三条都是 (0,1,2)，
+      **稳定压过** `body .text-brandOrange` 的 (0,1,1)
+      与大字档 `:is(.text-brandOrange,…)` 的 (0,1,0)（`:where()` 计 0）。
+      图标不存在「大字/小字」分档概念 ⇒ 无需参与那套判据。 */
+body svg.text-brandOrange,
+body svg.text-brandOrangeDeep,
+body .text-brandOrange svg,
+body .text-brandOrangeDeep svg { color: var(--brand-orange); }
+
 /* ─── hover 态橙字（2026-10-06 四修 · hover 统一）─────────────────────────
    ⚠️⚠️ 问题：`hover:text-brandOrange`（全站 **5415 处**、312 个文件）在**浅底**上
    把文字翻成 #FF6B00 ⇒ 白底 2.86:1 / slate-50 2.73:1 / 各类浅色卡 2.47~2.69:1，
@@ -611,14 +639,14 @@ body .text-brandOrangeDeep { color: var(--brand-orange-deep); }
    ⚠️ 必须同时补「深色区**真白卡**」的反向重置（见下方 .dark-section 白卡块），
       否则深色区里的白卡会被深色规则翻成亮橙 ⇒ 在白底上只有 2.86:1。
    ⚠️ 只改颜色，不改任何尺寸/间距/transition。 */
-body .hover\:text-brandOrange:hover { color: var(--brand-orange-deep); }
+body .hover\:text-brandOrange:hover { color: var(--brand-orange); }
 
 /* `group-hover:` 变体（2026-10-06 补）：hover 整卡时卡片内标题变橙。
    站内 `group-hover:text-brandOrange` 的**卡片标题**实测 **1487 处**不达标
    （`<h3 class="… text-brandBlue group-hover:text-brandOrange">` 落在 `#f8fafc` 卡上 = 2.73:1）。
    只修 `hover:` 漏掉这一类 ⇒ 必须并列覆盖。
    ⚠️ 特异性 (0,3,1)（body + .group + :hover + .group-hover\:…）> Tailwind 的 (0,3,0)。 */
-body .group:hover .group-hover\:text-brandOrange { color: var(--brand-orange-deep); }
+body .group:hover .group-hover\:text-brandOrange { color: var(--brand-orange); }
 
 .dark-section .hover\:text-brandOrange:hover,
 [class~="bg-brandBlue"] .hover\:text-brandOrange:hover,
