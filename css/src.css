@@ -15,24 +15,29 @@
 :root{
   /* brand */
   --brand-orange:#FF6B00;--brand-orange-alt:#FF6600;--brand-orange-hover:#e06000;
-  /* 品牌橙的**文字加深档**（2026-10-06 WCAG 1.4.3）：
-     #FF6B00 作为文字色放在浅底上只有 2.86:1(#fff) / 2.73:1(#f8fafc)，连大字 3:1 都不到。
-     **小字**（<24px，且非 ≥18.66px 粗体）用本档。
-     取值按站内**最暗的浅色文字面**反解（2026-10-06 全站 354 页扫描实测，含半透明底合成）：
-       #fff 5.77 · slate-50 5.51 · `bg-brandOrange/10` 叠 slate-50 (#F9ECE3) 4.98
-       · `bg-brandBlue/5` 叠 slate-50 (#ECEEF2) 5.00 · `bg-brandBlue/10` 叠 slate-50 (#E0E4E8) 4.51
-     （上一版 #C2410C 在**后三个面上只有 4.47 / 4.49 / 4.05** ⇒ 949 处 1.4.3 未达标，
-      这三类是「橙字压在半透明有色底上」，底色本身吃掉了对比度预算。）
-     深色上下文里用回 --brand-orange（4.4~6.9:1）。
-     ⚠️ 只用于文字；`bg-brand-orange` 底色仍是 #FF6B00。
-     与 tailwind.config.js 的 `brandOrangeDeep` 是同一个值，改动需同步。 */
-  --brand-orange-deep:#B63C0B;
-  /* 品牌橙的**大字档**（2026-10-06 二轮）：浅底上 ≥24px 的橙字只需 3:1。
-     #FF6B00 保留色相/饱和度、仅压暗 ⇒ 白底 3.54 / slate-50 3.38 / 最暗浅底 3.06。
-     视觉上与 logo 里烘焙的品牌橙（webp 实测 ≈ #EE6B1E）同族，远优于加深档的观感。
-     ⚠️ 只给「大字」用；小字仍走 --brand-orange-deep。
-     与 tailwind.config.js 的 `brandOrangeLarge` 是同一个值，改动需同步。 */
-  --brand-orange-large:#E45F00;
+  /* ⚠️⚠️⚠️ 2026-10-06 用户裁决：**全站橙色一律用品牌橙 #FF6B00**。
+     「所有被认定橙色的图标/文字/hover 都必须是品牌橙，与 logo 一致；
+       除特殊设计外（about 故事版面保持现样）。」
+     ⇒ 原本的「文字加深档 #B63C0B」与「大字档 #E45F00」**双双归并到品牌橙**。
+
+     ⚠️ 已知代价（用户已知情并接受）：品牌橙在白底上只有 **2.86:1**、`#f8fafc` 上 2.73:1，
+        低于正文所需的 4.5:1 ⇒ PageSpeed 的 `color-contrast` 会重新报「对比度不足」。
+        （两轮前 99d1c315 正是为修这个才引入加深档的。）
+     ⚠️ 若要恢复可读性，**只需把下面两个变量改回**：
+          --brand-orange-deep: #B63C0B;   （白底 5.77:1）
+          --brand-orange-large: #E45F00;  （白底 3.54:1）
+        并同步 tailwind.config.js 的 brandOrangeDeep / brandOrangeLarge。
+     ⚠️ 注意：块注释内**不得再写第二层注释符**（CSS 注释不可嵌套，会提前闭合
+        并把后续文字变成裸 token ⇒ `Unknown word`）——此处一律用全角括号。
+     ⚠️ 保留变量名（不删）就是为了留住这个**一行回退**的开关。
+
+     历史（加深档的由来，供将来判断）：#FF6B00 作为文字色放在浅底上连大字 3:1 都不到；
+     取值曾按站内最暗的浅色文字面反解（#fff 5.77 · slate-50 5.51 ·
+     `bg-brandOrange/10` 叠 slate-50 #F9ECE3 4.98 · `bg-brandBlue/10` 叠 slate-50 #E0E4E8 4.51）。
+     ⚠️ 本变量只用于文字；`bg-brandOrange` 底色一直是 #FF6B00。 */
+  --brand-orange-deep:#FF6B00;
+  /* 大字档：用户裁决后与品牌橙同值（保留变量名 = 保留回退开关，见上）。 */
+  --brand-orange-large:#FF6B00;
   --brand-blue:#0A192F;--brand-blue-alt:#0f2a4a;
   /* text */
   --text-primary:#0A192F;--text-body:#475569;--text-secondary:#64748b;--text-muted:#94a3b8;
