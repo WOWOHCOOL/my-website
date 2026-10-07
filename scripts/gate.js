@@ -3,6 +3,11 @@
 // 1. Static template lint — always runs. Pure Node, no external deps, so it also
 //    runs on Cloudflare Pages. Catches nested/stray Nunjucks comments and shared
 //    macros used out of scope, both of which fail the build only at render time.
+// 1b. ctaLabel routing — always runs. Pure Node, no external deps. Enforces that
+//    every blog article's ctaLabel is one of the canonical labels for its
+//    language (single source of truth: src/_data/cta-labels.json) and that all
+//    language versions of one article land in the same theme bucket. This is the
+//    step that stops the "one generic label everywhere" drift from coming back.
 // 2. Metadata prebuild gate from seomachine — local dev only. On remote build
 //    environments (Cloudflare Pages) ../seomachine is not checked out, so this
 //    step cannot run there. It is enforced locally before every push.
@@ -34,6 +39,14 @@ const lint = spawnSync(process.execPath, [path.join(__dirname, "lint-njk-templat
 });
 if (lint.status !== 0) {
   console.error("[gate] template lint failed");
+  process.exit(1);
+}
+
+const ctaLabels = spawnSync(process.execPath, [path.join(__dirname, "validate-cta-labels.js")], {
+  stdio: "inherit",
+});
+if (ctaLabels.status !== 0) {
+  console.error("[gate] ctaLabel routing failed");
   process.exit(1);
 }
 
