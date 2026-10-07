@@ -77,7 +77,7 @@ const PANELS = [
     call: '{{ featuredImage(a.imgSrc, a.srcset, a.sizes, a.alt, a.title, a.width, a.height) }}',
     extract(s) {
       const b = blockAt(s, '<!-- Featured Image -->', 'div'); if (!b) return null;
-      const img = (b.std.match(/<img\b[^>]*>/) || [])[0]; if (!img) return null;
+      const img = (b.std.match(/<img\b(?:[^>"']|"[^"]*"|'[^']*')*>/) || [])[0]; if (!img) return null;
       return { std: b.std, args: { imgSrc: attr(img, 'src'), srcset: attr(img, 'srcset'), sizes: attr(img, 'sizes'), alt: attr(img, 'alt'), title: attr(img, 'title'), width: attr(img, 'width'), height: attr(img, 'height') } };
     },
   },
@@ -226,7 +226,7 @@ PANELS.push(
       const sectionClass = (std.match(/<section[^>]*class="([^"]*)"/) || [])[1] || '';
       const innerClass = (std.match(/<div class="(bg-slate-50[^"]*)"/) || [])[1] || '';
       const badge = (std.match(/<span class="px-2 py-1 bg-brandOrange\/10[^"]*">([\s\S]*?)<\/span>/) || [])[1] || 'Author';
-      const img = (std.match(/<img\b[^>]*>/) || [])[0] || '';
+      const img = (std.match(/<img\b(?:[^>"']|"[^"]*"|'[^']*')*>/) || [])[0] || '';
       const A = n => (img.match(new RegExp('\\b' + n + '="([^"]*)"')) || [])[1] || '';
       const footprintLabel = (std.match(/<p class="text-xs text-slate-400 uppercase tracking-wider mb-2">([\s\S]*?)<\/p>/) || [])[1] || 'Factory Footprint';
       const footprint = [...std.matchAll(/<div><span class="font-black text-brandBlue">([\s\S]*?)<\/span><p class="text-xs text-slate-500">([\s\S]*?)<\/p><\/div>/g)].map(m => ({ val: m[1], label: m[2] }));

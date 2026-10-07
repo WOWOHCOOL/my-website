@@ -10,9 +10,15 @@ def fix(text):
     n = 0
     def repl(m):
         nonlocal n
-        cls = m.group(1)
-        if not ('rounded-2xl' in cls or 'rounded-xl' in cls): return m.group(0)
-        if not ('shadow-lg' in cls or 'shadow-md' in cls): return m.group(0)
+        # ⚠️ 2026-10-07 FIX — 引号感知：原正则 /<img\b[^>]*class="([^"]*)"[^>]*>/ 会在
+        #   alt 值里的**裸 ">"**（如 alt="… >500 kHz …"）处截断 ⇒ 该 <img> 被静默跳过、
+        #   class 永不被归一。现改为「先整标签匹配，再在标签内取 class」。
+        tag = m.group(0)
+        cm = re.search(r'\bclass="([^"]*)"', tag)
+        if not cm: return tag
+        cls = cm.group(1)
+        if not ('rounded-2xl' in cls or 'rounded-xl' in cls): return tag
+        if not ('shadow-lg' in cls or 'shadow-md' in cls): return tag
         nc = MAXW.sub('', cls)
         nc = re.sub(r'\bmx-auto\b\s*', '', nc)
         nc = re.sub(r'\brounded-xl\b', 'rounded-2xl', nc)
@@ -21,9 +27,9 @@ def fix(text):
         nc = re.sub(r'\s{2,}', ' ', nc).strip()
         if nc != cls:
             n += 1
-            return m.group(0).replace('class="' + cls + '"', 'class="' + nc + '"')
-        return m.group(0)
-    return re.sub(r'<img\b[^>]*class="([^"]*)"[^>]*>', repl, text), n
+            return tag.replace('class="' + cls + '"', 'class="' + nc + '"')
+        return tag
+    return re.sub(r'<img\b(?:[^>"\']|"[^"]*"|\'[^\']*\')*>', repl, text), n
 def main():
     args = sys.argv[1:]; apply = "--apply" in args
     only = args[args.index("--only")+1] if "--only" in args else None
