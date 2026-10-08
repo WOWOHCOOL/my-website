@@ -16,16 +16,27 @@ ruPath: "keysy/"
 {% block head_schema %}
 <script type="application/ld+json">
 {
- "@context": "https://schema.org",
- "@graph": [
- {
- "@type": "BreadcrumbList",
- "itemListElement": [
- {"@type": "ListItem", "position": 1, "name": "Strona główna", "item": "https://www.wowohcool.com/pl/"},
- {"@type": "ListItem", "position": 2, "name": "Studia Przypadków", "item": "https://www.wowohcool.com/pl/studia-przypadkow/"}
- ]
- }
- ]
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.wowohcool.com/pl/studia-przypadkow/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Strona główna",
+          "item": "https://www.wowohcool.com/pl/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Studia Przypadków",
+          "item": "https://www.wowohcool.com/pl/studia-przypadkow/"
+        }
+      ]
+    }
+  ]
 }
 </script>
 
@@ -104,27 +115,29 @@ ruPath: "keysy/"
 
 <script type="application/ld+json">
 {
- "@context": "https://schema.org",
- "@type": "CollectionPage",
- "name": "Studia Przypadków — Wdrożenia OEM/ODM",
- "description": "6 realnych historii sukcesu: Mous, Bosch, Techmade, Jacob Jensen, Tempel Group, Merlin Digital. Zobacz jak WOWOHCOOL realizuje projekty OEM/ODM dla globalnych marek.",
- "url": "https://www.wowohcool.com/pl/studia-przypadkow/",
- "mainEntity": {
-  "@type": "ItemList",
-  "name": "Case Studies",
-  "numberOfItems": 6
- },
- "speakable": {"@type": "SpeakableSpecification", "cssSelector": [".badge-capsule", "h1"]}
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "@id": "https://www.wowohcool.com/pl/studia-przypadkow/#webpage",
+  "name": "Studia Przypadków — Wdrożenia OEM/ODM",
+  "description": "6 realnych historii sukcesu: Mous, Bosch, Techmade, Jacob Jensen, Tempel Group, Merlin Digital. Zobacz jak WOWOHCOOL realizuje projekty OEM/ODM dla globalnych marek.",
+  "url": "https://www.wowohcool.com/pl/studia-przypadkow/",
+  "inLanguage": "pl-PL",
+  "mainEntity": {
+    "@type": "ItemList",
+    "@id": "https://www.wowohcool.com/pl/studia-przypadkow/#itemlist",
+    "name": "Case Studies",
+    "numberOfItems": 6
+  }
 }
 </script>
 
 <script type="application/ld+json">
 {
- "@context": "https://schema.org",
- "@type": "WebSite",
- "@id": "https://www.wowohcool.com/#website",
- "name": "WOWOHCOOL",
- "url": "https://www.wowohcool.com/"
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": "https://www.wowohcool.com/#website",
+  "name": "WOWOHCOOL",
+  "url": "https://www.wowohcool.com/"
 }
 </script>
 {% endblock %}

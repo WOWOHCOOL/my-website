@@ -14,9 +14,32 @@ plPath: "produkty/"
 
 {% block head_schema %}
 <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "@id": "https://www.wowohcool.com/es/productos/#webpage",
+  "url": "https://www.wowohcool.com/es/productos/",
+  "name": "Productos WOWOHCOOL",
+  "description": "Power banks, cargadores inalambricos Qi2, cargadores GaN V y cargadores de coche. Categorias OEM/ODM.",
+  "inLanguage": "es-ES",
+  "isPartOf": {
+    "@id": "https://www.wowohcool.com/#website"
+  },
+  "about": {
+    "@id": "https://www.wowohcool.com/#organization"
+  },
+  "mainEntity": {
+    "@id": "https://www.wowohcool.com/es/productos/#itemlist"
+  },
+  "breadcrumb": {
+    "@id": "https://www.wowohcool.com/es/productos/#breadcrumb"
+  }
+}
+</script><script type="application/ld+json">
 [
   {
     "@context": "https://schema.org",
+    "@id": "https://www.wowohcool.com/es/productos/#breadcrumb",
     "@type": "BreadcrumbList",
     "itemListElement": [
       {
@@ -109,6 +132,7 @@ plPath: "produkty/"
   },
   {
     "@context": "https://schema.org",
+    "@id": "https://www.wowohcool.com/es/productos/#itemlist",
     "@type": "ItemList",
     "name": "Productos WOWOHCOOL",
     "description": "Power banks, cargadores inalambricos Qi2, cargadores GaN V y cargadores de coche E-Mark. 4 categorias, 60+ modelos OEM/ODM.",
@@ -155,43 +179,50 @@ plPath: "produkty/"
 </script>
 <script type="application/ld+json">
 {
- "@context": "https://schema.org",
- "@type": "FAQPage",
- "mainEntity": [
-  {
-   "@type": "Question",
-   "name": "¿Cuál es el MOQ para pedidos OEM/ODM?",
-   "acceptedAnswer": {
-    "@type": "Answer",
-    "text": "Desde 500 unidades por SKU para branding OEM estándar y 1.000 unidades para proyectos ODM con nuevo molde. Ofrecemos condiciones flexibles para marcas emergentes."
-   }
-  },
-  {
-   "@type": "Question",
-   "name": "Puedo solicitar muestras antes de un pedido grande?",
-   "acceptedAnswer": {
-    "@type": "Answer",
-    "text": "Si. Las muestras estándar se envian en 3-7 días. Los costes de muestra se reembolsan con el pedido en volumen. Recomendamos probar las muestras para verificar calidad."
-   }
-  },
-  {
-   "@type": "Question",
-   "name": "¿Qué certificaciones tienen los productos?",
-   "acceptedAnswer": {
-    "@type": "Answer",
-    "text": "Todos los productos cumplen estándares globales: CE, FCC, RoHS, AENOR y Qi/Qi2. Power banks con UN38.3. Cumplimiento UE 2023/1542 incluido. Asistencia con UL, PSE, KC, NOM."
-   }
-  },
-  {
-   "@type": "Question",
-   "name": "¿Cuál es el plazo de entrega tipico?",
-   "acceptedAnswer": {
-    "@type": "Answer",
-    "text": "Pedidos OEM estándar se envian en 25-30 días tras aprobacion de muestras. Proyectos ODM con nuevo molde requieren 45-60 días. Pedidos urgentes disponibles para socios establecidos."
-   }
+  "@context": "https://schema.org",
+  "@id": "https://www.wowohcool.com/es/productos/#faq",
+  "url": "https://www.wowohcool.com/es/productos/",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Cuál es el MOQ para pedidos OEM/ODM?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Desde 500 unidades por SKU para branding OEM estándar y 1.000 unidades para proyectos ODM con nuevo molde. Ofrecemos condiciones flexibles para marcas emergentes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Puedo solicitar muestras antes de un pedido grande?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Si. Las muestras estándar se envian en 3-7 días. Los costes de muestra se reembolsan con el pedido en volumen. Recomendamos probar las muestras para verificar calidad."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué certificaciones tienen los productos?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Todos los productos cumplen estándares globales: CE, FCC, RoHS, AENOR y Qi/Qi2. Power banks con UN38.3. Cumplimiento UE 2023/1542 incluido. Asistencia con UL, PSE, KC, NOM."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuál es el plazo de entrega tipico?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pedidos OEM estándar se envian en 25-30 días tras aprobacion de muestras. Proyectos ODM con nuevo molde requieren 45-60 días. Pedidos urgentes disponibles para socios establecidos."
+      }
+    }
+  ],
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+      ".faq-answer"
+    ]
   }
- ],
- "speakable": {"@type": "SpeakableSpecification", "cssSelector": [".badge-capsule", "h1"]}
 }
 </script>
 {% endblock %}
@@ -411,3 +442,4 @@ plPath: "produkty/"
 {%- set formSubject = "Consulta de producto: Catálogo OEM/ODM" %}
 {% include "partials/product-inquiry-form.njk" %}
 {% endblock %}
+

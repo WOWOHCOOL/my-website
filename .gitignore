@@ -149,6 +149,17 @@ scratch-*
 *-v[0-9].md
 *.bak
 
+# B2B-layer batch-edit snapshots (2026-10-07).
+# `*.bak` above does NOT cover these: the suffix is `-bak`, not `.bak`, so 205
+# files / 13.9 MB had accumulated under src/**/blog/ and appeared as untracked
+# noise on every `git status`. None of them were ever tracked. They are written
+# by the seomachine B2B ad-hoc batch editors (answer-block / CTA / hero / TOC
+# rewrites), so they belong to the B2B layer, not to website content.
+*.ab-bak
+*.cta-bak
+*.hero-bak
+*.toc-bak
+
 # Local one-off batch backups (per-change snapshots, never website content).
 # `*.bak` alone does NOT cover these dirs — they also hold .njk/.txt copies.
 # 2026-09-18: 12 such dirs (233 files, 127 untracked) had accumulated in the repo.

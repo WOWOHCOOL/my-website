@@ -40,7 +40,7 @@ ruPath: "o-kompanii/"
       "maxValue": 500
     },
     "location": {
-      "@type": "LocalBusiness",
+      "@type": "Place",
       "@id": "https://www.wowohcool.com/#factory",
       "name": "WOWOHCOOL Factory",
       "geo": {
@@ -121,21 +121,22 @@ ruPath: "o-kompanii/"
   {
     "@context": "https://schema.org",
     "@type": "AboutPage",
-    "@id": "https://www.wowohcool.com/pl/o-nas/#aboutpage",
+    "@id": "https://www.wowohcool.com/pl/o-nas/#webpage",
     "url": "https://www.wowohcool.com/pl/o-nas/",
+    "inLanguage": "pl-PL",
     "name": "O WOWOHCOOL — producent OEM/ODM ładowarek od 2013",
     "description": "Producent OEM/ODM power banków i ładowarek w Shenzhen od 2013. Certyfikat ISO 9001. 50+ inżynierów R&D. Zapraszamy na wizytę w fabryce.",
     "dateModified": "2026-08-12",
     "speakable": {
       "@type": "SpeakableSpecification",
       "cssSelector": [
-        ".badge-capsule",
-        "h1"
+        ".faq-answer"
       ]
     }
   },
   {
     "@context": "https://schema.org",
+    "@id": "https://www.wowohcool.com/pl/o-nas/#breadcrumb",
     "@type": "BreadcrumbList",
     "itemListElement": [
       {
@@ -157,29 +158,80 @@ ruPath: "o-kompanii/"
 
 <script type="application/ld+json">
 {
- "@context": "https://schema.org",
- "@type": "FAQPage",
- "speakable": {"@type": "SpeakableSpecification", "cssSelector": [".faq-answer"]},
- "mainEntity": [
- {"@type":"Question","name":"Jaka jest zdolność produkcyjna fabryki?","acceptedAnswer":{"@type":"Answer","text":"Nasza fabryka w Shenzhen zajmuje 5 000 m² i produkuje ponad 1M sztuk miesięcznie. Działamy zgodnie z systemem ISO 9001."}},
- {"@type":"Question","name":"Ilu inżynierów R&D zatrudniacie?","acceptedAnswer":{"@type":"Answer","text":"50+ inżynierów R&D zajmujących się rozwojem nowych produktów i innowacjami. Nasz zespół posiada patenty w zakresie baterii półstałych, ładowania GaN i technologii Qi2."}},
- {"@type":"Question","name":"Jakie certyfikaty posiada fabryka?","acceptedAnswer":{"@type":"Answer","text":"Fabryka: ISO 9001. Produkty: CE, FCC, RoHS, UN38.3, Qi2 (WPC). Wspieramy również certyfikację UL, PSE, KC."}},
- {"@type":"Question","name":"Czy mogę odwiedzić fabrykę?","acceptedAnswer":{"@type":"Answer","text":"Tak. Zapraszamy klientów do odwiedzenia naszej fabryki w Shenzhen. Skontaktuj się z nami z co najmniej tygodniowym wyprzedzeniem."}},
- {"@type":"Question","name":"Jaka jest różnica między OEM a ODM?","acceptedAnswer":{"@type":"Answer","text":"OEM: wybierasz istniejący projekt z logo. MOQ od 500 szt., czas realizacji 25-30 dni. ODM: tworzymy nowy produkt. MOQ od 2000 szt., 45-60 dni."}},
- {"@type":"Question","name":"Jak zweryfikować, że WOWOHCOOL to prawdziwa fabryka?","acceptedAnswer":{"@type":"Answer","text":"Nasza licencja jest weryfikowalna w rejestrze chińskim pod nazwą Dong Yi Technology Co., Ltd, zarejestrowana w 2013. Oferujemy transmisje wideo na żywo, wizyty i audyty zewnętrzne."}}
- ]
- }
+  "@context": "https://schema.org",
+  "@id": "https://www.wowohcool.com/pl/o-nas/#faq",
+  "url": "https://www.wowohcool.com/pl/o-nas/",
+  "@type": "FAQPage",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+      ".faq-answer"
+    ]
+  },
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Jaka jest zdolność produkcyjna fabryki?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Nasza fabryka w Shenzhen zajmuje 5 000 m² i produkuje ponad 1M sztuk miesięcznie. Działamy zgodnie z systemem ISO 9001."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Ilu inżynierów R&D zatrudniacie?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "50+ inżynierów R&D zajmujących się rozwojem nowych produktów i innowacjami. Nasz zespół posiada patenty w zakresie baterii półstałych, ładowania GaN i technologii Qi2."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Jakie certyfikaty posiada fabryka?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Fabryka: ISO 9001. Produkty: CE, FCC, RoHS, UN38.3, Qi2 (WPC). Wspieramy również certyfikację UL, PSE, KC."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Czy mogę odwiedzić fabrykę?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Tak. Zapraszamy klientów do odwiedzenia naszej fabryki w Shenzhen. Skontaktuj się z nami z co najmniej tygodniowym wyprzedzeniem."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Jaka jest różnica między OEM a ODM?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "OEM: wybierasz istniejący projekt z logo. MOQ od 500 szt., czas realizacji 25-30 dni. ODM: tworzymy nowy produkt. MOQ od 2000 szt., 45-60 dni."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Jak zweryfikować, że WOWOHCOOL to prawdziwa fabryka?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Nasza licencja jest weryfikowalna w rejestrze chińskim pod nazwą Dong Yi Technology Co., Ltd, zarejestrowana w 2013. Oferujemy transmisje wideo na żywo, wizyty i audyty zewnętrzne."
+      }
+    }
+  ]
+}
 </script>
 
 <script type="application/ld+json">
 {
- "@context": "https://schema.org",
- "@type": "WebSite",
- "@id": "https://www.wowohcool.com/#website",
- "name": "WOWOHCOOL",
- "url": "https://www.wowohcool.com/",
- "inLanguage": "pl-PL",
- "publisher": { "@id": "https://www.wowohcool.com/#organization" }
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": "https://www.wowohcool.com/#website",
+  "name": "WOWOHCOOL",
+  "url": "https://www.wowohcool.com/",
+  "inLanguage": "pl-PL",
+  "publisher": {
+    "@id": "https://www.wowohcool.com/#organization"
+  }
 }
 </script>
 {% endblock %}
@@ -435,3 +487,5 @@ ruPath: "o-kompanii/"
 {%- set formSubject = "Zapytanie o produkt: O nas — Współpraca" %}
 {% include "partials/product-inquiry-form.njk" %}
 {% endblock %}
+
+

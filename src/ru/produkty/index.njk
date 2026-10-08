@@ -14,9 +14,32 @@ navActive: "products"
 
 {% block head_schema %}
 <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "@id": "https://www.wowohcool.com/ru/produkty/#webpage",
+  "url": "https://www.wowohcool.com/ru/produkty/",
+  "name": "Продукция WOWOHCOOL",
+  "description": "Повербанки, беспроводные зарядки Qi2, GaN-зарядки и автомобильные зарядки. Категории OEM/ODM.",
+  "inLanguage": "ru-RU",
+  "isPartOf": {
+    "@id": "https://www.wowohcool.com/#website"
+  },
+  "about": {
+    "@id": "https://www.wowohcool.com/#organization"
+  },
+  "mainEntity": {
+    "@id": "https://www.wowohcool.com/ru/produkty/#itemlist"
+  },
+  "breadcrumb": {
+    "@id": "https://www.wowohcool.com/ru/produkty/#breadcrumb"
+  }
+}
+</script><script type="application/ld+json">
 [
   {
     "@context": "https://schema.org",
+    "@id": "https://www.wowohcool.com/ru/produkty/#breadcrumb",
     "@type": "BreadcrumbList",
     "itemListElement": [
       {
@@ -109,6 +132,7 @@ navActive: "products"
   },
   {
     "@context": "https://schema.org",
+    "@id": "https://www.wowohcool.com/ru/produkty/#itemlist",
     "@type": "ItemList",
     "name": "Продукция WOWOHCOOL",
     "description": "Повербанки, беспроводные зарядки Qi2, GaN-зарядки GaN V и автомобильные зарядки E-Mark. 4 категории, 60+ моделей OEM/ODM.",
@@ -142,12 +166,13 @@ navActive: "products"
   },
   {
     "@context": "https://schema.org",
+    "@id": "https://www.wowohcool.com/ru/produkty/#faq",
+    "url": "https://www.wowohcool.com/ru/produkty/",
     "@type": "FAQPage",
     "speakable": {
       "@type": "SpeakableSpecification",
       "cssSelector": [
-        ".faq-answer",
-        ".faq-item summary"
+        ".faq-answer"
       ]
     },
     "mainEntity": [
@@ -415,3 +440,4 @@ navActive: "products"
 {%- set formSubject = "Запрос по продукту: Каталог OEM/ODM" %}
 {% include "partials/product-inquiry-form.njk" %}
 {% endblock %}
+
