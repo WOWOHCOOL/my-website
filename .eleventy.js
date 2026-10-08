@@ -226,7 +226,7 @@ module.exports = function (eleventyConfig) {
     let parsed;
     try { parsed = JSON.parse(jsonText); } catch { return jsonText; }
     applyFactsToOrganization(parsed);
-    return JSON.stringify(parsed).replace(/</g, '\\u003c');
+    return JSON.stringify(parsed, null, 2).replace(/</g, '\\u003c');
   }
   function getFactPath(root, keyPath) {
     let cur = root;
@@ -512,3 +512,4 @@ module.exports = function (eleventyConfig) {
     markdownTemplateEngine: 'njk',
   };
 };
+
