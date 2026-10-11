@@ -1072,6 +1072,52 @@ table td, table th { overflow-wrap: break-word; word-break: normal; }
   }
 }
 
+/* Desktop product comparison tables: keep a stable minimum width even when
+   their surrounding card/container is narrower. This prevents 2-column tables
+   from looking cramped on desktop while mobile still uses the scroll cue above. */
+@media (min-width: 1024px) {
+  /* Product subcategory prose CTAs: some legacy blocks wrap a sentence plus a
+     btn-more in a rounded card. Keep the content, remove the card treatment. */
+  [class~="bg-brandBlue/5"][class~="rounded-2xl"][class~="max-w-5xl"],
+  [class~="bg-brandBlue/5"][class~="rounded-2xl"][class~="max-w-3xl"] {
+    background: transparent !important;
+    border-color: transparent !important;
+    padding: 0 !important;
+  }
+
+  [class~="bg-brandBlue/5"][class~="rounded-2xl"][class~="max-w-5xl"] .btn-more,
+  [class~="bg-brandBlue/5"][class~="rounded-2xl"][class~="max-w-3xl"] .btn-more {
+    display: inline !important;
+    padding: 0 !important;
+    border: 0 !important;
+    color: var(--brand-orange-deep) !important;
+    text-transform: none !important;
+    letter-spacing: normal !important;
+    font-size: 0.875rem !important;
+  }
+
+  /* Product/editorial comparison blocks should share one content-width baseline.
+     Without this, some table wrappers inherit 80rem while others are 56rem. */
+  .container-wide > .overflow-x-auto {
+    max-width: 64rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .overflow-x-auto > table.w-full {
+    min-width: 720px;
+  }
+}
+
+/* Soft editorial quotes on product/category pages: normalize readable width. */
+@media (min-width: 768px) {
+  blockquote.border-l-4 {
+    max-width: 48rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
 /* ─── Payment Grid ─────────────────────────────────────────── */
 .payment-grid {
   display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; align-items: center;
