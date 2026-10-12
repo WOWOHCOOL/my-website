@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-const { countProductIds, canonicalPagePath, getFamilyModelCount, getCategoryModelCount } = require('./product-count-utils');
+const { countProductCards, canonicalPagePath, getFamilyModelCount, getCategoryModelCount } = require('./product-count-utils');
 const inventory = require('../src/_data/product-inventory.json');
 
 const LOCALE_DIRS = ['de', 'es', 'fr', 'ru', 'pl'];
@@ -31,7 +31,7 @@ for (const file of LOCALE_DIRS.flatMap(locale => walk(path.join('src', locale), 
 
 function checkLocalized(enPath, expected, label) {
   for (const localizedFile of localizedByEnPath.get(enPath) || []) {
-    const localizedCount = countProductIds(localizedFile);
+    const localizedCount = countProductCards(localizedFile);
     if (localizedCount !== expected) {
       errors.push(`${localizedFile}: product count ${localizedCount} != EN ${expected} (${label})`);
     }

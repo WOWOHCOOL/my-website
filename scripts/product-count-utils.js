@@ -6,8 +6,8 @@ const PRODUCT_ID_RE = /id="((?:wop|woc|wof|wow)[a-z0-9-]+)"/g;
 
 function canonicalPagePath(categoryKey, familyKey) {
   return familyKey
-    ? path.join('src', 'products', categoryKey, familyKey, 'index.njk')
-    : path.join('src', 'products', categoryKey, 'index.njk');
+    ? path.posix.join('src', 'products', categoryKey, familyKey, 'index.njk')
+    : path.posix.join('src', 'products', categoryKey, 'index.njk');
 }
 
 function countProductIds(filePath) {
@@ -22,6 +22,15 @@ function countProductIds(filePath) {
 
 function findCategory(categoryKey) {
   return inventory.categories.find(category => category.key === categoryKey);
+}
+
+function countProductCards(filePath) {
+  const idCount = countProductIds(filePath);
+  if (idCount > 0) return idCount;
+
+  const source = fs.readFileSync(filePath, 'utf8');
+  const macroCalls = source.match(/\{\{\s*card[a-zA-Z0-9_]*\(/g);
+  return macroCalls ? macroCalls.length : 0;
 }
 
 function findFamily(categoryKey, familyKey) {
@@ -52,4 +61,4 @@ function getProductInventorySummary() {
   };
 }
 
-module.exports = { countProductIds, canonicalPagePath, getFamilyModelCount, getCategoryModelCount, getProductInventorySummary };
+module.exports = { countProductIds, countProductCards, canonicalPagePath, getFamilyModelCount, getCategoryModelCount, getProductInventorySummary };
