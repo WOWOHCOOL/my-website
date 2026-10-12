@@ -52,7 +52,7 @@ ogImage: "/image/product/power-bank/wop67-2in1-cable-charger.webp"
       "@type": "ItemList",
       "name": "9 гибридных повербанков OEM для любой поездки",
       "url": "https://www.wowohcool.com/ru/produkty/poverbanki/gibrid-2-v-1/",
-      "numberOfItems": 10,
+      "numberOfItems": {{ "power-bank" | productFamilyModelCount("2-in-1-hybrid") }},
       "itemListElement": [
         {
           "@type": "ListItem",
@@ -121,7 +121,7 @@ ogImage: "/image/product/power-bank/wop67-2in1-cable-charger.webp"
       "url": "https://www.wowohcool.com/ru/produkty/poverbanki/gibrid-2-v-1/",
       "@type": "Product",
       "name": "Гибридный повербанк 2-в-1 OEM/ODM",
-      "description": "Сетевое зарядное устройство и повербанк в одном корпусе. Складная AC-вилка EU/UK/US, встроенная батарея с выходом USB-C PD 45–67 Вт. 9 моделей.",
+"description": "Сетевое зарядное устройство и повербанк в одном корпусе. Складная AC-вилка EU/UK/US, встроенная батарея с выходом USB-C PD 45–67 Вт. .",
       "brand": {
         "@type": "Brand",
         "name": "WOWOHCOOL"
@@ -218,7 +218,7 @@ ogImage: "/image/product/power-bank/wop67-2in1-cable-charger.webp"
         "UL & CE Safety Compliance"
       ],
       "url": "https://www.wowohcool.com/",
-      "description": "Professional OEM/ODM manufacturer of power banks, GaN chargers, wireless chargers, and car chargers since 2013.",
+"description": "Professional OEM/ODM manufacturer of power banks, GaN chargers, wireless chargers, and car chargers since 2013.",
       "contactPoint": {
         "@type": "ContactPoint",
         "email": "info@wowohcool.com",
@@ -297,7 +297,7 @@ ogImage: "/image/product/power-bank/wop67-2in1-cable-charger.webp"
    <div class="reveal order-2 lg:order-1">
     <div class="badge-capsule mb-6 uppercase tracking-widest">GaN AC + Повербанк &middot; OEM-завод</div>
     <h1 class="text-3xl md:text-4xl xl:text-5xl font-black text-brandBlue leading-tight mb-6 italic uppercase tracking-tighter">Повербанк 2-в-1 <br><span class="text-brandOrange">гибрид GaN для поездок от производителя</span></h1>
-    <p class="text-slate-600 text-lg leading-relaxed mb-6">9 моделей со складной AC-вилкой и встроенной батареей. <strong>От 20 до 67 Вт PD</strong> на технологии GaN. Ёмкость 5000–20 000 мА·ч. Одно устройство и для розетки, и для дороги. <strong>Допущены к авиаперевозке</strong>, UN38.3 включён.</p>
+    <p class="text-slate-600 text-lg leading-relaxed mb-6">{{ "power-bank" | productFamilyModelCount("2-in-1-hybrid") }} моделей со складной AC-вилкой и встроенной батареей. <strong>От 20 до 67 Вт PD</strong> на технологии GaN. Ёмкость 5000–20 000 мА·ч. Одно устройство и для розетки, и для дороги. <strong>Допущены к авиаперевозке</strong>, UN38.3 включён.</p>
     <div class="flex flex-wrap gap-2 mb-8">
      <span class="trust-badge">PD 20-67W</span>
      <span class="trust-badge">Технология GaN</span>
@@ -305,7 +305,7 @@ ogImage: "/image/product/power-bank/wop67-2in1-cable-charger.webp"
     </div>
     <div class="btn-pair">
      <button type="button" data-action="open-modal" class="btn-solid cursor-pointer">Запросить цену с фабрики &rarr;</button>
-     <a href="#modelos" class="btn-ghost-lg">Смотреть модели</a>
+    <a href="#models" class="btn-ghost-lg">Смотреть модели</a>
     </div>
    </div>
    <div class="reveal order-1 lg:order-2">
@@ -321,7 +321,7 @@ ogImage: "/image/product/power-bank/wop67-2in1-cable-charger.webp"
 
 
 <!-- MODELOS -->
-<section id="modelos" class="sec bg-white" data-section="products">
+<section id="models" class="sec bg-white" data-section="products">
  <div class="container-wide">
   {{ sectionHeader('Линейка', '9 гибридных повербанков <span class="text-brandOrange">OEM</span> для любой поездки', 'От компактных 5000 мА·ч до вместительных 20 000 мА·ч с несколькими портами.', {mb: 'mb-12'}) }}
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -619,7 +619,7 @@ ogImage: "/image/product/power-bank/wop67-2in1-cable-charger.webp"
 </section>
 
 <!-- СЕРТИФИКАЦИЯ -->
-<section id="content" class="sec bg-white" data-section="content">
+<section id="import-documentation" class="sec bg-white" data-section="content">
  <div class="container-wide">
   {{ sectionHeader('Соответствие требованиям', 'Документы для импортёров гибридных повербанков', '', {mb: 'mb-12'}) }}
   <div class="grid md:grid-cols-2 gap-6 reveal">
@@ -636,15 +636,6 @@ ogImage: "/image/product/power-bank/wop67-2in1-cable-charger.webp"
 </section>
 
 <!-- OEM/ODM CTA -->
-<section id="oem-odm-cta" class="sec bg-brandBlue text-white" data-section="cta">
- {% call sectionHeader('OEM / ODM', 'Гибрид 2-в-1 <br><span class="text-brandOrange">под вашей маркой</span>', '', {max: '', mb: '', extra: 'container-wide', reveal: false, labelClass: 'text-brandOrange', titleClass: 'text-3xl lg:text-4xl font-black uppercase italic tracking-tighter mb-4'}) %}<p class="text-slate-300 max-w-2xl mx-auto mb-8">MOQ от 500 штук. Конфигурация вилки под ваш целевой рынок, упаковка с брендингом тревел-марки. Образец за 5–7 дней, производство за 25–30 дней.</p>
-  <div class="btn-pair">
-   <button type="button" data-action="open-modal" class="btn-solid cursor-pointer">Запросить расчёт OEM &rarr;</button>
-   <a href="/ru/kontakty/" class="inline-flex items-center justify-center px-6 py-4 border-2 border-white text-white font-black uppercase italic tracking-widest text-sm rounded-xl hover:bg-white hover:text-brandBlue transition-all w-full">Связаться с нами</a>
-  </div>
- {% endcall %}
-</section>
-
 <!-- FAQ -->
 <section id="faq" class="sec bg-slate-50" data-section="faq">
  <div class="container-narrow">
@@ -658,6 +649,15 @@ ogImage: "/image/product/power-bank/wop67-2in1-cable-charger.webp"
  {% call faqItem("Подходят ли гибриды 2-в-1 для деловых поездок и Ozon/Wildberries?") %}<strong>Да</strong>, это один из самых компактных дорожных форматов: берёте с собой только кабель (или вообще без него — встроенный Type-C), складная AC-вилка не торчит в сумке, вес до 300 г. Для продавцов <strong>Ozon и Wildberries</strong> готовим партии с этикетками, штрихкодами и комплектом документов EAC: одна SKU = меньше возвратов, чем с раздельными зарядкой и повербанком. MOQ от 500 шт.{% endcall %}
  </div>
  </div>
+</section>
+
+<section id="oem-odm-cta" class="sec bg-brandBlue text-white" data-section="cta">
+ {% call sectionHeader('OEM / ODM', 'Гибрид 2-в-1 <br><span class="text-brandOrange">под вашей маркой</span>', '', {max: '', mb: '', extra: 'container-wide', reveal: false, labelClass: 'text-brandOrange', titleClass: 'text-3xl lg:text-4xl font-black uppercase italic tracking-tighter mb-4'}) %}<p class="text-slate-300 max-w-2xl mx-auto mb-8">MOQ от 500 штук. Конфигурация вилки под ваш целевой рынок, упаковка с брендингом тревел-марки. Образец за 5–7 дней, производство за 25–30 дней.</p>
+  <div class="btn-pair">
+   <button type="button" data-action="open-modal" class="btn-solid cursor-pointer">Запросить расчёт OEM &rarr;</button>
+   <a href="/ru/kontakty/" class="inline-flex items-center justify-center px-6 py-4 border-2 border-white text-white font-black uppercase italic tracking-widest text-sm rounded-xl hover:bg-white hover:text-brandBlue transition-all w-full">Связаться с нами</a>
+  </div>
+ {% endcall %}
 </section>
 
 <!-- ======== BLOG ARTICLES ======== -->
@@ -740,7 +740,7 @@ ogImage: "/image/product/power-bank/wop67-2in1-cable-charger.webp"
      <svg class="w-5 h-5 text-brandOrange group-hover:text-white transition-colors duration-300" aria-hidden="true" focusable="false" viewBox="0 0 448 512"><path d="M0 176L0 288C0 411.7 100.3 512 224 512S448 411.7 448 288l0-112-128 0 0 112c0 53-43 96-96 96s-96-43-96-96l0-112-128 0zm0-48l128 0 0-64c0-17.7-14.3-32-32-32L32 32C14.3 32 0 46.3 0 64l0 64zm320 0l128 0 0-64c0-17.7-14.3-32-32-32l-64 0c-17.7 0-32 14.3-32 32l0 64z" fill="currentColor"/></svg>
     </div>
     <p class="font-black text-brandBlue text-sm uppercase mb-1 group-hover:text-brandOrange transition">Магнитный Qi2</p>
-    <p class="text-micro text-slate-500">12 моделей</p>
+    <p class="text-micro text-slate-500">{{ "power-bank" | productFamilyModelCount("wireless-magnetic") }} моделей</p>
    </a>
    <a href="/ru/produkty/poverbanki/dlya-noutbukov/" class="card-soft group block p-6 text-center hover:border-brandOrange hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
     <div class="w-11 h-11 mx-auto mb-4 rounded-xl bg-brandOrange/10 flex items-center justify-center group-hover:bg-brandOrange transition-colors duration-300">

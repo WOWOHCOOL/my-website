@@ -1,0 +1,24 @@
+{# Products index "How to Choose" category selection guide.
+   Copy: i18n.productsGuide[lang]. MOQ/lead mirror facts.json (moq.stock / timeline.odmStockProduction). #}
+{% from "partials/section-header.njk" import sectionHeader with context %}
+{%- set g = i18n.productsGuide[lang] -%}
+<section id="how-to-choose" class="sec bg-slate-50" data-section="comparison">
+ <div class="container-wide">
+  {{ sectionHeader(g.label, g.title, g.desc, {mb: 'mb-4'}) }}
+  <p class="text-center text-xs text-slate-500 max-w-3xl mx-auto mb-12">{{ g.marketNote }}</p>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+   {% for c in g.cards %}
+   <a href="{{ c.href }}" class="card-soft group flex flex-col p-6 hover:border-brandOrange hover:shadow-lg hover:-translate-y-1 transition-all duration-300 reveal">
+    <h3 class="text-lg font-black text-brandBlue uppercase italic mb-2 group-hover:text-brandOrange transition">{{ c.title }}</h3>
+    <p class="text-sm text-slate-500 leading-relaxed mb-3">{{ c.for }}</p>
+    <p class="text-xs text-slate-600 leading-relaxed mb-4">{{ c.spec }}</p>
+    <div class="mt-auto flex items-start gap-6 border-t border-slate-100 pt-4">
+     <div><span class="block text-[11px] font-bold text-slate-500 uppercase tracking-wide">{{ g.moqLabel }}</span><span class="font-black text-brandBlue">{{ g.moqValue }}</span></div>
+     <div><span class="block text-[11px] font-bold text-slate-500 uppercase tracking-wide">{{ g.leadLabel }}</span><span class="font-black text-brandBlue">{{ g.leadValue }}</span></div>
+    </div>
+    <span class="mt-4 inline-block text-brandOrangeDeep text-badge font-bold uppercase tracking-widest">{{ g.cta }} &rarr;</span>
+   </a>
+   {% endfor %}
+  </div>
+ </div>
+</section>

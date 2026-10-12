@@ -20,7 +20,7 @@ ruPath: "produkty/"
   "@id": "https://www.wowohcool.com/pl/produkty/#webpage",
   "url": "https://www.wowohcool.com/pl/produkty/",
   "name": "Katalog Produktów WOWOHCOOL — Rozwiązania Ładowania",
-  "description": "Pełny katalog produktów OEM/ODM: power banki, ładowarki GaN, ładowarki bezprzewodowe i samochodowe.",
+"description": "Pełny katalog produktów OEM/ODM: power banki, ładowarki GaN, ładowarki bezprzewodowe i samochodowe.",
   "inLanguage": "pl-PL",
   "isPartOf": {
     "@id": "https://www.wowohcool.com/#website"
@@ -41,9 +41,9 @@ ruPath: "produkty/"
   "@id": "https://www.wowohcool.com/pl/produkty/#itemlist",
   "@type": "ItemList",
   "name": "Katalog Produktów WOWOHCOOL — Rozwiązania Ładowania",
-  "description": "Pełny katalog produktów OEM/ODM: power banki, ładowarki GaN, ładowarki bezprzewodowe i samochodowe.",
+"description": "Pełny katalog produktów OEM/ODM: power banki, ładowarki GaN, ładowarki bezprzewodowe i samochodowe.",
   "url": "https://www.wowohcool.com/pl/produkty/",
-  "numberOfItems": 4,
+  "numberOfItems": {{ productInventorySummary.categoryCount }},
   "itemListElement": [
     {
       "@type": "ListItem",
@@ -118,7 +118,7 @@ ruPath: "produkty/"
     "width": 263,
     "height": 70
   },
-  "description": "Profesjonalny producent OEM/ODM power banków, ładowarek GaN, ładowarek bezprzewodowych i samochodowych od 2013 roku. Fabryka Shenzhen, ISO 9001.",
+"description": "Profesjonalny producent OEM/ODM power banków, ładowarek GaN, ładowarek bezprzewodowych i samochodowych od 2013 roku. Fabryka Shenzhen, ISO 9001.",
   "contactPoint": {
     "@type": "ContactPoint",
     "email": "info@wowohcool.com",
@@ -234,6 +234,22 @@ ruPath: "produkty/"
         "@type": "Answer",
         "text": "Tak. Nasza usługa OEM/ODM obejmuje personalizację CMF (kolor/materiał/wykończenie), nadruk logo, projekt opakowania i konfigurację pojemności. Oferujemy również niestandardowe PCB z określonymi protokołami ładowania, w tym z wtyczką EU typu C/E wymaganą na polskim rynku."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "Jesteście fabryką czy firmą handlową?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Jesteśmy bezpośrednią fabryką — certyfikowanym ISO 9001 producentem OEM/ODM w Shenzhen z własnymi liniami produkcyjnymi, zespołem R&D i 4-etapową kontrolą jakości. Współpracujesz bezpośrednio z fabryką, bez marży pośrednika."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Jakie kategorie produktów produkujecie?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Cztery kategorie: power banki (w tym półstałe), ładowarki bezprzewodowe Qi2/Qi2.2, szybkie ładowarki GaN V (20–240 W) i ładowarki samochodowe. Każda kategoria oferuje modele ODM z magazynu i pełne oprzyrządowanie OEM."
+      }
     }
   ]
 }
@@ -288,7 +304,7 @@ ruPath: "produkty/"
   <div class="flex max-sm:flex-wrap items-center gap-3 mb-6">
    <div class="w-1 h-6 bg-brandOrange rounded-full"></div>
    <h2 class="text-xl font-black text-brandBlue uppercase italic">Power Bank OEM/ODM <span class="text-brandOrangeDeep text-sm font-medium">Producent · Półstały · PD 3.1 · Qi2</span></h2>
-   <a href="/pl/produkty/power-bank/" class="btn-more ml-auto">Wszystkie 40+ Modeli &rarr;</a>
+   <a href="/pl/produkty/power-bank/" class="btn-more ml-auto">Wszystkie {{ 'power-bank' | productCategoryItemCount }} Modeli &rarr;</a>
   </div>
   <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
    <a href="/pl/produkty/power-bank/polstaly/" class="card group hover:border-brandOrange hover:shadow-md transition-all duration-200 p-3 text-center" data-keywords="półstały power bank bateria półstała 50% cieńszy CES 2026 producent OEM">
@@ -341,7 +357,7 @@ ruPath: "produkty/"
   <div class="flex max-sm:flex-wrap items-center gap-3 mb-6">
    <div class="w-1 h-6 bg-brandOrange rounded-full"></div>
    <h2 class="text-xl font-black text-brandBlue uppercase italic">Ładowarka Bezprzewodowa OEM <span class="text-brandOrangeDeep text-sm font-medium">Producent · Qi2 · 3-w-1 · Uchwyt Samochodowy</span></h2>
-   <a href="/pl/produkty/ladowarka-bezprzewodowa/" class="btn-more ml-auto">Wszystkie 21+ Modeli &rarr;</a>
+   <a href="/pl/produkty/ladowarka-bezprzewodowa/" class="btn-more ml-auto">Wszystkie {{ 'wireless-charger' | productCategoryItemCount }} Modeli &rarr;</a>
   </div>
   <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
    <a href="/pl/produkty/ladowarka-bezprzewodowa/biurkowa/" class="card group hover:border-brandOrange hover:shadow-md transition-all duration-200 p-3 text-center" data-keywords="biurkowa ładowarka bezprzewodowa Qi2 podkładka podstawka pionowa 11mm ultracienka producent OEM">
@@ -373,7 +389,7 @@ ruPath: "produkty/"
   <div class="flex max-sm:flex-wrap items-center gap-3 mb-6">
    <div class="w-1 h-6 bg-brandOrange rounded-full"></div>
    <h2 class="text-xl font-black text-brandBlue uppercase italic">Ładowarka GaN V OEM <span class="text-brandOrangeDeep text-sm font-medium">Producent · PD 3.1 · Multi-Port · 20W-240W</span></h2>
-   <a href="/pl/produkty/ladowarka-gan/" class="btn-more ml-auto">Wszystkie 11 Modeli &rarr;</a>
+   <a href="/pl/produkty/ladowarka-gan/" class="btn-more ml-auto">Wszystkie {{ 'gan-charger' | productCategoryItemCount }} Modeli &rarr;</a>
   </div>
   <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
    <a href="/pl/produkty/ladowarka-gan/" class="card group hover:border-brandOrange hover:shadow-md transition-all duration-200 p-3 text-center" data-keywords="ładowarka GaN V azotek galu PD 3.1 240W multi-port listwa zasilająca kabel zwijany producent OEM">
@@ -391,7 +407,7 @@ ruPath: "produkty/"
   <div class="flex max-sm:flex-wrap items-center gap-3 mb-6">
    <div class="w-1 h-6 bg-brandOrange rounded-full"></div>
    <h2 class="text-xl font-black text-brandBlue uppercase italic">Ładowarka Samochodowa OEM <span class="text-brandOrangeDeep text-sm font-medium">Producent · PD 3.1 · E-Mark · 12V/24V</span></h2>
-   <a href="/pl/produkty/ladowarka-samochodowa/" class="btn-more ml-auto">Wszystkie 10 Modeli &rarr;</a>
+   <a href="/pl/produkty/ladowarka-samochodowa/" class="btn-more ml-auto">Wszystkie {{ 'car-charger' | productCategoryItemCount }} Modeli &rarr;</a>
   </div>
   <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
    <a href="/pl/produkty/ladowarka-samochodowa/" class="card group hover:border-brandOrange hover:shadow-md transition-all duration-200 p-3 text-center" data-keywords="ładowarka samochodowa GaN PD 3.1 140W E-Mark 12V 24V ciężarówka kabel zwijany producent OEM">
@@ -450,6 +466,7 @@ ruPath: "produkty/"
  </section>
 
 <!-- FAQ Section -->
+{% include "partials/products-guide.njk" %}
 <section id="faq" class="sec bg-slate-50" data-section="faq">
  <div class="container-narrow">
  {{ sectionHeader('FAQ', 'Często Zadawane Pytania (FAQ)', '', {max: ''}) }}
@@ -459,6 +476,8 @@ ruPath: "produkty/"
  {% call faqItem("Jakie certyfikaty posiadają Wasze produkty? Czy spełniają wymogi UE?") %}Wszystkie produkty spełniają normy CE, FCC, RoHS i Qi/Qi2. Power banki posiadają certyfikat UN38.3. Dostarczamy pełną dokumentację do deklaracji zgodności CE wymaganej przez polski UOKiK i Inspekcję Handlową. Pomagamy również w uzyskaniu dodatkowych certyfikatów wymaganych na konkretnych rynkach.{% endcall %}
  {% call faqItem("Jaki jest typowy czas realizacji i dostawy do Polski?") %}Standardowe zamówienia OEM wysyłamy w ciągu 25-30 dni po zatwierdzeniu próbki. Projekty ODM wymagają 45-60 dni. Transport morski do portu Gdańsk/Gdynia: 30-35 dni, fracht lotniczy: 5-7 dni. Zapewniamy pełną dokumentację celną do odprawy przez system ISZTAR.{% endcall %}
  {% call faqItem("Czy oferujecie personalizację produktów (logo, opakowanie, kolor)?") %}Tak. Nasza usługa OEM/ODM obejmuje personalizację CMF (kolor/materiał/wykończenie), nadruk logo, projekt opakowania i konfigurację pojemności. Oferujemy również niestandardowe PCB z określonymi protokołami ładowania, w tym z wtyczką EU typu C/E wymaganą na polskim rynku.{% endcall %}
+ {% call faqItem("Jesteście fabryką czy firmą handlową?") %}Jesteśmy bezpośrednią fabryką — certyfikowanym ISO 9001 producentem OEM/ODM w Shenzhen z własnymi liniami produkcyjnymi, zespołem R&D i 4-etapową kontrolą jakości. Współpracujesz bezpośrednio z fabryką, bez marży pośrednika.{% endcall %}
+ {% call faqItem("Jakie kategorie produktów produkujecie?") %}Cztery kategorie: power banki (w tym półstałe), ładowarki bezprzewodowe Qi2/Qi2.2, szybkie ładowarki GaN V (20–240 W) i ładowarki samochodowe. Każda kategoria oferuje modele ODM z magazynu i pełne oprzyrządowanie OEM.{% endcall %}
  </div>
   </div>
 </section>

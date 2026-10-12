@@ -98,7 +98,7 @@ navActive: "products"
     "name": "Линейка автомобильной зарядки",
     "url": "https://www.wowohcool.com/ru/produkty/avtomobilnye-zaryadki/",
     "inLanguage": "ru-RU",
-    "numberOfItems": 12,
+    "numberOfItems": {{ "car-charger" | productCategoryItemCount }},
     "itemListElement": [
       {
         "@type": "ListItem",
@@ -188,7 +188,7 @@ navActive: "products"
     "url": "https://www.wowohcool.com/ru/produkty/avtomobilnye-zaryadki/",
     "inLanguage": "ru-RU",
     "name": "Автомобильные зарядки WOWOHCOOL, PD 3.1 и E-Mark",
-    "description": "Автомобильные зарядные устройства PD 3.1 до 140 Вт с сертификацией E-Mark. Мультипорт, выдвижной кабель, цифровой дисплей, вход 12–24 В.",
+"description": "Автомобильные зарядные устройства PD 3.1 до 140 Вт с сертификацией E-Mark. Мультипорт, выдвижной кабель, цифровой дисплей, вход 12–24 В.",
     "brand": {
       "@type": "Brand",
       "name": "WOWOHCOOL"
@@ -874,7 +874,7 @@ navActive: "products"
 </section>
 
 <!-- ======== СЕРТИФИКАЦИЯ ======== -->
-<section id="content" class="sec bg-slate-50" data-section="content">
+<section id="e-mark-compliance" class="sec bg-slate-50" data-section="content">
  <div class="container-wide">
  {{ sectionHeader('Сертификация', 'E-Mark ECE R10 и поддержка EAC для импортёров', 'Автомобильная электроника требует сертификации E-Mark (Правила ЕЭК ООН R10) — она есть у всех наших моделей. Для поставок в РФ, Казахстан и Беларусь готовим комплект документов для EAC.', {max: '', mb: 'mb-12'}) }}
  <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 reveal">
@@ -902,6 +902,32 @@ navActive: "products"
  </div>
 </section>
 
+<!-- WHO IS THIS FOR -->
+<section id="dlya-kogo" class="sec bg-white relative" data-section="content">
+ <div class="container-wide">
+  <h2 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4 text-center">Кому подходят <span class="text-brandOrange">автомобильные зарядки</span>?</h2>
+  <p class="text-center text-slate-500 text-sm max-w-2xl mx-auto mb-12">Три профиля покупателей на рынке РФ и ЕАЭС, которые чаще всего импортируют автомобильные зарядки оптом.</p>
+  <div class="grid md:grid-cols-3 gap-6">
+   <div class="card p-6 shadow-sm"><h3 class="font-black text-brandBlue uppercase mb-3 text-sm">Бренды автоаксессуаров</h3><p class="text-sm text-slate-600 leading-relaxed">Бренды, продающие на Ozon, Wildberries и в автосетях РФ, — ассортимент 20–140 Вт с готовностью к E-Mark.</p></div>
+   <div class="card p-6 shadow-sm"><h3 class="font-black text-brandBlue uppercase mb-3 text-sm">Автопарки и каршеринг</h3><p class="text-sm text-slate-600 leading-relaxed">Компании, оборудующие машины зарядками USB-C PD 3.1 автомобильного класса и с повышенной износостойкостью.</p></div>
+   <div class="card p-6 shadow-sm"><h3 class="font-black text-brandBlue uppercase mb-3 text-sm">Дистрибьюторы автозапчастей ЕАЭС</h3><p class="text-sm text-slate-600 leading-relaxed">Дистрибьюторы, которым нужна фабрика напрямую с EAC и документацией для импорта в РФ.</p></div>
+  </div>
+ </div>
+</section>
+
+<!-- WHY WOWOHCOOL -->
+<section id="pochemu-wowohcool" class="sec bg-slate-50 relative" data-section="content">
+ <div class="container-wide">
+  <h2 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4 text-center">Почему <span class="whitespace-nowrap"><span class="highlight-line text-brandBlue">WOWOH</span><span class="text-brandOrange">COOL</span></span> для рынка РФ и ЕАЭС</h2>
+  <p class="text-center text-slate-500 text-sm max-w-2xl mx-auto mb-12">Прямая фабрика с соответствием ЕАЭС и логистикой в РФ.</p>
+  <div class="grid md:grid-cols-3 gap-6">
+   <div class="card-soft p-6"><h3 class="font-black text-brandBlue uppercase mb-3 text-sm">Соответствие ЕАЭС</h3><p class="text-sm text-slate-600 leading-relaxed">EAC, CE/RoHS и конструкции, готовые к E-Mark (ECE R10) с EMI-экранированием — для поставок в РФ и ЕАЭС.</p></div>
+   <div class="card-soft p-6"><h3 class="font-black text-brandBlue uppercase mb-3 text-sm">Прямая фабрика ISO 9001</h3><p class="text-sm text-slate-600 leading-relaxed">Мы завод в Шэньчжэне, не трейдер. Прямая цена FOB/EXW/DDP и MOQ от 500 шт.</p></div>
+   <div class="card-soft p-6"><h3 class="font-black text-brandBlue uppercase mb-3 text-sm">Логистика в РФ</h3><p class="text-sm text-slate-600 leading-relaxed">Доставка ж/д или морем, полный пакет документов для импорта и таможни.</p></div>
+  </div>
+ </div>
+</section>
+
 <!-- ======== FAQ ======== -->
 <section id="faq" class="sec bg-slate-50" data-section="faq">
  <div class="container-narrow">
@@ -920,6 +946,8 @@ navActive: "products"
  </div>
 </section>
 
+
+{% include "partials/product-cta.njk" %}
 
 <!-- ======== BLOG ARTICLES ======== -->
 <section id="blog-articles" class="sec bg-white" data-section="content">
@@ -1025,6 +1053,7 @@ navActive: "products"
 {%- set formHeading = "Автозарядка: заводская цена" %}
 {%- set formSubtext = "Расскажите о проекте: PD 3.1, GaN, 140 Вт — под автомобильные стандарты." %}
 {%- set formSubject = "Запрос по продукту: Автомобильное зарядное устройство" %}
+
 
 {% include "partials/product-inquiry-form.njk" %}
 {% endblock %}

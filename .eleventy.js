@@ -2,6 +2,52 @@ const fs = require('fs');
 const path = require('path');
 
 module.exports = function (eleventyConfig) {
+  const productInventory = require('./src/_data/product-inventory.json');
+
+  function findProductCategory(categoryKey) {
+    return productInventory.categories.find(category => category.key === categoryKey);
+  }
+
+  function countCategoryModels(category) {
+    if (!category) return 0;
+    if (Array.isArray(category.families) && category.families.length) {
+      return category.families.reduce((sum, family) => sum + Number(family.models || 0), 0);
+    }
+    return Number(category.models || 0);
+  }
+
+  const productInventorySummary = {
+    categoryCount: productInventory.categories.length,
+    modelCount: productInventory.categories.reduce((sum, category) => sum + countCategoryModels(category), 0)
+  };
+
+  eleventyConfig.addGlobalData("productInventorySummary", () => productInventorySummary);
+
+  eleventyConfig.addFilter("productFamilyCount", (categoryKey) => {
+    const category = findProductCategory(categoryKey);
+    return category && Array.isArray(category.families) ? category.families.length : 0;
+  });
+
+  eleventyConfig.addFilter("productFamilyModelCount", (categoryKey, familyKey) => {
+    const category = findProductCategory(categoryKey);
+    const family = category && Array.isArray(category.families)
+      ? category.families.find(item => item.key === familyKey)
+      : null;
+    return family ? Number(family.models || 0) : 0;
+  });
+
+  eleventyConfig.addFilter("productCategoryModelCount", (categoryKey) => {
+    return countCategoryModels(findProductCategory(categoryKey));
+  });
+
+  eleventyConfig.addFilter("productCategoryItemCount", (categoryKey) => {
+    const category = findProductCategory(categoryKey);
+    if (!category) return 0;
+    return Array.isArray(category.families) && category.families.length
+      ? category.families.length
+      : countCategoryModels(category);
+  });
+
   // FR site is in .gitignore to prevent GitHub push — still build locally
   eleventyConfig.setUseGitIgnore(false);
   // Passthrough copies: project-root paths → _site/

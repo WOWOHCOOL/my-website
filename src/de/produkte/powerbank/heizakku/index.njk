@@ -53,7 +53,7 @@ plPath: "produkty/power-bank/bateria-grzejaca/"
       "@type": "ItemList",
       "name": "8 Heizakku-Modelle für jeden Bekleidungstyp",
       "url": "https://www.wowohcool.com/de/produkte/powerbank/heizakku/",
-      "numberOfItems": 8,
+      "numberOfItems": {{ "power-bank" | productFamilyModelCount("heating-battery") }},
       "itemListElement": [
         {
           "@type": "ListItem",
@@ -110,7 +110,7 @@ plPath: "produkty/power-bank/bateria-grzejaca/"
       "url": "https://www.wowohcool.com/de/produkte/powerbank/heizakku/",
       "@type": "Product",
       "name": "Heizakku für beheizte Bekleidung OEM/ODM",
-      "description": "Spezialisierte Heizakkus für Heizjacken, Heizhandschuhe, Heizsocken, Heizschals und Massagekissen. 5V USB und 7,4V DC. Individuelle Steckverbinder, Kabellängen und Spannungen. CE, FCC, RoHS, PSE zertifiziert.",
+"description": "Spezialisierte Heizakkus für Heizjacken, Heizhandschuhe, Heizsocken, Heizschals und Massagekissen. 5V USB und 7,4V DC. Individuelle Steckverbinder, Kabellängen und Spannungen. CE, FCC, RoHS, PSE zertifiziert.",
       "brand": {
         "@type": "Brand",
         "name": "WOWOHCOOL"
@@ -199,7 +199,7 @@ plPath: "produkty/power-bank/bateria-grzejaca/"
         "UL & CE Safety Compliance"
       ],
       "url": "https://www.wowohcool.com/",
-      "description": "Professional OEM/ODM manufacturer of power banks, GaN chargers, wireless chargers, and car chargers since 2013.",
+"description": "Professional OEM/ODM manufacturer of power banks, GaN chargers, wireless chargers, and car chargers since 2013.",
       "contactPoint": {
         "@type": "ContactPoint",
         "email": "info@wowohcool.com",
@@ -287,7 +287,7 @@ plPath: "produkty/power-bank/bateria-grzejaca/"
     </div>
     <div class="btn-pair">
      <button type="button" data-action="open-modal" class="btn-solid cursor-pointer">Werkspreis anfragen &rarr;</button>
-     <a href="#modelle" class="btn-ghost-lg">Modelle ansehen</a>
+     <a href="#models" class="btn-ghost-lg">Modelle ansehen</a>
     </div>
    </div>
    <div class="reveal order-1 lg:order-2">
@@ -302,8 +302,8 @@ plPath: "produkty/power-bank/bateria-grzejaca/"
 <!-- ======== TRUST BAR ======== -->
 {% include "trust-bar.njk" %}
 
-<!-- MODELLE -->
-<section id="modelle" class="sec bg-white" data-section="products">
+<!-- MODELS -->
+<section id="models" class="sec bg-white" data-section="products">
  <div class="container-wide">
   {{ sectionHeader('Heizakku-Reihe', '8 Heizakku-Modelle für jeden Bekleidungstyp', 'Von kompakten 1.800mAh-Modulen für Massagekissen bis 14.400mAh High-Capacity für Heizjacken-Volltagsbetrieb.', {mb: 'mb-12'}) }}
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -498,8 +498,8 @@ plPath: "produkty/power-bank/bateria-grzejaca/"
  </div>
 </section>
 
-<!-- SPANNUNGS-LEITFADEN -->
-<section id="spannungs-leitfaden" class="sec bg-slate-50" data-section="content">
+<!-- VOLTAGE GUIDE -->
+<section id="voltage-guide" class="sec bg-slate-50" data-section="content">
  <div class="container-wide">
   {{ sectionHeader('Grundlagen', 'Was ist ein <span class="text-brandOrange">Heizakku</span>?', 'Spezialisierte Akkus für beheizbare Bekleidung — kein gewöhnlicher USB-Akku.', {mb: 'mb-12'}) }}
   <div class="grid md:grid-cols-3 gap-8">
@@ -522,8 +522,8 @@ plPath: "produkty/power-bank/bateria-grzejaca/"
  </div>
 </section>
 
-<!-- Heizakku vs Standard-Powerbank -->
-<section id="heizakku-vs-standard-powerbank" class="sec bg-slate-50" data-section="comparison">
+<!-- Heating Battery vs Standard Power Bank -->
+<section id="heating-vs-standard-power-bank" class="sec bg-slate-50" data-section="comparison">
  <div class="container-wide">
   {{ sectionHeader('Vergleich', 'Heizakku vs. <span class="text-brandOrange">Standard-Powerbank</span>', 'Warum beheizbare Bekleidung spezialisierte Akkus braucht — und keine gewöhnliche Powerbank ausreicht.', {max: '', mb: 'mb-12'}) }}
   <div class="overflow-x-auto reveal rounded-2xl border border-slate-200 shadow-sm bg-white">
@@ -560,8 +560,8 @@ plPath: "produkty/power-bank/bateria-grzejaca/"
 
 
 
-<!-- SPANNUNGS-LEITFADEN -->
-<section id="spannungs-leitfaden-2" class="sec bg-slate-50" data-section="content">
+<!-- VOLTAGE GUIDE -->
+<section id="voltage-guide-2" class="sec bg-slate-50" data-section="content">
  <div class="container-wide">
   {{ sectionHeader('Spannungs-Leitfaden', '5V USB vs. 7,4V DC', 'Welche Spannung passt zu Ihrem Heizelement? Übersicht für Markenhersteller von Heizbekleidung.', {mb: 'mb-12'}) }}
   <div class="grid md:grid-cols-2 gap-6 reveal">
@@ -603,19 +603,6 @@ plPath: "produkty/power-bank/bateria-grzejaca/"
 <!-- Removed 2026-10-01: empty "Was ist ein Heizakku" section -- the identical
      definition content already lives in the spannungs-leitfaden "Grundlagen" block. -->
 
-<!-- FAQ -->
-<section id="faq" class="sec bg-slate-50" data-section="faq">
- <div class="container-narrow">
- {{ sectionHeader('FAQ', 'Heizakku FAQ', '', {max: ''}) }}
- <div class="reveal">
- {% call faqItem("Welche Spannungen bieten Sie für Heizakkus an?") %}5V USB (Heizjacken/Westen mit USB-Heizpaneelen, Massagekissen, Handwärmer) und 7,4V DC (Heizjacken, Heizhandschuhe, Heizsocken, Heizschal mit DC-Kabelheizelementen). Wir fertigen kundenspezifische Spannungskonfigurationen für Ihre Heizelemente.{% endcall %}
- {% call faqItem("Welche Steckverbinder sind verfügbar?") %}DC 5,5×2,1mm, DC 3,5×1,35mm, JST-PH, JST-XH, USB-A, USB-C, eigene Pin-Konfigurationen. Kabellängen 30-150cm. Wir liefern auf Wunsch komplette Heizelement-Steckverbinder-Kombinationen.{% endcall %}
- {% call faqItem("Wie lange hält ein Heizakku im Einsatz?") %}Bei einer 14.400mAh / 7,4V Heizjacken-Batterie: niedrige Stufe 8-10h, mittlere Stufe 5-6h, hohe Stufe 3-4h. Bei 2.500mAh / 7,4V Handschuhen: 4-6h niedrig, 2-3h hoch.{% endcall %}
- {% call faqItem("Welche Zertifizierungen brauche ich für Heizakkus in der EU?") %}Pflicht: CE (EMV + Niederspannung), UN38.3, RoHS. Empfohlen für DACH-Handel: TÜV GS. Für tragbare Heizgeräte gilt zusätzlich EN 60335-2-17 (Sicherheit von Heizdecken/-kissen). Wir liefern alle Konformitätsdokumente.{% endcall %}
- {% call faqItem("Wie hoch ist die MOQ für Heizakku OEM?") %}MOQ ab 500 Stück bei Standardmodellen. Bei kundenspezifischen Spannungen oder Steckverbindern: 1.000-2.000 Stück. Muster in 5-10 Tagen, da Spezialteile beschafft werden müssen.{% endcall %}
- </div>
- </div>
-</section>
 <!-- DACH Retail Pricing -->
 <section id="dach-retail-pricing" class="sec bg-white relative py-12" data-section="pricing">
  <div class="container-wide">
@@ -634,9 +621,10 @@ plPath: "produkty/power-bank/bateria-grzejaca/"
  </div>
  <p class="text-center text-xs text-slate-400 mt-4">Quellen: Amazon DE, Louis, Polo — Juli 2026. OEM-Akku $3-18 (MOQ 500) vs Retail 80-300 EUR = 50-70% Bruttomarge.</p>
  </div>
+</section>
 
- <!-- DACH Heizbekleidung Markt -->
- <section id="dach-heizbekleidung-markt" class="sec bg-white relative" data-section="stats">
+ <!-- DACH Heated Apparel Market -->
+ <section id="heated-apparel-market" class="sec bg-white relative" data-section="stats">
   <div class="container-wide">
   <div class="text-center mb-10 reveal">
    <div class="inline-block px-4 py-1 bg-red-50 border border-red-200 rounded-full text-badge font-bold text-red-600 uppercase tracking-widest mb-6">Deutscher Markt — Real Data DeepMarketInsights 2026</div>
@@ -663,12 +651,26 @@ plPath: "produkty/power-bank/bateria-grzejaca/"
   </div>
 
   <div class="bg-brandBlue/5 rounded-2xl p-6 border border-brandBlue/10 max-w-5xl mx-auto text-center">
-   <p class="text-sm text-slate-700 leading-relaxed mb-0"><strong>Marktstruktur DE:</strong> Große Werkzeugmarken (Bosch, Milwaukee, DEWALT) nutzen eigene Akkusysteme. Bekleidungsmarken (ORORO, Gerbing, Venture Heat) sourcen Batterien von China-OEMs. WOWOHCOOL ist der OEM-Partner für Bekleidungsmarken — 8 Modelle, CE/UN38.3/PSE, kundenspezifische Steckverbinder. MOQ 500.</p>
+   <p class="text-sm text-slate-700 leading-relaxed mb-0"><strong>Marktstruktur DE:</strong> Große Werkzeugmarken (Bosch, Milwaukee, DEWALT) nutzen eigene Akkusysteme. Bekleidungsmarken (ORORO, Gerbing, Venture Heat) sourcen Batterien von China-OEMs. WOWOHCOOL ist der OEM-Partner für Bekleidungsmarken — {{ "power-bank" | productFamilyModelCount("heating-battery") }} Modelle, CE/UN38.3/PSE, kundenspezifische Steckverbinder. MOQ 500.</p>
   </div>
   </div>
- </section>
+  </section>
 
+<!-- FAQ -->
+<section id="faq" class="sec bg-slate-50" data-section="faq">
+ <div class="container-narrow">
+ {{ sectionHeader('FAQ', 'Heizakku FAQ', '', {max: ''}) }}
+ <div class="reveal">
+ {% call faqItem("Welche Spannungen bieten Sie für Heizakkus an?") %}5V USB (Heizjacken/Westen mit USB-Heizpaneelen, Massagekissen, Handwärmer) und 7,4V DC (Heizjacken, Heizhandschuhe, Heizsocken, Heizschal mit DC-Kabelheizelementen). Wir fertigen kundenspezifische Spannungskonfigurationen für Ihre Heizelemente.{% endcall %}
+ {% call faqItem("Welche Steckverbinder sind verfügbar?") %}DC 5,5×2,1mm, DC 3,5×1,35mm, JST-PH, JST-XH, USB-A, USB-C, eigene Pin-Konfigurationen. Kabellängen 30-150cm. Wir liefern auf Wunsch komplette Heizelement-Steckverbinder-Kombinationen.{% endcall %}
+ {% call faqItem("Wie lange hält ein Heizakku im Einsatz?") %}Bei einer 14.400mAh / 7,4V Heizjacken-Batterie: niedrige Stufe 8-10h, mittlere Stufe 5-6h, hohe Stufe 3-4h. Bei 2.500mAh / 7,4V Handschuhen: 4-6h niedrig, 2-3h hoch.{% endcall %}
+ {% call faqItem("Welche Zertifizierungen brauche ich für Heizakkus in der EU?") %}Pflicht: CE (EMV + Niederspannung), UN38.3, RoHS. Empfohlen für DACH-Handel: TÜV GS. Für tragbare Heizgeräte gilt zusätzlich EN 60335-2-17 (Sicherheit von Heizdecken/-kissen). Wir liefern alle Konformitätsdokumente.{% endcall %}
+ {% call faqItem("Wie hoch ist die MOQ für Heizakku OEM?") %}MOQ ab 500 Stück bei Standardmodellen. Bei kundenspezifischen Spannungen oder Steckverbindern: 1.000-2.000 Stück. Muster in 5-10 Tagen, da Spezialteile beschafft werden müssen.{% endcall %}
+ </div>
+ </div>
 </section>
+
+{% include "partials/product-cta.njk" %}
 
 <!-- ======== BLOG ARTICLES ======== -->
 <section id="blog-articles" class="sec bg-white" data-section="content">
@@ -775,6 +777,7 @@ plPath: "produkty/power-bank/bateria-grzejaca/"
 {%- set formHeading = "Heizakku – Fabrikpreis anfordern" %}
 {%- set formSubtext = "MOQ 500 Stück. Muster in 3–7 Tagen. Individuelles Logo, Steckeranpassung und Verpackung inklusive." %}
 {%- set formSubject = "Anfrage: Heizakku" %}
+
 
 {% include "partials/product-inquiry-form.njk" %}
 

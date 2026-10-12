@@ -83,7 +83,7 @@ ruPath: "produkty/poverbanki/dlya-noutbukov/"
       "url": "https://www.wowohcool.com/pl/produkty/power-bank/do-laptopa/",
       "@type": "Product",
       "name": "Power Bank do Laptopa OEM/ODM (65W-240W PD 3.1)",
-      "description": "Wysokowydajne power banki klasy laptop z szybkim ładowaniem PD 3.1. Wyjście od 65W do 240W, pojemności 20000–27000mAh. Ładuje MacBook Pro, laptopy gamingowe i wiele urządzeń jednocześnie. Certyfikat UN38.3 do globalnego frachtu lotniczego.",
+"description": "Wysokowydajne power banki klasy laptop z szybkim ładowaniem PD 3.1. Wyjście od 65W do 240W, pojemności 20000–27000mAh. Ładuje MacBook Pro, laptopy gamingowe i wiele urządzeń jednocześnie. Certyfikat UN38.3 do globalnego frachtu lotniczego.",
       "brand": {
         "@type": "Brand",
         "name": "WOWOHCOOL"
@@ -188,7 +188,7 @@ ruPath: "produkty/poverbanki/dlya-noutbukov/"
         "UL & CE Safety Compliance"
       ],
       "url": "https://www.wowohcool.com/",
-      "description": "Professional OEM/ODM manufacturer of power banks, GaN chargers, wireless chargers, and car chargers since 2013.",
+"description": "Professional OEM/ODM manufacturer of power banks, GaN chargers, wireless chargers, and car chargers since 2013.",
       "contactPoint": {
         "@type": "ContactPoint",
         "email": "info@wowohcool.com",
@@ -287,8 +287,8 @@ ruPath: "produkty/poverbanki/dlya-noutbukov/"
  <button type="button" data-action="open-modal" data-product="Power Bank do Laptopa" class="btn-wide-lg">
  Poproś o Wycenę Fabryczną
  </button>
- <a href="#produkty" class="btn-ghost-lg">
- Zobacz 4 Modele
+ <a href="#products" class="btn-ghost-lg">
+ Zobacz {{ 'power-bank' | productFamilyModelCount('laptop-power') }} Modele
  </a>
  </div>
  </div>
@@ -298,10 +298,10 @@ ruPath: "produkty/poverbanki/dlya-noutbukov/"
 {% include "trust-bar.njk" %}
 
 <!-- Products -->
-<section id="produkty" class="sec bg-white relative" data-section="products">
+<section id="products" class="sec bg-white relative" data-section="products">
  <div class="container-wide">
  <h2 class="text-2xl font-black text-brandBlue uppercase italic tracking-tighter mb-2">Power Banki do Laptopów</h2>
- <p class="text-slate-500 text-sm mb-10">4 modele | 20000–27000mAh | 65W–240W PD</p>
+ <p class="text-slate-500 text-sm mb-10">{{ 'power-bank' | productFamilyModelCount('laptop-power') }} modele | 20000–27000mAh | 65W–240W PD</p>
 
  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
@@ -760,6 +760,24 @@ ruPath: "produkty/poverbanki/dlya-noutbukov/"
  </div>
 </section>
 
+<!-- FAQ -->
+<section id="faq" class="sec bg-slate-50" data-section="faq">
+ <div class="container-narrow">
+ {{ sectionHeader('FAQ', 'Power Bank do Laptopa <span class="text-brandOrange">FAQ</span>', '', {max: ''}) }}
+ <div class="reveal">
+ {% call faqItem("Czy power bank do laptopa naładuje MacBooka Pro?") %}Tak. Modele z wyjściem PD 67W lub wyższym (WOP21, WOP22, WOP23) ładują MacBooka Pro 13/14/16 cali z pełną prędkością. Model WOP23 240W PD 3.1 obsługuje również szybkie ładowanie MacBooka Pro 16 cali przy 140W, dorównując wyjściu ładowarki Apple MagSafe 3.{% endcall %}
+ {% call faqItem("Czym różni się PD 3.1 od PD 3.0?") %}PD 3.0 ma limit maksymalnej mocy wyjściowej 100W. PD 3.1 (wydany w 2021) rozszerza standard do 240W, wykorzystując nowe szyny napięciowe 28V, 36V i 48V (Extended Power Range, EPR). PD 3.1 jest wymagany do ładowania laptopów gamingowych i MacBooka Pro 16 cali z pełną prędkością.{% endcall %}
+ {% call faqItem("Czy power bank do laptopa 27000mAh jest bezpieczny w samolocie?") %}Tak. 27000mAh przy 3,7V daje 99,9Wh, czyli tuż poniżej limitu IATA 100Wh dla bagażu podręcznego. Wszystkie power banki do laptopów WOWOHCOOL posiadają certyfikat UN38.3 i są dopuszczone do przewozu w kabinie. Wszystko powyżej 100Wh wymaga zgody linii lotniczych i jest zabronione w bagażu rejestrowanym.{% endcall %}
+ {% call faqItem("Jakie jest MOQ dla OEM power banków do laptopów?") %}MOQ od 500 sztuk dla standardowych modeli OEM z nadrukiem logo. Niestandardowe projekty ODM z własnym oprzyrządowaniem: 1000–2000 sztuk. Czas realizacji próbek: 3–7 dni dla standardowych, 10–15 dni dla niestandardowych.{% endcall %}
+ {% call faqItem("Jak długo ładuje się MacBook Pro power bankiem 27000mAh?") %}Power bank 27000mAh (99,9Wh) zapewnia około 1,3–1,5 pełnego ładowania MacBooka Pro 14 cali (bateria 70Wh) lub około 0,7–0,8 ładowania MacBooka Pro 16 cali (bateria 100Wh). Przy sprawności konwersji 85% można oczekiwać około 85Wh energii użytkowej z banku 99,9Wh.{% endcall %}
+ {% call faqItem("Czy mogę ładować laptopa i telefon jednocześnie?") %}Tak. Wszystkie power banki do laptopów WOWOHCOOL obsługują jednoczesne wyjście na wiele urządzeń. WOP23 może dostarczać 240W do laptopa, ładując jednocześnie telefon przez dodatkowy port USB-C lub USB-A. Całkowita moc wyjściowa jest dynamicznie rozdzielana między porty.{% endcall %}
+ {% call faqItem("Jak obliczyć Wh power banku pod kątem zgodności lotniczej?") %}Wzór: Wh = mAh × Napięcie znamionowe ÷ 1000. Przykład: 27000mAh × 3,7V ÷ 1000 = 99,9Wh (tuż poniżej limitu 100Wh dla bagażu podręcznego). Baterie 100–160Wh wymagają zgody linii lotniczych; powyżej 160Wh są zabronione. Wszystkie modele WOWOHCOOL zaprojektowano na poziomie ≤99,9Wh.{% endcall %}
+ </div>
+ </div>
+</section>
+
+{% include "partials/product-cta.njk" %}
+
 <!-- ======== BLOG ARTICLES ======== -->
 <section id="blog-articles" class="sec bg-white border-t border-slate-100" data-section="content">
  <div class="container-wide">
@@ -854,27 +872,10 @@ ruPath: "produkty/poverbanki/dlya-noutbukov/"
      <svg class="w-5 h-5 text-brandOrange group-hover:text-white transition-colors duration-300" aria-hidden="true" focusable="false" viewBox="0 0 640 512"><path d="M528 128c8.8 0 16 7.2 16 16l0 224c0 8.8-7.2 16-16 16l-416 0c-8.8 0-16-7.2-16-16l0-224c0-8.8 7.2-16 16-16l416 0zM112 64c-44.2 0-80 35.8-80 80l0 224c0 44.2 35.8 80 80 80l416 0c44.2 0 80-35.8 80-80l0-48c17.7 0 32-14.3 32-32l0-64c0-17.7-14.3-32-32-32l0-48c0-44.2-35.8-80-80-80L112 64zm56 112c-13.3 0-24 10.7-24 24l0 112c0 13.3 10.7 24 24 24l304 0c13.3 0 24-10.7 24-24l0-112c0-13.3-10.7-24-24-24l-304 0z" fill="currentColor"/></svg>
     </div>
     <p class="font-black text-brandBlue text-sm uppercase mb-1 group-hover:text-brandOrange transition">Wszystkie Power Banki</p>
-    <p class="text-micro text-slate-500">6 kategorii, 40 modeli</p>
+    <p class="text-micro text-slate-500">6 kategorii, {{ "power-bank" | productFamilyModelCount("laptop-power") }} modeli</p>
    </a>
   </div>
  </div>
-</section>
-
-<!-- FAQ -->
-<section id="faq" class="sec bg-slate-50" data-section="faq">
- <div class="container-narrow">
- {{ sectionHeader('FAQ', 'Power Bank do Laptopa <span class="text-brandOrange">FAQ</span>', '', {max: ''}) }}
- <div class="reveal">
- {% call faqItem("Czy power bank do laptopa naładuje MacBooka Pro?") %}Tak. Modele z wyjściem PD 67W lub wyższym (WOP21, WOP22, WOP23) ładują MacBooka Pro 13/14/16 cali z pełną prędkością. Model WOP23 240W PD 3.1 obsługuje również szybkie ładowanie MacBooka Pro 16 cali przy 140W, dorównując wyjściu ładowarki Apple MagSafe 3.{% endcall %}
- {% call faqItem("Czym różni się PD 3.1 od PD 3.0?") %}PD 3.0 ma limit maksymalnej mocy wyjściowej 100W. PD 3.1 (wydany w 2021) rozszerza standard do 240W, wykorzystując nowe szyny napięciowe 28V, 36V i 48V (Extended Power Range, EPR). PD 3.1 jest wymagany do ładowania laptopów gamingowych i MacBooka Pro 16 cali z pełną prędkością.{% endcall %}
- {% call faqItem("Czy power bank do laptopa 27000mAh jest bezpieczny w samolocie?") %}Tak. 27000mAh przy 3,7V daje 99,9Wh, czyli tuż poniżej limitu IATA 100Wh dla bagażu podręcznego. Wszystkie power banki do laptopów WOWOHCOOL posiadają certyfikat UN38.3 i są dopuszczone do przewozu w kabinie. Wszystko powyżej 100Wh wymaga zgody linii lotniczych i jest zabronione w bagażu rejestrowanym.{% endcall %}
- {% call faqItem("Jakie jest MOQ dla OEM power banków do laptopów?") %}MOQ od 500 sztuk dla standardowych modeli OEM z nadrukiem logo. Niestandardowe projekty ODM z własnym oprzyrządowaniem: 1000–2000 sztuk. Czas realizacji próbek: 3–7 dni dla standardowych, 10–15 dni dla niestandardowych.{% endcall %}
- {% call faqItem("Jak długo ładuje się MacBook Pro power bankiem 27000mAh?") %}Power bank 27000mAh (99,9Wh) zapewnia około 1,3–1,5 pełnego ładowania MacBooka Pro 14 cali (bateria 70Wh) lub około 0,7–0,8 ładowania MacBooka Pro 16 cali (bateria 100Wh). Przy sprawności konwersji 85% można oczekiwać około 85Wh energii użytkowej z banku 99,9Wh.{% endcall %}
- {% call faqItem("Czy mogę ładować laptopa i telefon jednocześnie?") %}Tak. Wszystkie power banki do laptopów WOWOHCOOL obsługują jednoczesne wyjście na wiele urządzeń. WOP23 może dostarczać 240W do laptopa, ładując jednocześnie telefon przez dodatkowy port USB-C lub USB-A. Całkowita moc wyjściowa jest dynamicznie rozdzielana między porty.{% endcall %}
- {% call faqItem("Jak obliczyć Wh power banku pod kątem zgodności lotniczej?") %}Wzór: Wh = mAh × Napięcie znamionowe ÷ 1000. Przykład: 27000mAh × 3,7V ÷ 1000 = 99,9Wh (tuż poniżej limitu 100Wh dla bagażu podręcznego). Baterie 100–160Wh wymagają zgody linii lotniczych; powyżej 160Wh są zabronione. Wszystkie modele WOWOHCOOL zaprojektowano na poziomie ≤99,9Wh.{% endcall %}
- </div>
- </div>
-<div class="container-narrow"><p class="mt-6 text-center text-sm text-slate-500 leading-relaxed" data-product-service-link>Potrzebujesz indywidualnego rozwoju, oprzyrządowania lub produkcji private label? Zobacz nasze <a href="/pl/uslugi-oem-odm/" class="text-brandOrange font-bold hover:underline">usługi OEM/ODM</a> lub <a href="/pl/kontakt/" class="text-brandOrange font-bold hover:underline">skontaktuj się z naszym zespołem</a>.</p></div>
 </section>
 
 <!-- Inquiry Form -->
@@ -882,6 +883,7 @@ ruPath: "produkty/poverbanki/dlya-noutbukov/"
 {%- set formHeading = "Poproś o Wycenę Fabryczną Power Banków do Laptopów" %}
 {%- set formSubtext = "MOQ 500 szt. Próbki w 3–7 dni. PD 3.1 do 240W mocy wyjściowej. Personalizacja logo i opakowania w cenie." %}
 {%- set formSubject = "Zapytanie o Power Bank do Laptopa" %}
+
 
 {% include "partials/product-inquiry-form.njk" %}
 

@@ -53,7 +53,7 @@ plPath: "produkty/power-bank/magnetyczny-bezprzewodowy/"
       "@type": "ItemList",
       "name": "12 Qi2 magnetische Powerbanks",
       "url": "https://www.wowohcool.com/de/produkte/powerbank/magnetisch-kabellos/",
-      "numberOfItems": 10,
+      "numberOfItems": {{ "power-bank" | productFamilyModelCount("wireless-magnetic") }},
       "itemListElement": [
         {
           "@type": "ListItem",
@@ -211,7 +211,7 @@ plPath: "produkty/power-bank/magnetyczny-bezprzewodowy/"
         "UL & CE Safety Compliance"
       ],
       "url": "https://www.wowohcool.com/",
-      "description": "Professional OEM/ODM manufacturer of power banks, GaN chargers, wireless chargers, and car chargers since 2013.",
+"description": "Professional OEM/ODM manufacturer of power banks, GaN chargers, wireless chargers, and car chargers since 2013.",
       "contactPoint": {
         "@type": "ContactPoint",
         "email": "info@wowohcool.com",
@@ -289,7 +289,7 @@ plPath: "produkty/power-bank/magnetyczny-bezprzewodowy/"
    <div class="reveal order-2 lg:order-1">
     <div class="badge-capsule mb-6 uppercase tracking-widest">Qi2 / Qi2.2 &middot; Werks-OEM für Marken</div>
     <h1 class="text-3xl md:text-4xl xl:text-5xl font-black text-brandBlue leading-tight mb-6 italic uppercase tracking-tighter">Qi2 Magnetische Powerbank <br><span class="text-brandOrange">Hersteller</span></h1>
-    <p class="text-slate-600 text-lg leading-relaxed mb-6">12 Modelle mit Qi2 / Qi2.2 Magnetic Power Profile. <strong>15-25W kabellos</strong>, MagSafe-kompatibel für iPhone 12-16, Qi2-zertifiziert für Android-Flagship-Geräte. <strong>N52H Neodym-Magnete</strong> für sicheren Halt.</p>
+    <p class="text-slate-600 text-lg leading-relaxed mb-6">{{ "power-bank" | productFamilyModelCount("wireless-magnetic") }} Modelle mit Qi2 / Qi2.2 Magnetic Power Profile. <strong>15-25W kabellos</strong>, MagSafe-kompatibel für iPhone 12-16, Qi2-zertifiziert für Android-Flagship-Geräte. <strong>N52H Neodym-Magnete</strong> für sicheren Halt.</p>
     <div class="flex flex-wrap gap-2 mb-8">
      <span class="trust-badge">Qi2 + Qi2.2</span>
      <span class="trust-badge">MagSafe kompatibel</span>
@@ -297,7 +297,7 @@ plPath: "produkty/power-bank/magnetyczny-bezprzewodowy/"
     </div>
     <div class="btn-pair">
      <button type="button" data-action="open-modal" class="btn-solid cursor-pointer">Werkspreis anfragen &rarr;</button>
-     <a href="#modelle" class="btn-ghost-lg">Modelle ansehen</a>
+     <a href="#models" class="btn-ghost-lg">Modelle ansehen</a>
     </div>
    </div>
    <div class="reveal order-1 lg:order-2">
@@ -312,8 +312,8 @@ plPath: "produkty/power-bank/magnetyczny-bezprzewodowy/"
 <!-- ======== TRUST BAR ======== -->
 {% include "trust-bar.njk" %}
 
-<!-- MODELLE -->
-<section id="modelle" class="sec bg-white" data-section="products">
+<!-- MODELS -->
+<section id="models" class="sec bg-white" data-section="products">
  <div class="container-wide">
   {{ sectionHeader('Modellreihe', '12 Qi2 magnetische Powerbanks', 'Von kompakt 5.000mAh bis 20.000mAh High-Capacity. Alle Modelle mit magnetischer Qi-Ladung und N52H Neodym-Ausrichtung.', {mb: 'mb-12'}) }}
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -612,19 +612,6 @@ plPath: "produkty/power-bank/magnetyczny-bezprzewodowy/"
 
 
 
-<!-- FAQ -->
-<section id="faq" class="sec bg-slate-50" data-section="faq">
- <div class="container-narrow">
- {{ sectionHeader('FAQ', 'Qi2 Magnetisch FAQ', '', {max: ''}) }}
- <div class="reveal">
- {% call faqItem("Was ist Qi2 magnetisches Laden?") %}Qi2 ist der vom Wireless Power Consortium standardisierte Nachfolger von Qi und integriert das Magnetic Power Profile (MPP) auf Basis von Apples MagSafe-Technologie. Qi2 liefert 15W kabellose Schnellladung mit präziser magnetischer Ausrichtung über N52H Neodym-Magnete.{% endcall %}
- {% call faqItem("Sind Qi2 Powerbanks mit MagSafe kompatibel?") %}Ja. Qi2-Magnetic-Powerbanks sind vollständig MagSafe-kompatibel mit iPhone 12-16 Serien. Sie nutzen denselben N52H Magnetring und liefern 15W vs. 7,5W bei reinem Qi-Laden.{% endcall %}
- {% call faqItem("Funktioniert Qi2 mit Android-Smartphones?") %}Ja, mit Qi2-zertifizierten Android-Geräten (Samsung Galaxy S25 Ultra, Pixel 10 Pro, HMD Skyline). Ältere Android-Modelle ohne Magnete laden mit 5W Standard-Qi. Mit Qi2-Hülle erreichen sie volle 15W magnetische Ausrichtung.{% endcall %}
- {% call faqItem("Wie hoch ist die MOQ für Qi2 magnetische Powerbanks?") %}MOQ ab 500 Stück für ODM-Standardmodelle. Custom OEM mit neuem Werkzeug: 1.000-2.000 Stück. Muster in 3-7 Tagen.{% endcall %}
- {% call faqItem("Welche Magnetstärke verwendet WOWOHCOOL?") %}Wir verwenden N52H Neodym-Magnete mit 800-1.200 Gauss Haltekraft. Das entspricht der MagSafe-Spezifikation und sorgt für sicheren Halt auch bei iPhone-Hüllen bis 3mm Dicke.{% endcall %}
- </div>
- </div>
-</section>
 <!-- DACH Retail Pricing -->
 <section id="dach-retail-pricing" class="sec bg-white relative py-12" data-section="pricing">
  <div class="container-wide">
@@ -643,9 +630,10 @@ plPath: "produkty/power-bank/magnetyczny-bezprzewodowy/"
  </div>
  <p class="text-center text-xs text-slate-400 mt-4">Quellen: Chongdiantou Amazon DE Q1 2026, Amazon DE Juli 2026. OEM $12-22 (MOQ 500) = 50-65% Bruttomarge.</p>
  </div>
+</section>
 
- <!-- DACH Marktkontext -->
- <section id="dach-marktkontext" class="sec bg-white relative" data-section="stats">
+ <!-- DACH Market Context -->
+ <section id="market-context" class="sec bg-white relative" data-section="stats">
   <div class="container-wide">
   {{ sectionHeader('Amazon DE Q1 2026 — Chongdiantou Daten', 'Amazon DE: <span class="text-brandOrange">8 von 10 Top-Platzierungen</span> = chinesische Marken', '', { max: '', mb: 'mb-10', titleClass: 'text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4', labelStyle: 'pill', pillClass: 'bg-brandOrange/10', pillMb: 'mb-6' }) }}
   <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
@@ -676,7 +664,21 @@ plPath: "produkty/power-bank/magnetyczny-bezprzewodowy/"
   </div>
  </section>
 
+<!-- FAQ -->
+<section id="faq" class="sec bg-slate-50" data-section="faq">
+ <div class="container-narrow">
+ {{ sectionHeader('FAQ', 'Qi2 Magnetisch FAQ', '', {max: ''}) }}
+ <div class="reveal">
+ {% call faqItem("Was ist Qi2 magnetisches Laden?") %}Qi2 ist der vom Wireless Power Consortium standardisierte Nachfolger von Qi und integriert das Magnetic Power Profile (MPP) auf Basis von Apples MagSafe-Technologie. Qi2 liefert 15W kabellose Schnellladung mit präziser magnetischer Ausrichtung über N52H Neodym-Magnete.{% endcall %}
+ {% call faqItem("Sind Qi2 Powerbanks mit MagSafe kompatibel?") %}Ja. Qi2-Magnetic-Powerbanks sind vollständig MagSafe-kompatibel mit iPhone 12-16 Serien. Sie nutzen denselben N52H Magnetring und liefern 15W vs. 7,5W bei reinem Qi-Laden.{% endcall %}
+ {% call faqItem("Funktioniert Qi2 mit Android-Smartphones?") %}Ja, mit Qi2-zertifizierten Android-Geräten (Samsung Galaxy S25 Ultra, Pixel 10 Pro, HMD Skyline). Ältere Android-Modelle ohne Magnete laden mit 5W Standard-Qi. Mit Qi2-Hülle erreichen sie volle 15W magnetische Ausrichtung.{% endcall %}
+ {% call faqItem("Wie hoch ist die MOQ für Qi2 magnetische Powerbanks?") %}MOQ ab 500 Stück für ODM-Standardmodelle. Custom OEM mit neuem Werkzeug: 1.000-2.000 Stück. Muster in 3-7 Tagen.{% endcall %}
+ {% call faqItem("Welche Magnetstärke verwendet WOWOHCOOL?") %}Wir verwenden N52H Neodym-Magnete mit 800-1.200 Gauss Haltekraft. Das entspricht der MagSafe-Spezifikation und sorgt für sicheren Halt auch bei iPhone-Hüllen bis 3mm Dicke.{% endcall %}
+ </div>
+ </div>
 </section>
+
+{% include "partials/product-cta.njk" %}
 
 <!-- ======== BLOG ARTICLES ======== -->
 <section id="blog-articles" class="sec bg-white" data-section="content">
@@ -783,6 +785,7 @@ plPath: "produkty/power-bank/magnetyczny-bezprzewodowy/"
 {%- set formHeading = "Qi2-Magnet-Powerbank – Muster anfordern" %}
 {%- set formSubtext = "Vorserienmuster verfügbar. MOQ 500 für Standard-ODM. Sonderdesign möglich." %}
 {%- set formSubject = "Anfrage: Qi2-Magnet-Powerbank" %}
+
 
 {% include "partials/product-inquiry-form.njk" %}
 

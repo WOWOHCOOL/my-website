@@ -1,6 +1,6 @@
 ---
 title: "Cargador Escritorio Qi2 Fabricante | Pad + Stand | WOWOHCOOL"
-description: "Cargador inalámbrico Qi2 escritorio fábrica OEM. 3 modelos: stand vertical 15W, pad LED 11mm, diseño patentado. Qi2.2 25W Q3 2026. MOQ 500."
+description: "Cargador inalámbrico Qi2 escritorio fábrica OEM. : stand vertical 15W, pad LED 11mm, diseño patentado. Qi2.2 25W Q3 2026. MOQ 500."
 canonical: "/es/productos/cargador-inalambrico/escritorio/"
 enPath: "products/wireless-charger/desktop/"
 frPath: "produits/chargeur-sans-fil/bureau/"
@@ -51,7 +51,7 @@ plPath: "produkty/ladowarka-bezprzewodowa/biurkowa/"
       "@type": "ItemList",
       "name": "3 Modelos Cargadores Escritorio OEM",
       "url": "https://www.wowohcool.com/es/productos/cargador-inalambrico/escritorio/",
-      "numberOfItems": 3,
+      "numberOfItems": {{ "wireless-charger" | productFamilyModelCount("desktop") }},
       "itemListElement": [
         {
           "@type": "ListItem",
@@ -78,7 +78,7 @@ plPath: "produkty/ladowarka-bezprzewodowa/biurkowa/"
       "url": "https://www.wowohcool.com/es/productos/cargador-inalambrico/escritorio/",
       "@type": "Product",
       "name": "Cargador Inalámbrico Escritorio OEM/ODM",
-      "description": "Cargador inalámbrico Qi2 escritorio fábrica OEM. 3 modelos: stand vertical 15W, pad LED ultra-slim 11mm, diseño patentado minimalista. Qi2.2 25W Q3 2026. CE, FCC, Qi2 WPC, RoHS. MOQ 500. Shenzhen desde 2013.",
+"description": "Cargador inalámbrico Qi2 escritorio fábrica OEM. : stand vertical 15W, pad LED ultra-slim 11mm, diseño patentado minimalista. Qi2.2 25W Q3 2026. CE, FCC, Qi2 WPC, RoHS. MOQ 500. Shenzhen desde 2013.",
       "brand": {
         "@type": "Brand",
         "name": "WOWOHCOOL"
@@ -167,7 +167,7 @@ plPath: "produkty/ladowarka-bezprzewodowa/biurkowa/"
         "UL & CE Safety Compliance"
       ],
       "url": "https://www.wowohcool.com/",
-      "description": "Professional OEM/ODM manufacturer of power banks, GaN chargers, wireless chargers, and car chargers since 2013.",
+"description": "Professional OEM/ODM manufacturer of power banks, GaN chargers, wireless chargers, and car chargers since 2013.",
       "contactPoint": {
         "@type": "ContactPoint",
         "email": "info@wowohcool.com",
@@ -245,7 +245,7 @@ plPath: "produkty/ladowarka-bezprzewodowa/biurkowa/"
    <div class="reveal order-2 lg:order-1">
     <div class="badge-capsule mb-6 uppercase tracking-widest">Escritorio · Fábrica OEM para volumen</div>
     <h1 class="text-3xl md:text-4xl xl:text-5xl font-black text-brandBlue leading-tight mb-6 italic uppercase tracking-tighter">Cargador Inalámbrico Escritorio <br><span class="text-brandOrange">Fabricante</span></h1>
-    <p class="text-slate-600 text-lg leading-relaxed mb-6">Cargadores magneticos Qi2 con <strong>imanes N52H</strong>. 3 modelos: stand vertical 15W, pad LED 11mm ultra-slim, diseño minimalista patentado. <strong>Qi2.2 25W desde Q3 2026.</strong></p>
+    <p class="text-slate-600 text-lg leading-relaxed mb-6">Cargadores magneticos Qi2 con <strong>imanes N52H</strong>. {{ "wireless-charger" | productFamilyModelCount("desktop") }} modelos: stand vertical 15W, pad LED 11mm ultra-slim, diseño minimalista patentado. <strong>Qi2.2 25W desde Q3 2026.</strong></p>
     <div class="flex flex-wrap gap-2 mb-8">
      <span class="trust-badge">Qi2 WPC Certificado</span>
      <span class="trust-badge">CE + RAEE España</span>
@@ -253,7 +253,7 @@ plPath: "produkty/ladowarka-bezprzewodowa/biurkowa/"
     </div>
     <div class="btn-pair">
      <button type="button" data-action="open-modal" class="btn-solid cursor-pointer">Solicitar precio fábrica &rarr;</button>
-     <a href="#modelos" class="btn-ghost-lg">Ver 3 modelos</a>
+    <a href="#models" class="btn-ghost-lg">Ver {{ "wireless-charger" | productFamilyModelCount("desktop") }} modelos</a>
     </div>
    </div>
    <div class="reveal order-1 lg:order-2">
@@ -270,9 +270,10 @@ plPath: "produkty/ladowarka-bezprzewodowa/biurkowa/"
 
 
 <!-- Product Cards -->
-<section id="modelos" class="sec bg-white" data-section="products">
+<section id="models" class="sec bg-white" data-section="products">
  <div class="container-wide">
-  {% call sectionHeader('Modelos', '3 Modelos Cargadores <span class="text-brandOrange">Escritorio OEM</span>', '', {mb: 'mb-12', titleClass: 'text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4'}) %}<p class="text-slate-500">3 modelos | Pad + Stand | 11mm Ultra-Slim | Patentes exclusivas</p>
+  {% set desktopModelCount = 'wireless-charger' | productFamilyModelCount('desktop') %}
+  {% call sectionHeader('Modelos', desktopModelCount + ' Modelos Cargadores <span class="text-brandOrange">Escritorio OEM</span>', '', {mb: 'mb-12', titleClass: 'text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4'}) %}<p class="text-slate-500">{{ desktopModelCount }} modelos | Pad + Stand | 11mm Ultra-Slim | Patentes exclusivas</p>
   {% endcall %}
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
@@ -333,7 +334,7 @@ plPath: "produkty/ladowarka-bezprzewodowa/biurkowa/"
   </div>
  </section>
 
- <section id="content" class="sec bg-white py-8" data-section="content">
+<section id="market-context" class="sec bg-white py-8" data-section="content">
  <div class="container-wide">
  <blockquote class="bg-brandOrange/5 border-l-4 border-brandOrange rounded-r-xl px-6 py-5 text-sm text-slate-700 italic leading-relaxed">
   <p>"El mercado global de estaciones de carga de escritorio se valoro en 1,45-2,41B USD en 2024 y alcanzara 5,72-7,54B USD en 2033 (CAGR 16,5-17,2%). Se vendieron 140M de cargadores single-PAD en 2025 (QYResearch). El segmento de cargadores para iPhone muestra una ratio oferta-demanda de 19,8 - grave escasez de oferta (Alibaba 2026). Para España: el RD 208/2025 sobre RAEE y la Ley 7/2022 de residuos aplican a cargadores importados."</p>
@@ -409,6 +410,8 @@ plPath: "produkty/ladowarka-bezprzewodowa/biurkowa/"
  </div>
  </div>
 </section>
+
+{% include "partials/product-cta.njk" %}
 
 <!-- ======== BLOG ARTICLES ======== -->
 <section id="blog-articles" class="sec bg-white" data-section="content">

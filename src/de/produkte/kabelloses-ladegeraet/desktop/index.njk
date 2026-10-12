@@ -53,7 +53,7 @@ plPath: "produkty/ladowarka-bezprzewodowa/biurkowa/"
       "@type": "ItemList",
       "name": "3 Desktop-Ladegeräte",
       "url": "https://www.wowohcool.com/de/produkte/kabelloses-ladegeraet/desktop/",
-      "numberOfItems": 3,
+      "numberOfItems": {{ "wireless-charger" | productFamilyModelCount("desktop") }},
       "itemListElement": [
         {
           "@type": "ListItem",
@@ -80,7 +80,7 @@ plPath: "produkty/ladowarka-bezprzewodowa/biurkowa/"
       "url": "https://www.wowohcool.com/de/produkte/kabelloses-ladegeraet/desktop/",
       "@type": "Product",
       "name": "Desktop Qi2 Ladegerät OEM/ODM",
-      "description": "Desktop kabelloses Ladegerät Werks-OEM. 3 Modelle: Vertikal-Stand 15W, 11mm Ultra-Slim LED-Pad, minimalistisches Patent-Design. Qi2.2 25W Modelle ab Q3 2026. CE, TÜV GS, Qi2 WPC zertifiziert. MOQ 500. Shenzhen seit 2013.",
+"description": "Desktop kabelloses Ladegerät Werks-OEM. e: Vertikal-Stand 15W, 11mm Ultra-Slim LED-Pad, minimalistisches Patent-Design. Qi2.2 25W Modelle ab Q3 2026. CE, TÜV GS, Qi2 WPC zertifiziert. MOQ 500. Shenzhen seit 2013.",
       "brand": {
         "@type": "Brand",
         "name": "WOWOHCOOL"
@@ -169,7 +169,7 @@ plPath: "produkty/ladowarka-bezprzewodowa/biurkowa/"
         "UL & CE Safety Compliance"
       ],
       "url": "https://www.wowohcool.com/",
-      "description": "Professional OEM/ODM manufacturer of power banks, GaN chargers, wireless chargers, and car chargers since 2013.",
+"description": "Professional OEM/ODM manufacturer of power banks, GaN chargers, wireless chargers, and car chargers since 2013.",
       "contactPoint": {
         "@type": "ContactPoint",
         "email": "info@wowohcool.com",
@@ -247,7 +247,7 @@ plPath: "produkty/ladowarka-bezprzewodowa/biurkowa/"
    <div class="reveal order-2 lg:order-1">
     <div class="badge-capsule mb-6 uppercase tracking-widest">Desktop &middot; Werks-OEM für Volumen</div>
     <h1 class="text-3xl md:text-4xl xl:text-5xl font-black text-brandBlue leading-tight mb-6 italic uppercase tracking-tighter">Desktop Kabelloses Ladegerät <br><span class="text-brandOrange">Hersteller</span></h1>
-    <p class="text-slate-600 text-lg leading-relaxed mb-6"><strong>Qi2 Desktop-Pads und -Ständer ab Werk Shenzhen</strong> — das volumenstärkste Segment im Wireless-Charging-Markt. 3 Modelle: Vertikal-Stand 15W, 11mm Ultra-Slim LED-Pad, minimalistisches Patent-Design. <strong>Qi2.2 25W Modelle ab Q3 2026.</strong> CE, TÜV GS, Qi2 WPC zertifiziert. MOQ 500.</p>
+    <p class="text-slate-600 text-lg leading-relaxed mb-6"><strong>Qi2 Desktop-Pads und -Ständer ab Werk Shenzhen</strong> — das volumenstärkste Segment im Wireless-Charging-Markt. {{ 'wireless-charger' | productFamilyModelCount('desktop') }} Modelle: Vertikal-Stand 15W, 11mm Ultra-Slim LED-Pad, minimalistisches Patent-Design. <strong>Qi2.2 25W Modelle ab Q3 2026.</strong> CE, TÜV GS, Qi2 WPC zertifiziert. MOQ 500.</p>
     <div class="flex flex-wrap gap-2 mb-8">
      <span class="trust-badge">Qi2 WPC + CE + TÜV GS</span>
      <span class="trust-badge">55-60% Absatzvolumen</span>
@@ -255,7 +255,7 @@ plPath: "produkty/ladowarka-bezprzewodowa/biurkowa/"
     </div>
     <div class="btn-pair">
      <button type="button" data-action="open-modal" class="btn-solid cursor-pointer">Werkspreis anfragen &rarr;</button>
-     <a href="#modelle" class="btn-ghost-lg">3 Modelle ansehen</a>
+     <a href="#models" class="btn-ghost-lg">{{ "wireless-charger" | productFamilyModelCount("desktop") }} Modelle ansehen</a>
     </div>
    </div>
    <div class="reveal order-1 lg:order-2">
@@ -270,8 +270,8 @@ plPath: "produkty/ladowarka-bezprzewodowa/biurkowa/"
 <!-- ======== TRUST BAR ======== -->
 {% include "trust-bar.njk" %}
 
-<!-- MODELLE -->
-<section id="modelle" class="sec bg-white" data-section="products">
+<!-- MODELS -->
+<section id="models" class="sec bg-white" data-section="products">
  <div class="container-wide">
   {{ sectionHeader('Modelle', '3 Desktop-Ladegeräte', 'Vom Vertikal-Stand mit Face-ID-Support bis zum 11mm Ultra-Slim-Pad mit patentierter Technik. Alle Modelle Qi2 WPC zertifiziert, CE + TÜV GS.', {mb: 'mb-12'}) }}
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -366,7 +366,7 @@ plPath: "produkty/ladowarka-bezprzewodowa/biurkowa/"
 </section>
 
 
-<!-- KENNZAHLEN -->
+<!-- KEY FIGURES -->
 <section id="kennzahlen" class="sec bg-white" data-section="stats">
  <div class="container-wide">
   <div class="grid md:grid-cols-3 gap-6 reveal">
@@ -378,7 +378,7 @@ plPath: "produkty/ladowarka-bezprzewodowa/biurkowa/"
 </section>
 
 <!-- PAD VS STAND VERGLEICH -->
-<section id="pad-vs-stand-vergleich" class="sec bg-slate-50" data-section="comparison">
+<section id="pad-vs-stand-comparison" class="sec bg-slate-50" data-section="comparison">
  <div class="container-wide">
   {{ sectionHeader('Formfaktor-Vergleich', 'Pad vs. Stand vs. Vertikal-Dock', 'Jeder Formfaktor bedient eine andere Käufergruppe und Preislage. Wählen Sie die richtige Kategorie für Ihren Vertriebskanal.', {mb: 'mb-12'}) }}
   <div class="overflow-x-auto reveal rounded-2xl border border-slate-200 shadow-sm bg-white">
@@ -401,8 +401,8 @@ plPath: "produkty/ladowarka-bezprzewodowa/biurkowa/"
  </div>
 </section>
 
-<!-- DACH MARKT -->
-<section id="dach-markt" class="sec bg-white" data-section="stats">
+<!-- DACH MARKET -->
+<section id="dach-market" class="sec bg-white" data-section="stats">
  <div class="container-wide">
   {{ sectionHeader('DACH-Markt 2026', 'Desktop-Ladegeräte im Retail vs. Werks-OEM', 'Marken wie <strong>Anker, Belkin und ESR</strong> dominieren den DACH-Retail mit Qi2-Desktop-Ladegeräten. Hinter ihren Produkten stehen OEM-Werke in China. Wir sind eines davon — und arbeiten direkt mit deutschen Marken zusammen.', {mb: 'mb-12'}) }}
   <div class="overflow-x-auto reveal rounded-2xl border border-slate-200 shadow-sm bg-white">
@@ -425,20 +425,6 @@ plPath: "produkty/ladowarka-bezprzewodowa/biurkowa/"
  </div>
 </section>
 
-<!-- FAQ -->
-<section id="faq" class="sec bg-slate-50" data-section="faq">
- <div class="container-narrow">
- {{ sectionHeader('FAQ', 'Häufige Fragen zu Desktop-Ladegeräten', '', {max: ''}) }}
- <div class="reveal">
- {% call faqItem("Was ist der Unterschied zwischen Lade-Pad und Lade-Stand?") %}Ein flaches Pad (WOW33, WOW40) liegt horizontal auf dem Schreibtisch. Ein vertikaler Stand (WOW68) hält das Handy aufrecht für Face ID und Videocalls. Pads machen 55-60% des Volumens aus — das volumenstärkste Segment für B2B-Importeure.{% endcall %}
- {% call faqItem("Wie hoch ist die MOQ für Desktop-Ladegeräte?") %}MOQ <strong>500 Stück</strong> für ODM mit Logo. Full OEM: <strong>2.000 Stück</strong>. Muster in 3-7 Tagen. Flexible Stückzahlen für Start-ups.{% endcall %}
- {% call faqItem("Kann ich exklusive Patent-Designs lizenzieren?") %}Ja. WOW33 und WOW40 haben exklusive Patent-Designs für OEM/ODM-Lizenzierung. Ihre Marke erhält ein einzigartiges Produkt — kein Copycat-Risiko auf Amazon. MOQ 2.000 für patentbasiertes ODM mit vollständiger CMF-Anpassung.{% endcall %}
- {% call faqItem("Wann kommen Qi2.2 25W Desktop-Ladegeräte?") %}Qi2.2 25W magnetisches Pad und Desktop-Stand starten in <strong>Q3 2026</strong>. Jetzt vormerken für Early-Bird-Muster und Vorzugspreise.{% endcall %}
- {% call faqItem("Wie lange dauert die OEM/ODM-Produktion?") %}OEM: <strong>25-30 Tage</strong> nach Musterfreigabe. ODM: <strong>45-60 Tage</strong> inkl. Werkzeugbau. Express DHL/FedEx 5-7 Tage nach Deutschland. DDP inkl. Zoll verfügbar.{% endcall %}
- </div>
- </div>
-</section>
-
 <!-- DACH Retail Pricing -->
 <section id="dach-retail-pricing" class="sec bg-white relative py-12" data-section="pricing">
  <div class="container-wide">
@@ -457,9 +443,10 @@ plPath: "produkty/ladowarka-bezprzewodowa/biurkowa/"
  </div>
  <p class="text-center text-xs text-slate-400 mt-4">Quellen: Amazon DE, MediaMarkt — Juli 2026. OEM 15-35 USD (MOQ 500).</p>
  </div>
+</section>
 
- <!-- DACH Marktkontext -->
- <section id="dach-marktkontext" class="sec bg-white relative" data-section="stats">
+ <!-- DACH Market Context -->
+ <section id="market-context" class="sec bg-white relative" data-section="stats">
   <div class="container-wide">
   {{ sectionHeader('Home-Office DACH — 42% Hybrid-Arbeit', 'Desktop = <span class="text-brandOrange">55-60% des Absatzvolumens</span>, 17,2% CAGR', '', { max: '', mb: 'mb-10', titleClass: 'text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4', labelStyle: 'pill', pillClass: 'bg-brandOrange/10', pillMb: 'mb-6' }) }}
   <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
@@ -490,7 +477,21 @@ plPath: "produkty/ladowarka-bezprzewodowa/biurkowa/"
   </div>
  </section>
 
+<!-- FAQ -->
+<section id="faq" class="sec bg-slate-50" data-section="faq">
+ <div class="container-narrow">
+ {{ sectionHeader('FAQ', 'Häufige Fragen zu Desktop-Ladegeräten', '', {max: ''}) }}
+ <div class="reveal">
+ {% call faqItem("Was ist der Unterschied zwischen Lade-Pad und Lade-Stand?") %}Ein flaches Pad (WOW33, WOW40) liegt horizontal auf dem Schreibtisch. Ein vertikaler Stand (WOW68) hält das Handy aufrecht für Face ID und Videocalls. Pads machen 55-60% des Volumens aus — das volumenstärkste Segment für B2B-Importeure.{% endcall %}
+ {% call faqItem("Wie hoch ist die MOQ für Desktop-Ladegeräte?") %}MOQ <strong>500 Stück</strong> für ODM mit Logo. Full OEM: <strong>2.000 Stück</strong>. Muster in 3-7 Tagen. Flexible Stückzahlen für Start-ups.{% endcall %}
+ {% call faqItem("Kann ich exklusive Patent-Designs lizenzieren?") %}Ja. WOW33 und WOW40 haben exklusive Patent-Designs für OEM/ODM-Lizenzierung. Ihre Marke erhält ein einzigartiges Produkt — kein Copycat-Risiko auf Amazon. MOQ 2.000 für patentbasiertes ODM mit vollständiger CMF-Anpassung.{% endcall %}
+ {% call faqItem("Wann kommen Qi2.2 25W Desktop-Ladegeräte?") %}Qi2.2 25W magnetisches Pad und Desktop-Stand starten in <strong>Q3 2026</strong>. Jetzt vormerken für Early-Bird-Muster und Vorzugspreise.{% endcall %}
+ {% call faqItem("Wie lange dauert die OEM/ODM-Produktion?") %}OEM: <strong>25-30 Tage</strong> nach Musterfreigabe. ODM: <strong>45-60 Tage</strong> inkl. Werkzeugbau. Express DHL/FedEx 5-7 Tage nach Deutschland. DDP inkl. Zoll verfügbar.{% endcall %}
+ </div>
+ </div>
 </section>
+
+{% include "partials/product-cta.njk" %}
 
 <!-- ======== BLOG ARTICLES ======== -->
 <section id="blog-articles" class="sec bg-white" data-section="content">
@@ -597,6 +598,7 @@ plPath: "produkty/ladowarka-bezprzewodowa/biurkowa/"
 {%- set formHeading = "Desktop-Ladegerät – Fabrikpreis anfordern" %}
 {%- set formSubtext = "Beschreiben Sie Ihr Projekt: Standgerät, Ultra-Slim-Pad, Qi2.2-25-W-Pad oder -Standfuß – vom Prototyp bis zur Serienfertigung." %}
 {%- set formSubject = "Produktanfrage: Desktop-Ladestation" %}
+
 
 {% include "partials/product-inquiry-form.njk" %}
 {% endblock %}

@@ -83,7 +83,7 @@ plPath: "produkty/power-bank/do-laptopa/"
       "url": "https://www.wowohcool.com/fr/produits/batterie-externe/batterie-externe-ordinateur-portable/",
       "@type": "Product",
       "name": "Batterie Externe PC Portable OEM/ODM (65W-240W PD 3.1)",
-      "description": "Batteries externes pour PC portable avec charge rapide PD 3.1. Sortie 65W à 240W, capacités 20000-27000mAh. Alimente MacBook Pro, PC gaming et appareils multiples. Certifié UN38.3 pour fret aérien mondial.",
+"description": "Batteries externes pour PC portable avec charge rapide PD 3.1. Sortie 65W à 240W, capacités 20000-27000mAh. Alimente MacBook Pro, PC gaming et appareils multiples. Certifié UN38.3 pour fret aérien mondial.",
       "brand": {
         "@type": "Brand",
         "name": "WOWOHCOOL"
@@ -188,7 +188,7 @@ plPath: "produkty/power-bank/do-laptopa/"
         "UL & CE Safety Compliance"
       ],
       "url": "https://www.wowohcool.com/",
-      "description": "Professional OEM/ODM manufacturer of power banks, GaN chargers, wireless chargers, and car chargers since 2013.",
+"description": "Professional OEM/ODM manufacturer of power banks, GaN chargers, wireless chargers, and car chargers since 2013.",
       "contactPoint": {
         "@type": "ContactPoint",
         "email": "info@wowohcool.com",
@@ -290,7 +290,7 @@ plPath: "produkty/power-bank/do-laptopa/"
  Demander le prix usine
  </button>
  <a href="#products" class="btn-ghost-lg">
- Voir 4 modèles
+ Voir {{ "power-bank" | productFamilyModelCount("laptop-power") }} modèles
  </a>
  </div>
  </div>
@@ -303,7 +303,7 @@ plPath: "produkty/power-bank/do-laptopa/"
 <section id="products" class="sec bg-white relative" data-section="products">
  <div class="container-wide">
  <h2 class="text-2xl font-black text-brandBlue uppercase italic tracking-tighter mb-2">Batteries externes PC portable</h2>
- <p class="text-slate-500 text-sm mb-10">4 modèles | 20000-27000mAh | Sortie PD 65W-240W</p>
+ <p class="text-slate-500 text-sm mb-10">{{ "power-bank" | productFamilyModelCount("laptop-power") }} modèles | 20000-27000mAh | Sortie PD 65W-240W</p>
 
  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
@@ -1097,6 +1097,24 @@ plPath: "produkty/power-bank/do-laptopa/"
   </div>
  </section>
 
+<!-- FAQ -->
+<section id="faq" class="sec bg-slate-50" data-section="faq">
+ <div class="container-narrow">
+ {{ sectionHeader('FAQ', 'Batterie externe PC portable <span class="text-brandOrange">FAQ</span>', '', {max: ''}) }}
+ <div class="reveal">
+ {% call faqItem("Une batterie externe peut-elle charger un MacBook Pro ?") %}Oui. Les modèles avec sortie PD 67W ou plus (WOP21, WOP22, WOP23) chargent les MacBook Pro 13/14/16 pouces à pleine vitesse. Le modèle WOP23 PD 3.1 240W prend également en charge la charge rapide du MacBook Pro 16 pouces à 140W, égalant la sortie du chargeur MagSafe 3 d'Apple.{% endcall %}
+ {% call faqItem("Quelle est la différence entre PD 3.1 et PD 3.0 ?") %}Le PD 3.0 est limité à 100W maximum. Le PD 3.1 (publié en 2021) étend la norme jusqu'à 240W en utilisant les nouvelles tensions 28V, 36V et 48V (Extended Power Range, EPR). Le PD 3.1 est requis pour charger les PC portables gaming et le MacBook Pro 16 pouces à pleine vitesse.{% endcall %}
+ {% call faqItem("Une batterie externe 27000mAh est-elle autorisée en avion ?") %}Oui. 27000mAh à 3,7V équivaut à 99,9Wh, juste sous la limite bagage cabine IATA de 100Wh. Toutes les batteries externes WOWOHCOOL sont certifiées UN38.3 et approuvées pour le transport en cabine. Au-delà de 100Wh, une approbation de la compagnie est requise et le transport en soute est interdit.{% endcall %}
+ {% call faqItem("Quel est le MOQ pour une batterie externe PC portable en OEM ?") %}Le MOQ commence à 500 unités pour les modèles ODM standards avec impression logo personnalisée. OEM sur mesure avec outillage : 1 000-2 000 unités. Délai d'échantillon : 3-7 jours pour le standard, 10-15 jours pour le sur mesure.{% endcall %}
+ {% call faqItem("Combien de temps une batterie 27000mAh charge-t-elle un MacBook Pro ?") %}Une batterie externe 27000mAh (99,9Wh) fournit environ 1,3 à 1,5 charge complète pour un MacBook Pro 14" (batterie 70Wh) ou environ 0,7 à 0,8 charge pour un MacBook Pro 16" (batterie 100Wh). Avec 85 % d'efficacité de conversion, prévoyez 85Wh d'énergie utilisable.{% endcall %}
+ {% call faqItem("Puis-je charger un PC portable et un téléphone simultanément ?") %}Oui. Toutes les batteries externes WOWOHCOOL prennent en charge la sortie simultanée multi-appareils. Le WOP23 peut délivrer 240W à un PC portable tout en chargeant un téléphone via le port USB-C ou USB-A secondaire. La sortie totale est répartie dynamiquement entre les ports.{% endcall %}
+ {% call faqItem("Comment calculer les Wh pour la conformité aérienne ?") %}Formule : Wh = mAh × Tension Nominale ÷ 1000. Exemple : 27000mAh × 3,7V ÷ 1000 = 99,9Wh (juste sous la limite bagage cabine de 100Wh). Les batteries 100-160Wh nécessitent une approbation de la compagnie aérienne ; au-delà de 160Wh, elles sont interdites à bord.{% endcall %}
+ </div>
+ </div>
+</section>
+
+{% include "partials/product-cta.njk" %}
+
  <!-- ======== BLOG ARTICLES ======== -->
 <section id="blog-articles" class="sec bg-white" data-section="content">
  <div class="container-wide">
@@ -1191,27 +1209,10 @@ plPath: "produkty/power-bank/do-laptopa/"
      <svg class="w-5 h-5 text-brandOrange group-hover:text-white transition-colors duration-300" aria-hidden="true" focusable="false" viewBox="0 0 512 512"><path d="M232.5 5.2c14.9-6.9 32.1-6.9 47 0l218.6 101c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L13.9 149.8C5.4 145.8 0 137.3 0 128s5.4-17.9 13.9-21.8L232.5 5.2zM48.1 218.4l164.3 75.9c27.7 12.8 59.6 12.8 87.3 0l164.3-75.9 34.1 15.8c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L13.9 277.8C5.4 273.8 0 265.3 0 256s5.4-17.9 13.9-21.8l34.1-15.8zM13.9 362.2l34.1-15.8 164.3 75.9c27.7 12.8 59.6 12.8 87.3 0l164.3-75.9 34.1 15.8c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L13.9 405.8C5.4 401.8 0 393.3 0 384s5.4-17.9 13.9-21.8z" fill="currentColor"/></svg>
     </div>
     <p class="font-black text-brandBlue text-sm uppercase mb-1 group-hover:text-brandOrange transition">Toutes les batteries externes</p>
-    <p class="text-micro text-slate-500">29 modèles au total</p>
+    <p class="text-micro text-slate-500">{{ "power-bank" | productCategoryModelCount }} modèles au total</p>
    </a>
   </div>
  </div>
-</section>
-
-<!-- FAQ -->
-<section id="faq" class="sec bg-slate-50" data-section="faq">
- <div class="container-narrow">
- {{ sectionHeader('FAQ', 'Batterie externe PC portable <span class="text-brandOrange">FAQ</span>', '', {max: ''}) }}
- <div class="reveal">
- {% call faqItem("Une batterie externe peut-elle charger un MacBook Pro ?") %}Oui. Les modèles avec sortie PD 67W ou plus (WOP21, WOP22, WOP23) chargent les MacBook Pro 13/14/16 pouces à pleine vitesse. Le modèle WOP23 PD 3.1 240W prend également en charge la charge rapide du MacBook Pro 16 pouces à 140W, égalant la sortie du chargeur MagSafe 3 d'Apple.{% endcall %}
- {% call faqItem("Quelle est la différence entre PD 3.1 et PD 3.0 ?") %}Le PD 3.0 est limité à 100W maximum. Le PD 3.1 (publié en 2021) étend la norme jusqu'à 240W en utilisant les nouvelles tensions 28V, 36V et 48V (Extended Power Range, EPR). Le PD 3.1 est requis pour charger les PC portables gaming et le MacBook Pro 16 pouces à pleine vitesse.{% endcall %}
- {% call faqItem("Une batterie externe 27000mAh est-elle autorisée en avion ?") %}Oui. 27000mAh à 3,7V équivaut à 99,9Wh, juste sous la limite bagage cabine IATA de 100Wh. Toutes les batteries externes WOWOHCOOL sont certifiées UN38.3 et approuvées pour le transport en cabine. Au-delà de 100Wh, une approbation de la compagnie est requise et le transport en soute est interdit.{% endcall %}
- {% call faqItem("Quel est le MOQ pour une batterie externe PC portable en OEM ?") %}Le MOQ commence à 500 unités pour les modèles ODM standards avec impression logo personnalisée. OEM sur mesure avec outillage : 1 000-2 000 unités. Délai d'échantillon : 3-7 jours pour le standard, 10-15 jours pour le sur mesure.{% endcall %}
- {% call faqItem("Combien de temps une batterie 27000mAh charge-t-elle un MacBook Pro ?") %}Une batterie externe 27000mAh (99,9Wh) fournit environ 1,3 à 1,5 charge complète pour un MacBook Pro 14" (batterie 70Wh) ou environ 0,7 à 0,8 charge pour un MacBook Pro 16" (batterie 100Wh). Avec 85 % d'efficacité de conversion, prévoyez 85Wh d'énergie utilisable.{% endcall %}
- {% call faqItem("Puis-je charger un PC portable et un téléphone simultanément ?") %}Oui. Toutes les batteries externes WOWOHCOOL prennent en charge la sortie simultanée multi-appareils. Le WOP23 peut délivrer 240W à un PC portable tout en chargeant un téléphone via le port USB-C ou USB-A secondaire. La sortie totale est répartie dynamiquement entre les ports.{% endcall %}
- {% call faqItem("Comment calculer les Wh pour la conformité aérienne ?") %}Formule : Wh = mAh × Tension Nominale ÷ 1000. Exemple : 27000mAh × 3,7V ÷ 1000 = 99,9Wh (juste sous la limite bagage cabine de 100Wh). Les batteries 100-160Wh nécessitent une approbation de la compagnie aérienne ; au-delà de 160Wh, elles sont interdites à bord.{% endcall %}
- </div>
- </div>
-<div class="container-narrow"><p class="mt-6 text-center text-sm text-slate-500 leading-relaxed" data-product-service-link>Besoin de développement sur mesure, d'outillage ou de production en marque blanche ? Consultez notre <a href="/fr/service-oem-odm/" class="text-brandOrange font-bold hover:underline">service OEM/ODM</a> ou <a href="/fr/contact/" class="text-brandOrange font-bold hover:underline">contactez notre équipe</a>.</p></div>
 </section>
 
 <!-- Inquiry Form -->
@@ -1219,6 +1220,7 @@ plPath: "produkty/power-bank/do-laptopa/"
 {%- set formHeading = "Obtenir le prix usine — Batterie externe PC portable" %}
 {%- set formSubtext = "MOQ 500 unités. Échantillon en 3-7 jours. Sortie PD 3.1 jusqu'à 240W. Logo et emballage personnalisés inclus." %}
 {%- set formSubject = "Demande Batterie Externe PC Portable" %}
+
 
 {% include "partials/product-inquiry-form.njk" %}
 

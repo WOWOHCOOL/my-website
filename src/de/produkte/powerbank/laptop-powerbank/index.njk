@@ -53,7 +53,7 @@ plPath: "produkty/power-bank/do-laptopa/"
       "@type": "ItemList",
       "name": "4 Hochleistungs-Laptop-Powerbanks",
       "url": "https://www.wowohcool.com/de/produkte/powerbank/laptop-powerbank/",
-      "numberOfItems": 4,
+      "numberOfItems": {{ "power-bank" | productFamilyModelCount("laptop-power") }},
       "itemListElement": [
         {
           "@type": "ListItem",
@@ -86,7 +86,7 @@ plPath: "produkty/power-bank/do-laptopa/"
       "url": "https://www.wowohcool.com/de/produkte/powerbank/laptop-powerbank/",
       "@type": "Product",
       "name": "Laptop-Powerbank PD 3.1 OEM/ODM",
-      "description": "Hochleistungs-Powerbanks mit PD 3.1 65-240W für MacBook Pro, Dell XPS, ThinkPad und Gaming-Laptops. 20.000-27.000mAh, IATA-konform für Handgepäck.",
+"description": "Hochleistungs-Powerbanks mit PD 3.1 65-240W für MacBook Pro, Dell XPS, ThinkPad und Gaming-Laptops. 20.000-27.000mAh, IATA-konform für Handgepäck.",
       "brand": {
         "@type": "Brand",
         "name": "WOWOHCOOL"
@@ -175,7 +175,7 @@ plPath: "produkty/power-bank/do-laptopa/"
         "UL & CE Safety Compliance"
       ],
       "url": "https://www.wowohcool.com/",
-      "description": "Professional OEM/ODM manufacturer of power banks, GaN chargers, wireless chargers, and car chargers since 2013.",
+"description": "Professional OEM/ODM manufacturer of power banks, GaN chargers, wireless chargers, and car chargers since 2013.",
       "contactPoint": {
         "@type": "ContactPoint",
         "email": "info@wowohcool.com",
@@ -261,7 +261,7 @@ plPath: "produkty/power-bank/do-laptopa/"
     </div>
     <div class="btn-pair">
      <button type="button" data-action="open-modal" class="btn-solid cursor-pointer">Werkspreis anfragen &rarr;</button>
-     <a href="#modelle" class="btn-ghost-lg">Modelle ansehen</a>
+     <a href="#models" class="btn-ghost-lg">Modelle ansehen</a>
     </div>
    </div>
    <div class="reveal order-1 lg:order-2">
@@ -276,8 +276,8 @@ plPath: "produkty/power-bank/do-laptopa/"
 <!-- ======== TRUST BAR ======== -->
 {% include "trust-bar.njk" %}
 
-<!-- MODELLE -->
-<section id="modelle" class="sec bg-white" data-section="products">
+<!-- MODELS -->
+<section id="models" class="sec bg-white" data-section="products">
  <div class="container-wide">
   {{ sectionHeader('Modellreihe', '4 Hochleistungs-Laptop-Powerbanks', 'Von 65W für Ultrabooks bis 240W für Profi-Workstations und Gaming-Laptops.', {mb: 'mb-12'}) }}
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -387,7 +387,7 @@ plPath: "produkty/power-bank/do-laptopa/"
 </section>
 
 <!-- LAPTOP-KOMPATIBILITÄT -->
-<section id="laptop-kompatibilitaet" class="sec bg-slate-50" data-section="content">
+<section id="laptop-compatibility" class="sec bg-slate-50" data-section="content">
  <div class="container-wide">
   {{ sectionHeader('Grundlagen', 'Was macht eine <span class="text-brandOrange">Laptop-Powerbank</span> aus?', 'Nicht jede Powerbank kann einen Laptop laden. PD 3.1 mit 65–240W ist der entscheidende Unterschied.', {mb: 'mb-12'}) }}
   <div class="grid md:grid-cols-3 gap-8">
@@ -447,7 +447,7 @@ plPath: "produkty/power-bank/do-laptopa/"
 </section>
 
 <!-- Kompatibilität -->
-<section id="kompatibilitaet" class="pt-20 pb-4 bg-white" data-section="comparison">
+<section id="compatibility-guide" class="pt-20 pb-4 bg-white" data-section="comparison">
  <div class="container-wide">
   {{ sectionHeader('Kompatibilität', 'Laptop-Wattzahl-Leitfaden', 'Welche Powerbank-Leistung passt zu welchem Laptop? Übersicht der Hersteller-Anforderungen.', {mb: 'mb-12'}) }}
   <div class="overflow-x-auto reveal rounded-2xl border border-slate-200 shadow-sm bg-white">
@@ -471,19 +471,6 @@ plPath: "produkty/power-bank/do-laptopa/"
 <!-- Removed 2026-10-01: empty "Was ist eine Laptop-Powerbank" section -- the
      identical definition content already lives in the "Grundlagen" block above. -->
 
-<!-- FAQ -->
-<section id="faq" class="sec bg-slate-50" data-section="faq">
- <div class="container-narrow">
- {{ sectionHeader('FAQ', 'Laptop-Powerbank FAQ', '', {max: ''}) }}
- <div class="reveal">
- {% call faqItem("Welche Laptops kann eine 240W Powerbank laden?") %}PD 3.1 240W lädt MacBook Pro 16" (140W), Dell XPS 15/17 (130W), ThinkPad P-Serie (170W) und Gaming-Laptops wie Razer Blade 16 (230W). Auch Steam Deck, Nintendo Switch und alle USB-C Tablets.{% endcall %}
- {% call faqItem("Sind 27.000mAh Powerbanks flugtauglich?") %}Ja. 27.000mAh × 3,7V = 99,9Wh, knapp unter dem IATA-Limit von 100Wh für Handgepäck ohne Genehmigung. Wir liefern UN38.3-Zertifizierung und MSDS-Dokumentation für jede Bestellung.{% endcall %}
- {% call faqItem("Was ist PD 3.1 und warum brauche ich es?") %}USB Power Delivery 3.1 (Extended Power Range) erweitert die Leistung von 100W auf 240W bei Spannungen bis 48V. Das ermöglicht laptopgerechte Schnellladung über USB-C ohne proprietäre Stecker.{% endcall %}
- {% call faqItem("Wie hoch ist die MOQ für Laptop-Powerbank OEM?") %}MOQ ab 500 Stück für Standardmodelle. Custom OEM mit eigenem Werkzeug: 1.000-2.000 Stück. Muster in 5-7 Tagen.{% endcall %}
- {% call faqItem("Wie lange lädt eine 240W Powerbank ein MacBook Pro?") %}Bei 27.000mAh (99,9Wh) lädt sie ein MacBook Pro 14" (70Wh-Akku) etwa 1,3-mal komplett auf, oder ein MacBook Pro 16" (100Wh) bis zu 95%. Schnellladung von 0 auf 50% in 30 Minuten dank PD 3.1.{% endcall %}
- </div>
- </div>
-</section>
 <!-- DACH Retail Pricing -->
 <section id="dach-retail-pricing" class="sec bg-white relative py-12" data-section="pricing">
  <div class="container-wide">
@@ -501,9 +488,10 @@ plPath: "produkty/power-bank/do-laptopa/"
  </div>
  <p class="text-center text-xs text-slate-400 mt-4">Quellen: Amazon DE Juli 2026. OEM $22-55 (MOQ 500) = 50-65% Bruttomarge.</p>
  </div>
+</section>
 
- <!-- DACH Laptop-Powerbank Markt -->
- <section id="dach-laptop-powerbank-markt" class="sec bg-white relative" data-section="stats">
+ <!-- DACH Laptop Power Bank Market -->
+ <section id="laptop-power-bank-market" class="sec bg-white relative" data-section="stats">
   <div class="container-wide">
   <div class="text-center mb-10 reveal">
    <div class="inline-block px-4 py-1 bg-blue-50 border border-blue-200 rounded-full text-badge font-bold text-blue-600 uppercase tracking-widest mb-6">EU USB-C-Pflicht — April 2026 in Kraft</div>
@@ -528,12 +516,26 @@ plPath: "produkty/power-bank/do-laptopa/"
    </div>
   </div>
   <div class="bg-brandBlue/5 rounded-2xl p-6 border border-brandBlue/10 max-w-5xl mx-auto text-center">
-   <p class="text-sm text-slate-700 leading-relaxed mb-0"><strong>Für OEM-Importeure:</strong> Der USB-C-Wechsel erzeugt einen Austauschzyklus, der über reine Consumer-Nachfrage hinausgeht. Unternehmen rüsten ganze Teams mit USB-C-Powerbanks aus — ein Kanal, der 8-12% des Absatzes ausmacht und überproportional wächst. WOWOHCOOL: 4 Modelle 65-240W, CE/Tüv GS/UN38.3, IATA-konform.</p>
+   <p class="text-sm text-slate-700 leading-relaxed mb-0"><strong>Für OEM-Importeure:</strong> Der USB-C-Wechsel erzeugt einen Austauschzyklus, der über reine Consumer-Nachfrage hinausgeht. Unternehmen rüsten ganze Teams mit USB-C-Powerbanks aus — ein Kanal, der 8-12% des Absatzes ausmacht und überproportional wächst. WOWOHCOOL: {{ "power-bank" | productFamilyModelCount("laptop-power") }} Modelle 65-240W, CE/Tüv GS/UN38.3, IATA-konform.</p>
   </div>
   </div>
- </section>
+  </section>
 
+<!-- FAQ -->
+<section id="faq" class="sec bg-slate-50" data-section="faq">
+ <div class="container-narrow">
+ {{ sectionHeader('FAQ', 'Laptop-Powerbank FAQ', '', {max: ''}) }}
+ <div class="reveal">
+ {% call faqItem("Welche Laptops kann eine 240W Powerbank laden?") %}PD 3.1 240W lädt MacBook Pro 16" (140W), Dell XPS 15/17 (130W), ThinkPad P-Serie (170W) und Gaming-Laptops wie Razer Blade 16 (230W). Auch Steam Deck, Nintendo Switch und alle USB-C Tablets.{% endcall %}
+ {% call faqItem("Sind 27.000mAh Powerbanks flugtauglich?") %}Ja. 27.000mAh × 3,7V = 99,9Wh, knapp unter dem IATA-Limit von 100Wh für Handgepäck ohne Genehmigung. Wir liefern UN38.3-Zertifizierung und MSDS-Dokumentation für jede Bestellung.{% endcall %}
+ {% call faqItem("Was ist PD 3.1 und warum brauche ich es?") %}USB Power Delivery 3.1 (Extended Power Range) erweitert die Leistung von 100W auf 240W bei Spannungen bis 48V. Das ermöglicht laptopgerechte Schnellladung über USB-C ohne proprietäre Stecker.{% endcall %}
+ {% call faqItem("Wie hoch ist die MOQ für Laptop-Powerbank OEM?") %}MOQ ab 500 Stück für Standardmodelle. Custom OEM mit eigenem Werkzeug: 1.000-2.000 Stück. Muster in 5-7 Tagen.{% endcall %}
+ {% call faqItem("Wie lange lädt eine 240W Powerbank ein MacBook Pro?") %}Bei 27.000mAh (99,9Wh) lädt sie ein MacBook Pro 14" (70Wh-Akku) etwa 1,3-mal komplett auf, oder ein MacBook Pro 16" (100Wh) bis zu 95%. Schnellladung von 0 auf 50% in 30 Minuten dank PD 3.1.{% endcall %}
+ </div>
+ </div>
 </section>
+
+{% include "partials/product-cta.njk" %}
 
 <!-- ======== BLOG ARTICLES ======== -->
 <section id="blog-articles" class="sec bg-white" data-section="content">
@@ -640,6 +642,7 @@ plPath: "produkty/power-bank/do-laptopa/"
 {%- set formHeading = "Laptop-Powerbank – Fabrikpreis anfordern" %}
 {%- set formSubtext = "MOQ 500 Stück. Muster in 3–7 Tagen. PD 3.1 bis 240 W Ausgangsleistung. Individuelles Logo und Verpackung inklusive." %}
 {%- set formSubject = "Anfrage: Laptop-Powerbank" %}
+
 
 {% include "partials/product-inquiry-form.njk" %}
 

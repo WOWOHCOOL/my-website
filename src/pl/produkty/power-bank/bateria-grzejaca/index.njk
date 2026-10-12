@@ -1,6 +1,6 @@
 ---
 title: "Bateria Grzejąca Producent 7,4V, Shenzhen | WOWOHCOOL"
-description: "Producent OEM baterii grzejących z fabryki w Shenzhen. Baterie 7,4V i 5V do kurtek, kamizelek, rękawic. 8 modeli 1800–14400mAh. MOQ 500."
+description: "Producent OEM baterii grzejących z fabryki w Shenzhen. Baterie 7,4V i 5V do kurtek, kamizelek, rękawic. 1800–14400mAh. MOQ 500."
 canonical: "/pl/produkty/power-bank/bateria-grzejaca/"
 enPath: "products/power-bank/heating-battery/"
 ogImage: "/image/product/power-bank/wop55-heating-battery.webp"
@@ -107,7 +107,7 @@ ruPath: "produkty/poverbanki/greyushchaya-batareya/"
       "url": "https://www.wowohcool.com/pl/produkty/power-bank/bateria-grzejaca/",
       "@type": "Product",
       "name": "Bateria Grzejąca do Odzieży Podgrzewanej OEM/ODM",
-      "description": "Specjalistyczne baterie 7.4V DC do kurtek, kamizelek, rękawic, skarpet i szalików grzewczych. Kompaktowy format do noszenia, certyfikat CE/PSE, zaprojektowane do zastosowań w odzieży podgrzewanej.",
+"description": "Specjalistyczne baterie 7.4V DC do kurtek, kamizelek, rękawic, skarpet i szalików grzewczych. Kompaktowy format do noszenia, certyfikat CE/PSE, zaprojektowane do zastosowań w odzieży podgrzewanej.",
       "brand": {
         "@type": "Brand",
         "name": "WOWOHCOOL"
@@ -188,7 +188,7 @@ ruPath: "produkty/poverbanki/greyushchaya-batareya/"
         "UL & CE Safety Compliance"
       ],
       "url": "https://www.wowohcool.com/",
-      "description": "Professional OEM/ODM manufacturer of power banks, GaN chargers, wireless chargers, and car chargers since 2013.",
+"description": "Professional OEM/ODM manufacturer of power banks, GaN chargers, wireless chargers, and car chargers since 2013.",
       "contactPoint": {
         "@type": "ContactPoint",
         "email": "info@wowohcool.com",
@@ -287,8 +287,8 @@ ruPath: "produkty/poverbanki/greyushchaya-batareya/"
  <button type="button" data-action="open-modal" data-product="Bateria Grzejąca" class="btn-wide-lg">
  Poproś o Wycenę Fabryczną
  </button>
- <a href="#produkty" class="btn-ghost-lg">
- Zobacz 8 Modeli
+ <a href="#products" class="btn-ghost-lg">
+ Zobacz {{ 'power-bank' | productFamilyModelCount('heating-battery') }} Modeli
  </a>
  </div>
  </div>
@@ -297,11 +297,11 @@ ruPath: "produkty/poverbanki/greyushchaya-batareya/"
 <!-- Trust Bar -->
 {% include "trust-bar.njk" %}
 
-<!-- Produkty -->
-<section id="produkty" class="sec bg-white relative" data-section="products">
+<!-- PRODUCTS -->
+<section id="products" class="sec bg-white relative" data-section="products">
  <div class="container-wide">
  <h2 class="text-2xl font-black text-brandBlue uppercase italic tracking-tighter mb-2">Baterie Grzejące do Odzieży Podgrzewanej</h2>
- <p class="text-slate-500 text-sm mb-10">8 modeli | 1800-14400mAh | Wyjście 5V i 7,4V DC</p>
+ <p class="text-slate-500 text-sm mb-10">{{ "power-bank" | productFamilyModelCount("heating-battery") }} modeli | 1800-14400mAh | Wyjście 5V i 7,4V DC</p>
 
  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
@@ -714,6 +714,21 @@ ruPath: "produkty/poverbanki/greyushchaya-batareya/"
  </div>
 </section>
 
+<!-- FAQ -->
+<section id="faq" class="sec bg-slate-50" data-section="faq">
+ <div class="container-narrow">
+ {{ sectionHeader('FAQ', 'Bateria Grzejąca <span class="text-brandOrange">FAQ</span>', '', {max: ''}) }}
+ <div class="reveal">
+ {% call faqItem("Jakiego napięcia baterii używają kurtki grzewcze?") %}Większość kurtek i kamizelek grzewczych używa baterii 7,4V DC. Zapewnia to optymalną moc grzewczą przy zachowaniu kompaktowych rozmiarów i bezpieczeństwa w zastosowaniach noszonych. Niektóre akcesoria grzewcze o niższej mocy, takie jak poduszki, używają zamiast tego wyjścia USB 5V.{% endcall %}
+ {% call faqItem("Jakie jest MOQ dla baterii grzejących OEM?") %}MOQ zaczyna się od 500 sztuk dla standardowych modeli OEM z nadrukiem logo. Niestandardowe ODM z nowymi typami złączy lub dostosowaniem pojemności: 1000–2000 sztuk. Czas realizacji próbki: 3-7 dni.{% endcall %}
+ {% call faqItem("Czy baterie do kurtek grzewczych można przewozić samolotem?") %}Tak. Baterie poniżej 100Wh są dozwolone w bagażu podręcznym bez uprzedniej zgody linii lotniczych. Wszystkie modele posiadają certyfikat UN38.3 z dokumentacją MSDS.{% endcall %}
+ {% call faqItem("Jakich certyfikatów potrzebują baterie do odzieży grzewczej na Amazon?") %}Amazon US wymaga certyfikacji UL (UL 2054 lub UL 1642). Dodatkowo UN38.3 do transportu, FCC do listingu. WOWOHCOOL dostarcza CE/FCC/RoHS jako standard i pomaga w aplikacji o certyfikat UL.{% endcall %}
+ </div>
+ </div>
+</section>
+
+{% include "partials/product-cta.njk" %}
+
 <!-- ======== BLOG ARTICLES ======== -->
 <section id="blog-articles" class="sec bg-white border-t border-slate-100" data-section="content">
  <div class="container-wide">
@@ -808,24 +823,10 @@ ruPath: "produkty/poverbanki/greyushchaya-batareya/"
      <svg class="w-5 h-5 text-brandOrange group-hover:text-white transition-colors duration-300" aria-hidden="true" focusable="false" viewBox="0 0 640 512"><path d="M528 128c8.8 0 16 7.2 16 16l0 224c0 8.8-7.2 16-16 16l-416 0c-8.8 0-16-7.2-16-16l0-224c0-8.8 7.2-16 16-16l416 0zM112 64c-44.2 0-80 35.8-80 80l0 224c0 44.2 35.8 80 80 80l416 0c44.2 0 80-35.8 80-80l0-48c17.7 0 32-14.3 32-32l0-64c0-17.7-14.3-32-32-32l0-48c0-44.2-35.8-80-80-80L112 64zm56 112c-13.3 0-24 10.7-24 24l0 112c0 13.3 10.7 24 24 24l304 0c13.3 0 24-10.7 24-24l0-112c0-13.3-10.7-24-24-24l-304 0z" fill="currentColor"/></svg>
     </div>
     <p class="font-black text-brandBlue text-sm uppercase mb-1 group-hover:text-brandOrange transition">Wszystkie Power Banki</p>
-    <p class="text-micro text-slate-500">6 kategorii, 40 modeli</p>
+    <p class="text-micro text-slate-500">6 kategorii, {{ "power-bank" | productFamilyModelCount("heating-battery") }} modeli</p>
    </a>
   </div>
  </div>
-</section>
-
-<!-- FAQ -->
-<section id="faq" class="sec bg-slate-50" data-section="faq">
- <div class="container-narrow">
- {{ sectionHeader('FAQ', 'Bateria Grzejąca <span class="text-brandOrange">FAQ</span>', '', {max: ''}) }}
- <div class="reveal">
- {% call faqItem("Jakiego napięcia baterii używają kurtki grzewcze?") %}Większość kurtek i kamizelek grzewczych używa baterii 7,4V DC. Zapewnia to optymalną moc grzewczą przy zachowaniu kompaktowych rozmiarów i bezpieczeństwa w zastosowaniach noszonych. Niektóre akcesoria grzewcze o niższej mocy, takie jak poduszki, używają zamiast tego wyjścia USB 5V.{% endcall %}
- {% call faqItem("Jakie jest MOQ dla baterii grzejących OEM?") %}MOQ zaczyna się od 500 sztuk dla standardowych modeli OEM z nadrukiem logo. Niestandardowe ODM z nowymi typami złączy lub dostosowaniem pojemności: 1000–2000 sztuk. Czas realizacji próbki: 3-7 dni.{% endcall %}
- {% call faqItem("Czy baterie do kurtek grzewczych można przewozić samolotem?") %}Tak. Baterie poniżej 100Wh są dozwolone w bagażu podręcznym bez uprzedniej zgody linii lotniczych. Wszystkie modele posiadają certyfikat UN38.3 z dokumentacją MSDS.{% endcall %}
- {% call faqItem("Jakich certyfikatów potrzebują baterie do odzieży grzewczej na Amazon?") %}Amazon US wymaga certyfikacji UL (UL 2054 lub UL 1642). Dodatkowo UN38.3 do transportu, FCC do listingu. WOWOHCOOL dostarcza CE/FCC/RoHS jako standard i pomaga w aplikacji o certyfikat UL.{% endcall %}
- </div>
- </div>
-<div class="container-narrow"><p class="mt-6 text-center text-sm text-slate-500 leading-relaxed" data-product-service-link>Potrzebujesz indywidualnego rozwoju, oprzyrządowania lub produkcji private label? Zobacz nasze <a href="/pl/uslugi-oem-odm/" class="text-brandOrange font-bold hover:underline">usługi OEM/ODM</a> lub <a href="/pl/kontakt/" class="text-brandOrange font-bold hover:underline">skontaktuj się z naszym zespołem</a>.</p></div>
 </section>
 
 <!-- Inquiry Form -->
@@ -833,6 +834,7 @@ ruPath: "produkty/poverbanki/greyushchaya-batareya/"
 {%- set formHeading = "Poproś o Wycenę Fabryczną Baterii Grzejących" %}
 {%- set formSubtext = "MOQ 500 szt. Próbka w 3–7 dni. Personalizacja logo, dopasowanie złączy i opakowania w cenie." %}
 {%- set formSubject = "Zapytanie o Baterię Grzejącą" %}
+
 
 {% include "partials/product-inquiry-form.njk" %}
 

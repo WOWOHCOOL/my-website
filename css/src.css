@@ -131,6 +131,11 @@ body,html{overflow-x:hidden;max-width:100vw}
 @media (min-width:1024px){.hero-viewport{padding-top:5rem;min-height:100dvh}.hero-layout{flex-direction:row;align-items:center}.hero-layout .hero-text-col{width:50%;max-width:none;display:flex;flex-direction:column;justify-content:center;gap:1rem;padding-top:0;padding-bottom:0}.hero-layout .hero-img-col{width:50%;display:flex;align-items:center;justify-content:flex-end}}
 @media (min-width:1024px){.lg\:hidden{display:none!important}}
 svg[class*="icon-"]{display:inline-block;width:1em;height:1em;vertical-align:-0.125em;fill:currentColor;flex-shrink:0}
+
+/* Icon tiles (e.g. "who buys" cards): inline SVGs that carry only text-* /
+   colour classes (no icon-* class) have no intrinsic size and stretch to fill
+   the 56px tile. Constrain them to a consistent 24px icon. */
+.w-14.h-14.rounded-2xl > svg { width: 1.5rem; height: 1.5rem; flex: none; }
 /* Unified inquiry modal sizing across all pages */
 #inquiryModal > div {
   width: 100%;
@@ -416,15 +421,19 @@ svg[class*="icon-"]{display:inline-block;width:1em;height:1em;vertical-align:-0.
 
 /* ─── Section Headers ──────────────────────────────────────── */
 .section-label {
+  display: inline-block;
   font-size: 0.75rem;
   font-weight: 700;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   /* ⚠️ 文字色用**加深档**（2026-10-06）：0.75rem/700 属小字，需 4.5:1，
      原 var(--brand-orange) 在 #fff/#f8fafc 上只有 2.86/2.73:1。
      `.dark-section .section-label{color:#f97316}` 特异性更高，深色区块不受影响。 */
   color: var(--brand-orange-deep);
-  margin-bottom: 0.75rem;
+  padding: 0.25rem 1rem;
+  border: 1px solid rgba(249, 115, 22, 0.2);
+  border-radius: 9999px;
+  margin-bottom: 1rem;
 }
 .section-title {
   font-size: clamp(1.75rem, 3.5vw, 2.5rem);
@@ -444,7 +453,27 @@ svg[class*="icon-"]{display:inline-block;width:1em;height:1em;vertical-align:-0.
   max-width: 640px;
 }
 
+/* ─── Desktop line-wrap aesthetics (2026-10-12) ───────────────
+   Headings balance their line lengths so the last line never carries a
+   single orphan word; body copy uses pretty wrapping to avoid widows.
+   Applied sitewide so H1/H2/H3 and paragraphs wrap consistently across
+   all six language sites regardless of the surrounding component. */
+h1, h2, h3, h4, h5, h6,
+.hero-title, .section-title {
+  text-wrap: balance;
+}
+p, .section-desc, .hero-subtitle {
+  text-wrap: pretty;
+}
+
 /* ─── Dark Section Overrides ───────────────────────────────── */
+/* Product/landing hero: on desktop keep at least the same top offset as md
+   so the breadcrumb never crowds the fixed header (was lg:pt-20 < md:pt-28). */
+@media (min-width: 1024px) {
+  section[data-section="hero"] { padding-top: 7rem; }
+   section[data-section="hero"] { padding-top: 8rem; }
+}
+
 .dark-section .section-title { color: #fff; }
 .dark-section .section-desc  { color: #94a3b8; }
 .dark-section .section-label { color: #f97316; }

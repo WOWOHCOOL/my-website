@@ -98,7 +98,7 @@ navActive: "products"
     "name": "Линейка GaN-зарядок",
     "url": "https://www.wowohcool.com/ru/produkty/gan-zaryadnye-ustroystva/",
     "inLanguage": "ru-RU",
-    "numberOfItems": 7,
+    "numberOfItems": {{ "gan-charger" | productCategoryItemCount }},
     "itemListElement": [
       {
         "@type": "ListItem",
@@ -158,7 +158,7 @@ navActive: "products"
     "url": "https://www.wowohcool.com/ru/produkty/gan-zaryadnye-ustroystva/",
     "inLanguage": "ru-RU",
     "name": "GaN-зарядные устройства WOWOHCOOL, GaN V, PD 3.1",
-    "description": "GaN-зарядки (нитрид галлия) 30–240 Вт на технологии GaN V. Мультипортовые, компактные, КПД 93–95%.",
+"description": "GaN-зарядки (нитрид галлия) 30–240 Вт на технологии GaN V. Мультипортовые, компактные, КПД 93–95%.",
     "brand": {
       "@type": "Brand",
       "name": "WOWOHCOOL"
@@ -595,7 +595,7 @@ navActive: "products"
 </section>
 
 <!-- ======== СЕРТИФИКАЦИЯ ======== -->
-<section id="content" class="sec bg-slate-50" data-section="content">
+<section id="eac-certification" class="sec bg-slate-50" data-section="content">
  <div class="container-wide">
  {{ sectionHeader('Сертификация', 'Сертификация EAC для импортёров и международные стандарты', 'Для поставок в РФ, Казахстан и Беларусь готовим комплект документов для сертификации EAC. Международные сертификаты завода — CE, FCC, RoHS, UL — уже в наличии.', {max: '', mb: 'mb-12'}) }}
  <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 reveal">
@@ -623,6 +623,30 @@ navActive: "products"
  </div>
 </section>
 
+<!-- WHO IS THIS FOR -->
+<section id="dlya-kogo" class="sec bg-white relative" data-section="content">
+ <div class="container-wide">
+  <h2 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4 text-center">Кому подходят <span class="text-brandOrange">GaN-зарядные устройства</span>?</h2>
+  <div class="grid md:grid-cols-3 gap-6">
+   <div class="card p-6 shadow-sm"><h3 class="font-black text-brandBlue uppercase mb-3 text-sm">Бренды быстрой зарядки</h3><p class="text-sm text-slate-600 leading-relaxed">Бренды для Ozon и Wildberries, которым нужны GaN 65–240 Вт с EAC.</p></div>
+   <div class="card p-6 shadow-sm"><h3 class="font-black text-brandBlue uppercase mb-3 text-sm">Бренды ноутбуков и путешествий</h3><p class="text-sm text-slate-600 leading-relaxed">Бренды, которым нужны компактные GaN с вилками EU/US/UK/AU.</p></div>
+   <div class="card p-6 shadow-sm"><h3 class="font-black text-brandBlue uppercase mb-3 text-sm">Импортёры ЕАЭС</h3><p class="text-sm text-slate-600 leading-relaxed">Импортёры, которым нужна фабрика напрямую и документация для РФ.</p></div>
+  </div>
+ </div>
+</section>
+
+<!-- WHY WOWOHCOOL -->
+<section id="pochemu-wowohcool" class="sec bg-slate-50 relative" data-section="content">
+ <div class="container-wide">
+  <h2 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4 text-center">Почему <span class="whitespace-nowrap"><span class="highlight-line text-brandBlue">WOWOH</span><span class="text-brandOrange">COOL</span></span> для рынка РФ и ЕАЭС</h2>
+  <div class="grid md:grid-cols-3 gap-6">
+   <div class="card-soft p-6"><h3 class="font-black text-brandBlue uppercase mb-3 text-sm">Соответствие ЕАЭС</h3><p class="text-sm text-slate-600 leading-relaxed">EAC, CE/RoHS и соответствие DOE Level VI / EU ErP по эффективности.</p></div>
+   <div class="card-soft p-6"><h3 class="font-black text-brandBlue uppercase mb-3 text-sm">Прямая фабрика ISO 9001</h3><p class="text-sm text-slate-600 leading-relaxed">FOB/EXW/DDP и MOQ от 500 шт. напрямую с завода в Шэньчжэне.</p></div>
+   <div class="card-soft p-6"><h3 class="font-black text-brandBlue uppercase mb-3 text-sm">Логистика и документы</h3><p class="text-sm text-slate-600 leading-relaxed">Доставка в РФ и полный пакет документов для импорта.</p></div>
+  </div>
+ </div>
+</section>
+
 <!-- ======== FAQ ======== -->
 <section id="faq" class="sec bg-slate-50" data-section="faq">
  <div class="container-narrow">
@@ -641,6 +665,8 @@ navActive: "products"
  </div>
 </section>
 
+
+{% include "partials/product-cta.njk" %}
 
 <!-- ======== BLOG ARTICLES ======== -->
 <section id="blog-articles" class="sec bg-white" data-section="content">
@@ -746,6 +772,7 @@ navActive: "products"
 {%- set formHeading = "GaN-зарядка: заводская цена" %}
 {%- set formSubtext = "Расскажите о проекте: GaN V, PD 3.1 до 240 Вт, любая мощность — разработаем всё." %}
 {%- set formSubject = "Запрос по продукту: GaN-зарядное устройство" %}
+
 
 {% include "partials/product-inquiry-form.njk" %}
 {% endblock %}

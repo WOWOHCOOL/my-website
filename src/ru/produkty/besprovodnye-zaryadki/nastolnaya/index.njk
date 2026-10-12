@@ -1,5 +1,5 @@
 ---
-title: "Настольная беспроводная зарядка Qi2 производитель | Завод | WOWOHCOOL"
+title: "Настольная зарядка Qi2 производитель | WOWOHCOOL"
 description: "Настольные беспроводные зарядки Qi2 оптом: подставка 15 Вт, ультратонкий пад 11 мм, Qi2.2 25 Вт. OEM для офисов и отелей. MOQ от 500 шт."
 canonical: "/ru/produkty/besprovodnye-zaryadki/nastolnaya/"
 enPath: "products/wireless-charger/desktop/"
@@ -49,9 +49,9 @@ ogImage: "/image/product/wireless-charger/wow68-vertical-magnetic-3in1-desktop-1
     {
       "@id": "https://www.wowohcool.com/ru/produkty/besprovodnye-zaryadki/nastolnaya/#itemlist",
       "@type": "ItemList",
-      "name": "3 модели настольных зарядок OEM",
+      "name": "{{ 'wireless-charger' | productFamilyModelCount('desktop') }} модели настольных зарядок OEM",
       "url": "https://www.wowohcool.com/ru/produkty/besprovodnye-zaryadki/nastolnaya/",
-      "numberOfItems": 3,
+      "numberOfItems": {{ "wireless-charger" | productFamilyModelCount("desktop") }},
       "itemListElement": [
         {
           "@type": "ListItem",
@@ -78,7 +78,7 @@ ogImage: "/image/product/wireless-charger/wow68-vertical-magnetic-3in1-desktop-1
       "url": "https://www.wowohcool.com/ru/produkty/besprovodnye-zaryadki/nastolnaya/",
       "@type": "Product",
       "name": "Настольная беспроводная зарядка OEM/ODM",
-      "description": "Настольные беспроводные зарядки Qi2 с завода OEM. 3 модели: вертикальная подставка 15 Вт, ультратонкий пад 11 мм с LED, патентованный минималистичный дизайн. Qi2.2 25 Вт — Q3 2026. CE, FCC, Qi2 WPC, RoHS. MOQ 500. Шэньчжэнь, с 2013 года.",
+"description": "Настольные беспроводные зарядки Qi2 с завода OEM. : вертикальная подставка 15 Вт, ультратонкий пад 11 мм с LED, патентованный минималистичный дизайн. Qi2.2 25 Вт — Q3 2026. CE, FCC, Qi2 WPC, RoHS. MOQ 500. Шэньчжэнь, с 2013 года.",
       "brand": {
         "@type": "Brand",
         "name": "WOWOHCOOL"
@@ -175,7 +175,7 @@ ogImage: "/image/product/wireless-charger/wow68-vertical-magnetic-3in1-desktop-1
         "UL & CE Safety Compliance"
       ],
       "url": "https://www.wowohcool.com/",
-      "description": "Professional OEM/ODM manufacturer of power banks, GaN chargers, wireless chargers, and car chargers since 2013.",
+"description": "Professional OEM/ODM manufacturer of power banks, GaN chargers, wireless chargers, and car chargers since 2013.",
       "contactPoint": {
         "@type": "ContactPoint",
         "email": "info@wowohcool.com",
@@ -253,7 +253,7 @@ ogImage: "/image/product/wireless-charger/wow68-vertical-magnetic-3in1-desktop-1
    <div class="reveal order-2 lg:order-1">
     <div class="badge-capsule mb-6 uppercase tracking-widest">Настольная · Завод OEM для объёмных заказов</div>
     <h1 class="text-3xl md:text-4xl xl:text-5xl font-black text-brandBlue leading-tight mb-6 italic uppercase tracking-tighter">Настольная беспроводная зарядка Qi2 <br><span class="text-brandOrange">Производитель</span></h1>
-    <p class="text-slate-600 text-lg leading-relaxed mb-6">Магнитные зарядки Qi2 с <strong>магнитами N52H</strong>. 3 модели: вертикальная подставка 15 Вт, ультратонкий пад 11 мм с LED, патентованный минималистичный дизайн. <strong>Qi2.2 25 Вт — с Q3 2026.</strong></p>
+    <p class="text-slate-600 text-lg leading-relaxed mb-6">Магнитные зарядки Qi2 с <strong>магнитами N52H</strong>. {{ "wireless-charger" | productFamilyModelCount("desktop") }} модели: вертикальная подставка 15 Вт, ультратонкий пад 11 мм с LED, патентованный минималистичный дизайн. <strong>Qi2.2 25 Вт — с Q3 2026.</strong></p>
     <div class="flex flex-wrap gap-2 mb-8">
      <span class="trust-badge">Qi2 WPC сертифицировано</span>
      <span class="trust-badge">CE + поддержка EAC</span>
@@ -261,7 +261,7 @@ ogImage: "/image/product/wireless-charger/wow68-vertical-magnetic-3in1-desktop-1
     </div>
     <div class="btn-pair">
      <button type="button" data-action="open-modal" class="btn-solid cursor-pointer">Запросить цену завода &rarr;</button>
-     <a href="#modelos" class="btn-ghost-lg">Смотреть 3 модели</a>
+    <a href="#models" class="btn-ghost-lg">Смотреть {{ "wireless-charger" | productFamilyModelCount("desktop") }} модели</a>
     </div>
    </div>
    <div class="reveal order-1 lg:order-2">
@@ -278,9 +278,10 @@ ogImage: "/image/product/wireless-charger/wow68-vertical-magnetic-3in1-desktop-1
 
 
 <!-- Product Cards -->
-<section id="modelos" class="sec bg-white" data-section="products">
+<section id="models" class="sec bg-white" data-section="products">
  <div class="container-wide">
-  {% call sectionHeader('Модели', '3 модели настольных зарядок <span class="text-brandOrange">OEM</span>', '', {mb: 'mb-12', titleClass: 'text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4'}) %}<p class="text-slate-500">3 модели | Pad + Stand | Ультратонкие 11 мм | Эксклюзивные патенты</p>
+  {% set desktopModelCount = 'wireless-charger' | productFamilyModelCount('desktop') %}
+  {% call sectionHeader('Модели', desktopModelCount + ' модели настольных зарядок <span class="text-brandOrange">OEM</span>', '', {mb: 'mb-12', titleClass: 'text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4'}) %}<p class="text-slate-500">{{ desktopModelCount }} модели | Pad + Stand | Ультратонкие 11 мм | Эксклюзивные патенты</p>
   {% endcall %}
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
@@ -341,7 +342,7 @@ ogImage: "/image/product/wireless-charger/wow68-vertical-magnetic-3in1-desktop-1
   </div>
  </section>
 
- <section id="content" class="sec bg-white py-8" data-section="content">
+<section id="market-context" class="sec bg-white py-8" data-section="content">
  <div class="container-wide">
  <blockquote class="bg-brandOrange/5 border-l-4 border-brandOrange rounded-r-xl px-6 py-5 text-sm text-slate-700 italic leading-relaxed">
   <p>«Мировой рынок настольных станций беспроводной зарядки оценивался в 1,45–2,41 млрд USD в 2024 году и достигнет 5,72–7,54 млрд USD к 2033 (CAGR 16,5–17,2%). В 2025 году продано 140 млн одиночных падов (QYResearch). В сегменте зарядок для iPhone соотношение спроса к предложению — 19,8: острый дефицит предложения (Alibaba 2026). Для ввоза в ЕАЭС зарядные устройства подлежат обязательной сертификации EAC по ТР ТС 004/2011 и ТР ТС 020/2011».</p>
@@ -418,6 +419,8 @@ ogImage: "/image/product/wireless-charger/wow68-vertical-magnetic-3in1-desktop-1
  </div>
  </div>
 </section>
+
+{% include "partials/product-cta.njk" %}
 
 <!-- ======== BLOG ARTICLES ======== -->
 <section id="blog-articles" class="sec bg-white" data-section="content">
@@ -522,6 +525,7 @@ ogImage: "/image/product/wireless-charger/wow68-vertical-magnetic-3in1-desktop-1
 {%- set formHeading = "Настольная зарядка: заводская цена" %}
 {%- set formSubtext = "Расскажите о проекте: вертикальная стойка, ультратонкая площадка, площадка или стойка Qi2.2 25 Вт — от прототипа до серийного производства." %}
 {%- set formSubject = "Запрос по продукту: Настольное зарядное устройство" %}
+
 
 {% include "partials/product-inquiry-form.njk" %}
 {% endblock %}

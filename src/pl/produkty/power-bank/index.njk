@@ -37,7 +37,7 @@ ruPath: "produkty/poverbanki/"
     "height": 70
   },
   "image": "https://www.wowohcool.com/image/wowohcool-logo-optimized.webp",
-  "description": "Profesjonalny producent OEM/ODM power banków, ładowarek GaN, ładowarek bezprzewodowych i samochodowych od 2013 roku.",
+"description": "Profesjonalny producent OEM/ODM power banków, ładowarek GaN, ładowarek bezprzewodowych i samochodowych od 2013 roku.",
   "contactPoint": {
     "@type": "ContactPoint",
     "contactType": "OEM/ODM Sales",
@@ -100,10 +100,10 @@ ruPath: "produkty/poverbanki/"
   "@id": "https://www.wowohcool.com/pl/produkty/power-bank/#itemlist",
   "@type": "ItemList",
   "name": "Kategorie Power Banków WOWOHCOOL",
-  "description": "6 specjalistycznych linii power banków dla nabywców B2B OEM/ODM: półstałe, magnetyczne bezprzewodowe, baterie grzejące, hybrydowe 2-w-1, do laptopa i z inteligentnym wyświetlaczem.",
+"description": "6 specjalistycznych linii power banków dla nabywców B2B OEM/ODM: półstałe, magnetyczne bezprzewodowe, baterie grzejące, hybrydowe 2-w-1, do laptopa i z inteligentnym wyświetlaczem.",
   "url": "https://www.wowohcool.com/pl/produkty/power-bank/",
   "inLanguage": "pl-PL",
-  "numberOfItems": 6,
+  "numberOfItems": {{ "power-bank" | productFamilyCount }},
   "itemListElement": [
     {
       "@type": "ListItem",
@@ -153,7 +153,7 @@ ruPath: "produkty/poverbanki/"
   "url": "https://www.wowohcool.com/pl/produkty/power-bank/",
   "inLanguage": "pl-PL",
   "name": "Power Banki WOWOHCOOL — Półstałe, Qi2 Bezprzewodowe, Grzejące, Hybrydowe 2-w-1, Laptop PD 3.1, Wyświetlacz TFT",
-  "description": "Profesjonalny producent power banków OEM w Shenzhen od 2013. 6 linii produktowych obejmujących 40 modeli: półstałe (CES 2026), magnetyczne bezprzewodowe Qi2, baterie do odzieży grzewczej (7,4V/12V), hybrydowe 2-w-1 z ładowarką ścienną, power banki do laptopa PD 3.1 240W oraz premium z wyświetlaczem TFT. Zakres pojemności 1800mAh–27000mAh. Personalizacja OEM/ODM. Certyfikaty UN38.3, CE, FCC, RoHS, PSE.",
+"description": "Profesjonalny producent power banków OEM w Shenzhen od 2013. 6 linii produktowych obejmujących : półstałe (CES 2026), magnetyczne bezprzewodowe Qi2, baterie do odzieży grzewczej (7,4V/12V), hybrydowe 2-w-1 z ładowarką ścienną, power banki do laptopa PD 3.1 240W oraz premium z wyświetlaczem TFT. Zakres pojemności 1800mAh–27000mAh. Personalizacja OEM/ODM. Certyfikaty UN38.3, CE, FCC, RoHS, PSE.",
   "image": [
     "https://www.wowohcool.com/image/product/power-bank/wop09-semi-solid-power-bank.webp",
     "https://www.wowohcool.com/image/product/power-bank/wop10-dual-cable-power-bank.webp",
@@ -367,7 +367,7 @@ ruPath: "produkty/poverbanki/"
  <button type="button" data-action="open-modal" data-product="Power Bank" class="btn-wide-lg">
  Pobierz Darmowy Katalog Hurtowy
  </button>
- <a href="#produkty" class="btn-ghost-lg">
+ <a href="#products" class="btn-ghost-lg">
  Zobacz Produkty
  </a>
  </div>
@@ -386,7 +386,7 @@ ruPath: "produkty/poverbanki/"
  PRODUCTS CATALOG SECTION
  ======================================================================== -->
  <!-- ======== POWER BANK SUB-CATEGORIES ======== -->
- <section id="produkty" class="sec bg-white relative" data-section="content">
+ <section id="products" class="sec bg-white relative" data-section="content">
  <div class="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-slate-50 to-transparent -z-10"></div>
 
  <div class="container-wide">
@@ -404,7 +404,7 @@ ruPath: "produkty/poverbanki/"
  <h3 class="text-xl font-black text-brandBlue uppercase italic mb-2">Półstały</h3>
  <p class="text-xs text-slate-500 mb-4 leading-relaxed">Technologia baterii nowej generacji. 50% cieńszy, 30% większa gęstość energii. PD 55-65W. Certyfikat UN38.3.</p>
  <div class="flex items-center justify-between text-xs">
- <span class="font-bold text-slate-700">6 Modeli · 10000-20000mAh</span>
+ <span class="font-bold text-slate-700">{{ "power-bank" | productFamilyModelCount("semi-solid-state") }} Modeli · 10000-20000mAh</span>
  <span class="text-brandOrange font-black uppercase tracking-widest group-hover:translate-x-1 transition">Zobacz Gamę &rarr;</span>
  </div>
  </div>
@@ -420,7 +420,7 @@ ruPath: "produkty/poverbanki/"
  <h3 class="text-xl font-black text-brandBlue uppercase italic mb-2">Magnetyczny / Bezprzewodowy</h3>
  <p class="text-xs text-slate-500 mb-4 leading-relaxed">Ładowanie magnetyczne Qi2 15W. Kompatybilny z MagSafe dla serii iPhone 12-16.</p>
  <div class="flex items-center justify-between text-xs">
- <span class="font-bold text-slate-700">11 Modeli · MOQ 500</span>
+ <span class="font-bold text-slate-700">{{ "power-bank" | productFamilyModelCount("wireless-magnetic") }} Modeli · MOQ 500</span>
  <span class="text-brandOrange font-black uppercase tracking-widest group-hover:translate-x-1 transition">Zobacz Gamę &rarr;</span>
  </div>
  </div>
@@ -436,7 +436,7 @@ ruPath: "produkty/poverbanki/"
  <h3 class="text-xl font-black text-brandBlue uppercase italic mb-2">Bateria Grzejąca</h3>
  <p class="text-xs text-slate-500 mb-4 leading-relaxed">Baterie 7,4V do kurtek, rękawic, skarpet, szalików, poduszek. Certyfikaty CE/PSE.</p>
  <div class="flex items-center justify-between text-xs">
- <span class="font-bold text-slate-700">8 Modeli · 1800-14400mAh</span>
+ <span class="font-bold text-slate-700">{{ "power-bank" | productFamilyModelCount("heating-battery") }} Modeli · 1800-14400mAh</span>
  <span class="text-brandOrange font-black uppercase tracking-widest group-hover:translate-x-1 transition">Zobacz Gamę &rarr;</span>
  </div>
  </div>
@@ -452,7 +452,7 @@ ruPath: "produkty/poverbanki/"
  <h3 class="text-xl font-black text-brandBlue uppercase italic mb-2">Hybryda 2-w-1</h3>
  <p class="text-xs text-slate-500 mb-4 leading-relaxed">Ładowarka ścienna + power bank w jednym. Składana wtyczka AC (typ E do polskich gniazdek).</p>
  <div class="flex items-center justify-between text-xs">
- <span class="font-bold text-slate-700">9 Modeli · 45-67W PD</span>
+ <span class="font-bold text-slate-700">{{ "power-bank" | productFamilyModelCount("2-in-1-hybrid") }} Modeli · 45-67W PD</span>
  <span class="text-brandOrange font-black uppercase tracking-widest group-hover:translate-x-1 transition">Zobacz Gamę &rarr;</span>
  </div>
  </div>
@@ -468,7 +468,7 @@ ruPath: "produkty/poverbanki/"
  <h3 class="text-xl font-black text-brandBlue uppercase italic mb-2">Do Laptopa</h3>
  <p class="text-xs text-slate-500 mb-4 leading-relaxed">Wysoka moc PD 3.1 dla MacBook Pro, Dell XPS, ThinkPad, laptopów gamingowych. Wyjście 65W–240W.</p>
  <div class="flex items-center justify-between text-xs">
- <span class="font-bold text-slate-700">4 Modele · 20000-27000mAh</span>
+ <span class="font-bold text-slate-700">{{ "power-bank" | productFamilyModelCount("laptop-power") }} Modele · 20000-27000mAh</span>
  <span class="text-brandOrange font-black uppercase tracking-widest group-hover:translate-x-1 transition">Zobacz Gamę &rarr;</span>
  </div>
  </div>
@@ -498,7 +498,7 @@ ruPath: "produkty/poverbanki/"
  </div>
  </section>
 
-<!-- ======== DLA KOGO ======== -->
+<!-- ======== WHO IS THIS FOR ======== -->
  <section id="dla-kogo" class="sec bg-white" data-section="content">
  <div class="container-wide">
  <div class="text-center mb-14">
@@ -606,7 +606,7 @@ ruPath: "produkty/poverbanki/"
  </div>
 </section>
 
-<!-- ======== PORÓWNANIE TECHNOLOGII ======== -->
+<!-- ======== TECHNOLOGY COMPARISON ======== -->
 <section id="porownanie-technologii" class="sec bg-white" data-section="comparison">
  <div class="container-wide">
  {{ sectionHeader('Technologia', 'Półstała vs Li-Polymer vs LiFePO4 — Dane Techniczne', 'Bateria półstała zastępuje ciekły elektrolit żelem stałym, zapewniając wyższą gęstość energii i bezpieczniejszą chemię. Poniżej pełne porównanie ilościowe dla nabywców B2B oceniających, w którą technologię zainwestować. Globalny rynek power banków: 22,1 mld USD do 2030 (NextMSC).', {max: '', mb: 'mb-12'}) }}
@@ -820,6 +820,8 @@ ruPath: "produkty/poverbanki/"
  </div>
  </section>
 
+{% include "partials/product-cta.njk" %}
+
 <!-- ======== BLOG ARTICLES ======== -->
 <section id="blog-articles" class="sec bg-white border-t border-slate-100" data-section="content">
  <div class="container-wide">
@@ -925,6 +927,7 @@ ruPath: "produkty/poverbanki/"
 {%- set formHeading = "Poproś o Wycenę Fabryczną Power Banków" %}
 {%- set formSubtext = "Opowiedz nam o swoim projekcie power banków. Technologia półstała, PD 3.1, niestandardowa pojemność — zajmiemy się wszystkim." %}
 {%- set formSubject = "Zapytanie o Produkt: Power Bank" %}
+
 
 {% include "partials/product-inquiry-form.njk" %}
 
