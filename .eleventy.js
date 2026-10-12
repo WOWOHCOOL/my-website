@@ -3,23 +3,14 @@ const path = require('path');
 
 module.exports = function (eleventyConfig) {
   const productInventory = require('./src/_data/product-inventory.json');
+  const {
+    getFamilyModelCount,
+    getCategoryModelCount,
+    getProductInventorySummary
+  } = require('./scripts/product-count-utils');
 
-  function findProductCategory(categoryKey) {
-    return productInventory.categories.find(category => category.key === categoryKey);
-  }
-
-  function countCategoryModels(category) {
-    if (!category) return 0;
-    if (Array.isArray(category.families) && category.families.length) {
-      return category.families.reduce((sum, family) => sum + Number(family.models || 0), 0);
-    }
-    return Number(category.models || 0);
-  }
-
-  const productInventorySummary = {
-    categoryCount: productInventory.categories.length,
-    modelCount: productInventory.categories.reduce((sum, category) => sum + countCategoryModels(category), 0)
-  };
+  const productInventorySummary = getProductInventorySummary();
+  const findProductCategory = (categoryKey) => productInventory.categories.find(category => category.key === categoryKey);
 
   eleventyConfig.addGlobalData("productInventorySummary", () => productInventorySummary);
 
@@ -29,15 +20,11 @@ module.exports = function (eleventyConfig) {
   });
 
   eleventyConfig.addFilter("productFamilyModelCount", (categoryKey, familyKey) => {
-    const category = findProductCategory(categoryKey);
-    const family = category && Array.isArray(category.families)
-      ? category.families.find(item => item.key === familyKey)
-      : null;
-    return family ? Number(family.models || 0) : 0;
+    return getFamilyModelCount(categoryKey, familyKey);
   });
 
   eleventyConfig.addFilter("productCategoryModelCount", (categoryKey) => {
-    return countCategoryModels(findProductCategory(categoryKey));
+    return getCategoryModelCount(categoryKey);
   });
 
   eleventyConfig.addFilter("productCategoryItemCount", (categoryKey) => {
@@ -45,7 +32,7 @@ module.exports = function (eleventyConfig) {
     if (!category) return 0;
     return Array.isArray(category.families) && category.families.length
       ? category.families.length
-      : countCategoryModels(category);
+      : getCategoryModelCount(categoryKey);
   });
 
   // FR site is in .gitignore to prevent GitHub push — still build locally
