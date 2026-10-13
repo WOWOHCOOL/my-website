@@ -1,8 +1,10 @@
 name: Deploy Cloudflare Pages
 
+# Manual-only. The live deploy path is the Cloudflare Pages Git integration
+# (build cmd `npm run build`, output `_site`). This workflow is kept for an
+# optional manual deploy but no longer runs on push, so it can't fail the
+# commit status. Do not re-enable `push` unless disabling the Git integration.
 on:
-  push:
-    branches: [main]
   workflow_dispatch:
 
 permissions:
