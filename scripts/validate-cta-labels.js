@@ -5,8 +5,11 @@
  * 单一真源：src/_data/cta-labels.json（桶 → 语言 → 标签）
  *
  * 两条判据：
- *   A. 每篇 blog 文章的 ctaLabel 必须等于其语言的某个规范标签
- *      （即 ∈ SSOT[*][lang]）—— 拦住「无差别泛标签」与拼写漂移
+ *   A. 每篇 blog 文章必须有明确的 CTA 主题桶，且 ctaLabel 有页面语义：
+ *      - 若 ctaLabel 精确命中 SSOT，按 SSOT 推导桶（兼容存量文章）
+ *      - 若 ctaLabel 为页面定制文案，必须在 frontmatter 声明 ctaTheme
+ *      - ctaTheme 必须属于 audit/cert/spec/sample/cost/logistics
+ *      这样保留主题分流校验，又允许 SEO/GEO/CRO 需要的页面级文案。
  *   B. 同一篇文章的各语言版本必须落在同一个桶
  *      （用 EN 的 canonical/dePath/esPath/frPath/plPath/ruPath 分组）
  *      —— 拦住「英文按验厂、法文按认证」这类跨语言裂缝
@@ -28,6 +31,18 @@ const DIRS = { en: 'blog', de: 'de/blog', es: 'es/blog', fr: 'fr/blog', pl: 'pl/
 const PATH_FIELD = { de: 'dePath', es: 'esPath', fr: 'frPath', pl: 'plPath', ru: 'ruPath' };
 
 // 反查表：lang -> label -> bucket
+const BUCKETS = new Set(Object.keys(SSOT));
+const GENERIC_LABEL = /^(contact|contact us|get a quote|request a quote|quote|learn more|more info|read more|mehr erfahren|kontakt|angebot|anfrage|contacto|solicitar presupuesto|saber más|contato|orçamento|свяжитесь|узнать больше|запросить цену|kontakt|więcej)$/i;
+
+function displayLabelIssue(label) {
+  const s = String(label || '').trim();
+  if (!s) return 'ctaLabel 为空';
+  if (s.length > 56) return `ctaLabel 过长（${s.length} chars；上限 56）`;
+  if (!/[\p{L}\p{N}]/u.test(s)) return 'ctaLabel 缺少可读文字';
+  if (GENERIC_LABEL.test(s)) return 'ctaLabel 过于泛化，缺少页面/主题语义';
+  return null;
+}
+
 const labelToBucket = {};
 for (const lang of LANGS) {
   labelToBucket[lang] = new Map();
@@ -62,12 +77,17 @@ for (const lang of LANGS) {
     const s = fs.readFileSync(abs, 'utf8');
     const m = s.match(/set ctaLabel = "([^"]*)"/);
     const head = frontMatter(s);
+    const explicitTheme = field(head, 'ctaTheme');
+    const inferredBucket = m ? (labelToBucket[lang].get(m[1]) || null) : null;
     articles.push({
       lang,
       slug: e.name,
       rel: path.relative(SRC, abs).replace(/\\/g, '/'),
       label: m ? m[1] : null,
-      bucket: m ? (labelToBucket[lang].get(m[1]) || null) : null,
+      theme: explicitTheme,
+      inferredBucket,
+      bucket: explicitTheme || inferredBucket,
+      labelIsCanonical: Boolean(inferredBucket),
       canonical: field(head, 'canonical'),
       paths: Object.fromEntries(Object.entries(PATH_FIELD).map(([l, f]) => [l, field(head, f)])),
     });
@@ -78,8 +98,13 @@ const violations = [];
 // 判据 A
 for (const a of articles) {
   if (a.label == null) violations.push({ kind: 'A', rel: a.rel, msg: '缺 ctaLabel' });
-  else if (a.bucket == null) {
-    violations.push({ kind: 'A', rel: a.rel, msg: `ctaLabel「${a.label}」不是 ${a.lang} 的规范标签（应为 ${Object.keys(SSOT).join('/')} 之一）` });
+  else if (a.theme && !BUCKETS.has(a.theme)) {
+    violations.push({ kind: 'A', rel: a.rel, msg: `ctaTheme「${a.theme}」非法（应为 ${Object.keys(SSOT).join('/')}）` });
+  } else if (!a.labelIsCanonical && !a.theme) {
+    violations.push({ kind: 'A', rel: a.rel, msg: `定制 ctaLabel「${a.label}」缺少 frontmatter ctaTheme（应为 ${Object.keys(SSOT).join('/')}）` });
+  } else {
+    const issue = displayLabelIssue(a.label);
+    if (issue) violations.push({ kind: 'A', rel: a.rel, msg: issue });
   }
 }
 
