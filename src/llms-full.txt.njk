@@ -1,0 +1,59 @@
+---
+permalink: /llms-full.txt
+---
+# WOWOHCOOL — Full Site Reference (OEM/ODM Charging Solutions)
+> Shenzhen manufacturer since {{ facts.founded }}. Power banks, GaN chargers, wireless chargers, car chargers. ISO 9001. CE / FCC / RoHS / Qi2 / UN38.3 / UL / E-Mark. B2B OEM/ODM only.
+
+## AI Usage
+- ai-train: yes
+- search: yes
+- canonical human site: https://www.wowohcool.com/
+- machine summary: https://www.wowohcool.com/llms.txt
+
+## Company
+- Legal name: Dong Yi Technology Co., Ltd (WOWOHCOOL)
+- Founded: {{ facts.founded }}
+- Location: {{ facts.contact.addressMain }}, Shenzhen, China
+- Facility: {{ facts.areaSqm }} m², ISO 9001
+- Monthly capacity: {{ facts.capacityMonthly }} units
+- R&D engineers: {{ facts.engineers }}
+- QC: {{ facts.qcStages }}-stage (IQC → IPQC → FQC → OQC)
+- MOQ: {{ facts.moq.stock }} units (in-stock ODM) to {{ facts.moq.full }} (full OEM)
+- Clients: {{ facts.brandsCount }} global brands, including {{ facts.clientBrands }}
+
+## Certifications
+CE (EU), FCC (US), RoHS (global), Qi2 (WPC), UL (US), PSE (Japan), KC (Korea), UN38.3 (battery transport), E-Mark (automotive), ISO 9001 (manufacturing).
+
+## Products
+- [All Products](https://www.wowohcool.com/products/)
+- [Power Bank OEM](https://www.wowohcool.com/products/power-bank/) — {{ "power-bank" | productFamilyCount }} categories, {{ "power-bank" | productCategoryModelCount }} models
+- [Semi-Solid-State Power Bank](https://www.wowohcool.com/products/power-bank/semi-solid-state/) — next-gen cells, {{ "power-bank" | productFamilyModelCount("semi-solid-state") }} models
+- [Wireless Magnetic Power Bank](https://www.wowohcool.com/products/power-bank/wireless-magnetic/) — Qi2/Qi2.2 15-25W
+- [Heating Battery](https://www.wowohcool.com/products/power-bank/heating-battery/) — 7.4V DC for heated apparel
+- [2-in-1 Hybrid](https://www.wowohcool.com/products/power-bank/2-in-1-hybrid/) — GaN wall charger + power bank
+- [Laptop Power Bank](https://www.wowohcool.com/products/power-bank/laptop-power/) — PD 3.1 65-240W
+- [Smart Display Power Bank](https://www.wowohcool.com/products/power-bank/smart-display/) — TFT display
+- [GaN Charger](https://www.wowohcool.com/products/gan-charger/) — multi-port GaN V desktop & wall
+- [Wireless Charger](https://www.wowohcool.com/products/wireless-charger/) — Qi2 docks, pads, car mounts
+- [Desktop Wireless Charger](https://www.wowohcool.com/products/wireless-charger/desktop/)
+- [3-in-1 Charging Station](https://www.wowohcool.com/products/wireless-charger/3-in-1-station/) — iPhone + Watch + AirPods
+- [Wireless Car Mount](https://www.wowohcool.com/products/wireless-charger/car-mount/) — Qi2 magnetic, E-Mark ready
+- [Car Charger](https://www.wowohcool.com/products/car-charger/) — PD 3.1 140W GaN, E-Mark
+
+## Service (OEM/ODM)
+- [OEM/ODM Service](https://www.wowohcool.com/service/) — custom branding, tooling, packaging, PCBA, QC
+- [Case Studies](https://www.wowohcool.com/case-studies/) — delivered client projects
+- [B2B Ordering Terms](https://www.wowohcool.com/b2b-ordering-terms/) — MOQ, payment, warranty, FOB/landed terms
+
+## Blog (English)
+{%- for post in collections.blog_en %}
+- [{{ post.data.title | safe }}](https://www.wowohcool.com{{ post.data.canonical }}){% if post.data.description %}: {{ post.data.description | striptags | truncate(160) }}{% endif %}
+{%- endfor %}
+
+## Contact
+- [Contact form](https://www.wowohcool.com/contact/)
+- Email: {{ facts.contact.email }}
+- Phone/WhatsApp: {{ facts.contact.phone }}
+- Sample turnaround: {{ facts.contact.sampleDays }} days
+- Warranty: {{ facts.contact.warrantyMonths }} months
+- Shipping: {{ facts.contact.shipping }}
