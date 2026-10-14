@@ -235,7 +235,12 @@ module.exports = function (eleventyConfig) {
     const isOrg = Array.isArray(t) ? t.includes('Organization') : t === 'Organization';
     if (isOrg && node['@id'] === ORG_ID) {
       node.legalName = FACTS_DATA.legalName;
-      node.vatID = FACTS_DATA.vatID;
+      delete node.vatID;
+      node.identifier = {
+        '@type': 'PropertyValue',
+        propertyID: 'HK Business Registration Number',
+        value: FACTS_DATA.hkBusinessRegistration,
+      };
       node.foundingDate = FACTS_DATA.founded;
       node.email = FACTS_DATA.contact.email;
       node.telephone = FACTS_DATA.contact.phoneE164;
@@ -250,6 +255,13 @@ module.exports = function (eleventyConfig) {
       }
       if (cps.length === 1) node.contactPoint = cps[0];
       else node.contactPoint = cps;
+    } else if (isOrg && node.name === FACTS_DATA.mainlandLegalNameEn) {
+      node.legalName = FACTS_DATA.mainlandLegalName;
+      node.identifier = {
+        '@type': 'PropertyValue',
+        propertyID: 'Unified Social Credit Code (USCC)',
+        value: FACTS_DATA.vatID,
+      };
     }
     for (const v of Object.values(node)) {
       if (v && typeof v === 'object') applyFactsToOrganization(v);

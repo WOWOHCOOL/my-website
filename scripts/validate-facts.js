@@ -16,6 +16,8 @@ const FACTS = JSON.parse(fs.readFileSync(path.join(ROOT, 'src', '_data', 'facts.
 const expected = {
   legalName: FACTS.legalName,
   vatID: FACTS.vatID,
+  hkBusinessRegistration: FACTS.hkBusinessRegistration,
+  mainlandLegalName: FACTS.mainlandLegalName,
   founded: String(FACTS.founded),
   email: FACTS.contact.email,
   phone: FACTS.contact.phoneE164,
@@ -85,12 +87,22 @@ for (const file of fs.existsSync(SITE) ? walk(SITE) : []) {
       if (!n || typeof n!=='object') continue;
       if (nodeHasType(n,'Organization')) {
         pages++; orgs++;
-        if (n.legalName && !same(n.legalName, expected.legalName)) errors.push(rel+' legalName='+n.legalName);
-        if (n.vatID && !same(n.vatID, expected.vatID)) errors.push(rel+' vatID='+n.vatID);
-        if (n.foundingDate && String(n.foundingDate).slice(0,4)!==expected.founded) errors.push(rel+' foundingDate='+n.foundingDate);
-        if (n.email && !same(n.email, expected.email)) errors.push(rel+' email='+n.email);
-        if (n.telephone && digits(n.telephone)!==digits(expected.phone)) errors.push(rel+' telephone='+n.telephone);
-        for (const field of ['legalName','vatID','foundingDate']) if (!n[field]) warnings.push(rel+' missing Organization.'+field);
+        const isMainOrg = n['@id'] === 'https://www.wowohcool.com/#organization';
+        if (isMainOrg) {
+          if (n.legalName && !same(n.legalName, expected.legalName)) errors.push(rel+' legalName='+n.legalName);
+          const hk = n.identifier || {};
+          if (hk.propertyID === 'HK Business Registration Number' && !same(hk.value, expected.hkBusinessRegistration)) errors.push(rel+' identifier.HKBR='+hk.value);
+          if (n.vatID && !same(n.vatID, expected.vatID)) errors.push(rel+' vatID='+n.vatID);
+          if (n.foundingDate && String(n.foundingDate).slice(0,4)!==expected.founded) errors.push(rel+' foundingDate='+n.foundingDate);
+          if (n.email && !same(n.email, expected.email)) errors.push(rel+' email='+n.email);
+          if (n.telephone && digits(n.telephone)!==digits(expected.phone)) errors.push(rel+' telephone='+n.telephone);
+          for (const field of ['legalName','foundingDate']) if (!n[field]) warnings.push(rel+' missing Organization.'+field);
+          if (!hk.propertyID) warnings.push(rel+' missing Organization.identifier (HK BR)');
+        } else {
+          if (n.legalName && !same(n.legalName, expected.mainlandLegalName)) errors.push(rel+' subOrganization.legalName='+n.legalName);
+          const sub = n.identifier || {};
+          if (sub.propertyID === 'Unified Social Credit Code (USCC)' && !same(sub.value, expected.vatID)) errors.push(rel+' subOrganization.identifier.USCC='+sub.value);
+        }
       }
       if (nodeHasType(n,'ContactPoint')) {
         contactPoints++;

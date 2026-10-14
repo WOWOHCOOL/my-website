@@ -1,9 +1,13 @@
 'use strict';
-// Gate: every rendered Organization JSON-LD node must carry the canonical field set
-// (single source of truth for the company entity). Runs on _site output.
+// Gate: rendered Organization JSON-LD nodes must carry the canonical field set.
+// Primary entity = HK trade entity (legalName + HK BR identifier); the mainland
+// manufacturer is a nested subOrganization (legalName + USCC identifier).
+// Runs on _site output.
 const fs = require('fs'), path = require('path');
 const ROOT = path.join(__dirname, '..'), SITE = path.join(ROOT, '_site');
-const CANON = ['@id', 'name', 'legalName', 'foundingDate', 'vatID', 'url', 'publishingPrinciples', 'logo', 'areaServed', 'address', 'sameAs', 'knowsAbout', 'contactPoint'];
+const MAIN_ID = 'https://www.wowohcool.com/#organization';
+const MAIN_CANON = ['@id', 'name', 'legalName', 'foundingDate', 'identifier', 'url', 'publishingPrinciples', 'logo', 'areaServed', 'address', 'sameAs', 'knowsAbout', 'contactPoint'];
+const SUB_CANON = ['name', 'legalName', 'identifier', 'address'];
 if (!fs.existsSync(SITE)) { console.log('[validate-org-schema] _site not found'); process.exit(1); }
 function walk(d, o = []) { for (const e of fs.readdirSync(d, { withFileTypes: true })) { const p = path.join(d, e.name); if (e.isDirectory()) walk(p, o); else if (e.name.endsWith('.html')) o.push(p); } return o; }
 function findOrg(o, acc) { if (o && typeof o === 'object') { if (o['@type'] === 'Organization') acc.push(o); for (const k in o) findOrg(o[k], acc); } return acc; }
@@ -15,7 +19,8 @@ for (const f of walk(SITE)) {
     const orgs = findOrg(d, []);
     for (const o of orgs) {
       nodes++;
-      const missing = CANON.filter(k => !(k in o));
+      const canon = o['@id'] === MAIN_ID ? MAIN_CANON : SUB_CANON;
+      const missing = canon.filter(k => !(k in o));
       if (missing.length) bad.push([path.relative(ROOT, f), missing.join(',')]);
     }
   }
