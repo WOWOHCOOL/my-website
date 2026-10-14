@@ -186,6 +186,13 @@ ogType: "profile"
 {% endblock %}
 
 {% block content %}
+{% set enBy = collections.blog_en | byAuthor("Snowy May") %}
+{% set deBy = collections.blog_de | byAuthor("Snowy May") %}
+{% set esBy = collections.blog_es | byAuthor("Snowy May") %}
+{% set frBy = collections.blog_fr | byAuthor("Snowy May") %}
+{% set ruBy = collections.blog_ru | byAuthor("Snowy May") %}
+{% set plBy = collections.blog_pl | byAuthor("Snowy May") %}
+{% set snowyArticleCount = enBy.length + deBy.length + esBy.length + frBy.length + ruBy.length + plBy.length %}
 
 <section id="hero" data-section="hero">
 <div class="relative pt-24 md:pt-28 pb-12 lg:pt-28 lg:pb-16 bg-gradient-to-b from-slate-50 to-white overflow-hidden">
@@ -249,8 +256,8 @@ ogType: "profile"
 <p class="text-xs text-slate-500 mt-1">Brands Founded (WOWOHCOOL + KEEPWIRELESS)</p>
 </div>
 <div class="card p-5 text-center shadow-sm">
-<div class="text-2xl font-black text-brandOrangeDeep">44</div>
-<p class="text-xs text-slate-500 mt-1">Articles Published (EN/DE/ES)</p>
+<div class="text-2xl font-black text-brandOrangeDeep">{{ snowyArticleCount }}</div>
+<p class="text-xs text-slate-500 mt-1">Articles Published (6 Languages)</p>
 </div>
 </div>
 
@@ -327,12 +334,6 @@ ogType: "profile"
 <div class="container-wide">
 <div class="card-lg-soft p-8">
 <h2 class="text-2xl font-black text-brandBlue uppercase italic mb-6">Articles by Snowy May</h2>
-{% set enBy = collections.blog_en | byAuthor("Snowy May") %}
-{% set deBy = collections.blog_de | byAuthor("Snowy May") %}
-{% set esBy = collections.blog_es | byAuthor("Snowy May") %}
-{% set frBy = collections.blog_fr | byAuthor("Snowy May") %}
-{% set ruBy = collections.blog_ru | byAuthor("Snowy May") %}
-{% set plBy = collections.blog_pl | byAuthor("Snowy May") %}
 <p class="text-slate-600 text-sm mb-6">{{ enBy.length + deBy.length + esBy.length + frBy.length + ruBy.length + plBy.length }} articles across 6 languages — covering GaN power architecture, Qi2 wireless charging, thermal design, and charging technology for OEM buyers.</p>
 
 {% set groups = [

@@ -220,6 +220,8 @@ ogType: "website"
 {% endblock %}
 
 {% block content %}
+{% set ninaCount = (collections.blog_en | byAuthor("Nina Nico")).length + (collections.blog_de | byAuthor("Nina Nico")).length + (collections.blog_es | byAuthor("Nina Nico")).length + (collections.blog_fr | byAuthor("Nina Nico")).length + (collections.blog_ru | byAuthor("Nina Nico")).length + (collections.blog_pl | byAuthor("Nina Nico")).length %}
+{% set snowyCount = (collections.blog_en | byAuthor("Snowy May")).length + (collections.blog_de | byAuthor("Snowy May")).length + (collections.blog_es | byAuthor("Snowy May")).length + (collections.blog_fr | byAuthor("Snowy May")).length + (collections.blog_ru | byAuthor("Snowy May")).length + (collections.blog_pl | byAuthor("Snowy May")).length %}
 
 <section id="hero" data-section="hero" class="pt-24 md:pt-28 pb-12 md:pb-16">
  <div class="container-wide">
@@ -243,7 +245,7 @@ ogType: "website"
  <div class="flex-1 min-w-0">
  <div class="flex items-center gap-2 mb-1">
  <a href="/authors/nina-nico/" class="font-black text-brandBlue hover:text-brandOrange transition">Nina Nico</a>
- <span class="text-xs text-slate-500">· 43 articles</span>
+<span class="text-xs text-slate-500">· {{ ninaCount }} articles</span>
  </div>
  <p class="text-sm text-slate-600 font-semibold mb-1">Global Procurement &amp; Sourcing Manager</p>
  <p class="text-xs text-slate-500 mb-3">3C Accessories OEM/ODM Expert · EN / DE / ES / ZH</p>
@@ -273,7 +275,7 @@ ogType: "website"
  <div class="flex-1 min-w-0">
  <div class="flex items-center gap-2 mb-1">
  <a href="/authors/snowy-may/" class="font-black text-brandBlue hover:text-brandOrange transition">Snowy May</a>
- <span class="text-xs text-slate-500">· 44 articles</span>
+<span class="text-xs text-slate-500">· {{ snowyCount }} articles</span>
  </div>
  <p class="text-sm text-slate-600 font-semibold mb-1">Marketing Manager &amp; Founder</p>
  <p class="text-xs text-slate-500 mb-3">WOWOHCOOL &amp; KEEPWIRELESS · Electronics Enthusiast</p>
