@@ -15,6 +15,7 @@
  */
 const fs = require('fs');
 const path = require('path');
+const crypto = require('crypto');
 
 const REPO_ROOT = path.join(__dirname, '..');
 const SITE = path.join(REPO_ROOT, '_site');
@@ -94,6 +95,11 @@ for (const [id, { viewBox, inner }] of symbolById) {
   sprite += `<symbol id="${id}"${viewBox && viewBox !== '(none)' ? ` viewBox="${viewBox}"` : ''}>${inner}</symbol>`;
 }
 sprite += '</svg>';
+// Cache-bust the external sprite URL. /image/* is served `immutable` for a year,
+// so a fixed /image/icons.svg#id would keep stale symbols (new icons render blank)
+// until that cache expires. A content-hash query gives every sprite revision a
+// unique cache key while keeping the immutable year-long cache.
+const SPRITE_VERSION = crypto.createHash('sha1').update(sprite).digest('hex').slice(0, 10);
 fs.writeFileSync(SPRITE_PATH, sprite);
 const spriteSize = Buffer.byteLength(sprite, 'utf8');
 console.log(`sprite file: ${SPRITE_PATH} (${(spriteSize / 1024).toFixed(1)} KB)`);
@@ -115,7 +121,7 @@ for (const p of pages) {
     if (!id) return full;
     replacedHere++;
     let attrs = openAttrs.replace(/\s*viewBox="[^"]*"/g, '');
-    return `<svg${attrs}><use href="${SPRITE_URL}#${id}"/></svg>`;
+    return `<svg${attrs}><use href="${SPRITE_URL}?v=${SPRITE_VERSION}#${id}"/></svg>`;
   });
 
   if (replacedHere === 0) continue;

@@ -52,7 +52,7 @@ const leftoverSample = [];
 for (const f of files) {
   const t = fs.readFileSync(f, 'utf8');
   let n = 0;
-  for (const m of t.matchAll(/<use\b[^>]*\b(?:xlink:)?href="\/image\/icons\.svg#([^"]+)"/g)) {
+  for (const m of t.matchAll(/<use\b[^>]*\b(?:xlink:)?href="\/image\/icons\.svg(?:\?v=[^"#]*)?#([^"]+)"/g)) {
     n++; totalRefs++;
     const id = m[1];
     usedIds.add(id);
