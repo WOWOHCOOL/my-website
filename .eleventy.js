@@ -241,6 +241,15 @@ module.exports = function (eleventyConfig) {
         propertyID: 'HK Business Registration Number',
         value: FACTS_DATA.hkBusinessRegistration,
       };
+      node.sameAs = [
+        FACTS_DATA.social.linkedin,
+        FACTS_DATA.social.crunchbase,
+        FACTS_DATA.social.facebook,
+        FACTS_DATA.social.youtube,
+        FACTS_DATA.social.x,
+        FACTS_DATA.social.tiktok,
+        FACTS_DATA.social.madeInChina,
+      ].filter(Boolean);
       node.foundingDate = FACTS_DATA.founded;
       node.email = FACTS_DATA.contact.email;
       node.telephone = FACTS_DATA.contact.phoneE164;
