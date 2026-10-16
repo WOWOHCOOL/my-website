@@ -190,6 +190,115 @@ function categoryFromPath(pathname) {
   return null;
 }
 
+const TRACKING_STORAGE_KEY = 'wowohcool_tracking_v1';
+const TRACKING_FIELDS = ['landing_page', 'referrer', 'utm_source', 'utm_campaign', 'product_category'];
+
+function getProductCategory(scope) {
+  const explicit = scope?.dataset?.productCategory || scope?.closest?.('[data-product-category]')?.getAttribute('data-product-category');
+  if (explicit) return explicit;
+
+  if (scope && scope.tagName === 'FORM') {
+    const hidden = scope.querySelector('input[name="product_category"]');
+    if (hidden && hidden.value.trim()) return hidden.value.trim();
+    const selected = scope.querySelector('select[name="product"]');
+    if (selected && selected.value) return selected.value;
+    const product = scope.querySelector('input[name="product"]');
+    if (product && product.value) return product.value;
+  }
+
+  return categoryFromPath() || '';
+}
+
+function getTrackingContext() {
+  let stored = {};
+  try {
+    stored = JSON.parse(sessionStorage.getItem(TRACKING_STORAGE_KEY) || '{}') || {};
+  } catch (err) {
+    stored = {};
+  }
+
+  const params = new URLSearchParams(window.location.search);
+  const context = {
+    landing_page: stored.landing_page || window.location.href,
+    referrer: stored.referrer || document.referrer || '',
+    utm_source: params.get('utm_source') || stored.utm_source || '',
+    utm_campaign: params.get('utm_campaign') || stored.utm_campaign || '',
+    product_category: getProductCategory(document.body) || stored.product_category || '',
+  };
+
+  try {
+    sessionStorage.setItem(TRACKING_STORAGE_KEY, JSON.stringify(context));
+  } catch (err) {
+    // Ignore storage failures (private mode, blocked storage, etc.).
+  }
+  return context;
+}
+
+function ensureHiddenInput(form, name, value = '') {
+  let input = form.querySelector(`input[name="${name}"]`);
+  if (!input) {
+    input = document.createElement('input');
+    input.type = 'hidden';
+    input.name = name;
+    form.appendChild(input);
+  }
+  if (value || !input.value) input.value = value;
+  return input;
+}
+
+function applyTrackingToForm(form) {
+  const context = getTrackingContext();
+  context.product_category = getProductCategory(form) || context.product_category || '';
+  TRACKING_FIELDS.forEach(name => ensureHiddenInput(form, name, context[name] || ''));
+}
+
+function applyTrackingToForms(root = document) {
+  root.querySelectorAll('form[action*="web3forms.com/submit"]').forEach(applyTrackingToForm);
+}
+
+function trackingLines(context) {
+  return [
+    `Landing page: ${context.landing_page || ''}`,
+    `Referrer: ${context.referrer || ''}`,
+    `UTM source: ${context.utm_source || ''}`,
+    `UTM campaign: ${context.utm_campaign || ''}`,
+    `Product category: ${context.product_category || ''}`,
+  ];
+}
+
+function applyTrackingToLink(link) {
+  const baseHref = link.dataset.baseHref || link.getAttribute('href') || '';
+  if (!baseHref) return;
+  link.dataset.baseHref = baseHref;
+
+  const context = getTrackingContext();
+  context.product_category = getProductCategory(link) || context.product_category || '';
+
+  if (/^https:\/\/(?:www\.)?wa\.me\//i.test(baseHref) || /^https:\/\/api\.whatsapp\.com\//i.test(baseHref)) {
+    const url = new URL(baseHref);
+    const existing = url.searchParams.get('text') || '';
+    const message = [existing, ...trackingLines(context)].filter(Boolean).join('\n');
+    url.searchParams.set('text', message);
+    link.setAttribute('href', url.toString());
+    return;
+  }
+
+  if (baseHref.startsWith('mailto:')) {
+    const raw = baseHref.slice(7);
+    const [address, query = ''] = raw.split('?');
+    const params = new URLSearchParams(query);
+    const subject = params.get('subject') || `Website Inquiry${context.product_category ? ` - ${context.product_category}` : ''}`;
+    const body = [params.get('body') || '', ...trackingLines(context)].filter(Boolean).join('\n');
+    params.set('subject', subject);
+    params.set('body', body);
+    link.setAttribute('href', `mailto:${address}?${params.toString()}`);
+  }
+}
+
+function applyTrackingToLinks(root = document) {
+  root.querySelectorAll('a[href^="https://wa.me/"], a[href^="https://api.whatsapp.com/"], a[href^="mailto:"]').forEach(applyTrackingToLink);
+}
+
 function closeModal() {
   const modal = getInquiryModal();
   const content = getMainContent();
@@ -563,6 +672,7 @@ document.addEventListener('DOMContentLoaded', () => {
       submitBtn.textContent = _.sendingText;
 
       try {
+        applyTrackingToForm(form);
         const formData = new FormData(form);
         const data = Object.fromEntries(formData.entries());
         const controller = new AbortController();
@@ -613,14 +723,13 @@ document.addEventListener('DOMContentLoaded', () => {
   // Counter animation
   document.querySelectorAll('.counter').forEach(el => counterObserver.observe(el));
 
-  // UTM parameter capture
-  const params = new URLSearchParams(window.location.search);
-  ['utm_source', 'utm_medium', 'utm_campaign'].forEach(k => {
-    const v = params.get(k);
-    if (v) {
-      document.querySelectorAll(`input[name="${k}"]`).forEach(el => { el.value = v; });
-    }
-  });
+  // Attribution capture: landing page, referrer, UTM source/campaign, product category.
+  applyTrackingToForms(document);
+  applyTrackingToLinks(document);
+  document.addEventListener('click', (e) => {
+    const link = e.target.closest && e.target.closest('a[href^="https://wa.me/"], a[href^="https://api.whatsapp.com/"], a[href^="mailto:"]');
+    if (link) applyTrackingToLink(link);
+  }, true);
 
   // Initialize mobile submenu: hide focusable links when closed
   const submenu = document.getElementById('mobile-submenu');
