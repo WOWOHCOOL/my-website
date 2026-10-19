@@ -1,36 +1,16 @@
-// gate.js — prebuild checks.
+// gate.js — prebuild checks that can run everywhere.
 //
 // 1. Static template lint — always runs. Pure Node, no external deps, so it also
 //    runs on Cloudflare Pages. Catches nested/stray Nunjucks comments and shared
 //    macros used out of scope, both of which fail the build only at render time.
-// 1b. ctaLabel routing — always runs. Pure Node, no external deps. Enforces that
+// 2. ctaLabel routing — always runs. Pure Node, no external deps. Enforces that
 //    every blog article's ctaLabel is one of the canonical labels for its
 //    language (single source of truth: src/_data/cta-labels.json) and that all
-//    language versions of one article land in the same theme bucket. This is the
-//    step that stops the "one generic label everywhere" drift from coming back.
-// 2. Metadata prebuild gate from seomachine — local dev only. On remote build
-//    environments (Cloudflare Pages) ../seomachine is not checked out, so this
-//    step cannot run there. It is enforced locally before every push.
+//    language versions of one article land in the same theme bucket.
 //
-// ⚠️ WHAT "SKIPPING" MEANS (rewritten 2026-09-28)
-// Until today the skip was one quiet log line + `exit 0`, which made the most
-// expensive checks in the project — metadata C1-C24, the site-wide hreflang
-// graph, tail-panel order, 15-panel structure, FAQ schema<->body, i18n glue —
-// silently absent from the deploy path. A green deploy proved nothing about any
-// of them.
-//
-// It cannot simply fail instead: Cloudflare never has ../seomachine, so a hard
-// failure there would mean the site can never deploy at all. The skip is
-// therefore LOUD by default and HARD only when asked:
-//
-//   REQUIRE_GATE=1   fail the build when the metadata gate cannot run.
-//                    Use in any CI that DOES check out seomachine.
-//                    Do NOT set it on Cloudflare Pages.
-//
-// The local enforcement point is `.git/hooks/pre-push` (source kept at
-// scripts/hooks/pre-push so it can be reinstalled), which runs this gate before
-// content changes leave the machine.
-const fs = require("fs");
+// 2026-10-19: the old seomachine B2B `prebuild_gate.py` step was removed together
+// with the B2B add-on. The site-local validators in `npm run build` remain the
+// publishing gate; this file keeps only the checks that are self-contained.
 const path = require("path");
 const { spawnSync } = require("child_process");
 
@@ -50,36 +30,5 @@ if (ctaLabels.status !== 0) {
   process.exit(1);
 }
 
-const gate = "../seomachine/data_sources/modules/prebuild_gate.py";
-const requireGate = process.env.REQUIRE_GATE === "1";
-
-function banner(lines) {
-  const bar = "!".repeat(74);
-  console.log(bar);
-  lines.forEach((l) => console.log("!! " + l));
-  console.log(bar);
-}
-
-if (!fs.existsSync(gate)) {
-  banner([
-    "METADATA GATE DID NOT RUN — ../seomachine is not present in this checkout.",
-    "",
-    "NOT checked by this build: metadata C1-C24, site-wide hreflang graph,",
-    "tail-panel order, 15-panel structure, FAQ schema<->body, i18n glue.",
-    "A green build here does NOT mean those passed.",
-    "",
-    requireGate
-      ? "REQUIRE_GATE=1 is set -> failing the build (fail-closed)."
-      : "Set REQUIRE_GATE=1 to fail instead of skip (CI that has seomachine only).",
-  ]);
-  process.exit(requireGate ? 1 : 0);
-}
-
-const r = spawnSync("python", [gate], { stdio: "inherit" });
-if (r.error) {
-  // Fail-closed: a gate we could not execute is not a gate we passed.
-  console.error(`[gate] could not run the metadata gate: ${r.error.message}`);
-  console.error("[gate] is `python` on PATH? (the gate is stdlib-only; any Python 3 works)");
-  process.exit(1);
-}
-process.exit(r.status === 0 ? 0 : 1);
+console.log("[gate] local template lint + ctaLabel routing passed");
+process.exit(0);

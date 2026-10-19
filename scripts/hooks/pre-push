@@ -1,12 +1,10 @@
 #!/bin/sh
-# pre-push — run the metadata gate before content changes leave the machine.
+# pre-push — run the site prepush gate before content changes leave the machine.
 #
-# WHY THIS EXISTS (2026-09-28)
-# `prebuild_gate.py` is step 1 of `npm run build`, but Cloudflare Pages never
-# checks out `../seomachine`, so the DEPLOY build skips it (see scripts/gate.js).
-# The only machine that can run the gate is this one. Before this hook there was
-# nothing that guaranteed it ran at all: no CI, and .git/hooks/pre-commit only
-# runs lint-i18n-paths.js. "Local gate not run" literally meant "no gate".
+# 2026-10-19: the old B2B checker (`check_new_article.py` /
+# `preflight_blog_batch.py`) was removed together with the seomachine B2B add-on.
+# The hook now runs only the site-local prepush gate (`npm run prepush`), which
+# covers the site validators in package.json.
 #
 # SCOPE: only fires when the push touches `src/**/*.njk`. Tooling-only or
 # docs-only pushes are not slowed down.
@@ -26,13 +24,9 @@ fi
 
 ZERO=0000000000000000000000000000000000000000
 touched=""
-ref_count=0
-base=""
-local_sha=""
 
 while read -r _local_ref local_sha_in _remote_ref remote_sha; do
   [ -z "${local_sha_in:-}" ] && continue
-  ref_count=$((ref_count + 1))
   if [ "$remote_sha" = "$ZERO" ]; then
     base_in="origin/main"
   else
@@ -41,65 +35,27 @@ while read -r _local_ref local_sha_in _remote_ref remote_sha; do
   hit=$(git diff --name-only "$base_in..$local_sha_in" 2>/dev/null | grep -E '^src/.*\.njk$' || true)
   [ -n "$hit" ] && touched="$touched$hit
 "
-  # Keep the LAST ref's context for the profile diff below. Only meaningful when
-  # exactly one ref is pushed; ref_count gates that (see AmbigBase below).
-  base="$base_in"
-  local_sha="$local_sha_in"
 done
 
 if [ -z "$touched" ]; then
-  echo "[pre-push] no src/**/*.njk changes — skipping the metadata gate"
+  echo "[pre-push] no src/**/*.njk changes — skipping the prepush gate"
   exit 0
 fi
 
-# The per-file profile decision diffs $base..$local_sha. Those variables only
-# describe ONE ref, so a push carrying several refs would classify every blog
-# file against the wrong range and could wrongly downgrade a new article to the
-# maintenance profile. When the ref context is not unique, force the strict
-# profile — "unclear" must resolve to the stricter gate, never the looser one.
-AMBIG_BASE=""
-[ "$ref_count" -ne 1 ] && AMBIG_BASE="1"
-[ -z "$base" ] && AMBIG_BASE="1"
-
 echo "[pre-push] content changes detected:"
 echo "$touched" | sed '/^$/d' | head -20 | sed 's/^/           /'
-
-blog_touched=$(printf '%s\n' "$touched" | grep -E '^src/([^/]+/)?blog/.*/index\.njk$' | sed '/^$/d' || true)
-if [ -n "$blog_touched" ]; then
-  B2B_ROOT="${SEOMACHINE_ROOT:-$ROOT/../seomachine}"
-  B2B_CHECKER="$B2B_ROOT/extensions/blog_b2b/modules/check_new_article.py"
-  B2B_BATCH="$B2B_ROOT/extensions/blog_b2b/modules/preflight_blog_batch.py"
-  PY="${PYTHON:-python}"
-
-  if [ ! -f "$B2B_CHECKER" ] || [ ! -f "$B2B_BATCH" ]; then
-    echo "[pre-push] BLOCKED — B2B checker not found: $B2B_CHECKER"
-    echo "[pre-push] Set SEOMACHINE_ROOT or restore the B2B extension before pushing blog changes."
-    exit 1
+echo
+if [ -f "$ROOT/scripts/build-images.js" ]; then
+  echo "[pre-push] checking cover image variants..."
+  node "$ROOT/scripts/build-images.js" --check --match=cover-
+  cover_status=$?
+  if [ "$cover_status" -ne 0 ]; then
+    echo "[pre-push] BLOCKED — cover variants are missing or stale."
+    echo "[pre-push] Run: node scripts/build-images.js --apply --only=cover-{lang}/<slug>"
+    exit "$cover_status"
   fi
-  if ! command -v "$PY" >/dev/null 2>&1; then
-    echo "[pre-push] BLOCKED — python not found ($PY); B2B blog gate cannot run."
-    exit 1
-  fi
-
-  # Batch preflight classifies every changed article as new-target,
-  # maintenance-content, or maintenance-structural. It runs all files and
-  # reports all failures at the end instead of stopping at the first one.
-  echo "[pre-push] running B2B batch preflight for changed blog files:"
-  echo "$blog_touched" | sed '/^$/d' | head -20 | sed 's/^/           /'
-  echo
-
-  batch_extra=""
-  [ -n "$AMBIG_BASE" ] && batch_extra="--force-target"
-  # shellcheck disable=SC2086
-  PYTHONUTF8=1 "$PY" "$B2B_BATCH" --base "$base" $batch_extra $blog_touched
-  b2b_status=$?
-  if [ "$b2b_status" -ne 0 ]; then
-    echo
-    echo "[pre-push] BLOCKED — B2B batch preflight failed (exit $b2b_status)."
-    echo "[pre-push] Fix all findings above. To bypass: git push --no-verify"
-    exit "$b2b_status"
-  fi
-
+else
+  echo "[pre-push] build-images.js not present — skipping cover variant check (local-only tool)"
 fi
 
 echo "[pre-push] running the prepush gate (npm run prepush) — Cloudflare cannot run it."
@@ -110,7 +66,7 @@ status=$?
 
 if [ "$status" -ne 0 ]; then
   echo
-  echo "[pre-push] BLOCKED — the metadata gate failed (exit $status)."
+  echo "[pre-push] BLOCKED — the prepush gate failed (exit $status)."
   echo "[pre-push] Fix the findings above. To bypass: git push --no-verify"
 fi
 exit "$status"
