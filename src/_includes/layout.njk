@@ -1,8 +1,25 @@
 <!DOCTYPE html>
 {% set i18nLayout = i18n.layout[lang] %}
-<html lang="{{ lang }}" class="scroll-smooth">
+<html lang="{{ lang }}" class="no-js scroll-smooth">
 <head>
  <meta charset="UTF-8">
+ {# ── .reveal 降级兜底（2026-10-22）────────────────────────────────────
+    .reveal 初始 opacity:0，靠 main.js 的 IntersectionObserver 加 .active。
+    JS 被禁 / 被 CSP 拦 / bundle 加载失败时，全站 .reveal 区块会**永久隐身**
+    （实测：首页 14 个区块、8343 字符不可见）。这里做两道兜底：
+      ① 立即摘掉 .no-js ⇒ 正常情况无任何影响（脚本在样式表之前执行，不会闪）
+      ② 3s 看门狗：main.js 若没跑起来（window.__revealReady 未置位），
+         把 .no-js 加回去 ⇒ .no-js .reveal{opacity:1} 生效，内容照常可见。
+    ⚠️ 不要把这个脚本挪到 </body>：挪了就会先按 opacity:0 绘制一帧。 #}
+ <script>
+  (function () {
+   var d = document.documentElement;
+   d.classList.remove('no-js');
+   setTimeout(function () {
+    if (!window.__revealReady) d.classList.add('no-js');
+   }, 3000);
+  })();
+ </script>
  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
  <meta name="msvalidate.01" content="DCDF31DC42E44050A451C416EE8D5E5F">
  <meta name="yandex-verification" content="20988a7985051f9f">

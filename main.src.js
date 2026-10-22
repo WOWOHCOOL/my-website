@@ -135,6 +135,19 @@ function updateBackToTop() {
   }
 }
 
+// 浮动按钮（WhatsApp / 询盘）在移动端首屏会让位给正文：
+// 先挂 .float-ready 打开「可隐藏」状态，滚动超过 400px 再 .is-visible 淡入。
+// ⚠️ .float-ready 必须在 JS 里加，不能写进 CSS 默认态 —— 否则 JS 挂掉时按钮永久消失。
+const floatWrap = document.querySelector('.float-wrap');
+if (floatWrap) {
+  floatWrap.classList.add('float-ready');
+  const syncFloat = () => {
+    floatWrap.classList.toggle('is-visible', window.scrollY > 400);
+  };
+  syncFloat();
+  window.addEventListener('scroll', syncFloat, { passive: true });
+}
+
 let scrollPending = false;
 window.addEventListener('scroll', () => {
   if (!scrollPending) {
@@ -719,6 +732,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Scroll reveal
   document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+  // 告诉 <head> 里的 3s 看门狗「reveal 已接管」——否则它会把 .no-js 加回去，
+  // 把 .reveal 全部强制显形（等于关掉入场动画）。见 layout.njk 顶部脚本。
+  window.__revealReady = true;
 
   // Counter animation
   document.querySelectorAll('.counter').forEach(el => counterObserver.observe(el));

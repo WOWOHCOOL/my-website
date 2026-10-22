@@ -15,29 +15,30 @@
 :root{
   /* brand */
   --brand-orange:#FF6B00;--brand-orange-alt:#FF6600;--brand-orange-hover:#e06000;
-  /* ⚠️⚠️⚠️ 2026-10-06 用户裁决：**全站橙色一律用品牌橙 #FF6B00**。
-     「所有被认定橙色的图标/文字/hover 都必须是品牌橙，与 logo 一致；
-       除特殊设计外（about 故事版面保持现样）。」
-     ⇒ 原本的「文字加深档 #B63C0B」与「大字档 #E45F00」**双双归并到品牌橙**。
+  /* ⚠️⚠️⚠️ 橙色三分工（2026-10-22 修订，取代 2026-10-06 的「一律 #FF6B00」）：
+       --brand-orange        #FF6B00  → 只做**填充**：按钮底、色块、图标、描边。
+                                        永不作浅底文字色（白底 2.86:1 / slate-50 2.73:1）。
+       --brand-orange-deep   #B63C0B  → **浅底上的小字**（≤18px 常规字重），需 4.5:1。
+       --brand-orange-large  #E45F00  → **浅底上的大字**（≥24px 或 ≥18.66px+700），需 3:1。
+       深底（brandBlue 系）上的橙字仍用 #FF6B00 —— 对 #0A192F 是 6.17:1，达标。
 
-     ⚠️ 已知代价（用户已知情并接受）：品牌橙在白底上只有 **2.86:1**、`#f8fafc` 上 2.73:1，
-        低于正文所需的 4.5:1 ⇒ PageSpeed 的 `color-contrast` 会重新报「对比度不足」。
-        （两轮前 99d1c315 正是为修这个才引入加深档的。）
-     ⚠️ 若要恢复可读性，**只需把下面两个变量改回**：
-          --brand-orange-deep: #B63C0B;   （白底 5.77:1）
-          --brand-orange-large: #E45F00;  （白底 3.54:1）
-        并同步 tailwind.config.js 的 brandOrangeDeep / brandOrangeLarge。
+     2026-10-22 用户裁决「需要颜色对比」：恢复两个文字档。
+     注意 2026-10-06 曾把三档合并为 #FF6B00，代价是**全站 86 处 .section-label**
+     （12px/700）与 H1 橙字双双跌破阈值 —— 那次合并把 deep 档存在的唯一理由抹掉了。
+     本次只恢复文字档，**填充色一个都没动**，视觉主色仍是 #FF6B00。
+
+     deep 取值 #B63C0B 而非 #C2410C 的理由：它是按站内**最暗的浅色文字面**反解的
+     （#fff 5.77 · slate-50 5.51 · `bg-brandOrange/10` 叠 slate-50 #F9ECE3 4.98 ·
+     `bg-brandBlue/10` 叠 slate-50 #E0E4E8 4.51），四个面全部 ≥4.5。
+     #C2410C 在最后一个面上只有 4.07，会留下一条裂缝。
+
      ⚠️ 注意：块注释内**不得再写第二层注释符**（CSS 注释不可嵌套，会提前闭合
         并把后续文字变成裸 token ⇒ `Unknown word`）——此处一律用全角括号。
-     ⚠️ 保留变量名（不删）就是为了留住这个**一行回退**的开关。
-
-     历史（加深档的由来，供将来判断）：#FF6B00 作为文字色放在浅底上连大字 3:1 都不到；
-     取值曾按站内最暗的浅色文字面反解（#fff 5.77 · slate-50 5.51 ·
-     `bg-brandOrange/10` 叠 slate-50 #F9ECE3 4.98 · `bg-brandBlue/10` 叠 slate-50 #E0E4E8 4.51）。
-     ⚠️ 本变量只用于文字；`bg-brandOrange` 底色一直是 #FF6B00。 */
-  --brand-orange-deep:#FF6B00;
-  /* 大字档：用户裁决后与品牌橙同值（保留变量名 = 保留回退开关，见上）。 */
-  --brand-orange-large:#FF6B00;
+     ⚠️ 改这两个变量时必须同步 tailwind.config.js 的 brandOrangeDeep / brandOrangeLarge，
+        否则 `.text-brandOrangeDeep` 工具类会与 CSS 变量不一致。 */
+  --brand-orange-deep:#B63C0B;
+  /* 大字档：仅用于浅底大标题里的橙字（3.54:1 ≥ 3.0）。 */
+  --brand-orange-large:#E45F00;
   --brand-blue:#0A192F;--brand-blue-alt:#0f2a4a;
   /* text */
   --text-primary:#0A192F;--text-body:#475569;--text-secondary:#64748b;--text-muted:#94a3b8;
@@ -73,6 +74,10 @@ html{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica N
 .highlight-line::after{bottom:0;background:linear-gradient(90deg,var(--brand-orange-alt) 0%,transparent 100%)}
 .reveal{opacity:0;transform:translateY(25px);transition:opacity .6s ease-out,transform .6s ease-out}
 .reveal.active{opacity:1;transform:translateY(0)}
+/* .reveal 的降级兜底（2026-10-22）：.no-js 由 layout.njk <head> 内的脚本摘除；
+   JS 被禁 / CSP 拦截 / bundle 加载失败时，3s 看门狗会把 .no-js 加回来 ⇒ 内容照常可见。
+   没有这段，全站 .reveal 区块会永久 opacity:0（实测首页 14 个区块、8343 字符不可见）。 */
+.no-js .reveal{opacity:1;transform:none}
 /* .reveal 的错峰延迟（2026-09-17 补定义）
    ⚠️ 模板里有 42 处 `delay-1/2/3`（12 个页面：DE/ES/FR/RU 的首页 + about + service），
       但这三个类**从未在 src.css 里定义过**，Tailwind 内置的 `delay-*` 也只有 75/100/…/1000，
@@ -96,7 +101,15 @@ html{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica N
 :focus-visible{outline:3px solid var(--brand-orange);outline-offset:2px}
 :focus:not(:focus-visible){outline:0}
 @media (max-width:768px){html{scroll-behavior:auto!important}#mobile-menu-overlay,header{-webkit-backdrop-filter:none!important;backdrop-filter:none!important}}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}}
+/* 动效偏好（2026-10-22 补全）：原来只关了平滑滚动，但 .badge-capsule 的脉冲圆点
+   （pulse 2s infinite）与 .reveal 的 25px 位移仍在跑 —— 前庭敏感用户最受不了的正是这两类。
+   reveal 直接给终态而不是 transition:none，避免"取消动画后停在 opacity:0"。 */
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto!important}
+  .badge-capsule::before{animation:none!important}
+  .reveal{opacity:1!important;transform:none!important;transition:none!important}
+  .reveal.delay-1,.reveal.delay-2,.reveal.delay-3{transition-delay:0s!important}
+}
 body,html{overflow-x:hidden;max-width:100vw}
 /* Removed (2026-09-12): a mobile overflow patch block used to live here, targeting
    .fixed.right-8>span / .absolute.-left-10 / .absolute.-left-6 / .fixed.left-8 /
@@ -120,15 +133,12 @@ body,html{overflow-x:hidden;max-width:100vw}
 @media (min-width:640px){.car-cta-btn{display:inline-block;width:auto}}
 .submenu-slide{max-height:0;overflow:hidden;transition:max-height .3s ease-out}
 .submenu-slide.open{max-height:800px}
-/* 遗留「整屏分栏 hero」——只有 EN / PL 首页用它（内部是 .hero-layout）。
-   2026-09-16 回归修复：这两条规则原先写作 `#hero`。全站 section 补上 id="hero" 之后，
-   ID 选择器 (1,0,0) 压过了 hero 自己的 `pt-24 md:pt-28` (0,1,0)，
-   使 113 个非首页页面的 hero 在 ≥1024px 下 padding-top 由 112px 掉到 80px，
-   并被 min-height:100dvh 拉成整屏 —— 视觉表现就是 hero 紧贴固定页头。
-   收窄成类选择器，只作用于真正使用 .hero-layout 的首页 hero。 */
-.hero-viewport{padding-top:8rem}
-.hero-layout{display:flex;flex-direction:column;gap:2.5rem}
-@media (min-width:1024px){.hero-viewport{padding-top:5rem;min-height:100dvh}.hero-layout{flex-direction:row;align-items:center}.hero-layout .hero-text-col{width:50%;max-width:none;display:flex;flex-direction:column;justify-content:center;gap:1rem;padding-top:0;padding-bottom:0}.hero-layout .hero-img-col{width:50%;display:flex;align-items:center;justify-content:flex-end}}
+/* Removed (2026-10-22): 遗留「整屏分栏 hero」体系（.hero-viewport / .hero-layout /
+   .hero-text-col / .hero-img-col）已删除。EN 与 PL 首页改为与 DE/ES/FR/RU 相同的
+   定型 hero（badge → .hero-title → .hero-subtitle → .btn-pair → trust-badge 行），
+   三套并存收敛为一套。删除前已确认：全站 .njk 对这 4 个类的引用为 0。
+   ⚠️ 勿再以 `#hero` 写规则 —— 全站 section 都带 id="hero"（113 个非首页页面），
+      ID 选择器 (1,0,0) 会压过页面自己的 `pt-24 md:pt-28`，见 2026-09-16 回归。 */
 @media (min-width:1024px){.lg\:hidden{display:none!important}}
 svg[class*="icon-"]{display:inline-block;width:1em;height:1em;vertical-align:-0.125em;fill:currentColor;flex-shrink:0}
 
@@ -268,6 +278,21 @@ svg[class*="icon-"]{display:inline-block;width:1em;height:1em;vertical-align:-0.
 }
 .cookie-offset-anim {
   transition: bottom 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 浮动按钮（WhatsApp / 询盘）——移动端首屏不显示（2026-10-22）。
+   实测 390×844：两个 40×40 的固定按钮压住 hero 段落末行与第 2 条 trust-badge 文字，
+   正文被遮挡且不可选中。改为滚动 400px 后再淡入。
+   ⚠️ 初始隐藏由 JS 加的 `.float-ready` 触发，**不写在 CSS 默认态里**：
+      这样 JS 被禁 / bundle 加载失败时按钮照常可见，不会变成"消失的客服入口"。 */
+@media (max-width: 767px) {
+  .float-wrap.float-ready {
+    opacity: 0; transform: translateY(12px); pointer-events: none;
+    transition: opacity .3s ease, transform .3s ease;
+  }
+  .float-wrap.float-ready.is-visible {
+    opacity: 1; transform: none; pointer-events: auto;
+  }
 }
 
 /* ─── Design System: Section Spacing ─────────────────────────
@@ -653,6 +678,35 @@ body svg.text-brandOrange,
 body svg.text-brandOrangeDeep,
 body .text-brandOrange svg,
 body .text-brandOrangeDeep svg { color: var(--brand-orange); }
+
+/* 图标壳「hover 反色」例外（2026-10-22 修 bug）────────────────────────────
+   症状：鼠标划过优势卡 / 流程编号板时，图标块整体变橙、图案消失。
+   这类卡片的 hover 逻辑是「壳变橙底 + 壳文字转深蓝」：
+       <div class="text-brandOrange group-hover:bg-brandOrange group-hover:text-brandBlue">
+         <svg class="icon-…">
+   ⚠️ 注意本仓库**没有**原生 CSS `@layer`（产物里 `@layer` 出现 0 次，Tailwind v3 会把
+      utilities 直接摊平成普通规则），所以判定只看**特异性 + 源码顺序**，与"级联层"无关。
+   两个独立成因，各自都需要一条规则：
+
+   ① 深色区里的壳**根本不变色**（`#services`、`/service/#workflow` 等 `bg-darkBg` 区块）
+      静态色来自 `[class~="bg-darkBg"] .text-brandOrange`（0,2,0）= 亮橙，
+      而 Tailwind 的 `.group:hover .group-hover\:text-brandBlue` 也是 (0,2,0)
+      ⇒ **特异性打平，源码顺序决胜**：本文件的规则在 utilities 之后 ⇒ 深色区规则胜
+      ⇒ hover 时壳仍是 #FF6B00，橙字压橙底 = 不可见。
+      （浅底区块不受影响：那里是 `body .text-brandOrange`（0,1,1），
+        group-hover 的 (0,2,0) 直接压过去，所以 /contact/ 渠道卡的壳一直是好的。）
+
+   ② svg **永远不变色**（全站，不分深浅底）
+      `body .text-brandOrange svg`（0,1,2）直接给 svg 设了 color，svg 有**自己的**声明
+      就不再继承壳的颜色 —— 即使壳成功转成深蓝，图标还是亮橙。
+
+   ⇒ 所以下面「壳」和「壳内 svg」两条都必须写，少一条就漏一半。
+   ⚠️ 只命中带 `group-hover:text-brandBlue` 的壳（全站 14 处），不波及其他橙字/橙图标。
+   ⚠️ #0A192F on #FF6B00 = 6.17:1，达标。 */
+body .group:hover .group-hover\:text-brandBlue,
+body .group:focus-within .group-hover\:text-brandBlue,
+body .group:hover .group-hover\:text-brandBlue svg,
+body .group:focus-within .group-hover\:text-brandBlue svg { color: var(--brand-blue); }
 
 /* ─── hover 态橙字（2026-10-06 四修 · hover 统一）─────────────────────────
    ⚠️⚠️ 问题：`hover:text-brandOrange`（全站 **5415 处**、312 个文件）在**浅底**上
@@ -1252,9 +1306,22 @@ table td, table th { overflow-wrap: break-word; word-break: normal; }
 @media (max-width: 640px) {
   .cookie-banner-inner { flex-direction: column; text-align: center; }
   .cookie-btn-group { width: 100%; justify-content: center; }
+  /* 移动端横幅瘦身（2026-10-22）：实测 390×844 下高 161px（占屏 19%），
+     德语/俄语更长（181/202px）。收紧内边距与字号，压到 ~120px，
+     给首屏 CTA 让出空间。 */
+  .cookie-banner { padding: 0.9rem 1rem; }
+  .cookie-banner p { font-size: 0.8rem; line-height: 1.45; }
+  .cookie-btn-accept, .cookie-btn-decline { padding: 0.5rem 1.1rem; font-size: 0.8rem; }
   .payment-grid { gap: 1rem; }
   .payment-item { min-width: 80px; padding: 0.75rem 1rem; }
   .referenz-card, .referencia-card { padding: 1.25rem; }
+}
+
+/* 移动菜单触控目标（2026-10-22）：实测菜单行高 37px。
+   WCAG 2.5.8 AA 的下限是 24px（已过），但 44px 才是拇指可用区间。 */
+@media (max-width: 1023px) {
+  #mobile-menu-content nav a,
+  #mobile-menu-content nav button { min-height: 44px; display: flex; align-items: center; }
 }
 
 /* ─── Desktop Dropdown: Sub-Level Flyout ──────────────────────────── */

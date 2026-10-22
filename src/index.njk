@@ -333,54 +333,51 @@ plPath: ""
 <!-- ========================================================================
  HERO SECTION
  ======================================================================== -->
-<!-- hero 第一屏适配（2026-09-17）：本页用遗留的「整屏分栏 hero」机制（.hero-viewport / .hero-layout），
-     lg 起左右各 50%，文字列宽从满宽骤降到 488px(1024) / 552px(1152) / 616px(1280)。
-     h1 原本 lg:text-6xl(60px)，在 1024–1279 折 6 行 = 360px，把文字列撑到 802px
-     → 1024×768 溢出 114px、1152×720 溢出 114px；1280×720 虽未溢出但只剩 6px 余量。
-     实测定档（余量 = 视口高 − 文字列 − 上下内边距；目标 ≥20px）：
-       1024×768 上限 48px（余量 54）· 1152×720 上限 48px（余量 54）· 1280×720 上限 52px（余量 38）· 1366×768 起 60px 可用
-     → 36 / 48(lg 起钉住，与 md 同档) / 56(xl，余量 22) / 60(2xl)。
-     ⚠️ md:text-5xl 自带 line-height:1，且媒体查询变体在产物里位于基础 `.leading-tight`(1.25) 之后
-     → xl/2xl 用 arbitrary 字号时行高仍为 1（已实测确认，不会变松）。 -->
-<section id="hero" class="hero-viewport bg-gradient-to-br from-slate-50 via-white to-orange-50 relative flex flex-col pb-8 lg:pb-0" style="min-height:100dvh" data-section="hero">
- <div class="flex-1 container-wide w-full hero-layout">
- <div class="hero-text-col max-w-lg py-2 md:py-10">
- <div>
+<!-- hero：与 DE/ES/FR/RU 同一套定型结构（2026-10-22 统一）——
+     badge → h1.hero-title → p.hero-subtitle → .btn-pair → trust-badge 行。
+     旧版用 `.hero-viewport/.hero-layout/.hero-text-col`（遗留整屏分栏体系）+
+     内联 text-4xl(36px) + 12px <ul>，实测 390×844 下 h1 折 5 行、CTA 落到 y=671，
+     被 Cookie 横幅遮 78%；1366×768 遮 130%。换成定型结构后 h1 降到 28px/4 行，
+     CTA 回到横幅之上（与 DE 的 384–440 同一水位）。
+     ⚠️ 文案一字未改：3 条 <li> 只是从列表改成 trust-badge 芯片，文字原样搬过来。 -->
+<section id="hero" class="flex items-center pt-24 md:pt-28 lg:pt-24 bg-gradient-to-br from-slate-50 via-white to-orange-50 relative overflow-hidden pb-8 md:pb-16 lg:pb-10" style="min-height:100dvh" data-section="hero">
+ <div class="container-wide px-6 py-0 md:py-0 w-full">
+ <div class="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+ <div class="reveal">
  <div class="badge-capsule mb-3 md:mb-6 uppercase" style="letter-spacing:0.08em">Since 2013 | 5,000m² Manufacturing Facility</div>
- <h1 class="text-4xl md:text-5xl lg:text-5xl xl:text-[3.5rem] 2xl:text-6xl font-black text-slate-900 uppercase italic tracking-tighter leading-tight mb-6">
- Wireless Charger & Power Bank <span class="text-brandOrange">OEM/ODM for</span> 200+ Global Brands
+ <h1 class="hero-title lg:text-[2.375rem] xl:text-[2.875rem] text-brandBlue">
+ Wireless Charger &amp; Power Bank <span class="text-brandOrange">OEM/ODM for</span> 200+ Global Brands
  </h1>
- <p class="hero-subtitle text-slate-500 text-base md:text-lg mb-3 md:mb-6 leading-relaxed max-w-xl">
- 10+ years manufacturing for 200+ global brands including Bosch and Jacob Jensen. From spec to shipment, we engineer, certify, and deliver with &lt; 0.3% defect rate and 25-30 day lead times. <a href="/service/" class="text-brandOrange hover:underline font-bold">Learn about our OEM/ODM services →</a>
+ <p class="hero-subtitle mt-3 md:mt-6 lg:mt-4 lg:text-lg">
+ 10+ years manufacturing for 200+ global brands including Bosch and Jacob Jensen. From spec to shipment, we engineer, certify, and deliver with &lt; 0.3% defect rate and 25-30 day lead times. <a href="/service/" class="text-brandOrangeDeep hover:underline font-bold">Learn about our OEM/ODM services →</a>
  </p>
- <ul class="text-slate-500 text-badge md:text-xs space-y-1 md:space-y-2 mb-4 md:mb-8 max-w-xl">
- <li class="flex items-start gap-2 md:gap-3"><span class="text-brandOrange font-bold shrink-0 mt-0.5">▸</span> CE/FCC/Qi2 Certified &bull; ISO 9001 &bull; Since 2013</li>
- <li class="flex items-start gap-2 md:gap-3"><span class="text-brandOrange font-bold shrink-0 mt-0.5">▸</span> 50+ R&D Engineers &bull; GaN V, PD 3.1, Qi2 MPP, Semi-Solid-State</li>
- <li class="flex items-start gap-2 md:gap-3"><span class="text-brandOrange font-bold shrink-0 mt-0.5">▸</span> MOQ 500+ &bull; Factory-Direct Pricing &bull; Shenzhen, China</li>
- </ul>
- </div>
-<div class="btn-pair">
-<button type="button" data-action="open-modal" class="btn-solid border-2 border-transparent w-full sm:w-auto shadow-lg shadow-brandOrange/20 cursor-pointer">
+ <div class="btn-pair mt-4 md:mt-8 lg:mt-6">
+ <button type="button" data-action="open-modal" class="btn-solid border-2 border-transparent w-full sm:w-auto shadow-lg shadow-brandOrange/20 cursor-pointer">
  Get Factory Pricing <svg class="icon-arrow-right text-sm" aria-hidden="true" focusable="false" viewBox="0 0 512 512"><path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-105.4 105.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" fill="currentColor"/></svg>
  </button>
  <a href="/products/" class="btn-ghost-lg">Explore Products</a>
  </div>
+ <div class="flex flex-wrap gap-2 md:gap-3 mt-5 md:mt-8 lg:mt-6">
+ <span class="trust-badge">CE/FCC/Qi2 Certified &bull; ISO 9001 &bull; Since 2013</span>
+ <span class="trust-badge">50+ R&amp;D Engineers &bull; GaN V, PD 3.1, Qi2 MPP, Semi-Solid-State</span>
+ <span class="trust-badge">MOQ 500+ &bull; Factory-Direct Pricing &bull; Shenzhen, China</span>
  </div>
- <div class="hero-img-col">
+ </div>
+ <div class="reveal relative flex flex-col items-start">
+ <div class="relative rounded-2xl overflow-hidden shadow-2xl w-full">
  <img src="/image/factory/wowohcool-smart-charging-solutions-720w.webp"
  srcset="/image/factory/wowohcool-smart-charging-solutions-360w.webp 360w,
  /image/factory/wowohcool-smart-charging-solutions-480w.webp 480w,
  /image/factory/wowohcool-smart-charging-solutions-720w.webp 720w,
  /image/factory/wowohcool-smart-charging-solutions-1080w.webp 1080w,
  /image/factory/wowohcool-smart-charging-solutions-1440w.webp 1440w"
- sizes="(max-width: 768px) 360px, (max-width: 1023px) 480px, 600px"
+ sizes="(max-width: 768px) calc(100vw - 2rem), (max-width: 1023px) calc(50vw - 3rem), 580px"
  alt="WOWOHCOOL Smart Charging Solutions - Professional OEM/ODM Power Bank"
- fetchpriority="high"
- width="720"
- height="600"
- class="w-full rounded-2xl md:rounded-6xl shadow-lg md:shadow-2xl"
- decoding="sync"
- style="aspect-ratio:720/600" loading="eager">
+ width="720" height="600"
+ class="w-full h-auto object-cover"
+ loading="eager" fetchpriority="high" decoding="async">
+ </div>
+ </div>
  </div>
  </div>
 </section>
@@ -735,48 +732,39 @@ plPath: ""
 <section id="client-testimonials" class="sec bg-darkBg text-white dark-section" data-section="content">
  <div class="container-wide px-6">
  <div class="text-center mb-14">
- <h2 class="text-3xl md:text-4xl font-black text-brandBlue uppercase italic tracking-tight mb-4">What Our Partners Say</h2>
- <p class="text-slate-500">Real feedback from brands we manufacture for</p>
+ <h2 class="text-3xl md:text-4xl font-black text-brandBlue uppercase italic tracking-tight mb-4">Selected Cooperation Cases</h2>
+ <p class="text-slate-500">Brands we manufacture for &mdash; country, sector, and what we delivered</p>
  </div>
  <div class="grid md:grid-cols-3 gap-6">
  <div class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-lg transition-shadow">
  <div class="flex items-center gap-1 mb-4">
- <span class="text-brandOrange">&#9733;</span><span class="text-brandOrange">&#9733;</span><span class="text-brandOrange">&#9733;</span><span class="text-brandOrange">&#9733;</span><span class="text-brandOrange">&#9733;</span>
+ <span class="text-brandOrangeLarge text-2xl leading-none">&#9733;</span><span class="text-brandOrangeLarge text-2xl leading-none">&#9733;</span><span class="text-brandOrangeLarge text-2xl leading-none">&#9733;</span><span class="text-brandOrangeLarge text-2xl leading-none">&#9733;</span><span class="text-brandOrangeLarge text-2xl leading-none">&#9733;</span>
  </div>
  <p class="text-slate-600 text-sm leading-relaxed mb-6">"10,000 units of 65W GaN car chargers delivered on an emergency timeline. 5-day sample turnaround and multiple price-tier options presented within 3 days. Exactly the speed a global brand needs."</p>
- <div class="flex items-center gap-3 border-t border-slate-100 pt-4">
- <div class="w-10 h-10 bg-red-50 rounded-full flex items-center justify-center text-xs font-black text-red-700">B</div>
- <div>
+ <div class="border-t border-slate-100 pt-4">
  <p class="text-sm font-bold text-brandBlue">Bosch</p>
  <p class="text-badge text-slate-500">Germany · DAX-Listed Automotive</p>
  </div>
  </div>
- </div>
  <div class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-lg transition-shadow">
  <div class="flex items-center gap-1 mb-4">
- <span class="text-brandOrange">&#9733;</span><span class="text-brandOrange">&#9733;</span><span class="text-brandOrange">&#9733;</span><span class="text-brandOrange">&#9733;</span><span class="text-brandOrange">&#9733;</span>
+ <span class="text-brandOrangeLarge text-2xl leading-none">&#9733;</span><span class="text-brandOrangeLarge text-2xl leading-none">&#9733;</span><span class="text-brandOrangeLarge text-2xl leading-none">&#9733;</span><span class="text-brandOrangeLarge text-2xl leading-none">&#9733;</span><span class="text-brandOrangeLarge text-2xl leading-none">&#9733;</span>
  </div>
  <p class="text-slate-600 text-sm leading-relaxed mb-6">"WOWOHCOOL solved our complex ODM challenge — integrating infrared and touch dual-sensing into a compact wireless car mount where other suppliers failed. 6,000 units delivered with zero defects."</p>
- <div class="flex items-center gap-3 border-t border-slate-100 pt-4">
- <div class="w-10 h-10 bg-blue-50 rounded-full flex items-center justify-center text-xs font-black text-blue-700">JJ</div>
- <div>
+ <div class="border-t border-slate-100 pt-4">
  <p class="text-sm font-bold text-brandBlue">Jacob Jensen</p>
  <p class="text-badge text-slate-500">Denmark · Premium Design House</p>
- </div>
  </div>
  </div>
 <!-- TESTIMONIALS_CONT -->
  <div class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-lg transition-shadow">
  <div class="flex items-center gap-1 mb-4">
- <span class="text-brandOrange">&#9733;</span><span class="text-brandOrange">&#9733;</span><span class="text-brandOrange">&#9733;</span><span class="text-brandOrange">&#9733;</span><span class="text-brandOrange">&#9733;</span>
+ <span class="text-brandOrangeLarge text-2xl leading-none">&#9733;</span><span class="text-brandOrangeLarge text-2xl leading-none">&#9733;</span><span class="text-brandOrangeLarge text-2xl leading-none">&#9733;</span><span class="text-brandOrangeLarge text-2xl leading-none">&#9733;</span><span class="text-brandOrangeLarge text-2xl leading-none">&#9733;</span>
  </div>
  <p class="text-slate-600 text-sm leading-relaxed mb-6">"From Spain, without ever visiting China, WOWOHCOOL managed our entire sourcing, sampling, production, and inspection process. We saved months of travel time and costs. 3,000 units delivered flawlessly."</p>
- <div class="flex items-center gap-3 border-t border-slate-100 pt-4">
- <div class="w-10 h-10 bg-amber-50 rounded-full flex items-center justify-center text-xs font-black text-amber-700">T</div>
- <div>
+ <div class="border-t border-slate-100 pt-4">
  <p class="text-sm font-bold text-brandBlue">Tempel Group</p>
  <p class="text-badge text-slate-500">Spain · Est. 1978</p>
- </div>
  </div>
  </div>
  </div>
