@@ -354,6 +354,7 @@ ruPath: "produkty/poverbanki/"
 {% endblock %}
 
 {% block content %}
+{% from "partials/cta-button.njk" import ctaButton with context %}
  <!-- ========================================================================
  HERO SECTION
  ======================================================================== -->
@@ -387,9 +388,7 @@ ruPath: "produkty/poverbanki/"
 
  <!-- CTA -->
  <div class="btn-pair">
- <button type="button" data-action="open-modal" data-product="Power Bank" class="btn-wide-lg">
- Pobierz Darmowy Katalog Hurtowy
- </button>
+ {{ ctaButton("catalog", "primary", "open-modal", "Power Bank") }}
  <a href="#products" class="btn-ghost-lg">
  Zobacz Produkty
  </a>
