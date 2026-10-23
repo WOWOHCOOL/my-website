@@ -304,6 +304,7 @@ plPath: ""
 {% endblock %}
 
 {% block content %}
+{% from "partials/cta-button.njk" import ctaButton with context %}
 
 <!-- ======== 1. HERO ======== -->
 <section id="hero" class="flex items-center pt-24 md:pt-28 lg:pt-24 bg-gradient-to-br from-slate-50 via-white to-orange-50 relative overflow-hidden pb-8 md:pb-16 lg:pb-10" style="min-height:100dvh" data-section="hero">
@@ -319,9 +320,7 @@ plPath: ""
  Fabricante OEM/ODM de power banks, cargadores inalámbricos, cargadores de coche y cargadores GaN con certificación CE/Qi2/ISO 9001 + AENOR. Fábrica en Shenzhen con más de 10 años de experiencia para empresas en España y Latinoamérica.
  </p>
  <div class="btn-pair mt-4 md:mt-8 lg:mt-6">
- <button type="button" data-action="open-modal" class="btn-solid border-2 border-transparent w-full sm:w-auto shadow-lg shadow-brandOrange/20 cursor-pointer">
- Solicitar presupuesto <svg class="icon-arrow-right text-sm" aria-hidden="true" focusable="false" viewBox="0 0 512 512"><path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-105.4 105.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" fill="currentColor"/></svg>
- </button>
+ {{ ctaButton("factoryPricing", "primary", "open-modal", "") }}
  <a href="/es/productos/powerbank/" class="btn-ghost-lg">Ver productos</a>
  </div>
  <div class="flex flex-wrap gap-3 mt-6 md:mt-8 lg:mt-6">
@@ -465,7 +464,7 @@ plPath: ""
  </div>
  <div class="text-center mt-10 md:mt-16">
  <p class="text-slate-500 text-xs md:text-sm mb-5 md:mb-6 font-medium">No arriesgue su marca con proveedores no verificados.</p>
- <button type="button" data-action="open-modal" class="btn-solid cursor-pointer">Solicitar presupuesto de fábrica</button>
+ {{ ctaButton("factoryPricing", "primary", "open-modal", "") }}
  </div>
  </div>
 </section>
