@@ -312,6 +312,19 @@ function applyTrackingToLinks(root = document) {
   root.querySelectorAll('a[href^="https://wa.me/"], a[href^="https://api.whatsapp.com/"], a[href^="mailto:"]').forEach(applyTrackingToLink);
 }
 
+function trackEvent(name, params = {}) {
+  if (typeof window.gtag === 'function') window.gtag('event', name, params);
+}
+
+function inquiryClickSource(el) {
+  if (!el || !el.closest) return 'unknown';
+  if (el.closest('header')) return 'header';
+  if (el.closest('footer')) return 'footer';
+  if (el.closest('.float-wrap')) return 'floating';
+  if (el.closest('#inquiryModal')) return 'modal';
+  return 'content';
+}
+
 function closeModal() {
   const modal = getInquiryModal();
   const content = getMainContent();
@@ -343,6 +356,8 @@ function closeModal() {
     modalKeydownHandler = null;
   }
 
+  document.body.classList.remove('modal-open');
+
   // Restore body scroll (with small delay for mobile browsers to settle)
   requestAnimationFrame(() => {
     document.body.style.overflow = '';
@@ -350,7 +365,7 @@ function closeModal() {
   });
 }
 
-function openModal(product = '') {
+function openModal(product = '', source = 'unknown') {
   const modal = getInquiryModal();
   const content = getMainContent();
   if (!modal) return;
@@ -410,6 +425,7 @@ function openModal(product = '') {
   modal.setAttribute('aria-hidden', 'false');
 
   // Lock body scroll while modal is open
+  document.body.classList.add('modal-open');
   document.body.style.overflow = 'hidden';
   document.documentElement.style.overflowX = 'hidden';
 
@@ -459,6 +475,7 @@ function openModal(product = '') {
       }
     }
   };
+  trackEvent('modal_open', { source, product, product_category: getProductCategory(modal) });
   document.addEventListener('keydown', modalKeydownHandler, true);
 }
 // ─── Mobile Menu ────────────────────────────────────────────────────
@@ -523,7 +540,7 @@ document.addEventListener('click', (e) => {
     const product = trigger.getAttribute('data-product') || '';
     actions.forEach(action => {
       switch (action) {
-        case 'open-modal':          openModal(product); break;
+        case 'open-modal':          openModal(product, inquiryClickSource(trigger)); trackEvent('inquiry_click', { source: inquiryClickSource(trigger), product, product_category: getProductCategory(trigger) }); break;
         case 'close-modal':         closeModal(); break;
         case 'toggle-mobile-menu':  toggleMobileMenu(); break;
         case 'close-mobile':        closeMobileMenu(); break;
@@ -670,6 +687,12 @@ document.addEventListener('DOMContentLoaded', () => {
     if (form.dataset.submitReady) return;
     form.dataset.submitReady = 'true';
 
+    form.addEventListener('focusin', function () {
+      if (form.dataset.formStarted) return;
+      form.dataset.formStarted = 'true';
+      trackEvent('form_start', { form_id: form.id || 'inquiry' });
+    });
+
     form.addEventListener('submit', async function (e) {
       e.preventDefault();
 
@@ -700,6 +723,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const result = await response.json();
 
         if (result.success) {
+          trackEvent('form_submit', { form_id: form.id || 'inquiry', product_category: getProductCategory(form) });
           form.reset();
 
           const successEl = document.createElement('div');
@@ -715,12 +739,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
           setTimeout(() => { window.location.href = redirectUrl; }, 2500);
         } else {
+          trackEvent('form_error', { form_id: form.id || 'inquiry', reason: 'web3forms_error' });
           submitBtn.disabled = false;
           submitBtn.classList.remove('opacity-50', 'cursor-not-allowed');
           submitBtn.textContent = originalText;
           showFormError(form, result.message || _.submitError);
         }
       } catch (err) {
+        trackEvent('form_error', { form_id: form.id || 'inquiry', reason: err && err.name === 'AbortError' ? 'timeout' : 'network_error' });
         submitBtn.disabled = false;
         submitBtn.classList.remove('opacity-50', 'cursor-not-allowed');
         submitBtn.textContent = originalText;
@@ -744,7 +770,10 @@ document.addEventListener('DOMContentLoaded', () => {
   applyTrackingToLinks(document);
   document.addEventListener('click', (e) => {
     const link = e.target.closest && e.target.closest('a[href^="https://wa.me/"], a[href^="https://api.whatsapp.com/"], a[href^="mailto:"]');
-    if (link) applyTrackingToLink(link);
+    if (link) {
+      applyTrackingToLink(link);
+      trackEvent('inquiry_click', { source: link.href.indexOf('wa.me') !== -1 || link.href.indexOf('api.whatsapp.com') !== -1 ? 'whatsapp' : 'email', product_category: getProductCategory(link) });
+    }
   }, true);
 
   // Initialize mobile submenu: hide focusable links when closed
