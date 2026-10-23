@@ -218,6 +218,22 @@ svg[class*="icon-"]{display:inline-block;width:1em;height:1em;vertical-align:-0.
     margin-bottom: 1rem !important;
   }
 }
+/* Shared CTA tiers (registry-driven buttons). */
+.btn-cta-primary {
+  @apply inline-flex w-full sm:w-auto items-center justify-center gap-2 bg-brandOrange text-brandBlue px-8 py-4 rounded-xl font-black uppercase tracking-widest text-sm shadow-xl transition;
+}
+.btn-cta-primary:hover { @apply -translate-y-1 shadow-brandOrange/40; }
+.btn-cta-secondary {
+  @apply inline-flex w-full sm:w-auto items-center justify-center gap-2 border-2 border-brandBlue text-brandBlue px-8 py-4 rounded-xl font-black uppercase tracking-widest text-sm transition;
+}
+.btn-cta-secondary:hover { @apply bg-brandBlue text-white; }
+.btn-cta-inline {
+  @apply inline-flex items-center gap-1 text-sm font-black uppercase tracking-widest text-brandOrangeDeep transition;
+}
+.btn-cta-inline:hover { @apply text-brandBlue underline; }
+.dark-section .btn-cta-secondary { border-color: rgba(255,255,255,0.3); color: #fff; }
+.dark-section .btn-cta-secondary:hover { background: #fff; color: #0A192F; }
+
 /* Consistent input rounding handled by Tailwind classes directly */
 
 /* Remove double focus ring inside modal (inputs have border indicator already) */

@@ -349,6 +349,7 @@ plPath: "uslugi-oem-odm/"
 {% endblock %}
 
 {% block content %}
+{% from "partials/cta-button.njk" import ctaButton with context %}
 <!-- ========================================================================
  HERO SECTION - Hero Section
  ======================================================================== -->
@@ -368,7 +369,7 @@ plPath: "uslugi-oem-odm/"
  From concept to mass production. We help brands launch custom charging products like <a href="/products/wireless-charger/" class="text-brandOrange hover:underline">wireless chargers</a>, <a href="/products/power-bank/" class="text-brandOrange hover:underline">power banks</a>, <a href="/products/car-charger/" class="text-brandOrange hover:underline">car chargers</a>, and <a href="/products/gan-charger/" class="text-brandOrange hover:underline">GaN chargers</a>. Our ISO 9001-certified factory in Shenzhen has shipped to 50+ countries since 2013.
  </p>
  <div class="btn-pair">
- <button type="button" data-action="open-modal" class="border-2 border-transparent w-full bg-brandOrange text-brandBlue px-8 py-4 rounded-xl font-black uppercase tracking-widest text-sm shadow-xl hover:-translate-y-1 transition text-center">Start Your Project</button>
+ {{ ctaButton("factoryPricing", "primary", "open-modal") }}
  <a href="#workflow" class="w-full border-2 border-brandBlue text-brandBlue px-8 py-4 rounded-xl font-black uppercase tracking-widest text-sm hover:bg-brandBlue hover:text-white transition text-center">Our Workflow</a>
  </div>
  <p class="text-slate-500 mt-6">Or <a href="/contact/" class="text-brandOrangeDeep font-bold hover:underline">send your specification</a> for FOB pricing, MOQ and lead time.</p>
