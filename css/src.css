@@ -171,6 +171,43 @@ svg[class*="icon-"]{display:inline-block;width:1em;height:1em;vertical-align:-0.
   #inquiryModal select { min-height: 3.5rem; }
   #inquiryModal textarea { min-height: 8rem; }
 }
+/* Unified responsive modal sizing: mobile, tablet, short desktop, safe areas. */
+#inquiryModal#inquiryModal {
+  padding: max(0.75rem, env(safe-area-inset-top)) 0.75rem max(0.75rem, env(safe-area-inset-bottom));
+}
+#inquiryModal#inquiryModal > div {
+  width: 100%;
+  max-width: 44rem;
+  max-height: calc(100dvh - 1.5rem) !important;
+  margin: auto !important;
+  padding: 0 !important;
+  overflow-y: auto !important;
+}
+@media (min-width: 640px) {
+  #inquiryModal#inquiryModal > div {
+    max-width: 40rem;
+    max-height: calc(100dvh - 2rem) !important;
+  }
+}
+@media (min-width: 1024px) {
+  #inquiryModal#inquiryModal > div {
+    max-width: 44rem;
+    max-height: min(90dvh, 54rem) !important;
+  }
+}
+@media (max-width: 639px) {
+  #inquiryModal#inquiryModal > div {
+    max-width: 100%;
+    max-height: calc(100dvh - 1.5rem) !important;
+  }
+  #inquiryModal#inquiryModal textarea {
+    min-height: 3.25rem;
+  }
+  #inquiryModal#inquiryModal .modal-badges {
+    display: none;
+  }
+}
+
 /* Consistent input rounding handled by Tailwind classes directly */
 
 /* Remove double focus ring inside modal (inputs have border indicator already) */
