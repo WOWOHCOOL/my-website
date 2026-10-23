@@ -264,6 +264,7 @@ navActive: "about"
 {% endblock %}
 
 {% block content %}
+{% from "partials/cta-button.njk" import ctaButton with context %}
 {% from "breadcrumb.njk" import breadcrumb %}
 
 <!-- ======== 1. HERO ======== -->
@@ -449,7 +450,7 @@ navActive: "about"
  <div><p class="font-bold text-brandBlue">Аудиты третьих сторон и ISO 9001</p><p class="text-sm text-slate-600">Принимаем инспекции SGS, Bureau Veritas и TÜV — как выездные, так и предотгрузочные (PSI). Сертификат ISO 9001 проверяется в базе <a href="https://www.iafcertsearch.org/" target="_blank" rel="noopener external" class="text-brandOrange hover:underline">IAF CertSearch</a> по названию компании; номер сертификата вышлем по запросу.{# TODO: add ISO 9001 certificate number once confirmed by factory #}</p></div>
  </li>
  </ol>
- <div class="text-center mt-10 reveal"><a href="/ru/kontakty/" class="btn-solid">Запросить видеотур и документы <svg class="icon-arrow-right text-sm" aria-hidden="true" focusable="false" viewBox="0 0 512 512"><path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-105.4 105.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" fill="currentColor"/></svg></a></div>
+ <div class="text-center mt-10 reveal">{{ ctaButton("", "primary", "", "", "/ru/kontakty/", "Запросить видеотур и документы") }}</div>
  </div>
 </section>
 
