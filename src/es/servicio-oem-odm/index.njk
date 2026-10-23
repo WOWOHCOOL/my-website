@@ -342,6 +342,7 @@ plPath: "uslugi-oem-odm/"
 {% endblock %}
 
 {% block content %}
+{% from "partials/cta-button.njk" import ctaButton with context %}
 {% from "breadcrumb.njk" import breadcrumb %}
 
 <!-- ======== 1. HERO ======== -->
@@ -367,7 +368,7 @@ plPath: "uslugi-oem-odm/"
  <span class="text-micro bg-brandBlue/5 text-slate-500 px-3 py-1 rounded-full font-bold">MOQ 500</span>
  </div>
  <div class="btn-pair">
- <button type="button" data-action="open-modal" class="border-2 border-transparent w-full bg-brandOrange text-brandBlue px-8 py-4 rounded-xl font-black uppercase tracking-widest text-sm shadow-xl hover:-translate-y-1 transition cursor-pointer text-center">Iniciar proyecto</button>
+ {{ ctaButton("factoryPricing", "primary", "open-modal") }}
  <a href="#proceso" class="w-full border-2 border-brandBlue text-brandBlue px-8 py-4 rounded-xl font-black uppercase tracking-widest text-sm hover:bg-brandBlue hover:text-white transition text-center">Nuestro proceso</a>
  </div>
  <p class="text-slate-500 mt-6">O <a href="/es/contacto/" class="text-brandOrangeDeep font-bold hover:underline">envíenos su especificación</a> para precios FOB, MOQ y plazo de entrega.</p>
