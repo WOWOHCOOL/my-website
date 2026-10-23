@@ -283,6 +283,7 @@ ruPath: "produkty/poverbanki/gibrid-2-v-1/"
 {% endblock %}
 
 {% block content %}
+{% from "partials/cta-button.njk" import ctaButton with context %}
 
 <!-- Hero -->
 <section id="hero" class="relative pt-24 md:pt-28 lg:pt-20 pb-8 lg:pb-20 bg-white text-slate-900 overflow-hidden lg:min-h-screen-d lg:flex lg:flex-col lg:justify-center" data-section="hero">
@@ -311,7 +312,7 @@ ruPath: "produkty/poverbanki/gibrid-2-v-1/"
   </div>
 
   <div class="btn-pair">
-   <button type="button" data-action="open-modal" data-product="Power Bank Hybrydowy 2-w-1" class="btn-wide-lg">Poproś o Wycenę Fabryczną</button>
+   {{ ctaButton("factoryPricing", "primary", "open-modal", "Power Bank") }}
    <a href="#products" class="btn-ghost-lg">Zobacz {{ 'power-bank' | productFamilyModelCount('2-in-1-hybrid') }} Modeli</a>
   </div>
  </div>

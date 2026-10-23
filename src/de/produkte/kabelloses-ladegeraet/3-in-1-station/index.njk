@@ -320,6 +320,7 @@ plPath: "produkty/ladowarka-bezprzewodowa/stacja-3-w-1/"
 {% endblock %}
 
 {% block content %}
+{% from "partials/cta-button.njk" import ctaButton with context %}
 {% from "breadcrumb.njk" import breadcrumb %}
 
 <!-- HERO -->
@@ -337,7 +338,7 @@ plPath: "produkty/ladowarka-bezprzewodowa/stacja-3-w-1/"
      <span class="trust-badge">MOQ 500</span>
     </div>
     <div class="btn-pair">
-     <button type="button" data-action="open-modal" class="btn-solid cursor-pointer">Werkspreis anfragen &rarr;</button>
+     {{ ctaButton("factoryPricing", "primary", "open-modal", "Wireless Charger") }}
      <a href="#models" class="btn-ghost-lg">{{ "wireless-charger" | productFamilyModelCount("3-in-1-station") }} Modelle ansehen</a>
     </div>
    </div>

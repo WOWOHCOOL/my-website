@@ -302,6 +302,7 @@ plPath: "produkty/power-bank/hybryda-2-w-1/"
 {% endblock %}
 
 {% block content %}
+{% from "partials/cta-button.njk" import ctaButton with context %}
 {% from "breadcrumb.njk" import breadcrumb %}
 
 <!-- HERO -->
@@ -319,7 +320,7 @@ plPath: "produkty/power-bank/hybryda-2-w-1/"
      <span class="trust-badge">Klappbarer AC-Stecker</span>
     </div>
     <div class="btn-pair">
-     <button type="button" data-action="open-modal" class="btn-solid cursor-pointer">Werkspreis anfragen &rarr;</button>
+     {{ ctaButton("factoryPricing", "primary", "open-modal", "Power Bank") }}
      <a href="#models" class="btn-ghost-lg">Modelle ansehen</a>
     </div>
    </div>

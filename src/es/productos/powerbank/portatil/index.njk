@@ -266,6 +266,7 @@ plPath: "produkty/power-bank/do-laptopa/"
 {% endblock %}
 
 {% block content %}
+{% from "partials/cta-button.njk" import ctaButton with context %}
 {% from "breadcrumb.njk" import breadcrumb %}
 
 <!-- HERO -->
@@ -283,7 +284,7 @@ plPath: "produkty/power-bank/do-laptopa/"
      <span class="trust-badge">UN38.3 + MSDS</span>
     </div>
     <div class="btn-pair">
-     <button type="button" data-action="open-modal" class="btn-solid cursor-pointer">Solicitar precio fábrica &rarr;</button>
+     {{ ctaButton("factoryPricing", "primary", "open-modal", "Power Bank") }}
     <a href="#models" class="btn-ghost-lg">Ver modelos</a>
     </div>
    </div>

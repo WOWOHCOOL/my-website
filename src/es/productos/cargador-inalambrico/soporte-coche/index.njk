@@ -269,6 +269,7 @@ plPath: "produkty/ladowarka-bezprzewodowa/uchwyt-samochodowy/"
 </script>
 {% endblock %}
 {% block content %}
+{% from "partials/cta-button.njk" import ctaButton with context %}
 {% from "breadcrumb.njk" import breadcrumb %}
 
 <section id="hero" class="pt-24 md:pt-28 lg:pt-20 pb-16 md:pb-20 bg-gradient-to-br from-blue-50 via-white to-orange-50 lg:min-h-screen-d lg:flex lg:flex-col lg:justify-center" data-section="hero">
@@ -319,7 +320,7 @@ plPath: "produkty/ladowarka-bezprzewodowa/uchwyt-samochodowy/"
       <tr class="border-b border-slate-200"><td class="py-2 text-slate-500">MOQ / Plazo</td><td class="py-2 font-bold text-slate-700">500 uds | 25-30 días</td></tr>
      </tbody></table></div>
     </details>
-   <button type="button" data-action="open-modal" data-product="WOW41 Qi2.2 25W TEC MagMount" class="btn-card">Solicitar precio fábrica</button>
+   {{ ctaButton("factoryPricing", "primary", "open-modal", "Wireless Charger") }}
   </div>
 
   <!-- WOW35 -->

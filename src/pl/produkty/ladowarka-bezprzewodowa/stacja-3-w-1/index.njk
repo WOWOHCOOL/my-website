@@ -303,6 +303,7 @@ ruPath: "produkty/besprovodnye-zaryadki/stanciya-3-v-1/"
 {% endblock %}
 
 {% block content %}
+{% from "partials/cta-button.njk" import ctaButton with context %}
 
 <!-- Hero -->
 <section id="hero" class="relative pt-24 md:pt-28 lg:pt-20 pb-8 lg:pb-20 bg-white text-slate-900 overflow-hidden lg:min-h-screen-d lg:flex lg:flex-col lg:justify-center" data-section="hero">
@@ -331,9 +332,7 @@ ruPath: "produkty/besprovodnye-zaryadki/stanciya-3-v-1/"
  </div>
 
  <div class="btn-pair">
- <button type="button" data-action="open-modal" data-product="Stacja 3-w-1 OEM/ODM" class="btn-wide-lg">
-  Poproś o Wycenę Fabryczną
- </button>
+ {{ ctaButton("factoryPricing", "primary", "open-modal", "Wireless Charger") }}
  <a href="#products" class="btn-ghost-lg">
   Zobacz 13 Modeli
  </a>

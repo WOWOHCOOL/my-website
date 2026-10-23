@@ -282,6 +282,7 @@ plPath: "produkty/power-bank/do-laptopa/"
 {% endblock %}
 
 {% block content %}
+{% from "partials/cta-button.njk" import ctaButton with context %}
 
 <!-- Hero -->
 <section id="hero" class="relative pt-24 md:pt-28 lg:pt-20 pb-8 lg:pb-20 bg-white text-slate-900 overflow-hidden lg:min-h-screen-d lg:flex lg:flex-col lg:justify-center" data-section="hero">
@@ -310,9 +311,7 @@ plPath: "produkty/power-bank/do-laptopa/"
  </div>
 
  <div class="btn-pair">
- <button type="button" data-action="open-modal" data-product="Laptop Power Bank" class="btn-wide-lg">
- Get Factory Pricing
- </button>
+ {{ ctaButton("factoryPricing", "primary", "open-modal", "Power Bank") }}
  <a href="#products" class="btn-ghost-lg">
  View {{ "power-bank" | productFamilyModelCount("laptop-power") }} Models
  </a>

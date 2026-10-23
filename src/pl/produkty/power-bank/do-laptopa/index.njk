@@ -279,6 +279,7 @@ ruPath: "produkty/poverbanki/dlya-noutbukov/"
 {% endblock %}
 
 {% block content %}
+{% from "partials/cta-button.njk" import ctaButton with context %}
 
 <!-- Hero -->
 <section id="hero" class="relative pt-24 md:pt-28 lg:pt-20 pb-8 lg:pb-20 bg-white text-slate-900 overflow-hidden lg:min-h-screen-d lg:flex lg:flex-col lg:justify-center" data-section="hero">
@@ -307,9 +308,7 @@ ruPath: "produkty/poverbanki/dlya-noutbukov/"
  </div>
 
  <div class="btn-pair">
- <button type="button" data-action="open-modal" data-product="Power Bank do Laptopa" class="btn-wide-lg">
- Poproś o Wycenę Fabryczną
- </button>
+ {{ ctaButton("factoryPricing", "primary", "open-modal", "Power Bank") }}
  <a href="#products" class="btn-ghost-lg">
  Zobacz {{ 'power-bank' | productFamilyModelCount('laptop-power') }} Modele
  </a>

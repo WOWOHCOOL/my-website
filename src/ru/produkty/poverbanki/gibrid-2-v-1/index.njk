@@ -310,6 +310,7 @@ ogImage: "/image/product/power-bank/wop67-2in1-cable-charger.webp"
 {% endblock %}
 
 {% block content %}
+{% from "partials/cta-button.njk" import ctaButton with context %}
 {% from "breadcrumb.njk" import breadcrumb %}
 
 <!-- HERO -->
@@ -327,7 +328,7 @@ ogImage: "/image/product/power-bank/wop67-2in1-cable-charger.webp"
      <span class="trust-badge">Складная AC-вилка</span>
     </div>
     <div class="btn-pair">
-     <button type="button" data-action="open-modal" class="btn-solid cursor-pointer">Запросить цену с фабрики &rarr;</button>
+     {{ ctaButton("factoryPricing", "primary", "open-modal", "Power Bank") }}
     <a href="#models" class="btn-ghost-lg">Смотреть модели</a>
     </div>
    </div>

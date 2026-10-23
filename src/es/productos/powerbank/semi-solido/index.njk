@@ -287,6 +287,7 @@ plPath: "produkty/power-bank/polstaly/"
 {% endblock %}
 
 {% block content %}
+{% from "partials/cta-button.njk" import ctaButton with context %}
 {% from "breadcrumb.njk" import breadcrumb %}
 
 <!-- HERO -->
@@ -304,7 +305,7 @@ plPath: "produkty/power-bank/polstaly/"
      <span class="trust-badge">2.000+ ciclos</span>
     </div>
     <div class="btn-pair">
-     <button type="button" data-action="open-modal" class="btn-solid cursor-pointer">Solicitar precio fábrica &rarr;</button>
+     {{ ctaButton("factoryPricing", "primary", "open-modal", "Power Bank") }}
     <a href="#models" class="btn-ghost-lg">Ver modelos</a>
     </div>
    </div>
