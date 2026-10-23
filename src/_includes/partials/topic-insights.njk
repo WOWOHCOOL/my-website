@@ -1,0 +1,61 @@
+{# Unified "Insights" strip for topic landing pages.
+
+   Two modes:
+     1. curated   — frontmatter `insightsPinned: ["slug", ...]` renders those posts in order
+     2. automatic — otherwise renders the newest 3 posts whose `topicLanding` includes `topicInsights`
+
+   Page frontmatter:
+     topicInsights: "/products/wireless-charger/"     (required for auto mode)
+     insightsHeading: 'Wireless Charger <span class="text-brandOrange">Insights</span>'
+     insightsSubheading: "Expert guides for OEM/ODM sourcing"
+     insightsPinned: ["qi2-vs-magsafe-guide", ...]     (optional, overrides auto)
+     insightsExclude: ["..."]                          (optional, auto mode only)
+
+   Card markup mirrors the hand-written sections this replaces: cover image,
+   category badge, title, description, "Read More".
+#}
+{%- set pinned = insightsPinned or [] -%}
+{%- set posts = (pinned.length and (collections.blog_en | postsBySlug(pinned))) or (collections.blog_en | topicLandingPosts(topicInsights, insightsExclude, 3)) -%}
+{%- if posts.length %}
+<!-- AUTO-GENERATED: {{ "pinned" if pinned.length else "newest" }} posts for {{ topicInsights }} -->
+<section id="latest-guides" class="sec bg-white border-t border-slate-100" data-section="content">
+ <div class="container-wide">
+ <div class="text-center mb-12 reveal">
+ <h2 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4">{{ (insightsHeading or "Latest Guides") | safe }}</h2>
+ <p class="text-slate-500 font-bold uppercase tracking-widest text-badge">{{ insightsSubheading or "Expert guides for OEM/ODM sourcing" }}</p>
+ </div>
+
+ <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+{%- for post in posts %}
+{%- set cover = post.data.ogImage -%}
+{%- set label = post.data.title | cardTitle -%}
+{%- set ss = cover | srcsetFor -%}
+{%- set dims = cover | imgDims -%}
+{%- set badge = "bg-brandOrange text-brandBlue" if loop.index == 1 else ("bg-brandBlue text-white" if loop.index == 2 else "bg-white text-green-700") -%}
+ <a href="{{ post.data.canonical }}" class="group bg-slate-50 rounded-2xl overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
+ <div class="h-40 relative overflow-hidden">
+ <img loading="lazy" src="{{ cover }}"{% if ss %} srcset="{{ ss }}" sizes="(min-width: 1440px) 389px, (min-width: 1280px) 389px, (min-width: 1024px) 304px, (min-width: 768px) 348px, (min-width: 430px) 382px, 327px"{% endif %} alt="{{ label | e }}" class="w-full h-full object-cover" width="{{ dims.w }}" height="{{ dims.h }}" decoding="async">
+ <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+ <div class="absolute bottom-3 left-4">
+ <span class="px-2 py-1 {{ badge }} text-badge font-black uppercase rounded">{{ post.data.articleSection | e }}</span>
+ </div>
+ </div>
+ <div class="p-6">
+ <h3 class="font-black text-brandBlue uppercase mb-2 group-hover:text-brandOrange transition text-sm leading-tight line-clamp-2">{{ label | e }}</h3>
+ <p class="text-slate-500 text-xs line-clamp-2">{{ post.data.description | e }}</p>
+ <span class="inline-block mt-3 text-brandOrangeDeep text-badge font-bold uppercase">Read More &rarr;</span>
+ </div>
+ </a>
+{%- endfor %}
+ </div>
+
+ <div class="text-center mt-10">
+ <a href="/blog/" class="inline-flex items-center gap-2 px-6 py-3 bg-brandBlue text-white rounded-xl font-black uppercase text-sm hover:bg-slate-800 transition">
+ View All Articles <svg class="icon-arrow-right" aria-hidden="true" focusable="false" viewBox="0 0 512 512">
+ <path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-105.4 105.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" fill="currentColor"/>
+ </svg>
+ </a>
+ </div>
+ </div>
+</section>
+{%- endif %}

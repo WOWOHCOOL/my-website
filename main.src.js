@@ -269,49 +269,6 @@ function applyTrackingToForms(root = document) {
   root.querySelectorAll('form[action*="web3forms.com/submit"]').forEach(applyTrackingToForm);
 }
 
-function trackingLines(context) {
-  return [
-    `Landing page: ${context.landing_page || ''}`,
-    `Referrer: ${context.referrer || ''}`,
-    `UTM source: ${context.utm_source || ''}`,
-    `UTM campaign: ${context.utm_campaign || ''}`,
-    `Product category: ${context.product_category || ''}`,
-  ];
-}
-
-function applyTrackingToLink(link) {
-  const baseHref = link.dataset.baseHref || link.getAttribute('href') || '';
-  if (!baseHref) return;
-  link.dataset.baseHref = baseHref;
-
-  const context = getTrackingContext();
-  context.product_category = getProductCategory(link) || context.product_category || '';
-
-  if (/^https:\/\/(?:www\.)?wa\.me\//i.test(baseHref) || /^https:\/\/api\.whatsapp\.com\//i.test(baseHref)) {
-    const url = new URL(baseHref);
-    const existing = url.searchParams.get('text') || '';
-    const message = [existing, ...trackingLines(context)].filter(Boolean).join('\n');
-    url.searchParams.set('text', message);
-    link.setAttribute('href', url.toString());
-    return;
-  }
-
-  if (baseHref.startsWith('mailto:')) {
-    const raw = baseHref.slice(7);
-    const [address, query = ''] = raw.split('?');
-    const params = new URLSearchParams(query);
-    const subject = params.get('subject') || `Website Inquiry${context.product_category ? ` - ${context.product_category}` : ''}`;
-    const body = [params.get('body') || '', ...trackingLines(context)].filter(Boolean).join('\n');
-    params.set('subject', subject);
-    params.set('body', body);
-    link.setAttribute('href', `mailto:${address}?${params.toString()}`);
-  }
-}
-
-function applyTrackingToLinks(root = document) {
-  root.querySelectorAll('a[href^="https://wa.me/"], a[href^="https://api.whatsapp.com/"], a[href^="mailto:"]').forEach(applyTrackingToLink);
-}
-
 function trackEvent(name, params = {}) {
   if (typeof window.gtag === 'function') window.gtag('event', name, params);
 }
@@ -323,6 +280,12 @@ function inquiryClickSource(el) {
   if (el.closest('.float-wrap')) return 'floating';
   if (el.closest('#inquiryModal')) return 'modal';
   return 'content';
+}
+
+function applyTrackingToLink(link) {
+  // Keep customer-facing WhatsApp/email links clean. Attribution is captured by
+  // GA4 click events and by hidden fields on Web3Forms submissions.
+  if (link && !link.dataset.attributionClickReady) link.dataset.attributionClickReady = 'true';
 }
 
 function closeModal() {
@@ -767,7 +730,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Attribution capture: landing page, referrer, UTM source/campaign, product category.
   applyTrackingToForms(document);
-  applyTrackingToLinks(document);
   document.addEventListener('click', (e) => {
     const link = e.target.closest && e.target.closest('a[href^="https://wa.me/"], a[href^="https://api.whatsapp.com/"], a[href^="mailto:"]');
     if (link) {
@@ -793,79 +755,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Cookie consent handled by static template (cookie-banner.njk)
 
-  // ─── Product Search & Filter ────────────────────────────────────────
-  const searchInput = document.getElementById('productSearch');
-  const searchHints = document.querySelectorAll('.search-hint');
-  const noResults = document.getElementById('noResults');
-
-  if (searchInput) {
-    function filterProducts(term) {
-      const q = term.toLowerCase().trim();
-      const cards = document.querySelectorAll('[data-keywords]');
-      let visible = 0;
-
-      // Update active pill state
-      searchHints.forEach(btn => {
-        const v = btn.getAttribute('data-search') || '';
-        if (q && v.toLowerCase() === q) {
-          btn.classList.add('bg-brandOrange', 'text-white', 'border-brandOrange');
-          btn.classList.remove('bg-slate-100', 'text-slate-500', 'border-slate-200');
-        } else {
-          btn.classList.remove('bg-brandOrange', 'text-white', 'border-brandOrange');
-          btn.classList.add('bg-slate-100', 'text-slate-500', 'border-slate-200');
-        }
-      });
-
-      cards.forEach(card => {
-        const kw = (card.getAttribute('data-keywords') || '').toLowerCase();
-        const parentSection = card.closest('.mb-14');
-        if (!q || kw.includes(q)) {
-          card.style.display = '';
-          if (parentSection) parentSection.style.display = '';
-          visible++;
-        } else {
-          card.style.display = 'none';
-        }
-      });
-
-      // Hide empty sections
-      document.querySelectorAll('.mb-14').forEach(section => {
-        const visibleCards = section.querySelectorAll('[data-keywords]');
-        const allHidden = Array.from(visibleCards).every(c => c.style.display === 'none');
-        if (allHidden) section.style.display = 'none';
-      });
-
-      if (noResults) {
-        noResults.classList.toggle('hidden', visible > 0 || !q);
-      }
-    }
-
-    searchInput.addEventListener('input', function () {
-      filterProducts(this.value);
-    });
-
-    searchHints.forEach(btn => {
-      btn.addEventListener('click', function () {
-        const term = this.getAttribute('data-search') || '';
-        if (searchInput.value.toLowerCase().trim() === term.toLowerCase()) {
-          // Clear on second click
-          searchInput.value = '';
-          filterProducts('');
-        } else {
-          searchInput.value = term;
-          filterProducts(term);
-        }
-      });
-    });
-
-    // Keyboard shortcut: "/" focuses search
-    document.addEventListener('keydown', function (e) {
-      if (e.key === '/' && document.activeElement !== searchInput && document.activeElement.tagName !== 'INPUT' && document.activeElement.tagName !== 'TEXTAREA') {
-        e.preventDefault();
-        searchInput.focus();
-      }
-    });
-  }
 });
 
 // Language switcher: close details on click outside

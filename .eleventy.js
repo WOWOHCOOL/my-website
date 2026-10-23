@@ -503,6 +503,80 @@ module.exports = function (eleventyConfig) {
       .sort((a, b) => b.date - a.date);
   });
 
+  // Filter a blog collection by frontmatter `topicLanding` (topic landing pages).
+  // Landing pages render their "latest guides" strip from this filter, so a new
+  // article shows up there at build time without editing the landing page.
+  // `exclude` accepts canonical paths or file slugs already curated on the page.
+  eleventyConfig.addFilter("topicLandingPosts", (items, landing, exclude, limit) => {
+    if (!Array.isArray(items) || !landing) return [];
+    const excluded = Array.isArray(exclude) ? exclude : [];
+    return items
+      .filter(it => {
+        const raw = it.data && it.data.topicLanding;
+        if (!raw) return false;
+        const targets = Array.isArray(raw) ? raw : [raw];
+        return targets.includes(landing);
+      })
+      .filter(it => !excluded.includes(it.data.canonical) && !excluded.includes(it.fileSlug))
+      .sort((a, b) => b.date - a.date)
+      .slice(0, limit || 3);
+  });
+
+  // Blog card titles carry a "| WOWOHCOOL" suffix; landing-page cards don't.
+  eleventyConfig.addFilter("stripBrand", (s) => String(s || "").replace(/\s*\|\s*WOWOHCOOL\s*$/i, ""));
+
+  // Short label for landing-page cards: drop the brand suffix, the SEO subtitle
+  // after a colon, and a trailing year. Blog H1s are long; cards need 1-2 lines.
+  eleventyConfig.addFilter("cardTitle", (s) => {
+    let t = String(s || "").replace(/\s*\|\s*WOWOHCOOL\s*$/i, "").trim();
+    const i = t.indexOf(":");
+    if (i >= 12) t = t.slice(0, i);
+    return t.replace(/\s+20\d\d$/, "").trim();
+  });
+
+  // Build a srcset from the variants that actually exist on disk. Covers are
+  // not uniform (some bases are 800px wide), so a hard-coded ladder would 404.
+  eleventyConfig.addFilter("srcsetFor", (src, widths) => {
+    const m = String(src || "").match(/^(.*)\.webp$/i);
+    if (!m) return "";
+    const base = m[1];
+    const list = Array.isArray(widths) ? widths : [450, 800, 950, 1200];
+    const parts = [];
+    for (const w of list) {
+      const rel = `${base}-${w}w.webp`;
+      if (fs.existsSync(path.join(__dirname, rel.replace(/^\//, "")))) parts.push(`${rel} ${w}w`);
+    }
+    return parts.join(", ");
+  });
+
+  // Read width/height straight from the WebP header (VP8 / VP8L / VP8X).
+  // Covers are not uniform (1700x956, 2240x1260, 800x450), so hard-coded
+  // width/height attributes fail validate-img-dims.
+  const webpSize = (abs) => {
+    try {
+      const b = fs.readFileSync(abs).subarray(0, 64);
+      if (b.length < 30 || b.toString("ascii", 0, 4) !== "RIFF" || b.toString("ascii", 8, 12) !== "WEBP") return null;
+      const chunk = b.toString("ascii", 12, 16);
+      if (chunk === "VP8X") return { w: b.readUIntLE(24, 3) + 1, h: b.readUIntLE(27, 3) + 1 };
+      if (chunk === "VP8 ") return { w: b.readUInt16LE(26) & 0x3fff, h: b.readUInt16LE(28) & 0x3fff };
+      if (chunk === "VP8L") {
+        const b1 = b[21], b2 = b[22], b3 = b[23], b4 = b[24];
+        return { w: 1 + (b1 | ((b2 & 0x3f) << 8)), h: 1 + ((b2 >> 6) | (b3 << 2) | ((b4 & 0x0f) << 10)) };
+      }
+    } catch (e) {}
+    return null;
+  };
+  eleventyConfig.addFilter("imgDims", (src) =>
+    webpSize(path.join(__dirname, String(src || "").replace(/^\//, ""))) || { w: 1700, h: 956 });
+
+  // Resolve an ordered slug list against a collection (curated "Insights" cards).
+  // Unknown slugs are dropped silently so a renamed article never breaks a page.
+  eleventyConfig.addFilter("postsBySlug", (items, slugs) => {
+    if (!Array.isArray(items) || !Array.isArray(slugs)) return [];
+    const bySlug = new Map(items.map(it => [it.fileSlug, it]));
+    return slugs.map(slug => bySlug.get(slug)).filter(Boolean);
+  });
+
 
   // EN blog collection (exclude listing page), sorted newest first
   eleventyConfig.addCollection("blog_en", function (collectionApi) {
