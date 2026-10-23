@@ -349,6 +349,7 @@ ruPath: "produkty/avtomobilnye-zaryadki/"
 {% endblock %}
 
 {% block content %}
+{% from "partials/cta-button.njk" import ctaButton with context %}
 <!-- ========================================================================
  HERO SECTION
  ======================================================================== -->
@@ -383,9 +384,7 @@ ruPath: "produkty/avtomobilnye-zaryadki/"
 <!-- Bottom: CTA -->
  <div>
  <div class="btn-pair">
- <button type="button" data-action="open-modal" data-product="Ładowarka Samochodowa" class="btn-wide-lg">
- Pobierz Darmowy Katalog Hurtowy
- </button>
+ {{ ctaButton("factoryPricing", "primary", "open-modal", "Car Charger") }}
  <a href="#products" class="btn-ghost-lg">
  Zobacz Produkty
  </a>

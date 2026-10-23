@@ -334,6 +334,7 @@ plPath: "produkty/ladowarka-bezprzewodowa/"
 {% endblock %}
 
 {% block content %}
+{% from "partials/cta-button.njk" import ctaButton with context %}
 <!-- ========================================================================
  HERO SECTION
  ======================================================================== -->
@@ -361,9 +362,7 @@ plPath: "produkty/ladowarka-bezprzewodowa/"
  </div>
 
  <div class="btn-pair">
- <button type="button" data-action="open-modal" data-product="Wireless Charger" class="btn-wide-lg">
-  Get Free Wholesale Catalog
- </button>
+ {{ ctaButton("factoryPricing", "primary", "open-modal", "Wireless Charger") }}
  <a href="#categories" class="btn-ghost-lg">
   View Categories
  </a>

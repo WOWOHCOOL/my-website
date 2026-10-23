@@ -342,6 +342,7 @@ ruPath: "produkty/besprovodnye-zaryadki/"
 {% endblock %}
 
 {% block content %}
+{% from "partials/cta-button.njk" import ctaButton with context %}
 <!-- ========================================================================
  HERO SECTION
  ======================================================================== -->
@@ -369,9 +370,7 @@ ruPath: "produkty/besprovodnye-zaryadki/"
  </div>
 
  <div class="btn-pair">
- <button type="button" data-action="open-modal" data-product="Ładowarka Bezprzewodowa" class="btn-wide-lg">
-  Pobierz Darmowy Katalog Hurtowy
- </button>
+ {{ ctaButton("factoryPricing", "primary", "open-modal", "Wireless Charger") }}
  <a href="#categories" class="btn-ghost-lg">
   Zobacz Kategorie
  </a>
