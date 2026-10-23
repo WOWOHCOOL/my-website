@@ -260,7 +260,7 @@ function strictBlogIssues(page) {
     if (faqCount !== entityCount) {
       issues.push('.faq-answer targets=' + faqCount + ' but FAQPage.mainEntity=' + entityCount);
     }
-    if (entityCount < 3 || entityCount > 5) warnings.push('FAQPage.mainEntity count=' + entityCount + ' (standard: 3-5)');
+    if (entityCount < 4 || entityCount > 6) warnings.push('FAQPage.mainEntity count=' + entityCount + ' (standard: 4-6, recommended 5)');
   }
 
   return { issues, warnings };
@@ -378,7 +378,7 @@ function main() {
   console.log('blog FAQ count warnings        : ' + warnings.length);
 
   if (warnings.length) {
-    console.log('   [warn] FAQPage.mainEntity count outside 3-5:');
+    console.log('   [warn] FAQPage.mainEntity count outside 4-6:');
     for (const w of warnings.slice(0, 20)) console.log('      ! ' + w.url + ' — ' + w.warnings.join('; '));
     if (warnings.length > 20) console.log('      ... +' + (warnings.length - 20) + ' more');
   }
