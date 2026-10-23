@@ -364,6 +364,7 @@ plPath: "produkty/power-bank/"
 {% endblock %}
 
 {% block content %}
+{% from "partials/cta-button.njk" import ctaButton with context %}
  <!-- ========================================================================
  HERO SECTION - Hero Section
  ======================================================================== -->
@@ -397,9 +398,7 @@ plPath: "produkty/power-bank/"
 
  <!-- CTA -->
  <div class="btn-pair">
- <button type="button" data-action="open-modal" data-product="Power Bank" class="btn-wide-lg">
- Get Free Wholesale Catalog
- </button>
+ {{ ctaButton("catalog", "primary", "open-modal", "Power Bank") }}
  <a href="#products" class="btn-ghost-lg">
  View Products
  </a>
