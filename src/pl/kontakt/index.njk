@@ -265,7 +265,8 @@ ruPath: "kontakty/"
  <div class="space-y-1 mt-4"><label for="page-message" class="text-badge font-bold text-brandBlue ml-2 tracking-widest">Szczegóły projektu *</label><textarea id="page-message" name="message" placeholder="Specyfikacja produktu, ilość docelowa, nadruk logo, opakowanie..." rows="3" required minlength="10" class="w-full bg-slate-50 p-3 md:p-4 rounded-xl text-sm border-2 border-transparent focus:border-brandOrange focus:bg-white transition-all outline-none font-medium resize-none"></textarea></div>
  <div class="mt-6">
  <div class="mb-4"><label class="flex items-start gap-3"><input type="checkbox" name="consent" value="granted" required class="mt-0.5 accent-brandOrange shrink-0"><span class="text-xs text-slate-500">Akceptuję <a href="/pl/polityka-prywatnosci/" class="text-brandOrange hover:underline">Politykę prywatności</a> i wyrażam zgodę na kontakt. *</span></label></div>
- <button type="submit" class="w-full bg-brandOrange text-brandBlue py-4 rounded-xl font-black uppercase tracking-widest text-sm shadow-xl hover:-translate-y-1 active:scale-95 transition-all">Poproś o wycenę fabryczną</button>
+ {% from "partials/cta-button.njk" import ctaButton with context %}
+{{ ctaButton("factoryPricing", "primary", "", "", "", "", "", true, "submit") }}
  <div class="flex items-center justify-center gap-4 mt-4">
  <p class="text-badge text-slate-500 font-bold uppercase">SSL Szyfrowane</p><p class="text-badge text-slate-500 font-bold uppercase">Odpowiedź w {RTS}</p>
  </div>
