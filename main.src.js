@@ -204,15 +204,12 @@ function categoryFromPath(pathname) {
 }
 
 const TRACKING_STORAGE_KEY = 'wowohcool_tracking_v1';
-const TRACKING_FIELDS = ['landing_page', 'referrer', 'utm_source', 'utm_campaign', 'product_category'];
 
 function getProductCategory(scope) {
   const explicit = scope?.dataset?.productCategory || scope?.closest?.('[data-product-category]')?.getAttribute('data-product-category');
   if (explicit) return explicit;
 
   if (scope && scope.tagName === 'FORM') {
-    const hidden = scope.querySelector('input[name="product_category"]');
-    if (hidden && hidden.value.trim()) return hidden.value.trim();
     const selected = scope.querySelector('select[name="product"]');
     if (selected && selected.value) return selected.value;
     const product = scope.querySelector('input[name="product"]');
@@ -235,6 +232,7 @@ function getTrackingContext() {
     landing_page: stored.landing_page || window.location.href,
     referrer: stored.referrer || document.referrer || '',
     utm_source: params.get('utm_source') || stored.utm_source || '',
+    utm_medium: params.get('utm_medium') || stored.utm_medium || '',
     utm_campaign: params.get('utm_campaign') || stored.utm_campaign || '',
     product_category: getProductCategory(document.body) || stored.product_category || '',
   };
@@ -247,26 +245,19 @@ function getTrackingContext() {
   return context;
 }
 
-function ensureHiddenInput(form, name, value = '') {
-  let input = form.querySelector(`input[name="${name}"]`);
-  if (!input) {
-    input = document.createElement('input');
-    input.type = 'hidden';
-    input.name = name;
-    form.appendChild(input);
-  }
-  if (value || !input.value) input.value = value;
-  return input;
-}
-
-function applyTrackingToForm(form) {
+// Attribution is reported to GA4 only. Nothing is injected into form fields, so
+// Web3Forms notification emails stay clean and safe to quote when replying.
+function inquiryAttribution(scope) {
   const context = getTrackingContext();
-  context.product_category = getProductCategory(form) || context.product_category || '';
-  TRACKING_FIELDS.forEach(name => ensureHiddenInput(form, name, context[name] || ''));
-}
-
-function applyTrackingToForms(root = document) {
-  root.querySelectorAll('form[action*="web3forms.com/submit"]').forEach(applyTrackingToForm);
+  context.product_category = getProductCategory(scope) || context.product_category || '';
+  return {
+    landing_page: context.landing_page,
+    referrer: context.referrer,
+    utm_source: context.utm_source,
+    utm_medium: context.utm_medium,
+    utm_campaign: context.utm_campaign,
+    product_category: context.product_category,
+  };
 }
 
 function trackEvent(name, params = {}) {
@@ -284,7 +275,7 @@ function inquiryClickSource(el) {
 
 function applyTrackingToLink(link) {
   // Keep customer-facing WhatsApp/email links clean. Attribution is captured by
-  // GA4 click events and by hidden fields on Web3Forms submissions.
+  // GA4 click events only — never injected into links or form bodies.
   if (link && !link.dataset.attributionClickReady) link.dataset.attributionClickReady = 'true';
 }
 
@@ -656,6 +647,30 @@ document.addEventListener('DOMContentLoaded', () => {
       trackEvent('form_start', { form_id: form.id || 'inquiry' });
     });
 
+    // Blind-spot telemetry: an attempt blocked by HTML5 constraint validation
+    // never fires `submit`, so it would otherwise be invisible. `invalid` does
+    // not bubble — hence the capturing listener and the 0ms aggregation.
+    const attemptBtn = form.querySelector('button[type="submit"]');
+    if (attemptBtn) {
+      attemptBtn.addEventListener('click', function () {
+        trackEvent('form_submit_attempt', { form_id: form.id || 'inquiry', product_category: getProductCategory(form) });
+      });
+    }
+
+    const invalidFields = new Set();
+    let invalidFlush = null;
+    form.addEventListener('invalid', function (e) {
+      const name = e.target && e.target.name;
+      if (name) invalidFields.add(name);
+      if (invalidFlush) clearTimeout(invalidFlush);
+      invalidFlush = setTimeout(function () {
+        const fields = Array.from(invalidFields);
+        invalidFields.clear();
+        invalidFlush = null;
+        trackEvent('form_invalid', { form_id: form.id || 'inquiry', fields: fields.join(',') });
+      }, 0);
+    }, true);
+
     form.addEventListener('submit', async function (e) {
       e.preventDefault();
 
@@ -671,7 +686,6 @@ document.addEventListener('DOMContentLoaded', () => {
       submitBtn.textContent = _.sendingText;
 
       try {
-        applyTrackingToForm(form);
         const formData = new FormData(form);
         const data = Object.fromEntries(formData.entries());
         const controller = new AbortController();
@@ -686,7 +700,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const result = await response.json();
 
         if (result.success) {
-          trackEvent('form_submit', { form_id: form.id || 'inquiry', product_category: getProductCategory(form) });
+          trackEvent('form_submit', Object.assign({ form_id: form.id || 'inquiry' }, inquiryAttribution(form)));
           form.reset();
 
           const successEl = document.createElement('div');
@@ -728,8 +742,6 @@ document.addEventListener('DOMContentLoaded', () => {
   // Counter animation
   document.querySelectorAll('.counter').forEach(el => counterObserver.observe(el));
 
-  // Attribution capture: landing page, referrer, UTM source/campaign, product category.
-  applyTrackingToForms(document);
   document.addEventListener('click', (e) => {
     const link = e.target.closest && e.target.closest('a[href^="https://wa.me/"], a[href^="https://api.whatsapp.com/"], a[href^="mailto:"]');
     if (link) {
