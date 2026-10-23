@@ -228,6 +228,7 @@ plPath: "kontakt/"
 {% endblock %}
 
 {% block content %}
+{% from "partials/cta-button.njk" import ctaButton with context %}
 <section id="hero" class="relative pt-24 md:pt-28 pb-8 lg:pb-16 bg-white text-slate-900 overflow-hidden lg:min-h-[24rem] lg:flex lg:flex-col lg:justify-center" data-section="hero">
  <div class="absolute inset-0 z-0 pointer-events-none">
  <div class="absolute top-0 left-0 w-64 h-64 bg-brandOrange opacity-20 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
@@ -320,9 +321,7 @@ plPath: "kontakt/"
  <span class="text-xs text-slate-500">I agree to the <a href="/privacy-policy/" class="text-brandOrange hover:underline">Privacy Policy</a> and consent to being contacted. *</span>
  </label>
  </div>
- <button type="submit" class="w-full bg-brandOrange text-brandBlue py-4 rounded-xl font-black uppercase tracking-widest text-sm shadow-xl hover:-translate-y-1 active:scale-95 transition-all">
- Get Factory Pricing
- </button>
+ {{ ctaButton("factoryPricing", "primary", "", "", "", "Get Factory Pricing", "", true, "submit") }}
  <div class="flex items-center justify-center gap-4 mt-4">
  <p class="text-badge text-slate-500 font-bold uppercase tracking-tighter">
  <svg class="icon-lock mr-1" aria-hidden="true" focusable="false" viewBox="0 0 384 512">
