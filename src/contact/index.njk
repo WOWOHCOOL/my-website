@@ -249,6 +249,97 @@ plPath: "kontakt/"
 
 <!-- Trust Bar (unified: certifications + counters + customer logos) -->
 {% include "trust-bar.njk" %}
+ <section id="inquiry-form-section" class="sec container-wide" data-section="content">
+ <div class="bg-white rounded-2xl md:rounded-6xl p-6 md:p-8 lg:p-12 shadow-lg border border-slate-50">
+ <div class="text-center mb-10">
+ <h2 class="text-2xl md:text-3xl font-black text-brandBlue uppercase italic mb-2">Send a Detailed Inquiry</h2>
+ <p class="text-sm text-slate-500 font-bold">Fill out the form below and our team will respond within {RT}</p>
+ </div>
+ <form action="https://api.web3forms.com/submit" method="post" id="inquiry-form-page">
+ <input type="hidden" name="access_key" value="7f077cf3-642b-4aba-9be2-cb99c0c65b19">
+ <input type="hidden" name="subject" value="New Inquiry from Website">
+ <input type="hidden" name="redirect" value="https://www.wowohcool.com/thank-you">
+ <input type="hidden" name="page_url" value="https://www.wowohcool.com{{ canonical or page.url }}">
+ <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;opacity:0;height:0;width:0">
+ <input type="hidden" name="utm_source" value="">
+ <input type="hidden" name="utm_medium" value="">
+ <input type="hidden" name="utm_campaign" value="">
+ <input type="hidden" name="landing_page" value="">
+ <input type="hidden" name="referrer" value="">
+ <input type="hidden" name="product_category" value="">
+
+ <!-- 1. Contact info -->
+ <div class="grid md:grid-cols-2 gap-4">
+ <div class="space-y-1">
+ <label for="page-name" class="text-badge font-black text-brandBlue uppercase ml-2 tracking-widest">Contact Name *</label>
+ <input id="page-name" type="text" name="name" placeholder="John Doe" required autocomplete="name"
+ class="w-full bg-slate-50 p-3 md:p-4 rounded-xl text-sm border-2 border-transparent focus:border-brandOrange focus:bg-white transition-all outline-none font-medium">
+ </div>
+ <div class="space-y-1">
+ <label for="page-email" class="text-badge font-black text-brandBlue uppercase ml-2 tracking-widest">Business Email *</label>
+ <input id="page-email" type="email" name="email" placeholder="john@company.com" required autocomplete="email"
+ class="w-full bg-slate-50 p-3 md:p-4 rounded-xl text-sm border-2 border-transparent focus:border-brandOrange focus:bg-white transition-all outline-none font-medium">
+ </div>
+ </div>
+
+ <!-- 2. Company -->
+ <div class="space-y-1 mt-4">
+ <label for="page-company" class="text-badge font-black text-brandBlue uppercase ml-2 tracking-widest">Company *</label>
+ <input id="page-company" type="text" name="company" placeholder="Your company name" required
+ class="w-full bg-slate-50 p-3 md:p-4 rounded-xl text-sm border-2 border-transparent focus:border-brandOrange focus:bg-white transition-all outline-none font-medium">
+ </div>
+
+ <!-- 3. Product interest -->
+ <div class="space-y-1 mt-4">
+ <label for="pageProductSelect" class="text-badge font-black text-brandBlue uppercase ml-2 tracking-widest">Product Interest</label>
+ <div class="relative">
+ <select id="pageProductSelect" name="product"
+ class="w-full bg-slate-50 p-3 md:p-4 rounded-xl text-sm border-2 border-transparent focus:border-brandOrange focus:bg-white transition-all outline-none font-medium appearance-none">
+ <option value="">Select product category</option>
+ {% for p in products %}<option value="{{ p.value }}">{{ p.label }}</option>
+ {% endfor %}
+ </select>
+ <svg class="icon-chevron-down absolute right-4 top-1/2 -translate-y-1/2 text-slate-300 pointer-events-none text-xs" aria-hidden="true" focusable="false" viewBox="0 0 448 512">
+ <path d="M201.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 338.7 54.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z" fill="currentColor"/>
+ </svg>
+ </div>
+ </div>
+
+ <!-- 3. Message -->
+ <div class="space-y-1 mt-4">
+ <label for="page-message" class="text-badge font-bold text-brandBlue ml-2 tracking-widest">Project details *</label>
+ <textarea id="page-message" name="message" placeholder="Product specs, target quantity, logo printing, packaging needs..." rows="3" required minlength="10"
+ class="w-full bg-slate-50 p-3 md:p-4 rounded-xl text-sm border-2 border-transparent focus:border-brandOrange focus:bg-white transition-all outline-none font-medium resize-none"></textarea>
+ </div>
+
+ <!-- 4. Submit -->
+ <div class="mt-6">
+ <div class="mb-4">
+ <label class="flex items-start gap-3">
+ <input type="checkbox" name="consent" value="granted" required class="mt-0.5 accent-brandOrange shrink-0">
+ <span class="text-xs text-slate-500">I agree to the <a href="/privacy-policy/" class="text-brandOrange hover:underline">Privacy Policy</a> and consent to being contacted. *</span>
+ </label>
+ </div>
+ <button type="submit" class="w-full bg-brandOrange text-brandBlue py-4 rounded-xl font-black uppercase tracking-widest text-sm shadow-xl hover:-translate-y-1 active:scale-95 transition-all">
+ Get Factory Pricing
+ </button>
+ <div class="flex items-center justify-center gap-4 mt-4">
+ <p class="text-badge text-slate-500 font-bold uppercase tracking-tighter">
+ <svg class="icon-lock mr-1" aria-hidden="true" focusable="false" viewBox="0 0 384 512">
+ <path d="M128 96l0 64 128 0 0-64c0-35.3-28.7-64-64-64s-64 28.7-64 64zM64 160l0-64C64 25.3 121.3-32 192-32S320 25.3 320 96l0 64c35.3 0 64 28.7 64 64l0 224c0 35.3-28.7 64-64 64L64 512c-35.3 0-64-28.7-64-64L0 224c0-35.3 28.7-64 64-64z" fill="currentColor"/>
+ </svg> SSL Encrypted
+ </p>
+ <p class="text-badge text-slate-500 font-bold uppercase tracking-tighter">
+ <svg class="icon-clock mr-1" aria-hidden="true" focusable="false" viewBox="0 0 512 512">
+ <path d="M256 0a256 256 0 1 1 0 512 256 256 0 1 1 0-512zM232 120l0 136c0 8 4 15.5 10.7 20l96 64c11 7.4 25.9 4.4 33.3-6.7s4.4-25.9-6.7-33.3L280 243.2 280 120c0-13.3-10.7-24-24-24s-24 10.7-24 24z" fill="currentColor"/>
+ </svg> {RTS} Response
+ </p>
+ </div>
+ </div>
+ </form>
+ </div>
+ </section>
+
  <!-- Contact Info Row -->
  <section id="contact-info-row" class="py-20 container-wide" data-section="cta">
  <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -373,97 +464,6 @@ plPath: "kontakt/"
  </section>
 
  <!-- Inquiry Form Section -->
- <section id="inquiry-form-section" class="sec container-wide" data-section="content">
- <div class="bg-white rounded-2xl md:rounded-6xl p-6 md:p-8 lg:p-12 shadow-lg border border-slate-50">
- <div class="text-center mb-10">
- <h2 class="text-2xl md:text-3xl font-black text-brandBlue uppercase italic mb-2">Send a Detailed Inquiry</h2>
- <p class="text-sm text-slate-500 font-bold">Fill out the form below and our team will respond within {RT}</p>
- </div>
- <form action="https://api.web3forms.com/submit" method="post" id="inquiry-form-page">
- <input type="hidden" name="access_key" value="7f077cf3-642b-4aba-9be2-cb99c0c65b19">
- <input type="hidden" name="subject" value="New Inquiry from Website">
- <input type="hidden" name="redirect" value="https://www.wowohcool.com/thank-you">
- <input type="hidden" name="page_url" value="https://www.wowohcool.com{{ canonical or page.url }}">
- <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;opacity:0;height:0;width:0">
- <input type="hidden" name="utm_source" value="">
- <input type="hidden" name="utm_medium" value="">
- <input type="hidden" name="utm_campaign" value="">
- <input type="hidden" name="landing_page" value="">
- <input type="hidden" name="referrer" value="">
- <input type="hidden" name="product_category" value="">
-
- <!-- 1. Contact info -->
- <div class="grid md:grid-cols-2 gap-4">
- <div class="space-y-1">
- <label for="page-name" class="text-badge font-black text-brandBlue uppercase ml-2 tracking-widest">Contact Name *</label>
- <input id="page-name" type="text" name="name" placeholder="John Doe" required autocomplete="name"
- class="w-full bg-slate-50 p-3 md:p-4 rounded-xl text-sm border-2 border-transparent focus:border-brandOrange focus:bg-white transition-all outline-none font-medium">
- </div>
- <div class="space-y-1">
- <label for="page-email" class="text-badge font-black text-brandBlue uppercase ml-2 tracking-widest">Business Email *</label>
- <input id="page-email" type="email" name="email" placeholder="john@company.com" required autocomplete="email"
- class="w-full bg-slate-50 p-3 md:p-4 rounded-xl text-sm border-2 border-transparent focus:border-brandOrange focus:bg-white transition-all outline-none font-medium">
- </div>
- </div>
-
- <!-- 2. Company -->
- <div class="space-y-1 mt-4">
- <label for="page-company" class="text-badge font-black text-brandBlue uppercase ml-2 tracking-widest">Company *</label>
- <input id="page-company" type="text" name="company" placeholder="Your company name" required
- class="w-full bg-slate-50 p-3 md:p-4 rounded-xl text-sm border-2 border-transparent focus:border-brandOrange focus:bg-white transition-all outline-none font-medium">
- </div>
-
- <!-- 3. Product interest -->
- <div class="space-y-1 mt-4">
- <label for="pageProductSelect" class="text-badge font-black text-brandBlue uppercase ml-2 tracking-widest">Product Interest</label>
- <div class="relative">
- <select id="pageProductSelect" name="product"
- class="w-full bg-slate-50 p-3 md:p-4 rounded-xl text-sm border-2 border-transparent focus:border-brandOrange focus:bg-white transition-all outline-none font-medium appearance-none">
- <option value="">Select product category</option>
- {% for p in products %}<option value="{{ p.value }}">{{ p.label }}</option>
- {% endfor %}
- </select>
- <svg class="icon-chevron-down absolute right-4 top-1/2 -translate-y-1/2 text-slate-300 pointer-events-none text-xs" aria-hidden="true" focusable="false" viewBox="0 0 448 512">
- <path d="M201.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 338.7 54.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z" fill="currentColor"/>
- </svg>
- </div>
- </div>
-
- <!-- 3. Message -->
- <div class="space-y-1 mt-4">
- <label for="page-message" class="text-badge font-bold text-brandBlue ml-2 tracking-widest">Project details *</label>
- <textarea id="page-message" name="message" placeholder="Product specs, target quantity, logo printing, packaging needs..." rows="3" required minlength="10"
- class="w-full bg-slate-50 p-3 md:p-4 rounded-xl text-sm border-2 border-transparent focus:border-brandOrange focus:bg-white transition-all outline-none font-medium resize-none"></textarea>
- </div>
-
- <!-- 4. Submit -->
- <div class="mt-6">
- <div class="mb-4">
- <label class="flex items-start gap-3">
- <input type="checkbox" name="consent" value="granted" required class="mt-0.5 accent-brandOrange shrink-0">
- <span class="text-xs text-slate-500">I agree to the <a href="/privacy-policy/" class="text-brandOrange hover:underline">Privacy Policy</a> and consent to being contacted. *</span>
- </label>
- </div>
- <button type="submit" class="w-full bg-brandOrange text-brandBlue py-4 rounded-xl font-black uppercase tracking-widest text-sm shadow-xl hover:-translate-y-1 active:scale-95 transition-all">
- Get Factory Pricing
- </button>
- <div class="flex items-center justify-center gap-4 mt-4">
- <p class="text-badge text-slate-500 font-bold uppercase tracking-tighter">
- <svg class="icon-lock mr-1" aria-hidden="true" focusable="false" viewBox="0 0 384 512">
- <path d="M128 96l0 64 128 0 0-64c0-35.3-28.7-64-64-64s-64 28.7-64 64zM64 160l0-64C64 25.3 121.3-32 192-32S320 25.3 320 96l0 64c35.3 0 64 28.7 64 64l0 224c0 35.3-28.7 64-64 64L64 512c-35.3 0-64-28.7-64-64L0 224c0-35.3 28.7-64 64-64z" fill="currentColor"/>
- </svg> SSL Encrypted
- </p>
- <p class="text-badge text-slate-500 font-bold uppercase tracking-tighter">
- <svg class="icon-clock mr-1" aria-hidden="true" focusable="false" viewBox="0 0 512 512">
- <path d="M256 0a256 256 0 1 1 0 512 256 256 0 1 1 0-512zM232 120l0 136c0 8 4 15.5 10.7 20l96 64c11 7.4 25.9 4.4 33.3-6.7s4.4-25.9-6.7-33.3L280 243.2 280 120c0-13.3-10.7-24-24-24s-24 10.7-24 24z" fill="currentColor"/>
- </svg> {RTS} Response
- </p>
- </div>
- </div>
- </form>
- </div>
- </section>
-
  <!-- ========================================================================
  FAQ SECTION - FAQ
  ======================================================================== -->
