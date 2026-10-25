@@ -174,6 +174,23 @@ review-required/
 .playwright-mcp/
 .indexnow-cache.json
 
+# SEO machine 本地巡检工作区（GSC 缓存 / 关键词看板 / 标注预览）
+# 2026-10-25：长期以未跟踪状态出现在 git status。上面的 *.py / __pycache__/
+# 只盖住脚本与字节码，目录里的 .html / .csv / .json / .md 产物盖不住。
+_keyword-monitoring/
+
+# 本地设计草图与一次性产出（不属网站内容）
+# _ui-sketch/：页头/导航/询盘按钮/页脚重设计草图（lang="zh-CN"，非线上页面）
+# /output/：本地导出的 PDF 等交付物
+_ui-sketch/
+/output/
+
+# 本地 njk 工具链（Python 实现，含 __pycache__ / baselines / build 产物）
+# 构建链只依赖 scripts/ 下的 JS；tools/njk 不参与 build，属「本地专用工具」
+# （见上方 IMPORTANT 段：Python 助手脚本一律留本地）。用窄路径而非 tools/，
+# 以免将来新增的、确实该进仓库的工具被静默忽略。
+/tools/njk/
+
 # Local-only tooling / historical patches (2026-09-07 cleanup)
 dev-server.js
 .fr-patches/
