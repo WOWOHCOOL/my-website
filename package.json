@@ -57,6 +57,8 @@
     "validate:facts": "node scripts/validate-facts.js",
     "validate:model-counts": "node scripts/validate-model-counts.js",
     "validate:cta-labels": "node scripts/validate-cta-labels.js",
+    "validate:style": "node scripts/validate-style.js",
+    "validate:style:strict": "node scripts/validate-style.js --strict",
     "prepush": "npx @11ty/eleventy && node scripts/validate-hero-structure.js && node scripts/validate-blog-section-cards.js && npm run validate:llms-links && npm run validate:model-counts && npm run gate && node scripts/validate-org-schema.js && node scripts/validate-faq-consistency.js --strict && node scripts/validate-body-font.js && node scripts/validate-table-wrap.js && node scripts/validate-hero-tags.js && node scripts/validate-section-containers.js && node scripts/validate-panel-labels.js && node scripts/validate-nonblog-headings.js && node scripts/validate-nonblog-fonts.js && node scripts/validate-mobile-tap.js",
     "audit:mobile": "node scripts/audit-mobile.js",
     "audit:perf": "node scripts/audit-perf.js"
