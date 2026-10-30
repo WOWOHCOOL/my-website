@@ -1,0 +1,78 @@
+{#
+  分类卡 · 两个父页面共用（2026-10-29）
+  ────────────────────────────────────────────────────────────
+  用法：
+    {% set category = "products/power-bank" %}{% set catKey = "power-bank" %}
+    {% include "partials/product-family-cards.njk" %}
+
+  数据源：src/_taxonomy/taxonomy.json → 由 scripts/build-taxonomy.js 生成 productFamilies.js
+          · 分类名 / 描述 / 徽章 / meta / 链接文案 全部本地化
+          · meta 里的型号数用 {N} 占位，模板用数据层实时计算
+
+  设计约束（用户 2026-10-29 指定）：
+    · **不要背景阴影** —— 卡片只有 1px 边框，无 box-shadow，无渐变底
+    · **全包围图片** —— 图片 object-fit:cover 铺满媒体框四边，不设内边距、不设底色块
+    · 两个父页面（power-bank / wireless-charger）用同一套结构与样式
+
+  ⚠️ 型号数走 productFamilyModelCount(catKey, familyKey)，数据源是 src/_products/*.json，
+     所以六语言显示同一个数（以 EN 为准）。
+  ⚠️ 卡片整体是 <a>，不要再在里面嵌链接。
+#}
+{%- set L = lang or 'en' -%}
+{%- set pg = productFamilies[L][category] -%}
+{%- if pg and pg.families and pg.families.length -%}
+<section id="{{ pg.sectionId }}" class="sec bg-white" data-section="products">
+ <div class="container-wide">
+  {%- if pg.eyebrow %}
+  <p class="model-section-eyebrow">{{ pg.eyebrow }}</p>
+  {%- endif %}
+  <h2 class="model-section-title">{{ pg.h2 | safe }}</h2>
+  {%- if pg.intro %}
+  <p class="model-section-intro">{{ pg.intro }}</p>
+  {%- endif %}
+
+  <div class="family-grid">
+   {%- for f in pg.families %}
+   {%- set n = (catKey | productFamilyModelCount(f.key)) | string -%}
+   <a href="{{ f.href }}" class="family-card reveal">
+    <div class="family-media">
+     {%- if f.img and f.img.src %}
+     <img src="{{ f.img.src }}"
+      {%- if f.img.srcset %} srcset="{{ f.img.srcset }}"{% endif %}
+      sizes="(min-width: 1024px) 400px, (min-width: 640px) 46vw, 92vw"
+      alt="{{ f.img.alt }}"
+      {%- if f.img.width %} width="{{ f.img.width }}"{% endif %}
+      {%- if f.img.height %} height="{{ f.img.height }}"{% endif %}
+      loading="lazy" decoding="async">
+     {%- endif %}
+     {%- if f.badge %}
+     <span class="family-badge">{{ f.badge }}</span>
+     {%- endif %}
+    </div>
+    <div class="family-body">
+     <h3 class="family-name">{{ f.name }}</h3>
+     {%- if f.desc %}
+     <p class="family-desc">{{ f.desc | replace('{N}', n) }}</p>
+     {%- endif %}
+     <div class="family-foot">
+      {%- if f.meta %}
+      <span class="family-meta">{{ f.meta | replace('{N}', n) }}</span>
+      {%- endif %}
+      <span class="family-foot-end">
+       {#- extra 若是标签（不含箭头）就渲染成 chip；若是链接文案则不再重复，
+           统一由下面的 linkLabel 输出「查看系列 →」 #}
+       {%- if f.extra and '→' not in f.extra %}
+       <span class="family-tag">{{ f.extra }}</span>
+       {%- endif %}
+       {%- if pg.linkLabel %}
+       <span class="family-more">{{ pg.linkLabel }}</span>
+       {%- endif %}
+      </span>
+     </div>
+    </div>
+   </a>
+   {%- endfor %}
+  </div>
+ </div>
+</section>
+{%- endif -%}

@@ -155,6 +155,22 @@ for (const r of records) {
       issues.push(`[MOQ] ${tag}: eligibleQuantity.minValue 非数字 (${JSON.stringify(mv)})`);
     }
   }
+
+  // offerCount 必须等于本页可见型号卡数量。
+  //   真源：src/_products/<cat>__<family>.json → product-models.njk 渲染的 .model-card。
+  //   模板里应为派生值 {{ 'cat' | productFamilyModelCount('family') }}，禁止手写数字
+  //   —— 2026-10-30 实测曾出现 EN/FR=2 而 DE/ES/RU/PL=10（同族跨语言事实矛盾）。
+  if (o.offerCount !== undefined && o.offerCount !== null) {
+    const cards = ((byUrl[r.url] || '').match(/class="model-card/g) || []).length;
+    const declared = Number(o.offerCount);
+    if (!Number.isFinite(declared)) {
+      issues.push(`[offerCount] ${tag}: 非数字 (${JSON.stringify(o.offerCount)})`);
+    } else if (cards === 0) {
+      issues.push(`[offerCount] ${tag}: 声明 offerCount=${declared} 但页面上没有型号卡（应移除，或改为从 _products 派生）`);
+    } else if (declared !== cards) {
+      issues.push(`[offerCount] ${tag}: offerCount=${declared} ≠ 可见型号卡 ${cards}（模板应改为 {{ 'cat' | productFamilyModelCount('family') }}）`);
+    }
+  }
 }
 
 // 5. 同语言内币种唯一

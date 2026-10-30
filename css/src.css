@@ -1073,6 +1073,506 @@ body .group:hover .group-hover\:text-brandOrange { color: var(--brand-orange); }
      拿不到 `hover:text-white` 的白色，变成深蓝底 + 深蓝字（2026-09-17 实测踩过）。 */
 }
 
+/* ─── 产品线横带 .range-band（2026-10-29 重构，六语言共用）─────────────────
+   为什么改：原 /products/ 用固定 4 列网格装 6 / 3 / 1 / 1 张卡，
+            GaN 与 Car Charger 两行各 75% 是空白，而这两类各有 10 / 12 个型号。
+            改为「每条产品线一个全宽横带」后，子系列数量不再影响排版。
+   数据：src/_data/product-catalog.json（按 lang 取，文案原样来自各语言页面）
+   模板：src/_includes/partials/product-range-bands.njk
+   ⚠️ 刻意写在 @layer 之外：不参与 Tailwind tree-shake（@layer components 里的
+      自定义类只有被用到才会输出，改模板时容易踩空），也不会被工具类意外覆盖。
+   ⚠️ 尺寸一律 rem / clamp / 百分比，不用固定 px —— 德语与波兰语长词要能撑开。
+   ⚠️ 左右交替靠 .range-band--flip 的 order，不靠 HTML 顺序 —— 保证 DOM 里
+      永远是「图 → 文」，屏幕阅读器与提取式摘要读到的顺序一致。 */
+
+.range-band {
+  display: grid;
+  grid-template-columns: 1fr;
+  margin-bottom: 1.5rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 1.5rem;
+  background: #fff;
+  overflow: hidden;
+}
+.range-band:last-child { margin-bottom: 0; }
+
+@media (min-width: 1024px) {
+  .range-band {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+    margin-bottom: 2rem;
+  }
+  .range-band--flip .range-media { order: 2; }
+  .range-band--flip .range-body  { order: 1; }
+}
+
+/* 媒体区 —— 分类首个子系列的产品图，复用现有 srcset，只换 sizes */
+.range-media {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.75rem;
+  background: #fff;
+  overflow: hidden;
+}
+/* ⚠️ 媒体区不要放品牌色光晕/渐变装饰：产品图多为白底抠图，底色一旦不是纯白，
+   抠图的白底就会显出一个浅色方块。要装饰请加在文字区。 */
+/* 移动端堆叠时媒体区没有行高可撑，给一个固定比例；桌面端靠 grid 行拉伸 */
+@media (max-width: 1023px) {
+  .range-media { aspect-ratio: 4 / 3; }
+}
+.range-media img {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  /* ⚠️ 不要给图片加 mix-blend-mode:multiply。
+     本组素材有两种：白底抠图（Power Bank / Wireless / Car）与实拍场景图（GaN）。
+     multiply 能让抠图融进浅底，但会把实拍图压浑 —— 所以改成「媒体区白底」，
+     抠图白压白天然无接缝，实拍图自带背景也正常。 */
+  transition: transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.range-band:hover .range-media img { transform: scale(1.04); }
+
+@media (min-width: 1024px) {
+  .range-media {
+    min-height: 22rem;
+    padding: 2.5rem;
+    border-right: 1px solid #eef2f7;
+  }
+  .range-band--flip .range-media {
+    border-right: 0;
+    border-left: 1px solid #eef2f7;
+  }
+}
+
+/* 文字区 */
+.range-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1.75rem 1.5rem 2rem;
+  background: #f8fafc;
+}
+@media (min-width: 768px)  { .range-body { padding: 2.5rem 2.5rem 2.75rem; } }
+@media (min-width: 1280px) { .range-body { padding: 3rem 3.25rem; } }
+
+.range-title {
+  font-size: clamp(1.5rem, 1.15rem + 1.1vw, 2.25rem);
+  line-height: 1.08;
+  font-weight: 900;
+  font-style: italic;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  color: var(--brand-blue);
+}
+.range-sub {
+  margin-top: 0.5rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--brand-orange-deep);
+}
+
+/* 子系列列表 —— 只在 ≥2 个子系列时渲染（1 个时与 CTA 重复） */
+.range-lead {
+  margin-top: 1rem;
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  color: #475569;
+  max-width: 34ch;
+}
+
+.range-families {
+  display: grid;
+  gap: 0.125rem;
+  margin: 1.5rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+@media (min-width: 768px) {
+  .range-families {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 0.75rem;
+  }
+}
+.range-family {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem;
+  border: 1px solid transparent;
+  border-radius: 0.75rem;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+.range-family:hover { background: #f8fafc; border-color: #e2e8f0; }
+.range-family-thumb {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  overflow: hidden;
+  border-radius: 0.5rem;
+  background: #fff;
+  border: 1px solid #eef2f7;
+}
+.range-family-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.range-family-text { min-width: 0; }
+.range-family-name {
+  display: block;
+  font-size: 0.8125rem;
+  font-weight: 900;
+  line-height: 1.25;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  color: var(--brand-blue);
+}
+.range-family-desc {
+  display: block;
+  margin-top: 0.125rem;
+  font-size: 0.75rem;
+  line-height: 1.35;
+  color: #64748b;
+}
+
+.range-cta { margin-top: 1.75rem; }
+
+/* ─── 型号卡 .model-card（2026-10-29 六语言共用）───────────────────────────
+   为什么改：改前 85 个型号卡是 6 份手写标记，参数表标签各写各的（314 个不同标签），
+            且 schema 里没有 sku/mpn ⇒ 六语言的同一型号在机器层面认不出是同一个。
+   数据：src/_products/*.json ｜ 模板：partials/product-models.njk
+   ⚠️ 媒体区纯白：产品图是白底抠图，底色一变色就会显出浅色方块（同 .range-media 的坑）。
+   ⚠️ 参数表直接可见，不放进 <details>：折叠内容在提取式摘要里权重更低。
+   ⚠️ 尺寸用 rem/clamp，德语与俄语长词要能撑开。 */
+
+.model-section-eyebrow {
+  margin-bottom: 0.5rem;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--brand-orange-deep);
+}
+
+.model-section-title {
+  font-size: clamp(1.375rem, 1.1rem + 1vw, 1.875rem);
+  font-weight: 900;
+  font-style: italic;
+  line-height: 1.1;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  color: var(--brand-blue);
+}
+.model-section-intro {
+  margin-top: 0.5rem;
+  margin-bottom: 1.75rem;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: #64748b;
+}
+
+.model-list {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.model-card {
+  display: grid;
+  grid-template-columns: 1fr;
+  border: 1px solid #e2e8f0;
+  border-radius: 1.25rem;
+  background: #fff;
+  overflow: hidden;
+}
+@media (min-width: 900px) {
+  .model-card {
+    grid-template-columns: minmax(0, 320px) minmax(0, 1fr);
+  }
+}
+
+.model-media {
+  position: relative;
+  padding: 1.25rem;
+  background: #fff;
+  border-bottom: 1px solid #eef2f7;
+}
+@media (min-width: 900px) {
+  .model-media {
+    border-bottom: 0;
+    border-right: 1px solid #eef2f7;
+  }
+}
+.model-media img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+}
+
+.model-badges {
+  position: absolute;
+  top: 0.9rem;
+  left: 0.9rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+.model-badge {
+  align-self: flex-start;
+  padding: 0.2rem 0.55rem;
+  border-radius: 9999px;
+  background: #0a192f;
+  color: #fff;
+  font-size: 0.625rem;
+  font-weight: 900;
+  font-style: italic;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.model-badge--accent {
+  background: var(--brand-orange);
+  color: var(--brand-blue);
+}
+
+.model-body {
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  background: #f8fafc;
+}
+@media (min-width: 768px) {
+  .model-body { padding: 1.75rem 2rem; }
+}
+
+.model-name {
+  font-size: 1.0625rem;
+  font-weight: 900;
+  font-style: italic;
+  line-height: 1.2;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  color: var(--brand-blue);
+}
+@media (min-width: 768px) {
+  .model-name { font-size: 1.1875rem; }
+}
+
+/* 型号卡描述段（2026-10-29，迁移时丢失的 .model-desc 恢复）
+   层级 = T2 辅助层：14px 斜体、slate-500，与旧页 text-sm italic leading-relaxed 逐值一致。 */
+.model-desc {
+  margin: 0.625rem 0 0;
+  color: #64748b;
+  font-size: 0.875rem;
+  font-style: italic;
+  line-height: 1.6;
+}
+
+.model-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.375rem;
+  margin: 0.75rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+/* 参数 chip（2026-10-29 按用户要求上色）：
+   改前是白底灰字，与整站「深蓝 + 橙」的调性脱节。
+   现在用两级着色 —— 首个 chip 通常是核心规格（功率/容量），给品牌橙淡底 + 深橙字；
+   其余给品牌蓝淡底 + 品牌蓝字。淡底都是同一色相的 5–12% 透明度，不抢主体。
+   ⚠️ 文字色用加深档（--brand-orange-deep / --brand-blue），不用亮橙 —— 亮橙在淡橙底上
+      只有 2.9:1，达不到 4.5:1。 */
+.model-chips li {
+  padding: 0.2rem 0.55rem;
+  border: 1px solid transparent;
+  border-radius: 9999px;
+  background: rgba(10, 25, 47, 0.055);
+  color: var(--brand-blue);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.model-chips li:first-child {
+  background: rgba(255, 107, 0, 0.12);
+  color: var(--brand-orange-deep);
+}
+
+.model-specs {
+  width: 100%;
+  margin-top: 1rem;
+  border-collapse: collapse;
+  font-size: 0.75rem;
+}
+.model-specs th,
+.model-specs td {
+  padding: 0.35rem 0;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid #eef2f7;
+}
+/* 参数表「参数 / 内容」的字体样式与颜色互换（2026-10-29 用户要求）：
+   改前 = 参数（th）浅灰 500、内容（td）近黑 700。
+   改后 = 参数深色 700、内容浅灰 500 —— 视觉重心从「值」移到「参数名」。
+   ⚠️ 两者都是 4.5:1 以上：#0f172a on #f8fafc ≈ 16:1， #475569 on #f8fafc ≈ 6.5:1。 */
+.model-specs th {
+  width: 44%;
+  padding-right: 0.75rem;
+  color: #0f172a;
+  font-weight: 700;
+}
+.model-specs td {
+  color: #475569;
+  font-weight: 500;
+}
+.model-specs tr:last-child th,
+.model-specs tr:last-child td { border-bottom: 0; }
+
+.model-cta {
+  margin-top: auto;
+  padding-top: 1.25rem;
+}
+.model-btn { width: 100%; }
+
+/* ─── 分类卡 .family-card（2026-10-29，power-bank / wireless-charger 两个父页面共用）──
+   设计约束（用户指定）：
+     · **无背景阴影** —— 只有 1px 边框，没有 box-shadow，没有渐变底
+     · **全包围图片** —— 图片 object-fit:cover 铺满媒体框四边，不留内边距、不留底色块
+   ⚠️ 不要再加 `box-shadow` / `bg-gradient` / `bg-slate-100` —— 那正是本次要移除的。
+   ⚠️ 媒体区用 aspect-ratio 4/3 + cover：源图多为方形，cover 会裁掉上下各约 12%，
+      产品居中且四周留白，实测不会被裁到本体。若以后换成长条图需重新评估。 */
+
+.family-grid {
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 640px) {
+  .family-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (min-width: 1024px) {
+  .family-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem; }
+}
+
+.family-card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid #e2e8f0;
+  border-radius: 1.25rem;
+  background: #fff;
+  transition: border-color 0.25s ease;
+}
+.family-card:hover { border-color: var(--brand-orange); }
+
+.family-media {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: #fff;
+}
+.family-media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.family-card:hover .family-media img { transform: scale(1.05); }
+
+.family-badge {
+  position: absolute;
+  top: 0.9rem;
+  left: 0.9rem;
+  padding: 0.2rem 0.55rem;
+  border-radius: 9999px;
+  background: var(--brand-orange);
+  color: var(--brand-blue);
+  font-size: 0.625rem;
+  font-weight: 900;
+  font-style: italic;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.family-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 1.25rem;
+}
+@media (min-width: 768px) {
+  .family-body { padding: 1.5rem; }
+}
+
+.family-name {
+  font-size: 1.0625rem;
+  font-weight: 900;
+  font-style: italic;
+  line-height: 1.2;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  color: var(--brand-blue);
+}
+.family-desc {
+  margin-top: 0.5rem;
+  font-size: 0.75rem;
+  line-height: 1.55;
+  color: #64748b;
+}
+
+.family-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-top: auto;
+  padding-top: 1rem;
+  border-top: 1px solid #eef2f7;
+}
+.family-meta {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #475569;
+}
+.family-foot-end {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 0.5rem;
+}
+.family-more {
+  flex: 0 0 auto;
+  font-size: 0.6875rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--brand-orange-deep);
+  white-space: nowrap;
+}
+.family-tag {
+  flex: 0 0 auto;
+  padding: 0.15rem 0.5rem;
+  border-radius: 0.375rem;
+  background: #f1f5f9;
+  color: #475569;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+@media (min-width: 640px) {
+  .model-btn { width: auto; }
+}
+
 /* ─── 窄屏防横向溢出：长不可断串允许断行（2026-10） ─────────────────
    长 URL / 德语复合词 / 波兰语长词 / 型号 / 证书号在 320–393px 下会把容器撑破
    （实测 `Bezprzewodowych` 单字 273px > 容器 272px；`wirelesspowerconsortium.com`

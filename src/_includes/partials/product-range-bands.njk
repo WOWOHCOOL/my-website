@@ -1,0 +1,92 @@
+{#
+  产品线横带 · 六语言共用（2026-10-29 重构）
+  ────────────────────────────────────────────────────────────
+  数据源：src/_taxonomy/taxonomy.json → 由 scripts/build-taxonomy.js 生成 productCatalog.js
+         文案由各语言 L1 页**原样抽出**，本模板不含任何硬编码文案。
+         改文案 = 改 taxonomy.json 对应语言条目，再跑 node scripts/build-taxonomy.js，不要改本文件。
+
+  结构：每条产品线一个全宽横带（媒体区 + 文字区，左右交替）
+        · 媒体区：该分类首个子系列的产品图（复用现有 srcset，只改 sizes）
+        · 文字区：h2 = 分类名（与重构前同数量、同层级）
+                  副标题 = 原 h2 内的 span 文案
+                  子系列列表（≥2 个时渲染，1 个时省略以免与 CTA 重复）
+                  CTA = 原有 "All N Models" 按钮
+
+  ⚠️ 保持 4 个 h2，子系列名用 span —— 不新增标题层级（validate-nonblog-headings 依赖）
+  ⚠️ 保留 id="product-grid" 与 data-section="products"（校验器/JS 依赖）
+  ⚠️ 子系列 ≥2 才渲染列表：GaN / Car Charger 各只有 1 个子系列，且其 href 与分类 CTA 相同，
+     渲染出来就是重复链接。
+#}
+{%- set L = lang or 'en' -%}
+{%- set catalog = productCatalog[L] -%}
+{%- if catalog and catalog.ranges and catalog.ranges.length -%}
+<section id="product-grid" class="sec bg-white" data-section="products">
+ <div class="container-wide">
+  {%- for r in catalog.ranges %}
+
+  {%- if r.more.hard -%}
+    {%- set moreLabel = r.more.hard -%}
+  {%- elif r.more.filter == 'productCategoryModelCount' -%}
+    {%- set moreLabel = r.more.before + (r.more.key | productCategoryModelCount) + r.more.after -%}
+  {%- else -%}
+    {%- set moreLabel = r.more.before + (r.more.key | productCategoryItemCount) + r.more.after -%}
+  {%- endif -%}
+
+  {%- set lead = r.families[0] -%}
+  {%- set leadN = r.more.key | productFamilyModelCount(lead.key) | string -%}
+  <article class="range-band reveal{% if loop.index % 2 == 0 %} range-band--flip{% endif %}">
+   <div class="range-media">
+    {%- if lead and lead.img and lead.img.src %}
+    <img src="{{ lead.img.src }}"
+     {%- if lead.img.srcset %} srcset="{{ lead.img.srcset }}"{% endif %}
+     sizes="(min-width: 1024px) 600px, (min-width: 768px) 88vw, 92vw"
+     alt="{{ lead.img.alt }}"
+     {%- if lead.img.width %} width="{{ lead.img.width }}"{% endif %}
+     {%- if lead.img.height %} height="{{ lead.img.height }}"{% endif %}
+     loading="lazy" decoding="async">
+    {%- endif %}
+   </div>
+   <div class="range-body">
+    <h2 class="range-title">{{ r.name }}</h2>
+    {%- if r.subtitle %}
+    <p class="range-sub">{{ r.subtitle }}</p>
+    {%- endif %}
+    {%- if r.families.length == 1 and lead.desc %}
+    {# 单子系列分类（GaN / Car Charger）：列表会与下方 CTA 指向同一 URL，
+       改为把该子系列已有的一句话描述作为引导句，避免重复链接也避免版面过空。 #}
+    <p class="range-lead">{{ lead.desc | replace('{N}', leadN) }}</p>
+    {%- endif %}
+    {%- if r.families.length > 1 %}
+    <ul class="range-families">
+     {%- for f in r.families %}
+     <li>
+      <a href="{{ f.href }}" class="range-family">
+       {%- if f.img and f.img.src %}
+       <span class="range-family-thumb{% if f.bg %} {{ f.bg }}{% endif %}">
+        <img src="{{ f.img.src }}" alt="{{ f.img.alt }}"
+         {%- if f.img.width %} width="{{ f.img.width }}"{% endif %}
+         {%- if f.img.height %} height="{{ f.img.height }}"{% endif %}
+         loading="lazy" decoding="async">
+       </span>
+       {%- endif %}
+       {%- set n = r.more.key | productFamilyModelCount(f.key) | string -%}
+       <span class="range-family-text">
+        <span class="range-family-name">{{ f.name }}</span>
+        {%- if f.desc %}
+        <span class="range-family-desc">{{ f.desc | replace('{N}', n) }}</span>
+        {%- endif %}
+       </span>
+      </a>
+     </li>
+     {%- endfor %}
+    </ul>
+    {%- endif %}
+    <div class="range-cta">
+     <a href="{{ r.href }}" class="btn-more">{{ moreLabel }}</a>
+    </div>
+   </div>
+  </article>
+  {%- endfor %}
+ </div>
+</section>
+{%- endif -%}

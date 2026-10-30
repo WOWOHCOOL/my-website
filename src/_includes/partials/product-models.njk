@@ -1,0 +1,135 @@
+{# 
+  型号卡 · 六语言共用模板（2026-10-29 单一真源）
+  ────────────────────────────────────────────────────────────
+  用法：
+    {% set family = "products/power-bank/semi-solid-state" %}
+    {% include "partials/product-models.njk" %}
+
+  数据源：src/_products/<category>__<family>.json（一个产品系列一个文件）
+          · 型号集合 / 规格行 structures 以该文件为准
+          · 参数名统一走 src/_data/specLabels.json 本土化
+          · name / badges / chips / h2 / intro / specValues 按语言本土化
+          · 缺失语言字段回退 EN
+
+  ⚠️ 型号卡 id 必须保持 `wop09` 这种小写 anchor —— 站外有 /products/...#wop09 这类深链。
+  ⚠️ data-product 传 SKU（不是分类名），询盘邮件 subject 才能带上具体型号。
+  ⚠️ 参数表直接可见、不折叠：AI 摘录与比价都读可见文本。
+  ⚠️ 标题层级：section 内 h2 = 系列名，型号名 h3 —— 与改前一致，不新增层级。
+  ⚠️ 每个型号一个独立 Product 节点（含 sku/mpn）：这是本次统一最实质的 GEO 收益。
+#}
+{%- set L = lang or 'en' -%}
+{%- set fam = productModels[L][family] -%}
+{%- if fam and fam.groups and fam.groups.length -%}
+
+{%- for g in fam.groups %}
+<section id="{{ g.sectionId }}" class="sec bg-white" data-section="products">
+ <div class="container-wide">
+  {%- if g.eyebrow %}
+  <p class="model-section-eyebrow">{{ g.eyebrow }}</p>
+  {%- endif %}
+  <h2 class="model-section-title">{{ g.h2 }}</h2>
+  {%- if g.intro %}
+  <p class="model-section-intro">{{ g.intro }}</p>
+  {%- endif %}
+
+  <div class="model-list">
+   {%- for m in g.models %}
+   <article class="model-card reveal" id="{{ m.anchor | default(m.sku | lower) }}">
+    <div class="model-media">
+     {%- if m.img and m.img.src %}
+     <img src="{{ m.img.src }}"
+      {%- if m.img.srcset %} srcset="{{ m.img.srcset }}"{% endif %}
+      sizes="(min-width: 1024px) 320px, (min-width: 768px) 40vw, 86vw"
+      alt="{{ m.img.alt }}"
+      {%- if m.img.width %} width="{{ m.img.width }}"{% endif %}
+      {%- if m.img.height %} height="{{ m.img.height }}"{% endif %}
+      loading="lazy" decoding="async">
+     {%- endif %}
+     {%- if m.badges and m.badges.length %}
+     <div class="model-badges">
+      {%- for b in m.badges %}
+      <span class="model-badge{% if loop.first %} model-badge--accent{% endif %}">{{ b }}</span>
+      {%- endfor %}
+     </div>
+     {%- endif %}
+    </div>
+
+    <div class="model-body">
+     <h3 class="model-name">{{ m.name }}</h3>
+
+     {%- if m.description %}
+     <p class="model-desc">{{ m.description }}</p>
+     {%- endif %}
+
+     {%- if m.chips and m.chips.length %}
+     <ul class="model-chips">
+      {%- for c in m.chips %}
+      <li>{{ c }}</li>
+      {%- endfor %}
+     </ul>
+     {%- endif %}
+
+     {%- if m.rows and m.rows.length %}
+     <table class="model-specs">
+      <caption class="sr-only">{{ m.name }}</caption>
+      <tbody>
+       {%- for row in m.rows %}
+       <tr><th scope="row">{{ specLabels[L] and specLabels[L][row[0]] or row[0] }}</th><td>{{ row[1] }}</td></tr>
+       {%- endfor %}
+      </tbody>
+     </table>
+     {%- endif %}
+
+     <div class="model-cta">
+      <button type="button" data-action="open-modal" data-product="{{ m.sku }}" class="btn-solid model-btn">
+       {{ ctaLabels.factoryPricing[L] }}
+      </button>
+     </div>
+    </div>
+   </article>
+   {%- endfor %}
+  </div>
+ </div>
+</section>
+
+<script type="application/ld+json">
+[
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "@id": "https://www.wowohcool.com{{ page.url }}#itemlist-{{ g.sectionId }}",
+  "url": "https://www.wowohcool.com{{ page.url }}",
+  "name": {{ g.h2 | dump | safe }},
+  "numberOfItems": {{ g.models.length }},
+  "itemListElement": [
+{%- for m in g.models %}
+    { "@type": "ListItem", "position": {{ loop.index }}, "item": { "@id": "https://www.wowohcool.com{{ page.url }}#{{ m.anchor | default(m.sku | lower) }}" } }{% if not loop.last %},{% endif %}
+{%- endfor %}
+  ]
+},
+{%- for m in g.models %}
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "@id": "https://www.wowohcool.com{{ page.url }}#{{ m.anchor | default(m.sku | lower) }}",
+  "sku": "{{ m.sku }}",
+  "mpn": "{{ m.sku }}",
+  "name": {{ m.name | dump | safe }},
+  {%- if m.description %}
+  "description": {{ m.description | dump | safe }},
+  {%- endif %}
+  "image": "https://www.wowohcool.com{{ m.img.src }}",
+  "brand": { "@type": "Brand", "name": "WOWOHCOOL" },
+  "manufacturer": { "@id": "https://www.wowohcool.com/#organization" }{% if m.rows and m.rows.length %},
+  "additionalProperty": [
+    {%- for row in m.rows %}
+    { "@type": "PropertyValue", "propertyID": "{{ row[2] }}", "value": {{ row[1] | dump | safe }} }{% if not loop.last %},{% endif %}
+    {%- endfor %}
+  ]{% endif %}
+}{% if not loop.last %},{% endif %}
+{%- endfor %}
+]
+</script>
+{%- endfor %}
+
+{%- endif -%}
