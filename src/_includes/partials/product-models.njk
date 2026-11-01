@@ -15,7 +15,7 @@
   ⚠️ data-product 传 SKU（不是分类名），询盘邮件 subject 才能带上具体型号。
   ⚠️ 参数表直接可见、不折叠：AI 摘录与比价都读可见文本。
   ⚠️ 标题层级：section 内 h2 = 系列名，型号名 h3 —— 与改前一致，不新增层级。
-  ⚠️ 每个型号一个独立 Product 节点（含 sku/mpn）：这是本次统一最实质的 GEO 收益。
+  ⚠️ 型号卡不单独声明 Product。询盘型型号没有公开价格/评价，声明 Product 会缺 offers/review/aggregateRating，导致 Product snippet 无效。
 #}
 {%- set L = lang or 'en' -%}
 {%- set fam = productModels[L][family] -%}
@@ -103,31 +103,10 @@
   "numberOfItems": {{ g.models.length }},
   "itemListElement": [
 {%- for m in g.models %}
-    { "@type": "ListItem", "position": {{ loop.index }}, "item": { "@id": "https://www.wowohcool.com{{ page.url }}#{{ m.anchor | default(m.sku | lower) }}" } }{% if not loop.last %},{% endif %}
+    { "@type": "ListItem", "position": {{ loop.index }}, "name": {{ m.name | dump | safe }}, "url": "https://www.wowohcool.com{{ page.url }}#{{ m.anchor | default(m.sku | lower) }}" }{% if not loop.last %},{% endif %}
 {%- endfor %}
   ]
-},
-{%- for m in g.models %}
-{
-  "@context": "https://schema.org",
-  "@type": "Product",
-  "@id": "https://www.wowohcool.com{{ page.url }}#{{ m.anchor | default(m.sku | lower) }}",
-  "sku": "{{ m.sku }}",
-  "mpn": "{{ m.sku }}",
-  "name": {{ m.name | dump | safe }},
-  {%- if m.description %}
-  "description": {{ m.description | dump | safe }},
-  {%- endif %}
-  "image": "https://www.wowohcool.com{{ m.img.src }}",
-  "brand": { "@type": "Brand", "name": "WOWOHCOOL" },
-  "manufacturer": { "@id": "https://www.wowohcool.com/#organization" }{% if m.rows and m.rows.length %},
-  "additionalProperty": [
-    {%- for row in m.rows %}
-    { "@type": "PropertyValue", "propertyID": "{{ row[2] }}", "value": {{ row[1] | dump | safe }} }{% if not loop.last %},{% endif %}
-    {%- endfor %}
-  ]{% endif %}
-}{% if not loop.last %},{% endif %}
-{%- endfor %}
+}
 ]
 </script>
 {%- endfor %}
