@@ -27,8 +27,8 @@ module.exports = {
        "srcset": "/image/product/power-bank/wopyj822n-20000mah-45w-dual-cable-semi-solid-450w.webp 450w, /image/product/power-bank/wopyj822n-20000mah-45w-dual-cable-semi-solid.webp 800w",
        "sizes": "(min-width: 1440px) 526px, (min-width: 1280px) 526px, (min-width: 1024px) 398px, (min-width: 768px) 654px, (min-width: 430px) 382px, 327px",
        "alt": "Semi-Solid-State Power Bank OEM Manufacturer Shenzhen 50% Thinner",
-       "width": "1600",
-       "height": "1600"
+       "width": "800",
+       "height": "800"
       },
       "bg": "bg-brandBlue/5"
      },
@@ -248,8 +248,8 @@ module.exports = {
        "srcset": "/image/product/power-bank/wopyj822n-20000mah-45w-dual-cable-semi-solid-450w.webp 450w, /image/product/power-bank/wopyj822n-20000mah-45w-dual-cable-semi-solid.webp 800w",
        "sizes": "(min-width: 1440px) 526px, (min-width: 1280px) 526px, (min-width: 1024px) 398px, (min-width: 768px) 654px, (min-width: 430px) 382px, 327px",
        "alt": "Halbfest-Akku Powerbank Semi-Solid-State OEM Hersteller Shenzhen",
-       "width": "1600",
-       "height": "1600"
+       "width": "800",
+       "height": "800"
       },
       "bg": "bg-brandBlue/5"
      },
@@ -469,8 +469,8 @@ module.exports = {
        "srcset": "/image/product/power-bank/wopyj822n-20000mah-45w-dual-cable-semi-solid-450w.webp 450w, /image/product/power-bank/wopyj822n-20000mah-45w-dual-cable-semi-solid.webp 800w",
        "sizes": "(min-width: 1440px) 526px, (min-width: 1280px) 526px, (min-width: 1024px) 398px, (min-width: 768px) 654px, (min-width: 430px) 382px, 327px",
        "alt": "Power Bank Semi-Solid-State 50% más delgado OEM Shenzhen",
-       "width": "1600",
-       "height": "1600"
+       "width": "800",
+       "height": "800"
       },
       "bg": "bg-brandBlue/5"
      },
@@ -690,8 +690,8 @@ module.exports = {
        "srcset": "/image/product/power-bank/wopyj822n-20000mah-45w-dual-cable-semi-solid-450w.webp 450w, /image/product/power-bank/wopyj822n-20000mah-45w-dual-cable-semi-solid.webp 800w",
        "sizes": "(min-width: 1440px) 526px, (min-width: 1280px) 526px, (min-width: 1024px) 398px, (min-width: 768px) 654px, (min-width: 430px) 382px, 327px",
        "alt": "Batterie externe Semi-Solide OEM fabricant Shenzhen",
-       "width": "1600",
-       "height": "1600"
+       "width": "800",
+       "height": "800"
       },
       "bg": "bg-brandBlue/5"
      },
@@ -911,8 +911,8 @@ module.exports = {
        "srcset": "/image/product/power-bank/wopyj822n-20000mah-45w-dual-cable-semi-solid-450w.webp 450w, /image/product/power-bank/wopyj822n-20000mah-45w-dual-cable-semi-solid.webp 800w",
        "sizes": "(min-width: 1440px) 526px, (min-width: 1280px) 526px, (min-width: 1024px) 398px, (min-width: 768px) 654px, (min-width: 430px) 382px, 327px",
        "alt": "Полутвердотельный повербанк на 50% тоньше OEM-производство Шэньчжэнь",
-       "width": "1600",
-       "height": "1600"
+       "width": "800",
+       "height": "800"
       },
       "bg": "bg-brandBlue/5"
      },
@@ -1132,8 +1132,8 @@ module.exports = {
        "srcset": "/image/product/power-bank/wopyj822n-20000mah-45w-dual-cable-semi-solid-450w.webp 450w, /image/product/power-bank/wopyj822n-20000mah-45w-dual-cable-semi-solid.webp 800w",
        "sizes": "(min-width: 1440px) 526px, (min-width: 1280px) 526px, (min-width: 1024px) 398px, (min-width: 768px) 654px, (min-width: 430px) 382px, 327px",
        "alt": "Power Bank Półstały Producent OEM Shenzhen 50% Cieńszy",
-       "width": "1600",
-       "height": "1600"
+       "width": "800",
+       "height": "800"
       },
       "bg": "bg-brandBlue/5"
      },
