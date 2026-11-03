@@ -24,7 +24,7 @@ module.exports = {
       "desc": "Next-gen battery tech. 50% thinner, 30% higher density. PD 55-65W. UN38.3 certified.",
       "img": {
        "src": "/image/product/power-bank/wopyj822n-20000mah-45w-dual-cable-semi-solid.webp",
-       "srcset": "/image/product/power-bank/wopyj822n-20000mah-45w-dual-cable-semi-solid-450w.webp 450w, /image/product/power-bank/wopyj822n-20000mah-45w-dual-cable-semi-solid.webp 800w",
+       "srcset": "/image/product/power-bank/wopyj822n-20000mah-45w-dual-cable-semi-solid-450px.webp 450w, /image/product/power-bank/wopyj822n-20000mah-45w-dual-cable-semi-solid.webp 800w",
        "sizes": "(min-width: 1440px) 526px, (min-width: 1280px) 526px, (min-width: 1024px) 398px, (min-width: 768px) 654px, (min-width: 430px) 382px, 327px",
        "alt": "Semi-Solid-State Power Bank OEM Manufacturer Shenzhen 50% Thinner",
        "width": "800",
@@ -245,7 +245,7 @@ module.exports = {
       "desc": "Akku-Technologie der nächsten Generation. 50% dünner, 30% höhere Energiedichte. PD 55-65W. UN38.3 zertifiziert.",
       "img": {
        "src": "/image/product/power-bank/wopyj822n-20000mah-45w-dual-cable-semi-solid.webp",
-       "srcset": "/image/product/power-bank/wopyj822n-20000mah-45w-dual-cable-semi-solid-450w.webp 450w, /image/product/power-bank/wopyj822n-20000mah-45w-dual-cable-semi-solid.webp 800w",
+       "srcset": "/image/product/power-bank/wopyj822n-20000mah-45w-dual-cable-semi-solid-450px.webp 450w, /image/product/power-bank/wopyj822n-20000mah-45w-dual-cable-semi-solid.webp 800w",
        "sizes": "(min-width: 1440px) 526px, (min-width: 1280px) 526px, (min-width: 1024px) 398px, (min-width: 768px) 654px, (min-width: 430px) 382px, 327px",
        "alt": "Halbfest-Akku Powerbank Semi-Solid-State OEM Hersteller Shenzhen",
        "width": "800",
@@ -466,7 +466,7 @@ module.exports = {
       "desc": "Tecnología de batería de última generación. 50% más delgada, 30% mayor densidad. PD 55-65W. UN38.3 certificado.",
       "img": {
        "src": "/image/product/power-bank/wopyj822n-20000mah-45w-dual-cable-semi-solid.webp",
-       "srcset": "/image/product/power-bank/wopyj822n-20000mah-45w-dual-cable-semi-solid-450w.webp 450w, /image/product/power-bank/wopyj822n-20000mah-45w-dual-cable-semi-solid.webp 800w",
+       "srcset": "/image/product/power-bank/wopyj822n-20000mah-45w-dual-cable-semi-solid-450px.webp 450w, /image/product/power-bank/wopyj822n-20000mah-45w-dual-cable-semi-solid.webp 800w",
        "sizes": "(min-width: 1440px) 526px, (min-width: 1280px) 526px, (min-width: 1024px) 398px, (min-width: 768px) 654px, (min-width: 430px) 382px, 327px",
        "alt": "Power Bank Semi-Solid-State 50% más delgado OEM Shenzhen",
        "width": "800",
@@ -687,7 +687,7 @@ module.exports = {
       "desc": "Technologie de batterie nouvelle génération. 50% plus fine, densité énergétique 30% supérieure. PD 55-65W. Certifiée UN38.3.",
       "img": {
        "src": "/image/product/power-bank/wopyj822n-20000mah-45w-dual-cable-semi-solid.webp",
-       "srcset": "/image/product/power-bank/wopyj822n-20000mah-45w-dual-cable-semi-solid-450w.webp 450w, /image/product/power-bank/wopyj822n-20000mah-45w-dual-cable-semi-solid.webp 800w",
+       "srcset": "/image/product/power-bank/wopyj822n-20000mah-45w-dual-cable-semi-solid-450px.webp 450w, /image/product/power-bank/wopyj822n-20000mah-45w-dual-cable-semi-solid.webp 800w",
        "sizes": "(min-width: 1440px) 526px, (min-width: 1280px) 526px, (min-width: 1024px) 398px, (min-width: 768px) 654px, (min-width: 430px) 382px, 327px",
        "alt": "Batterie externe Semi-Solide OEM fabricant Shenzhen",
        "width": "800",
@@ -908,7 +908,7 @@ module.exports = {
       "desc": "Аккумуляторная технология нового поколения. На 50% тоньше, на 30% выше плотность. PD 55–65 Вт. Сертификат UN38.3.",
       "img": {
        "src": "/image/product/power-bank/wopyj822n-20000mah-45w-dual-cable-semi-solid.webp",
-       "srcset": "/image/product/power-bank/wopyj822n-20000mah-45w-dual-cable-semi-solid-450w.webp 450w, /image/product/power-bank/wopyj822n-20000mah-45w-dual-cable-semi-solid.webp 800w",
+       "srcset": "/image/product/power-bank/wopyj822n-20000mah-45w-dual-cable-semi-solid-450px.webp 450w, /image/product/power-bank/wopyj822n-20000mah-45w-dual-cable-semi-solid.webp 800w",
        "sizes": "(min-width: 1440px) 526px, (min-width: 1280px) 526px, (min-width: 1024px) 398px, (min-width: 768px) 654px, (min-width: 430px) 382px, 327px",
        "alt": "Полутвердотельный повербанк на 50% тоньше OEM-производство Шэньчжэнь",
        "width": "800",
@@ -1129,7 +1129,7 @@ module.exports = {
       "desc": "Technologia baterii nowej generacji. 50% cieńszy, 30% większa gęstość energii. PD 55-65W. Certyfikat UN38.3.",
       "img": {
        "src": "/image/product/power-bank/wopyj822n-20000mah-45w-dual-cable-semi-solid.webp",
-       "srcset": "/image/product/power-bank/wopyj822n-20000mah-45w-dual-cable-semi-solid-450w.webp 450w, /image/product/power-bank/wopyj822n-20000mah-45w-dual-cable-semi-solid.webp 800w",
+       "srcset": "/image/product/power-bank/wopyj822n-20000mah-45w-dual-cable-semi-solid-450px.webp 450w, /image/product/power-bank/wopyj822n-20000mah-45w-dual-cable-semi-solid.webp 800w",
        "sizes": "(min-width: 1440px) 526px, (min-width: 1280px) 526px, (min-width: 1024px) 398px, (min-width: 768px) 654px, (min-width: 430px) 382px, 327px",
        "alt": "Power Bank Półstały Producent OEM Shenzhen 50% Cieńszy",
        "width": "800",
