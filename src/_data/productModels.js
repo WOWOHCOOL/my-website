@@ -98,6 +98,13 @@ if (fs.existsSync(DIR)) {
               return [row[0], value, row[2]];
             });
             return {
+              capacity: model.capacity || (() => {
+                const row = (model.specs || []).find(r => r[0] === 'Battery Capacity');
+                const raw = row ? String(row[1]) : '';
+                if (raw.includes('10000')) return '10000';
+                if (raw.includes('20000')) return '20000';
+                return '';
+              })(),
               sku: model.sku,
               anchor: model.anchor || String(model.sku || '').toLowerCase(),
               name: mLoc.name || model.name || model.sku,
@@ -125,6 +132,20 @@ if (fs.existsSync(DIR)) {
           };
         }),
       };
+    }
+  }
+}
+
+// 容量子分类视图：不改内容源，按 capacity 生成 10000mah / 20000mah 视图
+const CAPACITY_VIEWS = [{ slug: '10000mah', capacity: '10000' }, { slug: '20000mah', capacity: '20000' }];
+for (const lang of LANGS) {
+  for (const familyKey of Object.keys(out[lang])) {
+    const fam = out[lang][familyKey];
+    for (const view of CAPACITY_VIEWS) {
+      const groups = fam.groups
+        .map(group => ({ ...group, models: group.models.filter(model => model.capacity === view.capacity) }))
+        .filter(group => group.models.length > 0);
+      if (groups.length) out[lang][familyKey + '/' + view.slug] = { groups };
     }
   }
 }

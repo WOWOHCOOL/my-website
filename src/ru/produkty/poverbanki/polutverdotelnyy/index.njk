@@ -1,7 +1,7 @@
 ---
 title: "Полутвердотельный повербанк производитель с завода | WOWOHCOOL"
-modified: 2026-10-13
-description: "Прямой OEM-завод полутвердотельных повербанков в Шэньчжэне. 10 000–20 000 мА·ч, PD 65 Вт. CES 2026, UN38.3, поддержка при EAC. MOQ 500 шт."
+modified: 2026-11-03
+description: "Прямой OEM-завод полутвердотельных повербанков в Шэньчжэне. 10 000–20 000 мА·ч, PD 22,5–45 Вт. CES 2026, UN38.3, поддержка при EAC. MOQ 500 шт."
 canonical: "/ru/produkty/poverbanki/polutverdotelnyy/"
 enPath: "products/power-bank/semi-solid-state/"
 frPath: "produits/batterie-externe/semi-solide/"
@@ -64,7 +64,6 @@ ogImage: "/image/product/power-bank/wopyj822n-20000mah-45w-dual-cable-semi-solid
         "priceCurrency": "USD",
         "lowPrice": 12,
         "highPrice": 55,
-        "offerCount": {{ 'power-bank' | productFamilyModelCount('semi-solid-state') }},
         "availability": "https://schema.org/MadeToOrder",
         "eligibleQuantity": {
           "@type": "QuantitativeValue",
@@ -261,7 +260,7 @@ ogImage: "/image/product/power-bank/wopyj822n-20000mah-45w-dual-cable-semi-solid
    <div class="reveal order-2 lg:order-1 min-w-0">
     <div class="badge-capsule mb-6 uppercase tracking-widest">CES 2026 &middot; Semi-Solid-State OEM-завод</div>
     <h1 class="text-3xl md:text-4xl xl:text-5xl font-black text-brandBlue leading-tight mb-6 italic uppercase tracking-tighter">Полутвердотельный повербанк <br><span class="text-brandOrange">напрямую с <span class="whitespace-nowrap">производительа</span></span></h1>
-    <p class="text-slate-600 text-lg leading-relaxed mb-6">{{ "power-bank" | productFamilyModelCount("semi-solid-state") }} моделей с технологией Semi-Solid-State. <strong>На 50% тоньше</strong>, <strong>на 30% выше плотность энергии</strong>, риск возгорания практически исключён. PD 45–65 Вт. UN38.3 для перевозки, поддержка при оформлении EAC.</p>
+    <p class="text-slate-600 text-lg leading-relaxed mb-6">{{ "power-bank" | productFamilyModelCount("semi-solid-state") }} моделей с технологией Semi-Solid-State. <strong>На 50% тоньше</strong>, <strong>на 30% выше плотность энергии</strong>, риск возгорания практически исключён. PD 22,5–45 Вт. UN38.3 для перевозки, поддержка при оформлении EAC.</p>
     <div class="flex flex-wrap gap-2 mb-8">
      <span class="trust-badge">Поддержка EAC</span>
      <span class="trust-badge">CE + UN38.3 + RoHS</span>
@@ -269,8 +268,12 @@ ogImage: "/image/product/power-bank/wopyj822n-20000mah-45w-dual-cable-semi-solid
     </div>
     <div class="btn-pair">
      {{ ctaButton("factoryPricing", "primary", "open-modal", "Power Bank") }}
-    <a href="#products" class="btn-ghost-lg">Смотреть модели</a>
+    <a href="#capacity-links" class="btn-ghost-lg">Смотреть модели</a>
     </div>
+ <div class="mt-5 flex flex-wrap justify-center gap-3">
+  <a href="/ru/produkty/poverbanki/polutverdotelnyy/10000mah/" class="btn-capacity-select">Модели 10 000 мА·ч</a>
+  <a href="/ru/produkty/poverbanki/polutverdotelnyy/20000mah/" class="btn-capacity-select btn-capacity-select--accent">Модели 20 000 мА·ч</a>
+ </div>
    </div>
    <div class="reveal order-1 lg:order-2 min-w-0">
     <div class="card-lg shadow-xl p-6 md:p-8 max-w-content mx-auto">
@@ -296,9 +299,21 @@ ogImage: "/image/product/power-bank/wopyj822n-20000mah-45w-dual-cable-semi-solid
 </section>
 
 <!-- MODELOS -->
-{% set family = "products/power-bank/semi-solid-state" %}
-{#- 型号卡：六语言共用模板（2026-10-29）。数据 src/_products/*.json -#}
-{% include "partials/product-models.njk" %}
+<!-- Capacity Subcategories -->
+<section id="capacity-links" class="sec bg-slate-50" data-section="content">
+ <div class="container-wide">
+  <div class="text-center mb-10">
+   <h2 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4">Выбрать по <span class="text-brandOrange">Емкости</span></h2>
+   <p class="section-desc mx-auto">Все модели имеют сертификат CCC. Выберите емкость для сравнения всей линейки.</p>
+  </div>
+  <div class="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+   <a href="/ru/produkty/poverbanki/polutverdotelnyy/10000mah/" class="card-lg-soft p-8 text-center hover:shadow-2xl transition-all duration-300 hover:-translate-y-1"><p class="text-4xl font-black text-brandOrange mb-2">10 000 мА·ч</p><p class="text-sm font-bold text-brandBlue uppercase tracking-wider mb-3">Компактные модели CCC</p></a>
+   <a href="/ru/produkty/poverbanki/polutverdotelnyy/20000mah/" class="card-lg-soft p-8 text-center hover:shadow-2xl transition-all duration-300 hover:-translate-y-1"><p class="text-4xl font-black text-brandOrange mb-2">20 000 мА·ч</p><p class="text-sm font-bold text-brandBlue uppercase tracking-wider mb-3">Модели CCC высокой емкости</p></a>
+  </div>
+ </div>
+</section>
+
+<!-- Model cards are split into capacity pages to avoid duplicate listings -->
 
 <!-- MARKET-DATA -->
 <section id="market-data" class="sec bg-white py-8" data-section="content">

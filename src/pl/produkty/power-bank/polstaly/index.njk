@@ -1,7 +1,7 @@
 ---
 title: "Power Bank Półstały Producent Shenzhen | WOWOHCOOL"
-modified: 2026-10-13
-description: "Producent OEM power banków półstałych z Shenzhen — technologia CES 2026. 10K-20K mAh, PD 65W, wbudowane kable. UE 2023/1542. MOQ 500."
+modified: 2026-11-03
+description: "Producent OEM power banków półstałych z Shenzhen — technologia CES 2026. 10K-20K mAh, PD 22,5W–45W, wbudowane kable. UE 2023/1542. MOQ 500."
 canonical: "/pl/produkty/power-bank/polstaly/"
 enPath: "products/power-bank/semi-solid-state/"
 ogImage: "/image/product/power-bank/wopyj822n-20000mah-45w-dual-cable-semi-solid.webp"
@@ -67,7 +67,6 @@ ruPath: "produkty/poverbanki/polutverdotelnyy/"
         "priceCurrency": "USD",
         "lowPrice": "12",
         "highPrice": "55",
-        "offerCount": {{ 'power-bank' | productFamilyModelCount('semi-solid-state') }},
         "availability": "https://schema.org/MadeToOrder",
         "eligibleQuantity": {
           "@type": "QuantitativeValue",
@@ -284,22 +283,26 @@ ruPath: "produkty/poverbanki/polutverdotelnyy/"
    </h1>
   </div>
 
-  <p class="max-w-2xl mx-auto text-slate-600 text-sm leading-relaxed mt-6 mb-8">Power banki z baterią półstałą nowej generacji. 50% cieńsze, 30% większa gęstość energii, niższe ryzyko pożaru niż Li-Po. Wyjście PD 55W–65W, certyfikat UN38.3 do transportu lotniczego. MOQ 500 szt. Fabryka w Shenzhen od 2013.</p>
+  <p class="max-w-2xl mx-auto text-slate-600 text-sm leading-relaxed mt-6 mb-8">Power banki z baterią półstałą nowej generacji. 50% cieńsze, 30% większa gęstość energii, niższe ryzyko pożaru niż Li-Po. Wyjście PD 22,5W–45W, certyfikat UN38.3 do transportu lotniczego. MOQ 500 szt. Fabryka w Shenzhen od 2013.</p>
 
   <div class="grid grid-cols-2 md:grid-cols-5 gap-4 mb-10">
    <div class="card-soft p-4"><p class="text-2xl font-black text-brandBlue">50%</p><p class="text-micro uppercase tracking-widest text-slate-500 font-bold">Cieńszy</p></div>
    <div class="card-soft p-4"><p class="text-2xl font-black text-brandOrangeDeep">30%</p><p class="text-micro uppercase tracking-widest text-slate-500 font-bold">Większa Gęstość</p></div>
-   <div class="card-soft p-4"><p class="text-2xl font-black text-brandBlue">65W</p><p class="text-micro uppercase tracking-widest text-slate-500 font-bold">PD Output</p></div>
+   <div class="card-soft p-4"><p class="text-2xl font-black text-brandBlue">45W</p><p class="text-micro uppercase tracking-widest text-slate-500 font-bold">PD Output</p></div>
    <div class="card-soft p-4"><p class="text-2xl font-black text-brandOrangeDeep">500</p><p class="text-micro uppercase tracking-widest text-slate-500 font-bold">MOQ</p></div>
    <div class="card-soft p-4 col-span-2 md:col-span-1"><p class="text-2xl font-black text-brandBlue">CES</p><p class="text-micro uppercase tracking-widest text-slate-500 font-bold">2026 Wyróżnienie</p></div>
   </div>
 
   <div class="btn-pair">
    {{ ctaButton("factoryPricing", "primary", "open-modal", "Power Bank") }}
-   <a href="#products" class="btn-ghost-lg">
+   <a href="#capacity-links" class="btn-ghost-lg">
     Zobacz {{ 'power-bank' | productFamilyModelCount('semi-solid-state') }} Modeli
    </a>
   </div>
+ <div class="mt-5 flex flex-wrap justify-center gap-3">
+  <a href="/pl/produkty/power-bank/polstaly/10000mah/" class="btn-capacity-select">Modele 10000mAh</a>
+  <a href="/pl/produkty/power-bank/polstaly/20000mah/" class="btn-capacity-select btn-capacity-select--accent">Modele 20000mAh</a>
+ </div>
  </div>
 </section>
 
@@ -307,9 +310,21 @@ ruPath: "produkty/poverbanki/polutverdotelnyy/"
 {% include "trust-bar.njk" %}
 
 <!-- PRODUCTS -->
-{% set family = "products/power-bank/semi-solid-state" %}
-{#- 型号卡：六语言共用模板（2026-10-29）。数据 src/_products/*.json -#}
-{% include "partials/product-models.njk" %}
+<!-- Capacity Subcategories -->
+<section id="capacity-links" class="sec bg-slate-50" data-section="content">
+ <div class="container-wide">
+  <div class="text-center mb-10">
+   <h2 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4">Wybierz według <span class="text-brandOrange">Pojemności</span></h2>
+   <p class="section-desc mx-auto">Wszystkie modele mają certyfikat CCC. Wybierz pojemność, aby porównać całą gamę.</p>
+  </div>
+  <div class="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+   <a href="/pl/produkty/power-bank/polstaly/10000mah/" class="card-lg-soft p-8 text-center hover:shadow-2xl transition-all duration-300 hover:-translate-y-1"><p class="text-4xl font-black text-brandOrange mb-2">10000mAh</p><p class="text-sm font-bold text-brandBlue uppercase tracking-wider mb-3">Kompaktowe modele CCC</p></a>
+   <a href="/pl/produkty/power-bank/polstaly/20000mah/" class="card-lg-soft p-8 text-center hover:shadow-2xl transition-all duration-300 hover:-translate-y-1"><p class="text-4xl font-black text-brandOrange mb-2">20000mAh</p><p class="text-sm font-bold text-brandBlue uppercase tracking-wider mb-3">Modele CCC o wysokiej pojemności</p></a>
+  </div>
+ </div>
+</section>
+
+<!-- Model cards are split into capacity pages to avoid duplicate listings -->
 
 <!-- Divider -->
 <div class="relative w-full">
