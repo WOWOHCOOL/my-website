@@ -42,8 +42,8 @@ module.exports = {
       "srcset": "/image/product/power-bank/wopq10-magnetic-35w-watch-wireless-450w.webp 450w, /image/product/power-bank/wopq10-magnetic-35w-watch-wireless.webp 800w",
       "sizes": "(min-width: 1440px) 526px, (min-width: 1280px) 526px, (min-width: 1024px) 398px, (min-width: 768px) 654px, (min-width: 430px) 382px, 327px",
       "alt": "Qi2 wireless magnetic power bank MagSafe compatible",
-      "width": "1920",
-      "height": "1920"
+      "width": "800",
+      "height": "800"
      }
     },
     {
@@ -215,8 +215,8 @@ module.exports = {
       "srcset": "/image/product/power-bank/wopq10-magnetic-35w-watch-wireless-450w.webp 450w, /image/product/power-bank/wopq10-magnetic-35w-watch-wireless.webp 800w",
       "sizes": "(min-width: 1440px) 526px, (min-width: 1280px) 526px, (min-width: 1024px) 398px, (min-width: 768px) 654px, (min-width: 430px) 382px, 327px",
       "alt": "Qi2 magnetische Powerbank MagSafe-kompatibel",
-      "width": "1920",
-      "height": "1920"
+      "width": "800",
+      "height": "800"
      }
     },
     {
@@ -388,8 +388,8 @@ module.exports = {
       "srcset": "/image/product/power-bank/wopq10-magnetic-35w-watch-wireless-450w.webp 450w, /image/product/power-bank/wopq10-magnetic-35w-watch-wireless.webp 800w",
       "sizes": "(min-width: 1440px) 526px, (min-width: 1280px) 526px, (min-width: 1024px) 398px, (min-width: 768px) 654px, (min-width: 430px) 382px, 327px",
       "alt": "Power bank magnético Qi2 compatible con MagSafe",
-      "width": "1920",
-      "height": "1920"
+      "width": "800",
+      "height": "800"
      }
     },
     {
@@ -561,8 +561,8 @@ module.exports = {
       "srcset": "/image/product/power-bank/wopq10-magnetic-35w-watch-wireless-450w.webp 450w, /image/product/power-bank/wopq10-magnetic-35w-watch-wireless.webp 800w",
       "sizes": "(min-width: 1440px) 526px, (min-width: 1280px) 526px, (min-width: 1024px) 398px, (min-width: 768px) 654px, (min-width: 430px) 382px, 327px",
       "alt": "Batterie externe magnétique Qi2 compatible MagSafe",
-      "width": "1920",
-      "height": "1920"
+      "width": "800",
+      "height": "800"
      }
     },
     {
@@ -734,8 +734,8 @@ module.exports = {
       "srcset": "/image/product/power-bank/wopq10-magnetic-35w-watch-wireless-450w.webp 450w, /image/product/power-bank/wopq10-magnetic-35w-watch-wireless.webp 800w",
       "sizes": "(min-width: 1440px) 526px, (min-width: 1280px) 526px, (min-width: 1024px) 398px, (min-width: 768px) 654px, (min-width: 430px) 382px, 327px",
       "alt": "Магнитный повербанк Qi2 с поддержкой MagSafe для OEM-заказов",
-      "width": "1920",
-      "height": "1920"
+      "width": "800",
+      "height": "800"
      }
     },
     {
@@ -907,8 +907,8 @@ module.exports = {
       "srcset": "/image/product/power-bank/wopq10-magnetic-35w-watch-wireless-450w.webp 450w, /image/product/power-bank/wopq10-magnetic-35w-watch-wireless.webp 800w",
       "sizes": "(min-width: 1440px) 526px, (min-width: 1280px) 526px, (min-width: 1024px) 398px, (min-width: 768px) 654px, (min-width: 430px) 382px, 327px",
       "alt": "Magnetyczny power bank bezprzewodowy Qi2 kompatybilny z MagSafe",
-      "width": "1920",
-      "height": "1920"
+      "width": "800",
+      "height": "800"
      }
     },
     {

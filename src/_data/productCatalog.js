@@ -72,8 +72,8 @@ module.exports = {
        "srcset": "/image/product/power-bank/wopq10-magnetic-35w-watch-wireless-450w.webp 450w, /image/product/power-bank/wopq10-magnetic-35w-watch-wireless.webp 800w",
        "sizes": "(min-width: 1440px) 526px, (min-width: 1280px) 526px, (min-width: 1024px) 398px, (min-width: 768px) 654px, (min-width: 430px) 382px, 327px",
        "alt": "Qi2 Magnetic Wireless Power Bank MagSafe Compatible N52H OEM",
-       "width": "1920",
-       "height": "1920"
+       "width": "800",
+       "height": "800"
       },
       "bg": "bg-brandBlue/5"
      },
@@ -293,8 +293,8 @@ module.exports = {
        "srcset": "/image/product/power-bank/wopq10-magnetic-35w-watch-wireless-450w.webp 450w, /image/product/power-bank/wopq10-magnetic-35w-watch-wireless.webp 800w",
        "sizes": "(min-width: 1440px) 526px, (min-width: 1280px) 526px, (min-width: 1024px) 398px, (min-width: 768px) 654px, (min-width: 430px) 382px, 327px",
        "alt": "Qi2 Magnetische Kabellose Powerbank MagSafe OEM N52H",
-       "width": "1920",
-       "height": "1920"
+       "width": "800",
+       "height": "800"
       },
       "bg": "bg-brandBlue/5"
      },
@@ -514,8 +514,8 @@ module.exports = {
        "srcset": "/image/product/power-bank/wopq10-magnetic-35w-watch-wireless-450w.webp 450w, /image/product/power-bank/wopq10-magnetic-35w-watch-wireless.webp 800w",
        "sizes": "(min-width: 1440px) 526px, (min-width: 1280px) 526px, (min-width: 1024px) 398px, (min-width: 768px) 654px, (min-width: 430px) 382px, 327px",
        "alt": "Power Bank Magnético Qi2 MagSafe N52H OEM",
-       "width": "1920",
-       "height": "1920"
+       "width": "800",
+       "height": "800"
       },
       "bg": "bg-brandBlue/5"
      },
@@ -735,8 +735,8 @@ module.exports = {
        "srcset": "/image/product/power-bank/wopq10-magnetic-35w-watch-wireless-450w.webp 450w, /image/product/power-bank/wopq10-magnetic-35w-watch-wireless.webp 800w",
        "sizes": "(min-width: 1440px) 526px, (min-width: 1280px) 526px, (min-width: 1024px) 398px, (min-width: 768px) 654px, (min-width: 430px) 382px, 327px",
        "alt": "Batterie externe magnétique sans fil Qi2 MagSafe OEM N52H",
-       "width": "1920",
-       "height": "1920"
+       "width": "800",
+       "height": "800"
       },
       "bg": "bg-brandBlue/5"
      },
@@ -956,8 +956,8 @@ module.exports = {
        "srcset": "/image/product/power-bank/wopq10-magnetic-35w-watch-wireless-450w.webp 450w, /image/product/power-bank/wopq10-magnetic-35w-watch-wireless.webp 800w",
        "sizes": "(min-width: 1440px) 526px, (min-width: 1280px) 526px, (min-width: 1024px) 398px, (min-width: 768px) 654px, (min-width: 430px) 382px, 327px",
        "alt": "Магнитный повербанк Qi2 MagSafe с магнитами N52H OEM",
-       "width": "1920",
-       "height": "1920"
+       "width": "800",
+       "height": "800"
       },
       "bg": "bg-brandBlue/5"
      },
@@ -1177,8 +1177,8 @@ module.exports = {
        "srcset": "/image/product/power-bank/wopq10-magnetic-35w-watch-wireless-450w.webp 450w, /image/product/power-bank/wopq10-magnetic-35w-watch-wireless.webp 800w",
        "sizes": "(min-width: 1440px) 526px, (min-width: 1280px) 526px, (min-width: 1024px) 398px, (min-width: 768px) 654px, (min-width: 430px) 382px, 327px",
        "alt": "Magnetyczny Power Bank Bezprzewodowy Qi2 MagSafe N52H Producent OEM",
-       "width": "1920",
-       "height": "1920"
+       "width": "800",
+       "height": "800"
       },
       "bg": "bg-brandBlue/5"
      },
