@@ -11,6 +11,9 @@ Content-Signal: ai-train=yes, search=yes, ai-input=yes
 # ==============================================================
 User-agent: *
 Allow: /
+# Longest-match wins over /*.json below: keep discovery files (e.g. security.txt,
+# ai-plugin.json) reachable without reopening the .json scanner paths.
+Allow: /.well-known/
 
 # Block vulnerability scanners — these paths don't exist and generate noise
 Disallow: /.env
@@ -80,6 +83,8 @@ User-agent: Meta-ExternalAgent
 User-agent: meta-externalagent/1.1
 User-agent: Cohere-ai
 Allow: /
+# Longest-match wins over /*.json below (mirrors GROUP 1).
+Allow: /.well-known/
 
 Disallow: /.env
 Disallow: /@fs/
