@@ -1252,13 +1252,13 @@ body .group:hover .group-hover\:text-brandOrange { color: var(--brand-orange); }
 
 .range-cta { margin-top: 1.75rem; }
 
-/* ─── 型号卡 .model-card（2026-10-29 六语言共用）───────────────────────────
-   为什么改：改前 85 个型号卡是 6 份手写标记，参数表标签各写各的（314 个不同标签），
-            且 schema 里没有 sku/mpn ⇒ 六语言的同一型号在机器层面认不出是同一个。
-   数据：src/_products/*.json ｜ 模板：partials/product-models.njk
-   ⚠️ 媒体区纯白：产品图是白底抠图，底色一变色就会显出浅色方块（同 .range-media 的坑）。
-   ⚠️ 参数表直接可见，不放进 <details>：折叠内容在提取式摘要里权重更低。
-   ⚠️ 尺寸用 rem/clamp，德语与俄语长词要能撑开。 */
+/* ─── 型号卡 .model-card（2026-11-04 图卡 + 折叠规格）────────────────────
+   设计目标：产品子页回到买家熟悉的图卡模式。
+   · 桌面 3 列 / 平板 2 列 / 移动 1 列
+   · 图片优先，角标叠在图上
+   · 4 个关键 chips 可见，完整参数折叠
+   · 数据仍来自 src/_products/*.json，禁止手写型号卡
+   ⚠️ <details> 内容仍在 HTML DOM 中；关键事实同时保留在可见 chips / description 中。 */
 
 .model-section-eyebrow {
   margin-bottom: 0.5rem;
@@ -1289,33 +1289,37 @@ body .group:hover .group-hover\:text-brandOrange { color: var(--brand-orange); }
 .model-list {
   display: grid;
   gap: 1.25rem;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 640px) {
+  .model-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (min-width: 1024px) {
+  .model-list { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem; }
 }
 
 .model-card {
-  display: grid;
-  grid-template-columns: 1fr;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
   border: 1px solid #e2e8f0;
-  border-radius: 1.25rem;
+  border-radius: 1.35rem;
   background: #fff;
   overflow: hidden;
+  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
 }
-@media (min-width: 900px) {
-  .model-card {
-    grid-template-columns: minmax(0, 320px) minmax(0, 1fr);
-  }
+.model-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(249, 115, 22, .45);
+  box-shadow: 0 20px 48px rgba(15, 23, 42, .10);
 }
 
 .model-media {
   position: relative;
-  padding: 1.25rem;
+  padding: 1rem;
   background: #fff;
   border-bottom: 1px solid #eef2f7;
-}
-@media (min-width: 900px) {
-  .model-media {
-    border-bottom: 0;
-    border-right: 1px solid #eef2f7;
-  }
+  overflow: hidden;
 }
 .model-media img {
   display: block;
@@ -1323,15 +1327,18 @@ body .group:hover .group-hover\:text-brandOrange { color: var(--brand-orange); }
   height: auto;
   aspect-ratio: 1 / 1;
   object-fit: contain;
+  transition: transform .45s ease;
 }
+.model-card:hover .model-media img { transform: scale(1.035); }
 
 .model-badges {
   position: absolute;
-  top: 0.9rem;
-  left: 0.9rem;
+  top: 0.85rem;
+  left: 0.85rem;
   display: flex;
   flex-direction: column;
   gap: 0.3rem;
+  max-width: calc(100% - 1.7rem);
 }
 .model-badge {
   align-self: flex-start;
@@ -1352,16 +1359,17 @@ body .group:hover .group-hover\:text-brandOrange { color: var(--brand-orange); }
 
 .model-body {
   display: flex;
+  flex: 1;
   flex-direction: column;
-  padding: 1.5rem;
-  background: #f8fafc;
+  padding: 1.25rem;
+  background: #fff;
 }
 @media (min-width: 768px) {
-  .model-body { padding: 1.75rem 2rem; }
+  .model-body { padding: 1.35rem; }
 }
 
 .model-name {
-  font-size: 1.0625rem;
+  font-size: 1rem;
   font-weight: 900;
   font-style: italic;
   line-height: 1.2;
@@ -1370,33 +1378,24 @@ body .group:hover .group-hover\:text-brandOrange { color: var(--brand-orange); }
   color: var(--brand-blue);
 }
 @media (min-width: 768px) {
-  .model-name { font-size: 1.1875rem; }
+  .model-name { font-size: 1.0625rem; }
 }
 
-/* 型号卡描述段（2026-10-29，迁移时丢失的 .model-desc 恢复）
-   层级 = T2 辅助层：14px 斜体、slate-500，与旧页 text-sm italic leading-relaxed 逐值一致。 */
 .model-desc {
-  margin: 0.625rem 0 0;
+  margin: 0.6rem 0 0;
   color: #64748b;
-  font-size: 0.875rem;
-  font-style: italic;
-  line-height: 1.6;
+  font-size: 0.8125rem;
+  line-height: 1.55;
 }
 
 .model-chips {
   display: flex;
   flex-wrap: wrap;
   gap: 0.375rem;
-  margin: 0.75rem 0 0;
+  margin: 0.8rem 0 0;
   padding: 0;
   list-style: none;
 }
-/* 参数 chip（2026-10-29 按用户要求上色）：
-   改前是白底灰字，与整站「深蓝 + 橙」的调性脱节。
-   现在用两级着色 —— 首个 chip 通常是核心规格（功率/容量），给品牌橙淡底 + 深橙字；
-   其余给品牌蓝淡底 + 品牌蓝字。淡底都是同一色相的 5–12% 透明度，不抢主体。
-   ⚠️ 文字色用加深档（--brand-orange-deep / --brand-blue），不用亮橙 —— 亮橙在淡橙底上
-      只有 2.9:1，达不到 4.5:1。 */
 .model-chips li {
   padding: 0.2rem 0.55rem;
   border: 1px solid transparent;
@@ -1413,23 +1412,52 @@ body .group:hover .group-hover\:text-brandOrange { color: var(--brand-orange); }
   color: var(--brand-orange-deep);
 }
 
+.model-specs-details {
+  margin-top: 1rem;
+  border-top: 1px solid #eef2f7;
+}
+.model-specs-details summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.8rem 0 0.2rem;
+  color: var(--brand-blue);
+  font-size: 0.6875rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.model-specs-details summary::-webkit-details-marker { display: none; }
+.model-specs-details summary::after {
+  content: "+";
+  color: var(--brand-orange-deep);
+  font-size: 1rem;
+  line-height: 1;
+  transition: transform .2s ease;
+}
+.model-specs-details[open] summary::after {
+  content: "−";
+  transform: rotate(180deg);
+}
+.model-specs-wrap {
+  margin-top: 0.65rem;
+  overflow-x: auto;
+}
 .model-specs {
   width: 100%;
-  margin-top: 1rem;
   border-collapse: collapse;
   font-size: 0.75rem;
 }
 .model-specs th,
 .model-specs td {
-  padding: 0.35rem 0;
+  padding: 0.42rem 0;
   text-align: left;
   vertical-align: top;
   border-bottom: 1px solid #eef2f7;
 }
-/* 参数表「参数 / 内容」的字体样式与颜色互换（2026-10-29 用户要求）：
-   改前 = 参数（th）浅灰 500、内容（td）近黑 700。
-   改后 = 参数深色 700、内容浅灰 500 —— 视觉重心从「值」移到「参数名」。
-   ⚠️ 两者都是 4.5:1 以上：#0f172a on #f8fafc ≈ 16:1， #475569 on #f8fafc ≈ 6.5:1。 */
 .model-specs th {
   width: 44%;
   padding-right: 0.75rem;
@@ -1445,10 +1473,9 @@ body .group:hover .group-hover\:text-brandOrange { color: var(--brand-orange); }
 
 .model-cta {
   margin-top: auto;
-  padding-top: 1.25rem;
+  padding-top: 1rem;
 }
 .model-btn { width: 100%; }
-
 /* ─── 分类卡 .family-card（2026-10-29，power-bank / wireless-charger 两个父页面共用）──
    设计约束（用户指定）：
      · **无背景阴影** —— 只有 1px 边框，没有 box-shadow，没有渐变底
@@ -1959,3 +1986,4 @@ table td, table th { overflow-wrap: break-word; word-break: normal; }
 .legal-content ul { margin-bottom: 1rem; padding-left: 1.5rem; }
 .legal-content ul li { margin-bottom: 0.4rem; line-height: 1.6; color: #475569; list-style-type: disc; }
 .legal-content strong { color: #0A192F; }
+

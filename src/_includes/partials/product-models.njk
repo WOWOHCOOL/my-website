@@ -11,13 +11,27 @@
           · name / badges / chips / h2 / intro / specValues 按语言本土化
           · 缺失语言字段回退 EN
 
+  设计（2026-11-04 重构）：
+    · 产品子页回到“产品图 + 关键 chips + 折叠完整规格 + CTA”的图卡模式
+    · 桌面 3 列，平板 2 列，移动 1 列；图片优先，参数不占满整屏
+    · 关键 chips 保持可见；完整规格进 <details>，但仍在 HTML 中
+    · 数据仍由单一真源驱动，禁止回到手写型号卡
+
   ⚠️ 型号卡 id 必须保持 `wop09` 这种小写 anchor —— 站外有 /products/...#wop09 这类深链。
   ⚠️ data-product 传 SKU（不是分类名），询盘邮件 subject 才能带上具体型号。
-  ⚠️ 参数表直接可见、不折叠：AI 摘录与比价都读可见文本。
   ⚠️ 标题层级：section 内 h2 = 系列名，型号名 h3 —— 与改前一致，不新增层级。
   ⚠️ 型号卡不单独声明 Product。询盘型型号没有公开价格/评价，声明 Product 会缺 offers/review/aggregateRating，导致 Product snippet 无效。
 #}
 {%- set L = lang or 'en' -%}
+{%- set specDetailsLabels = {
+  en: "Full Specifications",
+  de: "Technische Daten",
+  es: "Especificaciones completas",
+  fr: "Spécifications complètes",
+  ru: "Полные характеристики",
+  pl: "Pełna specyfikacja"
+} -%}
+{%- set detailsLabel = specDetailsLabels[L] or specDetailsLabels.en -%}
 {%- set fam = productModels[L][family] -%}
 {%- if fam and fam.groups and fam.groups.length -%}
 
@@ -34,12 +48,12 @@
 
   <div class="model-list">
    {%- for m in g.models %}
-   <article class="model-card reveal" id="{{ m.anchor | default(m.sku | lower) }}">
+   <article class="model-card reveal" id="{{ m.anchor | default(m.sku | lower) }}"{% if m.capacity %} data-capacity="{{ m.capacity }}"{% endif %}>
     <div class="model-media">
      {%- if m.img and m.img.src %}
      <img src="{{ m.img.src }}"
       {%- if m.img.srcset %} srcset="{{ m.img.srcset }}"{% endif %}
-      sizes="(min-width: 1024px) 320px, (min-width: 768px) 40vw, 86vw"
+      sizes="(min-width: 1024px) 33vw, (min-width: 640px) 48vw, 92vw"
       alt="{{ m.img.alt }}"
       {%- if m.img.width %} width="{{ m.img.width }}"{% endif %}
       {%- if m.img.height %} height="{{ m.img.height }}"{% endif %}
@@ -64,20 +78,25 @@
      {%- if m.chips and m.chips.length %}
      <ul class="model-chips">
       {%- for c in m.chips %}
-      <li>{{ c }}</li>
+      {%- if loop.index <= 4 %}<li>{{ c }}</li>{% endif %}
       {%- endfor %}
      </ul>
      {%- endif %}
 
      {%- if m.rows and m.rows.length %}
-     <table class="model-specs">
-      <caption class="sr-only">{{ m.name }}</caption>
-      <tbody>
-       {%- for row in m.rows %}
-       <tr><th scope="row">{{ specLabels[L] and specLabels[L][row[0]] or row[0] }}</th><td>{{ row[1] }}</td></tr>
-       {%- endfor %}
-      </tbody>
-     </table>
+     <details class="model-specs-details">
+      <summary>{{ detailsLabel }}</summary>
+      <div class="model-specs-wrap">
+       <table class="model-specs">
+        <caption class="sr-only">{{ m.name }}</caption>
+        <tbody>
+         {%- for row in m.rows %}
+         <tr><th scope="row">{{ specLabels[L] and specLabels[L][row[0]] or row[0] }}</th><td>{{ row[1] }}</td></tr>
+         {%- endfor %}
+        </tbody>
+       </table>
+      </div>
+     </details>
      {%- endif %}
 
      <div class="model-cta">
