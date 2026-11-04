@@ -32,6 +32,7 @@
   pl: "Pełna specyfikacja"
 } -%}
 {%- set detailsLabel = specDetailsLabels[L] or specDetailsLabels.en -%}
+{%- set capacityAllLabels = { en: "All", de: "Alle", es: "Todos", fr: "Tous", ru: "Все", pl: "Wszystkie" } -%}
 {%- set fam = productModels[L][family] -%}
 {%- if fam and fam.groups and fam.groups.length -%}
 
@@ -44,6 +45,14 @@
   <h2 class="model-section-title">{{ g.h2 }}</h2>
   {%- if g.intro %}
   <p class="model-section-intro">{{ g.intro }}</p>
+  {%- endif %}
+
+  {%- if g.models and g.models.length and g.models[0].capacity %}
+  <div class="model-capacity-filter" data-model-capacity-filter>
+   <button type="button" id="capacity-filter-all" class="is-active" data-capacity-filter="all">{{ capacityAllLabels[L] or capacityAllLabels.en }}</button>
+   <button type="button" id="capacity-filter-10000" data-capacity-filter="10000">10,000mAh</button>
+   <button type="button" id="capacity-filter-20000" data-capacity-filter="20000">20,000mAh</button>
+  </div>
   {%- endif %}
 
   <div class="model-list">

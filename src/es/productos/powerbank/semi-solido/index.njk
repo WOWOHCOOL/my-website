@@ -260,11 +260,11 @@ plPath: "produkty/power-bank/polstaly/"
     </div>
     <div class="btn-pair">
      {{ ctaButton("factoryPricing", "primary", "open-modal", "Power Bank") }}
-    <a href="#capacity-links" class="btn-ghost-lg">Ver modelos</a>
+    <a href="#products" class="btn-ghost-lg">Ver modelos</a>
     </div>
  <div class="mt-5 flex flex-wrap justify-center gap-3">
-  <a href="/es/productos/powerbank/semi-solido/10000mah/" class="btn-capacity-select">Modelos 10.000mAh</a>
-  <a href="/es/productos/powerbank/semi-solido/20000mah/" class="btn-capacity-select btn-capacity-select--accent">Modelos 20.000mAh</a>
+  <a href="#products" data-capacity-jump="10000" class="btn-capacity-select">Modelos 10.000mAh</a>
+  <a href="#products" data-capacity-jump="20000" class="btn-capacity-select btn-capacity-select--accent">Modelos 20.000mAh</a>
  </div>
    </div>
    <div class="reveal order-1 lg:order-2">
@@ -291,21 +291,9 @@ plPath: "produkty/power-bank/polstaly/"
 </section>
 
 <!-- MODELOS -->
-<!-- Capacity Subcategories -->
-<section id="capacity-links" class="sec bg-slate-50" data-section="content">
- <div class="container-wide">
-  <div class="text-center mb-10">
-   <h2 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4">Elegir por <span class="text-brandOrange">Capacidad</span></h2>
-   <p class="section-desc mx-auto">Todos los modelos están certificados CCC. Seleccione la capacidad para comparar la gama completa.</p>
-  </div>
-  <div class="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
-   <a href="/es/productos/powerbank/semi-solido/10000mah/" class="card-lg-soft p-8 text-center hover:shadow-2xl transition-all duration-300 hover:-translate-y-1"><p class="text-4xl font-black text-brandOrange mb-2">10.000mAh</p><p class="text-sm font-bold text-brandBlue uppercase tracking-wider mb-3">Modelos CCC compactos</p></a>
-   <a href="/es/productos/powerbank/semi-solido/20000mah/" class="card-lg-soft p-8 text-center hover:shadow-2xl transition-all duration-300 hover:-translate-y-1"><p class="text-4xl font-black text-brandOrange mb-2">20.000mAh</p><p class="text-sm font-bold text-brandBlue uppercase tracking-wider mb-3">Modelos CCC de alta capacidad</p></a>
-  </div>
- </div>
-</section>
 
-<!-- Model cards are split into capacity pages to avoid duplicate listings -->
+{% set family = "products/power-bank/semi-solid-state" %}
+{% include "partials/product-models.njk" %}
 
 <!-- MARKET-DATA -->
 <section id="market-data" class="sec bg-white py-8" data-section="content">

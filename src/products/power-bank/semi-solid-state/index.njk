@@ -290,13 +290,13 @@ plPath: "produkty/power-bank/polstaly/"
 
  <div class="btn-pair">
  {{ ctaButton("factoryPricing", "primary", "open-modal", "Power Bank") }}
- <a href="#capacity-links" class="btn-ghost-lg">
+ <a href="#products" class="btn-ghost-lg">
  Compare {{ "power-bank" | productFamilyModelCount("semi-solid-state") }} Models
  </a>
  </div>
  <div class="mt-5 flex flex-wrap justify-center gap-3">
-  <a href="/products/power-bank/semi-solid-state/10000mah/" class="btn-capacity-select">10,000mAh Models</a>
-  <a href="/products/power-bank/semi-solid-state/20000mah/" class="btn-capacity-select btn-capacity-select--accent">20,000mAh Models</a>
+  <a href="#products" data-capacity-jump="10000" class="btn-capacity-select">10,000mAh Models</a>
+  <a href="#products" data-capacity-jump="20000" class="btn-capacity-select btn-capacity-select--accent">20,000mAh Models</a>
  </div>
  </div>
 </section>
@@ -304,29 +304,9 @@ plPath: "produkty/power-bank/polstaly/"
 <!-- Trust Bar (unified: certifications + counters + customer logos) -->
 {% include "trust-bar.njk" %}
 
-<!-- Capacity Subcategories -->
-<section id="capacity-links" class="sec bg-slate-50" data-section="content">
- <div class="container-wide">
-  <div class="text-center mb-10">
-   <h2 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4">Choose by <span class="text-brandOrange">Capacity</span></h2>
-   <p class="section-desc mx-auto">All listed models are CCC-certified for China-market compliance. Select the capacity tier to compare the full model range.</p>
-  </div>
-  <div class="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
-   <a href="/products/power-bank/semi-solid-state/10000mah/" class="card-lg-soft p-8 text-center hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
-    <p class="text-4xl font-black text-brandOrange mb-2">10,000mAh</p>
-    <p class="text-sm font-bold text-brandBlue uppercase tracking-wider mb-3">Compact CCC Models</p>
-    <p class="text-slate-600 text-sm leading-relaxed">22.5W and dual 45W USB-C options for slim everyday charging products.</p>
-   </a>
-   <a href="/products/power-bank/semi-solid-state/20000mah/" class="card-lg-soft p-8 text-center hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
-    <p class="text-4xl font-black text-brandOrange mb-2">20,000mAh</p>
-    <p class="text-sm font-bold text-brandBlue uppercase tracking-wider mb-3">High-Capacity CCC Models</p>
-    <p class="text-slate-600 text-sm leading-relaxed">22.5W and dual 45W USB-C options for longer runtime and premium SKUs.</p>
-   </a>
-  </div>
- </div>
-</section>
 
-<!-- Model cards are split into capacity pages to avoid duplicate listings -->
+{% set family = "products/power-bank/semi-solid-state" %}
+{% include "partials/product-models.njk" %}
 
 <!-- Divider -->
 <div class="relative w-full">
@@ -537,7 +517,7 @@ plPath: "produkty/power-bank/polstaly/"
  </div>
  </div>
 
- <p class="text-sm text-slate-600 leading-relaxed max-w-3xl mx-auto mt-10 text-center">These DTC brands demonstrate the market demand — but most buyers need an OEM partner to bring their own semi-solid-state power bank to market. WOWOHCOOL provides the same production-grade semi-solid-state cells, with ODM in-stock customization from 500 units (your logo + color + stock packaging) and OEM with new tooling from 3,000 units. <a href="#capacity-links" class="text-brandOrange font-bold hover:underline">Compare all {{ "power-bank" | productFamilyModelCount("semi-solid-state") }} semi-solid-state models by capacity →</a></p>
+ <p class="text-sm text-slate-600 leading-relaxed max-w-3xl mx-auto mt-10 text-center">These DTC brands demonstrate the market demand — but most buyers need an OEM partner to bring their own semi-solid-state power bank to market. WOWOHCOOL provides the same production-grade semi-solid-state cells, with ODM in-stock customization from 500 units (your logo + color + stock packaging) and OEM with new tooling from 3,000 units. <a href="#products" class="text-brandOrange font-bold hover:underline">Compare all {{ "power-bank" | productFamilyModelCount("semi-solid-state") }} semi-solid-state models by capacity →</a></p>
  </div>
 </section>
 

@@ -733,6 +733,34 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // Product model capacity filter (single-page 10000 / 20000 variants)
+  function initModelCapacityFilters() {
+    document.querySelectorAll('[data-model-capacity-filter]').forEach(filter => {
+      const buttons = Array.from(filter.querySelectorAll('[data-capacity-filter]'));
+      const cards = Array.from(document.querySelectorAll('.model-card[data-capacity]'));
+      function apply(value) {
+        buttons.forEach(btn => btn.classList.toggle('is-active', btn.dataset.capacityFilter === value));
+        cards.forEach(card => {
+          card.classList.toggle('is-hidden', value !== 'all' && card.dataset.capacity !== value);
+        });
+      }
+      buttons.forEach(btn => btn.addEventListener('click', () => apply(btn.dataset.capacityFilter || 'all')));
+      const hashMatch = window.location.hash.match(/^#capacity-filter-(10000|20000)$/);
+      if (hashMatch) apply(hashMatch[1]);
+    });
+
+    document.addEventListener('click', (e) => {
+      const jump = e.target.closest && e.target.closest('[data-capacity-jump]');
+      if (!jump) return;
+      const value = jump.dataset.capacityJump;
+      const filter = document.querySelector('[data-model-capacity-filter]');
+      if (!filter) return;
+      const target = filter.querySelector('[data-capacity-filter="' + value + '"]');
+      if (target) target.click();
+    });
+  }
+  initModelCapacityFilters();
+
   // Scroll reveal
   document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
   // 告诉 <head> 里的 3s 看门狗「reveal 已接管」——否则它会把 .no-js 加回去，

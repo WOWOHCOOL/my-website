@@ -268,11 +268,11 @@ ogImage: "/image/product/power-bank/wopyj822n-20000mah-45w-dual-cable-semi-solid
     </div>
     <div class="btn-pair">
      {{ ctaButton("factoryPricing", "primary", "open-modal", "Power Bank") }}
-    <a href="#capacity-links" class="btn-ghost-lg">Смотреть модели</a>
+    <a href="#products" class="btn-ghost-lg">Смотреть модели</a>
     </div>
  <div class="mt-5 flex flex-wrap justify-center gap-3">
-  <a href="/ru/produkty/poverbanki/polutverdotelnyy/10000mah/" class="btn-capacity-select">Модели 10 000 мА·ч</a>
-  <a href="/ru/produkty/poverbanki/polutverdotelnyy/20000mah/" class="btn-capacity-select btn-capacity-select--accent">Модели 20 000 мА·ч</a>
+  <a href="#products" data-capacity-jump="10000" class="btn-capacity-select">Модели 10 000 мА·ч</a>
+  <a href="#products" data-capacity-jump="20000" class="btn-capacity-select btn-capacity-select--accent">Модели 20 000 мА·ч</a>
  </div>
    </div>
    <div class="reveal order-1 lg:order-2 min-w-0">
@@ -299,21 +299,9 @@ ogImage: "/image/product/power-bank/wopyj822n-20000mah-45w-dual-cable-semi-solid
 </section>
 
 <!-- MODELOS -->
-<!-- Capacity Subcategories -->
-<section id="capacity-links" class="sec bg-slate-50" data-section="content">
- <div class="container-wide">
-  <div class="text-center mb-10">
-   <h2 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4">Выбрать по <span class="text-brandOrange">Емкости</span></h2>
-   <p class="section-desc mx-auto">Все модели имеют сертификат CCC. Выберите емкость для сравнения всей линейки.</p>
-  </div>
-  <div class="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
-   <a href="/ru/produkty/poverbanki/polutverdotelnyy/10000mah/" class="card-lg-soft p-8 text-center hover:shadow-2xl transition-all duration-300 hover:-translate-y-1"><p class="text-4xl font-black text-brandOrange mb-2">10 000 мА·ч</p><p class="text-sm font-bold text-brandBlue uppercase tracking-wider mb-3">Компактные модели CCC</p></a>
-   <a href="/ru/produkty/poverbanki/polutverdotelnyy/20000mah/" class="card-lg-soft p-8 text-center hover:shadow-2xl transition-all duration-300 hover:-translate-y-1"><p class="text-4xl font-black text-brandOrange mb-2">20 000 мА·ч</p><p class="text-sm font-bold text-brandBlue uppercase tracking-wider mb-3">Модели CCC высокой емкости</p></a>
-  </div>
- </div>
-</section>
 
-<!-- Model cards are split into capacity pages to avoid duplicate listings -->
+{% set family = "products/power-bank/semi-solid-state" %}
+{% include "partials/product-models.njk" %}
 
 <!-- MARKET-DATA -->
 <section id="market-data" class="sec bg-white py-8" data-section="content">
