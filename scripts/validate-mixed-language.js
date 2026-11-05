@@ -157,7 +157,11 @@ for (const lang of LANGS) {
     // readers. Loanwords like FR "Message" or ES/RU "Email" are allowed.
     if (BUILT) {
       const attrText = (s) => s.replace(/<[^>]+>/g, ' ').replace(/&amp;/g, '&').replace(/&#0?39;/g, "'").trim();
-      for (const m of raw.matchAll(/\b(aria-label|title|placeholder)="([^"]*)"/g)) {
+      const title = raw.match(/<title>([\s\S]*?)<\/title>/);
+      if (title && englishHeavy(attrText(title[1]))) hits.push({ rel, phrase: 'title: ' + attrText(title[1]).slice(0, 80) });
+      const desc = raw.match(/<meta name="description" content="([^"]*)"/);
+      if (desc && englishHeavy(attrText(desc[1]))) hits.push({ rel, phrase: 'meta.description: ' + attrText(desc[1]).slice(0, 80) });
+      for (const m of raw.matchAll(/\b(aria-label|title|placeholder|alt)="([^"]*)"/g)) {
         const txt = attrText(m[2]);
         if (englishHeavy(txt) || FORM_BANNED.some((p) => txt.toLowerCase().startsWith(p.toLowerCase()))) {
           hits.push({ rel, phrase: m[1] + ': ' + txt.slice(0, 80) });
