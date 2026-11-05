@@ -7,6 +7,9 @@
 //    every blog article's ctaLabel is one of the canonical labels for its
 //    language (single source of truth: src/_data/cta-labels.json) and that all
 //    language versions of one article land in the same theme bucket.
+// 3. Closing CTA shape — always runs. Pure Node, no external deps. Enforces the
+//    2026-11-04 two-button rule: one internal link + one
+//    <button data-action="open-modal" data-product="...">; no /contact/ link.
 //
 // 2026-10-19: the old seomachine B2B `prebuild_gate.py` step was removed together
 // with the B2B add-on. The site-local validators in `npm run build` remain the
@@ -30,5 +33,13 @@ if (ctaLabels.status !== 0) {
   process.exit(1);
 }
 
-console.log("[gate] local template lint + ctaLabel routing passed");
+const blogCta = spawnSync(process.execPath, [path.join(__dirname, "validate-blog-cta.js")], {
+  stdio: "inherit",
+});
+if (blogCta.status !== 0) {
+  console.error("[gate] blog Closing CTA shape failed");
+  process.exit(1);
+}
+
+console.log("[gate] local template lint + ctaLabel routing + CTA shape passed");
 process.exit(0);
