@@ -84,6 +84,18 @@ function visibleText(s) {
     .trim();
 }
 
+const EN_STOP = new Set([
+  'the', 'and', 'with', 'from', 'your', 'this', 'that', 'is', 'are', 'for',
+  'you', 'our', 'we', 'can', 'will', 'not', 'has', 'have', 'by', 'as', 'or',
+  'be', 'on', 'in', 'to', 'of', 'a', 'an',
+]);
+function englishHeavy(text) {
+  const words = String(text).toLowerCase().match(/[^\W\d_]+/gu) || [];
+  if (words.length < 4) return false;
+  const n = words.filter((w) => EN_STOP.has(w)).length;
+  return n >= 2 && n / words.length > 0.25;
+}
+
 const hits = [];
 let scanned = 0;
 const rootDir = BUILT ? path.join(ROOT, '_site') : SRC;
@@ -94,7 +106,8 @@ for (const lang of LANGS) {
   for (const file of walk(base, ext)) {
     scanned++;
     const rel = path.relative(ROOT, file).replace(/\\/g, '/');
-    const visible = visibleText(fs.readFileSync(file, 'utf8'));
+    const raw = fs.readFileSync(file, 'utf8');
+    const visible = visibleText(raw);
     const lower = visible.toLowerCase();
     for (const phrase of BANNED) {
       if (lower.includes(phrase.toLowerCase())) hits.push({ rel, phrase });
@@ -108,6 +121,29 @@ for (const lang of LANGS) {
         const escaped = phrase.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
         const re = new RegExp('(?<![A-Za-z])' + escaped + '(?![A-Za-z])', caseSensitive ? '' : 'i');
         if (re.test(productVisible)) hits.push({ rel, phrase });
+      }
+    }
+
+    // Structured data must be localized too: BlogPosting description/headline
+    // and HowTo name/description are read by AI/search engines, not just humans.
+    if (BUILT) {
+      const walkJson = (x) => {
+        if (Array.isArray(x)) return x.forEach(walkJson);
+        if (!x || typeof x !== 'object') return;
+        const types = [].concat(x['@type'] || []);
+        const type = types.find((t) => t === 'BlogPosting' || t === 'HowTo');
+        if (type) {
+          const keys = type === 'HowTo' ? ['name', 'description'] : ['headline', 'description'];
+          for (const key of keys) {
+            if (typeof x[key] === 'string' && englishHeavy(x[key])) {
+              hits.push({ rel, phrase: 'jsonld.' + type + '.' + key });
+            }
+          }
+        }
+        Object.values(x).forEach(walkJson);
+      };
+      for (const m of raw.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)) {
+        try { walkJson(JSON.parse(m[1])); } catch (e) { /* schema validator handles invalid JSON */ }
       }
     }
   }
