@@ -41,6 +41,22 @@ const BANNED = [
   'Request FOB Pricing',
 ];
 
+// Product-spec English that must be localized. "protection"/"compatible" are
+// valid French/Spanish; "optional" is valid German; "firmware" is accepted in
+// FR/ES/PL — so these are scoped per language instead of global.
+const PRODUCT_BANNED = {
+  de: ['High-Capacity', 'Net', 'Gross', 'outputs', 'per port', 'Digital display', 'Built-in', 'swappable', 'shared', 'Retractable', 'input', 'MAX', 'protection', 'compatible'],
+  es: ['High-Capacity', 'Net', 'Gross', 'outputs', 'per port', 'Digital display', 'Built-in', 'swappable', 'shared', 'Retractable', 'input', 'MAX', 'Max', 'optional'],
+  fr: ['High-Capacity', 'outputs', 'per port', 'Digital display', 'Built-in', 'swappable', 'shared', 'Retractable', 'input', 'MAX', 'Max', 'optional'],
+  pl: ['High-Capacity', 'Net', 'Gross', 'outputs', 'per port', 'Digital display', 'Built-in', 'swappable', 'shared', 'Retractable', 'input', 'MAX', 'Max', 'optional', 'protection', 'compatible'],
+  ru: ['High-Capacity', 'Net', 'Gross', 'outputs', 'per port', 'Digital display', 'Built-in', 'swappable', 'shared', 'Retractable', 'input', 'MAX', 'Max', 'optional', 'protection', 'compatible', 'firmware'],
+};
+
+// Proper product/platform names that legitimately contain an English token.
+const PRODUCT_ALLOW = {
+  fr: ['DEWALT 20V MAX'],
+};
+
 function walk(dir, ext, out = []) {
   for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
     const p = path.join(dir, e.name);
@@ -52,6 +68,7 @@ function walk(dir, ext, out = []) {
 
 function visibleText(s) {
   return s
+    .replace(/^---\n[\s\S]*?\n---\n/, ' ')
     .replace(/<!--[\s\S]*?-->/g, ' ')
     .replace(/\{#[\s\S]*?#\}/g, ' ')
     .replace(/<script[\s\S]*?<\/script>/gi, ' ')
@@ -77,9 +94,21 @@ for (const lang of LANGS) {
   for (const file of walk(base, ext)) {
     scanned++;
     const rel = path.relative(ROOT, file).replace(/\\/g, '/');
-    const text = visibleText(fs.readFileSync(file, 'utf8')).toLowerCase();
+    const visible = visibleText(fs.readFileSync(file, 'utf8'));
+    const lower = visible.toLowerCase();
     for (const phrase of BANNED) {
-      if (text.includes(phrase.toLowerCase())) hits.push({ rel, phrase });
+      if (lower.includes(phrase.toLowerCase())) hits.push({ rel, phrase });
+    }
+    const isProductPage = /\/(?:produkte|productos|produits|produkty)\//.test(rel);
+    if (isProductPage) {
+      let productVisible = visible;
+      for (const allow of PRODUCT_ALLOW[lang] || []) productVisible = productVisible.split(allow).join(' ');
+      for (const phrase of PRODUCT_BANNED[lang] || []) {
+        const caseSensitive = ['Max', 'MAX', 'Net', 'Gross'].includes(phrase);
+        const escaped = phrase.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        const re = new RegExp('(?<![A-Za-z])' + escaped + '(?![A-Za-z])', caseSensitive ? '' : 'i');
+        if (re.test(productVisible)) hits.push({ rel, phrase });
+      }
     }
   }
 }

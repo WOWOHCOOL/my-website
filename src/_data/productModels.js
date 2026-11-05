@@ -33,7 +33,10 @@ const path = require('path');
 const LANGS = ['en', 'de', 'es', 'fr', 'ru', 'pl'];
 const ROOT = path.join(__dirname, '..', '..');
 const DIR = path.join(ROOT, 'src', '_products');
-const VALUE_RULES = JSON.parse(fs.readFileSync(path.join(__dirname, 'specValueLabels.json'), 'utf8')).rules || [];
+const BASE_VALUE_RULES = JSON.parse(fs.readFileSync(path.join(__dirname, 'specValueLabels.json'), 'utf8')).rules || [];
+const EXTRA_VALUE_RULES = JSON.parse(fs.readFileSync(path.join(__dirname, 'specValueLabelsExtra.json'), 'utf8')).rules || [];
+// Specific phrases must run before generic word rules (e.g. "Max", "Protection").
+const VALUE_RULES = [...EXTRA_VALUE_RULES, ...BASE_VALUE_RULES];
 const BADGE_RULES = JSON.parse(fs.readFileSync(path.join(__dirname, 'productBadgeLabels.json'), 'utf8')).rules || [];
 const BADGE_MAP = new Map(BADGE_RULES.map(r => [r.en, r]));
 
