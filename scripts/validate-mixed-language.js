@@ -57,6 +57,22 @@ const PRODUCT_ALLOW = {
   fr: ['DEWALT 20V MAX'],
 };
 
+// English form/accessibility phrases that are never valid on non-EN pages.
+// Loanwords such as FR "Message", ES/RU "Email" and DE "Name" are not listed.
+const FORM_BANNED = [
+  'Your name',
+  'Your email',
+  'Your company',
+  'Your message',
+  'Business email',
+  'Company name',
+  'Select product category',
+  'Product specs',
+  'Send message',
+  'Submit',
+  'Send',
+];
+
 function walk(dir, ext, out = []) {
   for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
     const p = path.join(dir, e.name);
@@ -84,13 +100,16 @@ function visibleText(s) {
     .trim();
 }
 
+// Distinctive English words only. Ambiguous tokens shared with DE/ES/FR/PL/RU
+// (in, a, as, or, is, are, not, of, to…) are deliberately excluded.
 const EN_STOP = new Set([
-  'the', 'and', 'with', 'from', 'your', 'this', 'that', 'is', 'are', 'for',
-  'you', 'our', 'we', 'can', 'will', 'not', 'has', 'have', 'by', 'as', 'or',
-  'be', 'on', 'in', 'to', 'of', 'a', 'an',
+  'the', 'and', 'with', 'from', 'your', 'this', 'that', 'for', 'you', 'our',
+  'we', 'by', 'to', 'these', 'those', 'which', 'when', 'where', 'how', 'why',
+  'should', 'would', 'could', 'must', 'into', 'over', 'under', 'than', 'then',
+  'also', 'only', 'more', 'most',
 ]);
 function englishHeavy(text) {
-  const words = String(text).toLowerCase().match(/[^\W\d_]+/gu) || [];
+  const words = String(text).toLowerCase().match(/\p{L}+/gu) || [];
   if (words.length < 4) return false;
   const n = words.filter((w) => EN_STOP.has(w)).length;
   return n >= 2 && n / words.length > 0.25;
@@ -134,6 +153,40 @@ for (const lang of LANGS) {
       }
     }
 
+    // Accessibility / form attributes and labels are read by users and screen
+    // readers. Loanwords like FR "Message" or ES/RU "Email" are allowed.
+    if (BUILT) {
+      const attrText = (s) => s.replace(/<[^>]+>/g, ' ').replace(/&amp;/g, '&').replace(/&#0?39;/g, "'").trim();
+      for (const m of raw.matchAll(/\b(aria-label|title|placeholder)="([^"]*)"/g)) {
+        const txt = attrText(m[2]);
+        if (englishHeavy(txt) || FORM_BANNED.some((p) => txt.toLowerCase().startsWith(p.toLowerCase()))) {
+          hits.push({ rel, phrase: m[1] + ': ' + txt.slice(0, 80) });
+        }
+      }
+      for (const m of raw.matchAll(/<label[^>]*>([\s\S]*?)<\/label>/g)) {
+        const txt = attrText(m[1]);
+        if (englishHeavy(txt) || FORM_BANNED.some((p) => txt.toLowerCase().startsWith(p.toLowerCase()))) {
+          hits.push({ rel, phrase: 'label: ' + txt.slice(0, 80) });
+        }
+      }
+    }
+
+    // hreflang language correctness: a "fr" alternate must live under /fr/.
+    if (BUILT) {
+      for (const m of raw.matchAll(/<link rel="alternate" hreflang="([^"]+)" href="([^"]+)"/g)) {
+        const hl = m[1];
+        const pathname = m[2].replace('https://www.wowohcool.com', '');
+        if (hl === 'x-default') {
+          if (/^\/(?:de|es|fr|pl|ru)(?:\/|$)/.test(pathname)) {
+            hits.push({ rel, phrase: 'hreflang.x-default: ' + pathname });
+          }
+        } else {
+          const expected = hl === 'en' ? '/' : '/' + hl + '/';
+          if (!pathname.startsWith(expected)) hits.push({ rel, phrase: 'hreflang.' + hl + ': ' + pathname });
+        }
+      }
+    }
+
     // Structured data must be localized too: BlogPosting description/headline
     // and HowTo name/description are read by AI/search engines, not just humans.
     if (BUILT) {
@@ -141,8 +194,18 @@ for (const lang of LANGS) {
         if (Array.isArray(x)) return x.forEach(walkJson);
         if (!x || typeof x !== 'object') return;
         const types = [].concat(x['@type'] || []);
-        const type = types.find((t) => t === 'BlogPosting' || t === 'HowTo');
-        if (type) {
+        const type = types.find((t) => t === 'BlogPosting' || t === 'HowTo' || t === 'FAQPage');
+        if (type === 'FAQPage') {
+          for (const q of x.mainEntity || []) {
+            if (typeof q.name === 'string' && englishHeavy(q.name)) {
+              hits.push({ rel, phrase: 'jsonld.FAQPage.question' });
+            }
+            const answer = q.acceptedAnswer && q.acceptedAnswer.text;
+            if (typeof answer === 'string' && englishHeavy(answer)) {
+              hits.push({ rel, phrase: 'jsonld.FAQPage.answer' });
+            }
+          }
+        } else if (type) {
           const keys = type === 'HowTo' ? ['name', 'description'] : ['headline', 'description'];
           for (const key of keys) {
             if (typeof x[key] === 'string' && englishHeavy(x[key])) {
