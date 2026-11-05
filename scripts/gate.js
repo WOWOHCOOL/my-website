@@ -49,5 +49,13 @@ if (panelLabels.status !== 0) {
   process.exit(1);
 }
 
-console.log("[gate] template lint + ctaLabel routing + CTA shape + panel labels passed");
+const mixedLanguage = spawnSync(process.execPath, [path.join(__dirname, "validate-mixed-language.js")], {
+  stdio: "inherit",
+});
+if (mixedLanguage.status !== 0) {
+  console.error("[gate] English fallback strings found in non-EN pages");
+  process.exit(1);
+}
+
+console.log("[gate] template lint + ctaLabel routing + CTA shape + panel labels + mixed-language passed");
 process.exit(0);

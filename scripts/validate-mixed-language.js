@@ -1,0 +1,93 @@
+'use strict';
+// L2 gate: non-EN pages must not render English fixed-panel / CTA / author
+// fallback strings. Technical terms (OEM/ODM, MOQ, Qi2, PD 3.1, FOB…) are
+// allowed and intentionally absent from this list.
+// Usage: node scripts/validate-mixed-language.js
+const fs = require('fs');
+const path = require('path');
+
+const ROOT = path.join(__dirname, '..');
+const SRC = path.join(ROOT, 'src');
+const BUILT = process.argv.includes('--built');
+const LANGS = ['de', 'es', 'fr', 'pl', 'ru'];
+const BANNED = [
+  'Key Takeaways',
+  'Table of Contents',
+  'Related Articles',
+  'Sources & References',
+  'Frequently Asked Questions',
+  'Factory Footprint',
+  'View full author profile',
+  'min read',
+  'Industry Guide',
+  'Buyer Guide',
+  'Contact Us',
+  'Get a Quote',
+  'Get Factory Pricing',
+  'Read More',
+  'Learn more',
+  'Click here',
+  "is WOWOHCOOL's",
+  'is the founder of WOWOHCOOL',
+  'years in 3C procurement',
+  'years in consumer electronics',
+  'Talk to our team',
+  'Ready to Move',
+  'From Spec to Shipment',
+  'Send your specifications',
+  'Need Help With This',
+  'Start Your OEM Project',
+  'Explore OEM/ODM Service',
+  'Request FOB Pricing',
+];
+
+function walk(dir, ext, out = []) {
+  for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
+    const p = path.join(dir, e.name);
+    if (e.isDirectory()) walk(p, ext, out);
+    else if (e.name.endsWith(ext)) out.push(p);
+  }
+  return out;
+}
+
+function visibleText(s) {
+  return s
+    .replace(/<!--[\s\S]*?-->/g, ' ')
+    .replace(/\{#[\s\S]*?#\}/g, ' ')
+    .replace(/<script[\s\S]*?<\/script>/gi, ' ')
+    .replace(/<style[\s\S]*?<\/style>/gi, ' ')
+    .replace(/<pre[\s\S]*?<\/pre>/gi, ' ')
+    .replace(/<code[\s\S]*?<\/code>/gi, ' ')
+    .replace(/\{%[\s\S]*?%\}/g, ' ')
+    .replace(/\{\{[\s\S]*?\}\}/g, ' ')
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/&amp;/g, '&')
+    .replace(/&#0?39;/g, "'")
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+const hits = [];
+let scanned = 0;
+const rootDir = BUILT ? path.join(ROOT, '_site') : SRC;
+const ext = BUILT ? '.html' : '.njk';
+for (const lang of LANGS) {
+  const base = path.join(rootDir, lang);
+  if (!fs.existsSync(base)) continue;
+  for (const file of walk(base, ext)) {
+    scanned++;
+    const rel = path.relative(ROOT, file).replace(/\\/g, '/');
+    const text = visibleText(fs.readFileSync(file, 'utf8')).toLowerCase();
+    for (const phrase of BANNED) {
+      if (text.includes(phrase.toLowerCase())) hits.push({ rel, phrase });
+    }
+  }
+}
+
+if (hits.length) {
+  console.log('[validate-mixed-language] FAIL — ' + hits.length + ' English fallback strings in non-EN pages');
+  for (const h of hits.slice(0, 40)) console.log('   - ' + h.rel + '  ::  ' + h.phrase);
+  process.exit(1);
+}
+console.log('[validate-mixed-language] PASS — ' + scanned + (BUILT ? ' built non-EN pages' : ' non-EN templates') +
+  ' contain no English fixed-panel/CTA fallback strings');
