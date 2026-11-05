@@ -41,5 +41,13 @@ if (blogCta.status !== 0) {
   process.exit(1);
 }
 
-console.log("[gate] local template lint + ctaLabel routing + CTA shape passed");
+const panelLabels = spawnSync(process.execPath, [path.join(__dirname, "validate-panel-labels.js")], {
+  stdio: "inherit",
+});
+if (panelLabels.status !== 0) {
+  console.error("[gate] fixed-panel labels, breadcrumbs or hero badges failed");
+  process.exit(1);
+}
+
+console.log("[gate] template lint + ctaLabel routing + CTA shape + panel labels passed");
 process.exit(0);

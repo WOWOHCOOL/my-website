@@ -12,7 +12,11 @@ function norm(s) { return (s || '').replace(/<[^>]+>/g, '').replace(/&amp;/g, '&
 function langOf(rel) { const m = rel.replace(/\\/g, '/').match(/^src\/(de|es|fr|pl|ru)\//); return m ? m[1] : 'en'; }
 
 const files = walk(path.join(ROOT, 'src')).filter(f => /[\\/]blog[\\/]/.test(f));
-let checked = 0, bad = [], missing = 0;
+let checked = 0, bad = [], missing = 0, breadcrumbsChecked = 0, badgesChecked = 0;
+const noBreadcrumb = [], noBadges = [];
+function allLanguageValues(key) {
+  return Object.values(LABELS).map((x) => norm(x[key]).toLowerCase());
+}
 for (const f of files) {
   const rel = path.relative(ROOT, f); const lang = langOf(rel); const L = LABELS[lang]; if (!L) continue;
   const s = fs.readFileSync(f, 'utf8');
@@ -27,6 +31,40 @@ for (const f of files) {
   i = s.indexOf('<section id="author-bio"'); if (i >= 0) { const b = s.slice(i, closeBal(s, i, 'section'));
     const bd = b.match(/<span class="px-2 py-1 bg-brandOrange\/10[^"]*">([\s\S]*?)<\/span>/); if (bd) checks.push(['badge', bd[1]]);
     const fp = b.match(/<p class="text-xs text-slate-400[^"]*">([\s\S]*?)<\/p>/); if (fp) checks.push(['footprint', fp[1]]); }
+
+  // Breadcrumb and hero badges are not fixed panels; blog index pages are excluded.
+  if (!/[\\/]blog[\\/]index\.njk$/.test(rel)) {
+    const bm = s.match(/breadcrumb\(\[\{name:\s*["']([^"']+)["']\s*,\s*url:\s*["']([^"']+)["']\}\s*,\s*\{name:\s*["']([^"']+)["']\s*,\s*url:\s*["']([^"']+)["']/);
+    if (bm) {
+      breadcrumbsChecked++;
+      const gotHome = norm(bm[1]), gotBlog = norm(bm[3]);
+      if (gotHome.toLowerCase() !== norm(L.home).toLowerCase()) bad.push({ rel, key: 'home', got: gotHome, want: L.home });
+      if (gotBlog.toLowerCase() !== norm(L.blog).toLowerCase()) bad.push({ rel, key: 'blog', got: gotBlog, want: L.blog });
+      const wantHome = lang === 'en' ? '/' : `/${lang}/`;
+      const wantBlog = lang === 'en' ? '/blog/' : `/${lang}/blog/`;
+      if (bm[2].replace(/\/+$/, '') !== wantHome.replace(/\/+$/, '')) bad.push({ rel, key: 'homeUrl', got: bm[2], want: wantHome });
+      if (bm[4].replace(/\/+$/, '') !== wantBlog.replace(/\/+$/, '')) bad.push({ rel, key: 'blogUrl', got: bm[4], want: wantBlog });
+    } else {
+      noBreadcrumb.push(rel);
+    }
+
+    const bb = s.match(/<div class="flex flex-wrap gap-2 mb-6">([\s\S]*?)<\/div>/);
+    if (bb) {
+      badgesChecked++;
+      const spans = [...bb[1].matchAll(/<span[^>]*class="[^"]*text-badge[^"]*"[^>]*>([\s\S]*?)<\/span>/g)].map((m) => norm(m[1]));
+      for (const text of spans) {
+        for (const key of ['industryGuide', 'buyerGuide']) {
+          const lower = text.toLowerCase();
+          if (allLanguageValues(key).includes(lower) && lower !== norm(L[key]).toLowerCase()) {
+            bad.push({ rel, key, got: text, want: L[key] });
+          }
+        }
+      }
+    } else {
+      noBadges.push(rel);
+    }
+  }
+
   for (const [key, raw] of checks) {
     checked++;
     if (norm(raw) !== norm(L[key])) bad.push({ rel, key, got: norm(raw), want: norm(L[key]) });
@@ -37,5 +75,14 @@ if (bad.length) {
   for (const b of bad.slice(0, 30)) console.log('   - ' + b.rel + '  [' + b.key + ']  got "' + b.got + '"  want "' + b.want + '"');
   process.exit(1);
 }
-console.log('[validate-panel-labels] PASS — ' + checked + ' fixed-panel labels match canonical (' + files.length + ' blog pages)');
+console.log('[validate-panel-labels] PASS — ' + checked + ' fixed-panel labels, ' + breadcrumbsChecked +
+  ' breadcrumbs and ' + badgesChecked + ' hero badge blocks match canonical (' + files.length + ' blog pages)');
+if (noBreadcrumb.length) {
+  console.log('[validate-panel-labels] WARN — breadcrumb not found: ' + noBreadcrumb.length);
+  for (const rel of noBreadcrumb.slice(0, 10)) console.log('   - ' + rel);
+}
+if (noBadges.length) {
+  console.log('[validate-panel-labels] WARN — hero badge block not found: ' + noBadges.length);
+  for (const rel of noBadges.slice(0, 10)) console.log('   - ' + rel);
+}
 
