@@ -124,6 +124,16 @@ for (const lang of LANGS) {
       }
     }
 
+    // OG/Twitter cards are a separate visible surface (social previews).
+    if (BUILT) {
+      for (const m of raw.matchAll(/<(?:meta|property)[^>]*(?:property|name)="((?:og|twitter):[^"]+)"[^>]*content="([^"]*)"/g)) {
+        const txt = m[2].replace(/&amp;/g, '&').replace(/&#0?39;/g, "'").toLowerCase();
+        for (const phrase of BANNED) {
+          if (txt.includes(phrase.toLowerCase())) hits.push({ rel, phrase: m[1] + ': ' + phrase });
+        }
+      }
+    }
+
     // Structured data must be localized too: BlogPosting description/headline
     // and HowTo name/description are read by AI/search engines, not just humans.
     if (BUILT) {
@@ -144,6 +154,21 @@ for (const lang of LANGS) {
       };
       for (const m of raw.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)) {
         try { walkJson(JSON.parse(m[1])); } catch (e) { /* schema validator handles invalid JSON */ }
+      }
+    }
+  }
+}
+
+// llms.txt and RSS are generated per language and are read by AI/crawlers.
+if (BUILT) {
+  for (const lang of LANGS) {
+    for (const name of ['llms.txt', 'rss.xml']) {
+      const p = path.join(rootDir, lang, name);
+      if (!fs.existsSync(p)) continue;
+      const rel = path.relative(ROOT, p).replace(/\\/g, '/');
+      const text = visibleText(fs.readFileSync(p, 'utf8')).toLowerCase();
+      for (const phrase of BANNED) {
+        if (text.includes(phrase.toLowerCase())) hits.push({ rel, phrase });
       }
     }
   }
