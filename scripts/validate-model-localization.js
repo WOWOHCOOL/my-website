@@ -171,7 +171,132 @@ for (const fam of Object.values(en)) for (const g of fam.groups || []) for (cons
     if (entityHits <= 20) errors.push('HTML entity (autoescape leak) in spec value: ' + m.sku + ' "' + row[0] + '" -> "' + row[1] + '"');
   }
 }
+// ── 描述唯一性 / 本地化信息量（2026-11-06）──────────────────────────────
+// 背景：型号卡描述曾出现 34 张卡只有 12 条唯一文案、重复词占 63-66%。
+// 旧校验只查「非空 / 非英文 / ≥80 字符」，重复文案可全绿通过。
+// 这里对重点 family 做严格检查；其他 family 只统计，不阻断。
+const STRICT_DESC_FAMILIES = new Set([
+  'products/power-bank/semi-solid-state',
+  'products/power-bank/wireless-magnetic',
+]);
+const DESC_LANGS = ['en'].concat(LANGS);
+const descReport = [];
+
+function descWords(value) {
+  return String(value || '').toLowerCase().match(/[\p{L}\p{N}]+/gu) || [];
+}
+function jaccard(a, b) {
+  const A = new Set(a), B = new Set(b);
+  if (!A.size && !B.size) return 0;
+  let inter = 0;
+  for (const x of A) if (B.has(x)) inter++;
+  return inter / (A.size + B.size - inter);
+}
+
+for (const fam of STRICT_DESC_FAMILIES) {
+  if (!en[fam]) continue;
+  const enModels = modelsBySku(en[fam]);
+  const skus = Object.keys(enModels);
+  const perLang = {};
+
+  for (const lang of DESC_LANGS) {
+    const famData = lang === 'en' ? en[fam] : (langsData[lang] && langsData[lang][fam]);
+    if (!famData) continue;
+    const locModels = modelsBySku(famData);
+    const rows = skus.map(sku => ({ sku, desc: String((locModels[sku] || {}).description || '').trim() })).filter(r => r.desc);
+
+    const byDesc = new Map();
+    for (const r of rows) {
+      if (!byDesc.has(r.desc)) byDesc.set(r.desc, []);
+      byDesc.get(r.desc).push(r.sku);
+    }
+    const dupGroups = [...byDesc.values()].filter(g => g.length > 1);
+
+    const tokens = rows.map(r => descWords(r.desc));
+    let pairs = 0, simSum = 0;
+    for (let i = 0; i < tokens.length; i++) {
+      for (let j = i + 1; j < tokens.length; j++) {
+        simSum += jaccard(tokens[i], tokens[j]);
+        pairs++;
+      }
+    }
+    const meanJ = pairs ? simSum / pairs : 0;
+
+    const opens = new Map();
+    for (const r of rows) {
+      const key = descWords(r.desc).slice(0, 6).join(' ');
+      if (key) {
+        if (!opens.has(key)) opens.set(key, []);
+        opens.get(key).push(r.sku);
+      }
+    }
+    const dupOpens = [...opens.values()].filter(g => g.length > 1);
+
+    const wordCounts = rows.map(r => descWords(r.desc).length);
+    const meanW = wordCounts.length ? wordCounts.reduce((a, b) => a + b, 0) / wordCounts.length : 0;
+    perLang[lang] = { rows: rows.length, dupGroups, meanJ, dupOpens, meanW };
+
+    if (dupGroups.length) {
+      errors.push(fam + ' [' + lang + ']: duplicate model descriptions -> ' + dupGroups.map(g => g.join('/')).join(' | '));
+    }
+    if (rows.length >= 4 && meanJ > 0.55) {
+      errors.push(fam + ' [' + lang + ']: mean description similarity ' + meanJ.toFixed(2) + ' > 0.55');
+    }
+    if (dupOpens.length) {
+      errors.push(fam + ' [' + lang + ']: duplicate description opening (6 words) -> ' + dupOpens.map(g => g.join('/')).join(' | '));
+    }
+    const lengthOutliers = rows.filter((r, i) => wordCounts[i] < 18 || wordCounts[i] > 60).map(r => r.sku + ':' + descWords(r.desc).length);
+    if (lengthOutliers.length) {
+      warnings.push(fam + ' [' + lang + ']: description length outside 18-60 words -> ' + lengthOutliers.join(', '));
+    }
+
+    // 描述中的数字+单位必须能在该型号规格/名称中找到（防止改写或翻译时编造参数）。
+    const UNIT_ALIASES = { mah: 'mah', 'ма·ч': 'mah', wh: 'wh', 'вт·ч': 'wh', w: 'w', 'вт': 'w', mm: 'mm', 'мм': 'mm', g: 'g', 'г': 'g' };
+    const DESC_FACT_SRC = '(?<![\\p{L}\\p{N}])(\\d{1,3}(?:[ .\\u00a0]\\d{3})+|\\d+(?:[.,]\\d+)?)\\s*(mAh|мА·ч|Wh|Вт·ч|W|Вт|mm|мм|g|г)(?=\\s|$|[,.;)-])';
+    const factKey = (num, unit) => normalizeFactNumber(num) + ':' + (UNIT_ALIASES[String(unit).toLowerCase()] || String(unit).toLowerCase());
+    const descFactMisses = [];
+    for (const r of rows) {
+      const model = locModels[r.sku] || {};
+      const specText = [model.name].concat((model.rows || []).map(row => row[1])).join(' ');
+      const specFacts = new Set();
+      const specRe = new RegExp(DESC_FACT_SRC, 'giu');
+      let sm;
+      while ((sm = specRe.exec(specText))) specFacts.add(factKey(sm[1], sm[2]));
+      // 尺寸串 "102×64×17.5mm" 的前两个数字没有紧跟单位，单独拆出。
+      const dimRe = /(\d+(?:[.,]\d+)?)(?:×\d+(?:[.,]\d+)?)+(?:mm|мм)/giu;
+      while ((sm = dimRe.exec(specText))) {
+        for (const part of sm[0].replace(/(?:mm|мм)$/i, '').split('×')) specFacts.add(factKey(part, 'mm'));
+      }
+      const descRe = new RegExp(DESC_FACT_SRC, 'giu');
+      let dm;
+      while ((dm = descRe.exec(r.desc))) {
+        if (!specFacts.has(factKey(dm[1], dm[2]))) descFactMisses.push(r.sku + ' ' + dm[1] + dm[2]);
+      }
+    }
+    if (descFactMisses.length) {
+      warnings.push(fam + ' [' + lang + ']: description fact not found in spec -> ' + descFactMisses.join(', '));
+    }
+  }
+
+  const enMeanW = perLang.en ? perLang.en.meanW : 0;
+  if (enMeanW > 0) {
+    for (const lang of LANGS) {
+      const p = perLang[lang];
+      if (!p || !p.meanW) continue;
+      if (p.meanW < enMeanW * 0.6) {
+        errors.push(fam + ' [' + lang + ']: mean description words ' + p.meanW.toFixed(1) + ' < 60% of EN (' + enMeanW.toFixed(1) + ')');
+      }
+    }
+  }
+
+  descReport.push(fam.split('/').pop() + ' ' + DESC_LANGS.map(l => {
+    const p = perLang[l];
+    return p ? l + ':' + p.rows + 'cards/' + p.meanJ.toFixed(2) + 'J/' + p.meanW.toFixed(0) + 'w' : l + ':missing';
+  }).join(' '));
+}
+
 console.log('[validate-model-localization] labelFamilies=' + seen.size + ' cards=' + checkedCards + ' factCards=' + checkedFactCards + ' rows=' + checkedRows + ' missingTranslations=' + missingTranslations + ' entityHits=' + entityHits + ' errors=' + errors.length);
+for (const line of descReport) console.log('[desc-uniqueness] ' + line);
 for (const w of warnings) console.warn('  WARN ' + w);
 if (errors.length) {
   for (const e of errors.slice(0, 80)) console.error('  FAIL ' + e);

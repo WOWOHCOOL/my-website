@@ -295,6 +295,8 @@ plPath: "produkty/power-bank/bateria-grzejaca/"
 {% set family = "products/power-bank/heating-battery" %}
 {#- 型号卡：六语言共用模板（2026-10-29）。数据 src/_products/*.json -#}
 {% include "partials/product-models.njk" %}
+{% set compareFamily = family %}
+{% include "partials/model-compare.njk" %}
 
 <!-- Divider -->
 <div class="relative w-full">
@@ -305,7 +307,8 @@ plPath: "produkty/power-bank/bateria-grzejaca/"
 <!-- How Heating Batteries Work -->
 <section id="how-heating-batteries-work" class="sec bg-white relative" data-section="content">
  <div class="container-wide">
- <h2 class="section-title text-center">How Heating Batteries Work</h2>
+ <div class="text-center"><p class="section-label">Technology</p></div>
+ <h2 class="section-title text-center">How <span class="text-brandOrange">Heating Batteries</span> Work</h2>
  <p class="text-center text-slate-500 text-sm max-w-3xl mx-auto mb-8">Heating batteries deliver constant DC voltage to resistive heating elements embedded in apparel fabric. Unlike standard USB power banks, they are optimized for sustained high-current discharge at low temperatures.</p>
 
  <blockquote class="max-w-3xl mx-auto mb-12 bg-brandOrange/5 border-l-4 border-brandOrange rounded-r-xl px-6 py-5 text-sm text-slate-700 italic leading-relaxed">
@@ -337,12 +340,13 @@ plPath: "produkty/power-bank/bateria-grzejaca/"
 <section id="heating-battery-vs-standard-power-bank-comparison" class="sec bg-slate-50 relative" data-section="comparison">
  <div class="container-wide">
   <div class="text-center mb-12 reveal">
-   <h2 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4">Heating Battery vs. <span class="text-brandOrange">Standard Power Bank</span></h2>
+   <div class="text-center"><p class="section-label">Comparison</p></div>
+ <h2 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4">Heating Battery vs. <span class="text-brandOrange">Standard Power Bank</span></h2>
    <p class="text-slate-500 max-w-2xl mx-auto">Why heated apparel needs specialized batteries — not any USB power bank will do.</p>
   </div>
   <div class="overflow-x-auto reveal rounded-2xl border border-slate-200 shadow-sm bg-white">
-   <table class="w-full text-sm">
-    <thead><tr class="bg-brandBlue text-white"><th class="text-left px-5 py-3 font-bold text-sm">Factor</th><th class="text-left px-5 py-3 font-bold text-sm bg-brandOrange/20">Heating Battery (7.4V DC)</th><th class="text-left px-5 py-3 font-bold text-sm">Standard USB Power Bank</th></tr></thead>
+   <table class="w-full text-sm compare-table">
+    <thead><tr class="bg-brandBlue text-white"><th class="text-left px-5 py-3 font-bold text-sm">Factor</th><th class="text-left px-5 py-3 font-bold text-sm bg-brandOrange text-brandBlue">Heating Battery (7.4V DC)</th><th class="text-left px-5 py-3 font-bold text-sm">Standard USB Power Bank</th></tr></thead>
     <tbody class="divide-y divide-slate-100">
      <tr class="hover:bg-slate-50"><td class="px-5 py-3 text-sm font-semibold text-slate-700">Output Voltage</td><td class="px-5 py-3 text-sm text-slate-600">3.7V–12.6V DC, configurable</td><td class="px-5 py-3 text-sm text-slate-600">5V USB only</td></tr>
      <tr class="hover:bg-slate-50"><td class="px-5 py-3 text-sm font-semibold text-slate-700">Connector Type</td><td class="px-5 py-3 text-sm text-slate-600">DC barrel, JST, custom pinouts</td><td class="px-5 py-3 text-sm text-slate-600">USB-A / USB-C</td></tr>
@@ -359,6 +363,7 @@ plPath: "produkty/power-bank/bateria-grzejaca/"
 <!-- Why Choose WOWOHCOOL for Heated Apparel -->
 <section id="why-choose-wowohcool-for-heated-apparel" class="sec bg-slate-50 relative" data-section="content">
  <div class="container-wide">
+ <div class="text-center"><p class="section-label">Why WOWOHCOOL</p></div>
  <h2 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4 text-center">Why Choose <span class="highlight-line text-brandBlue">WOWOH</span><span class="text-brandOrange">COOL</span> for <span class="text-brandOrange">Heated Apparel Batteries</span></h2>
  <p class="text-center text-slate-500 text-sm max-w-2xl mx-auto mb-12">Specialized expertise in wearable battery design. From compact gloves to high-capacity jackets, every form factor engineered for safe, reliable heat delivery.</p>
 
@@ -393,32 +398,43 @@ plPath: "produkty/power-bank/bateria-grzejaca/"
 <!-- OEM/ODM Customization -->
 <section id="oem-odm-customization" class="sec bg-white relative" data-section="content">
  <div class="container-wide">
- <h2 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4 text-center">OEM/ODM Customization</h2>
+ <div class="text-center"><p class="section-label">Customization</p></div>
+ <h2 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4 text-center">OEM/ODM <span class="text-brandOrange">Customization</span></h2>
  <p class="text-center text-slate-500 text-sm max-w-2xl mx-auto mb-12">Full customization from connector matching to bespoke capacity tuning. Designed to integrate seamlessly with your existing heated apparel line.</p>
 
- <div class="grid md:grid-cols-2 gap-8">
- <div class="card-soft p-6">
- <h3 class="font-black text-brandBlue uppercase mb-4 text-sm">OEM (Standard Models, MOQ 500)</h3>
- <ul class="space-y-2 text-sm text-slate-600">
- <li>• Logo printing (silkscreen, laser, UV)</li>
- <li>• Color customization (Pantone matching)</li>
- <li>• Custom packaging with brand artwork</li>
- <li>• Connector type selection (DC barrel, pogo pin)</li>
- <li>• Multi-language user manuals</li>
- <li>• Lead time: 25-30 days after sample approval</li>
- </ul>
- </div>
- <div class="card-soft p-6">
- <h3 class="font-black text-brandBlue uppercase mb-4 text-sm">ODM (Custom Design, MOQ 1,000-2,000)</h3>
- <ul class="space-y-2 text-sm text-slate-600">
- <li>• Custom connector types (DC barrel, magnetic pogo pin, proprietary)</li>
- <li>• Capacity tuning (1,800-14,400mAh range)</li>
- <li>• Temperature controller pairing and integration</li>
- <li>• Custom enclosure dimensions for specific garment pockets</li>
- <li>• Multi-zone heating circuit support</li>
- <li>• Lead time: 45-60 days including tooling</li>
- </ul>
- </div>
+  <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 cap-grid">
+  <article class="cap-tile reveal">
+   <h3 class="text-base font-black text-brandBlue uppercase italic mb-3">ODM Stock · MOQ 500</h3>
+   <ul class="cap-list">
+     <li>Choose from existing models and capacities</li>
+     <li>Logo printing (silkscreen, laser, UV)</li>
+     <li>Pantone color matching</li>
+     <li>Stock packaging with logo print</li>
+     <li>Lead time: 3–7 days sampling · 25–35 days production</li>
+   </ul>
+  </article>
+  <article class="cap-tile reveal">
+   <h3 class="text-base font-black text-brandBlue uppercase italic mb-3">ODM Development · MOQ 1,000–2,000</h3>
+   <ul class="cap-list">
+     <li>Custom packaging with brand artwork</li>
+     <li>Multi-language manuals, insert cards and warranty leaflets</li>
+     <li>Platform-adapted tooling (no new mold)</li>
+     <li>Capacity and output: 1,800–14,400mAh · 5V/7.4V DC</li>
+     <li>Connector and voltage configuration (DC barrel, pogo pin)</li>
+     <li>Lead time: 25–45 days design · 35–50 days production</li>
+   </ul>
+  </article>
+  <article class="cap-tile reveal">
+   <h3 class="text-base font-black text-brandBlue uppercase italic mb-3">OEM · MOQ 3,000+</h3>
+   <ul class="cap-list">
+     <li>Client-owned design and CMF</li>
+     <li>New mold and full tooling</li>
+     <li>Capacity and output: 1,800–14,400mAh · 5V/7.4V DC</li>
+     <li>Connector and voltage configuration (DC barrel, pogo pin)</li>
+     <li>Certification support for target markets</li>
+     <li>Lead time: 30–60 days production · 2–4 months with new tooling</li>
+   </ul>
+  </article>
  </div>
  <div class="text-center mt-10">
   <p class="text-slate-500 text-sm mb-4">Ready to start your OEM project?</p>
@@ -430,16 +446,17 @@ plPath: "produkty/power-bank/bateria-grzejaca/"
 <!-- Voltage Guide: 5V vs 7.4V vs 12V -->
 <section id="voltage-guide-5v-vs-7-4v-vs-12v" class="sec bg-white relative" data-section="comparison">
  <div class="container-wide">
+ <div class="text-center"><p class="section-label">Voltage</p></div>
  <h2 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4 text-center">5V vs. 7.4V vs. <span class="text-brandOrange">12V</span>: Voltage Guide for Heated Clothing</h2>
  <p class="text-center text-slate-500 text-sm max-w-3xl mx-auto mb-12">What voltage battery do heated jackets use? The answer depends on your product's heat output requirements. Most heated jackets and vests use 7.4V (2S lithium cells), but 5V and 12V serve specific niches.</p>
 
  <div class="overflow-x-auto rounded-2xl border border-slate-200 shadow-sm bg-white max-w-4xl mx-auto">
- <table class="w-full text-sm">
+ <table class="w-full text-sm compare-table">
  <thead>
  <tr class="bg-brandBlue text-white">
  <th class="p-4 text-left font-bold text-xs uppercase">Parameter</th>
  <th class="p-4 text-center font-bold text-xs uppercase">5V USB <br><span class="text-micro normal-case opacity-70">Entry-Level</span></th>
- <th class="p-4 text-center bg-brandOrange/20 font-bold text-xs uppercase">7.4V DC <br><span class="text-micro normal-case opacity-70">Most Popular</span></th>
+ <th class="p-4 text-center bg-brandOrange text-brandBlue font-bold text-xs uppercase">7.4V DC <br><span class="text-micro normal-case opacity-70">Most Popular</span></th>
  <th class="p-4 text-center font-bold text-xs uppercase">12V DC <br><span class="text-micro normal-case opacity-70">High Power</span></th>
  </tr>
  </thead>
@@ -495,11 +512,12 @@ plPath: "produkty/power-bank/bateria-grzejaca/"
 <!-- Battery Runtime Guide -->
 <section id="battery-runtime-guide" class="sec bg-slate-50 relative" data-section="comparison">
  <div class="container-wide">
+ <div class="text-center"><p class="section-label">Runtime</p></div>
  <h2 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4 text-center">How Long Does a <span class="text-brandOrange">Heated Jacket Battery</span> Last?</h2>
  <p class="text-center text-slate-500 text-sm max-w-3xl mx-auto mb-12">Runtime depends on battery capacity (Wh) and heat level selected. Formula: Runtime (hours) = Battery Energy (Wh) ÷ Power Draw (W). Here's what to expect from common configurations:</p>
 
  <div class="overflow-x-auto rounded-2xl border border-slate-200 shadow-sm bg-white max-w-4xl mx-auto">
- <table class="w-full text-sm">
+ <table class="w-full text-sm compare-table">
  <thead>
  <tr class="bg-brandBlue text-white">
  <th class="p-3 text-left font-bold text-xs uppercase">Battery (7.4V)</th>
@@ -555,6 +573,7 @@ plPath: "produkty/power-bank/bateria-grzejaca/"
 <!-- Wearable Battery Certifications -->
 <section id="wearable-battery-certifications" class="sec bg-white relative" data-section="trust">
  <div class="container-wide">
+ <div class="text-center"><p class="section-label">Certification</p></div>
  <h2 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4 text-center">Safety Certifications for <span class="text-brandOrange">Wearable Batteries</span></h2>
  <p class="text-center text-slate-500 text-sm max-w-3xl mx-auto mb-12">Wearable heating batteries sit against the body for hours — certification isn't optional. The 2026 Fieldsheer heated socks lawsuit underscores why brands must source from certified manufacturers. WOWOHCOOL batteries ship with full documentation for every major market.</p>
 
@@ -586,6 +605,12 @@ plPath: "produkty/power-bank/bateria-grzejaca/"
  </div>
  </div>
 </section>
+
+{% set rangeLabel = "heating battery" %}
+{% include "partials/subpage-commercial-support.njk" %}
+{% include "partials/case-strip.njk" %}
+
+
 
 <!-- FAQ -->
 <section id="faq" class="sec bg-slate-50" data-section="faq">

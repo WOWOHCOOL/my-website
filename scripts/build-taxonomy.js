@@ -43,6 +43,11 @@ function toCatalog(t) {
         name: c.lang[lang].name,
         subtitle: c.lang[lang].subtitle || '',
         more: c.lang[lang].more,
+        // 总页横带主图（图片跨语言共用；alt 按语言解析，缺省回落到 en；
+        // 整个对象缺省时模板回落到首个子系列的 img）
+        bandImg: c.bandImg
+          ? { ...c.bandImg, alt: (c.bandImg.alt && (c.bandImg.alt[lang] || c.bandImg.alt.en)) || '' }
+          : null,
         // 总页卡片顺序 = order.catalog
         families: c.families
           .slice()

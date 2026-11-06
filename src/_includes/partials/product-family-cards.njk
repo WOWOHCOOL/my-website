@@ -18,18 +18,13 @@
      所以六语言显示同一个数（以 EN 为准）。
   ⚠️ 卡片整体是 <a>，不要再在里面嵌链接。
 #}
+{% from "partials/section-header.njk" import sectionHeader with context %}
 {%- set L = lang or 'en' -%}
 {%- set pg = productFamilies[L][category] -%}
 {%- if pg and pg.families and pg.families.length -%}
 <section id="{{ pg.sectionId }}" class="sec bg-white" data-section="products">
  <div class="container-wide">
-  {%- if pg.eyebrow %}
-  <p class="model-section-eyebrow">{{ pg.eyebrow }}</p>
-  {%- endif %}
-  <h2 class="model-section-title">{{ pg.h2 | safe }}</h2>
-  {%- if pg.intro %}
-  <p class="model-section-intro">{{ pg.intro }}</p>
-  {%- endif %}
+  {{ sectionHeader(pg.eyebrow, pg.h2, pg.intro, {max: '', mb: 'mb-12'}) }}
 
   <div class="family-grid">
    {%- for f in pg.families %}

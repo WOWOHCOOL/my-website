@@ -108,7 +108,7 @@ plPath: "produkty/ladowarka-bezprzewodowa/stacja-3-w-1/"
           "name": "What is the difference between the 15W and 25W models?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "15W models (WOW82, WOW90, WOW93, WOW98, WOW83, WOW91) use Qi2 MPP standard for iPhone 12-16 and Android Qi2 devices. 25W models (WOW122, WOW133, WOW125, WOW115, WOW10, WOW18, WOW19) use Qi v2.2.1 extended power profile for Pixel 10, Galaxy S25, and iPhone 16. All 25W models include active cooling (fan or TEC semiconductor) to maintain sustained max-speed output without thermal throttling."
+            "text": "15W models (WOW82, WOW90, WOW93, WOW98, WOW83, WOW91, WOWCBT20Q) use Qi2 MPP standard for iPhone 12-16 and Android Qi2 devices. 25W models (WOW122, WOW133, WOW125, WOW115, WOW10, WOW18, WOW19, WOWSCQ10) use Qi v2.2.1 extended power profile for Pixel 10, Galaxy S25, and iPhone 16. All 25W models include active cooling (fan or TEC semiconductor) to maintain sustained max-speed output without thermal throttling."
           }
         },
         {
@@ -287,7 +287,7 @@ plPath: "produkty/ladowarka-bezprzewodowa/stacja-3-w-1/"
  <div class="card-soft p-4"><p class="text-2xl font-black text-brandBlue">25W</p><p class="text-micro uppercase tracking-widest text-slate-500 font-bold">Max Output</p></div>
  <div class="card-soft p-4"><p class="text-2xl font-black text-brandOrangeDeep">12%</p><p class="text-micro uppercase tracking-widest text-slate-500 font-bold">Triple-Device Users</p></div>
  <div class="card-soft p-4"><p class="text-2xl font-black text-brandBlue">281M</p><p class="text-micro uppercase tracking-widest text-slate-500 font-bold">Apple Watches Sold</p></div>
- <div class="card-soft p-4"><p class="text-2xl font-black text-brandOrangeDeep">13</p><p class="text-micro uppercase tracking-widest text-slate-500 font-bold">Models</p></div>
+ <div class="card-soft p-4"><p class="text-2xl font-black text-brandOrangeDeep">{{ 'wireless-charger' | productFamilyModelCount('3-in-1-station') }}</p><p class="text-micro uppercase tracking-widest text-slate-500 font-bold">Models</p></div>
  <div class="card-soft p-4"><p class="text-2xl font-black text-brandBlue">500</p><p class="text-micro uppercase tracking-widest text-slate-500 font-bold">MOQ</p></div>
  </div>
 
@@ -307,6 +307,8 @@ plPath: "produkty/ladowarka-bezprzewodowa/stacja-3-w-1/"
 {% set family = "products/wireless-charger/3-in-1-station" %}
 {#- 型号卡：六语言共用模板（2026-10-29）。数据 src/_products/*.json -#}
 {% include "partials/product-models.njk" %}
+{% set compareFamily = family %}
+{% include "partials/model-compare.njk" %}
 
 <!-- Divider -->
 <div class="relative w-full">
@@ -317,7 +319,8 @@ plPath: "produkty/ladowarka-bezprzewodowa/stacja-3-w-1/"
 <!-- What Is a 3-in-1 Wireless Charging Station -->
 <section id="what-is-a-3-in-1-wireless-charging-station" class="sec bg-white relative" data-section="content">
  <div class="container-wide">
- <h2 class="section-title text-center">What Is a 3-in-1 Wireless Charging Station?</h2>
+ <div class="text-center"><p class="section-label">Technology</p></div>
+ <h2 class="section-title text-center">What Is a <span class="text-brandOrange">3-in-1 Wireless Charging Station</span>?</h2>
  <p class="text-center text-slate-500 text-sm max-w-3xl mx-auto mb-8">A 3-in-1 wireless charging station simultaneously powers three devices — phone, smartwatch, and earbuds — from a single desktop dock. Built around the Qi2 MPP (Magnetic Power Profile) standard with N52H neodymium magnets, modern 3-in-1 stations deliver 15W-25W fast charging with perfect magnetic alignment. For B2B buyers, the 3-in-1 category commands the <strong>highest ASP in wireless charging</strong> ($50-150 retail), accounting for 18-25% of unit volume but 40-50% of category revenue.</p>
 
  <blockquote class="max-w-3xl mx-auto mb-12 bg-brandOrange/5 border-l-4 border-brandOrange rounded-r-xl px-6 py-5 text-sm text-slate-700 italic leading-relaxed">
@@ -348,16 +351,17 @@ plPath: "produkty/ladowarka-bezprzewodowa/stacja-3-w-1/"
 <!-- 3-in-1 vs Other Form Factors -->
 <section id="station-3-in-1-vs-other-form-factors" class="sec bg-slate-50 relative" data-section="comparison">
  <div class="container-wide">
+ <div class="text-center"><p class="section-label">Comparison</p></div>
  <h2 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4 text-center">3-in-1 vs. <span class="text-brandOrange">Single Pad</span> — B2B Buyer's Guide</h2>
  <p class="text-center text-slate-500 text-sm max-w-3xl mx-auto mb-12">Not all wireless chargers serve the same buyer. Here's how to choose the right form factor for your distribution channel.</p>
 
  <div class="overflow-x-auto rounded-2xl border border-slate-200 shadow-sm bg-white">
- <table class="w-full text-sm">
+ <table class="w-full text-sm compare-table">
  <thead>
  <tr class="bg-brandBlue text-white">
  <th class="p-4 text-left font-bold text-xs uppercase">Parameter</th>
  <th class="p-4 text-center font-bold text-xs uppercase">Single Pad <br><span class="text-micro normal-case opacity-70">Desktop</span></th>
- <th class="p-4 text-center bg-brandOrange/20 font-bold text-xs uppercase">3-in-1 Station <br><span class="text-micro normal-case opacity-70">WOWOHCOOL</span></th>
+ <th class="p-4 text-center bg-brandOrange text-brandBlue font-bold text-xs uppercase">3-in-1 Station <br><span class="text-micro normal-case opacity-70">WOWOHCOOL</span></th>
  <th class="p-4 text-center font-bold text-xs uppercase">2-in-1 <br><span class="text-micro normal-case opacity-70">Phone + Watch</span></th>
  </tr>
  </thead>
@@ -367,7 +371,7 @@ plPath: "produkty/ladowarka-bezprzewodowa/stacja-3-w-1/"
  <tr class="border-t border-slate-100"><td class="p-4 text-slate-700 font-semibold">Retail ASP</td><td class="p-4 text-center text-slate-600">$15-40</td><td class="p-4 text-center bg-brandOrange/5 border-x border-brandOrange/20 font-bold text-slate-900">$50-150</td><td class="p-4 text-center text-slate-600">$30-80</td></tr>
  <tr class="border-t border-slate-100"><td class="p-4 text-slate-700 font-semibold">Best Channel</td><td class="p-4 text-center text-slate-600">Amazon FBA, promo</td><td class="p-4 text-center bg-brandOrange/5 border-x border-brandOrange/20 font-bold text-slate-900">Retail, hospitality, brand</td><td class="p-4 text-center text-slate-600">Mid-tier retail</td></tr>
  <tr class="border-t border-slate-100"><td class="p-4 text-slate-700 font-semibold">Buyer Intent</td><td class="p-4 text-center text-slate-600">Price-driven</td><td class="p-4 text-center bg-brandOrange/5 border-x border-brandOrange/20 font-bold text-slate-900">Feature-driven, premium</td><td class="p-4 text-center text-slate-600">Compromise</td></tr>
- <tr class="border-t border-slate-100"><td class="p-4 text-slate-700 font-semibold">WOWOHCOOL Models</td><td class="p-4 text-center text-slate-600">3 (desktop line)</td><td class="p-4 text-center bg-brandOrange/5 border-x border-brandOrange/20 font-bold text-slate-900">13</td><td class="p-4 text-center text-slate-600">—</td></tr>
+ <tr class="border-t border-slate-100"><td class="p-4 text-slate-700 font-semibold">WOWOHCOOL Models</td><td class="p-4 text-center text-slate-600">3 (desktop line)</td><td class="p-4 text-center bg-brandOrange/5 border-x border-brandOrange/20 font-bold text-slate-900">{{ 'wireless-charger' | productFamilyModelCount('3-in-1-station') }}</td><td class="p-4 text-center text-slate-600">—</td></tr>
  </tbody>
  </table>
  </div>
@@ -375,16 +379,55 @@ plPath: "produkty/ladowarka-bezprzewodowa/stacja-3-w-1/"
  </div>
 </section>
 
+<!-- Who Buys 3-in-1 Charging Stations -->
+<section id="who-buys-3-in-1-charging-stations" class="sec bg-white relative" data-section="content">
+ <div class="container-wide">
+ <div class="text-center"><p class="section-label">Applications</p></div>
+ <h2 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4 text-center">Who Buys <span class="text-brandOrange">3-in-1 Stations</span> in Bulk</h2>
+ <p class="text-center text-slate-500 text-sm max-w-3xl mx-auto mb-12">Four B2B buyer profiles that consistently order 3-in-1 charging stations at volume — each with distinct requirements and unit economics.</p>
+
+ <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
+ <div class="card-soft p-5">
+ <p class="font-black text-slate-900 text-sm mb-1">Amazon & E-commerce Sellers</p>
+ <p class="text-xs text-slate-500">Targeting "3-in-1 wireless charger" (20-40K/mo searches). Private label with custom packaging. Premium models (WOW93, WOW115) for sub-$80 listings with 30-40% margins.</p>
+ </div>
+ <div class="card-soft p-5">
+ <p class="font-black text-slate-900 text-sm mb-1">Hotel & Hospitality Groups</p>
+ <p class="text-xs text-slate-500">17.5M rooms globally. WOW90 zinc alloy + WOW18 night-light = guest-room standard. Marriott/Hilton/IHG deploying wireless charging fleet-wide in 2026.</p>
+ </div>
+ <div class="card-soft p-5">
+ <p class="font-black text-slate-900 text-sm mb-1">Corporate Gift & Promo Buyers</p>
+ <p class="text-xs text-slate-500">Custom logo, premium unboxing. Zinc alloy (WOW90) and wine glass (WOW19) designs win C-suite gifting. MOQ 500 with full CMF customization.</p>
+ </div>
+ <div class="card-soft p-5">
+ <p class="font-black text-slate-900 text-sm mb-1">Consumer Tech Brands</p>
+ <p class="text-xs text-slate-500">ODM with exclusive enclosure design. 50+ R&D engineers for custom PCB and firmware. Bosch and Jacob Jensen are existing WOWOHCOOL enterprise clients.</p>
+ </div>
+ </div>
+
+ <div class="bg-brandBlue/5 rounded-2xl p-8 border border-brandBlue/10 max-w-5xl mx-auto text-center">
+ <p class="text-sm text-slate-700 leading-relaxed mb-4">These buyers share one requirement: a factory that delivers consistent quality, full certification, and on-time shipping. WOWOHCOOL's 5,000m² ISO 9001 facility has served 200+ global brands since 2013 — with 4-stage QC and 100% aging test on every unit.</p>
+ <a href="#products" class="btn-more">Browse {{ 'wireless-charger' | productFamilyModelCount('3-in-1-station') }} 3-in-1 Models →</a>
+ </div>
+
+ <blockquote class="max-w-3xl mx-auto mt-8 bg-brandOrange/5 border-l-4 border-brandOrange rounded-r-xl px-6 py-5 text-sm text-slate-700 italic leading-relaxed">
+  <p>"The global hospitality technology market is projected to grow from $129.4 billion in 2025 to $306.1 billion by 2033 at a 10.2% CAGR (Dimension Market Research). Major chains — including Marriott, Hilton, and IHG — are deploying wireless charging amenities fleet-wide in 2026 as a standard guest-room feature. On the consumer side, 12% of iPhone users own all three devices (iPhone + Apple Watch + AirPods), creating a core addressable market of approximately 170 million 'Triple Threat' users worldwide (CIRP / AppleInsider). 3-in-1 stations capture 40-50% of wireless charger category revenue despite only 18-25% of unit volume — the highest-margin form factor in the $6.78B wireless charger market (Grand View Research)."</p>
+  <cite class="block text-xs text-slate-400 mt-2 not-italic">— <a href="https://dimensionmarketresearch.com/report/hospitality-technology-market/" target="_blank" rel="noopener noreferrer" class="text-brandOrange hover:underline">Dimension Market Research</a>, Hospitality Technology Market 2025-2033; <a href="https://appleinsider.com/articles/24/09/18/apple-watch-airpods-play-a-bigger-role-in-apples-ecosystem-than-you-think" target="_blank" rel="noopener noreferrer" class="text-brandOrange hover:underline">CIRP / AppleInsider</a>, Apple Ecosystem Ownership Data 2024; <a href="https://www.grandviewresearch.com/industry-analysis/wireless-charger-market-report" target="_blank" rel="noopener noreferrer" class="text-brandOrange hover:underline">Grand View Research</a>, Wireless Charger Market Report 2025-2030</cite>
+ </blockquote>
+ </div>
+</section>
+
 <!-- Why Choose 3-in-1 for Your Brand -->
 <section id="why-choose-3-in-1-for-your-brand" class="sec bg-slate-50 relative" data-section="content">
  <div class="container-wide">
+ <div class="text-center"><p class="section-label">Why WOWOHCOOL</p></div>
  <h2 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4 text-center">Why Choose <span class="text-brandOrange">3-in-1 Stations</span> for Your Brand</h2>
  <p class="text-center text-slate-500 text-sm max-w-2xl mx-auto mb-12">The 3-in-1 category offers B2B buyers the strongest combination of margin, differentiation, and market growth in wireless charging.</p>
 
  <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
  <div class="card p-6 shadow-sm">
  <h3 class="font-black text-brandBlue uppercase mb-3 text-sm">{{ "wireless-charger" | productFamilyModelCount("3-in-1-station") }} Models — Widest B2B Selection</h3>
- <p class="text-sm text-slate-600 leading-relaxed">From slim foldable travel docks to heavy-duty zinc alloy hotel stations. Most competitors offer 3-{{ "wireless-charger" | productFamilyModelCount("3-in-1-station") }} models. Our 13-SKU lineup covers every channel and price tier.</p>
+ <p class="text-sm text-slate-600 leading-relaxed">From slim foldable travel docks to heavy-duty zinc alloy hotel stations. Most competitors offer 3-{{ "wireless-charger" | productFamilyModelCount("3-in-1-station") }} models. Our {{ "wireless-charger" | productFamilyModelCount("3-in-1-station") }}-SKU lineup covers every channel and price tier.</p>
  </div>
  <div class="card p-6 shadow-sm">
  <h3 class="font-black text-brandBlue uppercase mb-3 text-sm">TEC & Air Cooling — 25W Exclusive</h3>
@@ -410,72 +453,46 @@ plPath: "produkty/ladowarka-bezprzewodowa/stacja-3-w-1/"
  </div>
 </section>
 
-<!-- Who Buys 3-in-1 Charging Stations -->
-<section id="who-buys-3-in-1-charging-stations" class="sec bg-white relative" data-section="content">
- <div class="container-wide">
- <h2 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4 text-center">Who Buys <span class="text-brandOrange">3-in-1 Stations</span> in Bulk</h2>
- <p class="text-center text-slate-500 text-sm max-w-3xl mx-auto mb-12">Four B2B buyer profiles that consistently order 3-in-1 charging stations at volume — each with distinct requirements and unit economics.</p>
-
- <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
- <div class="card-soft p-5">
- <p class="font-black text-slate-900 text-sm mb-1">Amazon & E-commerce Sellers</p>
- <p class="text-xs text-slate-500">Targeting "3-in-1 wireless charger" (20-40K/mo searches). Private label with custom packaging. Premium models (WOW93, WOW115) for sub-$80 listings with 30-40% margins.</p>
- </div>
- <div class="card-soft p-5">
- <p class="font-black text-slate-900 text-sm mb-1">Hotel & Hospitality Groups</p>
- <p class="text-xs text-slate-500">17.5M rooms globally. WOW90 zinc alloy + WOW18 night-light = guest-room standard. Marriott/Hilton/IHG deploying wireless charging fleet-wide in 2026.</p>
- </div>
- <div class="card-soft p-5">
- <p class="font-black text-slate-900 text-sm mb-1">Corporate Gift & Promo Buyers</p>
- <p class="text-xs text-slate-500">Custom logo, premium unboxing. Zinc alloy (WOW90) and wine glass (WOW19) designs win C-suite gifting. MOQ 500 with full CMF customization.</p>
- </div>
- <div class="card-soft p-5">
- <p class="font-black text-slate-900 text-sm mb-1">Consumer Tech Brands</p>
- <p class="text-xs text-slate-500">ODM with exclusive enclosure design. 50+ R&D engineers for custom PCB and firmware. Bosch and Jacob Jensen are existing WOWOHCOOL enterprise clients.</p>
- </div>
- </div>
-
- <div class="bg-brandBlue/5 rounded-2xl p-8 border border-brandBlue/10 max-w-5xl mx-auto text-center">
- <p class="text-sm text-slate-700 leading-relaxed mb-4">These buyers share one requirement: a factory that delivers consistent quality, full certification, and on-time shipping. WOWOHCOOL's 5,000m² ISO 9001 facility has served 200+ global brands since 2013 — with 4-stage QC and 100% aging test on every unit.</p>
- <a href="#products" class="btn-more">Browse 13 3-in-{{ 'wireless-charger' | productFamilyModelCount('3-in-1-station') }} Models →</a>
- </div>
-
- <blockquote class="max-w-3xl mx-auto mt-8 bg-brandOrange/5 border-l-4 border-brandOrange rounded-r-xl px-6 py-5 text-sm text-slate-700 italic leading-relaxed">
-  <p>"The global hospitality technology market is projected to grow from $129.4 billion in 2025 to $306.1 billion by 2033 at a 10.2% CAGR (Dimension Market Research). Major chains — including Marriott, Hilton, and IHG — are deploying wireless charging amenities fleet-wide in 2026 as a standard guest-room feature. On the consumer side, 12% of iPhone users own all three devices (iPhone + Apple Watch + AirPods), creating a core addressable market of approximately 170 million 'Triple Threat' users worldwide (CIRP / AppleInsider). 3-in-1 stations capture 40-50% of wireless charger category revenue despite only 18-25% of unit volume — the highest-margin form factor in the $6.78B wireless charger market (Grand View Research)."</p>
-  <cite class="block text-xs text-slate-400 mt-2 not-italic">— <a href="https://dimensionmarketresearch.com/report/hospitality-technology-market/" target="_blank" rel="noopener noreferrer" class="text-brandOrange hover:underline">Dimension Market Research</a>, Hospitality Technology Market 2025-2033; <a href="https://appleinsider.com/articles/24/09/18/apple-watch-airpods-play-a-bigger-role-in-apples-ecosystem-than-you-think" target="_blank" rel="noopener noreferrer" class="text-brandOrange hover:underline">CIRP / AppleInsider</a>, Apple Ecosystem Ownership Data 2024; <a href="https://www.grandviewresearch.com/industry-analysis/wireless-charger-market-report" target="_blank" rel="noopener noreferrer" class="text-brandOrange hover:underline">Grand View Research</a>, Wireless Charger Market Report 2025-2030</cite>
- </blockquote>
- </div>
-</section>
-
 <!-- OEM/ODM Customization -->
 <section id="oem-odm-customization" class="sec bg-white relative" data-section="content">
  <div class="container-wide">
- <h2 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4 text-center">OEM/ODM Customization</h2>
+ <div class="text-center"><p class="section-label">Customization</p></div>
+ <h2 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4 text-center">OEM/ODM <span class="text-brandOrange">Customization</span></h2>
  <p class="text-center text-slate-500 text-sm max-w-2xl mx-auto mb-12">Full 3-in-1 station customization — from logo printing to exclusive industrial design. MOQ flexible by complexity.</p>
 
- <div class="grid md:grid-cols-2 gap-8">
- <div class="card-soft p-6">
- <h3 class="font-black text-brandBlue uppercase mb-4 text-sm">OEM (Standard Models, MOQ 500)</h3>
- <ul class="space-y-2 text-sm text-slate-600">
- <li>• Logo printing (silkscreen, laser, UV)</li>
- <li>• Color customization (Pantone matching)</li>
- <li>• Custom packaging with brand artwork</li>
- <li>• Multi-language user manuals</li>
- <li>• Custom cable and adapter bundling</li>
- <li>• Lead time: 25-30 days after sample approval</li>
- </ul>
- </div>
- <div class="card-soft p-6">
- <h3 class="font-black text-brandBlue uppercase mb-4 text-sm">ODM (Custom Design, MOQ 2,000)</h3>
- <ul class="space-y-2 text-sm text-slate-600">
- <li>• Bespoke ID design (CMF: Color, Material, Finish)</li>
- <li>• Custom enclosure tooling (ABS, zinc alloy, aluminum)</li>
- <li>• Power configuration tuning (15W / 25W)</li>
- <li>• Cooling method selection (passive / fan / TEC)</li>
- <li>• Exclusive feature integration (display, night light, detachable)</li>
- <li>• Lead time: 45-60 days including tooling</li>
- </ul>
- </div>
+  <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 cap-grid">
+  <article class="cap-tile reveal">
+   <h3 class="text-base font-black text-brandBlue uppercase italic mb-3">ODM Stock · MOQ 500</h3>
+   <ul class="cap-list">
+     <li>Choose from existing models and form factors</li>
+     <li>Logo printing (silkscreen, laser, UV)</li>
+     <li>Pantone color matching</li>
+     <li>Stock packaging with logo print</li>
+     <li>Lead time: 3–7 days sampling · 25–35 days production</li>
+   </ul>
+  </article>
+  <article class="cap-tile reveal">
+   <h3 class="text-base font-black text-brandBlue uppercase italic mb-3">ODM Development · MOQ 1,000–2,000</h3>
+   <ul class="cap-list">
+     <li>Custom packaging with brand artwork</li>
+     <li>Multi-language manuals, insert cards and warranty leaflets</li>
+     <li>Platform-adapted tooling (no new mold)</li>
+     <li>Power configuration: 15W / 25W Qi2</li>
+     <li>Cooling method selection (passive / fan / TEC)</li>
+     <li>Lead time: 25–45 days design · 35–50 days production</li>
+   </ul>
+  </article>
+  <article class="cap-tile reveal">
+   <h3 class="text-base font-black text-brandBlue uppercase italic mb-3">OEM · MOQ 3,000+</h3>
+   <ul class="cap-list">
+     <li>Client-owned design and CMF</li>
+     <li>New mold and full tooling</li>
+     <li>Power configuration: 15W / 25W Qi2</li>
+     <li>Cooling method selection (passive / fan / TEC)</li>
+     <li>Certification support for target markets</li>
+     <li>Lead time: 30–60 days production · 2–4 months with new tooling</li>
+   </ul>
+  </article>
  </div>
 
  <div class="text-center mt-10">
@@ -486,6 +503,15 @@ plPath: "produkty/ladowarka-bezprzewodowa/stacja-3-w-1/"
  </div>
 </section>
 
+{% set certProfile = "wireless" %}
+{% include "partials/market-certifications.njk" %}
+
+{% set rangeLabel = "3-in-1 charging station" %}
+{% include "partials/subpage-commercial-support.njk" %}
+{% include "partials/case-strip.njk" %}
+
+
+
 <!-- FAQ -->
 <section id="faq" class="sec bg-slate-50" data-section="faq">
  <div class="container-narrow">
@@ -493,7 +519,7 @@ plPath: "produkty/ladowarka-bezprzewodowa/stacja-3-w-1/"
  <div class="reveal">
  {% call faqItem("What is the MOQ for 3-in-1 wireless charging stations?", true) %}Standard ODM models with custom logo: MOQ <strong>500 units</strong>. ODM new-design development: <strong>1,000-2,000 units</strong>. OEM with new tooling: <strong>3,000+ units</strong>. Sample turnaround: 3-7 days.{% endcall %}
  {% call faqItem("Do your 3-in-1 chargers support Samsung and Apple devices simultaneously?", true) %}Yes. Our 3-in-1 charging docks support simultaneous fast charging for iPhone (15W/25W Qi2 MPP) or Samsung Galaxy (15W Qi), Apple Watch (2.5-5W), and AirPods/TWS (5W). Qi2 universal standard means both ecosystems charge at full speed without MFi licensing fees.{% endcall %}
- {% call faqItem("What is the difference between the 15W and 25W models?", true) %}15W models (WOW82, WOW90, WOW93, WOW98, WOW83, WOW91) use Qi2 MPP standard for iPhone 12-16 and Android Qi2 devices. <strong>25W models (WOW122, WOW133, WOW125, WOW115, WOW10, WOW18, WOW19)</strong> use Qi v2.2.1 extended power profile for Pixel 10, Galaxy S25, and iPhone 16. All 25W models include active cooling (fan or TEC semiconductor) to maintain sustained max-speed output without thermal throttling.{% endcall %}
+ {% call faqItem("What is the difference between the 15W and 25W models?", true) %}15W models (WOW82, WOW90, WOW93, WOW98, WOW83, WOW91, WOWCBT20Q) use Qi2 MPP standard for iPhone 12-16 and Android Qi2 devices. <strong>25W models (WOW122, WOW133, WOW125, WOW115, WOW10, WOW18, WOW19, WOWSCQ10)</strong> use Qi v2.2.1 extended power profile for Pixel 10, Galaxy S25, and iPhone 16. All 25W models include active cooling (fan or TEC semiconductor) to maintain sustained max-speed output without thermal throttling.{% endcall %}
  {% call faqItem("What certifications do your 3-in-1 stations have?") %}All models are WPC Qi2 certified, CE (EMC + Low Voltage Directive) for EU, FCC Part 15 for US, and RoHS compliant. Qi2 certification means 99.2% ATL (Authorized Test Lab) pass rate — each model passes magnetic alignment accuracy and power delivery consistency testing. Full certification documentation provided with every OEM order.{% endcall %}
  {% call faqItem("Can I get custom colors and materials for 3-in-1 stations?") %}Yes. Full CMF (Color/Material/Finish) customization for OEM/ODM orders: aluminum alloy, zinc alloy, ABS+PC in custom Pantone-matched colors, glass surfaces, and silicone finishes. Custom packaging and logo printing included. MOQ 2,000 for full CMF; 500 for logo-only OEM.{% endcall %}
  {% call faqItem("Are your 3-in-1 stations suitable for hotel and hospitality use?") %}Yes. WOW90 (zinc alloy + night light), WOW18 (night-light cube), and WOW83 (detachable watch + acrylic light) are specifically designed for hotel bedside use. Durable construction, universal Qi2 compatibility, and bulk hospitality pricing from 1,000+ units with custom engraving. 17.5M hotel rooms globally — hospitality tech market growing at 10.2% CAGR.{% endcall %}

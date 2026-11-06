@@ -1,0 +1,36 @@
+{#
+  Market certification table for EN product subpages.
+  Usage:
+    {% set certProfile = "power-bank" %}
+    {% include "partials/market-certifications.njk" %}
+  Profiles live in src/_data/certProfiles.js.
+#}
+{% from "partials/section-header.njk" import sectionHeader with context %}
+{%- set prof = certProfiles[certProfile] -%}
+{%- if prof -%}
+<section id="market-certifications" class="sec bg-white" data-section="content">
+ <div class="container-wide">
+  {{ sectionHeader('Certification', 'Certified for <span class="text-brandOrange">Your Market</span>', 'Standard files ship with every order; market-specific certification is quoted per project.', {max: '', mb: 'mb-12'}) }}
+  <div class="max-w-4xl mx-auto overflow-x-auto reveal rounded-xl border border-slate-200">
+   <table class="w-full text-sm border-collapse terms-table">
+    <caption class="sr-only">Certification by target market</caption>
+    <thead>
+     <tr class="bg-brandBlue text-white text-left">
+      <th scope="col" class="p-4 font-black w-1/4">Market</th>
+      <th scope="col" class="p-4 font-black">Standards</th>
+     </tr>
+    </thead>
+    <tbody>
+     {%- for row in prof.rows %}
+     <tr class="border-b border-slate-100 align-top{% if loop.index is even %} bg-slate-50{% endif %}">
+      <td class="p-4 font-bold text-brandBlue">{{ row.market }}</td>
+      <td class="p-4 text-slate-600">{{ row.standards }}</td>
+     </tr>
+     {%- endfor %}
+    </tbody>
+   </table>
+  </div>
+  <p class="text-xs text-slate-400 mt-4 text-center">{{ prof.note }}</p>
+ </div>
+</section>
+{%- endif -%}

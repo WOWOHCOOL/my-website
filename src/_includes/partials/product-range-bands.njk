@@ -1,92 +1,69 @@
 {#
-  产品线横带 · 六语言共用（2026-10-29 重构）
+  产品分类 Bento 展厅 · 六语言共用（2026-11-05 重构）
   ────────────────────────────────────────────────────────────
-  数据源：src/_taxonomy/taxonomy.json → 由 scripts/build-taxonomy.js 生成 productCatalog.js
-         文案由各语言 L1 页**原样抽出**，本模板不含任何硬编码文案。
-         改文案 = 改 taxonomy.json 对应语言条目，再跑 node scripts/build-taxonomy.js，不要改本文件。
+  数据源：src/_taxonomy/taxonomy.json → scripts/build-taxonomy.js 生成 productCatalog.js
+         文案由各语言 L1 页原样抽出，本模板不含硬编码文案。
+         改文案 = 改 taxonomy.json 对应语言条目，再跑 node scripts/build-taxonomy.js。
 
-  结构：每条产品线一个全宽横带（媒体区 + 文字区，左右交替）
-        · 媒体区：该分类首个子系列的产品图（复用现有 srcset，只改 sizes）
-        · 文字区：h2 = 分类名（与重构前同数量、同层级）
-                  副标题 = 原 h2 内的 span 文案
-                  子系列列表（≥2 个时渲染，1 个时省略以免与 CTA 重复）
-                  CTA = 原有 "All N Models" 按钮
+  结构：3 列 Bento 网格（桌面）
+        · Power Bank（第一条）与 Car Charger（最后一条）跨 2 列
+        · 其余各占 1 列 → 两行各 3 个格位
+        · 每格：序号 + 品类名（H2 链接）+ 规格副标题 + 子类 chips + 型号数 + 主图
+        · 主图贴右下角，白底抠图与白卡无缝；不套圆形、不裁切产品
 
-  ⚠️ 保持 4 个 h2，子系列名用 span —— 不新增标题层级（validate-nonblog-headings 依赖）
   ⚠️ 保留 id="product-grid" 与 data-section="products"（校验器/JS 依赖）
-  ⚠️ 子系列 ≥2 才渲染列表：GaN / Car Charger 各只有 1 个子系列，且其 href 与分类 CTA 相同，
-     渲染出来就是重复链接。
+  ⚠️ H2 仍是 4 个品类名，数量和层级与重构前一致（validate-nonblog-headings 依赖）
+  ⚠️ 子系列 chips 只在 ≥2 个时渲染（GaN / Car 各 1 个，渲染会与标题重复）
 #}
 {%- set L = lang or 'en' -%}
 {%- set catalog = productCatalog[L] -%}
 {%- if catalog and catalog.ranges and catalog.ranges.length -%}
-<section id="product-grid" class="sec bg-white" data-section="products">
- <div class="container-wide">
-  {%- for r in catalog.ranges %}
+<section id="product-grid" class="sec bg-darkBg text-white dark-section relative overflow-hidden" data-section="products">
+ <div class="absolute inset-0 opacity-[0.03] pointer-events-none" aria-hidden="true">
+  <svg width="100%" height="100%"><pattern id="bentoGridPattern" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="white" stroke-width="1"/></pattern><rect width="100%" height="100%" fill="url(#bentoGridPattern)" /></svg>
+ </div>
+ <div class="container-wide relative z-10">
+  <div class="bento-grid">
+   {%- for r in catalog.ranges %}
 
-  {%- if r.more.hard -%}
+   {%- if r.more.hard -%}
     {%- set moreLabel = r.more.hard -%}
-  {%- elif r.more.filter == 'productCategoryModelCount' -%}
+   {%- elif r.more.filter == 'productCategoryModelCount' -%}
     {%- set moreLabel = r.more.before + (r.more.key | productCategoryModelCount) + r.more.after -%}
-  {%- else -%}
+   {%- else -%}
     {%- set moreLabel = r.more.before + (r.more.key | productCategoryItemCount) + r.more.after -%}
-  {%- endif -%}
+   {%- endif -%}
 
-  {%- set lead = r.families[0] -%}
-  {%- set leadN = r.more.key | productFamilyModelCount(lead.key) | string -%}
-  <article class="range-band reveal{% if loop.index % 2 == 0 %} range-band--flip{% endif %}">
-   <div class="range-media">
-    {%- if lead and lead.img and lead.img.src %}
-    <img src="{{ lead.img.src }}"
-     {%- if lead.img.srcset %} srcset="{{ lead.img.srcset }}"{% endif %}
-     sizes="(min-width: 1024px) 600px, (min-width: 768px) 88vw, 92vw"
-     alt="{{ lead.img.alt }}"
-     {%- if lead.img.width %} width="{{ lead.img.width }}"{% endif %}
-     {%- if lead.img.height %} height="{{ lead.img.height }}"{% endif %}
-     loading="lazy" decoding="async">
-    {%- endif %}
-   </div>
-   <div class="range-body">
-    <h2 class="range-title">{{ r.name }}</h2>
+   {%- set lead = r.families[0] -%}
+   {%- set band = r.bandImg or (lead.img if lead else null) -%}
+   <article class="bento-card{% if loop.first or loop.last %} bento-card--wide{% endif %}">
+    <span class="bento-index" aria-hidden="true">0{{ loop.index }}</span>
+    <h2 class="bento-title"><a class="bento-link" href="{{ r.href }}">{{ r.name | safe }}</a></h2>
     {%- if r.subtitle %}
-    <p class="range-sub">{{ r.subtitle }}</p>
-    {%- endif %}
-    {%- if r.families.length == 1 and lead.desc %}
-    {# 单子系列分类（GaN / Car Charger）：列表会与下方 CTA 指向同一 URL，
-       改为把该子系列已有的一句话描述作为引导句，避免重复链接也避免版面过空。 #}
-    <p class="range-lead">{{ lead.desc | replace('{N}', leadN) }}</p>
+    <p class="bento-sub">{{ r.subtitle }}</p>
     {%- endif %}
     {%- if r.families.length > 1 %}
-    <ul class="range-families">
+    <ul class="bento-chips">
      {%- for f in r.families %}
-     <li>
-      <a href="{{ f.href }}" class="range-family">
-       {%- if f.img and f.img.src %}
-       <span class="range-family-thumb{% if f.bg %} {{ f.bg }}{% endif %}">
-        <img src="{{ f.img.src }}" alt="{{ f.img.alt }}"
-         {%- if f.img.width %} width="{{ f.img.width }}"{% endif %}
-         {%- if f.img.height %} height="{{ f.img.height }}"{% endif %}
-         loading="lazy" decoding="async">
-       </span>
-       {%- endif %}
-       {%- set n = r.more.key | productFamilyModelCount(f.key) | string -%}
-       <span class="range-family-text">
-        <span class="range-family-name">{{ f.name }}</span>
-        {%- if f.desc %}
-        <span class="range-family-desc">{{ f.desc | replace('{N}', n) }}</span>
-        {%- endif %}
-       </span>
-      </a>
-     </li>
+     <li class="bento-chip">{{ f.name }}</li>
      {%- endfor %}
     </ul>
     {%- endif %}
-    <div class="range-cta">
-     <a href="{{ r.href }}" class="btn-more">{{ moreLabel }}</a>
+    <div class="bento-foot">
+     <span class="bento-count">{{ moreLabel }}</span>
     </div>
-   </div>
-  </article>
-  {%- endfor %}
+    {%- if band and band.src %}
+    <img class="bento-img" src="{{ band.src }}"
+     {%- if band.srcset %} srcset="{{ band.srcset }}"{% endif %}
+     sizes="(min-width: 1024px) 420px, (min-width: 768px) 46vw, 68vw"
+     alt="{{ band.alt }}"
+     {%- if band.width %} width="{{ band.width }}"{% endif %}
+     {%- if band.height %} height="{{ band.height }}"{% endif %}
+     loading="lazy" decoding="async">
+    {%- endif %}
+   </article>
+   {%- endfor %}
+  </div>
  </div>
 </section>
 {%- endif -%}

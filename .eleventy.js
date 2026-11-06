@@ -534,6 +534,27 @@ module.exports = function (eleventyConfig) {
     return t.replace(/\s+20\d\d$/, "").trim();
   });
 
+  // Model comparison column value: rows are [label, value, propertyID].
+  // Try property IDs in priority order, then exact labels.
+  eleventyConfig.addFilter("specValue", (rows, col) => {
+    if (!Array.isArray(rows) || !col) return "";
+    for (const key of col.keys || []) {
+      const row = rows.find((r) => r && r[2] === key);
+      if (row && row[1]) return row[1];
+    }
+    for (const label of col.labels || []) {
+      const row = rows.find((r) => r && r[0] === label);
+      if (row && row[1]) return row[1];
+    }
+    return "";
+  });
+
+  // Total models across all groups in a product family (car-charger has 2 groups).
+  eleventyConfig.addFilter("modelTotal", (fam) => {
+    if (!fam || !Array.isArray(fam.groups)) return 0;
+    return fam.groups.reduce((n, g) => n + (Array.isArray(g.models) ? g.models.length : 0), 0);
+  });
+
   // Build a srcset from the variants that actually exist on disk. Covers are
   // not uniform (some bases are 800px wide), so a hard-coded ladder would 404.
   eleventyConfig.addFilter("srcsetFor", (src, widths) => {

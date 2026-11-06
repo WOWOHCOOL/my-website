@@ -8,13 +8,20 @@ module.exports = {
   "ranges": [
    {
     "href": "/products/power-bank/",
-    "name": "Power Bank",
+    "name": "Power <span class=\"text-brandOrange\">Bank</span>",
     "subtitle": "Semi-Solid-State · PD 3.1 · Qi2",
     "more": {
      "before": "All ",
      "key": "power-bank",
      "filter": "productCategoryModelCount",
      "after": " Models →"
+    },
+    "bandImg": {
+     "src": "/image/product/power-bank/wop15-tft-3in1-power-bank.webp",
+     "srcset": "/image/product/power-bank/wop15-tft-3in1-power-bank-450w.webp 450w, /image/product/power-bank/wop15-tft-3in1-power-bank.webp 800w",
+     "alt": "3-in-1 magnetic power bank with TFT display, Apple Watch charging and wireless earbuds dock",
+     "width": 800,
+     "height": 800
     },
     "families": [
      {
@@ -111,13 +118,20 @@ module.exports = {
    },
    {
     "href": "/products/wireless-charger/",
-    "name": "Wireless Charger",
+    "name": "Wireless <span class=\"text-brandOrange\">Charger</span>",
     "subtitle": "Qi2 · 3-in-1 · Car Mount",
     "more": {
      "before": "All ",
      "key": "wireless-charger",
      "filter": "productCategoryModelCount",
      "after": " Models →"
+    },
+    "bandImg": {
+     "src": "/image/product/wireless-charger/wow18-nightlight-charger.webp",
+     "srcset": "/image/product/wireless-charger/wow18-nightlight-charger-450w.webp 450w, /image/product/wireless-charger/wow18-nightlight-charger.webp 800w",
+     "alt": "Qi2 15W magnetic wireless charging stand with nightlight",
+     "width": 800,
+     "height": 800
     },
     "families": [
      {
@@ -169,13 +183,20 @@ module.exports = {
    },
    {
     "href": "/products/gan-charger/",
-    "name": "GaN Charger",
+    "name": "GaN <span class=\"text-brandOrange\">Charger</span>",
     "subtitle": "GaN V · PD 3.1 · Multi-Port",
     "more": {
      "before": "All ",
      "key": "gan-charger",
      "filter": "productCategoryModelCount",
      "after": " Models →"
+    },
+    "bandImg": {
+     "src": "/image/product/gan-charger/wop30-30w-gan-power-strip-extension.webp",
+     "srcset": "/image/product/gan-charger/wop30-30w-gan-power-strip-extension-450w.webp 450w, /image/product/gan-charger/wop30-30w-gan-power-strip-extension.webp 800w",
+     "alt": "30W GaN power strip with USB-C ports and AC outlets",
+     "width": 800,
+     "height": 800
     },
     "families": [
      {
@@ -197,13 +218,20 @@ module.exports = {
    },
    {
     "href": "/products/car-charger/",
-    "name": "Car Charger",
+    "name": "Car <span class=\"text-brandOrange\">Charger</span>",
     "subtitle": "PD 3.1 · E-Mark · 12V/24V",
     "more": {
      "before": "All ",
      "key": "car-charger",
      "filter": "productCategoryModelCount",
      "after": " Models →"
+    },
+    "bandImg": {
+     "src": "/image/product/car-charger/woc92-retractable-car-charger-hub.webp",
+     "srcset": "/image/product/car-charger/woc92-retractable-car-charger-hub-450w.webp 450w, /image/product/car-charger/woc92-retractable-car-charger-hub.webp 800w",
+     "alt": "Retractable multi-port car charger hub with USB-C and 12V socket",
+     "width": 800,
+     "height": 800
     },
     "families": [
      {
@@ -236,6 +264,13 @@ module.exports = {
      "key": "power-bank",
      "filter": "productCategoryModelCount",
      "after": " Modelle →"
+    },
+    "bandImg": {
+     "src": "/image/product/power-bank/wop15-tft-3in1-power-bank.webp",
+     "srcset": "/image/product/power-bank/wop15-tft-3in1-power-bank-450w.webp 450w, /image/product/power-bank/wop15-tft-3in1-power-bank.webp 800w",
+     "alt": "3-in-1 Magnet-Powerbank mit TFT-Display, Apple-Watch-Ladefunktion und Dockingstation für kabellose Ohrhörer",
+     "width": 800,
+     "height": 800
     },
     "families": [
      {
@@ -340,6 +375,13 @@ module.exports = {
      "filter": "productCategoryModelCount",
      "after": " Modelle →"
     },
+    "bandImg": {
+     "src": "/image/product/wireless-charger/wow18-nightlight-charger.webp",
+     "srcset": "/image/product/wireless-charger/wow18-nightlight-charger-450w.webp 450w, /image/product/wireless-charger/wow18-nightlight-charger.webp 800w",
+     "alt": "Qi2 15W magnetische kabellose Ladestation mit Nachtlicht",
+     "width": 800,
+     "height": 800
+    },
     "families": [
      {
       "href": "/de/produkte/kabelloses-ladegeraet/desktop/",
@@ -398,6 +440,13 @@ module.exports = {
      "filter": "productCategoryModelCount",
      "after": " Modelle →"
     },
+    "bandImg": {
+     "src": "/image/product/gan-charger/wop30-30w-gan-power-strip-extension.webp",
+     "srcset": "/image/product/gan-charger/wop30-30w-gan-power-strip-extension-450w.webp 450w, /image/product/gan-charger/wop30-30w-gan-power-strip-extension.webp 800w",
+     "alt": "30W GaN-Steckdosenleiste mit USB-C-Anschlüssen und AC-Steckdosen",
+     "width": 800,
+     "height": 800
+    },
     "families": [
      {
       "href": "/de/produkte/gan-ladegeraet/",
@@ -425,6 +474,13 @@ module.exports = {
      "key": "car-charger",
      "filter": "productCategoryModelCount",
      "after": " Modelle →"
+    },
+    "bandImg": {
+     "src": "/image/product/car-charger/woc92-retractable-car-charger-hub.webp",
+     "srcset": "/image/product/car-charger/woc92-retractable-car-charger-hub-450w.webp 450w, /image/product/car-charger/woc92-retractable-car-charger-hub.webp 800w",
+     "alt": "Autoladegerät-Hub mit Kabelaufrollung, USB-C und 12V-Steckdose",
+     "width": 800,
+     "height": 800
     },
     "families": [
      {
@@ -457,6 +513,13 @@ module.exports = {
      "key": "power-bank",
      "filter": "productCategoryModelCount",
      "after": " modelos →"
+    },
+    "bandImg": {
+     "src": "/image/product/power-bank/wop15-tft-3in1-power-bank.webp",
+     "srcset": "/image/product/power-bank/wop15-tft-3in1-power-bank-450w.webp 450w, /image/product/power-bank/wop15-tft-3in1-power-bank.webp 800w",
+     "alt": "Power bank magnética 3 en 1 con pantalla TFT, carga para Apple Watch y base para auriculares inalámbricos",
+     "width": 800,
+     "height": 800
     },
     "families": [
      {
@@ -561,6 +624,13 @@ module.exports = {
      "filter": "productCategoryModelCount",
      "after": " modelos →"
     },
+    "bandImg": {
+     "src": "/image/product/wireless-charger/wow18-nightlight-charger.webp",
+     "srcset": "/image/product/wireless-charger/wow18-nightlight-charger-450w.webp 450w, /image/product/wireless-charger/wow18-nightlight-charger.webp 800w",
+     "alt": "Soporte de carga inalámbrica magnética Qi2 de 15W con luz nocturna",
+     "width": 800,
+     "height": 800
+    },
     "families": [
      {
       "href": "/es/productos/cargador-inalambrico/escritorio/",
@@ -619,6 +689,13 @@ module.exports = {
      "filter": "productCategoryModelCount",
      "after": " modelos →"
     },
+    "bandImg": {
+     "src": "/image/product/gan-charger/wop30-30w-gan-power-strip-extension.webp",
+     "srcset": "/image/product/gan-charger/wop30-30w-gan-power-strip-extension-450w.webp 450w, /image/product/gan-charger/wop30-30w-gan-power-strip-extension.webp 800w",
+     "alt": "Regleta GaN de 30W con puertos USB-C y tomas de CA",
+     "width": 800,
+     "height": 800
+    },
     "families": [
      {
       "href": "/es/productos/cargador-gan/",
@@ -646,6 +723,13 @@ module.exports = {
      "key": "car-charger",
      "filter": "productCategoryModelCount",
      "after": " modelos →"
+    },
+    "bandImg": {
+     "src": "/image/product/car-charger/woc92-retractable-car-charger-hub.webp",
+     "srcset": "/image/product/car-charger/woc92-retractable-car-charger-hub-450w.webp 450w, /image/product/car-charger/woc92-retractable-car-charger-hub.webp 800w",
+     "alt": "Hub cargador de coche multipuerto retráctil con USB-C y toma de 12V",
+     "width": 800,
+     "height": 800
     },
     "families": [
      {
@@ -678,6 +762,13 @@ module.exports = {
      "key": "power-bank",
      "filter": "productCategoryModelCount",
      "after": " modèles →"
+    },
+    "bandImg": {
+     "src": "/image/product/power-bank/wop15-tft-3in1-power-bank.webp",
+     "srcset": "/image/product/power-bank/wop15-tft-3in1-power-bank-450w.webp 450w, /image/product/power-bank/wop15-tft-3in1-power-bank.webp 800w",
+     "alt": "Batterie externe magnétique 3-en-1 avec écran TFT, charge Apple Watch et station pour écouteurs sans fil",
+     "width": 800,
+     "height": 800
     },
     "families": [
      {
@@ -782,6 +873,13 @@ module.exports = {
      "filter": "productCategoryModelCount",
      "after": " modèles →"
     },
+    "bandImg": {
+     "src": "/image/product/wireless-charger/wow18-nightlight-charger.webp",
+     "srcset": "/image/product/wireless-charger/wow18-nightlight-charger-450w.webp 450w, /image/product/wireless-charger/wow18-nightlight-charger.webp 800w",
+     "alt": "Station de charge sans fil magnétique Qi2 15W avec veilleuse",
+     "width": 800,
+     "height": 800
+    },
     "families": [
      {
       "href": "/fr/produits/chargeur-sans-fil/bureau/",
@@ -840,6 +938,13 @@ module.exports = {
      "filter": "productCategoryModelCount",
      "after": " modèles →"
     },
+    "bandImg": {
+     "src": "/image/product/gan-charger/wop30-30w-gan-power-strip-extension.webp",
+     "srcset": "/image/product/gan-charger/wop30-30w-gan-power-strip-extension-450w.webp 450w, /image/product/gan-charger/wop30-30w-gan-power-strip-extension.webp 800w",
+     "alt": "Multiprise GaN 30W avec ports USB-C et prises secteur",
+     "width": 800,
+     "height": 800
+    },
     "families": [
      {
       "href": "/fr/produits/chargeur-gan/",
@@ -867,6 +972,13 @@ module.exports = {
      "key": "car-charger",
      "filter": "productCategoryModelCount",
      "after": " modèles →"
+    },
+    "bandImg": {
+     "src": "/image/product/car-charger/woc92-retractable-car-charger-hub.webp",
+     "srcset": "/image/product/car-charger/woc92-retractable-car-charger-hub-450w.webp 450w, /image/product/car-charger/woc92-retractable-car-charger-hub.webp 800w",
+     "alt": "Hub chargeur de voiture multiport rétractable avec USB-C et prise 12V",
+     "width": 800,
+     "height": 800
     },
     "families": [
      {
@@ -899,6 +1011,13 @@ module.exports = {
      "key": "power-bank",
      "filter": "productCategoryModelCount",
      "after": " моделей →"
+    },
+    "bandImg": {
+     "src": "/image/product/power-bank/wop15-tft-3in1-power-bank.webp",
+     "srcset": "/image/product/power-bank/wop15-tft-3in1-power-bank-450w.webp 450w, /image/product/power-bank/wop15-tft-3in1-power-bank.webp 800w",
+     "alt": "Магнитный пауэрбанк 3-в-1 с TFT-дисплеем, зарядкой Apple Watch и док-станцией для наушников",
+     "width": 800,
+     "height": 800
     },
     "families": [
      {
@@ -1003,6 +1122,13 @@ module.exports = {
      "filter": "productCategoryModelCount",
      "after": " моделей →"
     },
+    "bandImg": {
+     "src": "/image/product/wireless-charger/wow18-nightlight-charger.webp",
+     "srcset": "/image/product/wireless-charger/wow18-nightlight-charger-450w.webp 450w, /image/product/wireless-charger/wow18-nightlight-charger.webp 800w",
+     "alt": "Магнитная беспроводная зарядная станция Qi2 15 Вт с ночником",
+     "width": 800,
+     "height": 800
+    },
     "families": [
      {
       "href": "/ru/produkty/besprovodnye-zaryadki/nastolnaya/",
@@ -1061,6 +1187,13 @@ module.exports = {
      "filter": "productCategoryModelCount",
      "after": " моделей →"
     },
+    "bandImg": {
+     "src": "/image/product/gan-charger/wop30-30w-gan-power-strip-extension.webp",
+     "srcset": "/image/product/gan-charger/wop30-30w-gan-power-strip-extension-450w.webp 450w, /image/product/gan-charger/wop30-30w-gan-power-strip-extension.webp 800w",
+     "alt": "GaN-удлинитель 30 Вт с портами USB-C и розетками переменного тока",
+     "width": 800,
+     "height": 800
+    },
     "families": [
      {
       "href": "/ru/produkty/gan-zaryadnye-ustroystva/",
@@ -1088,6 +1221,13 @@ module.exports = {
      "key": "car-charger",
      "filter": "productCategoryModelCount",
      "after": " моделей →"
+    },
+    "bandImg": {
+     "src": "/image/product/car-charger/woc92-retractable-car-charger-hub.webp",
+     "srcset": "/image/product/car-charger/woc92-retractable-car-charger-hub-450w.webp 450w, /image/product/car-charger/woc92-retractable-car-charger-hub.webp 800w",
+     "alt": "Автомобильный зарядный хаб с вытяжными кабелями, USB-C и розеткой 12 В",
+     "width": 800,
+     "height": 800
     },
     "families": [
      {
@@ -1120,6 +1260,13 @@ module.exports = {
      "key": "power-bank",
      "filter": "productCategoryModelCount",
      "after": " Modeli →"
+    },
+    "bandImg": {
+     "src": "/image/product/power-bank/wop15-tft-3in1-power-bank.webp",
+     "srcset": "/image/product/power-bank/wop15-tft-3in1-power-bank-450w.webp 450w, /image/product/power-bank/wop15-tft-3in1-power-bank.webp 800w",
+     "alt": "Magnetyczny power bank 3 w 1 z wyświetlaczem TFT, ładowaniem Apple Watch i stacją dla słuchawek",
+     "width": 800,
+     "height": 800
     },
     "families": [
      {
@@ -1224,6 +1371,13 @@ module.exports = {
      "filter": "productCategoryModelCount",
      "after": " Modeli →"
     },
+    "bandImg": {
+     "src": "/image/product/wireless-charger/wow18-nightlight-charger.webp",
+     "srcset": "/image/product/wireless-charger/wow18-nightlight-charger-450w.webp 450w, /image/product/wireless-charger/wow18-nightlight-charger.webp 800w",
+     "alt": "Magnetyczna stacja ładowania bezprzewodowego Qi2 15 W z lampką nocną",
+     "width": 800,
+     "height": 800
+    },
     "families": [
      {
       "href": "/pl/produkty/ladowarka-bezprzewodowa/biurkowa/",
@@ -1282,6 +1436,13 @@ module.exports = {
      "filter": "productCategoryModelCount",
      "after": " Modeli →"
     },
+    "bandImg": {
+     "src": "/image/product/gan-charger/wop30-30w-gan-power-strip-extension.webp",
+     "srcset": "/image/product/gan-charger/wop30-30w-gan-power-strip-extension-450w.webp 450w, /image/product/gan-charger/wop30-30w-gan-power-strip-extension.webp 800w",
+     "alt": "Listwa zasilająca GaN 30 W z portami USB-C i gniazdami AC",
+     "width": 800,
+     "height": 800
+    },
     "families": [
      {
       "href": "/pl/produkty/ladowarka-gan/",
@@ -1309,6 +1470,13 @@ module.exports = {
      "key": "car-charger",
      "filter": "productCategoryModelCount",
      "after": " Modeli →"
+    },
+    "bandImg": {
+     "src": "/image/product/car-charger/woc92-retractable-car-charger-hub.webp",
+     "srcset": "/image/product/car-charger/woc92-retractable-car-charger-hub-450w.webp 450w, /image/product/car-charger/woc92-retractable-car-charger-hub.webp 800w",
+     "alt": "Samochodowy hub ładowania z chowanymi kablami, USB-C i gniazdem 12 V",
+     "width": 800,
+     "height": 800
     },
     "families": [
      {

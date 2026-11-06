@@ -8,8 +8,8 @@ module.exports = {
   "products/power-bank": {
    "sectionId": "products",
    "eyebrow": "Product Range",
-   "h2": "Power Bank Categories",
-   "intro": "As a power bank manufacturer and supplier with 12 years of manufacturing experience, WOWOHCOOL offers 6 specialized product lines covering every B2B use case — from next-gen semi-solid-state batteries to heated apparel power solutions. Each category page includes full specs, certifications, and factory-direct pricing. Click any category below to request a quote.",
+   "h2": "Power Bank <span class=\"text-brandOrange\">Categories</span>",
+   "intro": "As a power bank manufacturer and supplier with 10+ years of manufacturing experience, WOWOHCOOL offers 6 specialized product lines covering every B2B use case — from next-gen semi-solid-state batteries to heated apparel power solutions. Each category page includes full specs, certifications, and factory-direct pricing. Click any category below to request a quote.",
    "linkLabel": "View Range →",
    "families": [
     {
@@ -119,7 +119,7 @@ module.exports = {
   "products/wireless-charger": {
    "sectionId": "categories",
    "eyebrow": "Product Matrix",
-   "h2": "3 Specialized Wireless Charger Lines",
+   "h2": "3 Specialized <span class=\"text-brandOrange\">Wireless Charger Lines</span>",
    "intro": "Industry-standard form-factor classification. Each line targets specific B2B buyer segments and use cases.",
    "linkLabel": "View Range →",
    "families": [
@@ -132,12 +132,12 @@ module.exports = {
      "meta": "{N} Models",
      "extra": "In Stock",
      "img": {
-      "src": "/image/product/wireless-charger/wow68-vertical-magnetic-3in1-desktop-15w.webp",
-      "srcset": "/image/product/wireless-charger/wow68-vertical-magnetic-3in1-desktop-15w-750w.webp 750w, /image/product/wireless-charger/wow68-vertical-magnetic-3in1-desktop-15w.webp 1100w",
+      "src": "/image/product/wireless-charger/wow40-led-minimalist-3in1-desktop-10w.webp",
+      "srcset": "/image/product/wireless-charger/wow40-led-minimalist-3in1-desktop-10w-450w.webp 450w, /image/product/wireless-charger/wow40-led-minimalist-3in1-desktop-10w.webp 800w",
       "sizes": "(min-width: 1440px) 526px, (min-width: 1280px) 526px, (min-width: 1024px) 398px, (min-width: 768px) 654px, (min-width: 430px) 382px, 327px",
-      "alt": "Desktop Qi2 Wireless Charger Vertical Magnetic Stand Pad",
-      "width": "1100",
-      "height": "1100"
+      "alt": "WOW40 LED minimalist 3-in-1 desktop wireless charger 10W",
+      "width": "800",
+      "height": "800"
      }
     },
     {
@@ -145,7 +145,7 @@ module.exports = {
      "key": "3-in-1-station",
      "name": "3-in-1 Charging Station",
      "desc": "iPhone + Apple Watch + AirPods simultaneous charging. {N} models: folding, zinc alloy, active cooling, wine glass design. Highest ASP segment ($50-150 retail).",
-     "badge": "",
+     "badge": "Qi2 Certified",
      "meta": "{N} Models",
      "extra": "15W-25W",
      "img": {
@@ -305,12 +305,12 @@ module.exports = {
      "meta": "{N} Modelle",
      "extra": "10-15W",
      "img": {
-      "src": "/image/product/wireless-charger/wow68-vertical-magnetic-3in1-desktop-15w.webp",
-      "srcset": "/image/product/wireless-charger/wow68-vertical-magnetic-3in1-desktop-15w-750w.webp 750w, /image/product/wireless-charger/wow68-vertical-magnetic-3in1-desktop-15w.webp 1100w",
+      "src": "/image/product/wireless-charger/wow40-led-minimalist-3in1-desktop-10w.webp",
+      "srcset": "/image/product/wireless-charger/wow40-led-minimalist-3in1-desktop-10w-450w.webp 450w, /image/product/wireless-charger/wow40-led-minimalist-3in1-desktop-10w.webp 800w",
       "sizes": "(min-width: 1440px) 526px, (min-width: 1280px) 526px, (min-width: 1024px) 398px, (min-width: 768px) 654px, (min-width: 430px) 382px, 327px",
-      "alt": "Desktop Qi2 Ladegerät Pad & Stand",
-      "width": "1100",
-      "height": "1100"
+      "alt": "WOW40 LED minimalistisches 3-in-1 Desktop-Ladegerät 10W",
+      "width": "800",
+      "height": "800"
      }
     },
     {
@@ -318,7 +318,7 @@ module.exports = {
      "key": "3-in-1-station",
      "name": "3-in-1 Ladestation",
      "desc": "Handy + Watch + AirPods. 40-50% Umsatzanteil. {N} Modelle, TEC-Kühlung, Zinklegierung.",
-     "badge": "",
+     "badge": "Qi2-zertifiziert",
      "meta": "{N} Modelle",
      "extra": "15-25W",
      "img": {
@@ -478,12 +478,12 @@ module.exports = {
      "meta": "{N} modelos",
      "extra": "En stock",
      "img": {
-      "src": "/image/product/wireless-charger/wow68-vertical-magnetic-3in1-desktop-15w.webp",
-      "srcset": "/image/product/wireless-charger/wow68-vertical-magnetic-3in1-desktop-15w-750w.webp 750w, /image/product/wireless-charger/wow68-vertical-magnetic-3in1-desktop-15w.webp 1100w",
+      "src": "/image/product/wireless-charger/wow40-led-minimalist-3in1-desktop-10w.webp",
+      "srcset": "/image/product/wireless-charger/wow40-led-minimalist-3in1-desktop-10w-450w.webp 450w, /image/product/wireless-charger/wow40-led-minimalist-3in1-desktop-10w.webp 800w",
       "sizes": "(min-width: 1440px) 526px, (min-width: 1280px) 526px, (min-width: 1024px) 398px, (min-width: 768px) 654px, (min-width: 430px) 382px, 327px",
-      "alt": "Cargador inalámbrico Qi2 de escritorio — soporte vertical magnético",
-      "width": "1100",
-      "height": "1100"
+      "alt": "Cargador inalámbrico de escritorio 3 en 1 LED minimalista WOW40 10W",
+      "width": "800",
+      "height": "800"
      }
     },
     {
@@ -491,7 +491,7 @@ module.exports = {
      "key": "3-in-1-station",
      "name": "Estación 3-en-1",
      "desc": "Carga simultánea iPhone + Apple Watch + AirPods. {N} modelos: plegable, aleación zinc, TEC, luz nocturna. Segmento de mayor precio (50-150€ retail).",
-     "badge": "",
+     "badge": "Certificado Qi2",
      "meta": "{N} modelos",
      "extra": "15W-25W",
      "img": {
@@ -651,12 +651,12 @@ module.exports = {
      "meta": "{N} modèles",
      "extra": "10-15W",
      "img": {
-      "src": "/image/product/wireless-charger/wow68-vertical-magnetic-3in1-desktop-15w.webp",
-      "srcset": "/image/product/wireless-charger/wow68-vertical-magnetic-3in1-desktop-15w-750w.webp 750w, /image/product/wireless-charger/wow68-vertical-magnetic-3in1-desktop-15w.webp 1100w",
+      "src": "/image/product/wireless-charger/wow40-led-minimalist-3in1-desktop-10w.webp",
+      "srcset": "/image/product/wireless-charger/wow40-led-minimalist-3in1-desktop-10w-450w.webp 450w, /image/product/wireless-charger/wow40-led-minimalist-3in1-desktop-10w.webp 800w",
       "sizes": "(min-width: 1440px) 526px, (min-width: 1280px) 526px, (min-width: 1024px) 398px, (min-width: 768px) 654px, (min-width: 430px) 382px, 327px",
-      "alt": "Chargeur sans fil bureau Qi2 pad et support",
-      "width": "1100",
-      "height": "1100"
+      "alt": "Chargeur sans fil de bureau 3-en-1 LED minimaliste WOW40 10W",
+      "width": "800",
+      "height": "800"
      }
     },
     {
@@ -664,7 +664,7 @@ module.exports = {
      "key": "3-in-1-station",
      "name": "Station 3-en-1",
      "desc": "Téléphone + Watch + AirPods. 40-50% du CA. {N} modèles, refroidissement TEC, alliage de zinc.",
-     "badge": "",
+     "badge": "Certifié Qi2",
      "meta": "{N} modèles",
      "extra": "15-25W",
      "img": {
@@ -824,12 +824,12 @@ module.exports = {
      "meta": "{N} модели",
      "extra": "В наличии",
      "img": {
-      "src": "/image/product/wireless-charger/wow68-vertical-magnetic-3in1-desktop-15w.webp",
-      "srcset": "/image/product/wireless-charger/wow68-vertical-magnetic-3in1-desktop-15w-750w.webp 750w, /image/product/wireless-charger/wow68-vertical-magnetic-3in1-desktop-15w.webp 1100w",
+      "src": "/image/product/wireless-charger/wow40-led-minimalist-3in1-desktop-10w.webp",
+      "srcset": "/image/product/wireless-charger/wow40-led-minimalist-3in1-desktop-10w-450w.webp 450w, /image/product/wireless-charger/wow40-led-minimalist-3in1-desktop-10w.webp 800w",
       "sizes": "(min-width: 1440px) 526px, (min-width: 1280px) 526px, (min-width: 1024px) 398px, (min-width: 768px) 654px, (min-width: 430px) 382px, 327px",
-      "alt": "Настольная беспроводная зарядка Qi2 — вертикальная магнитная подставка",
-      "width": "1100",
-      "height": "1100"
+      "alt": "Настольное беспроводное зарядное устройство WOW40 3-в-1 с LED 10 Вт",
+      "width": "800",
+      "height": "800"
      }
     },
     {
@@ -837,7 +837,7 @@ module.exports = {
      "key": "3-in-1-station",
      "name": "Станция 3-в-1",
      "desc": "Одновременная зарядка iPhone + Apple Watch + AirPods. {N} моделей: складные, цинковый сплав, TEC, ночная подсветка. Сегмент с самым высоким средним чеком в рознице.",
-     "badge": "",
+     "badge": "Сертификат Qi2",
      "meta": "{N} моделей",
      "extra": "15W-25W",
      "img": {
@@ -997,12 +997,12 @@ module.exports = {
      "meta": "3 Modele",
      "extra": "Dostępne",
      "img": {
-      "src": "/image/product/wireless-charger/wow68-vertical-magnetic-3in1-desktop-15w.webp",
-      "srcset": "/image/product/wireless-charger/wow68-vertical-magnetic-3in1-desktop-15w-750w.webp 750w, /image/product/wireless-charger/wow68-vertical-magnetic-3in1-desktop-15w.webp 1100w",
+      "src": "/image/product/wireless-charger/wow40-led-minimalist-3in1-desktop-10w.webp",
+      "srcset": "/image/product/wireless-charger/wow40-led-minimalist-3in1-desktop-10w-450w.webp 450w, /image/product/wireless-charger/wow40-led-minimalist-3in1-desktop-10w.webp 800w",
       "sizes": "(min-width: 1440px) 526px, (min-width: 1280px) 526px, (min-width: 1024px) 398px, (min-width: 768px) 654px, (min-width: 430px) 382px, 327px",
-      "alt": "Biurkowa Ładowarka Bezprzewodowa Qi2 — Pionowy Stojak Magnetyczny",
-      "width": "1100",
-      "height": "1100"
+      "alt": "Minimalistyczna ładowarka biurkowa 3 w 1 LED WOW40 10W",
+      "width": "800",
+      "height": "800"
      }
     },
     {
@@ -1010,7 +1010,7 @@ module.exports = {
      "key": "3-in-1-station",
      "name": "Stacja 3-w-1",
      "desc": "Jednoczesne ładowanie iPhone + Apple Watch + AirPods. {N} modeli: składane, stop cynku, aktywne chłodzenie, design kieliszka do wina. Segment o najwyższym ASP (250-750 zł w detalu).",
-     "badge": "",
+     "badge": "Certyfikat Qi2",
      "meta": "{N} Modeli",
      "extra": "15W-25W",
      "img": {

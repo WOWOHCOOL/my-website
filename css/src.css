@@ -1081,176 +1081,484 @@ body .group:hover .group-hover\:text-brandOrange { color: var(--brand-orange); }
      拿不到 `hover:text-white` 的白色，变成深蓝底 + 深蓝字（2026-09-17 实测踩过）。 */
 }
 
-/* ─── 产品线横带 .range-band（2026-10-29 重构，六语言共用）─────────────────
-   为什么改：原 /products/ 用固定 4 列网格装 6 / 3 / 1 / 1 张卡，
-            GaN 与 Car Charger 两行各 75% 是空白，而这两类各有 10 / 12 个型号。
-            改为「每条产品线一个全宽横带」后，子系列数量不再影响排版。
-   数据：src/_data/product-catalog.json（按 lang 取，文案原样来自各语言页面）
+/* ─── 产品分类 Bento 展厅 .bento-*（2026-11-05 重构，六语言共用）────────────
+   为什么改：四条全宽交替横带把 /products/ 拉到约 2000px，圆形画框又把矩形
+            产品缩小成“头像”。Bento 网格让 4 个品类在一屏内可比较，用跨列
+            表达主力品类（Power Bank / Car Charger 跨 2 列），产品图大且贴边。
+   数据：src/_data/productCatalog.js（bandImg / families / more）
    模板：src/_includes/partials/product-range-bands.njk
-   ⚠️ 刻意写在 @layer 之外：不参与 Tailwind tree-shake（@layer components 里的
-      自定义类只有被用到才会输出，改模板时容易踩空），也不会被工具类意外覆盖。
-   ⚠️ 尺寸一律 rem / clamp / 百分比，不用固定 px —— 德语与波兰语长词要能撑开。
-   ⚠️ 左右交替靠 .range-band--flip 的 order，不靠 HTML 顺序 —— 保证 DOM 里
-      永远是「图 → 文」，屏幕阅读器与提取式摘要读到的顺序一致。 */
+   ⚠️ 写在 @layer 之外，避免被 Tailwind tree-shake / 工具类覆盖。
+   ⚠️ 深色 section 内使用 .bento-* 自有颜色，不依赖 text-brandBlue
+      （`.dark-section .text-brandBlue` 会翻成白色，白卡上不可读）。 */
 
-.range-band {
+.bento-grid {
   display: grid;
+  gap: 1.25rem;
   grid-template-columns: 1fr;
-  margin-bottom: 1.5rem;
-  border: 1px solid #e2e8f0;
-  border-radius: 1.5rem;
-  background: #fff;
-  overflow: hidden;
 }
-.range-band:last-child { margin-bottom: 0; }
-
+@media (min-width: 768px) {
+  .bento-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .bento-card--wide { grid-column: span 2; }
+}
 @media (min-width: 1024px) {
-  .range-band {
-    grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
-    margin-bottom: 2rem;
-  }
-  .range-band--flip .range-media { order: 2; }
-  .range-band--flip .range-body  { order: 1; }
+  .bento-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem; }
 }
 
-/* 媒体区 —— 分类首个子系列的产品图，复用现有 srcset，只换 sizes */
-.range-media {
+.bento-card {
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 1.75rem;
-  background: #fff;
-  overflow: hidden;
-}
-/* ⚠️ 媒体区不要放品牌色光晕/渐变装饰：产品图多为白底抠图，底色一旦不是纯白，
-   抠图的白底就会显出一个浅色方块。要装饰请加在文字区。 */
-/* 移动端堆叠时媒体区没有行高可撑，给一个固定比例；桌面端靠 grid 行拉伸 */
-@media (max-width: 1023px) {
-  .range-media { aspect-ratio: 4 / 3; }
-}
-.range-media img {
-  position: relative;
-  z-index: 1;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  /* ⚠️ 不要给图片加 mix-blend-mode:multiply。
-     本组素材有两种：白底抠图（Power Bank / Wireless / Car）与实拍场景图（GaN）。
-     multiply 能让抠图融进浅底，但会把实拍图压浑 —— 所以改成「媒体区白底」，
-     抠图白压白天然无接缝，实拍图自带背景也正常。 */
-  transition: transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
-}
-.range-band:hover .range-media img { transform: scale(1.04); }
-
-@media (min-width: 1024px) {
-  .range-media {
-    min-height: 22rem;
-    padding: 2.5rem;
-    border-right: 1px solid #eef2f7;
-  }
-  .range-band--flip .range-media {
-    border-right: 0;
-    border-left: 1px solid #eef2f7;
-  }
-}
-
-/* 文字区 */
-.range-body {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  padding: 1.75rem 1.5rem 2rem;
-  background: #f8fafc;
+  min-height: 17rem;
+  padding: 1.5rem;
+  border-radius: 1.5rem;
+  background: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+  isolation: isolate;
+  /* 整卡可点：标题链接的 ::after 铺满卡片（见 .bento-link::after） */
+  cursor: pointer;
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.4s ease, border-color 0.3s ease;
 }
-@media (min-width: 768px)  { .range-body { padding: 2.5rem 2.5rem 2.75rem; } }
-@media (min-width: 1280px) { .range-body { padding: 3rem 3.25rem; } }
+@media (min-width: 1024px) {
+  .bento-card { min-height: 18rem; padding: 1.75rem; }
+}
+.bento-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--brand-orange);
+  box-shadow: 0 24px 50px -24px rgba(0, 0, 0, 0.6);
+}
+.bento-card:has(.bento-link:focus-visible) {
+  outline: 3px solid var(--brand-orange);
+  outline-offset: 3px;
+}
 
-.range-title {
-  font-size: clamp(1.5rem, 1.15rem + 1.1vw, 2.25rem);
-  line-height: 1.08;
+.bento-index {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 900;
+  letter-spacing: 0.18em;
+  color: var(--brand-orange-deep);
+}
+.bento-title {
+  margin-top: 0.375rem;
+  max-width: 70%;
+  font-size: clamp(1.25rem, 1.05rem + 0.9vw, 1.75rem);
   font-weight: 900;
   font-style: italic;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
   text-transform: uppercase;
-  letter-spacing: -0.02em;
   color: var(--brand-blue);
 }
-.range-sub {
+.bento-link { color: inherit; }
+.bento-link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  border-radius: 1.5rem;
+}
+.bento-sub {
   margin-top: 0.5rem;
-  font-size: 0.8125rem;
-  font-weight: 600;
+  max-width: 68%;
+  font-size: 0.75rem;
+  font-weight: 700;
   letter-spacing: 0.02em;
   color: var(--brand-orange-deep);
 }
-
-/* 子系列列表 —— 只在 ≥2 个子系列时渲染（1 个时与 CTA 重复） */
-.range-lead {
-  margin-top: 1rem;
-  font-size: 0.9375rem;
-  line-height: 1.55;
-  color: #475569;
-  max-width: 34ch;
-}
-
-.range-families {
-  display: grid;
-  gap: 0.125rem;
-  margin: 1.5rem 0 0;
+.bento-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.375rem;
+  margin: 1rem 0 0;
   padding: 0;
+  max-width: 72%;
   list-style: none;
 }
-@media (min-width: 768px) {
-  .range-families {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    column-gap: 0.75rem;
-  }
+.bento-chip {
+  padding: 0.25rem 0.5rem;
+  border-radius: 999px;
+  border: 1px solid #e2e8f0;
+  background: #f1f5f9;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  line-height: 1.3;
+  color: #475569;
 }
-.range-family {
-  display: flex;
+.bento-foot {
+  margin-top: auto;
+  padding-top: 1.25rem;
+}
+.bento-count {
+  display: inline-flex;
   align-items: center;
-  gap: 0.75rem;
-  padding: 0.5rem;
-  border: 1px solid transparent;
-  border-radius: 0.75rem;
-  transition: background-color 0.2s ease, border-color 0.2s ease;
-}
-.range-family:hover { background: #f8fafc; border-color: #e2e8f0; }
-.range-family-thumb {
-  flex: 0 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 2.75rem;
-  height: 2.75rem;
-  overflow: hidden;
-  border-radius: 0.5rem;
-  background: #fff;
-  border: 1px solid #eef2f7;
-}
-.range-family-thumb img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
-.range-family-text { min-width: 0; }
-.range-family-name {
-  display: block;
+  gap: 0.375rem;
   font-size: 0.8125rem;
   font-weight: 900;
-  line-height: 1.25;
   text-transform: uppercase;
-  letter-spacing: 0.01em;
+  letter-spacing: 0.04em;
   color: var(--brand-blue);
+  transition: color 0.3s ease;
 }
-.range-family-desc {
-  display: block;
-  margin-top: 0.125rem;
-  font-size: 0.75rem;
-  line-height: 1.35;
-  color: #64748b;
+.bento-card:hover .bento-count { color: var(--brand-orange-deep); }
+
+/* 产品图按高度收进卡片：完整展示产品，仅保留极小的右下贴边 */
+.bento-img {
+  position: absolute;
+  right: 1rem;
+  bottom: 0.5rem;
+  z-index: -1;
+  width: auto;
+  height: 74%;
+  max-width: 50%;
+  object-fit: contain;
+  pointer-events: none;
+  transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.bento-card--wide .bento-img {
+  right: 1.5rem;
+  bottom: 0.5rem;
+  height: 82%;
+  max-width: 44%;
+}
+.bento-card:hover .bento-img { transform: scale(1.05) rotate(-1deg); }
+
+@media (prefers-reduced-motion: reduce) {
+  .bento-card, .bento-img, .bento-count { transition: none; }
+  .bento-card:hover, .bento-card:hover .bento-img { transform: none; }
 }
 
-.range-cta { margin-top: 1.75rem; }
+/* ─── 父级页模块：规格表 / 定制卡 / 商务表 / 质检步骤（2026-11-05）──────────
+   统一的技术编辑风：深蓝渐变表头 + 橙色细线 + 等宽数字 + 左侧色条。
+   用于四个父级品类页；类名不带语言，模板负责文案。 */
+
+/* 规格表 */
+.spec-table thead tr {
+  background: linear-gradient(135deg, #0a192f 0%, #17345a 100%);
+  border-bottom: 3px solid var(--brand-orange);
+}
+.spec-table tbody tr { transition: background-color 0.2s ease; }
+.spec-table tbody tr:hover { background: rgba(255, 107, 0, 0.05); }
+.spec-table tbody td:nth-child(2),
+.spec-table tbody td:nth-child(3) {
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+}
+.spec-table tbody td:first-child a::before {
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  margin-right: 0.5rem;
+  border-radius: 1px;
+  background: var(--brand-orange);
+  vertical-align: middle;
+}
+
+/* 定制卡：大号幽灵序号 + 左侧色条 */
+.cap-grid { counter-reset: cap; }
+.cap-tile {
+  position: relative;
+  padding: 1.5rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 1rem;
+  background: #fff;
+  overflow: hidden;
+  counter-increment: cap;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.cap-tile::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 1.25rem;
+  bottom: 1.25rem;
+  width: 3px;
+  border-radius: 0 2px 2px 0;
+  background: #e2e8f0;
+  transition: background-color 0.3s ease;
+}
+.cap-tile::after {
+  content: "0" counter(cap);
+  position: absolute;
+  top: 0.75rem;
+  right: 1rem;
+  font-size: 1.75rem;
+  font-weight: 900;
+  font-style: italic;
+  line-height: 1;
+  color: rgba(10, 25, 47, 0.07);
+  pointer-events: none;
+}
+.cap-tile:hover {
+  transform: translateY(-3px);
+  border-color: rgba(255, 107, 0, 0.45);
+  box-shadow: 0 18px 40px -26px rgba(10, 25, 47, 0.45);
+}
+.cap-tile:hover::before { background: var(--brand-orange); }
+
+.cap-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.5rem;
+}
+.cap-list li {
+  position: relative;
+  padding-left: 1rem;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: #475569;
+}
+.cap-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.5em;
+  width: 6px;
+  height: 6px;
+  border-radius: 2px;
+  background: var(--brand-orange);
+}
+
+/* 商务条款表：首列做行标题底，MOQ 行橙色高亮 */
+.terms-table thead tr {
+  background: linear-gradient(135deg, #0a192f 0%, #17345a 100%);
+  border-bottom: 3px solid var(--brand-orange);
+}
+.terms-table tbody td:first-child {
+  background: #f8fafc;
+  color: var(--brand-blue);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-size: 0.75rem;
+}
+.terms-table tbody tr:hover { background: rgba(255, 107, 0, 0.04); }
+.terms-table tbody tr.terms-highlight { background: #fff7ef; }
+.terms-table tbody tr.terms-highlight td:first-child { color: var(--brand-orange-deep); }
+
+/* 质检步骤：橙色圆形序号 */
+.qc-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  margin-bottom: 0.75rem;
+  border-radius: 999px;
+  background: var(--brand-orange);
+  color: var(--brand-blue);
+  font-size: 0.8125rem;
+  font-weight: 900;
+  letter-spacing: 0.02em;
+}
+
+/* 对比表（Technology / Why WOWOHCOOL）与规格表统一头部语言 */
+.compare-table thead tr {
+  background: linear-gradient(135deg, #0a192f 0%, #17345a 100%);
+  border-bottom: 3px solid var(--brand-orange);
+}
+.compare-table tbody tr { transition: background-color 0.2s ease; }
+.compare-table tbody tr:hover { background: rgba(255, 107, 0, 0.05); }
+/* green-600 在白底仅约 3.3:1，正文不达标；压到 green-700（约 4.8:1） */
+.compare-table .text-green-600 { color: #15803d; }
+/* slate-300 在白底约 1.7:1；竞品列压到 slate-500（约 4.6:1） */
+.compare-table .text-slate-300 { color: #64748b; }
+
+/* 分类介绍行长：避免 130+ 字符的整行段落 */
+.model-section-intro { max-width: 72ch; }
+
+/* 市场快照带：合并进 Wireless「Who is this for」 */
+.market-snapshot {
+  max-width: 64rem;
+  margin: 0 auto 2.5rem;
+  padding: 1.25rem 1.5rem;
+  border: 1px solid #e2e8f0;
+  border-left: 4px solid var(--brand-orange);
+  border-radius: 1rem;
+  background: #f8fafc;
+}
+.market-snapshot-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 768px) {
+  .market-snapshot-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+.market-stat { padding: 0.5rem 0; text-align: center; }
+.market-stat + .market-stat { border-top: 1px solid #e2e8f0; }
+@media (min-width: 768px) {
+  .market-stat + .market-stat { border-top: 0; border-left: 1px solid #e2e8f0; }
+}
+.market-stat-value {
+  font-size: clamp(1.25rem, 1rem + 1vw, 1.75rem);
+  font-weight: 900;
+  font-style: italic;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--brand-blue);
+  font-variant-numeric: tabular-nums;
+}
+.market-stat-label {
+  margin-top: 0.375rem;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--brand-orange-deep);
+}
+.market-note {
+  margin-top: 1rem;
+  font-size: 0.75rem;
+  line-height: 1.6;
+  color: #475569;
+  text-align: center;
+}
+.market-source {
+  margin-top: 0.5rem;
+  font-size: 0.6875rem;
+  line-height: 1.6;
+  color: #64748b;
+  text-align: center;
+}
+.market-source a {
+  color: #475569;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.market-source a:hover { color: var(--brand-orange-deep); }
+
+/* GaN 协议支持条：与技术对比表同宽（64rem），轻量横条 */
+.protocol-strip {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 64rem;
+  margin: 1.5rem auto 0;
+  padding: 1.25rem 1.5rem;
+  border: 1px solid #e2e8f0;
+  border-left: 4px solid var(--brand-orange);
+  border-radius: 1rem;
+  background: #f8fafc;
+}
+@media (min-width: 768px) {
+  .protocol-strip {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+}
+.protocol-strip-label {
+  font-size: 0.75rem;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--brand-orange-deep);
+}
+.protocol-strip-note {
+  margin-top: 0.375rem;
+  max-width: 46ch;
+  font-size: 0.8125rem;
+  line-height: 1.6;
+  color: #475569;
+}
+.protocol-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.375rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  flex-shrink: 0;
+}
+.protocol-chips li {
+  padding: 0.3rem 0.6rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 999px;
+  background: #fff;
+  font-size: 0.6875rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--brand-blue);
+  white-space: nowrap;
+}
+
+/* Wireless who 卡的绿色勾选：green-500 对白底约 2.3:1，压到 green-700 */
+#who-is-this-for-keep-existing .text-green-500 { color: #15803d; }
+
+/* 详情型模块统一到 64rem 内容列（与规格表/商务表同宽）。
+   导航型/展示型网格（Bento、分类卡、How to Choose 四列）保持 80rem。 */
+#applications > .container-wide > .grid,
+#customization > .container-wide > .grid,
+#service-support > .container-wide > .grid,
+#selected-cases > .container-wide > .grid,
+#who-is-this-for > .container-wide > .grid,
+#who-is-this-for-audience-tags > .container-wide > .grid,
+#capacity-options-section > .container-wide > .grid,
+#who-is-this-for-keep-existing > .container-wide > .grid,
+#oem-odm-customization > .container-wide > .grid {
+  max-width: 64rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Power Bank 子页详情模块统一到 64rem（型号矩阵保持 80rem） */
+section[id^="what-is-"] > .container-wide > .grid,
+section[id^="what-makes-"] > .container-wide > .grid,
+section[id^="how-heating"] > .container-wide > .grid,
+section[id^="why-"] > .container-wide > .grid,
+section[id^="who-buys-"] > .container-wide > .grid,
+#oem-odm-customization > .container-wide > .grid,
+#brands-powered-by-semi-solid-state > .container-wide > .grid {
+  max-width: 64rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* 容量档 / EU 合规卡：轻量 hover，统一交互语言 */
+#capacity-options-section .card-lg-soft,
+#eu-compliance .card-lg-soft,
+#eu-regulatory-compliance .card-lg-soft {
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+#capacity-options-section .card-lg-soft:hover,
+#eu-compliance .card-lg-soft:hover,
+#eu-regulatory-compliance .card-lg-soft:hover {
+  transform: translateY(-3px);
+  border-color: rgba(255, 107, 0, 0.4);
+}
+
+/* Wireless OEM/ODM 两卡：顶部橙条 + 真实 SVG 勾选 */
+#oem-odm-customization .card-soft {
+  border-top: 3px solid var(--brand-orange);
+  transition: transform 0.3s ease;
+}
+#oem-odm-customization .card-soft:hover { transform: translateY(-3px); }
+#oem-odm-customization .card-soft ul li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+#oem-odm-customization .card-soft ul li .icon-check {
+  flex: 0 0 auto;
+  width: 0.8rem;
+  height: 0.8rem;
+  margin-top: 0.2rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cap-tile, .cap-tile::before, .spec-table tbody tr,
+  .compare-table tbody tr, #capacity-options-section .card-lg-soft,
+  #eu-compliance .card-lg-soft, #eu-regulatory-compliance .card-lg-soft,
+  #oem-odm-customization .card-soft { transition: none; }
+  .cap-tile:hover, #capacity-options-section .card-lg-soft:hover,
+  #eu-compliance .card-lg-soft:hover, #eu-regulatory-compliance .card-lg-soft:hover,
+  #oem-odm-customization .card-soft:hover { transform: none; }
+}
 
 /* ─── 型号卡 .model-card（2026-11-04 图卡 + 折叠规格）────────────────────
    设计目标：产品子页回到买家熟悉的图卡模式。
