@@ -15,7 +15,9 @@
    category badge, title, description, "Read More".
 #}
 {%- set pinned = insightsPinned or [] -%}
-{%- set posts = (pinned.length and (collections.blog_en | postsBySlug(pinned))) or (collections.blog_en | topicLandingPosts(topicInsights, insightsExclude, 3)) -%}
+{%- set collName = insightsCollection or "blog_en" -%}
+{%- set coll = collections[collName] -%}
+{%- set posts = (pinned.length and (coll | postsBySlug(pinned))) or (coll | topicLandingPosts(topicInsights, insightsExclude, 3)) -%}
 {%- if posts.length %}
 <!-- AUTO-GENERATED: {{ "pinned" if pinned.length else "newest" }} posts for {{ topicInsights }} -->
 <section id="latest-guides" class="sec bg-white border-t border-slate-100" data-section="content">
@@ -43,15 +45,15 @@
  <div class="p-6">
  <h3 class="font-black text-brandBlue uppercase mb-2 group-hover:text-brandOrange transition text-sm leading-tight line-clamp-2">{{ label | e }}</h3>
  <p class="text-slate-500 text-xs line-clamp-2">{{ post.data.description | e }}</p>
- <span class="inline-block mt-3 text-brandOrangeDeep text-badge font-bold uppercase">Read More &rarr;</span>
+ <span class="inline-block mt-3 text-brandOrangeDeep text-badge font-bold uppercase">{{ insightsReadMore or "Read More" }} &rarr;</span>
  </div>
  </a>
 {%- endfor %}
  </div>
 
  <div class="text-center mt-10">
- <a href="/blog/" class="inline-flex items-center gap-2 px-6 py-3 bg-brandBlue text-white rounded-xl font-black uppercase text-sm hover:bg-slate-800 transition">
- View All Articles <svg class="icon-arrow-right" aria-hidden="true" focusable="false" viewBox="0 0 512 512">
+ <a href="{{ insightsViewAllHref or '/blog/' }}" class="inline-flex items-center gap-2 px-6 py-3 bg-brandBlue text-white rounded-xl font-black uppercase text-sm hover:bg-slate-800 transition">
+ {{ insightsViewAll or "View All Articles" }} <svg class="icon-arrow-right" aria-hidden="true" focusable="false" viewBox="0 0 512 512">
  <path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-105.4 105.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" fill="currentColor"/>
  </svg>
  </a>
