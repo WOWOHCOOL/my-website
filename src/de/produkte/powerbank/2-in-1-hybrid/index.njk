@@ -125,6 +125,14 @@ plPath: "produkty/power-bank/hybryda-2-w-1/"
             "@type": "Answer",
             "text": "PD 45W (Standard für Smartphones, Tablets), PD 65W (MacBook Air, Ultrabook), PD 67W (Multi-Port mit gleichzeitiger Schnellladung). Alle Modelle unterstützen PPS für Samsung Super Fast Charging und kompatibles MacBook-Laden."
           }
+        },
+        {
+          "@type": "Question",
+          "name": "Für welche Geräte ist die 2-in-1-Hybrid-Powerbank geeignet?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Für USB-C-Smartphones, Tablets und Laptops bis 67W. Nicht geeignet für Geräte ohne USB-C oder mit proprietärem Ladeport; der AC-Stecker richtet sich nach dem Zielmarkt."
+          }
         }
       ]
     },
@@ -265,32 +273,36 @@ plPath: "produkty/power-bank/hybryda-2-w-1/"
 </section>
 
 <!-- ======== TRUST BAR ======== -->
+{% set trustBarCerts = false %}
 {% include "trust-bar.njk" %}
+
+<!-- Divider -->
+<div class="relative w-full">
+ <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent"></div>
+ <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-white border border-slate-200 rotate-45"></div>
+</div>
 
 <!-- MODELS -->
 {% set family = "products/power-bank/2-in-1-hybrid" %}
 {#- 型号卡：六语言共用模板（2026-10-29）。数据 src/_products/*.json -#}
 {% include "partials/product-models.njk" %}
 
+{% set compareFamily = family %}
+{% include "partials/model-compare.njk" %}
+
 <!-- MARKET-DATA -->
-<section id="market-data" class="sec bg-white py-8" data-section="content">
- <div class="container-wide">
- <blockquote class="bg-brandOrange/5 border-l-4 border-brandOrange rounded-r-xl px-6 py-5 text-sm text-slate-700 italic leading-relaxed">
-  <p>"Der globale GaN-Ladegerät-Markt wächst laut Exactitude Consultancy von 1,2 Mrd. USD (2024) auf 5,4 Mrd. USD bis 2034 bei einer CAGR von 16,5%. Portable Ladegeräte machen etwa 30% der Nachfrage aus — und das 2-in-1-Hybrid-Segment ist die am schnellsten wachsende Unterkategorie, getrieben durch Post-Pandemie-Reisen und USB-C-Gerätekonsolidierung. Ein Gerät, das an der Steckdose lädt und unterwegs als Powerbank dient, ist keine Neuheit mehr — es wird zur Verbrauchererwartung."</p>
-  <cite class="block text-xs text-slate-400 mt-2 not-italic">— <a href="https://exactitudeconsultancy.com/reports/48745/gan-powered-chargers-market" target="_blank" rel="noopener noreferrer" class="text-brandOrange hover:underline">Exactitude Consultancy</a>, GaN Powered Chargers Market Report 2025-2034</cite>
- </blockquote>
- </div>
-</section>
+
 
 <!-- 2-in-1 vs SEPARAT -->
 <section id="hybrid-2-in-1-vs-separat" class="sec bg-slate-50" data-section="comparison">
  <div class="container-wide">
-  {{ sectionHeader('Vergleich', '2-in-1 Hybrid vs. separates Ladegerät + Powerbank', 'Warum sich Geschäftsreisende und Marken zunehmend für die Hybrid-Variante entscheiden.', {mb: 'mb-12'}) }}
-  <div class="overflow-x-auto reveal rounded-2xl border border-slate-200 shadow-sm bg-white">
+ 
+  {{ sectionHeader('Vergleich', '2-in-1 Hybrid vs. separates Ladegerät + <span class="text-brandOrange">Powerbank</span>', 'Warum sich Geschäftsreisende und Marken zunehmend für die Hybrid-Variante entscheiden.', {mb: 'mb-12'}) }}
+   <div class="overflow-x-auto reveal rounded-2xl border border-slate-200 shadow-sm bg-white">
    <table class="w-full text-sm">
     <thead><tr class="bg-brandBlue text-white">
      <th class="text-left px-5 py-3 font-bold text-sm">Eigenschaft</th>
-     <th class="text-left px-5 py-3 font-bold text-sm">2-in-1 Hybrid</th>
+     <th class="text-left px-5 py-3 font-bold text-sm bg-brandOrange text-brandBlue">2-in-1 Hybrid</th>
      <th class="text-left px-5 py-3 font-bold text-sm">Separat (Ladegerät + Powerbank)</th>
     </tr></thead>
     <tbody class="divide-y divide-slate-100">
@@ -305,9 +317,129 @@ plPath: "produkty/power-bank/hybryda-2-w-1/"
  </div>
 </section>
 
+
+
+
+
+<!-- WHAT IS 2-IN-1 -->
+<section id="what-is-2-in-1-hybrid" class="sec bg-white relative" data-section="content">
+ <div class="container-wide">
+  {{ sectionHeader('Technologie', 'Was macht 2-in-1-Hybridladegeräte <span class="text-brandOrange">besonders?</span>', 'Ein 2-in-1-Hybrid vereint ein faltbares AC-Netzteil mit einer tragbaren Powerbank. GaN-Halbleiter verkleinern die AC-Schaltung; die integrierte Batterie ersetzt zwei separate Geräte. Kompatibel mit USB-C-Geräten; nicht für Geräte ohne USB-C. AC-Stecker je Region.', {mb: 'mb-8'}) }}
+  <div class="grid md:grid-cols-3 gap-6">
+   <div class="card-lg-soft p-6 text-center"><p class="text-3xl font-black text-brandBlue mb-2">Faltbar</p><p class="text-sm font-bold text-slate-700 mb-2">AC-Stecker</p><p class="text-xs text-slate-500">Faltbare Kontakte verschwinden im Gehäuse — sicher im Rucksack und Handgepäck. US-, EU-, UK-, AU-Varianten für OEM.</p></div>
+   <div class="card-lg-soft p-6 text-center"><p class="text-3xl font-black text-brandOrange mb-2">92–96%</p><p class="text-sm font-bold text-slate-700 mb-2">GaN-Effizienz</p><p class="text-xs text-slate-500">GaN-Chips laufen kühler und 30–40% kleiner als Silizium. Höhere Effizienz = mehr Leistung im Taschenformat.</p></div>
+   <div class="card-lg-soft p-6 text-center"><p class="text-3xl font-black text-brandBlue mb-2">1 = 2</p><p class="text-sm font-bold text-slate-700 mb-2">Ersetzt zwei Geräte</p><p class="text-xs text-slate-500">Kein separates Netzteil, kein Ersatzkabel. Ein SKU liefert beide Funktionen — weniger Verpackung, weniger Kaufhürde.</p></div>
+  </div>
+  <figure class="mt-10 max-w-4xl mx-auto reveal">
+   <div class="rounded-2xl border border-brandOrange/20 bg-brandOrange/5 p-6 md:p-8">
+    <p class="text-xs font-black uppercase tracking-widest text-brandOrangeDeep mb-3">Marktkontext</p>
+    <blockquote class="text-sm text-slate-700 leading-relaxed">"Der globale GaN-Ladegerät-Markt wächst laut Exactitude Consultancy von 1,2 Mrd. USD (2024) auf 5,4 Mrd. USD bis 2034 bei einer CAGR von 16,5%. Portable Ladegeräte machen etwa 30% der Nachfrage aus — und das 2-in-1-Hybrid-Segment ist die am schnellsten wachsende Unterkategorie, getrieben durch Post-Pandemie-Reisen und USB-C-Gerätekonsolidierung. Ein Gerät, das an der Steckdose lädt und unterwegs als Powerbank dient, ist keine Neuheit mehr — es wird zur Verbrauchererwartung."</blockquote>
+    <figcaption class="mt-3 text-xs text-slate-500">— <a href="https://exactitudeconsultancy.com/reports/48745/gan-powered-chargers-market" target="_blank" rel="noopener noreferrer" class="text-brandOrange hover:underline">Exactitude Consultancy</a>, GaN Powered Chargers Market Report 2025-2034</figcaption>
+   </div>
+  </figure>
+ </div>
+</section>
+
+<!-- WHY 2-IN-1 -->
+<section id="why-2-in-1-hybrid" class="sec bg-slate-50 relative" data-section="content">
+ <div class="container-wide">
+  <div class="text-center"><p class="section-label">Warum WOWOHCOOL</p></div>
+  <h2 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4 text-center">Warum <span class="text-brandOrange">2-in-1-Hybrid</span> für Ihre Marke</h2>
+  <p class="text-center text-slate-500 text-sm max-w-2xl mx-auto mb-12">Ein Gerät, zwei Funktionen, Premium-Positionierung — ideal für den DACH-Markt und Amazon.de.</p>
+  <div class="grid md:grid-cols-3 gap-6">
+   <div class="card-lg p-6 shadow-sm"><h3 class="font-black text-brandBlue uppercase mb-3 text-sm">Höhere Marge</h3><p class="text-sm text-slate-600 leading-relaxed">Hybridladegeräte erzielen 40–60% höhere Endkundenpreise als eine einzelne Powerbank gleicher Kapazität.</p></div>
+   <div class="card-lg p-6 shadow-sm"><h3 class="font-black text-brandBlue uppercase mb-3 text-sm">1 SKU = 2 Funktionen</h3><p class="text-sm text-slate-600 leading-relaxed">Ein Listing statt zwei — einfachere Lagerhaltung, weniger Amazon.de-Listings und geringeres Dead-Stock-Risiko.</p></div>
+   <div class="card-lg p-6 shadow-sm"><h3 class="font-black text-brandBlue uppercase mb-3 text-sm">Corporate-Gift-tauglich</h3><p class="text-sm text-slate-600 leading-relaxed">All-in-One eignet sich als Firmengeschenk und Konferenz-Giveaway. Logo + Verpackung ab MOQ 500 Stück.</p></div>
+  </div>
+ </div>
+</section>
+
+<!-- OEM/ODM -->
+<section id="oem-odm-customization" class="sec bg-white relative" data-section="content">
+ <div class="container-wide">
+  <div class="text-center"><p class="section-label">Anpassung</p></div>
+  <h2 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4 text-center">OEM/ODM-<span class="text-brandOrange">Anpassung</span></h2>
+  <p class="text-center text-slate-500 text-sm max-w-2xl mx-auto mb-12">Von Logodruck bis eigenem Design. MOQ je nach Komplexität.</p>
+  <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 cap-grid">
+   <article class="cap-tile reveal">
+    <h3 class="text-base font-black text-brandBlue uppercase italic mb-3">ODM Stock · MOQ 500</h3>
+    <ul class="cap-list">
+     <li>Bestehende Modelle und Kapazitäten wählen</li>
+     <li>Logodruck (Siebdruck, Laser, UV)</li>
+     <li>Pantone-Farbabgleich</li>
+     <li>Lagerverpackung mit Logodruck</li>
+     <li>Lieferzeit: 3–7 Tage Muster · 25–35 Tage Produktion</li>
+    </ul>
+   </article>
+   <article class="cap-tile reveal">
+    <h3 class="text-base font-black text-brandBlue uppercase italic mb-3">ODM-Entwicklung · MOQ 1.000–2.000</h3>
+    <ul class="cap-list">
+     <li>Individuelle Verpackung mit Marken-Artwork</li>
+     <li>Mehrsprachige Handbücher, Einleger und Garantiekarten</li>
+     <li>Plattformangepasstes Werkzeug (kein neues Gehäuse-Werkzeug)</li>
+     <li>Kapazität und Ausgang: 5.000–20.000mAh · 20–67W PD</li>
+     <li>Steckertyp: US / EU / UK / AU</li>
+     <li>GaN-Ausgang und Port-Layout</li>
+     <li>Lieferzeit: 25–45 Tage Design · 35–50 Tage Produktion</li>
+    </ul>
+   </article>
+   <article class="cap-tile reveal">
+    <h3 class="text-base font-black text-brandBlue uppercase italic mb-3">OEM · MOQ 3.000+</h3>
+    <ul class="cap-list">
+     <li>Design und CMF in Kundenhand</li>
+     <li>Neues Gehäuse-Werkzeug und vollständige Formgebung</li>
+     <li>Kapazität und Ausgang: 5.000–20.000mAh · 20–67W PD</li>
+     <li>Steckertyp: US / EU / UK / AU</li>
+     <li>Zertifizierungsunterstützung für Zielmärkte</li>
+     <li>Lieferzeit: 30–60 Tage Produktion · 2–4 Monate mit neuem Werkzeug</li>
+    </ul>
+   </article>
+  </div>
+  <div class="text-center mt-10"><p class="text-slate-500 text-sm mb-4">Bereit für Ihr OEM-Projekt?</p>{{ ctaButton("factoryPricing", "primary", "open-modal", "2-in-1 Hybrid Powerbank") }}</div>
+ </div>
+</section>
+
+<!-- GLOBAL PLUGS -->
+<section id="global-plug-standards" class="sec bg-slate-50 relative" data-section="content">
+ <div class="container-wide">
+  {{ sectionHeader('Globale Stecker', 'Ein Produkt, <span class="text-brandOrange">jeder Markt</span>', 'US-, EU-, UK- und AU-Stecker als Regionalmodul — eine Basis-SKU für mehrere Märkte.', {mb: 'mb-12'}) }}
+  <div class="grid md:grid-cols-3 gap-6">
+   <div class="card-lg p-6 shadow-sm"><h3 class="font-black text-brandBlue uppercase mb-3 text-sm">EU / US / UK / AU</h3><p class="text-sm text-slate-600 leading-relaxed">Vier Steckertypen als austauschbares Modul. Eine Grundplattform, mehrere Regional-SKUs — weniger Werkzeugkosten.</p></div>
+   <div class="card-lg p-6 shadow-sm"><h3 class="font-black text-brandBlue uppercase mb-3 text-sm">Fest verbaut oder wechselbar</h3><p class="text-sm text-slate-600 leading-relaxed">Für Reise-Marken: ein Gehäuse mit austauschbarem Stecker oder fest verbautem Regionalstecker — je nach Zielmarkt.</p></div>
+   <div class="card-lg p-6 shadow-sm"><h3 class="font-black text-brandBlue uppercase mb-3 text-sm">Zertifizierung pro Markt</h3><p class="text-sm text-slate-600 leading-relaxed">CE für EU, FCC für US, UKCA für UK, RCM für AU. Wir liefern die jeweils passenden Unterlagen zur Bestellung.</p></div>
+  </div>
+ </div>
+</section>
+
+<!-- AIRLINE / TSA -->
+<section id="airline-tsa-compliance" class="sec bg-white relative" data-section="content">
+ <div class="container-wide">
+  {{ sectionHeader('Flugreise', 'Handgepäck- und <span class="text-brandOrange">TSA-konform</span>', 'Kapazitäten unter 100Wh und UN38.3-zertifiziert — für Flugreisen ohne Voranmeldung.', {mb: 'mb-12'}) }}
+  <div class="grid md:grid-cols-3 gap-6">
+   <div class="card-soft p-6"><h3 class="font-black text-brandBlue uppercase mb-3 text-sm">Unter 100Wh</h3><p class="text-sm text-slate-600 leading-relaxed">Alle Hybrid-Modelle bleiben unter dem IATA-Limit für Handgepäck. Keine Airline-Voranmeldung nötig.</p></div>
+   <div class="card-soft p-6"><h3 class="font-black text-brandBlue uppercase mb-3 text-sm">UN38.3 + MSDS</h3><p class="text-sm text-slate-600 leading-relaxed">Testbericht und Sicherheitsdatenblatt liegen jeder Bestellung bei — wichtig für Luftfracht und Retail-Listing.</p></div>
+   <div class="card-soft p-6"><h3 class="font-black text-brandBlue uppercase mb-3 text-sm">Kabinenkontrolle</h3><p class="text-sm text-slate-600 leading-relaxed">Klappbarer AC-Stecker und kompaktes Gehäuse für die Kabinentasche. Keine losen Adapter im Handgepäck.</p></div>
+  </div>
+ </div>
+</section>
+
+<!-- MARKET & MARGIN -->
+<section id="market-margin" class="sec bg-white border-t border-slate-100" data-section="content">
+ <div class="container-wide">
+  {{ sectionHeader('Markt & Marge', '2-in-1: <span class="text-brandOrange">mehr Marge pro SKU</span>', 'Ein Gerät, zwei Funktionen — und ein höherer Warenkorb als bei einer einzelnen Powerbank.', {max: '', mb: 'mb-12'}) }}
+  <div class="grid md:grid-cols-3 gap-6">
+   <div class="card-lg-soft p-8 text-center"><p class="text-3xl font-black text-brandOrange mb-2">40–60%</p><p class="text-sm font-bold text-brandBlue">höhere Endkundenpreise</p><p class="text-xs text-slate-500 mt-2">2-in-1-Hybriden erzielen deutlich höhere Preise als eine einzelne Powerbank gleicher Kapazität.</p></div>
+   <div class="card-lg-soft p-8 text-center"><p class="text-3xl font-black text-brandOrange mb-2">1 SKU</p><p class="text-sm font-bold text-brandBlue">statt zwei Geräte</p><p class="text-xs text-slate-500 mt-2">Weniger Listings, weniger Lagerrisiko und ein einfacherer Warenkorb für Ihre Kunden.</p></div>
+   <div class="card-lg-soft p-8 text-center"><p class="text-3xl font-black text-brandOrange mb-2">20–67W</p><p class="text-sm font-bold text-brandBlue">PD-Ausgang</p><p class="text-xs text-slate-500 mt-2">Laptop, Tablet und Smartphone direkt aus der Steckdose oder unterwegs laden.</p></div>
+  </div>
+ </div>
+</section>
+
 <!-- EU Compliance -->
-<section id="eu-compliance" class="sec bg-white" data-section="content">
- <div class="container-wide"><div class="mt-10 grid md:grid-cols-2 gap-6 reveal">
+<section id="eu-compliance" class="sec bg-slate-50" data-section="content">
+ <div class="container-wide">
+  {{ sectionHeader('Compliance', 'EU-Batterieverordnung <span class="text-brandOrange">2023/1542</span>', 'Erzeugerpflichten, Batteriepass und EAR-Registrierung — als Service inklusive.', {mb: 'mb-10'}) }}
+  <div class="grid md:grid-cols-2 gap-6 reveal">
    <div class="card-lg p-6">
     <h3 class="text-base font-bold text-brandBlue mb-2">EU-Batterieverordnung 2023/1542</h3>
     <p class="text-sm text-slate-600 leading-relaxed">Seit 18.08.2024 sind Erzeugerpflichten in Kraft, ab 18.02.2027 wird der digitale Batteriepass Pflicht. Wir liefern technische Dokumentation, EU-Konformitätserklärung und unterstützen die EAR-Stiftung-Registrierung in Deutschland sowie EPR-Pendants in AT, CH, FR, IT, ES.</p>
@@ -317,71 +449,44 @@ plPath: "produkty/power-bank/hybryda-2-w-1/"
     <p class="text-sm text-slate-600 leading-relaxed">Unsere Hybrid-Powerbanks ab 2026 mit QR-Code-fähigen Etiketten und durchgehender Lebenszyklus-Datenerfassung — bereit für die ab Februar 2027 verpflichtende digitale Batteriepass-Anforderung der EU-Verordnung 2023/1542.</p>
    </div>
   </div>
-  <p class="text-xs text-slate-500 text-center mt-6 reveal">Quellen: <a href="https://eur-lex.europa.eu/legal-content/DE/TXT/PDF/?uri=CELEX%3A32023R1542" target="_blank" rel="noopener external" class="text-brandOrange hover:underline">EUR-Lex 2023/1542</a> &middot; <a href="https://www.ihk.de/stuttgart/fuer-unternehmen/energie-umwelt-nachhaltigkeit/umwelt/abfallwirtschaft/neue-batterieverordnung-6779620" target="_blank" rel="noopener noreferrer" class="text-brandOrange hover:underline">IHK Stuttgart</a></p>
+   {% set certProfile = "power-bank" %}
+ {% include "partials/compliance-cert-table.njk" %}
+<p class="text-xs text-slate-500 text-center mt-6 reveal">Quellen: <a href="https://eur-lex.europa.eu/legal-content/DE/TXT/PDF/?uri=CELEX%3A32023R1542" target="_blank" rel="noopener external" class="text-brandOrange hover:underline">EUR-Lex 2023/1542</a> &middot; <a href="https://www.ihk.de/stuttgart/fuer-unternehmen/energie-umwelt-nachhaltigkeit/umwelt/abfallwirtschaft/neue-batterieverordnung-6779620" target="_blank" rel="noopener noreferrer" class="text-brandOrange hover:underline">IHK Stuttgart</a></p>
  </div>
 </section>
 
 
-
-<!-- WHAT IS 2-IN-1 -->
-<section id="what-is-2-in-1-hybrid" class="sec bg-white relative" data-section="content">
- <div class="container-wide">
-  {{ sectionHeader('Technologie', 'Was macht 2-in-1-Hybridladegeräte besonders?', 'Ein 2-in-1-Hybrid vereint ein faltbares AC-Netzteil mit einer tragbaren Powerbank. GaN-Halbleiter verkleinern die AC-Schaltung; die integrierte Batterie ersetzt zwei separate Geräte.', {mb: 'mb-8'}) }}
-  <div class="grid md:grid-cols-3 gap-8">
-   <div class="card-soft p-6 text-center"><p class="text-3xl font-black text-brandBlue mb-2">Faltbar</p><p class="text-sm font-bold text-slate-700 mb-2">AC-Stecker</p><p class="text-xs text-slate-500">Faltbare Kontakte verschwinden im Gehäuse — sicher im Rucksack und Handgepäck. US-, EU-, UK-, AU-Varianten für OEM.</p></div>
-   <div class="card-soft p-6 text-center"><p class="text-3xl font-black text-brandOrange mb-2">92–96%</p><p class="text-sm font-bold text-slate-700 mb-2">GaN-Effizienz</p><p class="text-xs text-slate-500">GaN-Chips laufen kühler und 30–40% kleiner als Silizium. Höhere Effizienz = mehr Leistung im Taschenformat.</p></div>
-   <div class="card-soft p-6 text-center"><p class="text-3xl font-black text-brandBlue mb-2">1 = 2</p><p class="text-sm font-bold text-slate-700 mb-2">Ersetzt zwei Geräte</p><p class="text-xs text-slate-500">Kein separates Netzteil, kein Ersatzkabel. Ein SKU liefert beide Funktionen — weniger Verpackung, weniger Kaufhürde.</p></div>
-  </div>
- </div>
-</section>
-
-<!-- WHY 2-IN-1 -->
-<section id="why-2-in-1-hybrid" class="sec bg-slate-50 relative" data-section="content">
- <div class="container-wide">
-  <h2 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4 text-center">Warum <span class="text-brandOrange">2-in-1-Hybrid</span> für Ihre Marke</h2>
-  <p class="text-center text-slate-500 text-sm max-w-2xl mx-auto mb-12">Ein Gerät, zwei Funktionen, Premium-Positionierung — ideal für den DACH-Markt und Amazon.de.</p>
-  <div class="grid md:grid-cols-3 gap-6">
-   <div class="card p-6 shadow-sm"><h3 class="font-black text-brandBlue uppercase mb-3 text-sm">Höhere Marge</h3><p class="text-sm text-slate-600 leading-relaxed">Hybridladegeräte erzielen 40–60% höhere Endkundenpreise als eine einzelne Powerbank gleicher Kapazität.</p></div>
-   <div class="card p-6 shadow-sm"><h3 class="font-black text-brandBlue uppercase mb-3 text-sm">1 SKU = 2 Funktionen</h3><p class="text-sm text-slate-600 leading-relaxed">Ein Listing statt zwei — einfachere Lagerhaltung, weniger Amazon.de-Listings und geringeres Dead-Stock-Risiko.</p></div>
-   <div class="card p-6 shadow-sm"><h3 class="font-black text-brandBlue uppercase mb-3 text-sm">Corporate-Gift-tauglich</h3><p class="text-sm text-slate-600 leading-relaxed">All-in-One eignet sich als Firmengeschenk und Konferenz-Giveaway. Logo + Verpackung ab MOQ 500 Stück.</p></div>
-  </div>
- </div>
-</section>
-
-<!-- OEM/ODM -->
-<section id="oem-odm-customization" class="sec bg-white relative" data-section="content">
- <div class="container-wide">
-  <h2 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4 text-center">OEM/ODM-Anpassung</h2>
-  <p class="text-center text-slate-500 text-sm max-w-2xl mx-auto mb-12">Von Logodruck bis eigenem Design. MOQ je nach Komplexität.</p>
-  <div class="grid md:grid-cols-2 gap-8">
-   <div class="card-soft p-6"><h3 class="font-black text-brandBlue uppercase mb-4 text-sm">ODM (Lagermodelle mit Logo, MOQ 500)</h3><ul class="space-y-2 text-sm text-slate-600"><li>• Logodruck (Siebdruck, Laser, UV)</li><li>• Farbspezifikation (Pantone)</li><li>• Verpackung mit Marken-Artwork</li><li>• CE / RoHS / UN38.3-konform</li><li>• Lieferzeit: 25–30 Tage nach Musterfreigabe</li></ul></div>
-   <div class="card-soft p-6"><h3 class="font-black text-brandBlue uppercase mb-4 text-sm">ODM (Designentwicklung, MOQ 1.000–2.000)</h3><ul class="space-y-2 text-sm text-slate-600"><li>• Eigenes ID-Design (CMF)</li><li>• Gehäuse-Werkzeugbau</li><li>• Steckertyp (US, EU, UK, AU, Multi-Region)</li><li>• Ausgangsleistung (30W–100W GaN)</li><li>• Lieferzeit: 45–60 Tage inkl. Werkzeug</li></ul></div>
-  </div>
-  <div class="text-center mt-10"><p class="text-slate-500 text-sm mb-4">Bereit für Ihr OEM-Projekt?</p>{{ ctaButton("factoryPricing", "primary", "open-modal", "2-in-1 Hybrid Powerbank") }}</div>
- </div>
-</section>
+{% set rangeLabel = "2-in-1-Hybrid-Serie" %}
+{% set termsBg = "bg-white" %}
+{% set supportBg = "bg-slate-50" %}
+{% include "partials/subpage-commercial-support.njk" %}
+{% set casesBg = "bg-white" %}
+{% include "partials/case-strip.njk" %}
 
 <!-- FAQ -->
 <section id="faq" class="sec bg-slate-50" data-section="faq">
  <div class="container-narrow">
- {{ sectionHeader('FAQ', '2-in-1 Hybrid FAQ', '', {max: ''}) }}
+ {{ sectionHeader('FAQ', '2-in-1 Hybrid <span class="text-brandOrange">FAQ</span>', '', {max: ''}) }}
  <div class="reveal">
  {% call faqItem("Was ist eine 2-in-1 Hybrid-Powerbank?", true) %}Eine 2-in-1 Hybrid-Powerbank kombiniert Wandladegerät und Powerbank in einem Gehäuse. Der AC-Stecker klappt aus zur Steckdose und lädt entweder direkt das angeschlossene Gerät oder den eingebauten Akku zur späteren Verwendung. Spart Reisetasche-Platz und ein zweites Ladegerät.{% endcall %}
  {% call faqItem("Welche Stecker-Standards bieten Sie an?", true) %}EU (Schuko/CEE 7/16), UK (BS 1363), US (NEMA 1-15P), AU (AS/NZS 3112). Auf Wunsch fertigen wir multinationale Sets mit austauschbaren Steckern. Standard ist EU für deutsche und EU-Märkte.{% endcall %}
  {% call faqItem("Sind 2-in-1 Hybrid-Powerbanks flugtauglich?", true) %}Ja. Alle Modelle haben unter 99,9Wh Akkukapazität (5.000-10.000mAh) und sind UN38.3 zertifiziert. Sie dürfen im Handgepäck mitgeführt werden.{% endcall %}
  {% call faqItem("Wie hoch ist die MOQ für 2-in-1 Hybrid OEM?") %}MOQ ab 500 Stück für Standardmodelle. ODM-Designentwicklung mit neuem Stecker-Standard: 1.000-2.000 Stück. Vollständiges OEM mit eigenem Werkzeug: ab 3.000 Stück. Muster in 5-7 Tagen.{% endcall %}
  {% call faqItem("Welche Leistungsstufen sind verfügbar?") %}PD 45W (Standard für Smartphones, Tablets), PD 65W (MacBook Air, Ultrabook), PD 67W (Multi-Port mit gleichzeitiger Schnellladung). Alle Modelle unterstützen PPS für Samsung Super Fast Charging und kompatibles MacBook-Laden.{% endcall %}
+ {% call faqItem("Für welche Geräte ist die 2-in-1-Hybrid-Powerbank geeignet?") %}Für USB-C-Smartphones, Tablets und Laptops bis 67W. Nicht geeignet für Geräte ohne USB-C oder mit proprietärem Ladeport; der AC-Stecker richtet sich nach dem Zielmarkt.{% endcall %}
  </div>
  </div>
 </section>
 {% include "partials/product-cta.njk" %}
 
+
+
 <!-- ======== BLOG ARTICLES ======== -->
 <section id="blog-articles" class="sec bg-white" data-section="content">
  <div class="container-wide">
   <div class="text-center mb-12 reveal">
+   <p class="section-label">Fachwissen für OEM/ODM-Beschaffung</p>
    <h2 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4">Powerbank <span class="text-brandOrange">Insights</span></h2>
-   <p class="text-slate-500 font-bold uppercase tracking-widest text-badge">Fachwissen für OEM/ODM-Beschaffung</p>
   </div>
   <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
    <a href="/de/blog/powerbank-spezifikationen/" class="group bg-slate-50 rounded-2xl overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
@@ -389,7 +494,7 @@ plPath: "produkty/power-bank/hybryda-2-w-1/"
      <img loading="lazy" src="/image/blog/cover-de/powerbank-spezifikationen-cover.webp" srcset="/image/blog/cover-de/powerbank-spezifikationen-cover-450w.webp 450w, /image/blog/cover-de/powerbank-spezifikationen-cover-800w.webp 800w, /image/blog/cover-de/powerbank-spezifikationen-cover-950w.webp 950w, /image/blog/cover-de/powerbank-spezifikationen-cover-1200w.webp 1200w, /image/blog/cover-de/powerbank-spezifikationen-cover.webp 1700w" sizes="(min-width: 1440px) 395px, (min-width: 1280px) 395px, (min-width: 1024px) 309px, (min-width: 768px) 348px, (min-width: 430px) 382px, 327px" alt="Powerbank Spezifikationen" class="w-full h-full object-cover" width="1700" height="956" decoding="async">
      <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
      <div class="absolute bottom-3 left-4">
-      <span class="px-2 py-1 bg-brandOrange text-brandBlue text-badge font-black uppercase rounded">Spezifikationen</span>
+      <span class="px-2 py-1 bg-brandBlue text-white text-badge font-black uppercase rounded">Spezifikationen</span>
      </div>
     </div>
     <div class="p-6">
@@ -417,7 +522,7 @@ plPath: "produkty/power-bank/hybryda-2-w-1/"
      <img loading="lazy" src="/image/blog/cover-de/usb-c-pd-cover.webp" srcset="/image/blog/cover-de/usb-c-pd-cover-450w.webp 450w, /image/blog/cover-de/usb-c-pd-cover-800w.webp 800w, /image/blog/cover-de/usb-c-pd-cover-950w.webp 950w, /image/blog/cover-de/usb-c-pd-cover-1200w.webp 1200w, /image/blog/cover-de/usb-c-pd-cover.webp 1700w" sizes="(min-width: 1440px) 395px, (min-width: 1280px) 395px, (min-width: 1024px) 309px, (min-width: 768px) 348px, (min-width: 430px) 382px, 327px" alt="USB-C PD Schnellladen 2026" class="w-full h-full object-cover" width="1700" height="956" decoding="async">
      <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
      <div class="absolute bottom-3 left-4">
-      <span class="px-2 py-1 bg-white text-green-700 text-badge font-black uppercase rounded">Technologie</span>
+      <span class="px-2 py-1 bg-brandBlue text-white text-badge font-black uppercase rounded">Technologie</span>
      </div>
     </div>
     <div class="p-6">
@@ -436,7 +541,7 @@ plPath: "produkty/power-bank/hybryda-2-w-1/"
 </section>
 
 <!-- ====== EXPLORE MORE CATEGORIES ====== -->
-<section id="explore-more-categories" class="sec bg-white relative" data-section="related">
+<section id="explore-more-categories" class="sec bg-slate-50 relative" data-section="related">
  <div class="container-wide">
   <div class="text-center max-w-3xl mx-auto mb-12 reveal">
    <p class="section-label">Weitere Kategorien</p>
@@ -477,14 +582,16 @@ plPath: "produkty/power-bank/hybryda-2-w-1/"
 </section>
 
 <!-- ======== CTA ======== -->
+
+
+
 {%- set formProduct = "2-in-1-Hybrid-Ladegerät" %}
-{%- set formHeading = "2-in-1-Hybrid – Fabrikpreis anfordern" %}
+{%- set formHeading = "2-in-1-Hybrid – <span class='text-brandOrange'>Fabrikpreis anfordern</span>" %}
 {%- set formSubtext = "MOQ 500 Stück. Muster in 3–7 Tagen. Individuelles Logo und Verpackung inklusive." %}
 {%- set formSubject = "Anfrage: 2-in-1-Hybrid-Ladegerät" %}
 
 
 {% include "partials/product-inquiry-form.njk" %}
-
 
 {% endblock %}
 

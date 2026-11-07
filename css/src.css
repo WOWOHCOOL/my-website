@@ -2383,3 +2383,31 @@ table td, table th { overflow-wrap: break-word; word-break: normal; }
 .legal-content strong { color: #0A192F; }
 
 
+
+/* ─── Product page visual system (2026-11-07) ─────────────────────────────
+   Scope: EN /products/* and DE /de/produkte/* only (body.product-page).
+   Goal: unify section-heading scale, card radius and table header weight
+   without touching hero markup or any copy. */
+.product-page section h2:not(.model-section-title):not(.bento-title):not(.hero-title) {
+  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+  line-height: 1.15;
+  letter-spacing: -0.05em;
+}
+.product-page .card,
+.product-page .card-soft {
+  border-radius: 1rem;
+}
+.product-page section table th {
+  font-weight: 800;
+}
+
+/* Product tables: scroll affordance appended by main.src.js */
+.table-scroll-hint {
+  margin: 0.5rem 0 0;
+  text-align: center;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #94a3b8;
+}

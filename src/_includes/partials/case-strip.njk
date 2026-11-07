@@ -4,28 +4,23 @@
   Usage: {% include "partials/case-strip.njk" %}
 #}
 {% from "partials/section-header.njk" import sectionHeader with context %}
-<section id="selected-cases" class="sec bg-white" data-section="content">
+{%- set L = lang or 'en' -%}
+{%- set t = (productPageI18n[L] or productPageI18n.en).caseStrip -%}
+{%- set casesBg = casesBg or 'bg-white' -%}
+<section id="selected-cases" class="sec {{ casesBg }}" data-section="content">
  <div class="container-wide">
-  {{ sectionHeader('Case Studies', 'Selected <span class="text-brandOrange">Cooperation Cases</span>', 'Three programmes across the UK, Germany and Denmark. Full case studies cover the brief, the challenge and the delivery data.', {max: '', mb: 'mb-12'}) }}
+  {{ sectionHeader(t.label, t.title, t.desc, {max: '', mb: 'mb-12'}) }}
   <div class="grid md:grid-cols-3 gap-6">
+   {%- for c in t.cases %}
    <article class="card-lg-soft bg-white p-6 reveal">
-    <p class="text-badge font-bold uppercase tracking-widest text-brandOrangeDeep mb-2">UK · Premium Lifestyle Tech</p>
-    <h3 class="text-lg font-black text-brandBlue uppercase italic mb-3">Mous</h3>
-    <p class="text-sm text-slate-600 leading-relaxed">50,000+ MagSafe-compatible wireless chargers since 2023, across recurring purchase cycles.</p>
+    <p class="text-badge font-bold uppercase tracking-widest text-brandOrangeDeep mb-2">{{ c.region }}</p>
+    <h3 class="text-lg font-black text-brandBlue uppercase italic mb-3">{{ c.name }}</h3>
+    <p class="text-sm text-slate-600 leading-relaxed">{{ c.desc }}</p>
    </article>
-   <article class="card-lg-soft bg-white p-6 reveal">
-    <p class="text-badge font-bold uppercase tracking-widest text-brandOrangeDeep mb-2">Germany · Automotive</p>
-    <h3 class="text-lg font-black text-brandBlue uppercase italic mb-3">Bosch</h3>
-    <p class="text-sm text-slate-600 leading-relaxed">10,000 × 65W GaN car chargers delivered on an emergency timeline, with 5-day samples.</p>
-   </article>
-   <article class="card-lg-soft bg-white p-6 reveal">
-    <p class="text-badge font-bold uppercase tracking-widest text-brandOrangeDeep mb-2">Denmark · Design House</p>
-    <h3 class="text-lg font-black text-brandBlue uppercase italic mb-3">Jacob Jensen</h3>
-    <p class="text-sm text-slate-600 leading-relaxed">6,000 wireless car mounts with infrared and touch dual-sensing, delivered with zero defects.</p>
-   </article>
+   {%- endfor %}
   </div>
   <div class="text-center mt-10">
-   <a href="/case-studies/" class="btn-more">View all case studies <span>&rarr;</span></a>
+   <a href="{{ t.ctaUrl }}" class="btn-more">{{ t.cta }} <span>&rarr;</span></a>
   </div>
  </div>
 </section>

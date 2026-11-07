@@ -125,6 +125,14 @@ plPath: "produkty/power-bank/inteligentny-wyswietlacz/"
             "@type": "Answer",
             "text": "Premium-Smart-Display-Modelle kommen mit Aluminium-Unibody-Gehäuse und gehärtetem Frontglas über dem TFT-Bildschirm. Das passt zur Premium-Positionierung und schützt das Display."
           }
+        },
+        {
+          "@type": "Question",
+          "name": "Welche Geräte profitieren vom TFT-Display?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "USB-C-PD-Geräte und Qi2-Smartphones, bei denen Ladeleistung, Spannung und Zyklusdaten sichtbar sein sollen. Geräte ohne USB-C oder Qi laden nicht über die Station."
+          }
         }
       ]
     },
@@ -265,28 +273,32 @@ plPath: "produkty/power-bank/inteligentny-wyswietlacz/"
 </section>
 
 <!-- ======== TRUST BAR ======== -->
+{% set trustBarCerts = false %}
 {% include "trust-bar.njk" %}
+
+<!-- Divider -->
+<div class="relative w-full">
+ <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent"></div>
+ <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-white border border-slate-200 rotate-45"></div>
+</div>
 
 <!-- MODELS -->
 {% set family = "products/power-bank/smart-display" %}
 {#- 型号卡：六语言共用模板（2026-10-29）。数据 src/_products/*.json -#}
 {% include "partials/product-models.njk" %}
 
+{% set compareFamily = family %}
+{% include "partials/model-compare.njk" %}
+
 <!-- MARKET-DATA -->
-<section id="market-data" class="sec bg-white py-8" data-section="content">
- <div class="container-wide">
- <blockquote class="bg-brandOrange/5 border-l-4 border-brandOrange rounded-r-xl px-6 py-5 text-sm text-slate-700 italic leading-relaxed">
-  <p>"TFT-Display-Powerbanks sind das am schnellsten wachsende Subsegment im Powerbank-Markt mit einer prognostizierten CAGR von 17-18% von 2025 bis 2031 — nahezu doppelt so schnell wie der Gesamtmarkt (YH Research / 恒州诚思). Der Markt wächst von 3,7 Mrd. RMB (2024) auf 11,1 Mrd. RMB bis 2031. Die Kategorie entwickelt sich vom 'Akku mit Bildschirm' zum 'interaktiven Desktop-Ladehub'. Hochwertige Materialien, Echtzeit-Ladevisualisierung und transparente Gehäusedesigns treiben die Verkaufspreise 40-60% über konventionelle Powerbanks — und machen dies zur margenstärksten Kategorie für Retail-Marken."</p>
-  <cite class="block text-xs text-slate-400 mt-2 not-italic">— <a href="https://www.yhresearch.cn/reports/2396545/tft-screen-power-bank" target="_blank" rel="noopener noreferrer" class="text-brandOrange hover:underline">YH Research / Hengzhou Chengsi</a>, Global TFT Screen Power Bank Market Report 2025-2031</cite>
- </blockquote>
- </div>
-</section>
+
 
 <!-- Was ist eine TFT-Display-Powerbank -->
-<section id="was-ist-eine-tft-display-powerbank" class="sec bg-white" data-section="content">
+<section id="was-ist-eine-tft-display-powerbank" class="sec bg-slate-50" data-section="content">
  <div class="container-wide">
-  {{ sectionHeader('Grundlagen', 'Was macht eine <span class="text-brandOrange">TFT-Display-Powerbank</span> besonders?', 'Ein TFT-Bildschirm zeigt Echtzeit-Ladedaten — das hebt Ihre Marke aus der Masse der Standard-Powerbanks heraus.', {max: '', mb: 'mb-12'}) }}
-  <div class="grid md:grid-cols-3 gap-8">
+ 
+  {{ sectionHeader('Grundlagen', 'Was macht eine <span class="text-brandOrange">TFT-Display-Powerbank</span> besonders?', 'Ein TFT-Bildschirm zeigt Echtzeit-Ladedaten — das hebt Ihre Marke aus der Masse der Standard-Powerbanks heraus. Kompatibel mit USB-C-PD- und Qi2-Geräten; nicht für Geräte ohne USB-C oder Qi.', {max: '', mb: 'mb-12'}) }}
+   <div class="grid md:grid-cols-3 gap-6">
    <div class="card-lg-soft p-8 text-center">
     <p class="text-3xl font-black text-brandOrange mb-2">Echtzeit</p>
     <p class="text-sm font-bold text-brandBlue">Watt + Volt + Ampere</p>
@@ -303,19 +315,26 @@ plPath: "produkty/power-bank/inteligentny-wyswietlacz/"
     <p class="text-xs text-slate-500 mt-2">Ihr Markenlogo beim Einschalten am TFT-Display. Stärkt Wiedererkennung und Markenbindung.</p>
    </div>
   </div>
+  <figure class="mt-10 max-w-4xl mx-auto reveal">
+   <div class="rounded-2xl border border-brandOrange/20 bg-brandOrange/5 p-6 md:p-8">
+    <p class="text-xs font-black uppercase tracking-widest text-brandOrangeDeep mb-3">Marktkontext</p>
+    <blockquote class="text-sm text-slate-700 leading-relaxed">"TFT-Display-Powerbanks sind das am schnellsten wachsende Subsegment im Powerbank-Markt mit einer prognostizierten CAGR von 17-18% von 2025 bis 2031 — nahezu doppelt so schnell wie der Gesamtmarkt (YH Research / 恒州诚思). Der Markt wächst von 3,7 Mrd. RMB (2024) auf 11,1 Mrd. RMB bis 2031. Die Kategorie entwickelt sich vom 'Akku mit Bildschirm' zum 'interaktiven Desktop-Ladehub'. Hochwertige Materialien, Echtzeit-Ladevisualisierung und transparente Gehäusedesigns treiben die Verkaufspreise 40-60% über konventionelle Powerbanks — und machen dies zur margenstärksten Kategorie für Retail-Marken."</blockquote>
+    <figcaption class="mt-3 text-xs text-slate-500">— <a href="https://www.yhresearch.cn/reports/2396545/tft-screen-power-bank" target="_blank" rel="noopener noreferrer" class="text-brandOrange hover:underline">YH Research / Hengzhou Chengsi</a>, Global TFT Screen Power Bank Market Report 2025-2031</figcaption>
+   </div>
+  </figure>
  </div>
 </section>
 
 <!-- DISPLAY COMPARISON -->
-<section id="display-comparison" class="sec bg-slate-50" data-section="comparison">
+<section id="display-comparison" class="sec bg-white" data-section="comparison">
  <div class="container-wide">
-  {{ sectionHeader('Display-Vergleich', 'LED vs. TFT vs. OLED', 'Welche Display-Technologie passt zu Ihrer Markenpositionierung?', {mb: 'mb-12'}) }}
+  {{ sectionHeader('Display-Vergleich', 'LED vs. TFT vs. <span class="text-brandOrange">OLED</span>', 'Welche Display-Technologie passt zu Ihrer Markenpositionierung?', {mb: 'mb-12'}) }}
   <div class="overflow-x-auto reveal rounded-2xl border border-slate-200 shadow-sm bg-white">
    <table class="w-full text-sm">
     <thead><tr class="bg-brandBlue text-white">
      <th class="text-left px-5 py-3 font-bold text-sm">Eigenschaft</th>
      <th class="text-left px-5 py-3 font-bold text-sm">LED (Status)</th>
-     <th class="text-left px-5 py-3 font-bold text-sm">TFT (Standard)</th>
+     <th class="text-left px-5 py-3 font-bold text-sm bg-brandOrange text-brandBlue">TFT (Standard)</th>
      <th class="text-left px-5 py-3 font-bold text-sm">OLED (Premium)</th>
     </tr></thead>
     <tbody class="divide-y divide-slate-100">
@@ -332,6 +351,7 @@ plPath: "produkty/power-bank/inteligentny-wyswietlacz/"
 <!-- WHY TFT DISPLAY -->
 <section id="why-tft-display" class="sec bg-slate-50 relative" data-section="content">
  <div class="container-wide">
+  <div class="text-center"><p class="section-label">Warum WOWOHCOOL</p></div>
   <h2 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4 text-center">Warum <span class="text-brandOrange">TFT-Display</span> für Ihre Marke</h2>
   <p class="text-center text-slate-500 text-sm max-w-2xl mx-auto mb-12">Display-Powerbanks erzielen im DACH-Markt höhere Preise und mehr Vertrauen im Listing.</p>
   <div class="grid md:grid-cols-3 gap-6">
@@ -345,37 +365,125 @@ plPath: "produkty/power-bank/inteligentny-wyswietlacz/"
 <!-- OEM/ODM -->
 <section id="oem-odm-customization" class="sec bg-white relative" data-section="content">
  <div class="container-wide">
-  <h2 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4 text-center">OEM/ODM-Anpassung</h2>
+  <div class="text-center"><p class="section-label">Anpassung</p></div>
+  <h2 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4 text-center">OEM/ODM-<span class="text-brandOrange">Anpassung</span></h2>
   <p class="text-center text-slate-500 text-sm max-w-2xl mx-auto mb-12">Individuelles Boot-Logo, Display-Theme und Verpackung — direkt ab Werk.</p>
-  <div class="grid md:grid-cols-2 gap-8">
-   <div class="card-soft p-6"><h3 class="font-black text-brandBlue uppercase mb-4 text-sm">ODM (Lagermodelle mit Logo, MOQ 500)</h3><ul class="space-y-2 text-sm text-slate-600"><li>• Logodruck (Siebdruck, Laser, UV)</li><li>• Farb- und Display-Theme (Pantone)</li><li>• Verpackung mit Marken-Artwork</li><li>• CE / RoHS / UN38.3-konform</li><li>• Lieferzeit: 25–30 Tage nach Musterfreigabe</li></ul></div>
-   <div class="card-soft p-6"><h3 class="font-black text-brandBlue uppercase mb-4 text-sm">ODM (Designentwicklung, MOQ 1.000–2.000)</h3><ul class="space-y-2 text-sm text-slate-600"><li>• Eigenes Boot-Logo und UI-Layout</li><li>• Gehäuse- und Display-Werkzeugbau</li><li>• Konfiguration von Kapazität und Ausgang</li><li>• Firmware-Anpassung</li><li>• Lieferzeit: 45–60 Tage inkl. Werkzeug</li></ul></div>
+  <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 cap-grid">
+   <article class="cap-tile reveal">
+    <h3 class="text-base font-black text-brandBlue uppercase italic mb-3">ODM Stock · MOQ 500</h3>
+    <ul class="cap-list">
+     <li>Bestehende Modelle und Kapazitäten wählen</li>
+     <li>Logodruck (Siebdruck, Laser, UV)</li>
+     <li>Pantone-Farbabgleich</li>
+     <li>Display-Theme und Boot-Logo</li>
+     <li>Lagerverpackung mit Logodruck</li>
+     <li>Lieferzeit: 3–7 Tage Muster · 25–35 Tage Produktion</li>
+    </ul>
+   </article>
+   <article class="cap-tile reveal">
+    <h3 class="text-base font-black text-brandBlue uppercase italic mb-3">ODM-Entwicklung · MOQ 1.000–2.000</h3>
+    <ul class="cap-list">
+     <li>Individuelle Verpackung mit Marken-Artwork</li>
+     <li>Mehrsprachige Handbücher, Einleger und Garantiekarten</li>
+     <li>Plattformangepasstes Werkzeug (kein neues Gehäuse-Werkzeug)</li>
+     <li>Kapazität und Ausgang: 5.000–10.000mAh · bis 45W</li>
+     <li>Eigenes Boot-Logo und TFT-UI-Layout</li>
+     <li>Display-Theme und Firmware</li>
+     <li>Lieferzeit: 25–45 Tage Design · 35–50 Tage Produktion</li>
+    </ul>
+   </article>
+   <article class="cap-tile reveal">
+    <h3 class="text-base font-black text-brandBlue uppercase italic mb-3">OEM · MOQ 3.000+</h3>
+    <ul class="cap-list">
+     <li>Design und CMF in Kundenhand</li>
+     <li>Neues Gehäuse- und Display-Werkzeug</li>
+     <li>Kapazität und Ausgang: 5.000–10.000mAh · bis 45W</li>
+     <li>Eigenes Boot-Logo und TFT-UI-Layout</li>
+     <li>Zertifizierungsunterstützung für Zielmärkte</li>
+     <li>Lieferzeit: 30–60 Tage Produktion · 2–4 Monate mit neuem Werkzeug</li>
+    </ul>
+   </article>
   </div>
   <div class="text-center mt-10"><p class="text-slate-500 text-sm mb-4">Bereit für Ihr OEM-Projekt?</p>{{ ctaButton("factoryPricing", "primary", "open-modal", "TFT Smart Display Powerbank") }}</div>
  </div>
 </section>
 
+<!-- SMART DISPLAY -->
+<section id="what-the-smart-screen-shows" class="sec bg-slate-50 relative" data-section="content">
+ <div class="container-wide">
+  {{ sectionHeader('Display', 'Was zeigt das <span class="text-brandOrange">Smart Display</span>?', 'Echtzeit-Daten, die den Preisunterschied sichtbar machen.', {mb: 'mb-12'}) }}
+  <div class="grid md:grid-cols-3 gap-6">
+   <div class="card-soft p-6"><h3 class="font-black text-brandBlue uppercase mb-3 text-sm">Watt, Volt, Ampere</h3><p class="text-sm text-slate-600 leading-relaxed">Live-Anzeige der aktuellen Ladeleistung — inklusive Spannung und Stromstärke je Port.</p></div>
+   <div class="card-soft p-6"><h3 class="font-black text-brandBlue uppercase mb-3 text-sm">Kapazität &amp; Zyklen</h3><p class="text-sm text-slate-600 leading-relaxed">Restkapazität in Prozent und mAh sowie Ladezyklen und Temperatur — direkt am Gerät ablesbar.</p></div>
+   <div class="card-soft p-6"><h3 class="font-black text-brandBlue uppercase mb-3 text-sm">Eigenes Boot-Logo</h3><p class="text-sm text-slate-600 leading-relaxed">Ihr Markenlogo beim Einschalten und ein individuelles UI-Theme ab MOQ 500.</p></div>
+  </div>
+ </div>
+</section>
+
+<!-- MARKET & MARGIN -->
+<section id="market-margin" class="sec bg-white border-t border-slate-100" data-section="content">
+ <div class="container-wide">
+  {{ sectionHeader('Markt & Marge', 'TFT-Display: <span class="text-brandOrange">Premium-Marge</span>', 'Ein sichtbares Display rechtfertigt höhere Preise als eine Standard-Powerbank.', {max: '', mb: 'mb-12'}) }}
+  <div class="grid md:grid-cols-3 gap-6">
+   <div class="card-lg-soft p-8 text-center"><p class="text-3xl font-black text-brandOrange mb-2">40–60%</p><p class="text-sm font-bold text-brandBlue">höhere Endkundenpreise</p><p class="text-xs text-slate-500 mt-2">Display-Powerbanks liegen deutlich über Modellen ohne Display bei gleicher Kapazität.</p></div>
+   <div class="card-lg-soft p-8 text-center"><p class="text-3xl font-black text-brandOrange mb-2">60–120€</p><p class="text-sm font-bold text-brandBlue">UVP im Premium-Retail</p><p class="text-xs text-slate-500 mt-2">Ideal für Amazon.de, MediaMarkt und Apple-Zubehörregale.</p></div>
+   <div class="card-lg-soft p-8 text-center"><p class="text-3xl font-black text-brandOrange mb-2">17–18%</p><p class="text-sm font-bold text-brandBlue">CAGR TFT-Segment</p><p class="text-xs text-slate-500 mt-2">Schneller wachsend als der Gesamtmarkt für Powerbanks (2025–2031).</p></div>
+  </div>
+ </div>
+</section>
+
+<!-- EU Compliance -->
+<section id="eu-compliance" class="sec bg-white" data-section="content">
+ <div class="container-wide">
+  {{ sectionHeader('Compliance', 'EU-Batterieverordnung <span class="text-brandOrange">2023/1542</span>', 'Erzeugerpflichten, Batteriepass und EAR-Registrierung — als Service inklusive.', {mb: 'mb-10'}) }}
+  <div class="grid md:grid-cols-2 gap-6 reveal">
+   <div class="card-lg p-6">
+    <h3 class="text-base font-bold text-brandBlue mb-2">EU-Batterieverordnung 2023/1542</h3>
+    <p class="text-sm text-slate-600 leading-relaxed">Seit 18.08.2024 sind Erzeugerpflichten in Kraft, ab 18.02.2027 wird der digitale Batteriepass Pflicht. Wir liefern technische Dokumentation, EU-Konformitätserklärung und unterstützen die EAR-Stiftung-Registrierung in Deutschland sowie EPR-Pendants in AT, CH, FR, IT, ES.</p>
+   </div>
+   <div class="card-lg p-6">
+    <h3 class="text-base font-bold text-brandBlue mb-2">Digitaler Batteriepass-Bereitschaft</h3>
+    <p class="text-sm text-slate-600 leading-relaxed">Unsere Smart-Display-Powerbanks ab 2026 mit QR-Code-fähigen Etiketten und durchgehender Lebenszyklus-Datenerfassung — bereit für die ab Februar 2027 verpflichtende digitale Batteriepass-Anforderung der EU-Verordnung 2023/1542.</p>
+   </div>
+  </div>
+   {% set certProfile = "power-bank" %}
+ {% include "partials/compliance-cert-table.njk" %}
+<p class="text-xs text-slate-500 text-center mt-6 reveal">Quellen: <a href="https://eur-lex.europa.eu/legal-content/DE/TXT/PDF/?uri=CELEX%3A32023R1542" target="_blank" rel="noopener external" class="text-brandOrange hover:underline">EUR-Lex 2023/1542</a> &middot; <a href="https://www.ihk.de/stuttgart/fuer-unternehmen/energie-umwelt-nachhaltigkeit/umwelt/abfallwirtschaft/neue-batterieverordnung-6779620" target="_blank" rel="noopener noreferrer" class="text-brandOrange hover:underline">IHK Stuttgart</a></p>
+ </div>
+</section>
+
+
+{% set rangeLabel = "Smart-Display-Serie" %}
+{% set termsBg = "bg-white" %}
+{% set supportBg = "bg-slate-50" %}
+{% include "partials/subpage-commercial-support.njk" %}
+{% set casesBg = "bg-white" %}
+{% include "partials/case-strip.njk" %}
+
 <!-- FAQ -->
 <section id="faq" class="sec bg-slate-50" data-section="faq">
  <div class="container-narrow">
- {{ sectionHeader('FAQ', 'Smart Display FAQ', '', {max: ''}) }}
+ {{ sectionHeader('FAQ', 'Smart Display <span class="text-brandOrange">FAQ</span>', '', {max: ''}) }}
  <div class="reveal">
  {% call faqItem("Was zeigt der TFT-Bildschirm einer Smart-Display-Powerbank?", true) %}Echtzeit-Wattzahl (z.B. 23,5W), Spannung (z.B. 9V), Stromstärke (z.B. 2,6A), verbleibende Akkukapazität in Prozent und mAh, Anzahl der Ladezyklen sowie Temperatur. Auf Wunsch auch Markenlogo beim Einschalten.{% endcall %}
  {% call faqItem("Warum eine Powerbank mit TFT-Bildschirm?", true) %}Premium-Positionierung im Retail (Endpreis 60-120€), bessere Markenwahrnehmung durch sichtbare Echtzeit-Daten, höhere Conversion bei Tech-affinen Käufern. Marken wie Anker Prime, Shargeek nutzen TFT-Displays für ihre Premium-Linie.{% endcall %}
  {% call faqItem("Welche Display-Typen sind verfügbar?", true) %}TFT-Farbdisplay (Standard), OLED (Premium), LED-Statusanzeige (Einstieg). Wir empfehlen TFT für die meisten B2B-Marken: bessere Lesbarkeit als LED, deutlich günstiger als OLED, voller Farbumfang.{% endcall %}
  {% call faqItem("Wie hoch ist die MOQ für Smart-Display Powerbank OEM?") %}MOQ ab 500 Stück für Standardmodelle mit Logo. ODM-Designentwicklung mit eigenem TFT-UI-Design: 1.000-2.000 Stück, da Firmware-Entwicklung erforderlich ist. Vollständiges OEM mit neuem Werkzeug: ab 3.000 Stück.{% endcall %}
  {% call faqItem("Sind die Gehäuse aus Aluminium oder Kunststoff?") %}Premium-Smart-Display-Modelle kommen mit Aluminium-Unibody-Gehäuse und gehärtetem Frontglas über dem TFT-Bildschirm. Das passt zur Premium-Positionierung und schützt das Display.{% endcall %}
+ {% call faqItem("Welche Geräte profitieren vom TFT-Display?") %}USB-C-PD-Geräte und Qi2-Smartphones, bei denen Ladeleistung, Spannung und Zyklusdaten sichtbar sein sollen. Geräte ohne USB-C oder Qi laden nicht über die Station.{% endcall %}
  </div>
  </div>
 </section>
 {% include "partials/product-cta.njk" %}
 
+
+
 <!-- ======== BLOG ARTICLES ======== -->
 <section id="blog-articles" class="sec bg-white" data-section="content">
  <div class="container-wide">
   <div class="text-center mb-12 reveal">
+   <p class="section-label">Fachwissen für OEM/ODM-Beschaffung</p>
    <h2 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4">Powerbank <span class="text-brandOrange">Insights</span></h2>
-   <p class="text-slate-500 font-bold uppercase tracking-widest text-badge">Fachwissen für OEM/ODM-Beschaffung</p>
   </div>
   <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
    <a href="/de/blog/powerbank-spezifikationen/" class="group bg-slate-50 rounded-2xl overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
@@ -383,7 +491,7 @@ plPath: "produkty/power-bank/inteligentny-wyswietlacz/"
      <img loading="lazy" src="/image/blog/cover-de/powerbank-spezifikationen-cover.webp" srcset="/image/blog/cover-de/powerbank-spezifikationen-cover-450w.webp 450w, /image/blog/cover-de/powerbank-spezifikationen-cover-800w.webp 800w, /image/blog/cover-de/powerbank-spezifikationen-cover-950w.webp 950w, /image/blog/cover-de/powerbank-spezifikationen-cover-1200w.webp 1200w, /image/blog/cover-de/powerbank-spezifikationen-cover.webp 1700w" sizes="(min-width: 1440px) 395px, (min-width: 1280px) 395px, (min-width: 1024px) 309px, (min-width: 768px) 348px, (min-width: 430px) 382px, 327px" alt="Powerbank Spezifikationen" class="w-full h-full object-cover" width="1700" height="956" decoding="async">
      <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
      <div class="absolute bottom-3 left-4">
-      <span class="px-2 py-1 bg-brandOrange text-brandBlue text-badge font-black uppercase rounded">Spezifikationen</span>
+      <span class="px-2 py-1 bg-brandBlue text-white text-badge font-black uppercase rounded">Spezifikationen</span>
      </div>
     </div>
     <div class="p-6">
@@ -411,7 +519,7 @@ plPath: "produkty/power-bank/inteligentny-wyswietlacz/"
      <img loading="lazy" src="/image/blog/cover-de/usb-c-pd-cover.webp" srcset="/image/blog/cover-de/usb-c-pd-cover-450w.webp 450w, /image/blog/cover-de/usb-c-pd-cover-800w.webp 800w, /image/blog/cover-de/usb-c-pd-cover-950w.webp 950w, /image/blog/cover-de/usb-c-pd-cover-1200w.webp 1200w, /image/blog/cover-de/usb-c-pd-cover.webp 1700w" sizes="(min-width: 1440px) 395px, (min-width: 1280px) 395px, (min-width: 1024px) 309px, (min-width: 768px) 348px, (min-width: 430px) 382px, 327px" alt="USB-C PD Schnellladen 2026" class="w-full h-full object-cover" width="1700" height="956" decoding="async">
      <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
      <div class="absolute bottom-3 left-4">
-      <span class="px-2 py-1 bg-white text-green-700 text-badge font-black uppercase rounded">Technologie</span>
+      <span class="px-2 py-1 bg-brandBlue text-white text-badge font-black uppercase rounded">Technologie</span>
      </div>
     </div>
     <div class="p-6">
@@ -430,7 +538,7 @@ plPath: "produkty/power-bank/inteligentny-wyswietlacz/"
 </section>
 
 <!-- ====== EXPLORE MORE CATEGORIES ====== -->
-<section id="explore-more-categories" class="sec bg-white relative" data-section="related">
+<section id="explore-more-categories" class="sec bg-slate-50 relative" data-section="related">
  <div class="container-wide">
   <div class="text-center max-w-3xl mx-auto mb-12 reveal">
    <p class="section-label">Weitere Kategorien</p>
@@ -471,14 +579,16 @@ plPath: "produkty/power-bank/inteligentny-wyswietlacz/"
 </section>
 
 <!-- ======== CTA ======== -->
+
+
+
 {%- set formProduct = "Powerbank mit TFT-Smart-Display" %}
-{%- set formHeading = "TFT-Display-Powerbank – Fabrikpreis anfordern" %}
+{%- set formHeading = "TFT-Display-Powerbank – <span class='text-brandOrange'>Fabrikpreis anfordern</span>" %}
 {%- set formSubtext = "MOQ 500 Stück. Muster in 5–7 Tagen. Individuelles Boot-Logo auf dem Display und Verpackung möglich." %}
 {%- set formSubject = "Anfrage: Powerbank mit TFT-Smart-Display" %}
 
 
 {% include "partials/product-inquiry-form.njk" %}
-
 
 {% endblock %}
 

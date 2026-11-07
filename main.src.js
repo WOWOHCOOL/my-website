@@ -611,6 +611,30 @@ function initMarquee() {
   }
 }
 
+// ─── Table Scroll Hint (product pages) ─────────────────────────────
+// Adds a small "swipe to see all columns" note only when a table
+// actually overflows its scroll container.
+
+function initTableScrollHints() {
+  if (!document.body.classList.contains('product-page')) return;
+  const isDe = (document.documentElement.lang || '').toLowerCase().startsWith('de');
+  document.querySelectorAll('.overflow-x-auto').forEach((el) => {
+    const table = el.querySelector('table');
+    if (!table) return;
+    const next = el.nextElementSibling;
+    const hasHint = next && next.classList && next.classList.contains('table-scroll-hint');
+    if (el.scrollWidth <= el.clientWidth + 4) {
+      if (hasHint) next.remove();
+      return;
+    }
+    if (hasHint) return;
+    const hint = document.createElement('p');
+    hint.className = 'table-scroll-hint';
+    hint.textContent = isDe ? 'Wischen, um alle Spalten zu sehen →' : 'Swipe to see all columns →';
+    el.insertAdjacentElement('afterend', hint);
+  });
+}
+
 // ─── Form Error Display ─────────────────────────────────────────────
 
 function showFormError(form, message) {
@@ -741,7 +765,8 @@ document.addEventListener('DOMContentLoaded', () => {
       function apply(value) {
         buttons.forEach(btn => btn.classList.toggle('is-active', btn.dataset.capacityFilter === value));
         cards.forEach(card => {
-          card.classList.toggle('is-hidden', value !== 'all' && card.dataset.capacity !== value);
+          const capacities = (card.dataset.capacity || '').split(/[\s,]+/).filter(Boolean);
+          card.classList.toggle('is-hidden', value !== 'all' && !capacities.includes(value));
         });
       }
       buttons.forEach(btn => btn.addEventListener('click', () => apply(btn.dataset.capacityFilter || 'all')));
@@ -789,6 +814,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Marquee clone (DE)
   initMarquee();
+
+  // Table scroll hints (product pages)
+  initTableScrollHints();
+  let tableHintTimer;
+  window.addEventListener('resize', () => {
+    clearTimeout(tableHintTimer);
+    tableHintTimer = setTimeout(initTableScrollHints, 150);
+  });
 
   // Initial back to top state
   updateBackToTop();

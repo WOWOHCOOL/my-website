@@ -125,6 +125,14 @@ plPath: "produkty/power-bank/bateria-grzejaca/"
             "@type": "Answer",
             "text": "MOQ ab 500 Stück bei Standardmodellen. ODM-Designentwicklung mit kundenspezifischen Spannungen oder Steckverbindern: 1.000-2.000 Stück. Vollständiges OEM mit neuem Werkzeug: ab 3.000 Stück. Muster in 5-10 Tagen, da Spezialteile beschafft werden müssen."
           }
+        },
+        {
+          "@type": "Question",
+          "name": "Welche Heizbekleidung passt zu welcher Spannung?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "5V USB für Heizpaneele in Jacken, Westen und Handschuhen; 7,4V DC für Kabel-Heizelemente in Premium-Jacken, Socken und Schals. Steckverbinder und Controller werden auf Ihr Heizsystem abgestimmt."
+          }
         }
       ]
     },
@@ -267,32 +275,36 @@ plPath: "produkty/power-bank/bateria-grzejaca/"
 </section>
 
 <!-- ======== TRUST BAR ======== -->
+{% set trustBarCerts = false %}
 {% include "trust-bar.njk" %}
+
+<!-- Divider -->
+<div class="relative w-full">
+ <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent"></div>
+ <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-white border border-slate-200 rotate-45"></div>
+</div>
 
 <!-- MODELS -->
 {% set family = "products/power-bank/heating-battery" %}
 {#- 型号卡：六语言共用模板（2026-10-29）。数据 src/_products/*.json -#}
 {% include "partials/product-models.njk" %}
 
+{% set compareFamily = family %}
+{% include "partials/model-compare.njk" %}
+
 <!-- MARKET-DATA -->
-<section id="market-data" class="sec bg-white py-8" data-section="content">
- <div class="container-wide">
- <blockquote class="max-w-3xl mx-auto mb-12 bg-brandOrange/5 border-l-4 border-brandOrange rounded-r-xl px-6 py-5 text-sm text-slate-700 italic leading-relaxed">
-  <p>"Der globale Markt für beheizte Bekleidung wächst laut TechSci Research von 480 Mio. USD (2025) auf 830 Mio. USD bis 2031 bei einer CAGR von 9,56%. Das batteriebeheizte Jackensegment wird laut QY Research bis 2031 ein Volumen von 451 Mio. USD erreichen (12% CAGR). Allein die US-Skiindustrie verzeichnete 2023/24 60,4 Millionen Besuche mit über 30 Millionen Wintersport-Teilnehmern. Der entscheidende Wettbewerbsfaktor für Marken ist der Akku: Laufzeit bei Minusgraden, Steckverbinder-Zuverlässigkeit über 500+ Ladezyklen und marktübergreifende Zertifizierungen — PSE (Japan), UL (USA), UN38.3 (Luftfracht) und CE (EU) — trennen Premium-Heizbekleidung von Importware."</p>
-  <cite class="block text-xs text-slate-400 mt-2 not-italic">— <a href="https://www.techsciresearch.com/report/heated-clothing-market/14740.html" target="_blank" rel="noopener noreferrer" class="text-brandOrange hover:underline">TechSci Research</a>, Heated Clothing Market 2026-2031; <a href="https://qyang.livedoor.blog/archives/10959428.html" target="_blank" rel="noopener noreferrer" class="text-brandOrange hover:underline">QY Research</a>, Battery Heated Warm Jackets Market 2025-2031</cite>
- </blockquote>
- </div>
-</section>
+
 
 <!-- VOLTAGE GUIDE -->
 <section id="voltage-guide" class="sec bg-slate-50" data-section="content">
  <div class="container-wide">
-  {{ sectionHeader('Grundlagen', 'Was ist ein <span class="text-brandOrange">Heizakku</span>?', 'Spezialisierte Akkus für beheizbare Bekleidung — kein gewöhnlicher USB-Akku.', {mb: 'mb-12'}) }}
-  <div class="grid md:grid-cols-3 gap-8">
+ 
+  {{ sectionHeader('Grundlagen', 'Was ist ein <span class="text-brandOrange">Heizakku</span>?', 'Spezialisierte Akkus für beheizbare Bekleidung — kein gewöhnlicher USB-Akku. 5V für USB-Heizpaneele, 7,4V für DC-Heizelemente; nicht für Geräte mit anderer Spannung ohne passenden Controller.', {mb: 'mb-12'}) }}
+   <div class="grid md:grid-cols-3 gap-6">
    <div class="card-lg-soft p-8 text-center">
     <p class="text-3xl font-black text-brandOrange mb-2">5V + 7,4V</p>
     <p class="text-sm font-bold text-brandBlue">Duale Spannung</p>
-    <p class="text-xs text-slate-500 mt-2">5V USB für Heizpaneele, 7,4V DC für Kabel-Heizelemente. Individuelle Spannungskonfigurationen möglich.</p>
+    <p class="text-xs text-slate-500 mt-2">5V USB für Heizpaneele (WOP53, WOP57, WOP54, WOP63) und 7,4V DC für Kabel-Heizelemente (WOP49, WOP50, WOP55, WOP61). Individuelle Spannungskonfigurationen möglich.</p>
    </div>
    <div class="card-lg-soft p-8 text-center">
     <p class="text-3xl font-black text-brandOrange mb-2">EN 60335-2-17</p>
@@ -305,6 +317,13 @@ plPath: "produkty/power-bank/bateria-grzejaca/"
     <p class="text-xs text-slate-500 mt-2">Bei 14.400mAh auf niedriger Stufe. Kundenspezifische Steckverbinder und Kabellängen für Ihre Heizbekleidung.</p>
    </div>
   </div>
+  <figure class="mt-10 max-w-4xl mx-auto reveal">
+   <div class="rounded-2xl border border-brandOrange/20 bg-brandOrange/5 p-6 md:p-8">
+    <p class="text-xs font-black uppercase tracking-widest text-brandOrangeDeep mb-3">Marktkontext</p>
+    <blockquote class="text-sm text-slate-700 leading-relaxed">"Der globale Markt für beheizte Bekleidung wächst laut TechSci Research von 480 Mio. USD (2025) auf 830 Mio. USD bis 2031 bei einer CAGR von 9,56%. Das batteriebeheizte Jackensegment wird laut QY Research bis 2031 ein Volumen von 451 Mio. USD erreichen (12% CAGR). Allein die US-Skiindustrie verzeichnete 2023/24 60,4 Millionen Besuche mit über 30 Millionen Wintersport-Teilnehmern. Der entscheidende Wettbewerbsfaktor für Marken ist der Akku: Laufzeit bei Minusgraden, Steckverbinder-Zuverlässigkeit über 500+ Ladezyklen und marktübergreifende Zertifizierungen — PSE (Japan), UL (USA), UN38.3 (Luftfracht) und CE (EU) — trennen Premium-Heizbekleidung von Importware."</blockquote>
+    <figcaption class="mt-3 text-xs text-slate-500">— <a href="https://www.techsciresearch.com/report/heated-clothing-market/14740.html" target="_blank" rel="noopener noreferrer" class="text-brandOrange hover:underline">TechSci Research</a>, Heated Clothing Market 2026-2031; <a href="https://qyang.livedoor.blog/archives/10959428.html" target="_blank" rel="noopener noreferrer" class="text-brandOrange hover:underline">QY Research</a>, Battery Heated Warm Jackets Market 2025-2031</figcaption>
+   </div>
+  </figure>
  </div>
 </section>
 
@@ -314,7 +333,7 @@ plPath: "produkty/power-bank/bateria-grzejaca/"
   {{ sectionHeader('Vergleich', 'Heizakku vs. <span class="text-brandOrange">Standard-Powerbank</span>', 'Warum beheizbare Bekleidung spezialisierte Akkus braucht — und keine gewöhnliche Powerbank ausreicht.', {max: '', mb: 'mb-12'}) }}
   <div class="overflow-x-auto reveal rounded-2xl border border-slate-200 shadow-sm bg-white">
    <table class="w-full text-sm">
-    <thead><tr class="bg-brandBlue text-white"><th class="text-left px-5 py-3 font-bold text-sm">Merkmal</th><th class="text-left px-5 py-3 font-bold text-sm bg-brandOrange/20">Heizakku (7,4V DC)</th><th class="text-left px-5 py-3 font-bold text-sm">Standard USB-Powerbank</th></tr></thead>
+    <thead><tr class="bg-brandBlue text-white"><th class="text-left px-5 py-3 font-bold text-sm">Merkmal</th><th class="text-left px-5 py-3 font-bold text-sm bg-brandOrange text-brandBlue">Heizakku (7,4V DC)</th><th class="text-left px-5 py-3 font-bold text-sm">Standard USB-Powerbank</th></tr></thead>
     <tbody class="divide-y divide-slate-100">
      <tr class="hover:bg-slate-50"><td class="px-5 py-3 text-sm font-semibold text-slate-700">Ausgangsspannung</td><td class="px-5 py-3 text-sm text-slate-600">3,7–12,6V DC, konfigurierbar</td><td class="px-5 py-3 text-sm text-slate-600">Nur 5V USB</td></tr>
      <tr class="hover:bg-slate-50"><td class="px-5 py-3 text-sm font-semibold text-slate-700">Steckverbinder</td><td class="px-5 py-3 text-sm text-slate-600">DC-Hohlstecker, JST, kundenspezifisch</td><td class="px-5 py-3 text-sm text-slate-600">USB-A / USB-C</td></tr>
@@ -327,41 +346,97 @@ plPath: "produkty/power-bank/bateria-grzejaca/"
  </div>
 </section>
 
-<!-- EU Compliance -->
-<section id="eu-compliance" class="sec bg-white" data-section="content">
+<!-- WHY WOWOHCOOL -->
+<section id="why-heizakku" class="sec bg-white relative" data-section="content">
  <div class="container-wide">
-  <div class="grid md:grid-cols-2 gap-6 reveal">
-   <div class="card-lg-soft p-6">
-    <h3 class="text-base font-bold text-brandBlue mb-2">EN 60335-2-17 Konformität</h3>
-    <p class="text-sm text-slate-600 leading-relaxed">Diese Norm regelt die Sicherheit von Heizdecken, Heizkissen und ähnlichen flexiblen Heizgeräten. Unsere Heizakku-Steuerung integriert Übertemperaturschutz, Übersleerlauf und automatische Abschaltung gemäß Anhang AA der Norm. Wir liefern das vollständige Prüfprotokoll mit jeder Bestellung.</p>
-   </div>
-   <div class="card-lg-soft p-6">
-    <h3 class="text-base font-bold text-brandBlue mb-2">EU 2023/1542 + EAR-Service</h3>
-    <p class="text-sm text-slate-600 leading-relaxed">Für tragbare Heizakkus gilt die EU-Batterieverordnung 2023/1542 — wir übernehmen die EAR-Stiftung-Registrierung in Deutschland und unterstützen die EPR-Pendants für Bekleidungs-Distribution in AT, FR, IT, ES. Ab 2027 inkl. Batteriepass-Vorbereitung.</p>
-   </div>
+  {{ sectionHeader('Warum WOWOHCOOL', 'Warum <span class="text-brandOrange">WOWOHCOOL</span> für Heizbekleidung', 'Spezialisiertes Akku-Werk seit 2013 — mit Steuerung, Steckverbindern und Zertifizierung für beheizte Bekleidung.', {mb: 'mb-12'}) }}
+  <div class="grid md:grid-cols-3 gap-6">
+   <div class="card-soft p-6"><h3 class="font-black text-brandBlue uppercase mb-3 text-sm">Akku-Werk statt Handelshaus</h3><p class="text-sm text-slate-600 leading-relaxed">Wir fertigen Heizakkus und Steuerungen selbst. Spannung, Steckverbinder und Kabellänge werden auf Ihr Heizsystem abgestimmt — nicht von der Stange.</p></div>
+   <div class="card-soft p-6"><h3 class="font-black text-brandBlue uppercase mb-3 text-sm">EN 60335-2-17 im Prozess</h3><p class="text-sm text-slate-600 leading-relaxed">Übertemperaturschutz, Abschaltung und Prüfprotokoll sind Teil der Fertigung. Das verkürzt die Freigabe für Ihre Heizjacke.</p></div>
+   <div class="card-soft p-6"><h3 class="font-black text-brandBlue uppercase mb-3 text-sm">DACH-Erfahrung, MOQ 500</h3><p class="text-sm text-slate-600 leading-relaxed">Private-Label-Modelle ab 500 Stück, Samples in 3–7 Tagen. Wir liefern CE/UN38.3-Dokumentation und unterstützen die EAR-Registrierung.</p></div>
   </div>
-  <p class="text-xs text-slate-500 text-center mt-6 reveal">Quellen: <a href="https://eur-lex.europa.eu/legal-content/DE/TXT/PDF/?uri=CELEX%3A32023R1542" target="_blank" rel="noopener external" class="text-brandOrange hover:underline">EUR-Lex 2023/1542</a> &middot; <a href="https://www.ihk.de/stuttgart/fuer-unternehmen/energie-umwelt-nachhaltigkeit/umwelt/abfallwirtschaft/neue-batterieverordnung-6779620" target="_blank" rel="noopener noreferrer" class="text-brandOrange hover:underline">IHK Stuttgart</a></p>
+ </div>
+</section>
+
+<!-- OEM/ODM -->
+<section id="oem-odm-customization" class="sec bg-slate-50 relative" data-section="content">
+ <div class="container-wide">
+  {{ sectionHeader('Anpassung', 'OEM/ODM-<span class="text-brandOrange">Anpassung</span>', 'Vom Steckverbinder bis zur Verpackung — direkt ab Werk.', {mb: 'mb-12'}) }}
+  <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 cap-grid">
+   <article class="cap-tile reveal">
+    <h3 class="text-base font-black text-brandBlue uppercase italic mb-3">ODM Stock · MOQ 500</h3>
+    <ul class="cap-list">
+     <li>Bestehende Modelle und Kapazitäten wählen</li>
+     <li>Logodruck (Siebdruck, Laser, UV)</li>
+     <li>Pantone-Farbabgleich</li>
+     <li>Spannung 5V / 7,4V / 12,6V</li>
+     <li>Lagerverpackung mit Logodruck</li>
+     <li>Lieferzeit: 3–7 Tage Muster · 25–35 Tage Produktion</li>
+    </ul>
+   </article>
+   <article class="cap-tile reveal">
+    <h3 class="text-base font-black text-brandBlue uppercase italic mb-3">ODM-Entwicklung · MOQ 1.000–2.000</h3>
+    <ul class="cap-list">
+     <li>Individuelle Verpackung mit Marken-Artwork</li>
+     <li>Mehrsprachige Handbücher, Einleger und Garantiekarten</li>
+     <li>Plattformangepasstes Werkzeug (kein neues Gehäuse-Werkzeug)</li>
+     <li>Kapazität und Ausgang: 1.800–14.400mAh · 5V/7,4V DC</li>
+     <li>Steckverbinder und Spannung (DC-Hohlstecker, JST, Pogo-Pin)</li>
+     <li>Heizstufen und Steuerung</li>
+     <li>Lieferzeit: 25–45 Tage Design · 35–50 Tage Produktion</li>
+    </ul>
+   </article>
+   <article class="cap-tile reveal">
+    <h3 class="text-base font-black text-brandBlue uppercase italic mb-3">OEM · MOQ 3.000+</h3>
+    <ul class="cap-list">
+     <li>Design und CMF in Kundenhand</li>
+     <li>Neues Gehäuse-Werkzeug und vollständige Formgebung</li>
+     <li>Kapazität und Ausgang: 1.800–14.400mAh · 5V/7,4V DC</li>
+     <li>Steckverbinder und Spannung (DC-Hohlstecker, JST, Pogo-Pin)</li>
+     <li>Zertifizierungsunterstützung für Zielmärkte</li>
+     <li>Lieferzeit: 30–60 Tage Produktion · 2–4 Monate mit neuem Werkzeug</li>
+    </ul>
+   </article>
+  </div>
+  <div class="text-center mt-10"><p class="text-slate-500 text-sm mb-4">Bereit für Ihr OEM-Projekt?</p>{{ ctaButton("factoryPricing", "primary", "open-modal", "Heizakku") }}</div>
  </div>
 </section>
 
 
 
-<!-- VOLTAGE GUIDE -->
-<section id="voltage-guide-2" class="sec bg-slate-50" data-section="content">
- <div class="container-wide">
-  {{ sectionHeader('Spannungs-Leitfaden', '5V USB vs. 7,4V DC', 'Welche Spannung passt zu Ihrem Heizelement? Übersicht für Markenhersteller von Heizbekleidung.', {mb: 'mb-12'}) }}
-  <div class="grid md:grid-cols-2 gap-6 reveal">
-   <div class="card-lg p-8"><p class="text-2xl font-black text-brandOrange mb-2">5V USB</p><p class="text-sm font-bold text-brandBlue mb-2">USB-Heizgeräte</p><p class="text-xs text-slate-500">Heizjacken/Westen mit USB-Heizpaneelen, Massagekissen, Heizdecken, Handwärmer. Standard-USB-A-Ausgang. Heizleistung 5-15W. Akkukapazität 1.800-10.000mAh. Modelle: WOP53, WOP57, WOP54, WOP63.</p></div>
-   <div class="bg-white rounded-2xl p-8 border border-brandOrange/30 ring-2 ring-brandOrange/20"><p class="text-2xl font-black text-brandOrange mb-2">7,4V DC</p><p class="text-sm font-bold text-brandBlue mb-2">Premium-Heizbekleidung</p><p class="text-xs text-slate-500">Heizjacken, Heizwesten, Heizhandschuhe, Heizsocken, Heizschal mit DC-Kabelheizelementen. Höchste Heizleistung 15-45W. Akkukapazität 2.000-14.400mAh. Modelle: WOP49, WOP50, WOP55, WOP61. <strong>Standard für Premium-Marken.</strong></p></div>
-  </div>
- </div>
-</section>
+<!-- Removed 2026-10-01: empty "Was ist ein Heizakku" section -- the identical
+     definition content already lives in the spannungs-leitfaden "Grundlagen" block. -->
 
-<!-- Q4-SAISONKALENDER -->
-<section id="q4-saisonkalender" class="pt-20 pb-4 bg-white" data-section="content">
- <div class="container-wide">
-  {{ sectionHeader('Q4-Lieferplanung', 'Heizjacken-Saison 2026 vorbereiten', 'Der Heizbekleidungs-Markt im DACH-Raum hat den Peak von <strong>Oktober bis Februar</strong>. Bei 25-35 Tagen Werks-Lead-Time + Seefracht müssen Bestellungen für Q4 2026 spätestens im August platziert sein. Hier ist der Zeitplan, den unsere DACH-Kunden nutzen.', {mb: 'mb-12'}) }}
-  <div class="grid md:grid-cols-4 gap-4 reveal">
+ <!-- DACH Heated Apparel Market -->
+ <section id="heated-apparel-market" class="sec bg-slate-50 relative" data-section="stats">
+  <div class="container-wide">
+  <div class="text-center mb-10 reveal">
+   <p class="section-label">Deutscher Markt 2026</p>
+   <h2 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4">Deutschland: <span class="text-brandOrange">Führender EU-Markt</span> für Heizbekleidung</h2>
+   <p class="text-slate-500 text-sm max-w-3xl mx-auto">Der deutsche Heizjacken-Markt wächst laut <strong>DeepMarketInsights (2026)</strong> mit <strong>8,95% CAGR</strong>. Deutschland hält <strong>5,91% des globalen Marktanteils</strong> und ist der größte EU-Einzelmarkt — vor Italien und Frankreich.</p>
+  </div>
+
+  <div class="grid md:grid-cols-3 gap-6 mb-10">
+   <div class="card-lg-soft p-6 text-center">
+    <p class="text-3xl font-black text-brandBlue mb-2">80%+</p>
+    <p class="text-sm font-bold text-slate-700 mb-2">7.4V DC Standard</p>
+    <p class="text-xs text-slate-500">Über 80% aller Heizjacken nutzen 7.4V DC als Standardspannung. WOWOHCOOL deckt 5V USB, 7.4V DC und 12.6V ab — die gesamte Marktbreite.</p>
+   </div>
+   <div class="card-lg-soft p-6 text-center">
+    <p class="text-3xl font-black text-brandOrange mb-2">35-50%</p>
+    <p class="text-sm font-bold text-slate-700 mb-2">Batterie = Herstellkosten</p>
+    <p class="text-xs text-slate-500">Der Akku macht 35-50% der Herstellkosten einer Heizjacke aus — der größte Einzelposten. ODM-Einkauf direkt ab Werk = maximale Marge.</p>
+   </div>
+   <div class="card-lg-soft p-6 text-center">
+    <p class="text-3xl font-black text-brandBlue mb-2">Q3/Q4</p>
+    <p class="text-sm font-bold text-slate-700 mb-2">Hauptsaison Aug-Dez</p>
+    <p class="text-xs text-slate-500">Bestellungen sollten bis Juli/August platziert sein, damit Produktion (25-35 Tage) und Seefracht (25-35 Tage) vor der Saison abschließen.</p>
+   </div>
+  </div>
+
+  <h3 class="text-center text-sm font-black text-brandBlue uppercase italic mb-4">Q4-Lieferplanung: Heizjacken-Saison 2026</h3>
+  <p class="text-center text-slate-500 text-sm max-w-3xl mx-auto mb-6">Der Heizbekleidungs-Markt im DACH-Raum hat den Peak von <strong>Oktober bis Februar</strong>. Bei 25-35 Tagen Werks-Lead-Time + Seefracht müssen Bestellungen für Q4 2026 spätestens im August platziert sein. Hier ist der Zeitplan, den unsere DACH-Kunden nutzen.</p>
+  <div class="grid md:grid-cols-4 gap-4 reveal mb-10">
    <div class="card-lg-soft p-6">
     <p class="text-2xl font-black text-brandOrange mb-2">Mai-Juni</p>
     <p class="text-sm font-bold text-brandBlue mb-2">Konzept &amp; Sample</p>
@@ -383,58 +458,18 @@ plPath: "produkty/power-bank/bateria-grzejaca/"
     <p class="text-xs text-slate-500">Heizjacken-Saison im DACH-Retail. Reorders ab November für Reststock — 15-20 Tage Express-Produktion möglich.</p>
    </div>
   </div>
- </div>
-</section>
 
-<!-- Removed 2026-10-01: empty "Was ist ein Heizakku" section -- the identical
-     definition content already lives in the spannungs-leitfaden "Grundlagen" block. -->
-
-<!-- DACH Retail Pricing -->
-<section id="dach-retail-pricing" class="sec bg-white relative py-12" data-section="pricing">
- <div class="container-wide">
- <div class="text-center mb-8">
-  <h2 class="text-2xl lg:text-3xl font-black text-brandBlue uppercase italic tracking-tighter mb-4">DACH Heizbekleidung: <span class="text-brandOrange">Akkus bestimmen die Marge</span></h2>
-  <p class="text-slate-500 text-sm max-w-2xl mx-auto">Heizjacken retail 80-300 EUR. ODM-Akku $3-18 (MOQ 500). Batterie = 35-50% der Herstellkosten — größter Einzelposten.</p>
- </div>
- <div class="overflow-x-auto rounded-2xl border border-slate-200 shadow-sm bg-white">
-  <table class="w-full text-sm"><thead><tr class="bg-brandBlue text-white"><th class="p-3 text-left text-xs font-bold uppercase tracking-wider">Marke</th><th class="p-3 text-center text-xs font-bold uppercase tracking-wider">Produkt</th><th class="p-3 text-center text-xs font-bold uppercase tracking-wider">Akku-Quelle</th><th class="p-3 text-right text-xs font-bold uppercase tracking-wider">Retail DE</th></tr></thead><tbody>
-  <tr class="border-t border-slate-100"><td class="p-3 font-bold text-slate-700">Bosch</td><td class="p-3 text-center text-slate-600">Professional Heated</td><td class="p-3 text-center text-slate-600">Intern (18V)</td><td class="p-3 text-right font-black text-brandBlue">150-250 EUR</td></tr>
-  <tr class="border-t border-slate-100"><td class="p-3 font-bold text-slate-700">Milwaukee</td><td class="p-3 text-center text-slate-600">M12 Heated Jacket</td><td class="p-3 text-center text-slate-600">Intern (12V M12)</td><td class="p-3 text-right font-black text-brandBlue">120-180 EUR</td></tr>
-  <tr class="border-t border-slate-100"><td class="p-3 font-bold text-slate-700">DEWALT</td><td class="p-3 text-center text-slate-600">20V Heated Vest</td><td class="p-3 text-center text-slate-600">Intern (20 V max.)</td><td class="p-3 text-right font-black text-brandBlue">100-150 EUR</td></tr>
-  <tr class="border-t border-slate-100"><td class="p-3 font-bold text-slate-700">ORORO</td><td class="p-3 text-center text-slate-600">Heated Jacket</td><td class="p-3 text-center"><span class="inline-block px-2 py-0.5 rounded-full text-badge font-bold bg-brandOrange/10 text-brandOrange">China OEM</span></td><td class="p-3 text-right font-black text-brandBlue">120-180 EUR</td></tr>
-  <tr class="border-t border-slate-100"><td class="p-3 font-bold text-slate-700">Gerbing</td><td class="p-3 text-center text-slate-600">Motorrad Heated</td><td class="p-3 text-center"><span class="inline-block px-2 py-0.5 rounded-full text-badge font-bold bg-brandOrange/10 text-brandOrange">China OEM</span></td><td class="p-3 text-right font-black text-brandBlue">200-300 EUR</td></tr>
-  </tbody></table>
- </div>
- <p class="text-center text-xs text-slate-400 mt-4">Quellen: Amazon DE, Louis, Polo — Juli 2026. ODM-Akku $3-18 (MOQ 500) vs Retail 80-300 EUR = 50-70% Bruttomarge.</p>
- </div>
-</section>
-
- <!-- DACH Heated Apparel Market -->
- <section id="heated-apparel-market" class="sec bg-white relative" data-section="stats">
-  <div class="container-wide">
-  <div class="text-center mb-10 reveal">
-   <div class="inline-block px-4 py-1 bg-red-50 border border-red-200 rounded-full text-badge font-bold text-red-600 uppercase tracking-widest mb-6">Deutscher Markt — Real Data DeepMarketInsights 2026</div>
-   <h2 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4">Deutschland: <span class="text-brandOrange">Führender EU-Markt</span> für Heizbekleidung</h2>
-   <p class="text-slate-500 text-sm max-w-3xl mx-auto">Der deutsche Heizjacken-Markt wächst von <strong>3,17 Mio. (2025) auf 0,14 Mio. (2034)</strong> bei 8,95% CAGR (DeepMarketInsights). Deutschland hält 5,91% des globalen Marktanteils und ist der groesste EU-Einzelmarkt — vor Italien und Frankreich.</p>
+  <h3 class="text-center text-sm font-black text-brandBlue uppercase italic mb-4">DACH-Preisniveau (Amazon DE / Louis / Polo, Juli 2026)</h3>
+  <div class="max-w-4xl mx-auto mb-10 overflow-x-auto rounded-2xl border border-slate-200 shadow-sm bg-white">
+   <table class="w-full text-sm"><thead><tr class="bg-brandBlue text-white"><th class="p-3 text-left text-xs font-bold uppercase tracking-wider">Marke</th><th class="p-3 text-center text-xs font-bold uppercase tracking-wider">Produkt</th><th class="p-3 text-center text-xs font-bold uppercase tracking-wider">Akku-Quelle</th><th class="p-3 text-right text-xs font-bold uppercase tracking-wider">Retail DE</th></tr></thead><tbody>
+    <tr class="border-t border-slate-100"><td class="p-3 font-bold text-slate-700">Bosch</td><td class="p-3 text-center text-slate-600">Professional Heated</td><td class="p-3 text-center text-slate-600">Intern (18V)</td><td class="p-3 text-right font-black text-brandBlue">150-250 EUR</td></tr>
+    <tr class="border-t border-slate-100"><td class="p-3 font-bold text-slate-700">Milwaukee</td><td class="p-3 text-center text-slate-600">M12 Heated Jacket</td><td class="p-3 text-center text-slate-600">Intern (12V M12)</td><td class="p-3 text-right font-black text-brandBlue">120-180 EUR</td></tr>
+    <tr class="border-t border-slate-100"><td class="p-3 font-bold text-slate-700">DEWALT</td><td class="p-3 text-center text-slate-600">20V Heated Vest</td><td class="p-3 text-center text-slate-600">Intern (20 V max.)</td><td class="p-3 text-right font-black text-brandBlue">100-150 EUR</td></tr>
+    <tr class="border-t border-slate-100"><td class="p-3 font-bold text-slate-700">ORORO</td><td class="p-3 text-center text-slate-600">Heated Jacket</td><td class="p-3 text-center"><span class="inline-block px-2 py-0.5 rounded-full text-badge font-bold bg-brandOrange/10 text-brandOrange">China OEM</span></td><td class="p-3 text-right font-black text-brandBlue">120-180 EUR</td></tr>
+    <tr class="border-t border-slate-100"><td class="p-3 font-bold text-slate-700">Gerbing</td><td class="p-3 text-center text-slate-600">Motorrad Heated</td><td class="p-3 text-center"><span class="inline-block px-2 py-0.5 rounded-full text-badge font-bold bg-brandOrange/10 text-brandOrange">China OEM</span></td><td class="p-3 text-right font-black text-brandBlue">200-300 EUR</td></tr>
+   </tbody></table>
   </div>
-
-  <div class="grid md:grid-cols-3 gap-6 mb-10">
-   <div class="card-lg-soft p-6 text-center">
-    <p class="text-3xl font-black text-brandBlue mb-2">80%+</p>
-    <p class="text-sm font-bold text-slate-700 mb-2">7.4V DC Standard</p>
-    <p class="text-xs text-slate-500">Über 80% aller Heizjacken nutzen 7.4V DC als Standardspannung. WOWOHCOOL deckt 5V USB, 7.4V DC und 12.6V ab — die gesamte Marktbreite.</p>
-   </div>
-   <div class="card-lg-soft p-6 text-center">
-    <p class="text-3xl font-black text-brandOrange mb-2">35-50%</p>
-    <p class="text-sm font-bold text-slate-700 mb-2">Batterie = Herstellkosten</p>
-    <p class="text-xs text-slate-500">Der Akku macht 35-50% der Herstellkosten einer Heizjacke aus — der groesste Einzelposten. ODM-Einkauf direkt ab Werk = maximale Marge.</p>
-   </div>
-   <div class="card-lg-soft p-6 text-center">
-    <p class="text-3xl font-black text-brandBlue mb-2">Q3/Q4</p>
-    <p class="text-sm font-bold text-slate-700 mb-2">Hauptsaison Aug-Dez</p>
-    <p class="text-xs text-slate-500">Bestellungen müssen bis Juli platziert sein für pünktliche Winter-Lieferung (25-35 Tage Produktion + Seefracht). JETZT ist der letzte Bestellmonat.</p>
-   </div>
-  </div>
+  <p class="text-center text-xs text-slate-400 mb-8">Quellen: Amazon DE, Louis, Polo — Juli 2026. ODM-Akku $3-18 (MOQ 500) vs Retail 80-300 EUR = 50-70% Bruttomarge.</p>
 
   <div class="bg-brandBlue/5 rounded-2xl p-6 border border-brandBlue/10 max-w-5xl mx-auto text-center">
    <p class="text-sm text-slate-700 leading-relaxed mb-0"><strong>Marktstruktur DE:</strong> Große Werkzeugmarken (Bosch, Milwaukee, DEWALT) nutzen eigene Akkusysteme. Bekleidungsmarken (ORORO, Gerbing, Venture Heat) sourcen Batterien von China-OEMs. WOWOHCOOL ist der ODM-Partner für Bekleidungsmarken — {{ "power-bank" | productFamilyModelCount("heating-battery") }} Modelle, CE/UN38.3/PSE. Standardmodelle ab MOQ 500; kundenspezifische Spannungen oder Steckverbinder ab 1.000 Stück.</p>
@@ -442,28 +477,59 @@ plPath: "produkty/power-bank/bateria-grzejaca/"
   </div>
   </section>
 
+<!-- EU Compliance -->
+<section id="eu-compliance" class="sec bg-white" data-section="content">
+ <div class="container-wide">
+  {{ sectionHeader('Compliance', 'Sicherheit & <span class="text-brandOrange">EU-Compliance</span>', 'EN 60335-2-17, EU 2023/1542 und EAR-Service — dokumentiert mit jeder Bestellung.', {mb: 'mb-10'}) }}
+  <div class="grid md:grid-cols-2 gap-6 reveal">
+   <div class="card-lg-soft p-6">
+    <h3 class="text-base font-bold text-brandBlue mb-2">EN 60335-2-17 Konformität</h3>
+    <p class="text-sm text-slate-600 leading-relaxed">Diese Norm regelt die Sicherheit von Heizdecken, Heizkissen und ähnlichen flexiblen Heizgeräten. Unsere Heizakku-Steuerung integriert Übertemperaturschutz, Übersleerlauf und automatische Abschaltung gemäß Anhang AA der Norm. Wir liefern das vollständige Prüfprotokoll mit jeder Bestellung.</p>
+   </div>
+   <div class="card-lg-soft p-6">
+    <h3 class="text-base font-bold text-brandBlue mb-2">EU 2023/1542 + EAR-Service</h3>
+    <p class="text-sm text-slate-600 leading-relaxed">Für tragbare Heizakkus gilt die EU-Batterieverordnung 2023/1542 — wir übernehmen die EAR-Stiftung-Registrierung in Deutschland und unterstützen die EPR-Pendants für Bekleidungs-Distribution in AT, FR, IT, ES. Ab 2027 inkl. Batteriepass-Vorbereitung.</p>
+   </div>
+  </div>
+   {% set certProfile = "power-bank" %}
+ {% include "partials/compliance-cert-table.njk" %}
+<p class="text-xs text-slate-500 text-center mt-6 reveal">Quellen: <a href="https://eur-lex.europa.eu/legal-content/DE/TXT/PDF/?uri=CELEX%3A32023R1542" target="_blank" rel="noopener external" class="text-brandOrange hover:underline">EUR-Lex 2023/1542</a> &middot; <a href="https://www.ihk.de/stuttgart/fuer-unternehmen/energie-umwelt-nachhaltigkeit/umwelt/abfallwirtschaft/neue-batterieverordnung-6779620" target="_blank" rel="noopener noreferrer" class="text-brandOrange hover:underline">IHK Stuttgart</a></p>
+ </div>
+</section>
+
+
+{% set rangeLabel = "Heizakku-Serie" %}
+{% set termsBg = "bg-white" %}
+{% set supportBg = "bg-slate-50" %}
+{% include "partials/subpage-commercial-support.njk" %}
+{% set casesBg = "bg-white" %}
+{% include "partials/case-strip.njk" %}
+
 <!-- FAQ -->
 <section id="faq" class="sec bg-slate-50" data-section="faq">
  <div class="container-narrow">
- {{ sectionHeader('FAQ', 'Heizakku FAQ', '', {max: ''}) }}
+ {{ sectionHeader('FAQ', 'Heizakku <span class="text-brandOrange">FAQ</span>', '', {max: ''}) }}
  <div class="reveal">
  {% call faqItem("Welche Spannungen bieten Sie für Heizakkus an?", true) %}5V USB (Heizjacken/Westen mit USB-Heizpaneelen, Massagekissen, Handwärmer) und 7,4V DC (Heizjacken, Heizhandschuhe, Heizsocken, Heizschal mit DC-Kabelheizelementen). Wir fertigen kundenspezifische Spannungskonfigurationen für Ihre Heizelemente.{% endcall %}
  {% call faqItem("Welche Steckverbinder sind verfügbar?", true) %}DC 5,5×2,1mm, DC 3,5×1,35mm, JST-PH, JST-XH, USB-A, USB-C, eigene Pin-Konfigurationen. Kabellängen 30-150cm. Wir liefern auf Wunsch komplette Heizelement-Steckverbinder-Kombinationen.{% endcall %}
  {% call faqItem("Wie lange hält ein Heizakku im Einsatz?", true) %}Bei einer 14.400mAh / 7,4V Heizjacken-Batterie: niedrige Stufe 8-10h, mittlere Stufe 5-6h, hohe Stufe 3-4h. Bei 2.500mAh / 7,4V Handschuhen: 4-6h niedrig, 2-3h hoch.{% endcall %}
  {% call faqItem("Welche Zertifizierungen brauche ich für Heizakkus in der EU?") %}Pflicht: CE (EMV + Niederspannung), UN38.3, RoHS. Empfohlen für DACH-Handel: TÜV GS. Für tragbare Heizgeräte gilt zusätzlich EN 60335-2-17 (Sicherheit von Heizdecken/-kissen). Wir liefern alle Konformitätsdokumente.{% endcall %}
  {% call faqItem("Wie hoch ist die MOQ für Heizakku OEM?") %}MOQ ab 500 Stück bei Standardmodellen. ODM-Designentwicklung mit kundenspezifischen Spannungen oder Steckverbindern: 1.000-2.000 Stück. Vollständiges OEM mit neuem Werkzeug: ab 3.000 Stück. Muster in 5-10 Tagen, da Spezialteile beschafft werden müssen.{% endcall %}
+ {% call faqItem("Welche Heizbekleidung passt zu welcher Spannung?") %}5V USB für Heizpaneele in Jacken, Westen und Handschuhen; 7,4V DC für Kabel-Heizelemente in Premium-Jacken, Socken und Schals. Steckverbinder und Controller werden auf Ihr Heizsystem abgestimmt.{% endcall %}
  </div>
  </div>
 </section>
 
 {% include "partials/product-cta.njk" %}
 
+
+
 <!-- ======== BLOG ARTICLES ======== -->
 <section id="blog-articles" class="sec bg-white" data-section="content">
  <div class="container-wide">
   <div class="text-center mb-12 reveal">
+   <p class="section-label">Fachwissen für OEM/ODM-Beschaffung</p>
    <h2 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4">Powerbank <span class="text-brandOrange">Insights</span></h2>
-   <p class="text-slate-500 font-bold uppercase tracking-widest text-badge">Fachwissen für OEM/ODM-Beschaffung</p>
   </div>
   <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
    <a href="/de/blog/powerbank-spezifikationen/" class="group bg-slate-50 rounded-2xl overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
@@ -471,7 +537,7 @@ plPath: "produkty/power-bank/bateria-grzejaca/"
      <img loading="lazy" src="/image/blog/cover-de/powerbank-spezifikationen-cover.webp" srcset="/image/blog/cover-de/powerbank-spezifikationen-cover-450w.webp 450w, /image/blog/cover-de/powerbank-spezifikationen-cover-800w.webp 800w, /image/blog/cover-de/powerbank-spezifikationen-cover-950w.webp 950w, /image/blog/cover-de/powerbank-spezifikationen-cover-1200w.webp 1200w, /image/blog/cover-de/powerbank-spezifikationen-cover.webp 1700w" sizes="(min-width: 1440px) 395px, (min-width: 1280px) 395px, (min-width: 1024px) 309px, (min-width: 768px) 348px, (min-width: 430px) 382px, 327px" alt="Powerbank Spezifikationen" class="w-full h-full object-cover" width="1700" height="956" decoding="async">
      <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
      <div class="absolute bottom-3 left-4">
-      <span class="px-2 py-1 bg-brandOrange text-brandBlue text-badge font-black uppercase rounded">Spezifikationen</span>
+      <span class="px-2 py-1 bg-brandBlue text-white text-badge font-black uppercase rounded">Spezifikationen</span>
      </div>
     </div>
     <div class="p-6">
@@ -499,7 +565,7 @@ plPath: "produkty/power-bank/bateria-grzejaca/"
      <img loading="lazy" src="/image/blog/cover-de/usb-c-pd-cover.webp" srcset="/image/blog/cover-de/usb-c-pd-cover-450w.webp 450w, /image/blog/cover-de/usb-c-pd-cover-800w.webp 800w, /image/blog/cover-de/usb-c-pd-cover-950w.webp 950w, /image/blog/cover-de/usb-c-pd-cover-1200w.webp 1200w, /image/blog/cover-de/usb-c-pd-cover.webp 1700w" sizes="(min-width: 1440px) 395px, (min-width: 1280px) 395px, (min-width: 1024px) 309px, (min-width: 768px) 348px, (min-width: 430px) 382px, 327px" alt="USB-C PD Schnellladen 2026" class="w-full h-full object-cover" width="1700" height="956" decoding="async">
      <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
      <div class="absolute bottom-3 left-4">
-      <span class="px-2 py-1 bg-white text-green-700 text-badge font-black uppercase rounded">Technologie</span>
+      <span class="px-2 py-1 bg-brandBlue text-white text-badge font-black uppercase rounded">Technologie</span>
      </div>
     </div>
     <div class="p-6">
@@ -518,7 +584,7 @@ plPath: "produkty/power-bank/bateria-grzejaca/"
 </section>
 
 <!-- ====== EXPLORE MORE CATEGORIES ====== -->
-<section id="explore-more-categories" class="sec bg-white relative" data-section="related">
+<section id="explore-more-categories" class="sec bg-slate-50 relative" data-section="related">
  <div class="container-wide">
   <div class="text-center max-w-3xl mx-auto mb-12 reveal">
    <p class="section-label">Weitere Kategorien</p>
@@ -559,14 +625,16 @@ plPath: "produkty/power-bank/bateria-grzejaca/"
 </section>
 
 <!-- ======== CTA ======== -->
+
+
+
 {%- set formProduct = "Heizakku" %}
-{%- set formHeading = "Heizakku – Fabrikpreis anfordern" %}
+{%- set formHeading = "Heizakku – <span class='text-brandOrange'>Fabrikpreis anfordern</span>" %}
 {%- set formSubtext = "MOQ 500 Stück. Muster in 3–7 Tagen. Individuelles Logo, Steckeranpassung und Verpackung inklusive." %}
 {%- set formSubject = "Anfrage: Heizakku" %}
 
 
 {% include "partials/product-inquiry-form.njk" %}
-
 
 {% endblock %}
 

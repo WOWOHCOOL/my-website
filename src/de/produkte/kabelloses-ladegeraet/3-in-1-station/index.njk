@@ -125,6 +125,14 @@ plPath: "produkty/ladowarka-bezprzewodowa/stacja-3-w-1/"
             "@type": "Answer",
             "text": "OEM: 25-30 Tage. ODM: 45-60 Tage. Express DHL/FedEx 5-7 Tage nach Deutschland. DDP inkl. Zoll verfügbar."
           }
+        },
+        {
+          "@type": "Question",
+          "name": "Welche Geräte laden auf der 3-in-1-Station?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "iPhone 12–16, Apple Watch und AirPods laden direkt; Android-Geräte nur mit Qi2-Unterstützung. Ältere Android-Modelle ohne Qi2 laden mit reduzierter Leistung oder gar nicht."
+          }
         }
       ]
     },
@@ -265,38 +273,52 @@ plPath: "produkty/ladowarka-bezprzewodowa/stacja-3-w-1/"
 </section>
 
 <!-- ======== TRUST BAR ======== -->
+{% set trustBarCerts = false %}
 {% include "trust-bar.njk" %}
+
+<!-- Divider -->
+<div class="relative w-full">
+ <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent"></div>
+ <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-white border border-slate-200 rotate-45"></div>
+</div>
 
 <!-- MODELS -->
 {% set family = "products/wireless-charger/3-in-1-station" %}
 {#- 型号卡：六语言共用模板（2026-10-29）。数据 src/_products/*.json -#}
 {% include "partials/product-models.njk" %}
+
+{% set compareFamily = family %}
+{% include "partials/model-compare.njk" %}
 <!-- MARKET-DATA -->
-<section id="market-data" class="sec bg-white py-8" data-section="content">
- <div class="container-wide">
- <blockquote class="bg-brandOrange/5 border-l-4 border-brandOrange rounded-r-xl px-6 py-5 text-sm text-slate-700 italic leading-relaxed">
-  <p>"Der globale Markt für kabellose Ladegeräte wurde 2025 auf 6,78 Mrd. USD geschätzt und soll bis 2030 auf 19,03 Mrd. USD wachsen (CAGR 22,9%, Grand View Research). 12% der iPhone-Nutzer besitzen alle drei Geräte — etwa <strong>170 Mio. 'Triple Threat'-Nutzer</strong> weltweit (CIRP/AppleInsider). 3-in-1 Stationen erzielen 40-50% des Kategorieumsatzes bei nur 18-25% Stückzahl — der höchste ASP mit $50-150 Retail. Der Hospitality-Tech-Markt wächst von 129,4 Mrd. USD (2025) auf 306,1 Mrd. USD bis 2033 (CAGR 10,2%) — Marriott, Hilton und IHG deployen 2026 flächendeckend kabellose Ladestationen. Für B2B-Importeure in der DACH-Region: 3-in-1 ist die margenstärkste OEM/ODM-Kategorie im Wireless-Charging-Portfolio."</p>
-  <cite class="block text-xs text-slate-400 mt-2 not-italic">— <a href="https://www.grandviewresearch.com/industry-analysis/wireless-charger-market-report" target="_blank" rel="noopener noreferrer" class="text-brandOrange hover:underline">Grand View Research</a>, Wireless Charger Market 2025-2030; <a href="https://appleinsider.com/articles/24/09/18/apple-watch-airpods-play-a-bigger-role-in-apples-ecosystem-than-you-think" target="_blank" rel="noopener noreferrer" class="text-brandOrange hover:underline">CIRP/AppleInsider</a>, Apple Ecosystem; <a href="https://dimensionmarketresearch.com/report/hospitality-technology-market/" target="_blank" rel="noopener noreferrer" class="text-brandOrange hover:underline">Dimension Market Research</a>, Hospitality Tech 2025-2033</cite>
- </blockquote>
- </div>
-</section>
 
 
-<!-- KEY FIGURES -->
-<section id="kennzahlen" class="sec bg-white" data-section="stats">
+
+
+
+<!-- TECHNOLOGY BASICS -->
+<section id="what-is-3-in-1-station" class="sec bg-slate-50" data-section="content">
  <div class="container-wide">
-  <div class="grid md:grid-cols-3 gap-6 reveal">
-   <div class="card-lg-soft text-center p-6"><p class="text-3xl font-black text-brandOrange mb-2">40-50%</p><p class="text-sm font-bold text-brandBlue">Umsatzanteil</p><p class="text-xs text-slate-500 mt-1">3-in-1 Stationen generieren fast die Hälfte des Kategorieumsatzes — bei nur ~20% Stückzahl</p></div>
-   <div class="card-lg-soft text-center p-6"><p class="text-3xl font-black text-brandOrange mb-2">170 Mio.</p><p class="text-sm font-bold text-brandBlue">Triple-Threat-Nutzer</p><p class="text-xs text-slate-500 mt-1">12% der 1,46 Mrd. iPhone-Nutzer besitzen alle drei Geräte — das Kernmarktpotenzial</p></div>
-   <div class="card-lg-soft text-center p-6"><p class="text-3xl font-black text-brandOrange mb-2">25W</p><p class="text-sm font-bold text-brandBlue">Qi2.2 Maximalleistung</p><p class="text-xs text-slate-500 mt-1">7 von 13 Modellen mit 25W und aktiver Kühlung — TEC oder Lüfter</p></div>
+ 
+  {{ sectionHeader('Grundlagen', 'Was ist eine <span class="text-brandOrange">3-in-1-Ladestation</span>?', 'Eine Station für iPhone, Apple Watch und AirPods — Qi2 MPP mit N52H-Magneten. Kompatibel mit iPhone 12–16, Apple Watch und AirPods; Android nur mit Qi2.', {mb: 'mb-12'}) }}
+   <div class="grid md:grid-cols-3 gap-6">
+   <div class="card-lg-soft p-8 text-center"><p class="text-3xl font-black text-brandOrange mb-2">3-in-1</p><p class="text-sm font-bold text-brandBlue">Drei Geräte, eine Station</p><p class="text-xs text-slate-500 mt-2">Lädt Smartphone, Watch und Earbuds gleichzeitig über eine einzige Desktop-Station.</p></div>
+   <div class="card-lg-soft p-8 text-center"><p class="text-3xl font-black text-brandOrange mb-2">Qi2</p><p class="text-sm font-bold text-brandBlue">MPP + N52H</p><p class="text-xs text-slate-500 mt-2">Magnetische Ausrichtung mit 15–25W — volle Ladeleistung ohne Kabel.</p></div>
+   <div class="card-lg-soft p-8 text-center"><p class="text-3xl font-black text-brandOrange mb-2">40–50%</p><p class="text-sm font-bold text-brandBlue">des Kategorieumsatzes</p><p class="text-xs text-slate-500 mt-2">Höchster ASP im Wireless-Charging-Segment: 18–25% Stückvolumen, aber 40–50% Umsatz.</p></div>
   </div>
+  <figure class="mt-10 max-w-4xl mx-auto reveal">
+   <div class="rounded-2xl border border-brandOrange/20 bg-brandOrange/5 p-6 md:p-8">
+    <p class="text-xs font-black uppercase tracking-widest text-brandOrangeDeep mb-3">Marktkontext</p>
+    <blockquote class="text-sm text-slate-700 leading-relaxed">"Der globale Markt für kabellose Ladegeräte wurde 2025 auf 6,78 Mrd. USD geschätzt und soll bis 2030 auf 19,03 Mrd. USD wachsen (CAGR 22,9%, Grand View Research). 12% der iPhone-Nutzer besitzen alle drei Geräte — etwa <strong>170 Mio. 'Triple Threat'-Nutzer</strong> weltweit (CIRP/AppleInsider). 3-in-1 Stationen erzielen 40-50% des Kategorieumsatzes bei nur 18-25% Stückzahl — der höchste ASP mit $50-150 Retail. Der Hospitality-Tech-Markt wächst von 129,4 Mrd. USD (2025) auf 306,1 Mrd. USD bis 2033 (CAGR 10,2%) — Marriott, Hilton und IHG deployen 2026 flächendeckend kabellose Ladestationen. Für B2B-Importeure in der DACH-Region: 3-in-1 ist die margenstärkste OEM/ODM-Kategorie im Wireless-Charging-Portfolio."</blockquote>
+    <figcaption class="mt-3 text-xs text-slate-500">— <a href="https://www.grandviewresearch.com/industry-analysis/wireless-charger-market-report" target="_blank" rel="noopener noreferrer" class="text-brandOrange hover:underline">Grand View Research</a>, Wireless Charger Market 2025-2030; <a href="https://appleinsider.com/articles/24/09/18/apple-watch-airpods-play-a-bigger-role-in-apples-ecosystem-than-you-think" target="_blank" rel="noopener noreferrer" class="text-brandOrange hover:underline">CIRP/AppleInsider</a>, Apple Ecosystem; <a href="https://dimensionmarketresearch.com/report/hospitality-technology-market/" target="_blank" rel="noopener noreferrer" class="text-brandOrange hover:underline">Dimension Market Research</a>, Hospitality Tech 2025-2033</figcaption>
+   </div>
+  </figure>
  </div>
 </section>
 
 <!-- CATEGORY COMPARISON -->
-<section id="category-comparison" class="sec bg-slate-50" data-section="comparison">
+<section id="category-comparison" class="sec bg-white" data-section="comparison">
  <div class="container-wide">
-  {{ sectionHeader('Technologie-Vergleich', '15W vs. 25W — Kühltechnologien im Vergleich', 'Nicht jede 3-in-1 Station ist gleich. Die Kühltechnologie entscheidet über dauerhafte Ladeleistung und Produktpositionierung.', {mb: 'mb-12'}) }}
+  {{ sectionHeader('Technologie-Vergleich', '15W vs. 25W — <span class="text-brandOrange">Kühltechnologien</span> im Vergleich', 'Nicht jede 3-in-1 Station ist gleich. Die Kühltechnologie entscheidet über dauerhafte Ladeleistung und Produktpositionierung.', {mb: 'mb-12'}) }}
   <div class="overflow-x-auto reveal rounded-2xl border border-slate-200 shadow-sm bg-white">
    <table class="w-full text-sm">
     <thead><tr class="bg-brandBlue text-white">
@@ -307,7 +329,7 @@ plPath: "produkty/ladowarka-bezprzewodowa/stacja-3-w-1/"
      <th class="text-left px-5 py-3 font-bold text-sm">Modelle</th>
     </tr></thead>
     <tbody class="divide-y divide-slate-100">
-     <tr><td class="px-5 py-3 text-sm font-semibold text-slate-700">TEC-Halbleiterkühlung</td><td class="px-5 py-3 text-sm text-slate-600">25W</td><td class="px-5 py-3 text-sm text-slate-600">Aktive Kühlung per Peltier-Effekt — kein Thermal Throttling</td><td class="px-5 py-3 text-sm text-slate-600">Premium-Retail, High-End</td><td class="px-5 py-3 text-sm text-slate-600">WOW133, WOW125, WOW41</td></tr>
+     <tr class="bg-brandOrange/5"><td class="px-5 py-3 text-sm font-bold text-brandOrange">TEC-Halbleiterkühlung</td><td class="px-5 py-3 text-sm text-slate-600">25W</td><td class="px-5 py-3 text-sm text-slate-600">Aktive Kühlung per Peltier-Effekt — kein Thermal Throttling</td><td class="px-5 py-3 text-sm text-slate-600">Premium-Retail, High-End</td><td class="px-5 py-3 text-sm text-slate-600">WOW133, WOW125, WOW41</td></tr>
      <tr><td class="px-5 py-3 text-sm font-semibold text-slate-700">Aktive Luftkühlung</td><td class="px-5 py-3 text-sm text-slate-600">25W</td><td class="px-5 py-3 text-sm text-slate-600">Sleep-Quiet Smart-Lüfter + Leistungsdisplay</td><td class="px-5 py-3 text-sm text-slate-600">Premium-Retail, Office</td><td class="px-5 py-3 text-sm text-slate-600">WOW122, WOW10</td></tr>
      <tr><td class="px-5 py-3 text-sm font-semibold text-slate-700">Passiv (Design-Kühlung)</td><td class="px-5 py-3 text-sm text-slate-600">25W</td><td class="px-5 py-3 text-sm text-slate-600">Ringmagnet + Kühllöcher — kompakt und leise</td><td class="px-5 py-3 text-sm text-slate-600">Travel, Mid-Tier Retail</td><td class="px-5 py-3 text-sm text-slate-600">WOW115, WOW19, WOW18</td></tr>
      <tr><td class="px-5 py-3 text-sm font-semibold text-slate-700">Passiv (Standard)</td><td class="px-5 py-3 text-sm text-slate-600">15W</td><td class="px-5 py-3 text-sm text-slate-600">Bewährte Qi2 MPP — keine beweglichen Teile</td><td class="px-5 py-3 text-sm text-slate-600">Hotel, Corporate Gift</td><td class="px-5 py-3 text-sm text-slate-600">WOW93, WOW90, WOW91, WOW83, WOW98, WOW82</td></tr>
@@ -317,11 +339,61 @@ plPath: "produkty/ladowarka-bezprzewodowa/stacja-3-w-1/"
  </div>
 </section>
 
-<!-- DACH MARKET -->
-<section id="dach-market" class="sec bg-white" data-section="stats">
+<!-- WHO BUYS -->
+
+
+<!-- OEM/ODM -->
+<section id="oem-odm-customization" class="sec bg-slate-50" data-section="content">
  <div class="container-wide">
-  {{ sectionHeader('DACH-Markt 2026', '3-in-1 Stationen im Retail vs. Werks-OEM', 'Marken wie <strong>Belkin, Anker und ESR</strong> dominieren den DACH-Retail mit 3-in-1 Qi2-Stationen. Hinter ihren Produkten stehen OEM-Werke in China. Wir sind eines davon.', {mb: 'mb-12'}) }}
-  <div class="overflow-x-auto reveal rounded-2xl border border-slate-200 shadow-sm bg-white">
+  {{ sectionHeader('Anpassung', 'OEM/ODM-<span class="text-brandOrange">Anpassung</span>', 'Formfaktor, Leistung und Kühlung — ab MOQ 500.', {mb: 'mb-12'}) }}
+  <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 cap-grid">
+   <article class="cap-tile reveal">
+    <h3 class="text-base font-black text-brandBlue uppercase italic mb-3">ODM Stock · MOQ 500</h3>
+    <ul class="cap-list">
+     <li>Bestehende Modelle und Formfaktoren wählen</li>
+     <li>Logodruck (Siebdruck, Laser, UV)</li>
+     <li>Pantone-Farbabgleich</li>
+     <li>Lagerverpackung mit Logodruck</li>
+     <li>Lieferzeit: 3–7 Tage Muster · 25–35 Tage Produktion</li>
+    </ul>
+   </article>
+   <article class="cap-tile reveal">
+    <h3 class="text-base font-black text-brandBlue uppercase italic mb-3">ODM-Entwicklung · MOQ 1.000–2.000</h3>
+    <ul class="cap-list">
+     <li>Individuelle Verpackung mit Marken-Artwork</li>
+     <li>Mehrsprachige Handbücher, Einleger und Garantiekarten</li>
+     <li>Plattformangepasstes Werkzeug (kein neues Gehäuse-Werkzeug)</li>
+     <li>Leistung: 15W / 25W Qi2</li>
+     <li>Kühlung: passiv / Lüfter / TEC</li>
+     <li>Lieferzeit: 25–45 Tage Design · 35–50 Tage Produktion</li>
+    </ul>
+   </article>
+   <article class="cap-tile reveal">
+    <h3 class="text-base font-black text-brandBlue uppercase italic mb-3">OEM · MOQ 3.000+</h3>
+    <ul class="cap-list">
+     <li>Design und CMF in Kundenhand</li>
+     <li>Neues Gehäuse-Werkzeug und vollständige Formgebung</li>
+     <li>Leistung: 15W / 25W Qi2</li>
+     <li>Kühlung: passiv / Lüfter / TEC</li>
+     <li>Zertifizierungsunterstützung für Zielmärkte</li>
+     <li>Lieferzeit: 30–60 Tage Produktion · 2–4 Monate mit neuem Werkzeug</li>
+    </ul>
+   </article>
+  </div>
+  <div class="text-center mt-10"><p class="text-slate-500 text-sm mb-4">Bereit für Ihr OEM-Projekt?</p>{{ ctaButton("factoryPricing", "primary", "open-modal", "3-in-1-Ladestation") }}</div>
+ </div>
+</section>
+
+<!-- DACH MARKET (WHY) -->
+
+
+<!-- DACH Market & Pricing -->
+ <section id="market-context" class="sec bg-white relative" data-section="stats">
+  <div class="container-wide">
+  {{ sectionHeader('Markt & Marge', 'DACH-Markt: <span class="text-brandOrange">Hotel, Corporate & Preisniveau</span>', 'Nachfrage, Kanalstruktur und Wettbewerbspreise im DACH-Raum.', {max: '', mb: 'mb-10'}) }}
+
+  <h3 class="text-center text-sm font-black text-brandBlue uppercase italic mb-4">Retail vs. Werks-OEM</h3>
+  <div class="max-w-4xl mx-auto mb-10 overflow-x-auto rounded-2xl border border-slate-200 shadow-sm bg-white">
    <table class="w-full text-sm">
     <thead><tr class="bg-brandBlue text-white">
      <th class="text-left px-5 py-3 font-bold text-sm">Aspekt</th>
@@ -337,43 +409,15 @@ plPath: "produkty/ladowarka-bezprzewodowa/stacja-3-w-1/"
      <tr><td class="px-5 py-3 text-sm font-semibold text-slate-700">Margenstruktur</td><td class="px-5 py-3 text-sm text-slate-600">Werk → Marke → Distributor → Retail</td><td class="px-5 py-3 text-sm text-slate-600"><strong>Werk → Sie</strong></td></tr>
     </tbody>
    </table>
-  </div>
- </div>
-</section>
-
-<!-- DACH Retail Pricing -->
-<section id="dach-retail-pricing" class="sec bg-white relative py-12" data-section="pricing">
- <div class="container-wide">
- <div class="text-center mb-8">
-  <h2 class="text-2xl lg:text-3xl font-black text-brandBlue uppercase italic tracking-tighter mb-4">DACH 3-in-1: <span class="text-brandOrange">Hotel + Corporate</span></h2>
-  <p class="text-slate-500 text-sm max-w-2xl mx-auto">ODM 15-35 USD (MOQ 500). DACH-Retail 39-149 EUR — 50-65% Bruttomarge.</p>
- </div>
- <div class="overflow-x-auto rounded-2xl border border-slate-200 shadow-sm bg-white">
-  <table class="w-full text-sm"><thead><tr class="bg-brandBlue text-white"><th class="p-3 text-left text-xs font-bold uppercase tracking-wider">Marke</th><th class="p-3 text-center text-xs font-bold uppercase tracking-wider">Typ</th><th class="p-3 text-center text-xs font-bold uppercase tracking-wider">Leistung</th><th class="p-3 text-right text-xs font-bold uppercase tracking-wider">Preis DE</th></tr></thead><tbody>
-  <tr class="border-t border-slate-100"><td class="p-3 font-bold text-slate-700">Belkin BoostCharge Pro</td><td class="p-3 text-center text-slate-600">3-in-1 Stand Qi2</td><td class="p-3 text-center text-slate-600">15W</td><td class="p-3 text-right font-black text-brandBlue">~149 EUR</td></tr>
-  <tr class="border-t border-slate-100"><td class="p-3 font-bold text-slate-700">Anker MagGo Cube</td><td class="p-3 text-center text-slate-600">3-in-1 Faltbar Qi2</td><td class="p-3 text-center text-slate-600">15W</td><td class="p-3 text-right font-black text-brandBlue">~129 EUR</td></tr>
-  <tr class="border-t border-slate-100"><td class="p-3 font-bold text-slate-700">Mophie 3-in-1 Travel</td><td class="p-3 text-center text-slate-600">Faltbare Station</td><td class="p-3 text-center text-slate-600">15W</td><td class="p-3 text-right font-black text-brandBlue">~99 EUR</td></tr>
-  <tr class="border-t border-slate-100"><td class="p-3 font-bold text-slate-700">Spigen ArcField</td><td class="p-3 text-center text-slate-600">3-in-1 Faltbar</td><td class="p-3 text-center text-slate-600">15W</td><td class="p-3 text-right font-black text-brandBlue">~59 EUR</td></tr>
-  <tr class="border-t border-slate-100"><td class="p-3 font-bold text-slate-700">ESR HaloLock 3-in-1</td><td class="p-3 text-center text-slate-600">Stand + Pad</td><td class="p-3 text-center text-slate-600">7.5W</td><td class="p-3 text-right font-black text-brandBlue">~55 EUR</td></tr>
-  </tbody></table>
- </div>
- <p class="text-center text-xs text-slate-400 mt-4">Quellen: Amazon DE, MediaMarkt — Juli 2026. ODM 15-35 USD (MOQ 500).</p>
- </div>
-</section>
-
- <!-- DACH Market Context -->
- <section id="market-context" class="sec bg-white relative" data-section="stats">
-  <div class="container-wide">
-  {{ sectionHeader('Hotellerie DACH — 17,5M Zimmer weltweit', 'Hotel & Corporate: <span class="text-brandOrange">Der lukrativste B2B-Kanal</span> für 3-in-1 Stationen', '', { max: '', mb: 'mb-10', titleClass: 'text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4', labelStyle: 'pill', pillClass: 'bg-brandOrange/10', pillMb: 'mb-6' }) }}
-  <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
+  </div>  <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
    <div class="card-lg-soft p-6 text-center">
     <p class="text-3xl font-black text-brandBlue mb-2">17,5 Mio.</p>
     <p class="text-sm font-bold text-slate-700 mb-2">Hotelzimmer weltweit</p>
     <p class="text-xs text-slate-500">Hotel-Tech-Markt +10,2% p.a. DACH-Ketten: Motel One, Steigenberger, Deutsche Hospitality.</p>
    </div>
    <div class="card-lg-soft p-6 text-center">
-    <p class="text-3xl font-black text-brandBlue mb-2">{{ "wireless-charger" | productFamilyModelCount("desktop") }} Modelle</p>
-    <p class="text-sm font-bold text-slate-700 mb-2">für Hotellerie</p>
+    <p class="text-3xl font-black text-brandBlue mb-2">{{ "wireless-charger" | productFamilyModelCount("3-in-1-station") }} Modelle</p>
+    <p class="text-sm font-bold text-slate-700 mb-2">3-in-1 für Hotellerie</p>
     <p class="text-xs text-slate-500">WOW90 (Zink+Nachtlicht), WOW18 (Cube), WOW83 (Watch abnehmbar). Gravur ab 1.000 Stück.</p>
    </div>
    <div class="card-lg-soft p-6 text-center">
@@ -387,34 +431,58 @@ plPath: "produkty/ladowarka-bezprzewodowa/stacja-3-w-1/"
     <p class="text-xs text-slate-500">Multi-Device-Stationen wachsen 2x schneller als Einzelpads. 12% der iPhone-Nutzer besitzen alle 3 Geräte.</p>
    </div>
   </div>
+  <h3 class="text-center text-sm font-black text-brandBlue uppercase italic mb-4">DACH-Preisniveau (Amazon DE / MediaMarkt, Juli 2026)</h3>
+  <div class="max-w-4xl mx-auto mb-10 overflow-x-auto rounded-2xl border border-slate-200 shadow-sm bg-white">
+   <table class="w-full text-sm"><thead><tr class="bg-brandBlue text-white"><th class="p-3 text-left text-xs font-bold uppercase tracking-wider">Marke</th><th class="p-3 text-center text-xs font-bold uppercase tracking-wider">Typ</th><th class="p-3 text-center text-xs font-bold uppercase tracking-wider">Leistung</th><th class="p-3 text-right text-xs font-bold uppercase tracking-wider">Preis DE</th></tr></thead><tbody>
+    <tr class="border-t border-slate-100"><td class="p-3 font-bold text-slate-700">Belkin BoostCharge Pro</td><td class="p-3 text-center text-slate-600">3-in-1 Stand Qi2</td><td class="p-3 text-center text-slate-600">15W</td><td class="p-3 text-right font-black text-brandBlue">~149 EUR</td></tr>
+    <tr class="border-t border-slate-100"><td class="p-3 font-bold text-slate-700">Anker MagGo Cube</td><td class="p-3 text-center text-slate-600">3-in-1 Faltbar Qi2</td><td class="p-3 text-center text-slate-600">15W</td><td class="p-3 text-right font-black text-brandBlue">~129 EUR</td></tr>
+    <tr class="border-t border-slate-100"><td class="p-3 font-bold text-slate-700">Mophie 3-in-1 Travel</td><td class="p-3 text-center text-slate-600">Faltbare Station</td><td class="p-3 text-center text-slate-600">15W</td><td class="p-3 text-right font-black text-brandBlue">~99 EUR</td></tr>
+    <tr class="border-t border-slate-100"><td class="p-3 font-bold text-slate-700">Spigen ArcField</td><td class="p-3 text-center text-slate-600">3-in-1 Faltbar</td><td class="p-3 text-center text-slate-600">15W</td><td class="p-3 text-right font-black text-brandBlue">~59 EUR</td></tr>
+    <tr class="border-t border-slate-100"><td class="p-3 font-bold text-slate-700">ESR HaloLock 3-in-1</td><td class="p-3 text-center text-slate-600">Stand + Pad</td><td class="p-3 text-center text-slate-600">7.5W</td><td class="p-3 text-right font-black text-brandBlue">~55 EUR</td></tr>
+   </tbody></table>
+  </div>
+  <p class="text-center text-xs text-slate-400 mb-8">Quellen: Amazon DE, MediaMarkt — Juli 2026. ODM 15-35 USD (MOQ 500).</p>
   <div class="bg-brandBlue/5 rounded-2xl p-6 border border-brandBlue/10 max-w-5xl mx-auto text-center">
-   <p class="text-sm text-slate-700 leading-relaxed mb-0"><strong>Für OEM-Importeure:</strong> Globaler All-in-One-Markt: ,62 Mrd. bis 2032 (GlobalInfoResearch). ODM 12-35 USD (MOQ 500) vs DACH-Retail 55-149 EUR. WOWOHCOOL: {{ "wireless-charger" | productFamilyModelCount("3-in-1-station") }} Modelle mit TEC-Kühlung und Qi2.2 25W.</p>
+   <p class="text-sm text-slate-700 leading-relaxed mb-0"><strong>Für OEM-Importeure:</strong> Globaler All-in-One-Markt: 1,59 Mrd. USD bis 2032 (GlobalInfoResearch). WOWOHCOOL: {{ "wireless-charger" | productFamilyModelCount("3-in-1-station") }} Modelle mit TEC-Kühlung und Qi2.2 25W.</p>
   </div>
   </div>
  </section>
 
+{% set certProfile = "wireless" %}
+{% set certBg = "bg-slate-50" %}
+{% include "partials/market-certifications.njk" %}
+{% set rangeLabel = "3-in-1-Ladestation-Serie" %}
+{% set termsBg = "bg-white" %}
+{% set supportBg = "bg-slate-50" %}
+{% include "partials/subpage-commercial-support.njk" %}
+{% set casesBg = "bg-white" %}
+{% include "partials/case-strip.njk" %}
+
 <!-- FAQ -->
 <section id="faq" class="sec bg-slate-50" data-section="faq">
  <div class="container-narrow">
- {{ sectionHeader('FAQ', 'Häufige Fragen zu 3-in-1 Ladestationen', '', {max: ''}) }}
+ {{ sectionHeader('FAQ', 'Häufige Fragen zu <span class="text-brandOrange">3-in-1 Ladestationen</span>', '', {max: ''}) }}
  <div class="reveal">
  {% call faqItem("Was ist eine 3-in-1 kabellose Ladestation?", true) %}Eine Station, die iPhone, Apple Watch und AirPods gleichzeitig lädt. Qi2 MPP mit N52H Magneten, 15W-25W. 3-in-1 = 40-50% Umsatzanteil — höchster ASP mit €50-150 Retail.{% endcall %}
  {% call faqItem("Wie hoch ist die MOQ für 3-in-1 Stationen?", true) %}MOQ <strong>500 Stück</strong> für ODM mit Logo. ODM-Designentwicklung: <strong>1.000-2.000 Stück</strong>. Vollständiges OEM: <strong>ab 3.000 Stück</strong>. Muster in 3-7 Tagen.{% endcall %}
  {% call faqItem("Was ist der Unterschied zwischen 15W und 25W Modellen?", true) %}15W Modelle nutzen Qi2 MPP für iPhone 12-16. <strong>25W Modelle</strong> (WOW10, WOW18, WOW19, WOW122, WOW133, WOW125, WOW115) nutzen Qi v2.2.1 mit aktiver Kühlung — TEC oder Lüfter.{% endcall %}
  {% call faqItem("Sind Ihre Stationen für Hotels geeignet?") %}Ja. WOW90 (Zinklegierung), WOW18 (Nachtlicht) und WOW83 (abnehmbare Watch) für Hotel-Nachttische. Staffelpreise ab 1.000 Stück. 17,5 Mio. Hotelzimmer weltweit.{% endcall %}
  {% call faqItem("Wie lange dauert die OEM/ODM-Produktion?") %}OEM: <strong>25-30 Tage</strong>. ODM: <strong>45-60 Tage</strong>. Express DHL/FedEx 5-7 Tage nach Deutschland. DDP inkl. Zoll verfügbar.{% endcall %}
+ {% call faqItem("Welche Geräte laden auf der 3-in-1-Station?") %}iPhone 12–16, Apple Watch und AirPods laden direkt; Android-Geräte nur mit Qi2-Unterstützung. Ältere Android-Modelle ohne Qi2 laden mit reduzierter Leistung oder gar nicht.{% endcall %}
  </div>
  </div>
 </section>
 
 {% include "partials/product-cta.njk" %}
 
+
+
 <!-- ======== BLOG ARTICLES ======== -->
 <section id="blog-articles" class="sec bg-white" data-section="content">
  <div class="container-wide">
   <div class="text-center mb-12 reveal">
+   <p class="section-label">Fachwissen für OEM/ODM-Beschaffung</p>
    <h2 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4">Kabelloses Ladegerät <span class="text-brandOrange">Insights</span></h2>
-   <p class="text-slate-500 font-bold uppercase tracking-widest text-badge">Fachwissen für OEM/ODM-Beschaffung</p>
   </div>
   <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
    <a href="/de/blog/qi2-vs-magsafe/" class="group bg-slate-50 rounded-2xl overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
@@ -422,7 +490,7 @@ plPath: "produkty/ladowarka-bezprzewodowa/stacja-3-w-1/"
      <img loading="lazy" src="/image/blog/cover-de/qi2-vs-magsafe-cover.webp" srcset="/image/blog/cover-de/qi2-vs-magsafe-cover-450w.webp 450w, /image/blog/cover-de/qi2-vs-magsafe-cover-800w.webp 800w, /image/blog/cover-de/qi2-vs-magsafe-cover-950w.webp 950w, /image/blog/cover-de/qi2-vs-magsafe-cover-1200w.webp 1200w, /image/blog/cover-de/qi2-vs-magsafe-cover.webp 1700w" sizes="(min-width: 1440px) 395px, (min-width: 1280px) 395px, (min-width: 1024px) 309px, (min-width: 768px) 348px, (min-width: 430px) 382px, 327px" alt="Qi2 vs MagSafe" class="w-full h-full object-cover" width="1700" height="956" decoding="async">
      <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
      <div class="absolute bottom-3 left-4">
-      <span class="px-2 py-1 bg-brandOrange text-brandBlue text-badge font-black uppercase rounded">Vergleich</span>
+      <span class="px-2 py-1 bg-brandBlue text-white text-badge font-black uppercase rounded">Vergleich</span>
      </div>
     </div>
     <div class="p-6">
@@ -450,7 +518,7 @@ plPath: "produkty/ladowarka-bezprzewodowa/stacja-3-w-1/"
      <img loading="lazy" src="/image/blog/cover-de/qi2-zertifizierung-cover.webp" srcset="/image/blog/cover-de/qi2-zertifizierung-cover-450w.webp 450w, /image/blog/cover-de/qi2-zertifizierung-cover-800w.webp 800w, /image/blog/cover-de/qi2-zertifizierung-cover-950w.webp 950w, /image/blog/cover-de/qi2-zertifizierung-cover-1200w.webp 1200w, /image/blog/cover-de/qi2-zertifizierung-cover.webp 1700w" sizes="(min-width: 1440px) 395px, (min-width: 1280px) 395px, (min-width: 1024px) 309px, (min-width: 768px) 348px, (min-width: 430px) 382px, 327px" alt="Qi2 Zertifizierung" class="w-full h-full object-cover" width="1700" height="956" decoding="async">
      <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
      <div class="absolute bottom-3 left-4">
-      <span class="px-2 py-1 bg-white text-green-700 text-badge font-black uppercase rounded">Zertifizierung</span>
+      <span class="px-2 py-1 bg-brandBlue text-white text-badge font-black uppercase rounded">Zertifizierung</span>
      </div>
     </div>
     <div class="p-6">
@@ -469,7 +537,7 @@ plPath: "produkty/ladowarka-bezprzewodowa/stacja-3-w-1/"
 </section>
 
 <!-- ====== EXPLORE MORE CATEGORIES ====== -->
-<section id="explore-more-categories" class="sec bg-white relative" data-section="related">
+<section id="explore-more-categories" class="sec bg-slate-50 relative" data-section="related">
  <div class="container-wide">
   <div class="text-center max-w-3xl mx-auto mb-12 reveal">
    <p class="section-label">Weitere Kategorien</p>
@@ -510,13 +578,15 @@ plPath: "produkty/ladowarka-bezprzewodowa/stacja-3-w-1/"
 </section>
 
 <!-- ======== CTA ======== -->
+
 {%- set formProduct = "3-in-1-Ladestation OEM/ODM" %}
-{%- set formHeading = "3-in-1-Ladestation – Fabrikpreis anfordern" %}
+{%- set formHeading = "3-in-1-Ladestation – <span class='text-brandOrange'>Fabrikpreis anfordern</span>" %}
 {%- set formSubtext = "Beschreiben Sie Ihr Projekt: iPhone + Watch + AirPods, Sonderdesign, Hotel-Großmengen – vom Prototyp bis zur Serienfertigung." %}
 {%- set formSubject = "Produktanfrage: 3-in-1-Ladestation" %}
 
 
 {% include "partials/product-inquiry-form.njk" %}
+
 {% endblock %}
 
 

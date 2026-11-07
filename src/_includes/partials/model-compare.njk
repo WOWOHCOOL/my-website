@@ -9,21 +9,22 @@
 #}
 {% from "partials/section-header.njk" import sectionHeader with context %}
 {%- set L = lang or 'en' -%}
+{%- set t = (productPageI18n[L] or productPageI18n.en).modelCompare -%}
 {%- set cfg = modelCompare[compareFamily] -%}
 {%- set fam = productModels[L][compareFamily] -%}
 {%- if cfg and fam and fam.groups and fam.groups.length -%}
 {%- set total = fam | modelTotal -%}
 <section id="model-comparison" class="sec bg-slate-50" data-section="content">
  <div class="container-wide">
-  {{ sectionHeader('Specifications', 'Compare All <span class="text-brandOrange">' ~ total ~ ' Models</span>', 'Key specifications side by side. Certification, MOQ and lead-time notes follow the table.', {max: '', mb: 'mb-12'}) }}
-  <div class="overflow-x-auto reveal rounded-xl border border-slate-200 bg-white shadow-sm">
+  {{ sectionHeader(t.label, t.titleBefore ~ total ~ t.titleAfter, t.desc, {max: '', mb: 'mb-12'}) }}
+  <div class="overflow-x-auto reveal rounded-2xl border border-slate-200 shadow-sm bg-white">
    <table class="w-full min-w-[760px] text-sm border-collapse spec-table">
-    <caption class="sr-only">Model comparison: key specifications for all models in this product line</caption>
+    <caption class="sr-only">{{ t.caption }}</caption>
     <thead>
      <tr class="bg-brandBlue text-white text-left">
-      <th scope="col" class="p-4 font-black">Model</th>
+      <th scope="col" class="p-4 font-black">{{ t.model }}</th>
       {%- for col in cfg.columns %}
-      <th scope="col" class="p-4 font-black">{{ col.label }}</th>
+      <th scope="col" class="p-4 font-black">{{ t.colLabels[col.label] or col.label }}</th>
       {%- endfor %}
      </tr>
     </thead>
@@ -47,7 +48,7 @@
     </tbody>
    </table>
   </div>
-  <p class="text-xs text-slate-400 mt-4 text-center">{{ cfg.note }}</p>
+  <p class="text-xs text-slate-400 mt-4 text-center">{{ t.notes[compareFamily] or cfg.note }}</p>
  </div>
 </section>
 {%- endif -%}

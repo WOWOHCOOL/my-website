@@ -181,7 +181,7 @@ module.exports = {
   "products/power-bank": {
    "sectionId": "categories",
    "eyebrow": "Produktreihen",
-   "h2": "Powerbank-Kategorien",
+   "h2": "Powerbank-<span class=\"text-brandOrange\">Kategorien</span>",
    "intro": "Sechs spezialisierte Produktreihen für jeden B2B-Anwendungsfall, von der Semi-Solid-State-Technologie bis zu Heizakkus für Bekleidung. Jede Kategorie mit vollständigen Spezifikationen, Zertifizierungen und Werkspreisen.",
    "linkLabel": "Reihe ansehen →",
    "families": [
@@ -292,7 +292,7 @@ module.exports = {
   "products/wireless-charger": {
    "sectionId": "category-hub-product-cards",
    "eyebrow": "Produktkategorien",
-   "h2": "3 Spezialisierte Reihen",
+   "h2": "3 Spezialisierte <span class=\"text-brandOrange\">Reihen</span>",
    "intro": "Jede Reihe für spezifische B2B-Käufergruppen und Vertriebskanäle optimiert.",
    "linkLabel": "Reihe ansehen →",
    "families": [

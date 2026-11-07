@@ -316,6 +316,7 @@ plPath: "produkty/ladowarka-samochodowa/"
  </div>
 
  <!-- Trust Bar -->
+{% set trustBarCerts = false %}
 {% include "trust-bar.njk" %}
 
 <!-- ========================================================================
@@ -338,7 +339,7 @@ plPath: "produkty/ladowarka-samochodowa/"
  <section id="who-is-this-for-audience-tags" class="sec bg-white" data-section="content">
  <div class="container-wide">
  <div class="text-center mb-14">
- <div class="inline-block px-4 py-1 bg-brandOrange/10 border border-brandOrange/20 rounded-full text-badge font-bold text-brandOrangeDeep uppercase tracking-widest mb-6">Who Is This For</div>
+ <p class="section-label">Who Is This For</p>
  <h2 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4">Perfect for <span class="text-brandOrange">Your Business</span></h2>
  <p class="text-slate-500 max-w-2xl mx-auto text-sm">Choose car charger models by channel: e-commerce sellers need retractable bestsellers, fleet and rental buyers need flush mini-hidden models, laptop users need PD 3.1 65W+, and premium retail needs TFT display designs. See which profile fits you.</p>
  </div>
@@ -392,10 +393,10 @@ plPath: "produkty/ladowarka-samochodowa/"
   <!-- ========================================================================
   TECHNOLOGY COMPARISON
   ======================================================================== -->
-<section id="technology-comparison" class="sec bg-white" data-section="comparison">
+<section id="technology-comparison" class="sec bg-slate-50" data-section="comparison">
  <div class="container-wide">
  {{ sectionHeader('Technology', '<span class="text-brandOrange">GaN Car Charger</span> vs Silicon vs Basic USB', 'GaN technology enables laptop-level power (140W) in a form factor small enough to stay hidden in the cigarette lighter socket.', {max: '', mb: 'mb-12'}) }}
- <div class="overflow-x-auto reveal">
+ <div class="overflow-x-auto reveal rounded-2xl border border-slate-200 shadow-sm bg-white">
  <table class="w-full text-sm border-collapse compare-table">
  <thead><tr class="bg-brandBlue text-white text-left">
  <th class="p-3 rounded-tl-lg">Spec</th>
@@ -477,28 +478,36 @@ plPath: "produkty/ladowarka-samochodowa/"
   {{ sectionHeader('Customization', 'What You Can <span class="text-brandOrange">Customize</span>', 'From a logo on a stock model to a vehicle-specific housing. Every option is quoted against the same MOQ tiers.', {max: '', mb: 'mb-12'}) }}
   <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 cap-grid">
    <article class="cap-tile reveal">
-    <h3 class="text-base font-black text-brandBlue uppercase italic mb-2">Output &amp; Protocols</h3>
-    <p class="text-sm text-slate-600 leading-relaxed">PD 3.1 up to 140W single port, or dual PD 65W + 30W simultaneous for multi-device cabins.</p>
+    <h3 class="text-base font-black text-brandBlue uppercase italic mb-3">ODM Stock · MOQ 500</h3>
+    <ul class="cap-list">
+     <li>Choose from existing 12V–24V models</li>
+     <li>Logo printing (silkscreen, laser, UV)</li>
+     <li>Pantone colour matching</li>
+     <li>Stock packaging with logo print</li>
+     <li>Bundled cable and adapter options</li>
+     <li>Lead time: 3–7 days sampling · 25–35 days production</li>
+    </ul>
    </article>
    <article class="cap-tile reveal">
-    <h3 class="text-base font-black text-brandBlue uppercase italic mb-2">Form &amp; Mounting</h3>
-    <p class="text-sm text-slate-600 leading-relaxed">Flush-mount mini bodies, retractable cables, multi-port layouts and digital wattage displays.</p>
+    <h3 class="text-base font-black text-brandBlue uppercase italic mb-3">ODM Development · MOQ 1,000–2,000</h3>
+    <ul class="cap-list">
+     <li>Custom packaging with brand artwork</li>
+     <li>Multi-language manuals, insert cards and warranty leaflets</li>
+     <li>Platform-adapted tooling (no new mold)</li>
+     <li>Port layout: dual PD 65W + 30W, retractable cable</li>
+     <li>Digital wattage display and PPS support</li>
+     <li>Lead time: 25–45 days design · 35–50 days production</li>
+    </ul>
    </article>
    <article class="cap-tile reveal">
-    <h3 class="text-base font-black text-brandBlue uppercase italic mb-2">Input Range</h3>
-    <p class="text-sm text-slate-600 leading-relaxed">12V–24V input for passenger cars and trucks, with PPS support for Samsung fast charging.</p>
-   </article>
-   <article class="cap-tile reveal">
-    <h3 class="text-base font-black text-brandBlue uppercase italic mb-2">Logo &amp; CMF</h3>
-    <p class="text-sm text-slate-600 leading-relaxed">Laser engraving from 500 units, silk screen from 1,000 and full-colour UV from 3,000, with Pantone matching.</p>
-   </article>
-   <article class="cap-tile reveal">
-    <h3 class="text-base font-black text-brandBlue uppercase italic mb-2">Packaging</h3>
-    <p class="text-sm text-slate-600 leading-relaxed">Retail gift box, blister or FNSKU/FBA-ready carton with multilingual manuals.</p>
-   </article>
-   <article class="cap-tile reveal">
-    <h3 class="text-base font-black text-brandBlue uppercase italic mb-2">Private Mold</h3>
-    <p class="text-sm text-slate-600 leading-relaxed">Client-owned design with new tooling: 3,000+ units and 2–4 months end to end.</p>
+    <h3 class="text-base font-black text-brandBlue uppercase italic mb-3">OEM · MOQ 3,000+</h3>
+    <ul class="cap-list">
+     <li>Client-owned design and CMF</li>
+     <li>Vehicle-specific housing and new tooling</li>
+     <li>Output tuning: PD 3.1 up to 140W single port</li>
+     <li>Certification support for target markets</li>
+     <li>Lead time: 30–60 days production · 2–4 months with new tooling</li>
+    </ul>
    </article>
   </div>
   <div class="text-center mt-10">
@@ -515,7 +524,7 @@ plPath: "produkty/ladowarka-samochodowa/"
 <section id="commercial-terms" class="sec bg-white" data-section="content">
  <div class="container-wide">
   {{ sectionHeader('Working Together', 'MOQ, Lead Times &amp; <span class="text-brandOrange">Trade Terms</span>', 'The same terms apply across the full car charger range. Figures are factory-direct and confirmed in your quotation.', {max: '', mb: 'mb-12'}) }}
-  <div class="max-w-4xl mx-auto overflow-x-auto reveal rounded-xl border border-slate-200">
+  <div class="max-w-4xl mx-auto overflow-x-auto reveal rounded-2xl border border-slate-200 shadow-sm bg-white">
    <table class="w-full text-sm border-collapse terms-table">
     <caption class="sr-only">Car charger MOQ, sampling, production and trade terms</caption>
     <thead>
@@ -560,32 +569,32 @@ plPath: "produkty/ladowarka-samochodowa/"
  <div class="container-wide">
   {{ sectionHeader('Quality &amp; Support', 'From Sample to <span class="text-brandOrange">After-Sales</span>', 'Four inspection stages, 100% aging and a documented warranty on every car charger order.', {max: '', mb: 'mb-12'}) }}
   <ol class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-   <li class="card-soft bg-white p-6 reveal">
+   <li class="card-lg p-6 shadow-sm reveal">
     <span class="qc-num">01</span>
     <h3 class="text-base font-black text-brandBlue uppercase italic mb-2">Spec Review</h3>
     <p class="text-sm text-slate-600 leading-relaxed">Share output, port count, cable type and target vehicle market. We shortlist matching stock models or scope a development project.</p>
    </li>
-   <li class="card-soft bg-white p-6 reveal">
+   <li class="card-lg p-6 shadow-sm reveal">
     <span class="qc-num">02</span>
     <h3 class="text-base font-black text-brandBlue uppercase italic mb-2">Sampling</h3>
     <p class="text-sm text-slate-600 leading-relaxed">{FACT:timeline.odmStockSample} for in-stock ODM and {FACT:timeline.oemSample} for OEM. Sample fees are refundable on bulk orders.</p>
    </li>
-   <li class="card-soft bg-white p-6 reveal">
+   <li class="card-lg p-6 shadow-sm reveal">
     <span class="qc-num">03</span>
     <h3 class="text-base font-black text-brandBlue uppercase italic mb-2">Incoming &amp; In-Process QC</h3>
     <p class="text-sm text-slate-600 leading-relaxed">Connectors, PCBs, cables and housings checked at IQC. Soldering and assembly monitored at IPQC.</p>
    </li>
-   <li class="card-soft bg-white p-6 reveal">
+   <li class="card-lg p-6 shadow-sm reveal">
     <span class="qc-num">04</span>
     <h3 class="text-base font-black text-brandBlue uppercase italic mb-2">Final &amp; Outgoing QC</h3>
     <p class="text-sm text-slate-600 leading-relaxed">100% 4-hour aging, PD output and port function tests at FQC. Packaging and labelling checked at OQC.</p>
    </li>
-   <li class="card-soft bg-white p-6 reveal">
+   <li class="card-lg p-6 shadow-sm reveal">
     <span class="qc-num">05</span>
     <h3 class="text-base font-black text-brandBlue uppercase italic mb-2">Pre-Shipment Inspection</h3>
     <p class="text-sm text-slate-600 leading-relaxed">AQL 0.65 normal and 0.25 tightened sampling, with defect rate held below 0.3% and on-time delivery above 97%.</p>
    </li>
-   <li class="card-soft bg-white p-6 reveal">
+   <li class="card-lg p-6 shadow-sm reveal">
     <span class="qc-num">06</span>
     <h3 class="text-base font-black text-brandBlue uppercase italic mb-2">Warranty &amp; After-Sales</h3>
     <p class="text-sm text-slate-600 leading-relaxed">{FACT:contact.warrantyMonths}-month warranty, spare parts and technical documentation for every order.</p>
@@ -598,12 +607,12 @@ plPath: "produkty/ladowarka-samochodowa/"
  <!-- ========================================================================
  CLIENT TESTIMONIALS SECTION - B2B client testimonials
  ======================================================================== -->
- <section id="client-testimonials-section-b2b-client-testimonials" class="sec bg-brandBlue" data-section="content">
+ <section id="client-testimonials-section-b2b-client-testimonials" class="sec bg-slate-50" data-section="content">
  <div class="container-wide">
- {{ sectionHeader('Client Feedback', 'What Our B2B Partners <span class="text-brandOrange">Say</span>', 'Trusted by fleet operators, e-commerce sellers, and automotive aftermarket brands across 50+ countries.', { max: '', reveal: false, titleClass: 'text-3xl lg:text-4xl font-black text-white uppercase italic tracking-tighter mb-4', descClass: 'text-slate-500 max-w-2xl mx-auto', labelStyle: 'pill', pillClass: 'bg-brandOrange/10', pillMb: 'mb-6' }) }}
+ {{ sectionHeader('Client Feedback', 'What Our B2B Partners <span class="text-brandOrange">Say</span>', 'Trusted by fleet operators, e-commerce sellers, and automotive aftermarket brands across 50+ countries.', {max: '', mb: 'mb-12'}) }}
 
- <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
- <div class="bg-white/5 border border-white/10 rounded-2xl p-8 hover:bg-white/10 transition-all">
+ <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+ <div class="card-lg bg-white p-8 hover:border-brandOrange/30 hover:shadow-lg transition-all">
  <div class="flex items-center gap-1 mb-4">
  <svg class="icon-star text-brandOrange text-sm" aria-hidden="true" focusable="false" viewBox="0 0 576 512">
  <path d="M309.5-18.9c-4.1-8-12.4-13.1-21.4-13.1s-17.3 5.1-21.4 13.1L193.1 125.3 33.2 150.7c-8.9 1.4-16.3 7.7-19.1 16.3s-.5 18 5.8 24.4l114.4 114.5-25.2 159.9c-1.4 8.9 2.3 17.9 9.6 23.2s16.9 6.1 25 2L288.1 417.6 432.4 491c8 4.1 17.7 3.3 25-2s11-14.2 9.6-23.2L441.7 305.9 556.1 191.4c6.4-6.4 8.6-15.8 5.8-24.4s-10.1-14.9-19.1-16.3L383 125.3 309.5-18.9z" fill="currentColor"/>
@@ -621,15 +630,15 @@ plPath: "produkty/ladowarka-samochodowa/"
  <path d="M309.5-18.9c-4.1-8-12.4-13.1-21.4-13.1s-17.3 5.1-21.4 13.1L193.1 125.3 33.2 150.7c-8.9 1.4-16.3 7.7-19.1 16.3s-.5 18 5.8 24.4l114.4 114.5-25.2 159.9c-1.4 8.9 2.3 17.9 9.6 23.2s16.9 6.1 25 2L288.1 417.6 432.4 491c8 4.1 17.7 3.3 25-2s11-14.2 9.6-23.2L441.7 305.9 556.1 191.4c6.4-6.4 8.6-15.8 5.8-24.4s-10.1-14.9-19.1-16.3L383 125.3 309.5-18.9z" fill="currentColor"/>
  </svg>
  </div>
- <p class="text-slate-300 text-sm leading-relaxed mb-6">"Fleet manager for a delivery company with 200 vehicles. We replaced all car chargers with the WOC42 retractable models. The retractable cable keeps cabs tidy and the E-Mark certification met our insurance requirements. Zero failures in 8 months of daily use."</p>
- <div class="border-t border-white/10 pt-4">
- <p class="text-white font-black text-sm">Brian M.</p>
+ <p class="text-slate-600 text-sm leading-relaxed mb-6">"Fleet manager for a delivery company with 200 vehicles. We replaced all car chargers with the WOC42 retractable models. The retractable cable keeps cabs tidy and the E-Mark certification met our insurance requirements. Zero failures in 8 months of daily use."</p>
+ <div class="border-t border-slate-100 pt-4">
+ <p class="text-brandBlue font-black text-sm">Brian M.</p>
  <p class="text-slate-500 text-xs">Fleet Manager</p>
- <p class="text-slate-600 text-badge">Chicago, USA</p>
+ <p class="text-slate-400 text-badge">Chicago, USA</p>
  </div>
  </div>
 
- <div class="bg-white/5 border border-white/10 rounded-2xl p-8 hover:bg-white/10 transition-all">
+ <div class="card-lg bg-white p-8 hover:border-brandOrange/30 hover:shadow-lg transition-all">
  <div class="flex items-center gap-1 mb-4">
  <svg class="icon-star text-brandOrange text-sm" aria-hidden="true" focusable="false" viewBox="0 0 576 512">
  <path d="M309.5-18.9c-4.1-8-12.4-13.1-21.4-13.1s-17.3 5.1-21.4 13.1L193.1 125.3 33.2 150.7c-8.9 1.4-16.3 7.7-19.1 16.3s-.5 18 5.8 24.4l114.4 114.5-25.2 159.9c-1.4 8.9 2.3 17.9 9.6 23.2s16.9 6.1 25 2L288.1 417.6 432.4 491c8 4.1 17.7 3.3 25-2s11-14.2 9.6-23.2L441.7 305.9 556.1 191.4c6.4-6.4 8.6-15.8 5.8-24.4s-10.1-14.9-19.1-16.3L383 125.3 309.5-18.9z" fill="currentColor"/>
@@ -647,15 +656,15 @@ plPath: "produkty/ladowarka-samochodowa/"
  <path d="M309.5-18.9c-4.1-8-12.4-13.1-21.4-13.1s-17.3 5.1-21.4 13.1L193.1 125.3 33.2 150.7c-8.9 1.4-16.3 7.7-19.1 16.3s-.5 18 5.8 24.4l114.4 114.5-25.2 159.9c-1.4 8.9 2.3 17.9 9.6 23.2s16.9 6.1 25 2L288.1 417.6 432.4 491c8 4.1 17.7 3.3 25-2s11-14.2 9.6-23.2L441.7 305.9 556.1 191.4c6.4-6.4 8.6-15.8 5.8-24.4s-10.1-14.9-19.1-16.3L383 125.3 309.5-18.9z" fill="currentColor"/>
  </svg>
  </div>
- <p class="text-slate-300 text-sm leading-relaxed mb-6">"Selling car chargers on Amazon Germany. The WOC24 140W dual-port model is our best-seller. PD 3.1 works perfectly with MacBook users and Samsung Galaxy owners alike. Premium metal build looks professional. Return rate under 0.3% across 15,000 units."</p>
- <div class="border-t border-white/10 pt-4">
- <p class="text-white font-black text-sm">Sophie L.</p>
+ <p class="text-slate-600 text-sm leading-relaxed mb-6">"Selling car chargers on Amazon Germany. The WOC24 140W dual-port model is our best-seller. PD 3.1 works perfectly with MacBook users and Samsung Galaxy owners alike. Premium metal build looks professional. Return rate under 0.3% across 15,000 units."</p>
+ <div class="border-t border-slate-100 pt-4">
+ <p class="text-brandBlue font-black text-sm">Sophie L.</p>
  <p class="text-slate-500 text-xs">Amazon Seller</p>
- <p class="text-slate-600 text-badge">Hamburg, Germany</p>
+ <p class="text-slate-400 text-badge">Hamburg, Germany</p>
  </div>
  </div>
 
- <div class="bg-white/5 border border-white/10 rounded-2xl p-8 hover:bg-white/10 transition-all">
+ <div class="card-lg bg-white p-8 hover:border-brandOrange/30 hover:shadow-lg transition-all">
  <div class="flex items-center gap-1 mb-4">
  <svg class="icon-star text-brandOrange text-sm" aria-hidden="true" focusable="false" viewBox="0 0 576 512">
  <path d="M309.5-18.9c-4.1-8-12.4-13.1-21.4-13.1s-17.3 5.1-21.4 13.1L193.1 125.3 33.2 150.7c-8.9 1.4-16.3 7.7-19.1 16.3s-.5 18 5.8 24.4l114.4 114.5-25.2 159.9c-1.4 8.9 2.3 17.9 9.6 23.2s16.9 6.1 25 2L288.1 417.6 432.4 491c8 4.1 17.7 3.3 25-2s11-14.2 9.6-23.2L441.7 305.9 556.1 191.4c6.4-6.4 8.6-15.8 5.8-24.4s-10.1-14.9-19.1-16.3L383 125.3 309.5-18.9z" fill="currentColor"/>
@@ -673,15 +682,15 @@ plPath: "produkty/ladowarka-samochodowa/"
  <path d="M309.5-18.9c-4.1-8-12.4-13.1-21.4-13.1s-17.3 5.1-21.4 13.1L193.1 125.3 33.2 150.7c-8.9 1.4-16.3 7.7-19.1 16.3s-.5 18 5.8 24.4l114.4 114.5-25.2 159.9c-1.4 8.9 2.3 17.9 9.6 23.2s16.9 6.1 25 2L288.1 417.6 432.4 491c8 4.1 17.7 3.3 25-2s11-14.2 9.6-23.2L441.7 305.9 556.1 191.4c6.4-6.4 8.6-15.8 5.8-24.4s-10.1-14.9-19.1-16.3L383 125.3 309.5-18.9z" fill="currentColor"/>
  </svg>
  </div>
- <p class="text-slate-300 text-sm leading-relaxed mb-6">"Long-haul truck driver. The 24V compatibility is essential for my semi-truck. Charges my phone and tablet simultaneously without issues. The digital display shows real-time voltage which helps me monitor my vehicle's electrical system. Solid build quality."</p>
- <div class="border-t border-white/10 pt-4">
- <p class="text-white font-black text-sm">Kevin T.</p>
+ <p class="text-slate-600 text-sm leading-relaxed mb-6">"Long-haul truck driver. The 24V compatibility is essential for my semi-truck. Charges my phone and tablet simultaneously without issues. The digital display shows real-time voltage which helps me monitor my vehicle's electrical system. Solid build quality."</p>
+ <div class="border-t border-slate-100 pt-4">
+ <p class="text-brandBlue font-black text-sm">Kevin T.</p>
  <p class="text-slate-500 text-xs">Long-Haul Trucker</p>
- <p class="text-slate-600 text-badge">Dallas, USA</p>
+ <p class="text-slate-400 text-badge">Dallas, USA</p>
  </div>
  </div>
 
- <div class="bg-white/5 border border-white/10 rounded-2xl p-8 hover:bg-white/10 transition-all">
+ <div class="card-lg bg-white p-8 hover:border-brandOrange/30 hover:shadow-lg transition-all">
  <div class="flex items-center gap-1 mb-4">
  <svg class="icon-star text-brandOrange text-sm" aria-hidden="true" focusable="false" viewBox="0 0 576 512">
  <path d="M309.5-18.9c-4.1-8-12.4-13.1-21.4-13.1s-17.3 5.1-21.4 13.1L193.1 125.3 33.2 150.7c-8.9 1.4-16.3 7.7-19.1 16.3s-.5 18 5.8 24.4l114.4 114.5-25.2 159.9c-1.4 8.9 2.3 17.9 9.6 23.2s16.9 6.1 25 2L288.1 417.6 432.4 491c8 4.1 17.7 3.3 25-2s11-14.2 9.6-23.2L441.7 305.9 556.1 191.4c6.4-6.4 8.6-15.8 5.8-24.4s-10.1-14.9-19.1-16.3L383 125.3 309.5-18.9z" fill="currentColor"/>
@@ -699,15 +708,15 @@ plPath: "produkty/ladowarka-samochodowa/"
  <path d="M288.1 353.6c10 0 19.9 2.3 29 7l74.4 37.9-13-82.5c-3.2-20.2 3.5-40.7 17.9-55.2l59-59.1-82.5-13.1c-20.2-3.2-37.7-15.9-47-34.1l-38-74.4 0 273.6zM457.4 489c-7.3 5.3-17 6.1-25 2L288.1 417.6 143.8 491c-8 4.1-17.7 3.3-25-2s-11-14.2-9.6-23.2L134.4 305.9 20 191.4c-6.4-6.4-8.6-15.8-5.8-24.4s10.1-14.9 19.1-16.3l159.9-25.4 73.6-144.2c4.1-8 12.4-13.1 21.4-13.1s17.3 5.1 21.4 13.1L383 125.3 542.9 150.7c8.9 1.4 16.3 7.7 19.1 16.3s.5 18-5.8 24.4L441.7 305.9 467 465.8c1.4 8.9-2.3 17.9-9.6 23.2z" fill="currentColor"/>
  </svg>
  </div>
- <p class="text-slate-300 text-sm leading-relaxed mb-6">"We supply car chargers to car dealerships as promotional items. Custom logo printing quality is excellent. One batch had minor packaging issues, WOWOHCOOL replaced 500 units without question. Good partner for automotive aftermarket. The E-Mark documentation was ready for our European market entry."</p>
- <div class="border-t border-white/10 pt-4">
- <p class="text-white font-black text-sm">Michael P.</p>
+ <p class="text-slate-600 text-sm leading-relaxed mb-6">"We supply car chargers to car dealerships as promotional items. Custom logo printing quality is excellent. One batch had minor packaging issues, WOWOHCOOL replaced 500 units without question. Good partner for automotive aftermarket. The E-Mark documentation was ready for our European market entry."</p>
+ <div class="border-t border-slate-100 pt-4">
+ <p class="text-brandBlue font-black text-sm">Michael P.</p>
  <p class="text-slate-500 text-xs">Automotive Aftermarket</p>
- <p class="text-slate-600 text-badge">Melbourne, Australia</p>
+ <p class="text-slate-400 text-badge">Melbourne, Australia</p>
  </div>
  </div>
 
- <div class="bg-white/5 border border-white/10 rounded-2xl p-8 hover:bg-white/10 transition-all">
+ <div class="card-lg bg-white p-8 hover:border-brandOrange/30 hover:shadow-lg transition-all">
  <div class="flex items-center gap-1 mb-4">
  <svg class="icon-star text-brandOrange text-sm" aria-hidden="true" focusable="false" viewBox="0 0 576 512">
  <path d="M309.5-18.9c-4.1-8-12.4-13.1-21.4-13.1s-17.3 5.1-21.4 13.1L193.1 125.3 33.2 150.7c-8.9 1.4-16.3 7.7-19.1 16.3s-.5 18 5.8 24.4l114.4 114.5-25.2 159.9c-1.4 8.9 2.3 17.9 9.6 23.2s16.9 6.1 25 2L288.1 417.6 432.4 491c8 4.1 17.7 3.3 25-2s11-14.2 9.6-23.2L441.7 305.9 556.1 191.4c6.4-6.4 8.6-15.8 5.8-24.4s-10.1-14.9-19.1-16.3L383 125.3 309.5-18.9z" fill="currentColor"/>
@@ -725,15 +734,15 @@ plPath: "produkty/ladowarka-samochodowa/"
  <path d="M309.5-18.9c-4.1-8-12.4-13.1-21.4-13.1s-17.3 5.1-21.4 13.1L193.1 125.3 33.2 150.7c-8.9 1.4-16.3 7.7-19.1 16.3s-.5 18 5.8 24.4l114.4 114.5-25.2 159.9c-1.4 8.9 2.3 17.9 9.6 23.2s16.9 6.1 25 2L288.1 417.6 432.4 491c8 4.1 17.7 3.3 25-2s11-14.2 9.6-23.2L441.7 305.9 556.1 191.4c6.4-6.4 8.6-15.8 5.8-24.4s-10.1-14.9-19.1-16.3L383 125.3 309.5-18.9z" fill="currentColor"/>
  </svg>
  </div>
- <p class="text-slate-300 text-sm leading-relaxed mb-6">"Rideshare driver using this daily. Charges my iPhone and passenger's phone at the same time. The compact design doesn't block other dashboard controls. GaN technology means it stays cool even in summer heat. Replaced my old charger after 6 months of heavy use."</p>
- <div class="border-t border-white/10 pt-4">
- <p class="text-white font-black text-sm">Jason W.</p>
+ <p class="text-slate-600 text-sm leading-relaxed mb-6">"Rideshare driver using this daily. Charges my iPhone and passenger's phone at the same time. The compact design doesn't block other dashboard controls. GaN technology means it stays cool even in summer heat. Replaced my old charger after 6 months of heavy use."</p>
+ <div class="border-t border-slate-100 pt-4">
+ <p class="text-brandBlue font-black text-sm">Jason W.</p>
  <p class="text-slate-500 text-xs">Rideshare Driver</p>
- <p class="text-slate-600 text-badge">San Francisco, USA</p>
+ <p class="text-slate-400 text-badge">San Francisco, USA</p>
  </div>
  </div>
 
- <div class="bg-white/5 border border-white/10 rounded-2xl p-8 hover:bg-white/10 transition-all">
+ <div class="card-lg bg-white p-8 hover:border-brandOrange/30 hover:shadow-lg transition-all">
  <div class="flex items-center gap-1 mb-4">
  <svg class="icon-star text-brandOrange text-sm" aria-hidden="true" focusable="false" viewBox="0 0 576 512">
  <path d="M309.5-18.9c-4.1-8-12.4-13.1-21.4-13.1s-17.3 5.1-21.4 13.1L193.1 125.3 33.2 150.7c-8.9 1.4-16.3 7.7-19.1 16.3s-.5 18 5.8 24.4l114.4 114.5-25.2 159.9c-1.4 8.9 2.3 17.9 9.6 23.2s16.9 6.1 25 2L288.1 417.6 432.4 491c8 4.1 17.7 3.3 25-2s11-14.2 9.6-23.2L441.7 305.9 556.1 191.4c6.4-6.4 8.6-15.8 5.8-24.4s-10.1-14.9-19.1-16.3L383 125.3 309.5-18.9z" fill="currentColor"/>
@@ -751,11 +760,11 @@ plPath: "produkty/ladowarka-samochodowa/"
  <path d="M309.5-18.9c-4.1-8-12.4-13.1-21.4-13.1s-17.3 5.1-21.4 13.1L193.1 125.3 33.2 150.7c-8.9 1.4-16.3 7.7-19.1 16.3s-.5 18 5.8 24.4l114.4 114.5-25.2 159.9c-1.4 8.9 2.3 17.9 9.6 23.2s16.9 6.1 25 2L288.1 417.6 432.4 491c8 4.1 17.7 3.3 25-2s11-14.2 9.6-23.2L441.7 305.9 556.1 191.4c6.4-6.4 8.6-15.8 5.8-24.4s-10.1-14.9-19.1-16.3L383 125.3 309.5-18.9z" fill="currentColor"/>
  </svg>
  </div>
- <p class="text-slate-300 text-sm leading-relaxed mb-6">"Purchasing manager for a car accessories retail chain. The 100W single-port model is perfect for flagship phones. We've sold through 3 seasonal cycles with consistent quality. The digital display is a nice feature that customers mention in reviews. Reorder every quarter."</p>
- <div class="border-t border-white/10 pt-4">
- <p class="text-white font-black text-sm">Rachel K.</p>
+ <p class="text-slate-600 text-sm leading-relaxed mb-6">"Purchasing manager for a car accessories retail chain. The 100W single-port model is perfect for flagship phones. We've sold through 3 seasonal cycles with consistent quality. The digital display is a nice feature that customers mention in reviews. Reorder every quarter."</p>
+ <div class="border-t border-slate-100 pt-4">
+ <p class="text-brandBlue font-black text-sm">Rachel K.</p>
  <p class="text-slate-500 text-xs">Retail Chain Buyer</p>
- <p class="text-slate-600 text-badge">Toronto, Canada</p>
+ <p class="text-slate-400 text-badge">Toronto, Canada</p>
  </div>
  </div>
  </div>
@@ -797,7 +806,7 @@ plPath: "produkty/ladowarka-samochodowa/"
 {%- set formSubject = "Product Inquiry: Car Charger" %}
 
 <!-- ====== EXPLORE MORE CATEGORIES ====== -->
-<section id="explore-more-categories" class="sec bg-white relative" data-section="content">
+<section id="explore-more-categories" class="sec bg-slate-50 relative" data-section="content">
  <div class="container-wide">
   <div class="text-center max-w-3xl mx-auto mb-12 reveal">
    <p class="section-label">Explore More</p>

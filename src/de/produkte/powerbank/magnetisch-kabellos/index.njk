@@ -125,6 +125,14 @@ plPath: "produkty/power-bank/magnetyczny-bezprzewodowy/"
             "@type": "Answer",
             "text": "Wir verwenden N52H Neodym-Magnete mit 800-1.200 Gauss Haltekraft. Das entspricht der MagSafe-Spezifikation und sorgt für sicheren Halt auch bei iPhone-Hüllen bis 3mm Dicke."
           }
+        },
+        {
+          "@type": "Question",
+          "name": "Welche Hüllen funktionieren mit Qi2?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "MagSafe- oder Qi2-kompatible Hüllen bis 3mm Dicke. Metallplatten, Kartenfächer mit Metall und dicke Rugged-Hüllen können die magnetische Ausrichtung und Ladeleistung reduzieren."
+          }
         }
       ]
     },
@@ -265,32 +273,55 @@ plPath: "produkty/power-bank/magnetyczny-bezprzewodowy/"
 </section>
 
 <!-- ======== TRUST BAR ======== -->
+{% set trustBarCerts = false %}
 {% include "trust-bar.njk" %}
+
+<!-- Divider -->
+<div class="relative w-full">
+ <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent"></div>
+ <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-white border border-slate-200 rotate-45"></div>
+</div>
 
 <!-- MODELS -->
 {% set family = "products/power-bank/wireless-magnetic" %}
 {#- 型号卡：六语言共用模板（2026-10-29）。数据 src/_products/*.json -#}
 {% include "partials/product-models.njk" %}
 
+{% set compareFamily = family %}
+{% include "partials/model-compare.njk" %}
+
 <!-- MARKET-DATA -->
-<section id="market-data" class="sec bg-white py-8" data-section="content">
+
+
+<!-- TECHNOLOGY BASICS -->
+<section id="what-is-qi2" class="sec bg-slate-50" data-section="content">
  <div class="container-wide">
- <blockquote class="bg-brandOrange/5 border-l-4 border-brandOrange rounded-r-xl px-6 py-5 text-sm text-slate-700 italic leading-relaxed">
-  <p>"Der Markt für magnetische kabellose Powerbanks wächst laut QY Research von 1,85 Mrd. USD (2024) auf 3,79 Mrd. USD bis 2031 bei einer CAGR von 10,8%. Bis Dezember 2025 waren über 2.665 Qi2-zertifizierte Produkte am Markt — Powerbanks stellen mit 609 Modellen 23% aller Zertifizierungen. Das WPC prognostiziert nahezu 4 Milliarden Qi2-Geräte innerhalb der nächsten fünf Jahre. Mit Qi2.2 (25W) und der nativen Android-Unterstützung durch Samsung Galaxy S25 und Google Pixel 10 hat sich der adressierbare Markt für plattformübergreifende magnetische Powerbanks praktisch verdoppelt."</p>
-  <cite class="block text-xs text-slate-400 mt-2 not-italic">— <a href="https://www.qyresearch.com/news/14014/magnetic-wireless-power-bank" target="_blank" rel="noopener noreferrer" class="text-brandOrange hover:underline">QY Research</a>, Magnetic Wireless Power Bank Market 2025-2031; <a href="https://www.businesswire.com/news/home/20260105765040/en/Qi2s-Rapid-Adoption-Highlights-Its-Redefinition-of-Wireless-Charging" target="_blank" rel="noopener noreferrer" class="text-brandOrange hover:underline">WPC / BusinessWire</a>, Qi2 Adoption Report Jan 2026</cite>
- </blockquote>
+ 
+  {{ sectionHeader('Grundlagen', 'Was ist <span class="text-brandOrange">Qi2</span>?', 'Der offizielle Nachfolger von Qi — mit magnetischer Ausrichtung und 15W.', {mb: 'mb-12'}) }}
+   <div class="grid md:grid-cols-3 gap-6">
+   <div class="card-lg-soft p-8 text-center"><p class="text-3xl font-black text-brandOrange mb-2">MPP</p><p class="text-sm font-bold text-brandBlue">Magnetische Ausrichtung</p><p class="text-xs text-slate-500 mt-2">Qi2 integriert den Magnetring nach MagSafe-Vorbild. Das Smartphone rastet automatisch über der Ladespule ein.</p></div>
+   <div class="card-lg-soft p-8 text-center"><p class="text-3xl font-black text-brandOrange mb-2">15W</p><p class="text-sm font-bold text-brandBlue">Kabellose Leistung</p><p class="text-xs text-slate-500 mt-2">Qi2 liefert bis zu 15W statt 5–7,5W bei Standard-Qi. Qi2.2 hebt die Ladeleistung auf bis zu 25W.</p></div>
+   <div class="card-lg-soft p-8 text-center"><p class="text-3xl font-black text-brandOrange mb-2">N52H</p><p class="text-sm font-bold text-brandBlue">Neodym-Magnete</p><p class="text-xs text-slate-500 mt-2">800–1.200 Gauss Haltekraft — sicher auch mit iPhone-Hüllen bis 3mm Dicke.</p></div>
+  </div>
+  <figure class="mt-10 max-w-4xl mx-auto reveal">
+   <div class="rounded-2xl border border-brandOrange/20 bg-brandOrange/5 p-6 md:p-8">
+    <p class="text-xs font-black uppercase tracking-widest text-brandOrangeDeep mb-3">Marktkontext</p>
+    <blockquote class="text-sm text-slate-700 leading-relaxed">"Der Markt für magnetische kabellose Powerbanks wächst laut QY Research von 1,85 Mrd. USD (2024) auf 3,79 Mrd. USD bis 2031 bei einer CAGR von 10,8%. Bis Dezember 2025 waren über 2.665 Qi2-zertifizierte Produkte am Markt — Powerbanks stellen mit 609 Modellen 23% aller Zertifizierungen. Das WPC prognostiziert nahezu 4 Milliarden Qi2-Geräte innerhalb der nächsten fünf Jahre. Mit Qi2.2 (25W) und der nativen Android-Unterstützung durch Samsung Galaxy S25 und Google Pixel 10 hat sich der adressierbare Markt für plattformübergreifende magnetische Powerbanks praktisch verdoppelt."</blockquote>
+    <figcaption class="mt-3 text-xs text-slate-500">— <a href="https://www.qyresearch.com/news/14014/magnetic-wireless-power-bank" target="_blank" rel="noopener noreferrer" class="text-brandOrange hover:underline">QY Research</a>, Magnetic Wireless Power Bank Market 2025-2031; <a href="https://www.businesswire.com/news/home/20260105765040/en/Qi2s-Rapid-Adoption-Highlights-Its-Redefinition-of-Wireless-Charging" target="_blank" rel="noopener noreferrer" class="text-brandOrange hover:underline">WPC / BusinessWire</a>, Qi2 Adoption Report Jan 2026</figcaption>
+   </div>
+  </figure>
  </div>
 </section>
 
 <!-- Qi2 vs MagSafe vs Qi -->
-<section id="qi2-vs-magsafe-vs-qi" class="sec bg-slate-50" data-section="comparison">
+<section id="qi2-vs-magsafe-vs-qi" class="sec bg-white" data-section="comparison">
  <div class="container-wide">
-  {{ sectionHeader('Standard-Vergleich', 'Qi2 vs. MagSafe vs. Qi', 'Drei kabellose Standards im direkten Vergleich für B2B-Einkäufer.', {mb: 'mb-12'}) }}
+  {{ sectionHeader('Standard-Vergleich', 'Qi2 vs. <span class="text-brandOrange">MagSafe</span> vs. Qi', 'Drei kabellose Standards im direkten Vergleich für B2B-Einkäufer.', {mb: 'mb-12'}) }}
   <div class="overflow-x-auto reveal rounded-2xl border border-slate-200 shadow-sm bg-white">
    <table class="w-full text-sm">
     <thead><tr class="bg-brandBlue text-white">
      <th class="text-left px-5 py-3 font-bold text-sm">Eigenschaft</th>
-     <th class="text-left px-5 py-3 font-bold text-sm">Qi2 MPP</th>
+     <th class="text-left px-5 py-3 font-bold text-sm bg-brandOrange text-brandBlue">Qi2 MPP</th>
      <th class="text-left px-5 py-3 font-bold text-sm">MagSafe (Apple)</th>
      <th class="text-left px-5 py-3 font-bold text-sm">Qi (Standard)</th>
     </tr></thead>
@@ -306,29 +337,68 @@ plPath: "produkty/power-bank/magnetyczny-bezprzewodowy/"
  </div>
 </section>
 
-<!-- EU Compliance -->
-<section id="eu-compliance" class="sec bg-white" data-section="content">
- <div class="container-wide"><div class="mt-10 grid md:grid-cols-2 gap-6 reveal">
-   <div class="card-lg p-6">
-    <h3 class="text-base font-bold text-brandBlue mb-2">EU-Batterieverordnung 2023/1542</h3>
-    <p class="text-sm text-slate-600 leading-relaxed">Seit 18.08.2024 sind Erzeugerpflichten in Kraft, ab 18.02.2027 wird der digitale Batteriepass Pflicht. Wir liefern technische Dokumentation, EU-Konformitätserklärung und unterstützen die EAR-Stiftung-Registrierung in Deutschland sowie EPR-Pendants in AT, CH, FR, IT, ES.</p>
-   </div>
-   <div class="card-lg p-6">
-    <h3 class="text-base font-bold text-brandBlue mb-2">Digitaler Batteriepass-Bereitschaft</h3>
-    <p class="text-sm text-slate-600 leading-relaxed">Unsere Produkte ab 2026 mit QR-Code-fähigen Etiketten und durchgehender Lebenszyklus-Datenerfassung — bereit für die ab Februar 2027 verpflichtende digitale Batteriepass-Anforderung der EU-Verordnung 2023/1542.</p>
-   </div>
+<!-- WHY WOWOHCOOL -->
+<section id="why-wireless-magnetic" class="sec bg-white relative" data-section="content">
+ <div class="container-wide">
+  {{ sectionHeader('Warum WOWOHCOOL', 'Warum <span class="text-brandOrange">kabellos</span> für Ihre Marke', 'Qi2 öffnet iPhone- und Android-Zubehörregale — mit einer SKU.', {mb: 'mb-12'}) }}
+  <div class="grid md:grid-cols-3 gap-6">
+   <div class="card-soft p-6"><h3 class="font-black text-brandBlue uppercase mb-3 text-sm">Zwei Ökosysteme, eine SKU</h3><p class="text-sm text-slate-600 leading-relaxed">MagSafe-kompatibel für iPhone 12–16 und Qi2-zertifiziert für Android-Flagships. Kein zweites Listing für Android nötig.</p></div>
+   <div class="card-soft p-6"><h3 class="font-black text-brandBlue uppercase mb-3 text-sm">Premium-Preisniveau</h3><p class="text-sm text-slate-600 leading-relaxed">Qi2-Modelle erzielen auf Amazon.de 2–3x höhere Preise als Standard-Qi-Powerbanks bei vergleichbarer Kapazität.</p></div>
+   <div class="card-soft p-6"><h3 class="font-black text-brandBlue uppercase mb-3 text-sm">Qi2-Dokumentation inklusive</h3><p class="text-sm text-slate-600 leading-relaxed">Qi2-konforme Modelle mit WPC-Dokumentation. Logo, Farbe und Verpackung ab MOQ 500.</p></div>
   </div>
-  <p class="text-xs text-slate-500 text-center mt-6 reveal">Quellen: <a href="https://eur-lex.europa.eu/legal-content/DE/TXT/PDF/?uri=CELEX%3A32023R1542" target="_blank" rel="noopener external" class="text-brandOrange hover:underline">EUR-Lex 2023/1542</a> &middot; <a href="https://www.ihk.de/stuttgart/fuer-unternehmen/energie-umwelt-nachhaltigkeit/umwelt/abfallwirtschaft/neue-batterieverordnung-6779620" target="_blank" rel="noopener noreferrer" class="text-brandOrange hover:underline">IHK Stuttgart</a></p>
  </div>
 </section>
 
-
+<!-- OEM/ODM -->
+<section id="oem-odm-customization" class="sec bg-slate-50 relative" data-section="content">
+ <div class="container-wide">
+  {{ sectionHeader('Anpassung', 'OEM/ODM-<span class="text-brandOrange">Anpassung</span>', 'Magnetring, Farben und Verpackung — ab MOQ 500.', {mb: 'mb-12'}) }}
+  <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 cap-grid">
+   <article class="cap-tile reveal">
+    <h3 class="text-base font-black text-brandBlue uppercase italic mb-3">ODM Stock · MOQ 500</h3>
+    <ul class="cap-list">
+     <li>Bestehende Modelle und Kapazitäten wählen</li>
+     <li>Logodruck (Siebdruck, Laser, UV)</li>
+     <li>Pantone-Farbabgleich</li>
+     <li>Qi2 / Qi2.2 Magnetmodul</li>
+     <li>Lagerverpackung mit Logodruck</li>
+     <li>Lieferzeit: 3–7 Tage Muster · 25–35 Tage Produktion</li>
+    </ul>
+   </article>
+   <article class="cap-tile reveal">
+    <h3 class="text-base font-black text-brandBlue uppercase italic mb-3">ODM-Entwicklung · MOQ 1.000–2.000</h3>
+    <ul class="cap-list">
+     <li>Individuelle Verpackung mit Marken-Artwork</li>
+     <li>Mehrsprachige Handbücher, Einleger und Garantiekarten</li>
+     <li>Plattformangepasstes Werkzeug (kein neues Gehäuse-Werkzeug)</li>
+     <li>Kapazität: 5.000–20.000mAh · Qi2/Qi2.2 15–25W + PD</li>
+     <li>Magnetring und Spulen-Layout</li>
+     <li>Kickstand- oder Kabeloptionen</li>
+     <li>Lieferzeit: 25–45 Tage Design · 35–50 Tage Produktion</li>
+    </ul>
+   </article>
+   <article class="cap-tile reveal">
+    <h3 class="text-base font-black text-brandBlue uppercase italic mb-3">OEM · MOQ 3.000+</h3>
+    <ul class="cap-list">
+     <li>Design und CMF in Kundenhand</li>
+     <li>Neues Gehäuse-Werkzeug und vollständige Formgebung</li>
+     <li>Kapazität: 5.000–20.000mAh · Qi2/Qi2.2 15–25W + PD</li>
+     <li>Magnetring und Spulen-Layout</li>
+     <li>WPC-Dokumentation für Zielmärkte</li>
+     <li>Lieferzeit: 30–60 Tage Produktion · 2–4 Monate mit neuem Werkzeug</li>
+    </ul>
+   </article>
+  </div>
+  <div class="text-center mt-10"><p class="text-slate-500 text-sm mb-4">Bereit für Ihr OEM-Projekt?</p>{{ ctaButton("factoryPricing", "primary", "open-modal", "Qi2-Magnet-Powerbank") }}</div>
+ </div>
+</section>
 
 <!-- DACH Retail Pricing -->
-<section id="dach-retail-pricing" class="sec bg-white relative py-12" data-section="pricing">
+<section id="dach-retail-pricing" class="sec bg-white relative" data-section="pricing">
  <div class="container-wide">
  <div class="text-center mb-8">
-  <h2 class="text-2xl lg:text-3xl font-black text-brandBlue uppercase italic tracking-tighter mb-4">Amazon DE: <span class="text-brandOrange">Qi2 = 2-3x Premium</span> (Chongdiantou Q1 2026)</h2>
+  <p class="section-label">DACH-Markt</p>
+  <h2 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4">Amazon DE: <span class="text-brandOrange">Qi2 = 2-3x Premium</span> (Chongdiantou Q1 2026)</h2>
   <p class="text-slate-500 text-sm max-w-2xl mx-auto">Magnetische Powerbank ODM $12-22 (MOQ 500) verkauft sich in DE für 19-56 EUR.</p>
  </div>
  <div class="overflow-x-auto rounded-2xl border border-slate-200 shadow-sm bg-white">
@@ -344,60 +414,61 @@ plPath: "produkty/power-bank/magnetyczny-bezprzewodowy/"
  </div>
 </section>
 
- <!-- DACH Market Context -->
- <section id="market-context" class="sec bg-white relative" data-section="stats">
-  <div class="container-wide">
-  {{ sectionHeader('Amazon DE Q1 2026 — Chongdiantou Daten', 'Amazon DE: <span class="text-brandOrange">8 von 10 Top-Platzierungen</span> = chinesische Marken', '', { max: '', mb: 'mb-10', titleClass: 'text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4', labelStyle: 'pill', pillClass: 'bg-brandOrange/10', pillMb: 'mb-6' }) }}
-  <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
-   <div class="card-lg-soft p-6 text-center">
-    <p class="text-3xl font-black text-brandBlue mb-2">55.99 EUR</p>
-    <p class="text-sm font-bold text-slate-700 mb-2">Anker MagGo Qi2</p>
-    <p class="text-xs text-slate-500">Premium Qi2 15W, 10.000mAh</p>
+ 
+
+<!-- EU Compliance -->
+<section id="eu-compliance" class="sec bg-slate-50" data-section="content">
+ <div class="container-wide">
+  {{ sectionHeader('Compliance', 'EU-Batterieverordnung <span class="text-brandOrange">2023/1542</span>', 'Erzeugerpflichten, Batteriepass und EAR-Registrierung — als Service inklusive.', {mb: 'mb-10'}) }}
+  <div class="grid md:grid-cols-2 gap-6 reveal">
+   <div class="card-lg p-6">
+    <h3 class="text-base font-bold text-brandBlue mb-2">EU-Batterieverordnung 2023/1542</h3>
+    <p class="text-sm text-slate-600 leading-relaxed">Seit 18.08.2024 sind Erzeugerpflichten in Kraft, ab 18.02.2027 wird der digitale Batteriepass Pflicht. Wir liefern technische Dokumentation, EU-Konformitätserklärung und unterstützen die EAR-Stiftung-Registrierung in Deutschland sowie EPR-Pendants in AT, CH, FR, IT, ES.</p>
    </div>
-   <div class="card-lg-soft p-6 text-center">
-    <p class="text-3xl font-black text-brandBlue mb-2">24.99 EUR</p>
-    <p class="text-sm font-bold text-slate-700 mb-2">UGREEN Nexode</p>
-    <p class="text-xs text-slate-500">Mid-Tier, 10.000mAh, ohne Qi2</p>
-   </div>
-   <div class="card-lg-soft p-6 text-center">
-    <p class="text-3xl font-black text-brandBlue mb-2">23.99 EUR</p>
-    <p class="text-sm font-bold text-slate-700 mb-2">Baseus Enerfill</p>
-    <p class="text-xs text-slate-500">10.000+ verkauft, MagSafe, 10.000mAh</p>
-   </div>
-   <div class="card-lg-soft p-6 text-center">
-    <p class="text-3xl font-black text-brandBlue mb-2">22-27 EUR</p>
-    <p class="text-sm font-bold text-slate-700 mb-2">INIU Ultra-Slim</p>
-    <p class="text-xs text-slate-500">Dominanz im Einstiegssegment</p>
+   <div class="card-lg p-6">
+    <h3 class="text-base font-bold text-brandBlue mb-2">Digitaler Batteriepass-Bereitschaft</h3>
+    <p class="text-sm text-slate-600 leading-relaxed">Unsere Produkte ab 2026 mit QR-Code-fähigen Etiketten und durchgehender Lebenszyklus-Datenerfassung — bereit für die ab Februar 2027 verpflichtende digitale Batteriepass-Anforderung der EU-Verordnung 2023/1542.</p>
    </div>
   </div>
-  <div class="bg-brandBlue/5 rounded-2xl p-6 border border-brandBlue/10 max-w-5xl mx-auto text-center">
-   <p class="text-sm text-slate-700 leading-relaxed mb-0"><strong>Für OEM-Importeure:</strong> Der deutsche Powerbank-Markt ($54,4 Mio., NextMSC 2023) wird von chinesischen Marken dominiert. Qi2-zertifizierte Modelle erzielen einen 2-3x Preisaufschlag (55,99 EUR vs 18,99 EUR). ODM-Einkauf ab $12-22 (MOQ 500) = 50-65% Bruttomarge im DACH-Retail.</p>
-  </div>
-  </div>
- </section>
+   {% set certProfile = "power-bank" %}
+ {% include "partials/compliance-cert-table.njk" %}
+<p class="text-xs text-slate-500 text-center mt-6 reveal">Quellen: <a href="https://eur-lex.europa.eu/legal-content/DE/TXT/PDF/?uri=CELEX%3A32023R1542" target="_blank" rel="noopener external" class="text-brandOrange hover:underline">EUR-Lex 2023/1542</a> &middot; <a href="https://www.ihk.de/stuttgart/fuer-unternehmen/energie-umwelt-nachhaltigkeit/umwelt/abfallwirtschaft/neue-batterieverordnung-6779620" target="_blank" rel="noopener noreferrer" class="text-brandOrange hover:underline">IHK Stuttgart</a></p>
+ </div>
+</section>
+
+
+{% set rangeLabel = "Magnetische Powerbank-Serie" %}
+{% set termsBg = "bg-white" %}
+{% set supportBg = "bg-slate-50" %}
+{% include "partials/subpage-commercial-support.njk" %}
+{% set casesBg = "bg-white" %}
+{% include "partials/case-strip.njk" %}
 
 <!-- FAQ -->
 <section id="faq" class="sec bg-slate-50" data-section="faq">
  <div class="container-narrow">
- {{ sectionHeader('FAQ', 'Qi2 Magnetisch FAQ', '', {max: ''}) }}
+ {{ sectionHeader('FAQ', 'Qi2 Magnetisch <span class="text-brandOrange">FAQ</span>', '', {max: ''}) }}
  <div class="reveal">
  {% call faqItem("Was ist Qi2 magnetisches Laden?", true) %}Qi2 ist der vom Wireless Power Consortium standardisierte Nachfolger von Qi und integriert das Magnetic Power Profile (MPP) auf Basis von Apples MagSafe-Technologie. Qi2 liefert 15W kabellose Schnellladung mit präziser magnetischer Ausrichtung über N52H Neodym-Magnete.{% endcall %}
  {% call faqItem("Sind Qi2 Powerbanks mit MagSafe kompatibel?", true) %}Ja. Qi2-Magnetic-Powerbanks sind vollständig MagSafe-kompatibel mit iPhone 12-16 Serien. Sie nutzen denselben N52H Magnetring und liefern 15W vs. 7,5W bei reinem Qi-Laden.{% endcall %}
  {% call faqItem("Funktioniert Qi2 mit Android-Smartphones?", true) %}Ja, mit Qi2-zertifizierten Android-Geräten (Samsung Galaxy S25 Ultra, Pixel 10 Pro, HMD Skyline). Ältere Android-Modelle ohne Magnete laden mit 5W Standard-Qi. Mit Qi2-Hülle erreichen sie volle 15W magnetische Ausrichtung.{% endcall %}
  {% call faqItem("Wie hoch ist die MOQ für Qi2 magnetische Powerbanks?") %}MOQ ab 500 Stück für ODM-Standardmodelle. ODM-Designentwicklung: 1.000-2.000 Stück. Vollständiges OEM mit neuem Werkzeug: ab 3.000 Stück. Muster in 3-7 Tagen.{% endcall %}
  {% call faqItem("Welche Magnetstärke verwendet WOWOHCOOL?") %}Wir verwenden N52H Neodym-Magnete mit 800-1.200 Gauss Haltekraft. Das entspricht der MagSafe-Spezifikation und sorgt für sicheren Halt auch bei iPhone-Hüllen bis 3mm Dicke.{% endcall %}
+ {% call faqItem("Welche Hüllen funktionieren mit Qi2?") %}MagSafe- oder Qi2-kompatible Hüllen bis 3mm Dicke. Metallplatten, Kartenfächer mit Metall und dicke Rugged-Hüllen können die magnetische Ausrichtung und Ladeleistung reduzieren.{% endcall %}
  </div>
  </div>
 </section>
 
 {% include "partials/product-cta.njk" %}
 
+
+
 <!-- ======== BLOG ARTICLES ======== -->
 <section id="blog-articles" class="sec bg-white" data-section="content">
  <div class="container-wide">
   <div class="text-center mb-12 reveal">
+   <p class="section-label">Fachwissen für OEM/ODM-Beschaffung</p>
    <h2 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4">Powerbank <span class="text-brandOrange">Insights</span></h2>
-   <p class="text-slate-500 font-bold uppercase tracking-widest text-badge">Fachwissen für OEM/ODM-Beschaffung</p>
   </div>
   <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
    <a href="/de/blog/powerbank-spezifikationen/" class="group bg-slate-50 rounded-2xl overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
@@ -405,7 +476,7 @@ plPath: "produkty/power-bank/magnetyczny-bezprzewodowy/"
      <img loading="lazy" src="/image/blog/cover-de/powerbank-spezifikationen-cover.webp" srcset="/image/blog/cover-de/powerbank-spezifikationen-cover-450w.webp 450w, /image/blog/cover-de/powerbank-spezifikationen-cover-800w.webp 800w, /image/blog/cover-de/powerbank-spezifikationen-cover-950w.webp 950w, /image/blog/cover-de/powerbank-spezifikationen-cover-1200w.webp 1200w, /image/blog/cover-de/powerbank-spezifikationen-cover.webp 1700w" sizes="(min-width: 1440px) 395px, (min-width: 1280px) 395px, (min-width: 1024px) 309px, (min-width: 768px) 348px, (min-width: 430px) 382px, 327px" alt="Powerbank Spezifikationen" class="w-full h-full object-cover" width="1700" height="956" decoding="async">
      <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
      <div class="absolute bottom-3 left-4">
-      <span class="px-2 py-1 bg-brandOrange text-brandBlue text-badge font-black uppercase rounded">Spezifikationen</span>
+      <span class="px-2 py-1 bg-brandBlue text-white text-badge font-black uppercase rounded">Spezifikationen</span>
      </div>
     </div>
     <div class="p-6">
@@ -433,7 +504,7 @@ plPath: "produkty/power-bank/magnetyczny-bezprzewodowy/"
      <img loading="lazy" src="/image/blog/cover-de/usb-c-pd-cover.webp" srcset="/image/blog/cover-de/usb-c-pd-cover-450w.webp 450w, /image/blog/cover-de/usb-c-pd-cover-800w.webp 800w, /image/blog/cover-de/usb-c-pd-cover-950w.webp 950w, /image/blog/cover-de/usb-c-pd-cover-1200w.webp 1200w, /image/blog/cover-de/usb-c-pd-cover.webp 1700w" sizes="(min-width: 1440px) 395px, (min-width: 1280px) 395px, (min-width: 1024px) 309px, (min-width: 768px) 348px, (min-width: 430px) 382px, 327px" alt="USB-C PD Schnellladen 2026" class="w-full h-full object-cover" width="1700" height="956" decoding="async">
      <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
      <div class="absolute bottom-3 left-4">
-      <span class="px-2 py-1 bg-white text-green-700 text-badge font-black uppercase rounded">Technologie</span>
+      <span class="px-2 py-1 bg-brandBlue text-white text-badge font-black uppercase rounded">Technologie</span>
      </div>
     </div>
     <div class="p-6">
@@ -452,7 +523,7 @@ plPath: "produkty/power-bank/magnetyczny-bezprzewodowy/"
 </section>
 
 <!-- ====== EXPLORE MORE CATEGORIES ====== -->
-<section id="explore-more-categories" class="sec bg-white relative" data-section="related">
+<section id="explore-more-categories" class="sec bg-slate-50 relative" data-section="related">
  <div class="container-wide">
   <div class="text-center max-w-3xl mx-auto mb-12 reveal">
    <p class="section-label">Weitere Kategorien</p>
@@ -493,14 +564,16 @@ plPath: "produkty/power-bank/magnetyczny-bezprzewodowy/"
 </section>
 
 <!-- ======== CTA ======== -->
+
+
+
 {%- set formProduct = "Qi2-Magnet-Powerbank" %}
-{%- set formHeading = "Qi2-Magnet-Powerbank – Muster anfordern" %}
+{%- set formHeading = "Qi2-Magnet-Powerbank – <span class='text-brandOrange'>Muster anfordern</span>" %}
 {%- set formSubtext = "Vorserienmuster verfügbar. MOQ 500 für Standard-ODM. Sonderdesign möglich." %}
 {%- set formSubject = "Anfrage: Qi2-Magnet-Powerbank" %}
 
 
 {% include "partials/product-inquiry-form.njk" %}
-
 
 {% endblock %}
 

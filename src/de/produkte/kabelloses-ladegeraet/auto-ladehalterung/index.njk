@@ -125,6 +125,14 @@ plPath: "produkty/ladowarka-bezprzewodowa/uchwyt-samochodowy/"
             "@type": "Answer",
             "text": "OEM: 25-30 Tage. ODM: 45-60 Tage. Express DHL/FedEx 5-7 Tage nach Deutschland. DDP inkl. Zoll und E-Mark-Support."
           }
+        },
+        {
+          "@type": "Question",
+          "name": "Welche Fahrzeuge und Hüllen sind geeignet?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Für 12V/24V-Fahrzeuge mit Lüftung, Saugnapf, Dashboard oder CD-Slot. iPhone 12–16 und Qi2-Android; Hüllen bis 3mm. Metallplatten oder dicke Rugged-Hüllen reduzieren die Haltekraft."
+          }
         }
       ]
     },
@@ -265,38 +273,52 @@ plPath: "produkty/ladowarka-bezprzewodowa/uchwyt-samochodowy/"
 </section>
 
 <!-- ======== TRUST BAR ======== -->
+{% set trustBarCerts = false %}
 {% include "trust-bar.njk" %}
+
+<!-- Divider -->
+<div class="relative w-full">
+ <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent"></div>
+ <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-white border border-slate-200 rotate-45"></div>
+</div>
 
 <!-- MODELS -->
 {% set family = "products/wireless-charger/car-mount" %}
 {#- 型号卡：六语言共用模板（2026-10-29）。数据 src/_products/*.json -#}
 {% include "partials/product-models.njk" %}
+
+{% set compareFamily = family %}
+{% include "partials/model-compare.njk" %}
 <!-- MARKET-DATA -->
-<section id="market-data" class="sec bg-white py-8" data-section="content">
- <div class="container-wide">
- <blockquote class="bg-brandOrange/5 border-l-4 border-brandOrange rounded-r-xl px-6 py-5 text-sm text-slate-700 italic leading-relaxed">
-  <p>"Der globale Markt für fahrzeugmontierte kabellose Ladegeräte wurde 2025 auf 1,47 Mrd. USD geschätzt und wächst mit <strong>19,4% CAGR auf 14,2 Mrd. USD bis 2035</strong> (LP Information). 50% der 2024 verkauften Neuwagen haben eingebaute kabellose Ladefunktion — aber über 1 Mrd. Fahrzeuge auf der Straße haben sie nicht. Der Aftermarket-Anteil beträgt 71,8% (Fact.MR). Für den DACH-Markt besonders relevant: EU-Freisprechverordnung und E-Mark (ECE R10) treiben die Nachfrage. Ride-Hailing (Uber, FreeNow, Bolt) ist ein wachsender kommerzieller Abnehmer."</p>
-  <cite class="block text-xs text-slate-400 mt-2 not-italic">— <a href="https://www.marketresearch.com/LP-Information-Inc-v4134/Global-Vehicle-mounted-Wireless-Charger-44850256/" target="_blank" rel="noopener noreferrer" class="text-brandOrange hover:underline">LP Information</a>; <a href="https://www.factmr.com/report/6/automotive-mobile-accessories-market" target="_blank" rel="noopener noreferrer" class="text-brandOrange hover:underline">Fact.MR</a></cite>
- </blockquote>
- </div>
-</section>
 
 
-<!-- KEY FIGURES -->
-<section id="kennzahlen" class="sec bg-white" data-section="stats">
+
+
+
+<!-- TECHNOLOGY BASICS -->
+<section id="what-is-car-mount" class="sec bg-slate-50" data-section="content">
  <div class="container-wide">
-  <div class="grid md:grid-cols-3 gap-6 reveal">
-   <div class="card-lg-soft text-center p-6"><p class="text-3xl font-black text-brandOrange mb-2">71,8%</p><p class="text-sm font-bold text-brandBlue">Aftermarket-Anteil</p><p class="text-xs text-slate-500 mt-1">Dominanter Kanal für Kfz-Mobilzubehör — 32,7% Handyhalterungen</p></div>
-   <div class="card-lg-soft text-center p-6"><p class="text-3xl font-black text-brandOrange mb-2">19,4%</p><p class="text-sm font-bold text-brandBlue">CAGR 2025-2035</p><p class="text-xs text-slate-500 mt-1">Am schnellsten wachsendes Wireless-Charging-Segment</p></div>
-   <div class="card-lg-soft text-center p-6"><p class="text-3xl font-black text-brandOrange mb-2">N52H</p><p class="text-sm font-bold text-brandBlue">Industrie-Magnete</p><p class="text-xs text-slate-500 mt-1">Stärkste kommerzielle Neodym-Qualität — 1400g Haltekraft</p></div>
+ 
+  {{ sectionHeader('Grundlagen', 'Was ist eine <span class="text-brandOrange">Qi2-Auto-Ladehalterung</span>?', 'Halterung und 15–25W-Schnellladung in einem Gerät — mit magnetischer Ausrichtung. Für 12V/24V-Fahrzeuge, iPhone 12–16 und Qi2-Android; Hüllen bis 3mm.', {mb: 'mb-12'}) }}
+   <div class="grid md:grid-cols-3 gap-6">
+   <div class="card-lg-soft p-8 text-center"><p class="text-3xl font-black text-brandOrange mb-2">Qi2</p><p class="text-sm font-bold text-brandBlue">MPP + N52H</p><p class="text-xs text-slate-500 mt-2">Magnetische Ausrichtung mit 15–25W — kein Kabelgefummel während der Fahrt.</p></div>
+   <div class="card-lg-soft p-8 text-center"><p class="text-3xl font-black text-brandOrange mb-2">1400g</p><p class="text-sm font-bold text-brandBlue">Haltekraft</p><p class="text-xs text-slate-500 mt-2">N52H-Array hält das iPhone auch auf unebener Straße sicher in Position.</p></div>
+   <div class="card-lg-soft p-8 text-center"><p class="text-3xl font-black text-brandOrange mb-2">1 Mrd.</p><p class="text-sm font-bold text-brandBlue">Nachrüstfahrzeuge</p><p class="text-xs text-slate-500 mt-2">50% der Neuwagen haben Werksladung — über 1 Mrd. Fahrzeuge auf der Straße nicht.</p></div>
   </div>
+  <figure class="mt-10 max-w-4xl mx-auto reveal">
+   <div class="rounded-2xl border border-brandOrange/20 bg-brandOrange/5 p-6 md:p-8">
+    <p class="text-xs font-black uppercase tracking-widest text-brandOrangeDeep mb-3">Marktkontext</p>
+    <blockquote class="text-sm text-slate-700 leading-relaxed">"Der globale Markt für fahrzeugmontierte kabellose Ladegeräte wurde 2025 auf 1,47 Mrd. USD geschätzt und wächst mit <strong>19,4% CAGR auf 14,2 Mrd. USD bis 2035</strong> (LP Information). 50% der 2024 verkauften Neuwagen haben eingebaute kabellose Ladefunktion — aber über 1 Mrd. Fahrzeuge auf der Straße haben sie nicht. Der Aftermarket-Anteil beträgt 71,8% (Fact.MR). Für den DACH-Markt besonders relevant: EU-Freisprechverordnung und E-Mark (ECE R10) treiben die Nachfrage. Ride-Hailing (Uber, FreeNow, Bolt) ist ein wachsender kommerzieller Abnehmer."</blockquote>
+    <figcaption class="mt-3 text-xs text-slate-500">— <a href="https://www.marketresearch.com/LP-Information-Inc-v4134/Global-Vehicle-mounted-Wireless-Charger-44850256/" target="_blank" rel="noopener noreferrer" class="text-brandOrange hover:underline">LP Information</a>; <a href="https://www.factmr.com/report/6/automotive-mobile-accessories-market" target="_blank" rel="noopener noreferrer" class="text-brandOrange hover:underline">Fact.MR</a></figcaption>
+   </div>
+  </figure>
  </div>
 </section>
 
 <!-- MECHANISM COMPARISON -->
-<section id="mechanism-comparison" class="sec bg-slate-50" data-section="comparison">
+<section id="mechanism-comparison" class="sec bg-white" data-section="comparison">
  <div class="container-wide">
-  {{ sectionHeader('Technologie-Vergleich', 'Magnet vs. Elektro-Klemme vs. Disc-Pad', 'Drei Befestigungsmechanismen — jeder für eine andere Käufergruppe optimiert.', {mb: 'mb-12'}) }}
+  {{ sectionHeader('Technologie-Vergleich', 'Magnet vs. Elektro-Klemme vs. <span class="text-brandOrange">Disc-Pad</span>', 'Drei Befestigungsmechanismen — jeder für eine andere Käufergruppe optimiert.', {mb: 'mb-12'}) }}
   <div class="overflow-x-auto reveal rounded-2xl border border-slate-200 shadow-sm bg-white">
    <table class="w-full text-sm">
     <thead><tr class="bg-brandBlue text-white">
@@ -307,7 +329,7 @@ plPath: "produkty/ladowarka-bezprzewodowa/uchwyt-samochodowy/"
      <th class="text-left px-5 py-3 font-bold text-sm">Modelle</th>
     </tr></thead>
     <tbody class="divide-y divide-slate-100">
-     <tr><td class="px-5 py-3 text-sm font-semibold text-slate-700">Magnet (N52H Array)</td><td class="px-5 py-3 text-sm text-slate-600">1400g (WOW19S)</td><td class="px-5 py-3 text-sm text-slate-600">TEC+Lüfter / Passiv</td><td class="px-5 py-3 text-sm text-slate-600">Amazon, Premium Retail</td><td class="px-5 py-3 text-sm text-slate-600">WOW41, WOW39, WOW19S</td></tr>
+     <tr class="bg-brandOrange/5"><td class="px-5 py-3 text-sm font-bold text-brandOrange">Magnet (N52H Array)</td><td class="px-5 py-3 text-sm text-slate-600">1400g (WOW19S)</td><td class="px-5 py-3 text-sm text-slate-600">TEC+Lüfter / Passiv</td><td class="px-5 py-3 text-sm text-slate-600">Amazon, Premium Retail</td><td class="px-5 py-3 text-sm text-slate-600">WOW41, WOW39, WOW19S</td></tr>
      <tr><td class="px-5 py-3 text-sm font-semibold text-slate-700">Elektro-Klemme</td><td class="px-5 py-3 text-sm text-slate-600">Motorisierte 3-Achsen</td><td class="px-5 py-3 text-sm text-slate-600">Zirkuläre Kühllöcher</td><td class="px-5 py-3 text-sm text-slate-600">Flotten, Ride-Hailing</td><td class="px-5 py-3 text-sm text-slate-600">WOW35</td></tr>
      <tr><td class="px-5 py-3 text-sm font-semibold text-slate-700">Disc-Pad (Saugnapf)</td><td class="px-5 py-3 text-sm text-slate-600">Magnet-Array + Saugnapf</td><td class="px-5 py-3 text-sm text-slate-600">Passiv</td><td class="px-5 py-3 text-sm text-slate-600">Budget-Retail</td><td class="px-5 py-3 text-sm text-slate-600">WOW28</td></tr>
     </tbody>
@@ -316,11 +338,62 @@ plPath: "produkty/ladowarka-bezprzewodowa/uchwyt-samochodowy/"
  </div>
 </section>
 
-<!-- DACH MARKET -->
-<section id="dach-market" class="sec bg-white" data-section="stats">
+<!-- WHO BUYS -->
+
+
+<!-- OEM/ODM -->
+<section id="oem-odm-customization" class="sec bg-slate-50" data-section="content">
  <div class="container-wide">
-  {{ sectionHeader('DACH-Markt 2026', 'Auto-Ladehalterungen im Retail vs. Werks-OEM', 'Marken wie <strong>ESR, Belkin und Pitaka</strong> verkaufen Qi2-Autohalterungen im DACH-Retail. Hinter den Produkten stehen OEM-Werke in Shenzhen.', {mb: 'mb-12'}) }}
-  <div class="overflow-x-auto reveal rounded-2xl border border-slate-200 shadow-sm bg-white">
+  {{ sectionHeader('Anpassung', 'OEM/ODM-<span class="text-brandOrange">Anpassung</span>', 'Mechanismus, Leistung und Halterung — ab MOQ 500.', {mb: 'mb-12'}) }}
+  <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 cap-grid">
+   <article class="cap-tile reveal">
+    <h3 class="text-base font-black text-brandBlue uppercase italic mb-3">ODM Stock · MOQ 500</h3>
+    <ul class="cap-list">
+     <li>Bestehende Modelle und Mechanismen wählen</li>
+     <li>Logodruck (Siebdruck, Laser, UV)</li>
+     <li>Pantone-Farbabgleich</li>
+     <li>Lagerverpackung mit Logodruck</li>
+     <li>Lieferzeit: 3–7 Tage Muster · 25–35 Tage Produktion</li>
+    </ul>
+   </article>
+   <article class="cap-tile reveal">
+    <h3 class="text-base font-black text-brandBlue uppercase italic mb-3">ODM-Entwicklung · MOQ 1.000–2.000</h3>
+    <ul class="cap-list">
+     <li>Individuelle Verpackung mit Marken-Artwork</li>
+     <li>Mehrsprachige Handbücher, Einleger und Garantiekarten</li>
+     <li>Plattformangepasstes Werkzeug (kein neues Gehäuse-Werkzeug)</li>
+     <li>Leistung: 15W / 25W mit Kühlung</li>
+     <li>Halterung: Lüftung / Saugnapf / Dashboard / CD-Slot</li>
+     <li>E-Mark-Unterstützung</li>
+     <li>Lieferzeit: 25–45 Tage Design · 35–50 Tage Produktion</li>
+    </ul>
+   </article>
+   <article class="cap-tile reveal">
+    <h3 class="text-base font-black text-brandBlue uppercase italic mb-3">OEM · MOQ 3.000+</h3>
+    <ul class="cap-list">
+     <li>Design und CMF in Kundenhand</li>
+     <li>Neues Gehäuse-Werkzeug und vollständige Formgebung</li>
+     <li>Leistung: 15W / 25W mit Kühlung</li>
+     <li>Halterung: Lüftung / Saugnapf / Dashboard / CD-Slot</li>
+     <li>E-Mark- und Zertifizierungsunterstützung</li>
+     <li>Lieferzeit: 30–60 Tage Produktion · 2–4 Monate mit neuem Werkzeug</li>
+    </ul>
+   </article>
+  </div>
+  <div class="text-center mt-10"><p class="text-slate-500 text-sm mb-4">Bereit für Ihr OEM-Projekt?</p>{{ ctaButton("factoryPricing", "primary", "open-modal", "Auto-Ladehalterung") }}</div>
+ </div>
+</section>
+
+<!-- DACH MARKET (WHY) -->
+
+
+ <!-- DACH Market & Pricing -->
+ <section id="market-context" class="sec bg-white relative" data-section="stats">
+  <div class="container-wide">
+  {{ sectionHeader('Markt & Marge', 'DACH Kfz-Markt: <span class="text-brandOrange">Aftermarket & Preisniveau</span>', 'Nachfrage, Zulassungszahlen und Wettbewerbspreise im DACH-Raum.', {max: '', mb: 'mb-10'}) }}
+
+  <h3 class="text-center text-sm font-black text-brandBlue uppercase italic mb-4">Retail vs. Werks-OEM</h3>
+  <div class="max-w-4xl mx-auto mb-10 overflow-x-auto rounded-2xl border border-slate-200 shadow-sm bg-white">
    <table class="w-full text-sm">
     <thead><tr class="bg-brandBlue text-white">
      <th class="text-left px-5 py-3 font-bold text-sm">Aspekt</th>
@@ -328,46 +401,18 @@ plPath: "produkty/ladowarka-bezprzewodowa/uchwyt-samochodowy/"
      <th class="text-left px-5 py-3 font-bold text-sm">Werks-OEM (WOWOHCOOL)</th>
     </tr></thead>
     <tbody class="divide-y divide-slate-100">
-     <tr><td class="px-5 py-3 text-sm font-semibold text-slate-700">Geschaeftsmodell</td><td class="px-5 py-3 text-sm text-slate-600">Markenprodukt mit OEM-Fertigung</td><td class="px-5 py-3 text-sm text-slate-600"><strong>Werk direkt</strong> &mdash; keine Markenmarge</td></tr>
+     <tr><td class="px-5 py-3 text-sm font-semibold text-slate-700">Geschäftsmodell</td><td class="px-5 py-3 text-sm text-slate-600">Markenprodukt mit OEM-Fertigung</td><td class="px-5 py-3 text-sm text-slate-600"><strong>Werk direkt</strong> &mdash; keine Markenmarge</td></tr>
      <tr><td class="px-5 py-3 text-sm font-semibold text-slate-700">MOQ</td><td class="px-5 py-3 text-sm text-slate-600">Endkunde &mdash; Einzelstück</td><td class="px-5 py-3 text-sm text-slate-600">B2B ab 500 Stück</td></tr>
      <tr><td class="px-5 py-3 text-sm font-semibold text-slate-700">E-Mark</td><td class="px-5 py-3 text-sm text-slate-600">Über die Marke abgewickelt</td><td class="px-5 py-3 text-sm text-slate-600">E-Mark-ready, CE, Tüv GS inklusive</td></tr>
      <tr><td class="px-5 py-3 text-sm font-semibold text-slate-700">Branding</td><td class="px-5 py-3 text-sm text-slate-600">Eigenes Logo der Marke</td><td class="px-5 py-3 text-sm text-slate-600"><strong>Ihr Logo</strong>, Pantone, Verpackung</td></tr>
      <tr><td class="px-5 py-3 text-sm font-semibold text-slate-700">Margenstruktur</td><td class="px-5 py-3 text-sm text-slate-600">Werk &rarr; Marke &rarr; Distributor &rarr; Retail</td><td class="px-5 py-3 text-sm text-slate-600"><strong>Werk &rarr; Sie</strong></td></tr>
     </tbody>
    </table>
-  </div>
- </div>
-</section>
-
-<!-- DACH Retail Pricing -->
-<section id="dach-retail-pricing" class="sec bg-white relative py-12" data-section="pricing">
- <div class="container-wide">
- <div class="text-center mb-8">
-  <h2 class="text-2xl lg:text-3xl font-black text-brandBlue uppercase italic tracking-tighter mb-4">DACH Kfz: <span class="text-brandOrange">TEC = Pflicht 2026</span></h2>
-  <p class="text-slate-500 text-sm max-w-2xl mx-auto">ODM 15-35 USD (MOQ 500). DACH-Retail 39-149 EUR — 50-65% Bruttomarge.</p>
- </div>
- <div class="overflow-x-auto rounded-2xl border border-slate-200 shadow-sm bg-white">
-  <table class="w-full text-sm"><thead><tr class="bg-brandBlue text-white"><th class="p-3 text-left text-xs font-bold uppercase tracking-wider">Marke</th><th class="p-3 text-center text-xs font-bold uppercase tracking-wider">Typ</th><th class="p-3 text-center text-xs font-bold uppercase tracking-wider">Leistung</th><th class="p-3 text-right text-xs font-bold uppercase tracking-wider">Preis DE</th></tr></thead><tbody>
-  <tr class="border-t border-slate-100"><td class="p-3 font-bold text-slate-700">Anker Prime AirCool</td><td class="p-3 text-center text-slate-600">Vent + Dash 25W</td><td class="p-3 text-center text-slate-600">TEC + Lüfter</td><td class="p-3 text-right font-black text-brandBlue">69-89 EUR</td></tr>
-  <tr class="border-t border-slate-100"><td class="p-3 font-bold text-slate-700">ESR CryoBoost Qi2</td><td class="p-3 text-center text-slate-600">Vent + Dash 15W</td><td class="p-3 text-center text-slate-600">Aktiver Lüfter</td><td class="p-3 text-right font-black text-brandBlue">35-55 EUR</td></tr>
-  <tr class="border-t border-slate-100"><td class="p-3 font-bold text-slate-700">Belkin BoostCharge Pro</td><td class="p-3 text-center text-slate-600">Vent 15W</td><td class="p-3 text-center text-slate-600">Passiv</td><td class="p-3 text-right font-black text-brandBlue">45-60 EUR</td></tr>
-  <tr class="border-t border-slate-100"><td class="p-3 font-bold text-slate-700">LISEN Qi2.2 25W</td><td class="p-3 text-center text-slate-600">Vent + Dash</td><td class="p-3 text-center text-slate-600">KI-Kühlung</td><td class="p-3 text-right font-black text-brandBlue">30-45 EUR</td></tr>
-  <tr class="border-t border-slate-100"><td class="p-3 font-bold text-slate-700">UGREEN MagFlow 25W</td><td class="p-3 text-center text-slate-600">Vent</td><td class="p-3 text-center text-slate-600">Lüfter</td><td class="p-3 text-right font-black text-brandBlue">35-50 EUR</td></tr>
-  </tbody></table>
- </div>
- <p class="text-center text-xs text-slate-400 mt-4">Quellen: Amazon DE, MediaMarkt — Juli 2026. ODM 15-35 USD (MOQ 500).</p>
- </div>
-</section>
-
- <!-- DACH Market Context -->
- <section id="market-context" class="sec bg-white relative" data-section="stats">
-  <div class="container-wide">
-  {{ sectionHeader('EU RED Richtlinie — Januar 2027 Deadline', 'DACH Kfz-Markt: <span class="text-brandOrange">71,8% Aftermarket</span>, 49,1 Mio. Fahrzeuge', '', { max: '', mb: 'mb-10', titleClass: 'text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4', labelStyle: 'pill', pillClass: 'bg-brandOrange/10', pillMb: 'mb-6' }) }}
-  <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
+  </div>  <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
    <div class="card-lg-soft p-6 text-center">
     <p class="text-3xl font-black text-brandBlue mb-2">49,1 Mio.</p>
     <p class="text-sm font-bold text-slate-700 mb-2">Kfz in Deutschland (KBA)</p>
-    <p class="text-xs text-slate-500">Durchschnittsalter 10,1 Jahre. 50% der Neuwagen mit Qi2-Werksladung → Nachruestbedarf.</p>
+    <p class="text-xs text-slate-500">Durchschnittsalter 10,1 Jahre. 50% der Neuwagen mit Qi2-Werksladung → Nachrüstbedarf.</p>
    </div>
    <div class="card-lg-soft p-6 text-center">
     <p class="text-3xl font-black text-brandBlue mb-2">71,8%</p>
@@ -385,34 +430,58 @@ plPath: "produkty/ladowarka-bezprzewodowa/uchwyt-samochodowy/"
     <p class="text-xs text-slate-500">EN 62368-1 verpflichtend. E-Mark (ECE R10) für Kfz-Elektronik.</p>
    </div>
   </div>
+  <h3 class="text-center text-sm font-black text-brandBlue uppercase italic mb-4">DACH-Preisniveau (Amazon DE / MediaMarkt, Juli 2026)</h3>
+  <div class="max-w-4xl mx-auto mb-10 overflow-x-auto rounded-2xl border border-slate-200 shadow-sm bg-white">
+   <table class="w-full text-sm"><thead><tr class="bg-brandBlue text-white"><th class="p-3 text-left text-xs font-bold uppercase tracking-wider">Marke</th><th class="p-3 text-center text-xs font-bold uppercase tracking-wider">Typ</th><th class="p-3 text-center text-xs font-bold uppercase tracking-wider">Leistung</th><th class="p-3 text-right text-xs font-bold uppercase tracking-wider">Preis DE</th></tr></thead><tbody>
+    <tr class="border-t border-slate-100"><td class="p-3 font-bold text-slate-700">Anker Prime AirCool</td><td class="p-3 text-center text-slate-600">Vent + Dash 25W</td><td class="p-3 text-center text-slate-600">TEC + Lüfter</td><td class="p-3 text-right font-black text-brandBlue">69-89 EUR</td></tr>
+    <tr class="border-t border-slate-100"><td class="p-3 font-bold text-slate-700">ESR CryoBoost Qi2</td><td class="p-3 text-center text-slate-600">Vent + Dash 15W</td><td class="p-3 text-center text-slate-600">Aktiver Lüfter</td><td class="p-3 text-right font-black text-brandBlue">35-55 EUR</td></tr>
+    <tr class="border-t border-slate-100"><td class="p-3 font-bold text-slate-700">Belkin BoostCharge Pro</td><td class="p-3 text-center text-slate-600">Vent 15W</td><td class="p-3 text-center text-slate-600">Passiv</td><td class="p-3 text-right font-black text-brandBlue">45-60 EUR</td></tr>
+    <tr class="border-t border-slate-100"><td class="p-3 font-bold text-slate-700">LISEN Qi2.2 25W</td><td class="p-3 text-center text-slate-600">Vent + Dash</td><td class="p-3 text-center text-slate-600">KI-Kühlung</td><td class="p-3 text-right font-black text-brandBlue">30-45 EUR</td></tr>
+    <tr class="border-t border-slate-100"><td class="p-3 font-bold text-slate-700">UGREEN MagFlow 25W</td><td class="p-3 text-center text-slate-600">Vent</td><td class="p-3 text-center text-slate-600">Lüfter</td><td class="p-3 text-right font-black text-brandBlue">35-50 EUR</td></tr>
+   </tbody></table>
+  </div>
+  <p class="text-center text-xs text-slate-400 mb-8">Quellen: Amazon DE, MediaMarkt — Juli 2026. ODM 15-35 USD (MOQ 500).</p>
   <div class="bg-brandBlue/5 rounded-2xl p-6 border border-brandBlue/10 max-w-5xl mx-auto text-center">
-   <p class="text-sm text-slate-700 leading-relaxed mb-0"><strong>Für OEM-Importeure:</strong> Globaler Kfz-Magnetladegeraete-Markt: ,5 Mrd. (2025) → 3,1 Mrd. (2032), 9,0% CAGR. WOWOHCOOL: {{ "wireless-charger" | productFamilyModelCount("car-mount") }} Modelle, TEC 25W, Superkondensator, N52H 1400g. E-Mark ready.</p>
+   <p class="text-sm text-slate-700 leading-relaxed mb-0"><strong>Für OEM-Importeure:</strong> Globaler Kfz-Magnetladegeräte-Markt: 1,47 Mrd. USD (2025) → 3,1 Mrd. (2032), 9,0% CAGR. WOWOHCOOL: {{ "wireless-charger" | productFamilyModelCount("car-mount") }} Modelle, TEC 25W, Superkondensator, N52H 1400g. E-Mark ready.</p>
   </div>
   </div>
  </section>
 
+{% set certProfile = "car-mount" %}
+{% set certBg = "bg-slate-50" %}
+{% include "partials/market-certifications.njk" %}
+{% set rangeLabel = "Auto-Ladehalterungs-Serie" %}
+{% set termsBg = "bg-white" %}
+{% set supportBg = "bg-slate-50" %}
+{% include "partials/subpage-commercial-support.njk" %}
+{% set casesBg = "bg-white" %}
+{% include "partials/case-strip.njk" %}
+
 <!-- FAQ -->
 <section id="faq" class="sec bg-slate-50" data-section="faq">
  <div class="container-narrow">
- {{ sectionHeader('FAQ', 'Häufige Fragen zu Auto-Ladehalterungen', '', {max: ''}) }}
+ {{ sectionHeader('FAQ', 'Häufige Fragen zu <span class="text-brandOrange">Auto-Ladehalterungen</span>', '', {max: ''}) }}
  <div class="reveal">
  {% call faqItem("Wie hoch ist die MOQ für Auto-Ladehalterungen?", true) %}MOQ <strong>500 Stück</strong> für ODM mit Logo. ODM-Designentwicklung: <strong>1.000-2.000 Stück</strong>. Vollständiges OEM: <strong>ab 3.000 Stück</strong>. Muster in 3-7 Tagen.{% endcall %}
  {% call faqItem("Wie funktioniert die TEC-Kühlung im Auto?", true) %}TEC (Peltier-Effekt) kühlt die Ladefläche aktiv. Auto-Innenraum 50 Grad C+ &rarr; iPhone drosselt bei 35 Grad C. WOW41 hält <strong>25W Vollladung</strong> auch bei Hitze.{% endcall %}
  {% call faqItem("Brauche ich E-Mark für den EU-Markt?", true) %}E-Mark (ECE R10) für Kfz-Elektronik im EU-Aftermarket. WOWOHCOOL liefert <strong>E-Mark-ready Designs</strong> mit EMV-Abschirmung. Zertifizierungsunterstuetzung inklusive.{% endcall %}
  {% call faqItem("Funktionieren die Halterungen mit iPhone und Android?") %}Ja. Qi2-Universalstandard für iPhone 12-17 (15W/25W) und Android Qi2. WOW35 Elektro-Klemme funktioniert ohne Magnete.{% endcall %}
  {% call faqItem("Wie lange dauert die OEM/ODM-Produktion?") %}OEM: <strong>25-30 Tage</strong>. ODM: <strong>45-60 Tage</strong>. Express DHL/FedEx 5-7 Tage nach Deutschland. DDP inkl. Zoll und E-Mark-Support.{% endcall %}
+ {% call faqItem("Welche Fahrzeuge und Hüllen sind geeignet?") %}Für 12V/24V-Fahrzeuge mit Lüftung, Saugnapf, Dashboard oder CD-Slot. iPhone 12–16 und Qi2-Android; Hüllen bis 3mm. Metallplatten oder dicke Rugged-Hüllen reduzieren die Haltekraft.{% endcall %}
  </div>
  </div>
 </section>
 
 {% include "partials/product-cta.njk" %}
 
+
+
 <!-- ======== BLOG ARTICLES ======== -->
 <section id="blog-articles" class="sec bg-white" data-section="content">
  <div class="container-wide">
   <div class="text-center mb-12 reveal">
+   <p class="section-label">Fachwissen für OEM/ODM-Beschaffung</p>
    <h2 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4">Kabelloses Ladegerät <span class="text-brandOrange">Insights</span></h2>
-   <p class="text-slate-500 font-bold uppercase tracking-widest text-badge">Fachwissen für OEM/ODM-Beschaffung</p>
   </div>
   <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
    <a href="/de/blog/qi2-vs-magsafe/" class="group bg-slate-50 rounded-2xl overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
@@ -420,7 +489,7 @@ plPath: "produkty/ladowarka-bezprzewodowa/uchwyt-samochodowy/"
      <img loading="lazy" src="/image/blog/cover-de/qi2-vs-magsafe-cover.webp" srcset="/image/blog/cover-de/qi2-vs-magsafe-cover-450w.webp 450w, /image/blog/cover-de/qi2-vs-magsafe-cover-800w.webp 800w, /image/blog/cover-de/qi2-vs-magsafe-cover-950w.webp 950w, /image/blog/cover-de/qi2-vs-magsafe-cover-1200w.webp 1200w, /image/blog/cover-de/qi2-vs-magsafe-cover.webp 1700w" sizes="(min-width: 1440px) 395px, (min-width: 1280px) 395px, (min-width: 1024px) 309px, (min-width: 768px) 348px, (min-width: 430px) 382px, 327px" alt="Qi2 vs MagSafe" class="w-full h-full object-cover" width="1700" height="956" decoding="async">
      <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
      <div class="absolute bottom-3 left-4">
-      <span class="px-2 py-1 bg-brandOrange text-brandBlue text-badge font-black uppercase rounded">Vergleich</span>
+      <span class="px-2 py-1 bg-brandBlue text-white text-badge font-black uppercase rounded">Vergleich</span>
      </div>
     </div>
     <div class="p-6">
@@ -448,7 +517,7 @@ plPath: "produkty/ladowarka-bezprzewodowa/uchwyt-samochodowy/"
      <img loading="lazy" src="/image/blog/cover-de/qi2-zertifizierung-cover.webp" srcset="/image/blog/cover-de/qi2-zertifizierung-cover-450w.webp 450w, /image/blog/cover-de/qi2-zertifizierung-cover-800w.webp 800w, /image/blog/cover-de/qi2-zertifizierung-cover-950w.webp 950w, /image/blog/cover-de/qi2-zertifizierung-cover-1200w.webp 1200w, /image/blog/cover-de/qi2-zertifizierung-cover.webp 1700w" sizes="(min-width: 1440px) 395px, (min-width: 1280px) 395px, (min-width: 1024px) 309px, (min-width: 768px) 348px, (min-width: 430px) 382px, 327px" alt="Qi2 Zertifizierung" class="w-full h-full object-cover" width="1700" height="956" decoding="async">
      <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
      <div class="absolute bottom-3 left-4">
-      <span class="px-2 py-1 bg-white text-green-700 text-badge font-black uppercase rounded">Zertifizierung</span>
+      <span class="px-2 py-1 bg-brandBlue text-white text-badge font-black uppercase rounded">Zertifizierung</span>
      </div>
     </div>
     <div class="p-6">
@@ -467,7 +536,7 @@ plPath: "produkty/ladowarka-bezprzewodowa/uchwyt-samochodowy/"
 </section>
 
 <!-- ====== EXPLORE MORE CATEGORIES ====== -->
-<section id="explore-more-categories" class="sec bg-white relative" data-section="related">
+<section id="explore-more-categories" class="sec bg-slate-50 relative" data-section="related">
  <div class="container-wide">
   <div class="text-center max-w-3xl mx-auto mb-12 reveal">
    <p class="section-label">Weitere Kategorien</p>
@@ -508,13 +577,15 @@ plPath: "produkty/ladowarka-bezprzewodowa/uchwyt-samochodowy/"
 </section>
 
 <!-- ======== CTA ======== -->
+
 {%- set formProduct = "Kabellose Auto-Ladehalterung OEM/ODM" %}
-{%- set formHeading = "Auto-Ladehalterung – Fabrikpreis anfordern" %}
+{%- set formHeading = "Auto-Ladehalterung – <span class='text-brandOrange'>Fabrikpreis anfordern</span>" %}
 {%- set formSubtext = "Beschreiben Sie Ihr Projekt: Qi2-MagSafe-Halterung, TEC-Kühlung, Sonderdesign – vom Prototyp bis zur Serienfertigung." %}
 {%- set formSubject = "Produktanfrage: Kabellose Auto-Ladehalterung" %}
 
 
 {% include "partials/product-inquiry-form.njk" %}
+
 {% endblock %}
 
 

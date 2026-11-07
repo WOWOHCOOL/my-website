@@ -129,6 +129,7 @@ if (fs.existsSync(DIR)) {
           return {
             sectionId: group.id || group.sectionId || 'models',
             h2: gLoc.h2 || enGLoc.h2 || '',
+            h2Html: gLoc.h2Html || '',
             intro: gLoc.intro || enGLoc.intro || '',
             eyebrow: gLoc.eyebrow || enGLoc.eyebrow || '',
             models,

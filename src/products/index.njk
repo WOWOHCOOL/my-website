@@ -305,91 +305,72 @@ plPath: "produkty/"
  </section>
 
  <!-- Trust Bar (unified: certifications + counters + customer logos) -->
+{% set trustBarCerts = false %}
 {% include "trust-bar.njk" %}
  <!-- Product Grid -->
  <!-- 产品线横带：六语言共用模板（2026-10-29 重构）。数据见 _taxonomy/taxonomy.json -->
 {% include "partials/product-range-bands.njk" %}
 
- <!-- ======== PRODUCT LINE CAPABILITY OVERVIEW ======== -->
- <section id="capability-overview" class="sec bg-white border-t border-slate-100" data-section="content">
+ <!-- ======== SELECTION GUIDE (merged how-to-choose + capability overview) ======== -->
+ <section id="how-to-choose" class="sec bg-slate-50 border-t border-slate-100" data-section="comparison">
   <div class="container-wide">
-   {{ sectionHeader('Product Range', 'Product Line <span class="text-brandOrange">Capability Overview</span>', 'Four product lines, one factory. Compare subcategories, core specs and the buyer profile each line serves before you request a quote.', {max: '', mb: 'mb-12'}) }}
-   <div class="overflow-x-auto reveal rounded-xl border border-slate-200">
-    <table class="w-full min-w-[720px] text-sm border-collapse">
-     <caption class="sr-only">Product line capability overview: subcategories, core specifications and typical buyers</caption>
+   {{ sectionHeader('How to Choose', 'Which Charging Product <span class="text-brandOrange">Fits Your Brand?</span>', 'Compare our four product lines by buyer intent, key specs, MOQ and lead time — all factory-direct OEM/ODM from Shenzhen.', {max: '', mb: 'mb-12'}) }}
+   <div class="max-w-6xl mx-auto overflow-x-auto reveal rounded-2xl border border-slate-200 shadow-sm bg-white">
+    <table class="w-full min-w-[900px] text-sm">
+     <caption class="sr-only">Product lines by subcategories, core specs, target buyers, MOQ and lead time</caption>
      <thead>
       <tr class="bg-brandBlue text-white text-left">
        <th scope="col" class="p-4 font-black">Product line</th>
        <th scope="col" class="p-4 font-black">Subcategories</th>
        <th scope="col" class="p-4 font-black">Core specs</th>
        <th scope="col" class="p-4 font-black">Best for</th>
+       <th scope="col" class="p-4 font-black">MOQ</th>
+       <th scope="col" class="p-4 font-black">Lead time</th>
       </tr>
      </thead>
-     <tbody>
-      <tr class="border-b border-slate-100 align-top">
-       <td class="p-4"><a href="/products/power-bank/" class="font-black text-brandBlue hover:text-brandOrange transition">Power Banks</a></td>
-       <td class="p-4 text-slate-600">Semi-Solid-State · Wireless Magnetic · Laptop Power · 2-in-1 Hybrid · Smart Display · Heating Battery</td>
-       <td class="p-4 text-slate-600">5,000–27,000mAh · PD 3.1 up to 240W<span class="block text-xs text-slate-500 mt-1">Heating batteries from 1,800mAh</span></td>
-       <td class="p-4 text-slate-600">Portable-charging brands, DTC &amp; retail</td>
-      </tr>
-      <tr class="border-b border-slate-100 align-top bg-slate-50">
-       <td class="p-4"><a href="/products/wireless-charger/" class="font-black text-brandBlue hover:text-brandOrange transition">Wireless Chargers</a></td>
-       <td class="p-4 text-slate-600">Desktop · 3-in-1 Station · Car Mount</td>
-       <td class="p-4 text-slate-600">Qi2 / Qi2.2 · 15W–25W magnetic charging</td>
-       <td class="p-4 text-slate-600">Desktop, hospitality &amp; auto accessory brands</td>
-      </tr>
-      <tr class="border-b border-slate-100 align-top">
-       <td class="p-4"><a href="/products/gan-charger/" class="font-black text-brandBlue hover:text-brandOrange transition">GaN Chargers</a></td>
-       <td class="p-4 text-slate-600">GaN V &amp; PD 3.1</td>
-       <td class="p-4 text-slate-600">20W–240W · PD 3.1 · GaN V</td>
-       <td class="p-4 text-slate-600">Fast-charger &amp; travel-gear brands</td>
-      </tr>
-      <tr class="align-top bg-slate-50">
-       <td class="p-4"><a href="/products/car-charger/" class="font-black text-brandBlue hover:text-brandOrange transition">Car Chargers</a></td>
-       <td class="p-4 text-slate-600">GaN PD 3.1</td>
-       <td class="p-4 text-slate-600">20W–140W · PD 3.1 · 12V–24V input</td>
-       <td class="p-4 text-slate-600">Automotive accessory &amp; fleet brands</td>
-      </tr>
+     <tbody class="divide-y divide-slate-100">
+      <tr><td class="p-4"><a href="/products/power-bank/" class="font-black text-brandBlue hover:text-brandOrange transition">Power Banks</a></td><td class="p-4 text-slate-600">Semi-Solid-State · Wireless Magnetic · Laptop Power · 2-in-1 Hybrid · Smart Display · Heating Battery</td><td class="p-4 text-slate-600">1,800–27,000mAh · PD 3.1 up to 240W</td><td class="p-4 text-slate-600">Portable-charging brands, DTC &amp; retail</td><td class="p-4 text-slate-600 whitespace-nowrap">500</td><td class="p-4 text-slate-600 whitespace-nowrap">25–35 days</td></tr>
+      <tr class="bg-slate-50"><td class="p-4"><a href="/products/wireless-charger/" class="font-black text-brandBlue hover:text-brandOrange transition">Wireless Chargers</a></td><td class="p-4 text-slate-600">Desktop · 3-in-1 Station · Car Mount</td><td class="p-4 text-slate-600">Qi2 / Qi2.2 · 15W–25W magnetic charging</td><td class="p-4 text-slate-600">Desktop, hospitality &amp; auto accessory brands</td><td class="p-4 text-slate-600 whitespace-nowrap">500</td><td class="p-4 text-slate-600 whitespace-nowrap">25–35 days</td></tr>
+      <tr><td class="p-4"><a href="/products/gan-charger/" class="font-black text-brandBlue hover:text-brandOrange transition">GaN Chargers</a></td><td class="p-4 text-slate-600">GaN V &amp; PD 3.1</td><td class="p-4 text-slate-600">20W–240W · PD 3.1 · GaN V</td><td class="p-4 text-slate-600">Fast-charger &amp; travel-gear brands</td><td class="p-4 text-slate-600 whitespace-nowrap">500</td><td class="p-4 text-slate-600 whitespace-nowrap">25–35 days</td></tr>
+      <tr class="bg-slate-50"><td class="p-4"><a href="/products/car-charger/" class="font-black text-brandBlue hover:text-brandOrange transition">Car Chargers</a></td><td class="p-4 text-slate-600">GaN PD 3.1</td><td class="p-4 text-slate-600">20W–140W · PD 3.1 · 12V–24V input</td><td class="p-4 text-slate-600">Automotive accessory &amp; fleet brands</td><td class="p-4 text-slate-600 whitespace-nowrap">500</td><td class="p-4 text-slate-600 whitespace-nowrap">25–35 days</td></tr>
      </tbody>
     </table>
    </div>
+   <p class="text-center text-xs text-slate-500 mt-4">CE · FCC · RoHS · UN38.3 · Qi2 — factory-direct from Shenzhen, MSRP-ready for US/EU retail.</p>
   </div>
  </section>
-
- <!-- How to Choose -->
-{% include "partials/products-guide.njk" %}
 
  <!-- ======== APPLICATIONS ======== -->
  <section id="applications" class="sec bg-white" data-section="content">
   <div class="container-wide">
    {{ sectionHeader('Applications', 'Who We <span class="text-brandOrange">Manufacture For</span>', 'Six buyer profiles we build for, from marketplace sellers to hotel groups. Tell us your channel and we will recommend the right product line.', {max: '', mb: 'mb-12'}) }}
    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-    <article class="card-soft bg-white p-6 reveal flex flex-col hover:border-brandOrange hover:shadow-lg transition-all duration-300">
+    <article class="card-lg p-6 shadow-sm reveal flex flex-col hover:border-brandOrange hover:shadow-lg transition-all duration-300">
      <h3 class="text-lg font-black text-brandBlue uppercase italic mb-2">Amazon &amp; E-commerce Sellers</h3>
      <p class="text-sm text-slate-600 leading-relaxed mb-4">Private-label packaging, FNSKU/FBA-ready cartons and Amazon-compliant certification files.</p>
      <a href="/products/power-bank/" class="mt-auto text-brandOrangeDeep text-xs font-bold uppercase tracking-widest hover:underline">Power bank line &rarr;</a>
     </article>
-    <article class="card-soft bg-white p-6 reveal flex flex-col hover:border-brandOrange hover:shadow-lg transition-all duration-300">
+    <article class="card-lg p-6 shadow-sm reveal flex flex-col hover:border-brandOrange hover:shadow-lg transition-all duration-300">
      <h3 class="text-lg font-black text-brandBlue uppercase italic mb-2">Brand Owners &amp; Distributors</h3>
      <p class="text-sm text-slate-600 leading-relaxed mb-4">Full OEM/ODM from concept to delivery: custom PCB, firmware and industrial design backed by 50+ engineers.</p>
      <a href="/service/" class="mt-auto text-brandOrangeDeep text-xs font-bold uppercase tracking-widest hover:underline">OEM/ODM services &rarr;</a>
     </article>
-    <article class="card-soft bg-white p-6 reveal flex flex-col hover:border-brandOrange hover:shadow-lg transition-all duration-300">
+    <article class="card-lg p-6 shadow-sm reveal flex flex-col hover:border-brandOrange hover:shadow-lg transition-all duration-300">
      <h3 class="text-lg font-black text-brandBlue uppercase italic mb-2">Corporate Gifts &amp; Promotions</h3>
      <p class="text-sm text-slate-600 leading-relaxed mb-4">Full-colour branding, low MOQ for pilot orders and express shipping for fixed launch dates.</p>
      <a href="/products/power-bank/" class="mt-auto text-brandOrangeDeep text-xs font-bold uppercase tracking-widest hover:underline">Custom power banks &rarr;</a>
     </article>
-    <article class="card-soft bg-white p-6 reveal flex flex-col hover:border-brandOrange hover:shadow-lg transition-all duration-300">
+    <article class="card-lg p-6 shadow-sm reveal flex flex-col hover:border-brandOrange hover:shadow-lg transition-all duration-300">
      <h3 class="text-lg font-black text-brandBlue uppercase italic mb-2">Hotels &amp; Hospitality</h3>
      <p class="text-sm text-slate-600 leading-relaxed mb-4">Bulk wireless charging for guest rooms, lobbies and meeting spaces, with custom engraving and multi-voltage input.</p>
      <a href="/products/wireless-charger/" class="mt-auto text-brandOrangeDeep text-xs font-bold uppercase tracking-widest hover:underline">Wireless charger line &rarr;</a>
     </article>
-    <article class="card-soft bg-white p-6 reveal flex flex-col hover:border-brandOrange hover:shadow-lg transition-all duration-300">
+    <article class="card-lg p-6 shadow-sm reveal flex flex-col hover:border-brandOrange hover:shadow-lg transition-all duration-300">
      <h3 class="text-lg font-black text-brandBlue uppercase italic mb-2">Travel &amp; Outdoor Brands</h3>
      <p class="text-sm text-slate-600 leading-relaxed mb-4">Slim high-capacity power banks and semi-solid-state cells for extreme-temperature performance.</p>
      <a href="/products/power-bank/semi-solid-state/" class="mt-auto text-brandOrangeDeep text-xs font-bold uppercase tracking-widest hover:underline">Semi-solid-state line &rarr;</a>
     </article>
-    <article class="card-soft bg-white p-6 reveal flex flex-col hover:border-brandOrange hover:shadow-lg transition-all duration-300">
+    <article class="card-lg p-6 shadow-sm reveal flex flex-col hover:border-brandOrange hover:shadow-lg transition-all duration-300">
      <h3 class="text-lg font-black text-brandBlue uppercase italic mb-2">Heated Apparel Brands</h3>
      <p class="text-sm text-slate-600 leading-relaxed mb-4">5V and 7.4V battery packs for heated jackets, gloves, socks and scarves, with DC and USB output options.</p>
      <a href="/products/power-bank/heating-battery/" class="mt-auto text-brandOrangeDeep text-xs font-bold uppercase tracking-widest hover:underline">Heating battery line &rarr;</a>
@@ -403,27 +384,27 @@ plPath: "produkty/"
   <div class="container-wide">
    {{ sectionHeader('Customization', 'What You Can <span class="text-brandOrange">Customize</span>', 'From a logo on a stock model to a private-mold programme. Every option is quoted against the same MOQ tiers, so the cost step is visible before you commit.', {max: '', mb: 'mb-12'}) }}
    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-    <article class="card-soft bg-white p-6 reveal">
+    <article class="card-lg p-6 shadow-sm reveal">
      <h3 class="text-base font-black text-brandBlue uppercase italic mb-2">Logo &amp; CMF</h3>
      <p class="text-sm text-slate-600 leading-relaxed">Laser engraving from 500 units, silk screen from 1,000 and full-colour UV from 3,000, with Pantone colour matching.</p>
     </article>
-    <article class="card-soft bg-white p-6 reveal">
+    <article class="card-lg p-6 shadow-sm reveal">
      <h3 class="text-base font-black text-brandBlue uppercase italic mb-2">Packaging</h3>
      <p class="text-sm text-slate-600 leading-relaxed">Stock box with logo print, custom gift box, blister or FNSKU/FBA-ready carton.</p>
     </article>
-    <article class="card-soft bg-white p-6 reveal">
+    <article class="card-lg p-6 shadow-sm reveal">
      <h3 class="text-base font-black text-brandBlue uppercase italic mb-2">Capacity &amp; Output</h3>
      <p class="text-sm text-slate-600 leading-relaxed">Power banks from 5,000–27,000mAh, GaN chargers from 20–240W and wireless charging at 15–25W.</p>
     </article>
-    <article class="card-soft bg-white p-6 reveal">
+    <article class="card-lg p-6 shadow-sm reveal">
      <h3 class="text-base font-black text-brandBlue uppercase italic mb-2">Port Configuration</h3>
      <p class="text-sm text-slate-600 leading-relaxed">USB-C PD, USB-A, retractable cable, folding AC plug and multi-port layouts.</p>
     </article>
-    <article class="card-soft bg-white p-6 reveal">
+    <article class="card-lg p-6 shadow-sm reveal">
      <h3 class="text-base font-black text-brandBlue uppercase italic mb-2">Private Mold</h3>
      <p class="text-sm text-slate-600 leading-relaxed">Client-owned design with new tooling: 3,000+ units and 2–4 months end to end.</p>
     </article>
-    <article class="card-soft bg-white p-6 reveal">
+    <article class="card-lg p-6 shadow-sm reveal">
      <h3 class="text-base font-black text-brandBlue uppercase italic mb-2">Certification Support</h3>
      <p class="text-sm text-slate-600 leading-relaxed">CE, FCC, RoHS and UN38.3 documentation, with UL, PSE, KC and EAC supported for market entry.</p>
     </article>
@@ -434,11 +415,26 @@ plPath: "produkty/"
   </div>
  </section>
 
+ <!-- CERTIFICATION WALL -->
+ <section id="certifications" class="sec bg-white border-t border-slate-100" data-section="trust">
+  <div class="container-wide">
+   {{ sectionHeader('Certifications', 'Certified for <span class="text-brandOrange">Your Market</span>', 'CE, UN38.3, RoHS, WEEE, Qi2, TÜV GS, E-Mark and ISO 9001 — documentation ships with every order.', {mb: 'mb-12'}) }}
+   <div class="cert-showcase reveal">
+    {% for cert in i18n.certifications[lang].homepage.items %}
+    <div class="cert-item">
+     {% set _cert = '/image/certifications/' + cert.src + '.' + cert.ext %}{% set _cm = _cert | imgMeta %}<img src="{{ _cert }}" alt="{{ cert.alt }}"{% if _cm %} width="{{ _cm.w }}" height="{{ _cm.h }}"{% endif %} loading="lazy" decoding="async">
+     {{ cert.label }}
+    </div>
+    {% endfor %}
+   </div>
+  </div>
+ </section>
+
  <!-- ======== COMMERCIAL TERMS ======== -->
  <section id="commercial-terms" class="sec bg-white" data-section="content">
   <div class="container-wide">
    {{ sectionHeader('Working Together', 'MOQ, Lead Times &amp; <span class="text-brandOrange">Trade Terms</span>', 'The same terms apply across all four product lines. Figures are factory-direct and confirmed in your quotation.', {max: '', mb: 'mb-12'}) }}
-   <div class="max-w-4xl mx-auto overflow-x-auto reveal rounded-xl border border-slate-200">
+   <div class="max-w-4xl mx-auto overflow-x-auto reveal rounded-2xl border border-slate-200 shadow-sm bg-white">
     <table class="w-full text-sm border-collapse">
      <caption class="sr-only">Standard MOQ, sampling, production and trade terms</caption>
      <thead>
@@ -483,32 +479,32 @@ plPath: "produkty/"
   <div class="container-wide">
    {{ sectionHeader('Quality &amp; Support', 'From Sample to <span class="text-brandOrange">After-Sales</span>', 'Four inspection stages, 100% aging and a documented warranty. The same process runs on a 500-unit pilot and a 30,000-unit programme.', {max: '', mb: 'mb-12'}) }}
    <ol class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-    <li class="card-soft bg-white p-6 reveal">
+    <li class="card-lg p-6 shadow-sm reveal">
      <span class="block text-brandOrange font-black text-2xl mb-2">01</span>
      <h3 class="text-base font-black text-brandBlue uppercase italic mb-2">Spec Review</h3>
      <p class="text-sm text-slate-600 leading-relaxed">Share capacity, output, port layout and target market. We shortlist matching stock models or scope a development project.</p>
     </li>
-    <li class="card-soft bg-white p-6 reveal">
+    <li class="card-lg p-6 shadow-sm reveal">
      <span class="block text-brandOrange font-black text-2xl mb-2">02</span>
      <h3 class="text-base font-black text-brandBlue uppercase italic mb-2">Sampling</h3>
      <p class="text-sm text-slate-600 leading-relaxed">{FACT:timeline.odmStockSample} for in-stock ODM and {FACT:timeline.oemSample} for OEM. Sample fees are refundable on bulk orders.</p>
     </li>
-    <li class="card-soft bg-white p-6 reveal">
+    <li class="card-lg p-6 shadow-sm reveal">
      <span class="block text-brandOrange font-black text-2xl mb-2">03</span>
      <h3 class="text-base font-black text-brandBlue uppercase italic mb-2">Incoming &amp; In-Process QC</h3>
      <p class="text-sm text-slate-600 leading-relaxed">Cells, ICs, PCBs and connectors checked at IQC. Soldering, component placement and wiring monitored at IPQC.</p>
     </li>
-    <li class="card-soft bg-white p-6 reveal">
+    <li class="card-lg p-6 shadow-sm reveal">
      <span class="block text-brandOrange font-black text-2xl mb-2">04</span>
      <h3 class="text-base font-black text-brandBlue uppercase italic mb-2">Final &amp; Outgoing QC</h3>
      <p class="text-sm text-slate-600 leading-relaxed">100% 4-hour aging, charging performance and port function tests at FQC. Packaging and labelling checked at OQC.</p>
     </li>
-    <li class="card-soft bg-white p-6 reveal">
+    <li class="card-lg p-6 shadow-sm reveal">
      <span class="block text-brandOrange font-black text-2xl mb-2">05</span>
      <h3 class="text-base font-black text-brandBlue uppercase italic mb-2">Pre-Shipment Inspection</h3>
      <p class="text-sm text-slate-600 leading-relaxed">AQL 0.65 normal and 0.25 tightened sampling, with defect rate held below 0.3% and on-time delivery above 97%.</p>
     </li>
-    <li class="card-soft bg-white p-6 reveal">
+    <li class="card-lg p-6 shadow-sm reveal">
      <span class="block text-brandOrange font-black text-2xl mb-2">06</span>
      <h3 class="text-base font-black text-brandBlue uppercase italic mb-2">Warranty &amp; After-Sales</h3>
      <p class="text-sm text-slate-600 leading-relaxed">{FACT:contact.warrantyMonths}-month warranty, spare parts and technical documentation for every order.</p>
@@ -562,8 +558,8 @@ plPath: "produkty/"
 <section id="blog-articles" class="sec bg-white border-t border-slate-100" data-section="content">
  <div class="container-wide">
   <div class="text-center mb-12 reveal">
+   <p class="section-label">Expert guides for sourcing & manufacturing</p>
    <h2 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4">OEM/ODM <span class="text-brandOrange">Insights</span></h2>
-   <p class="text-slate-500 font-bold uppercase tracking-widest text-badge">Expert guides for sourcing & manufacturing</p>
   </div>
   <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
    <a href="/blog/oem-vs-odm-guide/" class="group bg-slate-50 rounded-2xl overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
@@ -617,8 +613,49 @@ plPath: "produkty/"
  </div>
 </section>
 
+<!-- ====== EXPLORE MORE CATEGORIES ====== -->
+<section id="explore-more-categories" class="sec bg-slate-50 relative" data-section="related">
+ <div class="container-wide">
+  <div class="text-center max-w-3xl mx-auto mb-12 reveal">
+   <p class="section-label">More Categories</p>
+   <h2 class="section-title">All <span class="text-brandOrange">Product Lines</span></h2>
+   <p class="section-desc mx-auto">Go straight to the right category — with models, specifications and factory pricing.</p>
+  </div>
+  <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+   <a href="/products/power-bank/" class="card-soft group block p-6 text-center hover:border-brandOrange hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+    <div class="w-11 h-11 mx-auto mb-4 rounded-xl bg-brandOrange/10 flex items-center justify-center group-hover:bg-brandOrange transition-colors duration-300">
+     <svg class="w-5 h-5 text-brandOrange group-hover:text-white transition-colors duration-300" aria-hidden="true" focusable="false" viewBox="0 0 512 512"><path d="M176 24c0-13.3-10.7-24-24-24s-24 10.7-24 24l0 40c-35.3 0-64 28.7-64 64l-40 0c-13.3 0-24 10.7-24 24s10.7 24 24 24l40 0 0 56-40 0c-13.3 0-24 10.7-24 24s10.7 24 24 24l40 0 0 56-40 0c-13.3 0-24 10.7-24 24s10.7 24 24 24l40 0c0 35.3 28.7 64 64 64l0 40c0 13.3 10.7 24 24 24s24-10.7 24-24l0-40 56 0 0 40c0 13.3 10.7 24 24 24s24-10.7 24-24l0-40 56 0 0 40c0 13.3 10.7 24 24 24s24-10.7 24-24l0-40c35.3 0 64-28.7 64-64l40 0c13.3 0 24-10.7 24-24s-10.7-24-24-24l-40 0 0-56 40 0c13.3 0 24-10.7 24-24s-10.7-24-24-24l-40 0 0-56 40 0c13.3 0 24-10.7 24-24s-10.7-24-24-24l-40 0c0-35.3-28.7-64-64-64l0-40c0-13.3-10.7-24-24-24s-24 10.7-24 24l0 40-56 0 0-40c0-13.3-10.7-24-24-24s-24 10.7-24 24l0 40-56 0 0-40zM160 128l192 0c17.7 0 32 14.3 32 32l0 192c0 17.7-14.3 32-32 32l-192 0c-17.7 0-32-14.3-32-32l0-192c0-17.7 14.3-32 32-32zm16 48l0 160 160 0 0-160-160 0z" fill="currentColor"/></svg>
+    </div>
+    <p class="font-black text-brandBlue text-sm uppercase mb-1 group-hover:text-brandOrange transition">Power Bank</p>
+    <p class="text-micro text-slate-500">Semi-solid · Magnetic · Heating · 2-in-1 · Laptop · Smart Display</p>
+   </a>
+   <a href="/products/wireless-charger/" class="card-soft group block p-6 text-center hover:border-brandOrange hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+    <div class="w-11 h-11 mx-auto mb-4 rounded-xl bg-brandOrange/10 flex items-center justify-center group-hover:bg-brandOrange transition-colors duration-300">
+     <svg class="w-5 h-5 text-brandOrange group-hover:text-white transition-colors duration-300" aria-hidden="true" focusable="false" viewBox="0 0 640 512"><path d="M54.2 202.9C123.2 136.7 216.8 96 320 96s196.8 40.7 265.8 106.9c12.8 12.2 33 11.8 45.2-1s11.8-33-1-45.2C549.7 79.5 440.4 32 320 32S90.3 79.5 9.8 156.7C-2.9 168.8-3.3 189 9 201.2s32.4 13.2 45.2 1zM320 256c56.8 0 108.6 21.1 148.2 56c13.3 11.7 33.5 10.4 45.2-2.8s10.4-33.5-2.8-45.2C462.6 221.8 394.2 192 320 192s-142.6 29.8-190.6 72c-13.3 11.7-14.5 31.9-2.8 45.2s31.9 14.5 45.2 2.8c39.5-34.9 91.3-56 148.2-56zm64 160a64 64 0 1 0 -128 0 64 64 0 1 0 128 0z" fill="currentColor"/></svg>
+    </div>
+    <p class="font-black text-brandBlue text-sm uppercase mb-1 group-hover:text-brandOrange transition">Wireless Charging</p>
+    <p class="text-micro text-slate-500">Desktop · 3-in-1 · Car Mount</p>
+   </a>
+   <a href="/products/gan-charger/" class="card-soft group block p-6 text-center hover:border-brandOrange hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+    <div class="w-11 h-11 mx-auto mb-4 rounded-xl bg-brandOrange/10 flex items-center justify-center group-hover:bg-brandOrange transition-colors duration-300">
+     <svg class="w-5 h-5 text-brandOrange group-hover:text-white transition-colors duration-300" aria-hidden="true" focusable="false" viewBox="0 0 448 512"><path d="M338.8-9.9c11.9 8.6 16.3 24.2 10.9 37.8L271.3 224 416 224c13.5 0 25.5 8.4 30.1 21.1s.7 26.9-9.6 35.5l-288 240c-11.3 9.4-27.4 9.9-39.3 1.3s-16.3-24.2-10.9-37.8L176.7 288 32 288c-13.5 0-25.5-8.4-30.1-21.1s-.7-26.9 9.6-35.5l288-240c11.3-9.4 27.4-9.9 39.3-1.3z" fill="currentColor"/></svg>
+    </div>
+    <p class="font-black text-brandBlue text-sm uppercase mb-1 group-hover:text-brandOrange transition">GaN Charger</p>
+    <p class="text-micro text-slate-500">20–240W · PD 3.1 · Multi-Port</p>
+   </a>
+   <a href="/products/car-charger/" class="card-soft group block p-6 text-center hover:border-brandOrange hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+    <div class="w-11 h-11 mx-auto mb-4 rounded-xl bg-brandOrange/10 flex items-center justify-center group-hover:bg-brandOrange transition-colors duration-300">
+     <svg class="w-5 h-5 text-brandOrange group-hover:text-white transition-colors duration-300" aria-hidden="true" focusable="false" viewBox="0 0 512 512"><path d="M135.2 117.4l-26.1 74.6 293.8 0-26.1-74.6C372.3 104.6 360.2 96 346.6 96L165.4 96c-13.6 0-25.7 8.6-30.2 21.4zM39.6 196.8L74.8 96.3C88.3 57.8 124.6 32 165.4 32l181.2 0c40.8 0 77.1 25.8 90.6 64.3l35.2 100.5c23.2 9.6 39.6 32.5 39.6 59.2l0 192c0 17.7-14.3 32-32 32l-32 0c-17.7 0-32-14.3-32-32l0-32-320 0 0 32c0 17.7-14.3 32-32 32l-32 0c-17.7 0-32-14.3-32-32L0 256c0-26.7 16.4-49.6 39.6-59.2zM128 304a32 32 0 1 0 -64 0 32 32 0 1 0 64 0zm288 32a32 32 0 1 0 0-64 32 32 0 1 0 0 64z" fill="currentColor"/></svg>
+    </div>
+    <p class="font-black text-brandBlue text-sm uppercase mb-1 group-hover:text-brandOrange transition">Car Charger</p>
+    <p class="text-micro text-slate-500">12V/24V · PD 3.1 · E-Mark</p>
+   </a>
+  </div>
+ </div>
+</section>
+
 {%- set formProduct = "Product Catalog — OEM/ODM Inquiry" %}
-{%- set formHeading = "Get Factory Pricing for Any Product Line" %}
+{%- set formHeading = "Get Factory Pricing for <span class='text-brandOrange'>Any Product Line</span>" %}
 {%- set formSubtext = "Power banks, wireless chargers, GaN chargers, car chargers — tell us which line fits your market and we'll send a tailored quote within {RT}." %}
 {%- set formSubject = "Product Inquiry: Product Catalog OEM/ODM" %}
 

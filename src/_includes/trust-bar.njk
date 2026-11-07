@@ -8,6 +8,7 @@
 <section class="relative bg-slate-50 border-y border-slate-200 overflow-hidden">
  <div class="max-w-7xl mx-auto px-6 py-12 md:py-16">
 
+  {% if trustBarCerts != false %}
   <!-- Row 1: Cert badges (from i18n) -->
   {{ sectionHeader(i18n.certifications[lang].homepage.heading, i18n.certifications[lang].homepage.title, "", {max: "", mb: "mb-8", titleClass: "section-title text-2xl md:text-3xl"}) }}
   <div class="cert-showcase reveal mb-10">
@@ -18,6 +19,7 @@
    </div>
    {% endfor %}
   </div>
+  {% endif %}
 
   <!-- Row 2: Animated counters (from i18n.statsBar) -->
   <div class="reveal">

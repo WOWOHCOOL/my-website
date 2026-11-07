@@ -275,43 +275,55 @@ plPath: "produkty/power-bank/polstaly/"
 </section>
 
 <!-- ======== TRUST BAR ======== -->
+{% set trustBarCerts = false %}
 {% include "trust-bar.njk" %}
+
+<!-- Divider -->
+<div class="relative w-full">
+ <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent"></div>
+ <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-white border border-slate-200 rotate-45"></div>
+</div>
 
 <!-- MODELS -->
 
 {% set family = "products/power-bank/semi-solid-state" %}
 {% include "partials/product-models.njk" %}
 
-<!-- MARKET-DATA -->
-<section id="market-data" class="sec bg-white py-8" data-section="content">
- <div class="container-wide">
- <blockquote class="bg-brandOrange/5 border-l-4 border-brandOrange rounded-r-xl px-6 py-5 text-sm text-slate-700 italic leading-relaxed">
-  <p>"Der globale Solid-State-Batteriemarkt — einschließlich Semi-Solid-State — wächst laut MarketsandMarkets von 85 Mio. USD (2023) auf 963 Mio. USD bis 2030, bei einer CAGR von 41,5%. Im Bereich Consumer Electronics prognostiziert TechSci Research ein Wachstum der Solid-State-Mikrobatterien von 1,67 Mrd. auf 3,87 Mrd. USD (14,88% CAGR). Die Halbfest-Akku-Technologie ist der erste serienreife Schritt in dieser Entwicklung: 50% dünner, 30% höhere Energiedichte und nahezu kein Brandrisiko bei nur 20-40% Kostenaufschlag gegenüber Li-Polymer. Während vollständige Solid-State-Akkus frühestens 2027+ in Serie gehen, wird Semi-Solid-State bereits heute in Shenzhen produziert — die CES 2026 markierte den Durchbruch im Konsumgütermarkt."</p>
-  <cite class="block text-xs text-slate-400 mt-2 not-italic">— <a href="https://www.marketsandmarkets.com/Market-Reports/solid-state-battery-market-174849304.html" target="_blank" rel="noopener noreferrer" class="text-brandOrange hover:underline">MarketsandMarkets</a>, Solid-State Battery Market 2025-2030; <a href="https://www.techsciresearch.com/report/solid-state-micro-battery-market/30237.html" target="_blank" rel="noopener noreferrer" class="text-brandOrange hover:underline">TechSci Research</a>, Solid-State Micro Battery Market 2020-2030F</cite>
- </blockquote>
- </div>
-</section>
+{% set compareFamily = family %}
+{% include "partials/model-compare.njk" %}
 
-<!-- KEY FIGURES -->
-<section id="kennzahlen" class="sec bg-white" data-section="stats">
+<!-- MARKET-DATA -->
+
+
+<!-- TECHNOLOGY BASICS -->
+<section id="what-is-semi-solid-state" class="sec bg-white" data-section="content">
  <div class="container-wide">
-  <div class="grid md:grid-cols-3 gap-6 reveal">
-   <div class="card-lg-soft text-center p-6"><p class="text-3xl font-black text-brandOrange mb-2">50%</p><p class="text-sm font-bold text-brandBlue">Dünner</p><p class="text-xs text-slate-500 mt-1">Höhere Energiedichte ermöglicht kompaktere Bauweise</p></div>
-   <div class="card-lg-soft text-center p-6"><p class="text-3xl font-black text-brandOrange mb-2">2.000+</p><p class="text-sm font-bold text-brandBlue">Ladezyklen</p><p class="text-xs text-slate-500 mt-1">3-4× längere Lebensdauer als Li-Polymer</p></div>
-   <div class="card-lg-soft text-center p-6"><p class="text-3xl font-black text-brandOrange mb-2">30%</p><p class="text-sm font-bold text-brandBlue">Mehr Energiedichte</p><p class="text-xs text-slate-500 mt-1">Mehr Kapazität bei gleichem Gewicht</p></div>
+ 
+  {{ sectionHeader('Grundlagen', 'Was ist ein <span class="text-brandOrange">Halbfest-Akku</span>?', 'Ein halbfester Elektrolyt ersetzt die Flüssigkeit herkömmlicher Li-Polymer-Zellen — dünner, dichter, sicherer. Kompatibel mit Qi2-iPhones/Android und USB-C-Laptops bis 45W; nicht für Geräte über 45W oder proprietäre Ports.', {mb: 'mb-12'}) }}
+   <div class="grid md:grid-cols-3 gap-6">
+   <div class="card-lg-soft p-8 text-center"><p class="text-3xl font-black text-brandOrange mb-2">Gel-Elektrolyt</p><p class="text-sm font-bold text-brandBlue">Weniger freie Flüssigkeit</p><p class="text-xs text-slate-500 mt-2">Ein halbfester Elektrolyt reduziert das Risiko von Auslaufen und thermischem Durchgehen bei Beschädigung.</p></div>
+   <div class="card-lg-soft p-8 text-center"><p class="text-3xl font-black text-brandOrange mb-2">50% dünner</p><p class="text-sm font-bold text-brandBlue">Mehr Raum für Design</p><p class="text-xs text-slate-500 mt-2">Höhere Energiedichte erlaubt flachere Gehäuse — ideal für MagSafe-Formate und Premium-Retail.</p></div>
+   <div class="card-lg-soft p-8 text-center"><p class="text-3xl font-black text-brandOrange mb-2">2.000+</p><p class="text-sm font-bold text-brandBlue">Ladezyklen</p><p class="text-xs text-slate-500 mt-2">Drei- bis vierfache Lebensdauer gegenüber Standard-Li-Polymer — weniger Garantiefälle im DACH-Retail.</p></div>
   </div>
+  <figure class="mt-10 max-w-4xl mx-auto reveal">
+   <div class="rounded-2xl border border-brandOrange/20 bg-brandOrange/5 p-6 md:p-8">
+    <p class="text-xs font-black uppercase tracking-widest text-brandOrangeDeep mb-3">Marktkontext</p>
+    <blockquote class="text-sm text-slate-700 leading-relaxed">"Der globale Solid-State-Batteriemarkt — einschließlich Semi-Solid-State — wächst laut MarketsandMarkets von 85 Mio. USD (2023) auf 963 Mio. USD bis 2030, bei einer CAGR von 41,5%. Im Bereich Consumer Electronics prognostiziert TechSci Research ein Wachstum der Solid-State-Mikrobatterien von 1,67 Mrd. auf 3,87 Mrd. USD (14,88% CAGR). Die Halbfest-Akku-Technologie ist der erste serienreife Schritt in dieser Entwicklung: 50% dünner, 30% höhere Energiedichte und nahezu kein Brandrisiko bei nur 20-40% Kostenaufschlag gegenüber Li-Polymer. Während vollständige Solid-State-Akkus frühestens 2027+ in Serie gehen, wird Semi-Solid-State bereits heute in Shenzhen produziert — die CES 2026 markierte den Durchbruch im Konsumgütermarkt."</blockquote>
+    <figcaption class="mt-3 text-xs text-slate-500">— <a href="https://www.marketsandmarkets.com/Market-Reports/solid-state-battery-market-174849304.html" target="_blank" rel="noopener noreferrer" class="text-brandOrange hover:underline">MarketsandMarkets</a>, Solid-State Battery Market 2025-2030; <a href="https://www.techsciresearch.com/report/solid-state-micro-battery-market/30237.html" target="_blank" rel="noopener noreferrer" class="text-brandOrange hover:underline">TechSci Research</a>, Solid-State Micro Battery Market 2020-2030F</figcaption>
+   </div>
+  </figure>
  </div>
 </section>
 
 <!-- TECHNOLOGY COMPARISON -->
-<section id="technology-comparison" class="sec bg-white" data-section="comparison">
+<section id="technology-comparison" class="sec bg-slate-50" data-section="comparison">
  <div class="container-wide">
-  {{ sectionHeader('Technologie', 'Halbfest-Akku vs. Li-Polymer vs. Solid-State', 'Welche Akku-Technologie passt zu Ihrem Markenprodukt? Drei Generationen im direkten Vergleich.', {mb: 'mb-12'}) }}
+  {{ sectionHeader('Technologie', 'Halbfest-Akku vs. Li-Polymer vs. <span class="text-brandOrange">Solid-State</span>', 'Welche Akku-Technologie passt zu Ihrem Markenprodukt? Drei Generationen im direkten Vergleich.', {mb: 'mb-12'}) }}
   <div class="overflow-x-auto reveal rounded-2xl border border-slate-200 shadow-sm bg-white">
    <table class="w-full text-sm">
     <thead><tr class="bg-brandBlue text-white">
      <th class="text-left px-5 py-3 font-bold text-sm">Eigenschaft</th>
-     <th class="text-left px-5 py-3 font-bold text-sm">Halbfest-Akku</th>
+     <th class="text-left px-5 py-3 font-bold text-sm bg-brandOrange text-brandBlue">Halbfest-Akku</th>
      <th class="text-left px-5 py-3 font-bold text-sm">Li-Polymer</th>
      <th class="text-left px-5 py-3 font-bold text-sm">Solid-State</th>
     </tr></thead>
@@ -327,11 +339,81 @@ plPath: "produkty/power-bank/polstaly/"
  </div>
 </section>
 
-<!-- DACH MARKET POSITIONING -->
-<section id="market-positioning" class="sec bg-white" data-section="stats">
+
+
+<!-- OEM/ODM -->
+<section id="oem-odm-customization" class="sec bg-slate-50 relative" data-section="content">
  <div class="container-wide">
-  {{ sectionHeader('DACH-Markt 2026', 'Halbfest-Akku im Retail vs. Werks-OEM', 'Marken wie <strong>Sandberg (DK)</strong>, <strong>Zens (NL)</strong> und <strong>Epico (CZ)</strong> haben den Halbfest-Akku 2026 in den DACH-Retail gebracht. Hinter ihren Produkten steht jeweils ein OEM-Werk in China. Wir sind eines davon — und arbeiten direkt mit deutschen Marken zusammen.', {mb: 'mb-12'}) }}
-  <div class="overflow-x-auto reveal rounded-2xl border border-slate-200 shadow-sm bg-white">
+  {{ sectionHeader('Anpassung', 'OEM/ODM-<span class="text-brandOrange">Anpassung</span>', 'Kapazität, Ausgang, Kabel und Gehäuse — ab MOQ 500.', {mb: 'mb-12'}) }}
+  <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 cap-grid">
+   <article class="cap-tile reveal">
+    <h3 class="text-base font-black text-brandBlue uppercase italic mb-3">ODM Stock · MOQ 500</h3>
+    <ul class="cap-list">
+     <li>Bestehende Modelle und Kapazitäten wählen</li>
+     <li>Logodruck (Siebdruck, Laser, UV)</li>
+     <li>Pantone-Farbabgleich</li>
+     <li>Lagerverpackung mit Logodruck</li>
+     <li>Lieferzeit: 3–7 Tage Muster · 25–35 Tage Produktion</li>
+    </ul>
+   </article>
+   <article class="cap-tile reveal">
+    <h3 class="text-base font-black text-brandBlue uppercase italic mb-3">ODM-Entwicklung · MOQ 1.000–2.000</h3>
+    <ul class="cap-list">
+     <li>Individuelle Verpackung mit Marken-Artwork</li>
+     <li>Mehrsprachige Handbücher, Einleger und Garantiekarten</li>
+     <li>Plattformangepasstes Werkzeug (kein neues Gehäuse-Werkzeug)</li>
+     <li>Kapazität und Ausgang: 10.000–20.000mAh · 22,5–45W</li>
+     <li>Kabeltyp: C+C, C+L, USB-A-Kombinationen</li>
+     <li>Display-UI und Firmware</li>
+     <li>Lieferzeit: 25–45 Tage Design · 35–50 Tage Produktion</li>
+    </ul>
+   </article>
+   <article class="cap-tile reveal">
+    <h3 class="text-base font-black text-brandBlue uppercase italic mb-3">OEM · MOQ 3.000+</h3>
+    <ul class="cap-list">
+     <li>Design und CMF in Kundenhand</li>
+     <li>Neues Gehäuse-Werkzeug und vollständige Formgebung</li>
+     <li>Kapazität und Ausgang: 10.000–20.000mAh · 22,5–45W</li>
+     <li>Kabeltyp: C+C, C+L, USB-A-Kombinationen</li>
+     <li>Zertifizierungsunterstützung für Zielmärkte</li>
+     <li>Lieferzeit: 30–60 Tage Produktion · 2–4 Monate mit neuem Werkzeug</li>
+    </ul>
+   </article>
+  </div>
+  <div class="text-center mt-10"><p class="text-slate-500 text-sm mb-4">Bereit für Ihr OEM-Projekt?</p>{{ ctaButton("factoryPricing", "primary", "open-modal", "Halbfest-Akku Powerbank") }}</div>
+ </div>
+</section>
+
+ <!-- DACH Market: Blue Ocean -->
+ <section id="blue-ocean-opportunity" class="sec bg-white relative" data-section="stats">
+  <div class="container-wide">
+  <div class="text-center mb-10 reveal">
+   <p class="section-label">Deutscher Markt 2026</p>
+   <h2 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4">0 Retail-Listings in Deutschland — <span class="text-brandOrange">Echte Blue-Ocean-Kategorie</span></h2>
+   <p class="text-slate-500 text-sm max-w-3xl mx-auto">Die Suche nach &quot;Semi-Solid-State Powerbank kaufen Deutschland&quot; liefert im Juli 2026 <strong>null Ergebnisse</strong> auf Amazon DE, MediaMarkt/Saturn und Idealo. Globale Marken (BMX/ELECOM/Kuxiu) haben noch keinen deutschen Retail-Eintritt. Der erste OEM-Anbieter mit deutscher B2B-Seite besetzt diese Kategorie als Pionier.</p>
+  </div>
+
+  <div class="grid md:grid-cols-3 gap-6 mb-10">
+   <div class="card-lg-soft p-6 text-center">
+    <p class="text-3xl font-black text-brandBlue mb-2">>95%</p>
+    <p class="text-sm font-bold text-slate-700 mb-2">Importabhängigkeit</p>
+    <p class="text-xs text-slate-500">Deutschlands Powerbank-Markt ist zu über 95% importabhängig. 70-80% der Importe kommen direkt aus China (IndexBox 2026). Es gibt keine nennenswerte deutsche Eigenproduktion.</p>
+   </div>
+   <div class="card-lg-soft p-6 text-center">
+    <p class="text-3xl font-black text-brandOrange mb-2">~150-300M EUR</p>
+    <p class="text-sm font-bold text-slate-700 mb-2">DE Powerbank-Markt 2026</p>
+    <p class="text-xs text-slate-500">Schätzung auf Basis des europäischen Marktvolumens (~0,75 Mrd. EUR). Deutschland = größter EU-Einzelmarkt mit 20-30% Anteil. CAGR Europa: 3,89% (GII Research).</p>
+   </div>
+   <div class="card-lg-soft p-6 text-center">
+    <p class="text-3xl font-black text-brandBlue mb-2">0</p>
+    <p class="text-sm font-bold text-slate-700 mb-2">Semi-Solid Retail-Listings</p>
+    <p class="text-xs text-slate-500">Weder Amazon DE, MediaMarkt/Saturn, noch Idealo/Geizhals listen 2026 eine Semi-Solid-Powerbank. Hama, Intenso und Pearl — die größten DE-Marken — sind reine OEM-Importeure ohne eigene Produktion.</p>
+   </div>
+  </div>
+
+  <h3 class="text-center text-sm font-black text-brandBlue uppercase italic mb-4">Retail-Marke vs. Werks-OEM</h3>
+  <p class="text-center text-slate-500 text-sm max-w-3xl mx-auto mb-6">Marken wie <strong>Sandberg (DK)</strong>, <strong>Zens (NL)</strong> und <strong>Epico (CZ)</strong> haben den Halbfest-Akku 2026 in den DACH-Retail gebracht. Hinter ihren Produkten steht jeweils ein OEM-Werk in China. Wir sind eines davon — und arbeiten direkt mit deutschen Marken zusammen.</p>
+  <div class="max-w-4xl mx-auto mb-10 overflow-x-auto rounded-2xl border border-slate-200 shadow-sm bg-white">
    <table class="w-full text-sm">
     <thead><tr class="bg-brandBlue text-white">
      <th class="text-left px-5 py-3 font-bold text-sm">Aspekt</th>
@@ -348,13 +430,25 @@ plPath: "produkty/power-bank/polstaly/"
     </tbody>
    </table>
   </div>
-  <p class="text-xs text-slate-500 text-center mt-6 reveal">Referenzen: <a href="https://www.heise.de/news/Fuer-iPhone-Co-Semi-Solid-State-Batterien-mit-Qi2-2-und-bis-zu-10-000-mAh-11212486.html" target="_blank" rel="noopener noreferrer" class="text-brandOrange hover:underline">Heise — Zens Semi-Solid-State Qi2.2</a> &middot; <a href="https://sandberg.world/de-de/product/solidstate-mag-powerbank-5000" target="_blank" rel="noopener noreferrer" class="text-brandOrange hover:underline">Sandberg SemiSolidState</a></p>
- </div>
-</section>
+  <p class="text-xs text-slate-500 text-center mb-8">Referenzen: <a href="https://www.heise.de/news/Fuer-iPhone-Co-Semi-Solid-State-Batterien-mit-Qi2-2-und-bis-zu-10-000-mAh-11212486.html" target="_blank" rel="noopener noreferrer" class="text-brandOrange hover:underline">Heise — Zens Semi-Solid-State Qi2.2</a> &middot; <a href="https://sandberg.world/de-de/product/solidstate-mag-powerbank-5000" target="_blank" rel="noopener noreferrer" class="text-brandOrange hover:underline">Sandberg SemiSolidState</a></p>
+
+  <div class="max-w-4xl mx-auto mb-10 overflow-x-auto rounded-2xl border border-slate-200 shadow-sm bg-white">
+   <table class="w-full text-sm"><thead><tr class="bg-brandBlue text-white"><th class="p-3 text-left text-xs font-bold uppercase tracking-wider">Kategorie</th><th class="p-3 text-center text-xs font-bold uppercase tracking-wider">Status DE 2026</th><th class="p-3 text-center text-xs font-bold uppercase tracking-wider">Chance</th></tr></thead><tbody>
+    <tr class="border-t border-slate-100"><td class="p-3 font-bold text-slate-700">Semi-Solid Powerbank</td><td class="p-3 text-center"><span class="inline-block px-2 py-0.5 rounded-full text-badge font-bold bg-green-100 text-green-700">Keine Listings</span></td><td class="p-3 text-center text-slate-600">First-Mover-Vorteil</td></tr>
+    <tr class="border-t border-slate-100"><td class="p-3 font-bold text-slate-700">Li-Polymer Powerbank</td><td class="p-3 text-center"><span class="inline-block px-2 py-0.5 rounded-full text-badge font-bold bg-red-100 text-red-700">Gesättigt</span></td><td class="p-3 text-center text-slate-600">Preiskampf</td></tr>
+    <tr class="border-t border-slate-100"><td class="p-3 font-bold text-slate-700">MagSafe/Qi2 Powerbank</td><td class="p-3 text-center"><span class="inline-block px-2 py-0.5 rounded-full text-badge font-bold bg-amber-100 text-amber-700">Wachsend</span></td><td class="p-3 text-center text-slate-600">Qi2 = Premium</td></tr>
+   </tbody></table>
+  </div>
+
+   <p class="text-sm text-slate-600 leading-relaxed max-w-3xl mx-auto mt-10 text-center"><strong>Für OEM-Importeure:</strong> Deutsche Marken (Hama, Intenso, Pearl) sourcen ihre Powerbanks komplett von chinesischen OEMs — sie betreiben keine eigene Fertigung. Der Wettbewerb findet auf Branding- und Zertifizierungsebene statt, nicht auf Fertigungsebene. WOWOHCOOL bietet deutschen Importeuren die gleiche OEM-Leistung direkt ab Werk Shenzhen — mit EU-Batterieverordnung-Compliance und Tüv GS Ready. <a href="/de/oem-odm-service/" class="text-brandOrange font-bold hover:underline">OEM/ODM-Ladelösungen ansehen →</a></p>
+  </div>
+ </section>
 
 <!-- EU Compliance -->
-<section id="eu-compliance" class="sec bg-white" data-section="content">
- <div class="container-wide"><div class="mt-10 grid md:grid-cols-2 gap-6 reveal">
+<section id="eu-compliance" class="sec bg-slate-50" data-section="content">
+ <div class="container-wide">
+  {{ sectionHeader('Compliance', 'EU-Compliance <span class="text-brandOrange">inklusive</span>', 'Erzeugerpflichten, Batteriepass und EAR-Registrierung — als Service inklusive.', {mb: 'mb-10'}) }}
+  <div class="grid md:grid-cols-2 gap-6 reveal">
    <div class="card-lg p-6">
     <h3 class="text-base font-bold text-brandBlue mb-2">EU-Compliance-Service inklusive</h3>
     <p class="text-sm text-slate-600 leading-relaxed">Wir liefern technische Dokumentation, EU-Konformitätserklärung nach 2023/1542, Anhang-VI-Sicherheitsprüfung und unterstützen die EAR-Stiftung-Registrierung in Deutschland sowie EPR-Pendants in AT, CH, FR, IT und ES.</p>
@@ -364,63 +458,24 @@ plPath: "produkty/power-bank/polstaly/"
     <p class="text-sm text-slate-600 leading-relaxed">Halbfest-Akku-Powerbanks ab 2026 mit QR-Code-fähigen Etiketten und durchgehender Lebenszyklus-Datenerfassung — bereit für die ab Februar 2027 verpflichtende digitale Batteriepass-Anforderung.</p>
    </div>
   </div>
-  <p class="text-xs text-slate-500 text-center mt-6 reveal">Quellen: <a href="https://eur-lex.europa.eu/legal-content/DE/TXT/PDF/?uri=CELEX%3A32023R1542" target="_blank" rel="noopener external" class="text-brandOrange hover:underline">EUR-Lex 2023/1542</a> &middot; <a href="https://www.ihk.de/stuttgart/fuer-unternehmen/energie-umwelt-nachhaltigkeit/umwelt/abfallwirtschaft/neue-batterieverordnung-6779620" target="_blank" rel="noopener noreferrer" class="text-brandOrange hover:underline">IHK Stuttgart Leitfaden</a></p>
+   {% set certProfile = "power-bank" %}
+ {% include "partials/compliance-cert-table.njk" %}
+<p class="text-xs text-slate-500 text-center mt-6 reveal">Quellen: <a href="https://eur-lex.europa.eu/legal-content/DE/TXT/PDF/?uri=CELEX%3A32023R1542" target="_blank" rel="noopener external" class="text-brandOrange hover:underline">EUR-Lex 2023/1542</a> &middot; <a href="https://www.ihk.de/stuttgart/fuer-unternehmen/energie-umwelt-nachhaltigkeit/umwelt/abfallwirtschaft/neue-batterieverordnung-6779620" target="_blank" rel="noopener noreferrer" class="text-brandOrange hover:underline">IHK Stuttgart Leitfaden</a></p>
  </div>
 </section>
 
-<!-- DACH Retail Pricing -->
-<section id="dach-retail-pricing" class="sec bg-white relative py-12" data-section="pricing">
- <div class="container-wide">
- <div class="text-center mb-8">
-  <h2 class="text-2xl lg:text-3xl font-black text-brandBlue uppercase italic tracking-tighter mb-4">DACH-Markt: <span class="text-brandOrange">Blue Ocean</span> — Keine etablierten Semi-Solid Listings</h2>
-  <p class="text-slate-500 text-sm max-w-2xl mx-auto">Semi-Solid-Powerbanks sind 2026 im deutschen Retail nicht verfügbar. OEM-Partner von WOWOHCOOL besetzen diese Kategorie als Erste.</p>
- </div>
- <div class="overflow-x-auto rounded-2xl border border-slate-200 shadow-sm bg-white">
-  <table class="w-full text-sm"><thead><tr class="bg-brandBlue text-white"><th class="p-3 text-left text-xs font-bold uppercase tracking-wider">Kategorie</th><th class="p-3 text-center text-xs font-bold uppercase tracking-wider">Status DE 2026</th><th class="p-3 text-center text-xs font-bold uppercase tracking-wider">Chance</th></tr></thead><tbody>
-  <tr class="border-t border-slate-100"><td class="p-3 font-bold text-slate-700">Semi-Solid Powerbank</td><td class="p-3 text-center"><span class="inline-block px-2 py-0.5 rounded-full text-badge font-bold bg-green-100 text-green-700">Keine Listings</span></td><td class="p-3 text-center text-slate-600">First-Mover Vorteil</td></tr>
-  <tr class="border-t border-slate-100"><td class="p-3 font-bold text-slate-700">Li-Polymer Powerbank</td><td class="p-3 text-center"><span class="inline-block px-2 py-0.5 rounded-full text-badge font-bold bg-red-100 text-red-700">Gesattigt</span></td><td class="p-3 text-center text-slate-600">Preiskampf</td></tr>
-  <tr class="border-t border-slate-100"><td class="p-3 font-bold text-slate-700">MagSafe/Qi2 Powerbank</td><td class="p-3 text-center"><span class="inline-block px-2 py-0.5 rounded-full text-badge font-bold bg-amber-100 text-amber-700">Wachsend</span></td><td class="p-3 text-center text-slate-600">Qi2 = Premium</td></tr>
-  </tbody></table>
- </div>
- <p class="text-center text-xs text-slate-400 mt-4">Quellen: Amazon DE, MediaMarkt/Saturn Recherche — Juli 2026. Globale Semi-Solid-Marken (BMX/ELECOM/Kuxiu) nicht im DE-Retail gelistet.</p>
- </div>
-</section>
 
- <!-- DACH Market: Blue Ocean -->
- <section id="blue-ocean-opportunity" class="sec bg-white relative" data-section="stats">
-  <div class="container-wide">
-  <div class="text-center mb-10 reveal">
-   <div class="inline-block px-4 py-1 bg-green-50 border border-green-200 rounded-full text-badge font-bold text-green-600 uppercase tracking-widest mb-6">Deutscher Markt 2026 — Real Search Results</div>
-   <h2 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4">0 Retail-Listings in Deutschland — <span class="text-brandOrange">Echte Blue-Ocean-Kategorie</span></h2>
-   <p class="text-slate-500 text-sm max-w-3xl mx-auto">Die Suche nach &quot;Semi-Solid-State Powerbank kaufen Deutschland&quot; liefert im Juli 2026 <strong>null Ergebnisse</strong> auf Amazon DE, MediaMarkt/Saturn und Idealo. Globale Marken (BMX/ELECOM/Kuxiu) haben noch keinen deutschen Retail-Eintritt. Der erste OEM-Anbieter mit deutscher B2B-Seite besetzt diese Kategorie als Pionier.</p>
-  </div>
-
-  <div class="grid md:grid-cols-3 gap-6 mb-10">
-   <div class="card-lg-soft p-6 text-center">
-    <p class="text-3xl font-black text-brandBlue mb-2">>95%</p>
-    <p class="text-sm font-bold text-slate-700 mb-2">Importabhaengigkeit</p>
-    <p class="text-xs text-slate-500">Deutschlands Powerbank-Markt ist zu über 95% importabhaengig. 70-80% der Importe kommen direkt aus China (IndexBox 2026). Es gibt keine nennenswerte deutsche Eigenproduktion.</p>
-   </div>
-   <div class="card-lg-soft p-6 text-center">
-    <p class="text-3xl font-black text-brandOrange mb-2">~150-300M EUR</p>
-    <p class="text-sm font-bold text-slate-700 mb-2">DE Powerbank-Markt 2026</p>
-    <p class="text-xs text-slate-500">Schätzung auf Basis des europäischen Marktvolumens (~0,75 Mrd. EUR). Deutschland = größter EU-Einzelmarkt mit 20-30% Anteil. CAGR Europa: 3,89% (GII Research).</p>
-   </div>
-   <div class="card-lg-soft p-6 text-center">
-    <p class="text-3xl font-black text-brandBlue mb-2">0</p>
-    <p class="text-sm font-bold text-slate-700 mb-2">Semi-Solid Retail-Listings</p>
-    <p class="text-xs text-slate-500">Weder Amazon DE, MediaMarkt/Saturn, noch Idealo/Geizhals listen 2026 eine Semi-Solid-Powerbank. Hama, Intenso und Pearl — die groessten DE-Marken — sind reine OEM-Importeure ohne eigene Produktion.</p>
-   </div>
-  </div>
-
-   <p class="text-sm text-slate-600 leading-relaxed max-w-3xl mx-auto mt-10 text-center"><strong>Für OEM-Importeure:</strong> Deutsche Marken (Hama, Intenso, Pearl) sourcen ihre Powerbanks komplett von chinesischen OEMs — sie betreiben keine eigene Fertigung. Der Wettbewerb findet auf Branding- und Zertifizierungsebene statt, nicht auf Fertigungsebene. WOWOHCOOL bietet deutschen Importeuren die gleiche OEM-Leistung direkt ab Werk Shenzhen — mit EU-Batterieverordnung-Compliance und Tüv GS Ready. <a href="/de/oem-odm-service/" class="text-brandOrange font-bold hover:underline">OEM/ODM-Ladelösungen ansehen →</a></p>
-  </div>
- </section>
+{% set rangeLabel = "Halbfest-Akku-Serie" %}
+{% set termsBg = "bg-white" %}
+{% set supportBg = "bg-slate-50" %}
+{% include "partials/subpage-commercial-support.njk" %}
+{% set casesBg = "bg-white" %}
+{% include "partials/case-strip.njk" %}
 
 <!-- FAQ -->
 <section id="faq" class="sec bg-slate-50" data-section="faq">
  <div class="container-narrow">
- {{ sectionHeader('FAQ', 'Häufige Fragen zu Halbfest-Akku', '', {max: ''}) }}
+ {{ sectionHeader('FAQ', 'Häufige Fragen zu <span class="text-brandOrange">Halbfest-Akku</span>', '', {max: ''}) }}
  <div class="reveal">
  {% call faqItem("Was ist eine Halbfest-Akku-Powerbank?", true) %}Eine Halbfest-Akku-Powerbank verwendet einen gel- oder halbfesten Elektrolyten anstelle des flüssigen Elektrolyten herkömmlicher Li-Polymer-Akkus. Das ergibt 50% dünnere Profile, 30% höhere Energiedichte, geringeres Brandrisiko und längere Lebensdauer (1.000-2.000 Zyklen vs. 300-500 bei Li-Polymer).{% endcall %}
  {% call faqItem("Wie hoch ist die MOQ für Halbfest-Akku OEM?", true) %}MOQ ab 500 Stück für ODM-Standardmodelle mit individuellem Logo. ODM-Designentwicklung: 1.000-2.000 Stück. Vollständiges OEM mit neuem Werkzeug: ab 3.000 Stück. Muster in 3-7 Tagen.{% endcall %}
@@ -434,12 +489,14 @@ plPath: "produkty/power-bank/polstaly/"
 
 {% include "partials/product-cta.njk" %}
 
+
+
 <!-- ======== BLOG ARTICLES ======== -->
 <section id="blog-articles" class="sec bg-white" data-section="content">
  <div class="container-wide">
   <div class="text-center mb-12 reveal">
+   <p class="section-label">Fachwissen für OEM/ODM-Beschaffung</p>
    <h2 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4">Powerbank <span class="text-brandOrange">Insights</span></h2>
-   <p class="text-slate-500 font-bold uppercase tracking-widest text-badge">Fachwissen für OEM/ODM-Beschaffung</p>
   </div>
   <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
    <a href="/de/blog/powerbank-spezifikationen/" class="group bg-slate-50 rounded-2xl overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
@@ -447,7 +504,7 @@ plPath: "produkty/power-bank/polstaly/"
      <img loading="lazy" src="/image/blog/cover-de/powerbank-spezifikationen-cover.webp" srcset="/image/blog/cover-de/powerbank-spezifikationen-cover-450w.webp 450w, /image/blog/cover-de/powerbank-spezifikationen-cover-800w.webp 800w, /image/blog/cover-de/powerbank-spezifikationen-cover-950w.webp 950w, /image/blog/cover-de/powerbank-spezifikationen-cover-1200w.webp 1200w, /image/blog/cover-de/powerbank-spezifikationen-cover.webp 1700w" sizes="(min-width: 1440px) 395px, (min-width: 1280px) 395px, (min-width: 1024px) 309px, (min-width: 768px) 348px, (min-width: 430px) 382px, 327px" alt="Powerbank Spezifikationen" class="w-full h-full object-cover" width="1700" height="956" decoding="async">
      <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
      <div class="absolute bottom-3 left-4">
-      <span class="px-2 py-1 bg-brandOrange text-brandBlue text-badge font-black uppercase rounded">Spezifikationen</span>
+      <span class="px-2 py-1 bg-brandBlue text-white text-badge font-black uppercase rounded">Spezifikationen</span>
      </div>
     </div>
     <div class="p-6">
@@ -475,7 +532,7 @@ plPath: "produkty/power-bank/polstaly/"
      <img loading="lazy" src="/image/blog/cover-de/usb-c-pd-cover.webp" srcset="/image/blog/cover-de/usb-c-pd-cover-450w.webp 450w, /image/blog/cover-de/usb-c-pd-cover-800w.webp 800w, /image/blog/cover-de/usb-c-pd-cover-950w.webp 950w, /image/blog/cover-de/usb-c-pd-cover-1200w.webp 1200w, /image/blog/cover-de/usb-c-pd-cover.webp 1700w" sizes="(min-width: 1440px) 395px, (min-width: 1280px) 395px, (min-width: 1024px) 309px, (min-width: 768px) 348px, (min-width: 430px) 382px, 327px" alt="USB-C PD Schnellladen 2026" class="w-full h-full object-cover" width="1700" height="956" decoding="async">
      <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
      <div class="absolute bottom-3 left-4">
-      <span class="px-2 py-1 bg-white text-green-700 text-badge font-black uppercase rounded">Technologie</span>
+      <span class="px-2 py-1 bg-brandBlue text-white text-badge font-black uppercase rounded">Technologie</span>
      </div>
     </div>
     <div class="p-6">
@@ -494,7 +551,7 @@ plPath: "produkty/power-bank/polstaly/"
 </section>
 
 <!-- ====== EXPLORE MORE CATEGORIES ====== -->
-<section id="explore-more-categories" class="sec bg-white relative" data-section="related">
+<section id="explore-more-categories" class="sec bg-slate-50 relative" data-section="related">
  <div class="container-wide">
   <div class="text-center max-w-3xl mx-auto mb-12 reveal">
    <p class="section-label">Weitere Kategorien</p>
@@ -538,8 +595,10 @@ plPath: "produkty/power-bank/polstaly/"
 
 
 <!-- ======== CTA ======== -->
+
+
 {%- set formProduct = "Halbfeststoff-Powerbank" %}
-{%- set formHeading = "Halbfeststoff-Powerbank – Fabrikpreis anfordern" %}
+{%- set formHeading = "Halbfeststoff-Powerbank – <span class='text-brandOrange'>Fabrikpreis anfordern</span>" %}
 {%- set formSubtext = "MOQ 500 Stück. Muster in 3–7 Tagen. Individuelles Logo und Verpackung inklusive." %}
 {%- set formSubject = "Anfrage: Halbfeststoff-Powerbank" %}
 

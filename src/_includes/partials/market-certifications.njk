@@ -6,18 +6,21 @@
   Profiles live in src/_data/certProfiles.js.
 #}
 {% from "partials/section-header.njk" import sectionHeader with context %}
-{%- set prof = certProfiles[certProfile] -%}
+{%- set L = lang or 'en' -%}
+{%- set t = (productPageI18n[L] or productPageI18n.en).marketCertifications -%}
+{%- set certBg = certBg or 'bg-white' -%}
+{%- set prof = (t.profiles and t.profiles[certProfile]) or certProfiles[certProfile] -%}
 {%- if prof -%}
-<section id="market-certifications" class="sec bg-white" data-section="content">
+<section id="market-certifications" class="sec {{ certBg }}" data-section="content">
  <div class="container-wide">
-  {{ sectionHeader('Certification', 'Certified for <span class="text-brandOrange">Your Market</span>', 'Standard files ship with every order; market-specific certification is quoted per project.', {max: '', mb: 'mb-12'}) }}
-  <div class="max-w-4xl mx-auto overflow-x-auto reveal rounded-xl border border-slate-200">
+  {{ sectionHeader(t.label, t.title, t.desc, {max: '', mb: 'mb-12'}) }}
+  <div class="max-w-4xl mx-auto overflow-x-auto reveal rounded-2xl border border-slate-200 shadow-sm bg-white">
    <table class="w-full text-sm border-collapse terms-table">
-    <caption class="sr-only">Certification by target market</caption>
+    <caption class="sr-only">{{ t.caption }}</caption>
     <thead>
      <tr class="bg-brandBlue text-white text-left">
-      <th scope="col" class="p-4 font-black w-1/4">Market</th>
-      <th scope="col" class="p-4 font-black">Standards</th>
+      <th scope="col" class="p-4 font-black w-1/4">{{ t.market }}</th>
+      <th scope="col" class="p-4 font-black">{{ t.standards }}</th>
      </tr>
     </thead>
     <tbody>

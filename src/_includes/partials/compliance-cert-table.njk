@@ -1,0 +1,31 @@
+{#
+  Compliance certification table only (no section wrapper).
+  Used inside the merged EU-compliance section on product subpages.
+  Usage: {% set certProfile = "power-bank" %}{% include "partials/compliance-cert-table.njk" %}
+#}
+{%- set L = lang or 'en' -%}
+{%- set t = (productPageI18n[L] or productPageI18n.en).marketCertifications -%}
+{%- set prof = (t.profiles and t.profiles[certProfile]) or certProfiles[certProfile] -%}
+{%- if prof -%}
+<h3 class="text-lg font-bold text-brandBlue text-center mt-12 mb-6">{{ t.title | safe }}</h3>
+<div class="max-w-4xl mx-auto overflow-x-auto reveal rounded-xl border border-slate-200 bg-white">
+ <table class="w-full text-sm border-collapse">
+  <caption class="sr-only">{{ t.caption }}</caption>
+  <thead>
+   <tr class="bg-brandBlue text-white text-left">
+    <th scope="col" class="p-4 font-black w-1/4">{{ t.market }}</th>
+    <th scope="col" class="p-4 font-black">{{ t.standards }}</th>
+   </tr>
+  </thead>
+  <tbody>
+   {%- for row in prof.rows %}
+   <tr class="border-b border-slate-100 align-top{% if loop.index is even %} bg-slate-50{% endif %}">
+    <td class="p-4 font-bold text-brandBlue">{{ row.market }}</td>
+    <td class="p-4 text-slate-600">{{ row.standards }}</td>
+   </tr>
+   {%- endfor %}
+  </tbody>
+ </table>
+</div>
+<p class="text-xs text-slate-400 mt-4 text-center">{{ prof.note }}</p>
+{%- endif -%}

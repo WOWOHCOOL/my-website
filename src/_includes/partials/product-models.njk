@@ -42,7 +42,7 @@
   {%- if g.eyebrow %}
   <p class="model-section-eyebrow">{{ g.eyebrow }}</p>
   {%- endif %}
-  <h2 class="model-section-title">{{ g.h2 }}</h2>
+  <h2 class="model-section-title">{{ (g.h2Html or g.h2) | safe }}</h2>
   {%- if g.intro %}
   <p class="model-section-intro">{{ g.intro }}</p>
   {%- endif %}

@@ -293,12 +293,12 @@ plPath: "produkty/ladowarka-samochodowa/"
  </div>
  <div class="btn-pair">
  {{ ctaButton("factoryPricing", "primary", "open-modal", "Car Charger") }}
- <a href="#specs" class="btn-ghost-lg">Technische Daten</a>
+ <a href="#model-comparison" class="btn-ghost-lg">Technische Daten</a>
  </div>
  </div>
  <div class="reveal order-1 lg:order-2">
  <div class="card-lg-soft shadow-xl overflow-hidden max-w-content mx-auto">
- <img src="/image/product/car-charger/woc24-140w-digital-charger.webp" srcset="/image/product/car-charger/woc24-140w-digital-charger-800w.webp 800w, /image/product/car-charger/woc24-140w-digital-charger.webp 1920w" sizes="(min-width: 1440px) 590px, (min-width: 1280px) 590px, (min-width: 1024px) 462px, (min-width: 768px) 718px, (min-width: 430px) 382px, 359px" alt="Autoladegerät OEM/ODM" width="1920" height="1920" class="w-full h-auto object-cover" loading="eager" decoding="async" fetchpriority="high">
+ <img src="/image/product/car-charger/wof22-tft-display-built-in-cable-car-charger-800w.webp" srcset="/image/product/car-charger/wof22-tft-display-built-in-cable-car-charger-450w.webp 450w, /image/product/car-charger/wof22-tft-display-built-in-cable-car-charger-800w.webp 800w" sizes="(min-width: 1440px) 590px, (min-width: 1280px) 590px, (min-width: 1024px) 462px, (min-width: 768px) 718px, (min-width: 430px) 382px, 359px" alt="WOF22 TFT-Display Autoladegerät mit integriertem Kabel, PD-Schnellladung" width="800" height="800" class="w-full h-auto object-cover" loading="eager" decoding="async" fetchpriority="high">
  </div>
  </div>
  </div>
@@ -306,151 +306,85 @@ plPath: "produkty/ladowarka-samochodowa/"
  </section>
 
  <!-- ======== TRUST BAR ======== -->
- {% include "trust-bar.njk" %}
+ {% set trustBarCerts = false %}
+{% include "trust-bar.njk" %}
 
  <!-- PRODUCTS -->
  {% set family = "products/car-charger" %}
 {#- 型号卡：六语言共用模板（2026-10-29）。数据 src/_products/*.json -#}
 {% include "partials/product-models.njk" %}
 
- <!-- ======== PRODUCT COMPARISON ======== -->
- <section id="product-comparison" class="sec-cta bg-white" data-section="comparison">
- <div class="container-wide">
- {{ sectionHeader('Produktvergleich', 'Autoladegeräte Vergleich', 'Alle Modelle im Vergleich, vom Mini-Ladegerät bis zur 140W High-Power Station.', {mb: 'mb-10'}) }}
- <div class="overflow-x-auto reveal">
- <table class="card-lg w-full min-w-[600px] shadow-sm">
- <thead>
- <tr class="bg-brandBlue text-white">
- <th class="py-3 px-3 text-xs font-bold uppercase tracking-wider text-left rounded-tl-2xl">Modell</th>
- <th class="py-3 px-3 text-xs font-bold uppercase tracking-wider text-left">Bezeichnung</th>
- <th class="py-3 px-3 text-xs font-bold uppercase tracking-wider text-left">Leistung</th>
- <th class="py-3 px-3 text-xs font-bold uppercase tracking-wider text-left">Anschlüsse</th>
- <th class="py-3 px-3 text-xs font-bold uppercase tracking-wider text-left hidden md:table-cell">Feature</th>
- <th class="py-3 px-3 text-xs font-bold uppercase tracking-wider text-left">MOQ</th>
- <th class="py-3 px-3 text-xs font-bold uppercase tracking-wider text-left rounded-tr-2xl">Kategorie</th>
- </tr>
- </thead>
- <tbody>
- <tr class="border-b border-slate-200 hover:bg-slate-50 transition-colors">
- <td class="py-3 px-3 text-sm font-bold text-brandBlue">WOC24</td>
- <td class="py-3 px-3 text-sm text-slate-600">140W Pro Digital</td>
- <td class="py-3 px-3 text-sm text-slate-600 whitespace-nowrap">140W</td>
- <td class="py-3 px-3 text-sm text-slate-600 whitespace-nowrap">PD 3.1</td>
- <td class="py-3 px-3 text-sm text-slate-600 hidden md:table-cell">Digitalanzeige</td>
- <td class="py-3 px-3 text-sm text-slate-600 whitespace-nowrap">500</td>
- <td class="py-3 px-3 text-sm"><span class="inline-block px-2 py-0.5 rounded-full text-badge font-bold bg-brandOrange/10 text-brandOrange">High-End</span></td>
- </tr> <tr class="border-b border-slate-200 hover:bg-slate-50 transition-colors">
- <td class="py-3 px-3 text-sm font-bold text-brandBlue">WOC42</td>
- <td class="py-3 px-3 text-sm text-slate-600">Einziehbar 105W</td>
- <td class="py-3 px-3 text-sm text-slate-600 whitespace-nowrap">105W</td>
- <td class="py-3 px-3 text-sm text-slate-600 whitespace-nowrap">PD 3.0</td>
- <td class="py-3 px-3 text-sm text-slate-600 hidden md:table-cell">Aufrollkabel</td>
- <td class="py-3 px-3 text-sm text-slate-600 whitespace-nowrap">500</td>
- <td class="py-3 px-3 text-sm"><span class="inline-block px-2 py-0.5 rounded-full text-badge font-bold bg-brandOrange/10 text-brandOrange">Praktisch</span></td>
- </tr> <tr class="border-b border-slate-200 hover:bg-slate-50 transition-colors">
- <td class="py-3 px-3 text-sm font-bold text-brandBlue">WOC91</td>
- <td class="py-3 px-3 text-sm text-slate-600">Passenger Hub</td>
- <td class="py-3 px-3 text-sm text-slate-600 whitespace-nowrap">120W</td>
- <td class="py-3 px-3 text-sm text-slate-600 whitespace-nowrap">PD 3.0</td>
- <td class="py-3 px-3 text-sm text-slate-600 hidden md:table-cell">Rückbank-Hub</td>
- <td class="py-3 px-3 text-sm text-slate-600 whitespace-nowrap">1000</td>
- <td class="py-3 px-3 text-sm"><span class="inline-block px-2 py-0.5 rounded-full text-badge font-bold bg-brandOrange/10 text-brandOrange">Familie</span></td>
- </tr> <tr class="border-b border-slate-200 hover:bg-slate-50 transition-colors">
- <td class="py-3 px-3 text-sm font-bold text-brandBlue">WOC38</td>
- <td class="py-3 px-3 text-sm text-slate-600">Quad-Port</td>
- <td class="py-3 px-3 text-sm text-slate-600 whitespace-nowrap">100W</td>
- <td class="py-3 px-3 text-sm text-slate-600 whitespace-nowrap">PD 3.0</td>
- <td class="py-3 px-3 text-sm text-slate-600 hidden md:table-cell">4 Ports</td>
- <td class="py-3 px-3 text-sm text-slate-600 whitespace-nowrap">500</td>
- <td class="py-3 px-3 text-sm"><span class="inline-block px-2 py-0.5 rounded-full text-badge font-bold bg-brandOrange/10 text-brandOrange">Standard</span></td>
- </tr> <tr class="border-b border-slate-200 hover:bg-slate-50 transition-colors">
- <td class="py-3 px-3 text-sm font-bold text-brandBlue">WOC39</td>
- <td class="py-3 px-3 text-sm text-slate-600">100W Outdoor</td>
- <td class="py-3 px-3 text-sm text-slate-600 whitespace-nowrap">100W</td>
- <td class="py-3 px-3 text-sm text-slate-600 whitespace-nowrap">PD 3.0</td>
- <td class="py-3 px-3 text-sm text-slate-600 hidden md:table-cell">Outdoor</td>
- <td class="py-3 px-3 text-sm text-slate-600 whitespace-nowrap">500</td>
- <td class="py-3 px-3 text-sm"><span class="inline-block px-2 py-0.5 rounded-full text-badge font-bold bg-brandOrange/10 text-brandOrange">Outdoor</span></td>
- </tr> <tr class="border-b border-slate-200 hover:bg-slate-50 transition-colors">
- <td class="py-3 px-3 text-sm font-bold text-brandBlue">WOC05</td>
- <td class="py-3 px-3 text-sm text-slate-600">Mini Hidden</td>
- <td class="py-3 px-3 text-sm text-slate-600 whitespace-nowrap">45W</td>
- <td class="py-3 px-3 text-sm text-slate-600 whitespace-nowrap">PD 3.0</td>
- <td class="py-3 px-3 text-sm text-slate-600 hidden md:table-cell">Unsichtbar</td>
- <td class="py-3 px-3 text-sm text-slate-600 whitespace-nowrap">500</td>
- <td class="py-3 px-3 text-sm"><span class="inline-block px-2 py-0.5 rounded-full text-badge font-bold bg-brandOrange/10 text-brandOrange">Diskret</span></td>
- </tr> </tbody>
- </table>
- </div>
- <p class="text-xs text-slate-400 text-center mt-4">Alle Preise auf Anfrage. MOQ je nach Modell und Anpassungsumfang.</p>
- </div>
- </section>
+{% set compareFamily = family %}
+{% include "partials/model-compare.njk" %}
 
- <section id="specs" class="sec bg-slate-50" data-section="comparison">
+<!-- ======== WHO IS THIS FOR ======== -->
+<section id="who-is-this-for-audience-tags" class="sec bg-white" data-section="content">
  <div class="container-wide">
- {{ sectionHeader('Technische Daten', 'Spezifikationen im Überblick', '', {}) }}
- <div class="overflow-x-auto reveal rounded-2xl border border-slate-200 shadow-sm bg-white">
- <table class="w-full text-sm">
- <thead><tr class="bg-brandBlue text-white"><th class="text-left px-5 py-4 font-bold text-sm">Spezifikation</th><th class="text-left px-5 py-4 font-bold text-sm">WOC24</th><th class="text-left px-5 py-4 font-bold text-sm">WOC42</th><th class="text-left px-5 py-4 font-bold text-sm">WOC38</th><th class="text-left px-5 py-4 font-bold text-sm">WOC04</th></tr></thead>
- <tbody class="divide-y divide-slate-100">
- <tr class="hover:bg-slate-50"><td class="px-5 py-4 font-semibold text-slate-700 text-sm">Max. Leistung</td><td class="px-5 py-4 text-slate-600 text-sm">140W PD 3.1</td><td class="px-5 py-4 text-slate-600 text-sm">105W PD+QC</td><td class="px-5 py-4 text-slate-600 text-sm">100W PD 3.0</td><td class="px-5 py-4 text-slate-600 text-sm">45W PD 3.0</td></tr>
- <tr class="hover:bg-slate-50"><td class="px-5 py-4 font-semibold text-slate-700 text-sm">Anschlüsse</td><td class="px-5 py-4 text-slate-600 text-sm">2x USB-C + 1x USB-A</td><td class="px-5 py-4 text-slate-600 text-sm">2x USB-C + 1x USB-A</td><td class="px-5 py-4 text-slate-600 text-sm">3x USB-C + 1x USB-A</td><td class="px-5 py-4 text-slate-600 text-sm">1x USB-C + 1x USB-A</td></tr>
- <tr class="hover:bg-slate-50"><td class="px-5 py-4 font-semibold text-slate-700 text-sm">Technologie</td><td class="px-5 py-4 text-slate-600 text-sm">GaN</td><td class="px-5 py-4 text-slate-600 text-sm">GaN</td><td class="px-5 py-4 text-slate-600 text-sm">Standard</td><td class="px-5 py-4 text-slate-600 text-sm">Standard</td></tr>
- <tr class="hover:bg-slate-50"><td class="px-5 py-4 font-semibold text-slate-700 text-sm">Besonderheit</td><td class="px-5 py-4 text-slate-600 text-sm">LED Display, Digitalanzeige</td><td class="px-5 py-4 text-slate-600 text-sm">Aufrollbares 0,8m Kabel</td><td class="px-5 py-4 text-slate-600 text-sm">4 Ports, Hohe Kapazität</td><td class="px-5 py-4 text-slate-600 text-sm">Ultra-kompakt</td></tr>
- <tr class="hover:bg-slate-50"><td class="px-5 py-4 font-semibold text-slate-700 text-sm">Zertifikate</td><td class="px-5 py-4 text-slate-600 text-sm">CE, TÜV GS, E-Mark</td><td class="px-5 py-4 text-slate-600 text-sm">CE, TÜV GS, E-Mark</td><td class="px-5 py-4 text-slate-600 text-sm">CE, TÜV GS, E-Mark</td><td class="px-5 py-4 text-slate-600 text-sm">CE, TÜV GS, E-Mark</td></tr>
- <tr class="hover:bg-slate-50"><td class="px-5 py-4 font-semibold text-slate-700 text-sm">MOQ</td><td class="px-5 py-4 text-slate-600 text-sm">500 Stück</td><td class="px-5 py-4 text-slate-600 text-sm">500 Stück</td><td class="px-5 py-4 text-slate-600 text-sm">500 Stück</td><td class="px-5 py-4 text-slate-600 text-sm">500 Stück</td></tr>
- </tbody>
- </table>
+ <div class="text-center mb-14">
+ <p class="section-label">Für wen</p>
+ <h2 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4">Perfekt für <span class="text-brandOrange">Ihr Geschäft</span></h2>
+ <p class="text-slate-500 max-w-2xl mx-auto text-sm">Wählen Sie Autoladegeräte nach Vertriebskanal: E-Commerce-Händler brauchen einziehbare Bestseller, Flotten- und Vermieter-Käufer flache Mini-Modelle, Notebook-Nutzer PD 3.1 mit 65W+ und Premium-Retail TFT-Display-Designs. Sehen Sie, welches Profil zu Ihnen passt.</p>
  </div>
+ <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+ <div class="card-lg-soft p-8 hover:border-brandOrange/30 hover:shadow-lg transition-all group">
+ <div class="w-14 h-14 bg-brandOrange/10 rounded-2xl flex items-center justify-center mb-5 group-hover:bg-brandOrange/20 transition-colors">
+ <svg class="icon-truck-fast text-brandOrange text-xl" aria-hidden="true" focusable="false" viewBox="0 0 640 512">
+ <path d="M64 96c0-35.3 28.7-64 64-64l288 0c35.3 0 64 28.7 64 64l0 32 50.7 0c17 0 33.3 6.7 45.3 18.7L621.3 192c12 12 18.7 28.3 18.7 45.3L640 384c0 35.3-28.7 64-64 64l-3.3 0c-10.4 36.9-44.4 64-84.7 64s-74.2-27.1-84.7-64l-102.6 0c-10.4 36.9-44.4 64-84.7 64s-74.2-27.1-84.7-64l-3.3 0c-35.3 0-64-28.7-64-64l0-48-40 0c-13.3 0-24-10.7-24-24s10.7-24 24-24l112 0c13.3 0 24-10.7 24-24s-10.7-24-24-24L24 240c-13.3 0-24-10.7-24-24s10.7-24 24-24l176 0c13.3 0 24-10.7 24-24s-10.7-24-24-24L24 144c-13.3 0-24-10.7-24-24S10.7 96 24 96l40 0zM576 288l0-50.7-45.3-45.3-50.7 0 0 96 96 0zM256 424a40 40 0 1 0 -80 0 40 40 0 1 0 80 0zm232 40a40 40 0 1 0 0-80 40 40 0 1 0 0 80z" fill="currentColor"/>
+ </svg>
  </div>
- </section>
-
- <!-- ======== CERTIFICATIONS ======== -->
- <section id="certifications" class="sec bg-slate-50" data-section="trust">
- <div class="container-wide">
- {{ sectionHeader('Zertifizierungen &amp; Normen', 'KFZ-Konformität — Bereit für den deutschen Markt', 'Alle unsere Autoladegeräte sind für den legalen und sicheren Einsatz in der Europäischen Union zertifiziert.', {mb: 'mb-12'}) }}
- <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5 reveal">
- <div class="card p-6 shadow-sm">
- <div class="w-10 h-10 rounded-lg bg-brandOrange/10 flex items-center justify-center mb-3"><svg class="icon-car text-brandOrange text-lg" aria-hidden="true" focusable="false" viewBox="0 0 512 512"><path d="M135.2 117.4l-26.1 74.6 293.8 0-26.1-74.6C372.3 104.6 360.2 96 346.6 96L165.4 96c-13.6 0-25.7 8.6-30.2 21.4zM39.6 196.8L74.8 96.3C88.3 57.8 124.6 32 165.4 32l181.2 0c40.8 0 77.1 25.8 90.6 64.3l35.2 100.5c23.2 9.6 39.6 32.5 39.6 59.2l0 192c0 17.7-14.3 32-32 32l-32 0c-17.7 0-32-14.3-32-32l0-32-320 0 0 32c0 17.7-14.3 32-32 32l-32 0c-17.7 0-32-14.3-32-32L0 256c0-26.7 16.4-49.6 39.6-59.2zM128 304a32 32 0 1 0 -64 0 32 32 0 1 0 64 0zm288 32a32 32 0 1 0 0-64 32 32 0 1 0 0 64z" fill="currentColor"/></svg></div>
- <h3 class="font-bold text-brandBlue text-sm mb-1">E-Mark (ECE R10)</h3>
- <p class="text-xs text-slate-500 leading-relaxed">Europäische Kfz-Zertifizierung für elektromagnetische Verträglichkeit. Verpflichtend für alle Geräte am Zigarettenanzünder in der EU.</p>
+ <h3 class="text-lg font-black text-brandBlue uppercase italic mb-3">Flottenbetreiber</h3>
+ <p class="text-slate-500 text-sm leading-relaxed mb-4">Autoladegeräte in Serie für Flottenfahrzeuge, Lieferwagen und Logistik. Robuste Designs für den täglichen gewerblichen Einsatz.</p>
+ <ul class="text-slate-500 text-xs space-y-2">
+ <li class="flex items-center gap-2"><span class="text-green-500 font-bold">✓</span> Robuste Anschlüsse</li>
+ <li class="flex items-center gap-2"><span class="text-green-500 font-bold">✓</span> 12V-24V Weitbereichsspannung</li>
+ <li class="flex items-center gap-2"><span class="text-green-500 font-bold">✓</span> Mengenrabatte</li>
+ </ul>
  </div>
- <div class="card p-6 shadow-sm">
- <div class="w-10 h-10 rounded-lg bg-brandOrange/10 flex items-center justify-center mb-3"><svg class="icon-check text-brandOrange text-lg" aria-hidden="true" focusable="false" viewBox="0 0 448 512">
- <path d="M434.8 70.1c14.3 10.4 17.5 30.4 7.1 44.7l-256 352c-5.5 7.6-14 12.3-23.4 13.1s-18.5-2.7-25.1-9.3l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l101.5 101.5 234-321.7c10.4-14.3 30.4-17.5 44.7-7.1z" fill="currentColor"/>
- </svg></div>
- <h3 class="font-bold text-brandBlue text-sm mb-1">CE-Kennzeichnung</h3>
- <p class="text-xs text-slate-500 leading-relaxed">Konformität mit EU-Richtlinien EMV und Niederspannung. Verpflichtend für den Verkauf in Deutschland und der EU.</p>
+ <div class="card-lg-soft p-8 hover:border-brandOrange/30 hover:shadow-lg transition-all group">
+ <div class="w-14 h-14 bg-brandOrange/10 rounded-2xl flex items-center justify-center mb-5 group-hover:bg-brandOrange/20 transition-colors">
+ <svg class="icon-car text-brandOrange text-xl" aria-hidden="true" focusable="false" viewBox="0 0 512 512">
+ <path d="M135.2 117.4l-26.1 74.6 293.8 0-26.1-74.6C372.3 104.6 360.2 96 346.6 96L165.4 96c-13.6 0-25.7 8.6-30.2 21.4zM39.6 196.8L74.8 96.3C88.3 57.8 124.6 32 165.4 32l181.2 0c40.8 0 77.1 25.8 90.6 64.3l35.2 100.5c23.2 9.6 39.6 32.5 39.6 59.2l0 192c0 17.7-14.3 32-32 32l-32 0c-17.7 0-32-14.3-32-32l0-32-320 0 0 32c0 17.7-14.3 32-32 32l-32 0c-17.7 0-32-14.3-32-32L0 256c0-26.7 16.4-49.6 39.6-59.2zM128 304a32 32 0 1 0 -64 0 32 32 0 1 0 64 0zm288 32a32 32 0 1 0 0-64 32 32 0 1 0 0 64z" fill="currentColor"/>
+ </svg>
  </div>
- <div class="card p-6 shadow-sm">
- <div class="w-10 h-10 rounded-lg bg-brandOrange/10 flex items-center justify-center mb-3"><svg class="icon-leaf text-brandOrange text-lg" aria-hidden="true" focusable="false" viewBox="0 0 512 512"><path d="M272 96c-78.6 0-145.1 51.5-167.7 122.5c33.6-17 72.5-22.5 111.3-13.9l.7 .2C262.3 215.5 301.4 254.1 312 300c1.6 6.9 1.6 14 1.6 21.2l0 2.8c0 35.3-28.7 64-64 64l-16 0-104 0c-17.7 0-32-14.3-32-32l0-4c0-97.2 60.4-180.5 148.8-214.2c3.3-1.2 6.7-2.3 10.1-3.3c-22.5-8.5-46.3-13.8-70.5-14.9L206 104c0-35.3-21.4-64-48-64l-48 0c-26.6 0-48 28.7-48 64l0 5.7C26.6 140.9 0 186.4 0 240l0 64c0 35.3 28.7 64 64 64l185.7 0c36.6 0 69.1-20.5 85.1-50.3C372.7 329.4 400 353.6 400 384l0 64c0 35.3-28.7 64-64 64l-16 0c-17.7 0-32-14.3-32-32l0-62.3c-2.2 0-4.4-.2-6.6-.5C248.2 411.8 224 392 224 368l0-2.8c0-11.5-2.4-22.5-6.7-32.5C183.3 316.5 148.6 304 112 304l-21.5 0c-8.3 2.4-14.6 8.2-17.5 15.4L48 369.5l0 6.5c0 14.6 4.3 28 11.5 40l80.7 0C161.3 436.5 188 464 221.7 464l178.3 0c26.5 0 48-21.5 48-48l0-64zM512 158.3c0-49.3-29.7-91.4-72.3-108.1l6.3 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-16 0 0 32 16 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-16 0 0 32 16 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-16 0 0 32 16 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-16 0 0 32 16 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-6.3 0C482.3 249.7 512 207.6 512 158.3z" fill="currentColor"/></svg></div>
- <h3 class="font-bold text-brandBlue text-sm mb-1">RoHS</h3>
- <p class="text-xs text-slate-500 leading-relaxed">RoHS-konform ohne gefährliche Stoffe. Umweltgerecht und konform mit der EU-Gesetzgebung.</p>
+ <h3 class="text-lg font-black text-brandBlue uppercase italic mb-3">Automotive-Aftermarket</h3>
+ <p class="text-slate-500 text-sm leading-relaxed mb-4">Autoladegeräte und In-Car-Ladehubs für Auto-Zubehörmarken. GaN-Technologie für kompaktes Laden mit hoher Leistung im Fahrzeug.</p>
+ <ul class="text-slate-500 text-xs space-y-2">
+ <li class="flex items-center gap-2"><span class="text-green-500 font-bold">✓</span> Individuelles Gehäuse &amp; Branding</li>
+ <li class="flex items-center gap-2"><span class="text-green-500 font-bold">✓</span> Kompakte GaN-V-Designs</li>
+ <li class="flex items-center gap-2"><span class="text-green-500 font-bold">✓</span> E-Mark- &amp; CE-zertifiziert</li>
+ </ul>
  </div>
- <div class="card p-6 shadow-sm">
- <div class="w-10 h-10 rounded-lg bg-brandOrange/10 flex items-center justify-center mb-3"><svg class="icon-temperature text-brandOrange text-lg" aria-hidden="true" focusable="false" viewBox="0 0 320 512"><path d="M160 0c-35.3 0-64 28.7-64 64l0 192.6C71.2 279.6 32 318.6 32 368c0 79.5 64.5 144 144 144s144-64.5 144-144c0-49.4-39.2-88.4-64-111.4L256 64c0-35.3-28.7-64-64-64zM128 64c0-17.7 14.3-32 32-32s32 14.3 32 32l0 178.4c11.5 6.6 19.2 19.1 19.2 33.6 0 21.2-17.2 38.4-38.4 38.4s-38.4-17.2-38.4-38.4c0-14.4 7.7-27 19.2-33.6L128 64z" fill="currentColor"/></svg></div>
- <h3 class="font-bold text-brandBlue text-sm mb-1">-20°C bis +80°C</h3>
- <p class="text-xs text-slate-500 leading-relaxed">Getestet und zertifiziert für extreme Bedingungen. Zuverlässiger Betrieb von -20°C (Alpen-Winter) bis +80°C (Hitzesommer).</p>
+ <div class="card-lg-soft p-8 hover:border-brandOrange/30 hover:shadow-lg transition-all group">
+ <div class="w-14 h-14 bg-brandOrange/10 rounded-2xl flex items-center justify-center mb-5 group-hover:bg-brandOrange/20 transition-colors">
+ <svg class="icon-store text-brandOrange text-xl" aria-hidden="true" focusable="false" viewBox="0 0 512 512">
+ <path d="M30.7 72.3C37.6 48.4 59.5 32 84.4 32l344 0c24.9 0 46.8 16.4 53.8 40.3l23.4 80.2c12.8 43.7-20.1 87.5-65.6 87.5-26.3 0-49.4-14.9-60.8-37.1-11.6 21.9-34.6 37.1-61.4 37.1-26.6 0-49.7-15-61.3-37-11.6 22-34.7 37-61.3 37-26.8 0-49.8-15.1-61.4-37.1-11.4 22.1-34.5 37.1-60.8 37.1-45.6 0-78.4-43.7-65.6-87.5L30.7 72.3zM96.4 352l320 0 0-66.4c7.6 1.6 15.5 2.4 23.5 2.4 14.3 0 28-2.6 40.5-7.2l0 151.2c0 26.5-21.5 48-48 48l-352 0c-26.5 0-48-21.5-48-48l0-151.2c12.5 4.6 26.1 7.2 40.5 7.2 8.1 0 15.9-.8 23.5-2.4l0 66.4z" fill="currentColor"/>
+ </svg>
  </div>
- <div class="card p-6 shadow-sm">
- <div class="w-10 h-10 rounded-lg bg-brandOrange/10 flex items-center justify-center mb-3"><svg class="icon-certificate text-brandOrange text-lg" aria-hidden="true" focusable="false" viewBox="0 0 576 512"><path d="M239.2-8c-6.1-6.2-15-8.7-23.4-6.4S200.9-5.6 198.8 2.8L183.5 63c-1.1 4.4-5.6 7-9.9 5.7L113.8 51.9c-8.4-2.4-17.4 0-23.5 6.1s-8.5 15.1-6.1 23.5l16.9 59.8c1.2 4.3-1.4 8.8-5.7 9.9L35.1 166.5c-8.4 2.1-15 8.7-17.3 17.1s.2 17.3 6.4 23.4l44.5 43.3c3.2 3.1 3.2 8.3 0 11.5L24.3 305.1c-6.2 6.1-8.7 15-6.4 23.4s8.9 14.9 17.3 17.1l60.2 15.3c4.4 1.1 7 5.6 5.7 9.9L84.2 430.5c-2.4 8.4 0 17.4 6.1 23.5s15.1 8.5 23.5 6.1l59.8-16.9c4.3-1.2 8.8 1.4 9.9 5.7l15.3 60.2c2.1 8.4 8.7 15 17.1 17.3s17.3-.2 23.4-6.4l43.3-44.5c3.1-3.2 8.3-3.2 11.5 0L337.3 520c6.1 6.2 15 8.7 23.4 6.4s14.9-8.9 17.1-17.3L393.1 449c1.1-4.4 5.6-7 9.9-5.7l59.8 16.9c8.4 2.4 17.4 0 23.5-6.1s8.5-15.1 6.1-23.5l-16.9-59.8c-1.2-4.3 1.4-8.8 5.7-9.9l60.2-15.3c8.4-2.1 15-8.7 17.3-17.1s-.2-17.4-6.4-23.4l-44.5-43.3c-3.2-3.1-3.2-8.3 0-11.5l44.5-43.3c6.2-6.1 8.7-15 6.4-23.4s-8.9-14.9-17.3-17.1l-60.2-15.3c-4.4-1.1-7-5.6-5.7-9.9l16.9-59.8c2.4-8.4 0-17.4-6.1-23.5s-15.1-8.5-23.5-6.1L403 68.8c-4.3 1.2-8.8-1.4-9.9-5.7L377.8 2.8c-2.1-8.4-8.7-15-17.1-17.3s-17.3.2-23.4 6.4L294 36.5c-3.1 3.2-8.3 3.2-11.5 0L239.2-8z" fill="currentColor"/></svg></div>
- <h3 class="font-bold text-brandBlue text-sm mb-1">TÜV GS</h3>
- <p class="text-xs text-slate-500 leading-relaxed">Deutsche Sicherheitszertifizierung. Jährliche Produktionskontrolle durch TÜV Rheinland. EU-weit anerkannt.</p>
- </div>
- <div class="card p-6 shadow-sm">
- <div class="w-10 h-10 rounded-lg bg-brandOrange/10 flex items-center justify-center mb-3"><svg class="icon-bolt text-brandOrange text-lg" aria-hidden="true" focusable="false" viewBox="0 0 448 512"><path d="M338.8-9.9c11.9 8.6 16.3 24.2 10.9 37.8L271.3 224 416 224c13.5 0 25.5 8.4 30.1 21.1s.7 26.9-9.6 35.5l-288 240c-11.3 9.4-27.4 9.9-39.3 1.3s-16.3-24.2-10.9-37.8L176.7 288 32 288c-13.5 0-25.5-8.4-30.1-21.1s-.7-26.9 9.6-35.5l288-240c11.3-9.4 27.4-9.9 39.3-1.3z" fill="currentColor"/></svg></div>
- <h3 class="font-bold text-brandBlue text-sm mb-1">12V / 24V Universal</h3>
- <p class="text-xs text-slate-500 leading-relaxed">Kompatibel mit PKW (12V), LKW und Transportern (24V). Schutz vor Überspannung im Fahrzeugsystem.</p>
+ <h3 class="text-lg font-black text-brandBlue uppercase italic mb-3">E-Commerce &amp; Retail</h3>
+ <p class="text-slate-500 text-sm leading-relaxed mb-4">Private-Label-Autoladegeräte für Online- und Retail-Kanäle. Einziehbare Kabel- und Multi-Port-Modelle mit Bestseller-Potenzial.</p>
+ <ul class="text-slate-500 text-xs space-y-2">
+ <li class="flex items-center gap-2"><span class="text-green-500 font-bold">✓</span> Retail-fertige Verpackung</li>
+ <li class="flex items-center gap-2"><span class="text-green-500 font-bold">✓</span> MOQ ab {FACT:moq.stock} Stück</li>
+ <li class="flex items-center gap-2"><span class="text-green-500 font-bold">✓</span> Amazon- &amp; eBay-konform</li>
+ </ul>
  </div>
  </div>
  </div>
  </section>
 
- <!-- ======== BENEFITS ======== -->
+ 
+
+ 
+
+ 
+
+
+
+<!-- ======== BENEFITS ======== -->
  <section id="benefits" class="sec bg-white" data-section="content">
  <div class="container-wide">
- {{ sectionHeader('Vorteile', 'Warum unsere Autoladegeräte die erste Wahl sind', 'Höchste Leistung und Sicherheit für den Einsatz im Fahrzeug.', {}) }}
- <div class="grid md:grid-cols-2 gap-8">
+ {{ sectionHeader('Vorteile', 'Warum unsere Autoladegeräte die <span class="text-brandOrange">erste Wahl</span> sind', 'Höchste Leistung und Sicherheit für den Einsatz im Fahrzeug.', {}) }}
+ <div class="grid md:grid-cols-2 gap-6">
  <div class="card-lg-soft reveal p-8">
  <div class="flex items-center gap-4 mb-4"><div class="w-12 h-12 rounded-xl bg-brandOrange/10 flex items-center justify-center shrink-0"><svg class="icon-car text-xl text-brandOrange" aria-hidden="true" focusable="false" viewBox="0 0 512 512">
  <path d="M135.2 117.4l-26.1 74.6 293.8 0-26.1-74.6C372.3 104.6 360.2 96 346.6 96L165.4 96c-13.6 0-25.7 8.6-30.2 21.4zM39.6 196.8L74.8 96.3C88.3 57.8 124.6 32 165.4 32l181.2 0c40.8 0 77.1 25.8 90.6 64.3l35.2 100.5c23.2 9.6 39.6 32.5 39.6 59.2l0 192c0 17.7-14.3 32-32 32l-32 0c-17.7 0-32-14.3-32-32l0-32-320 0 0 32c0 17.7-14.3 32-32 32l-32 0c-17.7 0-32-14.3-32-32L0 256c0-26.7 16.4-49.6 39.6-59.2zM128 304a32 32 0 1 0 -64 0 32 32 0 1 0 64 0zm288 32a32 32 0 1 0 0-64 32 32 0 1 0 0 64z" fill="currentColor"/>
@@ -501,134 +435,55 @@ plPath: "produkty/ladowarka-samochodowa/"
  <!-- OEM/ODM -->
  <section id="oem-odm" class="sec bg-white" data-section="content">
  <div class="container-wide">
- <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
- {% call sectionHeader('OEM / ODM', 'Ihr Autoladegerät, <br>Ihre Spezifikation', 'Individuelle Anpassungen für Ihre Marke, von der Leistung bis zum Design.', {align: '', max: '', mb: '', descClass: 'section-desc mb-8'}) %}<ul class="space-y-4">
- <li class="flex items-start gap-3"><svg class="icon-circle-check text-brandOrange mt-0.5" aria-hidden="true" focusable="false" viewBox="0 0 512 512">
- <path d="M256 512a256 256 0 1 1 0-512 256 256 0 1 1 0 512zM374 145.7c-10.7-7.8-25.7-5.4-33.5 5.3L221.1 315.2 169 263.1c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l72 72c5 5 11.8 7.5 18.8 7s13.4-4.1 17.5-9.8L379.3 179.2c7.8-10.7 5.4-25.7-5.3-33.5z" fill="currentColor"/>
- </svg><span class="text-slate-600 text-sm"><strong class="text-brandBlue">Individuelles Branding:</strong> Logo, Gehäusefarbe, Verpackung</span></li>
- <li class="flex items-start gap-3"><svg class="icon-circle-check text-brandOrange mt-0.5" aria-hidden="true" focusable="false" viewBox="0 0 512 512">
- <path d="M256 512a256 256 0 1 1 0-512 256 256 0 1 1 0 512zM374 145.7c-10.7-7.8-25.7-5.4-33.5 5.3L221.1 315.2 169 263.1c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l72 72c5 5 11.8 7.5 18.8 7s13.4-4.1 17.5-9.8L379.3 179.2c7.8-10.7 5.4-25.7-5.3-33.5z" fill="currentColor"/>
- </svg><span class="text-slate-600 text-sm"><strong class="text-brandBlue">Kabeloptionen:</strong> Aufrollbar, fest installiert, Kabellänge nach Wunsch</span></li>
- <li class="flex items-start gap-3"><svg class="icon-circle-check text-brandOrange mt-0.5" aria-hidden="true" focusable="false" viewBox="0 0 512 512">
- <path d="M256 512a256 256 0 1 1 0-512 256 256 0 1 1 0 512zM374 145.7c-10.7-7.8-25.7-5.4-33.5 5.3L221.1 315.2 169 263.1c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l72 72c5 5 11.8 7.5 18.8 7s13.4-4.1 17.5-9.8L379.3 179.2c7.8-10.7 5.4-25.7-5.3-33.5z" fill="currentColor"/>
- </svg><span class="text-slate-600 text-sm"><strong class="text-brandBlue">LED-Anzeige:</strong> Individuelle Display- und LED-Farben</span></li>
- <li class="flex items-start gap-3"><svg class="icon-circle-check text-brandOrange mt-0.5" aria-hidden="true" focusable="false" viewBox="0 0 512 512">
- <path d="M256 512a256 256 0 1 1 0-512 256 256 0 1 1 0 512zM374 145.7c-10.7-7.8-25.7-5.4-33.5 5.3L221.1 315.2 169 263.1c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l72 72c5 5 11.8 7.5 18.8 7s13.4-4.1 17.5-9.8L379.3 179.2c7.8-10.7 5.4-25.7-5.3-33.5z" fill="currentColor"/>
- </svg><span class="text-slate-600 text-sm"><strong class="text-brandBlue">Zertifizierung:</strong> CE, TÜV GS, E-Mark, Unterstützung für Ihre Zielmärkte</span></li>
- </ul>
- {{ ctaButton("factoryPricing", "primary", "open-modal", "") }}
- {% endcall %}
- <div class="reveal">
- <div class="card-lg-soft p-8 md:p-10">
- <h3 class="text-lg font-bold text-brandBlue mb-6">Warum deutsche Unternehmen uns wählen</h3>
- <div class="space-y-5">
- <div class="flex items-start gap-4"><div class="w-10 h-10 rounded-xl bg-brandOrange/10 flex items-center justify-center shrink-0"><svg class="icon-car text-brandOrange" aria-hidden="true" focusable="false" viewBox="0 0 512 512">
- <path d="M135.2 117.4l-26.1 74.6 293.8 0-26.1-74.6C372.3 104.6 360.2 96 346.6 96L165.4 96c-13.6 0-25.7 8.6-30.2 21.4zM39.6 196.8L74.8 96.3C88.3 57.8 124.6 32 165.4 32l181.2 0c40.8 0 77.1 25.8 90.6 64.3l35.2 100.5c23.2 9.6 39.6 32.5 39.6 59.2l0 192c0 17.7-14.3 32-32 32l-32 0c-17.7 0-32-14.3-32-32l0-32-320 0 0 32c0 17.7-14.3 32-32 32l-32 0c-17.7 0-32-14.3-32-32L0 256c0-26.7 16.4-49.6 39.6-59.2zM128 304a32 32 0 1 0 -64 0 32 32 0 1 0 64 0zm288 32a32 32 0 1 0 0-64 32 32 0 1 0 0 64z" fill="currentColor"/>
- </svg></div><div><p class="font-bold text-brandBlue text-sm">E-Mark zertifiziert</p><p class="text-xs text-slate-500">Alle Modelle erfüllen deutsche Kfz-Normen</p></div></div>
- <div class="flex items-start gap-4"><div class="w-10 h-10 rounded-xl bg-brandOrange/10 flex items-center justify-center shrink-0"><svg class="icon-bolt text-brandOrange" aria-hidden="true" focusable="false" viewBox="0 0 448 512">
- <path d="M338.8-9.9c11.9 8.6 16.3 24.2 10.9 37.8L271.3 224 416 224c13.5 0 25.5 8.4 30.1 21.1s.7 26.9-9.6 35.5l-288 240c-11.3 9.4-27.4 9.9-39.3 1.3s-16.3-24.2-10.9-37.8L176.7 288 32 288c-13.5 0-25.5-8.4-30.1-21.1s-.7-26.9 9.6-35.5l288-240c11.3-9.4 27.4-9.9 39.3-1.3z" fill="currentColor"/>
- </svg></div><div><p class="font-bold text-brandBlue text-sm">GaN-Technologie</p><p class="text-xs text-slate-500">Höhere Effizienz, weniger Hitzeentwicklung im Fahrzeug</p></div></div>
- <div class="flex items-start gap-4"><div class="w-10 h-10 rounded-xl bg-brandOrange/10 flex items-center justify-center shrink-0"><svg class="icon-shield-halved text-brandOrange" aria-hidden="true" focusable="false" viewBox="0 0 512 512">
- <path d="M256 0c4.6 0 9.2 1 13.4 2.9L457.8 82.8c22 9.3 38.4 31 38.3 57.2-.5 99.2-41.3 280.7-213.6 363.2-16.7 8-36.1 8-52.8 0-172.4-82.5-213.1-264-213.6-363.2-.1-26.2 16.3-47.9 38.3-57.2L242.7 2.9C246.9 1 251.4 0 256 0zm0 66.8l0 378.1c138-66.8 175.1-214.8 176-303.4l-176-74.6 0 0z" fill="currentColor"/>
- </svg></div><div><p class="font-bold text-brandBlue text-sm">Überhitzungsschutz</p><p class="text-xs text-slate-500">Mehrstufiges Sicherheitssystem für den Fahrzeugeinsatz</p></div></div>
- <div class="flex items-start gap-4"><div class="w-10 h-10 rounded-xl bg-brandOrange/10 flex items-center justify-center shrink-0"><svg class="icon-headset text-brandOrange" aria-hidden="true" focusable="false" viewBox="0 0 448 512">
- <path d="M224 64c-79 0-144.7 57.3-157.7 132.7 9.3-3 19.3-4.7 29.7-4.7l16 0c26.5 0 48 21.5 48 48l0 96c0 26.5-21.5 48-48 48l-16 0c-53 0-96-43-96-96l0-64C0 100.3 100.3 0 224 0S448 100.3 448 224l0 168.1c0 66.3-53.8 120-120.1 120l-87.9-.1-32 0c-26.5 0-48-21.5-48-48s21.5-48 48-48l32 0c26.5 0 48 21.5 48 48l0 0 40 0c39.8 0 72-32.2 72-72l0-20.9c-14.1 8.2-30.5 12.8-48 12.8l-16 0c-26.5 0-48-21.5-48-48l0-96c0-26.5 21.5-48 48-48l16 0c10.4 0 20.3 1.6 29.7 4.7-13-75.3-78.6-132.7-157.7-132.7z" fill="currentColor"/>
- </svg></div><div><p class="font-bold text-brandBlue text-sm">Dedizierte Betreuung</p><p class="text-xs text-slate-500">Ihr Account Manager, Antwort innerhalb {RTS}</p></div></div>
+ <div class="space-y-10">
+ {{ sectionHeader('OEM / ODM', 'Ihr Autoladegerät, <br><span class="text-brandOrange">Ihre Spezifikation</span>', 'Individuelle Anpassungen für Ihre Marke, von der Leistung bis zum Design — in drei MOQ-Stufen.', {max: '', mb: 'mb-12'}) }}
+ <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 cap-grid">
+  <article class="cap-tile reveal">
+   <h3 class="text-base font-black text-brandBlue uppercase italic mb-3">ODM Stock · MOQ 500</h3>
+   <ul class="cap-list">
+    <li>Bestehende 12V–24V-Modelle wählen</li>
+    <li>Logodruck (Siebdruck, Laser, UV)</li>
+    <li>Pantone-Farbabgleich</li>
+    <li>Lagerverpackung mit Logodruck</li>
+    <li>Gebündeltes Kabel und Adapter nach Wahl</li>
+    <li>Lieferzeit: 3–7 Tage Muster · 25–35 Tage Produktion</li>
+   </ul>
+  </article>
+  <article class="cap-tile reveal">
+   <h3 class="text-base font-black text-brandBlue uppercase italic mb-3">ODM-Entwicklung · MOQ 1.000–2.000</h3>
+   <ul class="cap-list">
+    <li>Individuelle Verpackung mit Marken-Artwork</li>
+    <li>Mehrsprachige Handbücher, Einleger und Garantiekarten</li>
+    <li>Plattformangepasstes Werkzeug (kein neues Gehäuse-Werkzeug)</li>
+    <li>Port-Layout: Dual PD 65W + 30W, aufrollbares Kabel</li>
+    <li>LED-Anzeige und PPS-Unterstützung</li>
+    <li>Lieferzeit: 25–45 Tage Design · 35–50 Tage Produktion</li>
+   </ul>
+  </article>
+  <article class="cap-tile reveal">
+   <h3 class="text-base font-black text-brandBlue uppercase italic mb-3">OEM · MOQ 3.000+</h3>
+   <ul class="cap-list">
+    <li>Design und CMF in Kundenhand</li>
+    <li>Fahrzeugspezifisches Gehäuse und neues Werkzeug</li>
+    <li>Leistung: PD 3.1 bis 140W an einem Port</li>
+    <li>Zertifizierungsunterstützung für Zielmärkte — Details unter <a href="#market-certifications" class="text-brandOrange font-semibold hover:underline">Zertifizierungen</a></li>
+    <li>Lieferzeit: 30–60 Tage Produktion · 2–4 Monate mit neuem Werkzeug</li>
+   </ul>
+  </article>
  </div>
- </div>
- </div>
- </div>
- </div>
- </section>
-
- <!-- ======== GAN V TECHNOLOGY ======== -->
- <section id="gan-v-technology" class="sec bg-white" data-section="comparison">
- <div class="container-wide">
- {{ sectionHeader('Technologie', 'GaN V — Kompakt und leistungsstark', 'Unsere Autoladegeräte nutzen GaN V (Galliumnitrid der 5. Generation). Das Ergebnis: mehr Leistung auf weniger Raum, ideal für den begrenzten Platz im Zigarettenanzünder.', {mb: 'mb-12'}) }}
- <div class="grid md:grid-cols-3 gap-6 mb-12 reveal">
- <div class="card-lg-soft text-center p-6">
- <p class="text-3xl font-black text-brandOrange mb-2">40%</p>
- <p class="text-sm font-bold text-brandBlue">Kleiner</p>
- <p class="text-xs text-slate-500 mt-1">Kompaktere Bauform als Silizium-Ladegeräte</p>
- </div>
- <div class="card-lg-soft text-center p-6">
- <p class="text-3xl font-black text-brandOrange mb-2">140W</p>
- <p class="text-sm font-bold text-brandBlue">PD 3.1 Leistung</p>
- <p class="text-xs text-slate-500 mt-1">Notebook + Smartphone gleichzeitig laden</p>
- </div>
- <div class="card-lg-soft text-center p-6">
- <p class="text-3xl font-black text-brandOrange mb-2">30%</p>
- <p class="text-sm font-bold text-brandBlue">Bessere Kühlung</p>
- <p class="text-xs text-slate-500 mt-1">Weniger Hitze im Sommer, längere Lebensdauer</p>
- </div>
- </div>
- <div class="overflow-x-auto reveal rounded-2xl border border-slate-200 shadow-sm bg-white">
- <table class="w-full text-sm">
- <thead>
- <tr class="bg-brandBlue text-white">
- <th class="text-left px-5 py-3 font-bold text-sm">Eigenschaft</th>
- <th class="text-left px-5 py-3 font-bold text-sm">GaN V (unsere Ladegeräte)</th>
- <th class="text-left px-5 py-3 font-bold text-sm">Silizium (Standard)</th>
- </tr>
- </thead>
- <tbody class="divide-y divide-slate-100">
- <tr class="hover:bg-slate-50"><td class="px-5 py-3 text-sm font-semibold text-slate-700">Baugröße (100W)</td><td class="px-5 py-3 text-sm text-slate-600">~30mm Durchmesser</td><td class="px-5 py-3 text-sm text-slate-600">~50mm Durchmesser</td></tr>
- <tr class="hover:bg-slate-50"><td class="px-5 py-3 text-sm font-semibold text-slate-700">Max. Leistung</td><td class="px-5 py-3 text-sm text-slate-600">Bis 140W PD 3.1</td><td class="px-5 py-3 text-sm text-slate-600">Bis 65W PD 3.0</td></tr>
- <tr class="hover:bg-slate-50"><td class="px-5 py-3 text-sm font-semibold text-slate-700">Betriebstemperatur</td><td class="px-5 py-3 text-sm text-slate-600">30% kühler</td><td class="px-5 py-3 text-sm text-slate-600">Standard</td></tr>
- <tr class="hover:bg-slate-50"><td class="px-5 py-3 text-sm font-semibold text-slate-700">Effizienz</td><td class="px-5 py-3 text-sm text-slate-600">93–95%</td><td class="px-5 py-3 text-sm text-slate-600">85–90%</td></tr>
- <tr class="hover:bg-slate-50"><td class="px-5 py-3 text-sm font-semibold text-slate-700">Notebook-Laden</td><td class="px-5 py-3 text-sm text-slate-600">Ja (MacBook Pro 16)</td><td class="px-5 py-3 text-sm text-slate-600">Nur leichte Notebooks</td></tr>
- <tr class="hover:bg-slate-50"><td class="px-5 py-3 text-sm font-semibold text-slate-700">12V + 24V</td><td class="px-5 py-3 text-sm text-slate-600">Ja (PKW + LKW)</td><td class="px-5 py-3 text-sm text-slate-600">Meist nur 12V</td></tr>
- </tbody>
- </table>
+ <div class="text-center">{{ ctaButton("factoryPricing", "primary", "open-modal", "") }}</div>
  </div>
  </div>
  </section>
 
-<!-- ====== EXPLORE MORE CATEGORIES ====== -->
-<section id="explore-more-categories" class="sec bg-white relative" data-section="related">
- <div class="container-wide">
-  <div class="text-center max-w-3xl mx-auto mb-12 reveal">
-   <p class="section-label">Weitere Kategorien</p>
-   <h2 class="section-title">Weitere <span class="text-brandOrange">Ladekategorien</span></h2>
-   <p class="section-desc mx-auto">Entdecken Sie unser komplettes Sortiment an OEM/ODM-Ladeprodukten — Powerbanks, Wandladegeräte, Autoladegeräte und kabellose Ladegeräte.</p>
-  </div>
-  <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
-   <a href="/de/produkte/powerbank/" class="card-soft group block p-6 text-center hover:border-brandOrange hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
-    <div class="w-11 h-11 mx-auto mb-4 rounded-xl bg-brandOrange/10 flex items-center justify-center group-hover:bg-brandOrange transition-colors duration-300">
-     <svg class="w-5 h-5 text-brandOrange group-hover:text-white transition-colors duration-300" aria-hidden="true" focusable="false" viewBox="0 0 640 512"><path d="M528 128c8.8 0 16 7.2 16 16l0 224c0 8.8-7.2 16-16 16l-416 0c-8.8 0-16-7.2-16-16l0-224c0-8.8 7.2-16 16-16l416 0zM112 64c-44.2 0-80 35.8-80 80l0 224c0 44.2 35.8 80 80 80l416 0c44.2 0 80-35.8 80-80l0-48c17.7 0 32-14.3 32-32l0-64c0-17.7-14.3-32-32-32l0-48c0-44.2-35.8-80-80-80L112 64zm56 112c-13.3 0-24 10.7-24 24l0 112c0 13.3 10.7 24 24 24l304 0c13.3 0 24-10.7 24-24l0-112c0-13.3-10.7-24-24-24l-304 0z" fill="currentColor"/></svg>
-    </div>
-    <p class="font-black text-brandBlue text-sm uppercase mb-1 group-hover:text-brandOrange transition">Powerbanks</p>
-    <p class="text-micro text-slate-500">6 Kategorien</p>
-   </a>
-   <a href="/de/produkte/kabelloses-ladegeraet/" class="card-soft group block p-6 text-center hover:border-brandOrange hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
-    <div class="w-11 h-11 mx-auto mb-4 rounded-xl bg-brandOrange/10 flex items-center justify-center group-hover:bg-brandOrange transition-colors duration-300">
-     <svg class="w-5 h-5 text-brandOrange group-hover:text-white transition-colors duration-300" aria-hidden="true" focusable="false" viewBox="0 0 640 512"><path d="M54.2 202.9C123.2 136.7 216.8 96 320 96s196.8 40.7 265.8 106.9c12.8 12.2 33 11.8 45.2-1s11.8-33-1-45.2C549.7 79.5 440.4 32 320 32S90.3 79.5 9.8 156.7C-2.9 168.8-3.3 189 9 201.2s32.4 13.2 45.2 1zM320 256c56.8 0 108.6 21.1 148.2 56c13.3 11.7 33.5 10.4 45.2-2.8s10.4-33.5-2.8-45.2C462.6 221.8 394.2 192 320 192s-142.6 29.8-190.6 72c-13.3 11.7-14.5 31.9-2.8 45.2s31.9 14.5 45.2 2.8c39.5-34.9 91.3-56 148.2-56zm64 160a64 64 0 1 0 -128 0 64 64 0 1 0 128 0z" fill="currentColor"/></svg>
-    </div>
-    <p class="font-black text-brandBlue text-sm uppercase mb-1 group-hover:text-brandOrange transition">Kabellose Ladegeräte</p>
-    <p class="text-micro text-slate-500">Qi2, 21+ Modelle</p>
-   </a>
-   <a href="/de/produkte/gan-ladegeraet/" class="card-soft group block p-6 text-center hover:border-brandOrange hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
-    <div class="w-11 h-11 mx-auto mb-4 rounded-xl bg-brandOrange/10 flex items-center justify-center group-hover:bg-brandOrange transition-colors duration-300">
-     <svg class="w-5 h-5 text-brandOrange group-hover:text-white transition-colors duration-300" aria-hidden="true" focusable="false" viewBox="0 0 448 512"><path d="M338.8-9.9c11.9 8.6 16.3 24.2 10.9 37.8L271.3 224 416 224c13.5 0 25.5 8.4 30.1 21.1s.7 26.9-9.6 35.5l-288 240c-11.3 9.4-27.4 9.9-39.3 1.3s-16.3-24.2-10.9-37.8L176.7 288 32 288c-13.5 0-25.5-8.4-30.1-21.1s-.7-26.9 9.6-35.5l288-240c11.3-9.4 27.4-9.9 39.3-1.3z" fill="currentColor"/></svg>
-    </div>
-    <p class="font-black text-brandBlue text-sm uppercase mb-1 group-hover:text-brandOrange transition">GaN-Ladegerät</p>
-    <p class="text-micro text-slate-500">GaN V, PD 3.1</p>
-   </a>
-   <a href="/de/produkte/" class="card-soft group block p-6 text-center hover:border-brandOrange hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
-    <div class="w-11 h-11 mx-auto mb-4 rounded-xl bg-brandOrange/10 flex items-center justify-center group-hover:bg-brandOrange transition-colors duration-300">
-     <svg class="w-5 h-5 text-brandOrange group-hover:text-white transition-colors duration-300" aria-hidden="true" focusable="false" viewBox="0 0 512 512"><path d="M232.5 5.2c14.9-6.9 32.1-6.9 47 0l218.6 101c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L13.9 149.8C5.4 145.8 0 137.3 0 128s5.4-17.9 13.9-21.8L232.5 5.2zM48.1 218.4l164.3 75.9c27.7 12.8 59.6 12.8 87.3 0l164.3-75.9 34.1 15.8c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L13.9 277.8C5.4 273.8 0 265.3 0 256s5.4-17.9 13.9-21.8l34.1-15.8zM13.9 362.2l34.1-15.8 164.3 75.9c27.7 12.8 59.6 12.8 87.3 0l164.3-75.9 34.1 15.8c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L13.9 405.8C5.4 401.8 0 393.3 0 384s5.4-17.9 13.9-21.8z" fill="currentColor"/></svg>
-    </div>
-    <p class="font-black text-brandBlue text-sm uppercase mb-1 group-hover:text-brandOrange transition">Alle Produkte</p>
-    <p class="text-micro text-slate-500">4 Kategorien</p>
-   </a>
-  </div>
- </div>
-</section>
+ 
+
+
 
  <!-- ======== OEM PROCESS ======== -->
  <section id="oem-process" class="sec bg-white" data-section="process">
  <div class="container-wide">
- {{ sectionHeader('Prozess OEM', 'Ihr maßgeschneidertes Autoladegerät — von der Idee zur Lieferung', 'Ein strukturierter 4-Schritte-Prozess für Ihre individuelle Autoladegerät-Entwicklung.', {mb: 'mb-12'}) }}
+ {{ sectionHeader('Prozess OEM', 'Ihr maßgeschneidertes Autoladegerät — von der Idee zur <span class="text-brandOrange">Lieferung</span>', 'Ein strukturierter 4-Schritte-Prozess für Ihre individuelle Autoladegerät-Entwicklung.', {mb: 'mb-12'}) }}
  <div class="grid md:grid-cols-4 gap-0 reveal">
  <div class="card-lg relative p-6 text-center">
  <div class="w-12 h-12 rounded-full bg-brandOrange text-brandBlue font-black text-lg flex items-center justify-center mx-auto mb-4">1</div>
@@ -638,26 +493,37 @@ plPath: "produkty/ladowarka-samochodowa/"
  <div class="card-lg relative p-6 text-center">
  <div class="w-12 h-12 rounded-full bg-brandOrange text-brandBlue font-black text-lg flex items-center justify-center mx-auto mb-4">2</div>
  <h3 class="font-bold text-brandBlue text-sm mb-2">Prototyp & Zertifizierung</h3>
- <p class="text-xs text-slate-500 leading-relaxed">Funktionsmuster in 3-7 Tagen. Tests: CE, E-Mark (ECE R10), TÜV GS. Anpassungen bis zur Freigabe.</p>
+ <p class="text-xs text-slate-500 leading-relaxed">Funktionsmuster in 3-7 Tagen. Zertifizierung nach Zielmarkt — Details unter <a href="#market-certifications" class="text-brandOrange font-semibold hover:underline">Zertifizierungen</a>.</p>
  </div>
  <div class="card-lg relative p-6 text-center">
  <div class="w-12 h-12 rounded-full bg-brandOrange text-brandBlue font-black text-lg flex items-center justify-center mx-auto mb-4">3</div>
  <h3 class="font-bold text-brandBlue text-sm mb-2">Serienproduktion</h3>
- <p class="text-xs text-slate-500 leading-relaxed">Produktion 25-35 Tage nach Freigabe. 4-Stufen-Qualitätskontrolle. 4h Burn-in-Test pro Gerät.</p>
+ <p class="text-xs text-slate-500 leading-relaxed">Produktion nach Freigabe. QC-Stufen und Burn-in unter <a href="#service-support" class="text-brandOrange font-semibold hover:underline">Qualität &amp; Support</a>.</p>
  </div>
  <div class="card-lg relative p-6 text-center">
  <div class="w-12 h-12 rounded-full bg-brandOrange text-brandBlue font-black text-lg flex items-center justify-center mx-auto mb-4">4</div>
  <h3 class="font-bold text-brandBlue text-sm mb-2">Lieferung & Support</h3>
- <p class="text-xs text-slate-500 leading-relaxed">DDP-Versand nach Deutschland in 5-7 Tagen (DHL/FedEx). Zollabwicklung inklusive. 12-24 Monate Garantie.</p>
+ <p class="text-xs text-slate-500 leading-relaxed">Versand, MOQ und Garantie nach den <a href="#commercial-terms" class="text-brandOrange font-semibold hover:underline">Handelsbedingungen</a>.</p>
  </div>
  </div>
  </div>
  </section>
 
- <!-- FAQ -->
+<!-- ======== CERTIFICATIONS ======== -->
+ {% set certProfile = "car-charger" %}
+{% include "partials/market-certifications.njk" %}
+
+ {% set rangeLabel = "Autoladegerät-Serie" %}
+{% set termsBg = "bg-white" %}
+{% set supportBg = "bg-slate-50" %}
+{% include "partials/subpage-commercial-support.njk" %}
+{% set casesBg = "bg-white" %}
+{% include "partials/case-strip.njk" %}
+
+<!-- FAQ -->
  <section id="faq" class="sec bg-slate-50" data-section="faq">
  <div class="container-narrow">
- {{ sectionHeader('FAQ', 'Häufige Fragen zu Autoladegeräten', '', {max: ''}) }}
+ {{ sectionHeader('FAQ', 'Häufige Fragen zu <span class="text-brandOrange">Autoladegeräten</span>', '', {max: ''}) }}
  <div class="reveal">
  {% call faqItem("Was bedeutet E-Mark Zertifizierung?", true) %}Die E-Mark (ECE-Prüfzeichen) bestätigt, dass unser Autoladegerät die europäischen Kfz-Normen erfüllt. Dies ist für den legalen Betrieb in Deutschland und der EU erforderlich. Alle unsere Autoladegeräte sind E-Mark zertifiziert.{% endcall %}
  {% call faqItem("Welche Leistung benötige ich für mein Notebook?", true) %}Für MacBook Pro empfehlen wir 100W+, für MacBook Air reichen 45W–67W. Unsere WOC24 mit 140W lädt selbst das leistungsstärkste Notebook im Fahrzeug.{% endcall %}
@@ -675,10 +541,13 @@ plPath: "produkty/ladowarka-samochodowa/"
 
 {% include "partials/product-cta.njk" %}
 
+
+
  <!-- ====== BLOG INSIGHTS ====== -->
 <section id="blog-insights" class="sec bg-white" data-section="content">
  <div class="container-wide">
   <div class="text-center mb-12 reveal">
+   <p class="section-label">Fachwissen für OEM/ODM-Beschaffung</p>
    <h2 class="text-3xl lg:text-4xl font-black text-brandBlue uppercase italic tracking-tighter mb-4">Autoladegerät <span class="text-brandOrange">Insights</span></h2>
   </div>
   <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -728,15 +597,58 @@ plPath: "produkty/ladowarka-samochodowa/"
  </div>
 </section>
 
+<!-- ====== EXPLORE MORE CATEGORIES ====== -->
+<section id="explore-more-categories" class="sec bg-slate-50 relative" data-section="related">
+ <div class="container-wide">
+  <div class="text-center max-w-3xl mx-auto mb-12 reveal">
+   <p class="section-label">Weitere Kategorien</p>
+   <h2 class="section-title">Weitere <span class="text-brandOrange">Ladekategorien</span></h2>
+   <p class="section-desc mx-auto">Entdecken Sie unser komplettes Sortiment an OEM/ODM-Ladeprodukten — Powerbanks, Wandladegeräte, Autoladegeräte und kabellose Ladegeräte.</p>
+  </div>
+  <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+   <a href="/de/produkte/powerbank/" class="card-soft group block p-6 text-center hover:border-brandOrange hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+    <div class="w-11 h-11 mx-auto mb-4 rounded-xl bg-brandOrange/10 flex items-center justify-center group-hover:bg-brandOrange transition-colors duration-300">
+     <svg class="w-5 h-5 text-brandOrange group-hover:text-white transition-colors duration-300" aria-hidden="true" focusable="false" viewBox="0 0 640 512"><path d="M528 128c8.8 0 16 7.2 16 16l0 224c0 8.8-7.2 16-16 16l-416 0c-8.8 0-16-7.2-16-16l0-224c0-8.8 7.2-16 16-16l416 0zM112 64c-44.2 0-80 35.8-80 80l0 224c0 44.2 35.8 80 80 80l416 0c44.2 0 80-35.8 80-80l0-48c17.7 0 32-14.3 32-32l0-64c0-17.7-14.3-32-32-32l0-48c0-44.2-35.8-80-80-80L112 64zm56 112c-13.3 0-24 10.7-24 24l0 112c0 13.3 10.7 24 24 24l304 0c13.3 0 24-10.7 24-24l0-112c0-13.3-10.7-24-24-24l-304 0z" fill="currentColor"/></svg>
+    </div>
+    <p class="font-black text-brandBlue text-sm uppercase mb-1 group-hover:text-brandOrange transition">Powerbanks</p>
+    <p class="text-micro text-slate-500">6 Kategorien</p>
+   </a>
+   <a href="/de/produkte/kabelloses-ladegeraet/" class="card-soft group block p-6 text-center hover:border-brandOrange hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+    <div class="w-11 h-11 mx-auto mb-4 rounded-xl bg-brandOrange/10 flex items-center justify-center group-hover:bg-brandOrange transition-colors duration-300">
+     <svg class="w-5 h-5 text-brandOrange group-hover:text-white transition-colors duration-300" aria-hidden="true" focusable="false" viewBox="0 0 640 512"><path d="M54.2 202.9C123.2 136.7 216.8 96 320 96s196.8 40.7 265.8 106.9c12.8 12.2 33 11.8 45.2-1s11.8-33-1-45.2C549.7 79.5 440.4 32 320 32S90.3 79.5 9.8 156.7C-2.9 168.8-3.3 189 9 201.2s32.4 13.2 45.2 1zM320 256c56.8 0 108.6 21.1 148.2 56c13.3 11.7 33.5 10.4 45.2-2.8s10.4-33.5-2.8-45.2C462.6 221.8 394.2 192 320 192s-142.6 29.8-190.6 72c-13.3 11.7-14.5 31.9-2.8 45.2s31.9 14.5 45.2 2.8c39.5-34.9 91.3-56 148.2-56zm64 160a64 64 0 1 0 -128 0 64 64 0 1 0 128 0z" fill="currentColor"/></svg>
+    </div>
+    <p class="font-black text-brandBlue text-sm uppercase mb-1 group-hover:text-brandOrange transition">Kabellose Ladegeräte</p>
+    <p class="text-micro text-slate-500">Qi2, 21+ Modelle</p>
+   </a>
+   <a href="/de/produkte/gan-ladegeraet/" class="card-soft group block p-6 text-center hover:border-brandOrange hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+    <div class="w-11 h-11 mx-auto mb-4 rounded-xl bg-brandOrange/10 flex items-center justify-center group-hover:bg-brandOrange transition-colors duration-300">
+     <svg class="w-5 h-5 text-brandOrange group-hover:text-white transition-colors duration-300" aria-hidden="true" focusable="false" viewBox="0 0 448 512"><path d="M338.8-9.9c11.9 8.6 16.3 24.2 10.9 37.8L271.3 224 416 224c13.5 0 25.5 8.4 30.1 21.1s.7 26.9-9.6 35.5l-288 240c-11.3 9.4-27.4 9.9-39.3 1.3s-16.3-24.2-10.9-37.8L176.7 288 32 288c-13.5 0-25.5-8.4-30.1-21.1s-.7-26.9 9.6-35.5l288-240c11.3-9.4 27.4-9.9 39.3-1.3z" fill="currentColor"/></svg>
+    </div>
+    <p class="font-black text-brandBlue text-sm uppercase mb-1 group-hover:text-brandOrange transition">GaN-Ladegerät</p>
+    <p class="text-micro text-slate-500">GaN V, PD 3.1</p>
+   </a>
+   <a href="/de/produkte/" class="card-soft group block p-6 text-center hover:border-brandOrange hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+    <div class="w-11 h-11 mx-auto mb-4 rounded-xl bg-brandOrange/10 flex items-center justify-center group-hover:bg-brandOrange transition-colors duration-300">
+     <svg class="w-5 h-5 text-brandOrange group-hover:text-white transition-colors duration-300" aria-hidden="true" focusable="false" viewBox="0 0 512 512"><path d="M232.5 5.2c14.9-6.9 32.1-6.9 47 0l218.6 101c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L13.9 149.8C5.4 145.8 0 137.3 0 128s5.4-17.9 13.9-21.8L232.5 5.2zM48.1 218.4l164.3 75.9c27.7 12.8 59.6 12.8 87.3 0l164.3-75.9 34.1 15.8c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L13.9 277.8C5.4 273.8 0 265.3 0 256s5.4-17.9 13.9-21.8l34.1-15.8zM13.9 362.2l34.1-15.8 164.3 75.9c27.7 12.8 59.6 12.8 87.3 0l164.3-75.9 34.1 15.8c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L13.9 405.8C5.4 401.8 0 393.3 0 384s5.4-17.9 13.9-21.8z" fill="currentColor"/></svg>
+    </div>
+    <p class="font-black text-brandBlue text-sm uppercase mb-1 group-hover:text-brandOrange transition">Alle Produkte</p>
+    <p class="text-micro text-slate-500">4 Kategorien</p>
+   </a>
+  </div>
+ </div>
+</section>
 
 
- {%- set formProduct = "Autoladegerät OEM/ODM" %}
-{%- set formHeading = "Autoladegeräte – Fabrikpreis anfordern" %}
+
+ 
+{%- set formProduct = "Autoladegerät OEM/ODM" %}
+{%- set formHeading = "Autoladegeräte – <span class='text-brandOrange'>Fabrikpreis anfordern</span>" %}
 {%- set formSubtext = "Beschreiben Sie Ihr Projekt: PD 3.1, GaN, 140 W – ausgelegt auf Automotive-Standards." %}
 {%- set formSubject = "Produktanfrage: Autoladegerät" %}
 
 
 {% include "partials/product-inquiry-form.njk" %}
+
 {% endblock %}
 
 
